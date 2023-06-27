@@ -121,9 +121,9 @@ Que remarquez-vous ?.............
 **Activité n°3.:** **La division entière et le modulo :** Tester les calculs suivant dans la console
 
 \>>> 10 // 5  
-\>>> 10 // 4 
-\>>> 10 % 4 
-\>>> 10 % 3 
+>>> 10 // 4 
+>>> 10 % 4 
+>>> 10 % 3 
 
 ???+ question "Lancer la console et tester"
 
