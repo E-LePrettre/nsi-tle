@@ -166,9 +166,12 @@ On trouvera souvent le préambule suivant :
 
 ```python
 #!/usr/bin/env python 
-# coding=utf-8 ```
+# coding=utf-8 
+```
 
-ou #! /usr/bin/python . Cette première ligne, appelée **SHEBANG**, permet au système d’exploitation Linux de reconnaître un script exécutable. 
+ou 
+```#! /usr/bin/python```
+Cette première ligne, appelée **SHEBANG**, permet au système d’exploitation Linux de reconnaître un script exécutable. 
 
 De manière générale, on recommande **d'éviter les accents, cédilles,** etc. dans les codes sources. C’est parfois impossible, aussi doivent-ils être traités avec prudence en définissant un encodage. 
 
