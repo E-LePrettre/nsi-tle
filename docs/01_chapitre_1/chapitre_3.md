@@ -1,4 +1,8 @@
-﻿*Chap 01 : A la découverte de Python* 
+﻿---
+author: ELP
+title: A la découverte de Python
+---
+
 
 **Table des matières** 
 
