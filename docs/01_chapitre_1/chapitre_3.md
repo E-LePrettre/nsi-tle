@@ -139,7 +139,8 @@ On s’est arrêté car 29 est plus petit que 99 et qu’on ne souhaitait pas al
 
 **Activité n°4.:** **L’exponentiation :** Tester les calculs suivant dans la console
 
-\>>> 3 \*\* 2  >>> 2 \*\* 3 
+\>>> 3 \*\* 2  
+>>> 2 \*\* 3 
 
 ???+ question "Lancer la console et tester"
 
