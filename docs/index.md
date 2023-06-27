@@ -1,5 +1,5 @@
 # NSI 1ère au lycée Jean Cassaigne
-*Elisabeth Le Prettre*
+---
 
 
 1. A la découverte de Python
@@ -14,3 +14,5 @@
 10. Traitement des données en tables
 11. Système d'exploitation
 12. Architecture d'un ordinateur
+
+*Elisabeth Le Prettre*
