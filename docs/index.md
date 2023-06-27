@@ -1,5 +1,5 @@
 # NSI 1ère au lycée Jean Cassaigne
-# ** Elisabeth Le Prettre**
+### ** Elisabeth Le Prettre**
 
 
 1. A la découverte de Python
