@@ -95,6 +95,7 @@ Le langage Python est gratuit, sous **licence libre**.
 ### **4.4. Premiers<a name="_page3_x40.00_y36.92"></a> pas avec l’interpréteur de commandes Python** 
 
 **Activité n°1.:Les calculs de bases :** Tester les calculs suivant dans la console
+
 \>>> 7 + 3 * 4 
 \>>> (7 + 3 ) * 4 
 \>>> 10 / 3
@@ -109,7 +110,7 @@ Le langage Python est gratuit, sous **licence libre**.
  
 **Activité n°2.:** **Addition de float :** Tester les calculs suivant dans la console
 
->>> 3.11 + 2.08  
+\>>> 3.11 + 2.08  
 
 ???+ question "Lancer la console et tester"
 
@@ -117,10 +118,17 @@ Le langage Python est gratuit, sous **licence libre**.
     
 Que remarquez-vous ?............. 
 
-**Activité n°3.:** **La division entière et le modulo :** Tester les scripts suivant dans l’interpréteur et compléter la colonne de gauche ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.016.png)
+**Activité n°3.:** **La division entière et le modulo :** Tester les calculs suivant dans la console
 
-\>>> 10 // 5  >>> 10 // 4 >>> 10 % 4 >>> 10 % 3 ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.017.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.018.png)
+\>>> 10 // 5  
+\>>> 10 // 4 
+\>>> 10 % 4 
+\>>> 10 % 3 
 
+???+ question "Lancer la console et tester"
+
+    {{ IDE('scripts/activite') }}
+    
 La division entière permet de déterminer la valeur tronquée de la division et le modulo permet de déterminer la valeur du reste. 
 
 On souhaite effectuer la division de 3395  par 99.  
