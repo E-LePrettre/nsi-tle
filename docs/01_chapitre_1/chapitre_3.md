@@ -96,9 +96,11 @@ Le langage Python est gratuit, sous **licence libre**.
 
 **Activité n°1.:Les calculs de bases :** Tester les calculs suivant dans la console
 
-\>>> 7 + 3 * 4 
+```
+>>> 7 + 3 * 4 
 >>> (7 + 3 ) * 4 
 >>> 10 / 3
+```
 
 ???+ question "Lancer la console et tester"
 
@@ -110,7 +112,7 @@ Le langage Python est gratuit, sous **licence libre**.
  
 **Activité n°2.:** **Addition de float :** Tester les calculs suivant dans la console
 
-\>>> 3.11 + 2.08  
+```>>> 3.11 + 2.08```
 
 ???+ question "Lancer la console et tester"
 
@@ -120,10 +122,12 @@ Que remarquez-vous ?.............
 
 **Activité n°3.:** **La division entière et le modulo :** Tester les calculs suivant dans la console
 
-\>>> 10 // 5  
+```
+>>> 10 // 5  
 >>> 10 // 4 
 >>> 10 % 4 
 >>> 10 % 3 
+```
 
 ???+ question "Lancer la console et tester"
 
@@ -139,8 +143,10 @@ On s’est arrêté car 29 est plus petit que 99 et qu’on ne souhaitait pas al
 
 **Activité n°4.:** **L’exponentiation :** Tester les calculs suivant dans la console
 
-\>>> 3 \*\* 2  
->>> 2 \*\* 3 
+```
+>>> 3 ** 2  
+>>> 2 ** 3 
+```
 
 ???+ question "Lancer la console et tester"
 
@@ -152,7 +158,7 @@ Une variable est un espace mémoire dans lequel il est possible de stocker une v
 
 ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.024.png)**Attention le symbole de l’affectation est =** 
 
-#### **4.5.1. Noms<a name="_page4_x40.00_y194.92"></a> de variables***
+#### **4.5.1. Noms<a name="_page4_x40.00_y194.92"></a> de variables**
 
 Le nom d’une variable s'écrit avec des lettres (**non accentuées**), des chiffres ou bien l’underscore \_ Le nom d’une variable ne doit pas commencer par un chiffre. 
 
@@ -164,10 +170,11 @@ Exemple : age, mon\_age, temperature1  A éviter : Age, AGE, monAge, Temperature
 
 **Activité n°5.:** Tester les calculs suivant dans la console
 
-|>>> age = 17 ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.025.png)|
-||
-|La fonction print affiche la valeur de la variable : |
-|>>> print(age) 17 ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.026.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.027.png)|
+```>>> age = 17```
+
+La fonction print affiche la valeur de la variable : 
+```>>> print(age) 17```
+
 ||
 |La fonction type() retourne le type de la variable : |
 |>>> print(type(age)) ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.028.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.029.png)<class 'int'> |
