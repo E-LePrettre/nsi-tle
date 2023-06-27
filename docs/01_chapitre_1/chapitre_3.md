@@ -97,8 +97,8 @@ Le langage Python est gratuit, sous **licence libre**.
 **Activité n°1.:Les calculs de bases :** Tester les calculs suivant dans la console
 
 \>>> 7 + 3 * 4 
-\>>> (7 + 3 ) * 4 
-\>>> 10 / 3
+>>> (7 + 3 ) * 4 
+>>> 10 / 3
 
 ???+ question "Lancer la console et tester"
 
@@ -157,12 +157,12 @@ Le nom d’une variable s'écrit avec des lettres (**non accentuées**), des chi
 
 Exemple : age, mon\_age, temperature1  A éviter : Age, AGE, monAge, Temperature1 
 
-2. Le<a name="_page4_x40.00_y249.92"></a> type int (integer) 
+#### **4.5.2. Le<a name="_page4_x40.00_y249.92"></a> type int (integer)** 
 
 
 
-|**Activité n°5.:** |
-| - |
+**Activité n°5.:** Tester les calculs suivant dans la console
+
 |>>> age = 17 ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.025.png)|
 ||
 |La fonction print affiche la valeur de la variable : |
@@ -173,6 +173,9 @@ Exemple : age, mon\_age, temperature1  A éviter : Age, AGE, monAge, Temperature
 ||
 |int est le type des nombres entiers.|
 
+???+ question "Lancer la console et tester"
+
+    {{ IDE('scripts/activite') }}
 
 
 |**Activité n°6.:** L’incrémentation ou la décrémentation : |
