@@ -7,26 +7,12 @@ title: 01c A la découverte de Python
 **Table des matières** 
 
 1. [**Un langage de programmation ? Qu’est ce que c’est ?**](#_page0_x40.00_y432.92)
-.[1.1. Les langages compilés ](#_page1_x40.00_y36.92)
-.[1.2. Les langages interprétés ](#_page1_x40.00_y402.92)
-.[1.3. Principales différences](#_page1_x40.00_y504.92)
-.[1.4. Un langage particulier : Python](#_page1_x40.00_y593.92)
+
 2. [**Quelques langages de programmation courants**](#_page2_x40.00_y36.92) 
-.[2.1. Historique](#_page2_x40.00_y58.92)
-.[2.2. « Hello world !](#_page2_x40.00_y316.92)
+
 3. [**Pseudo-code**](#_page2_x40.00_y367.92)
 4. [**Python**](#_page2_x40.00_y464.92)
-.[4.1.Pourquoi apprendre le langage Python ?](#_page2_x40.00_y486.92)
-.[4.2. Qu’est-ce que c’est ?](#_page2_x40.00_y550.92)
-.[4.3. Les consignes](#_page2_x40.00_y614.92)
-.[4.4. Premiers pas avec l’interpréteur de commandes Python](#_page3_x40.00_y36.92)
-.[4.5. Variables, types](#_page4_x40.00_y133.92)
-.[4.5.1. Noms de variables](#_page4_x40.00_y194.92)
-.[4.5.2. Le type int (integer)](#_page4_x40.00_y249.92)
-.[4.5.3. Le type float (nombres en virgule flottante)](#_page4_x40.00_y602.92)
-.[4.5.4. Le type str (string : chaîne de caractères)](#_page5_x40.00_y196.92)
-.[4.5.5. Le type list (liste)](#_page6_x40.00_y680.92)
-.[4.5.6. Le type bool (booléen)](#_page8_x40.00_y323.92)
+
 5. [**Exercices**](#_page10_x40.00_y36.92)
 
 ## **1. Un<a name="_page0_x40.00_y432.92"></a> langage de programmation ? Qu’est ce que c’est ?** 
@@ -109,9 +95,9 @@ Le langage Python est gratuit, sous **licence libre**.
 ### **4.4. Premiers<a name="_page3_x40.00_y36.92"></a> pas avec l’interpréteur de commandes Python** 
 
 **Activité n°1.:Les calculs de bases :** Tester les calculs suivant dans la console
->>> 7 + 3 * 4 
->>> (7 + 3 ) * 4 
->>> 10 / 3
+\>>> 7 + 3 * 4 
+\>>> (7 + 3 ) * 4 
+\>>> 10 / 3
 
 ???+ question "Lancer la console et tester"
 
