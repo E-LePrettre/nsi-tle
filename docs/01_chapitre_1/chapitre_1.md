@@ -1,6 +1,6 @@
 ---
-author: Votre nom
-title: Chapitre 1
+author: ELP
+title: A la découverte de Python
 ---
 
 ## I. Paragraphe 1 :
