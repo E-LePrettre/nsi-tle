@@ -108,21 +108,27 @@ Le langage Python est gratuit, sous **licence libre**.
 
 ### **4.4. Premiers<a name="_page3_x40.00_y36.92"></a> pas avec l’interpréteur de commandes Python** 
 
-**Activité n°1.:Les calculs de bases :** Tester les calculs suivant dans l’interpréteur et compléter la colonne de gauche
+**Activité n°1.:Les calculs de bases :** Tester les calculs suivant dans la console
+>>> 7 + 3 * 4 
+>>> (7 + 3 ) * 4 
+>>> 10 / 3
 
-???+ question "Compléter ci-dessous"
+???+ question "Lancer la console et tester"
 
     {{ IDE('scripts/activite') }}
 
->>>> 7 + 3 * 4 >>> (7 + 3 ) * 4 >>> 10 / 3 ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.010.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.011.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.012.png)</td><td colspan="1"></td></tr>
-<tr><td colspan="2" valign="top">Les espaces sont optionnels.  </td><td colspan="1" rowspan="2" valign="top"></td></tr>
-<tr><td colspan="2" valign="top">Les règles de priorité en maths sont-elles respectées ? …………………….</td></tr>
-<tr><td colspan="2"></td><td colspan="1"></td></tr>
-</table>
-**Activité n°2.:** **Addition de float :** Tester les scripts suivant dans l’interpréteur et compléter la colonne de gauche ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.013.png)
+ 
+ Les espaces sont optionnels. 
+ Les règles de priorité en maths sont-elles respectées ? …………………….
+ 
+**Activité n°2.:** **Addition de float :** Tester les calculs suivant dans la console
 
-\>>> 3.11 + 2.08  ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.014.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.015.png)
+>>> 3.11 + 2.08  
 
+???+ question "Lancer la console et tester"
+
+    {{ IDE('scripts/activite') }}
+    
 Que remarquez-vous ?............. 
 
 **Activité n°3.:** **La division entière et le modulo :** Tester les scripts suivant dans l’interpréteur et compléter la colonne de gauche ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.016.png)
