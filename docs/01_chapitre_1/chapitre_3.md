@@ -28,12 +28,13 @@ title: 01c A la découverte de Python
 [4.5.3. Le type float (nombres en virgule flottante) ......................................................................................................... 5](#_page4_x40.00_y602.92)
 [4.5.4. Le type str (string : chaîne de caractères)............................................................................................................... 6](#_page5_x40.00_y196.92)
 [4.5.5. Le type list (liste)................................................................................................................................................. 7](#_page6_x40.00_y680.92)
-4.5.6. [Le type bool (booléen) ........................................................................................................................................... 9](#_page8_x40.00_y323.92)
+[4.5.6. Le type bool (booléen) ........................................................................................................................................... 9](#_page8_x40.00_y323.92)
 5. [**Exercices ............................................................................................................................................................................. 11**](#_page10_x40.00_y36.92)
 
 ## **1. Un<a name="_page0_x40.00_y432.92"></a> langage de programmation ? Qu’est ce que c’est ?** 
 
 ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.001.png)
+
 Il y a plusieurs sortes de langages de programmation, mais le seul directement  utilisable  par  le  processeur  est  le  langage  machine  constitué  de  0  et  de  1.  Aujourd’hui presque plus personne ne programme en langage machine.  
 
 On peut les classer en :  
@@ -55,13 +56,13 @@ Dans ces langages, le code source (celui que vous  écrivez) est tout d'abord **
 
 Dans ces langages, le code source est **interprété**,  par un logiciel l’**interpréteur**.   
 
-### **3. Principales<a name="_page1_x40.00_y504.92"></a> différences**  
+### **1.3. Principales<a name="_page1_x40.00_y504.92"></a> différences**  
 
 Dans un langage interprété, **le même code source pourra marcher directement sur tout ordinateur**. Avec un langage compilé, il faudra (en général) **tout recompiler à chaque fois** ce qui pose parfois des soucis. 
 
 Par contre, dans un langage **compilé**, le programme est directement exécuté sur l'ordinateur, donc il sera en général **plus rapide** que le même programme dans un langage interprété. 
 
-### **4. Un<a name="_page1_x40.00_y593.92"></a> langage particulier : Python** 
+### **1.4. Un<a name="_page1_x40.00_y593.92"></a> langage particulier : Python** 
 
 ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.005.png)
 
@@ -86,7 +87,7 @@ En programmation, le pseudo-code est une façon de décrire un algorithme en res
 
 Il n'existe **pas de convention universelle** pour le pseudo-code. Afin de bien nous comprendre dans la suite de ce cours, nous adopterons celle décrite ci-dessous. 
 
-## **4. **Python<a name="_page2_x40.00_y464.92"></a>** 
+## **4. Python<a name="_page2_x40.00_y464.92"></a>** 
 ### **4.1. Pourquoi<a name="_page2_x40.00_y486.92"></a> apprendre le langage Python ?** 
 
 Python est à la fois simple et puissant, il vous permet d'écrire **des scripts très simples**, mais grâce à ses nombreuses bibliothèques, vous pouvez travailler sur des **projets plus ambitieux.** 
