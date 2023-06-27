@@ -1,10 +1,9 @@
 # À modifier avec le nom et la description du site
-site_name: "Modèle de site avec Python"
-site_description: Un modèle avec mkdocs
+site_name: "NSI 1ère de E. Le Prettre"
+site_description: NSI 1ère de Elisabeth Le Prettre au lycée Jean Cassaigne
 
 # À modifier, avec votre nom et la licence choisie
 copyright: |
-    Association <a href="https://aeif.fr">AEIF</a>
     <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr"><img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br/>
     Hébergé sur la forge gérée par l'<a href="https://aeif.fr">AEIF</a>
 
@@ -12,7 +11,7 @@ copyright: |
 extra:
     social:
         - icon: fontawesome/regular/envelope
-          link: mailto:votre.mail@ac-academie.fr
+          link: mailto:elisabeth.guimberteau@ac-bordeaux.fr
           name: Écrire à l'auteur
         - icon: fontawesome/brands/gitlab
           link: !ENV [CI_PROJECT_ROOT_NAMESPACE]
