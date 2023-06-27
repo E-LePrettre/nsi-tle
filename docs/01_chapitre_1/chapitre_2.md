@@ -30,7 +30,8 @@ Il permet d’avoir une première approche de ce qui est vu cette année
 
 S’inscrire sur France-IOI :[ http://www.france-ioi.org/ ](http://www.france-ioi.org/)
 
-Faire les exercices :[ http://www.france-ioi.org/algo/chapters.php?progression=1 ](http://www.france-ioi.org/algo/chapters.php?progression=1)Le niveau première => Niveau 3 / 6 – Tris simples (compris) 
+Faire les exercices :[ http://www.france-ioi.org/algo/chapters.php?progression=1 ](http://www.france-ioi.org/algo/chapters.php?progression=1)
+Le niveau première => Niveau 3 / 6 – Tris simples (compris) 
 
 Le niveau terminale => Niveau 5 (compris) 
 
