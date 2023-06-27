@@ -177,7 +177,7 @@ De manière générale, on recommande **d'éviter les accents, cédilles,** etc.
 
 Comme dans jeu\_puissance4.py on prend le soin de noter le titre, le codeur, la date (moins de soucis dans les versions de python par la suite) et une description (ici explication de ce qu’on peut faire avec le fichier) : 
 
-""" ######################################################################## # ![](Aspose.Words.2792fb4d-4eec-4d97-9627-50d5138e6b74.030.png)![](Aspose.Words.2792fb4d-4eec-4d97-9627-50d5138e6b74.031.png)![](Aspose.Words.2792fb4d-4eec-4d97-9627-50d5138e6b74.032.png)
+```""" ######################################################################## # 
 
 - Puissance 4 - Humain contre Ordinateur avec IA 
 
@@ -207,23 +207,21 @@ Comme dans jeu\_puissance4.py on prend le soin de noter le titre, le codeur, la 
 - Software Foundation, Inc., 51 Franklin Street, Fifth Floor, 
 - Boston, MA 02110-1301, USA. 
 
-\# ![](Aspose.Words.2792fb4d-4eec-4d97-9627-50d5138e6b74.001.png)
+\# 
+```
 
-Première NSI   Chap 8 : Installation et premiers pas avec Python  Page 8/9 
 
-## 6. **Que faut-il faire ?**  
+
+## **6. Que faut-il faire ?**  
 
 Pour chaque chapitre, créez un fichier resume\_ch02.py, resume\_ch03.py, … avec l’éditeur Python 
 
 Ne pas oublier # coding=utf-8, le titre, la date et l’auteur 
 
-Pour  chaque  commande  testée  dans  l’interpréteur  ou  dans  l’éditeur  complétez  votre  script resume\_ch02.py, resume\_ch03.py, …avec les nouvelles commandes apprises : **c’est l’équivalent d’une fiche de cours, il faut donc** 
-
-**en prendre soin** 
+Pour  chaque  commande  testée  dans  l’interpréteur  ou  dans  l’éditeur  complétez  votre  script resume\_ch02.py, resume\_ch03.py, …avec les nouvelles commandes apprises : **c’est l’équivalent d’une fiche de cours, il faut donc en prendre soin** 
 
 Pour chaque série d’exercices (à la fin des cours) : réalisez chaque exercice dans un fichier nommé dans l’éditeur Python : exo\_ch02\_01.py, exo\_ch02\_02.py, exo\_ch02\_03.py,…… 
 
-## 7. **Conseils**  
+## **7. Conseils**  
 
-Nouveauté : on essaie cette année de travailler sur le TSE à distance et en classe => comme cela vous aurez toujours votre travail sur vous !! ![](Aspose.Words.2792fb4d-4eec-4d97-9627-50d5138e6b74.001.png)
-Première NSI   Chap 1 : Installation et premiers pas avec Python  Page 9/9 
+Nouveauté : on essaie cette année de travailler sur le TSE à distance et en classe => comme cela vous aurez toujours votre travail sur vous !!  
