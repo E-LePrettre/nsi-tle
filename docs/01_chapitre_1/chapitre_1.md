@@ -97,7 +97,9 @@ Nous aurons besoin d’autres logiciels gratuits lors de l’étude des serveurs
 
 Beaucoup de commandes peuvent être testées dans l’interpréteur Python. Par exemple,  
 
-``` 3 + 2 ```
+```python
+3 + 2 
+```
 
 <!-- Dans la suite du cours les commandes à tester dans l’interpréteur sont dans des rectangles sur fond noirs et commence par un prompt >>> -->
 
@@ -158,7 +160,9 @@ Par défaut, Python 2 ne gère pas les caractères accentués dans les scripts. 
 
 On prendra donc soin d’insérer en haut de chaque script (par exemple : exemple.py) **l’encodage suivant** : 
 
-```# coding=utf-8 ```
+```python
+# coding=utf-8 
+```
 
 Oui, il est précédé d’un # et donc parait être un commentaire, mais les premières lignes sont interprétées comme des réglages. 
 
@@ -170,14 +174,18 @@ On trouvera souvent le préambule suivant :
 ```
 
 ou 
-```#! /usr/bin/python```
+```python
+#! /usr/bin/python
+```
+
 Cette première ligne, appelée **SHEBANG**, permet au système d’exploitation Linux de reconnaître un script exécutable. 
 
 De manière générale, on recommande **d'éviter les accents, cédilles,** etc. dans les codes sources. C’est parfois impossible, aussi doivent-ils être traités avec prudence en définissant un encodage. 
 
 Comme dans jeu\_puissance4.py on prend le soin de noter le titre, le codeur, la date (moins de soucis dans les versions de python par la suite) et une description (ici explication de ce qu’on peut faire avec le fichier) : 
 
-```""" ######################################################################## # 
+```python
+""" ######################################################################## # 
 
 - Puissance 4 - Humain contre Ordinateur avec IA 
 
