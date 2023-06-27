@@ -106,13 +106,15 @@ Le langage Python est gratuit, sous **licence libre**.
 - Compléter votre script resume\_ch02.py avec les nouvelles commandes apprises : c’est l’équivalent d’une fiche de cours, il faut donc en prendre soin 
 - Pour chaque série d’exercice (à la fin des cours) : réaliser chaque exercice dans un fichier nommé : exo\_ch02\_01.py, exo\_ch02\_02.py, exo\_ch02\_03.py,…… 
 
-4. **Premiers<a name="_page3_x40.00_y36.92"></a> pas avec l’interpréteur de commandes Python** 
+### **4.4. Premiers<a name="_page3_x40.00_y36.92"></a> pas avec l’interpréteur de commandes Python** 
 
+**Activité n°1.:Les calculs de bases :** Tester les calculs suivant dans l’interpréteur et compléter la colonne de gauche
 
+???+ question "Compléter ci-dessous"
 
-<table><tr><th colspan="2" valign="top"><b>Activité n°1.:</b> <b>Les calculs de bases :</b> Tester les calculs suivant dans l’interpréteur et compléter la colonne de </th></tr>
-<tr><td colspan="2" valign="top">gauche </td></tr>
-<tr><td colspan="1" valign="top">>>> 7 + 3 * 4 >>> (7 + 3 ) * 4 >>> 10 / 3 ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.010.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.011.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.012.png)</td><td colspan="1"></td></tr>
+    {{ IDE('scripts/activite') }}
+
+>>>> 7 + 3 * 4 >>> (7 + 3 ) * 4 >>> 10 / 3 ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.010.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.011.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.012.png)</td><td colspan="1"></td></tr>
 <tr><td colspan="2" valign="top">Les espaces sont optionnels.  </td><td colspan="1" rowspan="2" valign="top"></td></tr>
 <tr><td colspan="2" valign="top">Les règles de priorité en maths sont-elles respectées ? …………………….</td></tr>
 <tr><td colspan="2"></td><td colspan="1"></td></tr>
