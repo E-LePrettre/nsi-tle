@@ -14,7 +14,7 @@ extra:
           link: mailto:elisabeth.guimberteau@ac-bordeaux.fr
           name: Écrire à l'auteur
         - icon: fontawesome/brands/gitlab
-          <! --link: !ENV [CI_PROJECT_ROOT_NAMESPACE] -->
+          !ENV [CI_PROJECT_ROOT_NAMESPACE] 
           name: AEIF
 
 # Éventuellement à modifier avec votre thème de couleurs
