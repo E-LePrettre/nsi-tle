@@ -7,7 +7,9 @@ title: 01c A la découverte de Python
 **Table des matières** 
 
 1. [**Un langage de programmation ? Qu’est ce que c’est ? .................................................................................................... 1**](#_page0_x40.00_y432.92)
+
 1.1. [Les langages compilés .................................................................................................................................................. 2](#_page1_x40.00_y36.92)
+
 1.2. [Les langages interprétés ................................................................................................................................................ 2](#_page1_x40.00_y402.92)
 1.3. [Principales différences .................................................................................................................................................. 2](#_page1_x40.00_y504.92)
 1.4. [Un langage particulier : Python .................................................................................................................................... 2](#_page1_x40.00_y593.92)
@@ -91,19 +93,20 @@ Python est à la fois simple et puissant, il vous permet d'écrire **des scripts
 
 
 
-2. **Qu’est-ce<a name="_page2_x40.00_y550.92"></a> que c’est ?** 
+### **4.2. Qu’est-ce<a name="_page2_x40.00_y550.92"></a> que c’est ?** 
 
 En 1989, le hollandais **Guido van Rossum** commence le développement du langage de programmation Python. Python est un langage **multi plateforme**. 
 
 Le langage Python est gratuit, sous **licence libre**. 
 
-3. **Les<a name="_page2_x40.00_y614.92"></a> consignes** 
-- Dans la suite du cours, ouvrir l’interpréteur Python  ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.007.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.008.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.009.png)
+### **4.3. Les<a name="_page2_x40.00_y614.92"></a> consignes** 
+- Dans la suite du cours, ouvrir l’interpréteur Python  
 - Les commandes à faire dans l’interpréteur, aussi appelée console python, seront dans le style de rectangle suivant et commenceront par un prompt >>> 
 - Taper chacune des commandes présentées et vérifier son résultat. 
 - Ouvrir un **éditeur de Python**  
 - Compléter votre script resume\_ch02.py avec les nouvelles commandes apprises : c’est l’équivalent d’une fiche de cours, il faut donc en prendre soin 
 - Pour chaque série d’exercice (à la fin des cours) : réaliser chaque exercice dans un fichier nommé : exo\_ch02\_01.py, exo\_ch02\_02.py, exo\_ch02\_03.py,…… 
+
 4. **Premiers<a name="_page3_x40.00_y36.92"></a> pas avec l’interpréteur de commandes Python** 
 
 
