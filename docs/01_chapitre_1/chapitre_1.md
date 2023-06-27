@@ -93,23 +93,23 @@ Il existe une tripotée d’IDE pour Python qui est parfois spécialisée dans c
 
 Nous aurons besoin d’autres logiciels gratuits lors de l’étude des serveurs, du langage C, Linux via une virtualisation, des bases SQL (en terminale)… mais ils vous seront proposés à installer en **temps voulu.** 
 
-## 3. **Interpréteur** 
+## **3. Interpréteur** 
 
 Beaucoup de commandes peuvent être testées dans l’interpréteur Python. Par exemple,  
 
 ``` 3 + 2 ```
 
-Dans la suite du cours les commandes à tester dans l’interpréteur sont dans des rectangles sur fond noirs et commence par un prompt >>> 
+<!-- Dans la suite du cours les commandes à tester dans l’interpréteur sont dans des rectangles sur fond noirs et commence par un prompt >>> -->
 
 L’interpréteur de l’IDLE : 
 
 ![](Aspose.Words.2792fb4d-4eec-4d97-9627-50d5138e6b74.011.png)
 
-L’interpréteur de Pycharm : ![](Aspose.Words.2792fb4d-4eec-4d97-9627-50d5138e6b74.001.png)
+L’interpréteur de Pycharm : 
 
 ![](Aspose.Words.2792fb4d-4eec-4d97-9627-50d5138e6b74.012.jpeg)
 
-## 4. **L’éditeur de Pycharm** 
+## **4. L’éditeur de Pycharm** 
 
 Un programme est une séquence d’instructions. Dans le cas d’un programme en langage Python, on parle souvent de **script Python**. Un script se présente sous la forme d’un fichier texte avec l’extension **.py** 
 
@@ -131,7 +131,7 @@ Pour exécuter le script :
 
 Sur Pycharm il a tendance à perdre d’environnement de travail et donc le programme Python Si problème : File > Settings 
 
-Project > Python Interpreter ![](Aspose.Words.2792fb4d-4eec-4d97-9627-50d5138e6b74.001.png)
+Project > Python Interpreter 
 
 ![](Aspose.Words.2792fb4d-4eec-4d97-9627-50d5138e6b74.015.jpeg)
 
@@ -141,41 +141,32 @@ Project > Python Interpreter ![](Aspose.Words.2792fb4d-4eec-4d97-9627-50d5138e6b
 
 ![](Aspose.Words.2792fb4d-4eec-4d97-9627-50d5138e6b74.018.jpeg)
 
-Comme on l’a installé dans **C:\Python => pas de problème ![](Aspose.Words.2792fb4d-4eec-4d97-9627-50d5138e6b74.001.png)**
+Comme on l’a installé dans **C:\Python => pas de problème**
 
 ![](Aspose.Words.2792fb4d-4eec-4d97-9627-50d5138e6b74.019.jpeg)
 
 On valide 
 
-A vous de jouer ! ![](Aspose.Words.2792fb4d-4eec-4d97-9627-50d5138e6b74.001.png)
+A vous de jouer ! 
 
 ![](Aspose.Words.2792fb4d-4eec-4d97-9627-50d5138e6b74.020.jpeg)
 
-## 5. **Python et les caractères accentués** 
+## **5. Python et les caractères accentués** 
 
 Par défaut, Python 2 ne gère pas les caractères accentués dans les scripts. La version 3 de python résout ce problème en  autorisant  la  majorité  des  caractères  courants.  Cependant,  **évitez  d’utiliser  des  variables  contenant  des caractères spéciaux**, réservez-les aux chaines de caractères. 
 
-\>>> é ![](Aspose.Words.2792fb4d-4eec-4d97-9627-50d5138e6b74.021.png)![](Aspose.Words.2792fb4d-4eec-4d97-9627-50d5138e6b74.022.png)![](Aspose.Words.2792fb4d-4eec-4d97-9627-50d5138e6b74.023.png)
-
-`  `File "<stdin>", line 1 
-
-`    `é 
-
-`    `^ 
-
-SyntaxError: invalid syntax 
 
 On prendra donc soin d’insérer en haut de chaque script (par exemple : exemple.py) **l’encodage suivant** : 
 
-- coding=utf-8 ![](Aspose.Words.2792fb4d-4eec-4d97-9627-50d5138e6b74.024.png)![](Aspose.Words.2792fb4d-4eec-4d97-9627-50d5138e6b74.025.png)![](Aspose.Words.2792fb4d-4eec-4d97-9627-50d5138e6b74.026.png)
+```# coding=utf-8 ```
 
 Oui, il est précédé d’un # et donc parait être un commentaire, mais les premières lignes sont interprétées comme des réglages. 
 
 On trouvera souvent le préambule suivant : 
 
-#!/usr/bin/env python ![](Aspose.Words.2792fb4d-4eec-4d97-9627-50d5138e6b74.027.png)![](Aspose.Words.2792fb4d-4eec-4d97-9627-50d5138e6b74.028.png)![](Aspose.Words.2792fb4d-4eec-4d97-9627-50d5138e6b74.029.png)
-
-- coding=utf-8 
+```python
+#!/usr/bin/env python 
+# coding=utf-8 ```
 
 ou #! /usr/bin/python . Cette première ligne, appelée **SHEBANG**, permet au système d’exploitation Linux de reconnaître un script exécutable. 
 
