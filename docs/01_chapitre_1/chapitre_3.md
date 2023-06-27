@@ -128,7 +128,7 @@ Que remarquez-vous ?.............
 ???+ question "Lancer la console et tester"
 
     {{ IDE('scripts/activite') }}
-    
+
 La division entière permet de déterminer la valeur tronquée de la division et le modulo permet de déterminer la valeur du reste. 
 
 On souhaite effectuer la division de 3395  par 99.  
@@ -137,17 +137,21 @@ On souhaite effectuer la division de 3395  par 99.
 
 On s’est arrêté car 29 est plus petit que 99 et qu’on ne souhaitait pas aller plus loin et se retrouver avec un nombre à virgule. On a effectué une division dite division entière. On en déduit donc que 3395 = 99 \* 34 + 29
 
-**Activité n°4.:** **L’exponentiation :** Tester les scripts suivant dans l’interpréteur et compléter la colonne de gauche ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.020.png)
+**Activité n°4.:** **L’exponentiation :** Tester les calculs suivant dans la console
 
-\>>> 3 \*\* 2  >>> 2 \*\* 3 ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.021.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.022.png)
+\>>> 3 \*\* 2  >>> 2 \*\* 3 
 
-5. **Variables,<a name="_page4_x40.00_y133.92"></a> types** 
+???+ question "Lancer la console et tester"
 
-Une variable est un espace mémoire dans lequel il est possible de stocker une valeur (une donnée). On va affecter des valeurs à des variables.  ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.023.png)
+    {{ IDE('scripts/activite') }}
+
+### **4.5. Variables,<a name="_page4_x40.00_y133.92"></a> types** 
+
+Une variable est un espace mémoire dans lequel il est possible de stocker une valeur (une donnée). On va affecter des valeurs à des variables.  
 
 ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.024.png)**Attention le symbole de l’affectation est =** 
 
-1. Noms<a name="_page4_x40.00_y194.92"></a> de variables 
+#### **4.5.1. Noms<a name="_page4_x40.00_y194.92"></a> de variables***
 
 Le nom d’une variable s'écrit avec des lettres (**non accentuées**), des chiffres ou bien l’underscore \_ Le nom d’une variable ne doit pas commencer par un chiffre. 
 
