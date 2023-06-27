@@ -1,36 +1,38 @@
 ﻿---
 author: ELP
-title: A la découverte de Python
+title: 01c A la découverte de Python
 ---
 
 
 **Table des matières** 
 
 1. [**Un langage de programmation ? Qu’est ce que c’est ? .................................................................................................... 1**](#_page0_x40.00_y432.92)
-1. [Les langages compilés .................................................................................................................................................. 2](#_page1_x40.00_y36.92)
-1. [Les langages interprétés ................................................................................................................................................ 2](#_page1_x40.00_y402.92)
-1. [Principales différences .................................................................................................................................................. 2](#_page1_x40.00_y504.92)
-1. [Un langage particulier : Python .................................................................................................................................... 2](#_page1_x40.00_y593.92)
+1.1. [Les langages compilés .................................................................................................................................................. 2](#_page1_x40.00_y36.92)
+1.2. [Les langages interprétés ................................................................................................................................................ 2](#_page1_x40.00_y402.92)
+1.3. [Principales différences .................................................................................................................................................. 2](#_page1_x40.00_y504.92)
+1.4. [Un langage particulier : Python .................................................................................................................................... 2](#_page1_x40.00_y593.92)
 2. [**Quelques langages de programmation courants ............................................................................................................... 3**](#_page2_x40.00_y36.92)
-1. [Historique ..................................................................................................................................................................... 3](#_page2_x40.00_y58.92)
-1. [« Hello world ! » ........................................................................................................................................................... 3](#_page2_x40.00_y316.92)
+2.1. [Historique ..................................................................................................................................................................... 3](#_page2_x40.00_y58.92)
+2.2. [« Hello world ! » ........................................................................................................................................................... 3](#_page2_x40.00_y316.92)
 3. [**Pseudo-code .......................................................................................................................................................................... 3**](#_page2_x40.00_y367.92)
-3. [**Python ................................................................................................................................................................................... 3**](#_page2_x40.00_y464.92)
-1. [Pourquoi apprendre le langage Python ?....................................................................................................................... 3](#_page2_x40.00_y486.92)
-1. [Qu’est-ce que c’est ? ..................................................................................................................................................... 3](#_page2_x40.00_y550.92)
-1. [Les consignes ................................................................................................................................................................ 3](#_page2_x40.00_y614.92)
-1. [Premiers pas avec l’interpréteur de commandes Python............................................................................................... 4](#_page3_x40.00_y36.92)
-1. [Variables, types............................................................................................................................................................. 5](#_page4_x40.00_y133.92)
-1. [Noms de variables .................................................................................................................................................... 5](#_page4_x40.00_y194.92)
-1. [Le type int (integer) .............................................................................................................................................. 5](#_page4_x40.00_y249.92)
-1. [Le type float (nombres en virgule flottante) ......................................................................................................... 5](#_page4_x40.00_y602.92)
-1. [Le type str (string : chaîne de caractères)............................................................................................................... 6](#_page5_x40.00_y196.92)
-1. [Le type list (liste)................................................................................................................................................. 7](#_page6_x40.00_y680.92)
-1. [Le type bool (booléen) ........................................................................................................................................... 9](#_page8_x40.00_y323.92)
+4. [**Python ................................................................................................................................................................................... 3**](#_page2_x40.00_y464.92)
+4.1. [Pourquoi apprendre le langage Python ?....................................................................................................................... 3](#_page2_x40.00_y486.92)
+4.2. [Qu’est-ce que c’est ? ..................................................................................................................................................... 3](#_page2_x40.00_y550.92)
+4.3. [Les consignes ................................................................................................................................................................ 3](#_page2_x40.00_y614.92)
+4.4. [Premiers pas avec l’interpréteur de commandes Python............................................................................................... 4](#_page3_x40.00_y36.92)
+4.5. [Variables, types............................................................................................................................................................. 5](#_page4_x40.00_y133.92)
+4.5.1. [Noms de variables .................................................................................................................................................... 5](#_page4_x40.00_y194.92)
+4.5.2. [Le type int (integer) .............................................................................................................................................. 5](#_page4_x40.00_y249.92)
+4.5.3. [Le type float (nombres en virgule flottante) ......................................................................................................... 5](#_page4_x40.00_y602.92)
+4.5.4. [Le type str (string : chaîne de caractères)............................................................................................................... 6](#_page5_x40.00_y196.92)
+4.5.5. [Le type list (liste)................................................................................................................................................. 7](#_page6_x40.00_y680.92)
+4.5.6. [Le type bool (booléen) ........................................................................................................................................... 9](#_page8_x40.00_y323.92)
 5. [**Exercices ............................................................................................................................................................................. 11**](#_page10_x40.00_y36.92)
-1. **Un<a name="_page0_x40.00_y432.92"></a> langage de programmation ? Qu’est ce que c’est ?** 
 
-Il y a plusieurs sortes de langages de programmation, mais le seul directement  ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.001.png)utilisable  par  le  processeur  est  le  langage  machine  constitué  de  0  et  de  1.  Aujourd’hui presque plus personne ne programme en langage machine.  
+## **1. Un<a name="_page0_x40.00_y432.92"></a> langage de programmation ? Qu’est ce que c’est ?** 
+
+![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.001.png)
+Il y a plusieurs sortes de langages de programmation, mais le seul directement  utilisable  par  le  processeur  est  le  langage  machine  constitué  de  0  et  de  1.  Aujourd’hui presque plus personne ne programme en langage machine.  
 
 On peut les classer en :  
 
@@ -39,23 +41,25 @@ On peut les classer en :
 - Le **langage de haut niveau**   
 - **Langage compilé** : C, C++, Pascal et OCaml.  
 - **Langage interprété :** Java (+ JavaScool), Ruby et Python ;  
-1. **Les<a name="_page1_x40.00_y36.92"></a> langages compilés  ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.002.jpeg)**
+### **1.1. Les<a name="_page1_x40.00_y36.92"></a> langages compilés**  
+![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.002.jpeg)
 
 Dans ces langages, le code source (celui que vous  écrivez) est tout d'abord **compilé**, par un logiciel le  **compilateur**, en un code binaire qui est très facile à  lire pour un ordinateur.   
 
 ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.003.png)
 
-2. **Les<a name="_page1_x40.00_y402.92"></a> langages interprétés  ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.004.png)**
+### **1.2. Les<a name="_page1_x40.00_y402.92"></a> langages interprétés**  
+![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.004.png)
 
 Dans ces langages, le code source est **interprété**,  par un logiciel l’**interpréteur**.   
 
-3. **Principales<a name="_page1_x40.00_y504.92"></a> différences**  
+### **3. Principales<a name="_page1_x40.00_y504.92"></a> différences**  
 
 Dans un langage interprété, **le même code source pourra marcher directement sur tout ordinateur**. Avec un langage compilé, il faudra (en général) **tout recompiler à chaque fois** ce qui pose parfois des soucis. 
 
 Par contre, dans un langage **compilé**, le programme est directement exécuté sur l'ordinateur, donc il sera en général **plus rapide** que le même programme dans un langage interprété. 
 
-4. **Un<a name="_page1_x40.00_y593.92"></a> langage particulier : Python** 
+### **4. Un<a name="_page1_x40.00_y593.92"></a> langage particulier : Python** 
 
 ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.005.png)
 
@@ -65,27 +69,27 @@ Le **bytecode** (forme intermédiaire) est **portable** sur tout ordinateur muni
 
 Pour exécuter un programme, Python charge le fichier **source .py** en mémoire vive, en fait **l’analyse,** produit le **bytecode** et enfin **l’exécute**. Afin de ne pas refaire inutilement toute la phase d’analyse et de production, Python **sauvegarde le bytecode** produit (dans un fichier .pyo ou .pyc) et recharge simplement le fichier bytecode s’il est plus récent que le fichier source dont il est issu.  
 
-2. **Quelques<a name="_page2_x40.00_y36.92"></a> langages de programmation courants** 
-1. **Historique<a name="_page2_x40.00_y58.92"></a>** 
+## **2. Quelques<a name="_page2_x40.00_y36.92"></a> langages de programmation courants** 
+### **2.1. Historique<a name="_page2_x40.00_y58.92"></a>** 
 
 ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.006.jpeg)
 
-2. **«<a name="_page2_x40.00_y316.92"></a> Hello world ! »** 
+### **2.2. «<a name="_page2_x40.00_y316.92"></a> Hello world ! »** 
 
 C'est dans un mémorandum interne de Brian Kernighan, Programming in C : A tutorial, écrit en 1974 dans les laboratoires Bell, que l'on trouve la première version d'un mini-programme affichant à l'écran « Hello World! ».  
 
-3. **Pseudo-code<a name="_page2_x40.00_y367.92"></a>** 
+## **3. Pseudo-code<a name="_page2_x40.00_y367.92"></a>** 
 
 En programmation, le pseudo-code est une façon de décrire un algorithme en respectant certaines conventions, mais sans référence à un langage de programmation en particulier. L'écriture en pseudo-code permet de développer une démarche structurée. 
 
 Il n'existe **pas de convention universelle** pour le pseudo-code. Afin de bien nous comprendre dans la suite de ce cours, nous adopterons celle décrite ci-dessous. 
 
-4. **Python<a name="_page2_x40.00_y464.92"></a>** 
-1. **Pourquoi<a name="_page2_x40.00_y486.92"></a> apprendre le langage Python ?** 
+## **4. **Python<a name="_page2_x40.00_y464.92"></a>** 
+### **4.1. Pourquoi<a name="_page2_x40.00_y486.92"></a> apprendre le langage Python ?** 
 
 Python est à la fois simple et puissant, il vous permet d'écrire **des scripts très simples**, mais grâce à ses nombreuses bibliothèques, vous pouvez travailler sur des **projets plus ambitieux.** 
 
-Quelques vidéos (humoristiques) pour apprendre à coder en Python :[ https://www.dailymotion.com/playlist/x22t3u ](https://www.dailymotion.com/playlist/x22t3u)
+
 
 2. **Qu’est-ce<a name="_page2_x40.00_y550.92"></a> que c’est ?** 
 
