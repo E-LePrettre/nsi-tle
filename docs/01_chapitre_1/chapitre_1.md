@@ -7,9 +7,9 @@ Nous utilisons parfois des outils en ligne permettant de travailler directement 
 
 ## **1.  Installation** 
 
-### 1. **Sous Windows – à la maison.** 
+### **1.1. Sous Windows – à la maison.** 
 1. Sous Windows, pour installer Python avec l’**environnement de développement IDLE**, il suffit de télécharger qui se trouve sur le site officiel :[ https://www.python.org/downloads/windows ](https://www.python.org/downloads/windows)(ce ne sera peut-être pas la même version que sur la procédure) 
-1. Pour l’installer, suivre la méthode donnée. ATTENTION aux flèches rouges !! ![](Aspose.Words.2792fb4d-4eec-4d97-9627-50d5138e6b74.001.png)
+2. Pour l’installer, suivre la méthode donnée.  
 
 ![](Aspose.Words.2792fb4d-4eec-4d97-9627-50d5138e6b74.002.png)
 
@@ -23,22 +23,22 @@ Nous utilisons parfois des outils en ligne permettant de travailler directement 
 
 ![](Aspose.Words.2792fb4d-4eec-4d97-9627-50d5138e6b74.006.png)
 
-### 2. **Sous Linux** 
+### **1.2. Sous Linux** 
 
 Python 3 est pré-installé sur la plupart des distributions Linux. 
 
-## 2. **Les différents IDE et quelques logiciels à installer** 
+## **2. Les différents IDE et quelques logiciels à installer** 
 
 On vient d’installer **l’IDLE (c’est le minimum pour débuter en Python)**. Mais il existe d’autres IDE (IDE en anglais : Integrated Development Environment) bien plus performants et qui vous permettront d’aller plus loin. Petite présentation d’une liste d’autres environnements de travail par ordre décroissant de préférence 
 
-### 1. **IDLE** 
+### **2.1. IDLE** 
 
 IDLE est l’environnement de développement intégré (IDE en anglais : Integrated Development Environment) proposé par Python : c’est le minimum pour débuter en Python. IDLE propose un certain nombre d’outils : 
 
 - un éditeur de texte (pour écrire le programme) 
 - un interpréteur (pour exécuter le programme) 
 - un débogueur (pour tester le programme) 
-### 2. **Thonny ![](Aspose.Words.2792fb4d-4eec-4d97-9627-50d5138e6b74.007.png)**
+### **2.2. Thonny**
 
 Thonny est un environnement de développement intégré (IDE) pour le développement en Python. Il a été conçu pour être utilisé par les débutants en programmation, en particulier les étudiants et les enseignants. Il offre une interface utilisateur simple et facile à utiliser, ainsi qu'une variété de fonctionnalités pour aider les débutants à apprendre à coder en Python. 
 
@@ -51,8 +51,9 @@ Thonny est un environnement de développement intégré (IDE) pour le développe
 
 **Inconvénients :** 
 
-- Moins de fonctionnalités que les autres IDE : Thonny a été conçu pour les débutants, donc il offre moins de fonctionnalités que d'autres IDE plus avancés pour Python. ![](Aspose.Words.2792fb4d-4eec-4d97-9627-50d5138e6b74.001.png)
-### 3. **Pycharm** 
+- Moins de fonctionnalités que les autres IDE : Thonny a été conçu pour les débutants, donc il offre moins de fonctionnalités que d'autres IDE plus avancés pour Python. 
+
+### **2.3. Pycharm** 
 
 **PyCharm** est le meilleur IDE tout simplement. Sa version gratuite est très complète et répond à tous les besoins d'un développeur Python. 
 
@@ -68,38 +69,35 @@ Vous pouvez télécharger Pycharm à cette adresse :[ https://www.jetbrains.com/
 
 Évidemment on **installe la version Community** c’est celui qu’on utilisera le plus souvent pour Python en classe. 
 
-### 4. **Visual Studio Code ou VSC** 
+### **2.4. Visual Studio Code ou VSC** 
 
 
 
-|Il  permet  de  faire  du  développement  sur  Python,  mais  également  sur  d’**autres  langages**.  Nous  l’utiliserons|
-| - |
-|notamment pour écrire du **HTML, JavaScript, CSS**, … |
-|**VS code** est un éditeur de code extensible développé par Microsoft pour Windows Linux et OS X. A ne pas confondre|
-|avec Visual Studio, VS code est petit, mais complet et **open source**. Il est aussi très facilement configurable et|
-|<p>extensible avec son système d’extension.  </p><p>VS code est construit sur Electron, il présente donc les mêmes avantages et inconvénients.  </p>|
-|Du côté des fonctionnalités, on retrouve **un moteur d'autocomplétion** de code puissant (IntelliSense), une **consol**|
-|**de** débogage ainsi qu'un terminal pour lancer les commandes serveur.  |
-|Pour finir VS Code se classe en tête des projets avec le plus grand nombre de contributeurs sur la plateforme GitHub|
-|<p>et montre qu'il fait partie des éditeurs à part entière.  </p><p>Vous pouvez télécharger Visual Studio Code à cette adresse :[ https://code.visualstudio.com/ ](https://code.visualstudio.com/)</p>|
+Il  permet  de  faire  du  développement  sur  Python,  mais  également  sur  d’**autres  langages**.  Nous  l’utiliserons notamment pour écrire du **HTML, JavaScript, CSS**, … 
+**VS code** est un éditeur de code extensible développé par Microsoft pour Windows Linux et OS X. A ne pas confondre avec Visual Studio, VS code est petit, mais complet et **open source**. Il est aussi très facilement configurable et extensible avec son système d’extension.  
+VS code est construit sur Electron, il présente donc les mêmes avantages et inconvénients.  
+Du côté des fonctionnalités, on retrouve **un moteur d'autocomplétion** de code puissant (IntelliSense), une **console**
+**de** débogage ainsi qu'un terminal pour lancer les commandes serveur.  
+Pour finir VS Code se classe en tête des projets avec le plus grand nombre de contributeurs sur la plateforme GitHub et montre qu'il fait partie des éditeurs à part entière.  
+Vous pouvez télécharger Visual Studio Code à cette adresse :[ https://code.visualstudio.com/ ](https://code.visualstudio.com/)
 
-### 5. **Notepad++** 
+### **2.5. Notepad++** 
 
 Il s’agit de la version améliorée du bloc-notes de Windows. Il permet donc **d’ouvrir tous les fichiers** de différents langages. Il propose la **coloration syntaxique** et **l’auto indentation**. 
 
-### 6. **Autres logiciels IDE** 
+### **2.6. Autres logiciels IDE** 
 
 Il existe une tripotée d’IDE pour Python qui est parfois spécialisée dans certains types de codage (par exemple, pour les DataSciences il vaut mieux Jupyter qui est plus adapté à cette utilisation)  
 
-### 7. **Autres logiciels** 
+### **2.7. Autres logiciels** 
 
-Nous aurons besoin d’autres logiciels gratuits lors de l’étude des serveurs, du langage C, Linux via une virtualisation, des bases SQL (en terminale)… mais ils vous seront proposés à installer en **temps voulu.** ![](Aspose.Words.2792fb4d-4eec-4d97-9627-50d5138e6b74.001.png)
+Nous aurons besoin d’autres logiciels gratuits lors de l’étude des serveurs, du langage C, Linux via une virtualisation, des bases SQL (en terminale)… mais ils vous seront proposés à installer en **temps voulu.** 
 
 ## 3. **Interpréteur** 
 
 Beaucoup de commandes peuvent être testées dans l’interpréteur Python. Par exemple,  
 
-\>>> 3 + 2 ![](Aspose.Words.2792fb4d-4eec-4d97-9627-50d5138e6b74.008.png)![](Aspose.Words.2792fb4d-4eec-4d97-9627-50d5138e6b74.009.png)![](Aspose.Words.2792fb4d-4eec-4d97-9627-50d5138e6b74.010.png)
+``` 3 + 2 ```
 
 Dans la suite du cours les commandes à tester dans l’interpréteur sont dans des rectangles sur fond noirs et commence par un prompt >>> 
 
