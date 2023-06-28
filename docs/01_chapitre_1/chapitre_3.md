@@ -146,13 +146,13 @@ On s’est arrêté car 29 est plus petit que 99 et qu’on ne souhaitait pas al
 **Activité n°4.:** **L’exponentiation :** Tester les calculs :
 
 ```python
-print(3 ** 2)
-print(2 ** 3)
+3 ** 2
+2 ** 3
 ```
 
 ???+ question "Faire ce qui est proposé"
 
-    {{ IDE('scripts/activite4') }}
+    {{ terminal() }}
 
 ### **4.5. Variables,<a name="_page4_x40.00_y133.92"></a> types** 
 
@@ -170,10 +170,13 @@ Exemple : age, mon\_age, temperature1  A éviter : Age, AGE, monAge, Temperature
 
 
 
-**Activité n°5.:** Tester les calculs :
+**Activité n°5.:** Tester les calculs : 
 
 ```python
 age = 17
+```
+La fonction print affiche la valeur de la variable :
+```python
 print(age)
 ```
 
@@ -184,7 +187,7 @@ print(type(age))
 
 ???+ question "Faire ce qui est proposé"
 
-    {{ IDE('scripts/activite5') }}
+    {{ terminal() }}
 
 
 **Activité n°6.:** L’incrémentation ou la décrémentation : Tester les calculs suivant dans la console
