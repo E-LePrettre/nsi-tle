@@ -96,10 +96,10 @@ Le langage Python est gratuit, sous **licence libre**.
 
 **Activité n°1.:Les calculs de bases :** Tester les calculs suivant dans la console
 
-```
->>> 7 + 3 * 4 
->>> (7 + 3 ) * 4 
->>> 10 / 3
+```python
+7 + 3 * 4 
+(7 + 3 ) * 4 
+10 / 3
 ```
 
 ???+ question "Lancer la console et tester"
@@ -112,7 +112,8 @@ Le langage Python est gratuit, sous **licence libre**.
  
 **Activité n°2.:** **Addition de float :** Tester les calculs suivant dans la console
 
-```>>> 3.11 + 2.08```
+```python
+3.11 + 2.08```
 
 ???+ question "Lancer la console et tester"
 
@@ -122,11 +123,11 @@ Que remarquez-vous ?.............
 
 **Activité n°3.:** **La division entière et le modulo :** Tester les calculs suivant dans la console
 
-```
->>> 10 // 5  
->>> 10 // 4 
->>> 10 % 4 
->>> 10 % 3 
+```python
+10 // 5  
+10 // 4 
+10 % 4 
+10 % 3 
 ```
 
 ???+ question "Lancer la console et tester"
@@ -143,9 +144,9 @@ On s’est arrêté car 29 est plus petit que 99 et qu’on ne souhaitait pas al
 
 **Activité n°4.:** **L’exponentiation :** Tester les calculs suivant dans la console
 
-```
->>> 3 ** 2  
->>> 2 ** 3 
+```python
+3 ** 2  
+2 ** 3 
 ```
 
 ???+ question "Lancer la console et tester"
@@ -170,23 +171,25 @@ Exemple : age, mon\_age, temperature1  A éviter : Age, AGE, monAge, Temperature
 
 **Activité n°5.:** Tester les calculs suivant dans la console
 
-```>>> age = 17```
+```python
+age = 17```
 
 La fonction print affiche la valeur de la variable : 
-```>>> print(age) 17```
+```python
+print(age)```
 
-||
-|La fonction type() retourne le type de la variable : |
-|>>> print(type(age)) ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.028.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.029.png)<class 'int'> |
-||
-|int est le type des nombres entiers.|
+
+La fonction type() retourne le type de la variable : 
+```python
+print(type(age))```
+
 
 ???+ question "Lancer la console et tester"
 
     {{ IDE('scripts/activite') }}
 
 
-|**Activité n°6.:** L’incrémentation ou la décrémentation : |
+**Activité n°6.:** L’incrémentation ou la décrémentation : 
 | - |
 |<p>>>> # ceci est un commentaire ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.030.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.031.png)</p><p>>>> a = 10 </p><p>>>> a = a + 1 # on incrémente la valeur de a. On peut l’écrire aussi a +=1 >>> print(a) </p><p>11 </p><p>>>> a = a – 3 # on décrémente la valeur de a. On peut l’écrire aussi a -=3  >>> print(a) </p>|
 ||
