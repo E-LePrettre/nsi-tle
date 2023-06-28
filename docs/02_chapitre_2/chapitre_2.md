@@ -691,9 +691,9 @@ Pour ne pas être dérangé dans ses aventures il décide de les couper chaque f
 
 **Exercice 10** ★★ Ecrire une méthode heron(U, n) qui donne la valeur de la suite pour un rang n (méthode de Héron) : La méthode de Héron permet d’approcher la valeur de la racine carrée d’un nombre. Nous allons l’appliquer pour déterminer la valeur approchée de la racine de 2. Elle est définie par la suite : 
 
-|![](Aimg2.png)|
-|Donc cela signifie :| 
-|![](Aimg3.png)|
+![](Aimg2.png)
+Donc cela signifie :
+![](Aimg3.png)
 
 n étant le rang 0que l’on veut calculer1la suite   2 3
 
@@ -722,50 +722,43 @@ Il vaut $\phi$ =$\frac{1+√5}{2}$  et vaut approximativement 1,61803. On peut  
 
 
 Cela signifie que pour le rang 3, on aura : 
-
-- 1,   = 1 + 1 = 1 + 1~~ ,   = 1 + 1~~ ,   = 1 + 1~~ , 1 1+1 1+ 1 1+ 1
-
-1 1+1 1+ 1
-
-1 1+1 1
-
-Ecrire une fonction nombre\_dor(n) qui détermine la valeur approchée du nombre d’or (seulement la valeur ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.088.png)du rang). Par exemple : 
-
-`       `![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.089.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.090.png)
+![](Aimg5.png)
 
 
+Ecrire une fonction nombre_dor(n) qui détermine la valeur approchée du nombre d’or (seulement la valeur 
+Par exemple : 
 
-
-
-
-
-
-
-
-
-
-
-
-
+```
+la valeur de (1+math.sqrt(5))/2 est : 1.618033988749895
+>>> nombre_dor(0)
+1
+>>> nombre_dor(5)
+1.625
+>>> nombre_dor(10)
+1.6179775280898876
+>>> nombre_dor(15)
+1.618034447821682
+```
 
 
 **Exercice 12** 
 
 ★ Ecrire une fonction premier(nombre) qui détermine si un nombre entier est premier ou pas. 
 
-**Rappel :** un nombre **premier** est un entier naturel qui n’a que deux diviseurs : 1 et lui-même. Ex : 3 est ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.091.png)premier mais 6 ne l’est pas car 2\*3=6. Par exemple : 
+**Rappel :** un nombre **premier** est un entier naturel qui n’a que deux diviseurs : 1 et lui-même. Ex : 3 est premier mais 6 ne l’est pas car 2\*3=6. Par exemple : 
 
-`  `![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.092.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.093.png)
+```
+>>> premier(17)
+'17 est un nombre premier'
+>>> premier(18)
+"18 n'est pas un nombre premier"
+
+```
 
 
+Aide : Le but est de regarder le reste de la division entre le nombre donné et nombre_en_cours qui prend à chaque boucle une valeur de 2 au nombre. Faire une boucle while avec deux conditions qui puissent l’arrêter : l’une sur l’incrémentation du nombre en cours et l’autre si le nombre_en_cours est diviseur du nombre 
 
-
-
-
-
-Aide : Le but est de regarder le reste de la division entre le nombre donné et nombre\_en\_cours qui prend à chaque boucle une valeur de 2 au nombre. Faire une boucle while avec deux conditions qui puissent l’arrêter : l’une sur l’incrémentation du nombre en cours et l’autre si le nombre\_en\_cours est diviseur du nombre 
-
-Une fois toutes les valeurs testées si le nombre\_en\_cours est en fait égal au nombre donné il est donc nombre premier 
+Une fois toutes les valeurs testées si le nombre_en_cours est en fait égal au nombre donné il est donc nombre premier 
 
 [QCM sur les boucles ](http://fabrice.sincere.free.fr/qcm/qcm.php?nom=qcm_python_loop)
 
@@ -780,13 +773,13 @@ La **portée d’une variable** est l’endroit du programme où on peut accéde
 
 
 **Activité n° 21.**: Observons le script suivant : 
- -  :- 
+```python
 a = 10     # variable globale au programme 
 
 def mafonction(): 
 a = 20 # variable locale à la fonction 
 return a 
-
+```
 
 Nous avons deux variables différentes qui portent le même nom a 
 
@@ -797,14 +790,15 @@ Une variable a de valeur 20 est créée dans la fonction : c’est une **variabl
 
 
 **Activité n° 22.**: L’instruction global rend une variable globale : 
- -  :- 
+
+```python
 a = 10     # variable globale 
 
 def mafonction(): 
 global a   # la variable est maintenant globale 
 a = 20 
 return a 
-
+```
 
 **Remarque** : il est préférable **d'éviter** l’utilisation de l’instruction global car c’est une source d’erreurs (on peut ainsi modifier le contenu d’une variable globale en croyant agir sur une variable locale).  
 
@@ -815,9 +809,10 @@ Parfois **pour éviter d’avoir à coder une fonction surtout si elle est très
 
 
 **Activité n° 23.**: Au lieu de coder la fonction g(x)= 2x, on peut écrire 
- - 
 
+```python
 g = lambda x: 2\*x 
+```
 
 <p>>>> g(3) 6 ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.094.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.095.png)</p><p>>>> g(4) 8 </p>
 
@@ -830,10 +825,11 @@ Il est parfois utile de définir des fonctions avec **plusieurs paramètres** do
 
 
 **Activité n° 24.**: 
- -  :- 
+
+```python
 def vetement(couleur\_pull='rouge', couleur\_pantalon='bleu'): 
 return 'Le pull est '+couleur\_pull+' et le pantalon est '+ couleur\_pantalon 
-
+```
 
 ## **7. Exercices<a name="_page15_x40.00_y36.92"></a>** 
 
