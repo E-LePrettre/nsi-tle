@@ -600,6 +600,7 @@ Si  vous  **connaissez  le  nombre  de  boucles  à  effectuer,  utiliser  une  
 ```
 
 **Exercice 6** ★ 
+
 1.  Avec une boucle for, écrire une fonction nombre_de_z(chaine) qui compte le nombre de lettres z dans une chaîne de caractères. Par exemple : 
 ```
 nombre_de_z('Zinedine Zidane') 
@@ -613,6 +614,7 @@ help(str.count)
 ```
 
 **Exercice 7** ★ 
+
 1.  Ecrire la fonction devinette(proposition) du jeu de devinette suivant : 
 ``>>> 
 Le jeu consiste à deviner un nombre entre 1 et 100 :
@@ -718,25 +720,10 @@ Aide :
 **Exercice 11** ★★ Fraction continue infinie  
 ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.086.jpeg)
 Le nombre d’or est un célèbre nombre irrationnel :[ Wikipédia.](https://fr.wikipedia.org/wiki/Nombre_d%27or)  Il a été étudié par de nombreux mathématiciens au cours du temps.  
-Il vaut $\phi$ =$\frac{1+√5}{2}$  et vaut approximativement 1,61803. On peut  
+Il vaut $\phi$ =$\frac{1+√5}{2}$  et vaut approximativement 1,61803. On peut  estimer la valeur numérique de la fraction continue suivante :  
 
-2 
+![](Aimg4.png)
 
-estimer la valeur numérique de la fraction continue suivante :  
-
-1 
-
-- 1 + 
-
-1 
-
-1 + 1 
-
-1 + 1 
-
-1 + 1 
-
-1 + … 
 
 Cela signifie que pour le rang 3, on aura : 
 
