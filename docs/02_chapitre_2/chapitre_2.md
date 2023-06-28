@@ -777,9 +777,17 @@ La **portée d’une variable** est l’endroit du programme où on peut accéde
 a = 10     # variable globale au programme 
 
 def mafonction(): 
-a = 20 # variable locale à la fonction 
-return a 
+    a = 20 # variable locale à la fonction 
+    return a 
 ```
+Tester
+>>> print(a) # nous sommmes dans l'espace global du programme
+
+>>> mafonction() # nous sommes dans l'espace local de la fonction
+
+>>> print(a) # de retour dans l'espace global
+
+
 
 Nous avons deux variables différentes qui portent le même nom a 
 
@@ -795,10 +803,17 @@ Une variable a de valeur 20 est créée dans la fonction : c’est une **variabl
 a = 10     # variable globale 
 
 def mafonction(): 
-global a   # la variable est maintenant globale 
-a = 20 
-return a 
+    global a   # la variable est maintenant globale 
+    a = 20 
+    return a 
 ```
+Tester
+>>> print(a)
+
+>>> mafonction()
+
+>>> print(a)
+
 
 **Remarque** : il est préférable **d'éviter** l’utilisation de l’instruction global car c’est une source d’erreurs (on peut ainsi modifier le contenu d’une variable globale en croyant agir sur une variable locale).  
 
