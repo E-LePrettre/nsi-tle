@@ -38,6 +38,10 @@ def factorielle(n):
 ```
 Tester 
 > help(factorielle)
+
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
    
 Réaliser une telle chaîne de documentation permet 
 
@@ -94,7 +98,9 @@ if __name__ == '__main__':
    
 L’inconvénient majeur de cette méthode est que l’on doit traiter **une assertion après l’autre** car le programme s’arrête dès le premier test qui échoue. En cas de réussite, il ne se passe simplement **rien**   
    
+???+ question "Faire ce qui est proposé"
 
+    {{ IDE() }}
 
 **Activité n° 3.**:    
 
@@ -115,6 +121,10 @@ if __name__ == '__main__':
 ```   
    
 **CE SONT LES PLUS UTILISÉS** 
+
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
 
 ### **2.2. Les<a name="_page2_x40.00_y650.92"></a> tests avec doctest** 
 
@@ -142,12 +152,15 @@ def factorielle(n):
       resultat = resultat * i  
    return resultat  
 ```
+Tester :
 > import doctest  
   
 La  fonction testmod du module doctest est  allée  chercher  dans  les docstring des  fonctions  du  module actuellement chargé,  tous les exemples (reconnaissables à la présence des triples chevrons >>>  
 ![](Aspose.Words.e93ca6fc-1f42-415a-966d-a3fd9bc79766.021.png) **à mettre un espace après** ), et a vérifié que la fonction documentée satisfait bien ces exemples. Dans le cas présent, une seule fonction dont la documentation contient deux exemples (attempted = 2 ) a été testée, et il n’y a eu aucun échec (failed  = 0 )  
 
+???+ question "Faire ce qui est proposé"
 
+    {{ IDE() }}
 
 **Activité n° 5.**:on introduit une erreur dans un des exemples du docstring  
 
@@ -169,9 +182,13 @@ def factorielle(n):
       resultat = resultat * i  
    return resultat  
 ```
-
+Tester:
 > import doctest 
-  
+
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
+
 **Activité n° 6.**: on peut rendre automatique les tests : 
 
 ```python
@@ -197,9 +214,12 @@ if __name__ == '__main__':
    import doctest
    doctest.testmod()
 ```
+
 Ici il n’y a aucune erreur, on n’obtient **rien**, ce qui est parfois déconcertant 
 
+???+ question "Faire ce qui est proposé"
 
+    {{ IDE() }}
 
 **Activité n° 7.**:  avec une erreur   
 
@@ -227,7 +247,9 @@ if __name__ == '__main__':
    doctest.testmod()   
 ```  
    
+???+ question "Faire ce qui est proposé"
 
+    {{ IDE() }}
 
  **Activité n° 8.**:  On rend les doctests bavard même en cas de succès avec le mode verbose   
 
@@ -254,7 +276,9 @@ if __name__ == '__main__':
    import doctest
    doctest.testmod(verbose=True)  
 ```  
-   
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}   
 
 ## **3. Les<a name="_page5_x40.00_y567.92"></a> préconditions et les postconditions** 
 
@@ -286,6 +310,10 @@ La ligne assert solution \*\*2 == x s’appelle une **postcondition**, puisqu’
 Les préconditions et les postconditions permettent de trouver très rapidement les bugs.   
 
 Pour plus de précisions :[ https://www.youtube.com/watch?v=DRVoh5XiAZo ](https://www.youtube.com/watch?v=DRVoh5XiAZo)
+
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
 
 ## **4. Les<a name="_page6_x40.00_y233.92"></a> modules** 
 ### **4.1. Qu’est<a name="_page6_x40.00_y255.92"></a> ce que c’est ?** 
@@ -369,6 +397,9 @@ def table(nb, max=10):
         print(i + 1, "*", nb, "=", (i + 1) * nb)
         i += 1
 ```
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
 
 Enregistrer votre fichier sous le nom multipli.py dans un dossier c:\langages\  
 Lancer l’invite de commande de windows (cmd)  
@@ -408,6 +439,10 @@ from multipli import *
 table(3,11)
 os.system("pause") 
 ```  
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
+
 Si on est dans python (console précédente) utiliser la fonction exit()  
 
 Tester dans l'invite de commande
@@ -438,6 +473,9 @@ table(7) # 1ere methode appel de la fonction table
 import package.multipli  
 package.multipli.table(6) # 2eme methode appel de la fonction table  
 ```
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
 
 Tester dans le cmd
 ```
@@ -465,6 +503,10 @@ On obtient deux informations :
 -  division by zero : le message qu’envoie Python pour aider à comprendre l’erreur qui vient de se produire.  
 
 A chaque fois qu’il y a une levée d’exception, Python **arrête** l’exécution du programme. Si on teste le programme en faisant un double-clic directement dans l'explorateur, il va se fermer tout de suite (en fait, il affiche bel et bien l'erreur mais se referme aussitôt). 
+
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
 
 ### **5.2. Gestions<a name="_page9_x40.00_y734.92"></a> des exceptions**
 
@@ -501,7 +543,10 @@ Une des solutions envisageables est d'attribuer **une valeur par défaut** à l'
 Tester
 > 2020-2021 
  
-  
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
+
 Ensuite et surtout, **cette méthode est assez grossière** : elle essaye une instruction et **intercepte n'importe quelle exception** liée à cette instruction. Ici, c'est acceptable car nous n'avons pas énormément d'erreurs possibles sur cette instruction. Mais c'est une **mauvaise habitude. On va voir une méthode plus fine dans la suite.** 
 
 #### **5.2.2. Interception<a name="_page10_x40.00_y547.92"></a> d’exceptions particulières Dans le cas d’une division :** 
@@ -532,7 +577,11 @@ Tester avec
 - 20 et 0 
 - 20 et 'a'
 - 'a' et 3
-   
+
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
+
 #### **5.2.3. Le<a name="_page11_x40.00_y338.92"></a> bloc try/except et les mots clés else et finally**
 
 
@@ -555,7 +604,9 @@ else:
    
 Dans les faits, on utilise assez peu else. La plupart des codeurs préfère mettre la ligne contenant le print directement dans le bloc try. 
 
+???+ question "Faire ce qui est proposé"
 
+    {{ IDE() }}
 
 **Application n°17. :** L’instruction finally permet d'exécuter du code après un bloc try, **quel que soit le résultat** de l'exécution du bloc. 
 
@@ -578,6 +629,10 @@ Tester avec:
 - 20 et 4
 - 20 et 0
 
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
+
 #### **5.2.4. Avec<a name="_page12_x40.00_y346.92"></a> les assertions**
 
 L’utilisation de* assert* permet de faire des tests Si le test renvoie True*,* l’exécution se poursuit normalement. Sinon, une exception AssertionError* est levée. 
@@ -598,6 +653,10 @@ Tester avec :
 - 2000
 - 'a'
 - -1999
+
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
 
 #### **5.2.5. Déclencher<a name="_page12_x40.00_y748.92"></a> une exception**
 
@@ -621,6 +680,10 @@ Tester avec :
    
 N’oubliez pas : un programme bien écrit doit **gérer proprement les exceptions.** 
 
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
+    
 ## **6. Exercices<a name="_page13_x40.00_y375.92"></a>** 
 
 **Exercice 1 :** On considère la fonction multiplier\_par\_deux(x) qui prend en paramètre x et qui renvoie son double. Ecrire un script de cette fonction avec : 
