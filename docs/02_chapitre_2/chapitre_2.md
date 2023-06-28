@@ -714,6 +714,7 @@ Aide :
 
 **Exercice 11** ★★ Fraction continue infinie  
 ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.086.jpeg)
+
 Le nombre d’or est un célèbre nombre irrationnel :[ Wikipédia.](https://fr.wikipedia.org/wiki/Nombre_d%27or)  
 Il a été étudié par de nombreux mathématiciens au cours du temps.  
 Il vaut $\phi$ =$\frac{1+√5}{2}$  et vaut approximativement 1,61803. On peut  estimer la valeur numérique de la fraction continue suivante :  
@@ -829,13 +830,16 @@ Parfois **pour éviter d’avoir à coder une fonction surtout si elle est très
 g = lambda x: 2\*x 
 ```
 
-<p>>>> g(3) 6 ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.094.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.095.png)</p><p>>>> g(4) 8 </p>
+>>> g(3) 
 
-Point de vocabulaire : En toute rigueur, on appelle fonctions les **fonctions** qui **retourne quelque chose (avec return**) et **procédure celle qui ne retourne rien**. ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.006.png)
+>>> g(4) 
+
+Point de vocabulaire : En toute rigueur, on appelle fonctions les **fonctions** qui **retourne quelque chose (avec return**) et **procédure celle qui ne retourne rien**. 
+
 
 ## **6. Fonctions<a name="_page14_x40.00_y36.92"></a> avec des valeurs par défaut** 
 
-Il est parfois utile de définir des fonctions avec **plusieurs paramètres** dont certains, parce que par exemple rarement modifiés, sont **optionnels et possèdent donc une valeur par défaut**. ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.006.png)
+Il est parfois utile de définir des fonctions avec **plusieurs paramètres** dont certains, parce que par exemple rarement modifiés, sont **optionnels et possèdent donc une valeur par défaut**. 
 
 
 
@@ -843,8 +847,14 @@ Il est parfois utile de définir des fonctions avec **plusieurs paramètres** do
 
 ```python
 def vetement(couleur\_pull='rouge', couleur\_pantalon='bleu'): 
-return 'Le pull est '+couleur\_pull+' et le pantalon est '+ couleur\_pantalon 
+    return 'Le pull est '+couleur\_pull+' et le pantalon est '+ couleur\_pantalon 
 ```
+
+Tester
+>> vetement('bleu','bleu')
+
+>>> vetement(couleur_pantalon='noir')
+
 
 ## **7. Exercices<a name="_page15_x40.00_y36.92"></a>** 
 
@@ -852,13 +862,26 @@ return 'Le pull est '+couleur\_pull+' et le pantalon est '+ couleur\_pantalon
 
 1. Ecrire une fonction carre() qui retourne le carré d’un nombre : 
 
-`  `![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.096.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.097.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.098.png)
+```
+>>> carre(11.11111)
+123.4567654321
+```
 
+2. Avec une boucle while et la fonction carre(), écrire un script qui affiche le carré des nombres entiers de 1 à 100 : 
 
-
-2. Avec une boucle while et la fonction carre(), écrire un script qui affiche le carré des nombres entiers ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.099.png)de 1 à 100 : 
-
-`  `![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.100.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.101.png)
+```
+>>> 
+1 ^2 = 1
+2 ^2 = 4
+3 ^2 = 9
+4 ^2 = 16
+5 ^2 = 25
+6 ^2 = 36
+…
+98 ^2 = 9604
+99 ^2 = 9801
+100 ^2 = 10000
+```
 
 
 
@@ -884,7 +907,10 @@ return 'Le pull est '+couleur\_pull+' et le pantalon est '+ couleur\_pantalon
 
 1. Ecrire une fonction qui retourne l’aire de la surface d’un disque de rayon R. Exemple : 
 
-`  `![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.102.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.097.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.098.png)
+```
+>>> airedisque(2.5)
+19.634954084936208
+```
 
 
 
@@ -892,25 +918,29 @@ return 'Le pull est '+couleur\_pull+' et le pantalon est '+ couleur\_pantalon
 
 Aide on ne peut faire de l’affichage facilement qu’en concaténant les chaines de caractères… 
 
-`   `![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.103.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.097.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.098.png)
+```
+>>> airedisque2(4.2, 'cm')
+'55.41769440932395 cm²'
+```
 
 
 
 **Exercice 15** ★ 
 
-1. Ecrire une fonction qui retourne la factorielle d’un nombre entier N. On rappelle que : ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.104.png)factorielle de N est noté N! 
+1. Ecrire une fonction qui retourne la factorielle d’un nombre entier N. On rappelle que : factorielle de N est noté N! 
 
 N!=1×2×…×(N−1)×N 
-
 Par exemple : 3!=1×2×3=6 
-
 1!=1 
-
 Par convention, 0!=1 
 
 Exemple : 
-
-`  `![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.105.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.005.png)
+```
+>>> factorielle(10)
+3628800
+>>> factorielle(0)
+1
+```
 
 
 
@@ -922,23 +952,29 @@ Exemple :
 
 **Exercice 16** ★ 
 
-1. A l’aide de la fonction randint() du module random, écrire une fonction qui retourne un mot de passe ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.106.png)de longueur N (chiffres, lettres minuscules ou majuscules).  
+1. A l’aide de la fonction randint() du module random, écrire une fonction qui retourne un mot de passe de longueur N (chiffres, lettres minuscules ou majuscules).  
 
 [https://www.w3schools.com/python/ref_random_randint.asp ](https://www.w3schools.com/python/ref_random_randint.asp) 
 
 On donne : chaine = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
 
-`  `![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.105.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.005.png)
+```
+>>> password(10)
+'WpMdQLccbt'
+>>> password(5)
+'1zCNr'
+```
 
 
 
 
 
+2. Reprendre la question 1) avec la fonction choice() du module random. Pour obtenir de l’aide sur cette fonction : 
 
-
-2. Reprendre la question 1) avec la fonction choice() du module random. Pour obtenir de l’aide sur cette ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.107.png)fonction : 
-
-import random help(random.choice) ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.108.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.109.png)
+```python
+import random 
+help(random.choice) 
+```
 
 3. Quel est le nombre de combinaisons possibles ? 
 3. Quelle durée faut-il pour casser le mot de passe de longueur 10 avec un logiciel capable de générer 1 million de combinaisons par seconde ? Convertir la valeur trouvée dans une unité mieux adaptée. 
@@ -949,59 +985,59 @@ Lien utile :[ www.exhaustif.com/Generateur-de-mot-de-passe-en.html ](http://www.
 
 ListeCarte = ['2s','2h','2d','2c','3s','3h','3d','3c','4s','4h','4d','4c','5s','5h','5d','5c', '6s','6h','6d','6c','7s','7h','7d','7c','8s','8h','8d','8c','9s','9h','9d','9c', 'Ts','Th','Td','Tc','Js','Jh','Jd','Jc','Qs','Qh','Qd','Qc','Ks','Kh','Kd','Kc','As','Ah','Ad','Ac'] 
 
-\>>> tiragecarte() '9s' ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.105.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.005.png)
+```
+>>> tiragecarte() 
+'9s' 
+>>> tiragecarte() 
+'7c' 
+```
 
-\>>> tiragecarte() '7c' 
+**Exercice 18** ★★   
 
-**Exercice 18** ★★ 
+1.  Ecrire une fonction qui retourne une liste de N cartes **différentes** d’un jeu de Poker à 52 cartes. Noter qu’une fonction peut appeler une fonction : on peut donc réutiliser la fonction tiragecarte() de l’exercice précédent. Exemple : 
 
-1\.  Ecrire une fonction qui retourne une liste de N cartes **différentes** d’un jeu de Poker à 52 cartes. Noter qu’une fonction peut appeler une fonction : on peut donc réutiliser la fonction tiragecarte() de ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.111.png)l’exercice précédent. Exemple : 
+```
+>>> tirage_n_carte(2)
+'5h 8c'
+>>> tirage_n_carte(10)
+'3c 4s 7c 7h 8d 4c Qd As Jd Jd'
+```
 
-`  `![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.112.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.113.png)
-
-
-
-
-
-
-
-
-
-
-
-
+2.  Simplifier le script avec la fonction shuffle()` `et sample()` `du module random. 
 
 
+**Exercice 19** ★★ Ecrire une fonction qui retourne une grille de numéros du jeu  Euro Millions. On utilisera la fonction sample() du module random.  
+![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.114.png)
 
-2\.  Simplifier le script avec la fonction shuffle()` `et sample()` `du module random. 
- -  -  -  -  -  -  - 
-
-**Exercice 19** ★★ Ecrire une fonction qui retourne une grille de numéros du jeu  ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.114.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.115.png)Euro Millions. On utilisera la fonction sample() du module random.  
-
-\>>> euromillions()  ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.116.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.117.png)
-
-[43, 31, 35, 41, 39, 22, 14]  >>> euromillions()  
-
-[38, 44, 5, 29, 31, 7, 14]  
+```
+>>> euromillions()  
+'43 31 35 41 39 22 14 ' 
+```
 
 **Exercice 20**   
 
-1\.  ★ Ecrire une fonction qui retourne la valeur de la fonction  mathématique f(x)= 27x3 -27x2 -18x +8 :  
+1.  ★ Ecrire une fonction qui retourne la valeur de la fonction  mathématique f(x)= 27x3 -27x2 -18x +8 :  
 
-\>>> f(0), f(1), f(0.5), f(0.25), f(0.375)   ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.118.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.119.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.120.png)(8, -10, -4.375, 2.234375, -1.123046875)  
+```
+>>> f(0), f(1), f(0.5), f(0.25), f(0.375)  
+(8, -10, -4.375, 2.234375, -1.123046875)  
+```
 
 
+2. ★★ On se propose de chercher les zéros de cette fonction par la (Wikipédia)[ méthode de dichotomie.](https://fr.wikipedia.org/wiki/M%C3%A9thode_de_dichotomie) 
 
-2\. ★★ On se propose de chercher les zéros de cette fonction par la (Wikipédia)[ méthode de dichotomie.](https://fr.wikipedia.org/wiki/M%C3%A9thode_de_dichotomie) 
- -  - 
 Ecrire le script correspondant. On recherche d’un zéro dans l’intervalle [a, b] avec une précision de 
 1e-12
 
-`  `![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.121.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.097.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.098.png)
+```
+>>> fonction(0,1)
+(0.33333333333303017, 0.33333333333393966)
+```
 
 
+3.  Chercher tous les zéros de cette fonction. 
 
-3\.  Chercher tous les zéros de cette fonction. 
+![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.122.jpeg)
 
 Annexe  :  représentation  ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.122.jpeg)graphique  de  la  fonction f(x)= 27x3 -27x2 - 
 
@@ -1011,8 +1047,8 @@ Annexe  :  représentation  ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7
 
 Source :[ Fabrice  ](http://fsincere.free.fr/isn/python/cours_python_ch4.php)
 
-[Sincère ](http://fsincere.free.fr/isn/python/cours_python_ch4.php)-[ Contenu sous  licence CC BY-NC-SA 3.0 ](http://creativecommons.org/licenses/by-nc-sa/3.0/fr/) ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.006.png)
-Première NSI   Chap 02: Les bases  Page 23/23 
+[Sincère ](http://fsincere.free.fr/isn/python/cours_python_ch4.php)-[ Contenu sous  licence CC BY-NC-SA 3.0 ](http://creativecommons.org/licenses/by-nc-sa/3.0/fr/) 
+
 
 
 ## **8. Problème<a name="_page15_x40.00_y36.91"></a>** 
