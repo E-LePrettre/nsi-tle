@@ -692,7 +692,7 @@ Pour ne pas être dérangé dans ses aventures il décide de les couper chaque f
 **Exercice 10** ★★ Ecrire une méthode heron(U, n) qui donne la valeur de la suite pour un rang n (méthode de Héron) : La méthode de Héron permet d’approcher la valeur de la racine carrée d’un nombre. Nous allons 
 
 l’appliquer pour déterminer la valeur approchée de la racine de 2. Elle est définie par la suite :  
-![](Aimg2.png)
+![](Aimg2.png=676x142)
 
 
 Donc cela signifie : 
