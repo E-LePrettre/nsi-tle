@@ -277,11 +277,10 @@ En Python, **un slice** permet le découpage de structures de données séquenti
 
 NB : si pas < 0, la liste est parcourue dans le sens inverse. 
 
-|0  |1  |2  |3  |4  |...  |21  |22  |23  |24  |25 | 
-| - |
-|A |B |C |D |E |... |V |W |X |Y |Z |
-| - |
-|-26  |-25  |-24  |-23  |-22  |... |-5  |-4  |-3  |-2  |-1 |
+|0   |1   |2   |3   |4   |...   |21   |22   |23   |24   |25   |
+|A   |B   |C   |D   |E   |...   |V    |W    |X    |Y    |Z    |
+|-26 |-25 |-24 |-23 |-22 |...   |-5   |-4   |-3   |-2   |-1   |
+
 
 **Activité n°11.:** 
 
@@ -301,9 +300,9 @@ string[-4:-2:]  # Renvoie du -4 au -2
 
     {{ terminal() }}
 
-|**Activité n°12.:** ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.051.png)Attention aux apostrophes et guillemets dans les chaînes de caractères ! |
-| - |
-|<p>>>> chaine = 'Aujourd'hui' ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.052.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.053.png)</p><p>SyntaxError: invalid syntax </p><p>>>> chaine  = 'Aujourd\'hui'   # séquence d'échappement \' >>> print(chaine) </p><p>Aujourd'hui </p><p>>>> chaine  = "Aujourd'hui" </p><p>>>> print(chaine) </p><p>Aujourd'hui </p>|
+**Activité n°12.:** ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.051.png)Attention aux apostrophes et guillemets dans les chaînes de caractères ! 
+
+chaine = 'Aujourd'hui' ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.052.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.053.png)</p><p>SyntaxError: invalid syntax </p><p>>>> chaine  = 'Aujourd\'hui'   # séquence d'échappement \' >>> print(chaine) </p><p>Aujourd'hui </p><p>>>> chaine  = "Aujourd'hui" </p><p>>>> print(chaine) </p><p>Aujourd'hui </p>|
 ||
 **Activité n°13.:** La séquence d'échappement \n représente un saut ligne : ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.054.png)
 
