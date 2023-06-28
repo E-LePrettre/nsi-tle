@@ -41,7 +41,9 @@ L’accès à la documentation se fait avec la fonction pré-définie help() :
 
 >>> help(mapremierefonction) # affichage de la documentation
 
+???+ question "Faire ce qui est proposé"
 
+    {{ IDE() }}
 
 
 **Activité n° 2.**:   
