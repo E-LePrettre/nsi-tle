@@ -56,10 +56,13 @@ def parite(nombre):
         return str(nombre)+ ' est pair'  
 ```
 Une fois la fonction définie, nous pouvons l’appeler : 
->>> parite(13)
+> parite(13)
   
->>> parite(24)
+> parite(24)
 
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
 
 
 ## **2. Les<a name="_page1_x40.00_y240.92"></a> conditions  ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.009.png)**
@@ -91,11 +94,13 @@ def moyenne(note):
         return "J'ai la moyenne" 
 ```
 Exécuter le programme  
->>> moyenne(16)
+> moyenne(16)
 
->>> moyenne(5)
+> moyenne(5)
 
+???+ question "Faire ce qui est proposé"
 
+    {{ IDE() }}
 
 **Activité n° 4. : Condition** 
  
@@ -111,9 +116,13 @@ def incremente_b(a):
         return a, b 
 ```
 Exécuter le programme  
->>> incremente_b(5) 
+> incremente_b(5) 
 
->>> incremente_b(-3)
+> incremente_b(-3)
+
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
 
 #### **2.1.2. L’instruction<a name="_page2_x40.00_y36.92"></a> else**![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.014.png)**
 
@@ -149,12 +158,15 @@ def moyenne(note):
 ```
 
 Tester le script avec  
->>> moyenne(15) 
+> moyenne(15) 
 
->>> moyenne(8.5) 
+> moyenne(8.5) 
 
->>> moyenne(56) 
+> moyenne(56) 
 
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
 
 
 **Activité n° 6.** Pour traiter le cas des notes invalides (<0 ou >20), on peut imbriquer des instructions conditionnelles, recopier 
@@ -178,9 +190,13 @@ def moyenne(note):
 ``` 
 
 Tester le script avec  
->>> moyenne(56) 
+> moyenne(56) 
 
->>> moyenne(14.6) 
+> moyenne(14.6) 
+
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
 
 **Activité n° 7.** On ajoute encore un niveau d’imbrication pour traiter les cas particuliers 0 et 20 : 
 
@@ -206,11 +222,15 @@ def moyenne(note):
 ```
 
 Tester le script avec  
->>> moyenne(20) 
+> moyenne(20) 
 
->>> moyenne(3) 
+> moyenne(3) 
 
 ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.065.png) On peut mettre qu’**UNE** instruction else par condition if et l’instruction else **n’est pas obligatoire** 
+
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
 
 #### **2.1.3. L’instruction<a name="_page3_x40.00_y321.92"></a> elif**
 
@@ -253,6 +273,10 @@ def moyenne(note):
 ```
 Tester le avec différentes notes 
 
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
+
 ### **2.2. Les<a name="_page4_x40.00_y36.92"></a> prédicats et booléens** 
 
 Les conditions qui se trouvent entre le if et les deux points sont appelés des prédicats. On peut tester directement ces prédicats dans l’interpréteur. 
@@ -260,15 +284,19 @@ Les conditions qui se trouvent entre le if et les deux points sont appelés des 
 #### **2.2.1. Les<a name="_page4_x40.00_y87.92"></a> booléens True et False :**
 
 Tester dans  la console
->>> a = 0 
+> a = 0 
 
->>> a == 5
+> a == 5
 
->>> a > -8 True 
+> a > -8 True 
 
->>> a != 10 True 
+> a != 10 True 
 
 L’interpréteur renvoie True (« vrai ») ou False (« faux »). True et False sont les deux valeurs possibles d’un nouveau type : les booléen (bool). 
+
+???+ question "Faire ce qui est proposé"
+
+    {{ terminal() }}
 
 #### **2.2.2. Les<a name="_page4_x40.00_y255.92"></a> booléens And, Or et Not :**
 
@@ -288,11 +316,13 @@ def bool_and(a):
         return "a n'est pas dans l'intervalle." 
 ```
 Tester 
->>> bool_and(5) 
+> bool_and(5) 
 
->>> bool_and(10) 
+> bool_and(10) 
 
+???+ question "Faire ce qui est proposé"
 
+    {{ IDE() }}
 
 **Activité n° 10. avec** or  
 
@@ -307,11 +337,13 @@ def bool_or(a):
         return "a est dans l'intervalle." 
 ```
 Tester 
->>> bool_or(5) 
+> bool_or(5) 
 
->>> bool_or(10)
+> bool_or(10)
 
+???+ question "Faire ce qui est proposé"
 
+    {{ IDE() }}
 
 **Activité n° 11. avec Not.**  
 
@@ -328,9 +360,13 @@ def bool_not(a):
 
 Le prédicat not a==5 équivaut donc à a!=5. 
 Tester 
->>> bool_not(5) 
+> bool_not(5) 
 
->>> bool_not(10)
+> bool_not(10)
+
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
 
 ### **2.3. Exercices<a name="_page5_x40.00_y36.92"></a>** 
 
@@ -461,20 +497,22 @@ def epeler(chaine):
 ```
 elmt s’appelle la variable d’itération 
 Tester la fonction avec : 
->>>>  epeler('Bonjour') 
+>  epeler('Bonjour') 
 
 La variable lettre est initialisée avec le premier élément de la séquence ('B'). Le bloc d’instructions est alors exécuté. 
 Puis la variable lettre est mise à jour avec le second élément de la séquence ('o') et le bloc d’instructions à nouveau 
 exécuté… Le bloc d’instructions est exécuté une dernière fois lorsqu’on arrive au dernier élément de la séquence ('r'). 
 
+???+ question "Faire ce qui est proposé"
 
+    {{ IDE() }}
 
 **Activité n° 13.**:  Tester le script précédent sur[ http://pythontutor.com/ ](http://pythontutor.com/)  
- - 
+
 
 **Activité n° 14.**:  avec les éléments d’une liste : 
 Tester la fonction précédente avec  
->>>  epeler(['Pierre', 67.5, 18])  
+>  epeler(['Pierre', 67.5, 18])  
 
 ### **3.2. L’instruction<a name="_page7_x40.00_y637.92"></a> for avec la fonction range()**
 
@@ -492,8 +530,11 @@ def compter(nombre):
     return 'voilà!!' 
 ```
 
->>>> compter(5)
+> compter(5)
 
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
 
 
 **Activité n° 16.**:  Table de multiplication 
@@ -508,7 +549,11 @@ def table_de_multiplication(nombre):
     p   rint(i, 'x', nombre, '=', i\*nombre) 
     return 'voilà!!' 
 ```
->>> table_de_multiplication(9) 
+> table_de_multiplication(9) 
+
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
 
 ### **3.3. L’instruction<a name="_page8_x40.00_y448.92"></a> while**
 
@@ -541,12 +586,14 @@ def compteur():
     return "le compteur vaut à la fin de la boucle vaut : "+str(compt) 
 ```
 
->>> compteur()
+> compteur()
 
+???+ question "Faire ce qui est proposé"
 
+    {{ IDE() }}
 
 **Activité n° 18.**:  Tester le script précédent sur[ http://pythontutor.com/ ](http://pythontutor.com/)  
- - 
+
 
 ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.065.png)Attention aux programmes qui cyclent (bouclent) : selon la condition de continuation on peut se retrouver sur une **boucle infinie.** Par exemple avec l’application précédente, avec une condition du type compteur > 0, condition qui sera toujours vrai, le programme exécute la boucle sans jamais s’arrêter.  
 
@@ -564,7 +611,9 @@ while quitter != 'o':
     quitter = input("Voulez-vous quitter le programme (o/n) ? ") 
 print("A bientôt") 
 ```
+???+ question "Faire ce qui est proposé"
 
+    {{ IDE() }}
 
 ### **3.4. L’instruction<a name="_page9_x40.00_y446.92"></a> break**
 
@@ -586,6 +635,9 @@ while True:
         break 
 print("A bientôt") 
 ```
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
 
 ### **3.5. Astuce<a name="_page9_x40.00_y739.92"></a>**  
 
@@ -784,13 +836,15 @@ def mafonction():
     return a 
 ```
 Tester
->>> print(a) # nous sommmes dans l'espace global du programme
+> print(a) # nous sommmes dans l'espace global du programme
 
->>> mafonction() # nous sommes dans l'espace local de la fonction
+> mafonction() # nous sommes dans l'espace local de la fonction
 
->>> print(a) # de retour dans l'espace global
+> print(a) # de retour dans l'espace global
 
+???+ question "Faire ce qui est proposé"
 
+    {{ IDE() }}
 
 Nous avons deux variables différentes qui portent le même nom a 
 
@@ -811,12 +865,15 @@ def mafonction():
     return a 
 ```
 Tester
->>> print(a)
+> print(a)
 
->>> mafonction()
+> mafonction()
 
->>> print(a)
+> print(a)
 
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
 
 **Remarque** : il est préférable **d'éviter** l’utilisation de l’instruction global car c’est une source d’erreurs (on peut ainsi modifier le contenu d’une variable globale en croyant agir sur une variable locale).  
 
@@ -832,12 +889,15 @@ Parfois **pour éviter d’avoir à coder une fonction surtout si elle est très
 g = lambda x: 2\*x 
 ```
 
->>> g(3) 
+> g(3) 
 
->>> g(4) 
+> g(4) 
 
 Point de vocabulaire : En toute rigueur, on appelle fonctions les **fonctions** qui **retourne quelque chose (avec return**) et **procédure celle qui ne retourne rien**. 
 
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
 
 ## **6. Fonctions<a name="_page14_x40.00_y36.92"></a> avec des valeurs par défaut** 
 
@@ -853,10 +913,13 @@ def vetement(couleur\_pull='rouge', couleur\_pantalon='bleu'):
 ```
 
 Tester
->>> vetement('bleu','bleu')
+> vetement('bleu','bleu')
 
->>> vetement(couleur_pantalon='noir')
+> vetement(couleur_pantalon='noir')
 
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
 
 ## **7. Exercices<a name="_page15_x40.00_y36.92"></a>** 
 
