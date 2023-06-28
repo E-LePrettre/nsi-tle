@@ -249,12 +249,17 @@ print(nom, prenom)   # ne pas oublier la virgule
 
     {{ IDE('scripts/activite8') }}
 
-|**Activité n°9.:** La concaténation désigne la mise bout à bout de plusieurs chaînes de caractères (de type string). La |
-| - |
-|concaténation utilise l’opérateur + |
-|<p>>>> nom = 'Dupont' >>> prenom = "Pierre"![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.045.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.046.png)</p><p>>>> chaine = nom + prenom  # concaténation de deux chaînes de caractères >>> print(chaine) </p><p>DupontPierre </p>|
-||
+**Activité n°9.:** La concaténation désigne la mise bout à bout de plusieurs chaînes de caractères (de type string). La concaténation utilise l’opérateur + 
 
+```python
+nom = 'Dupont' 
+prenom = "Pierre"
+chaine = nom + prenom  # concaténation de deux chaînes de caractères 
+print(chaine) 
+```
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE('scripts/activite9') }}
 
 |**Activité n°10.:** La fonction len() retourne la longueur (length) de la chaîne de caractères : |
 | - |
