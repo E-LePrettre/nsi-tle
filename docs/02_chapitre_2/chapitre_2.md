@@ -38,9 +38,9 @@ Une fois la fonction définie, nous pouvons l’appeler :
 
 L’accès à la documentation se fait avec la fonction pré-définie help() : 
 
-```python
-help(mapremierefonction) # affichage de la documentation
-``` 
+
+>>> help(mapremierefonction) # affichage de la documentation
+
 
 
 
@@ -54,8 +54,8 @@ def parite(nombre):
         return str(nombre)+ ' est pair'  
 ```
 Une fois la fonction définie, nous pouvons l’appeler : 
-parite(13) 
-parite(24)
+>>> parite(13) 
+>>> parite(24)
 
 
 
@@ -68,7 +68,7 @@ parite(24)
 L’instruction if  (si en français) permet d’exécuter des instructions  seulement si une certaine condition est satisfaite.  
 
 if expression:         # attention à la ponctuation   
-`   `bloc d'instructions  # attention à l'indentation  
+`       `bloc d'instructions  # attention à l'indentation  
 suite du programme  
 
 Si l’expression est vraie (True) alors le bloc d’instructions est exécuté.  Si l’expression est fausse (False) on passe directement à la suite du  programme.  
