@@ -667,13 +667,18 @@ Z → C
 On pourra utiliser la chaîne 'abcdefghijklmnopqrstuvwxyz',  la méthode find() de la classe str et la méthode lower() qui permet de tout mettre en minuscule. Pour obtenir de l’aide sur cette méthode : 
 
 ```
+>>> help(str.find)
+>>> help(str.lower)
 ```
 
 
 
-2. Ecrire la fonction message\_a\_decoder(message) qui permet le décodage. Par exemple : 
+2. Ecrire la fonction message_a_decoder(message) qui permet le décodage. Par exemple : 
 
-`       `![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.081.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.082.png)
+```
+>> message_a_decoder('obfhh mhdq fdvvdljqh fodvvh gh qvl')
+'lycee jean cassaigne classe de nsi'
+```
 
 
 
@@ -683,7 +688,7 @@ Pour ne pas être dérangé dans ses aventures il décide de les couper chaque f
 
 Écrire un script qui affiche dans combien de jours Geralt devra couper ses cheveux. 
 
-**Les exercices suivants nécessitent quelques (peu quand même) aptitudes en mathématiques…** ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.083.png)
+**Les exercices suivants nécessitent quelques (peu quand même) aptitudes en mathématiques…** 
 
 **Exercice 10** ★★ Ecrire une méthode heron(U, n) qui donne la valeur de la suite pour un rang n (méthode de Héron) : La méthode de Héron permet d’approcher la valeur de la racine carrée d’un nombre. Nous allons 
 
