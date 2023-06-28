@@ -264,22 +264,22 @@ print(chaine)
 
     {{ terminal() }}
 
-|**Activité n°10.:** La fonction len() retourne la longueur (length) de la chaîne de caractères : |
-| - |
-|>>> len("abc") 3 ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.047.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.048.png)|
-||
+**Activité n°10.:** La fonction len() retourne la longueur (length) de la chaîne de caractères : 
+
+```python
+len("abc")  
+```
+???+ question "Faire ce qui est proposé"
+
+    {{ terminal() }}
+
 En Python, **un slice** permet le découpage de structures de données séquentielles (chaînes de caractères ou les listes). Les slices sont des expressions du langage Python qui permettent en une ligne de code d'extraire des éléments d'une liste ou d'une chaîne selon leurs indices **[début:fin:pas].** 
 
 NB : si pas < 0, la liste est parcourue dans le sens inverse. 
 
-0  1  2  3  4  ...  21  22  23  24  25 
-
-
-
+|0  |1  |2  |3  |4  |...  |21  |22  |23  |24  |25 
 |A |B |C |D |E |... |V |W |X |Y |Z |
-| - | - | - | - | - | - | - | - | - | - | - |
-
--26  -25  -24  -23  -22  -5  -4  -3  -2  -1 
+|-26  |-25  |-24  |-23  |-22  |... |-5  |-4  |-3  |-2  |-1 
 
 
 
