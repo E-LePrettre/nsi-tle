@@ -1,4 +1,4 @@
-# NSI 1ère au lycée JC
+# NSI 1ère au lycée Jean Cassaigne
 ---
 
 
