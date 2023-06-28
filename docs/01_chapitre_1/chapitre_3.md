@@ -277,11 +277,7 @@ En Python, **un slice** permet le découpage de structures de données séquenti
 
 NB : si pas < 0, la liste est parcourue dans le sens inverse. 
 
-||
-|0..|1..|2   |3   |4   |...   |21   |22   |23   |24   |25   |
-|A..|B..|C   |D   |E   |...   |V    |W    |X    |Y    |Z    |
-|-26|-25|-24 |-23 |-22 |...   |-5   |-4   |-3   |-2   |-1   |
-||
+![](Aimg.png)
 
 **Activité n°11.:** 
 
@@ -354,29 +350,48 @@ print('Age : ', infoperso[2])    # le troisième élément a l'indice 2
 
 **Activité n°16.:** Quelques fonctions utiles len() 
 
-liste = [5,7,8]   # Crée la liste [5,7,8] ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.062.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.063.png)
+```python
+liste = [5,7,8]   # Crée la liste [5,7,8]
+len(liste)   # Affiche le nombre d'éléments dans liste 3 
+```
+???+ question "Faire ce qui est proposé"
 
-\>>> len(liste)   # Affiche le nombre d'éléments dans liste 3 
+    {{ terminal() }}
 
+**Activité n°17.:** Quelques méthodes utiles : append() , pop()
 
+```python
+liste = [5, 8, 11] 
+liste.append(3)     #Ajoute l'élément 3 en fin de liste 
+liste 
+liste.pop(1)       #Retire l’élément à l’indice 1 
+liste 
+```
 
-|**Activité n°17.:** Quelques méthodes utiles : append() , pop()|
-| - |
-|<p>>>> liste = [5, 8, 11] ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.064.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.065.png)</p><p>>>> liste.append(3)     #Ajoute l'élément 3 en fin de liste >>> liste </p><p>[5, 8, 11, 3] </p><p>>>> liste.pop (1)       #Retire l’élément à l’indice 1 </p><p>8 </p><p>>>> liste </p><p>[5, 11, 3] </p>|
-||
+???+ question "Faire ce qui est proposé"
 
+    {{ terminal() }}
 
-|**Activité n°18.:** La méthode lower()retourne la chaîne de caractères en casse minuscule (upper() fait l’inverse): |
-| - |
-|<p>>>> chaine = "BONJOUR"  # ou bien : chaine = str("BONJOUR") ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.066.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.067.png)</p><p>>>> chaine2 = chaine.lower()   # on applique la méthode lower() à l'objet chaine >>> print(chaine2) </p><p>bonjour </p><p>>>> print(chaine) </p><p>BONJOUR </p>|
-||
+**Activité n°18.:** La méthode lower()retourne la chaîne de caractères en casse minuscule (upper() fait l’inverse): 
+
+```python
+chaine = "BONJOUR"  # ou bien : chaine = str("BONJOUR") 
+chaine2 = chaine.lower()   # on applique la méthode lower() à l'objet chaine 
+print(chaine2) 
+print(chaine) 
+```
+???+ question "Faire ce qui est proposé"
+
+    {{ terminal() }}
 
 
 |**Activité n°19.:** Les opérations sur les listes |
 | - |
 |<p>>>> x = [ 1 , 2 , 3 , 4] ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.068.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.069.png)</p><p>>>> y = [ 5 , 6 , 7 , 8] </p><p>>>> x + y </p><p>[ 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8] </p><p>>>> x = [ 0 , 1] </p><p>>>> [ 0 ]\*10 </p><p>[ 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ] </p>|
 ||
+???+ question "Faire ce qui est proposé"
 
+    {{ terminal() }}
 
 |**Activité n°20.:** La fonction split() permet de créer une liste en indiquant le séparateur (par exemple l’espace pour obtenir |
 | - |
