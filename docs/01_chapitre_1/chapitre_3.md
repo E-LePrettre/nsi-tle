@@ -97,14 +97,14 @@ Le langage Python est gratuit, sous **licence libre**.
 **Activité n°1.:Les calculs de bases :** Tester les calculs suivant :
 
 ```python
-print(7 + 3 * 4)
-print((7 + 3 ) * 4)
-print(10 / 3)
+7 + 3 * 4
+(7 + 3 ) * 4
+10 / 3
 ```
 
 ???+ question "Faire ce qui est proposé"
 
-    {{ IDE('scripts/activite1') }}
+    {{ terminal() }}
 
  
  Les espaces sont optionnels. 
@@ -113,27 +113,27 @@ print(10 / 3)
 **Activité n°2.:** **Addition de float :** Tester les calculs suivant :
 
 ```python
-print(3.11 + 2.08)
+3.11 + 2.08
 ```
 
 ???+ question "Faire ce qui est proposé"
 
-    {{ IDE('scripts/activite2') }}
+    {{ terminal() }}
     
 Que remarquez-vous ?............. 
 
 **Activité n°3.:** **La division entière et le modulo :** Tester les calculs :
 
 ```python
-print(10 // 5) 
-print(10 // 4)
-print(10 % 4)
-print(10 % 3)
+10 // 5
+10 // 4
+10 % 4
+10 % 3
 ```
 
 ???+ question "Faire ce qui est proposé"
 
-    {{ IDE('scripts/activite3') }}
+    {{ terminal() }}
 
 La division entière permet de déterminer la valeur tronquée de la division et le modulo permet de déterminer la valeur du reste. 
 
@@ -199,7 +199,7 @@ print(a)
 ```
 ???+ question "Faire ce qui est proposé"
 
-    {{ IDE('scripts/activite6') }}
+    {{ terminal() }}
 
 #### **4.5.3. Le<a name="_page4_x40.00_y602.92"></a> type float (nombres en virgule flottante)**
 **Activité n°7.:** Tester les calculs suivant dans la console
@@ -230,7 +230,7 @@ print(c)
 ```
 ???+ question "Faire ce qui est proposé"
 
-    {{ IDE('scripts/activite7') }}
+    {{ terminal() }}
 
 #### **4.5.4. Le<a name="_page5_x40.00_y196.92"></a> type str (string : chaîne de caractères)**
 
@@ -247,7 +247,7 @@ print(nom, prenom)   # ne pas oublier la virgule
 ```
 ???+ question "Faire ce qui est proposé"
 
-    {{ IDE('scripts/activite8') }}
+    {{ terminal() }}
 
 **Activité n°9.:** La concaténation désigne la mise bout à bout de plusieurs chaînes de caractères (de type string). La concaténation utilise l’opérateur + 
 
@@ -259,7 +259,7 @@ print(chaine)
 ```
 ???+ question "Faire ce qui est proposé"
 
-    {{ IDE('scripts/activite9') }}
+    {{ terminal() }}
 
 |**Activité n°10.:** La fonction len() retourne la longueur (length) de la chaîne de caractères : |
 | - |
