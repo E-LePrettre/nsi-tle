@@ -202,16 +202,21 @@ print(type(age))
  a = a – 3 # on décrémente la valeur de a. On peut l’écrire aussi a -=3  
  print(a) 
  ```
- 
-3. Le<a name="_page4_x40.00_y602.92"></a> type float (nombres en virgule flottante) **Activité n°7.: ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.032.png)**
+ ???+ question "Lancer la console et tester"
 
-\>>> b = 17.0  # le séparateur décimal est un point (et non une virgule) >>> print(b) ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.033.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.034.png)
+    {{ IDE('scripts/activite') }}
 
-17\.0 
+#### **4.5.3. Le<a name="_page4_x40.00_y602.92"></a> type float (nombres en virgule flottante) 
+**Activité n°7.:** Tester les calculs suivant dans la console
 
-\>>> print(type(b)) 
+```python
+b = 17.0  # le séparateur décimal est un point (et non une virgule) 
+print(b) 
+print(type(b)) 
+```
+???+ question "Lancer la console et tester"
 
-<class 'float'> 
+    {{ IDE('scripts/activite') }}
 
 \>>> c = 14.0 / 3.0 >>> print(c) 4.66666666667 ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.035.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.036.png)
 
