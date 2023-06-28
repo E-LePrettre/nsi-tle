@@ -249,7 +249,7 @@ def moyenne(note):
     else:
         return "Note invalide !"
 ```
-Tester le avec différentes notes ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.006.png)
+Tester le avec différentes notes 
 
 ### **2.2. Les<a name="_page4_x40.00_y36.92"></a> prédicats et booléens** 
 
@@ -257,11 +257,14 @@ Les conditions qui se trouvent entre le if et les deux points sont appelés des 
 
 #### **2.2.1. Les<a name="_page4_x40.00_y87.92"></a> booléens True et False :**
 
-\>>> a = 0 >>> a == 5 False ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.025.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.026.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.027.png)
+Tester dans  la console
+>>> a = 0 
 
-\>>> a > -8 True 
+>>> a == 5
 
-\>>> a != 10 True 
+>>> a > -8 True 
+
+>>> a != 10 True 
 
 L’interpréteur renvoie True (« vrai ») ou False (« faux »). True et False sont les deux valeurs possibles d’un nouveau type : les booléen (bool). 
 
@@ -271,71 +274,84 @@ L’interpréteur renvoie True (« vrai ») ou False (« faux »). True et False
 
 
 **Activité n° 9.  avec** And**.**  
- - 
-def bool\_and(a): 
-""" 
-Utilisation du booléen and 
-""" 
-if a >= 2 and a <= 8: 
-return "a est dans l'intervalle." 
-else: 
-return "a n'est pas dans l'intervalle." 
+
+```python 
+def bool_and(a): 
+    """ 
+    Utilisation du booléen and 
+    """ 
+    if a >= 2 and a <= 8: 
+        return "a est dans l'intervalle." 
+    else: 
+        return "a n'est pas dans l'intervalle." 
+```
 Tester 
->>> bool\_and(5) 
->>> bool\_and(10) 
+>>> bool_and(5) 
+
+>>> bool_and(10) 
 
 
 
 **Activité n° 10. avec** or  
- - 
-def bool\_or(a): 
-""" 
-Utilisation du booléen or 
-""" 
-if a < 2 or a > 8: 
-return "a n'est pas dans l'intervalle." 
-else: 
-return "a est dans l'intervalle." 
+
+```python
+def bool_or(a): 
+    """ 
+    Utilisation du booléen or 
+    """ 
+    if a < 2 or a > 8: 
+        return "a n'est pas dans l'intervalle." 
+    else: 
+        return "a est dans l'intervalle." 
+```
 Tester 
->>> bool\_or(5) 
->>> bool\_or(10)
+>>> bool_or(5) 
+
+>>> bool_or(10)
 
 
 
 **Activité n° 11. avec Not.**  
- - 
-def bool\_not(a): 
-""" 
-Utilisation du booléen not 
-""" 
-if not a == 5 : 
-return "a n'est pas égal à 5." 
-else: 
-return "a est égal à 5." 
+
+```python 
+def bool_not(a): 
+    """ 
+    Utilisation du booléen not 
+    """ 
+    if not a == 5 : 
+        return "a n'est pas égal à 5." 
+    else: 
+        return "a est égal à 5." 
+```
+
 Le prédicat not a==5 équivaut donc à a!=5. 
 Tester 
->>> bool\_not(5) 
->>> bool\_not(10)
+>>> bool_not(5) 
+
+>>> bool_not(10)
 
 ### **2.3. Exercices<a name="_page5_x40.00_y36.92"></a>** 
 
-Remarque pour relancer une autre fois le script sous Pycharm utiliser la touche ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.028.png)
 
 **Exercice 1** ★ Le numéro de sécurité sociale est constitué de 13 chiffres auquel s’ajoute la clé de contrôle (2 chiffres). La clé de contrôle est calculée par la formule : 97 - (numéro de sécurité sociale modulo 97) 
 
 Ecrire un script qui contrôle la validité d’un numéro de sécurité sociale. On pourra utiliser la fonction int() 
 
-pour convertir le type str en type int. Numéro de sécurité social valide : 1 89 11 26 108 268 91. Exemple : ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.029.png)
+pour convertir le type str en type int. Numéro de sécurité social valide : 1 89 11 26 108 268 91. Exemple : 
+```
+>>> secu(1891126108268, 91)
+Votre numéro de sécurité sociale est valide.
+>>> secu(2891126108268, 91)
+Votre numéro de sécurité sociale est INVALIDE !
+```
 
-`   `![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.030.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.031.png)
 
 
 
 
 
 
-
-**Exercice 2.** ★ Ecrire une fonction mention(note) qui affichera la mention correspondante à la note obtenue.  ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.032.png)Les mentions sont obtenues 
+**Exercice 2.** ★ Ecrire une fonction mention(note) qui affichera la mention correspondante à la note obtenue.  Les mentions sont obtenues 
 
 - Une mention "assez bien" si sa moyenne est égale ou supérieure à 12/20 et inférieure à 14/20. 
 - Une mention "bien" si sa moyenne est au moins égale à 14/20 et inférieure à 16/20. 
@@ -345,9 +361,15 @@ Si la note est supérieure ou égale à 10/20 et inférieure 12/20 le candidat o
 
 SI la note est inférieure à 10/20 le candidat n’a pas obtenu le bac 
 
-Par exemple :** 
+Par exemple :
+```
+>>> mention(17)
+'Très bien'
+>>> mention(8)
+'recalé'
+```
 
-`  `![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.033.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.034.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.035.png)
+`  `
 
 
 
