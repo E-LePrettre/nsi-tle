@@ -616,7 +616,9 @@ help(str.count)
 **Exercice 7** ★ 
 
 1.  Ecrire la fonction devinette(proposition) du jeu de devinette suivant : 
-``>>> 
+
+```
+>>> 
 Le jeu consiste à deviner un nombre entre 1 et 100 :
 choisir un nombre>? 50
 trop petit !
@@ -626,8 +628,7 @@ choisir un nombre>? 70
 trop grand
 choisir un nombre>? 66
 Gagné 
-en 3 coups !`
-
+en 3 coups !
 ```
 
 2.  Quelle est la stratégie la plus efficace ? 
@@ -663,16 +664,12 @@ Z → C
 
 
 
-
-
-
 On pourra utiliser la chaîne 'abcdefghijklmnopqrstuvwxyz',  la méthode find() de la classe str et la méthode lower() qui permet de tout mettre en minuscule. Pour obtenir de l’aide sur cette méthode : 
 
 ```
 >>> help(str.find)
 >>> help(str.lower)
 ```
-
 
 
 2. Ecrire la fonction message_a_decoder(message) qui permet le décodage. Par exemple : 
