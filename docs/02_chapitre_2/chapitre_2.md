@@ -33,13 +33,13 @@ def mapremierefonction():  # cette fonction n'a pas de paramètre
 
 Une fois la fonction définie, nous pouvons l’appeler : 
 
->>> mapremierefonction()  # ne pas oublier les parenthèses () 
+> mapremierefonction()  # ne pas oublier les parenthèses () 
 
 
 L’accès à la documentation se fait avec la fonction pré-définie help() : 
 
 
->>> help(mapremierefonction) # affichage de la documentation
+> help(mapremierefonction) # affichage de la documentation
 
 ???+ question "Faire ce qui est proposé"
 
