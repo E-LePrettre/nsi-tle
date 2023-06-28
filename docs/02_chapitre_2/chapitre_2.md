@@ -54,7 +54,8 @@ def parite(nombre):
         return str(nombre)+ ' est pair'  
 ```
 Une fois la fonction définie, nous pouvons l’appeler : 
->>> parite(13)  
+>>> parite(13)
+  
 >>> parite(24)
 
 
