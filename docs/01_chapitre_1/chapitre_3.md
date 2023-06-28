@@ -281,13 +281,23 @@ NB : si pas < 0, la liste est parcourue dans le sens inverse.
 |A |B |C |D |E |... |V |W |X |Y |Z |
 |-26  |-25  |-24  |-23  |-22  |... |-5  |-4  |-3  |-2  |-1 
 
+**Activité n°11.:** 
 
+```python
+string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" 
+string[0]  # Renvoie l’élément à l’indice 0 
+string[2]  # Renvoie l’élément à l’indice 2 
+string[:3]   # Renvoie les trois premiers termes 
+string[:13:2]  # Renvoie les 13 premiers termes, mais 1 sur 2 'ACEGIKM' 
+string[::-1]  # Renvoie le renversement la chaine de caractère 'ZYXWVUTSRQPONMLKJIHGFEDCBA' 
+string[13::-2]  # Renvoie du 13e à la fin, mais 1 sur 2 et à l’envers 'NLJHFDB' 
+string[:13:-2]  # Renvoie du début au 13e, mais 1 sur 2 et à l’envers 'ZXVTRP' 
+string[-1::]  # Renvoie du -1 à la fin donc le -1 
+string[-4:-2:]  # Renvoie du -4 au -2 
+```
+???+ question "Faire ce qui est proposé"
 
-|**Activité n°11.:** |
-| - |
-|<p>>>>>>> string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.049.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.050.png)</p><p>>>> string[0]  # Renvoie l’élément à l’indice 0 </p><p>'A' </p><p>>>> string[2]  # Renvoie l’élément à l’indice 2 </p><p>'C' </p><p>>>> string[:3]   # Renvoie les trois premiers termes </p><p>'ABC' </p><p>>>> string[:13:2]  # Renvoie les 13 premiers termes, mais 1 sur 2 'ACEGIKM' </p><p>>>> string[::-1]  # Renvoie le renversement la chaine de caractère 'ZYXWVUTSRQPONMLKJIHGFEDCBA' </p><p>>>> string[13::-2]  # Renvoie du 13e à la fin, mais 1 sur 2 et à l’envers 'NLJHFDB' </p><p>>>> string[:13:-2]  # Renvoie du début au 13e, mais 1 sur 2 et à l’envers 'ZXVTRP' </p><p>>>> string[-1::]  # Renvoie du -1 à la fin donc le -1 </p><p>'Z' </p><p>>>> string[-4:-2:]  # Renvoie du -4 au -2 </p><p>'WX' </p>|
-||
-
+    {{ terminal() }}
 
 |**Activité n°12.:** ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.051.png)Attention aux apostrophes et guillemets dans les chaînes de caractères ! |
 | - |
