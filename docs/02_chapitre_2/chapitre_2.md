@@ -170,99 +170,71 @@ Tester le script avec
 moyenne(56) 
 moyenne(14.6) 
 
-**Activité n° 7.** On ajoute encore un niveau d’imbrication pour traiter les cas particuliers 0 et 20 : ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.018.png)
+**Activité n° 7.** On ajoute encore un niveau d’imbrication pour traiter les cas particuliers 0 et 20 : 
 
+```python
 def moyenne(note): 
-
-`    `""" 
-
-`    `cette fonction permet de savoir si on a la moyenne 
-
-`    `""" 
-
-`    `if note > 20.0 or note < 0.0: 
-
-- ce bloc est exécuté si l'expression (note > 20.0 or note < 0.0) est vraie 
-
-`        `return "Note invalide !" 
-
-`    `else: 
-
-- ce bloc est exécuté si l'expression (note > 20.0 or note < 0.0) est fausse 
-
-`        `if note >= 10.0:  # ce bloc est exécuté si l'expression (note >= 10.0) est vraie             if note == 20.0:# ce bloc est exécuté si l'expression (note == 20.0) est vraie                 return "C'est excellent !" 
-
-`            `return "J'ai la moyenne" 
-
-`        `else: 
-
-- ce bloc est exécuté si l'expression (note >= 10.0) est fausse 
-
-`            `if note == 0.0: # ce bloc est exécuté si l'expression (note == 0.0) est vraie                 return "... lamentable !" 
-
-`            `return "C'est en dessous de la moyenne" 
+    """ 
+    cette fonction permet de savoir si on a la moyenne 
+    """ 
+    if note > 20.0 or note < 0.0: 
+    # ce bloc est exécuté si l'expression (note > 20.0 or note < 0.0) est vraie 
+        return "Note invalide !" 
+    else: 
+        # ce bloc est exécuté si l'expression (note > 20.0 or note < 0.0) est fausse 
+        if note >= 10.0:  # ce bloc est exécuté si l'expression (note >= 10.0) est vraie             
+            if note == 20.0:# ce bloc est exécuté si l'expression (note == 20.0) est vraie                 
+                return "C'est excellent !" 
+            return "J'ai la moyenne" 
+        else: 
+            # ce bloc est exécuté si l'expression (note >= 10.0) est fausse 
+            if note == 0.0: # ce bloc est exécuté si l'expression (note == 0.0) est vraie                 
+                return "... lamentable !" 
+            return "C'est en dessous de la moyenne"
+```
 
 Tester le script avec  
+moyenne(20) 
+moyenne(3) 
 
-\>>> moyenne(20) 
-
-\>>> moyenne(3) 
-
-![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.019.png) On peut mettre qu’**UNE** instruction else par condition if et l’instruction else **n’est pas obligatoire** 
+![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.065.png) On peut mettre qu’**UNE** instruction else par condition if et l’instruction else **n’est pas obligatoire** 
 
 #### **2.1.3. L’instruction<a name="_page3_x40.00_y321.92"></a> elif**
 
 Une instruction elif (contraction de else if) est toujours associée à une instruction if
 
-if expression 1: ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.021.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.022.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.023.png)
-
+if expression 1: 
 `    `bloc d'instructions 1 
-
 elif expression 2: 
-
 `    `bloc d'instructions 2 
-
 elif expression 3: 
-
 `    `bloc d'instructions 3  # ici deux instructions elif, mais il n'y a pas de limitation else: 
-
 `    `bloc d'instructions 4 
+suite du programme 
 
-- suite du programme 
 - Si l’expression 1 est vraie alors le bloc d’instructions 1 est exécuté, et on passe à la suite du programme. Si l’expression 1 est fausse alors on teste l’expression 2 : 
 - Si l’expression 2 est vraie on exécute le bloc d’instructions 2, et on passe à la suite du programme. Si l’expression 2 est fausse alors on teste l’expression 3, etc. 
 - Le bloc d’instructions 4 est donc exécuté si toutes les expressions sont fausses (c’est le bloc “par défaut”). 
 
-L’instruction elif évite souvent l’utilisation de conditions imbriquées (et souvent compliquées). ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.024.png)
+L’instruction elif évite souvent l’utilisation de conditions imbriquées (et souvent compliquées).
 
 **Activité n° 8.**  
-
-def moyenne(note): 
-
-`    `""" 
-
-`    `cette fonction permet de donner une appréciation sur la note 
-
-`    `""" 
-
-`    `if note == 0.0: 
-
-`        `return "... lamentable !" 
-
-`    `elif note == 20.0: 
-
-`        `return "C'est excellent !" 
-
-`    `elif note < 10.0 and note > 0.0: 
-
-`        `return "C'est en dessous de la moyenne" 
-
-`    `elif note >= 10.0 and note < 20.0: # ou bien : elif 10.0 <= note < 20.0:         return "J'ai la moyenne" 
-
-`    `else: 
-
-`        `return "Note invalide !" 
-
+```python
+def moyenne(note):
+    """
+    cette fonction permet de donner une appréciation sur la note
+    """
+    if note == 0.0:
+        return "... lamentable !"
+    elif note == 20.0:
+        return "C'est excellent !"
+    elif note < 10.0 and note > 0.0:
+        return "C'est en dessous de la moyenne"
+    elif note >= 10.0 and note < 20.0: # ou bien : elif 10.0 <= note < 20.0:
+        return "J'ai la moyenne"
+    else:
+        return "Note invalide !"
+```
 Tester le avec différentes notes ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.006.png)
 
 ### **2.2. Les<a name="_page4_x40.00_y36.92"></a> prédicats et booléens** 
