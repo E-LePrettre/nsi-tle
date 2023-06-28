@@ -1,6 +1,6 @@
 ﻿---
 author: ELP
-title: Chapitre 3 - ise au point des scripts et gestion des exceptions
+title: Chapitre 3 - Mise au point des scripts et gestion des exceptions
 ---
 
 
