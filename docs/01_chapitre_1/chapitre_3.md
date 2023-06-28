@@ -104,7 +104,7 @@ print(10 / 3)
 
 ???+ question "Faire ce qui est proposé"
 
-    {{ IDE('scripts/activite') }}
+    {{ IDE('scripts/activite1') }}
 
  
  Les espaces sont optionnels. 
@@ -118,7 +118,7 @@ print(3.11 + 2.08)
 
 ???+ question "Faire ce qui est proposé"
 
-    {{ IDE('scripts/activite') }}
+    {{ IDE('scripts/activite2') }}
     
 Que remarquez-vous ?............. 
 
@@ -133,7 +133,7 @@ print(10 % 3)
 
 ???+ question "Faire ce qui est proposé"
 
-    {{ IDE('scripts/activite') }}
+    {{ IDE('scripts/activite3') }}
 
 La division entière permet de déterminer la valeur tronquée de la division et le modulo permet de déterminer la valeur du reste. 
 
@@ -152,7 +152,7 @@ print(2 ** 3)
 
 ???+ question "Faire ce qui est proposé"
 
-    {{ IDE('scripts/activite') }}
+    {{ IDE('scripts/activite4') }}
 
 ### **4.5. Variables,<a name="_page4_x40.00_y133.92"></a> types** 
 
@@ -184,7 +184,7 @@ print(type(age))
 
 ???+ question "Faire ce qui est proposé"
 
-    {{ IDE('scripts/activite') }}
+    {{ IDE('scripts/activite5') }}
 
 
 **Activité n°6.:** L’incrémentation ou la décrémentation : Tester les calculs suivant dans la console
@@ -199,7 +199,7 @@ print(a)
 ```
 ???+ question "Faire ce qui est proposé"
 
-    {{ IDE('scripts/activite') }}
+    {{ IDE('scripts/activite6') }}
 
 #### **4.5.3. Le<a name="_page4_x40.00_y602.92"></a> type float (nombres en virgule flottante)**
 **Activité n°7.:** Tester les calculs suivant dans la console
@@ -209,24 +209,18 @@ b = 17.0  # le séparateur décimal est un point (et non une virgule)
 print(b) 
 print(type(b)) 
 ```
-???+ question "Faire ce qui est proposé""
 
-    {{ IDE('scripts/activite') }}
 
 ```python
 c = 14.0 / 3.0 
 print(c) 
 ```
-???+ question "Faire ce qui est proposé"
 
-    {{ IDE('scripts/activite') }}
 
 ```python
 c = 14.0 // 3.0  # division entière print(c)
 ```
-???+ question "Faire ce qui est proposé"
 
-    {{ IDE('scripts/activite') }}
 
 ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.040.png)Attention : avec des nombres entiers, l’opérateur / renvoie généralement un flottant : 
 
@@ -236,16 +230,24 @@ print(c)
 ```
 ???+ question "Faire ce qui est proposé"
 
-    {{ IDE('scripts/activite') }}
+    {{ IDE('scripts/activite7') }}
 
 #### **4.5.4. Le<a name="_page5_x40.00_y196.92"></a> type str (string : chaîne de caractères)**
 
 
-|**Activité n°8.:**  |
-| - |
-|<p>>>> nom = 'Dupont'    # entre apostrophes ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.043.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.044.png)</p><p>>>> print(nom) </p><p>Dupont </p><p>>>> print(type(nom)) </p><p><class 'str'> </p><p>>>> prenom = "Pierre"   # on peut aussi utiliser les guillemets >>> print(prenom) </p><p>Pierre </p><p>>>> print(nom, prenom)   # ne pas oublier la virgule </p><p>Dupont Pierre </p>|
-||
+**Activité n°8.:**  Tester les calculs suivant dans la console
 
+```python
+nom = 'Dupont'    # entre apostrophes 
+print(nom) 
+print(type(nom)) 
+prenom = "Pierre"   # on peut aussi utiliser les guillemets 
+print(prenom) 
+print(nom, prenom)   # ne pas oublier la virgule 
+```
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE('scripts/activite8') }}
 
 |**Activité n°9.:** La concaténation désigne la mise bout à bout de plusieurs chaînes de caractères (de type string). La |
 | - |
