@@ -172,16 +172,19 @@ Exemple : age, mon\_age, temperature1  A éviter : Age, AGE, monAge, Temperature
 **Activité n°5.:** Tester les calculs suivant dans la console
 
 ```python
-age = 17```
+age = 17
+```
 
 La fonction print affiche la valeur de la variable : 
 ```python
-print(age)```
+print(age)
+```
 
 
 La fonction type() retourne le type de la variable : 
 ```python
-print(type(age))```
+print(type(age))
+```
 
 
 ???+ question "Lancer la console et tester"
@@ -189,10 +192,17 @@ print(type(age))```
     {{ IDE('scripts/activite') }}
 
 
-**Activité n°6.:** L’incrémentation ou la décrémentation : 
-| - |
-|<p>>>> # ceci est un commentaire ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.030.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.031.png)</p><p>>>> a = 10 </p><p>>>> a = a + 1 # on incrémente la valeur de a. On peut l’écrire aussi a +=1 >>> print(a) </p><p>11 </p><p>>>> a = a – 3 # on décrémente la valeur de a. On peut l’écrire aussi a -=3  >>> print(a) </p>|
-||
+**Activité n°6.:** L’incrémentation ou la décrémentation : Tester les calculs suivant dans la console
+
+```python
+ # ceci est un commentaire 
+ a = 10 
+ a = a + 1 # on incrémente la valeur de a. On peut l’écrire aussi a +=1 
+ print(a) 
+ a = a – 3 # on décrémente la valeur de a. On peut l’écrire aussi a -=3  
+ print(a) 
+ ```
+ 
 3. Le<a name="_page4_x40.00_y602.92"></a> type float (nombres en virgule flottante) **Activité n°7.: ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.032.png)**
 
 \>>> b = 17.0  # le séparateur décimal est un point (et non une virgule) >>> print(b) ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.033.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.034.png)
