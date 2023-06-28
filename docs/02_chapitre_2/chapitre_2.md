@@ -177,6 +177,7 @@ def moyenne(note):
 
 Tester le script avec  
 >>> moyenne(56) 
+
 >>> moyenne(14.6) 
 
 **Activité n° 7.** On ajoute encore un niveau d’imbrication pour traiter les cas particuliers 0 et 20 : 
@@ -204,6 +205,7 @@ def moyenne(note):
 
 Tester le script avec  
 >>> moyenne(20) 
+
 >>> moyenne(3) 
 
 ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.065.png) On peut mettre qu’**UNE** instruction else par condition if et l’instruction else **n’est pas obligatoire** 
@@ -212,14 +214,17 @@ Tester le script avec
 
 Une instruction elif (contraction de else if) est toujours associée à une instruction if
 
+```
 if expression 1: 
-`        `bloc d'instructions 1 
+    bloc d'instructions 1 
 elif expression 2: 
-`        `bloc d'instructions 2 
+    bloc d'instructions 2 
 elif expression 3: 
-`        `bloc d'instructions 3  # ici deux instructions elif, mais il n'y a pas de limitation else: 
-`        `bloc d'instructions 4 
+    bloc d'instructions 3  # ici deux instructions elif, mais il n'y a pas de limitation 
+else: 
+    bloc d'instructions 4 
 suite du programme 
+```
 
 - Si l’expression 1 est vraie alors le bloc d’instructions 1 est exécuté, et on passe à la suite du programme. Si l’expression 1 est fausse alors on teste l’expression 2 : 
 - Si l’expression 2 est vraie on exécute le bloc d’instructions 2, et on passe à la suite du programme. Si l’expression 2 est fausse alors on teste l’expression 3, etc. 
