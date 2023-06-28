@@ -22,94 +22,101 @@ On utilise l’instruction def puis dans la définition de la fonction l’instr
 
 
 
-|**Activité n° 1.**:   |
-| - |
-|def mapremierefonction():  # cette fonction n'a pas de paramètre |
-|"""  |
-|Cette fonction renvoie 'Bonjour'  |
-|""" |
-|return "Bonjour"       |
-||
-|Une fois la fonction définie, nous pouvons l’appeler : |
-|>>> mapremierefonction()  # ne pas oublier les parenthèses () Bonjour ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.001.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.002.png)|
-||
+**Activité n° 1.**:   
+```python
+def mapremierefonction():  # cette fonction n'a pas de paramètre 
+    """  
+    Cette fonction renvoie 'Bonjour'  
+    """ 
+    return "Bonjour"       
+```
+
+Une fois la fonction définie, nous pouvons l’appeler : 
+
+mapremierefonction()  # ne pas oublier les parenthèses () 
+
+
 L’accès à la documentation se fait avec la fonction pré-définie help() : 
 
-\>>> help(mapremierefonction) # affichage de la documentation Help ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.003.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.004.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.005.png)on function mapremierefonction in module \_\_main\_\_: 
-
-mapremierefonction() 
-
-`    `Cette fonction renvoie 'Bonjour' ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.006.png)
+```python
+help(mapremierefonction) # affichage de la documentation
+``` 
 
 
 
-|**Activité n° 2.**:   |
-| - |
-|def parite(nombre): |
-|""" Affiche la parité d'un nombre entier """ |
-|if nombre%2 != 0:   # L'opérateur % donne le reste d'une division |
-|return str(nombre)+ ' est impair' |
-|elif nombre%2 == 0: |
-|return str(nombre)+ ' est pair'  |
-|Une fois la fonction définie, nous pouvons l’appeler : |
-|>>> parite(13) 13 est impair >>> parite(24) 24 est pair ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.007.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.008.png)|
-||
+**Activité n° 2.**:   
+```python 
+def parite(nombre): 
+    """ Affiche la parité d'un nombre entier """ 
+    if nombre%2 != 0:   # L'opérateur % donne le reste d'une division 
+        return str(nombre)+ ' est impair' 
+    elif nombre%2 == 0: 
+        return str(nombre)+ ' est pair'  
+```
+Une fois la fonction définie, nous pouvons l’appeler : 
+parite(13) 
+parite(24)
+
+
 
 ## **2. Les<a name="_page1_x40.00_y240.92"></a> conditions  ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.009.png)**
 
 ### **2.1. Les<a name="_page1_x40.00_y262.92"></a> structures conditionnelles**  
 #### **2.1.1. L’instruction<a name="_page1_x40.00_y281.92"></a> simple if**
+![](Aimg.png)
 
 L’instruction if  (si en français) permet d’exécuter des instructions  seulement si une certaine condition est satisfaite.  
 
-if expression:         # attention à la ponctuation   ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.011.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.012.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.013.png)    bloc d'instructions  # attention à l'indentation  
+if expression:         # attention à la ponctuation   
+    bloc d'instructions  # attention à l'indentation  
+suite du programme  
 
-- suite du programme  
+Si l’expression est vraie (True) alors le bloc d’instructions est exécuté.  Si l’expression est fausse (False) on passe directement à la suite du  programme.  
 
-Si l’expression est vraie (True) alors le bloc d’instructions est exécuté.  Si l’expression est fausse (False) on passe directement à la suite du  programme.  ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.006.png)
-
-
-
-|**Activité n° 3.**: **Condition**    |
-| - |
-|Recopier le code suivant |
-|def moyenne(note): |
-|""" |
-|cette fonction permet de savoir si on a la moyenne|
-|""" |
-|if note >= 10: |
-|# ce bloc est exécuté si note >= 10.0 est vraie|
-|return "J'ai la moyenne" |
-|Exécuter le programme  |
-|>>> moyenne(16) |
-|>>> moyenne(5)|
+**Activité n° 3.: Condition**    
+ - 
+Recopier le code suivant 
+```python
+def moyenne(note): 
+    """ 
+    cette fonction permet de savoir si on a la moyenne
+    """ 
+    if note >= 10: 
+        # ce bloc est exécuté si note >= 10.0 est vraie
+        return "J'ai la moyenne" 
+```
+Exécuter le programme  
+moyenne(16) 
+moyenne(5)
 
 
 
-|**Activité n° 4. : Condition** |
-| - |
-|Recopier le code suivant |
-|def incremente\_b(a): |
-|""" |
-|cette fonction incrémente la valeur de b sous conditions de la valeur de a |
-|""" |
-|b = 8 |
-|if a > 0: |
-|b = b + 1 |
-|return a, b |
-|Exécuter le programme  |
-|>>> incremente\_b(5) |
-|>>> incremente\_b(-3)|
+**Activité n° 4. : Condition** 
+ 
+Recopier le code suivant 
+```python
+def incremente_b(a): 
+    """ 
+    cette fonction incrémente la valeur de b sous conditions de la valeur de a 
+    """ 
+    b = 8 
+    if a > 0: 
+        b = b + 1 
+        return a, b 
+```
+Exécuter le programme  
+incremente_b(5) 
+incremente_b(-3)
 
 #### **2.1.2. L’instruction<a name="_page2_x40.00_y36.92"></a> else**![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.014.png)**
 
 Une instruction else est toujours associée à une instruction if 
 
-if expression: ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.015.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.016.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.017.png)
-
-`    `bloc d'instructions 1   # attention à l'indentation else:   # else est au même niveau que if     bloc d'instructions 2   # attention à l'indentation 
-
-- suite du programme 
+if expression: 
+`    `bloc d'instructions 1   # attention à l'indentation 
+else:   # else est au même niveau que if     
+`    `bloc d'instructions 2   # attention à l'indentation 
+suite du programme 
 
 Si l’expression est vraie (True) alors le bloc d’instructions 1 est exécuté. 
 
@@ -117,49 +124,52 @@ Si l’expression est fausse (False) alors c’est le bloc d’instructions 2 qu
 
 
 
-|**Activité n° 5. Condition** |
-| - |
-|recopier et tester le code suivant** |
-|def moyenne(note): |
-|""" |
-|cette fonction permet de savoir si on a la moyenne |
-|""" |
-|if note >= 10: |
-|# ce bloc est exécuté si note >= 10.0 est vraie |
-|return "J'ai la moyenne" |
-|else: |
-|return "C'est en dessous de la moyenne" |
-||
-|Tester le script avec  |
-|>>> moyenne(15) |
-|>>> moyenne(8.5) |
-|>>> moyenne(56) |
-||
+**Activité n° 5. Condition** 
+
+recopier et tester le code suivant
+```python
+def moyenne(note): 
+    """ 
+    cette fonction permet de savoir si on a la moyenne 
+    """ 
+    if note >= 10: 
+        # ce bloc est exécuté si note >= 10.0 est vraie 
+        return "J'ai la moyenne" 
+    else: 
+        return "C'est en dessous de la moyenne" 
+```
+
+Tester le script avec  
+moyenne(15) 
+moyenne(8.5) 
+moyenne(56) 
 
 
-|**Activité n° 6.** Pour traiter le cas des notes invalides (<0 ou >20), on peut imbriquer des instructions conditionnelles, recopier |
-| - |
-|et tester le code suivant :** |
-|def moyenne(note): |
-|""" |
-|cette fonction permet de savoir si on a la moyenne |
-|""" |
-|if note > 20.0 or note < 0.0: |
-|# ce bloc est exécuté si l'expression (note > 20.0 or note < 0.0) est vraie |
-|return "Note invalide !" |
-|else: |
-|# ce bloc est exécuté si l'expression (note > 20.0 or note < 0.0) est fausse |
-|if note >= 10.0: |
-|# ce bloc est exécuté si l'expression (note >= 10.0) est vraie |
-|return "J'ai la moyenne" |
-|else: |
-|# ce bloc est exécuté si l'expression (note >= 10.0) est fausse |
-|return "C'est en dessous de la moyenne" |
-||
-|Tester le script avec  |
-|>>> moyenne(56) |
-|>>> moyenne(14.6) |
-||
+
+**Activité n° 6.** Pour traiter le cas des notes invalides (<0 ou >20), on peut imbriquer des instructions conditionnelles, recopier 
+et tester le code suivant :
+```python
+def moyenne(note): 
+    """ 
+    cette fonction permet de savoir si on a la moyenne 
+    """ 
+    if note > 20.0 or note < 0.0: 
+        # ce bloc est exécuté si l'expression (note > 20.0 or note < 0.0) est vraie 
+        return "Note invalide !" 
+    else: 
+        # ce bloc est exécuté si l'expression (note > 20.0 or note < 0.0) est fausse 
+        if note >= 10.0: 
+            # ce bloc est exécuté si l'expression (note >= 10.0) est vraie 
+            return "J'ai la moyenne" 
+        else: 
+            # ce bloc est exécuté si l'expression (note >= 10.0) est fausse 
+            return "C'est en dessous de la moyenne"
+``` 
+
+Tester le script avec  
+moyenne(56) 
+moyenne(14.6) 
+
 **Activité n° 7.** On ajoute encore un niveau d’imbrication pour traiter les cas particuliers 0 et 20 : ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.018.png)
 
 def moyenne(note): 
@@ -274,52 +284,52 @@ L’interpréteur renvoie True (« vrai ») ou False (« faux »). True et False
 
 
 
-|**Activité n° 9.  avec** And**.**  |
-| - |
-|def bool\_and(a): |
-|""" |
-|Utilisation du booléen and |
-|""" |
-|if a >= 2 and a <= 8: |
-|return "a est dans l'intervalle." |
-|else: |
-|return "a n'est pas dans l'intervalle." |
-|Tester |
-|>>> bool\_and(5) |
-|>>> bool\_and(10) |
+**Activité n° 9.  avec** And**.**  
+ - 
+def bool\_and(a): 
+""" 
+Utilisation du booléen and 
+""" 
+if a >= 2 and a <= 8: 
+return "a est dans l'intervalle." 
+else: 
+return "a n'est pas dans l'intervalle." 
+Tester 
+>>> bool\_and(5) 
+>>> bool\_and(10) 
 
 
 
-|**Activité n° 10. avec** or  |
-| - |
-|def bool\_or(a): |
-|""" |
-|Utilisation du booléen or |
-|""" |
-|if a < 2 or a > 8: |
-|return "a n'est pas dans l'intervalle." |
-|else: |
-|return "a est dans l'intervalle." |
-|Tester |
-|>>> bool\_or(5) |
-|>>> bool\_or(10)|
+**Activité n° 10. avec** or  
+ - 
+def bool\_or(a): 
+""" 
+Utilisation du booléen or 
+""" 
+if a < 2 or a > 8: 
+return "a n'est pas dans l'intervalle." 
+else: 
+return "a est dans l'intervalle." 
+Tester 
+>>> bool\_or(5) 
+>>> bool\_or(10)
 
 
 
-|**Activité n° 11. avec Not.**  |
-| - |
-|def bool\_not(a): |
-|""" |
-|Utilisation du booléen not |
-|""" |
-|if not a == 5 : |
-|return "a n'est pas égal à 5." |
-|else: |
-|return "a est égal à 5." |
-|Le prédicat not a==5 équivaut donc à a!=5. |
-|Tester |
-|>>> bool\_not(5) |
-|>>> bool\_not(10)|
+**Activité n° 11. avec Not.**  
+ - 
+def bool\_not(a): 
+""" 
+Utilisation du booléen not 
+""" 
+if not a == 5 : 
+return "a n'est pas égal à 5." 
+else: 
+return "a est égal à 5." 
+Le prédicat not a==5 équivaut donc à a!=5. 
+Tester 
+>>> bool\_not(5) 
+>>> bool\_not(10)
 
 ### **2.3. Exercices<a name="_page5_x40.00_y36.92"></a>** 
 
@@ -426,27 +436,27 @@ for élément in séquence :     bloc d'instructions ![](Aspose.Words.f2199d1c-8
 
 
 
-|**Activité n° 12.**:  Avec une séquence de caractères : |
-| - |
-|def epeler(chaine): |
-|""" |
-|affiche chaque lettre de la chaine de caractère appelée chaine |
-|""" |
-|for elmt in chaine: |
-|print(elmt) |
-|return 'voilà!!' |
-|elmt s’appelle la variable d’itération |
-|Tester la fonction avec : |
-|<p>>>>  epeler('Bonjour') B ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.051.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.052.png)</p><p>o </p><p>n </p><p>s </p><p>o </p><p>i </p><p>r </p><p>'voilà!!' </p>|
-||
-|La variable lettre est initialisée avec le premier élément de la séquence ('B'). Le bloc d’instructions est alors exécuté. |
-|Puis la variable lettre est mise à jour avec le second élément de la séquence ('o') et le bloc d’instructions à nouveau |
-|exécuté… Le bloc d’instructions est exécuté une dernière fois lorsqu’on arrive au dernier élément de la séquence ('r'). |
+**Activité n° 12.**:  Avec une séquence de caractères : 
+ - 
+def epeler(chaine): 
+""" 
+affiche chaque lettre de la chaine de caractère appelée chaine 
+""" 
+for elmt in chaine: 
+print(elmt) 
+return 'voilà!!' 
+elmt s’appelle la variable d’itération 
+Tester la fonction avec : 
+<p>>>>  epeler('Bonjour') B ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.051.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.052.png)</p><p>o </p><p>n </p><p>s </p><p>o </p><p>i </p><p>r </p><p>'voilà!!' </p>
+
+La variable lettre est initialisée avec le premier élément de la séquence ('B'). Le bloc d’instructions est alors exécuté. 
+Puis la variable lettre est mise à jour avec le second élément de la séquence ('o') et le bloc d’instructions à nouveau 
+exécuté… Le bloc d’instructions est exécuté une dernière fois lorsqu’on arrive au dernier élément de la séquence ('r'). 
 
 
 
-|**Activité n° 13.**:  Tester le script précédent sur[ http://pythontutor.com/ ](http://pythontutor.com/)  |
-| - |
+**Activité n° 13.**:  Tester le script précédent sur[ http://pythontutor.com/ ](http://pythontutor.com/)  
+ - 
 
 **Activité n° 14.**:  avec les éléments d’une liste : Tester la fonction précédente avec  ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.053.png)
 
@@ -462,36 +472,36 @@ for élément in séquence :     bloc d'instructions ![](Aspose.Words.f2199d1c-8
 
 
 
-|**Activité n° 15.**:  L’association avec la fonction range() est très utile pour créer des **séquences automatiques de nombres** |
-| - |
-|**entiers :** |
-|def compter(nombre): |
-|""" |
-|affiche les nombres de 1 à celui demandé comme un chrono |
-|""" |
-|for i in range(1,nombre+1): |
-|print(i) |
-|return 'voilà!!' |
+**Activité n° 15.**:  L’association avec la fonction range() est très utile pour créer des **séquences automatiques de nombres** 
+ - 
+**entiers :** 
+def compter(nombre): 
+""" 
+affiche les nombres de 1 à celui demandé comme un chrono 
+""" 
+for i in range(1,nombre+1): 
+print(i) 
+return 'voilà!!' 
 
 
 
-|<p>>>> compter(5) 1 ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.057.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.058.png)</p><p>2 </p><p>3 </p><p>4 </p><p>5 </p><p>'voilà!!' </p>|
-| :- |
-||
+<p>>>> compter(5) 1 ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.057.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.058.png)</p><p>2 </p><p>3 </p><p>4 </p><p>5 </p><p>'voilà!!' </p>
+ :- 
 
 
-|**Activité n° 16.**:  Table de multiplication |
-| - |
-|La création d’une table de multiplication paraît plus simple avec une boucle for qu’avec une boucle while : |
-|def table\_de\_multiplication(nombre): |
-|""" |
-|affiche la table de multiplication du nombre demandé |
-|""" |
-|for i in range(0,11): |
-|print(i, 'x', nombre, '=', i\*nombre) |
-|return 'voilà!!' |
-|<p>>>> table\_de\_multiplication(9) 0 x 9 = 0 ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.059.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.060.png)</p><p>1 x 9 = 9 </p><p>2 x 9 = 18 </p><p>3 x 9 = 27 </p><p>4 x 9 = 36 </p><p>5 x 9 = 45 </p><p>6 x 9 = 54 </p><p>7 x 9 = 63 </p><p>8 x 9 = 72 </p><p>9 x 9 = 81 </p><p>10 x 9 = 90 </p><p>'voilà!!' </p>|
-||
+
+**Activité n° 16.**:  Table de multiplication 
+ - 
+La création d’une table de multiplication paraît plus simple avec une boucle for qu’avec une boucle while : 
+def table\_de\_multiplication(nombre): 
+""" 
+affiche la table de multiplication du nombre demandé 
+""" 
+for i in range(0,11): 
+print(i, 'x', nombre, '=', i\*nombre) 
+return 'voilà!!' 
+<p>>>> table\_de\_multiplication(9) 0 x 9 = 0 ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.059.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.060.png)</p><p>1 x 9 = 9 </p><p>2 x 9 = 18 </p><p>3 x 9 = 27 </p><p>4 x 9 = 36 </p><p>5 x 9 = 45 </p><p>6 x 9 = 54 </p><p>7 x 9 = 63 </p><p>8 x 9 = 72 </p><p>9 x 9 = 81 </p><p>10 x 9 = 90 </p><p>'voilà!!' </p>
+
 ### **3.3. L’instruction<a name="_page8_x40.00_y448.92"></a> while**
 
 On utilise généralement la boucle while lorsqu’on souhaite répéter un nombre de fois une même instruction et **qu’on ne sait pas combien de fois cette instruction va être répétée**. 
@@ -530,30 +540,30 @@ def compteur():
 
 
 
-|||
-| :- | :- |
-|||
+
+ :-  :- 
 
 
-|**Activité n° 18.**:  Tester le script précédent sur[ http://pythontutor.com/ ](http://pythontutor.com/)  |
-| - |
+
+**Activité n° 18.**:  Tester le script précédent sur[ http://pythontutor.com/ ](http://pythontutor.com/)  
+ - 
 
 ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.065.png)Attention aux programmes qui cyclent (bouclent) : selon la condition de continuation on peut se retrouver sur une **boucle infinie.** Par exemple avec l’application précédente, avec une condition du type compteur > 0, condition qui sera toujours vrai, le programme exécute la boucle sans jamais s’arrêter.  
 
 
 
-|**Activité n° 19.**:  Affichage de l’heure courante |
-| - |
-|import time     # importation du module time |
-|quitter = 'n'   # initialisation |
-|while quitter != 'o': |
-|# ce bloc est exécuté tant que la condition est vraie |
-|# strftime() est une fonction du module time |
-|print('Heure courante ', time.strftime('%H:%M:%S')) |
-|quitter = input("Voulez-vous quitter le programme (o/n) ? ") |
-|print("A bientôt") |
-|<p>>>> ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.066.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.067.png)</p><p>Heure courante  04:48:47 </p><p>Voulez-vous quitter le programme (o/n) ? >? n Heure courante  04:48:56 </p><p>Voulez-vous quitter le programme (o/n) ? >? o A bientôt </p>|
-||
+**Activité n° 19.**:  Affichage de l’heure courante 
+ - 
+import time     # importation du module time 
+quitter = 'n'   # initialisation 
+while quitter != 'o': 
+# ce bloc est exécuté tant que la condition est vraie 
+# strftime() est une fonction du module time 
+print('Heure courante ', time.strftime('%H:%M:%S')) 
+quitter = input("Voulez-vous quitter le programme (o/n) ? ") 
+print("A bientôt") 
+<p>>>> ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.066.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.067.png)</p><p>Heure courante  04:48:47 </p><p>Voulez-vous quitter le programme (o/n) ? >? n Heure courante  04:48:56 </p><p>Voulez-vous quitter le programme (o/n) ? >? o A bientôt </p>
+
 ### **3.4. L’instruction<a name="_page9_x40.00_y446.92"></a> break**
 
 L’instruction break provoque une **sortie immédiate** d’une boucle while ou d’une boucle for. 
@@ -562,18 +572,18 @@ Dans l’exemple suivant, l’expression True est toujours … vraie : on a une 
 
 
 
-|**Activité n° 20.**:  Affichage de l’heure courante ||
-| - | :- |
-|import time     # importation du module time ||
-|while True: ||
-|print('Heure courante ', time.strftime('%H:%M:%S')) ||
-|time.sleep(1) # fait une pause de 1s entre chaque affichage ||
-|quitter = input('Voulez-vous quitter le programme (o/n) ? ') ||
-|if quitter == 'o': ||
-|break ||
-|print("A bientôt") ||
-|||
-|||
+**Activité n° 20.**:  Affichage de l’heure courante 
+ -  :- 
+import time     # importation du module time 
+while True: 
+print('Heure courante ', time.strftime('%H:%M:%S')) 
+time.sleep(1) # fait une pause de 1s entre chaque affichage 
+quitter = input('Voulez-vous quitter le programme (o/n) ? ') 
+if quitter == 'o': 
+break 
+print("A bientôt") 
+
+
 ### **3.5. Astuce<a name="_page9_x40.00_y739.92"></a>**  
 
 Si  vous  **connaissez  le  nombre  de  boucles  à  effectuer,  utiliser  une  boucle for**.  Autrement,  utiliser  une boucle while (notamment pour faire des boucles sans fin). ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.006.png)
@@ -582,36 +592,36 @@ Si  vous  **connaissez  le  nombre  de  boucles  à  effectuer,  utiliser  une  
 
 
 
-|**Exercice 5** ★ Ecrire une fonction moyenne(liste) qui calcule la moyenne d’une série de notes. On pourra|
-| - |
-|utiliser une variable qui contient la somme intermédiaire des notes. |
-|<p>`    `![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.068.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.069.png)</p><p> </p>|
-||
-|**Exercice 6** ★ |
-|1\.  Avec une boucle for, écrire une fonction nombre\_de\_z(chaine) qui compte le nombre de lettres z |
-|dans une chaîne de caractères. Par exemple : |
-|<p>` `nombre\_de\_z('Zinedine Zidane') ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.070.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.071.png)</p><p> </p>|
-||
-|2\.  Ecrire une fonction nombre\_de\_z2(chaine) qui fait la même chose, directement avec la |
-|méthode count() de la classe str. Pour obtenir de l’aide sur cette méthode : |
-|![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.072.png) |
-||
-|**Exercice 7** ★ |
-|1\.  Ecrire la fonction devinette(proposition) du jeu de devinette suivant : |
-|<p>`  `![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.073.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.074.png)</p><p>            </p><p>    </p><p>   </p><p>    </p><p>   </p><p>    </p><p>  </p><p>    </p><p>  </p><p>    </p>|
-||
-|2\.  Quelle est la stratégie la plus efficace ? |
-|3\.  Question bonus : Montrer que l’on peut deviner un nombre en 7 coups maximum. |
-|Bibliographie :[ La dichotomie ](http://fr.wikipedia.org/wiki/Dichotomie)|
-|Remarques :  |
-|￿  l’algorithme de Dichotomie est au programme de première NSI. |
-|￿  pour créer un nombre entier aléatoire entre 1 et 100 : |
-|import random |
-|nombre = random.randint(1,100) |
-||
-|**Exercice 8** ★★ Code de César |
-|En cryptographie, le code de César est une technique de chiffrement élémentaire qui consiste à décaler une |
-|lettre de 3 rangs vers la droite : |
+**Exercice 5** ★ Ecrire une fonction moyenne(liste) qui calcule la moyenne d’une série de notes. On pourra
+ - 
+utiliser une variable qui contient la somme intermédiaire des notes. 
+<p>`    `![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.068.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.069.png)</p><p> </p>
+
+**Exercice 6** ★ 
+1\.  Avec une boucle for, écrire une fonction nombre\_de\_z(chaine) qui compte le nombre de lettres z 
+dans une chaîne de caractères. Par exemple : 
+<p>` `nombre\_de\_z('Zinedine Zidane') ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.070.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.071.png)</p><p> </p>
+
+2\.  Ecrire une fonction nombre\_de\_z2(chaine) qui fait la même chose, directement avec la 
+méthode count() de la classe str. Pour obtenir de l’aide sur cette méthode : 
+![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.072.png) 
+
+**Exercice 7** ★ 
+1\.  Ecrire la fonction devinette(proposition) du jeu de devinette suivant : 
+<p>`  `![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.073.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.074.png)</p><p>            </p><p>    </p><p>   </p><p>    </p><p>   </p><p>    </p><p>  </p><p>    </p><p>  </p><p>    </p>
+
+2\.  Quelle est la stratégie la plus efficace ? 
+3\.  Question bonus : Montrer que l’on peut deviner un nombre en 7 coups maximum. 
+Bibliographie :[ La dichotomie ](http://fr.wikipedia.org/wiki/Dichotomie)
+Remarques :  
+￿  l’algorithme de Dichotomie est au programme de première NSI. 
+￿  pour créer un nombre entier aléatoire entre 1 et 100 : 
+import random 
+nombre = random.randint(1,100) 
+
+**Exercice 8** ★★ Code de César 
+En cryptographie, le code de César est une technique de chiffrement élémentaire qui consiste à décaler une 
+lettre de 3 rangs vers la droite : 
 
 A → D B → E ... Z → C 
 
@@ -767,15 +777,15 @@ La **portée d’une variable** est l’endroit du programme où on peut accéde
 
 
 
-|**Activité n° 21.**: Observons le script suivant : ||
-| - | :- |
-|a = 10     # variable globale au programme ||
-|||
-|def mafonction(): ||
-|a = 20 # variable locale à la fonction ||
-|return a ||
-|||
-|||
+**Activité n° 21.**: Observons le script suivant : 
+ -  :- 
+a = 10     # variable globale au programme 
+
+def mafonction(): 
+a = 20 # variable locale à la fonction 
+return a 
+
+
 Nous avons deux variables différentes qui portent le même nom a 
 
 Une variable a de valeur 20 est créée dans la fonction : c’est une **variable locale** à la fonction. **Elle est détruite dès que l’on sort de la fonction.** 
@@ -784,16 +794,16 @@ Une variable a de valeur 20 est créée dans la fonction : c’est une **variabl
 
 
 
-|**Activité n° 22.**: L’instruction global rend une variable globale : ||
-| - | :- |
-|a = 10     # variable globale ||
-|||
-|def mafonction(): ||
-|global a   # la variable est maintenant globale ||
-|a = 20 ||
-|return a ||
-|||
-|||
+**Activité n° 22.**: L’instruction global rend une variable globale : 
+ -  :- 
+a = 10     # variable globale 
+
+def mafonction(): 
+global a   # la variable est maintenant globale 
+a = 20 
+return a 
+
+
 **Remarque** : il est préférable **d'éviter** l’utilisation de l’instruction global car c’est une source d’erreurs (on peut ainsi modifier le contenu d’une variable globale en croyant agir sur une variable locale).  
 
 ## **5. La<a name="_page13_x40.00_y581.92"></a> fonction lambda** 
@@ -802,13 +812,13 @@ Parfois **pour éviter d’avoir à coder une fonction surtout si elle est très
 
 
 
-|**Activité n° 23.**: Au lieu de coder la fonction g(x)= 2x, on peut écrire |
-| - |
-||
-|g = lambda x: 2\*x |
-||
-|<p>>>> g(3) 6 ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.094.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.095.png)</p><p>>>> g(4) 8 </p>|
-||
+**Activité n° 23.**: Au lieu de coder la fonction g(x)= 2x, on peut écrire 
+ - 
+
+g = lambda x: 2\*x 
+
+<p>>>> g(3) 6 ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.094.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.095.png)</p><p>>>> g(4) 8 </p>
+
 Point de vocabulaire : En toute rigueur, on appelle fonctions les **fonctions** qui **retourne quelque chose (avec return**) et **procédure celle qui ne retourne rien**. ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.006.png)
 
 ## **6. Fonctions<a name="_page14_x40.00_y36.92"></a> avec des valeurs par défaut** 
@@ -817,12 +827,12 @@ Il est parfois utile de définir des fonctions avec **plusieurs paramètres** do
 
 
 
-|**Activité n° 24.**: ||
-| - | :- |
-|def vetement(couleur\_pull='rouge', couleur\_pantalon='bleu'): ||
-|return 'Le pull est '+couleur\_pull+' et le pantalon est '+ couleur\_pantalon ||
-|||
-|||
+**Activité n° 24.**: 
+ -  :- 
+def vetement(couleur\_pull='rouge', couleur\_pantalon='bleu'): 
+return 'Le pull est '+couleur\_pull+' et le pantalon est '+ couleur\_pantalon 
+
+
 ## **7. Exercices<a name="_page15_x40.00_y36.92"></a>** 
 
 **Exercice 13** ☆ 
@@ -950,9 +960,9 @@ ListeCarte = ['2s','2h','2d','2c','3s','3h','3d','3c','4s','4h','4d','4c','5s','
 
 
 
-|2\.  Simplifier le script avec la fonction |shuffle()|` `et |sample()|` `du module |random|. |
-| - | - | - | - | - | - | - |
-||||||||
+2\.  Simplifier le script avec la fonction shuffle()` `et sample()` `du module random. 
+ -  -  -  -  -  -  - 
+
 **Exercice 19** ★★ Ecrire une fonction qui retourne une grille de numéros du jeu  ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.114.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.115.png)Euro Millions. On utilisera la fonction sample() du module random.  
 
 \>>> euromillions()  ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.116.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.117.png)
@@ -969,10 +979,10 @@ ListeCarte = ['2s','2h','2d','2c','3s','3h','3d','3c','4s','4h','4d','4c','5s','
 
 
 
-|2\. |★★ On se propose de chercher les zéros de cette fonction par la (Wikipédia)[ méthode de dichotomie.](https://fr.wikipedia.org/wiki/M%C3%A9thode_de_dichotomie) |
-| - | - |
-||Ecrire le script correspondant. On recherche d’un zéro dans l’intervalle [a, b] avec une précision de |
-||1e-12|
+2\. ★★ On se propose de chercher les zéros de cette fonction par la (Wikipédia)[ méthode de dichotomie.](https://fr.wikipedia.org/wiki/M%C3%A9thode_de_dichotomie) 
+ -  - 
+Ecrire le script correspondant. On recherche d’un zéro dans l’intervalle [a, b] avec une précision de 
+1e-12
 
 `  `![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.121.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.097.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.098.png)
 
