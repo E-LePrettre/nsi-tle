@@ -190,13 +190,13 @@ print(type(age))
 **Activité n°6.:** L’incrémentation ou la décrémentation : Tester les calculs suivant dans la console
 
 ```python
- # ceci est un commentaire 
- a = 10 
- a = a + 1 # on incrémente la valeur de a. On peut l’écrire aussi a +=1 
- print(a) 
- a = a – 3 # on décrémente la valeur de a. On peut l’écrire aussi a -=3  
- print(a) 
- ```
+# ceci est un commentaire 
+a = 10 
+a = a + 1 # on incrémente la valeur de a. On peut l’écrire aussi a +=1 
+print(a) 
+a = a – 3 # on décrémente la valeur de a. On peut l’écrire aussi a -=3  
+print(a) 
+```
 ???+ question "Faire ce qui est proposé"
 
     {{ IDE('scripts/activite') }}
