@@ -68,13 +68,13 @@ parite(24)
 L’instruction if  (si en français) permet d’exécuter des instructions  seulement si une certaine condition est satisfaite.  
 
 if expression:         # attention à la ponctuation   
-    bloc d'instructions  # attention à l'indentation  
+`   `bloc d'instructions  # attention à l'indentation  
 suite du programme  
 
 Si l’expression est vraie (True) alors le bloc d’instructions est exécuté.  Si l’expression est fausse (False) on passe directement à la suite du  programme.  
 
 **Activité n° 3.: Condition**    
- - 
+ 
 Recopier le code suivant 
 ```python
 def moyenne(note): 
@@ -86,8 +86,8 @@ def moyenne(note):
         return "J'ai la moyenne" 
 ```
 Exécuter le programme  
-moyenne(16) 
-moyenne(5)
+``moyenne(16) 
+``moyenne(5)
 
 
 
