@@ -433,41 +433,41 @@ choix = True
 print(type(choix)) 
 ```
 
-Les opérateurs de comparaison : 
-
-|Opérateur   |Signification    |Remarques |
-| < |strictement inférieur||
-| <= |inférieur ou égal||
-| > |strictement supérieur||
-| >= |supérieur ou égal||
-| == |égal  |Attention : deux signes  ==|
-| != |différent||
+![](Aimg2.png)
  
 
 
 
-|**Activité n°23.:**  |
-| - |
-```python
- b = 10 ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.079.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.080.png)</p><p>>>> print(b > 8) </p><p>True </p><p>>>> print(b == 5) False </p><p>>>> print(b != 10) False </p><p>>>> print(0 <= b <= 20) True </p>|
-||
-**Activité n°24.:** Les opérateurs logiques : and, or, not![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.081.png)
+**Activité n°23.:**  
 
 ```python
- note = 13.0 ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.082.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.083.png)
+b = 10 
+print(b > 8) <
+print(b == 5) 
+print(b != 10) 
+print(0 <= b <= 20) 
+```
 
-\>>> print(note >= 12.0 and note < 14.0 ) True 
 
+**Activité n°24.:** Les opérateurs logiques : and, or, not
 
-
-|**Activité n°25.:** L’opérateur in s’utilise avec des chaînes (type str) ou des listes (type list) : |
-| - |
 ```python
-chaine = 'Bonsoir' ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.084.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.071.png)</p><p>>>> print('soir' in chaine) True </p>|
-||
-|>>> maliste = [4, 8, 15] ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.085.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.075.png)>>> print(9 in maliste) False |
-||
-5. **Exercices<a name="_page10_x40.00_y36.92"></a>** 
+note = 13.0 
+print(note >= 12.0 and note < 14.0 ) 
+```
+
+
+
+**Activité n°25.:** L’opérateur in s’utilise avec des chaînes (type str) ou des listes (type list) : 
+
+```python
+chaine = 'Bonsoir' 
+print('soir' in chaine) 
+maliste = [4, 8, 15] 
+print(9 in maliste) 
+```
+
+## **5. Exercices<a name="_page10_x40.00_y36.92"></a>** 
 
 **Exercice n°1**  ☆ Afficher la taille en octets et en bits d’un fichier de 536 ko. On donne : 1 ko (1 kilooctet) = 1000 octets !!! 1 octet = 1 byte = 8 bits 
 
