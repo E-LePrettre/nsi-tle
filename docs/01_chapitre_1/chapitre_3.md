@@ -94,15 +94,15 @@ Le langage Python est gratuit, sous **licence libre**.
 
 ### **4.4. Premiers<a name="_page3_x40.00_y36.92"></a> pas avec l’interpréteur de commandes Python** 
 
-**Activité n°1.:Les calculs de bases :** Tester les calculs suivant dans la console
+**Activité n°1.:Les calculs de bases :** Tester les calculs suivant :
 
 ```python
-7 + 3 * 4 
-(7 + 3 ) * 4 
-10 / 3
+print(7 + 3 * 4)
+print((7 + 3 ) * 4)
+print(10 / 3)
 ```
 
-???+ question "Lancer la console et tester"
+???+ question "Faire ce qui est proposé"
 
     {{ IDE('scripts/activite') }}
 
@@ -110,27 +110,28 @@ Le langage Python est gratuit, sous **licence libre**.
  Les espaces sont optionnels. 
  Les règles de priorité en maths sont-elles respectées ? …………………….
  
-**Activité n°2.:** **Addition de float :** Tester les calculs suivant dans la console
+**Activité n°2.:** **Addition de float :** Tester les calculs suivant :
 
 ```python
-3.11 + 2.08```
+print(3.11 + 2.08)
+```
 
-???+ question "Lancer la console et tester"
+???+ question "Faire ce qui est proposé"
 
     {{ IDE('scripts/activite') }}
     
 Que remarquez-vous ?............. 
 
-**Activité n°3.:** **La division entière et le modulo :** Tester les calculs suivant dans la console
+**Activité n°3.:** **La division entière et le modulo :** Tester les calculs :
 
 ```python
-10 // 5  
-10 // 4 
-10 % 4 
-10 % 3 
+print(10 // 5) 
+print(10 // 4)
+print(10 % 4)
+print(10 % 3)
 ```
 
-???+ question "Lancer la console et tester"
+???+ question "Faire ce qui est proposé"
 
     {{ IDE('scripts/activite') }}
 
@@ -142,14 +143,14 @@ On souhaite effectuer la division de 3395  par 99.
 
 On s’est arrêté car 29 est plus petit que 99 et qu’on ne souhaitait pas aller plus loin et se retrouver avec un nombre à virgule. On a effectué une division dite division entière. On en déduit donc que 3395 = 99 \* 34 + 29
 
-**Activité n°4.:** **L’exponentiation :** Tester les calculs suivant dans la console
+**Activité n°4.:** **L’exponentiation :** Tester les calculs :
 
 ```python
-3 ** 2  
-2 ** 3 
+print(3 ** 2)
+print(2 ** 3)
 ```
 
-???+ question "Lancer la console et tester"
+???+ question "Faire ce qui est proposé"
 
     {{ IDE('scripts/activite') }}
 
@@ -169,25 +170,19 @@ Exemple : age, mon\_age, temperature1  A éviter : Age, AGE, monAge, Temperature
 
 
 
-**Activité n°5.:** Tester les calculs suivant dans la console
+**Activité n°5.:** Tester les calculs :
 
 ```python
 age = 17
-```
-
-La fonction print affiche la valeur de la variable : 
-```python
 print(age)
 ```
-
 
 La fonction type() retourne le type de la variable : 
 ```python
 print(type(age))
 ```
 
-
-???+ question "Lancer la console et tester"
+???+ question "Faire ce qui est proposé"
 
     {{ IDE('scripts/activite') }}
 
@@ -202,11 +197,11 @@ print(type(age))
  a = a – 3 # on décrémente la valeur de a. On peut l’écrire aussi a -=3  
  print(a) 
  ```
- ???+ question "Lancer la console et tester"
+???+ question "Faire ce qui est proposé"
 
     {{ IDE('scripts/activite') }}
 
-#### **4.5.3. Le<a name="_page4_x40.00_y602.92"></a> type float (nombres en virgule flottante) 
+#### **4.5.3. Le<a name="_page4_x40.00_y602.92"></a> type float (nombres en virgule flottante)**
 **Activité n°7.:** Tester les calculs suivant dans la console
 
 ```python
@@ -214,22 +209,36 @@ b = 17.0  # le séparateur décimal est un point (et non une virgule)
 print(b) 
 print(type(b)) 
 ```
-???+ question "Lancer la console et tester"
+???+ question "Faire ce qui est proposé""
 
     {{ IDE('scripts/activite') }}
 
-\>>> c = 14.0 / 3.0 >>> print(c) 4.66666666667 ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.035.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.036.png)
+```python
+c = 14.0 / 3.0 
+print(c) 
+```
+???+ question "Faire ce qui est proposé"
 
-\>>> c = 14.0 // 3.0  # division entière >>> print(c) ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.037.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.038.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.039.png)
+    {{ IDE('scripts/activite') }}
 
-4\.0 
+```python
+c = 14.0 // 3.0  # division entière print(c)
+```
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE('scripts/activite') }}
 
 ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.040.png)Attention : avec des nombres entiers, l’opérateur / renvoie généralement un flottant : 
 
-\>>> c = 14 / 3 >>> print(c) 4.666666666666667 ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.041.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.039.png)
+```python
+c = 14 / 3 
+print(c)
+```
+???+ question "Faire ce qui est proposé"
 
-4. Le<a name="_page5_x40.00_y196.92"></a> type str (string : chaîne de caractères) ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.042.png)
+    {{ IDE('scripts/activite') }}
 
+#### **4.5.4. Le<a name="_page5_x40.00_y196.92"></a> type str (string : chaîne de caractères)**
 
 
 |**Activité n°8.:**  |
