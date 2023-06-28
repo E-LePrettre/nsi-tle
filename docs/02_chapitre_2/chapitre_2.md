@@ -381,7 +381,9 @@ Par exemple :
 
 Il se calcule simplement en divisant le poids (en kg) par le carré de la taille (m). Indice de masse corporelle (IMC) Interprétation (d'après l'OMS) ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.036.png)
 
-moins de 18,5 Insuffisance pondérale (maigreur) 18,5 à 24,9  Corpulence normale 
+moins de 18,5 Insuffisance pondérale (maigreur) 
+
+18,5 à 24,9  Corpulence normale 
 
 25 à 29,9  Surpoids 
 
@@ -389,18 +391,23 @@ moins de 18,5 Insuffisance pondérale (maigreur) 18,5 à 24,9  Corpulence normal
 
 plus de 40  Obésité morbide ou massive 
 
-Exemple : ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.037.png)
+Exemple : 
+```
+>>> IMC(68.5, 1.70)
+'IMC = 23.7: Interprétation : Corpulence normale'
+```
 
-`   `![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.038.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.039.png)
 
 
+**Exercice 4.** ★★: Ecrire une fonction annee\_bissextile(annee) qui indique qu’il s’agit d’une année bissextile. On rappelle qu’une année est bissextile si elle est multiple de 4 mais pas multiple de 100, ou si elle est multiple de 400. 
 
-**Exercice 4.** ★★: Ecrire une fonction annee\_bissextile(annee) qui indique qu’il s’agit d’une année bissextile. On rappelle qu’une année est bissextile si elle est multiple de 4 mais pas multiple de 100, ou si elle est multiple de 400. ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.040.png)
-
-Exemple : ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.006.png)
-
-`  `![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.041.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.042.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.043.png)
-
+Exemple : 
+```
+>>> annee_bissextile(1900)
+"L'année 1900 n'est pas bissextile"
+>>> annee_bissextile(2000)
+"L'année 2000 est bissextile"
+```
 
 
 
@@ -412,21 +419,17 @@ Exemple : ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.006.png)
 Pour revoir les formules à appliquer :[ https://www.maths-et-tiques.fr/telech/Secondegre2.pdf ](https://www.maths-et-tiques.fr/telech/Secondegre2.pdf)
 
 Il faut importer la fonction racine  from math import sqrt Exemple : 
-
-`    `![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.044.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.045.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.046.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
+```
+>>> racine(1, -3, 2)
+Le discriminant vaut : 1
+'Il y a deux solutions : 1.0 et 2.0'
+>>> racine(2, 1.5, 4)
+Le discriminant vaut : -29.75
+"Il n'y a pas de solution"
+>>> racine(1, -6, 9)
+Le discriminant vaut : 0
+'Il y a une solution : 3.0'
+```
 
 
 
@@ -438,24 +441,25 @@ QCM :[ http://fabrice.sincere.free.fr/qcm/qcm.php?nom=qcm_python3x_2 ](http://fa
 
 L'instruction for travaille sur des séquences. Elle est en fait spécialisée dans le parcours d'une séquence de plusieurs données.
 
-for élément in séquence :     bloc d'instructions ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.048.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.049.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.050.png)
-
-- suite du programme 
-
-
+```
+for élément in séquence :     
+    bloc d'instructions 
+suite du programme 
+```
 
 **Activité n° 12.**:  Avec une séquence de caractères : 
- - 
+```python
 def epeler(chaine): 
-""" 
-affiche chaque lettre de la chaine de caractère appelée chaine 
-""" 
-for elmt in chaine: 
-print(elmt) 
-return 'voilà!!' 
+    """ 
+    affiche chaque lettre de la chaine de caractère appelée chaine 
+    """ 
+    for elmt in chaine: 
+        print(elmt) 
+    return 'voilà!!' 
+```
 elmt s’appelle la variable d’itération 
 Tester la fonction avec : 
-<p>>>>  epeler('Bonjour') B ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.051.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.052.png)</p><p>o </p><p>n </p><p>s </p><p>o </p><p>i </p><p>r </p><p>'voilà!!' </p>
+>>>>  epeler('Bonjour') 
 
 La variable lettre est initialisée avec le premier élément de la séquence ('B'). Le bloc d’instructions est alors exécuté. 
 Puis la variable lettre est mise à jour avec le second élément de la séquence ('o') et le bloc d’instructions à nouveau 
@@ -466,49 +470,43 @@ exécuté… Le bloc d’instructions est exécuté une dernière fois lorsqu’
 **Activité n° 13.**:  Tester le script précédent sur[ http://pythontutor.com/ ](http://pythontutor.com/)  
  - 
 
-**Activité n° 14.**:  avec les éléments d’une liste : Tester la fonction précédente avec  ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.053.png)
-
-\>>>  epeler(['Pierre', 67.5, 18]) Pierre ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.054.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.055.png)
-
-67\.5 
-
-18 
-
-'voilà!!' 
+**Activité n° 14.**:  avec les éléments d’une liste : 
+Tester la fonction précédente avec  
+>>>  epeler(['Pierre', 67.5, 18])  
 
 ### **3.2. L’instruction<a name="_page7_x40.00_y637.92"></a> for avec la fonction range()**
 
 
 
-**Activité n° 15.**:  L’association avec la fonction range() est très utile pour créer des **séquences automatiques de nombres** 
- - 
-**entiers :** 
+**Activité n° 15.**:  L’association avec la fonction range() est très utile pour créer des **séquences automatiques de nombres entiers :** 
+
+```python
 def compter(nombre): 
-""" 
-affiche les nombres de 1 à celui demandé comme un chrono 
-""" 
-for i in range(1,nombre+1): 
-print(i) 
-return 'voilà!!' 
+    """ 
+    affiche les nombres de 1 à celui demandé comme un chrono 
+    """ 
+    for i in range(1,nombre+1): 
+        print(i) 
+    return 'voilà!!' 
+```
 
-
-
-<p>>>> compter(5) 1 ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.057.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.058.png)</p><p>2 </p><p>3 </p><p>4 </p><p>5 </p><p>'voilà!!' </p>
- :- 
+>>>> compter(5)
 
 
 
 **Activité n° 16.**:  Table de multiplication 
  - 
-La création d’une table de multiplication paraît plus simple avec une boucle for qu’avec une boucle while : 
-def table\_de\_multiplication(nombre): 
-""" 
-affiche la table de multiplication du nombre demandé 
-""" 
-for i in range(0,11): 
-print(i, 'x', nombre, '=', i\*nombre) 
-return 'voilà!!' 
-<p>>>> table\_de\_multiplication(9) 0 x 9 = 0 ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.059.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.060.png)</p><p>1 x 9 = 9 </p><p>2 x 9 = 18 </p><p>3 x 9 = 27 </p><p>4 x 9 = 36 </p><p>5 x 9 = 45 </p><p>6 x 9 = 54 </p><p>7 x 9 = 63 </p><p>8 x 9 = 72 </p><p>9 x 9 = 81 </p><p>10 x 9 = 90 </p><p>'voilà!!' </p>
+La création d’une table de multiplication paraît plus simple avec une boucle for qu’avec une boucle while :
+```python 
+def table_de_multiplication(nombre): 
+    """ 
+    affiche la table de multiplication du nombre demandé 
+    """ 
+    for i in range(0,11): 
+    p   rint(i, 'x', nombre, '=', i\*nombre) 
+    return 'voilà!!' 
+```
+>>> table_de_multiplication(9) 
 
 ### **3.3. L’instruction<a name="_page8_x40.00_y448.92"></a> while**
 
@@ -518,38 +516,30 @@ On connait alors une **condition d’arrêt**, c’est-à-dire un test qui perme
 
 Point de vocabulaire : dans l’exemple précédent, 50 sera appelé le **prédicat.** 
 
-while expression:  # attention à la ponctuation     bloc d'instructions ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.061.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.062.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.063.png) # attention à l'indentation 
-
-- suite du programme 
+```
+while expression:  # attention à la ponctuation     
+    bloc d'instructions # attention à l'indentation 
+suite du programme 
+```
 
 Si l’expression est vraie (True) le bloc d’instructions est exécuté, puis l’expression est à nouveau évaluée. Le cycle continue jusqu'à ce que l’expression soit fausse (False) : on passe alors à la suite du programme. 
 
-**Activité n° 17.**:  un script qui compte de 1 à 4 ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.064.png)
+**Activité n° 17.**:  un script qui compte de 1 à 4 
 
-def compteur(): 
+```python
+def compteur():
+    """
+    affiche un compteur
+    """
+    compt = 1
+    while compt < 5:
+        # ce bloc est exécuté tant que la condition (compteur < 5) est vraie
+        print(compt)
+        compt += 1 # incrémentation du compteur, compteur = compteur + 1
+    return "le compteur vaut à la fin de la boucle vaut : "+str(compt) 
+```
 
-`    `""" 
-
-`    `affiche un compteur 
-
-`    `""" 
-
-`    `compt = 1 
-
-`    `while compt < 5: 
-
-- ce bloc est exécuté tant que la condition (compteur < 5) est vraie 
-
-`        `print(compt) 
-
-`        `compt += 1  # incrémentation du compteur, compteur = compteur + 1 
-
-`    `return "le compteur vaut à la fin de la boucle vaut : "+str(compt) 
-
-
-
-
- :-  :- 
+>>> compteur()
 
 
 
@@ -561,16 +551,18 @@ def compteur():
 
 
 **Activité n° 19.**:  Affichage de l’heure courante 
- - 
+
+```python
 import time     # importation du module time 
 quitter = 'n'   # initialisation 
 while quitter != 'o': 
-# ce bloc est exécuté tant que la condition est vraie 
-# strftime() est une fonction du module time 
-print('Heure courante ', time.strftime('%H:%M:%S')) 
-quitter = input("Voulez-vous quitter le programme (o/n) ? ") 
+    # ce bloc est exécuté tant que la condition est vraie 
+    # strftime() est une fonction du module time 
+    print('Heure courante ', time.strftime('%H:%M:%S')) 
+    quitter = input("Voulez-vous quitter le programme (o/n) ? ") 
 print("A bientôt") 
-<p>>>> ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.066.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.067.png)</p><p>Heure courante  04:48:47 </p><p>Voulez-vous quitter le programme (o/n) ? >? n Heure courante  04:48:56 </p><p>Voulez-vous quitter le programme (o/n) ? >? o A bientôt </p>
+```
+
 
 ### **3.4. L’instruction<a name="_page9_x40.00_y446.92"></a> break**
 
@@ -581,71 +573,101 @@ Dans l’exemple suivant, l’expression True est toujours … vraie : on a une 
 
 
 **Activité n° 20.**:  Affichage de l’heure courante 
- -  :- 
+ 
+```python
 import time     # importation du module time 
 while True: 
-print('Heure courante ', time.strftime('%H:%M:%S')) 
-time.sleep(1) # fait une pause de 1s entre chaque affichage 
-quitter = input('Voulez-vous quitter le programme (o/n) ? ') 
-if quitter == 'o': 
-break 
+    print('Heure courante ', time.strftime('%H:%M:%S')) 
+    time.sleep(1) # fait une pause de 1s entre chaque affichage 
+    quitter = input('Voulez-vous quitter le programme (o/n) ? ') 
+    if quitter == 'o': 
+        break 
 print("A bientôt") 
-
+```
 
 ### **3.5. Astuce<a name="_page9_x40.00_y739.92"></a>**  
 
-Si  vous  **connaissez  le  nombre  de  boucles  à  effectuer,  utiliser  une  boucle for**.  Autrement,  utiliser  une boucle while (notamment pour faire des boucles sans fin). ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.006.png)
+Si  vous  **connaissez  le  nombre  de  boucles  à  effectuer,  utiliser  une  boucle for**.  Autrement,  utiliser  une boucle while (notamment pour faire des boucles sans fin). 
 
 ### **3.6. Exercices<a name="_page10_x40.00_y36.92"></a>** 
 
 
 
-**Exercice 5** ★ Ecrire une fonction moyenne(liste) qui calcule la moyenne d’une série de notes. On pourra
- - 
-utiliser une variable qui contient la somme intermédiaire des notes. 
-<p>`    `![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.068.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.069.png)</p><p> </p>
+**Exercice 5** ★ Ecrire une fonction moyenne(liste) qui calcule la moyenne d’une série de notes. On pourra utiliser une variable qui contient la somme intermédiaire des notes.
+```
+>>> moyenne([15, 11.5, 16])
+14.17
+```
 
 **Exercice 6** ★ 
-1\.  Avec une boucle for, écrire une fonction nombre\_de\_z(chaine) qui compte le nombre de lettres z 
-dans une chaîne de caractères. Par exemple : 
-<p>` `nombre\_de\_z('Zinedine Zidane') ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.070.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.071.png)</p><p> </p>
+1.  Avec une boucle for, écrire une fonction nombre_de_z(chaine) qui compte le nombre de lettres z dans une chaîne de caractères. Par exemple : 
+```
+nombre_de_z('Zinedine Zidane') 
+2
+```
 
-2\.  Ecrire une fonction nombre\_de\_z2(chaine) qui fait la même chose, directement avec la 
+2.  Ecrire une fonction nombre_de_z2(chaine) qui fait la même chose, directement avec la 
 méthode count() de la classe str. Pour obtenir de l’aide sur cette méthode : 
-![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.072.png) 
+```
+help(str.count)
+```
 
 **Exercice 7** ★ 
-1\.  Ecrire la fonction devinette(proposition) du jeu de devinette suivant : 
-<p>`  `![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.073.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.074.png)</p><p>            </p><p>    </p><p>   </p><p>    </p><p>   </p><p>    </p><p>  </p><p>    </p><p>  </p><p>    </p>
+1.  Ecrire la fonction devinette(proposition) du jeu de devinette suivant : 
+``>>> 
+Le jeu consiste à deviner un nombre entre 1 et 100 :
+choisir un nombre>? 50
+trop petit !
+choisir un nombre>? 20
+trop petit !
+choisir un nombre>? 70
+trop grand
+choisir un nombre>? 66
+Gagné 
+en 3 coups !`
 
-2\.  Quelle est la stratégie la plus efficace ? 
-3\.  Question bonus : Montrer que l’on peut deviner un nombre en 7 coups maximum. 
+```
+
+2.  Quelle est la stratégie la plus efficace ? 
+3.  Question bonus : Montrer que l’on peut deviner un nombre en 7 coups maximum. 
 Bibliographie :[ La dichotomie ](http://fr.wikipedia.org/wiki/Dichotomie)
 Remarques :  
-￿  l’algorithme de Dichotomie est au programme de première NSI. 
-￿  pour créer un nombre entier aléatoire entre 1 et 100 : 
+-  l’algorithme de Dichotomie est au programme de première NSI. 
+-  pour créer un nombre entier aléatoire entre 1 et 100 : 
+```python
 import random 
-nombre = random.randint(1,100) 
+nombre = random.randint(1,100)
+``` 
 
 **Exercice 8** ★★ Code de César 
-En cryptographie, le code de César est une technique de chiffrement élémentaire qui consiste à décaler une 
-lettre de 3 rangs vers la droite : 
+En cryptographie, le code de César est une technique de chiffrement élémentaire qui consiste à décaler une lettre de 3 rangs vers la droite : 
 
-A → D B → E ... Z → C 
+A → D 
 
-1. Ecrire une fonction message\_a\_coder(message) qui permet de coder un message passé en argument. ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.075.png)Par exemple : 
+B → E 
 
-`  `![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.076.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.077.png)
+... 
+
+Z → C 
+
+1. Ecrire une fonction message_a_coder(message) qui permet de coder un message passé en argument.Par exemple : 
+
+```
+>>> message_a_coder('abcdefghijklmnopqrstuvwxyz')
+'defghijklmnopqrstuvwxyzabc'
+>>> message_a_coder('Lycee Jean Cassaigne classe de NSI')
+'obfhh mhdq fdvvdljqh fodvvh gh qvl'
+```
 
 
 
 
 
 
+On pourra utiliser la chaîne 'abcdefghijklmnopqrstuvwxyz',  la méthode find() de la classe str et la méthode lower() qui permet de tout mettre en minuscule. Pour obtenir de l’aide sur cette méthode : 
 
-On pourra utiliser la chaîne 'abcdefghijklmnopqrstuvwxyz',  la méthode find() de la classe str et la méthode lower() qui permet de tout mettre en minuscule. Pour obtenir de l’aide sur cette méthode : ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.078.png)
-
-`  `![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.079.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.080.png)
+```
+```
 
 
 
