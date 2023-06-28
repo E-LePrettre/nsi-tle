@@ -851,7 +851,7 @@ def vetement(couleur\_pull='rouge', couleur\_pantalon='bleu'):
 ```
 
 Tester
->> vetement('bleu','bleu')
+>>> vetement('bleu','bleu')
 
 >>> vetement(couleur_pantalon='noir')
 
@@ -930,8 +930,11 @@ Aide on ne peut faire de l’affichage facilement qu’en concaténant les chain
 1. Ecrire une fonction qui retourne la factorielle d’un nombre entier N. On rappelle que : factorielle de N est noté N! 
 
 N!=1×2×…×(N−1)×N 
+
 Par exemple : 3!=1×2×3=6 
+
 1!=1 
+
 Par convention, 0!=1 
 
 Exemple : 
@@ -1039,7 +1042,7 @@ Ecrire le script correspondant. On recherche d’un zéro dans l’intervalle [a
 
 ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.122.jpeg)
 
-Annexe  :  représentation  ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.122.jpeg)graphique  de  la  fonction f(x)= 27x3 -27x2 - 
+Annexe  :  représentation graphique  de  la  fonction f(x)= 27x3 -27x2 - 
 
 18x  +8 (graphique  réalisé  avec  la  librairie[ matplotlib ](http://matplotlib.org/examples/pylab_examples/axes_props.html)de  Python)  
 
