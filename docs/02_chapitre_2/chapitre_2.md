@@ -693,48 +693,32 @@ Pour ne pas être dérangé dans ses aventures il décide de les couper chaque f
 **Exercice 10** ★★ Ecrire une méthode heron(U, n) qui donne la valeur de la suite pour un rang n (méthode de Héron) : La méthode de Héron permet d’approcher la valeur de la racine carrée d’un nombre. Nous allons 
 
 l’appliquer pour déterminer la valeur approchée de la racine de 2. Elle est définie par la suite :  
+![](Aimg2.png)
 
-0 = , k étant une valeur initiale 
-
-Et ∀ ∈ ℕ,  = 1 ( + 2 ) 
-
-+1 2
 
 Donc cela signifie : 
-
-- 1 ( + 2 ),   = 1 ( + 2 ),   = 1 ( + 2 ,  = 1 ( + 2 ), etc 
-
-)
-
-1 2 0 2 2 1 3 2 2 4 2 3![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.084.png)
-
+![](Aimg3.png)
 n étant le rang 0que l’on veut calculer1la suite   2 3
 
 Par exemple : 
-
-`  `![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.085.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.058.png)
-
-
-
-
-
-
-
-
-
+```
+>>> heron(20,0)
+20
+>>> heron(20,1)
+10.05
+>>> heron(20,15)
+1.414213562373095
+```
 
 
 Aide :  
 
-- Utiliser seulement  n et U comme variable,  ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.086.jpeg)
+- Utiliser seulement  n et U comme variable, 
 
 **Exercice 11** ★★ Fraction continue infinie  
-
-Le nombre d’or est un célèbre nombre irrationnel :[ Wikipédia.](https://fr.wikipedia.org/wiki/Nombre_d%27or)  Il a été étudié par de nombreux mathématiciens au cours du  
-
-temps.   ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.087.png)
-
-Il vaut  = 1+√5 et vaut approximativement 1,61803. On peut  
+![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.086.jpeg)
+Le nombre d’or est un célèbre nombre irrationnel :[ Wikipédia.](https://fr.wikipedia.org/wiki/Nombre_d%27or)  Il a été étudié par de nombreux mathématiciens au cours du temps.  
+Il vaut $\phi$ =$\frac{1+√5}{2}$  et vaut approximativement 1,61803. On peut  
 
 2 
 
