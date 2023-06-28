@@ -89,7 +89,8 @@ def moyenne(note):
         return "J'ai la moyenne" 
 ```
 Exécuter le programme  
->>> moyenne(16) 
+>>> moyenne(16)
+
 >>> moyenne(5)
 
 
@@ -109,17 +110,20 @@ def incremente_b(a):
 ```
 Exécuter le programme  
 >>> incremente_b(5) 
+
 >>> incremente_b(-3)
 
 #### **2.1.2. L’instruction<a name="_page2_x40.00_y36.92"></a> else**![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.014.png)**
 
 Une instruction else est toujours associée à une instruction if 
 
+```
 if expression: 
-`        `bloc d'instructions 1   # attention à l'indentation 
+    bloc d'instructions 1   # attention à l'indentation 
 else:   # else est au même niveau que if     
-`        `bloc d'instructions 2   # attention à l'indentation 
+    bloc d'instructions 2   # attention à l'indentation 
 suite du programme 
+```
 
 Si l’expression est vraie (True) alors le bloc d’instructions 1 est exécuté. 
 
@@ -144,7 +148,9 @@ def moyenne(note):
 
 Tester le script avec  
 >>> moyenne(15) 
+
 >>> moyenne(8.5) 
+
 >>> moyenne(56) 
 
 
