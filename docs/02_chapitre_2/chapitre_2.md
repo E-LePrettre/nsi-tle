@@ -1,31 +1,22 @@
-﻿*Chap 02 : Les bases de Python* 
+﻿---
+author: ELP
+title: 02b Les bases de Python
+---
+
 
 **Table des matières** 
 
-1. [**Définir une fonction ...................................................................................................................................................... 1**](#_page0_x40.00_y467.92)
-1. [**Les conditions ................................................................................................................................................................ 2**](#_page1_x40.00_y240.92)
-1. [*Les structures conditionnelles ....................................................................................................................................... 2*](#_page1_x40.00_y262.92)
-1. [L’instruction simple if......................................................................................................................................... 2](#_page1_x40.00_y281.92)
-1. [L’instruction else ................................................................................................................................................ 3](#_page2_x40.00_y36.92)
-1. [L’instruction elif ................................................................................................................................................ 4](#_page3_x40.00_y321.92)
-2. [*Les prédicats et booléens .............................................................................................................................................. 5*](#_page4_x40.00_y36.92)
-1. [Les booléens True et False : ............................................................................................................................ 5](#_page4_x40.00_y87.92)
-1. [Les booléens And, Or et Not : ........................................................................................................................... 5](#_page4_x40.00_y255.92)
-3. [*Exercices........................................................................................................................................................................ 6*](#_page5_x40.00_y36.92)
-3. [**Les boucles .................................................................................................................................................................... 8**](#_page7_x40.00_y36.92)
-1. [*L’instruction for…in .................................................................................................................................................... 8*](#_page7_x40.00_y58.92)
-1. [*L’instruction for avec la fonction range() ................................................................................................................ 8*](#_page7_x40.00_y637.92)
-1. [*L’instruction while ...................................................................................................................................................... 9*](#_page8_x40.00_y448.92)
-1. [*L’instruction break .................................................................................................................................................... 10*](#_page9_x40.00_y446.92)
-1. [*Astuce ......................................................................................................................................................................... 11*](#_page9_x40.00_y739.92)
-1. [*Exercices...................................................................................................................................................................... 11*](#_page10_x40.00_y36.92)
-4. [**Portée de variables : variables globales et locales ....................................................................................................... 14**](#_page13_x40.00_y36.92)
-1. [*Variables locales ......................................................................................................................................................... 14*](#_page13_x40.00_y76.92)
-1. [*Variables globales ....................................................................................................................................................... 14*](#_page13_x40.00_y329.92)
-5. [**La fonction lambda ...................................................................................................................................................... 14**](#_page13_x40.00_y581.92)
-5. [**Fonctions avec des valeurs par défaut ......................................................................................................................... 15**](#_page14_x40.00_y36.92)
-5. [**Exercices ...................................................................................................................................................................... 16**](#_page15_x40.00_y36.92)
-1. **Définir<a name="_page0_x40.00_y467.92"></a> une fonction** 
+1. [**Définir une fonction**](#_page0_x40.00_y467.92)
+2. [**Les conditions**](#_page1_x40.00_y240.92)
+3. [**Les boucles**](#_page7_x40.00_y36.92)
+4. [**Portée de variables : variables globales et locales**](#_page13_x40.00_y36.92)
+5. [**La fonction lambda**](#_page13_x40.00_y581.92)
+6. [**Fonctions avec des valeurs par défaut**](#_page14_x40.00_y36.92)
+7. [**Exercices**](#_page15_x40.00_y36.92)
+8. [**Problèmes**](#_page15_x40.00_y36.91)
+
+
+## **1. Définir<a name="_page0_x40.00_y467.92"></a> une fonction** 
 
 On utilise l’instruction def puis dans la définition de la fonction l’instruction return pour quitter l’appel. 
 
@@ -63,9 +54,11 @@ mapremierefonction()
 |Une fois la fonction définie, nous pouvons l’appeler : |
 |>>> parite(13) 13 est impair >>> parite(24) 24 est pair ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.007.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.008.png)|
 ||
-2. **Les<a name="_page1_x40.00_y240.92"></a> conditions  ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.009.png)**
-1. **Les<a name="_page1_x40.00_y262.92"></a> structures conditionnelles**  
-1. L’instruction<a name="_page1_x40.00_y281.92"></a> simple if ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.010.png)
+
+## **2. Les<a name="_page1_x40.00_y240.92"></a> conditions  ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.009.png)**
+
+### **2.1. Les<a name="_page1_x40.00_y262.92"></a> structures conditionnelles**  
+#### **2.1.1. L’instruction<a name="_page1_x40.00_y281.92"></a> simple if**
 
 L’instruction if  (si en français) permet d’exécuter des instructions  seulement si une certaine condition est satisfaite.  
 
@@ -108,7 +101,7 @@ Si l’expression est vraie (True) alors le bloc d’instructions est exécuté.
 |>>> incremente\_b(5) |
 |>>> incremente\_b(-3)|
 
-2. L’instruction<a name="_page2_x40.00_y36.92"></a> else![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.014.png)
+#### **2.1.2. L’instruction<a name="_page2_x40.00_y36.92"></a> else**![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.014.png)**
 
 Une instruction else est toujours associée à une instruction if 
 
@@ -207,7 +200,7 @@ Tester le script avec
 
 ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.019.png) On peut mettre qu’**UNE** instruction else par condition if et l’instruction else **n’est pas obligatoire** 
 
-3. L’instruction<a name="_page3_x40.00_y321.92"></a> elif![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.020.png)
+#### **2.1.3. L’instruction<a name="_page3_x40.00_y321.92"></a> elif**
 
 Une instruction elif (contraction de else if) est toujours associée à une instruction if
 
@@ -262,11 +255,11 @@ def moyenne(note):
 
 Tester le avec différentes notes ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.006.png)
 
-2. **Les<a name="_page4_x40.00_y36.92"></a> prédicats et booléens** 
+### **2.2. Les<a name="_page4_x40.00_y36.92"></a> prédicats et booléens** 
 
 Les conditions qui se trouvent entre le if et les deux points sont appelés des prédicats. On peut tester directement ces prédicats dans l’interpréteur. 
 
-1. Les<a name="_page4_x40.00_y87.92"></a> booléens True et False : 
+#### **2.2.1. Les<a name="_page4_x40.00_y87.92"></a> booléens True et False :**
 
 \>>> a = 0 >>> a == 5 False ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.025.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.026.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.027.png)
 
@@ -276,7 +269,8 @@ Les conditions qui se trouvent entre le if et les deux points sont appelés des 
 
 L’interpréteur renvoie True (« vrai ») ou False (« faux »). True et False sont les deux valeurs possibles d’un nouveau type : les booléen (bool). 
 
-2. Les<a name="_page4_x40.00_y255.92"></a> booléens And, Or et Not : ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.006.png)
+#### **2.2.2. Les<a name="_page4_x40.00_y255.92"></a> booléens And, Or et Not :**
+
 
 
 
@@ -327,7 +321,7 @@ L’interpréteur renvoie True (« vrai ») ou False (« faux »). True et False
 |>>> bool\_not(5) |
 |>>> bool\_not(10)|
 
-3. **Exercices<a name="_page5_x40.00_y36.92"></a>** 
+### **2.3. Exercices<a name="_page5_x40.00_y36.92"></a>** 
 
 Remarque pour relancer une autre fois le script sous Pycharm utiliser la touche ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.028.png)
 
@@ -421,8 +415,8 @@ Il faut importer la fonction racine  from math import sqrt Exemple :
 
 QCM :[ http://fabrice.sincere.free.fr/qcm/qcm.php?nom=qcm_python3x_2 ](http://fabrice.sincere.free.fr/qcm/qcm.php?nom=qcm_python3x_2)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.006.png)
 
-3. **Les<a name="_page7_x40.00_y36.92"></a> boucles** 
-1. **L’instruction<a name="_page7_x40.00_y58.92"></a> for…in![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.047.png)**
+## **3. Les<a name="_page7_x40.00_y36.92"></a> boucles** 
+### **3.1. L’instruction<a name="_page7_x40.00_y58.92"></a> for…in**
 
 L'instruction for travaille sur des séquences. Elle est en fait spécialisée dans le parcours d'une séquence de plusieurs données.
 
@@ -464,7 +458,7 @@ for élément in séquence :     bloc d'instructions ![](Aspose.Words.f2199d1c-8
 
 'voilà!!' 
 
-2. **L’instruction<a name="_page7_x40.00_y637.92"></a> for avec la fonction range()![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.056.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.006.png)**
+### **3.2. L’instruction<a name="_page7_x40.00_y637.92"></a> for avec la fonction range()**
 
 
 
@@ -498,7 +492,7 @@ for élément in séquence :     bloc d'instructions ![](Aspose.Words.f2199d1c-8
 |return 'voilà!!' |
 |<p>>>> table\_de\_multiplication(9) 0 x 9 = 0 ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.059.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.060.png)</p><p>1 x 9 = 9 </p><p>2 x 9 = 18 </p><p>3 x 9 = 27 </p><p>4 x 9 = 36 </p><p>5 x 9 = 45 </p><p>6 x 9 = 54 </p><p>7 x 9 = 63 </p><p>8 x 9 = 72 </p><p>9 x 9 = 81 </p><p>10 x 9 = 90 </p><p>'voilà!!' </p>|
 ||
-3. **L’instruction<a name="_page8_x40.00_y448.92"></a> while**
+### **3.3. L’instruction<a name="_page8_x40.00_y448.92"></a> while**
 
 On utilise généralement la boucle while lorsqu’on souhaite répéter un nombre de fois une même instruction et **qu’on ne sait pas combien de fois cette instruction va être répétée**. 
 
@@ -560,7 +554,7 @@ def compteur():
 |print("A bientôt") |
 |<p>>>> ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.066.png)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.067.png)</p><p>Heure courante  04:48:47 </p><p>Voulez-vous quitter le programme (o/n) ? >? n Heure courante  04:48:56 </p><p>Voulez-vous quitter le programme (o/n) ? >? o A bientôt </p>|
 ||
-4. **L’instruction<a name="_page9_x40.00_y446.92"></a> break**
+### **3.4. L’instruction<a name="_page9_x40.00_y446.92"></a> break**
 
 L’instruction break provoque une **sortie immédiate** d’une boucle while ou d’une boucle for. 
 
@@ -580,11 +574,11 @@ Dans l’exemple suivant, l’expression True est toujours … vraie : on a une 
 |print("A bientôt") ||
 |||
 |||
-5. **Astuce<a name="_page9_x40.00_y739.92"></a>**  
+### **3.5. Astuce<a name="_page9_x40.00_y739.92"></a>**  
 
 Si  vous  **connaissez  le  nombre  de  boucles  à  effectuer,  utiliser  une  boucle for**.  Autrement,  utiliser  une boucle while (notamment pour faire des boucles sans fin). ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.006.png)
 
-6. **Exercices<a name="_page10_x40.00_y36.92"></a>** 
+### **3.6. Exercices<a name="_page10_x40.00_y36.92"></a>** 
 
 
 
@@ -765,11 +759,11 @@ Une fois toutes les valeurs testées si le nombre\_en\_cours est en fait égal a
 
 Source :[ Fabrice Sincère ](http://fsincere.free.fr/isn/python/cours_python_ch3.php)-[ Contenu sous licence CC BY-NC-SA 3.0 ](http://creativecommons.org/licenses/by-nc-sa/3.0/fr/)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.006.png)
 
-4. **Portée<a name="_page13_x40.00_y36.92"></a> de variables : variables globales et locales** 
+## **4. Portée<a name="_page13_x40.00_y36.92"></a> de variables : variables globales et locales** 
 
 La **portée d’une variable** est l’endroit du programme où on peut accéder à la variable. 
 
-1. **Variables<a name="_page13_x40.00_y76.92"></a> locales** 
+### **4.1. Variables<a name="_page13_x40.00_y76.92"></a> locales** 
 
 
 
@@ -786,7 +780,7 @@ Nous avons deux variables différentes qui portent le même nom a
 
 Une variable a de valeur 20 est créée dans la fonction : c’est une **variable locale** à la fonction. **Elle est détruite dès que l’on sort de la fonction.** 
 
-2. **Variables<a name="_page13_x40.00_y329.92"></a> globales** 
+### **4.2. Variables<a name="_page13_x40.00_y329.92"></a> globales** 
 
 
 
@@ -802,7 +796,7 @@ Une variable a de valeur 20 est créée dans la fonction : c’est une **variabl
 |||
 **Remarque** : il est préférable **d'éviter** l’utilisation de l’instruction global car c’est une source d’erreurs (on peut ainsi modifier le contenu d’une variable globale en croyant agir sur une variable locale).  
 
-5. **La<a name="_page13_x40.00_y581.92"></a> fonction lambda** 
+## **5. La<a name="_page13_x40.00_y581.92"></a> fonction lambda** 
 
 Parfois **pour éviter d’avoir à coder une fonction surtout si elle est très courte,** on préfère utiliser une fonction que l’on appelle **lambda** 
 
@@ -817,7 +811,7 @@ Parfois **pour éviter d’avoir à coder une fonction surtout si elle est très
 ||
 Point de vocabulaire : En toute rigueur, on appelle fonctions les **fonctions** qui **retourne quelque chose (avec return**) et **procédure celle qui ne retourne rien**. ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.006.png)
 
-6. **Fonctions<a name="_page14_x40.00_y36.92"></a> avec des valeurs par défaut** 
+## **6. Fonctions<a name="_page14_x40.00_y36.92"></a> avec des valeurs par défaut** 
 
 Il est parfois utile de définir des fonctions avec **plusieurs paramètres** dont certains, parce que par exemple rarement modifiés, sont **optionnels et possèdent donc une valeur par défaut**. ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.006.png)
 
@@ -829,7 +823,7 @@ Il est parfois utile de définir des fonctions avec **plusieurs paramètres** do
 |return 'Le pull est '+couleur\_pull+' et le pantalon est '+ couleur\_pantalon ||
 |||
 |||
-7. **Exercices<a name="_page15_x40.00_y36.92"></a>** 
+## **7. Exercices<a name="_page15_x40.00_y36.92"></a>** 
 
 **Exercice 13** ☆ 
 
@@ -996,3 +990,7 @@ Source :[ Fabrice  ](http://fsincere.free.fr/isn/python/cours_python_ch4.php)
 
 [Sincère ](http://fsincere.free.fr/isn/python/cours_python_ch4.php)-[ Contenu sous  licence CC BY-NC-SA 3.0 ](http://creativecommons.org/licenses/by-nc-sa/3.0/fr/) ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.006.png)
 Première NSI   Chap 02: Les bases  Page 23/23 
+
+
+## **8. Problème<a name="_page15_x40.00_y36.91"></a>** 
+Le chifoumi
