@@ -302,8 +302,17 @@ string[-4:-2:]  # Renvoie du -4 au -2
 
 **Activité n°12.:** ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.051.png)Attention aux apostrophes et guillemets dans les chaînes de caractères ! 
 
-chaine = 'Aujourd'hui' ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.052.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.053.png)</p><p>SyntaxError: invalid syntax </p><p>>>> chaine  = 'Aujourd\'hui'   # séquence d'échappement \' >>> print(chaine) </p><p>Aujourd'hui </p><p>>>> chaine  = "Aujourd'hui" </p><p>>>> print(chaine) </p><p>Aujourd'hui </p>|
-||
+```python
+chaine = 'Aujourd'hui'
+chaine  = 'Aujourd\'hui'   # séquence d'échappement \' 
+print(chaine) 
+chaine  = "Aujourd'hui"
+print(chaine) 
+```
+???+ question "Faire ce qui est proposé"
+
+    {{ terminal() }}
+
 **Activité n°13.:** La séquence d'échappement \n représente un saut ligne : ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.054.png)
 
 \>>> chaine = 'Premiere ligne\nDeuxieme ligne' >>> print(chaine) ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.055.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.056.png)
