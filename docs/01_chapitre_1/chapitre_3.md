@@ -408,7 +408,9 @@ a
 
 Cette méthode est communément appelée tuple unpacking 
 
+???+ question "Faire ce qui est proposé"
 
+    {{ terminal() }}
 
 **Activité n°21.:** La fonction ' '.join(a) fait l’inverse, elle prend une liste et renvoie un teste, entre guillemets on indique le séparateur si on ne met rien, tout sera attaché. 
 
@@ -422,7 +424,11 @@ liste2
 
 C’est la méthode inverse du tuple unpacking 
 
-6. Le<a name="_page8_x40.00_y323.92"></a> type bool (booléen) 
+???+ question "Faire ce qui est proposé"
+
+    {{ terminal() }}
+
+#### **4.5.6. Le<a name="_page8_x40.00_y323.92"></a> type bool (booléen)** 
 
 
 
@@ -435,7 +441,9 @@ print(type(choix))
 
 ![](Aimg2.png)
  
+???+ question "Faire ce qui est proposé"
 
+    {{ terminal() }}
 
 
 **Activité n°23.:**  
@@ -447,7 +455,9 @@ print(b == 5)
 print(b != 10) 
 print(0 <= b <= 20) 
 ```
+???+ question "Faire ce qui est proposé"
 
+    {{ terminal() }}
 
 **Activité n°24.:** Les opérateurs logiques : and, or, not
 
@@ -456,7 +466,9 @@ note = 13.0
 print(note >= 12.0 and note < 14.0 ) 
 ```
 
+???+ question "Faire ce qui est proposé"
 
+    {{ terminal() }}
 
 **Activité n°25.:** L’opérateur in s’utilise avec des chaînes (type str) ou des listes (type list) : 
 
@@ -466,24 +478,47 @@ print('soir' in chaine)
 maliste = [4, 8, 15] 
 print(9 in maliste) 
 ```
+???+ question "Faire ce qui est proposé"
+
+    {{ terminal() }}
 
 ## **5. Exercices<a name="_page10_x40.00_y36.92"></a>** 
 
 **Exercice n°1**  ☆ Afficher la taille en octets et en bits d’un fichier de 536 ko. On donne : 1 ko (1 kilooctet) = 1000 octets !!! 1 octet = 1 byte = 8 bits 
 
+???+ question "Faire ce qui est proposé"
+
+    {{ terminal() }}
+
 **Exercice n°2**  ★ Le numéro de sécurité sociale est constitué de 13 chiffres auquel s’ajoute la clé de contrôle (2 chiffres). Exemple : 1 89 11 26 108 268 91 
 
 La clé de contrôle située à la fin du numéro est calculée par la formule : 97 - (numéro de sécurité sociale modulo 97) Retrouver la clé de contrôle de votre numéro de sécurité sociale. Quel est l’intérêt de la clé de contrôle ? 
 
+???+ question "Faire ce qui est proposé"
+
+    {{ terminal() }}
+
 **Exercice n°3**  ★ Afficher la valeur numérique de √(4,63 - 15/16) Comparer avec votre calculette. 
 
+???+ question "Faire ce qui est proposé"
+
+    {{ terminal() }}
+
 **Exercice n°4**  ★ A partir des deux variables prenom et nom, afficher les initiales (par exemple LM pour Léa Martin). 
+
+???+ question "Faire ce qui est proposé"
+
+    {{ terminal() }}
 
 **Exercice n°5** ★** Quels résultats donnent les instructions suivantes ?  
 
 len("C'est facile de compter") 
 
 len('123' \* 20) 
+
+???+ question "Faire ce qui est proposé"
+
+    {{ terminal() }}
 
 **Exercice n°6** ☆ Supposons que je veuille imprimer les quatre lignes suivantes :  
 
@@ -493,23 +528,37 @@ C'est "Dommage!" Hum \Oh/
 
 Quel code est valide ?  
 
-- # code 1 
-
-print('Hello World') print('Aujourd'hui') print('C'est "Dommage!"') print('Hum \Oh/') 
-
-- # code 2 
-
-print("Hello World") print("Aujourd'hui") print("C'est "Dommage!"") print("Hum \Oh/") 
-
-- # code 3 
-
-print("Hello World") print("Aujourd'hui") print("C'est \"Dommage!\"") 
-
+- code 1 
+```python
+print('Hello World') 
+print('Aujourd'hui') 
+print('C'est "Dommage!"') 
+print('Hum \Oh/') 
+```
+- code 2 
+```python
+print("Hello World") 
+print("Aujourd'hui") 
+print("C'est "Dommage!"") 
 print("Hum \Oh/") 
+```
+- code 3 
+```python
+print("Hello World") 
+print("Aujourd'hui") 
+print("C'est \"Dommage!\"") 
+print("Hum \Oh/") 
+```
+- code 4 
+```python
+print("Hello World") 
+print("Aujourd'hui") 
+print("C'est \"Dommage!\"") 
+print("Hum \\Oh\/") 
+```
+???+ question "Faire ce qui est proposé"
 
-- # code 4 
-
-print("Hello World") print("Aujourd'hui") print("C'est \"Dommage!\"") print("Hum \\Oh\/") 
+    {{ terminal() }}
 
 **Exercice n°7**  ★☆ **PRÉPAREZ UNE MOUSSE AU CHOCOLAT !**  
 
@@ -527,31 +576,48 @@ Pouvez-pour me dire, à une unité près, la quantité de chaque ingrédient que
 
 *Note :  La fonction prédéfinie round() peut vous aider. Pour comprendre comment, tapez dans une console help(round) (Et si l’anglais n’est pas votre fort, n’oubliez pas que google traduction ou un autre traducteur automatique est votre ami).* 
 
-Première NSI   Chap 12 : A la découverte de Python  Page 12/13 ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.086.png)
 
 Pour faire de la mousse pour 7 personnes, combien d’oeufs vous faut-il (arrondis à l’unité) ? Combien de grammes de chocolat vous faut-il (arrondis à l’unité) ? Combien de sachets de sucres vanillés vous faut-il (arrondis à l’unité) ? Exemple : 
 
-Recette de mousse au chocolat pour 7 personnes ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.087.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.088.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.089.png)
-
+```python
+Recette de mousse au chocolat pour 7 personnes 
 Le nombre d'oeufs pour 7 personnes est : … 
-
 La quantité de chocolat pour 7 personnes est : … 
-
 Le nombre de sachet de vanille pour 7 personnes est :… 
+```
+???+ question "Faire ce qui est proposé"
+
+    {{ terminal() }}
 
 Généraliser la recette pour un nombre déterminer par l’utilisateur. Par exemple : 
 
-\>>> Quel est le nombre de personne ?>? (l’utilisateur entre la valeur 10) Recette de mousse ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.090.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.091.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.092.png)au chocolat pour  10  personnes 
-
+```python
+Quel est le nombre de personne ?>? (l’utilisateur entre la valeur 10) 
+Recette de mousse au chocolat pour  10  personnes 
 Le nombre d'oeufs pour  10  personnes est : 13 
-
 La quantité de chocolat pour  10  personnes est : 438  g 
-
 Le nombre de sachet de vanille pour  10  personnes est : 4 
+```
+???+ question "Faire ce qui est proposé"
+
+    {{ terminal() }}
+
+**Remarque** : Vous aurez besoin de la fonction input() déjà vu en seconde
+```python
+a = int(input('quel est votre âge?')) # entrer votre âge
+print(a)
+```
+???+ question "Faire ce qui est proposé"
+
+    {{ terminal() }}
 
 **Exercice n°8**  ★☆ L’identifiant d’accès au réseau du lycée est construit de la manière suivante : initiale du prénom puis les 8 premiers caractères du nom (le tout en minuscule). 
 
 Alexandre Lecouturier → alecoutur A partir des deux variables prenom et nom, construire l’identifiant. 
 
+???+ question "Faire ce qui est proposé"
+
+    {{ terminal() }}
+    
 QCM :[ http://fabrice.sincere.free.fr/qcm/qcm.php?nom=qcm_python3x_1 ](http://fabrice.sincere.free.fr/qcm/qcm.php?nom=qcm_python3x_1)
-Première NSI   Chap 1 : A la découverte de Python  Page 13/13 ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.086.png)
+
