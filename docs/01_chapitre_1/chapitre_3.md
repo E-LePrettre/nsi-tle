@@ -313,33 +313,47 @@ print(chaine)
 
     {{ terminal() }}
 
-**Activité n°13.:** La séquence d'échappement \n représente un saut ligne : ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.054.png)
+**Activité n°13.:** La séquence d'échappement \n représente un saut ligne : 
+```python
+chaine = 'Premiere ligne\nDeuxieme ligne' 
+print(chaine)
+``` 
 
-\>>> chaine = 'Premiere ligne\nDeuxieme ligne' >>> print(chaine) ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.055.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.056.png)
+???+ question "Faire ce qui est proposé"
 
-Premiere ligne 
-
-Deuxieme ligne 
+    {{ terminal() }}
 
 
+**Activité n°14.:** On ne peut pas mélanger les serviettes et les torchons (ici type str et type int) : 
 
-|**Activité n°14.:** On ne peut pas mélanger les serviettes et les torchons (ici type str et type int) : |
-| - |
-|<p>>>> chaine = 'a' ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.057.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.058.png)</p><p>>>> chaine = chaine + 2 </p><p>TypeError: cannot concatenate 'str' and 'int' objects </p>|
-||
-5. Le<a name="_page6_x40.00_y680.92"></a> type list (liste) 
+```python
+chaine = 'a' 
+chaine = chaine + 2
+```
+???+ question "Faire ce qui est proposé"
+
+    {{ terminal() }}
+
+#### **4.5.5. Le<a name="_page6_x40.00_y680.92"></a> type list (liste)**
 
 Une liste est une structure de données. Le premier élément d’une liste possède l’indice (l’index) 0. Dans une liste, on peut avoir des éléments de plusieurs types. 
 
+**Activité n°15.:**  
 
+```python
+liste = [5,7,8]   # Crée la liste [5,7,8] 
+liste[0]    # Affiche l'élément numéro 0  
+infoperso = ['Pierre', 'Dupont', 17, 1.75, 72.5]
+print('Prénom : ', infoperso[0])   # premier élément (indice 0) 
+print('Age : ', infoperso[2])    # le troisième élément a l'indice 2
+```
+???+ question "Faire ce qui est proposé"
 
-|**Activité n°15.:**  |
-| - |
-|<p>>>> liste = [5,7,8]   # Crée la liste [5,7,8] ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.059.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.060.png)</p><p>>>> liste   # Affiche le contenu de liste </p><p>[ 5 , 7 , 8 ] </p><p>>>> liste[0]    # Affiche l'élément numéro 0  </p><p>5 </p><p>>>> infoperso = ['Pierre', 'Dupont', 17, 1.75, 72.5] </p><p>>>> print('Prénom : ', infoperso[0])   # premier élément (indice 0) Prénom :  Pierre </p><p>>>> print('Age : ', infoperso[2])    # le troisième élément a l'indice 2 Age :  17 </p>|
-||
-**Activité n°16.:** Quelques fonctions utiles len() ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.061.png)
+    {{ terminal() }}
 
-\>>> liste = [5,7,8]   # Crée la liste [5,7,8] ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.062.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.063.png)
+**Activité n°16.:** Quelques fonctions utiles len() 
+
+liste = [5,7,8]   # Crée la liste [5,7,8] ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.062.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.063.png)
 
 \>>> len(liste)   # Affiche le nombre d'éléments dans liste 3 
 
