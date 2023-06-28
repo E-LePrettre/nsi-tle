@@ -86,8 +86,8 @@ def moyenne(note):
         return "J'ai la moyenne" 
 ```
 Exécuter le programme  
-``moyenne(16) 
-``moyenne(5)
+>>> moyenne(16) 
+>>> moyenne(5)
 
 
 
@@ -105,22 +105,22 @@ def incremente_b(a):
         return a, b 
 ```
 Exécuter le programme  
-incremente_b(5) 
-incremente_b(-3)
+>>> incremente_b(5) 
+>>> incremente_b(-3)
 
 #### **2.1.2. L’instruction<a name="_page2_x40.00_y36.92"></a> else**![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.014.png)**
 
 Une instruction else est toujours associée à une instruction if 
 
 if expression: 
-`    `bloc d'instructions 1   # attention à l'indentation 
+`        `bloc d'instructions 1   # attention à l'indentation 
 else:   # else est au même niveau que if     
-`    `bloc d'instructions 2   # attention à l'indentation 
+`        `bloc d'instructions 2   # attention à l'indentation 
 suite du programme 
 
 Si l’expression est vraie (True) alors le bloc d’instructions 1 est exécuté. 
 
-Si l’expression est fausse (False) alors c’est le bloc d’instructions 2 qui est exécuté. ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.006.png)
+Si l’expression est fausse (False) alors c’est le bloc d’instructions 2 qui est exécuté. 
 
 
 
@@ -140,9 +140,9 @@ def moyenne(note):
 ```
 
 Tester le script avec  
-moyenne(15) 
-moyenne(8.5) 
-moyenne(56) 
+>>> moyenne(15) 
+>>> moyenne(8.5) 
+>>> moyenne(56) 
 
 
 
@@ -167,8 +167,8 @@ def moyenne(note):
 ``` 
 
 Tester le script avec  
-moyenne(56) 
-moyenne(14.6) 
+>>> moyenne(56) 
+>>> moyenne(14.6) 
 
 **Activité n° 7.** On ajoute encore un niveau d’imbrication pour traiter les cas particuliers 0 et 20 : 
 
@@ -194,8 +194,8 @@ def moyenne(note):
 ```
 
 Tester le script avec  
-moyenne(20) 
-moyenne(3) 
+>>> moyenne(20) 
+>>> moyenne(3) 
 
 ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.065.png) On peut mettre qu’**UNE** instruction else par condition if et l’instruction else **n’est pas obligatoire** 
 
@@ -204,12 +204,12 @@ moyenne(3)
 Une instruction elif (contraction de else if) est toujours associée à une instruction if
 
 if expression 1: 
-`    `bloc d'instructions 1 
+`        `bloc d'instructions 1 
 elif expression 2: 
-`    `bloc d'instructions 2 
+`        `bloc d'instructions 2 
 elif expression 3: 
-`    `bloc d'instructions 3  # ici deux instructions elif, mais il n'y a pas de limitation else: 
-`    `bloc d'instructions 4 
+`        `bloc d'instructions 3  # ici deux instructions elif, mais il n'y a pas de limitation else: 
+`        `bloc d'instructions 4 
 suite du programme 
 
 - Si l’expression 1 est vraie alors le bloc d’instructions 1 est exécuté, et on passe à la suite du programme. Si l’expression 1 est fausse alors on teste l’expression 2 : 
