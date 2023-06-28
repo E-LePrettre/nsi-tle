@@ -278,7 +278,9 @@ En Python, **un slice** permet le découpage de structures de données séquenti
 NB : si pas < 0, la liste est parcourue dans le sens inverse. 
 
 |0   |1   |2   |3   |4   |...   |21   |22   |23   |24   |25   |
+
 |A   |B   |C   |D   |E   |...   |V    |W    |X    |Y    |Z    |
+
 |-26 |-25 |-24 |-23 |-22 |...   |-5   |-4   |-3   |-2   |-1   |
 
 
