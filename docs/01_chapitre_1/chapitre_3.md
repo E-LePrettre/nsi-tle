@@ -385,53 +385,76 @@ print(chaine)
     {{ terminal() }}
 
 
-|**Activité n°19.:** Les opérations sur les listes |
-| - |
-|<p>>>> x = [ 1 , 2 , 3 , 4] ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.068.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.069.png)</p><p>>>> y = [ 5 , 6 , 7 , 8] </p><p>>>> x + y </p><p>[ 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8] </p><p>>>> x = [ 0 , 1] </p><p>>>> [ 0 ]\*10 </p><p>[ 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 , 0 ] </p>|
-||
+**Activité n°19.:** Les opérations sur les listes 
+
+```python
+x = [ 1 , 2 , 3 , 4] 
+y = [ 5 , 6 , 7 , 8] 
+x + y 
+x = [ 0 , 1] 
+[ 0 ]\*10 
+```
+
 ???+ question "Faire ce qui est proposé"
 
     {{ terminal() }}
 
-|**Activité n°20.:** La fonction split() permet de créer une liste en indiquant le séparateur (par exemple l’espace pour obtenir |
-| - |
-|une liste de mot) : |
-|<p>>>> texte = "Il est important de construire" >>> a = texte.split(' ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.070.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.071.png)') </p><p>>>> a </p><p>['Il', 'est', 'important', 'de', 'construire'] </p>|
-||
-|Cette méthode est communément appelée tuple unpacking |
+**Activité n°20.:** La fonction split() permet de créer une liste en indiquant le séparateur (par exemple l’espace pour obtenir une liste de mot) : 
+```python
+texte = "Il est important de construire" 
+a = texte.split(' ') 
+a 
+```
+
+Cette méthode est communément appelée tuple unpacking 
 
 
 
-|**Activité n°21.:** La fonction ' '.join(a) fait l’inverse, elle prend une liste et renvoie un teste, entre guillemets |
-| - |
-|on indique le séparateur si on ne met rien, tout sera attaché. |
-|<p>>>> liste1 = ' '.join(a) ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.072.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.073.png)</p><p>>>> liste1 </p><p>'Il est important de construire' >>> liste2 = '.'.join(a) </p><p>>>> liste2 'Il.est.important.de.construire' </p>|
-||
-|C’est la méthode inverse du tuple unpacking |
+**Activité n°21.:** La fonction ' '.join(a) fait l’inverse, elle prend une liste et renvoie un teste, entre guillemets on indique le séparateur si on ne met rien, tout sera attaché. 
+
+```python
+texte = "Il est important de construire" 
+liste1 = ' '.join(a) 
+liste1 
+liste2 = '.'.join(a) 
+liste2
+```
+
+C’est la méthode inverse du tuple unpacking 
 
 6. Le<a name="_page8_x40.00_y323.92"></a> type bool (booléen) 
 
 
 
-|**Activité n°22.:** Deux valeurs sont possibles : True et False |
-| - |
-|<p>>>> choix = True ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.074.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.075.png)</p><p>>>> print(type(choix)) <class 'bool'> </p>|
-||
+**Activité n°22.:** Deux valeurs sont possibles : True et False 
+
+```python
+choix = True 
+print(type(choix)) 
+```
+
 Les opérateurs de comparaison : 
 
-Opérateur   Signification    Remarques < ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.076.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.077.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.078.png) strictement inférieur <=  inférieur ou égal >  strictement supérieur  >=  supérieur ou égal 
-
-==  égal  Attention : deux signes  ==  !=  différent 
+|Opérateur   |Signification    |Remarques |
+| < |strictement inférieur||
+| <= |inférieur ou égal||
+| > |strictement supérieur||
+| >= |supérieur ou égal||
+| == |égal  |Attention : deux signes  ==|
+| != |différent||
+ 
 
 
 
 |**Activité n°23.:**  |
 | - |
-|<p>>>> b = 10 ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.079.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.080.png)</p><p>>>> print(b > 8) </p><p>True </p><p>>>> print(b == 5) False </p><p>>>> print(b != 10) False </p><p>>>> print(0 <= b <= 20) True </p>|
+```python
+ b = 10 ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.079.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.080.png)</p><p>>>> print(b > 8) </p><p>True </p><p>>>> print(b == 5) False </p><p>>>> print(b != 10) False </p><p>>>> print(0 <= b <= 20) True </p>|
 ||
 **Activité n°24.:** Les opérateurs logiques : and, or, not![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.081.png)
 
-\>>> note = 13.0 ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.082.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.083.png)
+```python
+ note = 13.0 ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.082.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.083.png)
 
 \>>> print(note >= 12.0 and note < 14.0 ) True 
 
@@ -439,7 +462,8 @@ Opérateur   Signification    Remarques < ![](Aspose.Words.7488426a-f593-4c9d-89
 
 |**Activité n°25.:** L’opérateur in s’utilise avec des chaînes (type str) ou des listes (type list) : |
 | - |
-|<p>>>> chaine = 'Bonsoir' ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.084.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.071.png)</p><p>>>> print('soir' in chaine) True </p>|
+```python
+chaine = 'Bonsoir' ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.084.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.071.png)</p><p>>>> print('soir' in chaine) True </p>|
 ||
 |>>> maliste = [4, 8, 15] ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.085.png)![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.075.png)>>> print(9 in maliste) False |
 ||
