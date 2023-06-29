@@ -400,9 +400,9 @@ La syntaxe est la suivante :
 
 ```
 try:
-# bloc d’instructions à exécuter
+    # bloc d’instructions à exécuter
 except ValueError:
-# afficher « erreur de valeur »
+    # afficher « erreur de valeur »
 ```
 
 ###### 8. ★★ Modifier le programme précédent en conséquence. 
@@ -411,80 +411,89 @@ except ValueError:
 
 **Exercice 6 :** Conversion hexadécimal – binaire
 
-1. ★★★ Écrire un programme hex2dec qui convertisse un nombre hexadécimal en décimal non signé. ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.070.png)**Aide :**  
+1 ★★★ Écrire un programme hex2dec qui convertisse un nombre hexadécimal en décimal non signé. !
+
+**Aide :**  
 - On utilisera une chaîne : chaine = "0123456789ABCDEF".![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.071.png)
 - Et on pourra utiliser la méthode index()[ https://www.geeksforgeeks.org/python-list-index/ ](https://www.geeksforgeeks.org/python-list-index/)
-2. Donner les conversions de 1, A, a et A5 en décimal. 
-2. Donner la conversion de AZ et conclure. 
-2. Modifier votre programme comme précédemment pour gérer des erreurs éventuelles (bugs). 
+
+2 Donner les conversions de 1, A, a et A5 en décimal. 
+3 Donner la conversion de AZ et conclure. 
+4 Modifier votre programme comme précédemment pour gérer des erreurs éventuelles (bugs). 
 
 NB : on affichera « valeur héxadécimale incorrecte » 
 
 On souhaite réutiliser le code de programme dec2bin pour écrire un programme hex2bin qui convertisse un nombre hexadécimal en binaire. Pour cela, il « suffit » de récupérer la valeur obtenue par hex2dec et la passer à dec2bin. 
 
-**On prototype** une fonction en indiquant son nom, le type des éventuels paramètres et de la valeur renvoyée le cas échéant. ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.072.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.073.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.074.png)
+**On prototype** une fonction en indiquant son nom, le type des éventuels paramètres et de la valeur renvoyée le cas échéant. 
 
 Exemple pour une fonction qui calcule le carré d’un nombre et renvoie la valeur trouvée : 
 
-def carre(nombre : int) -> int: return nombre \*\* 2 
+```python
+def carre(nombre : int) -> int:     
+    return nombre \*\* 2 
+```
 
-5. Dans le programme hex2bin, faire un copier/coller du code du programme dec2bin. 
-5. ★★ Remodeler (refactor) le code pour le transformer en fonction dont le prototype sera le suivant : ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.075.png)
+5 Dans le programme hex2bin, faire un copier/coller du code du programme dec2bin. 
+6 ★★ Remodeler (refactor) le code pour le transformer en fonction dont le prototype sera le suivant : 
+```dec2bin(nombre : int, nbits : int) -> list ```
 
+- nombre est le nombre décimal à convertir 
+- nbits est le nombre de bits 
+- la fonction renvoie la conversion sous forme d’une liste binaire (au lieu de l’afficher) 
 
+7 Tester la fonction en l’appelant depuis le corps principal (main) du programme. 
 
-dec2bin(nombre : int, nbits : int) -> list 
- -  -  :-  :- 
-<p>- nombre est le nombre décimal à convertir </p><p>- nbits est le nombre de bits </p><p>- la fonction renvoie la conversion sous forme d’</p>une liste binaire (au lieu de l’afficher) 
+**Aide** :  
+   - Juste après la fonction : print(dec2bin(501, 10))
+   - vérifier que l’on obtient [0, 1, 1, 1, 1, 1, 0, 1, 0, 1]
 
-7. Tester la fonction en l’appelant depuis le corps principal (main) du programme. **Aide** :  
-   1. Juste après la fonction : print(dec2bin(501, 10))
-   1. vérifier que l’on obtient [0, 1, 1, 1, 1, 1, 0, 1, 0, 1]
-7. A la suite de cette fonction, faire un copier/coller du code du programme hex2dec. 
-9. ★★ Remodeler (refactor) le code pour le transformer en fonction dont le prototype sera le suivant : 
-
-hex2dec(hexa : str) -> int ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.076.png)
+8 A la suite de cette fonction, faire un copier/coller du code du programme hex2dec. 
+9 ★★ Remodeler (refactor) le code pour le transformer en fonction dont le prototype sera le suivant : 
+```hex2dec(hexa : str) -> int ```
 
 - hexa est le nombre hexadécimal à convertir 
 - la fonction renvoie la conversion sous forme d’un nombre décimal 
-10. Tester la fonction en l’appelant dans le corps principal (main) du programme. **Aide** :  
-    1. Juste après la fonction : print(hex2dec('AF'))![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.077.png)
-    1. vérifier que l’on obtient 175![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.078.png)
-10. ★★ Enchaîner les appels successifs pour afficher la valeur binaire sur 8 bits des nombres suivants : 1, A et A5. 
-10. Donner la conversion de AZ et conclure. 
+
+10 Tester la fonction en l’appelant dans le corps principal (main) du programme. 
+
+**Aide** :  
+- Juste après la fonction : print(hex2dec('AF'))
+- vérifier que l’on obtient 175
+
+11 ★★ Enchaîner les appels successifs pour afficher la valeur binaire sur 8 bits des nombres suivants : 1, A et A5. 
+
+12 Donner la conversion de AZ et conclure. 
 
 Traiter l’erreur en local a ses limites : il faut faire remonter l’erreur vers les couches supérieures. La dernière couche traitera en dernier l’erreur selon des spécifications bien précises. 
 
-13. ★★ Modifier les fonctions hex2dec et dec2bin pour qu’elles renvoient « None » au lieu d’afficher une erreur.  ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.079.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.080.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.081.png)
+13 ★★ Modifier les fonctions hex2dec et dec2bin pour qu’elles renvoient « None » au lieu d’afficher une erreur.  
 
 Syntaxe : 
 
-try: ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.082.png)
-
-- bloc d’instructions à exécuter 
-
-except : 
-
-return None 
+```
+try:
+    # bloc d’instructions à exécuter
+except :
+    return None
+```
 
 NB : L'objet Python None, exprime l'absence de valeur. Cet objet n'a aucune méthode. 
 
-14. ★★ Modifier le corps principal du programme pour tester la valeur de retour sur chaque fonction appelée. En cas d’erreur (valeur None), afficher le message d’erreur . 
-14. Créer un docstring pour chacune des fonctions du programme hex2bin. 
+14 ★★ Modifier le corps principal du programme pour tester la valeur de retour sur chaque fonction appelée. En cas d’erreur (valeur None), afficher le message d’erreur . 
+15 Créer un docstring pour chacune des fonctions du programme hex2bin. 
 
 Syntaxe, par exemple : 
 
-def fonction (x : int, y : int) -> tuple:     """ ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.083.png)
-
-`    `fonction qui … 
-
-`    `:param x: int 
-
-`    `:param y: int 
-
-`    `:return: tuple 
-
-`    `""" 
+```python
+def fonction (x : int, y : int) -> tuple:     
+    """
+    fonction qui …
+    :param x: int
+    :param y: int
+    :return: tuple
+    """
+```
 
 Convertisseur en ligne :[ https://www.exploringbinary.com/twos-complement-converter/ ](https://www.exploringbinary.com/twos-complement-converter/)
 
@@ -494,40 +503,26 @@ QCM :[ http://www.scientillula.net/MPI/fex6_conversions/fex6_conversions.html ](
 
 En base 10, l’expression 652,375 est une manière abrégée d’écrire : 
 
-6\.102 + 5.101 + 2.100 + 3.10−1 + 7.10−2 + 5.10−3
+6.10<sup>2</sup> + 5.10<sup>1</sup> + 2.10<sup>0</sup> + 3.10<sup>−1</sup> + 7.10<sup>−2</sup> + 5.10<sup>−3</sup>
 
 Il en va de même pour la base 2. L’expression 110,101 signifie : 
 
-1\.22 + 1.21 + 0.20 + 1.2−1 + 0.2−2 + 1.2−3
+1.2<sup>2</sup> + 1.2<sup>1</sup> + 0.2<sup>0</sup> + 1.2<sup>-1</sup> + 0.2<sup>-2</sup> + 1.2<sup>-3</sup>
 
 ### **5.1. Conversion<a name="_page12_x40.00_y115.92"></a> de binaire en décimal** 
 
 On peut ainsi facilement convertir un nombre réel de la base 2 vers la base 10. Par exemple : 
 
-110,101 = 1.22 + 1.21 + 0.20 + 1.2−1 + 0.2−2 + 1.2−3 = 4 + 2 + 0,5 + 0,125 = 6,625 
+110,101 = 1.2<sup>2</sup> + 1.2<sup>1</sup> + 0.2<sup>0</sup> + 1.2<sup>-1</sup> + 0.2<sup>-2</sup> + 1.2<sup>-3</sup> = 4 + 2 + 0,5 + 0,125 = 6,625 
 
 ### **5.2. Conversion<a name="_page12_x40.00_y167.92"></a> de décimal en binaire** 
 
 Le passage de base 10 en base 2 est plus subtil. Par exemple : convertissons 1234,347 en base 2. 
 
-1. La partie entière se transforme comme précédemment : 123410 = 100110100102 
-1. On transforme la partie décimale selon le schéma suivant : ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.031.png)
+1. La partie entière se transforme comme précédemment : 1234<sub>10</sub> = 10011010010<sub>2</sub>
+2. On transforme la partie décimale selon le schéma suivant :
 
-Première NSI   Chap 13 : Codage de l’information  Page 13/21 ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.031.png)
-
-0,347 x 2 = 0,694 0,694 x 2 = 1,388 0,388 x 2 = 0,766 0,766 x 2 = 1,552 0,552 x 2 = 1,104 0,104 x 2 = 0,208 0,208 x 2 = 0,416 0,416 x 2 = 0,832 0,832 x 2 = 1,664 0,664 x 2 = 1,328 
-
-0,347 =>0,0... 
-
-0,347 => 0,01... 
-
-0,347 => 0,010... 
-
-0,347 => 0,0101... 
-
-0\.347 => 0,01011... 0,347 => 0,010110... 0,347 => 0,0101100... 0,347 => 0,01011000... 0,347 => 0,010110001... 0,347 => 0,0101100011... 
-
-Première NSI   Chap 21 : Codage de l’information  Page 21/21 ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.031.png)
+![](Aimg11.png)
 
 On continue ainsi jusqu'à la précision désirée..
 
