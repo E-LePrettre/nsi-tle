@@ -380,8 +380,11 @@ Tout au début du programme, ne pas oublier cette ligne : # coding: utf-8
 5. ★★★ Modifier le programme pour coder un nombre négatif selon la méthode du complément à 2. 
 
 **Aide :** 
+
 - Le complément à 2 peut être calculer par une autre méthode : Sur 8 bits, -88 en complément à 2 correspond au nombre binaire suivant : 
+
 * 2<sup>7</sup> – 88 = 40 
+
 * 40 en binaire => 010 1000 
 Le bit de signe donne donc 1010 1000 
 
