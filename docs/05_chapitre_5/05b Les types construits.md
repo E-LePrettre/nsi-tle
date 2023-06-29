@@ -279,34 +279,39 @@ Tester avec
 
 
 
-|**Activité n°12.:** Ajouter et supprimer des éléments ||
-| - | :- |
-|liste3 = [1, 49, 81, 25, 64] ||
-|liste3.append("en dernier") ||
-|print(liste3) ||
-|liste3.pop(1) ||
-|print(liste3) ||
-|||
-|||
-**Activité n°13.: avec les chaine de caractères  :** Il existe pour les listes des méthodes très intéressantes dans le traitement des chaines de caractères. Ce sont les méthodes ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.028.png)split() et join(). Observer le code proposé et réaliser les affichages des listes créées. Penser à également utiliser la commande type(variables) afin de vérifier le type des variables créées. 
+**Activité n°12.:** Ajouter et supprimer des éléments 
 
-citation="Je ne cherche pas à connaître les réponses, je cherche à comprendre les questions." 
+```python
+liste3 = [1, 49, 81, 25, 64]
+liste3.append("en dernier")
+print(liste3)
+liste3.pop(1)
+print(liste3)
+```
 
-liste=citation.split(" ") phrase2=" ".join(liste) 
+???+ question "Faire ce qui est proposé"
 
-print(liste) print(phrase2) 
+    {{ IDE() }}
 
-\>>> ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.029.png)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.030.png)
+**Activité n°13.: avec les chaine de caractères  :** Il existe pour les listes des méthodes très intéressantes dans le traitement des chaines de caractères. Ce sont les méthodes split() et join(). Observer le code proposé et réaliser les affichages des listes créées. Penser à également utiliser la commande type(variables) afin de vérifier le type des variables créées. 
 
-['Je', 'ne', 'cherche', 'pas', 'à', 'connaître', 'les', 'réponses,', 'je', 'cherche', 'à', 'comprendre', 'les', 'questions.'] 
+```python
+citation="Je ne cherche pas à connaître les réponses, je cherche à comprendre les questions."
+liste=citation.split(" ")
+phrase2=" ".join(liste)
+print(liste)
+print(phrase2)
+```
 
-Je ne cherche pas à connaître les réponses, je cherche à comprendre les questions. 
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
 
 Les mêmes opérations et méthodes peuvent être appliquées aux listes qu’au tuples mais voici celles qui ne sont applicables qu’aux listes (mais pas aux tuples) 
 
 
 
-|**Méthodes et opérations applicables aux listes (mais pas aux tuples).** ||
+|**Méthodes** |**et opérations applicables aux listes (mais pas aux tuples)**|
 | - | :- |
 |s.append(x)|Ajoute l'élément x à la fin de la liste s. |
 |s[i] = x|Modifie la liste et affecte la valeur x à la case d'indice i. Attention, cette case doit exister. |
@@ -316,252 +321,310 @@ Les mêmes opérations et méthodes peuvent être appliquées aux listes qu’au
 |s.sort()|Modifie la liste s en la triant |
 |s.reverse()|Modifie la listes en inversant l'ordre des éléments de s |
 
-Quel **est l'intérêt d'utiliser un tuple** ? La réponse est simple : les opérations sur les tuples sont **plus "rapides".** Quand vous savez que votre liste ne sera pas modifiée, il est préférable d'utiliser un tuple à la place d'une liste. ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.031.png)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.032.png)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.033.png)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.010.png)
+Quel **est l'intérêt d'utiliser un tuple** ? La réponse est simple : les opérations sur les tuples sont **plus "rapides".** Quand vous savez que votre liste ne sera pas modifiée, il est préférable d'utiliser un tuple à la place d'une liste. 
 
-3. **Les<a name="_page5_x40.00_y36.92"></a> tableaux de tableaux** 
+### **1.3. Les<a name="_page5_x40.00_y36.92"></a> tableaux de tableaux** 
 
 Les éléments d'un tableau peuvent être également un tableau. Ce type d'objet rappelle un objet mathématique qui s'appelle une **matrice**. Cet objet est utilisé dans de nombreux domaines, notamment dans le traitement des images. Une image est une **matrice de pixels**. 
 
-On appelle matrice un tableau de tableaux dont chaque tableau à la même longueur. Chaque élément d'une matrice A est noté 
-
-, où *i* est le numéro de ligne et *j* le numéro de colonne. 
+On appelle matrice un tableau de tableaux dont chaque tableau à la même longueur. Chaque élément d'une matrice A est noté a𝑖,𝑗  où *i* est le numéro de ligne et *j* le numéro de colonne. 
 
 On représente une matrice de taille n,m en mathématiques ainsi : 
 
-1,1 1,2 ⋯ 1,
-
-2,1 2,2 2,* 
-
-- ( ⋮    ⋮ ⋱ ⋮ )
-
-,1 ,2 ⋯ ,
+![](Aimg16.png)
 
 Pour accéder à un élément organisé en **liste de liste**, on utilise une notation avec un double crochets. Le premier indice pointe la ligne et le deuxième indice pointe la colonne. 
 
 Si notre matrice contient n listes de m éléments on peut la voir ainsi : 
 
-[0][0] [0][1] [0][ − 1]
-
-- ( [1][0] [1][1] ⋯ [1][ − 1] )* 
-
-⋮                      ⋮ ⋱ ⋮
-
-[ − 1][0] [ − 1][1] ⋯ [ − 1][ − 1]![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.010.png)
+![](Aimg17.png)
 
 
 
-|**Activité n°14.: Travailler sur des listes de listes** |
-| - |
-|m = [[1, 3, 4], [5 ,6 ,8], [2, 1, 3], [7, 8, 15]] |
-|Il est souvent plus pratique de présenter ces " listes de listes" comme suit : |
-|m = [[1, 3, 4], |
-|[5, 6, 8], |
-|[2, 1, 3], |
-|[7, 8, 15]] |
-|Pour cibler un élément particulier de la matrice, on utilise la notation avec "doubles crochets" : m[ligne][colonne] |
-|(sans perdre de vu que la première ligne et la première colonne ont pour indice 0) |
-|<p>>>> a = m[1][2] >>> a ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.034.png)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.035.png)</p><p>8 </p>|
-||
+**Activité n°14.: Travailler sur des listes de listes** 
+
+```python
+m = [[1, 3, 4], [5 ,6 ,8], [2, 1, 3], [7, 8, 15]]
+```
+Il est souvent plus pratique de présenter ces " listes de listes" comme suit :
+
+```python
+m = [[1, 3, 4],
+ [5, 6, 8],
+ [2, 1, 3],
+ [7, 8, 15]]
+```
+Pour cibler un élément particulier de la matrice, on utilise la notation avec "doubles crochets" : m[ligne][colonne] (sans perdre de vu que la première ligne et la première colonne ont pour indice 0) 
+
+Tester avec :
+
+> a = m[1][2] 
+
+> a
+
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
 
 
-|**Activité n°15.: Parcours de liste de listes** Il est possible de parcourir l'ensemble des éléments d'une matrice à ||
-| - | :- |
-|l'aide d'une "double boucle for" :** ||
-|m = [[1, 3, 4], ||
-|[5, 6, 8], ||
-|[2, 1, 3], ||
-|[7, 8, 15]] ||
-|||
-|nb\_colonne, nb\_ligne = 3, 4 ||
-|||
-|for i in range(0, nb\_ligne): ||
-|for j in range(0, nb\_colonne): ||
-|a = m[i][j] ||
-|print(a) ||
-|||
-|||
-2. **Les<a name="_page6_x40.00_y36.92"></a> dictionnaires** 
+**Activité n°15.: Parcours de liste de listes** Il est possible de parcourir l'ensemble des éléments d'une matrice à l'aide d'une "double boucle for" :
 
-Comme les listes et les tuples, les dictionnaires permettent de stocker des données Une différence essentielle entre les listes et les dictionnaires est que les éléments d’une liste sont repérés par des indices 0, 1, 2, … alors que dans les dictionnaires ils sont remplacés par des objets de type str, float, tuples que l’on appelle clé et à chaque clé correspond une valeur. ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.036.png)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.037.png)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.038.png)**Ces clés ne sont pas ordonnées**. Chaque élément d’un dictionnaire est donc composé de 2 parties, on parle de pairs **« clé/valeur ».** 
+```python
+m = [[1, 3, 4],
+ [5, 6, 8],
+ [2, 1, 3],
+ [7, 8, 15]]
+nb_colonne, nb_ligne = 3, 4
+for i in range(0, nb_ligne):
+  for j in range(0, nb_colonne):
+    a = m[i][j]
+```
 
-1. **Création<a name="_page6_x79.00_y161.92"></a> de dictionnaires** 
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
+
+
+## **2. Les<a name="_page6_x40.00_y36.92"></a> dictionnaires** 
+
+Comme les listes et les tuples, les dictionnaires permettent de stocker des données Une différence essentielle entre les listes et les dictionnaires est que les éléments d’une liste sont repérés par des indices 0, 1, 2, … alors que dans les dictionnaires ils sont remplacés par des objets de type str, float, tuples que l’on appelle clé et à chaque clé correspond une valeur. 
+**Ces clés ne sont pas ordonnées**. Chaque élément d’un dictionnaire est donc composé de 2 parties, on parle de pairs **« clé/valeur ».** 
+
+### **2.1. Création<a name="_page6_x79.00_y161.92"></a> de dictionnaires** 
 
 Un dictionnaire est créé avec des accolades, les différents couples étant séparés par des virgules. La clé et la valeur correspondante d’un élément sont séparées par **deux-points.** 
 
-Exemple : dico = {"A": 0, "B": 1, "C": 2, "D": 3}. ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.010.png)
+Exemple : dico = {"A": 0, "B": 1, "C": 2, "D": 3}. 
+
+```python
+res={'nsi' :18,'maths':17,'svt':14,'français':14,'lv1':8,'physique':12,'HG':11}
+#Ajouter la moyenne de 12 en lv2.
+res['lv2'] = 12
+```
+Tester : 
+
+> res
+
+
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
+
+**Activité  n°16.:  Création  d’un  dictionnaire**  :  Pour  ajouter  une  couple  de  clé,valeur  il  suffit  d'écrire  : d[nouvelle\_clé]=nouvelle\_valeur 
 
 
 
-|**Activité  n°16.:  Création  d’un  dictionnaire**  :  Pour  ajouter  une  couple  de  clé,valeur  il  suffit  d'écrire  : ||
-| - | :- |
-|d[nouvelle\_clé]=nouvelle\_valeur ||
-|res={'nsi' :18,'maths':17,'svt':14,'français':14,'lv1':8,'physique':12,'HG':11} ||
-|#Ajouter la moyenne de 12 en lv2. ||
-|res['lv2'] = 12 ||
-|||
-|||
+**Activité n°17.: Construction d’un dictionnaire en compréhension** (comme avec les listes) :  
+
+```python
+dico1 = {x:x**2 for x in range(1,5)}
+jours = 'lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche'
+dico2 = {i+1:jours[i] for i in range(len(jours))}
+```
+Tester : 
+
+> dico1
+
+> dico2
 
 
-|**Activité n°17.: Construction d’un dictionnaire en compréhension** (comme avec les listes) :  ||
-| - | :- |
-|dico1 = {x:x\*\*2 for x in range(1,5)} ||
-|jours = 'lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche' ||
-|dico2 = {i+1:jours[i] for i in range(len(jours))} ||
-|||
-|||
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
 
 
-|**Activité n°18.: Création de dictionnaire à partir d’une liste de listes avec la fonction** dict :  |
-| - |
-|liste = [['A', 0], ['B', 1], ['C', 2]] |
-|d = dict(liste)  |
-|<p>>>> d ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.039.png)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.040.png)</p><p>{'A': 0, 'B': 1, 'C': 2} </p>|
-||
-2. **Accès<a name="_page7_x40.00_y36.92"></a> aux éléments** 
+**Activité n°18.: Création de dictionnaire à partir d’une liste de listes avec la fonction** dict :  
+
+```python
+liste = [['A', 0], ['B', 1], ['C', 2]]
+d = dict(liste)
+```
+Tester : 
+
+> d
 
 
+???+ question "Faire ce qui est proposé"
 
-|**Activité n°19.: Avec les méthodes** keys() **et** values() **:**Accès aux éléments avec les méthodes keys et ||
-| - | :- |
-|values   ||
-|turing={'nom':'Turing','prenom':('Alan','Mathison'),'nation':'anglaise','naissance' : ||
-|1912, 'mort':1954} ||
-|||
-|print("Avec la méthode keys()") ||
-|for i in turing.keys(): ||
-|print(i) ||
-|||
-|print("Avec la méthode values()") ||
-|for i in turing.values(): ||
-|print(i) ||
-|||
-|||
+    {{ IDE() }}
 
-
-|**Activité n°20.: Avec la méthode** item() **:** Accès à l’ensemble des couples clés-valeurs avec la méthode items||
-| - | :- |
-|turing={'nom':'Turing','prenom':('Alan','Mathison'),'nation':'anglaise','naissance' : ||
-|1912, 'mort':1954} ||
-|||
-|print("Avec la méthode item()") ||
-|for i in turing.items(): ||
-|print(i) ||
-|||
-|print("Avec la méthode item() version2") ||
-|for key, value in turing.items() : ||
-|print("la clé {} contient la valeur {}.".format(key, value)) ||
-|||
-|||
-|On obtient **des tuples**, pour la première méthode. ||
-
-Remarque : dans le dernier exemple, on voit la chaine de caractère formatée avec la **méthode format** ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.010.png)
+### **2.2. Accès<a name="_page7_x40.00_y36.92"></a> aux éléments** 
 
 
 
-|**Activité n°21.: Test d’appartenance** : avec **l’opérateur** in ||
-| - | :- |
-|d = {'A': 0, 'B': 1, 'C': 2} ||
-|print("A" in d)            # teste si "A" est une clé ||
-|print(3 in d.values())          # teste si 3 est une valeur ||
-|print(('C', 2) in d.items())     # teste si ('C', 2) est un couple clé-valeur ||
-|||
-|||
+**Activité n°19.: Avec les méthodes** keys() **et** values() **:**Accès aux éléments avec les méthodes keys et 
 
 
-|**Activité n°22.: Modification d’une valeur particulière**  ||
-| - | :- |
-|mes\_fruits = {"poire": 3, "pomme": 4, "orange": 2} ||
-|mes\_fruits["pomme"] = mes\_fruits["pomme"] - 1 ||
-|print(mes\_fruits) ||
-|mes\_fruits['poire'] = 10 ||
-|print(mes\_fruits) ||
-|||
-|||
+```python
+turing={'nom':'Turing','prenom':('Alan','Mathison'),'nation':'anglaise','naissance' : 
+1912, 'mort':1954}
+print("Avec la méthode keys()")
+for i in turing.keys():
+  print(i)
+print("Avec la méthode values()")
+for i in turing.values():
+  print(i)
+```
 
 
-|**Activité n°23. Méthode** get : Une instruction comme v = d["E"] provoque **une erreur** car la clé ”E” n’existe pas. La ||
-| - | :- |
-|méthode **get permet de gérer ce genre de problème.** ||
-|**S**i la clé n'existe pas la méthode get() ne génère pas d'erreur mais renvoie la valeur None.  ||
-|d = {'A': 0, 'B': 1, 'C': 2} ||
-|v = d.get("A") ||
-|print(v) ||
-|||
-|v = d.get("E") ||
-|print(v) ||
-|||
-|||
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
 
 
-|**Activité n°24.: fonction** len() **:** Donner le nombre de couple clé-valeur d’un dictionnaire  ||
-| - | :- |
-|d = {'A': 0, 'B': 1, 'C': 2, 'D': 3} ||
-|print(len(d))    ||
-|||
-|||
+**Activité n°20.: Avec la méthode** item() **:** Accès à l’ensemble des couples clés-valeurs avec la méthode items
+
+```python
+turing={'nom':'Turing','prenom':('Alan','Mathison'),'nation':'anglaise','naissance' : 
+1912, 'mort':1954}
+print("Avec la méthode item()")
+for i in turing.items():
+  print(i)
+print("Avec la méthode item() version2")
+for key, value in turing.items() :
+  print("la clé {} contient la valeur {}.".format(key, value))
+```
 
 
-|**Activité n°25.: Avec la fonction** del() : ||
-| - | :- |
-|d = {'A': 0, 'B': 1, 'C': 2, 'D': 3} ||
-|del d["D"] ||
-|print(d) ||
-|||
-|||
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
 
 
-|**Activité n°26.: Exemple de formatage de chaine** :  |
-| - |
-|mon\_dico = {"nom": "Durand", "prenom": "Christophe", "date de naissance": "29/02/1981"}  |
-|print(f'Bonjour je suis {mon\_dico["prenom"]} {mon\_dico["nom"]}, je suis né le |
-|{mon\_dico["date de naissance"]}')  |
-||
-|mon\_dico['lieu naissance'] = "Bonneville"  |
-|print (f'à {mon\_dico["lieu naissance"]}') |
-|<p>>>>  ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.041.png)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.042.png)</p><p>Bonjour je suis Christophe Durand, je suis né le 29/02/1981 à Bonneville </p>|
-||
+
+On obtient **des tuples**, pour la première méthode. 
+
+Remarque : dans le dernier exemple, on voit la chaine de caractère formatée avec la **méthode format** 
+
+
+
+**Activité n°21.: Test d’appartenance** : avec **l’opérateur** in 
+
+```python
+d = {'A': 0, 'B': 1, 'C': 2}
+print("A" in d) # teste si "A" est une clé
+print(3 in d.values()) # teste si 3 est une valeur
+print(('C', 2) in d.items()) # teste si ('C', 2) est un couple clé-valeur
+```
+
+
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
+
+
+**Activité n°22.: Modification d’une valeur particulière**  
+
+```python
+mes_fruits = {"poire": 3, "pomme": 4, "orange": 2}
+mes_fruits["pomme"] = mes_fruits["pomme"] - 1
+print(mes_fruits)
+mes_fruits['poire'] = 10
+print(mes_fruits)
+```
+
+
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
+
+
+**Activité n°23. Méthode** get : Une instruction comme v = d["E"] provoque **une erreur** car la clé ”E” n’existe pas. La méthode **get permet de gérer ce genre de problème.** 
+**Si** la clé n'existe pas la méthode get() ne génère pas d'erreur mais renvoie la valeur None.  
+
+```python
+d = {'A': 0, 'B': 1, 'C': 2}
+v = d.get("A")
+print(v)
+v = d.get("E")
+print(v)
+```
+
+
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
+
+
+
+**Activité n°24.: fonction** len() **:** Donner le nombre de couple clé-valeur d’un dictionnaire  
+
+```python
+d = {'A': 0, 'B': 1, 'C': 2, 'D': 3}
+print(len(d)) 
+```
+
+
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
+
+
+**Activité n°25.: Avec la fonction** del() : 
+
+```python
+d = {'A': 0, 'B': 1, 'C': 2, 'D': 3}
+del d["D"]
+print(d)
+```
+
+
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
+
+
+**Activité n°26.: Exemple de formatage de chaine** :  
+
+```python
+mon_dico = {"nom": "Durand", "prenom": "Christophe", "date de naissance": "29/02/1981"} 
+print(f'Bonjour je suis {mon_dico["prenom"]} {mon_dico["nom"]}, je suis né le 
+{mon_dico["date de naissance"]}') 
+mon_dico['lieu naissance'] = "Bonneville" 
+print (f'à {mon_dico["lieu naissance"]}')
+```
+
+
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
+
+
 L’implémentation d’un dictionnaire optimise le coût en temps de la recherche d’un élément. 
 
-L’implémentation d’un dictionnaire **optimise le coût en temps** de la recherche d’un élément. ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.043.png)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.044.png)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.045.png)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.010.png)
+L’implémentation d’un dictionnaire **optimise le coût en temps** de la recherche d’un élément. 
 
-3. **Exercices** 
+### **3. Exercices** 
 
-**Exercice 1 :** ★ **Utilisation des opérations et méthodes :**  en utilisant le code ci-dessous, compléter .   **jours\_1=('lundi','mardi','mercredi','jeudi','vendredi') jours\_2=(![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.046.png)'samedi','dimanche')** 
+**Exercice 1 :** ★ **Utilisation des opérations et méthodes :**  en utilisant le code ci-dessous, compléter .   **jours\_1=('lundi','mardi','mercredi','jeudi','vendredi') jours\_2=('samedi','dimanche')** 
 
 - **Tester si samedi est un élément de jours\_1** 
 - **Donner la longueur de jours\_2** 
 - **Tester si jours\_1 est égal à jours\_2** 
 - **Donner le deuxième élément de jours\_1** 
-- **Donner la partie de jours\_1 entre le deuxième élément et le quatrième élément ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.047.png)**
+- **Donner la partie de jours\_1 entre le deuxième élément et le quatrième élément **
 - **renvoyer l'indice de dimanche dans jours\_2** 
 - **Renvoyer le nombre de samedi dans jours\_2** 
 - **Créer un tuple semaine par concaténation de jours\_1 et de jours\_2** 
 
-**Exercice 2 :** ★ **Test d’appartenance :** En utilisant un parcours de tuple avec la présence d'un indice, écrire une fonction est\_dans(element,tple) qui en argument reçoit un entiers ( élément) et un tuple d'entier ( tple) qui renvoie un booleen indiquant la présence de élément dans tuple. On testera la fonction sur les scripts suivants : **est\_dans(4,(1,2,3,4,5,6)) ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.048.png)**
+**Exercice 2 :** ★ **Test d’appartenance :** En utilisant un parcours de tuple avec la présence d'un indice, écrire une fonction est\_dans(element,tple) qui en argument reçoit un entiers ( élément) et un tuple d'entier ( tple) qui renvoie un booleen indiquant la présence de élément dans tuple. On testera la fonction sur les scripts suivants : **est\_dans(4,(1,2,3,4,5,6))** #qui devrait renvoyer True** 
 
-- **qui devrait renvoyer True** 
-
-**est\_dans(9,(1,2,3,4,5,6))** 
-
-- **qui devrait renvoyer False** 
+**est\_dans(9,(1,2,3,4,5,6))** #qui devrait renvoyer False** 
 
 En Python, une fonction qui renvoie plusieurs éléments ( ex : return a,b,c ) renvoie un tuple.  
 
-**Exercice 3 :** ★**Tuple et fonction :** Ecrire une fonction triangle(n) qui renvoie un tuple ou chaque élément est un tuple de longueur trois. Ces tuples sont constitués de trois entiers a, b,c tels que 0<a≤b≤c<n et le triangle de cotés 
+**Exercice 3 :** ★**Tuple et fonction :** Ecrire une fonction triangle(n) qui renvoie un tuple ou chaque élément est un tuple de longueur trois. Ces tuples sont constitués de trois entiers a, b,c tels que 0<a≤b≤c<n et le triangle de cotés a, b et c soit rectangle.  
 
-a, b et c soit rectangle.  
-
-Aide :  ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.049.png)
-
-for a in range(**1,** n): 
-
-`    `for b in range(a**,** n): 
-
-`        `for c in range(b**,** n): 
+Aide :  
+```python
+for a in range(1, n):
+  for b in range(a, n):
+    for c in range(b, n):
+```
 
 Ces triplets sont appelés triplets pythagoricien 
 
-Par exemple :  ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.050.png)
+Par exemple :  
 
 assert(triangle(**15**)== ((**3, 4, 5**)**,** (**5, 12, 13**)**,** (**6, 8, 10**))) 
 
@@ -570,10 +633,12 @@ assert(triangle(**15**)== ((**3, 4, 5**)**,** (**5, 12, 13**)**,** (**6, 8, 10**
 - Ecrire une fonction const\_dico(cle,valeur) qui renvoie le dictionnaire définie par les clés et les valeurs entrées en argument.** 
 - On donne des listes de certains joueurs de League Of Legend ainsi que leur classement et leur nombre de points :** 
 
-pseudo=['Major Alexander','KBM Wiz', 'FNC MagiFelix','Avalanche','love camile','Nobody'] ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.051.png)classement=[(12,1406),(1,1613),(4,1507),(9,1429),(16,1341),(11,1416)]
+pseudo=['Major Alexander','KBM Wiz', 'FNC MagiFelix','Avalanche','love camile','Nobody'] 
+
+classement=[(12,1406),(1,1613),(4,1507),(9,1429),(16,1341),(11,1416)]
 
 - Quel est le type de chacun des éléments?  
-- Appliquer votre fonction const\_dico(cle,valeur) sur les joueurs de LOL. ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.010.png)
+- Appliquer votre fonction const\_dico(cle,valeur) sur les joueurs de LOL. 
 
 **Exercice 5 :** ★★ **Le chiffrement de César (version light)** : Cryptographie 
 
@@ -598,32 +663,29 @@ A chaque lettre de l'alphabet on associe un nombre de à 0 à 25. On ajoute à c
 - Une fonction de codage 
   - Reprendre votre dictionnaire d et tester : 
 
-d['A'] ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.053.png)
+> d['A'] 
 
-d['D'] 
+> d['D'] 
 
-d['E'] 
+> d['E'] 
 
 - Dans le script précédent quel est le statut de 'A', 'D' et 'E'? Clé ou valeur? 
 - Ecrire une fonction en Python codage(mot) qui prend en argument un chaine de caractère écrit en lettre capitale et qui renvoie le mot codé par le chiffrement de César. 
 
-**Exercice 6 :** ★ **Création de matrice  :** Ecrire une fonction matriceAlea(n:int,m:int)->list Python qui renvoie une matrice à n lignes et m colonnes d'entiers aléatoires entre 0 et 100. Créer deux fonctions l’une qui utilise la ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.054.png)
+**Exercice 6 :** ★ **Création de matrice  :** Ecrire une fonction matriceAlea(n:int,m:int)->list Python qui renvoie une matrice à n lignes et m colonnes d'entiers aléatoires entre 0 et 100. Créer deux fonctions l’une qui utilise la création en compréhension et l’autre la création en extension. 
 
-création en compréhension et l’autre la création en extension. 
+Aide : ne pas oublier d’importer le module random 
 
-Aide : ne pas oublier d’importer le module random ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.010.png)
+**Exercice 7 :** ★★ **Carré magique  :** Un carré magique d’ordre 3 est une matrice de 3 lignes et de 3 dans laquelle des nombres sont placés de telle sorte que la somme des nombres de chaque colonne, chaque ligne et de chacune des deux diagonales soit la même. De plus, le carré doit contenir une fois chaque nombre, de 1 au nombre de cases de la grille. Ecrire un script Python qui vérifie que ce carré est magique. On pourra utiliser : 
 
-**Exercice 7 :** ★★ **Carré magique  :** Un carré magique d’ordre 3 est une matrice de 3 lignes et de 3 dans laquelle des nombres sont placés de telle sorte que la somme des nombres de chaque colonne, chaque ligne et de chacune des 
+```python
+L=[ [2,7,6],
+ [9,5,1],
+ [4,3,8]]
+```
 
-deux diagonales soit la même. De plus, le carré doit contenir une fois chaque nombre, de 1 au nombre de cases de la grille. Ecrire un script Python qui vérifie que ce carré est magique. On pourra utiliser : 
 
-L=[ [2,7,6], ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.055.png)
-
-`    `[9,5,1], 
-
-`    `[4,3,8]] 
-
-ð  Pour aller plus loin : problème France-IOI (niveau 3 → 5 -tableaux avancés): 
+Pour aller plus loin : problème France-IOI (niveau 3 → 5 -tableaux avancés): 
 
 Un carré magique est une grille carrée dans laquelle des nombres sont placés de telle sorte que la somme des nombres de chaque colonne, chaque ligne et de chacune des deux diagonales soit la même. De plus, Le carré doit contenir une fois chaque nombre, de 1 au nombre de cases de la grille. 
 
@@ -641,41 +703,40 @@ Vous devez afficher une ligne sur la sortie, contenant le mot "yes" si le carré
 
 **Exemple** 
 
-*entrée : ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.056.png)*
+*entrée : 
+![](Aimg18.png)
 
-3 
+*sortie : 
+![](Aimg19.png)
 
-6 1 8 7 5 3 
-
-2 9 4 *sortie : ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.057.png)*
-
-yes 
 
 **Commentaires** 
 
 Chacun des chiffres de 1 à 9 apparaît exactement une fois dans la grille. De plus, toutes les colonnes, lignes et les deux diagonales de cette grille ont pour somme 15. En effet : 
 
-|<p>Lignes  : 6 + 1 + 8 = 15 </p><p>7 + 5 + 3 = 15 </p><p>2 + 9 + 4 = 15 </p>|<p>Colonnes  : 6 + 7 + 2 = 15 </p><p>1 + 5 + 9 = 15 </p><p>8 + 3 + 4 = 15 </p>|<p>Diagonales  : 6 + 5 + 4 = 15 </p><p>8 + 5 + 2 = 15 </p>|
-| :- | :- | :- |
+![](Aimg20.png)
 
-**Exercice 8:** ★ **avec les chaine de caractères  :** Python considère une phrase comme une séquence. Vous pouvez réaliser des essais avec cette citation célèbre du philosophe Confusius : "Je ne cherche pas à connaître les réponses, 
+**Exercice 8:** ★ **avec les chaine de caractères  :** Python considère une phrase comme une séquence. Vous pouvez réaliser des essais avec cette citation célèbre du philosophe Confusius : "Je ne cherche pas à connaître les réponses, je cherche à comprendre les questions." De quelle type de séquence se rapproche-t-on? De la liste et/ou du tuple ? Faire des tests à partir de vos connaissances en python. 
 
-je cherche à comprendre les questions." De quelle type de séquence se rapproche-t-on? De la liste et/ou du tuple ? Faire des tests à partir de vos connaissances en python. 
+```python
+# -*- coding: utf-8 -*-
+citation="Je ne cherche pas à connaître les réponses, je cherche à comprendre les questi
+ons."
+# à faire :
+citation[3]
+citation[4]='z'
+citation.append('!')
+```
 
-- -\*- coding: utf-8 -\*- ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.058.png)
 
-citation="Je ne cherche pas à connaître les réponses, je cherche à comprendre les questi ons."![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.059.png) 
+En utilisant la méthode count(), compter le nombre de 'a' dans la citation. 
 
-- à faire : 
-
-citation[3] citation[4]='z' citation.append('!') 
-
-En utilisant la méthode count(), compter le nombre de 'a' dans la citation. ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.010.png)
-
-**Exercice 9 :** ★★ **Jeu de cartes :   ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.060.png)**Un jeu de 32 cartes est composé de :  
+**Exercice 9 :** ★★ **Jeu de cartes :   **Un jeu de 32 cartes est composé de :  
 
 - quatre couleurs : pique, cœur, carreau, trèfle  
-- huit valeurs : roi, dame, valet,1,10,9,8,7  
+- huit valeurs : roi, dame, valet,1,10,9,8,7 
+
+![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.060.png)
 
 **Modélisation du problème**.  
 
@@ -690,16 +751,18 @@ Lorsque vous écrivez des fonctions :
 
 - Il faut typer vos fonctions. Exemple : creation\_jeu32(couleur:tuple, valeur32:tuple)->list 
 - Il faut écrire une aide explicative docstring, entre " ", ou entre """ """" (si l'aide fait plusieurs lignes). 
-1. Créer une fonction creation\_jeu32(couleur:tuple, valeur32:tuple)->list qui retourne un liste de 32  cartes  sous  forme  de  **liste  de  tuples** : [('Roi',  'pique'),  ('Roi',  'coeur'),  ('Roi', 'carreau'),…]
+1 Créer une fonction creation\_jeu32(couleur:tuple, valeur32:tuple)->list qui retourne un liste de 32  cartes  sous  forme  de  **liste  de  tuples** : [('Roi',  'pique'),  ('Roi',  'coeur'),  ('Roi', 'carreau'),…]
 
 **Aide :**  
 
-couleur = ("pique", "coeur", "carreau", "trèfle") valeur32 = ("Roi", "Dame", "Valet", 1, 10, 9, 8, 7) ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.061.png)
+couleur = ("pique", "coeur", "carreau", "trèfle") 
 
-2. Vérifier que le jeu possède 32 cartes 
-2. On veut pouvoir mélanger le jeu de 32 cartes. Il existe une fonction shuffle(liste)  qui mélange les éléments d'une liste. Ecrire une fonction melange(jeu:list)->list qui renvoie le jeu de cartes mélangé. Penser à importer random 
-2. On veut pouvoir tirer une carte au hasard du jeu. Si le jeu est mélangé, cela peut être la première carte. Il faut penser à retirer la carte du jeu. carte\_hasard(jeu:list)-> tuple
-2. On veut pouvoir créer une "main" d’un certain nombre de cartes. Une main signifie un ensemble de cartes. Ecrire une fonction main(nombre\_cartes: int,jeu:list)->list: qui renvoie une main formée du nombre de cartes. Il faut penser à retirer la main créée du jeu de 32 cartes. 
+valeur32 = ("Roi", "Dame", "Valet", 1, 10, 9, 8, 7) 
+
+2 Vérifier que le jeu possède 32 cartes 
+3 On veut pouvoir mélanger le jeu de 32 cartes. Il existe une fonction shuffle(liste)  qui mélange les éléments d'une liste. Ecrire une fonction melange(jeu:list)->list qui renvoie le jeu de cartes mélangé. Penser à importer random 
+4 On veut pouvoir tirer une carte au hasard du jeu. Si le jeu est mélangé, cela peut être la première carte. Il faut penser à retirer la carte du jeu. carte\_hasard(jeu:list)-> tuple
+5 On veut pouvoir créer une "main" d’un certain nombre de cartes. Une main signifie un ensemble de cartes. Ecrire une fonction main(nombre\_cartes: int,jeu:list)->list: qui renvoie une main formée du nombre de cartes. Il faut penser à retirer la main créée du jeu de 32 cartes. 
 
 **Vers une autre structure de données construites**. 
 
@@ -712,10 +775,10 @@ On veut pouvoir comparer des cartes pour réaliser par exemple des jeux.
 
 **Implémentation en Python** 
 
-6. Ecrire une fonction force(carte:tuple)->int: qui renvoie la "force" de la carte. 
-6. Ecrire une fonction jeu\_force(jeu : list) -> dict: qui renvoie le jeu des cartes associées à leur force. 
-6. On  veut  comparer  deux  cartes.  Ecrire  une  fonction  en  Python compare(carte1:tuple,carte2:tuple,jeu\_force:dict)->tuple qui renvoie la carte avec la force la plus élevée. 
-6. Inventer  une  notion  de  distance  entre  deux  cartes.  Ecrire  une  fonction distance(carte1:tuple,carte2:tuple)->int qui renvoie la "distance" entre deux cartes. ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.010.png)
+6 Ecrire une fonction force(carte:tuple)->int: qui renvoie la "force" de la carte. 
+7 Ecrire une fonction jeu\_force(jeu : list) -> dict: qui renvoie le jeu des cartes associées à leur force. 
+8 On  veut  comparer  deux  cartes.  Ecrire  une  fonction  en  Python compare(carte1:tuple,carte2:tuple,jeu\_force:dict)->tuple qui renvoie la carte avec la force la plus élevée. 
+9 Inventer  une  notion  de  distance  entre  deux  cartes.  Ecrire  une  fonction distance(carte1:tuple,carte2:tuple)->int qui renvoie la "distance" entre deux cartes. 
 
 **Exercice 10** ★★ **Tracé graphique**  
 
@@ -723,25 +786,27 @@ Matplotlib est une bibliothèque du langage de programmation Python destinée à
 
 Matplotlib est distribuée librement et gratuitement sous une licence de style BSD. 
 
-1. Créer un fichier Python graphics.py.
-1. Écrire une fonction f, qui à x → x² + x – 4, et dont le prototype est le suivant : 
-
-f(x : float) ->  float ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.062.png)
-
-3. Compléter le code ci-dessous en utilisant une **compréhension de liste** pour liste\_x et liste\_y.
+1 Créer un fichier Python graphics.py.
+2 Écrire une fonction f, qui à x → x² + x – 4, et dont le prototype est le suivant : 
+```f(x : float) ->  float ```
+3 Compléter le code ci-dessous en utilisant une **compréhension de liste** pour liste\_x et liste\_y.
 - liste\_x contient les éléments  ∈ [−3,0;3,0] par intervalle de 0,1. 
 - liste\_y contient les images de x par f.
 
-import matplotlib.pyplot as plt ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.063.png)
+```python
+import matplotlib.pyplot as plt 
 
 def f(x : float) -> float: 
 
-- à compléter 
-- à compléter liste\_x =  liste\_y =  
+  # à compléter 
+  #à compléter 
+  liste_x =  
+  liste_y =  
 
-plt.plot(liste\_x, liste\_y, "b-", label="x² + x - 4", linewidth=3) plt.legend() 
-
-plt.show() 
+  plt.plot(liste_x, liste_y, "b-", label="x² + x - 4", linewidth=3) 
+  plt.legend() 
+  plt.show() 
+```
 
 Résultat attendu : 
 
@@ -749,14 +814,15 @@ Résultat attendu :
 
 *courbe : x² + x – 4* 
 
-On souhaite tracer une deuxième courbe sur le même graphique précédent dont l’équation est y = x3 – 3x + 2. 
+On souhaite tracer une deuxième courbe sur le même graphique précédent dont l’équation est y = x<sup>3</sup> – 3x + 2. 
 
-4. Modifier votre programme en rajoutant une fonction f2 qui renvoie l’image de x pour l’équation ci-dessus. 
-4. Mettre à jour une troisième liste liste\_y2 à l’aide d’une compréhension de liste. 
-4. Modifier les paramètres de la fonction plot() pour obtenir le  ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.065.jpeg)résultat ci-dessous.  
-4. Rajouter la légende sur le graphique.  
+4 Modifier votre programme en rajoutant une fonction f2 qui renvoie l’image de x pour l’équation ci-dessus. 
+5 Mettre à jour une troisième liste liste\_y2 à l’aide d’une compréhension de liste. 
+6 Modifier les paramètres de la fonction plot() pour obtenir le résultat ci-dessous.  
+7 Rajouter la légende sur le graphique.  
 
-Résultat attendu :  ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.010.png)
+Résultat attendu :  
+![](Aimg21.png)
 
 **Exercice 11 :** ★★ **Bulletins de vote Génération des votes:**  
 
@@ -764,13 +830,13 @@ On souhaite réaliser le comptage automatique d’un dépouillement d’une éle
 
 Il n’y a qu’un seul nom par ligne. Vous êtes chargé de fournir au client le nombre de votes et le total des votes reçus par candidats présents dans le fichier. 
 
-1. Créer un fichier Python votes.py. 
+1 Créer un fichier Python votes.py. 
 
 On souhaite générer une liste de votes factices à partir d’une liste de noms. 
 
-2. Ecrire une fonction qui crée un fichier texte (vote.txt) avec un nom par ligne qui a été tiré aléatoirement depuis une liste de noms. 
+2 Ecrire une fonction qui crée un fichier texte (vote.txt) avec un nom par ligne qui a été tiré aléatoirement depuis une liste de noms. 
 
-generate\_ballots(total : int, noise : int) -> bool ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.066.png)
+```generate\_ballots(total : int, noise : int) -> bool ```
 
 - total -- nombre de bulletins 
 - noise -- numero de bulletin "bruité" . Le bulletin bruité est un vote étranger (ie : d’un candidat pirate)  qui ne fait pas partie de la liste « officielle ». 
@@ -778,43 +844,41 @@ generate\_ballots(total : int, noise : int) -> bool ![](Aspose.Words.27dc2d78-26
 
 **Aide** :  
 
-- la liste des noms : 
+- la liste des noms :
 
-ballots  = ['Pikachu','Pikachu','Pikachu','Fantomas','Fantomas','Dark Vador','Dark Vador','Saruman','Saruman','Saruman'] ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.067.png)
+```
+ballots  = ['Pikachu','Pikachu','Pikachu','Fantomas','Fantomas','Dark Vador','Dark Vador','Saruman','Saruman','Saruman'] 
 
 stranger = 'Sex Pistols' 
+```
 
 **Rappels** :  
 
 - on utilisera la fonction open() avec l’attribut "w"
 - on utilisera la syntaxe : 
 
-try : ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.068.png)
-
-- bloc à coder 
-
+```
+try : 
+  # bloc à coder 
 except IOError : 
+  return False 
+return True
+``` 
 
-return False return True 
-
-- on utilisera le module random sur la liste ballots pour écrire un nom au hasard dans le fichier vote.txt  ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.069.png)
+- on utilisera le module random sur la liste ballots pour écrire un nom au hasard dans le fichier vote.txt  
 - ne pas oublier "\n" à la fin de chaque ligne écrite et de fermer le fichier texte avec la méthode close()
-3. Tester cette fonction avec total 10 et noise 2.  
-3. Documenter la fonction. 
+3 Tester cette fonction avec total 10 et noise 2.  
+4 Documenter la fonction. 
 
 **Dépouillement :** 
 
-5. Ajouter une fonction qui permet de dénombrer le nombre de votes pour un candidat donné. On donne le prototype de la fonction : 
+5 Ajouter une fonction qui permet de dénombrer le nombre de votes pour un candidat donné. On donne le prototype de la fonction : 
 
 
+```read_ballots(filename : str) -> dict ```
+- filename -- nom du fichier texte </p><p>- la fonction retourne un dictionnaire sous la forme {nom du candidat:nbr de votes}, ou None si erreur 
 
-|read\_ballots(filename : str) -> dic|t |||
-| - | - | :- | :- |
-|<p>- filename -- nom du fichier texte </p><p>- la fonction retourne un dictionnaire sous la</p>|` `forme {nom du candidat:nbr de votes}, ou None si|||
-
-erreur 
-
-**Aide :  ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.010.png)**
+**Aide :**
 
 - La méthode strip() et la méthode rstrip("\n") pour enlever le symbole. Les deux méthodes peuvent s’écrire sur la même ligne 
 
@@ -825,28 +889,32 @@ erreur
 - on utilisera la fonction open() avec l’attribut "r" 
 - on utilisera la syntaxe  
 
-try : ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.070.png)
-
-- bloc à coder 
-
+```
+try : 
+  # bloc à coder 
 except IOError : 
-
-return None       return #le dictionnaire 
+  return None       
+return #le dictionnaire
+``` 
 
 - Ne pas oublier de fermer le fichier texte
-6. Documenter la fonction (docstring). 
-6. Tester les fonctions avec  
+6 Documenter la fonction (docstring). 
+7 Tester les fonctions avec  
+```python
+generate_ballots(5000, 3951) 
+print(read\_ballots("votes.txt"))
+```
 
-generate\_ballots(5000, 3951) print(read\_ballots("votes.txt")) ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.071.png)
-
-8. Déterminer les intrus qui se sont glissés dans le fichier et supprimer les du dictionnaire sans utiliser 'Sex Pistols' on pourra imaginer que tous les intrus ont qu’un seul vote. 
-8. Afficher le nombre de votants à l’aide d’une compréhension de liste faite sur le dictionnaire retourné par la fonction read\_ballots().
+8 Déterminer les intrus qui se sont glissés dans le fichier et supprimer les du dictionnaire sans utiliser 'Sex Pistols' on pourra imaginer que tous les intrus ont qu’un seul vote. 
+9 Afficher le nombre de votants à l’aide d’une compréhension de liste faite sur le dictionnaire retourné par la fonction read\_ballots().
 
 **Aide :**  
 
 - On pourra utiliser la fonction sum.  [https://www.programiz.com/python-programming/methods/built-in/sum ](https://www.programiz.com/python-programming/methods/built-in/sum)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.010.png)
 
-**Exercice 12 :** ★★★ **format EXIF Introduction  ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.072.png)**
+**Exercice 12 :** ★★★ **format EXIF Introduction  **
+
+![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.072.png)
 
 L’Exchangeable  Image  File  Format  ou  EXIF  est  une  spécification  de  format  de  fichier  pour  les  images  utilisées  par  les  appareils  photographiques  numériques.  Il  a  été  établi  par  le  Japan  Electronic  Industry Development Association (JEIDA). Cette spécification repose sur  des formats existants tels que JPEG, TIFF version 6.0 et RIFF format de  fichier audio WAVE, en y ajoutant des balises de métadonnées.  
 
@@ -861,9 +929,7 @@ Les  balises  de  métadonnées  définies  dans  le  format  EXIF  standard  co
 
 **Utilisation du format EXIF**  
 
-Les données EXIF des photos permettent de comprendre pourquoi telle 
-
-photo est floue, telle autre est trop foncée ou encore pourquoi le ciel est tout blanc. De même, certains sites de publications d’images, comme Flickr par exemple, permettent de visualiser ces données. 
+Les données EXIF des photos permettent de comprendre pourquoi telle photo est floue, telle autre est trop foncée ou encore pourquoi le ciel est tout blanc. De même, certains sites de publications d’images, comme Flickr par exemple, permettent de visualiser ces données. 
 
 Ces données EXIF peuvent avoir des utilisations inattendues comme par exemple en cas de vol de votre appareil photo car le numéro de série de l’appareil est intégré dans ces données (voir le site[ Stolen Camera Finder)](https://www.stolencamerafinder.com/). 
 
@@ -871,10 +937,10 @@ Ces données EXIF peuvent avoir des utilisations inattendues comme par exemple e
 
 La plupart des appareils photos récents et téléphones portables enregistrent les photographies avec des données géographiques (longitude, latitude, mais aussi altitude). Si ces données sont lisibles avec la majorité des logiciels photos et d’explorateurs de fichiers, il est également possible d’y accéder avec Python. 
 
-1. Créer un fichier exif.py.
-1. Écrire une fonction qui lise les données EXIF contenues dans une image. On donne le prototype de la fonction : 
+1 Créer un fichier exif.py.
+2 Écrire une fonction qui lise les données EXIF contenues dans une image. On donne le prototype de la fonction : 
 
-get\_exif(filename : str) -> dict ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.073.png)
+```get\_exif(filename : str) -> dict ```
 
 - filename -- fichier image 
 - la fonction retourne les données EXIF si ok, ou None si erreur 
@@ -883,39 +949,38 @@ get\_exif(filename : str) -> dict ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e47
 
 - On utilisera Image de la bibliothèque PIL :  
 
-from PIL import Image ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.074.png)
+```from PIL import Image```
 
 - On utilisera la bibliothèque PIL ainsi que les méthodes associées \_getexif() et get().  from PIL.ExifTags import TAGS, GPSTAGS 
 - L’appel à \_getexif() se fait de la façon suivante : 
-
-image = Image.open(filename) ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.075.png)
-
+```python
+image = Image.open(filename) 
 exif = image.\_getexif() 
+```
 
 - Cependant, on obtient par ce biais un dictionnaire indexé avec des identifiants numériques. Pour avoir les noms correspondants, on utilise ExifTags et on renommera les clefs du dictionnaire : 
 
-new\_key = TAGS.get(key, key) ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.076.png)
+```new_key = TAGS.get(key, key) ```
 
 - Ne pas oublier de fermer l’image 
 
-image.close() ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.077.png)
+```image.close() ```
 
-**Rappels : ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.010.png)**
+**Rappels : **
 
 - on utilisera la syntaxe  
-
-try : ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.078.png)
-
-- bloc à coder 
-
+```
+try : 
+  # bloc à coder 
 except IOError : 
+  return None 
+return #ledictionnaire
+``` 
 
-return None return #ledictionnaire 
-
-3. Tester la fonction avec le fichier 'valley.jpg' du dossier Ressources (à enregistrer au même endroit que le fichier exif.py). 
-3. Documenter la fonction 
-3. Indiquer l’auteur de la photo : 'Artist', le fabricant et le numéro de série de l’appareil. Attention aux majuscules / minuscules  
-3. Ouvrir le fichier valley.jpg avec un éditeur de texte (Notepad++). Conclure. 
+3 Tester la fonction avec le fichier 'valley.jpg' du dossier Ressources (à enregistrer au même endroit que le fichier exif.py). 
+4 Documenter la fonction 
+5 Indiquer l’auteur de la photo : 'Artist', le fabricant et le numéro de série de l’appareil. Attention aux majuscules / minuscules  
+6 Ouvrir le fichier valley.jpg avec un éditeur de texte (Notepad++). Conclure. 
 
 Comme vous pouvez le constater, nous avons un système clé:valeur (à chaque clé correspond une valeur). La clé "GPSInfo" n'est pas tout le temps présente puisqu'il s'agit des coordonnées (latitude, longitude) de la prise de vue, il faut donc que l'appareil photo intègre un GPS (ce qui est le cas des smartphones) : 
 
@@ -924,13 +989,11 @@ Comme vous pouvez le constater, nous avons un système clé:valeur (à chaque cl
 Les lignes 1, 2, 3 et 4 vont particulièrement nous intéresser : 
 
 - ligne 1 : précise que nous sommes dans l'hémisphère Nord 
-- ligne 2 : nous avons la latitude ((47, 1), (37, 1), (29107360, 1000000)) nous avons ici une latitude en degrés, 
+- ligne 2 : nous avons la latitude ((47, 1), (37, 1), (29107360, 1000000)) nous avons ici une latitude en degrés,minute, seconde. Ici : 
 
-minute, seconde. Ici : 
-
-- 47/1=47 degrés  
-- 37/1 minutes  
-- et 29107360/1000000 secondes,  
+47/1=47 degrés  
+37/1 minutes  
+et 29107360/1000000 secondes,  
 
 aussi noté 47°37'29,107360" 
 
@@ -939,38 +1002,38 @@ aussi noté 47°37'29,107360"
 
 degrés, minute, seconde (ici : 3°25'42,976570") 
 
-7. Ajouter une fonction qui récupère les données GPS du format EXIF. On donne le prototype de la fonction : GPS\_read(filename : str) -> dict ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.062.png)
+7 Ajouter une fonction qui récupère les données GPS du format EXIF. On donne le prototype de la fonction : 
+```GPS_read(filename : str) -> dict ```
 - filename -- fichier image 
 - la fonction retourne les informations GPS si ok, ou None si erreur 
 
-**Aides :  ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.010.png)**
+**Aides : **
 
 - La variable exif contient l’ensemble des métadonnées de l’image : objectif, ouverture, vitesse, auteur…  
 
-exif = get\_exif(filename) ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.080.png)
+```exif = get\_exif(filename) ```
 
 - Les données GPS sont stockées dans exif['GPSInfo'].Il est conseillé de faire afficher cette clé de dictionnaire pour obtenir les noms des champs associés aux informations GPS. Pour récupérer le couple clé, valeur il faut écrire :  
 
-key, value in exif['GPSInfo'].items(): 
+```key, value in exif['GPSInfo'].items():``` 
 
 - Comme tout à l’heure il faut utiliser les ExifTags et renommer les clés 
 
-new\_key = GPSTAGS.get(key, key) ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.081.png)
+```new_key = GPSTAGS.get(key, key) ```
 
 **Rappels :** 
 
 - Capturer les exceptions : s’il n’y a pas d’exif et s’il n’y a pas de 'GPSInfo' dans exif 
 
-try : ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.082.png)
-
-- bloc à coder 
-
+```
+try : 
+  # bloc à coder 
 except KeyError : 
+  return None
+``` 
 
-return None 
-
-8. Tester la fonction avec le fichier 'mountain.jpg' du dossier Ressources (à enregistrer au même endroit que le fichier exif.py). 
-8. Compléter le docstring de la fonction 
+8 Tester la fonction avec le fichier 'mountain.jpg' du dossier Ressources (à enregistrer au même endroit que le fichier exif.py). 
+9 Compléter le docstring de la fonction 
 
 Les coordonnées géographiques sont habituellement exprimées dans le système sexagésimal, ou DMS pour degrés (°), minutes (′) et secondes (″). L’unité est le degré d’angle (1 tour = 360°), puis la minute d’angle (1° = 60′), puis la seconde d’angle (1° = 3 600″). 
 
@@ -978,9 +1041,9 @@ Par rapport au plan équatorial, la latitude est complétée d’une lettre N (h
 
 Remarque : pour obtenir un traitement automatisé des données géographiques, un format décimal est souvent plus pratique. On divise les minutes par 60 et les secondes par 3600 et on additionne le tout. La latitude est négative dans l’hémisphère Sud (S), et à l’Ouest du méridien de Greenwich (W). 
 
-10. A partir des données GPS récupérées précédemment, écrire une fonction qui indique les coordonnées GPS[^1]. On donne le prototype de la fonction : 
+10 A partir des données GPS récupérées précédemment, écrire une fonction qui indique les coordonnées GPS[^1]. On donne le prototype de la fonction : 
 
-get\_coordinates(GPSinfo : dict) -> list ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.083.png)
+```get_coordinates(GPSinfo : dict) -> list ```
 
 - GPSinfo -- données GPS 
 - la fonction retourne les coordonnées GPS au format DMS si ok, ou None si erreur sous la forme d’une liste de liste ['valeurLatitude', 'valeurLongitude']
@@ -991,49 +1054,54 @@ get\_coordinates(GPSinfo : dict) -> list ![](Aspose.Words.27dc2d78-26ce-4ee4-872
 - Le  dictionnaire  précédent  renvoie  les  clés :   'GPSLatitudeRef',  'GPSLatitude', 'GPSLongitudeRef' et 'GPSLongitude' 
 - Pour accéder à une valeur particulière : 
 
+```
+>>> GPSinfo = {'GPSLatitudeRef': 'N', 'GPSLatitude': ((63, 1), (409847, 10000), (0, 1)), 
+'GPSLongitudeRef': 'W', 'GPSLongitude': ((19, 1), (318565, 10000), (0, 1)), 'GPSAltitudeRef': 
+b'\x00', 'GPSAltitude': (92709, 191), 'GPSTimeStamp': ((13, 1), (18, 1), (42000, 1000)), 
+'GPSSpeedRef': 'K', 'GPSSpeed': (23, 25), 'GPSImgDirectionRef': 'M', 'GPSImgDirection': 
+(57107, 192), 'GPSDestBearingRef': 'M', 'GPSDestBearing': (57107, 192), 'GPSDateStamp': 
+'2018:09:03', 'GPSHPositioningError': (10, 1)}
+>>> GPSinfo['GPSLatitude']
+((63, 1), (409847, 10000), (0, 1))
+>>> GPSinfo['GPSLatitude'][0][0]
+63
+```
 
 
-|>>> GPSinfo = {'GPSLatitudeRef': 'N', 'GPSLatitude': ((63, 1), (409847, 10000), (0, 1)), |
-| - |
-|'GPSLongitudeRef': 'W', 'GPSLongitude': ((19, 1), (318565, 10000), (0, 1)), 'GPSAltitudeRef': |
-|b'\x00', 'GPSAltitude': (92709, 191), 'GPSTimeStamp': ((13, 1), (18, 1), (42000, 1000)), |
-|'GPSSpeedRef': 'K', 'GPSSpeed': (23, 25), 'GPSImgDirectionRef': 'M', 'GPSImgDirection': |
-|(57107, 192), 'GPSDestBearingRef': 'M', 'GPSDestBearing': (57107, 192), 'GPSDateStamp': |
-|'2018:09:03', 'GPSHPositioningError': (10, 1)} |
-|>>> GPSinfo['GPSLatitude'] |
-|((63, 1), (409847, 10000), (0, 1)) |
-|>>> GPSinfo['GPSLatitude'][0][0] |
-|63 |
 
-- Convertir chaque donnée en str pour pouvoir faire une présentation des coordonnées de ce type : ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.084.png)'63.0°40.9847‘0.0"N'' 
+- Convertir chaque donnée en str pour pouvoir faire une présentation des coordonnées de ce type : '63.0°40.9847‘0.0"N'' 
 - Pour coder le symbole de minute "‘" 
 - Pour écrire une instruction sur plusieurs lignes on met \ à la fin de chaque ligne 
 
 **Rappel** :  
 
-try : ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.085.png)
+```
+try : 
+  # bloc à coder 
+except TypeError : 
+  return None 
+```
 
-- bloc à coder 
-
-except TypeError : return None 
-
-11. Tester la fonction précédente avec le dictionnaire GPSinfo précédent 
-11. Compléter le docstring de la fonction 
+11 Tester la fonction précédente avec le dictionnaire GPSinfo précédent 
+12 Compléter le docstring de la fonction 
 
 On souhaite combiner les fonctions pour obtenir les coordonnées GPS d’une image 
 
-13. Ecrire une fonction qui combine les autres fonctions et qui retourne les coordonnées GPS de l’image entrée en argument. Le prototypage de la fonction  
+13 Ecrire une fonction qui combine les autres fonctions et qui retourne les coordonnées GPS de l’image entrée en argument. Le prototypage de la fonction  
 
-def coordonnee\_GPS\_image(image:str) -> list: ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.086.png)
+```def coordonnee_GPS_image(image:str) -> list: ```
 
-14. tester la fonction avec 'mountain.jpg'
-14. documenter la fonction 
-14. Créer un fichier exif\_test.py.
-14. Valider les tests unitaires suivants : 
+14 tester la fonction avec 'mountain.jpg'
+15 documenter la fonction 
+16 Créer un fichier exif\_test.py.
+17 Valider les tests unitaires suivants : 
+```
+xif.get_coordinates(exif.GPS_read("mountain.jpg")) == ['63.0°40.9847‘0.0"N', '19.0°31.8565‘0.0"W']
+exif.get_coordinates(exif.GPS_read("turing.jpg")) == None
+exif.get_coordinates(exif.GPS_read("mountain.png")) == None
+exif.get_exif("valley.jpg")['BodySerialNumber'] == "2506446"
+```
 
-exif.get\_coordinates(exif.GPS\_read("mountain.jpg")) ==  ['63.0°40.9847‘0.0"N', ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.087.png)'19.0°31.8565‘0.0"W'] 
-
-exif.get\_coordinates(exif.GPS\_read("turing.jpg")) == None exif.get\_coordinates(exif.GPS\_read("mountain.png")) == None exif.get\_exif("valley.jpg")['BodySerialNumber'] == "2506446" 
 
 **Rappel :**  
 
@@ -1041,31 +1109,33 @@ exif.get\_coordinates(exif.GPS\_read("turing.jpg")) == None exif.get\_coordinate
 
 On souhaite avoir un programme qui extrait toutes les EXIF d’une photo entrée en input 
 
-18. Créer un fichier exif\_main.py
-18. Le programme doit demander la photo et retourner chaque donnée EXIF ligne par ligne : 
+18 Créer un fichier exif\_main.py
+19 Le programme doit demander la photo et retourner chaque donnée EXIF ligne par ligne : 
+
+```
+indiquez un fichier>? mountain.jpg
+ExifVersion b'0230'
+ShutterSpeedValue (10167418, 1000000)
+ApertureValue (1695994, 1000000)
+DateTimeOriginal 2018:09:03 15:18:55
+DateTimeDigitized 2018:09:03 15:18:55
+BrightnessValue (17587, 1827)
+etc…
+```
 
 
-
-|indiquez un fichier>? mountain.jpg |
-| - |
-|ExifVersion b'0230' |
-|ShutterSpeedValue (10167418, 1000000) |
-|ApertureValue (1695994, 1000000) |
-|DateTimeOriginal 2018:09:03 15:18:55 |
-|DateTimeDigitized 2018:09:03 15:18:55 |
-|BrightnessValue (17587, 1827) |
-|etc… |
 
 **Rappel :** 
 
-try : ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.088.png)
+```
+try : 
+  # bloc à coder 
+except KeyboardInterrupt:         
+  pass 
+```
 
-- bloc à coder 
-
-except KeyboardInterrupt:       pass 
-
-20. Tester avec le fichier mountain.jpg
-20. Vérifier que toutes les fonctions soient bien documentées (docstring). **![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.010.png)**
+20 Tester avec le fichier mountain.jpg
+21 Vérifier que toutes les fonctions soient bien documentées (docstring). 
 
 **Exercice 13 :** ★★★ **Le chiffrement de Caesar** 
 
