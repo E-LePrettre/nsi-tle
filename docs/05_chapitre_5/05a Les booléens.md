@@ -136,31 +136,23 @@ La porte XOR est symbolisée par le schéma suivant :
 
 |Symbole |Autre symbole |Opération |
 | - | - | - |
-|![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.016.png)|![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.017.png)|E1 Å E2 |
+|![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.016.png)|![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.017.png)|![](Aimg2.png) |
 
 ### **2.5. La<a name="_page2_x40.00_y649.04"></a> porte NON ET (NAND)** 
 
+|Symbole |Table de vérité |Opération |
+| - | - | - |
+|![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.018.png)|![](Aimg4.png)|![](Aimg2.png) |
 
 
-<table><tr><th colspan="1" valign="bottom">Symbole </th><th colspan="5" valign="top">Table de vérité </th><th colspan="1" valign="top">Opération </th></tr>
-<tr><td colspan="1" rowspan="5" valign="top">![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.018.png)</td><td colspan="1" rowspan="5"></td><td colspan="1"><b>e1</b> </td><td colspan="1"><b>e2</b> </td><td colspan="1"><b>S</b> </td><td colspan="1" rowspan="5"></td><td colspan="1" rowspan="5" valign="top">1 . 2</td></tr>
-<tr><td colspan="1"><b>0</b> </td><td colspan="1"><b>0</b> </td><td colspan="1"><b>1</b> </td></tr>
-<tr><td colspan="1"><b>0</b> </td><td colspan="1"><b>1</b> </td><td colspan="1"><b>1</b> </td></tr>
-<tr><td colspan="1"><b>1</b> </td><td colspan="1"><b>0</b> </td><td colspan="1"><b>1</b> </td></tr>
-<tr><td colspan="1"><b>1</b> </td><td colspan="1"><b>1</b> </td><td colspan="1"><b>0</b> </td></tr>
-</table>
 
 ### **2.6. La porte NON OU (NOR)** 
 
+|Symbole |Table de vérité |Opération |
+| - | - | - |
+|![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.019.png)|![](Aimg5.png)|![](Aimg3.png) |
 
 
-<table><tr><th colspan="1" valign="bottom">Symbole </th><th colspan="5" valign="top">Table de vérité </th><th colspan="1" valign="top">Opération </th></tr>
-<tr><td colspan="1" rowspan="5">![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.019.png)</td><td colspan="1" rowspan="5"></td><td colspan="1"><b>e1</b> </td><td colspan="1"><b>e2</b> </td><td colspan="1"><b>S</b> </td><td colspan="1" rowspan="5"></td><td colspan="1" rowspan="5" valign="top">1 +  2</td></tr>
-<tr><td colspan="1"><b>0</b> </td><td colspan="1"><b>0</b> </td><td colspan="1"><b>1</b> </td></tr>
-<tr><td colspan="1"><b>0</b> </td><td colspan="1"><b>1</b> </td><td colspan="1"><b>0</b> </td></tr>
-<tr><td colspan="1"><b>1</b> </td><td colspan="1"><b>0</b> </td><td colspan="1"><b>0</b> </td></tr>
-<tr><td colspan="1"><b>1</b> </td><td colspan="1"><b>1</b> </td><td colspan="1"><b>0</b> </td></tr>
-</table>
 
 
 |**Activité n°1.:** Écrivez les tables de vérité des expressions suivantes : |
