@@ -375,16 +375,17 @@ Exemple : 0b 1111 0111
 Tout au début du programme, ne pas oublier cette ligne : # coding: utf-8
 
 2. Indiquer l’utilité de cette ligne. 
-2. Donner la conversion de 1843 en binaire2. 
-2. Convertir -2 et conclure. 
-2. ★★★ Modifier le programme pour coder un nombre négatif selon la méthode du complément à 2. **Aide :** 
+3. Donner la conversion de 1843 en binaire2. 
+4. Convertir -2 et conclure. 
+5. ★★★ Modifier le programme pour coder un nombre négatif selon la méthode du complément à 2. 
+**Aide :** 
 - Le complément à 2 peut être calculer par une autre méthode : Sur 8 bits, -88 en complément à 2 correspond au nombre binaire suivant : 
-- 27 – 88 = 40 
+- 2<sup>7</sup> – 88 = 40 
 - 40 en binaire => 010 1000 
 
 Le bit de signe donne donc 1010 1000 
 
-- Faire une deuxième fonction dec2bin\_negatif qui teste si le nombre entré est positif ou négatif et qui fait appel à la première fonction codée ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.068.png)
+- Faire une deuxième fonction dec2bin\_negatif qui teste si le nombre entré est positif ou négatif et qui fait appel à la première fonction codée 
 
 2 1843 est l’année de création du 1er programme informatique par Augusta Ada King, comtesse de Lovelace ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.031.png)
 
