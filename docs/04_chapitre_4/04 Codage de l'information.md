@@ -231,26 +231,27 @@ Le principe est le même que pour la conversation "binaire en décimal"
 
 Par exemple : 
 
-12 716 = 1 × 163 + 2 × 162 + 11 × 161 + 7 × 160 = 1 × 4096 + 2 × 256 + 11 × 16 + 7 = 4791. 
+12B7<sub>16</sub> = 1 × 16<sup>3</sup> + 2 × 16<sup>2</sup> + 11 × 16<sup>1</sup> + 7 × 16<sup>0</sup> = 1 × 4096 + 2 × 256 + 11 × 16 + 7 = 4791. 
 
 
 
-**Activité n° 4.**: La fonction int de Python donne une chaîne de caractères représentant l’écriture décimal d’un 
- - 
-entier passé en paramètre. 
+**Activité n° 4.**: La fonction int de Python donne une chaîne de caractères représentant l’écriture décimal d’un entier passé en paramètre. 
 
+Tester
+> int('12B7', 16) 
 
+???+ question "Faire ce qui est proposé"
 
->>> int('12B7', 16) 4791 ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.041.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.042.png)
- :- 
+    {{ terminal() }}
 
 #### **2.3.5. Addition<a name="_page5_x40.00_y90.92"></a> de deux nombres en base 16** 
 
-816 + 916 = une seizaine et un ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.043.png)
+![](Aimg5.png)
 
+8<sub>16</sub> + 9<sub>16</sub> = une seizaine et un 
 C’est-à-dire on pose 1 et on retient le 1 de la seizaine 
 
-![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.044.png)
+![](Aimg6.png)
 
 Ce nombre 151 en hexadécimal se lirait donc "une seizaine-carré cinq seizaines et un". D'ou le calcul en base 10 : 1x16x16 + 5x16 + 1 = 256 + 80 + 1 soit  337 en base 10 Ainsi le nombre 151 exprimé en hexadécimal est le même nombre que 337 en base 10 
 
@@ -260,75 +261,23 @@ On pouvait aussi convertir les deux nombres en binaire et faire leur addition.
 
 Par exemple la représentation de base cinq de 58 
 
-![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.045.png)
+![](Aimg7.png)
 
 Donc, 58 objets se regroupent en 11 paquets et 3 unités, puis les 11 paquets se regroupent en 2 paquets de paquets et 1 paquet. 
 
-58 = 2 × 5² + 1× 51 +3 × 50. Donc 58 = 213
-
-5\. 
+58 = 2 × 5² + 1× 5<sup>1</sup> +3 × 5<sup>0</sup>. Donc 58 = 213<sub>5</sub>. 
 
 ## **3. Le<a name="_page5_x40.00_y574.92"></a> codage des nombres entiers signés en binaire** 
 
 Un entier naturel est appelé **entiers non signés.** En Python, on ne manipule que des **entiers relatifs.** 
 
-**Entiers naturels** : entiers positifs ou nuls (0, 1, 2 etc.) ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.046.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.047.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.048.png)
+**Entiers naturels** : entiers positifs ou nuls (0, 1, 2 etc.) 
 
 **Entiers relatifs** : entiers de n’importe quel signe (…, -2, -1, 0, 1,…) 
 
-### **3.1. Représentation<a name="_page5_x40.00_y708.92"></a> avec la valeur absolue** 
+### **3.1. Principe<a name="_page6_x40.00_y773.92"></a> du complément à 2<sup>n</sup> :
 
-Un entier relatif comporte **un signe** et **une valeur absolue (VA).** Par convention : **le bit de plus fort poids ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.049.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.050.png)(le plus à gauche) représente le signe :** 
-
-- **0 = signe +** 
-- **1 = signe –** 
-
-Le bit de plus fort poids est aussi appelé **le MSB (Most Significant Bit)** Les autres bits représentent **la valeur absolue** du nombre  
-
-![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.051.png)
-
-Sur 8 bits, on a 28 - 1 nombres de l’intervalle : [-(27 - 1), 27-1] soit [-127, +127] 
-
-Sur n bits, on a 2n - 1 nombres de l’intervalle : [-(2n-1 – 1), 2n-1-1]  
-
-**Contrainte immédiate** : il faut que la machine sache quelle est la taille du nombre !! on encodera dans tout le chapitre **sur 8 bits** 
-
-**Premier inconvénient de ce codage** : le zéro est codé de deux écritures : le zéro positif 00000000 et le zéro négatif 10000000 
-
-Testons avec 27 : 
-
-27 = 0b11011 
-
-On complète sur 8 bits : 27 = 0b 0001 1011 
-
-27 > 0 on garde le premier bit à 0 
-
-Testons avec -9 : 
-
-La valeur absolue de -9 est 9. 9 = 0b1001 
-
-On complète sur 8 bits : 
-
-9 = 0b 0000 1001 
-
--9 < 0 on remplace le premier bit par -1 : 
-
--9 = 0b 1000 1001 
-
-Testons avec 27 + (-9) = 18 
-
-0b 0001 1011 ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.052.png)
-
-+ 0b 1000 1001 -------------- 
-- 0b 1010 0100 
-
-… mais 0b 1010 0100 = 164 
-
-Échec total ! **Le binaire signé ne permet pas de réaliser les additions habituelles** 
-
-### **3.2. Principe<a name="_page6_x40.00_y773.92"></a> du complément à 2n :
-
-#### **3.2.1. De<a name="_page7_x40.00_y36.92"></a> décimal vers binaire : Pour un entier positif**
+#### **3.1.1. De<a name="_page7_x40.00_y36.92"></a> décimal vers binaire : Pour un entier positif**
 
 - coder l’entier en binaire comme d’habitude, 
 - compléter l’octet avec des 0 devant. 
@@ -340,7 +289,7 @@ Exemple : pour 27
 
 Le complément à 2 sur un octet de 27 est 0b 0001 1011 
 
-#### **3.2.2. De<a name="_page7_x40.00_y158.92"></a> décimal vers binaire : Pour les entiers négatifs** 
+#### **3.1.2. De<a name="_page7_x40.00_y158.92"></a> décimal vers binaire : Pour les entiers négatifs** 
 - Coder la valeur absolue du nombre en base 2, 
 - compléter l’octet avec des 0 devant, 
 - échanger tous les bits (1↔0), 
@@ -355,23 +304,17 @@ Exemple pour -9 :
 
 Le complément à 2 sur un octet de −9 est 0b 1111 0111 
 
-#### **3.2.3. Addition<a name="_page7_x40.00_y335.92"></a> de deux nombres binaires** 
+#### **3.1.3. Addition<a name="_page7_x40.00_y335.92"></a> de deux nombres binaires** 
 
 Vérifions : 27+(−9)=18
 
-`  `0001 1011 ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.054.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.055.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.056.png)
-
-+ 1111 0111 
-
-\----------- 
-
-- 0001 0010 
+![](Aimg8.png)
 
 On vérifie immédiatement que 18 = 0b10010 
 
 **Remarque** la dernière retenue (tout à gauche) disparait. 
 
-#### **3.2.4. De<a name="_page7_x40.00_y496.92"></a> binaire vers décimal : Pour les entiers négatifs** 
+#### **3.1.4. De<a name="_page7_x40.00_y496.92"></a> binaire vers décimal : Pour les entiers négatifs** 
 
 Si l’entier est négatif (si premier bit est 1) 
 - On échange tous les bits 0↔1, 
@@ -381,20 +324,15 @@ Si l’entier est négatif (si premier bit est 1)
 
 Exemple : 0b 1111 0111 
 
-- On échange tous les bits, ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.057.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.058.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.059.png)
-
+- On échange tous les bits, 
 0b 0000 1000 
-
 - On ajoute 1, 
-
 0b 0000 1001 
-
 - On convertit en binaire comme d'habitude, 0b 1001 = 1 \* 1 + 1 \* 8 = 9 
 - On change le signe. 
-
 0b 1111 0111 = -9 
 
-### **3.3. Table<a name="_page7_x40.00_y758.92"></a> de valeurs** 
+### **3.2. Table<a name="_page7_x40.00_y758.92"></a> de valeurs** 
 
 bit ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.060.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.061.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.062.png)
 
