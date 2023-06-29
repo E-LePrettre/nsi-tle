@@ -381,9 +381,8 @@ Tout au début du programme, ne pas oublier cette ligne : # coding: utf-8
 
 **Aide :** 
 - Le complément à 2 peut être calculer par une autre méthode : Sur 8 bits, -88 en complément à 2 correspond au nombre binaire suivant : 
-- 2<sup>7</sup> – 88 = 40 
-- 40 en binaire => 010 1000 
-
+* 2<sup>7</sup> – 88 = 40 
+* 40 en binaire => 010 1000 
 Le bit de signe donne donc 1010 1000 
 
 - Faire une deuxième fonction dec2bin\_negatif qui teste si le nombre entré est positif ou négatif et qui fait appel à la première fonction codée 
