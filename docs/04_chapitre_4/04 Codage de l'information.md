@@ -153,6 +153,7 @@ On retrouve bien la valeur 110 précédente.
 #### **2.2.5. Addition<a name="_page3_x40.00_y258.92"></a> de deux nombres binaires** 
 
 On procède comme avec les nombre écrit en décimal, sauf que 1 + 1 = 10. 
+
 Exemple : 
 
 ![](Aimg3.png)
@@ -160,7 +161,9 @@ Exemple :
 
 On remarque que la somme de deux nombres binaires sur m bits et n bits donne un nombre binaire sur le plus grand nombre de bits **(m ou n) + 1 au maximum**. 
 
-#### **2.2.6. Multiplication<a name="_page3_x40.00_y462.92"></a> de deux nombres binaires Exemple :**  
+#### **2.2.6. Multiplication<a name="_page3_x40.00_y462.92"></a> de deux nombres binaires**  
+
+Exemple :
 
 ![](Aimg4.png)
 
@@ -172,36 +175,47 @@ On remarque que le produit de deux nombres binaires sur m bits et n bits donne u
 En informatique, tout est basé sur le binaire, et étant une base d'indice 2, c'est plus aisé d'encoder les informations sur un nombre multiple de 2. On utilise donc souvent la base 16, appelé **système hexadécimal**  
 
 **Hexa  0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F **
+
 Décimal  0  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15 
 
-**Remarque** : Il faut toujours indiquer la base dans laquelle un nombre est exprimé (sauf, par usage et commodité, en base 10) : A916 ou $A9 ou #A9. La base par défaut du code Python est la base 10. 
+**Remarque** : Il faut toujours indiquer la base dans laquelle un nombre est exprimé (sauf, par usage et commodité, en base 10) : A9<sub>16</sub> ou $A9 ou #A9. La base par défaut du code Python est la base 10. 
 
 #### **2.3.2. Passage<a name="_page4_x40.00_y103.92"></a> du système binaire au système hexadécimal et réciproquement**
 
-Pour convertir un nombre binaire en base 16, **on regroupe les bits 4 à 4**, chaque groupe donnant un chiffre hexadécimal. À l'inverse, passer d'un nombre hexadécimal à sa représentation binaire se fait en remplaçant chaque chiffre pour son équivalent sur 4 bits![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.033.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.034.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.035.png).  
+Pour convertir un nombre binaire en base 16, **on regroupe les bits 4 à 4**, chaque groupe donnant un chiffre hexadécimal. À l'inverse, passer d'un nombre hexadécimal à sa représentation binaire se fait en remplaçant chaque chiffre pour son équivalent sur 4 bits  
 
 Si le nombre binaire de départ n'a pas un nombre de bits multiple de 4, **il faut ajouter des zéros en tête** (ce qui ne change pas sa valeur) afin de pouvoir les regrouper 4 par 4. 
 
-110110012 = 1101 10012 = 916,  7 16 = 0111 11112 = 011111112.  
+11011001<sub>2</sub> = 1101 1001<sub>2</sub> = D9<sub>16</sub>,  
 
-À noter que la chaîne de caractères, avec Python, débute par*** 0x, le x mettant en évidence qu’il s’agit de l’écriture décimal d’un entier. 
+7F<sub>16</sub> = 0111 1111<sub>2</sub> = 01111111<sub>2</sub>.  
+
+À noter que la chaîne de caractères, avec Python, débute par **0x**, le **x** mettant en évidence qu’il s’agit de l’écriture décimal d’un entier. 
 
 #### **2.3.3. Passage<a name="_page4_x40.00_y309.92"></a> du système décimal au système hexadécimal**  
 
 **Méthode de Horner** : Pour convertir un nombre binaire en base 16, on regroupe les bits 4 à 4, chaque groupe donnant un chiffre hexadécimal.  
 
-Exemple : Convertir 185 en hexadécimal ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.036.png)
+Exemple : Convertir 185 en hexadécimal 
 
-- 185 = 11 × 16 + 9  *Sens de lecture ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.037.png)*
+- 185 = 11 × 16 + 9  
 - 11 = 0 × 16 + 11 
 
-La conversion de 185 en hexadécimal est donc : B9. **L’algorithme des divisions successives :** comme pour le binaire 
+*sens de lecture du bas vers le haut
 
-**Activité n° 3.**: La fonction hex de Python donne une chaîne de caractères représentant l’écriture binaire de l’entier passé en paramètre. ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.038.png)
+La conversion de 185 en hexadécimal est donc : B9.
+ **L’algorithme des divisions successives :** comme pour le binaire 
 
-\>>> hex(185) '0xb9' ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.039.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.040.png)
+**Activité n° 3.**: La fonction hex de Python donne une chaîne de caractères représentant l’écriture binaire de l’entier passé en paramètre. 
 
-\>>> 0x7F 127 
+Tester
+> hex(185) 
+
+> 0x7F
+
+???+ question "Faire ce qui est proposé"
+
+    {{ terminal() }}
 
 #### **2.3.4. Passage<a name="_page4_x40.00_y569.92"></a> du système hexadécimal au décimal** 
 
