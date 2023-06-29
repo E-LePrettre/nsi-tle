@@ -708,13 +708,16 @@ La norme ASCII permet ainsi à toutes sortes de machines de stocker, analyser et
 3. La Joconde en haute définition (HD) sur une image de 7 479 × 11 146 pixels pour une taille de fichier de 89,94 mégaoctets (89,94 Mo). 
 4. Une minute de vidéo sur YouTube de qualité web pour smartphone, fait 3,1 méga-octets (3 Mo) 
 
-**Activité n° 6.**: **Python et la table ascii** Les fonctions chr et ord permettent d’accéder à la table ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.104.png)
+**Activité n° 6.**: **Python et la table ascii** Les fonctions chr et ord permettent d’accéder à la table 
 
-\>>> chr(65) # caractère 65 (décimal) ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.105.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.040.png)
+Tester
+> chr(65) # caractère 65 (décimal) 
 
-'A' 
+> ord('A') # numéro décimal du A
 
-\>>> ord('A') # numéro décimal du caractère 65 
+???+ question "Faire ce qui est proposé"
+
+    {{ terminal() }}
 
 ### **7.2. Les<a name="_page16_x40.00_y611.92"></a> encodages ISO-latin** 
 
