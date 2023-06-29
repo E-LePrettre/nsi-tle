@@ -123,6 +123,7 @@ La conversion de 145 en binaire est donc : 10010001<sub>2</sub>
 **L’algorithme des divisions successives**  
 
 ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.019.png)
+
 - On divise par 2 jusqu'à ce que le quotient soit 0  
 - On lit les bits en montant de droite à gauche : 
 
@@ -134,52 +135,44 @@ La conversion de 145 en binaire est donc : 10010001<sub>2</sub>
 Les nombres écrits en binaire suivent le même principe que ceux écrits en décimal mais avec les** puissances de deux.** 
 Le mot de 8 bits %01101110 =  1.2<sup>6</sup> +  1.2<sup>5</sup> +  1.2<sup>3</sup> +  1.2<sup>2</sup> +  1.2<sup>1</sup> en décimale. 
 
-**Puissances** 27 26 25 24 23 22 21 20 
- -  -  -  -  -  -  -  -  - 
-**Valeurs en décimale** 128 64 32 16 8 4 2 1 
-**exemple** 0 1 1 0 1 1 1 0 
-**Valeur en décimale correspondante** 64 + 32 + 8 + 4 + 2 = 110 
+![](Aimg2.png)
 
 Donc, quand on a un nombre binaire, **il suffit de multiplier chaque nombre qui le compose par la puissance de 2 correspondante au rang de son bit et d’additionner tous les résultats.** 
 
-**Activité n° 2.**: La fonction int de Python donne une chaîne de caractères représentant l’écriture décimal d’un entier passé en paramètre. ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.020.png)
+**Activité n° 2.**: La fonction int de Python donne une chaîne de caractères représentant l’écriture décimal d’un entier passé en paramètre. 
 
-\>>> int('01101110', 2) 110 ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.021.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.022.png)
+Tester
+> int('01101110', 2) 
+
+???+ question "Faire ce qui est proposé"
+
+    {{ terminal() }}
 
 On retrouve bien la valeur 110 précédente. 
 
 #### **2.2.5. Addition<a name="_page3_x40.00_y258.92"></a> de deux nombres binaires** 
 
-On procède comme avec les nombre écrit en décimal, sauf que 1 + 1 = 10. Exemple :  
+On procède comme avec les nombre écrit en décimal, sauf que 1 + 1 = 10. 
+Exemple : 
 
-Retenues   1  1  1 
+![](Aimg3.png)
 
-a  1  1  0  1  0  1  1 
 
-b  +   1  1  0  0  1  1 
-
-a + b =  1  0  0  1  1  1  1  0 ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.023.png)
-
-On remarque que la somme de deux nombres binaires sur m bits et n bits donne un nombre binaire sur le plus ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.024.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.025.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.026.png)grand nombre de bits **(m ou n) + 1 au maximum**. 
+On remarque que la somme de deux nombres binaires sur m bits et n bits donne un nombre binaire sur le plus grand nombre de bits **(m ou n) + 1 au maximum**. 
 
 #### **2.2.6. Multiplication<a name="_page3_x40.00_y462.92"></a> de deux nombres binaires Exemple :**  
 
-a  1  1  0  1  0  1  1 b  \*  1  1 
+![](Aimg4.png)
 
-Retenues  1  1  1  1  1  1 ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.027.png)
-
-1  1  0  1  0  1  1 1  1  0  1  0  1  1 
-
-a \* b =   1  0  1  0  0  0  0  0  1 ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.028.png)
-
-On remarque que le produit de deux nombres binaires sur m bits et n bits donne un nombre binaire sur **m + n bits au maximum.![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.029.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.030.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.006.png)** 
+On remarque que le produit de deux nombres binaires sur m bits et n bits donne un nombre binaire sur **m + n bits au maximum.** 
 
 ### **2.3. La<a name="_page3_x40.00_y727.92"></a> base 16 ou base hexadécimal** 
 #### **2.3.1. L’hexadécimal<a name="_page3_x40.00_y747.92"></a>** 
 
-En informatique, tout est basé sur le binaire, et étant une base d'indice 2, c'est plus aisé d'encoder les informations sur un nombre multiple de 2. On utilise donc souvent la base 16, appelé **système hexadécimal**  ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.031.png)
+En informatique, tout est basé sur le binaire, et étant une base d'indice 2, c'est plus aisé d'encoder les informations sur un nombre multiple de 2. On utilise donc souvent la base 16, appelé **système hexadécimal**  
 
-**Hexa  0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.032.png)**Décimal  0  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15 
+**Hexa  0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F **
+Décimal  0  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15 
 
 **Remarque** : Il faut toujours indiquer la base dans laquelle un nombre est exprimé (sauf, par usage et commodité, en base 10) : A916 ou $A9 ou #A9. La base par défaut du code Python est la base 10. 
 
