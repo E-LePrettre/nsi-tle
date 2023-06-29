@@ -150,32 +150,33 @@ La porte XOR est symbolisée par le schéma suivant :
 
 |Symbole |Table de vérité |Opération |
 | - | - | - |
-|![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.019.png)|![](Aimg5.png)|![](Aimg3.png) |
+|![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.019.png)|![](Aimg5.png)|![](Aimg6.png) |
 
 
 
 
 **Activité n°1.:** Écrivez les tables de vérité des expressions suivantes : 
- - 
-￿  ⋅ 
-￿  A+ B⋅C 
-￿  A⋅B + (C⊕D) 
 
-
+- ![](Aimg7.png)
+- ![](Aimg8.png)
+- ![](Aimg9.png)
 
 **Activité n°2.:** Voici un exemple de fonction booléenne : La fonction multiplexeur, notée mux.  
- -  :-  :-  :-  :-  :-  :-  :-  :- 
+ 
 mux(x,y,z)=(not(x) and y)or (x and z) 
-1\.  Compléter le tableau 
+1.  Compléter le tableau 
 x y z not(x) not(x) and y x and z mux(x,y,z) 
+![](Aimg10.png)
 
+2. Montrer que (x and y) = not (not(x) or not(y))  
+3. Montrer que (x or y) = not (not(x) and not(y))  
+4. Trouver l’expression  de  la  fonction  ssi(x,y)  à  l’aide  des  opérateurs booléens   
 
-<p>2. Montrer que (x and y) = not (not(x) or not(y))  ![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.020.png)</p><p>3. Montrer que (x or y) = not (not(x) and not(y))  </p><p>4. Trouver l’expression  de  la  fonction  ssi(x,y)  à  l’aide  des  opérateurs booléens   </p>
+![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.020.png)
 
 ## **3. Quelques<a name="_page3_x40.00_y448.04"></a> propriétés** 
-### **3.1. **Associativité<a name="_page3_x40.00_y470.04"></a>** 
-
-Comme avec les opérations habituelles, certaines parenthèses sont inutiles : (a + b) + c = a + (b + c) = a + b + c 
+Comme avec les opérations habituelles, certaines parenthèses sont inutiles : 
+(a + b) + c = a + (b + c) = a + b + c 
 
 (a·b)·c = a·(b·c) = a·b·c 
 
