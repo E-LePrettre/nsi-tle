@@ -79,7 +79,7 @@ La porte NON est symbolisée par le schéma suivant :
 
 |Symbole |Autre symbole |Opération |
 | - | - | - |
-|![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.010.png)|![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.011.png)||
+|![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.010.png)|![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.011.png)|![](Aimg.png)|
 
 ### **2.2. La<a name="_page1_x40.00_y623.04"></a> porte OU (OR)** 
 
