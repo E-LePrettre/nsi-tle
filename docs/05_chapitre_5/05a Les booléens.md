@@ -64,9 +64,7 @@ Un transistor est l’élément de base des circuits logiques. Un circuit logiqu
 
 ### **2.1. La<a name="_page1_x40.00_y426.04"></a> porte NON (NOT)** 
 
-La porte NON inverse l’état en entrée. Si l’entrée de la porte est dans un état « bas » on obtiendra en sortie un état 
-
-- haut » et vice versa. On aura la **table de vérité** suivante : 
+La porte NON inverse l’état en entrée. Si l’entrée de la porte est dans un état « bas » on obtiendra en sortie un état « haut » et vice versa. On aura la **table de vérité** suivante : 
 
 
 
@@ -210,18 +208,10 @@ Le  complément  d’un  produit  logique  (non  arithmétique)  est  égal  à 
 ![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.022.png)
 
 1. Réaliser le circuit à l’aide du logiciel Logisim. 
-1. Donner l’expression booléenne de S en fonction des variables A et B. 
-1. Compléter la table de vérité ci-dessous. 
+2. Donner l’expression booléenne de S en fonction des variables A et B. 
+3. Compléter la table de vérité ci-dessous. 
 
-A B S![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.023.png)
-
-0 0
-
-0 1
-
-1 0
-
-1 1
+![](Aimg13.png)
 
 4. Par quel circuit comprenant seulement deux portes peut-on remplacer le circuit étudié ? 
 
@@ -229,92 +219,87 @@ A B S![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.023.png)
 
 ![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.024.png)
 
-1. Donner l’expression booléenne de S en fonction des variables A, B et C. 
-1. Compléter la table de vérité ci-dessous 
+1 Donner l’expression booléenne de S en fonction des variables A, B et C. 
+2 Compléter la table de vérité ci-dessous 
 
 ![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.025.jpeg)
 
-3. En déduire une formule pour S qui ne dépend que des variables A et B. 
+3 En déduire une formule pour S qui ne dépend que des variables A et B. 
 
 **Exercice n°3** ★ : On considère les circuits logiques ci-dessous 
 
 ![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.026.png)![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.027.png)![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.027.png)
 
-Première NSI   Chap 8 : Les booléens et le langage machine  Page 8/11 
 
-1. Donner les expressions booléennes de U et V en fonction des variables A, B et C. 
-1. Compléter les tables de vérité ci-dessous. 
+
+1 Donner les expressions booléennes de U et V en fonction des variables A, B et C. 
+2 Compléter les tables de vérité ci-dessous. 
 
 ![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.028.jpeg)
 
-3. Les expressions booléennes U et V sont-elles équivalentes ? 
+3 Les expressions booléennes U et V sont-elles équivalentes ? 
 
 **Exercice n°4** ★– (circuit MUX-2) : On considère le circuit logique suivant.
 
-Première NSI   Chap 9 : Les booléens  Page 9/11 
+
 
 ![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.029.png)
 
 1. Donner l’expression de Out en fonction  de E1 et E2. 
-1. Compléter le tableau de vérité de ce circuit. 
+2. Compléter le tableau de vérité de ce circuit. 
 
 Le circuit étudié est appelé multiplexeur à 2 entrées. Selon la valeur de la commande (C), il permet de  reproduire en sortie (Out) : 
 
 - le signal E1 si C est à 0. 
 - le signal E2 si C est à 1. 
 
-![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.030.png) ![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.031.png) ![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.032.png) ![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.033.png)
+![](Aimg14.png) 
 
-0 1 0 0![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.034.png) 1 1 1 0 0 1 0 1 1 1 0 1 1 1
 
-Première NSI   Chap 10 : Les booléens  Page 10/10 
 
-**Exercice  n°5**  ★★–  ![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.035.jpeg)*(circuit MUX-4)*  
+**Exercice  n°5**  (circuit MUX-4)  
 
 On  considère  un  multiplexeur  à  4  entrées, dont le circuit  est  représenté  ci- dessous.  
-
-1. Par analyse du circuit, déterminer l’expression booléenne de Out en fonction des entrées E1,  E2, E3, E4 et des commandes C0 et C1. ![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.036.png)
+![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.035.jpeg)
+1. Par analyse du circuit, déterminer l’expression booléenne de Out en fonction des entrées E1,  E2, E3, E4 et des commandes C0 et C1. 
 2. Quelles sont les valeurs des commandes C0 et C1 qui permettent de sélectionner en sortie (Out) : 
 - l’entrée E1 ? 
 - l’entrée E2 ? 
 - l’entrée E3 ? 
 - l’entrée E4 ? 
 
-**Exercice n °6** ★★– (Half adder) Le circuit étudié, appelé  ![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.037.png)demi-additionneur, permet d’additionner deux bits A et B.  Il  comporte  deux  sorties  C  et  S  qui  représentent  deux  expressions booléennes.  
+**Exercice n °6** ★★– (Half adder) Le circuit étudié, appelé  demi-additionneur, permet d’additionner deux bits A et B.  Il  comporte  deux  sorties  C  et  S  qui  représentent  deux  expressions booléennes.  
+![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.037.png)
+1 Donner les expressions booléennes de C et S  en  fonction de A et B.  
+2 Compléter la table de vérité de C et S. 
 
-1. Donner les expressions booléennes de C et S  en  fonction de A et B.  
-1. Compléter la table de vérité de C et S. 
+![](Aimg15.png) 
 
-![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.038.png) ![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.039.png) ![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.040.png) ![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.041.png)
+3 Quel est le rôle des sorties C et S dans la fonction  du circuit ? 
 
-3. Quel est le rôle des sorties C et S dans la fonction   ![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.042.png)![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.043.png)![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.044.png)![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.045.png)![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.046.png)![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.047.png)![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.048.png)du circuit ?  ![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.049.png)![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.050.png)
 
-Le choix de la lettre C vient du fait qu’en anglais,   ![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.051.png)![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.052.png)
+Le choix de la lettre C vient du fait qu’en anglais,  « retenue»se dit«carry».  
 
-- retenue»se dit«carry».  
+**Exercice  n°7**  ★★–  *(Full adder)* Le circuit étudié dans cet  exercice  permet  d’additionner  deux bits en tenant compte d’une  retenue Cin. 
 
-**Exercice  n°7**  ★★–  *(Full  ![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.053.jpeg)adder)* Le circuit étudié dans cet  exercice  permet  d’additionner  
+![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.053.jpeg)
 
-deux bits en tenant compte d’une  
-
-retenue Cin.  
-
-Réaliser ce circuit à l’aide du logiciel Logisim et compléter la table de vérité ci-dessous. ![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.036.png)
+Réaliser ce circuit à l’aide du logiciel Logisim et compléter la table de vérité ci-dessous. 
 
 ![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.054.jpeg)
 
-Première NSI   Chap 10 : Les booléens  Page 10/11 
+
 
 **Exercice n°8** ★★**:** Soit le circuit ci-dessous : 
 
 ![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.055.png)
 
 1. Écrivez l'équation de ce circuit. 
-1. Établissez la table de vérité de ce circuit. 
+2. Établissez la table de vérité de ce circuit. 
 
-**Exercice n°9** ★★★ **:** Un pont peut supporter 10 tonnes au maximum. La route menant au pont est strictement interdite aux véhicules de plus de 10 tonnes. À chaque extrémité du pont se trouve une barrière et une bascule pour 
+**Exercice n°9 ★★★ :** 
 
-mesurer le poids (a ou b) des véhicules. 
+Un pont peut supporter 10 tonnes au maximum. La route menant au pont est strictement interdite aux véhicules de plus de 10 tonnes. À chaque extrémité du pont se trouve une barrière et une bascule pour mesurer le poids (a ou b) des véhicules. 
 
 ![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.056.jpeg)
 
@@ -332,9 +317,9 @@ Indication : a et b n'étant pas des variables binaires, il convient de créer d
 Aide : on posera x= a + b <= 10  et  y = a > b 
 
 1. Écrivez la table de vérité pour l'ouverture des barrières A et B. 
-1. Donnez les équations logiques pour l'ouverture des barrières A puis pour l’ouverture de la barrière B. Aide : utilisez les tableaux de Karnaugh 
-1. Dessinez le circuit logique déterminant l'ouverture des barrières. ![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.036.png)
-Première NSI   Chap 6 : Les booléens  Page 11/11 
+2. Donnez les équations logiques pour l'ouverture des barrières A puis pour l’ouverture de la barrière B. Aide : utilisez les tableaux de Karnaugh 
+3. Dessinez le circuit logique déterminant l'ouverture des barrières. 
+
 
 [^1]: ` `*A Programming Language* : langage adapté aux calculs statistiques 
 [^2]: Augustus De Morgan (1806-1871) : Logicien et Mathématicien Anglais 
