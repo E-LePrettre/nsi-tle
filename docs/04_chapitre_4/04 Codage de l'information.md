@@ -361,7 +361,7 @@ Exemple : 0b 1111 0111
 
 **Exercice 5 :** Conversion décimal – binaire 
 
-###### 1. ★ Écrire un programme qui convertisse un nombre décimal en binaire. Utiliser une fonction dec2bin. On donne l’algorithme suivant : 
+1 ★ Écrire un programme qui convertisse un nombre décimal en binaire. Utiliser une fonction dec2bin. On donne l’algorithme suivant : 
 
 ![](Aimg10.png)
 
@@ -374,10 +374,10 @@ Exemple : 0b 1111 0111
 
 Tout au début du programme, ne pas oublier cette ligne : # coding: utf-8
 
-###### 2. Indiquer l’utilité de cette ligne. 
-###### 3. Donner la conversion de 1843 en binaire2. 
-###### 4. Convertir -2 et conclure. 
-###### 5. ★★★ Modifier le programme pour coder un nombre négatif selon la méthode du complément à 2. 
+2 Indiquer l’utilité de cette ligne. 
+3 Donner la conversion de 1843 en binaire2. 
+4 Convertir -2 et conclure. 
+5 ★★★ Modifier le programme pour coder un nombre négatif selon la méthode du complément à 2. 
 
 **Aide :** 
 
@@ -391,8 +391,8 @@ Le bit de signe donne donc 1010 1000
 - Faire une deuxième fonction dec2bin\_negatif qui teste si le nombre entré est positif ou négatif et qui fait appel à la première fonction codée 
 
 
-###### 6. Convertir -1 pour un codage sur un mot et conclure. 
-###### 7. Convertir -1.1 et conclure. 
+6 Convertir -1 pour un codage sur un mot et conclure. 
+7 Convertir -1.1 et conclure. 
 
 Pour éviter que le programme « crash » sur une erreur de valeur d’entrée (ValueError), une façon de gérer cette erreur est d’intercepter le message d’erreur et de le traiter correctement à l’aide des instructions try et except. 
 
@@ -405,9 +405,9 @@ except ValueError:
     # afficher « erreur de valeur »
 ```
 
-###### 8. ★★ Modifier le programme précédent en conséquence. 
-###### 9. ★★Faire une boucle infinie pour que le programme demande un autre nombre tant que la valeur n’est pas un entier relatif 
-###### 10. Vérifier la cohérence et la stabilité du programme avec quelques tests : 1, -1, 0, 1.1, -1.0, a 
+8 ★★ Modifier le programme précédent en conséquence. 
+9 ★★Faire une boucle infinie pour que le programme demande un autre nombre tant que la valeur n’est pas un entier relatif 
+10 Vérifier la cohérence et la stabilité du programme avec quelques tests : 1, -1, 0, 1.1, -1.0, a 
 
 **Exercice 6 :** Conversion hexadécimal – binaire
 
@@ -637,23 +637,20 @@ On souhaite transformer un nombre binaire décimal en base 10. Pour simplifier, 
 
 2 ★ Transformer 0,0101010101<sub>2</sub> et 11100,10001<sub>2</sub> en base 10. 
 
-**Aide** : print(bin2float(nombre)) 
+**Aide** : ```print(bin2float(nombre)) ```
 
 3 ★ Modifier le programme précédent pour créer une fonction avec le prototype suivant : 
-
-decimale(nom\_variable\_a\_changer : str) -> float
+```decimale(nom_variable_a_changer : str) -> float```
  
 - binaire : chaine binaire de la partie décimale
 
 - la fonction doit renvoyer le nombre flottant correspondant 
 
 4 ★ Ajouter une fonction qui convertisse en base 10 la partie entière du binaire. Le prototype est le suivant : 
-
-entiere(nom\_variable\_a\_changer : str) -> int
+```entiere(nom_variable_a_changer : str) -> int```
 
 5  ★ Enchaîner les appels successifs pour transformer un nombre binaire décimal en base 10. On utilisera une fonction avec le prototype suivant : 
-
-bin2float(nombre : str) -> float
+```bin2float(nombre : str) -> float```
 
 
 **PARTIE II** 
@@ -670,8 +667,7 @@ decimal <> 0 signifie différent de 0
 8 Tester le programme. Résultat attendu : 0101100011010100. 
 
 9 ★ Modifier le programme précédent pour créer une fonction avec le prototype suivant : 
-
-bin\_decimal(decimal : float, precision : int) -> str
+```bin_decimal(decimal : float, precision : int) -> str```
 
 - décimal : partie décimale du nombre flottant 
 - precision : précision souhaité dans le calcul 
@@ -679,13 +675,13 @@ bin\_decimal(decimal : float, precision : int) -> str
 
 10 Transformer 0,5625 et 0,15 en base 2. 
 
-11 ★★Ajouter une fonction qui convertisse en base 2 la partie entière du nombre flottant. Le prototype est le suivant : bin\_entiere(entier :int) -> str 
+11 ★★Ajouter une fonction qui convertisse en base 2 la partie entière du nombre flottant. Le prototype est le suivant : 
+```bin_entiere(entier :int) -> str``` 
 
 **Aide** : on pourra utiliser la fonction float(),  int() et le modulo 1 
 
 12 ★★ Enchaîner les appels successifs pour transformer un nombre binaire décimal en base 10. On utilisera une fonction avec le prototype suivant : 
-
-float2bin(nombre : str) -> str
+```float2bin(nombre : str) -> str```
  
 13 Transformer 12,9 en base 2.
 
@@ -731,7 +727,9 @@ Dès lors il n'y avait pas d'autre choix que de définir plusieurs encodages dis
 
 Il existe d'autres normes que l'ASCII, comme l'Unicode par exemple, qui présentent l'avantage de proposer une version unifiée des différents encodages de caractères complétant l'ASCII mais aussi de permettre l'encodage de caractères autres que ceux de l'alphabet latin. Unicode définit des dizaines de milliers de codes, mais les 128 premiers restent compatibles avec ASCII. 
 
-Dans le codage UTF-8, chaque point de code est codé sur une suite d'un à quatre octets. Il a été conçu pour être compatible avec certains logiciels originellement prévus pour traiter des caractères d'un seul octet. ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.106.jpeg)
+![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.106.jpeg)
+
+Dans le codage UTF-8, chaque point de code est codé sur une suite d'un à quatre octets. Il a été conçu pour être compatible avec certains logiciels originellement prévus pour traiter des caractères d'un seul octet. 
 
 Toutes  ces  normes  différentes  et  leurs  incompatibilités partielles sont la cause des problèmes que l'on rencontre parfois  avec  les  caractères  accentués.  C'est  pour  cette raison  qu'il  vaut  mieux,  quand  on  écrit  des  courriels  à l'étranger, n'utiliser que des caractères non accentués. 
 
