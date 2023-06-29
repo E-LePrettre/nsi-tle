@@ -2,53 +2,26 @@
 author: ELP
 title: Chapitre 4 - Codage de l'information
 ---
-Chap 04 : codage de l’information*  
+
 
 **Table des matières** 
 
-1. [Vocabulaire ............................................................................................................................................................................ 1](#_page0_x40.00_y610.92)
-1. [Les bases courantes ................................................................................................................................................................ 2](#_page1_x40.00_y467.92)
-1. [La base 10 ou base décimale......................................................................................................................................... 2](#_page1_x40.00_y489.92)
-1. [La base 2 ou base binaire .............................................................................................................................................. 2](#_page1_x40.00_y677.92)
-1. [Le binaire.................................................................................................................................................................. 2](#_page1_x40.00_y697.92)
-1. [Le binaire en Python................................................................................................................................................. 3](#_page2_x40.00_y74.92)
-1. [Passage du système décimal au binaire .................................................................................................................... 3](#_page2_x40.00_y235.92)
-1. [Passage du système binaire au décimal .................................................................................................................... 3](#_page2_x40.00_y722.92)
-1. [Addition de deux nombres binaires .......................................................................................................................... 4](#_page3_x40.00_y258.92)
-1. [Multiplication de deux nombres binaires ................................................................................................................. 4](#_page3_x40.00_y462.92)
-3. [La base 16 ou base hexadécimal ................................................................................................................................... 5](#_page3_x40.00_y727.92)
-1. [L’hexadécimal .......................................................................................................................................................... 5](#_page3_x40.00_y747.92)
-1. [Passage du système binaire au système hexadécimal et réciproquement ................................................................. 5](#_page4_x40.00_y103.92)
-1. [Passage du système décimal au système hexadécimal ............................................................................................. 5](#_page4_x40.00_y309.92)
-1. [Passage du système hexadécimal au décimal ........................................................................................................... 5](#_page4_x40.00_y569.92)
-1. [Addition de deux nombres en base 16 ...................................................................................................................... 6](#_page5_x40.00_y90.92)
-4. [Une base quelconque .................................................................................................................................................... 6](#_page5_x40.00_y421.92)
-3. [Le codage des nombres entiers signés en binaire ................................................................................................................... 6](#_page5_x40.00_y574.92)
-1. [Représentation avec la valeur absolue .......................................................................................................................... 7](#_page5_x40.00_y708.92)
-1. [Principe du complément à 2n : ...................................................................................................................................... 8](#_page6_x40.00_y773.92)
-1. [De](#_page7_x40.00_y36.92) [décimal](#_page7_x40.00_y36.92) [vers](#_page7_x40.00_y36.92) [binaire](#_page7_x40.00_y36.92) [:](#_page7_x40.00_y36.92) [Pour](#_page7_x40.00_y36.92) [un](#_page7_x40.00_y36.92) [entier](#_page7_x40.00_y36.92) [positif ....................................................................................................... 8](#_page7_x40.00_y36.92)
-2. [De](#_page7_x40.00_y158.92) [décimal](#_page7_x40.00_y158.92) [vers](#_page7_x40.00_y158.92) [binaire](#_page7_x40.00_y158.92) [:](#_page7_x40.00_y158.92) [Pour](#_page7_x40.00_y158.92) [les](#_page7_x40.00_y158.92) [entiers](#_page7_x40.00_y158.92) [négatifs ................................................................................................... 8](#_page7_x40.00_y158.92)
-2. [Addition de deux nombres binaires .......................................................................................................................... 8](#_page7_x40.00_y335.92)
-2. [De binaire vers décimal : Pour les entiers négatifs ................................................................................................... 8](#_page7_x40.00_y496.92)
-3. [Table de valeurs ............................................................................................................................................................ 9](#_page7_x40.00_y758.92)
-4. [Exercices .............................................................................................................................................................................. 10](#_page9_x40.00_y36.92)
-4. [Représentation des nombres réels ........................................................................................................................................ 13](#_page12_x40.00_y36.92)
-1. [Conversion de binaire en décimal ............................................................................................................................... 13](#_page12_x40.00_y115.92)
-1. [Conversion de décimal en binaire ............................................................................................................................... 13](#_page12_x40.00_y167.92)
-1. [Représentation des flottants dans un ordinateur.......................................................................................................... 14](#_page13_x40.00_y36.92)
-6. [Exercices .............................................................................................................................................................................. 16](#_page15_x40.00_y36.92)
-6. [Codage des caractères .......................................................................................................................................................... 17](#_page16_x40.00_y36.92)
-1. [Le code ASCII ............................................................................................................................................................ 17](#_page16_x40.00_y58.92)
-1. [Les encodages ISO-latin ............................................................................................................................................. 17](#_page16_x40.00_y611.92)
-1. [Unicode ....................................................................................................................................................................... 18](#_page17_x40.00_y54.92)
-8. [Représentation des images ................................................................................................................................................... 18](#_page17_x40.00_y448.92)
-8. [Exercices .............................................................................................................................................................................. 19](#_page18_x40.00_y36.92)
-1. **Vocabulaire<a name="_page0_x40.00_y610.92"></a>** 
+1. [Vocabulaire ](#_page0_x40.00_y610.92)
+2. [Les bases courantes](#_page1_x40.00_y467.92)
+3. [Le codage des nombres entiers signés en binaire](#_page5_x40.00_y574.92)
+4. [Exercices](#_page9_x40.00_y36.92)
+5. [Représentation des nombres réels](#_page12_x40.00_y36.92)
+6. [Exercices](#_page15_x40.00_y36.92)
+7. [Codage des caractères](#_page16_x40.00_y36.92)
+8. [Représentation des images](#_page17_x40.00_y448.92)
+9. [Exercices](#_page18_x40.00_y36.92)
+
+
+## **1. Vocabulaire<a name="_page0_x40.00_y610.92"></a>** 
 
 La mémoire des ordinateurs est constituée d’une multitude de petits circuits électroniques qui ne peuvent être, chacun, que dans **deux états conventionnellement appelés 0 et 1**, (1, y'a du courant, 0, y'en a pas), mais on aurait pu tout aussi bien les appeler faux et vrai.  
 
-0, ou 1 s’appelle :  ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.001.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.002.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.003.png)
-
+0, ou 1 s’appelle :  
 - un booléen,  
 - ou un chiffre binaire  
 - ou encore un bit (binary digit).  
@@ -57,11 +30,11 @@ Un tel circuit à deux états s’appelle un **circuit mémoire un bit.**
 
 Toute l’information traitée par un ordinateur est en binaire.  
 
-Le **bit** (b minuscule dans les notations) est la plus petite unité d'information manipulable par une machine ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.004.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.005.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.006.png)numérique. 
+Le **bit** (b minuscule dans les notations) est la plus petite unité d'information manipulable par une machine numérique. 
 
 Il est possible de représenter physiquement cette information binaire par un signal électrique ou magnétique, qui, au- delà d'un certain seuil, correspond à la valeur 1.  
 
-L'**octet** (en anglais **byte** ou B majuscule dans les notations) est une unité d'information composée de **8 bits**. Il permet par exemple de stocker un caractère comme une lettre ou un chiffre. ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.004.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.007.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.006.png)
+L'**octet** (en anglais **byte** ou B majuscule dans les notations) est une unité d'information composée de **8 bits**. Il permet par exemple de stocker un caractère comme une lettre ou un chiffre. 
 
 Une  unité  d'information  composée  de  16  bits  est  généralement  appelée  **mot**  (en  anglais  word).  Une  unité d'information de 32 bits de longueur est appelée mot double (en anglais double word, d'où l'appellation dword). 
 
@@ -80,8 +53,8 @@ Voici les unités standardisées :
 
 Un mégaoctet devrait en principe valoir 1000 x 1000 octets, c'est-à- dire 1.000.000 d'octets, mais il vaut 1024 x 1024 octets en informatique, c'est-à-dire 1.048.576 octets... ce qui correspond à une différence de 4,63% ! 
 
-2. **Les<a name="_page1_x40.00_y467.92"></a> bases courantes** 
-1. **La<a name="_page1_x40.00_y489.92"></a> base 10 ou base décimale** 
+## **2. Les<a name="_page1_x40.00_y467.92"></a> bases courantes** 
+### **2.1. La<a name="_page1_x40.00_y489.92"></a> base 10 ou base décimale** 
 
 Elle s’appuie sur **10 « symboles »** : 0, 1, 2, 3, 4, 5, 6, 7, 8, 9. On peut ainsi compter jusqu'à 9. Et si l'on veut aller au- delà de 9, il faut changer de rang. Cela signifie que si le rang des unités est plein, il faut passer à celui des dizaines, puis des centaines, milliers… 
 
@@ -89,8 +62,8 @@ Elle s’appuie sur **10 « symboles »** : 0, 1, 2, 3, 4, 5, 6, 7, 8, 9. On peu
 
 185 = 1 × 102 + 8 × 101 + 5 × 100 **La position des chiffres définit la valeur associée à ce chiffre.** 
 
-2. **La<a name="_page1_x40.00_y677.92"></a> base 2 ou base binaire** 
-1. Le<a name="_page1_x40.00_y697.92"></a> binaire 
+### **2.2. La<a name="_page1_x40.00_y677.92"></a> base 2 ou base binaire** 
+#### **2.2.1. Le<a name="_page1_x40.00_y697.92"></a> binaire**
 
 **Remarque** : Il faut toujours indiquer la base dans laquelle un nombre est exprimé (sauf, par usage et commodité, en base 10) : 10102 ou %1010. La base par défaut du code Python est la base 10. 
 
@@ -98,7 +71,7 @@ Par exemple :
 
 **Décimal**  0  1  2  3  4  5  6  7  8  9  10 Binaire  0000  0001  0010  0011  0100  0101  0110  0111  1000  1001  1010 
 
-2. Le<a name="_page2_x40.00_y74.92"></a> binaire en Python![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.009.png)
+#### **2.2.2. Le<a name="_page2_x40.00_y74.92"></a> binaire en Python**
 
 **Activité n° 1.**: La fonction bin de Python donne une chaîne de caractères représentant l’écriture binaire de l’entier passé en paramètre. 
 
@@ -106,7 +79,7 @@ Par exemple :
 
 En Python on peut écrire les nombres entiers directement en binaire. Il suffit pour cela de faire précéder cette écriture par 0b***.***  
 
-3. Passage<a name="_page2_x40.00_y235.92"></a> du système décimal au binaire   ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.012.jpeg)
+#### **2.2.3. Passage<a name="_page2_x40.00_y235.92"></a> du système décimal au binaire**
 
 **Méthode de Horner :**   
 
@@ -138,15 +111,15 @@ La conversion de 145 en binaire est donc : 100100012 **Méthode des puissances d
 
 - On divise par 2 jusqu'à ce que le quotient soit 0  
 - On lit les bits en montant de droite à gauche : 167 = 0b10100111  
-4. Passage<a name="_page2_x40.00_y722.92"></a> du système binaire au décimal 
+#### **2.2.4. Passage<a name="_page2_x40.00_y722.92"></a> du système binaire au décimal**
 
 Les nombres écrits en binaire suivent le même principe que ceux écrits en décimal mais avec les** puissances de deux.** Le mot de 8 bits %01101110 =  1.26 +  1.25 +  1.23 +  1.22 +  1.21 en décimale. 
 
-|**Puissances** |27 |26 |25 |24 |23 |22 |21 |20 |
-| - | - | - | - | - | - | - | - | - |
-|**Valeurs en décimale** |128 |64 |32 |16 |8 |4 |2 |1 |
-|**exemple** |0 |1 |1 |0 |1 |1 |1 |0 |
-|**Valeur en décimale correspondante** |64 + 32 + 8 + 4 + 2 = 110 ||||||||
+**Puissances** 27 26 25 24 23 22 21 20 
+ -  -  -  -  -  -  -  -  - 
+**Valeurs en décimale** 128 64 32 16 8 4 2 1 
+**exemple** 0 1 1 0 1 1 1 0 
+**Valeur en décimale correspondante** 64 + 32 + 8 + 4 + 2 = 110 
 
 Donc, quand on a un nombre binaire, **il suffit de multiplier chaque nombre qui le compose par la puissance de 2 correspondante au rang de son bit et d’additionner tous les résultats.** 
 
@@ -156,7 +129,7 @@ Donc, quand on a un nombre binaire, **il suffit de multiplier chaque nombre qui 
 
 On retrouve bien la valeur 110 précédente. 
 
-5. Addition<a name="_page3_x40.00_y258.92"></a> de deux nombres binaires 
+#### **2.2.5. Addition<a name="_page3_x40.00_y258.92"></a> de deux nombres binaires** 
 
 On procède comme avec les nombre écrit en décimal, sauf que 1 + 1 = 10. Exemple :  
 
@@ -170,7 +143,7 @@ a + b =  1  0  0  1  1  1  1  0 ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e
 
 On remarque que la somme de deux nombres binaires sur m bits et n bits donne un nombre binaire sur le plus ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.024.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.025.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.026.png)grand nombre de bits **(m ou n) + 1 au maximum**. 
 
-6. Multiplication<a name="_page3_x40.00_y462.92"></a> de deux nombres binaires Exemple :  
+#### **2.2.6. Multiplication<a name="_page3_x40.00_y462.92"></a> de deux nombres binaires Exemple :**  
 
 a  1  1  0  1  0  1  1 b  \*  1  1 
 
@@ -182,8 +155,8 @@ a \* b =   1  0  1  0  0  0  0  0  1 ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fa
 
 On remarque que le produit de deux nombres binaires sur m bits et n bits donne un nombre binaire sur **m + n bits au maximum.![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.029.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.030.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.006.png)** 
 
-3. **La<a name="_page3_x40.00_y727.92"></a> base 16 ou base hexadécimal** 
-1. L’hexadécimal<a name="_page3_x40.00_y747.92"></a> 
+### **2.3. La<a name="_page3_x40.00_y727.92"></a> base 16 ou base hexadécimal** 
+#### **2.3.1. L’hexadécimal<a name="_page3_x40.00_y747.92"></a>** 
 
 En informatique, tout est basé sur le binaire, et étant une base d'indice 2, c'est plus aisé d'encoder les informations sur un nombre multiple de 2. On utilise donc souvent la base 16, appelé **système hexadécimal**  ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.031.png)
 
@@ -191,7 +164,7 @@ En informatique, tout est basé sur le binaire, et étant une base d'indice 2, c
 
 **Remarque** : Il faut toujours indiquer la base dans laquelle un nombre est exprimé (sauf, par usage et commodité, en base 10) : A916 ou $A9 ou #A9. La base par défaut du code Python est la base 10. 
 
-2. Passage<a name="_page4_x40.00_y103.92"></a> du système binaire au système hexadécimal et réciproquement 
+#### **2.3.2. Passage<a name="_page4_x40.00_y103.92"></a> du système binaire au système hexadécimal et réciproquement**
 
 Pour convertir un nombre binaire en base 16, **on regroupe les bits 4 à 4**, chaque groupe donnant un chiffre hexadécimal. À l'inverse, passer d'un nombre hexadécimal à sa représentation binaire se fait en remplaçant chaque chiffre pour son équivalent sur 4 bits![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.033.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.034.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.035.png).  
 
@@ -201,7 +174,7 @@ Si le nombre binaire de départ n'a pas un nombre de bits multiple de 4, **il fa
 
 À noter que la chaîne de caractères, avec Python, débute par*** 0x, le x mettant en évidence qu’il s’agit de l’écriture décimal d’un entier. 
 
-3. Passage<a name="_page4_x40.00_y309.92"></a> du système décimal au système hexadécimal  
+#### **2.3.3. Passage<a name="_page4_x40.00_y309.92"></a> du système décimal au système hexadécimal**  
 
 **Méthode de Horner** : Pour convertir un nombre binaire en base 16, on regroupe les bits 4 à 4, chaque groupe donnant un chiffre hexadécimal.  
 
@@ -218,7 +191,7 @@ La conversion de 185 en hexadécimal est donc : B9. **L’algorithme des divisio
 
 \>>> 0x7F 127 
 
-4. Passage<a name="_page4_x40.00_y569.92"></a> du système hexadécimal au décimal 
+#### **2.3.4. Passage<a name="_page4_x40.00_y569.92"></a> du système hexadécimal au décimal** 
 
 Il faut remplacer les lettres par les nombres correspondants : 
 
@@ -236,16 +209,16 @@ Par exemple :
 
 
 
-|**Activité n° 4.**: La fonction int de Python donne une chaîne de caractères représentant l’écriture décimal d’un |
-| - |
-|entier passé en paramètre. |
+**Activité n° 4.**: La fonction int de Python donne une chaîne de caractères représentant l’écriture décimal d’un 
+ - 
+entier passé en paramètre. 
 
 
 
-|>>> int('12B7', 16) 4791 ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.041.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.042.png)|
-| :- |
-||
-5. Addition<a name="_page5_x40.00_y90.92"></a> de deux nombres en base 16 
+>>> int('12B7', 16) 4791 ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.041.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.042.png)
+ :- 
+
+#### **2.3.5. Addition<a name="_page5_x40.00_y90.92"></a> de deux nombres en base 16** 
 
 816 + 916 = une seizaine et un ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.043.png)
 
@@ -257,7 +230,7 @@ Ce nombre 151 en hexadécimal se lirait donc "une seizaine-carré cinq seizaines
 
 On pouvait aussi convertir les deux nombres en binaire et faire leur addition. 
 
-4. **Une<a name="_page5_x40.00_y421.92"></a> base quelconque** 
+### **2.4. Une<a name="_page5_x40.00_y421.92"></a> base quelconque** 
 
 Par exemple la représentation de base cinq de 58 
 
@@ -269,7 +242,7 @@ Donc, 58 objets se regroupent en 11 paquets et 3 unités, puis les 11 paquets se
 
 5\. 
 
-3. **Le<a name="_page5_x40.00_y574.92"></a> codage des nombres entiers signés en binaire** 
+## **3. Le<a name="_page5_x40.00_y574.92"></a> codage des nombres entiers signés en binaire** 
 
 Un entier naturel est appelé **entiers non signés.** En Python, on ne manipule que des **entiers relatifs.** 
 
@@ -277,7 +250,7 @@ Un entier naturel est appelé **entiers non signés.** En Python, on ne manipule
 
 **Entiers relatifs** : entiers de n’importe quel signe (…, -2, -1, 0, 1,…) 
 
-1. **Représentation<a name="_page5_x40.00_y708.92"></a> avec la valeur absolue** 
+### **3.1. Représentation<a name="_page5_x40.00_y708.92"></a> avec la valeur absolue** 
 
 Un entier relatif comporte **un signe** et **une valeur absolue (VA).** Par convention : **le bit de plus fort poids ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.049.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.050.png)(le plus à gauche) représente le signe :** 
 
@@ -327,8 +300,10 @@ Testons avec 27 + (-9) = 18
 
 Échec total ! **Le binaire signé ne permet pas de réaliser les additions habituelles** 
 
-2. **Principe<a name="_page6_x40.00_y773.92"></a> du complément à 2n : ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.053.png)**
-1. De<a name="_page7_x40.00_y36.92"></a> décimal vers binaire : Pour un entier positif 
+### **3.2. Principe<a name="_page6_x40.00_y773.92"></a> du complément à 2n :
+
+#### **3.2.1. De<a name="_page7_x40.00_y36.92"></a> décimal vers binaire : Pour un entier positif**
+
 - coder l’entier en binaire comme d’habitude, 
 - compléter l’octet avec des 0 devant. 
 
@@ -339,7 +314,7 @@ Exemple : pour 27
 
 Le complément à 2 sur un octet de 27 est 0b 0001 1011 
 
-2. De<a name="_page7_x40.00_y158.92"></a> décimal vers binaire : Pour les entiers négatifs 
+#### **3.2.2. De<a name="_page7_x40.00_y158.92"></a> décimal vers binaire : Pour les entiers négatifs** 
 - Coder la valeur absolue du nombre en base 2, 
 - compléter l’octet avec des 0 devant, 
 - échanger tous les bits (1↔0), 
@@ -354,7 +329,9 @@ Exemple pour -9 :
 
 Le complément à 2 sur un octet de −9 est 0b 1111 0111 
 
-3. Addition<a name="_page7_x40.00_y335.92"></a> de deux nombres binaires Vérifions : 27+(−9)=18
+#### **3.2.3. Addition<a name="_page7_x40.00_y335.92"></a> de deux nombres binaires** 
+
+Vérifions : 27+(−9)=18
 
 `  `0001 1011 ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.054.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.055.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.056.png)
 
@@ -368,7 +345,9 @@ On vérifie immédiatement que 18 = 0b10010
 
 **Remarque** la dernière retenue (tout à gauche) disparait. 
 
-4. De<a name="_page7_x40.00_y496.92"></a> binaire vers décimal : Pour les entiers négatifs Si l’entier est négatif (si premier bit est 1) 
+#### **3.2.4. De<a name="_page7_x40.00_y496.92"></a> binaire vers décimal : Pour les entiers négatifs** 
+
+Si l’entier est négatif (si premier bit est 1) 
 - On échange tous les bits 0↔1, 
 - On ajoute 1, 
 - On converti en binaire comme d’habitude, 
@@ -389,7 +368,7 @@ Exemple : 0b 1111 0111
 
 0b 1111 0111 = -9 
 
-3. **Table<a name="_page7_x40.00_y758.92"></a> de valeurs** 
+### **3.3. Table<a name="_page7_x40.00_y758.92"></a> de valeurs** 
 
 bit ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.060.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.061.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.062.png)
 
@@ -419,7 +398,7 @@ Le 4 juin 1996, une fusée Ariane 5 a explosé 40 secondes après l'allumage. La
 
 ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.065.png)
 
-4. **Exercices<a name="_page9_x40.00_y36.92"></a>** 
+## **4. Exercices<a name="_page9_x40.00_y36.92"></a>** 
 
 **Exercice 1 :** ★ On suppose toujours nos entiers encodés sur un octet. 
 
@@ -543,9 +522,9 @@ def carre(nombre : int) -> int: return nombre \*\* 2
 
 
 
-|dec2bin(nombre : int, nbits : int) -> lis|t |||
-| - | - | :- | :- |
-|<p>- nombre est le nombre décimal à convertir </p><p>- nbits est le nombre de bits </p><p>- la fonction renvoie la conversion sous forme d’</p>|une liste binaire (au lieu de l’afficher) |||
+dec2bin(nombre : int, nbits : int) -> list 
+ -  -  :-  :- 
+<p>- nombre est le nombre décimal à convertir </p><p>- nbits est le nombre de bits </p><p>- la fonction renvoie la conversion sous forme d’</p>une liste binaire (au lieu de l’afficher) 
 
 7. Tester la fonction en l’appelant depuis le corps principal (main) du programme. **Aide** :  
    1. Juste après la fonction : print(dec2bin(501, 10))
@@ -600,7 +579,7 @@ Convertisseur en ligne :[ https://www.exploringbinary.com/twos-complement-conver
 
 QCM :[ http://www.scientillula.net/MPI/fex6_conversions/fex6_conversions.html ](http://www.scientillula.net/MPI/fex6_conversions/fex6_conversions.html)QCM 2 :[ http://fabrice.sincere.free.fr/qcm/qcm.php?nom=qcm_numerique](http://fabrice.sincere.free.fr/qcm/qcm.php?nom=qcm_numerique)
 
-<a name="_page12_x40.00_y36.92"></a>**5.  Représentation des nombres réels** 
+## **5.  Représentation des nombres réels<a name="_page12_x40.00_y36.92"></a>** 
 
 En base 10, l’expression 652,375 est une manière abrégée d’écrire : 
 
@@ -610,13 +589,13 @@ Il en va de même pour la base 2. L’expression 110,101 signifie :
 
 1\.22 + 1.21 + 0.20 + 1.2−1 + 0.2−2 + 1.2−3
 
-1. **Conversion<a name="_page12_x40.00_y115.92"></a> de binaire en décimal** 
+### **5.1. Conversion<a name="_page12_x40.00_y115.92"></a> de binaire en décimal** 
 
 On peut ainsi facilement convertir un nombre réel de la base 2 vers la base 10. Par exemple : 
 
 110,101 = 1.22 + 1.21 + 0.20 + 1.2−1 + 0.2−2 + 1.2−3 = 4 + 2 + 0,5 + 0,125 = 6,625 
 
-2. **Conversion<a name="_page12_x40.00_y167.92"></a> de décimal en binaire** 
+### **5.2. Conversion<a name="_page12_x40.00_y167.92"></a> de décimal en binaire** 
 
 Le passage de base 10 en base 2 est plus subtil. Par exemple : convertissons 1234,347 en base 2. 
 
@@ -647,7 +626,7 @@ Le 25 février 1991, pendant la Guerre du Golfe, une batterie américaine de mis
 
 ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.085.png)
 
-3. **Représentation<a name="_page13_x40.00_y36.92"></a> des flottants dans un ordinateur** 
+### **5.3. Représentation<a name="_page13_x40.00_y36.92"></a> des flottants dans un ordinateur** 
 
 Il est parfois nécessaire d’approximer la valeur à représenter. ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.086.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.087.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.088.png)
 
@@ -658,10 +637,10 @@ Règles de base :
 
 
 
-|**Activité n° 5.**:  |
-| - |
-|<p>>>> 0.1 ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.089.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.090.png)</p><p>0\.1 </p><p>>>> 0.2 </p><p>0\.2 </p><p>>>> 0.1 + 0.2 0.30000000000000004 >>> 0.1 + 0.2 == 0.3 False </p>|
-||
+**Activité n° 5.**:  
+ - 
+<p>>>> 0.1 ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.089.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.090.png)</p><p>0\.1 </p><p>>>> 0.2 </p><p>0\.2 </p><p>>>> 0.1 + 0.2 0.30000000000000004 >>> 0.1 + 0.2 == 0.3 False </p>
+
 La norme IEEE[^2] 754 est la norme la plus employée pour la représentation des nombres à virgule flottante dans le domaine informatique. Il existe deux formats de codage :  
 
 - le format dit "simple précision" et le format dit "double précision".  
@@ -713,7 +692,7 @@ En convertissant en hexadécimal :
 
 [https://www.h-schmidt.net/FloatConverter/IEEE754.html ](https://www.h-schmidt.net/FloatConverter/IEEE754.html) 
 
-<a name="_page15_x40.00_y36.92"></a>**6.  Exercices** 
+## **6.  Exercices<a name="_page15_x40.00_y36.92"></a>** 
 
 **Exercice 7** convertir en base 10  **Exercice 8 :** Convertir en binaire puis en norme IEEE-754 
 
@@ -738,22 +717,22 @@ On souhaite transformer un nombre binaire décimal en base 10. Pour simplifier, 
 
 3. ★ Modifier le programme précédent pour créer une fonction avec le prototype suivant : 
 
-|decimale(nom\_variable\_a\_changer : str) -> float||||
-| - | :- | :- | :- |
-|<p>￿ </p><p>binaire : chaine binaire de la partie décimal</p>|e |||
+decimale(nom\_variable\_a\_changer : str) -> float
+ -  :-  :-  :- 
+<p>￿ </p><p>binaire : chaine binaire de la partie décimal</p>e 
 
 - la fonction doit renvoyer le nombre flottant correspondant 
 4. ★ Ajouter une fonction qui convertisse en base 10 la partie entière du binaire. Le prototype est le suivant : 
 
-|entiere(nom\_variable\_a\_changer : str) -> int||||
-| - | :- | :- | :- |
-|5\.  ★ Enchaîner les appels successifs pour tran|sformer un nombre binaire décimal en base 10. On utilisera une fonction|||
+entiere(nom\_variable\_a\_changer : str) -> int
+ -  :-  :-  :- 
+5\.  ★ Enchaîner les appels successifs pour transformer un nombre binaire décimal en base 10. On utilisera une fonction
 
 avec le prototype suivant : 
 
-|bin2float(nombre : str) -> float||||
-| - | :- | :- | :- |
-|**PARTIE II** ||||
+bin2float(nombre : str) -> float
+ -  :-  :-  :- 
+**PARTIE II** 
 On souhaite maintenant réaliser l’opération inverse et transformer un flottant en binaire. Pour cela, on va encore séparer le problème en deux sous problèmes : d’abord transformer la partie décimale, puis terminer avec la partie entière. ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.098.png)
 
 6. ★ Écrire un programme float2bin qui convertisse la partie décimale d’un nombre flottant en binaire. On donne 
@@ -800,9 +779,9 @@ decimal <> 0 signifie différent de 0
 7. Tester le programme. Résultat attendu : 0101100011010100. 
 7. ★ Modifier le programme précédent pour créer une fonction avec le prototype suivant : 
 
-|bin\_decimal(decimal : float, precision : int) -> str||||
-| - | :- | :- | :- |
-|<p>- décimal : partie décimale du nombre flottant </p><p>- precision : précision souhaité dans le calcul </p><p>- la fonction doit renvoyer la chaîne binaire corresp</p>|ondante |||
+bin\_decimal(decimal : float, precision : int) -> str
+ -  :-  :-  :- 
+<p>- décimal : partie décimale du nombre flottant </p><p>- precision : précision souhaité dans le calcul </p><p>- la fonction doit renvoyer la chaîne binaire corresp</p>ondante 
 
 10. Transformer 0,5625 et 0,15 en base 2. 
 10. ★★Ajouter une fonction qui convertisse en base 2 la partie entière du nombre flottant. Le prototype est le suivant : bin\_entiere(entier :int) -> str 
@@ -811,14 +790,14 @@ decimal <> 0 signifie différent de 0
 
 12. ★★ Enchaîner les appels successifs pour transformer un nombre binaire décimal en base 10. On utilisera une fonction avec le prototype suivant : 
 
-|float2bin(nombre : str) -> str||||
-| - | :- | :- | :- |
-|13\. Transformer 12,9 en base 2.||||
+float2bin(nombre : str) -> str
+ -  :-  :-  :- 
+13\. Transformer 12,9 en base 2.
 14\. ★ Créer un docstring pour chacune des fonctions du programme float2bin. ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.100.png)
 
-<a name="_page16_x40.00_y36.92"></a>**7.  Codage des caractères** 
+## **7.  Codage des caractères<a name="_page16_x40.00_y36.92"></a>** 
 
-1. **Le<a name="_page16_x40.00_y58.92"></a> code ASCII**[^3]** 
+### **7.1. Le<a name="_page16_x40.00_y58.92"></a> code ASCII**[^3]** 
 
 La norme ASCII[^4] (on prononce généralement « aski ») établit une correspondance entre une représentation binaire des caractères de l'alphabet latin et les symboles, les signes, qui constituent cet alphabet.  
 
@@ -841,7 +820,7 @@ La norme ASCII permet ainsi à toutes sortes de machines de stocker, analyser et
 
 \>>> ord('A') # numéro décimal du caractère 65 
 
-2. **Les<a name="_page16_x40.00_y611.92"></a> encodages ISO-latin** 
+### **7.2. Les<a name="_page16_x40.00_y611.92"></a> encodages ISO-latin** 
 
 Dans les années 1990, pour satisfaire les besoins des pays européens, ont été définis plusieurs encodages alternatifs, connus sous le nom de ISO-latin, ou encore ISO-8859.  
 
@@ -849,7 +828,7 @@ Idéalement, on aurait pu et certainement dû définir un seul encodage pour rep
 
 Dès lors il n'y avait pas d'autre choix que de définir plusieurs encodages distincts; par exemple pour le **français** on a utilisé à l'époque **ISO-latin-1**; pour le russe ISO-latin-5. 
 
-3. **Unicode<a name="_page17_x40.00_y54.92"></a>** 
+### **7.3. Unicode<a name="_page17_x40.00_y54.92"></a>** 
 
 Il existe d'autres normes que l'ASCII, comme l'Unicode par exemple, qui présentent l'avantage de proposer une version unifiée des différents encodages de caractères complétant l'ASCII mais aussi de permettre l'encodage de caractères autres que ceux de l'alphabet latin. Unicode définit des dizaines de milliers de codes, mais les 128 premiers restent compatibles avec ASCII. 
 
@@ -862,7 +841,8 @@ Toutes  ces  normes  différentes  et  leurs  incompatibilités partielles sont 
 - La lettre é a été encodée en **UTF-8** (parce que 2 caractères sont affichés) 
 - En mémoire elle occupe 2 octets (elle n’est pas dans la table ascii) 
 - Ces deux octets ont été décodés en iso-latin1 (1 octet par caractère). 
-8. **Représentation<a name="_page17_x40.00_y448.92"></a> des images  ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.107.png)**
+
+## **8. Représentation<a name="_page17_x40.00_y448.92"></a> des images**
 
 Une image peut être vue comme un quadrillage  rempli d'une multitude de petits cases appelées  pixels.  
 
@@ -870,7 +850,7 @@ Chaque pixel est un carré d'une couleur définie.  Cette  couleur  se  code  à
 
 Ainsi, le pixel grisé désigné sur la photo est codé comme la  ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.108.png)combinaison de 174 de rouge (Red), 181 de vert (Green) et  190 de bleu (Blue). Chacun de ces trois nombres étant codé  sur 8 bits, il faut 3x8=24 bits au total pour coder un pixel.  En codant ainsi chaque pixel de l'image originale, on peut  ainsi traduire une image en série de bit. Et inversement, on  peut  reconstituer  une  image  à  partir  d'une  série  de  bits  donnée.  
 
-9. **Exercices<a name="_page18_x40.00_y36.92"></a>** 
+## **9. Exercices<a name="_page18_x40.00_y36.92"></a>** 
 
 **Exercice 10 :** Image matricielle 
 
@@ -882,23 +862,23 @@ Exemple :
 
 
 
-|Ligne |Valeur binaire correspondante |Valeur décimale correspondante |Valeur hexadécimale correspondante |||||||||||||||||||||
-| - | :- | - | :-: | :- | :- | :- | :- | :- | :- | :- | :- | :- | :- | :- | :- | :- | :- | :- | :- | :- | :- | :- | :- |
-||0b10010101 |149 |0x95 |||||||||||||||||||||
-|||||||||||||||||||||||||
+Ligne Valeur binaire correspondante Valeur décimale correspondante Valeur hexadécimale correspondante 
+ -  :-  -  :-:  :-  :-  :-  :-  :-  :-  :-  :-  :-  :-  :-  :-  :-  :-  :-  :-  :-  :-  :-  :- 
+0b10010101 149 0x95 
+
 Quadrillage pour l’image matricielle de 8x8 : 
 
 
 
-|||||||||Pour la question 1 |
-| :- | :- | :- | :- | :- | :- | :- | :- | - |
-||* |* ||| | ||Réponse à la question 2 |
-||| | | | |||Réponse à la question 3 |
-|||||||||Pour la question 4 |
-|||| | ||||Réponse à la question 5 |
-||| | | | |||Réponse à la question 6 |
-|||||||||Réponse à la question 7 |
-|||||||||Réponse à la question 8 |
+Pour la question 1 
+ :-  :-  :-  :-  :-  :-  :-  :-  - 
+* *   Réponse à la question 2 
+    Réponse à la question 3 
+Pour la question 4 
+  Réponse à la question 5 
+    Réponse à la question 6 
+Réponse à la question 7 
+Réponse à la question 8 
 
 **Traduire** la première ligne de l’image en valeur en binaire. 
 
