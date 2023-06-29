@@ -378,6 +378,7 @@ Tout au début du programme, ne pas oublier cette ligne : # coding: utf-8
 3. Donner la conversion de 1843 en binaire2. 
 4. Convertir -2 et conclure. 
 5. ★★★ Modifier le programme pour coder un nombre négatif selon la méthode du complément à 2. 
+
 **Aide :** 
 - Le complément à 2 peut être calculer par une autre méthode : Sur 8 bits, -88 en complément à 2 correspond au nombre binaire suivant : 
 - 2<sup>7</sup> – 88 = 40 
@@ -387,25 +388,23 @@ Le bit de signe donne donc 1010 1000
 
 - Faire une deuxième fonction dec2bin\_negatif qui teste si le nombre entré est positif ou négatif et qui fait appel à la première fonction codée 
 
-2 1843 est l’année de création du 1er programme informatique par Augusta Ada King, comtesse de Lovelace ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.031.png)
-
 6. Convertir -1 pour un codage sur un mot et conclure. 
-6. Convertir -1.1 et conclure. 
+7. Convertir -1.1 et conclure. 
 
 Pour éviter que le programme « crash » sur une erreur de valeur d’entrée (ValueError), une façon de gérer cette erreur est d’intercepter le message d’erreur et de le traiter correctement à l’aide des instructions try et except. 
 
 La syntaxe est la suivante : 
 
-try: ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.069.png)
+```
+try:
+# bloc d’instructions à exécuter
+except ValueError:
+# afficher « erreur de valeur »
+```
 
-- bloc d’instructions à exécuter 
-
-except ValueError: 
-
-- afficher « erreur de valeur » 
 8. ★★ Modifier le programme précédent en conséquence. 
-8. ★★Faire une boucle infinie pour que le programme demande un autre nombre tant que la valeur n’est pas un entier relatif 
-8. Vérifier la cohérence et la stabilité du programme avec quelques tests : 1, -1, 0, 1.1, -1.0, a 
+9. ★★Faire une boucle infinie pour que le programme demande un autre nombre tant que la valeur n’est pas un entier relatif 
+10. Vérifier la cohérence et la stabilité du programme avec quelques tests : 1, -1, 0, 1.1, -1.0, a 
 
 **Exercice 6 :** Conversion hexadécimal – binaire
 
