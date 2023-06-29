@@ -71,13 +71,15 @@ Elle s’appuie sur **10 « symboles »** : 0, 1, 2, 3, 4, 5, 6, 7, 8, 9. On peu
 Par exemple :  
 
 **Décimal**  0  1  2  3  4  5  6  7  8  9  10 
+
 **Binaire**  0000  0001  0010  0011  0100  0101  0110  0111  1000  1001  1010 
 
 #### **2.2.2. Le<a name="_page2_x40.00_y74.92"></a> binaire en Python**
 
 **Activité n° 1.**: La fonction bin de Python donne une chaîne de caractères représentant l’écriture binaire de l’entier passé en paramètre. 
+
 Tester
-> bin(47) '
+> bin(47) 
 
 > 0b101 
 
@@ -100,15 +102,16 @@ Exemple : Convertir 145 en binaire
 - 4 = 2 × 2 + 0  
 - 2 = 1 × 2 + 0  
 - 1 = 0 × 2 + 1
+
 *Sens de lecture est de bas vers le haut  
 
 La conversion de 145 en binaire est donc : 10010001<sub>2</sub> 
 
 **Méthode des puissances de 2** : 
 
-**Exposant** n  **0  1  2  3  4  5  6  7  8  9  10  11  12  13  14 ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.016.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.017.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.018.png)**
+|**Exposant n |0  |1  |2  |3  |4  |5  |6  |7  |8  |9  |10  |11  |12  |13  |14**|
 
-2n  1  2  4  8  16  32  64  128  256  512 1024 2048 4096 8192 16384 
+2<sup>n</sup>  1  2  4  8  16  32  64  128  256  512 1024 2048 4096 8192 16384 
 
 Écrire 57 en base 2 (=donner sa représentation binaire). 
 
