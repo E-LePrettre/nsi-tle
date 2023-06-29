@@ -1139,7 +1139,9 @@ except KeyboardInterrupt:
 
 **Exercice 13 :** ★★★ **Le chiffrement de Caesar** 
 
-En cryptographie, le chiffrement par décalage, aussi connu comme le chiffre de César ou le code de César, est une méthode de ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.089.png)chiffrement très simple utilisée par Jules César dans ses correspondances secrètes (ce qui explique le nom « chiffre de César »). 
+![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.089.png)
+
+En cryptographie, le chiffrement par décalage, aussi connu comme le chiffre de César ou le code de César, est une méthode de chiffrement très simple utilisée par Jules César dans ses correspondances secrètes (ce qui explique le nom « chiffre de César »). 
 
 Le texte chiffré s'obtient en remplaçant chaque lettre du texte clair original par une lettre à distance fixe, toujours du même côté, dans l'ordre de l'alphabet. Pour les dernières lettres (dans le cas d'un décalage à droite), on reprend au début. Par exemple avec un décalage de 3 vers la droite, A est remplacé par D, B devient E, et ainsi jusqu'à W  qui  devient  Z,  puis  X  devient A  etc.  Il  s'agit  d'une  permutation  circulaire  de l'alphabet. La longueur du décalage, 3 dans l'exemple évoqué, constitue la clé du chiffrement qu'il suffit de transmettre au destinataire — s'il sait déjà qu'il s'agit d'un chiffrement de César — pour que celui-ci puisse déchiffrer le message. Dans le cas de l'alphabet latin, le chiffre de César n'a que 26 clés possibles. 
 
@@ -1149,7 +1151,9 @@ Le texte chiffré s'obtient en remplaçant chaque lettre du texte clair original
 
 **Des chiffres et des lettres** 
 
-Nous  adopterons  la  convention  suivante,  en  vert  c’est  la  partie  du  ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.091.png)message  à  laquelle  tout  le  monde  a  accès  (ou  qui  pourrait  être  intercepté), c’est donc le message crypté. Alors qu’en rouge c’est la  partie du message confidentiel, c’est le message en clair.  
+Nous  adopterons  la  convention  suivante,  en  vert  c’est  la  partie  du  message  à  laquelle  tout  le  monde  a  accès  (ou  qui  pourrait  être  intercepté), c’est donc le message crypté. Alors qu’en rouge c’est la  partie du message confidentiel, c’est le message en clair.
+
+![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.091.png)
 
 Pour prendre en compte aussi les dernières lettres de l’alphabet, il est  plus judicieux de représenté l’alphabet sur un anneau. Ce décalage est  un décalage circulaire sur les lettres de l’alphabet. Pour déchiffrer le  message de César, il suffit de décaler les lettres dans l’autre sens, D se  déchiffre en A, E en B,…  
 
@@ -1161,43 +1165,42 @@ Le code ASCII de la lettre ‘A’ a pour valeur 65, celui de la lettre ‘Z’ 
 
 Méthode : 
 
-1. ([65 ; 90] – 65) → [0 ; 25]  on soustrait 65 pour être dans un intervalle [0 ; 25] 
-1. ([0 ; 25] + clef) → [clef ; 25 + clef]  on décale selon la clef 
-1. [clef ; 25 + clef] modulo 26 → [0 ; 25]   le modulo permet de rester dans l’intervalle [0 ; 25] 
-1. ([0 ; 25] + 65) → [65 ; 90]  on ajoute 65 pour revenir dans un intervalle [‘A’; ‘Z’] 
+1 ([65 ; 90] – 65) → [0 ; 25]  on soustrait 65 pour être dans un intervalle [0 ; 25] 
+2 ([0 ; 25] + clef) → [clef ; 25 + clef]  on décale selon la clef 
+3 [clef ; 25 + clef] modulo 26 → [0 ; 25]   le modulo permet de rester dans l’intervalle [0 ; 25] 
+4 ([0 ; 25] + 65) → [65 ; 90]  on ajoute 65 pour revenir dans un intervalle [‘A’; ‘Z’] 
 
 On appelle modulo d’un nombre x par N, l’opérateur qui renvoie le reste de la division entière de x par N. Exemple : 11 modulo 5 = 1 (en Python, le modulo est notée %). 
 
-1. Créer un fichier caesar.py.
-1. Écrire une fonction qui utilise la méthode de César pour crypter un message. 
+1 Créer un fichier caesar.py.
+2 Écrire une fonction qui utilise la méthode de César pour crypter un message. 
 
-Le prototype de la fonction est : caesar\_encode(text : str, key : int = 1) -> str
+Le prototype de la fonction est : ```caesar_encode(text : str, key : int = 1) -> str```
 
-- text représente le texte à chiffrer,  ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.092.png)
-- key représente la clef de chiffrement.  ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.093.png)
-- La fonction doit renvoyer le texte chiffré. ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.094.png)
+- text représente le texte à chiffrer,  
+- key représente la clef de chiffrement.  
+- La fonction doit renvoyer le texte chiffré. 
 
 **Aide :** 
 
-- les caractères (lettres ou signes de ponctuations) qui ne figurent pas dans l’alphabet [A..Z] **restent inchangés**.  ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.095.png)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.096.png)
-- Utilisez les méthodes upper() (pour mettre en majuscule) et isalpha() (pour tester si c’est une lettre alphabétique)  ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.097.png)
+- les caractères (lettres ou signes de ponctuations) qui ne figurent pas dans l’alphabet [A..Z] **restent inchangés**. 
+- Utilisez les méthodes upper() (pour mettre en majuscule) et isalpha() (pour tester si c’est une lettre alphabétique)  
 - Utilisez les fonction chr(#nombre) pour convertir en caractère et ord(‘#la lettre’) pour convertir en code ASCII 
-3. Documenter la fonction 
-3. Tester la fonction avec le message suivant : "ATTAQUEZ DEMAIN" avec la clé par défaut. Résultat attendu : BUUBRVFA EFNBJO
-3. Écrire un programme qui permet de déchiffrer le texte chiffré précédemment. Le prototype de la fonction est : caesar\_decode(code : str, key : int = 1) -> str
-- code représente le texte à déchiffrer,  ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.098.png)
+3 Documenter la fonction 
+4 Tester la fonction avec le message suivant : "ATTAQUEZ DEMAIN" avec la clé par défaut. Résultat attendu : BUUBRVFA EFNBJO
+5 Écrire un programme qui permet de déchiffrer le texte chiffré précédemment. Le prototype de la fonction est : ```caesar_decode(code : str, key : int = 1) -> str```
+- code représente le texte à déchiffrer,  
 - key représente la clef de chiffrement.  
 - La fonction doit renvoyer le texte déchiffré. 
 
 **Aide :** 
-
 - Le decodage de la lettre S avec une key = 19 donne Z. 
-6. Documenter la fonction 
-6. Factoriser le code des deux fonctions précédentes pour obtenir une fonction qui chiffre ou déchiffre. Le prototype de la fonction est : caesar(str\_in : str, key : int) -> str
-- str\_in représente le texte à chiffrer/déchiffrer,  ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.099.png)
+6 Documenter la fonction 
+7 Factoriser le code des deux fonctions précédentes pour obtenir une fonction qui chiffre ou déchiffre. Le prototype de la fonction est : ```caesar(str_in : str, key : int) -> str```
+- str\_in représente le texte à chiffrer/déchiffrer, 
 - key représente la clef de chiffrement. Si key > 0 c’est un chiffrage si key < 0 c’est un déchiffrement.  
 - La fonction doit renvoyer le texte déchiffré/chiffré. 
-8. Documenter la fonction 
+8 Documenter la fonction 
 
 Une fonction est basée sur le modèle de la boite noire ; les sorties n’étant fonction que des entrées. Cette boite noire doit être à la fois cohérente (des entrées supposées fournir un résultat juste doivent donner un résultat juste, des entrées supposées donner un résultat faux doivent donner un résultat faux) et stable (le programme doit terminer, ne pas « crasher » ou avoir un comportement erratique). La vérification de ces deux critères se fait à travers des tests unitaires. 
 
