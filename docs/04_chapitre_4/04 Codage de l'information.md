@@ -741,11 +741,13 @@ Toutes  ces  normes  différentes  et  leurs  incompatibilités partielles sont 
 
 ## **8. Représentation<a name="_page17_x40.00_y448.92"></a> des images**
 
-Une image peut être vue comme un quadrillage  rempli d'une multitude de petits cases appelées  pixels.  
+Une image peut être vue comme un quadrillage  rempli d'une multitude de petits cases appelées  pixels.
+
+![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.108.png)
 
 Chaque pixel est un carré d'une couleur définie.  Cette  couleur  se  code  à  l'aide  d'une  combinaison de trois couleurs de base : rouge,  vert  et  bleu  (Red,  Green,  Blue  en  anglais  -  souvent  abrégé  en  RGB).  Chacune  des  trois  couleurs étant codée sur 8 bits, soit entre 0 et  255.  
 
-Ainsi, le pixel grisé désigné sur la photo est codé comme la  ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.108.png)combinaison de 174 de rouge (Red), 181 de vert (Green) et  190 de bleu (Blue). Chacun de ces trois nombres étant codé  sur 8 bits, il faut 3x8=24 bits au total pour coder un pixel.  En codant ainsi chaque pixel de l'image originale, on peut  ainsi traduire une image en série de bit. Et inversement, on  peut  reconstituer  une  image  à  partir  d'une  série  de  bits  donnée.  
+Ainsi, le pixel grisé désigné sur la photo est codé comme la  combinaison de 174 de rouge (Red), 181 de vert (Green) et  190 de bleu (Blue). Chacun de ces trois nombres étant codé  sur 8 bits, il faut 3x8=24 bits au total pour coder un pixel.  En codant ainsi chaque pixel de l'image originale, on peut  ainsi traduire une image en série de bit. Et inversement, on  peut  reconstituer  une  image  à  partir  d'une  série  de  bits  donnée.  
 
 ## **9. Exercices<a name="_page18_x40.00_y36.92"></a>** 
 
