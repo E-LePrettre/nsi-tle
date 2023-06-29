@@ -743,9 +743,11 @@ Toutes  ces  normes  différentes  et  leurs  incompatibilités partielles sont 
 
 Une image peut être vue comme un quadrillage  rempli d'une multitude de petits cases appelées  pixels.
 
-![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.108.png)
+![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.107.png)
 
 Chaque pixel est un carré d'une couleur définie.  Cette  couleur  se  code  à  l'aide  d'une  combinaison de trois couleurs de base : rouge,  vert  et  bleu  (Red,  Green,  Blue  en  anglais  -  souvent  abrégé  en  RGB).  Chacune  des  trois  couleurs étant codée sur 8 bits, soit entre 0 et  255.  
+
+![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.108.png)
 
 Ainsi, le pixel grisé désigné sur la photo est codé comme la  combinaison de 174 de rouge (Red), 181 de vert (Green) et  190 de bleu (Blue). Chacun de ces trois nombres étant codé  sur 8 bits, il faut 3x8=24 bits au total pour coder un pixel.  En codant ainsi chaque pixel de l'image originale, on peut  ainsi traduire une image en série de bit. Et inversement, on  peut  reconstituer  une  image  à  partir  d'une  série  de  bits  donnée.  
 
@@ -759,56 +761,47 @@ Chaque case de l’image correspond à un bit. Une ligne de l’image fait 8 cas
 
 Exemple : 
 
+![](Aimg13.png)
 
-
-Ligne Valeur binaire correspondante Valeur décimale correspondante Valeur hexadécimale correspondante 
- -  :-  -  :-:  :-  :-  :-  :-  :-  :-  :-  :-  :-  :-  :-  :-  :-  :-  :-  :-  :-  :-  :-  :- 
-0b10010101 149 0x95 
 
 Quadrillage pour l’image matricielle de 8x8 : 
 
+![](Aimg14.png)
 
 
-Pour la question 1 
- :-  :-  :-  :-  :-  :-  :-  :-  - 
-* *   Réponse à la question 2 
-    Réponse à la question 3 
-Pour la question 4 
-  Réponse à la question 5 
-    Réponse à la question 6 
-Réponse à la question 7 
-Réponse à la question 8 
 
 **Traduire** la première ligne de l’image en valeur en binaire. 
 
 1. **Convertir** la valeur binaire de la première ligne en décimal : 
-1. **Convertir** la valeur hexadécimale 0x66 en binaire : 
-1. **Convertir** la valeur hexadécimale 0x3C en décimal : 
-1. **Convertir** la valeur binaire de la ligne N°4 en hexadécimal : 
-1. **Convertir** la valeur décimale 24 en binaire : 
-1. **Convertir** la valeur décimale 60 en hexadécimal : 
-1. **Colorier** la ligne N°7 de l’image avec la valeur binaire suivante :  **0b01100110**
-1. **Convertir** la valeur binaire 0b11111111 en hexadécimal : 
+2. **Convertir** la valeur hexadécimale 0x66 en binaire : 
+3. **Convertir** la valeur hexadécimale 0x3C en décimal : 
+4. **Convertir** la valeur binaire de la ligne N°4 en hexadécimal : 
+5. **Convertir** la valeur décimale 24 en binaire : 
+6. **Convertir** la valeur décimale 60 en hexadécimal : 
+7. **Colorier** la ligne N°7 de l’image avec la valeur binaire suivante :  **0b01100110**
+8. **Convertir** la valeur binaire 0b11111111 en hexadécimal : 
 
-RAPPELS :   Un nombre binaire s’écrit ainsi : **1011(2)** ou **0b1011** ou **%1011** ou **1011b**
+RAPPELS :   Un nombre binaire s’écrit ainsi : **1011<sub>(2)</sub>** ou **0b1011** ou **%1011** ou **1011b**
 
-Un nombre hexadécimal s’écrit ainsi : **9A(16)** ou **0x9A** ou **$9A** ou **9Ah ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.031.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.031.png)**
+Un nombre hexadécimal s’écrit ainsi : **9A<sub>(16)</sub>** ou **0x9A** ou **$9A** ou **9Ah**
 
-Première NSI   Chap 20 : Codage de l’information  Page 20/21 ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.031.png)
 
-**Exercice 11** L’heure en binaire ????  ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.109.png)
+
+**Exercice 11** L’heure en binaire ????  
+
+![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.109.png)
 
 Cette montre affiche l’heure en binaire :  
 
 - une ligne affiche les minutes,  
 - une autre ligne affiche les heures.  
 1. Quelle est la valeur maximale en décimal que peut afficher la ligne  du haut ? en binaire ? en hexadécimal ?  
-1. Quelle est la valeur maximale en décimal que peut afficher la ligne  du bas ? en binaire ? en hexadécimal ?  
-1. En déduire quelle ligne indique les minutes et quelle ligne indique  les heures ?  
-1. Dans quel format les heures sont-elles données au 12H (am/pm) ou  24H ?  
-1. Quelle valeur maximale en décimal sera réellement affichée sur la  ligne des heures ? en binaire ? en hexadécimal ?  
-1. Quelle valeur maximale en décimal sera réellement affichée sur la  ligne des minutes ? en binaire ? en hexadécimal ?  
-1. Quelle est l’heure donnée par les montre ci-dessous ?  
+2. Quelle est la valeur maximale en décimal que peut afficher la ligne  du bas ? en binaire ? en hexadécimal ?  
+3. En déduire quelle ligne indique les minutes et quelle ligne indique  les heures ?  
+4. Dans quel format les heures sont-elles données au 12H (am/pm) ou  24H ?  
+5. Quelle valeur maximale en décimal sera réellement affichée sur la  ligne des heures ? en binaire ? en hexadécimal ?  
+6. Quelle valeur maximale en décimal sera réellement affichée sur la  ligne des minutes ? en binaire ? en hexadécimal ?  
+7. Quelle est l’heure donnée par les montre ci-dessous ?  
 
 ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.110.png)
 
