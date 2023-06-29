@@ -85,24 +85,26 @@ Tester
 
     {{ terminal() }}
 
-En Python on peut écrire les nombres entiers directement en binaire. Il suffit pour cela de faire précéder cette écriture par 0b***.***  
+En Python on peut écrire les nombres entiers directement en binaire. Il suffit pour cela de faire précéder cette écriture par **0b**.  
 
 #### **2.2.3. Passage<a name="_page2_x40.00_y235.92"></a> du système décimal au binaire**
 
 **Méthode de Horner :**   
 
-Exemple : Convertir 145 en binaire  ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.013.png)
-
+Exemple : Convertir 145 en binaire  
 - 145 = 72 × 2 + 1  
 - 72 = 36 × 2 + 0  
-- 36 = 18 × 2 + 0  *Sens de lecture  ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.014.png)*
+- 36 = 18 × 2 + 0    
 - 18 = 9 × 2 + 0  
 - 9 = 4 × 2 + 1  
-- 4 = 2 × 2 + 0  ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.015.png)
+- 4 = 2 × 2 + 0  
 - 2 = 1 × 2 + 0  
-- 1 = 0 × 2 + 1  
+- 1 = 0 × 2 + 1
+*Sens de lecture est de bas vers le haut  
 
-La conversion de 145 en binaire est donc : 100100012 **Méthode des puissances de 2** : 
+La conversion de 145 en binaire est donc : 10010001<sub>2</sub> 
+
+**Méthode des puissances de 2** : 
 
 **Exposant** n  **0  1  2  3  4  5  6  7  8  9  10  11  12  13  14 ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.016.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.017.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.018.png)**
 
