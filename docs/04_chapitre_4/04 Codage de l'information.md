@@ -109,24 +109,30 @@ La conversion de 145 en binaire est donc : 10010001<sub>2</sub>
 
 **Méthode des puissances de 2** : 
 
-|**Exposant n |0  |1  |2  |3  |4  |5  |6  |7  |8  |9  |10  |11  |12  |13  |14**|
-
-2<sup>n</sup>  1  2  4  8  16  32  64  128  256  512 1024 2048 4096 8192 16384 
+![](Aimg.png)
 
 Écrire 57 en base 2 (=donner sa représentation binaire). 
 
 - 32 < 57 < 64. Donc on fait 57 = 32+25 = 25+25. On a un chiffre 1 à la position 6. 
 - 16 < 25 < 32. Donc on fait 25 = 16+9 = 24+9. On a un chiffre 1 à la position 5. 
 - 8 < 9 < 16. Donc on fait 9=8+1=23+1. On a un chiffre 1 à la position 4. 
-- 1=20. On peut s’arrêter (dès qu’on atteint une puissance de 2). On a un chiffre 1 à la position 1. 57 = 0b111001  ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.019.png)
+- 1=20. On peut s’arrêter (dès qu’on atteint une puissance de 2). On a un chiffre 1 à la position 1. 
+
+57 = 0b111001  
 
 **L’algorithme des divisions successives**  
 
+![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.019.png)
 - On divise par 2 jusqu'à ce que le quotient soit 0  
-- On lit les bits en montant de droite à gauche : 167 = 0b10100111  
+- On lit les bits en montant de droite à gauche : 
+
+167 = 0b10100111
+
+
 #### **2.2.4. Passage<a name="_page2_x40.00_y722.92"></a> du système binaire au décimal**
 
-Les nombres écrits en binaire suivent le même principe que ceux écrits en décimal mais avec les** puissances de deux.** Le mot de 8 bits %01101110 =  1.26 +  1.25 +  1.23 +  1.22 +  1.21 en décimale. 
+Les nombres écrits en binaire suivent le même principe que ceux écrits en décimal mais avec les** puissances de deux.** 
+Le mot de 8 bits %01101110 =  1.2<sup>6</sup> +  1.2<sup>5</sup> +  1.2<sup>3</sup> +  1.2<sup>2</sup> +  1.2<sup>1</sup> en décimale. 
 
 **Puissances** 27 26 25 24 23 22 21 20 
  -  -  -  -  -  -  -  -  - 
