@@ -414,7 +414,8 @@ except ValueError:
 1 ★★★ Écrire un programme hex2dec qui convertisse un nombre hexadécimal en décimal non signé. !
 
 **Aide :**  
-- On utilisera une chaîne : chaine = "0123456789ABCDEF".![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.071.png)
+- On utilisera une chaîne : chaine = "0123456789ABCDEF"
+
 - Et on pourra utiliser la méthode index()[ https://www.geeksforgeeks.org/python-list-index/ ](https://www.geeksforgeeks.org/python-list-index/)
 
 2 Donner les conversions de 1, A, a et A5 en décimal. 
@@ -446,9 +447,11 @@ def carre(nombre : int) -> int:
 
 **Aide** :  
    - Juste après la fonction : print(dec2bin(501, 10))
+
    - vérifier que l’on obtient [0, 1, 1, 1, 1, 1, 0, 1, 0, 1]
 
-8 A la suite de cette fonction, faire un copier/coller du code du programme hex2dec. 
+8 A la suite de cette fonction, faire un copier/coller du code du programme hex2dec.
+
 9 ★★ Remodeler (refactor) le code pour le transformer en fonction dont le prototype sera le suivant : 
 ```hex2dec(hexa : str) -> int ```
 
@@ -459,6 +462,7 @@ def carre(nombre : int) -> int:
 
 **Aide** :  
 - Juste après la fonction : print(hex2dec('AF'))
+
 - vérifier que l’on obtient 175
 
 11 ★★ Enchaîner les appels successifs pour afficher la valeur binaire sur 8 bits des nombres suivants : 1, A et A5. 
@@ -528,14 +532,11 @@ On continue ainsi jusqu'à la précision désirée..
 
 Attention ! Un nombre à développement décimal fini en base 10 ne l'est pas forcément en base 2. Cela peut engendrer de mauvaises surprises. 
 
-Le 25 février 1991, pendant la Guerre du Golfe, une batterie américaine de missiles Patriot, à Dharan ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.084.png)(Arabie  Saoudite),  a  échoué  dans  l'interception  d'un  missile  Scud  irakien.  Le  Scud  a  frappé  un baraquement de l'armée américaine et a tué 28 soldats. La commission d'enquête a conclu à un calcul incorrect du temps de parcours, dû à un problème d'arrondi. Les nombres étaient représentés en virgule fixe sur 24 bits. Le temps était compté par l'horloge interne du système en dixième de seconde. Malheureusement, 1/10 n'a pas d'écriture finie dans le système binaire : 1/10 = 0,1 (dans le système décimal)  =  0,0001100110011001100110011...  (dans  le  système  binaire).  L'ordinateur  de  bord arrondissait 1/10 à 24 chiffres, d'où une petite erreur dans le décompte du temps pour chaque 1/10 de seconde. Au moment de l'attaque, la batterie de missile Patriot était allumée depuis environ 100 heures, ce qui a entraîné une accumulation des erreurs d'arrondi de 0,34 s. Pendant ce temps, un missile Scud parcourt environ 500 m, ce qui explique que le Patriot soit passé à côté de sa cible. 
 
-![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.085.png)
 
 ### **5.3. Représentation<a name="_page13_x40.00_y36.92"></a> des flottants dans un ordinateur** 
 
-Il est parfois nécessaire d’approximer la valeur à représenter. ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.086.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.087.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.088.png)
-
+Il est parfois nécessaire d’approximer la valeur à représenter. 
 Règles de base : 
 
 - Il ne faut jamais tester une égalité entre deux nombres flottants mais utiliser une marge d’erreur relative.  
@@ -544,15 +545,22 @@ Règles de base :
 
 
 **Activité n° 5.**:  
- - 
-<p>>>> 0.1 ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.089.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.090.png)</p><p>0\.1 </p><p>>>> 0.2 </p><p>0\.2 </p><p>>>> 0.1 + 0.2 0.30000000000000004 >>> 0.1 + 0.2 == 0.3 False </p>
+Tester :
+> 0.1 
+> 0.2 
+> 0.1 + 0.2 
+> 0.1 + 0.2 
+
+???+ question "Faire ce qui est proposé"
+
+    {{ terminal() }}
 
 La norme IEEE[^2] 754 est la norme la plus employée pour la représentation des nombres à virgule flottante dans le domaine informatique. Il existe deux formats de codage :  
 
 - le format dit "simple précision" et le format dit "double précision".  
 - Le format "simple précision" utilise 32 bits pour écrire un nombre flottant alors que le format "double précision" utilise 64 bits.  
 
-Sur 32 bits (ou 64), on utilise : ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.091.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.092.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.093.png)
+Sur 32 bits (ou 64), on utilise : 
 
 - 1bit pour le signe,  
 - 8 (ou 11) pour l’exposant  
@@ -564,30 +572,30 @@ Conditions à respecter :
 
 - l'exposant 00000000 est interdit. 
 - l'exposant 11111111 est interdit. On s'en sert toutefois pour signaler des erreurs, on appelle alors cette configuration du nombre NaN, ce qui signifie « Not a number ». 
-- il faut commencer par écrire le nombre sous la forme : 1,XXXXX.2exposant. La partie « XXXXX » constitue la mantisse.  
-- Pour le format simple précision, 8 bits sont consacrés à l’exposant, il est donc possible de représenter 256 valeurs : soit les exposants compris entre (-126)10 et (+127)10 c’est-à-dire 126 valeurs négatives + le zéro + 127 valeurs positives (-127 et +128 sont des valeurs réservées). 
+- il faut commencer par écrire le nombre sous la forme : 1,XXXXX.2<sup>exposant</sup>. La partie « XXXXX » constitue la mantisse.  
+- Pour le format simple précision, 8 bits sont consacrés à l’exposant, il est donc possible de représenter 256 valeurs : soit les exposants compris entre (-126)<sub>10</sub> et (+127)<sub>10</sub> c’est-à-dire 126 valeurs négatives + le zéro + 127 valeurs positives (-127 et +128 sont des valeurs réservées). 
 - Pour avoir des valeurs uniquement positives, il va falloir procéder à un décalage : ajouter systématiquement 127 à la valeur de l’exposant.  
 
 Exemple : -10,125 au format simple précision 
 
 1ère étape : conversion en binaire du nombre relatif 
 
-- 1010 = 10102 
-- 0,12510
-- 0,125 x 2 = 0,250 
-- 0,250 x 2 = 0,50 
-- 0,50 x 2 = 1 + 0 (arrêt) 
+- 10<sub>10</sub> = 1010<sub>3</sub> 
+- 0,125<sub>10</sub>
+ 0,125 x 2 = 0,250 
+ 0,250 x 2 = 0,50 
+ 0,50 x 2 = 1 + 0 (arrêt) 
 
-0,12510 =  0,0012  
+- 0,125<sub>10</sub> =  0,001<sub>2</sub>  
 
-10,12510 = 1010,0012 
+10,125<sub>10</sub> = 1010,001<sub>2</sub> 
 
 2ème étape : utilisation de la norme IEEE 754 
 
 - Le bit de signe est 1 (nombre négatif) 
-- On décale la virgule de trois rangs vers la gauche 1010,001 = 1,010001.23
-- On ajoute 127 à la valeur de l’exposant 1,010001.2130
-- L’exposant est 13010 = 100000102 
+- On décale la virgule de trois rangs vers la gauche 1010,001 = 1,010001.2<sup>3</sup>
+- On ajoute 127 à la valeur de l’exposant 1,010001.2<sup>130</sup>
+- L’exposant est 130<sub>10</sub> = 10000010<sub>2</sub>
 - La mantisse 010001 doit comporter 23 bits => on rajoute des zéros pour arriver à 23 
 
 ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.095.jpeg)
@@ -600,106 +608,78 @@ En convertissant en hexadécimal :
 
 ## **6.  Exercices<a name="_page15_x40.00_y36.92"></a>** 
 
-**Exercice 7** convertir en base 10  **Exercice 8 :** Convertir en binaire puis en norme IEEE-754 
+**Exercice 7** convertir en base 10  
 
-1. 0,01010101012  1.  5,1875 
-1. 11100,100012  2.  4,3125 
+1. 0,0101010101<sub>2</sub>  
+2. 11100,10001<sub>2</sub> 
 
-   3. 0,3125 
+**Exercice 8 :** Convertir en binaire puis en norme IEEE-754 
+
+1. 5,1875
+2. 4,3125
+3. 0,3125 
 
 **Exercice 9** : **conversion des flottants** 
 
 On souhaite transformer un nombre binaire décimal en base 10. Pour simplifier, on va déjà écrire un programme qui transforme la partie décimale en binaire, puis dans un deuxième temps on transformera la partie entière. 
 
-**PARTIE I  ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.097.png)**
+**PARTIE I**
 
-1. ★ Écrire un programme bin2float.py qui convertisse la partie décimale d’un nombre binaire en flottant. 
+1 ★ Écrire un programme bin2float.py qui convertisse la partie décimale d’un nombre binaire en flottant. 
 
 **Aide** : on pourra utiliser la méthode split() de l’objet str pour récupérer la partie décimale. On utilisera le séparateur ','. Attention ce n’est pas une méthode en place donc il faut la réaffecter :[ https://www.w3schools.com/python/ref_string_split.asp ](https://www.w3schools.com/python/ref_string_split.asp)
 
-2. ★ Transformer 0,0101010101 2 et 11100,10001 2 en base 10. 
+2 ★ Transformer 0,0101010101<sub>2</sub> et 11100,10001<sub>2</sub> en base 10. 
 
 **Aide** : print(bin2float(nombre)) 
 
-3. ★ Modifier le programme précédent pour créer une fonction avec le prototype suivant : 
+3 ★ Modifier le programme précédent pour créer une fonction avec le prototype suivant : 
 
 decimale(nom\_variable\_a\_changer : str) -> float
- -  :-  :-  :- 
-<p>￿ </p><p>binaire : chaine binaire de la partie décimal</p>e 
+ 
+- binaire : chaine binaire de la partie décimale
 
 - la fonction doit renvoyer le nombre flottant correspondant 
-4. ★ Ajouter une fonction qui convertisse en base 10 la partie entière du binaire. Le prototype est le suivant : 
+
+4 ★ Ajouter une fonction qui convertisse en base 10 la partie entière du binaire. Le prototype est le suivant : 
 
 entiere(nom\_variable\_a\_changer : str) -> int
- -  :-  :-  :- 
-5\.  ★ Enchaîner les appels successifs pour transformer un nombre binaire décimal en base 10. On utilisera une fonction
 
-avec le prototype suivant : 
+5  ★ Enchaîner les appels successifs pour transformer un nombre binaire décimal en base 10. On utilisera une fonction avec le prototype suivant : 
 
 bin2float(nombre : str) -> float
- -  :-  :-  :- 
+
+
 **PARTIE II** 
-On souhaite maintenant réaliser l’opération inverse et transformer un flottant en binaire. Pour cela, on va encore séparer le problème en deux sous problèmes : d’abord transformer la partie décimale, puis terminer avec la partie entière. ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.098.png)
+On souhaite maintenant réaliser l’opération inverse et transformer un flottant en binaire. Pour cela, on va encore séparer le problème en deux sous problèmes : d’abord transformer la partie décimale, puis terminer avec la partie entière. 
 
-6. ★ Écrire un programme float2bin qui convertisse la partie décimale d’un nombre flottant en binaire. On donne 
+6 ★ Écrire un programme float2bin qui convertisse la partie décimale d’un nombre flottant en binaire. On donne l’algorithme : 
 
-l’algorithme : ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.099.png)
-
-algorithme float2bin 
-
-{ converti un nombre décimal < 1 en binaire } 
-
-variables 
-
-precision : entier := 16 
-
-decimal : réel := 0.347 
-
-binaire : chaine[16] := "" 
-
-i : entier := 0 
-
-début 
-
-tantque decimal <> 0 ET i < precision faire 
-
-`      `decimal := decimal \* 2 
-
-`      `si decimal < 1 alors 
-
-`            `binaire := binaire + "0" 
-
-`      `sinon 
-
-`            `binaire := binaire + "1" 
-
-`             `decimal := decimal modulo 1 
-
-`             `i := i + 1 
-
-fin 
+![](Aimg12.png)
 
 decimal <> 0 signifie différent de 0 
 
-7. Donner la signification de l’instruction : decimal := decimal modulo 1 
-7. Tester le programme. Résultat attendu : 0101100011010100. 
-7. ★ Modifier le programme précédent pour créer une fonction avec le prototype suivant : 
+7 Donner la signification de l’instruction : decimal := decimal modulo 1 
+8 Tester le programme. Résultat attendu : 0101100011010100. 
+9 ★ Modifier le programme précédent pour créer une fonction avec le prototype suivant : 
 
 bin\_decimal(decimal : float, precision : int) -> str
- -  :-  :-  :- 
-<p>- décimal : partie décimale du nombre flottant </p><p>- precision : précision souhaité dans le calcul </p><p>- la fonction doit renvoyer la chaîne binaire corresp</p>ondante 
 
-10. Transformer 0,5625 et 0,15 en base 2. 
-10. ★★Ajouter une fonction qui convertisse en base 2 la partie entière du nombre flottant. Le prototype est le suivant : bin\_entiere(entier :int) -> str 
+- décimal : partie décimale du nombre flottant 
+- precision : précision souhaité dans le calcul 
+- la fonction doit renvoyer la chaîne binaire correspondante 
+
+10 Transformer 0,5625 et 0,15 en base 2. 
+11 ★★Ajouter une fonction qui convertisse en base 2 la partie entière du nombre flottant. Le prototype est le suivant : bin\_entiere(entier :int) -> str 
 
 **Aide** : on pourra utiliser la fonction float(),  int() et le modulo 1 
 
-12. ★★ Enchaîner les appels successifs pour transformer un nombre binaire décimal en base 10. On utilisera une fonction avec le prototype suivant : 
+12 ★★ Enchaîner les appels successifs pour transformer un nombre binaire décimal en base 10. On utilisera une fonction avec le prototype suivant : 
 
 float2bin(nombre : str) -> str
- -  :-  :-  :- 
-13\. Transformer 12,9 en base 2.
-14\. ★ Créer un docstring pour chacune des fonctions du programme float2bin. ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.100.png)
+ 
+13 Transformer 12,9 en base 2.
+14 ★ Créer un docstring pour chacune des fonctions du programme float2bin. 
 
 ## **7.  Codage des caractères<a name="_page16_x40.00_y36.92"></a>** 
 
