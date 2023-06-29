@@ -36,7 +36,7 @@ Cette loi est aussi notée :
 
 - a+b 
 - a\/b (dans quelques notations algébriques ou en APL) 
-- a|b ou a||b (Perl, C, PHP, ...) 
+- ab ou ab (Perl, C, PHP, ...) 
 - a OR b (Ada, Pascal, Python, ...) 
 
 ### **1.3. NON<a name="_page1_x40.00_y43.04"></a>** 
@@ -70,8 +70,8 @@ La porte NON inverse l’état en entrée. Si l’entrée de la porte est dans u
 
 
 
-|E (Entrée) |S (Sortie) |
-| - | - |
+|E (Entrée) |S (Sortie)| 
+| - | - | 
 |1 |0 |
 |0 |1 |
 
@@ -155,28 +155,22 @@ La porte XOR est symbolisée par le schéma suivant :
 
 
 
-|**Activité n°1.:** Écrivez les tables de vérité des expressions suivantes : |
-| - |
-|￿  ⋅ |
-|￿  A+ B⋅C |
-|￿  A⋅B + (C⊕D) |
+**Activité n°1.:** Écrivez les tables de vérité des expressions suivantes : 
+ - 
+￿  ⋅ 
+￿  A+ B⋅C 
+￿  A⋅B + (C⊕D) 
 
 
 
-|**Activité n°2.:** Voici un exemple de fonction booléenne : La fonction multiplexeur, notée mux.  |||||||||
-| - | :- | :- | :- | :- | :- | :- | :- | :- |
-|mux(x,y,z)=(not(x) and y)or (x and z) |||||||||
-|1\.  Compléter le tableau |||||||||
-||x |y |z |not(x) |not(x) and y |x and z |mux(x,y,z) ||
-||0 |0 |0 ||||||
-||0 |0 |1 ||||||
-||0 |1 |0 ||||||
-||0 |1 |1 ||||||
-||1 |0 |0 ||||||
-||1 |0 |1 ||||||
-||1 |1 |0 ||||||
-||1 |1 |1 ||||||
-|<p>2. Montrer que (x and y) = not (not(x) or not(y))  ![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.020.png)</p><p>3. Montrer que (x or y) = not (not(x) and not(y))  </p><p>4. Trouver l’expression  de  la  fonction  ssi(x,y)  à  l’aide  des  opérateurs booléens   </p>|||||||||
+**Activité n°2.:** Voici un exemple de fonction booléenne : La fonction multiplexeur, notée mux.  
+ -  :-  :-  :-  :-  :-  :-  :-  :- 
+mux(x,y,z)=(not(x) and y)or (x and z) 
+1\.  Compléter le tableau 
+x y z not(x) not(x) and y x and z mux(x,y,z) 
+
+
+<p>2. Montrer que (x and y) = not (not(x) or not(y))  ![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.020.png)</p><p>3. Montrer que (x or y) = not (not(x) and not(y))  </p><p>4. Trouver l’expression  de  la  fonction  ssi(x,y)  à  l’aide  des  opérateurs booléens   </p>
 
 ## **3. Quelques<a name="_page3_x40.00_y448.04"></a> propriétés** 
 ### **3.1. **Associativité<a name="_page3_x40.00_y470.04"></a>** 
