@@ -138,7 +138,7 @@ print(f"{mon_tuple[0]} + {mon_tuple[1]} = {mon_tuple[2]}")
 
 |**Opérations/méthodes**|` `**Description** |
 | - | - |
-|**Méthodes et opérations ** |**communes aux listes et tuples.**|
+|**Méthodes** |**et opérations communes aux listes et tuples.**|
 |<p>x in s </p>|Renvoie True si un élément de s est égale à x, False sinon |
 |<p>x not in s </p>|Renvoie True si aucun un élément de s n'est égale à x, False sinon |
 |len(s)|Renvoie le nombre d'éléments de s |
@@ -150,89 +150,133 @@ print(f"{mon_tuple[0]} + {mon_tuple[1]} = {mon_tuple[2]}")
 |s+t|Renvoie une nouvelle séquence concaténation de s et t. |
 |n\*t|Renvoie une nouvelle séquence composée de la concaténation de t avec lui même n fois. |
 
-2. **Les<a name="_page2_x40.00_y419.92"></a> tableaux** 
+### **1.2. Les<a name="_page2_x40.00_y419.92"></a> tableaux** 
 
-Sous Python, les **tableaux** sont appelés **listes** et on peut définir une liste comme une collection d’éléments séparés par des virgules, l’ensemble étant enfermé dans des crochets. Une liste est une séquence ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.016.png)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.017.png)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.018.png)**mutable.** 
+Sous Python, les **tableaux** sont appelés **listes** et on peut définir une liste comme une collection d’éléments séparés par des virgules, l’ensemble étant enfermé dans des crochets. Une liste est une séquence **mutable.** 
 
 Les éléments individuels qui constituent une liste peuvent être de type varié. 
 
-Les  objets  placés  dans  une  liste  sont  rendus  accessibles  par  l’intermédiaire  d’un  index  (nombre  qui  indique l’emplacement de l’objet dans la séquence). Son premier indice a pour rang 0. ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.010.png)
+Les  objets  placés  dans  une  liste  sont  rendus  accessibles  par  l’intermédiaire  d’un  index  (nombre  qui  indique l’emplacement de l’objet dans la séquence). Son premier indice a pour rang 0. 
 
 
 
-|**Activité n°8.: Création de listes** |
-| - |
-|liste\_vide = [] |
-||
-|liste1 = 10 \*[0] |
-||
-|liste2 = list(range(2,10,3)) |
-|<p>>>> liste\_vide ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.019.png)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.020.png)</p><p>[] </p><p>>>> liste1 </p><p>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0] >>> liste2 </p><p>[2, 5, 8] </p>|
-||
-|![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.021.png) ATTENTION : si vous avez dans un programme "range(a,b)", a est la borne inférieure et b a borne |
-|supérieure. Vous ne devez surtout pas perdre de vu que **la borne inférieure est incluse**, mais que **la borne** |
-|**supérieure est exclue.** |
+**Activité n°8.: Création de listes** 
+
+```python
+liste_vide = []
+liste1 = 10 *[0]
+liste2 = list(range(2,10,3))
+```
+
+Tester avec
+
+> liste_vide
+
+> liste1
+
+> liste2
+
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
+
+![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.021.png) ATTENTION : si vous avez dans un programme "range(a,b)", a est la borne inférieure et b a borne supérieure. Vous ne devez surtout pas perdre de vu que **la borne inférieure est incluse**, mais que **la borne supérieure est exclue.** 
 
 
 
-|**Activité n° 9.**: **Construction par compréhension** L’instruction s’écrit sous la **forme [expression(i) for i in** |
-| - |
-|**objet]**. Ce type de construction est très spécifique au langage Python. |
-||
-|carres = [i\*i for i in range(11)] |
-||
-||
-|<p>>>> carres ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.022.png)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.023.png)</p><p>[0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100] </p>|
-||
-|La compréhension de listes **évite donc d'écrire** le code “classique” suivant : |
-|carres = []  A ne JAMAIS |
-|for i in range(11):  faire |
-|`  `carres.append(i\*i) |
-||
+**Activité n° 9.**: **Construction par compréhension** L’instruction s’écrit sous la **forme [expression(i) for i in objet]**. Ce type de construction est très spécifique au langage Python. 
+
+```python
+carres = [i*i for i in range(11)]
+```
+
+Tester avec
+
+> carres
+
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
+
+La compréhension de listes **évite donc d'écrire** le code “classique” suivant : 
+
+**A NE PAS FAIRE**
+```python
+carres = []
+for i in range(11):
+ carres.append(i*i)
+```
 
 
-|**Activité n° 10.**: **Construction par compréhension**  |
-| - |
-|multiples\_de\_3 = [3 \* i for i in range(30)] |
-|multiples\_de\_6 = [2 \* n for n in multiples\_de\_3] |
-||
-|mon\_tab = [p for p in range(0, 5)] |
-||
-|liste = [1, 7, 9, 15, 5, 20, 10, 8] |
-|mon\_tab2 = [element for element in liste if element > 10] |
-||
-|mon\_tab3 = [elm\*\*2 for elm in liste if elm < 10] |
-||
-|mon\_tab4 = [[[i, j] for i in range(3)] for j in range(2)] |
-||
-|import random |
-|resultat = [random.randint(1, 6) for i in range(10)] |
-||
-|<p>>>> multiples\_de\_3 ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.024.png)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.025.png)</p><p>[0, 3, 6, 9, 12, 15, 18, 21, 24, 27] </p><p>>>> multiples\_de\_6 </p><p>[0, 6, 12, 18, 24, 30, 36, 42, 48, 54] </p><p>>>> mon\_tab </p><p>[0, 1, 2, 3, 4] </p><p>>>> mon\_tab2 </p><p>[15, 20] </p><p>>>> mon\_tab3 </p><p>[1, 49, 81, 25, 64] </p><p>>>> mon\_tab4 </p><p>[[[0, 0], [1, 0], [2, 0]], [[0, 1], [1, 1], [2, 1]]] >>> resultat </p>|
-||
-|mon\_tab3 permet d’obtenir une liste qui contient tous les éléments de liste élevés au carré à condition que ces |
-|éléments de liste soient inférieurs à 10. |
+**Activité n° 10.**: **Construction par compréhension**  
+
+```python
+multiples_de_3 = [3 * i for i in range(30)]
+multiples_de_6 = [2 * n for n in multiples_de_3]
+
+mon_tab = [p for p in range(0, 5)]
+
+liste = [1, 7, 9, 15, 5, 20, 10, 8]
+
+mon_tab2 = [element for element in liste if element > 10]
+
+
+mon_tab3 = [elm**2 for elm in liste if elm < 10]
+mon_tab4 = [[[i, j] for i in range(3)] for j in range(2)]
+
+import random
+resultat = [random.randint(1, 6) for i in range(10)]
+```
+
+Tester avec
+
+> multiples_de_3
+
+> multiples_de_6
+
+> mon_tab
+
+> mon_tab2
+
+> mon_tab3
+
+> mon_tab4
+
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
+
+mon\_tab3 permet d’obtenir une liste qui contient tous les éléments de liste élevés au carré à condition que ces |
+|éléments de liste soient inférieurs à 10. 
 
 
 
-|**Activité n°11.: Copie de liste**  |
-| - |
-|liste3 = [1, 49, 81, 25, 64] |
-||
-|liste4 = liste3[::] |
-||
-|liste5 = liste3[::-1] |
-||
-|liste6 = list(liste5) |
-|**ATTENTION** :  si on copie une liste en faisant liste6 = liste5, on ne la copie pas réellement on fait seulement |
-|**un lien** de la variable liste6 vers [64, 25, 81, 49, 1]. Si on modifie la liste5, alors la liste6 est également modifiée !! |
+**Activité n°11.: Copie de liste**  
+
+```python
+liste3 = [1, 49, 81, 25, 64]
+liste4 = liste3[::]
+liste5 = liste3[::-1]
+liste6 = list(liste5)
+```
+
+Tester avec
+
+> liste4
+
+> liste5
+
+> liste6
+
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
+
+**ATTENTION** :  si on copie une liste en faisant liste6 = liste5, on ne la copie pas réellement on fait seulement **un lien** de la variable liste6 vers [64, 25, 81, 49, 1]. Si on modifie la liste5, alors la liste6 est également modifiée !! 
 
 
 
-||
-| :- |
-|<p>>>> liste4 ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.026.png)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.027.png)</p><p>[1, 49, 81, 25, 64] >>> liste5 </p><p>[64, 25, 81, 49, 1] >>> liste6 </p><p>[64, 25, 81, 49, 1] </p>|
-||
+
 
 
 |**Activité n°12.:** Ajouter et supprimer des éléments ||
