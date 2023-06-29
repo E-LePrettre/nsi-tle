@@ -803,19 +803,18 @@ Cette montre affiche l’heure en binaire :
 6. Quelle valeur maximale en décimal sera réellement affichée sur la  ligne des minutes ? en binaire ? en hexadécimal ?  
 7. Quelle est l’heure donnée par les montre ci-dessous ?  
 
+numérotée 1 à 3
 ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.110.png)
 
-1  2  3 
 
 8. Complétez les cadrans suivants dans le cas où la montre indique : 
 
 ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.111.png)
 
-1   2  3  4 
 
 9. Quelle modification faudrait-il faire pour que les heures soient affichées sur un format 24h ? 
-9. Quelle modification faudrait-il faire pour afficher également les secondes ? 
-Première NSI   Chap 4 : Codage de l’information  Page 21/21 ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.031.png)
+10. Quelle modification faudrait-il faire pour afficher également les secondes ? 
+
 
 [^1]: [1https://physics.nist.gov/cuu/Units/binary.html ](https://physics.nist.gov/cuu/Units/binary.html)
 [^2]: IEEE, que l'on peut prononcer « i3e » : Institute of Electrical and Electronics Engineers 
