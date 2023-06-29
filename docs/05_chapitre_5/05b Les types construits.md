@@ -10,110 +10,139 @@ title: Chapitre 5 - Types construits
 2. [Les dictionnaires](#_page6_x40.00_y36.92)
 3. [Exercices](#_page9_x40.00_y273.92)
 
-1. **Les<a name="_page0_x40.00_y242.92"></a> séquences en Python** 
+## **1. Les<a name="_page0_x40.00_y242.92"></a> séquences en Python** 
 
-Il est possible de "stocker" plusieurs grandeurs dans une même structure, ce type de structure est appelé **une ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.001.png)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.002.png)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.003.png)séquence.** De façon plus précise, nous définirons une séquence comme un ensemble fini et ordonné d'éléments indicés de 0 à n-1 (si cette séquence comporte n éléments). 
+Il est possible de "stocker" plusieurs grandeurs dans une même structure, ce type de structure est appelé **une séquence.** De façon plus précise, nous définirons une séquence comme un ensemble fini et ordonné d'éléments indicés de 0 à n-1 (si cette séquence comporte n éléments). 
 
 Nous allons étudier plus particulièrement 2 types de séquences **: les tuples et les listes** (il en existe d'autres que nous n'évoquerons pas ici). 
 
-1. **Les<a name="_page0_x40.00_y378.92"></a> tuples en Python** 
+### **1.1. Les<a name="_page0_x40.00_y378.92"></a> tuples en Python** 
 
-Les **tuples** sont des séquences (ou p-uplet), assez semblables aux listes, sauf qu'on ne peut **PAS MODIFIER ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.001.png)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.004.png)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.003.png)**un tuple après qu'il ait été créé :  ils sont **non mutables.** Cela signifie qu'on définit le contenu d'un tuple (les objets qu'il doit contenir) lors de sa création, mais qu'on ne peut en ajouter ou en retirer par la suite. 
-
-
-
-|**Activité n°1.: Les parentaises sont facultatives**  |
-| - |
-|tuple = 'a', 123 , True |
-|print(tuple) |
-|autre\_tuple = 'hello',    # <-- notez la virgule |
-|print(autre\_tuple) |
-|<p>>>>  ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.005.png)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.006.png)</p><p>('a', 123, True) ('hello',) </p>|
-||
-**Activité n°2.: Création de tuples à partir d’une liste :** avec la fonction tuple() : ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.007.png)
-
-\>>> liste = [7, 5, 6, 8, 3] >>> a = tuple(liste) ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.008.png)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.009.png)
-
-\>>> a 
-
-(7, 5, 6, 8, 3) ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.010.png)
+Les **tuples** sont des séquences (ou p-uplet), assez semblables aux listes, sauf qu'on ne peut **PAS MODIFIER** un tuple après qu'il ait été créé :  ils sont **non mutables.** Cela signifie qu'on définit le contenu d'un tuple (les objets qu'il doit contenir) lors de sa création, mais qu'on ne peut en ajouter ou en retirer par la suite. 
 
 
+**Activité n°1.: Les parentaises sont facultatives**  
 
-|**Activité n°3.: Concaténation :** Il existe deux opérations de concaténation avec les opérateurs + et \*. De nouveaux |
-| - |
-|p-uplets sont créés.  |
-|t1 = 'a', 'b'  |
-|t2 = 'c', 'd' |
+```python
+tuple = 'a', 123 , True
+print(tuple)
+autre_tuple = 'hello', # <-- notez la virgule
+print(autre_tuple)
+```
+???+ question "Faire ce qui est proposé"
 
+    {{ IDE() }}
 
+**Activité n°2.: Création de tuples à partir d’une liste :** avec la fonction tuple() : 
 
-|print(t1 + t2)   ||
-| - | :- |
-|print(3 \* t1)    ||
-|||
-|||
+Tester :
 
+> liste = [7, 5, 6, 8, 3] 
 
-|**Activité n°4.: Utilisation des indices :** Les** indices permettent d’accéder aux différents éléments d’un tuple : |
-| - |
-|<p>>>> t = "a", 1, "b", 2, "c", 3 ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.011.png)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.012.png)</p><p>>>> len(t) </p><p>6 </p><p>>>> t[2]  **# pour afficher le 3ème élément** </p><p>'b' </p><p>>>> t[-1]  **# pour afficher le dernier élément** </p><p>3 </p><p>>>> t[1:3]  **# pour afficher les éléments de l'indice 1 à l'indice 3 (non compris)** (1, 'b') </p><p>>>> t[0:5:2]  **# pour afficher les éléments de 0 à 5 (non compris) mais de 2 en 2** ('a', 'b', 'c') </p>|
-||
-|![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.013.png)Attention comme dans les listes (tableaux) les indices des éléments commencent à 0. |
+> a = tuple(liste) 
 
-
-
-|**Activité n°5.: Tuple de tuples :**On peut créer des tuples de tuples : ||
-| - | :- |
-|tuple1 = 'a', 123 , True ||
-|tuple2= 13, 17 ||
-|tuple= tuple1, tuple2, 'tout ça !' ||
-|print(tuple) ||
-|print( tuple[1][0]) # permet d’accéder à … ||
-|||
-|||
-|Un **tuple est immuable** (on ne peut pas le modifier) mais il contient des objets muables (qu’on peut modifier)** ||
+> a 
 
 
+???+ question "Faire ce qui est proposé"
 
-|**Activité n°6.: Parcours d’un tuples de deux manières :**  ||
-| - | :- |
-|prenoms="bruno","Marie" ||
-|||
-|for element in prenoms: **# méthode 1, elt prend à chaque tour les éléments de la séquence** ||
-|print(element) ||
-|||
-|for i in range(len(prenoms)): **# méthode 2, on parcourt les indices de la séquence** ||
-|print(prenoms[i]) ||
-|||
-|||
+    {{ terminal() }}
+
+**Activité n°3.: Concaténation :** Il existe deux opérations de concaténation avec les opérateurs + et \*. De nouveaux 
 
 
-|**Activité n°7.:** Grâce au tuple, une fonction peut renvoyer plusieurs valeurs  |
-| - |
-|def add(a, b):  |
-|c = a + b  |
+```python
+t1 = 'a', 'b'
+t2 = 'c', 'd'
+print(t1 + t2) 
+print(3 * t1) 
+```
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
+
+
+**Activité n°4.: Utilisation des indices :** Les** indices permettent d’accéder aux différents éléments d’un tuple : 
+
+Tester :
+
+> t = "a", 1, "b", 2, "c", 3
+
+> len(t)
+
+> t[2] # pour afficher le 3ème élément
+
+> t[-1] # pour afficher le dernier élément
+
+> t[1:3] # pour afficher les éléments de l'indice 1 à l'indice 3 (non compris)
+
+> t[0:5:2] # pour afficher les éléments de 0 à 5 (non compris) mais de 2 en 2
 
 
 
-|return (a, b, c)  |
-| - |
-||
-|mon\_tuple = add(5, 8)  |
-|print(f"{mon\_tuple[0]} + {mon\_tuple[1]} = {mon\_tuple[2]}") |
-|<p>>>>  ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.014.png)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.006.png)</p><p>5 + 8 = 13 </p>|
-||
+???+ question "Faire ce qui est proposé"
+
+    {{ terminal() }}
+
+![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.013.png)Attention comme dans les listes (tableaux) les indices des éléments commencent à 0. 
+
+
+
+**Activité n°5.: Tuple de tuples :**On peut créer des tuples de tuples : 
+
+```python
+tuple1 = 'a', 123 , True
+tuple2= 13, 17
+tuple= tuple1, tuple2, 'tout ça !'
+print(tuple)
+print( tuple[1][0]) # permet d’accéder à … 
+```
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
+
+Un **tuple est immuable** (on ne peut pas le modifier) mais il contient des objets muables (qu’on peut modifier)
+
+
+
+**Activité n°6.: Parcours d’un tuples de deux manières :**  
+
+```python
+prenoms="bruno","Marie"
+for element in prenoms: # méthode 1, elt prend à chaque tour les éléments de la séquence
+  print(element)
+for i in range(len(prenoms)): # méthode 2, on parcourt les indices de la séquence
+  print(prenoms[i]) 
+```
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
+
+
+**Activité n°7.:** Grâce au tuple, une fonction peut renvoyer plusieurs valeurs  
+
+```python
+def add(a, b):
+  c = a + b 
+  return (a, b, c) 
+
+mon_tuple = add(5, 8) 
+print(f"{mon_tuple[0]} + {mon_tuple[1]} = {mon_tuple[2]}")
+```
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
+
 **Remarque** :  Les  chaines  de  caractères  formatées  (aussi  appelées  ***f-strings***)  permettent  d’inclure  la  valeur d’expressions Python dans des chaines de caractères en les préfixant avec f ou F et écrire des expressions comme {expression}. 
-
 
 
 |**Opérations/méthodes**|` `**Description** |
 | - | - |
-|**Méthodes et opérations communes aux listes et tuples.** ||
-|<p>x  s </p><p>in</p>|Renvoie True si un élément de s est égale à x, False sinon |
-|<p>x  s </p><p>not in</p>|Renvoie True si aucun un élément de s n'est égale à x, False sinon |
+|**Méthodes et opérations ** |**communes aux listes et tuples.**|
+|<p>x in s </p>|Renvoie True si un élément de s est égale à x, False sinon |
+|<p>x not in s </p>|Renvoie True si aucun un élément de s n'est égale à x, False sinon |
 |len(s)|Renvoie le nombre d'éléments de s |
-|s == s1 ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.015.png)|Renvoie True si s et s1 sont de même type, ont la même longueur,et ont des éléments égaux deux à deux. |
+|s == s1 |Renvoie True si s et s1 sont de même type, ont la même longueur,et ont des éléments égaux deux à deux. |
 |s[i]|Renvoie l'élément d'indice i de s. Le premier élément a pour indice 0. |
 |s[i:j]|Renvoie une partie de l'indice i à j non inclus |
 |s.index(x)|Renvoie l'indice de la première apparition de x dans s |
