@@ -192,7 +192,9 @@ a·(b + c) = a·b + a·c
 Attention : comportement différent par rapport aux opérateurs + et · habituels  
 
 ### **3.4. Lois<a name="_page3_x40.00_y649.04"></a> de Morgan**[^2]  **
+
 ![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.021.png)
+
 Le  complément  d’une  somme  logique  (non  arithmétique)  est  égal  au  produit  logique  (non  arithmétique) des termes complémentés. Loi de Morgan  
 
 ![](Aimg11.png)  
@@ -213,13 +215,14 @@ Le  complément  d’un  produit  logique  (non  arithmétique)  est  égal  à 
 
 ![](Aimg13.png)
 
-4. Par quel circuit comprenant seulement deux portes peut-on remplacer le circuit étudié ? 
+4 Par quel circuit comprenant seulement deux portes peut-on remplacer le circuit étudié ? 
 
 **Exercice n°2** ★ :  On considère le circuit logique ci-dessous 
 
 ![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.024.png)
 
 1 Donner l’expression booléenne de S en fonction des variables A, B et C. 
+
 2 Compléter la table de vérité ci-dessous 
 
 ![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.025.jpeg)
@@ -233,6 +236,7 @@ Le  complément  d’un  produit  logique  (non  arithmétique)  est  égal  à 
 
 
 1 Donner les expressions booléennes de U et V en fonction des variables A, B et C. 
+
 2 Compléter les tables de vérité ci-dessous. 
 
 ![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.028.jpeg)
@@ -261,8 +265,11 @@ Le circuit étudié est appelé multiplexeur à 2 entrées. Selon la valeur de l
 
 On  considère  un  multiplexeur  à  4  entrées, dont le circuit  est  représenté  ci- dessous.  
 ![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.035.jpeg)
+
 1. Par analyse du circuit, déterminer l’expression booléenne de Out en fonction des entrées E1,  E2, E3, E4 et des commandes C0 et C1. 
+
 2. Quelles sont les valeurs des commandes C0 et C1 qui permettent de sélectionner en sortie (Out) : 
+
 - l’entrée E1 ? 
 - l’entrée E2 ? 
 - l’entrée E3 ? 
@@ -270,6 +277,7 @@ On  considère  un  multiplexeur  à  4  entrées, dont le circuit  est  représ
 
 **Exercice n °6** ★★– (Half adder) Le circuit étudié, appelé  demi-additionneur, permet d’additionner deux bits A et B.  Il  comporte  deux  sorties  C  et  S  qui  représentent  deux  expressions booléennes.  
 ![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.037.png)
+
 1 Donner les expressions booléennes de C et S  en  fonction de A et B.  
 2 Compléter la table de vérité de C et S. 
 
