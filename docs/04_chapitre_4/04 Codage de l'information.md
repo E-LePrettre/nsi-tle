@@ -70,13 +70,20 @@ Elle s’appuie sur **10 « symboles »** : 0, 1, 2, 3, 4, 5, 6, 7, 8, 9. On peu
 
 Par exemple :  
 
-**Décimal**  0  1  2  3  4  5  6  7  8  9  10 Binaire  0000  0001  0010  0011  0100  0101  0110  0111  1000  1001  1010 
+**Décimal**  0  1  2  3  4  5  6  7  8  9  10 
+**Binaire**  0000  0001  0010  0011  0100  0101  0110  0111  1000  1001  1010 
 
 #### **2.2.2. Le<a name="_page2_x40.00_y74.92"></a> binaire en Python**
 
 **Activité n° 1.**: La fonction bin de Python donne une chaîne de caractères représentant l’écriture binaire de l’entier passé en paramètre. 
+Tester
+> bin(47) '
 
-\>>> bin(47) '0b101111' >>> 0b101 5 ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.010.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.011.png)
+> 0b101 
+
+???+ question "Faire ce qui est proposé"
+
+    {{ terminal() }}
 
 En Python on peut écrire les nombres entiers directement en binaire. Il suffit pour cela de faire précéder cette écriture par 0b***.***  
 
