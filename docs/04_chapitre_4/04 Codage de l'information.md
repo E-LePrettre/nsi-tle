@@ -275,7 +275,7 @@ Un entier naturel est appelé **entiers non signés.** En Python, on ne manipule
 
 **Entiers relatifs** : entiers de n’importe quel signe (…, -2, -1, 0, 1,…) 
 
-### **3.1. Principe<a name="_page6_x40.00_y773.92"></a> du complément à 2<sup>n</sup> :
+### **3.1. Principe<a name="_page6_x40.00_y773.92"></a> du complément à 2<sup>n</sup> :**
 
 #### **3.1.1. De<a name="_page7_x40.00_y36.92"></a> décimal vers binaire : Pour un entier positif**
 
@@ -319,7 +319,7 @@ On vérifie immédiatement que 18 = 0b10010
 Si l’entier est négatif (si premier bit est 1) 
 - On échange tous les bits 0↔1, 
 - On ajoute 1, 
-- On converti en binaire comme d’habitude, 
+- On convertit en binaire comme d’habitude, 
 - On change le signe. 
 
 Exemple : 0b 1111 0111 
@@ -334,33 +334,9 @@ Exemple : 0b 1111 0111
 
 ### **3.2. Table<a name="_page7_x40.00_y758.92"></a> de valeurs** 
 
-bit ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.060.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.061.png)![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.062.png)
+![](Aimg9.png)
 
-` `de 
 
-signe 
-
-`    `0 1 1 1 1 1 1 1 =  127 (à connaitre)     0      ...      =  ... 
-
-`    `0 0 0 0 0 0 1 0 =    2 
-
-`    `0 0 0 0 0 0 0 1 =    1 
-
-`    `0 0 0 0 0 0 0 0 =    0 
-
-`    `1 1 1 1 1 1 1 1 =   -1 
-
-`    `1 1 1 1 1 1 1 0 =   -2 
-
-`    `1      ...      =  ... 
-
-`    `1 0 0 0 0 0 0 1 = -127 
-
-`    `1 0 0 0 0 0 0 0 = -128 (à connaitre) 
-
-Le 4 juin 1996, une fusée Ariane 5 a explosé 40 secondes après l'allumage. La fusée et son chargement ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.063.png)avaient coûté 500 millions de dollars. La commission d'enquête a rendu son rapport au bout de deux semaines. Il s'agissait d'une erreur de programmation dans le système inertiel de référence. À un moment donné, un nombre codé en virgule flottante sur 64 bits (qui représentait la vitesse horizontale de la fusée par rapport à la plate-forme de tir) était converti en un entier sur 16 bits. Malheureusement, le nombre en question était plus grand que 32768 (le plus grand entier que l'on peut coder sur 16 bits) ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.064.png)et la conversion a été incorrecte. 
-
-![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.065.png)
 
 ## **4. Exercices<a name="_page9_x40.00_y36.92"></a>** 
 
@@ -376,16 +352,16 @@ Le 4 juin 1996, une fusée Ariane 5 a explosé 40 secondes après l'allumage. La
 - Réaliser l’addition binaire des compléments à 2 des nombres 12 et -100. 
 - Vérifier qu’on retrouve bien le résultat précédent pour -88. 
 
-**Exercice 4 :** ★ Donner les notations décimales des binaires signés sur un octet suivant :** 
+**Exercice 4 :** ★ Donner les notations décimales des binaires signés sur un octet suivant : 
 
 - 0b1111 1111 
 - 0b1000 0000 
 - 0b0111 1111 
 - 0b1010 0011 
 
-**Exercice 5 :** Conversion décimal – binaire** 
+**Exercice 5 :** Conversion décimal – binaire 
 
-1. ★ Écrire un programme qui convertisse un nombre décimal en binaire. Utiliser une fonction dec2bin ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.066.png)On donne l’algorithme suivant : 
+1. ★ Écrire un programme qui convertisse un nombre décimal en binaire. Utiliser une fonction dec2bin. On donne l’algorithme suivant : 
 
 Algorithme dec2bin ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.067.png)
 
