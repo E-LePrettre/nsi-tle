@@ -361,7 +361,7 @@ Exemple : 0b 1111 0111
 
 **Exercice 5 :** Conversion décimal – binaire 
 
-1. ★ Écrire un programme qui convertisse un nombre décimal en binaire. Utiliser une fonction dec2bin. On donne l’algorithme suivant : 
+###### 1. ★ Écrire un programme qui convertisse un nombre décimal en binaire. Utiliser une fonction dec2bin. On donne l’algorithme suivant : 
 
 ![](Aimg10.png)
 
@@ -374,10 +374,10 @@ Exemple : 0b 1111 0111
 
 Tout au début du programme, ne pas oublier cette ligne : # coding: utf-8
 
-2. Indiquer l’utilité de cette ligne. 
-3. Donner la conversion de 1843 en binaire2. 
-4. Convertir -2 et conclure. 
-5. ★★★ Modifier le programme pour coder un nombre négatif selon la méthode du complément à 2. 
+###### 2. Indiquer l’utilité de cette ligne. 
+###### 3. Donner la conversion de 1843 en binaire2. 
+###### 4. Convertir -2 et conclure. 
+###### 5. ★★★ Modifier le programme pour coder un nombre négatif selon la méthode du complément à 2. 
 
 **Aide :** 
 
@@ -390,8 +390,9 @@ Le bit de signe donne donc 1010 1000
 
 - Faire une deuxième fonction dec2bin\_negatif qui teste si le nombre entré est positif ou négatif et qui fait appel à la première fonction codée 
 
-6. Convertir -1 pour un codage sur un mot et conclure. 
-7. Convertir -1.1 et conclure. 
+
+###### 6. Convertir -1 pour un codage sur un mot et conclure. 
+###### 7. Convertir -1.1 et conclure. 
 
 Pour éviter que le programme « crash » sur une erreur de valeur d’entrée (ValueError), une façon de gérer cette erreur est d’intercepter le message d’erreur et de le traiter correctement à l’aide des instructions try et except. 
 
@@ -404,9 +405,9 @@ except ValueError:
 # afficher « erreur de valeur »
 ```
 
-8. ★★ Modifier le programme précédent en conséquence. 
-9. ★★Faire une boucle infinie pour que le programme demande un autre nombre tant que la valeur n’est pas un entier relatif 
-10. Vérifier la cohérence et la stabilité du programme avec quelques tests : 1, -1, 0, 1.1, -1.0, a 
+###### 8. ★★ Modifier le programme précédent en conséquence. 
+###### 9. ★★Faire une boucle infinie pour que le programme demande un autre nombre tant que la valeur n’est pas un entier relatif 
+###### 10. Vérifier la cohérence et la stabilité du programme avec quelques tests : 1, -1, 0, 1.1, -1.0, a 
 
 **Exercice 6 :** Conversion hexadécimal – binaire
 
