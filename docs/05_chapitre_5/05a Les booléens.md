@@ -182,7 +182,8 @@ Comme avec les opérations habituelles, certaines parenthèses sont inutiles :
 
 ### **3.2. Commutativité<a name="_page3_x40.00_y528.04"></a>** L'ordre est sans importance : 
 
-a + b = b + a a·b = b·a 
+a + b = b + a 
+a·b = b·a 
 
 ### **3.3. Distributivité<a name="_page3_x40.00_y585.04"></a>** 
 
@@ -192,15 +193,15 @@ a·(b + c) = a·b + a·c
 
 Attention : comportement différent par rapport aux opérateurs + et · habituels  
 
-### **3.4. Lois<a name="_page3_x40.00_y649.04"></a> de Morgan**[^2]  **![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.021.png)**
-
+### **3.4. Lois<a name="_page3_x40.00_y649.04"></a> de Morgan**[^2]  **
+![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.021.png)
 Le  complément  d’une  somme  logique  (non  arithmétique)  est  égal  au  produit  logique  (non  arithmétique) des termes complémentés. Loi de Morgan  
 
-\+ = .**  
+![](Aimg11.png)  
 
 Le  complément  d’un  produit  logique  (non  arithmétique)  est  égal  à  la  somme  logique  (non  arithmétique) des termes complémentés.  
 
-. = + 
+![](Aimg12.png)
 
 ## **4. Exercices<a name="_page4_x40.00_y43.04"></a>** 
 
