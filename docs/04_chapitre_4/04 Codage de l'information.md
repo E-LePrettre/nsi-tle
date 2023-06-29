@@ -60,12 +60,13 @@ Elle s’appuie sur **10 « symboles »** : 0, 1, 2, 3, 4, 5, 6, 7, 8, 9. On peu
 
 ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.008.png)
 
-185 = 1 × 102 + 8 × 101 + 5 × 100 **La position des chiffres définit la valeur associée à ce chiffre.** 
+185 = 1 × 102 + 8 × 101 + 5 × 100 
+**La position des chiffres définit la valeur associée à ce chiffre.** 
 
 ### **2.2. La<a name="_page1_x40.00_y677.92"></a> base 2 ou base binaire** 
 #### **2.2.1. Le<a name="_page1_x40.00_y697.92"></a> binaire**
 
-**Remarque** : Il faut toujours indiquer la base dans laquelle un nombre est exprimé (sauf, par usage et commodité, en base 10) : 10102 ou %1010. La base par défaut du code Python est la base 10. 
+**Remarque** : Il faut toujours indiquer la base dans laquelle un nombre est exprimé (sauf, par usage et commodité, en base 10) : 1010_2 ou %1010. La base par défaut du code Python est la base 10. 
 
 Par exemple :  
 
