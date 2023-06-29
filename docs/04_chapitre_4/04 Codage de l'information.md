@@ -546,9 +546,12 @@ Règles de base :
 
 **Activité n° 5.**:  
 Tester :
-> 0.1 
-> 0.2 
+> 0.1
+
+> 0.2
+
 > 0.1 + 0.2 
+
 > 0.1 + 0.2 
 
 ???+ question "Faire ce qui est proposé"
@@ -580,11 +583,14 @@ Exemple : -10,125 au format simple précision
 
 1ère étape : conversion en binaire du nombre relatif 
 
-- 10<sub>10</sub> = 1010<sub>3</sub> 
-- 0,125<sub>10</sub>
- 0,125 x 2 = 0,250 
- 0,250 x 2 = 0,50 
- 0,50 x 2 = 1 + 0 (arrêt) 
+- 10<sub>10</sub> = 1010<sub>2</sub> 
+- 0,125<sub>10</sub> 
+
+0,125 x 2 = 0,250 
+
+0,250 x 2 = 0,50 
+
+0,50 x 2 = 1 + 0 (arrêt) 
 
 - 0,125<sub>10</sub> =  0,001<sub>2</sub>  
 
@@ -660,7 +666,9 @@ On souhaite maintenant réaliser l’opération inverse et transformer un flotta
 decimal <> 0 signifie différent de 0 
 
 7 Donner la signification de l’instruction : decimal := decimal modulo 1 
+
 8 Tester le programme. Résultat attendu : 0101100011010100. 
+
 9 ★ Modifier le programme précédent pour créer une fonction avec le prototype suivant : 
 
 bin\_decimal(decimal : float, precision : int) -> str
@@ -670,6 +678,7 @@ bin\_decimal(decimal : float, precision : int) -> str
 - la fonction doit renvoyer la chaîne binaire correspondante 
 
 10 Transformer 0,5625 et 0,15 en base 2. 
+
 11 ★★Ajouter une fonction qui convertisse en base 2 la partie entière du nombre flottant. Le prototype est le suivant : bin\_entiere(entier :int) -> str 
 
 **Aide** : on pourra utiliser la fonction float(),  int() et le modulo 1 
@@ -679,6 +688,7 @@ bin\_decimal(decimal : float, precision : int) -> str
 float2bin(nombre : str) -> str
  
 13 Transformer 12,9 en base 2.
+
 14 ★ Créer un docstring pour chacune des fonctions du programme float2bin. 
 
 ## **7.  Codage des caractères<a name="_page16_x40.00_y36.92"></a>** 
@@ -693,10 +703,10 @@ La norme ASCII permet ainsi à toutes sortes de machines de stocker, analyser et
 
 ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.101.jpeg)
 
-1. L’œuvre complète de Shakespeare tient sur 5 615 776 caractères (lettres et signes de ponctuation et ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.102.png)d’espacement). À raison d’un octet pour représenter un caractère, cela fait donc environ 5,6 mégaoctets ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.103.png)(5,6 Mo) de texte brut. 
-1. Une photo de résolution moyenne (4:3 8 mégapixel, 3264x2448) prise par un smartphone fait 19,5 kilo- octets (19,5 ko) une fois compressée. 
-1. La Joconde en haute définition (HD) sur une image de 7 479 × 11 146 pixels pour une taille de fichier de 89,94 mégaoctets (89,94 Mo). 
-1. Une minute de vidéo sur YouTube de qualité web pour smartphone, fait 3,1 méga-octets (3 Mo) 
+1. L’œuvre complète de Shakespeare tient sur 5 615 776 caractères (lettres et signes de ponctuation et d’espacement). À raison d’un octet pour représenter un caractère, cela fait donc environ 5,6 mégaoctets (5,6 Mo) de texte brut. 
+2. Une photo de résolution moyenne (4:3 8 mégapixel, 3264x2448) prise par un smartphone fait 19,5 kilo- octets (19,5 ko) une fois compressée. 
+3. La Joconde en haute définition (HD) sur une image de 7 479 × 11 146 pixels pour une taille de fichier de 89,94 mégaoctets (89,94 Mo). 
+4. Une minute de vidéo sur YouTube de qualité web pour smartphone, fait 3,1 méga-octets (3 Mo) 
 
 **Activité n° 6.**: **Python et la table ascii** Les fonctions chr et ord permettent d’accéder à la table ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.104.png)
 
