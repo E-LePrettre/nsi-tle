@@ -363,46 +363,14 @@ Exemple : 0b 1111 0111
 
 1. ★ Écrire un programme qui convertisse un nombre décimal en binaire. Utiliser une fonction dec2bin. On donne l’algorithme suivant : 
 
-Algorithme dec2bin ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.067.png)
+![](Aimg10.png)
 
-{ conversion décimal → binaire pour des entiers ≥ 0 } 
-
-variables 
-
-nombre : entier 
-
-binaire : tableau de [1..N] entiers 
-
-mot  : chaine de caractère 
-
-début 
-
-lire(nombre) 
-
-fonction(nombre) 
-
-binaire.ajout(nombre modulo 2)  { ajout en fin de tableau } tantque nombre ≥ 2 faire 
-
-nombre := nombre / 2 
-
-binaire.ajout(nombre modulo 2) 
-
-tantque longueur(binaire)<7 
-
-binaire.ajout(0) 
-
-binaire.renversée 
-
-mot := chaine de caractère correspondant à binaire 
-
-afficher(mot) 
-
-fin 
 
 **Aide :**  
 
 - la méthode renversée avec reverse()[ https://www.geeksforgeeks.org/python-list-reverse/ ](https://www.geeksforgeeks.org/python-list-reverse/)ou avec slicing inverse : binaire[::-1]
-- pour transformer la liste en chaine de caractère : mot=''.join(str(element) for element in binaire) 
+- pour transformer la liste en chaine de caractère : 
+```mot=''.join(str(element) for element in binaire) ```
 
 Tout au début du programme, ne pas oublier cette ligne : # coding: utf-8
 
