@@ -594,7 +594,7 @@ L’implémentation d’un dictionnaire optimise le coût en temps de la recherc
 
 L’implémentation d’un dictionnaire **optimise le coût en temps** de la recherche d’un élément. 
 
-### **3. Exercices** 
+### **3. Exercices<a name="_page9_x40.00_y273.92"></a>** 
 
 **Exercice 1 :** ★ **Utilisation des opérations et méthodes :**  en utilisant le code ci-dessous, compléter .   **jours\_1=('lundi','mardi','mercredi','jeudi','vendredi') jours\_2=('samedi','dimanche')** 
 
@@ -607,9 +607,11 @@ L’implémentation d’un dictionnaire **optimise le coût en temps** de la rec
 - **Renvoyer le nombre de samedi dans jours\_2** 
 - **Créer un tuple semaine par concaténation de jours\_1 et de jours\_2** 
 
-**Exercice 2 :** ★ **Test d’appartenance :** En utilisant un parcours de tuple avec la présence d'un indice, écrire une fonction est\_dans(element,tple) qui en argument reçoit un entiers ( élément) et un tuple d'entier ( tple) qui renvoie un booleen indiquant la présence de élément dans tuple. On testera la fonction sur les scripts suivants : **est\_dans(4,(1,2,3,4,5,6))** #qui devrait renvoyer True** 
+**Exercice 2 :** ★ **Test d’appartenance :** En utilisant un parcours de tuple avec la présence d'un indice, écrire une fonction est\_dans(element,tple) qui en argument reçoit un entiers ( élément) et un tuple d'entier ( tple) qui renvoie un booleen indiquant la présence de élément dans tuple. On testera la fonction sur les scripts suivants : 
 
-**est\_dans(9,(1,2,3,4,5,6))** #qui devrait renvoyer False** 
+- **est\_dans(4,(1,2,3,4,5,6))** #qui devrait renvoyer True** 
+
+- **est\_dans(9,(1,2,3,4,5,6))** #qui devrait renvoyer False** 
 
 En Python, une fonction qui renvoie plusieurs éléments ( ex : return a,b,c ) renvoie un tuple.  
 
@@ -626,42 +628,43 @@ Ces triplets sont appelés triplets pythagoricien
 
 Par exemple :  
 
-assert(triangle(**15**)== ((**3, 4, 5**)**,** (**5, 12, 13**)**,** (**6, 8, 10**))) 
+```assert(triangle(15)== ((3, 4, 5), (5, 12, 13), (6, 8, 10)))``` 
 
 **Exercice 4 :** ★**  **Dictionnaire et fonction**   
 
-- Ecrire une fonction const\_dico(cle,valeur) qui renvoie le dictionnaire définie par les clés et les valeurs entrées en argument.** 
-- On donne des listes de certains joueurs de League Of Legend ainsi que leur classement et leur nombre de points :** 
-
+1 Ecrire une fonction const\_dico(cle,valeur) qui renvoie le dictionnaire définie par les clés et les valeurs entrées en argument.** 
+On donne des listes de certains joueurs de League Of Legend ainsi que leur classement et leur nombre de points :** 
+```python
 pseudo=['Major Alexander','KBM Wiz', 'FNC MagiFelix','Avalanche','love camile','Nobody'] 
 
 classement=[(12,1406),(1,1613),(4,1507),(9,1429),(16,1341),(11,1416)]
+```
 
-- Quel est le type de chacun des éléments?  
-- Appliquer votre fonction const\_dico(cle,valeur) sur les joueurs de LOL. 
+2 Quel est le type de chacun des éléments?  
+3 Appliquer votre fonction const\_dico(cle,valeur) sur les joueurs de LOL. 
 
 **Exercice 5 :** ★★ **Le chiffrement de César (version light)** : Cryptographie 
 
-- la fonction chr() 
+1 la fonction chr() 
 
 Pour cet exercice nous allons utiliser la fonction chr de Python qui prend en argument un entier (codé en décimal) et qui renvoie le caractère ASCII associé. 
 
 Voici une table ASCII : ASCII.txt (**dans dossier du chapitre)** 
 
-- Quels sont les entiers qui code l'alphabet en lettre capitale? 
-- Quels scripts faut-il écrire pour obtenir l'affichage de la lettre A et du mot NSI? 
-- Ecrire le script Python qui permet d'obtenir une structure de données de type dict qui doit être :  
+a. Quels sont les entiers qui code l'alphabet en lettre capitale? 
+b. Quels scripts faut-il écrire pour obtenir l'affichage de la lettre A et du mot NSI? 
+c. Ecrire le script Python qui permet d'obtenir une structure de données de type dict qui doit être :  
 
 ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.052.png)
 
-- Le chiffrement de César 
+2 Le chiffrement de César 
 
 A chaque lettre de l'alphabet on associe un nombre de à 0 à 25. On ajoute à ce nombre un nombre choisi par exemple 7. Le reste de la division euclidienne du nombre obtenue par 26 correspond au chiffre qui codera la lettre initiale. La lettre Y est associée à 24, on lui ajoute 7 on obtient 31. Le reste de la division euclidienne de 31 par 26 est 5. Ce qui donne F. Y est donc codé par F. 
 
-- Quels scripts écrire pour obtenir le code de la lettre A et du mot NSI avec un décalage de 7. Rappel : le reste de la division euclidienne de a par b s'obtient en Python ainsi : a%b 
-- Quel script écrire pour obtenir le dictionnaire de la table de codage/décodage de l'alphabet avec la méthode du chiffrement de César avec un décalage de 7? On stockera ce dictionnaire dans une variable nommée d. 
-- Une fonction de codage 
-  - Reprendre votre dictionnaire d et tester : 
+a. Quels scripts écrire pour obtenir le code de la lettre A et du mot NSI avec un décalage de 7. Rappel : le reste de la division euclidienne de a par b s'obtient en Python ainsi : a%b 
+b. Quel script écrire pour obtenir le dictionnaire de la table de codage/décodage de l'alphabet avec la méthode du chiffrement de César avec un décalage de 7? On stockera ce dictionnaire dans une variable nommée d. 
+3 Une fonction de codage 
+  a. Reprendre votre dictionnaire d et tester : 
 
 > d['A'] 
 
@@ -669,10 +672,11 @@ A chaque lettre de l'alphabet on associe un nombre de à 0 à 25. On ajoute à c
 
 > d['E'] 
 
-- Dans le script précédent quel est le statut de 'A', 'D' et 'E'? Clé ou valeur? 
-- Ecrire une fonction en Python codage(mot) qui prend en argument un chaine de caractère écrit en lettre capitale et qui renvoie le mot codé par le chiffrement de César. 
+b. Dans le script précédent quel est le statut de 'A', 'D' et 'E'? Clé ou valeur? 
+c. Ecrire une fonction en Python codage(mot) qui prend en argument un chaine de caractère écrit en lettre capitale et qui renvoie le mot codé par le chiffrement de César. 
 
-**Exercice 6 :** ★ **Création de matrice  :** Ecrire une fonction matriceAlea(n:int,m:int)->list Python qui renvoie une matrice à n lignes et m colonnes d'entiers aléatoires entre 0 et 100. Créer deux fonctions l’une qui utilise la création en compréhension et l’autre la création en extension. 
+**Exercice 6 :** ★ **Création de matrice  :** Ecrire une fonction matriceAlea(n:int,m:int)->list Python qui renvoie une matrice à n lignes et m colonnes d'entiers aléatoires entre 0 et 100. Créer la fonction qui utilise la création en compréhension 
+
 
 Aide : ne pas oublier d’importer le module random 
 
