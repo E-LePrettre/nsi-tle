@@ -640,7 +640,8 @@ pseudo=['Major Alexander','KBM Wiz', 'FNC MagiFelix','Avalanche','love camile','
 classement=[(12,1406),(1,1613),(4,1507),(9,1429),(16,1341),(11,1416)]
 ```
 
-2 Quel est le type de chacun des éléments?  
+2 Quel est le type de chacun des éléments?
+
 3 Appliquer votre fonction const\_dico(cle,valeur) sur les joueurs de LOL. 
 
 **Exercice 5 :** ★★ **Le chiffrement de César (version light)** : Cryptographie 
@@ -652,7 +653,9 @@ Pour cet exercice nous allons utiliser la fonction chr de Python qui prend en ar
 Voici une table ASCII : ASCII.txt (**dans dossier du chapitre)** 
 
 a. Quels sont les entiers qui code l'alphabet en lettre capitale? 
+
 b. Quels scripts faut-il écrire pour obtenir l'affichage de la lettre A et du mot NSI? 
+
 c. Ecrire le script Python qui permet d'obtenir une structure de données de type dict qui doit être :  
 
 ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.052.png)
@@ -793,8 +796,10 @@ On veut pouvoir comparer des cartes pour réaliser par exemple des jeux.
 
 6 Ecrire une fonction force(carte:tuple)->int: qui renvoie la "force" de la carte. 
 
-7 Ecrire une fonction ```jeu_force(jeu : list) -> dict:``` qui renvoie le jeu des cartes associées à leur force. 
-8 On  veut  comparer  deux  cartes.  Ecrire  une  fonction  en  Python ```compare(carte1:tuple,carte2:tuple,jeu_force:dict)->tuple``` qui renvoie la carte avec la force la plus élevée. 
+7 Ecrire une fonction ```jeu_force(jeu : list) -> dict:``` qui renvoie le jeu des cartes associées à leur force.
+
+8 On  veut  comparer  deux  cartes.  Ecrire  une  fonction  en  Python ```compare(carte1:tuple,carte2:tuple,jeu_force:dict)->tuple``` qui renvoie la carte avec la force la plus élevée.
+
 9 Inventer  une  notion  de  distance  entre  deux  cartes.  Ecrire  une  fonction ```distance(carte1:tuple,carte2:tuple)->int``` qui renvoie la "distance" entre deux cartes. 
 
 **Exercice 10** ★★ **Tracé graphique**  
@@ -804,6 +809,7 @@ Matplotlib est une bibliothèque du langage de programmation Python destinée à
 Matplotlib est distribuée librement et gratuitement sous une licence de style BSD. 
 
 1 Créer un fichier Python graphics.py.
+
 2 Écrire une fonction f, qui à x → x² + x – 4, et dont le prototype est le suivant : 
 ```f(x : float) ->  float ```
 3 Compléter le code ci-dessous en utilisant une **compréhension de liste** pour liste\_x et liste\_y.
