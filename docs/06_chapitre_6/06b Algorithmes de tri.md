@@ -20,29 +20,31 @@ Introduction : Qu’est-ce que trier ? Pourquoi trier ?
 
 **Activité n°1.:** Commencer par créer des données de façon aléatoire grâce au module random afin de pouvoir les classer. 
 
-import random ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.001.png)
+```python
+import random
+def genere_liste_aleatoire(N, n):
+    """Génére une liste aléatoire de N éléments compris entre 0 et n"""
+    return [random.randrange(n) for i in range(N)]
 
-def genere\_liste\_aleatoire(N, n): 
-
-`    `"""Génére une liste aléatoire de N éléments compris entre 0 et n"""     ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.002.png)return [random.randrange(n) for i in range(N)] 
-
-- Création d'une liste de 50 valeurs comprises entre 0 et 100 liste\_aleatoire = genere\_liste\_aleatoire(50, 100) print(liste\_aleatoire) 
-
-\>>>  ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.003.png)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.004.png)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.005.png)
-
-[1, 76, 61, 88, 38, 34, 89, 91, 78, 30, 19, 37, 16, 56, 90, 95, 67, 17, 29, 61, 60, 37, 4, 62, 79, 18, 13, 58, 10, 18, 53, 71, 44, 25, 95, 83, 48, 79, 32, 72, 83, 85, 11, 73, 21, 82, 50, 0, 31, 62] ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.006.png)
+# Création d'une liste de 50 valeurs comprises entre 0 et 100
+liste_aleatoire = genere_liste_aleatoire(50, 100)
+print(liste_aleatoire)
+```
 
 ## **2. Le<a name="_page1_x40.00_y54.92"></a> tri par sélection :** 
 ### **2.1. Le<a name="_page1_x40.00_y76.92"></a> principe** 
 
-Sur un tableau de N éléments (numérotés de 0 à N), le principe du tri par sélection est le suivant : ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.007.png)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.008.png)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.009.png)
+Sur un tableau de N éléments (numérotés de 0 à N), le principe du tri par sélection est le suivant : 
 
 - **Rechercher le plus petit élément** du tableau, et l'échanger avec l'élément d'indice 0 ; 
 - **Rechercher le second plus petit élément** du tableau, et l'échanger avec l'élément d'indice 1 ; 
 - Continuer de cette façon jusqu'à ce que le tableau soit entièrement trié.
+
 ### **2.2. Illustration<a name="_page1_x40.00_y201.92"></a> graphique** 
 
-Exemple : Soit la suite de nombres suivante : 6, 1, 9, 3. Trions cette suite avec l’algorithme du tri par  ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.010.png)sélection dans l’ordre croissant :  
+![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.010.png)
+
+Exemple : Soit la suite de nombres suivante : 6, 1, 9, 3. Trions cette suite avec l’algorithme du tri par  sélection dans l’ordre croissant :  
 
 *1er tour* : 6, **1**, 9, 3 -> le plus petit élément du tableau est 1, on le place donc sur la première case (en  l'échangeant avec le 6).  
 
@@ -60,6 +62,29 @@ Vidéo :[ https://www.youtube.com/watch?v=Ns4TPTC8whw ](https://www.youtube.com/
 
 ### **2.. Pseudo-code<a name="_page1_x40.00_y485.92"></a>** 
 
+```
+ALGORITHME tri_selection
+DEBUT
+ PROCEDURE echange (T, i, j) # on échange la valeur de T[i] avec celle de T[j]
+ tmp <- T[i] # variable temporaire pour stocker
+ T[i] <- T[j]
+ T[j] <- tmp
+ PROCEDURE tri_sélection (T)
+ POUR i ALLANT DE 1 A N [SAUT DE 1] FAIRE # parcours 
+ mini <- i # on stocke l'indice du premier terme
+ POUR j ALLANT DE i+1 A N [SAUT DE 1] # parcours
+ SI T[j] < T[mini] ALORS # si la valeur stockée n'est pas la plus petite
+ mini <- j 
+ FIN SI
+ j <- j + 1
+ FIN POUR
+ SI mini =! i ALORS # donc la condition SI a été vérifié
+ echange(T, i, mini) # on :appelle la procédure d'échange
+ FIN SI
+ i <- i + 1
+ FIN POUR 
+FIN
+```
 ALGORITHME tri\_selection ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.011.png)
 
 DEBUT 

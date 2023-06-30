@@ -363,7 +363,20 @@ Exemple : 0b 1111 0111
 
 1 ★ Écrire un programme qui convertisse un nombre décimal en binaire. Utiliser une fonction dec2bin. On donne l’algorithme suivant : 
 
-![](Aimg10.png)
+'''
+Algorithme dec2bin
+	lire(nombre)
+	fonction(nombre)
+		binaire.ajout(nombre modulo 2)	{ ajout en fin de tableau }
+		tantque nombre ≥ 2 faire
+			nombre := nombre / 2
+			binaire.ajout(nombre modulo 2)
+		tantque longueur(binaire)<7
+			binaire.ajout(0)
+		binaire.renversée
+		mot := chaine de caractère correspondant à binaire
+	afficher(mot)
+'''
 
 
 **Aide :**  
@@ -658,7 +671,17 @@ On souhaite maintenant réaliser l’opération inverse et transformer un flotta
 
 6 ★ Écrire un programme float2bin qui convertisse la partie décimale d’un nombre flottant en binaire. On donne l’algorithme : 
 
-![](Aimg12.png)
+````
+algorithme float2bin
+tantque decimal <> 0 ET i < precision faire
+      decimal := decimal * 2
+      si decimal < 1 alors
+            binaire := binaire + "0"
+      sinon
+            binaire := binaire + "1"
+             decimal := decimal modulo 1
+             i := i + 1
+````
 
 decimal <> 0 signifie différent de 0 
 
