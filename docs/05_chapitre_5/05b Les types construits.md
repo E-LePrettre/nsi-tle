@@ -1666,27 +1666,27 @@ Les acides aminés sont désignés par une lettre qui représente la forme du no
 **Le code génétique :** 
 
 ```
-'UUU', 'UUC' : 'F'
+'UUU', 'UUC' : 							                  'F'
 'UUA', 'UUG', 'CUU', 'CUC', 'CUA', 'CUG' : 		'L'
-'AUU', 'AUC', 'AUA' : 						'I'
-'AUG' : 								'M'
-'GUU', 'GUC', 'GUA', 'GUG' : 					'V'
+'AUU', 'AUC', 'AUA' : 						            'I'
+'AUG' : 								                      'M'
+'GUU', 'GUC', 'GUA', 'GUG' : 					        'V'
 'UCU', 'UCC', 'UCA', 'UCG', 'AGU', 'AGC' : 		'S'
-'CCU', 'CCC', 'CCA', 'CCG' : 					'P'
-'ACU', 'ACC', 'ACA', 'ACG' : 					'T'
-'GCU', 'GCC', 'GCA', 'GCG' : 					'A'
-'UAU', 'UAC' : 							'Y'
-'UAA', 'UAG', 'UGA' : 						'*'
-'CAU', 'CAC' : 							'H'
-'CAA', 'CAG' : 							'Q'
-'AAU', 'AAC' : 							'N'
-'AAA', 'AAG' : 							'K'
-'GAU', 'GAC' : 							'D'
-'GAA', 'GAG' : 							'E'
-'UGU', 'UGC' : 							'C'
-'UGG' : 								'W'
+'CCU', 'CCC', 'CCA', 'CCG' : 					        'P'
+'ACU', 'ACC', 'ACA', 'ACG' : 					        'T'
+'GCU', 'GCC', 'GCA', 'GCG' : 					        'A'
+'UAU', 'UAC' : 							                  'Y'
+'UAA', 'UAG', 'UGA' : 						            '*'
+'CAU', 'CAC' : 							                  'H'
+'CAA', 'CAG' : 							                  'Q'
+'AAU', 'AAC' : 							                  'N'
+'AAA', 'AAG' :  							                'K'
+'GAU', 'GAC' : 							                  'D'
+'GAA', 'GAG' : 							                  'E'
+'UGU', 'UGC' :  							                'C'
+'UGG' : 								                      'W'
 'CGU', 'CGC', 'CGA', 'CGG', 'AGA', 'AGG' : 		'R'
-'GGU', 'GGC', 'GGA', 'GGG' : 					'G'
+'GGU', 'GGC', 'GGA', 'GGG' : 					        'G'
 ```
 
 
@@ -1700,7 +1700,10 @@ Les acides aminés sont désignés par une lettre qui représente la forme du no
 
 16 Valider les tests unitaires suivants : 
 ```python
-genetic_code('UGA') == '\*' genetic_code('AAAA') == None genetic_code('XYZ') == None genetic_code(0) == None 
+genetic_code('UGA') == '\*' 
+genetic_code('AAAA') == None 
+genetic_code('XYZ') == None 
+genetic_code(0) == None 
 ```
 
 
