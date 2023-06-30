@@ -162,18 +162,12 @@ Pour calculer la complexité, il faut examiner chaque ligne de code et l'y attri
 
 Le coût ainsi obtenu n'aura pas d'unité, il s'agit d'un nombre d'opérations dont chacune aurait le même temps d’exécution : 1. Les opérations qui vont devoir être comptabilisées sont : 
 
-- Les affectations comptent pour 1 unité de temps: 
+- Les affectations comptent pour 1 unité de temps: a←2 
 
-a←2 
-
-- Les comparaisons comptent pour 1 unité de temps: 
-
-2<3  
+- Les comparaisons comptent pour 1 unité de temps: 2<3  
 
 - L'accès aux mémoires  comptent pour une 1 unité de temps et afficher pour 2 unités de temps: Lire a  Afficher a 
-- Chaque opération élémentaire compte pour une 1 unité de temps : 
-
-3+2  
+- Chaque opération élémentaire compte pour une 1 unité de temps : 3+2  
 
 Déterminons le coût de la ligne de code suivante : 
 
@@ -202,15 +196,7 @@ O caractérise le comportement asymptotique quand n → +∞.
 
 **Activité n°2.:** On s’interesse à la fonction (−1)n.**  Le coût T(n) de cet algorithme écrit en python.
 
-**1 def puissanceMoinsUn(n:int)->int: 2   if n%2==0:** 
-
-**3   res = 1** 
-
-**4   else:** 
-
-**5   res = -1** 
-
-**6  return res** 
+![](Aimg4.png)
 
 T(n) = 1(comparaison) + 1(%) + 1 (mémoire) + 1(affectation) + 1(accès mémoire) = 5 
 
@@ -218,19 +204,13 @@ T(n) = 1(comparaison) + 1(%) + 1 (mémoire) + 1(affectation) + 1(accès mémoire
 
 **Activité n°3.:** On s’interesse à la fonction qui utilise une structure for pour calculer la somme des n premiers entiers.** Le coût T(n) de cet algorithme écrit en python. 
 
-**1 def sommeEntiers(n):** 
-
-**2   somme = 0** 
-
-**3   for i in range(n+1): 4   somme += i** 
-
-**5   return somme** 
+![](Aimg5.png)
 
 T(n)   = 1(affectation) + (n + 1) \*[1(+) +1(affectation) +1(mémoire) +1(affectation)] + 1(accès mémoire)  
 
-- 1 + (n + 1) \* 4 + 1  
-- 2 + 4n + 3 
-- 4n + 5 
+= 1 + (n + 1) \* 4 + 1  
+= 2 + 4n + 4
+= 4n + 6
 
 La complexité de cet algorithme est dite **linéaire.**  ![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.022.png)![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.023.png)![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.024.png)
 
