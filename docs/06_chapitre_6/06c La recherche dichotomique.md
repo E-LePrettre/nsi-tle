@@ -72,6 +72,7 @@ Voici une bande de papier illustrant un tableau de nombre en mémoire
 Essayons de rechercher le nombre 35 et de connaitre son emplacement (indice) dans le tableau
 
 Le tableau contient 16 valeurs (indice de 0 à 15) 
+
 **Etape 1** : Comment calculer la moitié ?
 
 |**Indice Bas1** |**Indice Haut1** |**Indice milieu1** |
@@ -92,8 +93,13 @@ Le tableau contient 16 valeurs (indice de 0 à 15)
 
 **Etape 4** : Dans quelle partie se trouve la valeur 35 ? ……………………………………………………………………………………………………………………….. 
 
-**Etape 5** : Comment calculer la moitié de la nouvelle partie du tableau ? 
+|. |. |. |
+| - | - | - | 
 
+|. |. |. |
+| - | - | - | 
+
+**Etape 5** : Comment calculer la moitié de la nouvelle partie du tableau ? 
 
 
 |**Indice Bas3** |**Indice Haut3** |**Indice milieu3** |
@@ -102,6 +108,7 @@ Le tableau contient 16 valeurs (indice de 0 à 15)
 **Etape 6** : Dans quelle partie se trouve la valeur 35 ?
 
 ………………………………………………………………………………………………………………………………………………….. 
+
 
 **Etape 7** : Comment calculer la moitié de la nouvelle partie du tableau ? 
 
@@ -116,76 +123,52 @@ Le tableau contient 16 valeurs (indice de 0 à 15)
 Résumé : Chiffre à trouver 35 
 
 
+![](Aimg10.png)
 
-|Indice bas |Indice haut |Indice milieu |tableau[milieu] |Sens |Trouvé |
-| - | - | - | - | - | - |
-|**0** |**15** |**7** |**37** |**A gauche** |**Faux** |
-|**0** |**6** |**3** |**21** |**A droite** |**Faux** |
-|**4** |**6** |**5** |**31** |**A droite** |**Faux** |
-|**6** |**6** |**6** |**35** ||**Vrai** |
-
-La valeur 35 se trouve à l’indice 6 (milieu) dans le tableau ![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.009.png)
+La valeur 35 se trouve à l’indice 6 (milieu) dans le tableau 
 
 **Activité n°1.:** Entrainez-vous avec la bande de papier fournie en complétant le tableau ci-dessous : 
 
+![](Aimg11.png)
 
 
-|10 ***0*** |12 ***1*** |15 ***2*** |21 ***3*** |25 ***4*** |31 ***5*** |35 ***6*** |37 ***7*** |42 ***8*** |44 ***9*** |49 ***10*** |53 ***11*** |61 ***12*** |72 **13** |75 **14** |85 **15** |
-| :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | - | - | - | - | - | - |
 
 Chiffre à trouver 72 
 
 
+![](Aimg12.png)
 
-|Indice bas |Indice haut |Indice milieu |tableau[milieu] |Sens |Trouvé |
-| - | - | - | - | - | - |
-|||||||
-|||||||
-|||||||
-|||||||
 La valeur 72 se trouve à l’indice 13 (milieu) dans le tableau 
 
 ## **3. Le<a name="_page4_x40.00_y332.92"></a> pseudo-code (version itérative)** 
 
-ALGORITHME recherche\_dichotomique ![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.016.png)
+```
+ALGORITHME recherche_dichotomique
+    PROCEDURE recherche_dichotomique(elmt, tableau)
+        gauche <- 1
+        droite <- taille du tableau
+        TANT QUE gauche <= droite FAIRE     
+            milieu <- (gauche + droite)/2   # on cherche l'élément centrale 
+            si T[milieu] < x         # la recherche peut se restreindre à la partie droite du tableau
+                gauche = milieu + 1   # on modifie la valeur de gauche en conséquence
+            sinon si T[milieu] > x     # la recherche peut se restreindre à la partie gauche du tableau
+                droite = milieu-1     # on modifie la valeur de gauche en conséquence
+            sinon 
+                renvoyer milieu             # on a trouvé la valeur 
+        FIN TANT QUE
+        renvoyer None                # gauche <= droite n'est plus vraie. La valeur x n'est pas dans T     
+```
 
-DEBUT
-
-`    `PROCEDURE recherche\_dichotomique(elmt, tableau)
-
-`        `gauche <- 1
-
-`        `droite <- taille du tableau
-
-`        `TANT QUE gauche <= droite FAIRE     
-
-`            `milieu <- (gauche + droite)/2   # on cherche l'élément centrale  
-
-`            `si T[milieu] < x         # la recherche peut se restreindre à la partie droite du tableau 
-
-`                `gauche = milieu + 1   # on modifie la valeur de gauche en conséquence
-
-`            `sinon si T[milieu] > x     # la recherche peut se restreindre à la partie gauche du tableau 
-
-`                `droite = milieu-1     # on modifie la valeur de gauche en conséquence
-
-`            `sinon 
-
-`                `renvoyer milieu             # on a trouvé la valeur 
-
-`        `FIN TANT QUE
-
-`        `renvoyer None                # gauche <= droite n'est plus vraie. La valeur x n'est pas dans T      FIN
 
 ## **4. Complexité<a name="_page4_x40.00_y600.92"></a>** 
 
 Au niveau de la boucle, combien doit-on effectuer d'itérations pour un tableau de taille n dans le cas le plus défavorable (l'entier x n'est pas dans le tableau t) ? 
 
-Sachant qu'**à chaque itération de la boucle on divise le tableau en 2,** cela revient donc à se demander combien de fois faut-il diviser le tableau en 2 pour obtenir, à la fin, un tableau comportant un seul entier.  ![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.017.png)
+Sachant qu'**à chaque itération de la boucle on divise le tableau en 2,** cela revient donc à se demander combien de fois faut-il diviser le tableau en 2 pour obtenir, à la fin, un tableau comportant un seul entier.  
 
 Autrement dit, combien de fois faut-il diviser n par 2 pour obtenir 1. 
 
-Mathématiquement cela se traduit par l'équation  = avec a le nombre de fois qu'il faut diviser n par 2 pour obtenir 1. Il faut donc trouver a.  
+Mathématiquement cela se traduit par l'équation  [![\\ {n \over 2^a}  =1] avec a le nombre de fois qu'il faut diviser n par 2 pour obtenir 1. Il faut donc trouver a.  
 
 A ce stade il est nécessaire d'introduire une nouvelle notion mathématique : le "logarithme base 2" noté log2.  Par définition  2(2 ) = . Nous avons donc :  ![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.009.png)
 
