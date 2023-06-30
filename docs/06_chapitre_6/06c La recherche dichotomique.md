@@ -71,16 +71,17 @@ Voici une bande de papier illustrant un tableau de nombre en mémoire
 
 Essayons de rechercher le nombre 35 et de connaitre son emplacement (indice) dans le tableau
 
-Le tableau contient 16 valeurs (indice de 0 à 15) **Etape 1** : Comment calculer la moitié ?
+Le tableau contient 16 valeurs (indice de 0 à 15) 
+**Etape 1** : Comment calculer la moitié ?
 
 |**Indice Bas1** |**Indice Haut1** |**Indice milieu1** |
-| - | - | - |
+
 
 
 **Etape 2** : Dans quelle partie se trouve la valeur 35 ? ………………………………………………………………………………………………………………………. 
 
 
-||||||||
+|. |. |. |. |. |. |. |
 
 **Etape 3** : Comment calculer la moitié de la nouvelle partie du tableau ? 
 
