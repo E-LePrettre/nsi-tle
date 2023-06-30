@@ -212,25 +212,25 @@ T(n)   = 1(affectation) + (n + 1) \*[1(+) +1(affectation) +1(mémoire) +1(affect
 = 2 + 4n + 4
 = 4n + 6
 
-La complexité de cet algorithme est dite **linéaire.**  ![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.022.png)![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.023.png)![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.024.png)
+La complexité de cet algorithme est dite **linéaire.**  
 
 Ce sera le cas de tous les algorithmes avec un coût du type : **T(n)=an + b** où a et b sont des réels. 
 
-Ici, le coût dépend linéairement du nombre d’éléments à traiter. On le note O(n).![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.002.png)
+Ici, le coût dépend linéairement du nombre d’éléments à traiter. On le note O(n).
+
 
 #### **4.1.5. Algorithmes<a name="_page5_x40.00_y36.92"></a> avec deux structure itératives imbriquées** 
 
 **Activité n°4.:** On considére que la taille des listes mots et fichiers\_test sont de n.**  La complexité T(n) de cet algorithme écrit en python. 
 
-|**1 2 3 4 5 6**|<p>` `**def trouvemot(mots:lst, fichier\_test:lst)->lst:** </p><p>**resultat=[]** </p><p>**for mot in mots:** </p><p>**for ligne in fichier\_test:** </p><p>**if mot in ligne:** </p><p>**resultat.append(mot)** </p><p>**7  return resultat** </p>|
-| - | - |
+![](Aimg6.png)
 
 T(n)  = 1(affectation)+n\*[n \*[1(comparaison)+1(affectation+1(mémoire))]+1(mémoire)  
 
-- 1 + n \* (n \* 3) + 1  
-- 2 + 3 n²  
+= 1 + n \* (n \* 3) + 1  
+= 2 + 3 n²  
 
-La complexité de cet algorithme est dite **quadratique**.  ![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.025.png)![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.026.png)![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.027.png)
+La complexité de cet algorithme est dite **quadratique**.  
 
 Ce sera le cas de tous les algorithmes avec un coût du type : **T(n)=an² + bn + c** où a, b et c sont des réels. 
 
@@ -248,11 +248,11 @@ L'étude des différents algorithmes proposés dans la suite des activités (Tri
 
 |**Ordre de complexité**|**Exemples** |**Type de complexité** |
 | - | - | - |
-|O(1) **![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.028.png)**|Ici la complexité ne dépend pas des données. Accès à une cellule d'un tableau. |constante |
-|O(log(n)) ![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.029.png)|Algorithme divisant le problème par une constante k. O(log(n)) pour la recherche dichotomique  |Logarithmique |
-|O(n) ![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.030.png)|Parcours de liste. |linéaire |
-|O(n.log(n)) ![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.031.png)|Algorithme  divisant  le  problème  en  nombre  de  sous-problèmes constants, dont les résultats sont réutilisés par recombinaison (Ex Tri fusion). |quasi-linéaire |
-|O(n2) |Algorithme  traitant  généralement  de  couples  de  données  (boucles imbriquées). Parcours d'une matrice de pixels. |quadratique |
+|O(1) ****|Ici la complexité ne dépend pas des données. Accès à une cellule d'un tableau. |constante |
+|O(log(n)) |Algorithme divisant le problème par une constante k. O(log(n)) pour la recherche dichotomique  |Logarithmique |
+|O(n) |Parcours de liste. |linéaire |
+|O(n.log(n)) |Algorithme  divisant  le  problème  en  nombre  de  sous-problèmes constants, dont les résultats sont réutilisés par recombinaison (Ex Tri fusion). |quasi-linéaire |
+|O(n²) |Algorithme  traitant  généralement  de  couples  de  données  (boucles imbriquées). Parcours d'une matrice de pixels. |quadratique |
 
 |||||
 | :- | :- | :- | :- |
@@ -275,7 +275,7 @@ RESSOURCES :
 - Vidéo (définition de la complexité) :[ https://www.youtube.com/watch?v=exaHKrP6RsA ](https://www.youtube.com/watch?v=exaHKrP6RsA)
 - Vidéo (calcul de complexités) :[ https://www.youtube.com/watch?v=clZ4q5zPBlE ](https://www.youtube.com/watch?v=clZ4q5zPBlE)![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.002.png)
 
-Première NSI   Chap 7 : Introduction à l’algorithmique  Page 7/8 
+
 
 ## **5. Exercices<a name="_page7_x40.00_y36.92"></a>** 
 
