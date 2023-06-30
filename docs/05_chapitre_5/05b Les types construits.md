@@ -662,9 +662,12 @@ c. Ecrire le script Python qui permet d'obtenir une structure de données de typ
 A chaque lettre de l'alphabet on associe un nombre de à 0 à 25. On ajoute à ce nombre un nombre choisi par exemple 7. Le reste de la division euclidienne du nombre obtenue par 26 correspond au chiffre qui codera la lettre initiale. La lettre Y est associée à 24, on lui ajoute 7 on obtient 31. Le reste de la division euclidienne de 31 par 26 est 5. Ce qui donne F. Y est donc codé par F. 
 
 a. Quels scripts écrire pour obtenir le code de la lettre A et du mot NSI avec un décalage de 7. Rappel : le reste de la division euclidienne de a par b s'obtient en Python ainsi : a%b 
+
 b. Quel script écrire pour obtenir le dictionnaire de la table de codage/décodage de l'alphabet avec la méthode du chiffrement de César avec un décalage de 7? On stockera ce dictionnaire dans une variable nommée d. 
+
 3 Une fonction de codage 
-  a. Reprendre votre dictionnaire d et tester : 
+
+a. Reprendre votre dictionnaire d et tester : 
 
 > d['A'] 
 
@@ -673,9 +676,10 @@ b. Quel script écrire pour obtenir le dictionnaire de la table de codage/décod
 > d['E'] 
 
 b. Dans le script précédent quel est le statut de 'A', 'D' et 'E'? Clé ou valeur? 
+
 c. Ecrire une fonction en Python codage(mot) qui prend en argument un chaine de caractère écrit en lettre capitale et qui renvoie le mot codé par le chiffrement de César. 
 
-**Exercice 6 :** ★ **Création de matrice  :** Ecrire une fonction matriceAlea(n:int,m:int)->list Python qui renvoie une matrice à n lignes et m colonnes d'entiers aléatoires entre 0 et 100. Créer la fonction qui utilise la création en compréhension 
+**Exercice 6 :** ★ **Création de matrice  :** Ecrire une fonction ```matriceAlea(n:int,m:int)->list``` Python qui renvoie une matrice à n lignes et m colonnes d'entiers aléatoires entre 0 et 100. Créer la fonction qui utilise la création en compréhension 
 
 
 Aide : ne pas oublier d’importer le module random 
@@ -720,7 +724,9 @@ Chacun des chiffres de 1 à 9 apparaît exactement une fois dans la grille. De p
 
 ![](Aimg20.png)
 
-**Exercice 8:** ★ **avec les chaine de caractères  :** Python considère une phrase comme une séquence. Vous pouvez réaliser des essais avec cette citation célèbre du philosophe Confusius : "Je ne cherche pas à connaître les réponses, je cherche à comprendre les questions." De quelle type de séquence se rapproche-t-on? De la liste et/ou du tuple ? Faire des tests à partir de vos connaissances en python. 
+**Exercice 8:** ★ **avec les chaine de caractères  :** 
+
+Python considère une phrase comme une séquence. Vous pouvez réaliser des essais avec cette citation célèbre du philosophe Confusius : "Je ne cherche pas à connaître les réponses, je cherche à comprendre les questions." De quelle type de séquence se rapproche-t-on? De la liste et/ou du tuple ? Faire des tests à partir de vos connaissances en python. 
 
 ```python
 # -*- coding: utf-8 -*-
@@ -735,7 +741,9 @@ citation.append('!')
 
 En utilisant la méthode count(), compter le nombre de 'a' dans la citation. 
 
-**Exercice 9 :** ★★ **Jeu de cartes :   **Un jeu de 32 cartes est composé de :  
+**Exercice 9 :** ★★ **Jeu de cartes :   **
+
+Un jeu de 32 cartes est composé de :  
 
 - quatre couleurs : pique, cœur, carreau, trèfle  
 - huit valeurs : roi, dame, valet,1,10,9,8,7 
@@ -755,6 +763,7 @@ Lorsque vous écrivez des fonctions :
 
 - Il faut typer vos fonctions. Exemple : ```creation_jeu32(couleur:tuple, valeur32:tuple)->list ```
 - Il faut écrire une aide explicative docstring, entre " ", ou entre """ """" (si l'aide fait plusieurs lignes). 
+
 1 Créer une fonction ```creation_jeu32(couleur:tuple, valeur32:tuple)->list``` qui retourne un liste de 32  cartes  sous  forme  de  **liste  de  tuples** : [('Roi',  'pique'),  ('Roi',  'coeur'),  ('Roi', 'carreau'),…]
 
 **Aide :**  
@@ -764,8 +773,11 @@ couleur = ("pique", "coeur", "carreau", "trèfle")
 valeur32 = ("Roi", "Dame", "Valet", 1, 10, 9, 8, 7) 
 ```
 2 Vérifier que le jeu possède 32 cartes 
+
 3 On veut pouvoir mélanger le jeu de 32 cartes. Il existe une fonction shuffle(liste)  qui mélange les éléments d'une liste. Ecrire une fonction ```melange(jeu:list)->list``` qui renvoie le jeu de cartes mélangé. Penser à importer random 
+
 4 On veut pouvoir tirer une carte au hasard du jeu. Si le jeu est mélangé, cela peut être la première carte. Il faut penser à retirer la carte du jeu. ```carte_hasard(jeu:list)-> tuple```
+
 5 On veut pouvoir créer une "main" d’un certain nombre de cartes. Une main signifie un ensemble de cartes. Ecrire une fonction ```main(nombre_cartes: int,jeu:list)->list:``` qui renvoie une main formée du nombre de cartes. Il faut penser à retirer la main créée du jeu de 32 cartes. 
 
 **Vers une autre structure de données construites**. 
@@ -780,6 +792,7 @@ On veut pouvoir comparer des cartes pour réaliser par exemple des jeux.
 **Implémentation en Python** 
 
 6 Ecrire une fonction force(carte:tuple)->int: qui renvoie la "force" de la carte. 
+
 7 Ecrire une fonction ```jeu_force(jeu : list) -> dict:``` qui renvoie le jeu des cartes associées à leur force. 
 8 On  veut  comparer  deux  cartes.  Ecrire  une  fonction  en  Python ```compare(carte1:tuple,carte2:tuple,jeu_force:dict)->tuple``` qui renvoie la carte avec la force la plus élevée. 
 9 Inventer  une  notion  de  distance  entre  deux  cartes.  Ecrire  une  fonction ```distance(carte1:tuple,carte2:tuple)->int``` qui renvoie la "distance" entre deux cartes. 
@@ -1215,7 +1228,7 @@ Le prototype de la fonction est : ```caesar_encode(text : str, key : int = 1) ->
 - code représente le texte à déchiffrer, 
 
 - key représente la clef de chiffrement.
-  
+
 - La fonction doit renvoyer le texte déchiffré. 
 
 **Aide :** 
