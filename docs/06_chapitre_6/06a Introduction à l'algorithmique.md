@@ -17,9 +17,11 @@ On désigne par algorithmique l'ensemble des activités logiques qui relèvent d
 
 ## **1. Un<a name="_page0_x40.00_y471.92"></a> peu d’histoire** 
 
-Le mot « algorithme » vient du nom du mathématicien perse Al Khwarizmi (780 – 850), qui, au  ![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.001.png)9ème siècle écrivit le premier ouvrage systématique sur la solution des équations linéaires et  quadratiques. La notion d'algorithme est donc historiquement liée aux manipulations numériques,  mais elle s'est progressivement développée pour porter sur des objets de plus en plus complexes :  des textes, des images, des formules logiques, des objets physiques, etc.  
+![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.001.png)
 
-**Un algorithme est un énoncé d'une suite d'opérations permettant de donner la réponse à un  problème en un temps fini.  ![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.002.png)**
+Le mot « algorithme » vient du nom du mathématicien perse Al Khwarizmi (780 – 850), qui, au  9ème siècle écrivit le premier ouvrage systématique sur la solution des équations linéaires et  quadratiques. La notion d'algorithme est donc historiquement liée aux manipulations numériques,  mais elle s'est progressivement développée pour porter sur des objets de plus en plus complexes :  des textes, des images, des formules logiques, des objets physiques, etc.  
+
+**Un algorithme est un énoncé d'une suite d'opérations permettant de donner la réponse à un  problème en un temps fini. **
 
 ![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.003.png)
 
@@ -68,25 +70,17 @@ Il existe différentes manières de réaliser une trace de programme et/ou d'alg
 - permet de contrôler que l'algorithme fait bien ce que l'on avant prévu; 
 - permet de déterminer ce que fait un algorithme. 
 
-Dans la mesure du possible, on peut organiser une trace d'exécution d'un algorithme en **constituant un tableau avec toutes les variables de l'algorithme**.  ![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.002.png)
+Dans la mesure du possible, on peut organiser une trace d'exécution d'un algorithme en **constituant un tableau avec toutes les variables de l'algorithme**.  
 
 Voici un exemple : 
 
-` `r←0  ![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.004.png)
+![](Aimg.png)
 
-` `while r\*r<= n  
-
-r←r+1 
-
-` `r←r-1 
 
 Il faut numéroter toutes les lignes de l'algorithme. 
 
-1 r←0  ![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.005.png)
-
-2 while r\*r<= n 3   r←r+1 
-
-4 r←r-1 
+![](Aimg2.png)
+ 
 
 Voici une trace de l'algorithme avec n=5. Quelle est la valeur de la variable r ? 
 
@@ -112,12 +106,12 @@ En mathématiques, vous auriez une version minimaliste de ce tableau, qui corres
 
 ### **3.3. Recherche<a name="_page2_x40.00_y447.92"></a> du processus itératif** 
 
-La construction d’un algorithme qui met en jeu un processus itératif s’effectue en 4 étapes : ![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.006.png)![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.007.png)![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.008.png)
+La construction d’un algorithme qui met en jeu un processus itératif s’effectue en 4 étapes : 
 
 1. rechercher l’itération qui s’applique au processus 
-1. déterminer si le nombre d’itérations est connu 
-1. initialiser les entrées et conditions de boucles 
-1. vérifier les sorties de boucle 
+2. déterminer si le nombre d’itérations est connu 
+3. initialiser les entrées et conditions de boucles 
+4. vérifier les sorties de boucle 
 
 Exemple : en septembre 2004, un iceberg de 25 tonnes dérive depuis l’Islande et perd 10 % de sa masse chaque jour. Déterminer à partir de quel jour il reste moins d’une tonne de glace. 
 
