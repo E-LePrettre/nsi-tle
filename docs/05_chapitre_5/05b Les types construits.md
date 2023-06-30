@@ -1582,7 +1582,10 @@ Les processus du dogme central de la biologie moléculaire, réalisés par les c
 
 4 Créer un fichier dna\_test.py et valider les tests unitaires suivants : 
 ```python
-is_DNA_strand("ATGCGATC") == True is_DNA_strand("ACKT") == False is_DNA_strand("") == False is_DNA_strand(0) == False 
+is_DNA_strand("ATGCGATC") == True 
+is_DNA_strand("ACKT") == False 
+is_DNA_strand("") == False 
+is_DNA_strand(0) == False 
 ```
 
 Il est possible de générer aléatoirement une séquence ADN. La version naïve suppose que les 4 bases ont la même probabilité d'apparaître à une position donnée. 
