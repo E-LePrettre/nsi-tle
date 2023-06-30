@@ -170,19 +170,18 @@ Autrement dit, combien de fois faut-il diviser n par 2 pour obtenir 1.
 
 Mathématiquement cela se traduit par l'équation  $\frac {n }{ 2^a}  =1$ avec a le nombre de fois qu'il faut diviser n par 2 pour obtenir 1. Il faut donc trouver a.  
 
-A ce stade il est nécessaire d'introduire une nouvelle notion mathématique : le "logarithme base 2" noté log2.  Par définition  2(2 ) = . Nous avons donc :  ![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.009.png)
+A ce stade il est nécessaire d'introduire une nouvelle notion mathématique : le "logarithme base 2" noté log<sub>2</sub>.  Par définition  log<sub>2</sub>(2<sup>x</sup>) = x . Nous avons donc :  
 
-- 1 ![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.018.png)
+$\frac {n }{ 2^a}  =1$
 
-2
+n = 2<sup>a</sup>
 
-- 2 
+log<sub>2</sub>(n) = log<sub>2</sub>(2<sup>a</sup>)
 
-2( ) = 2(2 ) 2( ) = 
+log<sub>2</sub>(n) = a
+nous avons donc  a = log<sub>2</sub>(n)
 
-nous avons donc  = 2( ) 
-
-Nous pouvons donc dire que la complexité en temps dans le pire des cas de l'algorithme de recherche dichotomique est ![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.019.png)![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.020.png)**O(log2(n))** 
+Nous pouvons donc dire que la complexité en temps dans le pire des cas de l'algorithme de recherche dichotomique est **O(log<sub>2</sub>(n))** 
 
 L'algorithme de recherche dichotomique est **plus efficace** que l'algorithme de recherche qui consiste à parcourir l'ensemble du tableau. 
 
@@ -190,7 +189,7 @@ L'algorithme de recherche dichotomique est **plus efficace** que l'algorithme de
 
 TERMINAISON : La fonction recherche\_dichotomique contient une boucle non bornée, une boucle while, et pour être sûr de toujours obtenir un résultat, il faut s’assurer que le programme termine, **que l’on ne reste pas bloqué infiniment dans la boucle**. Pour prouver que c’est bien le cas, nous allons utiliser **un variant de boucle**. 
 
-**Variant de boucle** : Il s’agit d’une quantité entière qui :  ![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.021.png)![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.022.png)![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.023.png)
+**Variant de boucle** : Il s’agit d’une quantité entière qui :  
 
 - doit être positive ou nulle pour rester dans la boucle ;  
 - doit décroître à chaque itération.  
