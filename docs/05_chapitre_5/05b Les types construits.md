@@ -753,20 +753,20 @@ Le but est d'implémenter un jeu de 32 cartes et se  doter de fonctions qui perm
 
 Lorsque vous écrivez des fonctions : 
 
-- Il faut typer vos fonctions. Exemple : creation\_jeu32(couleur:tuple, valeur32:tuple)->list 
+- Il faut typer vos fonctions. Exemple : ```creation_jeu32(couleur:tuple, valeur32:tuple)->list ```
 - Il faut écrire une aide explicative docstring, entre " ", ou entre """ """" (si l'aide fait plusieurs lignes). 
-1 Créer une fonction creation\_jeu32(couleur:tuple, valeur32:tuple)->list qui retourne un liste de 32  cartes  sous  forme  de  **liste  de  tuples** : [('Roi',  'pique'),  ('Roi',  'coeur'),  ('Roi', 'carreau'),…]
+1 Créer une fonction ```creation_jeu32(couleur:tuple, valeur32:tuple)->list``` qui retourne un liste de 32  cartes  sous  forme  de  **liste  de  tuples** : [('Roi',  'pique'),  ('Roi',  'coeur'),  ('Roi', 'carreau'),…]
 
 **Aide :**  
-
+```python
 couleur = ("pique", "coeur", "carreau", "trèfle") 
 
 valeur32 = ("Roi", "Dame", "Valet", 1, 10, 9, 8, 7) 
-
+```
 2 Vérifier que le jeu possède 32 cartes 
-3 On veut pouvoir mélanger le jeu de 32 cartes. Il existe une fonction shuffle(liste)  qui mélange les éléments d'une liste. Ecrire une fonction melange(jeu:list)->list qui renvoie le jeu de cartes mélangé. Penser à importer random 
-4 On veut pouvoir tirer une carte au hasard du jeu. Si le jeu est mélangé, cela peut être la première carte. Il faut penser à retirer la carte du jeu. carte\_hasard(jeu:list)-> tuple
-5 On veut pouvoir créer une "main" d’un certain nombre de cartes. Une main signifie un ensemble de cartes. Ecrire une fonction main(nombre\_cartes: int,jeu:list)->list: qui renvoie une main formée du nombre de cartes. Il faut penser à retirer la main créée du jeu de 32 cartes. 
+3 On veut pouvoir mélanger le jeu de 32 cartes. Il existe une fonction shuffle(liste)  qui mélange les éléments d'une liste. Ecrire une fonction ```melange(jeu:list)->list``` qui renvoie le jeu de cartes mélangé. Penser à importer random 
+4 On veut pouvoir tirer une carte au hasard du jeu. Si le jeu est mélangé, cela peut être la première carte. Il faut penser à retirer la carte du jeu. ```carte_hasard(jeu:list)-> tuple```
+5 On veut pouvoir créer une "main" d’un certain nombre de cartes. Une main signifie un ensemble de cartes. Ecrire une fonction ```main(nombre_cartes: int,jeu:list)->list:``` qui renvoie une main formée du nombre de cartes. Il faut penser à retirer la main créée du jeu de 32 cartes. 
 
 **Vers une autre structure de données construites**. 
 
@@ -780,9 +780,9 @@ On veut pouvoir comparer des cartes pour réaliser par exemple des jeux.
 **Implémentation en Python** 
 
 6 Ecrire une fonction force(carte:tuple)->int: qui renvoie la "force" de la carte. 
-7 Ecrire une fonction jeu\_force(jeu : list) -> dict: qui renvoie le jeu des cartes associées à leur force. 
-8 On  veut  comparer  deux  cartes.  Ecrire  une  fonction  en  Python compare(carte1:tuple,carte2:tuple,jeu\_force:dict)->tuple qui renvoie la carte avec la force la plus élevée. 
-9 Inventer  une  notion  de  distance  entre  deux  cartes.  Ecrire  une  fonction distance(carte1:tuple,carte2:tuple)->int qui renvoie la "distance" entre deux cartes. 
+7 Ecrire une fonction ```jeu_force(jeu : list) -> dict:``` qui renvoie le jeu des cartes associées à leur force. 
+8 On  veut  comparer  deux  cartes.  Ecrire  une  fonction  en  Python ```compare(carte1:tuple,carte2:tuple,jeu_force:dict)->tuple``` qui renvoie la carte avec la force la plus élevée. 
+9 Inventer  une  notion  de  distance  entre  deux  cartes.  Ecrire  une  fonction ```distance(carte1:tuple,carte2:tuple)->int``` qui renvoie la "distance" entre deux cartes. 
 
 **Exercice 10** ★★ **Tracé graphique**  
 
