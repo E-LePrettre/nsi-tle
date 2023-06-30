@@ -202,57 +202,46 @@ print("Liste triée   : ", selection_sort(data))
 ```
 
 
-**Activité n°4.: Tri par sélection et temps d’exécution** : ajouter ce script aux fonctions de l’activité précédente en mettant en commentaire les deux print précédent : 
+**Activité n°4.: Tri par sélection et temps d’exécution** : AJOUTER ce script aux fonctions de l’activité précédente en mettant en commentaire les deux print précédent : 
 
-import time ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.033.png)
+```python
+import time
 
-- on fait une moyenne sur plusieurs tris de tableau de même longueur somme\_des\_durees = 0 
+# on fait une moyenne sur plusieurs tris de tableau de même longueur
+somme_des_durees = 0
+for i in range(5):
+    liste = genere_liste_aleatoire(1_000, 1_000_000)
+    start_time=time.time()
+    selection_sort(liste)
+    somme_des_durees = somme_des_durees + time.time() - start_time
+moyenne = somme_des_durees/5
+print("Temps d execution pour 1_000: %s secondes ---" % (moyenne))
 
-for i in range(5): 
 
-`    `liste = genere\_liste\_aleatoire(1\_000, 1\_000\_000) 
+somme_des_durees = 0
+for i in range(5):
+    liste = genere_liste_aleatoire(2_000, 1_000_000)
+    start_time=time.time()
+    selection_sort(liste)
+    somme_des_durees = somme_des_durees + time.time() - start_time
+moyenne = somme_des_durees/5
+print("Temps d execution pour 2_000: %s secondes ---" % (moyenne))
 
-`    `start\_time=time.time() 
 
-`    `selection\_sort(liste) 
+somme_des_durees = 0
+for i in range(5):
+    liste = genere_liste_aleatoire(10_000, 1_000_000)
+    start_time=time.time()
+    selection_sort(liste)
+    somme_des_durees = somme_des_durees + time.time() - start_time
+moyenne = somme_des_durees/5
+print("Temps d execution pour 10_000: %s secondes ---" % (moyenne))
+```
+On mesure la durée moyenne (sur 5 tableaux) d’exécution du tri sur des tableaux dont le nombre d’éléments est de plus en plus grand.
 
-`    `somme\_des\_durees = somme\_des\_durees + time.time() - start\_time moyenne = somme\_des\_durees/5 
+On voit bien que multiplier par 10 le nombre d’éléments du tableau à trier revient à multiplier le temps par 10². 
 
-print("Temps d execution pour 1\_000: %s secondes ---" % (moyenne)) 
-
-somme\_des\_durees = 0 
-
-for i in range(5): 
-
-`    `liste = genere\_liste\_aleatoire(2\_000, 1\_000\_000) 
-
-`    `start\_time=time.time() 
-
-`    `selection\_sort(liste) 
-
-`    `somme\_des\_durees = somme\_des\_durees + time.time() - start\_time moyenne = somme\_des\_durees/5 
-
-print("Temps d execution pour 2\_000: %s secondes ---" % (moyenne)) 
-
-somme\_des\_durees = 0 
-
-for i in range(5): 
-
-`    `liste = genere\_liste\_aleatoire(10\_000, 1\_000\_000) 
-
-`    `start\_time=time.time() 
-
-`    `selection\_sort(liste) 
-
-`    `somme\_des\_durees = somme\_des\_durees + time.time() - start\_time moyenne = somme\_des\_durees/5 
-
-print("Temps d execution pour 10\_000: %s secondes ---" % (moyenne)) 
-
-\>>>  ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.034.png)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.035.png)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.005.png)
-
-Temps d execution pour 1\_000: 0.048070335388183595 secondes --- Temps d execution pour 2\_000: 0.16699233055114746 secondes --- Temps d execution pour 10\_000: 4.141367197036743 secondes --- 
-
-On voit bien que multiplier par 10 le nombre d’éléments du tableau à trier revient à multiplier le temps par 10². **Animation :[** http://lwh.free.fr/pages/algo/tri/tri_selection.html ](http://lwh.free.fr/pages/algo/tri/tri_selection.html)**
+**Animation :[** http://lwh.free.fr/pages/algo/tri/tri_selection.html ](http://lwh.free.fr/pages/algo/tri/tri_selection.html)**
 
 ## **3. Tri<a name="_page4_x40.00_y702.92"></a> par insertion** 
 ### **3.1. Le<a name="_page4_x40.00_y724.92"></a> principe** 
