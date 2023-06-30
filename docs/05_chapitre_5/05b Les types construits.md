@@ -1666,6 +1666,7 @@ transcription('TTCTTCTTCGTAC', -4, 4) == None
 Les ARN messagers sont traduits en protéines. Le passage d'une séquence ARN composée de 4 nucléotides à une séquence protéique composée de 20 acides aminés, se fait à l'aide du code génétique. Dans ce code, chaque mot de 3 bases, appelé codon, correspond à un acide aminé. Il est possible de construire 4³ = 64 codons différents à l'aide des 4 bases. Ce code est donc dégénéré : plusieurs codons correspondent au même acide aminé. Les codons sont lus sans chevauchement, les uns à la suite des autres. 
 
 Les acides aminés sont désignés par une lettre qui représente la forme du nom abrévié. 
+
 **Le code génétique :** 
 
 ```
