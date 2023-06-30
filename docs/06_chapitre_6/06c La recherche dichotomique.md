@@ -179,6 +179,7 @@ n = 2<sup>a</sup>
 log<sub>2</sub>(n) = log<sub>2</sub>(2<sup>a</sup>)
 
 log<sub>2</sub>(n) = a
+
 nous avons donc  a = log<sub>2</sub>(n)
 
 Nous pouvons donc dire que la complexité en temps dans le pire des cas de l'algorithme de recherche dichotomique est **O(log<sub>2</sub>(n))** 
@@ -196,23 +197,20 @@ TERMINAISON : La fonction recherche\_dichotomique contient une boucle non borné
 
 Si l’on arrive trouver une telle quantité, il est évident que l’on va nécessairement sortir de la boucle au bout d’un nombre fini d’itérations, puisqu’**un entier positif ne peut décroître infiniment.**  
 
-Preuve de la terminaison : Pour le cas qui nous occupe, un variant est très facile à trouver : il s’agit de la largeur de la quantité droite - gauche.  
+**Preuve de la terminaison** : Pour le cas qui nous occupe, un variant est très facile à trouver : il s’agit de la largeur de la quantité droite - gauche.  
 
 La condition de boucle étant gauche <= droite, cela correspond exactement à ce que notre variant soit positif ou nul. Montrons maintenant que le variant décroit strictement lors de l’exécution du corps de la boucle. On commence par définir milieu = (gauche + droite) / 2. En particulier, on a alors gauche <= milieu <= droite.
 
 Ensuite, trois cas sont possibles.  
 
 - si T[milieu] = x, on sort directement de la boucle à l’aide d’un return. La **terminaison est assurée.**  
+
 - si T[milieu] > x, on modifie la valeur de gauche. En appelant gauche' cette nouvelle valeur, on a : 
-
-droite - gauche' < droite - milieu <= droite - gauche
-
+```droite - gauche' < droite - milieu <= droite - gauche```
 Ainsi, le variant a **strictement décru.** 
 
 - sinon, on modifie droite et on a de même :
-
-droite' - gauche < milieu - gauche <= droite - gauche 
-
+```droite' - gauche < milieu - gauche <= droite - gauche``` 
 De même, le variant a **strictement décru.**  
 
 On a trouvé un variant pour notre boucle, nous avons prouvé qu’**elle termine bien**. Bien sûr, l’utilisation très basique de ce variant ne permet pas, telle qu’elle, de justifier la complexité de la recherche dichotomique.  
@@ -375,32 +373,11 @@ fonction dichotomie(liste : tableau d’entiers, valeur : entier) -> booléen :
 ```
 
 
-début 
 
-tantque gauche <= droite et non trouvé faire 
-
-milieu = (gauche + droite) / 2 
-
-si liste[milieu] = valeur alors 
-
-trouvé := vrai 
-
-sinon 
-
-si liste[milieu] < valeur alors 
-
-gauche := milieu + 1 sinon 
-
-droite := milieu – 1 
-
-retourne trouve 
-
-fin 
 
 2. Tracer la courbe temps = f(log(taille)) sur Tableur. 
 
 Un test de performances en temps de cet algorithme, effectué sur une machine équipée d’un processeur AMD A9 dual core à 3.5 GHZ et implémenté avec Python 3.4 sous MS Windows 10, donne le tableau de mesures ci-dessous : 
-
 
 
 |Taille  |500 |1000 |2000 |10000 |30000 |100000 |300000 |
@@ -409,7 +386,7 @@ Un test de performances en temps de cet algorithme, effectué sur une machine é
 
 
 
-3. Déterminer l’équation de la droite et prouver que cet algorithme est bien logarithmique 
+3 Déterminer l’équation de la droite et prouver que cet algorithme est bien logarithmique 
 3. Créer un fichier dichotomie.py et implémenter l’algorithme ci-dessus. 
 3. Valider les tests unitaires suivants : 
 
