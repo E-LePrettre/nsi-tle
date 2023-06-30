@@ -195,13 +195,11 @@ print("Liste initiale: ", data)
 def swap(T : list, i : int, j : int) -> list:
     """ fonction permutation (à garder elle sert beaucoup!!)  """
     # à compléter
-    return T
 
 def selection_sort(T : list) -> list:
     """ fonction tri par sélection recherche de la valeur minimum dans une liste
     puis permutation avec indice précédent """
     # à compléter
-    return T
 
 print("Liste triée   : ", selection_sort(data))
 ```

@@ -16,17 +16,19 @@ title: Chapitre 6 - La recherche dichotomique
 
 ## **1.  Introduction<a name="_page0_x40.00_y275.92"></a>** 
 
-La famille des algorithmes « diviser pour régner »1 fait appel à une technique algorithmique consistant à : ![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.001.png)![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.002.png)![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.003.png)
+La famille des algorithmes « diviser pour régner »1 fait appel à une technique algorithmique consistant à : 
 
 1. **Diviser** : découper un problème initial en sous-problèmes 
 2. **Régner** : résoudre les sous-problèmes (récursivement ou directement s'ils sont assez petits) 
-2. **Combiner** : calculer une solution au problème initial à partir des solutions des sous-problèmes 
+3. **Combiner** : calculer une solution au problème initial à partir des solutions des sous-problèmes 
 
 Cette technique fournit des **algorithmes efficaces** pour de nombreux problèmes, comme la recherche d'un élément dans un tableau trié (recherche dichotomique) ou le tri (tri fusion, tri rapide) par exemple. 
 
 La **faible complexité** des algorithmes diviser pour régner est l'un de leurs principaux intérêts. Il existe plusieurs théorème facilitant le calcul des complexités des algorithmes de type diviser pour régner (le principal théorème est le[ Master theorem)](https://fr.wikipedia.org/wiki/Master_theorem). 
 
-La recherche dichotomique est formalisée dans un article de John Mauchly en 1946, mais l'idée  ![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.004.png)d'utiliser une liste triée pour faciliter la recherche remonte à Babylone en -220. L'algorithme  d'Euclide pour calculer le plus grand commun diviseur de deux nombres peut être vu comme un  algorithme diviser pour régner (les deux nombres diminuent et on se ramène à un problème plus  petit). John von Neumann invente le tri fusion en 1945. Knuth donne une méthode utilisée par les  services postaux : les lettres sont triées et séparés en fonction des zones géographiques, puis en  sous-zones géographies, etc.  
+![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.004.png)
+
+La recherche dichotomique est formalisée dans un article de John Mauchly en 1946, mais l'idée d'utiliser une liste triée pour faciliter la recherche remonte à Babylone en -220. L'algorithme  d'Euclide pour calculer le plus grand commun diviseur de deux nombres peut être vu comme un  algorithme diviser pour régner (les deux nombres diminuent et on se ramène à un problème plus  petit). John von Neumann invente le tri fusion en 1945. Knuth donne une méthode utilisée par les  services postaux : les lettres sont triées et séparés en fonction des zones géographiques, puis en  sous-zones géographies, etc.  
 
 ## **2. TP<a name="_page0_x40.00_y599.92"></a>** 
 
@@ -45,7 +47,7 @@ L'idée de base est simple :
 
 ![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.008.jpeg)
 
-### **2.2. Méthode<a name="_page1_x40.00_y518.92"></a> visuelle : La valeur ne se trouve pas dans le tableau ![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.009.png)**
+### **2.2. Méthode<a name="_page1_x40.00_y518.92"></a> visuelle : La valeur ne se trouve pas dans le tableau**
 
 ![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.010.jpeg)
 
@@ -65,14 +67,7 @@ Animation :[ https://www.infoforall.fr/art/algo/animation-de-la-recherche-dichot
 
 Voici une bande de papier illustrant un tableau de nombre en mémoire
 
-Valeur dans le tableau 
-
-
-
-|<p>10 </p><p>***0***</p>|<p>12 </p><p>***1*** </p>|<p>15 </p><p>***2*** </p>|<p>21 </p><p>***3*** </p>|<p>25 </p><p>***4*** </p>|<p>31 </p><p>***5*** </p>|<p>35 </p><p>***6***</p>|<p>37 </p><p>***7***</p>|<p>42 </p><p>***8*** </p>|<p>44 </p><p>***9*** </p>|<p>49 </p><p>***10*** </p>|<p>53 </p><p>***11*** </p>|<p>61 </p><p>***12*** </p>|<p>72 </p><p>**13** </p>|<p>75 </p><p>**14** </p>|<p>85 </p><p>**15** </p>|
-| - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - |
-
-Indice 
+![](Aimg9.png)
 
 Essayons de rechercher le nombre 35 et de connaitre son emplacement (indice) dans le tableau
 
@@ -80,11 +75,13 @@ Le tableau contient 16 valeurs (indice de 0 à 15) **Etape 1** : Comment calcule
 
 |**Indice Bas1** |**Indice Haut1** |**Indice milieu1** |
 | - | - | - |
-||||
-**Etape 2** : Dans quelle partie se trouve la valeur 35 ? ………………………………………………………………………………………………………………………. ![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.009.png)
+
+
+**Etape 2** : Dans quelle partie se trouve la valeur 35 ? ………………………………………………………………………………………………………………………. 
+
 
 ||||||||
-| :- | :- | :- | :- | :- | :- | :- |
+
 **Etape 3** : Comment calculer la moitié de la nouvelle partie du tableau ? 
 
 |**Indice Bas2** |**Indice Haut2** |**Indice milieu2** |
