@@ -200,7 +200,7 @@ def selection_sort(T : list) -> list:
 
 print("Liste triée   : ", selection_sort(data))
 ```
-
+Ne pas oublier de télécharger le script complété
 
 **Activité n°4.: Tri par sélection et temps d’exécution** : AJOUTER ce script aux fonctions de l’activité précédente en mettant en commentaire les deux print précédent : 
 
@@ -264,7 +264,9 @@ L'objectif d'une étape est donc d'insérer le i-ème élément à sa place parm
 
 En pratique, ces deux actions sont fréquemment effectuées en une passe, qui consiste à faire « remonter » l'élément au fur et à mesure jusqu'à rencontrer un élément plus petit. 
 
-### **3.2. Illustration<a name="_page5_x40.00_y290.92"></a> graphique  ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.039.png)**
+### **3.2. Illustration<a name="_page5_x40.00_y290.92"></a> graphique  **
+
+![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.039.png)
 
 Exemple : 9, 2, 7, 1 à trier en ordre croissant avec l’algorithme du tri par insertion :  
 
@@ -282,66 +284,47 @@ Vidéo :[ https://www.youtube.com/watch?v=ROalU379l3U ](https://www.youtube.com/
 
 ### **3.4. Pseudo-code<a name="_page5_x40.00_y542.92"></a>** 
 
-ALGORITHME tri\_insertion ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.040.png)
+```
+ALGORITHME tri_insertion
+    PROCEDURE insere(T, i)            # insère tmp dans le tableau[0...i[ trié
+        tmp = T[i]          			# valeur à inserer
+        j <- i-1		    		# indice en cours                                                        
+        TANT QUE j >= 0 et T[j] > tmp ALORS        
+            T[j+1] <- T [j]         
+	     # l'élément qui précède on le décale vers la droite jusqu'à laisser la place libre à tmp           
+            j <- j - 1              	# on décale l'indice
+        FIN TANT QUE
+        T[j+1] <- tmp   			# on insère tmp
 
-DEBUT 
+    PROCEDURE tri_insertion(T)     
+        POUR i ALLANT DE 1 A n [SAUT DE 1] FAIRE         
+            insere (T, i)             
+            i <- i + 1                                     
+        FIN POUR
+```
 
-`    `PROCEDURE insere(T, i)            # insère tmp dans le tableau[0...i[ trié 
 
-`        `tmp = T[i]             # valeur à inserer 
-
-`        `j <- i-1  # indice en cours                                                            TANT QUE j >= 0 et T[j] > tmp ALORS         
-
-`            `T[j+1] <- T [j]          
-
-- l'élément qui précède on le décale vers la droite jusqu'à laisser la place libre à tmp            
-
-`            `j <- j - 1                # on décale l'indice 
-
-`        `FIN TANT QUE 
-
-`        `T[j+1] <- tmp     # on insère tmp 
-
-`    `PROCEDURE tri\_insertion(T)      
-
-`        `POUR i ALLANT DE 1 A n [SAUT DE 1] FAIRE                      insere (T, i)              
-
-`            `i <- i + 1                                              FIN POUR 
-
-FIN ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.006.png)
-
-Première NSI   Chap 8 : Algorithmes de tri  Page 8/16 
 ### **3.5. Complexité<a name="_page6_x40.00_y36.92"></a>**  
 
-L’algorithme du tri par insertion a une complexité de O(N2). Calculons le nombre d’instructions : 
+L’algorithme du tri par insertion a une complexité de O(N²). Calculons le nombre d’instructions : 
 
-`                    `DEBUT ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.041.png)
+```
+                        PROCEDURE insere(T, i, tmp)                     
+                            i, j, tmp ENTIERS
+1                           j <- i                                                          
+N-1 fois                    TANT QUE j > 0 et T[j-1] > tmp ALORS        
+    1                           T[j] <- T [j-1]                         
+    1                           j <- j - 1                              
+                            FIN TANT QUE
+1                           T[j] <- tmp                                   
+                        PROCEDURE tri_insertion(T)     
+                            i, ENTIERS                                                     
+N fois                      POUR i ALLANT DE 1 A n [SAUT DE 1] FAIRE         
+    insere                      insere (T, i, T[i])             
+    1                           i <- i + 1                                     
+                            FIN POUR
+```
 
-`                        `PROCEDURE insere(T, i, tmp)                      
-
-`                            `i, j, tmp ENTIERS 
-
-1                           j <- i                                                           N-1 fois                    TANT QUE j > 0 et T[j-1] > tmp ALORS         
-
-`    `1                           T[j] <- T [j-1]                          
-
-`    `1                           j <- j - 1                               
-
-`                            `FIN TANT QUE 
-
-1                           T[j] <- tmp                                    
-
-`                        `PROCEDURE tri\_insertion(T)      
-
-`                            `i, ENTIERS                                                      N fois                      POUR i ALLANT DE 1 A n [SAUT DE 1] FAIRE          
-
-`    `insere                      insere (T, i, T[i])              
-
-`    `1                           i <- i + 1                                      
-
-`                            `FIN POUR 
-
-`                    `FIN 
 
 - Procédure insere : 1 + (N – 1) x 2 + 1 = 2 + (N – 1) x 2 = 2 N 
 - Procédure tri\_insertion : N x (2N +1) = 2 N² + N 
@@ -358,128 +341,96 @@ Pour simplifier les calculs de complexité, on s’intéresse seulement aux nomb
 
 *Pour trouver le plus petit élément, (n-1) itérations sont nécessaires, pour le 2ème plus petit élément, (n-2) itérations sont effectuées, .… Pour trouver le dernier plus petit élément, 0 itération sont effectuées.* 
 
-*Le nombre de itérations des deux boucles est 1 + 2 + 3 = 6 c’est-à-dire* ∑3
-
-=1
+*Le nombre de itérations des deux boucles est 1 + 2 + 3 = 6 c’est-à-dire* ![](Aimg8.png)
 
 *Donc le pire des cas, le tableau est trié à l’envers, pour chaque valeur i on compte N - 1 passages dans la boucle for :* 
 
-−1
+![](Aimg7.png)
 
-( − 1)
-
-- =
-
-2
-
-=1
-
-**Conclusion** : le **tri par insertion** a une complexité en temps de **O(N²) dans le pire des cas O(N) dans le ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.042.png)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.043.png)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.044.png)meilleur des cas (tableau déjà trié).**  
+**Conclusion** : le **tri par insertion** a une complexité en temps de **O(N²) dans le pire des cas O(N) dans le meilleur des cas (tableau déjà trié).**  
 
 Cependant des améliorations et des variantes permettent de le rendre plus rapide comme le tri shell. C’est un algorithme stable et en place (travail sur la structure et non sur la copie).
 
 ### **3.6. Preuve<a name="_page6_x40.00_y637.92"></a> de correction** 
 
-Recherche de **l’invariant de boucle** : Deux éléments ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.045.png)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.046.png)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.047.png)
+Recherche de **l’invariant de boucle** : Deux éléments 
 
 - Boucle for : A la ième étape, les i premiers éléments du tableau sont triés par ordre croissant. 
 - Boucle while : A la fin de la jème étape, la valeur que l’on cherche à insérer est plus petite que toutes les valeurs de l’indice j+1 à l’indice i 
 
 D’où la correction de cet algorithme 
 
-La boucle for se termine forcément. Pour la boucle while, on part de j qui vaut n jusqu’à 0. **La terminaison est assurée.** ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.006.png)
+La boucle for se termine forcément. Pour la boucle while, on part de j qui vaut n jusqu’à 0. **La terminaison est assurée.** 
 
-Première NSI   Chap 10 : Algorithmes de tri  Page 10/16 
+
 
 ### **3.7. Implémentation<a name="_page7_x40.00_y36.92"></a> en Python** 
 
-**Activité n°5.:** Création de la liste aléatoire **avec l’activité 1** : reprendre l’activité 1 ou 2 
+**Activité n°5.:** Création de la liste aléatoire **avec l’activité 1** : reprendre l’activité 1 et 2 
 
-**Activité n°6.: implémentation classique** : ajouter à l’activité précédente les deux fonctions suivantes : ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.048.png)
+**Activité n°6.: implémentation classique** : ajouter à l’activité précédente les deux fonctions suivantes : 
 
-def insert(T, i): 
+```python
+def insert(T, i):
+    """ fonction qui insère la valeur T[i] à la bonne place dans le tableau"""
+    # à compléter
 
-`    `""" fonction qui insère la valeur T[i] à la bonne place dans le tableau"""     ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.049.png)tmp = T[i] 
+def insertion_sort(T):
+    """ fonction tri par insertion parcours du vecteur avec décalage ascendant des éléments """
+    # à compléter
 
-`    `j = i - 1 
+print("Liste triée   : ", insertion_sort(data))
+```
 
-`    `while j >= 0 and T[j] > tmp: 
+Ne pas oublier de télécharger le script complété
 
-`        `T[j+1] = T[j] 
-
-`        `j = j - 1 
-
-`    `T[j+1] = tmp 
-
-def insertion\_sort(T): 
-
-""" fonction tri par insertion parcours du vecteur avec décalage ascendant des éléments """ ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.050.png)    for i in range(1,len(T)): 
-
-`        `insert(T, i) 
-
-`    `return T 
-
-print("Liste triée   : ", insertion\_sort(data)) 
 
 **Remarque : on aurait pu également faire une seule fonction**  
 
 **Activité n°7.: Tri par insertion et temps d’exécution** : ajouter ce script aux fonctions de l’activité précédente en mettant en commentaire les deux print précédent : 
 
-import time ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.051.png)
+```python
+import time
 
-- on fait une moyenne sur plusieurs tris de tableau de même longueur somme\_des\_durees = 0 
+# on fait une moyenne sur plusieurs tris de tableau de même longueur
+somme_des_durees = 0
+for i in range(5):
+    liste = genere_liste_aleatoire(1_000, 1_000_000)
+    start_time=time.time()
+    insertion_sort(liste)
+    somme_des_durees = somme_des_durees + time.time() - start_time
+moyenne = somme_des_durees/5
+print("Temps d execution pour 1_000: %s secondes ---" % (moyenne))
 
-for i in range(5): 
+somme_des_durees = 0
+for i in range(5):
+    liste = genere_liste_aleatoire(2_000, 1_000_000)
+    start_time=time.time()
+    insertion_sort(liste)
+    somme_des_durees = somme_des_durees + time.time() - start_time
+moyenne = somme_des_durees/5
+print("Temps d execution pour 2_000: %s secondes ---" % (moyenne))
 
-`    `liste = genere\_liste\_aleatoire(1\_000, 1\_000\_000) 
-
-`    `start\_time=time.time() 
-
-`    `insertion\_sort(liste) 
-
-`    `somme\_des\_durees = somme\_des\_durees + time.time() - start\_time moyenne = somme\_des\_durees/5 
-
-print("Temps d execution pour 1\_000: %s secondes ---" % (moyenne)) 
-
-somme\_des\_durees = 0 
-
-for i in range(5): 
-
-`    `liste = genere\_liste\_aleatoire(2\_000, 1\_000\_000) 
-
-`    `start\_time=time.time() 
-
-`    `insertion\_sort(liste) 
-
-`    `somme\_des\_durees = somme\_des\_durees + time.time() - start\_time moyenne = somme\_des\_durees/5 
-
-print("Temps d execution pour 2\_000: %s secondes ---" % (moyenne)) 
-
-somme\_des\_durees = 0 
-
-for i in range(5): 
-
-`    `liste = genere\_liste\_aleatoire(10\_000, 1\_000\_000) 
-
-`    `start\_time=time.time() 
-
-`    `insertion\_sort(liste) 
-
-`    `somme\_des\_durees = somme\_des\_durees + time.time() - start\_time moyenne = somme\_des\_durees/5 
-
-print("Temps d execution pour 10\_000: %s secondes ---" % (moyenne)) 
-
-\>>>  ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.052.png)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.053.png)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.054.png)
-
-Temps d execution pour 1\_000: 0.06062502861022949 secondes --- Temps d execution pour 2\_000: 0.23924431800842286 secondes --- Temps d execution pour 10\_000: 6.42768611907959 secondes --- 
+somme_des_durees = 0
+for i in range(5):
+    liste = genere_liste_aleatoire(10_000, 1_000_000)
+    start_time=time.time()
+    insertion_sort(liste)
+    somme_des_durees = somme_des_durees + time.time() - start_time
+moyenne = somme_des_durees/5
+print("Temps d execution pour 10_000: %s secondes ---" % (moyenne))
+```
+On mesure la durée moyenne (sur 5 tableaux) d’exécution du tri sur des tableaux dont le nombre d’éléments est de plus en plus grand.
 
 **Animation :[ http://lwh.free.fr/pages/algo/tri/tri_insertion.html ](http://lwh.free.fr/pages/algo/tri/tri_insertion.html)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.006.png)**
 
-Première NSI   Chap 12 : Algorithmes de tri  Page 12/16 
+
 
 ## **4. Autres<a name="_page8_x40.00_y36.92"></a> algorithmes de tris : le tri à bulles (Bubble sort)** 
 
-Le tri à bulles est un algorithme de tri qui consiste à faire  **remonter  ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.055.png)progressivement les plus petits éléments d'une liste**, comme les bulles  d'air remontent à la surface d'un liquide.  
+Le tri à bulles est un algorithme de tri qui consiste à faire  **remonter  progressivement les plus petits éléments d'une liste**, comme les bulles  d'air remontent à la surface d'un liquide. 
+
+![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.055.png)
 
 L'algorithme  parcourt  la  liste,  et  **compare  les  couples  d'éléments  successifs**.   
 
@@ -489,91 +440,66 @@ Après chaque parcours complet de la liste, l'algorithme **recommence l'opérati
 
 On optimise l’algorithme en se basant sur la propriété que le dernier élément permuté se trouve nécessairement bien trié. Il n’est alors pas besoin de parcourir la liste jusqu’à la fin : combsort (tri à peignes) 
 
-**Conclusion** : Le tri à bulles présente une complexité en **O(N²)** dans le pire des cas (où N est la longueur de la liste), et en O(N) dans le cas où le tableau est déjà ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.056.png)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.057.png)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.058.png)trié, ce qui le classe parmi les mauvais algorithmes de tri. Il n'est donc quasiment pas utilisé en pratique. 
+**Conclusion** : Le tri à bulles présente une complexité en **O(N²)** dans le pire des cas (où N est la longueur de la liste), et en O(N) dans le cas où le tableau est déjà trié, ce qui le classe parmi les mauvais algorithmes de tri. Il n'est donc quasiment pas utilisé en pratique. 
 
 Comme le tri par insertion, le tri à bulle est un tri stable. Illustration vidéo :[ https://www.youtube.com/watch?v=lyZQPjUT5B4 ](https://www.youtube.com/watch?v=lyZQPjUT5B4) 
 
-**Activité n°8.:** Création de la liste aléatoire **avec l’activité 1** : reprendre l’activité 1 ou 2 
+**Activité n°8.:** Création de la liste aléatoire **avec l’activité 1** : reprendre l’activité 1 et 2 
 
 **Activité n°9.: implémentation classique Avec la fonction echange et la fonction bubble\_sort** 
 
-def swap(T : list, i : int, j : int) -> list: ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.059.png)
+```python
+def swap(T : list, i : int, j : int) -> list:
+    """ fonction permutation (à garder elle sert beaucoup!!)  """
+    T[i] , T[j] = T[j] , T[i]
+    return T
 
-`    `""" fonction permutation (à garder elle sert beaucoup!!)  """     T[i] , T[j] = T[j] , T[i] 
+def bubble_sort(T : list) -> list:
+    """ fonction tri a bulle permutation des éléments 2 à 2 en faisant remonter
+    la plus grande valeur en fin de la liste  """
+    # à compléter
 
-`    `return T 
 
-def bubble\_sort(T : list) -> list: 
+```
 
-`    `""" fonction tri a bulle permutation des éléments 2 à 2 en faisant remonter     la plus grande valeur en fin de la liste  """ ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.060.png)
-
-`    `for i in range(len(T) - 1): # ou for i in range(len(T)) mais tour pour rien ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.061.png)        for j in range(len(T) - 1): 
-
-`            `if T[j] > T[j + 1]: 
-
-`                `swap(T, j, j + 1) 
-
-`    `return T 
-
-\>>> ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.030.png)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.062.png)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.032.png)
-
-Liste initiale:  [1, 14, 6, 17, 11] Liste triée   :  [1, 6, 11, 14, 17] 
 
 **Remarque : il existe d’autres versions du tri bulle** 
 
-**Activité n°10.: Tri bulle et temps d’exécution** : ajouter ce script aux fonctions de l’activité précédente en mettant en commentaire les deux print précédent : ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.006.png)
+**Activité n°10.: Tri bulle et temps d’exécution** : ajouter ce script aux fonctions de l’activité précédente en mettant en commentaire les deux print précédent : 
 
-Première NSI   Chap 14 : Algorithmes de tri  Page 14/16 
+```python
+import time
 
-import time ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.063.png)
+# on fait une moyenne sur plusieurs tris de tableau de même longueur
+somme_des_durees = 0
+for i in range(5):
+    liste = genere_liste_aleatoire(1_000, 1_000_000)
+    start_time=time.time()
+    bubble_sort(liste)
+    somme_des_durees = somme_des_durees + time.time() - start_time
+moyenne = somme_des_durees/5
+print("Temps d execution pour 1_000: %s secondes ---" % (moyenne))
 
-- on fait une moyenne sur plusieurs tris de tableau de même longueur somme\_des\_durees = 0 
+somme_des_durees = 0
+for i in range(5):
+    liste = genere_liste_aleatoire(2_000, 1_000_000)
+    start_time=time.time()
+    bubble_sort(liste)
+    somme_des_durees = somme_des_durees + time.time() - start_time
+moyenne = somme_des_durees/5
+print("Temps d execution pour 2_000: %s secondes ---" % (moyenne))
 
-for i in range(5): 
+somme_des_durees = 0
+for i in range(5):
+    liste = genere_liste_aleatoire(10_000, 1_000_000)
+    start_time=time.time()
+    bubble_sort(liste)
+    somme_des_durees = somme_des_durees + time.time() - start_time
+moyenne = somme_des_durees/5
+print("Temps d execution pour 10_000: %s secondes ---" % (moyenne))
+```
 
-`    `liste = genere\_liste\_aleatoire(1\_000, 1\_000\_000) 
 
-`    `start\_time=time.time() 
-
-`    `bubble\_sort(liste) 
-
-`    `somme\_des\_durees = somme\_des\_durees + time.time() - start\_time moyenne = somme\_des\_durees/5 
-
-print("Temps d execution pour 1\_000: %s secondes ---" % (moyenne)) 
-
-somme\_des\_durees = 0 
-
-for i in range(5): 
-
-`    `liste = genere\_liste\_aleatoire(2\_000, 1\_000\_000) 
-
-`    `start\_time=time.time() 
-
-`    `bubble\_sort(liste) 
-
-`    `somme\_des\_durees = somme\_des\_durees + time.time() - start\_time moyenne = somme\_des\_durees/5 
-
-print("Temps d execution pour 2\_000: %s secondes ---" % (moyenne)) 
-
-somme\_des\_durees = 0 
-
-for i in range(5): 
-
-`    `liste = genere\_liste\_aleatoire(10\_000, 1\_000\_000) 
-
-`    `start\_time=time.time() 
-
-`    `bubble\_sort(liste) 
-
-`    `somme\_des\_durees = somme\_des\_durees + time.time() - start\_time moyenne = somme\_des\_durees/5 
-
-print("Temps d execution pour 10\_000: %s secondes ---" % (moyenne)) 
-
-\>>>  ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.064.png)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.065.png)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.066.png)
-
-Mesure de la durée de plusieurs tris 
-
-Temps d execution pour 100: 0.002393150329589844 secondes --- Temps d execution pour 1\_000: 0.22002701759338378 secondes --- 
 
 Animation :[ http://lwh.free.fr/pages/algo/tri/tri_bulle.html ](http://lwh.free.fr/pages/algo/tri/tri_bulle.html)
 
@@ -583,23 +509,20 @@ Animation :[ http://lwh.free.fr/pages/algo/tri/tri_bulle.html ](http://lwh.free.
 
 **Exercice n°2** : Créer une fonction selection\_sort\_asc\_partir\_fin() qui permet trier avec l’algorithme de tri par sélection une liste aléatoire par valeurs croissantes de manière à compléter l’algorithme suivant :  
 
-def selection\_sort\_asc\_partir\_fin(*T*): *![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.067.png)*    for i in range(…, 0, …): 
+```python
+def selection_sort_asc_partir_fin(T):
+    for i in range(…, 0, …):
+        maxi = …
+        for j in range(…):
+            if T[j]> T[…]:
+                maxi = j
+        if maxi !=i:
+            …
+    return T
+```
 
-`        `maxi = … 
-
-`        `for j in range(…): 
-
-`            `if *T*[j]> *T*[…]: 
-
-`                `maxi = j 
-
-`        `if maxi !=i: 
-
-`            `… 
-
-`    `return *T* 
 
 **Exercice n°3** : Créer une fonction selection\_sort\_desc\_partir\_fin() qui permet trier avec l’algorithme de tri par sélection et l’algorithme de l’exercice 2, une liste aléatoire par valeurs décroissantes. 
 
-**Exercice n°4** : Créer une fonction bubble\_sort\_desc() qui permet trier avec l’algorithme de tri à bulles une liste aléatoire par valeurs décroissantes. ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.006.png)
-Première NSI   Chap 7 : Algorithmes de tri  Page 16/16 
+**Exercice n°4** : Créer une fonction bubble\_sort\_desc() qui permet trier avec l’algorithme de tri à bulles une liste aléatoire par valeurs décroissantes. 
+
