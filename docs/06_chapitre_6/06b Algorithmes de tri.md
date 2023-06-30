@@ -60,107 +60,56 @@ Ce tri se décompose réellement en deux étapes distinctes : À chaque tour, on
 
 Vidéo :[ https://www.youtube.com/watch?v=Ns4TPTC8whw ](https://www.youtube.com/watch?v=Ns4TPTC8whw)Attention : les danseurs s’échangent (si nécessaire) à chaque fois alors que le vrai algorithme ne procède à l’échange qu’à la fin de chaque tour  
 
-### **2.. Pseudo-code<a name="_page1_x40.00_y485.92"></a>** 
+### **2.4. Pseudo-code<a name="_page1_x40.00_y485.92"></a>** 
 
 ```
 ALGORITHME tri_selection
-DEBUT
- PROCEDURE echange (T, i, j) # on échange la valeur de T[i] avec celle de T[j]
- tmp <- T[i] # variable temporaire pour stocker
- T[i] <- T[j]
- T[j] <- tmp
- PROCEDURE tri_sélection (T)
- POUR i ALLANT DE 1 A N [SAUT DE 1] FAIRE # parcours 
- mini <- i # on stocke l'indice du premier terme
- POUR j ALLANT DE i+1 A N [SAUT DE 1] # parcours
- SI T[j] < T[mini] ALORS # si la valeur stockée n'est pas la plus petite
- mini <- j 
- FIN SI
- j <- j + 1
- FIN POUR
- SI mini =! i ALORS # donc la condition SI a été vérifié
- echange(T, i, mini) # on :appelle la procédure d'échange
- FIN SI
- i <- i + 1
- FIN POUR 
-FIN
+    PROCEDURE echange (T, i, j)      # on échange la valeur de T[i] avec celle de T[j]
+        tmp <- T[i]                 # variable temporaire pour stocker
+        T[i] <- T[j]
+        T[j] <- tmp
+
+    PROCEDURE tri_sélection (T)
+        POUR i ALLANT DE 1 A N [SAUT DE 1] FAIRE    # parcours 
+            mini <- i                                # on stocke l'indice du premier terme
+            POUR j ALLANT DE i+1 A N [SAUT DE 1]    # parcours
+                SI T[j] < T[mini] ALORS         	# si la valeur stockée n'est pas la plus petite
+                    mini <- j                       
+                FIN SI
+                j <- j + 1
+            FIN POUR
+            SI mini =! i ALORS        		  	# donc la condition SI a été vérifié
+                echange(T, i, mini)            	# on :appelle la procédure d'échange
+            FIN SI
+            i <- i + 1
+        FIN POUR    
 ```
-ALGORITHME tri\_selection ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.011.png)
 
-DEBUT 
-
-`    `PROCEDURE echange (T, i, j)      # on échange la valeur de T[i] avec celle de T[j]         tmp <- T[i]                 # variable temporaire pour stocker 
-
-`        `T[i] <- T[j] 
-
-`        `T[j] <- tmp 
-
-`    `PROCEDURE tri\_sélection (T) 
-
-`        `POUR i ALLANT DE 1 A N [SAUT DE 1] FAIRE    # parcours  
-
-`            `mini <- i                                # on stocke l'indice du premier terme
-
-`            `POUR j ALLANT DE i+1 A N [SAUT DE 1]    # parcours 
-
-`                `SI T[j] < T[mini] ALORS           # si la valeur stockée n'est pas la plus petite                     mini <- j                        
-
-`                `FIN SI 
-
-`                `j <- j + 1 
-
-`            `FIN POUR 
-
-`            `SI mini =! i ALORS           # donc la condition SI a été vérifié 
-
-`                `echange(T, i, mini)              # on :appelle la procédure d'échange             FIN SI 
-
-`            `i <- i + 1 
-
-`        `FIN POUR     
-
-FIN ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.006.png)
-
-Première NSI   Chap 2 : Algorithmes de tri  Page 2/16 
 ### **2.5. Complexité<a name="_page2_x40.00_y36.92"></a>** 
 
 Le tri par sélection a une complexité en O(N²) : Calculons le nombre d’itérations 
 
-`                        `DEBUT ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.012.png)
-
-`                            `PROCEDURE echange (T, i, j) 
-
-1                               tmp <- T[i]                                  1                               T[i] <- T[j]  
-
-1                               T[j] <- tmp 
-
-`                            `PROCEDURE tri\_sélection (T) 
-
-N fois                          POUR i ALLANT DE 1 A N [SAUT DE 1] FAIRE   
-
-`    `1                               mini <- i                                 
-
-`    `N-1 fois                        POUR j ALLANT DE i+1 A N [SAUT DE 1]                                  1                               SI T[j] < T[mini] ALORS               
-
-`        `1 (pire cas)                        mini <- j      
-
-`                                        `FIN SI 
-
-`        `1+1 pour le calcul              j <- j + 1 
-
-`                                    `FIN POUR 
-
-`    `N-1 (pire cas)                  SI mini =! i FAIRE                        
-
-`                                        `echange(T, i, mini)            
-
-`                                    `FIN SI 
-
-`    `1+1 pour le calcul              i <- i + 1  
-
-`                                `FIN POUR     
-
-`                        `FIN 
+```
+                            PROCEDURE echange (T, i, j)
+1                               tmp <- T[i]                                 	
+1                               T[i] <- T[j]				
+1                               T[j] <- tmp	
+			
+                            PROCEDURE tri_sélection (T)
+N fois                          POUR i ALLANT DE 1 A N [SAUT DE 1] FAIRE  
+    1                               mini <- i                                		
+    N-1 fois                        POUR j ALLANT DE i+1 A N [SAUT DE 1]                         
+        1                               SI T[j] < T[mini] ALORS              			
+        1 (pire cas)                        mini <- j     					               
+                                        FIN SI
+        1+1 pour le calcul              j <- j + 1				
+                                    FIN POUR
+    N-1 (pire cas)                  SI mini =! i FAIRE                       		
+                                        echange(T, i, mini)           
+                                    FIN SI
+    1+1 pour le calcul              i <- i + 1					
+                                FIN POUR    
+```
 
 Procédure d’échange 3 opérations pour chaque échange 
 
@@ -174,15 +123,9 @@ Donc le nombre d’itérations dans le pire des cas : N x (3+4N-4+3N-3) = N x (7
 
 *Pour aller plus loin : De la même manière en ne s’intéressant qu’aux boucle, dans le pire des cas, chaque élément est inséré au début de la partie trié. Dans ce cas, tous les éléments de la partie triée doivent être déplacés à chaque itération. La ième itération génère (i-1) comparaisons et échanges de valeurs :* 
 
-( − 1)
+![](Aimg7.png)
 
-- − 1 =
-
-2
-
-=1
-
-**Conclusion** : Le **tri par sélection** est donc un algorithme assez simple, mais peu efficace à cause de sa complexité en ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.013.png)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.014.png)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.015.png)**O(N²) dans le meilleur des cas ou dans le pire des cas.**  
+**Conclusion** : Le **tri par sélection** est donc un algorithme assez simple, mais peu efficace à cause de sa complexité en **O(N²) dans le meilleur des cas ou dans le pire des cas.**  
 
 On parle aussi de **complexité quadratique.** 
 
@@ -192,11 +135,10 @@ Le tri par sélection sert de base à d'autres algorithmes plus efficaces que no
 
 On dit qu'un algorithme de tri est ***stable*** s'il ne modifie pas l'ordre initial des clés identiques. 
 
-Par exemple, imaginez que vous vouliez trier la collection de bouteilles ci-dessous par ordre de volume (le volume est indiqué sous la bouteille) : ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.006.png)
+Par exemple, imaginez que vous vouliez trier la collection de bouteilles ci-dessous par ordre de volume (le volume est indiqué sous la bouteille) : 
 
 ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.016.png)
 
-Première NSI   Chap 4 : Algorithmes de tri  Page 4/16 
 
 Si vous obtenez ceci, alors votre tri n'était **pas stable** : 
 
@@ -212,14 +154,14 @@ L'intérêt d'un tri stable est **qu'on peut appliquer ce tri successivement, av
 
 ### **2.7. Preuve<a name="_page3_x40.00_y297.92"></a> de correction** 
 
-**Recherche de l’invariant de boucle** : Deux éléments ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.019.png)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.020.png)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.021.png)
+**Recherche de l’invariant de boucle** : Deux éléments 
 
 - Au début de la ième étape, les i-1 premiers éléments du tableau sont triés par ordre croissant. 
 - Au début de la ième étape, les éléments de rang supérieurs ou égal à i sont tous supérieurs au i-1ème élément 
 
 D’où la correction de cet algorithme 
 
-On a deux boucles for qui sont imbriquées  ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.022.png)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.023.png)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.024.png)
+On a deux boucles for qui sont imbriquées  
 
 - À chaque tour de la boucle extérieure, la liste restante diminue. 
 - À chaque tour de la boucle intérieure, j augmente. Elle s’arrête bien. 
@@ -228,47 +170,37 @@ On a deux boucles for qui sont imbriquées  ![](Aspose.Words.44e8a127-fa79-459d-
 
 ### **2.8. Implémentation<a name="_page3_x40.00_y497.92"></a> en Python** 
 
-**Activité n°2.:** Création de la liste aléatoire **avec l’activité 1** ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.025.png)
+**Activité n°2.:** Création de la liste aléatoire **avec l’activité 1** 
 
-- Création d'une liste de 5 valeurs comprises entre 0 et 20 à trier data = genere\_liste\_aleatoire(5, 20) 
+```python
+import random
+def genere_liste_aleatoire(N, n):
+    """Génére une liste aléatoire de N éléments compris entre 0 et n"""
+    return [random.randrange(n) for i in range(N)]
 
-print("Liste initiale: ", data) 
+# Création d'une liste de 5 valeurs comprises entre 0 et 20 à trier
+data = genere_liste_aleatoire(5, 20)
+print("Liste initiale: ", data)
+```
 
-**Activité n°3.: implémentation classique** : ajouter à l’activité 2 les deux fonctions suivantes : ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.026.png)
 
-def swap(T : list, i : int, j : int) -> list: 
+**Activité n°3.: implémentation classique** : AJOUTER à l’activité 2 les deux fonctions suivantes à compléter avec l'algorithme précédent : 
 
-`    `""" fonction permutation (à garder elle sert beaucoup!!)  """     T[i] , T[j] = T[j] , T[i]  
+```python
+def swap(T : list, i : int, j : int) -> list:
+    """ fonction permutation (à garder elle sert beaucoup!!)  """
+    # à compléter
+    return T
 
-`    `return T 
+def selection_sort(T : list) -> list:
+    """ fonction tri par sélection recherche de la valeur minimum dans une liste
+    puis permutation avec indice précédent """
+    # à compléter
+    return T
 
-def selection\_sort(T : list) -> list: 
+print("Liste triée   : ", selection_sort(data))
+```
 
-`    `""" fonction tri par sélection recherche de la valeur minimum dans une liste     puis permutation avec indice précédent """ ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.027.png)
-
-`    `for i in range(len(T)): 
-
-`        `mini = i                        # au départ mini = i = 0 ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.028.png)
-
-`        `for j in range(i+1, len(T)):    # au départ j = 1 
-
-`            `if T[j] < T[mini]:          # on compare chaque T[j] à T[mini] ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.029.png)
-
-`                `mini = j 
-
-`        `if mini != i : 
-
-`            `swap(T, i, mini ) 
-
-`    `return T 
-
-print("Liste triée   : ", selection\_sort(data)) ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.006.png)
-
-Première NSI   Chap 6 : Algorithmes de tri  Page 6/16 
-
-\>>>  ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.030.png)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.031.png)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.032.png)
-
-Liste initiale:  [9, 16, 14, 12, 7] Liste triée   :  [7, 9, 12, 14, 16] 
 
 **Activité n°4.: Tri par sélection et temps d’exécution** : ajouter ce script aux fonctions de l’activité précédente en mettant en commentaire les deux print précédent : 
 

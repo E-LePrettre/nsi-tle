@@ -1498,7 +1498,21 @@ Une attaque possible est donc la suivante : on découpe notre message en plusieu
 
 Voici un petit algorithme correspondant au chiffrement de Vigenère. 
 
-![](Aimg22.png)
+````
+Algorithme vigenere
+	Pour i := 1 à 26 faire
+		Pour j := 1 à 26 faire
+			Pour k := 1 à 26 faire
+				clef := [i, j, k]
+				index := 0
+				afficher(clef)
+				Pour car dans texte_codé faire
+					si car < 'A' OU car > 'Z' alors
+						afficher(car)
+					sinon
+						afficher(caesar(car, clef[index]))
+	                   		index := (index + 1) modulo taille(clef)
+````
 
 
 
