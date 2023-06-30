@@ -69,7 +69,7 @@ Une fois la fonction définie, nous pouvons l’appeler :
 
 ### **2.1. Les<a name="_page1_x40.00_y262.92"></a> structures conditionnelles**  
 #### **2.1.1. L’instruction<a name="_page1_x40.00_y281.92"></a> simple if**
-![](Aimg.png)
+![](Aimg0.png)
 
 L’instruction if  (si en français) permet d’exécuter des instructions  seulement si une certaine condition est satisfaite.  
 
@@ -745,9 +745,9 @@ Pour ne pas être dérangé dans ses aventures il décide de les couper chaque f
 
 **Exercice 10** ★★ Ecrire une méthode heron(U, n) qui donne la valeur de la suite pour un rang n (méthode de Héron) : La méthode de Héron permet d’approcher la valeur de la racine carrée d’un nombre. Nous allons l’appliquer pour déterminer la valeur approchée de la racine de 2. Elle est définie par la suite : 
 
-![](Aimg2.png)
+![](Aimg02.png)
 Donc cela signifie :
-![](Aimg3.png)
+![](Aimg03.png)
 
 n étant le rang 0que l’on veut calculer1la suite   2 3
 
@@ -773,11 +773,11 @@ Le nombre d’or est un célèbre nombre irrationnel :[ Wikipédia.](https://fr.
 Il a été étudié par de nombreux mathématiciens au cours du temps.  
 Il vaut $\phi$ =$\frac{1+√5}{2}$  et vaut approximativement 1,61803. On peut  estimer la valeur numérique de la fraction continue suivante :  
 
-![](Aimg4.png)
+![](Aimg04.png)
 
 
 Cela signifie que pour le rang 3, on aura : 
-![](Aimg5.png)
+![](Aimg05.png)
 
 
 Ecrire une fonction nombre_dor(n) qui détermine la valeur approchée du nombre d’or (seulement la valeur 
