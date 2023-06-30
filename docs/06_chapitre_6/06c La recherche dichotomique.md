@@ -168,7 +168,7 @@ Sachant qu'**à chaque itération de la boucle on divise le tableau en 2,** cela
 
 Autrement dit, combien de fois faut-il diviser n par 2 pour obtenir 1. 
 
-Mathématiquement cela se traduit par l'équation  $ {n \over 2^a}  =1$ avec a le nombre de fois qu'il faut diviser n par 2 pour obtenir 1. Il faut donc trouver a.  
+Mathématiquement cela se traduit par l'équation  $\frac {n }{ 2^a}  =1$ avec a le nombre de fois qu'il faut diviser n par 2 pour obtenir 1. Il faut donc trouver a.  
 
 A ce stade il est nécessaire d'introduire une nouvelle notion mathématique : le "logarithme base 2" noté log2.  Par définition  2(2 ) = . Nous avons donc :  ![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.009.png)
 
