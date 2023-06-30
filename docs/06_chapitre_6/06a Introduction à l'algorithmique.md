@@ -194,7 +194,7 @@ O caractérise le comportement asymptotique quand n → +∞.
 
 #### **4.1.3. Algorithmes sans structure conditionnelle** 
 
-**Activité n°2.:** On s’interesse à la fonction (−1)n.**  Le coût T(n) de cet algorithme écrit en python.
+**Activité n°2.:** On s’interesse à la fonction (−1)<sup>n</sup>.  Le coût T(n) de cet algorithme écrit en python.
 
 ![](Aimg4.png)
 
