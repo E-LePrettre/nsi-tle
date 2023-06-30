@@ -387,32 +387,28 @@ Un test de performances en temps de cet algorithme, effectué sur une machine é
 
 
 3 Déterminer l’équation de la droite et prouver que cet algorithme est bien logarithmique 
-3. Créer un fichier dichotomie.py et implémenter l’algorithme ci-dessus. 
-3. Valider les tests unitaires suivants : 
+4 Créer un fichier dichotomie.py et implémenter l’algorithme ci-dessus. 
+5 Valider les tests unitaires suivants : 
 
-dichotomie([], 0) == False ![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.041.png)
+```python
+dichotomie([], 0) == False
+dichotomie([1], 0) == False
+dichotomie([1], 1) == True
+dichotomie([1, 2, 3], 2) == True
+dichotomie([1, 2, 3, 4], 2) == True
+dichotomie([1, 2, 3, 4], 0.1 * 20) == True
+dichotomie([1, 2, 3, 4], 2.5) == False
+dichotomie("string", 's') == False
+dichotomie(['g', 'i', 'n', 'r', 's', 't'], 's') == True
+```
 
-dichotomie([1], 0) == False 
 
-dichotomie([1], 1) == True 
+6 On souhaite améliorer l’algorithme ci-dessus pour obtenir également la position de la valeur cherchée si elle apparaît dans la liste de recherche, sinon la position à laquelle il faudrait l’insérer. 
 
-dichotomie([1, 2, 3], 2) == True 
-
-dichotomie([1, 2, 3, 4], 2) == True 
-
-dichotomie([1, 2, 3, 4], 0.1 \* 20) == True dichotomie([1, 2, 3, 4], 2.5) == False dichotomie("string", 's') == False 
-
-dichotomie(['g', 'i', 'n', 'r', 's', 't'], 's') == True 
-
-6. On souhaite améliorer l’algorithme ci-dessus pour obtenir également la position de la valeur cherchée si elle apparaît dans la liste de recherche, sinon la position à laquelle il faudrait l’insérer.  ![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.009.png)
-
-Première NSI   Chap 12 : La recherche dichotomique  Page 12/13 
 
 Pour cela, on enlève la variable trouve et on modifie les conditions. 
 
-La condition de continuation n’est plus « gauche ≤ droite et non trouvé » mais  
-
-« gauche <= droite  ». 
+La condition de continuation n’est plus « gauche ≤ droite et non trouvé » mais « gauche <= droite  ». 
 
 Puis on déplace par dichotomie les bornes pour se rapprocher de la valeur cherchée. La borne droite donne, dans chaque cas possible, la position de l’élément s’il est trouvé ou la position à laquelle il faudrait l’insérer. 
 
@@ -420,18 +416,20 @@ Ecrire l’algorithme correspondant
 
 **Aide :** 
 
-dichotomie\_extend(liste: list, valeur: int) -> tuple ![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.042.png)
+```dichotomie_extend(liste: list, valeur: int) -> tuple```
 
 La fonction retournera (True, position) si valeur trouvée, (False, position à insérer) sinon  
 
 7. Valider les tests unitaires suivants : 
 
-dichotomie\_extend([0], 1) == (False, 1) dichotomie\_extend([0], -1) == (False, 0) dichotomie\_extend([1, 2, 3], 2) == (True, 1) ![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.043.png)
+```python
+dichotomie_extend([0], 1) == (False, 1)
+dichotomie_extend([0], -1) == (False, 0)
+dichotomie_extend([1, 2, 3], 2) == (True, 1)
 
-8. S’assurer que les fonctions sont correctement documentées (docstring). ![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.009.png)
-Première NSI   Chap 6 : La recherche dichotomique  Page 13/13 
+```
 
-[^1]: - On regarde **l'élément du milieu du tableau** et on **le compare à** v. 
-- 
-    S'ils sont égaux, on a gagné, sinon, on poursuit la recherche dans la première ou la seconde moitié du 
-[^2]: ableau.  ￿  Si à la fin, on a réduit la portion du tableau au point qu'il ne contient plus aucun élément, la recherche s'arrête sur un echec : v n'est pas présent dans t. 
+
+8 S’assurer que les fonctions sont correctement documentées (docstring). 
+
+[^2]: - On regarde **l'élément du milieu du tableau** et on **le compare à** v. S'ils sont égaux, on a gagné, sinon, on poursuit la recherche dans la première ou la seconde moitié du Tableau.   Si à la fin, on a réduit la portion du tableau au point qu'il ne contient plus aucun élément, la recherche s'arrête sur un echec : v n'est pas présent dans t. 
