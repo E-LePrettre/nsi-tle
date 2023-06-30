@@ -850,7 +850,7 @@ On souhaite générer une liste de votes factices à partir d’une liste de nom
 
 - la liste des noms :
 
-```
+```python
 ballots  = ['Pikachu','Pikachu','Pikachu','Fantomas','Fantomas','Dark Vador','Dark Vador','Saruman','Saruman','Saruman'] 
 
 stranger = 'Sex Pistols' 
@@ -880,7 +880,9 @@ return True
 
 
 ```read_ballots(filename : str) -> dict ```
-- filename -- nom du fichier texte </p><p>- la fonction retourne un dictionnaire sous la forme {nom du candidat:nbr de votes}, ou None si erreur 
+- filename -- nom du fichier texte 
+
+- la fonction retourne un dictionnaire sous la forme {nom du candidat:nbr de votes}, ou None si erreur 
 
 **Aide :**
 
@@ -944,7 +946,7 @@ La plupart des appareils photos récents et téléphones portables enregistrent 
 1 Créer un fichier exif.py.
 2 Écrire une fonction qui lise les données EXIF contenues dans une image. On donne le prototype de la fonction : 
 
-```get\_exif(filename : str) -> dict ```
+```get_exif(filename : str) -> dict ```
 
 - filename -- fichier image 
 - la fonction retourne les données EXIF si ok, ou None si erreur 
@@ -955,7 +957,8 @@ La plupart des appareils photos récents et téléphones portables enregistrent 
 
 ```from PIL import Image```
 
-- On utilisera la bibliothèque PIL ainsi que les méthodes associées \_getexif() et get().  from PIL.ExifTags import TAGS, GPSTAGS 
+- On utilisera la bibliothèque PIL ainsi que les méthodes associées \_getexif() et get().  
+```from PIL.ExifTags import TAGS, GPSTAGS``` 
 - L’appel à \_getexif() se fait de la façon suivante : 
 ```python
 image = Image.open(filename) 
@@ -1208,18 +1211,22 @@ Le prototype de la fonction est : ```caesar_encode(text : str, key : int = 1) ->
 
 Une fonction est basée sur le modèle de la boite noire ; les sorties n’étant fonction que des entrées. Cette boite noire doit être à la fois cohérente (des entrées supposées fournir un résultat juste doivent donner un résultat juste, des entrées supposées donner un résultat faux doivent donner un résultat faux) et stable (le programme doit terminer, ne pas « crasher » ou avoir un comportement erratique). La vérification de ces deux critères se fait à travers des tests unitaires. 
 
-9. Créer un fichier caesar\_test.py. 
-9. Tests de cohérence. Écrire une série de tests unitaires qui vérifie les conditions suivantes : 
-
-pour key = 0 et str\_in = ‘A’ : sortie = ‘A’ ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.100.png)
-
-pour key = 1 et str\_in = ‘Z’ : sortie = ‘A’ 
-
-pour key = 2 et str\_in = ‘Y’ : sortie = ‘A’ pour key = 26 et str\_in = ‘A’ : sortie = ‘A’ pour key = 26\*2 et str\_in = ‘A’ : sortie = ‘A’ pour key = -26 et str\_in = ‘A’ : sortie = ‘A’ pour key = 1 et str\_in = ‘’ : sortie = ‘’ pour key = 0, str\_in = ‘a’ : sortie = ‘A’ 
+9 Créer un fichier caesar\_test.py. 
+10 Tests de cohérence. Écrire une série de tests unitaires qui vérifie les conditions suivantes : 
+```
+pour key = 0 et str_in = ‘A’ : sortie = ‘A’ 
+pour key = 1 et str_in = ‘Z’ : sortie = ‘A’ 
+pour key = 2 et str_in = ‘Y’ : sortie = ‘A’ 
+pour key = 26 et str_in = ‘A’ : sortie = ‘A’ 
+pour key = 26*2 et str_in = ‘A’ : sortie = ‘A’ 
+pour key = -26 et str_in = ‘A’ : sortie = ‘A’ 
+pour key = 1 et str_in = ‘’ : sortie = ‘’ 
+pour key = 0, str_in = ‘a’ : sortie = ‘A’ 
+```
 
 **Aide :** 
 
-- utiliser l’instruction assert. ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.101.png)
+- utiliser l’instruction assert. 
 - Ecrire une fonction pour chaque test. Par exemple : test\_caesar\_rot0():
 - Ne pas oublier d’importer le module caesar et la fonction caesar()
 - Prévoir une fonction d’appel unit\_test() pour appeler chaque fonction test\_caesar…
@@ -1230,21 +1237,21 @@ Décrypter consiste à retrouver le texte original à partir d'un message chiffr
 
 AV WRZJ JFLMVEK TV IVMV VKIREXV VK GVEVKIREK 
 
-`    `U’LEV WVDDV ZETFEELV, VK HLV A’RZDV, VK HLZ D’RZDV, 
+U’LEV WVDDV ZETFEELV, VK HLV A’RZDV, VK HLZ D’RZDV, 
 
-`    `VK HLZ E’VJK, TYRHLV WFZJ, EZ KFLK R WRZK CR DVDV 
+VK HLZ E’VJK, TYRHLV WFZJ, EZ KFLK R WRZK CR DVDV 
 
-`    `EZ KFLK R WRZK LEV RLKIV, VK D’RZDV VK DV TFDGIVEU. 
+EZ KFLK R WRZK LEV RLKIV, VK D’RZDV VK DV TFDGIVEU. 
 
 Le chiffrement de César a été utilisé mais avec une clef différente de 1. 
 
-11. Créer un fichier caesar\_main.py.
-11. Écrire un programme afin de donner le nom de l’auteur du message crypté. 
+11 Créer un fichier caesar\_main.py.
+12 Écrire un programme afin de donner le nom de l’auteur du message crypté. 
 
 **Aide :**  
 
-- Ne pas oublier d’importer le module caesar et la fonction caesar()![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.102.png)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.103.png)
-- La clef de chiffrement étant inconnue, il faut faire une boucle qui les teste toutes (technique de l’attaque par force brute). ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.010.png)
+- Ne pas oublier d’importer le module caesar et la fonction caesar()
+- La clef de chiffrement étant inconnue, il faut faire une boucle qui les teste toutes (technique de l’attaque par force brute). 
 
 **Exercice 14 :** ★★★ **Le chiffrement de Vigenère** 
 
