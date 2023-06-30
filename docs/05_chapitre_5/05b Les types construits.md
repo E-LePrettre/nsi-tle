@@ -1699,25 +1699,25 @@ Les acides aminés sont désignés par une lettre qui représente la forme du no
 15 Documenter la fonction 
 
 16 Valider les tests unitaires suivants : 
+```python
+genetic_code('UGA') == '\*' genetic_code('AAAA') == None genetic_code('XYZ') == None genetic_code(0) == None 
 ```
-genetic\_code('UGA') == '\*' genetic\_code('AAAA') == None genetic\_code('XYZ') == None genetic\_code(0) == None ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.125.png)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.010.png)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.094.png)
-
-Première NSI   Chap 34 : Les types construits  Page 34/35 
-
-17. Écrire une fonction qui renvoie la séquence protéique obtenue par la traduction de la séquence ARN. Cette traduction se fait à partir du premier nucléotide de la séquence ARN. Le prototype de la fonction est le suivant : 
 
 
+17 Écrire une fonction qui renvoie la séquence protéique obtenue par la traduction de la séquence ARN. Cette traduction se fait à partir du premier nucléotide de la séquence ARN. Le prototype de la fonction est le suivant : 
 
-|traduction(arn : str) -> st|r |||
-| - | - | :- | :- |
-|<p>- arn : structure ARN </p><p>- la fonction renvoie la séquence p</p>|rotéique c’est-à-dire les noms abrégés pour chaque codon, ou None|||
+```traduction(arn : str) -> str``` 
+- arn : structure ARN 
+- la fonction renvoie la séquence protéique c’est-à-dire les noms abrégés pour chaque codon, ou None si erreur 
 
-si erreur 
+18 Documenter la fonction
 
-18. Documenter la fonction 
-18. Valider les tests unitaires suivants : 
-
-traduction('AUGCGAAGCCGAAAGAACACCGGCUAA') == 'MRSRKNTG\*' traduction('AUGCGAAGCCGAAAGAACACCGGCUA') == None traduction(0) == None ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.126.png)
+19 Valider les tests unitaires suivants : 
+```python
+traduction('AUGCGAAGCCGAAAGAACACCGGCUAA') == 'MRSRKNTG\*' 
+traduction('AUGCGAAGCCGAAAGAACACCGGCUA') == None 
+traduction(0) == None 
+```
 
 **La réplication** 
 
@@ -1725,30 +1725,31 @@ L'ADN de chaque brin d'une double hélice est recopié de telle sorte que deux n
 
 De  simples  chaînes  de  caractères  permettent  de  représenter  les  séquences  biologiques  et  les  fonctions programmées vont reproduire les processus. 
 
-20. Écrire une fonction qui renvoie la base complémentaire. Le prototype de la fonction est le suivant : 
+20 Écrire une fonction qui renvoie la base complémentaire. Le prototype de la fonction est le suivant : 
 
+```replication(strand : str) -> str``` 
+- strand : brin d’ADN 
+- la fonction renvoie la séquence ADN complémentaire et inversée (A et C sont complémentaires, T et G sont complémentaires), ou None si erreur 
 
+21 Documenter la fonction 
 
-<table><tr><th colspan="6">replication(strand : str) -> st</th><th colspan="3">r </th></tr>
-<tr><td colspan="1" rowspan="2" valign="top">￿ </td><td colspan="1"></td><td colspan="2" valign="bottom"><p>: brin d’ADN </p><p>￿  la fonction renvoie la séquence ADN </p></td><td colspan="3" valign="bottom">complémentaire et inversée (A et C sont complémentaires, T</td></tr>
-<tr><td colspan="2" valign="top">strand</td><td colspan="2" valign="bottom"></td><td colspan="3" valign="bottom"></td></tr>
-</table>
-et G sont complémentaires), ou None si erreur 
+22 Valider les tests unitaires suivants : 
 
-21. Documenter la fonction 
-21. Valider les tests unitaires suivants : 
+```python
+replication('ACTG') == 'CAGT' 
+replication('') == None 
+replication(0) == None 
+```
 
-replication('ACTG') == 'CAGT' replication('') == None replication(0) == None ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.127.png)
+23 Créer un fichier dna\_main.py.
 
-23. Créer un fichier dna\_main.py.
-23. Écrire un programme qui demande de façon interactive de saisir une séquence ARN et afficher la séquence d’acides aminés correspondante. Par exemple : ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.010.png)
+24 Écrire un programme qui demande de façon interactive de saisir une séquence ARN et afficher la séquence d’acides aminés correspondante. Par exemple :
 
+```
+>>> entrez une séquence ARN>? AUGCGAAGCCGAAAGAACACCGGCUAA 
 
+MRSRKNTG* 
+```
 
-|>>> entrez une séquence ARN>? AUGCGAAGCCGAAAGAACACCGGCUAA |
-| - |
-|MRSRKNTG\* |
-
-Première NSI   Chap 5 : Les types construits  Page 35/35 
 
 [^1]: Depuis la fin 2018, la bibliothèque Python GPSPhoto permet d’obtenir directement les coordonnées géographiques d’une photo. 
