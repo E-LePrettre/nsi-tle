@@ -264,6 +264,13 @@ t1 = [random.randint(1,100_000_000) for _ in range(10_000)]
 t1.sort()
 print(rechercheDichotomique(t1, 0))
 ```
+
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
+
+Ne pas oublier de télécharger le script complété
+
 **Activité n°3.: Observation de durées**
 On peut mesurer les durées pour trouver une valeur dans un tableau déjà trié. Comme les temps d’exécution sont très faibles, et que la fonction time est peu précise il faut avoir recourt à la fonction magique %timeit de iPython. Voilà un exemple de script pour mesurer les durées sur des tableaux de longueurs différentes :
 
