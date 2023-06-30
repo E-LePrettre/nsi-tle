@@ -14,7 +14,7 @@ title: Chapitre 6 - Algorithmes de tri
 
 Introduction : Qu’est-ce que trier ? Pourquoi trier ? 
 
-1. **Créer<a name="_page0_x40.00_y438.92"></a> une liste de données aléatoire** 
+## **1. Créer<a name="_page0_x40.00_y438.92"></a> une liste de données aléatoire** 
 
 **Ce premier script sera nécessaire dans tous les algorithmes de tri.** 
 
@@ -32,15 +32,15 @@ def genere\_liste\_aleatoire(N, n):
 
 [1, 76, 61, 88, 38, 34, 89, 91, 78, 30, 19, 37, 16, 56, 90, 95, 67, 17, 29, 61, 60, 37, 4, 62, 79, 18, 13, 58, 10, 18, 53, 71, 44, 25, 95, 83, 48, 79, 32, 72, 83, 85, 11, 73, 21, 82, 50, 0, 31, 62] ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.006.png)
 
-2. **Le<a name="_page1_x40.00_y54.92"></a> tri par sélection :** 
-1. **Le<a name="_page1_x40.00_y76.92"></a> principe** 
+## **2. Le<a name="_page1_x40.00_y54.92"></a> tri par sélection :** 
+### **2.1. Le<a name="_page1_x40.00_y76.92"></a> principe** 
 
 Sur un tableau de N éléments (numérotés de 0 à N), le principe du tri par sélection est le suivant : ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.007.png)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.008.png)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.009.png)
 
 - **Rechercher le plus petit élément** du tableau, et l'échanger avec l'élément d'indice 0 ; 
 - **Rechercher le second plus petit élément** du tableau, et l'échanger avec l'élément d'indice 1 ; 
 - Continuer de cette façon jusqu'à ce que le tableau soit entièrement trié.
-2. **Illustration<a name="_page1_x40.00_y201.92"></a> graphique** 
+### **2.2. Illustration<a name="_page1_x40.00_y201.92"></a> graphique** 
 
 Exemple : Soit la suite de nombres suivante : 6, 1, 9, 3. Trions cette suite avec l’algorithme du tri par  ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.010.png)sélection dans l’ordre croissant :  
 
@@ -54,11 +54,11 @@ Exemple : Soit la suite de nombres suivante : 6, 1, 9, 3. Trions cette suite ave
 
 Ce tri se décompose réellement en deux étapes distinctes : À chaque tour, on cherche le minimum dans  l'espace non trié du tableau (le minimum est représenté en bleu, et la partie non triée en blanc), ensuite on déplace cet élément à sa place définitive (représentée en vert). En faisant cela pour chaque élément du tableau, ce dernier se retrouve trié au bout de N tours maximum (N étant la taille du tableau). 
 
-3. **Illustration<a name="_page1_x40.00_y434.92"></a> en vidéo** 
+### **2.3. Illustration<a name="_page1_x40.00_y434.92"></a> en vidéo** 
 
 Vidéo :[ https://www.youtube.com/watch?v=Ns4TPTC8whw ](https://www.youtube.com/watch?v=Ns4TPTC8whw)Attention : les danseurs s’échangent (si nécessaire) à chaque fois alors que le vrai algorithme ne procède à l’échange qu’à la fin de chaque tour  
 
-4. **Pseudo-code<a name="_page1_x40.00_y485.92"></a>** 
+### **2.. Pseudo-code<a name="_page1_x40.00_y485.92"></a>** 
 
 ALGORITHME tri\_selection ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.011.png)
 
@@ -97,7 +97,7 @@ DEBUT
 FIN ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.006.png)
 
 Première NSI   Chap 2 : Algorithmes de tri  Page 2/16 
-5. **Complexité<a name="_page2_x40.00_y36.92"></a>** 
+### **2.5. Complexité<a name="_page2_x40.00_y36.92"></a>** 
 
 Le tri par sélection a une complexité en O(N²) : Calculons le nombre d’itérations 
 
@@ -163,7 +163,7 @@ On parle aussi de **complexité quadratique.**
 
 Le tri par sélection sert de base à d'autres algorithmes plus efficaces que nous étudierons plus tard. C’est un tri instable et en place (travail sur la structure et non sur une copie).
 
-6. **Stabilité<a name="_page2_x40.00_y632.92"></a> d’un algorithme** 
+### **2.6. Stabilité<a name="_page2_x40.00_y632.92"></a> d’un algorithme** 
 
 On dit qu'un algorithme de tri est ***stable*** s'il ne modifie pas l'ordre initial des clés identiques. 
 
@@ -185,7 +185,7 @@ Avec un **tri stable**, on aurait obtenu :
 
 L'intérêt d'un tri stable est **qu'on peut appliquer ce tri successivement, avec des critères différents.**  
 
-7. **Preuve<a name="_page3_x40.00_y297.92"></a> de correction** 
+### **2.7. Preuve<a name="_page3_x40.00_y297.92"></a> de correction** 
 
 **Recherche de l’invariant de boucle** : Deux éléments ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.019.png)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.020.png)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.021.png)
 
@@ -201,7 +201,7 @@ On a deux boucles for qui sont imbriquées  ![](Aspose.Words.44e8a127-fa79-459d-
 
 **La terminaison est assurée** 
 
-8. **Implémentation<a name="_page3_x40.00_y497.92"></a> en Python** 
+### **2.8. Implémentation<a name="_page3_x40.00_y497.92"></a> en Python** 
 
 **Activité n°2.:** Création de la liste aléatoire **avec l’activité 1** ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.025.png)
 
@@ -297,8 +297,8 @@ Temps d execution pour 1\_000: 0.048070335388183595 secondes --- Temps d executi
 
 On voit bien que multiplier par 10 le nombre d’éléments du tableau à trier revient à multiplier le temps par 10². **Animation :[** http://lwh.free.fr/pages/algo/tri/tri_selection.html ](http://lwh.free.fr/pages/algo/tri/tri_selection.html)**
 
-3. **Tri<a name="_page4_x40.00_y702.92"></a> par insertion** 
-1. **Le<a name="_page4_x40.00_y724.92"></a> principe** 
+## **3. Tri<a name="_page4_x40.00_y702.92"></a> par insertion** 
+### **3.1. Le<a name="_page4_x40.00_y724.92"></a> principe** 
 
 Le tri par insertion est un algorithme de **tri stable** et le plus rapide en pratique sur une entrée de petite taille. ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.006.png)
 
@@ -318,7 +318,7 @@ L'objectif d'une étape est donc d'insérer le i-ème élément à sa place parm
 
 En pratique, ces deux actions sont fréquemment effectuées en une passe, qui consiste à faire « remonter » l'élément au fur et à mesure jusqu'à rencontrer un élément plus petit. 
 
-2. **Illustration<a name="_page5_x40.00_y290.92"></a> graphique  ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.039.png)**
+### **3.2. Illustration<a name="_page5_x40.00_y290.92"></a> graphique  ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.039.png)**
 
 Exemple : 9, 2, 7, 1 à trier en ordre croissant avec l’algorithme du tri par insertion :  
 
@@ -330,11 +330,11 @@ Exemple : 9, 2, 7, 1 à trier en ordre croissant avec l’algorithme du tri par 
 
 Pour insérer un élément dans la partie triée, on parcourt de droite à gauche tant que l'élément est plus  grand que celui que l'on souhaite insérer. Pour résumer l'idée de l'algorithme : La partie verte du tableau  est la partie triée, l'élément en bleu est le prochain élément non trié à placer et la partie blanche est la  partie non triée. 
 
-3. **Illustration<a name="_page5_x40.00_y491.92"></a> vidéo** 
+### **3.3. Illustration<a name="_page5_x40.00_y491.92"></a> vidéo** 
 
 Vidéo :[ https://www.youtube.com/watch?v=ROalU379l3U ](https://www.youtube.com/watch?v=ROalU379l3U)
 
-4. **Pseudo-code<a name="_page5_x40.00_y542.92"></a>** 
+### **3.4. Pseudo-code<a name="_page5_x40.00_y542.92"></a>** 
 
 ALGORITHME tri\_insertion ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.040.png)
 
@@ -365,7 +365,7 @@ DEBUT
 FIN ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.006.png)
 
 Première NSI   Chap 8 : Algorithmes de tri  Page 8/16 
-5. **Complexité<a name="_page6_x40.00_y36.92"></a>**  
+### **3.5. Complexité<a name="_page6_x40.00_y36.92"></a>**  
 
 L’algorithme du tri par insertion a une complexité de O(N2). Calculons le nombre d’instructions : 
 
@@ -432,7 +432,7 @@ Pour simplifier les calculs de complexité, on s’intéresse seulement aux nomb
 
 Cependant des améliorations et des variantes permettent de le rendre plus rapide comme le tri shell. C’est un algorithme stable et en place (travail sur la structure et non sur la copie).
 
-6. **Preuve<a name="_page6_x40.00_y637.92"></a> de correction** 
+### **3.6. Preuve<a name="_page6_x40.00_y637.92"></a> de correction** 
 
 Recherche de **l’invariant de boucle** : Deux éléments ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.045.png)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.046.png)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.047.png)
 
@@ -445,7 +445,7 @@ La boucle for se termine forcément. Pour la boucle while, on part de j qui vaut
 
 Première NSI   Chap 10 : Algorithmes de tri  Page 10/16 
 
-7. **Implémentation<a name="_page7_x40.00_y36.92"></a> en Python** 
+### **3.7. Implémentation<a name="_page7_x40.00_y36.92"></a> en Python** 
 
 **Activité n°5.:** Création de la liste aléatoire **avec l’activité 1** : reprendre l’activité 1 ou 2 
 
@@ -531,7 +531,7 @@ Temps d execution pour 1\_000: 0.06062502861022949 secondes --- Temps d executio
 
 Première NSI   Chap 12 : Algorithmes de tri  Page 12/16 
 
-4. **Autres<a name="_page8_x40.00_y36.92"></a> algorithmes de tris : le tri à bulles (Bubble sort)** 
+## **4. Autres<a name="_page8_x40.00_y36.92"></a> algorithmes de tris : le tri à bulles (Bubble sort)** 
 
 Le tri à bulles est un algorithme de tri qui consiste à faire  **remonter  ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.055.png)progressivement les plus petits éléments d'une liste**, comme les bulles  d'air remontent à la surface d'un liquide.  
 
@@ -631,7 +631,7 @@ Temps d execution pour 100: 0.002393150329589844 secondes --- Temps d execution 
 
 Animation :[ http://lwh.free.fr/pages/algo/tri/tri_bulle.html ](http://lwh.free.fr/pages/algo/tri/tri_bulle.html)
 
-5. **Exercices<a name="_page9_x40.00_y511.92"></a>** 
+## **5. Exercices<a name="_page9_x40.00_y511.92"></a>** 
 
 **Exercice n°1** : Créer une fonction selection\_sort\_desc() qui permet trier avec l’algorithme de tri par sélection une liste aléatoire par valeurs décroissantes. 
 
