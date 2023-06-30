@@ -75,19 +75,21 @@ Le tableau contient 16 valeurs (indice de 0 à 15)
 **Etape 1** : Comment calculer la moitié ?
 
 |**Indice Bas1** |**Indice Haut1** |**Indice milieu1** |
-
+| - | - | - |
 
 
 **Etape 2** : Dans quelle partie se trouve la valeur 35 ? ………………………………………………………………………………………………………………………. 
 
 
 |. |. |. |. |. |. |. |
+| - | - | - | - | - | - | - | 
 
 **Etape 3** : Comment calculer la moitié de la nouvelle partie du tableau ? 
 
 |**Indice Bas2** |**Indice Haut2** |**Indice milieu2** |
 | - | - | - |
-||||
+
+
 **Etape 4** : Dans quelle partie se trouve la valeur 35 ? ……………………………………………………………………………………………………………………….. 
 
 **Etape 5** : Comment calculer la moitié de la nouvelle partie du tableau ? 
@@ -96,7 +98,7 @@ Le tableau contient 16 valeurs (indice de 0 à 15)
 
 |**Indice Bas3** |**Indice Haut3** |**Indice milieu3** |
 | - | - | - |
-||||
+
 **Etape 6** : Dans quelle partie se trouve la valeur 35 ?
 
 ………………………………………………………………………………………………………………………………………………….. 
@@ -107,7 +109,8 @@ Le tableau contient 16 valeurs (indice de 0 à 15)
 
 |**Indice Bas4** |**Indice Haut3** |**Indice milieu4** |
 | - | - | - |
-||||
+
+
 **Etape 8** : le nombre 35 est trouvé, il se trouve à l’indice milieu4 = 6
 
 Résumé : Chiffre à trouver 35 
