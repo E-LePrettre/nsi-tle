@@ -185,19 +185,16 @@ On ne comptera **pas la définition des fonctions**.
 
 #### **4.1.2. Algorithmes<a name="_page4_x40.00_y124.92"></a> sans structure de contrôle** 
 
-**Activité n°1.:** Le coût T(n) de cet algorithme écrit en python. ![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.017.png)
+**Activité n°1.:** Le coût T(n) de cet algorithme écrit en python. 
 
-**1 def conversion(n:float)->lst: 2  h = n // 3600** 
+![](Aimg3.png)
 
-**3  m = (n - 3600\*h) // 60** 
-
-**4  s = n % 60** 
-
-**5  return h,m,s** 
 
 T(n) = 1(//) + 1(affectation) + 1 (mémoire) + 1(\*) + 1(-) + 1(//) + 1(affectation) + 2 (mémoire) + 1(%) + 1 affectation + 1 (mémoire) + 3(accès mémoire) = 15 
 
-Le coût C est constant et ne dépend pas de n, on le note alors O(1) en notation de <a name="_page4_x530.00_y275.92"></a> ![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.018.png)![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.019.png)![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.020.png)![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.021.png)Landau1.  
+![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.018.png)
+
+Le coût C est constant et ne dépend pas de n, on le note alors O(1) en notation de Landau.  
 
 O caractérise le comportement asymptotique quand n → +∞.  
 
