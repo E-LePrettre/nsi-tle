@@ -451,8 +451,7 @@ Comme le tri par insertion, le tri à bulle est un tri stable. Illustration vid�
 ```python
 def swap(T : list, i : int, j : int) -> list:
     """ fonction permutation (à garder elle sert beaucoup!!)  """
-    T[i] , T[j] = T[j] , T[i]
-    return T
+    # à compléter
 
 def bubble_sort(T : list) -> list:
     """ fonction tri a bulle permutation des éléments 2 à 2 en faisant remonter
