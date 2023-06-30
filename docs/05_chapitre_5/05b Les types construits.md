@@ -1557,7 +1557,7 @@ La  **séquence**  d'un [ acide  nucléique ](https://fr.wikipedia.org/wiki/Acid
 
 Les molécules représentées dans ce schéma sont :  
 
-- l'**ADN**  :  support  stable  et  transmissible  de  l'information  ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.117.png)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.118.png)génétique. Il est composé des 4 nucléotides suivants (appelés aussi  bases) : A = adénine, T = thymine, G = guanine et C = cytosine.  Dans les cellules vivantes, l'ADN est sous la forme double brin,  c'est-à-dire que 2 séquences ADN se font face. Une séquence est  lue de gauche à droite et l'autre de droite à gauche. De plus, les  bases complémentaires l'une de l'autre se font face (A et T sont  complémentaires, G et C sont complémentaires). Un brin est donc  complémentaire et inversé par rapport à l'autre.  
+- l'**ADN**  :  support  stable  et  transmissible  de  l'information  génétique. Il est composé des 4 nucléotides suivants (appelés aussi  bases) : A = adénine, T = thymine, G = guanine et C = cytosine.  Dans les cellules vivantes, l'ADN est sous la forme double brin,  c'est-à-dire que 2 séquences ADN se font face. Une séquence est  lue de gauche à droite et l'autre de droite à gauche. De plus, les  bases complémentaires l'une de l'autre se font face (A et T sont  complémentaires, G et C sont complémentaires). Un brin est donc  complémentaire et inversé par rapport à l'autre.  
 - l'**ARN**  :  support  temporaire  permettant  l'expression  de  l'information génétique. Il est composé des 4 nucléotides suivants  
   - A = adénine, U = uracile, G = guanine et C = cytosine.  
 - les **protéines** : outils de la cellule (enzymes, transporteurs, etc.).  Elles sont composées de 20 acides aminés différents.  
@@ -1565,127 +1565,141 @@ Les molécules représentées dans ce schéma sont :
 Les processus du dogme central de la biologie moléculaire, réalisés par les cellules sont les suivants : 
 
 1. la **transcription** 
-1. la **traduction** 
-1. la **réplication** 
+2. la **traduction** 
+3. la **réplication** 
 
 **Les séquences ADN** 
 
-1. Créer un fichier dna.py.
-1. Écrire une fonction qui vérifie si une chaîne de caractères correspond à un brin d’ADN :  cette chaîne ne doit contenir aucun autre caractère que les quatre bases A, C, G et T. Le prototype de la fonction est le suivant : 
+1 Créer un fichier dna.py.
 
+2 Écrire une fonction qui vérifie si une chaîne de caractères correspond à un brin d’ADN :  cette chaîne ne doit contenir aucun autre caractère que les quatre bases A, C, G et T. Le prototype de la fonction est le suivant : 
 
-
-<table><tr><th colspan="5">is_DNA_strand(strand : str) -> bool</th><th colspan="3"></th></tr>
-<tr><td colspan="1" rowspan="2" valign="bottom">￿ </td><td colspan="1"></td><td colspan="2" valign="bottom">: brin d’ADN (de 1 à n </td><td colspan="3" valign="bottom">bases) </td></tr>
-<tr><td colspan="2" valign="top">strand</td><td colspan="3" valign="bottom"></td><td colspan="3" valign="bottom"></td></tr>
-</table>
+```is_DNA_strand(strand : str) -> bool```
+- strand : brin d’ADN (de 1 à n bases)
 - la fonction renvoie True si la chaîne est un brin d’ADN, False sinon 
-3. Documenter la fonction 
-3. Créer un fichier dna\_test.py et valider les tests unitaires suivants : 
 
-is\_DNA\_strand("ATGCGATC") == True is\_DNA\_strand("ACKT") == False is\_DNA\_strand("") == False is\_DNA\_strand(0) == False ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.119.png)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.010.png)
+3 Documenter la fonction 
+
+4 Créer un fichier dna\_test.py et valider les tests unitaires suivants : 
+```python
+is_DNA_strand("ATGCGATC") == True is_DNA_strand("ACKT") == False is_DNA_strand("") == False is_DNA_strand(0) == False 
+```
 
 Il est possible de générer aléatoirement une séquence ADN. La version naïve suppose que les 4 bases ont la même probabilité d'apparaître à une position donnée. 
 
-5. Écrire une fonction qui renvoie un brin d’ADN généré aléatoirement. Le prototype de la fonction est le suivant : generate\_DNA\_strand(size : int) -> str
-- size : taille du brin d’ADN (≥ 2) 
-- la fonction renvoie un brin d’ADN généré aléatoirement 
-6. Documenter la fonction 
-6. Valider les tests unitaires suivants : 
+5 Écrire une fonction qui renvoie un brin d’ADN généré aléatoirement. Le prototype de la fonction est le suivant : ```generate_DNA_strand(size : int) -> str```
 
-is\_DNA\_strand(generate\_DNA\_strand(x)) pour différentes valeurs de x (au choix). 
+- size : taille du brin d’ADN (≥ 2) 
+
+- la fonction renvoie un brin d’ADN généré aléatoirement 
+
+6 Documenter la fonction 
+
+7 Valider les tests unitaires suivants : 
+
+```is_DNA_strand(generate_DNA_strand(x))``` pour différentes valeurs de x (au choix). 
 
 **La transcription** 
 
 Certaines parties spécifiques de l'ADN sont transcrites en ARN. La transcription consiste en l'assemblage de nucléotides ARN en suivant le modèle ADN et en prenant les bases complémentaires. Dans l'ADN, les bases A et T sont complémentaires, ainsi que les bases G et C. Pour passer de l'ADN à l'ARN, le A est transformé en U, le T en A, le G en C et le C en G. 
 
-8. Écrire une fonction qui renvoie la base complémentaire. Le prototype de la fonction est le suivant : 
+8 Écrire une fonction qui renvoie la base complémentaire. Le prototype de la fonction est le suivant : 
+```complementary_base(base : str, type : str) -> st```
 
+- base : nucléotide (A, T, G ou C) 
+- type de séquence : 'ADN' ou 'ARN' 
+- la fonction renvoie la base complémentaire, ou None si erreur
 
-
-<table><tr><th colspan="5">complementary_base(base : str, type : str) -> st</th><th colspan="3">r </th></tr>
-<tr><td colspan="1" rowspan="3" valign="top">￿ ￿ </td><td colspan="1"></td><td colspan="2" valign="bottom"><p>: nucléotide (A, T, G ou C) </p><p>` `de séquence : 'ADN' ou 'ARN' </p><p>￿  la fonction renvoie la base complémentaire, ou None si erreu</p></td><td colspan="3" valign="bottom">r </td></tr>
-<tr><td colspan="2">base</td><td colspan="3" rowspan="2" valign="bottom"></td><td colspan="3" rowspan="2" valign="bottom"></td></tr>
-<tr><td colspan="2" valign="top">type</td></tr>
-</table>
 **Aide :** 
-
-try : ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.120.png)
-
-- bloc à coder 
-
+```
+try : 
+  # bloc à coder 
 except #exception à trouver: 
+  #bloc à coder 
+```
 
-- bloc à coder 
-9. Documenter la fonction 
-9. Valider les tests unitaires suivants : 
+9 Documenter la fonction
 
-complementary\_base('G', 'ADN') == 'C' complementary\_base('A', 'ARN') == 'U' complementary\_base('K', 'ADN') == None complementary\_base('G', 'ABC') == None![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.121.png) 
+10 Valider les tests unitaires suivants :
 
-11. Écrire une fonction qui renvoie l'ARN construit à partir de la sous-séquence d'un brin d’ADN comprise entre les deux positions passées en paramètre, incluses. Le prototype de la fonction est le suivant : 
+```python
+complementary_base('G', 'ADN') == 'C' 
+complementary_base('A', 'ARN') == 'U' 
+complementary_base('K', 'ADN') == None 
+complementary_base('G', 'ABC') == None
+``` 
 
+11 Écrire une fonction qui renvoie l'ARN construit à partir de la sous-séquence d'un brin d’ADN comprise entre les deux positions passées en paramètre, incluses. Le prototype de la fonction est le suivant : 
 
-
-|transcription(strand : str, start : int, end : int) -> st|r |||
-| - | - | :- | :- |
-|<p>- strand : brin d’ADN </p><p>- start : position de départ dans la séquence du brin d’ADN </p><p>- end : position de fin dans la séquence du brin d’ADN </p><p>- la fonction renvoie  la séquence complémentaire du brin d’ADN transcri</p>|t, ou None si erreur |||
+```transcription(strand : str, start : int, end : int) -> str```
+- strand : brin d’ADN 
+- start : position de départ dans la séquence du brin d’ADN
+- end : position de fin dans la séquence du brin d’ADN 
+- la fonction renvoie  la séquence complémentaire du brin d’ADN transcript, ou None si erreur
 
 **Aide** : 
-
-try : ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.122.png)
-
-- bloc à coder 
-
-assert 
-
-… 
-
+```
+try : 
+  # bloc à coder 
+  assert 
+  … 
 except #exception à trouver: 
+  # bloc à coder 
+```
 
-- bloc à coder 
-12. Documenter la fonction ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.010.png)
-13. Valider les tests unitaires suivants : 
+12 Documenter la fonction 
 
-transcription('TTCTTCTTCGTAC', 4, 10) == 'AAGAAGC' transcription('TTCTTCTTCGTAC', 4, 3) == None transcription('TTCTTCTTCGTAC', 10, 40) == 'CAUG' transcription('TTCTTCTTCGTAC', -4, 0) == None transcription('TTCTTCTTCGTAC', -4, 4) == None ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.123.png)
+13 Valider les tests unitaires suivants : 
+```python
+transcription('TTCTTCTTCGTAC', 4, 10) == 'AAGAAGC' 
+transcription('TTCTTCTTCGTAC', 4, 3) == None 
+transcription('TTCTTCTTCGTAC', 10, 40) == 'CAUG' 
+transcription('TTCTTCTTCGTAC', -4, 0) == None 
+transcription('TTCTTCTTCGTAC', -4, 4) == None 
+```
 
 **La traduction** 
 
 Les ARN messagers sont traduits en protéines. Le passage d'une séquence ARN composée de 4 nucléotides à une séquence protéique composée de 20 acides aminés, se fait à l'aide du code génétique. Dans ce code, chaque mot de 3 bases, appelé codon, correspond à un acide aminé. Il est possible de construire 4³ = 64 codons différents à l'aide des 4 bases. Ce code est donc dégénéré : plusieurs codons correspondent au même acide aminé. Les codons sont lus sans chevauchement, les uns à la suite des autres. 
 
-Les acides aminés sont désignés par une lettre qui représente la forme du nom abrévié. **Le code génétique :** 
+Les acides aminés sont désignés par une lettre qui représente la forme du nom abrévié. 
+**Le code génétique :** 
 
-'UUU', 'UUC' : 'F' ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.124.png)
+```
+'UUU', 'UUC' : 'F'
+'UUA', 'UUG', 'CUU', 'CUC', 'CUA', 'CUG' : 		'L'
+'AUU', 'AUC', 'AUA' : 						'I'
+'AUG' : 								'M'
+'GUU', 'GUC', 'GUA', 'GUG' : 					'V'
+'UCU', 'UCC', 'UCA', 'UCG', 'AGU', 'AGC' : 		'S'
+'CCU', 'CCC', 'CCA', 'CCG' : 					'P'
+'ACU', 'ACC', 'ACA', 'ACG' : 					'T'
+'GCU', 'GCC', 'GCA', 'GCG' : 					'A'
+'UAU', 'UAC' : 							'Y'
+'UAA', 'UAG', 'UGA' : 						'*'
+'CAU', 'CAC' : 							'H'
+'CAA', 'CAG' : 							'Q'
+'AAU', 'AAC' : 							'N'
+'AAA', 'AAG' : 							'K'
+'GAU', 'GAC' : 							'D'
+'GAA', 'GAG' : 							'E'
+'UGU', 'UGC' : 							'C'
+'UGG' : 								'W'
+'CGU', 'CGC', 'CGA', 'CGG', 'AGA', 'AGG' : 		'R'
+'GGU', 'GGC', 'GGA', 'GGG' : 					'G'
+```
 
-'UUA', 'UUG', 'CUU', 'CUC', 'CUA', 'CUG' :   'L' 'AUU', 'AUC', 'AUA' :    'I' 'AUG' :   'M' 'GUU', 'GUC', 'GUA', 'GUG' :    'V' 'UCU', 'UCC', 'UCA', 'UCG', 'AGU', 'AGC' :   'S' 'CCU', 'CCC', 'CCA', 'CCG' : 'P' 
 
-'ACU', 'ACC', 'ACA', 'ACG' : 'T' 
+14 Écrire une fonction qui renvoie l'acide aminé correspondant au codon (ou \* pour les codons Stop). Le prototype de la fonction est le suivant : 
+```genetic_code(codon: str) -> str```
 
-'GCU', 'GCC', 'GCA', 'GCG' : 'A' 'UAU', 'UAC' :    'Y' 'UAA', 'UAG', 'UGA' :    '\*' 'CAU', 'CAC' : 'H' 
+- codon : codon (succession de trois lettres (voir ci-dessus)) 
+- la fonction renvoie  l'acide aminé sous la forme du nom abrévié, ou None si erreur
 
-'CAA', 'CAG' : 'Q' 
+15 Documenter la fonction 
 
-'AAU', 'AAC' : 'N' 
-
-'AAA', 'AAG' : 'K' 
-
-'GAU', 'GAC' : 'D' 
-
-'GAA', 'GAG' : 'E' 
-
-'UGU', 'UGC' : 'C' 'UGG' :   'W' 'CGU', 'CGC', 'CGA', 'CGG', 'AGA', 'AGG' :   'R' 'GGU', 'GGC', 'GGA', 'GGG' :    'G' 
-
-14. Écrire une fonction qui renvoie l'acide aminé correspondant au codon (ou \* pour les codons Stop). Le prototype de la fonction est le suivant : 
-
-
-
-<table><tr><th colspan="5">genetic_code(codon: str) -> st</th><th colspan="3">r </th></tr>
-<tr><td colspan="1" rowspan="2" valign="bottom">￿ </td><td colspan="1"></td><td colspan="2" valign="bottom">: codon (succession de trois le</td><td colspan="3" valign="bottom">ttres (voir ci-dessus)) </td></tr>
-<tr><td colspan="2">codon</td><td colspan="3" valign="bottom"></td><td colspan="3" valign="bottom"></td></tr>
-</table>
-- la fonction renvoie  l'acide aminé sous la forme du nom abrévié, ou None si erreur 
-15. Documenter la fonction 
-15. Valider les tests unitaires suivants : 
-
+16 Valider les tests unitaires suivants : 
+```
 genetic\_code('UGA') == '\*' genetic\_code('AAAA') == None genetic\_code('XYZ') == None genetic\_code(0) == None ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.125.png)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.010.png)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.094.png)
 
 Première NSI   Chap 34 : Les types construits  Page 34/35 
