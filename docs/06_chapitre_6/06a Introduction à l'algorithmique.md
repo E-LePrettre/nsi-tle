@@ -254,10 +254,7 @@ L'étude des différents algorithmes proposés dans la suite des activités (Tri
 |O(n.log(n)) |Algorithme  divisant  le  problème  en  nombre  de  sous-problèmes constants, dont les résultats sont réutilisés par recombinaison (Ex Tri fusion). |quasi-linéaire |
 |O(n²) |Algorithme  traitant  généralement  de  couples  de  données  (boucles imbriquées). Parcours d'une matrice de pixels. |quadratique |
 
-|||||
-| :- | :- | :- | :- |
-|||||
-|||||
+
 ![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.032.jpeg)
 
 Comparaison des temps d’exécution d’algorithmes de différentes complexités 
@@ -279,63 +276,82 @@ RESSOURCES :
 
 ## **5. Exercices<a name="_page7_x40.00_y36.92"></a>** 
 
-**Exercice 1** : Calculer le coût de cet algorithme ![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.034.png)
+**Exercice 1** : Calculer le coût de cet algorithme 
 
+```
 largeur <- LireEntier() 
-
 longueur <- LireEntier() 
-
 aire <- largeur \* longueur 
-
-perimetre <- (largeur + longueur) \* 2 Afficher aire 
-
+perimetre <- (largeur + longueur) \* 2 
+Afficher aire 
 Afficher perimetre 
+```
 
-**Exercice 2** : Calculer le coût de cet algorithme ![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.035.png)
+**Exercice 2** : Calculer le coût de cet algorithme 
 
+```
 nbLivres <- LireEntier() Si nbLivres < 10 
+    prix <- nbLivres \* 10 
+Sinon 
+    prix <- nbLivres \* 9 
+Afficher prix 
+```
 
-`   `prix <- nbLivres \* 10 Sinon 
-
-`   `prix <- nbLivres \* 9 Afficher prix 
-
-**Exercice 3** : Calculer le coût de cet algorithme ![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.036.png)
-
+**Exercice 3** : Calculer le coût de cet algorithme 
+```
 X <- 1 
-
 Tant que X <= 100 
+    Afficher "Bonjour !"    
+    X <- X + 1 
+```
 
-`   `Afficher "Bonjour !"    X <- X + 1 
+**Exercice 4** : Calculer le coût de cet algorithme 
 
-**Exercice 4** : Calculer le coût de cet algorithme ![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.037.png)
-
+```
 total <- 0 
-
 i <- 1 
-
 Tant que i <= 100 
+    total <- total + i    
+    i <- i + 1 
+Afficher total 
+```
 
-`   `total <- total + i    i <- i + 1 Afficher total 
+**Exercice 5** : Calculer le coût de cet algorithme
 
-**Exercice 5** : Calculer le coût de cet algorithme ![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.038.png)
-
-iMax <- LireEntier() total <- 0 
-
+```
+iMax <- LireEntier() 
+total <- 0 
 i <- 1 
-
 Tant que i <= iMax 
+    total <- total + i    
+    i <- i + 1 
+Afficher total 
+```
 
-`   `total <- total + i    i <- i + 1 Afficher total 
+**Exercice 6** : Calculer le coût de cet algorithme 
 
-**Exercice 6** : Calculer le coût de cet algorithme ![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.039.png)
-
-iMax <- LireEntier() total <- 0 
-
+```
+iMax <- LireEntier() 
+total <- 0 
 Tant que iMax > 0 
+    total <- total + iMax    
+    iMax <- iMax - 1 
+Afficher total 
+```
 
-`   `total <- total + iMax    iMax <- iMax - 1 Afficher total 
+**Exercice 7** : Calculer le coût de cet algorithme 
 
-**Exercice 7** : Calculer le coût de cet algorithme ![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.040.png)
-
-taille <- LireEntier()  1 X <- 0   2 Tant que X < taille   3    Y <- 0  4    Tant que Y < taille  5       Si X = Y   6          Afficher "X"   7       Sinon  8          Afficher "."   9       Y <- Y + 1  10    Retour à la ligne   11    X <- X + 1   12 ![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.002.png)
-Première NSI   Chap 6 : Introduction à l’algorithmique  Page 8/8 
+```
+taille <- LireEntier()			1
+X <- 0						    2
+Tant que X < taille				3
+   Y <- 0					    4
+   Tant que Y < taille			5
+      Si X = Y					6
+         Afficher "X"			7
+      Sinon					    8
+         Afficher "."			9		
+      Y <- Y + 1				10
+   Retour à la ligne			11
+   X <- X + 1		            12
+```
