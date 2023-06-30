@@ -202,42 +202,42 @@ La condition de boucle étant gauche <= droite, cela correspond exactement à ce
 
 Ensuite, trois cas sont possibles.  
 
-- si T[milieu] = x, on sort directement de la boucle à l’aide d’un return. La **terminaison est assurée.****  
-- si T[milieu] > x, on modifie la valeur de gauche. En appelant gauche' cette nouvelle valeur, on a :**  
+- si T[milieu] = x, on sort directement de la boucle à l’aide d’un return. La **terminaison est assurée.**  
+- si T[milieu] > x, on modifie la valeur de gauche. En appelant gauche' cette nouvelle valeur, on a : 
 
+droite - gauche' < droite - milieu <= droite - gauche
 
+Ainsi, le variant a **strictement décru.** 
 
-|droite - gauche' < droite - milieu <= droite - gauche||||
-| - | :- | :- | :- |
-|Ainsi, le variant a **strictement décru.** sinon, on modifie droite et on a de même :**  ||||
-￿ 
+- sinon, on modifie droite et on a de même :
 
+droite' - gauche < milieu - gauche <= droite - gauche 
 
+De même, le variant a **strictement décru.**  
 
-|droite' - gauche < milieu - gauche <= droite - gauche||||
-| - | :- | :- | :- |
-|De même, le variant a **strictement décru.**  ||||
 On a trouvé un variant pour notre boucle, nous avons prouvé qu’**elle termine bien**. Bien sûr, l’utilisation très basique de ce variant ne permet pas, telle qu’elle, de justifier la complexité de la recherche dichotomique.  
 
 *POUR ALLER PLUS LOIN : CORRECTION : Pour prouver que si le programme renvoie None, alors c’est bien que la valeur recherchée n’est pas présente dans le tableau, nous allons utiliser l’invariant de boucle suivant :*  
 
-**Invariant** *: Si* x *est présente dans* T*, c’est nécessairement à un indice compris entre* gauche *et* droite *(inclus).  Prouvons qu’il s’agit bien d’un invariant de la boucle de la fonction* recherche\_dichotomique*. Pour cela, il faut* 
+**Invariant** *: Si* x *est présente dans* T*, c’est nécessairement à un indice compris entre* gauche *et* droite *(inclus).*  
 
-*s’intéresser à une exécution qui va jusqu’à la fin du corps de la boucle.* 
+*Prouvons qu’il s’agit bien d’un invariant de la boucle de la fonction recherche\_dichotomique. Pour cela, il faut s’intéresser à une exécution qui va jusqu’à la fin du corps de la boucle.* 
 
-*On suppose donc qu’en entrée de boucle, l’***Invariant** *est vérifié. Après avoir défini milieu, trois cas sont examinés :  ![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.009.png)*
+*On suppose donc qu’en entrée de boucle, l’***Invariant** *est vérifié. Après avoir défini milieu, trois cas sont examinés :*
 
-- *si* T[milieu] = x, *on sort de la boucle prématurément à l’aide de l’instruction retourner milieu, donc ce cas ne nous intéresse pas dans le cadre de la preuve d’invariant de boucle.  **![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.024.png)***
-- *si* T [milieu] > x*, et si* x *est présente dans le tableau, alors comme celui-ci est ordonné de façon croissante, cela implique que* x *ne peut être présent à l’indice milieu, ni avant. On en déduit d’après l’***Invariant** *que si* x *se trouve dans* T *c’est nécessairement à un indice compris entre* milieu + 1 *et* droite*. Ainsi, après l’affectation* gauche =  milieu + 1*, l’***Invariant** *est encore vérifié.   **![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.025.png)***
-- *sinon, on a* T[milieu] < x *et, de même, cela implique que l’on ne peut trouver* x *dans le tableau à un indice inférieur ou égal à* milieu*. Ainsi, en supposant* **Invariant** *vrai au départ et en effectuant l’affectation* droite 
-- milieu - 1, *l’***invariant** *reste vérifié.***  
+- *si* T[milieu] = x, *on sort de la boucle prématurément à l’aide de l’instruction retourner milieu, donc ce cas ne nous intéresse pas dans le cadre de la preuve d’invariant de boucle.*
+
+- *si* T [milieu] > x*, et si* x *est présente dans le tableau, alors comme celui-ci est ordonné de façon croissante, cela implique que* x *ne peut être présent à l’indice milieu, ni avant. On en déduit d’après l’***Invariant** *que si* x *se trouve dans* T *c’est nécessairement à un indice compris entre* milieu + 1 *et* droite*. Ainsi, après l’affectation* gauche =  milieu + 1*, l’***Invariant** *est encore vérifié.*
+
+- *sinon, on a* T[milieu] < x *et, de même, cela implique que l’on ne peut trouver* x *dans le tableau à un indice inférieur ou égal à* milieu*. Ainsi, en supposant* **Invariant** *vrai au départ et en effectuant l’affectation* droite = milieu - 1, *l’***invariant** *reste vérifié.***  
 
 *Ainsi, dans tous les cas d’une exécution menant à la fin du corps de la boucle, si l’***Invariant** *est vérifié au début du corps, il l’est encore à la fin. C’est donc un invariant de la boucle de la fonction* recherche\_dichotomique*.*  
 
 *Voyons maintenant comme cela nous permet de prouver la correction de cette fonction lorsque le résultat est* None*. Avant d’entrer dans la boucle, on a* gauche = 1 *et* droite = milieu - 1*, et donc si* x *est présente dans* T*, c’est nécessairement à un indice compris entre* gauche *et* droite*. Ainsi, l’***Invariant** *est vérifié en entrant dans la boucle.  Puisqu’il s’agit d’un invariant de cette boucle, il est encore vérifié en sortant de la boucle. Mais à ce moment, on sait que :*  
 
-- **Invariant** *: si* x *est présente dans* T *sa position sera comprise entre* gauche *et* droite*.  **![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.026.png)![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.027.png)![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.028.png)![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.029.png)***
-- *Sortie de boucle : la condition de boucle* gauche <= droite *n’est plus vérifiée, on a donc* droite < gauche*.***  
+- **Invariant** *: si* x *est présente dans* T *sa position sera comprise entre* gauche *et* droite.
+
+- *Sortie de boucle : la condition de boucle* gauche <= droite *n’est plus vérifiée, on a donc* droite < gauche.  
 
 *En combinant les deux, si* x *est présente dans* T *à une position comprise entre* gauche *et* droite*, ce qui implique que* gauche <= droite*, qui est incompatible avec* droite < gauche*.*  
 
@@ -247,87 +247,82 @@ On a trouvé un variant pour notre boucle, nous avons prouvé qu’**elle termin
 
 ## **6. Implémentation<a name="_page6_x40.00_y408.92"></a> en Python** 
 
-**Activité n°2.:** 
+**Activité n°2.:** compléter le script suivant
 
-def rechercheDichotomique(T \*, x): ![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.030.png)
+```python
+def rechercheDichotomique(T , x):
+    """
+    recherche l'indice d'un élément dans une liste triée
+    :param T: tableau d'entier
+    :param x: entier
+    :return: entier (indice de la valeur)
+    """
+    # à compléter
+```
+**Tester avec (ajouter le script suivant à la suite)** 
+```python
+import random
+t1 = [random.randint(1,100_000_000) for _ in range(10_000)]
+t1.sort()
+print(rechercheDichotomique(t1, 0))
+```
+**Activité n°3.: Observation de durées**
+On peut mesurer les durées pour trouver une valeur dans un tableau déjà trié. Comme les temps d’exécution sont très faibles, et que la fonction time est peu précise il faut avoir recourt à la fonction magique %timeit de iPython. Voilà un exemple de script pour mesurer les durées sur des tableaux de longueurs différentes :
 
-`    `*"""* 
+```python
+# construction d'un tableau par compréhension
+import random
+t1 = [random.randint(1,100_000_000) for _ in range(10_000)]
+t1.sort()
 
-`    `*recherche l'indice d'un élément dans une liste triée* 
+t2 = [random.randint(1,100_000_000) for _ in range(100_000)]
+t2.sort()
 
-`    `***:param** T: tableau d'entier* 
+t3 = [random.randint(1,100_000_000) for _ in range(1_000_000)]
+t3.sort()
 
-`    `***:param** x: entier* 
+t4 = [random.randint(1,100_000_000) for _ in range(2_000_000)]
+t4.sort()
 
-`    `***:return**: entier (indice de la valeur)* 
+t5 = [random.randint(1,100_000_000) for _ in range(4_000_000)]
+t5.sort()
+```
+Observer et commenter
 
-`    `*"""* 
-\*
-`    `gauche = 0 
+```
+%timeit rechercheDichotomique(t1, 0)
+2.69 µs ± 144 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
 
-`    `droite = len(T)-1 #attention il s'agit ici des indices !! 
+%timeit rechercheDichotomique(t2, 0)
+2.9 µs ± 105 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
 
-`    `while gauche <= droite : 
+%timeit rechercheDichotomique(t3, 0)
+4.02 µs ± 425 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
 
-`        `milieu = (gauche + droite)//2 # ATTENTION c'est un indice donc un entier         ![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.031.png)if T[milieu] < x: 
+%timeit rechercheDichotomique(t4, 0)
+4.37 µs ± 457 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
 
-`            `gauche = milieu + 1 
-
-`        `elif T[milieu] > x: 
-
-`            `droite = milieu - 1 
-
-`        `else : 
-
-`            `return milieu 
-
-`    `return None 
-
-\# construction d'un tableau par compréhension ![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.032.png)import random 
-
-t1 = [random.randint(1,100\_000\_000) for \_ in range(10\_000)] t1.sort() 
-
-t2 = [random.randint(1,100\_000\_000) for \_ in range(100\_000)] t2.sort() 
-
-t3 = [random.randint(1,100\_000\_000) for \_ in range(1\_000\_000)] ![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.009.png)
-
-t3.sort() ![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.033.png)
-
-t4 = [random.randint(1,100\_000\_000) for \_ in range(2\_000\_000)] t4.sort() 
-
-t5 = [random.randint(1,100\_000\_000) for \_ in range(4\_000\_000)] t5.sort() 
-
-Comme les temps d’exécution sont très faibles, et que la fonction time est peu précise il faut avoir recourt à la fonction magique ![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.034.png)![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.035.png)%timeit de **iPython.** (Le prompt est remplacé par ![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.036.png)) 
-
-%timeit rechercheDichotomique(t1, 0) ![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.037.png)![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.038.png)![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.039.png)
-
-2\.69 µs ± 144 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each) %timeit rechercheDichotomique(t2, 0) 
-
-2\.9 µs ± 105 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each) %timeit rechercheDichotomique(t3, 0) 
-
-4\.02 µs ± 425 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each) %timeit rechercheDichotomique(t4, 0) 
-
-4\.37 µs ± 457 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each) %timeit rechercheDichotomique(t5, 0) 
-
-4\.64 µs ± 256 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each) 
+%timeit rechercheDichotomique(t5, 0)
+4.64 µs ± 256 ns per loop (mean ± std. dev. of 7 runs, 100000 loops each)
+```
 
 ## **7. Exercices<a name="_page7_x40.00_y407.92"></a>** 
 
 **Exercice 1** : Recherche d’un maximum dans une liste de n éléments 
 
 1. Ecrire l’algorithme en pseudo – code 
-1. Calculer la complexité de cet algorithme  
-1. L’implémenter en Python 
-1. Modifier le programme pour créer une fonction maximum(T :list) -> int
-1. Tester la fonction avec une liste aléatoire de 20 valeurs 
+2. Calculer la complexité de cet algorithme  
+3. L’implémenter en Python 
+4. Modifier le programme pour créer une fonction ```maximum(T :list) -> int```
+5. Tester la fonction avec une liste aléatoire de 20 valeurs 
 
 **Exercice 2** : Recherche de la moyenne des éléments d’une liste de n éléments 
 
 1. Ecrire l’algorithme en pseudo – code 
-1. Calculer la complexité de cet algorithme  
-1. L’implémenter en Python 
-1. Modifier le programme pour créer une fonction moyenne(T :list) -> int
-1. Tester la fonction avec une liste aléatoire de 20 valeurs ![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.009.png)
+2. Calculer la complexité de cet algorithme  
+3. L’implémenter en Python 
+4. Modifier le programme pour créer une fonction ```moyenne(T :list) -> int```
+5. Tester la fonction avec une liste aléatoire de 20 valeurs 
 
 **Exercice 3 : Recherche en table** 
 
@@ -345,39 +340,40 @@ Bien entendu, ce n’est pas ainsi que l’on procède : on ouvre l‘annuaire a
 |2 |7\.500 |
 |... |... |
 
-2. En déduire le temps de recherche dans le pire des cas et conclure. 
+2 En déduire le temps de recherche dans le pire des cas et conclure. 
 
 On appelle logarithme à base 2, log2(x) d’un nombre x ≥ 1, le nombre de fois qu’il faut le diviser x par 2 pour obtenir un nombre inférieur ou égal à 1. 
 
-Sur la calculatrice, log2( ) = log( ) log(2)
+Sur la calculatrice, log<sub>2</sub>(x) = $\frac{log(x)}{log(2)}$
 
-3. A partir du logarithme à base 2, retrouver le résultat obtenu à la question 1. 
-3. Calculer le temps nécessaire pour rechercher un nom dans l’annuaire français pour n = 60 millions d’entrées. ![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.009.png)
+3 A partir du logarithme à base 2, retrouver le résultat obtenu à la question 1. 
+4 Calculer le temps nécessaire pour rechercher un nom dans l’annuaire français pour n = 60 millions d’entrées.
 
 **Exercice 4** : Algorithme de recherche dichotomique 
 
-1\.  Faire la preuve (correction totale) de l’algorithme ci-dessous. 
+1.  Faire la preuve (correction totale) de l’algorithme ci-dessous. 
 
 Pour montrer qu’un algorithme est correcte, il faut montrer que l’algorithme : 
 
-1. se termine : problème de la terminaison. 
-1. calcule bien ce qu'il est supposé calculer : problème la correction partielle. 
+- se termine : problème de la terminaison. 
+- calcule bien ce qu'il est supposé calculer : problème la correction partielle. 
 
 La correction totale est la terminaison et la correction partielle. 
 
-fonction **dichotomie**(liste : tableau d’entiers, valeur : entier) -> booléen : { recherche d'une valeur dans une liste par dichotomie } ![](Aspose.Words.811dea78-cc24-44b0-94c9-7acd3bdf0560.040.png)
+```
+fonction dichotomie(liste : tableau d’entiers, valeur : entier) -> booléen :
+	tantque gauche <= droite et non trouvé faire
+		milieu = (gauche + droite) / 2
+		si liste[milieu] = valeur alors
+			trouvé := vrai
+		sinon
+			si liste[milieu] < valeur alors
+				gauche := milieu + 1
+			sinon
+				droite := milieu – 1
+	retourne trouve
+```
 
-{ renvoie vrai si la valeur est trouvée, faux sinon } 
-
-variables 
-
-gauche : entier := 0 
-
-droite : entier := taille(liste) - 1 
-
-trouvé : booléen := faux 
-
-milieu : entier 
 
 début 
 
