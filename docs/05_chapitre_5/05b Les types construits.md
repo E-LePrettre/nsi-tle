@@ -985,8 +985,11 @@ return #ledictionnaire
 ``` 
 
 3 Tester la fonction avec le fichier 'valley.jpg' du dossier Ressources (à enregistrer au même endroit que le fichier exif.py). 
+
 4 Documenter la fonction 
+
 5 Indiquer l’auteur de la photo : 'Artist', le fabricant et le numéro de série de l’appareil. Attention aux majuscules / minuscules  
+
 6 Ouvrir le fichier valley.jpg avec un éditeur de texte (Notepad++). Conclure. 
 
 Comme vous pouvez le constater, nous avons un système clé:valeur (à chaque clé correspond une valeur). La clé "GPSInfo" n'est pas tout le temps présente puisqu'il s'agit des coordonnées (latitude, longitude) de la prise de vue, il faut donc que l'appareil photo intègre un GPS (ce qui est le cas des smartphones) : 
@@ -1005,9 +1008,7 @@ et 29107360/1000000 secondes,
 aussi noté 47°37'29,107360" 
 
 - ligne 3 : précise que nous sommes à l'ouest (W) du méridien de Greenwich 
-- ligne 4 : nous avons la longitude ((3, 1), (25, 1), (42976570, 1000000)) ici aussi la longitude est donnée en 
-
-degrés, minute, seconde (ici : 3°25'42,976570") 
+- ligne 4 : nous avons la longitude ((3, 1), (25, 1), (42976570, 1000000)) ici aussi la longitude est donnée en degrés, minute, seconde (ici : 3°25'42,976570") 
 
 7 Ajouter une fonction qui récupère les données GPS du format EXIF. On donne le prototype de la fonction : 
 ```GPS_read(filename : str) -> dict ```
@@ -1040,6 +1041,7 @@ except KeyError :
 ``` 
 
 8 Tester la fonction avec le fichier 'mountain.jpg' du dossier Ressources (à enregistrer au même endroit que le fichier exif.py). 
+
 9 Compléter le docstring de la fonction 
 
 Les coordonnées géographiques sont habituellement exprimées dans le système sexagésimal, ou DMS pour degrés (°), minutes (′) et secondes (″). L’unité est le degré d’angle (1 tour = 360°), puis la minute d’angle (1° = 60′), puis la seconde d’angle (1° = 3 600″). 
@@ -1090,6 +1092,7 @@ except TypeError :
 ```
 
 11 Tester la fonction précédente avec le dictionnaire GPSinfo précédent 
+
 12 Compléter le docstring de la fonction 
 
 On souhaite combiner les fonctions pour obtenir les coordonnées GPS d’une image 
@@ -1099,8 +1102,11 @@ On souhaite combiner les fonctions pour obtenir les coordonnées GPS d’une ima
 ```def coordonnee_GPS_image(image:str) -> list: ```
 
 14 tester la fonction avec 'mountain.jpg'
+
 15 documenter la fonction 
+
 16 Créer un fichier exif\_test.py.
+
 17 Valider les tests unitaires suivants : 
 ```
 xif.get_coordinates(exif.GPS_read("mountain.jpg")) == ['63.0°40.9847‘0.0"N', '19.0°31.8565‘0.0"W']
@@ -1117,6 +1123,7 @@ exif.get_exif("valley.jpg")['BodySerialNumber'] == "2506446"
 On souhaite avoir un programme qui extrait toutes les EXIF d’une photo entrée en input 
 
 18 Créer un fichier exif\_main.py
+
 19 Le programme doit demander la photo et retourner chaque donnée EXIF ligne par ligne : 
 
 ```
@@ -1142,6 +1149,7 @@ except KeyboardInterrupt:
 ```
 
 20 Tester avec le fichier mountain.jpg
+
 21 Vérifier que toutes les fonctions soient bien documentées (docstring). 
 
 **Exercice 13 :** ★★★ **Le chiffrement de Caesar** 
@@ -1173,13 +1181,17 @@ Le code ASCII de la lettre ‘A’ a pour valeur 65, celui de la lettre ‘Z’ 
 Méthode : 
 
 1 ([65 ; 90] – 65) → [0 ; 25]  on soustrait 65 pour être dans un intervalle [0 ; 25] 
+
 2 ([0 ; 25] + clef) → [clef ; 25 + clef]  on décale selon la clef 
+
 3 [clef ; 25 + clef] modulo 26 → [0 ; 25]   le modulo permet de rester dans l’intervalle [0 ; 25] 
+
 4 ([0 ; 25] + 65) → [65 ; 90]  on ajoute 65 pour revenir dans un intervalle [‘A’; ‘Z’] 
 
 On appelle modulo d’un nombre x par N, l’opérateur qui renvoie le reste de la division entière de x par N. Exemple : 11 modulo 5 = 1 (en Python, le modulo est notée %). 
 
 1 Créer un fichier caesar.py.
+
 2 Écrire une fonction qui utilise la méthode de César pour crypter un message. 
 
 Le prototype de la fonction est : ```caesar_encode(text : str, key : int = 1) -> str```
@@ -1193,11 +1205,17 @@ Le prototype de la fonction est : ```caesar_encode(text : str, key : int = 1) ->
 - les caractères (lettres ou signes de ponctuations) qui ne figurent pas dans l’alphabet [A..Z] **restent inchangés**. 
 - Utilisez les méthodes upper() (pour mettre en majuscule) et isalpha() (pour tester si c’est une lettre alphabétique)  
 - Utilisez les fonction chr(#nombre) pour convertir en caractère et ord(‘#la lettre’) pour convertir en code ASCII 
+
 3 Documenter la fonction 
+
 4 Tester la fonction avec le message suivant : "ATTAQUEZ DEMAIN" avec la clé par défaut. Résultat attendu : BUUBRVFA EFNBJO
+
 5 Écrire un programme qui permet de déchiffrer le texte chiffré précédemment. Le prototype de la fonction est : ```caesar_decode(code : str, key : int = 1) -> str```
-- code représente le texte à déchiffrer,  
-- key représente la clef de chiffrement.  
+
+- code représente le texte à déchiffrer, 
+
+- key représente la clef de chiffrement.
+  
 - La fonction doit renvoyer le texte déchiffré. 
 
 **Aide :** 
