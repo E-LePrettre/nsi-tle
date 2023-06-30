@@ -30,6 +30,9 @@ def genere_liste_aleatoire(N, n):
 liste_aleatoire = genere_liste_aleatoire(50, 100)
 print(liste_aleatoire)
 ```
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
 
 ## **2. Le<a name="_page1_x40.00_y54.92"></a> tri par sélection :** 
 ### **2.1. Le<a name="_page1_x40.00_y76.92"></a> principe** 
@@ -182,7 +185,9 @@ def genere_liste_aleatoire(N, n):
 data = genere_liste_aleatoire(5, 20)
 print("Liste initiale: ", data)
 ```
+???+ question "Faire ce qui est proposé"
 
+    {{ IDE() }}
 
 **Activité n°3.: implémentation classique** : AJOUTER à l’activité 2 les deux fonctions suivantes à compléter avec l'algorithme précédent : 
 
@@ -200,6 +205,11 @@ def selection_sort(T : list) -> list:
 
 print("Liste triée   : ", selection_sort(data))
 ```
+
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
+
 Ne pas oublier de télécharger le script complété
 
 **Activité n°4.: Tri par sélection et temps d’exécution** : AJOUTER ce script aux fonctions de l’activité précédente en mettant en commentaire les deux print précédent : 
@@ -238,6 +248,10 @@ moyenne = somme_des_durees/5
 print("Temps d execution pour 10_000: %s secondes ---" % (moyenne))
 ```
 On mesure la durée moyenne (sur 5 tableaux) d’exécution du tri sur des tableaux dont le nombre d’éléments est de plus en plus grand.
+
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
 
 On voit bien que multiplier par 10 le nombre d’éléments du tableau à trier revient à multiplier le temps par 10². 
 
@@ -381,6 +395,9 @@ def insertion_sort(T):
 
 print("Liste triée   : ", insertion_sort(data))
 ```
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
 
 Ne pas oublier de télécharger le script complété
 
@@ -422,6 +439,12 @@ print("Temps d execution pour 10_000: %s secondes ---" % (moyenne))
 ```
 On mesure la durée moyenne (sur 5 tableaux) d’exécution du tri sur des tableaux dont le nombre d’éléments est de plus en plus grand.
 
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
+
+Ne pas oublier de télécharger le script.
+
 **Animation :[ http://lwh.free.fr/pages/algo/tri/tri_insertion.html ](http://lwh.free.fr/pages/algo/tri/tri_insertion.html)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.006.png)**
 
 
@@ -457,10 +480,10 @@ def bubble_sort(T : list) -> list:
     """ fonction tri a bulle permutation des éléments 2 à 2 en faisant remonter
     la plus grande valeur en fin de la liste  """
     # à compléter
-
-
 ```
+???+ question "Faire ce qui est proposé"
 
+    {{ IDE() }}
 
 **Remarque : il existe d’autres versions du tri bulle** 
 
@@ -497,7 +520,9 @@ for i in range(5):
 moyenne = somme_des_durees/5
 print("Temps d execution pour 10_000: %s secondes ---" % (moyenne))
 ```
+???+ question "Faire ce qui est proposé"
 
+    {{ IDE() }}
 
 
 Animation :[ http://lwh.free.fr/pages/algo/tri/tri_bulle.html ](http://lwh.free.fr/pages/algo/tri/tri_bulle.html)
