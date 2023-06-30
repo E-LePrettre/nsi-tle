@@ -803,7 +803,7 @@ Cette montre affiche l’heure en binaire :
 6. Quelle valeur maximale en décimal sera réellement affichée sur la  ligne des minutes ? en binaire ? en hexadécimal ?  
 7. Quelle est l’heure donnée par les montre ci-dessous ?  
 
-numérotée 1 à 3
+
 ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.110.png)
 
 
