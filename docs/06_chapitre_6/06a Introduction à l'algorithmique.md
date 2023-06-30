@@ -118,24 +118,24 @@ Exemple : en septembre 2004, un iceberg de 25 tonnes dérive depuis l’Islande 
 Solution : 
 
 1. le processus itératif est masse restante = masse iceberg – 10 % masse iceberg, appliqué à chaque jour. On incrémente le nombre de jours à chaque fois. 
-1. il n’est pas possible de connaître à l’avance le nombre de jours, on utilisera une boucle tantque. 
-1. on entre dans la boucle si masse restante est initialisée et masse restante > 1 tonne. Au départ le nombre de jour est 1. 
-1. l’opération masse restante = masse iceberg – 10 % masse iceberg converge vers 0 < 1 tonne, on termine forcément. ![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.002.png)
+2. il n’est pas possible de connaître à l’avance le nombre de jours, on utilisera une boucle tantque. 
+3. on entre dans la boucle si masse restante est initialisée et masse restante > 1 tonne. Au départ le nombre de jour est 1. 
+4. l’opération masse restante = masse iceberg – 10 % masse iceberg converge vers 0 < 1 tonne, on termine forcément. 
 
-nombre de jours := 1 ![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.009.png)
-
-masse restante := masse iceberg 
-
-**tantque** masse restante > 1 tonne **faire** 
-
-masse restante := masse restante – 10 % masse  restante nombre de jours := nombre de jours + 1 
+```
+nombre de jours := 1
+masse restante := masse iceberg
+tantque masse restante > 1 tonne faire
+    masse restante := masse restante – 10 % masse restante
+    nombre de jours := nombre de jours + 1
+```
 
 ### **3.4. Correction<a name="_page3_x40.00_y125.92"></a>** 
 
-Pour s'assurer qu'un algorithme est correct, il faut démontrer deux choses : ![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.010.png)![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.011.png)![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.012.png)
+Pour s'assurer qu'un algorithme est correct, il faut démontrer deux choses :
 
 1. que l'algorithme se termine (**terminaison**), autrement dit qu'il **ne boucle pas** ou ne diverge pas, produisant au moins un résultat. 
-1. que  le  résultat  de  l'algorithme  **satisfait  la  spécification  du  résultat**  comme  énoncé  dans  la description de l'algorithme (**correction partielle**). 
+2. que  le  résultat  de  l'algorithme  **satisfait  la  spécification  du  résultat**  comme  énoncé  dans  la description de l'algorithme (**correction partielle**). 
 
 La conjonction de la **correction partielle et de la terminaison** s'appelle la **correction totale.** 
 
@@ -162,7 +162,7 @@ Pour calculer la complexité, il faut examiner chaque ligne de code et l'y attri
 
 Le coût ainsi obtenu n'aura pas d'unité, il s'agit d'un nombre d'opérations dont chacune aurait le même temps d’exécution : 1. Les opérations qui vont devoir être comptabilisées sont : 
 
-- Les affectations comptent pour 1 unité de temps: ![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.013.png)![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.014.png)![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.015.png)
+- Les affectations comptent pour 1 unité de temps: 
 
 a←2 
 
@@ -173,11 +173,11 @@ a←2
 - L'accès aux mémoires  comptent pour une 1 unité de temps et afficher pour 2 unités de temps: Lire a  Afficher a 
 - Chaque opération élémentaire compte pour une 1 unité de temps : 
 
-3+2  ![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.002.png)
+3+2  
 
 Déterminons le coût de la ligne de code suivante : 
 
-a←a+1 ![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.016.png)
+a←a+1 
 
 T(n) = 1(affectation) + 1(accès à la mémoire) + 1(addition) = 3 
 
