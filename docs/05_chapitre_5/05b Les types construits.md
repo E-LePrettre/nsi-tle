@@ -812,8 +812,11 @@ Matplotlib est distribuée librement et gratuitement sous une licence de style B
 
 2 Écrire une fonction f, qui à x → x² + x – 4, et dont le prototype est le suivant : 
 ```f(x : float) ->  float ```
+
 3 Compléter le code ci-dessous en utilisant une **compréhension de liste** pour liste\_x et liste\_y.
+
 - liste\_x contient les éléments  ∈ [−3,0;3,0] par intervalle de 0,1. 
+
 - liste\_y contient les images de x par f.
 
 ```python
@@ -840,8 +843,11 @@ Résultat attendu :
 On souhaite tracer une deuxième courbe sur le même graphique précédent dont l’équation est y = x<sup>3</sup> – 3x + 2. 
 
 4 Modifier votre programme en rajoutant une fonction f2 qui renvoie l’image de x pour l’équation ci-dessus. 
+
 5 Mettre à jour une troisième liste liste\_y2 à l’aide d’une compréhension de liste. 
-6 Modifier les paramètres de la fonction plot() pour obtenir le résultat ci-dessous.  
+
+6 Modifier les paramètres de la fonction plot() pour obtenir le résultat ci-dessous. 
+
 7 Rajouter la légende sur le graphique.  
 
 Résultat attendu :  
@@ -890,7 +896,9 @@ return True
 
 - on utilisera le module random sur la liste ballots pour écrire un nom au hasard dans le fichier vote.txt  
 - ne pas oublier "\n" à la fin de chaque ligne écrite et de fermer le fichier texte avec la méthode close()
-3 Tester cette fonction avec total 10 et noise 2.  
+
+3 Tester cette fonction avec total 10 et noise 2. 
+
 4 Documenter la fonction. 
 
 **Dépouillement :** 
@@ -923,7 +931,9 @@ return #le dictionnaire
 ``` 
 
 - Ne pas oublier de fermer le fichier texte
+
 6 Documenter la fonction (docstring). 
+
 7 Tester les fonctions avec  
 ```python
 generate_ballots(5000, 3951) 
@@ -931,6 +941,7 @@ print(read\_ballots("votes.txt"))
 ```
 
 8 Déterminer les intrus qui se sont glissés dans le fichier et supprimer les du dictionnaire sans utiliser 'Sex Pistols' on pourra imaginer que tous les intrus ont qu’un seul vote. 
+
 9 Afficher le nombre de votants à l’aide d’une compréhension de liste faite sur le dictionnaire retourné par la fonction read\_ballots().
 
 **Aide :**  
@@ -963,6 +974,7 @@ Ces données EXIF peuvent avoir des utilisations inattendues comme par exemple e
 La plupart des appareils photos récents et téléphones portables enregistrent les photographies avec des données géographiques (longitude, latitude, mais aussi altitude). Si ces données sont lisibles avec la majorité des logiciels photos et d’explorateurs de fichiers, il est également possible d’y accéder avec Python. 
 
 1 Créer un fichier exif.py.
+
 2 Écrire une fonction qui lise les données EXIF contenues dans une image. On donne le prototype de la fonction : 
 
 ```get_exif(filename : str) -> dict ```
@@ -1238,9 +1250,12 @@ Le prototype de la fonction est : ```caesar_encode(text : str, key : int = 1) ->
 - La fonction doit renvoyer le texte déchiffré. 
 
 **Aide :** 
-- Le decodage de la lettre S avec une key = 19 donne Z. 
+- Le decodage de la lettre S avec une key = 19 donne Z.
+
 6 Documenter la fonction 
+
 7 Factoriser le code des deux fonctions précédentes pour obtenir une fonction qui chiffre ou déchiffre. Le prototype de la fonction est : ```caesar(str_in : str, key : int) -> str```
+
 - str\_in représente le texte à chiffrer/déchiffrer, 
 - key représente la clef de chiffrement. Si key > 0 c’est un chiffrage si key < 0 c’est un déchiffrement.  
 - La fonction doit renvoyer le texte déchiffré/chiffré. 
@@ -1249,7 +1264,9 @@ Le prototype de la fonction est : ```caesar_encode(text : str, key : int = 1) ->
 Une fonction est basée sur le modèle de la boite noire ; les sorties n’étant fonction que des entrées. Cette boite noire doit être à la fois cohérente (des entrées supposées fournir un résultat juste doivent donner un résultat juste, des entrées supposées donner un résultat faux doivent donner un résultat faux) et stable (le programme doit terminer, ne pas « crasher » ou avoir un comportement erratique). La vérification de ces deux critères se fait à travers des tests unitaires. 
 
 9 Créer un fichier caesar\_test.py. 
+
 10 Tests de cohérence. Écrire une série de tests unitaires qui vérifie les conditions suivantes : 
+
 ```
 pour key = 0 et str_in = ‘A’ : sortie = ‘A’ 
 pour key = 1 et str_in = ‘Z’ : sortie = ‘A’ 
@@ -1283,6 +1300,7 @@ EZ KFLK R WRZK LEV RLKIV, VK D’RZDV VK DV TFDGIVEU.
 Le chiffrement de César a été utilisé mais avec une clef différente de 1. 
 
 11 Créer un fichier caesar\_main.py.
+
 12 Écrire un programme afin de donner le nom de l’auteur du message crypté. 
 
 **Aide :**  
@@ -1329,11 +1347,13 @@ E S A I N T R U L O D C P M V Q G F H B X J Y Z K W avec les fréquences (souven
 
 Voici la méthode d’attaque : dans le texte crypté, on cherche la lettre qui apparaît le plus, et si le texte est assez long cela devrait être le chiffrement du E, la lettre qui apparaît ensuite dans l’étude des fréquences devrait être le chiffrement du S, puis le chiffrement du A... On obtient des morceaux de texte clair sous la forme d’un texte à trous et il faut ensuite deviner les lettres manquantes. 
 
-Par exemple, déchiffrons la phrase : LHLZ HFQ BC HFFPZ WH YOUPFH MUPZH On compte les apparitions des lettres → H : 6 F : 4 P : 3 Z : 3 
+Par exemple, déchiffrons la phrase : LHLZ HFQ BC HFFPZ WH YOUPFH MUPZH 
+On compte les apparitions des lettres → H : 6 F : 4 P : 3 Z : 3 
 
 On suppose donc que le H crypte la lettre E, le F la lettre S, ce qui donne : 
 
-\*E\*\* ES\* \*\* ESS\*\* \*E \*\*\*SE \*\*\*\*E ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.010.png)
+\*E\*\* ES\* \*\* ESS\*\* \*E \*\*\*SE \*\*\*\*E 
+
 
 D’après les statistiques P et Z devraient se décrypter en A et I (ou I et A). Le quatrième mot "HFFPZ", pour l’instant décrypté en "ESS\*\*", se complète donc en "ESSAI" ou "ESSIA". La première solution semble correcte. Ainsi P crypte A, et Z crypte I. La phrase est maintenant : 
 
@@ -1341,49 +1361,48 @@ D’après les statistiques P et Z devraient se décrypter en A et I (ou I et A)
 
 En réfléchissant un petit peu, on décrypte le message : CECI EST UN ESSAI DE PHRASE VRAIE 
 
-1. Créer un fichier occurrences.py. 
-1. Écrire une fonction qui va compter le nombre d’occurrences de chaque lettre dans un texte. On donne le prototype :  
+1 Créer un fichier occurrences.py.
 
-letter\_count(text : str) -> list
+2 Écrire une fonction qui va compter le nombre d’occurrences de chaque lettre dans un texte. On donne le prototype :  
+
+```letter_count(text : str) -> list```
 
 - text : texte source 
 - la fonction renvoie une liste de valeurs [lettre, occurrences], triée par ordre décroissant selon le nombre d’occurrences de chaque lettre. 
 
 **Aide** :  
+- penser à mettre tout le texte en minuscules 
+- utiliser  la  méthode  isalpha  pour  ne  sélectionner  que  les  lettres  alphabétiques :[https://www.geeksforgeeks.org/python-string-isalpha-application/ ](https://www.geeksforgeeks.org/python-string-isalpha-application/)
+- utiliser un dictionnaire pour compter les occurrences de chaque lettre puis créer une liste de listes à partir du dictionnaire 
+- on utilisera une fonction lambda et la méthode sort() pour trier la liste par ordre décroissant de nombre d’occurrences
+```python 
+a.sort(key=lambda x: x[1]) => tri la liste a par ordre croissant des nombres en indice 1
+a.sort(key=lambda x: -x[1]) => tri la liste a par ordre décroissant des nombres en indice 1
+```
+[https://www.science-emergence.com/Articles/Comment-trier-une-liste-de-tuple-par-rapport-a-un-](https://www.science-emergence.com/Articles/Comment-trier-une-liste-de-tuple-par-rapport-a-un-element-donnee-en-python-/)
 
 
+3 Documenter la fonction 
 
-<table><tr><th colspan="1">￿ </th><th colspan="1" valign="top">penser à mettre tout le texte en minuscules </th></tr>
-<tr><td colspan="1">￿ </td><td colspan="1" valign="top">utiliser  la  méthode  isalpha  pour  ne  sélectionner  que  les  lettres  alphabétiques :</td></tr>
-<tr><td colspan="1"></td><td colspan="1">[https://www.geeksforgeeks.org/python-string-isalpha-application/ ](https://www.geeksforgeeks.org/python-string-isalpha-application/)</td></tr>
-<tr><td colspan="1">￿ </td><td colspan="1" valign="top">utiliser un dictionnaire pour compter les occurrences de chaque lettre puis créer une liste de listes à partir</td></tr>
-<tr><td colspan="1"></td><td colspan="1">du dictionnaire </td></tr>
-<tr><td colspan="1">￿ </td><td colspan="1" valign="top">on utilisera une fonction lambda et la méthode sort() pour trier la liste par ordre décroissant de nombre</td></tr>
-<tr><td colspan="1"></td><td colspan="1">d’occurrences </td></tr>
-<tr><td colspan="1" rowspan="4"></td><td colspan="1"><b>a.sort(key=lambda x: x[1]) => tri la liste a par ordre croissant des nombres en indice 1</b> </td></tr>
-<tr><td colspan="1"><b>a.sort(key=lambda x: -x[1]) => tri la liste a par ordre décroissant des nombres en indice 1</b> </td></tr>
-<tr><td colspan="1">[https://www.science-emergence.com/Articles/Comment-trier-une-liste-de-tuple-par-rapport-a-un-](https://www.science-emergence.com/Articles/Comment-trier-une-liste-de-tuple-par-rapport-a-un-element-donnee-en-python-/)</td></tr>
-<tr><td colspan="1">[element-donnee-en-python-/ ](https://www.science-emergence.com/Articles/Comment-trier-une-liste-de-tuple-par-rapport-a-un-element-donnee-en-python-/)</td></tr>
-<tr><td colspan="1"></td><td colspan="1"></td></tr>
-</table>
+4 Tester la fonction avec le message : ETRE OU NE PAS ETRE TELLE EST LA QUESTION. 
 
+5 Tester la fonction avec le message : Être ou ne pas Être, telle est la question. 
 
-
-3. Documenter la fonction 
-3. Tester la fonction avec le message : ETRE OU NE PAS ETRE TELLE EST LA QUESTION. 
-3. Tester la fonction avec le message : Être ou ne pas Être, telle est la question. 
-3. Modifier la fonction pour que les lettres accentuées soient considérées comme non accentuées. On ajoutera avant une fonction strip\_accent(text : str) -> str
+6 Modifier la fonction pour que les lettres accentuées soient considérées comme non accentuées. On ajoutera avant une fonction ```strip_accent(text : str) -> str```
 - text : lettre accentuée 
 - la fonction renvoie lettre sans accent 
 
 **Aide** :  
 
 - passer en revue chaque lettre accentuée possible 
-7. Documenter la fonction 
-7. Tester la fonction avec le message : Être ou ne pas Être, telle est la question. 
-7. Écrire une fonction qui va compter le nombre d’occurrences de chaque lettre dans un fichier texte. 
 
-On donne le prototype : count\_in\_file(file : str, encode = 'utf-8') -> list
+7 Documenter la fonction 
+
+8 Tester la fonction avec le message : Être ou ne pas Être, telle est la question.
+
+9 Écrire une fonction qui va compter le nombre d’occurrences de chaque lettre dans un fichier texte. 
+
+On donne le prototype : ```count_in_file(file : str, encode = 'utf-8') -> list```
 
 - file: nom du fichier texte 
 - encode : type d’encodage du fichier (défaut utf-8) 
@@ -1393,20 +1412,23 @@ On donne le prototype : count\_in\_file(file : str, encode = 'utf-8') -> list
 
 - ouvrir le fichier avec la fonction open() et l’attribut ‘r’, ne pas oublier l’encodage du fichier 
 - On utilisera la méthode rstrip("\n") pour enlever le symbole.  [https://www.w3schools.com/python/ref_string_rstrip.asp ](https://www.w3schools.com/python/ref_string_rstrip.asp)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.010.png)
-10. Documenter la fonction 
-10. Tester la fonction avec le fichier « book\_vh.txt » dans le dossier Ressources. 
+
+10 Documenter la fonction
+
+11 Tester la fonction avec le fichier « book\_vh.txt » dans le dossier Ressources.
+
 
 **Résultat attendu** : [['e', 139996], ['a', 67618], ['s', 60385], ['i', 59208], ['t', 58033], ['u', 52989], ['r', 52377], ['n', 51021], ['l', 48412], ['o', 41961], ['d', 30221], ['c', 25215], ['m', 21676], ['p', 21393], ['v', 13206], ['q', 9631], ['g', 8972], ['f', 8856],...]
 
-12. Modifier la fonction pour traiter le cas d’une éventuelle erreur à l’ouverture du fichier (nom incorrect, problème de droits, …). On utilisera le gestionnaire de contexte (context manager). 
+12 Modifier la fonction pour traiter le cas d’une éventuelle erreur à l’ouverture du fichier (nom incorrect, problème de droits, …). On utilisera le gestionnaire de contexte (context manager). 
+```
+try : 
+  # bloc à coder 
+except FileNotFoundError:          
+  return [] 
+```
 
-try : ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.104.png)
-
-- bloc à coder 
-
-except FileNotFoundError:       return [] 
-
-13. Écrire une fonction qui va filtrer la liste de valeurs [lettre, occurrences] sur les lettres. On donne le prototype : occurrence(sorted\_list : list) -> list
+13 Écrire une fonction qui va filtrer la liste de valeurs [lettre, occurrences] sur les lettres. On donne le prototype : ```occurrence(sorted\_list : list) -> list```
 - sorted\_list :  liste  de  valeurs  [lettre,  occurrences],  triée  par  ordre  décroissant  selon  le  nombre d’occurrences de chaque lettre. 
 - La fonction renvoie une liste de lettres triées par ordre décroissant de fréquence d’apparition.  
 
@@ -1414,26 +1436,27 @@ except FileNotFoundError:       return []
 
 - la liste renvoyée par la fonction letter\_count() est déjà triées par ordre décroissant  ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.105.png)
 - modifier la fonction count\_in\_file() pour qu’elle renvoie la liste de lettres triées par ordre décroissant de fréquence d’apparition en combinant les fonctions 
-14. Documenter la fonction précédente 
-14. Tester la fonction avec le fichier « book\_vh.txt ». 
+
+14 Documenter la fonction précédente 
+
+15 Tester la fonction avec le fichier « book\_vh.txt ». 
 
 **Résultat attendu** : ['e', 'a', 's', 'i', 't', 'u', 'r', 'n',  ...] 
 
-16. Modifier le corps principal du programme pour appeler la fonction occurrence avec tous les fichiers texte d’extension .txt présents dans le répertoire. Conclure. 
+16 Modifier le corps principal du programme pour appeler la fonction occurrence avec tous les fichiers texte d’extension .txt présents dans le répertoire. Conclure. 
 
 **Super Aide :** 
 
 - On codera de cette manière : 
+```python
+import os
+if __name__ == '__main__':
+    files = [ f for f in os.listdir('.') if os.path.isfile(f) and f.startswith("book") and f.endswith(".txt") ]
 
-import os ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.106.png)
+    for f in files:
+        print(f, ":", count_in_file(f))
+```
 
-if \_\_name\_\_ == '\_\_main\_\_': 
-
-`    `files = [ f for f in os.listdir('.') if os.path.isfile(f) and f.startswith("book") ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.107.png)and f.endswith(".txt") ] 
-
-`    `for f in files: 
-
-`        `print(f, ":", count\_in\_file(f)) 
 
 **Le chiffrement de Vigenère** 
 
@@ -1445,7 +1468,7 @@ CETT EPHR ASEN EVEU TRIE NDIR E
 
 NB : les espaces sont purement indicatifs, dans la première phrase ils séparent les mots, dans la seconde ils séparent les blocs. 
 
-Si k est la longueur d’un bloc, alors on choisit une clé constituée de k nombres de 0 à 25 : (n 1 ,n 2 ,...,n k ). ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.010.png)
+Si k est la longueur d’un bloc, alors on choisit une clé constituée de k nombres de 0 à 25 : (n 1 ,n 2 ,...,n k ).
 
 Le chiffrement consiste à effectuer un chiffrement de César, dont le décalage dépend du rang de la lettre dans le bloc: 
 
@@ -1475,68 +1498,35 @@ Une attaque possible est donc la suivante : on découpe notre message en plusieu
 
 Voici un petit algorithme correspondant au chiffrement de Vigenère. 
 
-Algorithme vigenere ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.108.png)
+![](Aimg22.png)
 
-{ attaque par force brute du chiffrement de Vigenere } 
 
-variables 
-
-i, j, k, index : entier 
-
-clef : tableau[1..3] d’entiers 
-
-car : caractère 
-
-texte\_codé : chaîne := "ZCNUVJ LUYLNQL GXA PFPPJ LV XHKSA UFL…. (voir plus bas)" début 
-
-Pour i := 1 à 26 faire 
-
-Pour j := 1 à 26 faire 
-
-Pour k := 1 à 26 faire 
-
-clef := [i, j, k] 
-
-index := 0 
-
-afficher(clef) 
-
-Pour car dans texte\_codé faire 
-
-si car < 'A' OU car > 'Z' alors 
-
-afficher(car) 
-
-sinon 
-
-afficher(caesar(car, clef[index])) 
-
-index := (index + 1) modulo taille(clef) 
-
-fin ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.010.png)
 
 **Chiffrement mono-alphabétique (**★★★★)** 
 
 Le texte (en français) suivant a été chiffré par un code mono alphabétique. Déterminer l’auteur de ce texte. eposal, epg r’sjnp, s r’upjdp cj nrsliuaq rs isohsmlp, vp hsdqadsa. bcag-qj, vp gsag tjp qj o’sqqpleg. 
 
-17. Créer un fichier substitution.py.
-17. Afficher les occurrences des lettres du texte chiffré ci-dessus à l’aide de la fonction letter\_count() du et la fonction occurrence() module occurrences.py.
+17 Créer un fichier substitution.py.
+
+18 Afficher les occurrences des lettres du texte chiffré ci-dessus à l’aide de la fonction letter\_count() du et la fonction occurrence() module occurrences.py.
 
 **Résultat attendu** : [['s', 11], ['p', 10],…]
 
 **Aide :** 
 
-- Importer les fonctions letter\_count() et occurrence()![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.109.png)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.110.png)
-19. Enregistrer ces occurrences dans une liste : entree.
-19. Enregistrer les occurrences usuelles pour un texte en français dans une liste**  
+- Importer les fonctions letter\_count() et occurrence()
 
-sortie = ['a', 'e', 'i', 't', 'u', 's', 'l', 'n', 'd', 'm', 'r', 'b', 'h', 'p', 'c', 'o', 'j', 'g', 'q', 'v']
+19 Enregistrer ces occurrences dans une liste : entree.
 
-21. Écrire un programme qui substitue les lettres de la liste entree par celles de la liste sortie en fonctions des occurrences rencontrées. 
+20 Enregistrer les occurrences usuelles pour un texte en français dans une liste**  
+
+```sortie = ['a', 'e', 'i', 't', 'u', 's', 'l', 'n', 'd', 'm', 'r', 'b', 'h', 'p', 'c', 'o', 'j', 'g', 'q', 'v']```
+
+21 Écrire un programme qui substitue les lettres de la liste entree par celles de la liste sortie en fonctions des occurrences rencontrées. 
 
 **Aide :**  
 
-- On pourra utiliser la méthode index()![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.111.png)
+- On pourra utiliser la méthode index()
 - il est possible que l’ordre des occurrences de la liste de sortie ne coïncide pas totalement avec les occurrences de la liste d’entrée. 
 
 **Chiffrement de Vigenère avec clef** 
@@ -1547,16 +1537,21 @@ ZCNUVJ LUYLNQL GXA PFPPJ LV XHKSA UFLPX HXJJ UFPPYL GXAGQSG JZV SHKSL GY ZCNUV X
 
 **Indice** : le texte en clair contient le mot SAINT. 
 
-22. Créer un fichier vigenere.py. 
-22. Implémenter l’algorithme précédent. 
+22 Créer un fichier vigenere.py.
+
+23 Implémenter l’algorithme précédent. 
 
 **Aide :**  
 
-- ne pas revenir à la ligne après chaque print (afficher) ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.112.png)
-- utiliser la fonction caesar() développée dans le module de l’activité précédente. ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.113.png)
-- Mettre  à la fin du script un print() indenté comme la dernière boucle for (pour un retour à la ligne) ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.114.png)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.010.png)
+- ne pas revenir à la ligne après chaque print (afficher) 
+- utiliser la fonction caesar() développée dans le module de l’activité précédente. 
+- Mettre  à la fin du script un print() indenté comme la dernière boucle for (pour un retour à la ligne) 
 
-**Exercice 15 :** ★★★ **Séquences nucléiques  ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.115.png)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.116.png)Acide nucléique**  
+
+**Exercice 15 :** ★★★ **Séquences nucléiques  Acide nucléique** 
+
+![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.116.png)
+![](Aimg23.png)
 
 La  **séquence**  d'un [ acide  nucléique ](https://fr.wikipedia.org/wiki/Acide_nuclÃ©ique) — [ ADN ](https://fr.wikipedia.org/wiki/Acide_dÃ©soxyribonuclÃ©ique) ou [ ARN ](https://fr.wikipedia.org/wiki/Acide_ribonuclÃ©ique) —  est  la  succession  des [ nucléotides ](https://fr.wikipedia.org/wiki/NuclÃ©otide) qui  le  constituent.  Cette  succession  contient l['information génétique ](https://fr.wikipedia.org/wiki/Information_gÃ©nÃ©tique)portée par ces[ polynucléotides,](https://fr.wikipedia.org/wiki/PolynuclÃ©otide) de  sorte qu'on la qualifie également de **séquence génétique**. Elle peut  être déterminée par des méthodes de[ séquençage de l'ADN.](https://fr.wikipedia.org/wiki/SÃ©quenÃ§age_de_l%27ADN)  
 
