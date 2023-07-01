@@ -24,11 +24,9 @@ La première page web est toujours consultable à l'adresse suivante :
 
 Tim Berners-Lee développe le premier navigateur web (logiciel permettant de lire des pages contenant des hypertextes), il l'appelle simplement "**WorldWideWeb**". Tim Berners-Lee a créé le World Wide Web Consortium (W3C) qui définit les nouvelles versions des langages liés au Web. 
 
-Le web se base sur trois choses : le **protocole HTTP** (HyperText Transfert Protocol), les **URL** (Uniform Resource Locator) et le langage de description ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.001.png)![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.002.png)![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.003.png)**HTML** (HyperText Markup Language). 
+Le web se base sur trois choses : le **protocole HTTP** (HyperText Transfert Protocol), les **URL** (Uniform Resource Locator) et le langage de description **HTML** (HyperText Markup Language). 
 
-Une chose très importante à bien avoir à l'esprit : beaucoup de personnes confondent "web" et "internet. L’ "**internet**" est un "**réseau de réseau**" alors que, comme nous venons de le voir, le web est la combinaison de trois technologies 
-
-- HTTP, URL et HTML. D'ailleurs on trouve autre chose que le "web" sur internet, par exemple, les emails avec le protocole SMTP (Simple Mail Transfert Protocol) et les transferts de fichiers avec le protocole FTP (File Transfert Protocol). 
+Une chose très importante à bien avoir à l'esprit : beaucoup de personnes confondent "web" et "internet. L’ "**internet**" est un "**réseau de réseau**" alors que, comme nous venons de le voir, le web est la combinaison de trois technologies : HTTP, URL et HTML. D'ailleurs on trouve autre chose que le "web" sur internet, par exemple, les emails avec le protocole SMTP (Simple Mail Transfert Protocol) et les transferts de fichiers avec le protocole FTP (File Transfert Protocol). 
 
 Tim Berners-Lee n'est donc pas l'inventeur d'Internet, c'est « seulement » l'inventeur du Web. 
 
@@ -46,6 +44,7 @@ Pour créer des sites web, on utilise des langages particuliers : le CSS,  le HT
 Ces deux langages ont des rôles différents : 
 
 - HTML (HyperText Markup Language) : Son rôle est de gérer et organiser le contenu. C’est donc en HTML que l’on écrit ce qui doit être affiché sur la page : le texte, les liens, les images…. 
+
 - CSS (Cascading Style Sheets) : le role du CSS est de gérer l’apparence de la page Web (agencement, positionnement, …). Il est apparu en 1996. Il a besoin d’une page HTML pour fonctionner 
 
 HTML  HTML + CSS 
@@ -53,7 +52,9 @@ HTML  HTML + CSS
 ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.005.png) ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.006.png)
 
 - Le HTML définit le contenu. 
+
 - Le CSS permet de définir la présentation : couleurs, image de fond, marges, taille du texte… 
+
 ### **2.3. Les<a name="_page1_x40.00_y687.92"></a> éditeurs et les logiciels conseillés** 
 
 **Notepad ++, Visual Studio code**, Visual Studio Community, Sublime Text (qui fonctionne sous différents OS).  
@@ -79,11 +80,11 @@ Pour donner les instructions en HTML il faut utiliser des **balises**. Celles-ci
 
 #### **3.2.1. Les<a name="_page2_x40.00_y212.92"></a> balises en paires** 
 
-Elles fonctionnent en nombre paire : <balise1> des indications </balise1>. On distingue une balise ouvrante et une balise fermante 
+Elles fonctionnent en nombre paire : ```<balise1>``` des indications ```</balise1>```. On distingue une balise ouvrante et une balise fermante 
 
 #### **3.2.2. Les<a name="_page2_x40.00_y258.92"></a> balises orphelines**
 
-Elles servent en un point précis <balise/>. 
+Elles servent en un point précis ```<balise/>```. 
 
 ### **3.3. Les<a name="_page2_x40.00_y290.92"></a> attributs** 
 
