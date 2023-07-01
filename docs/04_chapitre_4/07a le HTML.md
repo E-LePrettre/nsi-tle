@@ -90,38 +90,36 @@ Elles servent en un point précis ```<balise/>```.
 
 Ce sont les options des balises : appelées attributs. Ils donnent les options des balises. Ils se placent après le nom de la balise ouvrante. 
 
-**<balise attribut="valeur">**
+**```<balise attribut="valeur">```**
 
 ### **3.4. Structure<a name="_page2_x40.00_y347.92"></a> de base d’une page HTML5** 
 
-**Activité n°2. :**  ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.007.png)
-
+**Activité n°2. :**  
 ```
-<!DOCTYPE html> 
-<html> 
-`    `<head> 
-
-`        `<meta charset="utf-8" /> 
-
-`        `<title>Logique sur les passoires</title>     </head> 
-
-`    `<body> 
-
-`        `Bonjour tout le monde 
-
-`    `</body> 
-
-</html> 
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Logique sur les passoires</title>
+    </head>
+    <body>
+        Bonjour tout le monde
+    </body>
+</html>
 ```
 Par souci de lisibilité du code on met des indentations (non obligatoires en HTML5) 
 
 Enregistrer, ouvrer le fichier dans Firefox et observer… 
 
-- La première ligne s’appelle le **doctype**, elle indique qu’il s’agit bien d’une page web HTML.  
+- La première ligne s’appelle le **doctype**, elle indique qu’il s’agit bien d’une page web HTML. 
+
 - Les deux balises html englobe tout le contenu de la page 
-- L’en-tête head donne le titre, l’encodage. Le titre s’affichera dans l’onglet du navigateur et dans les résultats de recherche de Google par exemple. Les informations que contient l'en-tête ne sont pas affichées sur la page, ce sont simplement des informations générales à destination de l'ordinateur. 
-- ```<meta charset="utf-8" />``` : Cette balise indique l'encodage utilisé dans le fichier .html qui détermine  comment  les  caractères  spéciaux  vont  s'afficher  (accents,  idéogrammes  chinois  et japonais, caractères arabes, etc.) . Il y a plusieurs techniques d'encodage mais aujourd'hui autant que possible on utilise UTF-8.  
-- ```<title>``` : C'est le titre de votre page, probablement l'élément le plus important ! Toute page doit avoir un titre qui décrit ce qu'elle contient 
+
+- L’en-tête head donne le titre, l’encodage. Le titre s’affichera dans l’onglet du navigateur et dans les résultats de recherche de Google par exemple. Les informations que contient l'en-tête ne sont pas affichées sur la page, ce sont simplement des informations générales à destination de l'ordinateur.
+
+```<meta charset="utf-8" />``` : Cette balise indique l'encodage utilisé dans le fichier .html qui détermine  comment  les  caractères  spéciaux  vont  s'afficher  (accents,  idéogrammes  chinois  et japonais, caractères arabes, etc.) . Il y a plusieurs techniques d'encodage mais aujourd'hui autant que possible on utilise UTF-8.  
+
+```<title>``` : C'est le titre de votre page, probablement l'élément le plus important ! Toute page doit avoir un titre qui décrit ce qu'elle contient 
 
 ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.008.png)
 
@@ -131,16 +129,14 @@ Il faut savoir que le titre apparaît aussi dans les résultats de recherche, co
 
 **Les commentaires** : (pour pouvoir se relire ou pour expliquer le code) 
 
-```<!-- je fais un commentaire-->``` ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.009.png)
+```<!-- je fais un commentaire-->``` 
 
-Tout le code source est accessible à partir du navigateur. Dans **Firefox** : Menu > Web developer > page ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.010.png)![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.011.png)![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.012.png)
-
-source ou CTRL + u.
+Tout le code source est accessible à partir du navigateur. Dans **Firefox** : Menu > Web developer > page source ou CTRL + u.
 
 ## **4. L’organisation<a name="_page3_x40.00_y117.92"></a> d’une page HTML5** 
 ### **4.1. Les<a name="_page3_x40.00_y139.92"></a> paragraphes** 
 
-La plupart du temps, on écrit du texte à l’intérieur d’un paragraphe. Le langage HTML propose justement la balise <p> pour délimiter les paragraphes. Il faut évidemment mettre ses paragraphes entre les balises body.
+La plupart du temps, on écrit du texte à l’intérieur d’un paragraphe. Le langage HTML propose justement la balise ``` <p>```  pour délimiter les paragraphes. Il faut évidemment mettre ses paragraphes entre les balises body.
 
 **Activité n°3.:**  
 ```
@@ -150,20 +146,13 @@ La plupart du temps, on écrit du texte à l’intérieur d’un paragraphe. Le 
 ```
 **Activité n°4. :** Je voudrais écrire le texte suivant exactement avec la même mise en page ci-dessous à la place de « Bonjour et bienvenue sur ma page ». **A vous de jouer !!** 
 ```
-<body> ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.014.png)
-
-`    `<p> 
-
-`        `On appelle passoire tout instrument sur lequel on peut définir trois sous- ensembles : l’intérieur, l’extérieur, et les trous. ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.015.png)
-
-`        `L’intérieur est généralement placé au-
-
-dessus de l’extérieur et se compose le plus souvent de nouilles et d’eau. 
-
-`        `Les trous ne sont pas importants. En effet, une expérience simple permet de se r endre compte que l’on ne change pas notablement les qualités de l’instrument en réduisan t de moitié le nombre des trous, puis en réduisant cette moitié de moitié… etc… etc… et à la limite jusqu’à ce qu’il n’y ait plus de trous du tout. D’où le théorème : 
-
-`        `La notion de passoires est indépendante de la notion de trous et réciproquement. ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.016.png)    </p> 
-
+<body>
+    <p>
+        On appelle passoire tout instrument sur lequel on peut définir trois sous-ensembles : l’intérieur, l’extérieur, et les trous.
+        L’intérieur est généralement placé au-dessus de l’extérieur et se compose le plus souvent de nouilles et d’eau.
+        Les trous ne sont pas importants. En effet, une expérience simple permet de se rendre compte que l’on ne change pas notablement les qualités de l’instrument en réduisant de moitié le nombre des trous, puis en réduisant cette moitié de moitié… etc… etc… et à la limite jusqu’à ce qu’il n’y ait plus de trous du tout. D’où le théorème :
+        La notion de passoires est indépendante de la notion de trous et réciproquement.
+    </p>
 </body> 
 ```
 **Attention à mettre des indentations pour que le code soit lisible !!** 
@@ -172,7 +161,9 @@ dessus de l’extérieur et se compose le plus souvent de nouilles et d’eau.
 
 Il existe une balise orpheline ```<br />``` qui permet un retour à la ligne. 
 
-**Activité n°5.:** Modifier l’application n° 4 pour ne mettre qu’un seul paragraphe et garder la mise en page. ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.017.png)![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.018.jpeg)
+**Activité n°5.:** Modifier l’application n° 4 pour ne mettre qu’un seul paragraphe et garder la mise en page. 
+
+![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.018.jpeg)
 
 ### **4.3. Les<a name="_page3_x40.00_y702.92"></a> titres** 
 
