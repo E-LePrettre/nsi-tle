@@ -502,9 +502,13 @@ Il faut les placer toutes les deux dans un dossier img. On affiche la version mi
 </p>
 ```
 Vérification de la syntaxe de votre page. 
-Pour vérifier que votre page Web est conforme aux spécifications HTML5, rendez-vous sur le site du W3C (World Wide Web Consortium) : http://validator.w3.org
+
+Pour vérifier que votre page Web est conforme aux spécifications HTML5, rendez-vous sur le site du W3C (World Wide Web Consortium) :![http://validator.w3.org](http://validator.w3.org)
+
 Pour une page Web locale (pas encore publiée sur le Web) :
+
 Validate by File Upload → Check
+
 S'il y a des erreurs, elles vous seront indiquées, avec des explications.
 
 
