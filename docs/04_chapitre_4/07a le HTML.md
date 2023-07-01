@@ -321,7 +321,7 @@ Pour faire un lien vers une page située dans un même dossier, on crée un lien
 <p>
     Pour consulter la <a href="index.html">logique sur les passoires</a>
 </p>
- ```
+```
 
 Observer la page2.html dans Firefox. 
 
