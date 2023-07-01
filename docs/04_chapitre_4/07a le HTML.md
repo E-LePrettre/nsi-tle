@@ -145,8 +145,8 @@ Enregistrer, ouvrer le fichier dans Firefox et observer…
 - La première ligne s’appelle le **doctype**, elle indique qu’il s’agit bien d’une page web HTML.  
 - Les deux balises html englobe tout le contenu de la page 
 - L’en-tête head donne le titre, l’encodage. Le titre s’affichera dans l’onglet du navigateur et dans les résultats de recherche de Google par exemple. Les informations que contient l'en-tête ne sont pas affichées sur la page, ce sont simplement des informations générales à destination de l'ordinateur. 
-- <meta charset="utf-8" /> : Cette balise indique l'encodage utilisé dans le fichier .html qui détermine  comment  les  caractères  spéciaux  vont  s'afficher  (accents,  idéogrammes  chinois  et japonais, caractères arabes, etc.) . Il y a plusieurs techniques d'encodage mais aujourd'hui autant que possible on utilise UTF-8.  
-- <title> : C'est le titre de votre page, probablement l'élément le plus important ! Toute page doit avoir un titre qui décrit ce qu'elle contient 
+- ```<meta charset="utf-8" />``` : Cette balise indique l'encodage utilisé dans le fichier .html qui détermine  comment  les  caractères  spéciaux  vont  s'afficher  (accents,  idéogrammes  chinois  et japonais, caractères arabes, etc.) . Il y a plusieurs techniques d'encodage mais aujourd'hui autant que possible on utilise UTF-8.  
+- ```<title>``` : C'est le titre de votre page, probablement l'élément le plus important ! Toute page doit avoir un titre qui décrit ce qu'elle contient 
 
 ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.008.png)
 
@@ -156,7 +156,7 @@ Il faut savoir que le titre apparaît aussi dans les résultats de recherche, co
 
 **Les commentaires** : (pour pouvoir se relire ou pour expliquer le code) 
 
-<!-- je fais un commentaire--> ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.009.png)
+```<!-- je fais un commentaire-->``` ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.009.png)
 
 Tout le code source est accessible à partir du navigateur. Dans **Firefox** : Menu > Web developer > page ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.010.png)![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.011.png)![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.012.png)
 
@@ -168,13 +168,13 @@ source ou CTRL + u.
 La plupart du temps, on écrit du texte à l’intérieur d’un paragraphe. Le langage HTML propose justement la balise <p> pour délimiter les paragraphes. Il faut évidemment mettre ses paragraphes entre les balises body.
 
 **Activité n°3.:**  
-
+```
 `    `<body> ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.013.png)
 
 `        `<p>Bonjour et bienvenue sur ma page</p>     </body> 
-
+```
 **Activité n°4. :** Je voudrais écrire le texte suivant exactement avec la même mise en page ci-dessous à la place de « Bonjour et bienvenue sur ma page ». **A vous de jouer !!** 
-
+```
 <body> ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.014.png)
 
 `    `<p> 
