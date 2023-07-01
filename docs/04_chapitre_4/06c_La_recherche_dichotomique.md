@@ -3,6 +3,7 @@ author: ELP
 title: 06c La recherche dichotomique
 ---
 
+![](07a_le_HTML.pdf)
 **Table des matières** 
 
 1. [Introduction](#_page0_x40.00_y275.92)
