@@ -2,7 +2,7 @@
 author: ELP
 title: 06a Introduction à l’algorithmique
 ---
-![auto](07a_le_HTML.pdf)
+![](07a_le_HTML.pdf)
 
 **Table des matières** 
 
