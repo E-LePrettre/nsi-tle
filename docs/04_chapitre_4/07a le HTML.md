@@ -164,12 +164,12 @@ dessus de l’extérieur et se compose le plus souvent de nouilles et d’eau.
 `        `La notion de passoires est indépendante de la notion de trous et réciproquement. ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.016.png)    </p> 
 
 </body> 
-
+```
 **Attention à mettre des indentations pour que le code soit lisible !!** 
 
 ### **4.2. La<a name="_page3_x40.00_y481.92"></a> balise retour à la ligne** 
 
-Il existe une balise orpheline <br /> qui permet un retour à la ligne. 
+Il existe une balise orpheline ```<br />``` qui permet un retour à la ligne. 
 
 **Activité n°5.:** Modifier l’application n° 4 pour ne mettre qu’un seul paragraphe et garder la mise en page. ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.017.png)![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.018.jpeg)
 
@@ -238,23 +238,23 @@ les autobus qui marchent à gauche et les autobus qui ne marchent ni d'un côté
 
 Il y a différentes façons de mettre en valeur : 
 
-- Pour mettre un peu en valeur le texte on utilise la balise <em></em>. ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.032.png)
+- Pour mettre un peu en valeur le texte on utilise la balise ```<em></em>```. ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.032.png)
 
 **Activité n°10. :** utiliser les balises précédentes pour le mot passoire et théorème du premier paragraphe. 
 
 ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.033.png)
 
-- Pour mettre en valeur le texte on utilise la balise <strong></strong>.![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.034.png)
+- Pour mettre en valeur le texte on utilise la balise ```<strong></strong>```.![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.034.png)
 
 **Activité n°11.** : utiliser les balises précédentes pour les mots ci-dessous du deuxième paragraphe 
 
-- Les balises<mark> </mark> permet de faire ressortir visuellement une portion de texte.  L’extrait n’est pas forcément considéré comme important mais on veut qu’il se distingue bien du reste du texte.  ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.035.png)![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.036.jpeg)
+- Les balises```<mark> </mark>``` permet de faire ressortir visuellement une portion de texte.  L’extrait n’est pas forcément considéré comme important mais on veut qu’il se distingue bien du reste du texte.  ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.035.png)![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.036.jpeg)
 
 **Activité n°12.**: utiliser les balises précédentes pour les mots ci-dessous du troisième paragraphe ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.037.png)![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.038.jpeg)
 
 **Attention** :  HTML pour le fond, CSS pour la forme 
 
-Le rôle des balises est d'indiquer le sens du texte. Ainsi, <strong> indique à l'ordinateur « Ce texte est important ». C'est tout. 
+Le rôle des balises est d'indiquer le sens du texte. Ainsi, ```<strong>``` indique à l'ordinateur « Ce texte est important ». C'est tout. 
 
 Et pour montrer que le texte est **important**, l'ordinateur décide de le mettre en gras (mais il pourrait aussi bien l'écrire en rouge !). La plupart des navigateurs affichent les textes importants en gras, mais rien ne les y oblige.  
 
@@ -271,7 +271,7 @@ Il y a deux types de listes :
 Pour créer une liste d’éléments sans notion d’ordre, il suffit d’utiliser les balise <ul></ul> . Puis pour chacun des éléments on utilise les balises <li></li>.
 
 Par exemple :  
-
+```
 <ul> ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.039.png)
 
 `    `<li>Fraises</li> 
@@ -279,7 +279,7 @@ Par exemple :
 `    `<li>Framboises</li>     <li>Cerises</li> 
 
 </ul> 
-
+```
 **Activité n°13.** : utiliser les balises précédentes pour les mots ci-dessous du cinquième paragraphe 
 
 ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.040.png)
@@ -287,7 +287,7 @@ Par exemple :
 - Les listes ordonnée ou listes numérotées ou énumérations 
 
 Il suffit de remplacer les balises <ul> par <ol> et on utilise aussi les balise <li></li>. Par exemple : 
-
+```
 <ol> ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.041.png)
 
 `    `<li>Fraises</li> 
@@ -295,7 +295,7 @@ Il suffit de remplacer les balises <ul> par <ol> et on utilise aussi les balise 
 `    `<li>Framboises</li>     <li>Cerises</li> 
 
 </ol> 
-
+```
 **Activité n°14.** : utiliser les balises précédentes pour les mots ci-dessous du dernier paragraphe ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.042.png)![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.043.jpeg)
 
 ### **4.6. Les<a name="_page7_x40.00_y697.92"></a> liens hypertexte** 
@@ -303,7 +303,7 @@ Il suffit de remplacer les balises <ul> par <ol> et on utilise aussi les balise 
 
 Pour faire un lien vers un autre site, il faut utiliser les balises <a></a> et un attribut href qui indiquera la page. Par exemple :  ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.044.png)
 
-<a href="https://fr.wikipedia.org/wiki/Passoire">Passoire</a> 
+```<a href="https://fr.wikipedia.org/wiki/Passoire">Passoire</a> ```
 
 **Activité n°15.** : utiliser les balises précédentes pour mettre un lien vers casserole sur wikipedia comme ci-dessous. ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.045.png)![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.046.jpeg)
 
@@ -315,9 +315,10 @@ Pour faire un lien vers une page située dans un même dossier, on crée un lien
 
 **Activité n°16.** : Créer un nouvelle page html page2.html dans le dossier Documents\site** (Titre : Page 2). Après avoir rempli, la **structure minimale de la nouvelle page html** : 
 
-<p> ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.047.png)
+```<p> ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.047.png)
 
-`    `Pour consulter la <a href="index.html">logique sur les passoires</a> </p> 
+`    `Pour consulter la <a href="index.html">logique sur les passoires</a> </p>
+ ```
 
 Observer la page2.html dans Firefox. 
 
@@ -325,26 +326,26 @@ Observer la page2.html dans Firefox.
 
 Pour faire un lien vers une page située dans un sous dossier, on utilise le chemin relatif : 
 
-**Activité n°17.** : Créer un dossier **contenu** dans le dossier Documents\site**.** Créer un nouvelle page html page3.html** avec la **structure minimale** dans le dossier contenu (Titre : Page3). Sur la page2.html, rajouter : <p> ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.048.png)
+**Activité n°17.** : Créer un dossier **contenu** dans le dossier Documents\site**.** Créer un nouvelle page html page3.html** avec la **structure minimale** dans le dossier contenu (Titre : Page3). Sur la page2.html, rajouter : ```<p>``` ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.048.png)
 
-`    `Pour consulter la <a href="contenu/page3.html">page 3 </a> du site </p> 
+`    `Pour consulter la ```<a href="contenu/page3.html">page 3 </a> du site </p> ```
 
 Observer la page2.html dans Firefox.
 
 #### **4.6.4. Lien<a name="_page8_x40.00_y511.92"></a> relatif vers une page située dans un dossier parent **
 
 Pour faire un lien vers une page dans un dossier parent, on utilise toujours la même chose **Activité n°18.** : Sur la page3.html, rajouter : 
-
+```
 <p> ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.049.png)
 
 `    `Pour consulter la <a href="../page2.html">page 2 </a> du site </p> 
-
+```
 #### **4.6.5. Lien<a name="_page8_x40.00_y599.92"></a> vers une ancre sur une même page **
 
 Une **ancre** est une sorte de point de repère que l’on peut mettre dans les pages html lorsqu’elles sont très longues. Il peut alors être utile de faire un lien amenant plus bas dans la même page pour que le visiteur puisse sauter directement à la partie qui l'intéresse. Pour créer une ancre, il suffit de rajouter l'attribut id à une balise qui va alors servir de repère. Ce peut être n'importe quelle balise. 
 
 **Activité n°19.** : Sur la index.html, on va faire une ancre sur le titre en haut de page 
-
+```
 `        `<h1 id = "haut"> Les passoires</h1> ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.050.png)
 
 On crée un lien en bas de la page pour remonter vers le haut. Rajouter tout en bas (mais dans le body) la référence avec # 
@@ -354,7 +355,7 @@ On crée un lien en bas de la page pour remonter vers le haut. Rajouter tout en 
 `            `<a href = "#haut">Aller en haut</a> 
 
 `        `</p> 
-
+```
 Enregistrer et observer dans Firefox. S’il ne se passe rien augmenter le zoom dans Firefox afin de faire apparaitre les barres de défilement sur le côté. 
 
 #### **4.6.6. Lien<a name="_page9_x40.00_y36.92"></a> vers une ancre sur une autre page **
@@ -362,17 +363,17 @@ Enregistrer et observer dans Firefox. S’il ne se passe rien augmenter le zoom 
 Pour faire un lien vers **une ancre située dans une autre page,** on précise l’adresse de la page et le nom de l’ancre précédée de #.
 
 **Activité n°20.** : Sur la page2.html, on va faire un lien vers l’ancre de la index.html.  
-
+```
 `        `<h1 id = "haut"> Les passoires</h1> ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.009.png)
-
+```
 On crée un lien en bas de la page pour remonter vers le haut. Rajouter tout en bas (mais dans le body) la référence avec #
-
+```
 `  `<p> ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.052.png)
 
 `      `<a href = "index.html#haut">Aller en haut de la page logique sur les passoires</a> ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.053.png)
 
 `  `</p> 
-
+```
 Enregistrer et observer dans Firefox. 
 
 #### **4.6.7. Lien<a name="_page9_x40.00_y195.92"></a> affichant une infobulle **
@@ -380,35 +381,39 @@ Enregistrer et observer dans Firefox.
 Avec l’**attribut** title 
 
 **Activité n°21.** : Sur la page2.html, on va faire une infobulle 
-
+```
 <p> ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.054.png)
 
 `    `<a href = "index.html#haut" title = "Vous ne le regretterez pas !">Aller en haut de la page logique  sur les passoires![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.055.png)</a> 
 
 </p> 
-
+```
 Enregistrer et observer dans Firefox. 
 
 #### **4.6.8. Lien<a name="_page9_x40.00_y316.92"></a> qui ouvre une nouvelle fenêtre **
 
-Pour forcer l’ouverture d’un lien dans une nouvelle fenêtre, on rajoutera target="\_blank" à la balise <a> **Activité n°22.** : Sur la page2.html, on va faire une infobulle 
+Pour forcer l’ouverture d’un lien dans une nouvelle fenêtre, on rajoutera target="\_blank" à la balise ```<a>``` 
 
+**Activité n°22.** : Sur la page2.html, on va faire une infobulle 
+```
 <p> ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.056.png)
 
 `   `<a href = "index.html#haut" title = "Vous ne le regretterez pas !" target = "\_blank">Aller en haut d e la page logique sur les passoires</a> 
 
 </p> 
-
+```
 Enregistrer et observer dans Firefox. 
 
 #### **4.6.9. Un<a name="_page9_x40.00_y437.92"></a> lien pour envoyer un e-mail **
 
-Avec un lien de type mailto, en cas de click, un nouveau message vide s’ouvre. **Activité n°23.** : Sur la index.html, on va faire un lien vers un mail 
+Avec un lien de type mailto, en cas de click, un nouveau message vide s’ouvre. 
 
+**Activité n°23.** : Sur la index.html, on va faire un lien vers un mail 
+```
 <p> ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.057.png)
 
 `   `<a href="mailto:votrenom@bidule.com">Envoyez-moi un e-mail !</a> </p> 
-
+```
 Enregistrer et observer dans Firefox. 
 
 #### **4.6.10. Un<a name="_page9_x40.00_y544.92"></a> lien pour télécharger un fichier **
@@ -416,9 +421,9 @@ Enregistrer et observer dans Firefox.
 Il s’agit d’un même type de lien mais vers le dossier à télécharger. 
 
 Par exemple : 
-
+```
 <p><a href="monfichier.zip">Télécharger le fichier</a></p> 
-
+```
 ## **5. Insérer<a name="_page9_x40.00_y607.92"></a> une image** 
 ### **5.1. Les<a name="_page9_x40.00_y629.92"></a> différents formats d’images** 
 
@@ -449,27 +454,27 @@ C’est un format non compressé donc très (trop) gros.
 
 ### **5.2. Insérer<a name="_page10_x40.00_y183.92"></a> une image** 
 
-Pour insérer une image, il faut utiliser la balise orpheline <img />. La balise doit être accompagnée de deux attributs obligatoires : 
+Pour insérer une image, il faut utiliser la balise orpheline ```<img />```. La balise doit être accompagnée de deux attributs obligatoires : 
 
 - src : il permet d’avoir le chemin de la source ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.058.png)
 
 Par exemple :  
-
+```
 <img src="http://monsite.fr/fleur.jpg" /> ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.059.png)
 
 <img src="images/fleur.jpg" /> 
-
+```
 - alt : cela signifie « texte alternatif ». Il faut toujours indiquer un texte alternatif à l’image qui permet de décrire l’image si elle ne s’affiche pas dans le navigateur de l’utilisateur. De plus, elle sera d’une aide précieuse pour les personnes mal voyantes. Cela aide aussi les robots des moteurs de recherche pour les recherches d'images. Pour la fleur, on mettrait par exemple :  alt="Une fleur".![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.060.png)
 - title : permet d’insérer une info bulle (attribut facultatif) 
 
 On aura ainsi finalement :  
-
+```
 <p> ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.061.png)
 
 `    `Voici une photo d'une fleur de mon jardin <br />
 
 `    `<img src="images/fleur.jpg" alt="Photo d'une fleur" title="C'est beau les fleurs quand même !" /> </p> 
-
+```
 **Attention** : a ne pas mettre d’espace dans le nom !! 
 
 **Activité n°24.** : Chercher trois images sur le web d’une passoire, d’une casserole et d’un autobus. Les enregistrer dans un dossier** images dans le dossier Documents\site. Ouvrir la index.html et insérer ces trois images de telle sorte à obtenir la page ci-dessous. Mettre des infobulles du type « Ceci est une passoire ! » ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.062.png)
@@ -488,8 +493,8 @@ On peut proposer une miniature cliquable pour des images très grosse :
 
 Il faut les placer toutes les deux dans un dossier img. On affiche la version mini sur la page et on fait un lien vers la plus grosse image pour que l’image agrandie s’affiche lorsqu’on clique sur la miniature. 
 
-Première NSI   Chap 13 : Le HTML  Page 13/14 ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.067.png)
 
+```
 <p> ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.068.png)
 
 `    `Voici une photo d'une fleur de mon jardin. Cliquez dessus !<br /> 
@@ -501,16 +506,8 @@ Première NSI   Chap 13 : Le HTML  Page 13/14 ![](Aspose.Words.69e325b4-61fe-496
 `    `</a> 
 
 </p> 
-
+```
 Vérification de la syntaxe de votre page. ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.070.png)
 
-Pour  vérifier  que votre  page  Web  est  conforme  aux  spécifications  HTML5, rendez-vous  sur  le  site  du  W3C  (World  Wide  Web  Consortium) 
 
-- [http://validator.w3.org ](http://validator.w3.org/)
 
-Pour une page Web locale (pas encore publiée sur le Web) : 
-
-Validate by File Upload → Check 
-
-S'il y a des erreurs, elles vous seront indiquées, avec des explications. 
-Première NSI   Chap 7 : Le HTML  Page 14/14 ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.067.png)
