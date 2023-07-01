@@ -331,13 +331,13 @@ On appelle matrice un tableau de tableaux dont chaque tableau à la même longue
 
 On représente une matrice de taille n,m en mathématiques ainsi : 
 
-![](Aimg16.png)
+![](Aimg016.png)
 
 Pour accéder à un élément organisé en **liste de liste**, on utilise une notation avec un double crochets. Le premier indice pointe la ligne et le deuxième indice pointe la colonne. 
 
 Si notre matrice contient n listes de m éléments on peut la voir ainsi : 
 
-![](Aimg17.png)
+![](Aimg017.png)
 
 
 
@@ -715,17 +715,17 @@ Vous devez afficher une ligne sur la sortie, contenant le mot "yes" si le carré
 **Exemple** 
 
 *entrée : 
-![](Aimg18.png)
+![](Aimg018.png)
 
 *sortie : 
-![](Aimg19.png)
+![](Aimg019.png)
 
 
 **Commentaires** 
 
 Chacun des chiffres de 1 à 9 apparaît exactement une fois dans la grille. De plus, toutes les colonnes, lignes et les deux diagonales de cette grille ont pour somme 15. En effet : 
 
-![](Aimg20.png)
+![](Aimg020.png)
 
 **Exercice 8:** ★ **avec les chaine de caractères  :** 
 
@@ -851,7 +851,7 @@ On souhaite tracer une deuxième courbe sur le même graphique précédent dont 
 7 Rajouter la légende sur le graphique.  
 
 Résultat attendu :  
-![](Aimg21.png)
+![](Aimg021.png)
 
 **Exercice 11 :** ★★ **Bulletins de vote Génération des votes:**  
 
@@ -1565,7 +1565,7 @@ ZCNUVJ LUYLNQL GXA PFPPJ LV XHKSA UFLPX HXJJ UFPPYL GXAGQSG JZV SHKSL GY ZCNUV X
 **Exercice 15 :** ★★★ **Séquences nucléiques  Acide nucléique** 
 
 ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.116.png)
-![](Aimg23.png)
+![](Aimg023.png)
 
 La  **séquence**  d'un [ acide  nucléique ](https://fr.wikipedia.org/wiki/Acide_nuclÃ©ique) — [ ADN ](https://fr.wikipedia.org/wiki/Acide_dÃ©soxyribonuclÃ©ique) ou [ ARN ](https://fr.wikipedia.org/wiki/Acide_ribonuclÃ©ique) —  est  la  succession  des [ nucléotides ](https://fr.wikipedia.org/wiki/NuclÃ©otide) qui  le  constituent.  Cette  succession  contient l['information génétique ](https://fr.wikipedia.org/wiki/Information_gÃ©nÃ©tique)portée par ces[ polynucléotides,](https://fr.wikipedia.org/wiki/PolynuclÃ©otide) de  sorte qu'on la qualifie également de **séquence génétique**. Elle peut  être déterminée par des méthodes de[ séquençage de l'ADN.](https://fr.wikipedia.org/wiki/SÃ©quenÃ§age_de_l%27ADN)  
 

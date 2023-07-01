@@ -77,7 +77,7 @@ La porte NON est symbolisée par le schéma suivant :
 
 |Symbole |Autre symbole |Opération |
 | - | - | - |
-|![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.010.png)|![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.011.png)|![](Aimg.png)|
+|![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.010.png)|![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.011.png)|![](Aimg0.png)|
 
 ### **2.2. La<a name="_page1_x40.00_y623.04"></a> porte OU (OR)** 
 
@@ -134,13 +134,13 @@ La porte XOR est symbolisée par le schéma suivant :
 
 |Symbole |Autre symbole |Opération |
 | - | - | - |
-|![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.016.png)|![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.017.png)|![](Aimg2.png) |
+|![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.016.png)|![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.017.png)|![](Aimg02.png) |
 
 ### **2.5. La<a name="_page2_x40.00_y649.04"></a> porte NON ET (NAND)** 
 
 |Symbole |Table de vérité |Opération |
 | - | - | - |
-|![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.018.png)|![](Aimg4.png)|![](Aimg2.png) |
+|![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.018.png)|![](Aimg04.png)|![](Aimg03.png) |
 
 
 
@@ -148,23 +148,23 @@ La porte XOR est symbolisée par le schéma suivant :
 
 |Symbole |Table de vérité |Opération |
 | - | - | - |
-|![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.019.png)|![](Aimg5.png)|![](Aimg6.png) |
+|![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.019.png)|![](Aimg05.png)|![](Aimg06.png) |
 
 
 
 
 **Activité n°1.:** Écrivez les tables de vérité des expressions suivantes : 
 
-- ![](Aimg7.png)
-- ![](Aimg8.png)
-- ![](Aimg9.png)
+- ![](Aimg07.png)
+- ![](Aimg08.png)
+- ![](Aimg09.png)
 
 **Activité n°2.:** Voici un exemple de fonction booléenne : La fonction multiplexeur, notée mux.  
  
 mux(x,y,z)=(not(x) and y)or (x and z) 
 1.  Compléter le tableau 
 x y z not(x) not(x) and y x and z mux(x,y,z) 
-![](Aimg10.png)
+![](Aimg010.png)
 
 2. Montrer que (x and y) = not (not(x) or not(y))  
 3. Montrer que (x or y) = not (not(x) and not(y))  
@@ -197,11 +197,11 @@ Attention : comportement différent par rapport aux opérateurs + et · habituel
 
 Le  complément  d’une  somme  logique  (non  arithmétique)  est  égal  au  produit  logique  (non  arithmétique) des termes complémentés. Loi de Morgan  
 
-![](Aimg11.png)  
+![](Aimg011.png)  
 
 Le  complément  d’un  produit  logique  (non  arithmétique)  est  égal  à  la  somme  logique  (non  arithmétique) des termes complémentés.  
 
-![](Aimg12.png)
+![](Aimg012.png)
 
 ## **4. Exercices<a name="_page4_x40.00_y43.04"></a>** 
 
@@ -213,7 +213,7 @@ Le  complément  d’un  produit  logique  (non  arithmétique)  est  égal  à 
 2. Donner l’expression booléenne de S en fonction des variables A et B. 
 3. Compléter la table de vérité ci-dessous. 
 
-![](Aimg13.png)
+![](Aimg013.png)
 
 4 Par quel circuit comprenant seulement deux portes peut-on remplacer le circuit étudié ? 
 
@@ -257,7 +257,7 @@ Le circuit étudié est appelé multiplexeur à 2 entrées. Selon la valeur de l
 - le signal E1 si C est à 0. 
 - le signal E2 si C est à 1. 
 
-![](Aimg14.png) 
+![](Aimg014.png) 
 
 
 
@@ -281,7 +281,7 @@ On  considère  un  multiplexeur  à  4  entrées, dont le circuit  est  représ
 1 Donner les expressions booléennes de C et S  en  fonction de A et B.  
 2 Compléter la table de vérité de C et S. 
 
-![](Aimg15.png) 
+![](Aimg015.png) 
 
 3 Quel est le rôle des sorties C et S dans la fonction  du circuit ? 
 
