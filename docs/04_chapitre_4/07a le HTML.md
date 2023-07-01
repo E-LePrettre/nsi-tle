@@ -169,14 +169,17 @@ Il existe une balise orpheline ```<br />``` qui permet un retour à la ligne.
 
 Il a y six niveaux de titres différents : 
 
-- Entre les balises <h1></h1> : titre de niveau 1. ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.019.png)
-- Entre les balises <h2></h2> : titre de niveau 2. 
+- Entre les balises ```<h1></h1>``` : titre de niveau 1. 
+- Entre les balises ```<h2></h2>``` : titre de niveau 2. 
 - …. 
-- Entre les balises <h6></h6> : titre de niveau 6. ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.020.png)
+- Entre les balises ```<h6></h6>``` : titre de niveau 6. 
+
 
 **Activité n°6.:** Ajouter un titre à l’application n°4 : Les passoires Puis un sous-titre : Le théorème des passoires,  
 
-Ainsi, on aura : ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.021.png)![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.022.jpeg)
+Ainsi, on aura : 
+
+![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.022.jpeg)
 
 **Activité n°7.:** Ajouter un autre paragraphe à la suite dont voici le texte : 
 
