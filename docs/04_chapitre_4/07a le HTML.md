@@ -183,15 +183,18 @@ Ainsi, on aura :
 
 **Activité n°7.:** Ajouter un autre paragraphe à la suite dont voici le texte : 
 
-Les différents ordres de passoires ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.023.png)
+```
+Les différents ordres de passoires
+On appelle passoires du premier ordre les passoires quine laissent passer ni les nouilles ni l'eau. 
+On appelle passoires du second ordre les passoires qui laissent passer et les nouilles et l'eau.
+On appelle passoires du troisième ordre, ou passoires complexes, les passoires qui laissent passer quelquefois l'un ou l'autre et quelquefois pas.   
 
-On appelle passoires du premier ordre les passoires quine laissent passer ni les nouilles ni  l'eau.  
+Ajouter les bonnes balises pour observer cela sur le navigateur
+```  
 
-On appelle passoires du second ordre les passoires qui laissent passer et les nouilles et l' eau. 
+Ajouter les bonnes balises pour observer cela sur le navigateur 
 
-On appelle passoires du troisième ordre, ou passoires complexes, les passoires qui laissent passer quelquefois l'un ou l'autre et quelquefois pas.    
-
-Ajouter les bonnes balises pour observer cela sur le navigateur ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.024.png)![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.025.jpeg)
+![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.025.jpeg)
 
 **Attention à mettre des indentations pour que le code soit lisible !!** 
 
@@ -199,19 +202,20 @@ Ajouter les bonnes balises pour observer cela sur le navigateur ![](Aspose.Words
 
 Les différents types de passoires du troisième ordre ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.026.png)
 
-Pour qu'une passoire complexe laisse passer l'eau et pas les nouilles, il faut et il suffit que le diamètre des trous soit notablement inférieur au diamètre des nouilles. 
+```
+Les différents types de passoires du troisième ordre
+Pour qu'une passoire complexe laisse passer l'eau et pas les nouilles, il faut et il suffit que le diamètre des trous soit notablement inférieur au diamètre des nouilles.
+Pour qu'une passoire complexe laisse passer les nouilles et pas l'eau, il faut et il suffit que le diamètre des trous soit notablement inférieur au diamètre de l'eau.
+Les différents types de passoire du premier ordre
+Quant aux passoires du premier ordre qui ne laissent passer ni les nouilles ni l'eau, il y en a de deux sortes : 
+Les passoires qui ne laissent passer ni les nouilles ni l'eau ni dans un sens ni dans l'autre et celle qui ne laissent passer ni les nouilles ni l'eau que dans un sens unique. 
+Ces passoires là on les appelle des casseroles.
+```  
 
-Pour qu'une passoire complexe laisse passer les nouilles et pas l'eau, il faut et il suffit que le diamètre des trous soit notablement inférieur au diamètre de l'eau. 
 
-Les différents types de passoire du premier ordre 
+Ajouter les bonnes balises pour observer cela sur le navigateur 
 
-Quant aux passoires du premier ordre qui ne laissent passer ni les nouilles ni l'eau, il y e n a de deux sortes :  
-
-Les passoires qui ne laissent passer ni les nouilles ni l'eau ni dans un sens ni dans l'autr e et celle qui ne laissent passer ni les nouilles ni l'eau que dans un sens unique.  
-
-Ces passoires là on les appelle des casseroles. ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.027.png)
-
-Ajouter les bonnes balises pour observer cela sur le navigateur ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.028.png)![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.029.jpeg)
+![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.029.jpeg)
 
 **Activité n°9.:** Ajouter des titres d’ordre inférieures et des paragraphe correspondants, dont voici le texte : 
 
