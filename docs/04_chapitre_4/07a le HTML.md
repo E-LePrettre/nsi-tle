@@ -1,44 +1,18 @@
-﻿*Chap 07 : Le HTML* 
+﻿---
+author: ELP
+title: 07a Le HTML
+---
 
 **Table des matières** 
 
-1. [Historique ............................................................................................................................................................................... 1](#_page0_x40.00_y600.92)
-1. [Le fonctionnement des sites web............................................................................................................................................ 2](#_page1_x40.00_y237.92)
-1. [Les navigateurs utilisés ................................................................................................................................................. 2](#_page1_x40.00_y259.92)
-1. [Les langages.................................................................................................................................................................. 2](#_page1_x40.00_y340.92)
-1. [Les éditeurs et les logiciels conseillés........................................................................................................................... 2](#_page1_x40.00_y687.92)
-3. [Le langage HTML5 ................................................................................................................................................................ 3](#_page2_x40.00_y48.92)
-1. [Page web en HTML ...................................................................................................................................................... 3](#_page2_x40.00_y70.92)
-1. [Les balises..................................................................................................................................................................... 3](#_page2_x40.00_y155.92)
-1. [Les balises en paires ................................................................................................................................................. 3](#_page2_x40.00_y212.92)
-1. [Les balises orphelines ............................................................................................................................................... 3](#_page2_x40.00_y258.92)
-3. [Les attributs .................................................................................................................................................................. 3](#_page2_x40.00_y290.92)
-3. [Structure de base d’une page HTML5 .......................................................................................................................... 3](#_page2_x40.00_y347.92)
-4. [L’organisation d’une page HTML5........................................................................................................................................ 4](#_page3_x40.00_y117.92)
-1. [Les paragraphes ............................................................................................................................................................ 4](#_page3_x40.00_y139.92)
-1. [La balise retour à la ligne .............................................................................................................................................. 4](#_page3_x40.00_y481.92)
-1. [Les titres ....................................................................................................................................................................... 4](#_page3_x40.00_y702.92)
-1. [Mettre en valeur ............................................................................................................................................................ 6](#_page5_x40.00_y676.92)
-1. [Les listes ....................................................................................................................................................................... 8](#_page7_x40.00_y36.92)
-1. [Les liens hypertexte ...................................................................................................................................................... 8](#_page7_x40.00_y697.92)
-1. [Les liens absolus ....................................................................................................................................................... 8](#_page7_x40.00_y717.92)
-1. [Lien relatif vers une page d’un même dossier .......................................................................................................... 9](#_page8_x40.00_y259.92)
-1. [Lien relatif vers une page située dans un dossier fils ............................................................................................... 9](#_page8_x40.00_y391.92)
-1. [Lien relatif vers une page située dans un dossier parent........................................................................................... 9](#_page8_x40.00_y511.92)
-1. [Lien vers une ancre sur une même page ................................................................................................................... 9](#_page8_x40.00_y599.92)
-1. [Lien vers une ancre sur une autre page ................................................................................................................... 10](#_page9_x40.00_y36.92)
-1. [Lien affichant une infobulle ................................................................................................................................... 10](#_page9_x40.00_y195.92)
-1. [Lien qui ouvre une nouvelle fenêtre ....................................................................................................................... 10](#_page9_x40.00_y316.92)
-1. [Un lien pour envoyer un e-mail .............................................................................................................................. 10](#_page9_x40.00_y437.92)
-1. [Un lien pour télécharger un fichier .................................................................................................................... 10](#_page9_x40.00_y544.92)
-5. [Insérer une image ................................................................................................................................................................. 10](#_page9_x40.00_y607.92)
-1. [Les différents formats d’images.................................................................................................................................. 10](#_page9_x40.00_y629.92)
-1. [Le JPEG.................................................................................................................................................................. 10](#_page9_x40.00_y680.92)
-1. [Le PNG ................................................................................................................................................................... 10](#_page9_x40.00_y751.92)
-1. [Le GIF .................................................................................................................................................................... 11](#_page10_x40.00_y106.92)
-1. [Le BITMAP............................................................................................................................................................ 11](#_page10_x40.00_y144.92)
-2. [Insérer une image ........................................................................................................................................................ 11](#_page10_x40.00_y183.92)
-1. **Historique<a name="_page0_x40.00_y600.92"></a>** 
+1. [Historique](#_page0_x40.00_y600.92)
+2. [Le fonctionnement des sites web](#_page1_x40.00_y237.92)
+3. [Le langage HTML5](#_page2_x40.00_y48.92)
+4. [L’organisation d’une page HTML5](#_page3_x40.00_y117.92)
+5. [Insérer une image](#_page9_x40.00_y607.92)
+
+
+## **1. Historique<a name="_page0_x40.00_y600.92"></a>** 
 
 **Video** : historique 
 
@@ -58,14 +32,14 @@ Une chose très importante à bien avoir à l'esprit : beaucoup de personnes con
 
 Tim Berners-Lee n'est donc pas l'inventeur d'Internet, c'est « seulement » l'inventeur du Web. 
 
-2. **Le<a name="_page1_x40.00_y237.92"></a> fonctionnement des sites web** 
-1. **Les<a name="_page1_x40.00_y259.92"></a> navigateurs utilisés** 
+## **2. Le<a name="_page1_x40.00_y237.92"></a> fonctionnement des sites web** 
+### **2.1. Les<a name="_page1_x40.00_y259.92"></a> navigateurs utilisés** 
 
 Pour consulter un site web, on doit lancer un programme appelé **navigateur web** : 
 
 ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.004.png)
 
-2. **Les<a name="_page1_x40.00_y340.92"></a> langages** 
+### **2.2. Les<a name="_page1_x40.00_y340.92"></a> langages** 
 
 Pour créer des sites web, on utilise des langages particuliers : le CSS,  le HTML.  
 
@@ -80,7 +54,7 @@ HTML  HTML + CSS
 
 - Le HTML définit le contenu. 
 - Le CSS permet de définir la présentation : couleurs, image de fond, marges, taille du texte… 
-3. **Les<a name="_page1_x40.00_y687.92"></a> éditeurs et les logiciels conseillés** 
+### **2.3. Les<a name="_page1_x40.00_y687.92"></a> éditeurs et les logiciels conseillés** 
 
 **Notepad ++, Visual Studio code**, Visual Studio Community, Sublime Text (qui fonctionne sous différents OS).  
 
@@ -90,8 +64,8 @@ De plus, il est conseillé d’installer plusieurs navigateurs sur son ordinateu
 
 Le site[ https://caniuse.com/ ](https://caniuse.com/)tient à jour une liste des fonctionnalités prises en charge par les différentes versions de chaque navigateur.  
 
-3. **Le<a name="_page2_x40.00_y48.92"></a> langage HTML5** 
-1. **Page<a name="_page2_x40.00_y70.92"></a> web en HTML** 
+## **3. Le<a name="_page2_x40.00_y48.92"></a> langage HTML5** 
+### **3.1. Page<a name="_page2_x40.00_y70.92"></a> web en HTML** 
 
 **Activité n°1. :**  
 
@@ -99,25 +73,25 @@ Ouvrir un éditeur (Notepad++, Visual Studio code ou Notepad) Faire menu Fichier
 
 Donner au fichier le nom, en terminant par.html **:** index.html. 
 
-2. **Les<a name="_page2_x40.00_y155.92"></a> balises** 
+### **3.2. Les<a name="_page2_x40.00_y155.92"></a> balises** 
 
 Pour donner les instructions en HTML il faut utiliser des **balises**. Celles-ci sont invisibles à l’écran mais elles permettent à l’ordinateur de comprendre ce qu’il doit afficher. Les balises se repèrent facilement. Elles sont entourées de « chevrons », c’est-à-dire des symboles < balise>.
 
-1. Les<a name="_page2_x40.00_y212.92"></a> balises en paires 
+#### **3.2.1. Les<a name="_page2_x40.00_y212.92"></a> balises en paires** 
 
 Elles fonctionnent en nombre paire : <balise1> des indications </balise1>. On distingue une balise ouvrante et une balise fermante 
 
-2. Les<a name="_page2_x40.00_y258.92"></a> balises orphelines 
+#### **3.2.2. Les<a name="_page2_x40.00_y258.92"></a> balises orphelines**
 
 Elles servent en un point précis <balise/>. 
 
-3. **Les<a name="_page2_x40.00_y290.92"></a> attributs** 
+### **3.3. Les<a name="_page2_x40.00_y290.92"></a> attributs** 
 
 Ce sont les options des balises : appelées attributs. Ils donnent les options des balises. Ils se placent après le nom de la balise ouvrante. 
 
 **<balise attribut="valeur">**
 
-4. **Structure<a name="_page2_x40.00_y347.92"></a> de base d’une page HTML5** 
+### **3.4. Structure<a name="_page2_x40.00_y347.92"></a> de base d’une page HTML5** 
 
 **Activité n°2. :**  ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.007.png)
 
@@ -162,8 +136,8 @@ Tout le code source est accessible à partir du navigateur. Dans **Firefox** : M
 
 source ou CTRL + u.
 
-4. **L’organisation<a name="_page3_x40.00_y117.92"></a> d’une page HTML5** 
-1. **Les<a name="_page3_x40.00_y139.92"></a> paragraphes** 
+## **4. L’organisation<a name="_page3_x40.00_y117.92"></a> d’une page HTML5** 
+### **4.1. Les<a name="_page3_x40.00_y139.92"></a> paragraphes** 
 
 La plupart du temps, on écrit du texte à l’intérieur d’un paragraphe. Le langage HTML propose justement la balise <p> pour délimiter les paragraphes. Il faut évidemment mettre ses paragraphes entre les balises body.
 
@@ -193,13 +167,13 @@ dessus de l’extérieur et se compose le plus souvent de nouilles et d’eau.
 
 **Attention à mettre des indentations pour que le code soit lisible !!** 
 
-2. **La<a name="_page3_x40.00_y481.92"></a> balise retour à la ligne** 
+### **4.2. La<a name="_page3_x40.00_y481.92"></a> balise retour à la ligne** 
 
 Il existe une balise orpheline <br /> qui permet un retour à la ligne. 
 
 **Activité n°5.:** Modifier l’application n° 4 pour ne mettre qu’un seul paragraphe et garder la mise en page. ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.017.png)![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.018.jpeg)
 
-3. **Les<a name="_page3_x40.00_y702.92"></a> titres** 
+### **4.3. Les<a name="_page3_x40.00_y702.92"></a> titres** 
 
 Il a y six niveaux de titres différents : 
 
@@ -260,7 +234,7 @@ les autobus qui marchent à gauche et les autobus qui ne marchent ni d'un côté
 
 ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.031.png)
 
-4. **Mettre<a name="_page5_x40.00_y676.92"></a> en valeur** 
+### **4.4. Mettre<a name="_page5_x40.00_y676.92"></a> en valeur** 
 
 Il y a différentes façons de mettre en valeur : 
 
@@ -288,7 +262,7 @@ Pourquoi c’est important de différencier par les balises adéquat le texte ?
 
 De nombreux programmes analysent le code source des pages web, à commencer par les robots de moteurs de recherche. Ces robots parcourent le Web en lisant le code HTML de tous les sites. C'est le cas des robots de Google et de Bing, par exemple. Les mots-clés « **importants** » ont tendance à avoir plus de valeur à leurs yeux, donc si quelqu'un fait une recherche sur ces mots, il a plus de chances de tomber sur votre site. 
 
-5. **Les<a name="_page7_x40.00_y36.92"></a> listes** 
+### **4.5. Les<a name="_page7_x40.00_y36.92"></a> listes** 
 
 Il y a deux types de listes : 
 
@@ -324,8 +298,8 @@ Il suffit de remplacer les balises <ul> par <ol> et on utilise aussi les balise 
 
 **Activité n°14.** : utiliser les balises précédentes pour les mots ci-dessous du dernier paragraphe ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.042.png)![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.043.jpeg)
 
-6. **Les<a name="_page7_x40.00_y697.92"></a> liens hypertexte** 
-1. Les<a name="_page7_x40.00_y717.92"></a> liens absolus 
+### **4.6. Les<a name="_page7_x40.00_y697.92"></a> liens hypertexte** 
+#### **4.6.1. Les<a name="_page7_x40.00_y717.92"></a> liens absolus **
 
 Pour faire un lien vers un autre site, il faut utiliser les balises <a></a> et un attribut href qui indiquera la page. Par exemple :  ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.044.png)
 
@@ -335,7 +309,7 @@ Pour faire un lien vers un autre site, il faut utiliser les balises <a></a> et u
 
 **Remarque** : Si vous faites un lien vers un site qui comporte une adresse un peu bizarre avec des &, comme : http://www.site.com/?data=15&name=mateo21, vous devrez remplacer tous les « & » par « &amp; » dans votre lien comme ceci :http://www.site.com/?data=15&amp;name=mateo21. 
 
-2. Lien<a name="_page8_x40.00_y259.92"></a> relatif vers une page d’un même dossier 
+#### **4.6.2. Lien<a name="_page8_x40.00_y259.92"></a> relatif vers une page d’un même dossier** 
 
 Pour faire un lien vers une page située dans un même dossier, on crée un lien relatif. Il suffit d’utiliser les balises <a> avec l’attribut href.  
 
@@ -347,7 +321,7 @@ Pour faire un lien vers une page située dans un même dossier, on crée un lien
 
 Observer la page2.html dans Firefox. 
 
-3. Lien<a name="_page8_x40.00_y391.92"></a> relatif vers une page située dans un dossier fils 
+#### **4.6.3. Lien<a name="_page8_x40.00_y391.92"></a> relatif vers une page située dans un dossier fils **
 
 Pour faire un lien vers une page située dans un sous dossier, on utilise le chemin relatif : 
 
@@ -357,7 +331,7 @@ Pour faire un lien vers une page située dans un sous dossier, on utilise le che
 
 Observer la page2.html dans Firefox.
 
-4. Lien<a name="_page8_x40.00_y511.92"></a> relatif vers une page située dans un dossier parent 
+#### **4.6.4. Lien<a name="_page8_x40.00_y511.92"></a> relatif vers une page située dans un dossier parent **
 
 Pour faire un lien vers une page dans un dossier parent, on utilise toujours la même chose **Activité n°18.** : Sur la page3.html, rajouter : 
 
@@ -365,7 +339,7 @@ Pour faire un lien vers une page dans un dossier parent, on utilise toujours la 
 
 `    `Pour consulter la <a href="../page2.html">page 2 </a> du site </p> 
 
-5. Lien<a name="_page8_x40.00_y599.92"></a> vers une ancre sur une même page 
+#### **4.6.5. Lien<a name="_page8_x40.00_y599.92"></a> vers une ancre sur une même page **
 
 Une **ancre** est une sorte de point de repère que l’on peut mettre dans les pages html lorsqu’elles sont très longues. Il peut alors être utile de faire un lien amenant plus bas dans la même page pour que le visiteur puisse sauter directement à la partie qui l'intéresse. Pour créer une ancre, il suffit de rajouter l'attribut id à une balise qui va alors servir de repère. Ce peut être n'importe quelle balise. 
 
@@ -383,7 +357,7 @@ On crée un lien en bas de la page pour remonter vers le haut. Rajouter tout en 
 
 Enregistrer et observer dans Firefox. S’il ne se passe rien augmenter le zoom dans Firefox afin de faire apparaitre les barres de défilement sur le côté. 
 
-6. Lien<a name="_page9_x40.00_y36.92"></a> vers une ancre sur une autre page 
+#### **4.6.6. Lien<a name="_page9_x40.00_y36.92"></a> vers une ancre sur une autre page **
 
 Pour faire un lien vers **une ancre située dans une autre page,** on précise l’adresse de la page et le nom de l’ancre précédée de #.
 
@@ -401,7 +375,7 @@ On crée un lien en bas de la page pour remonter vers le haut. Rajouter tout en 
 
 Enregistrer et observer dans Firefox. 
 
-7. Lien<a name="_page9_x40.00_y195.92"></a> affichant une infobulle 
+#### **4.6.7. Lien<a name="_page9_x40.00_y195.92"></a> affichant une infobulle **
 
 Avec l’**attribut** title 
 
@@ -415,7 +389,7 @@ Avec l’**attribut** title
 
 Enregistrer et observer dans Firefox. 
 
-8. Lien<a name="_page9_x40.00_y316.92"></a> qui ouvre une nouvelle fenêtre 
+#### **4.6.8. Lien<a name="_page9_x40.00_y316.92"></a> qui ouvre une nouvelle fenêtre **
 
 Pour forcer l’ouverture d’un lien dans une nouvelle fenêtre, on rajoutera target="\_blank" à la balise <a> **Activité n°22.** : Sur la page2.html, on va faire une infobulle 
 
@@ -427,7 +401,7 @@ Pour forcer l’ouverture d’un lien dans une nouvelle fenêtre, on rajoutera t
 
 Enregistrer et observer dans Firefox. 
 
-9. Un<a name="_page9_x40.00_y437.92"></a> lien pour envoyer un e-mail 
+#### **4.6.9. Un<a name="_page9_x40.00_y437.92"></a> lien pour envoyer un e-mail **
 
 Avec un lien de type mailto, en cas de click, un nouveau message vide s’ouvre. **Activité n°23.** : Sur la index.html, on va faire un lien vers un mail 
 
@@ -437,7 +411,7 @@ Avec un lien de type mailto, en cas de click, un nouveau message vide s’ouvre.
 
 Enregistrer et observer dans Firefox. 
 
-10. Un<a name="_page9_x40.00_y544.92"></a> lien pour télécharger un fichier 
+#### **4.6.10. Un<a name="_page9_x40.00_y544.92"></a> lien pour télécharger un fichier **
 
 Il s’agit d’un même type de lien mais vers le dossier à télécharger. 
 
@@ -445,16 +419,16 @@ Par exemple :
 
 <p><a href="monfichier.zip">Télécharger le fichier</a></p> 
 
-5. **Insérer<a name="_page9_x40.00_y607.92"></a> une image** 
-1. **Les<a name="_page9_x40.00_y629.92"></a> différents formats d’images** 
+## **5. Insérer<a name="_page9_x40.00_y607.92"></a> une image** 
+### **5.1. Les<a name="_page9_x40.00_y629.92"></a> différents formats d’images** 
 
 Le format de l’image influence le poids mais également la qualité de l’image. Toutes les images diffusées sur internet ont un point commun : elles sont **compressées.** 
 
-1. Le<a name="_page9_x40.00_y680.92"></a> JPEG 
+#### **5.1.1. Le<a name="_page9_x40.00_y680.92"></a> JPEG **
 
 Les images au format JPEG (Joint Photographic Expert Group) sont très répandues sur le Web. Ce format est conçu pour réduire le poids des photos qui peuvent comporter plus de 16 millions de couleurs différentes. Les images JPEG sont enregistrées avec l’extension .jpg ou .jpeg. Ce format permet de réduire le poids des photos mais les images sont de moindre qualité. 
 
-2. Le<a name="_page9_x40.00_y751.92"></a> PNG 
+#### **5.1.2. Le<a name="_page9_x40.00_y751.92"></a> PNG **
 
 Le format PNG (Portable Network Graphics) est le plus récent de tous. Le PNG a deux gros avantage : il peut être rendu transparent et il n’altère pas la qualité de l’image. 
 
@@ -465,15 +439,15 @@ Le PNG existe en deux versions :
 
 Une photo au format PNG a un poids plus important qu’au format JPEG. 
 
-3. Le<a name="_page10_x40.00_y106.92"></a> GIF 
+#### **5.1.3. Le<a name="_page10_x40.00_y106.92"></a> GIF **
 
 Le format GIF est limité à 256 couleurs. Par contre il peut être animé. 
 
-4. Le<a name="_page10_x40.00_y144.92"></a> BITMAP 
+#### **5.1.4. Le<a name="_page10_x40.00_y144.92"></a> BITMAP **
 
 C’est un format non compressé donc très (trop) gros. 
 
-2. **Insérer<a name="_page10_x40.00_y183.92"></a> une image** 
+### **5.2. Insérer<a name="_page10_x40.00_y183.92"></a> une image** 
 
 Pour insérer une image, il faut utiliser la balise orpheline <img />. La balise doit être accompagnée de deux attributs obligatoires : 
 
