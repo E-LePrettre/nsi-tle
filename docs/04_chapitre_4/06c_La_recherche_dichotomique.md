@@ -1,6 +1,6 @@
 ﻿---
 author: ELP
-title: Chapitre 6 - La recherche dichotomique
+title: 06c La recherche dichotomique
 ---
 
 **Table des matières** 

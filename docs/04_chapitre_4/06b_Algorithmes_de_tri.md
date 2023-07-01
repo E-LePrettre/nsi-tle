@@ -1,6 +1,6 @@
 ﻿---
 author: ELP
-title: Chapitre 6 - Algorithmes de tri
+title: 06b Algorithmes de tri
 ---
 
 

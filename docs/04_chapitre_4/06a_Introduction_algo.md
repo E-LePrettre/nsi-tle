@@ -1,6 +1,6 @@
 ﻿---
 author: ELP
-title: Chapitre 6 - Introduction à l’algorithmique
+title: 06a Introduction à l’algorithmique
 ---
 
 **Table des matières** 

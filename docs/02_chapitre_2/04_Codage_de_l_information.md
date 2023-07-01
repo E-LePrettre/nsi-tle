@@ -1,6 +1,6 @@
 ﻿---
 author: ELP
-title: Chapitre 4 - Codage de l'information
+title: 04 Codage de l'information
 ---
 
 
