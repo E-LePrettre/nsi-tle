@@ -1,4 +1,7 @@
-﻿*Chap 07 : Le CSS3* 
+﻿---
+author: ELP
+title: 07b Le CSS
+--- 
 
 **Table des matières** 
 
@@ -163,58 +166,62 @@ L’attribut id est utilisé exactement de la même manière que l’attribut cl
 
 Par exemple id = "tata" => 1 seul fois mais id = "titi"  pourra aussi être utilisé sur la même page. Habituellement, on ne met un attribut id qu’à quelque chose d’unique sur la page, **par exemple le logo ou l’introduction** 
 
-En CSS un id doit etre précéder d’un # ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.016.png)#logo  
+En CSS un id doit etre précéder d’un # 
+```css
+#logo 
+{ 
+/* Indiquez les propriétés CSS ici */ 
+}
+```
 
-{  
-
-/\* Indiquez les propriétés CSS ici \*/  } 
 
 ### **3.4. Les<a name="_page3_x40.00_y36.92"></a> balises universelles** 
 
 Pour le theorème de l’activité précédente, il a fallu rajouter des balises p. Or il existe des balises qui ne servent à rien : 
 
-- <span> </span> c’est une balise inline c’est-à-dire que l’on place au sein d’un paragraphe de texte, pour sélectionner certains mots uniquement  
-- <div> </div> c’est une balise block qui entoure un bloc de texte. Elles créent un nouveau bloc dans la page et provoquent donc obligatoirement un retour à la ligne.  
+- ```<span> </span>``` c’est une balise inline c’est-à-dire que l’on place au sein d’un paragraphe de texte, pour sélectionner certains mots uniquement  
+- ```<div> </div>``` c’est une balise block qui entoure un bloc de texte. Elles créent un nouveau bloc dans la page et provoquent donc obligatoirement un retour à la ligne.  
 
-**Activité n°7.:** Modifier la index et la feuille de style pour que l’on puisse voir cela : ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.017.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.018.jpeg)
+**Activité n°7.:** Modifier la index et la feuille de style pour que l’on puisse voir cela : 
+
+![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.018.jpeg)
 
 ### **3.5. Les<a name="_page3_x40.00_y425.92"></a> sélecteurs avancés** 
-- \* est un sélecteur universelle il sélectionne toutes les balises sans exception. ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.019.png)
+- ```*``` est un sélecteur universelle il sélectionne toutes les balises sans exception. 
+```css
+*
+{
+}
+```
+ 
 
-\* ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.020.png)
+- une balise dans une autre : par exemple toutes les balises ```<em>``` **situées à l’intérieur** d’une balise ```<h3>```
 
+```css
+h3 em
+{
+}
+```
+ 
+
+- La balise qui suit une autre : par exemple la première balise ```<p>``` **située après** un titre ```<h3>```
+```css
+h3 + p
+{
+}
+```
+
+
+- Une balise possédant un attribut : Sélectionne tous les liens ```<a>``` qui possèdent un **attribut** title.
+```css
+a[title]
 { 
-
 } 
-
-- une balise dans une autre : par exemple toutes les balises <em> **situées à l’intérieur** d’une balise <h3>![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.021.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.022.png)
-
-h3 em ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.023.png)
-
-{ 
-
-} 
-
-- La balise qui suit une autre : par exemple la première balise <p> **située après** un titre <h3>![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.024.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.025.png)
-
-h3 + p ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.026.png)
-
-{ 
-
-} 
-
-- Une balise possédant un attribut : Sélectionne tous les liens <a> qui possèdent un **attribut** title.![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.027.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.028.png)
-
-a[title] ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.029.png)
-
-{ 
-
-} 
-
+```
 Ce style sera sur : 
-
+```html
 <a href="http://site.com" title="Infobulle"> 
-
+```
 - Etc … pour une liste complète :[ site du W3C ](https://www.w3.org/Style/css3-selectors-updates/WD-css3-selectors-20010126.fr.html#selectors)
 
 ## **4. Formater<a name="_page4_x40.00_y36.92"></a> du texte** 
