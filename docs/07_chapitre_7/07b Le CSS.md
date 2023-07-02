@@ -231,24 +231,26 @@ On utilise la propriété font-size* avec deux techniques pour définir la taill
 
 - La taille absolue : en pixels, en cm ou en mm 
 - La taille relative : en % , ou nom (small, large, xx-large) ou nombre relatif (1em, 1.3em, 0.8em) qui permet de s’adapter à la taille des visiteurs 
-
-balise ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.030.png)
-
+```css
+balise 
 { 
+    font-size: 16px; 
+} 
+```
 
-`    `font-size: 16px; } 
+**Activité n°8.:** Modifier la feuille de style pour que les paragraphes est une taille de 120% 
 
-**Activité n°8.:** Modifier la feuille de style pour que les paragraphes est une taille de 120% ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.031.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.032.jpeg)
+![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.032.jpeg)
 
 ### **4.2. La<a name="_page4_x40.00_y513.92"></a> police** 
 
 C’est la propriété font-family. On peut définir plusieurs polices pour éviter des problèmes de compatibilité chez l’internaute.  
-
-balise ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.033.png)
-
+```css
+balise 
 { 
-
-`    `*font-family*: police1, police2, police3, police4; } 
+    font-family: police1, police2, police3, police4; 
+} 
+```
 
 Les polices qui fonctionnent sur la plupart des navigateurs : Arial ; Arial Black ; Comic Sans MS ; Courier New ; Georgia ; Impact ; Times New Roman ; Trebuchet MS ; Verdana. 
 
@@ -259,12 +261,14 @@ Il est possible d’utiliser des polices personnalisées que l’internaute tél
 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.034.png)
 
 ### **4.3. Italique,<a name="_page5_x40.00_y342.92"></a> gras, souligné** 
-- la propriété font-style : normal, italic 
-- la propriété font-weight : normal, bold 
-- Le soulignement se traite avec text-decoration : underline*,* ou none 
+
+- la propriété ```font-style : normal, italic``` 
+- la propriété ```font-weight : normal, bold```
+- Le soulignement se traite avec ```text-decoration : underline*,* ou none```
+
 ### **4.4. L’alignement<a name="_page5_x40.00_y410.92"></a>** 
 
-On utilise la propriété text-align : left* ou center ou right* ou*  justify
+On utilise la propriété ```text-align : left``` ou ```center``` ou ```right``` ou ```justify```
 
 **Activité n°10.:** Modifier la feuille de style pour que les paragraphes soient justifiés et centré les images (penser à mettre des nom aux balises des images sur la index) ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.035.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.036.jpeg)
 
