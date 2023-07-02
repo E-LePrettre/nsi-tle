@@ -43,18 +43,7 @@ Nous écrirons le langage CSS dans un fichier style.css. On place ce fichier dan
         <link rel="stylesheet" href="css/style.css" />
         <title>Logique sur les passoires</title>
     </head>
-```
-<!DOCTYPE html> ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.005.png)
-
-<html> 
-
-`    `<head> 
-
-`        `<meta charset="utf-8" /> 
-
-`        `<link rel="stylesheet" href="css/style.css" />         <title>Logique sur les passoires</title> 
-
-`    `</head> 
+``` 
 
 Créer un nouveau fichier vide avec l’éditeur. Enregistrer-le dans le dossier css sous le nom style.css et entrer le code ci-dessous 
 
@@ -63,8 +52,11 @@ Créer un nouveau fichier vide avec l’éditeur. Enregistrer-le dans le dossier
 Enregistrer et observer la index.html dans Firefox. 
 
 **Activité n°2.:** Dans la page2.html rajouter le lien vers le fichier css. 
+```html
+    <link rel="stylesheet" href="css/style.css" />
+``` 
 
-`        `<link rel="stylesheet" href="css/style.css" /> ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.007.png)
+
 
 **Activité n°3.:** Faire un lien également vers le fichier style.css depuis la page3.html. **Attention** à bien retrouver le chemin relatif. 
 
@@ -76,54 +68,51 @@ On note un avantage du CSS, il ne suffit que d’écrire cette instruction qu’
 
 Dans un code CSS, on trouve trois éléments différents : 
 
-- Des noms de balises : on écrit des noms des balises dont on veut modifier l’apparence. Pour modifier l’apparence de tous les paragraphes <p> on doit écrire p.  ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.008.png)
-- Des propriétés CSS : les effets de style de la page sont rangés dans des propriétés.  Par exemple color ou 
-
-font-size 
+- Des noms de balises : on écrit des noms des balises dont on veut modifier l’apparence. Pour modifier l’apparence de tous les paragraphes ```<p>``` on doit écrire p. 
+- Des propriétés CSS : les effets de style de la page sont rangés dans des propriétés.  Par exemple color ou font-size 
 
 - Les valeurs : le nom de la couleur ou la taille de la police 
 
 Par exemple : 
+```css
+balise1
+{
+    propriete1: valeur1;
+}
 
-balise1 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.009.png)
+balise2
+{
+    propriete1: valeur1;
+    propriete2: valeur2;
+    propriete3: valeur3;
+    propriete4: valeur4;
+}
+```
 
-{ 
-
-`    `propriete1: valeur1; } 
-
-balise2 
-
-{ 
-
-`    `propriete1: valeur1;     propriete2: valeur2;     propriete3: valeur3;     propriete4: valeur4; } 
-
-Première NSI   Chap 3 : Le CSS3  Page 3/19 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.010.png)
 
 On peut mettre autant de propriétés que l'on veut à l'intérieur **des accolades.** Chaque propriété est suivie du symbole « deux-points » ( : ) puis de la valeur correspondante. Enfin, chaque ligne se termine par un point-virgule ( ; ). 
 
 ### **3.1. Sélectionner<a name="_page2_x40.00_y67.92"></a> une balise**
 
-**Activité n°4.:** Avec la feuille de style modifier toutes les couleurs des mots entre les balises <em> et <strong>.  em ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.011.png)
+**Activité n°4.:** Avec la feuille de style modifier toutes les couleurs des mots entre les balises ```<em>``` et ```<strong>```. 
 
-{ 
+```css
+em
+{
+    color: red;
+}
+strong
+{
+    color : rgb(35, 241, 241) ;
+}
+```
 
-`    `color: red; 
-
-} 
-
-strong 
-
-{ 
-
-`    `color : rgb(35, 241, 241) ; 
-
-} 
 
 **Activité n°5.:** Avec la feuille de style modifier toutes les couleurs des titres de la index h1, h2, h3, h4 et h5 
 
 ### **3.2. Les<a name="_page2_x40.00_y258.92"></a> commentaires** 
 
-Les commentaires ne seront pas affichés, ils servent simplement à indiquer des informations. Taper /\*, suivi de votre commentaire, puis \*/ pour terminer votre commentaire. 
+Les commentaires ne seront pas affichés, ils servent simplement à indiquer des informations. Taper ```/*```, suivi de votre commentaire, puis ```*/``` pour terminer votre commentaire. 
 
 ### **3.3. Class<a name="_page2_x40.00_y309.92"></a> et id** 
 
@@ -131,28 +120,38 @@ Ce qu’on vient de dire a un défaut : en appliquant une couleur aux paragraphe
 
 On utilise alors des attributs spéciaux qui fonctionnent sur toutes les balises :  
 
-- l’attribut class![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.012.png)
+- l’attribut class
 - l’attribut id
 
 #### **3.3.1. L’attribut<a name="_page2_x40.00_y406.92"></a> class**
 
-C’est un attribut que l’on peut mettre dans toutes les balises ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.013.png)
+C’est un attribut que l’on peut mettre dans toutes les balises 
 
-<h1 class=""> </h1>  <p class=""> </p>  <img class="" /> 
+```html
+<h1 class=""> </h1> 
+<p class=""> </p> 
+<img class="" />
+```
 
-Entre les double cotes on associe un nom. 
 
-**Activité n°6.:** Mettre des balises p autour du **théorème** de la index.html. <p class ="theoreme"> …………………………………………..</p> ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.014.png)
+
+Entre les doubles cotes on associe un nom. 
+
+**Activité n°6.:** Mettre des balises p autour du **théorème** de la index.html. 
+
+```html
+    <p class ="theoreme"> …………………………………………..</p>
+```
+
 
 Puis dans la feuille de style rajouter 
 
-.theoreme ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.015.png)
-
-{ 
-
-`    `color : red 
-
-} 
+```css
+.theoreme
+{
+    color : red
+}
+```
 
 Enregistrer tout et observer dans Firefox. 
 
