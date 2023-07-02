@@ -116,15 +116,18 @@ soit 90.98.96.0 pour IP **du (sous) réseau**  L'adresse de broadcast sera:
 ```01011010.01100010.01100111.1111111111=> 90.98.103.255```
 
 Pour aller plus loin:
+
 - Protocole IP[ https://www.commentcamarche.net/contents/530-le-protocole-ip ](https://www.commentcamarche.net/contents/530-le-protocole-ip)
+
 - Classes d’adresse[ https://www.inetdoc.net/articles/adressage.ipv4/adressage.ipv4.class.html ](https://www.inetdoc.net/articles/adressage.ipv4/adressage.ipv4.class.html)
 
 #### **1.3.3. Adresse<a name="_page2_x40.00_y473.92"></a> publique et adresse privée** 
+![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.030.png)
 
 Les **adresses publiques** permettent à une machine de communiquer avec l’Internet. 
 
 Les **adresses privées** peuvent être attribuées dans des réseaux internes qui n’ont pas vocation à communiquer directement avec Internet. On dit que les adresses privées **ne sont pas routables** 
-![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.030.png)
+
 Si  un  réseau  utilisant  **un  adressage  privé**  veut  communiquer  avec  l’Internet,  il  faudra  qu’un  équipement fasse une **translation** (ou traduction)  entre l’adresse privée et une adresse publique qui  serait disponible pour dialoguer avec l’Internet. On  appelle cette opération le **NAT**[^1].  
 
 ### **1.4. Un<a name="_page3_x40.00_y36.92"></a> switch (commutateur réseau)** 
