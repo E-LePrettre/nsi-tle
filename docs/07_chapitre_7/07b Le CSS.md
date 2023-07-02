@@ -222,7 +222,7 @@ Ce style sera sur :
 ```html
 <a href="http://site.com" title="Infobulle"> 
 ```
-- Etc … pour une liste complète :[ site du W3C ](https://www.w3.org/Style/css3-selectors-updates/WD-css3-selectors-20010126.fr.html#selectors)
+- Etc … pour une liste complète :[ site du W3C ](https://www.w3.org/Style/CSS-selectors-updates/WD-CSS-selectors-20010126.fr.html#selectors)
 
 ## **4. Formater<a name="_page4_x40.00_y36.92"></a> du texte** 
 ### **4.1. Taille<a name="_page4_x40.00_y58.92"></a>** 
@@ -270,12 +270,13 @@ Il est possible d’utiliser des polices personnalisées que l’internaute tél
 
 On utilise la propriété ```text-align : left``` ou ```center``` ou ```right``` ou ```justify```
 
-**Activité n°10.:** Modifier la feuille de style pour que les paragraphes soient justifiés et centré les images (penser à mettre des nom aux balises des images sur la index) ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.035.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.036.jpeg)
+**Activité n°10.:** Modifier la feuille de style pour que les paragraphes soient justifiés et centré les images (penser à mettre des nom aux balises des images sur la index) 
+![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.036.jpeg)
 
-Première NSI   Chap 7 : Le CSS3  Page 7/19 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.010.png)
+
 
 ## **5. Ajouter<a name="_page6_x40.00_y36.92"></a> de la couleur et un fond** 
-### **5.1. **La<a name="_page6_x40.00_y58.92"></a> couleur du texte** 
+### **5.1. La<a name="_page6_x40.00_y58.92"></a> couleur du texte** 
 
 On utilise la propriété color suivie   
 
@@ -291,139 +292,144 @@ La propriété CSS background est une propriété raccourcie qui permet de défi
 
 #### **5.2.1. Couleur<a name="_page6_x40.00_y547.92"></a> de fond**
 
-On utilise la propriété background-color avec les mêmes propriétés que color*.* Il faut mettre cette propriété sur body![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.039.png)
+On utilise la propriété background-color avec les mêmes propriétés que color*.* Il faut mettre cette propriété sur body
+
 
 **Activité n°11.:** La couleur de fond d'une page est définie comme suit :  
+```css
+body
+{
+    background-color: lightblue;
+}
+```
 
-body 
 
-{ 
-
-`    `background-color: lightblue; } 
-
-Modifier la feuille de style pour que la couleur de fond soit #F3E0C5 body 
-
-{ 
-
-background-color: #F3E0C5 
-
-} 
+Modifier la feuille de style pour que la couleur de fond soit #F3E0C5 
+```css
+body
+{
+    background-color: #F3E0C5
+}
+```
+ 
 
 Modifier la feuille de style pour que la couleur de fond soit rgb(255,0,0) 
+```css
+body
+{
+    background-color: rgb(255,0,0)
+}
+```
+ 
 
-body 
+Il existe aussi un niveau de transparence avec la notation RGBa. Par exemple :  
+```css
+p
+{
+    background-color: rgba(255, 0, 0, 0.5); /* Fond rouge à moitié transparent */
+}
+``` 
 
-{ 
 
-background-color: rgb(255,0,0) 
-
-} 
-
-Il existe aussi un niveau de transparence avec la notation RGBa. Par exemple :  ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.040.png)
-
-p 
-
-{ 
-
-`    `*background-color*: rgba(255, 0, 0, 0.5); /\* Fond rouge à moitié transparent \*/ } 
 
 #### **5.2.2. Images<a name="_page7_x40.00_y91.92"></a> de fond**
 
-La propriété permettant d'indiquer une image de fond est background-image*.* Comme valeur, on doit renseigner url("nom\_de\_l\_image.png")
+La propriété permettant d'indiquer une image de fond est ```background-image```. Comme valeur, on doit renseigner ```url("nom_de_l_image.png")```
 
-**Activité n°12.:** Choisir une image neutre sur internet que l’on appelera paper.gif et modifier la feuille de style pour y mettre une image de fond sous forme d’url ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.041.png)
+**Activité n°12.:** Choisir une image neutre sur internet que l’on appelera paper.gif et modifier la feuille de style pour y mettre une image de fond sous forme d’url 
+```css
+body
+{
+    background-image: url("paper.gif");
+```
 
-body 
 
-{ 
 
-background-image: url("paper.gif"); 
-
-} 
-
-1. Répétition d’arrière plan  
+##### **5.2.2.1. Répétition d’arrière plan**
 
 Par défaut, la background-image propriété répète une image à la fois horizontalement et verticalement. 
 
-Certaines images doivent être répétées uniquement horizontalement ou verticalement, sinon elles auront l'air étrange, comme ceci ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.042.png)
+Certaines images doivent être répétées uniquement horizontalement ou verticalement, sinon elles auront l'air étrange, comme ceci 
 
-body 
+```css
+body
+{
+    background-image: url("paper.gif");
+    background-repeat: repeat-x;
+}
+```
 
-{ 
 
-`    `background-image: url("paper.gif"); 
-\*
-`    `background-repeat: repeat-x; 
 
-} 
+Le ```background-repeat```: répétition du fond. Par défaut, l'image de fond est répétée en mosaïque 
 
-Le background-repeat: répétition du fond. Par défaut, l'image de fond est répétée en mosaïque 
+- ```no-repeat```: le fond ne sera pas répété. L'image sera donc unique sur la page. 
+- ```repeat-x```: le fond sera répété uniquement sur la première ligne, horizontalement. 
+- ```repeat-y```: le fond sera répété uniquement sur la première colonne, verticalement. 
+- ```repeat```: le fond sera répété en mosaïque (par défaut). 
 
-- no-repeat: le fond ne sera pas répété. L'image sera donc unique sur la page. 
-- repeat-x: le fond sera répété uniquement sur la première ligne, horizontalement. 
-- repeat-y: le fond sera répété uniquement sur la première colonne, verticalement. 
-- repeat: le fond sera répété en mosaïque (par défaut). 
-2. Position d’arrière plan ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.043.png)
+##### **5.2.2.2. Position d’arrière plan**
 
-La background-position propriété est utilisée pour spécifier la position de l'image d'arrière-plan. body 
+La ```background-position``` propriété est utilisée pour spécifier la position de l'image d'arrière-plan. 
+```css
+body
+{
+    background-image: url("paper.gif");
+    background-repeat: repeat-x;
+    background-position: right top;
+}
+```
 
-{ 
 
-`    `background-image: url("paper.gif"); 
-\*
-`    `background-repeat: repeat-x; 
-\*
-`    `background-position: right top; 
+Le ```background-position``` permet d’indiquer la position du fond par rapport au coin supérieur gauche de la page ou les mots clé ```top, bottom, left```… 
 
-} 
+##### **5.2.2.3. Fixe ou scroll de l’arrière plan** 
 
-Le background-position permet d’indiquer la position du fond par rapport au coin supérieur gauche de la page ou les mots clé top, bottom, left… ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.044.png)
+La ```background-attachment``` propriété spécifie si l'image d'arrière-plan doit défiler ou être fixe (ne défile pas avec le reste de la page) 
+```css
+body
+{
+    background-image: url("paper.gif");
+    background-repeat: repeat-x;
+    background-position: right top;
+     background-attachment: scroll;
+}
+```
 
-3. Fixe ou scroll de l’arrière plan 
 
-La background-attachment propriété spécifie si l'image d'arrière-plan doit défiler ou être fixe (ne défile pas avec le reste de la page) 
+Le ```background-attachment```: fixer le fond. Deux valeurs sont disponibles :  
 
-body 
+- ```fixed```: l'image de fond reste fixe ; 
+- ```scroll```: l'image de fond défile avec le texte (par défaut).
 
-{ 
+##### **5.2.2.4. Propriétés de l’arrière plan abrégée** 
 
-`    `background-image: url("paper.gif");*     background-repeat: repeat-x; 
-\*
-`    `background-position: right top; 
+Pour raccourcir le code, il est également possible de spécifier toutes les propriétés du fond dans une seule propriété. C'est ce qu'on appelle une propriété abrégée. 
 
-background-attachment: scroll; 
+```css
+body {
+    background-color: #ffffff;
+    background-image: url("img_tree.png");
+    background-repeat: no-repeat;
+    background-position: right top;
+}
+```
 
-} 
 
-Le background-attachment: fixer le fond. Deux valeurs sont disponibles :  
 
-- fixed: l'image de fond reste fixe ; 
-- scroll: l'image de fond défile avec le texte (par défaut). 
-4. Propriétés de l’arrière plan abrégée 
+On peut écrire une propriété abrégée dans une seule déclaration 
 
-Pour raccourcir le code, il est également possible de spécifier toutes les propriétés du fond dans une seule propriété. C'est ce qu'on appelle une propriété abrégée. ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.045.png)
+```css
+body {
+    background: #ffffff url("img_tree.png") no-repeat right top;
+  }
+```
 
-body { 
 
-`    `background-color: #ffffff; 
 
-`    `background-image: url("img\_tree.png"); 
+##### **5.2.2.5. Plusieurs images** 
 
-`    `background-repeat: no-repeat; 
-
-`    `background-position: right top; 
-
-} 
-
-On peut écrire une propriété abrégée dans une seule déclaration ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.046.png)
-
-body { 
-
-`    `background: #ffffff url("img\_tree.png") no-repeat right top;   } 
-
-5. Plusieurs images 
-
-Depuis CSS3, il est possible de donner plusieurs images de fond à un élément. Pour cela, il suffit de séparer les déclarations par une virgule, comme ceci : 
+Depuis CSS, il est possible de donner plusieurs images de fond à un élément. Pour cela, il suffit de séparer les déclarations par une virgule, comme ceci : 
 
 body ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.047.png)
 
@@ -893,7 +899,7 @@ Donnons le code HTML correspondant...
 
 </html> 
 
-Première NSI   Chap 18 : Le CSS3  Page 18/19 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.010.png)
+Première NSI   Chap 18 : Le CSS  Page 18/19 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.010.png)
 
 ...et le code CSS associé. 
 
@@ -948,4 +954,4 @@ Cette structure de base à cinq blocs principaux convient dans la majorité des 
 - </body>  ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png) ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.124.png)</html>  ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.124.png) ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.124.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.111.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.113.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.114.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.125.png)
 
 Il existe sur le web des collections de modèles de mise en page, à télécharger gratuitement. Exemple : «[ Layout Gala ](http://blog.html.it/layoutgala/)» 
-Première NSI   Chap 7 : Le CSS3  Page 19/19 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.010.png)
+Première NSI   Chap 7 : Le CSS  Page 19/19 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.010.png)
