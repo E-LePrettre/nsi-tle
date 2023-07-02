@@ -639,92 +639,68 @@ border: 1px solid black;
 }
 ```
 
-table  
 
-{  
-
-*border-collapse*: collapse; /\* Les bordures du tableau seront collées (plus joli) \*/  }  ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.072.png)
-
-td  
-
-{  
-
-*border*: 1px solid black;  
-
-} 
 
 ### **9.2. L’en<a name="_page11_x40.00_y705.92"></a> tête** 
 
 La ligne d'en-tête est très facile à reconnaître pour deux raisons : 
 
-- les cellules sont des <th> au lieu des <td>* habituels ; ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.073.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.074.png)
+- les cellules sont des ```<th>``` au lieu des ```<td>``` habituels ; 
+
 - c'est la première ligne du tableau 
+
 ### **9.3. Titre<a name="_page12_x40.00_y36.92"></a> du tableau** 
 
-Il est à mettre dans la balise*  <caption></caption>*  juste après la balise <table>
+Il est à mettre dans la balise ```  <caption></caption>```  juste après la balise ```<table>```
 
-On peut changer la position du titre avec la propriété CSS caption-side qui peut prendre deux valeurs : 
+On peut changer la position du titre avec la propriété CSS ```caption-side``` qui peut prendre deux valeurs : 
 
-- top: le titre sera placé au-dessus du tableau (par défaut) ; ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.075.png)
-- bottom: le titre sera placé en dessous du tableau.
+- ```top```: le titre sera placé au-dessus du tableau (par défaut) ; 
+- ```bottom```: le titre sera placé en dessous du tableau.
 
-### **9.4. Gros<a name="_page12_x40.00_y120.92"></a> tableau  ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.076.png)**
-
+### **9.4. Gros<a name="_page12_x40.00_y120.92"></a> tableau **
+![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.076.png)
 Il existe des balises HTML qui permettent de  définir les trois « zones » du tableau :  
 
-- l'en-tête (en haut) : il se définit avec  les balises <thead></thead>; 
-- le corps (au centre) : il se définit avec  les balises* <tbody></tbody>;   
-- le  pied  du  tableau  (en  bas)  :  il  se  définit  avec  les  balises  <tfoot></tfoot>*.*  
+- l'en-tête (en haut) : il se définit avec  les balises ```<thead></thead>```; 
+- le corps (au centre) : il se définit avec  les balises ```<tbody></tbody>```;   
+- le  pied  du  tableau  (en  bas)  :  il  se  définit  avec  les  balises  ```<tfoot></tfoot>```*.*  
 
 ### **9.5. Fusionner<a name="_page12_x40.00_y268.92"></a>**   
-- La fusion de colonnes : c'est ce que je viens de faire dans cet exemple. La fusion s'effectue horizontalement. On utilisera l'attribut colspan.
-- La fusion de lignes : là, deux lignes seront groupées entre elles. La fusion s'effectuera verticalement. On utilisera l'attribut rowspan.
+- La fusion de colonnes : c'est ce que je viens de faire dans cet exemple. La fusion s'effectue horizontalement. On utilisera l'attribut ```colspan```.
+- La fusion de lignes : là, deux lignes seront groupées entre elles. La fusion s'effectuera verticalement. On utilisera l'attribut ```rowspan```.
 
-Par exemple :![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.077.png)
+Par exemple :
 
-<table> 
+```html
+<table>
+   <tr>
+       <th>Titre du film</th>
+       <th>Pour enfants ?</th>
+       <th>Pour adolescents ?</th>
+   </tr>
+   <tr>
+       <td>Massacre à la tronçonneuse</td>
+       <td >Non, trop violent</td>
+       <td>Oui</td>
+   </tr>
+   <tr>
+       <td>Les bisounours font du ski</td>
+       <td>Oui, adapté</td>
+       <td>Pas assez violent...</td>
+   </tr>
+   <tr>
+       <td>Lucky Luke, seul contre tous</td>
+       <td colspan="2">Pour toute la famille !</td>
+   </tr>
+</table>
+```
 
-`   `<tr> 
-
-`       `<th>Titre du film</th> 
-
-`       `<th>Pour enfants ?</th> 
-
-`       `<th>Pour adolescents ?</th> 
-
-`   `</tr> 
-
-`   `<tr> 
-
-`       `<td>Massacre à la tronçonneuse</td> 
-
-`       `<td >Non, trop violent</td> 
-
-`       `<td>Oui</td> 
-
-`   `</tr> 
-
-`   `<tr> 
-
-`       `<td>Les bisounours font du ski</td> 
-
-`       `<td>Oui, adapté</td> 
-
-`       `<td>Pas assez violent...</td> 
-
-`   `</tr> 
-
-`   `<tr> 
-
-`       `<td>Lucky Luke, seul contre tous</td> 
-
-`       `<td colspan="2">Pour toute la famille !</td>    </tr> 
-
-</table> 
 
 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.078.jpeg)
 
-**Activité n°15.:** Rajouter un tableau résumé à la fin de la index. Modifier la feuille de style pour que le tableau ressemble à l’image ci-dessous. Penser à nommer les balise pour les utiliser en css. ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.079.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.080.png)
+**Activité n°15.:** Rajouter un tableau résumé à la fin de la index. Modifier la feuille de style pour que le tableau ressemble à l’image ci-dessous. Penser à nommer les balise pour les utiliser en css. 
+![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.079.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.080.png)
 
 ## **10. Le<a name="_page13_x40.00_y36.92"></a> modèle des boites** 
 
@@ -736,214 +712,185 @@ Voici les  propriétés  CSS  qui  permettent  de  déterminer  les  dimensions,
 
 |**Propriété CSS** |**Ce qui est concerné :** |
 | - | - |
-|width et height |largeur et hauteur du contenu (texte, image, etc.) |
-|padding |espacement intérieur, entre le contenu et la bordure |
-|border |bordure (ou encadrement) |
-|margin |marge externe, espace (transparent) entourant le tout |
+|```width``` et ```height``` |largeur et hauteur du contenu (texte, image, etc.) |
+|```padding``` |espacement intérieur, entre le contenu et la bordure |
+|```border``` |bordure (ou encadrement) |
+|```margin``` |marge externe, espace (transparent) entourant le tout |
 
-` `![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.081.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.082.png)
+![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.082.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.081.png)
 
-- width : c'est la largeur du bloc exprimé en pixels (px) ou en pourcentage (%). 
-- height : c'est la hauteur du bloc exprimé en pixels (px) ou en pourcentage (%). ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.083.png)
-- padding : indique la taille de la marge intérieure en pixels (px). 
-- margin : indique la taille de la marge extérieure en pixels (px). 
+- ```width``` : c'est la largeur du bloc exprimé en pixels (px) ou en pourcentage (%). 
+- ```height``` : c'est la hauteur du bloc exprimé en pixels (px) ou en pourcentage (%). 
+- ```padding``` : indique la taille de la marge intérieure en pixels (px). 
+- ```margin``` : indique la taille de la marge extérieure en pixels (px). 
 1. Un bloc peut avoir des dimensions minimales et maximales : 
-- min-width : largeur minimale ; ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.084.png)
-- min-height : hauteur minimale ; 
-- max-width : largeur maximale ; 
-- max-height : hauteur maximale. 
+- ```min-width``` : largeur minimale ; 
+- ```min-height``` : hauteur minimale ; 
+- ```max-width``` : largeur maximale ; 
+- ```max-height``` : hauteur maximale. 
 2. Les marges extérieures peuvent avoir des valeurs différentes : 
-- margin-top : marge extérieure en haut ; ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.085.png)
-- margin-bottom : marge extérieure en bas ; 
-- margin-left : marge extérieure à gauche ; 
-- margin-right : marge extérieure à droite. 
+- ```margin-top``` : marge extérieure en haut ; 
+- ```margin-bottom``` : marge extérieure en bas ; 
+- ```margin-left``` : marge extérieure à gauche ; 
+- ```margin-right``` : marge extérieure à droite. 
 3. Idem pour les marges intérieures ! 
 
 Exemple : 
+```css
+p
+{
+   width: 350px;
+   border: 1px solid black;
+   text-align: justify;
+   padding: 12px;
+   margin: 50px; /* Marge extérieure de 50px */
+}
+```
 
-p ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.086.png)
 
-{ 
-
-`   `width: 350px; 
-
-`   `border: 1px solid black;    text-align: justify; 
-
-`   `padding: 12px; ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.087.png)
-
-`   `margin: 50px; /\* Marge extérieure de 50px \*/ } 
 
 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.088.jpeg)
 
-Remarque : utiliser la propriété margin: auto pour centrer des blocs. Pour cela, il faut obligatoirement donner une largeur au bloc (avec la propriété width). 
+Remarque : utiliser la propriété ```margin: auto``` pour centrer des blocs. Pour cela, il faut obligatoirement donner une largeur au bloc (avec la propriété ```width```). 
 
 Exemple : 
 
-p ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.089.png)
+```css
+p
+{
+    width: 350px; /* On a indiqué une largeur (obligatoire) */
+    margin: auto; /* On peut donc demander à ce que le bloc soit centré avec auto */
+}
+```
 
-{ 
-
-`    `width: 350px; /\* On a indiqué une largeur (obligatoire) \*/ 
-
-`    `margin: auto; /\* On peut donc demander à ce que le bloc soit centré avec auto \*/ ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.090.png)} 
 
 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.091.jpeg)
 
-Si vous voulez que le texte ne dépasse pas des limites du bloc, il va falloir utiliser la propriété overflow. Voici les valeurs qu'elle peut accepter : 
+Si vous voulez que le texte ne dépasse pas des limites du bloc, il va falloir utiliser la propriété ```overflow```. Voici les valeurs qu'elle peut accepter : 
 
-- visible (par défaut) : si le texte dépasse les limites de taille, il reste visible et sort volontairement du bloc. ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.092.png)
-- hidden : si le texte dépasse les limites, il sera tout simplement coupé. On ne pourra pas voir tout le texte. 
-- scroll : le texte sera coupé s'il dépasse les limites. Sauf que cette fois, le navigateur mettra en place des barres de défilement pour qu'on puisse lire l'ensemble du texte. 
-- auto : le navigateur décide de mettre ou non des barres de défilement. 
+- ```visible``` (par défaut) : si le texte dépasse les limites de taille, il reste visible et sort volontairement du bloc. 
+- ```hidden``` : si le texte dépasse les limites, il sera tout simplement coupé. On ne pourra pas voir tout le texte. 
+- ```scroll``` : le texte sera coupé s'il dépasse les limites. Sauf que cette fois, le navigateur mettra en place des barres de défilement pour qu'on puisse lire l'ensemble du texte. 
+- ```auto``` : le navigateur décide de mettre ou non des barres de défilement. 
 
-Remarque : la propriété word-wrap: break-word permet de forcer la césure des très longs mots (généralement des adresses un peu longues). 
+Remarque : la propriété ```word-wrap: break-word``` permet de forcer la césure des très longs mots (généralement des adresses un peu longues). 
 
 ## **11. Le<a name="_page15_x40.00_y36.92"></a> positionnement** 
-### **11.1. **Les<a name="_page15_x40.00_y58.92"></a> positionnements absolu, fixe et relatif** 
+### **11.1. Les<a name="_page15_x40.00_y58.92"></a> positionnements absolu, fixe et relatif** 
 
-La propriété CSS position permet de positionner avec précision des éléments sur la page. Pour cela, on lui donne une de ces valeurs : 
+La propriété CSS ```position``` permet de positionner avec précision des éléments sur la page. Pour cela, on lui donne une de ces valeurs : 
 
-- absolute : positionnement absolu ; il permet de placer un élément n'importe où sur la page (en haut à gauche, en bas à droite, tout au centre, etc.). 
-- fixed : positionnement fixe ; identique au positionnement absolu mais, cette fois, l'élément reste toujours visible, même si on descend plus bas dans la page. 
-- relative : positionnement relatif ; ce positionnement permet d'effectuer des « ajustements » : l'élément est décalé par rapport à sa position initiale. 
+- ```absolute``` : positionnement absolu ; il permet de placer un élément n'importe où sur la page (en haut à gauche, en bas à droite, tout au centre, etc.). 
+- ```fixed``` : positionnement fixe ; identique au positionnement absolu mais, cette fois, l'élément reste toujours visible, même si on descend plus bas dans la page. 
+- ```relative``` : positionnement relatif ; ce positionnement permet d'effectuer des « ajustements » : l'élément est décalé par rapport à sa position initiale. 
 
 Si un bloc est positionné en absolu, il faut indiquer au navigateur où le positionner sur la page à l'aide des quatre propriétés CSS : 
-
-- left : position par rapport à la gauche de la page ; ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.093.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.094.png)
-- right : position par rapport à la droite de la page ; ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.095.png)
-- top : position par rapport au haut de la page ; 
-- bottom : position par rapport au bas de la 
-
-page. 
+![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.093.png)
+- ```left``` : position par rapport à la gauche de la page ; 
+- ```right``` : position par rapport à la droite de la page ;
+- ```top``` : position par rapport au haut de la page ; 
+- ```bottom``` : position par rapport au bas de la page. 
 
 Exemple : 
+```css
+element
+{
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+}
+```
 
-element ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.096.png)
 
-{ 
-
-`    `position: absolute;     right: 0px; 
-
-`    `bottom: 0px; 
-
-} 
-
-Remarque : les éléments positionnés en absolu sont placés par- dessus le reste des éléments de la page ! Par ailleurs, si vous placez deux éléments en absolu vers le même endroit, ils risquent de se chevaucher.  Dans  ce  cas,  utilisez  la ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.097.png) propriété z-index  pour indiquer quel élément doit apparaître au-dessus des autres. 
-
-L'élément ayant la valeur de z-index la plus élevée sera placé par-dessus les autres, comme le montre la figure ci-contre. 
+Remarque : les éléments positionnés en absolu sont placés par- dessus le reste des éléments de la page ! Par ailleurs, si vous placez deux éléments en absolu vers le même endroit, ils risquent de se chevaucher.  Dans  ce  cas,  utilisez  la propriété ```z-index```  pour indiquer quel élément doit apparaître au-dessus des autres. 
+![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.097.png) 
+L'élément ayant la valeur de ```z-index``` la plus élevée sera placé par-dessus les autres, comme le montre la figure ci-contre. 
 
 ### **11.2. Le<a name="_page15_x40.00_y697.92"></a> positionnement inline-block** 
 
-En CSS la propriété display permet de transformer n'importe quel élément de la page d'un type vers un autre et les faire apparaître sous forme de blocs. À ce moment-là, les éléments vont se positionner les uns en-dessous des autres et il devient possible de modifier leurs dimensions ! 
+En CSS la propriété ```display``` permet de transformer n'importe quel élément de la page d'un type vers un autre et les faire apparaître sous forme de blocs. À ce moment-là, les éléments vont se positionner les uns en-dessous des autres et il devient possible de modifier leurs dimensions ! 
 
-Voici quelques-unes des principales valeurs que peut prendre la propriété display : 
+Voici quelques-unes des principales valeurs que peut prendre la propriété ```display``` : 
 
 |**Valeur** |**Exemples** |**Description** |
 | - | - | - |
-|inline |<a>, <em>, <span>…|Eléments d'une ligne. Se placent les uns à côté des autres. |
-|block |<p>, <div>, <section>… |Eléments en forme de blocs. Se placent les uns en-dessous des autres et peuvent être redimensionnés. |
-|inline-block |<select>, <input> |Eléments positionnés les uns à côté des autres (comme les inlines) mais qui peuvent être redimensionnés (comme les blocs). |
-|none |<head> |Eléments non affichés. |
+|```inline``` |```<a>, <em>, <span>```…|Eléments d'une ligne. Se placent les uns à côté des autres. |
+|```block``` |```<p>, <div>, <section>```… |Eléments en forme de blocs. Se placent les uns en-dessous des autres et peuvent être redimensionnés. |
+|```inline-block``` |```<select>, <input>``` |Eléments positionnés les uns à côté des autres (comme les inlines) mais qui peuvent être redimensionnés (comme les blocs). |
+|```none``` |```<head>``` |Eléments non affichés. |
 
-Les éléments en inline-block nous permet d'utiliser la propriété vertical-align. Cette propriété permet de modifier l'alignement vertical des éléments. Voici quelques-unes des valeurs possibles pour cette propriété : 
+Les éléments en ```inline-block``` nous permet d'utiliser la propriété ```vertical-align```. Cette propriété permet de modifier l'alignement vertical des éléments. Voici quelques-unes des valeurs possibles pour cette propriété : 
 
-- baseline : aligne de la base de l'élément avec celle de l'élément parent (par défaut) ; ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.098.png)
-- top : aligne en haut ; 
-- middle : centre verticalement ; ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.099.png)
-- bottom : aligne en bas ;  ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.100.png)
-- (valeur en px ou %) : aligne à une certaine distance de la ligne de base (baseline). 
+- ```baseline``` : aligne de la base de l'élément avec celle de l'élément parent (par défaut) ; 
+- ```top``` : aligne en haut ; 
+- ```middle``` : centre verticalement ;
+- ```bottom``` : aligne en bas ; 
+- (valeur en px ou %) : aligne à une certaine distance de la ligne de base (```baseline```). 
 
-NB : les éléments inline-block se positionnent sur une même ligne de base (appelée baseline), en bas. Exemple : nous voulons réaliser la page suivante.  ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.101.jpeg)
+NB : les éléments ```inline-block``` se positionnent sur une même ligne de base (appelée ```baseline```), en bas. Exemple : nous voulons réaliser la page suivante.  ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.101.jpeg)
 
 Donnons le code HTML correspondant...  
-
-<!DOCTYPE html>  ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.102.png)
-
-<html>  
-
-`    `<head>  
-
-`        `<meta charset="utf-8" />  
-
-`        `<link rel="stylesheet" href="style.css" />          <title>Zozor - Le Site Web</title>  ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.103.png)
-
-`    `</head>  
-
-`    `<body>  
-
-`        `<header>  
-
-`            `<h1>Zozor</h1>  
-
-`            `<h2>Carnets de voyage</h2>  ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.104.png)
-
-`        `</header> 
-
-`        `<nav> 
-
-`            `<ul> 
-
-`                `<li><a href="accueil.html">Accueil</a></li>                 <li><a href="blog.html">Blog</a></li> 
-
-`                `<li><a href="cv.html">CV</a></li> 
-
-`            `</ul> 
-
-`        `</nav> 
-
-`        `<section> 
-
-`            `<aside> 
-
-`                `<h1>À propos de l'auteur</h1> 
-
-`                `<p>C'est moi, Zozor ! Je suis né un 23 novembre 2005.</p> ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.105.png)            </aside> 
-
-`            `<article>                 
-
-`                `<h1>Je suis un grand voyageur</h1> 
-
-`                `<p>Bla bla bla bla (texte de l'article)</p> 
-
-`            `</article> 
-
-`        `</section> 
-
-`        `<footer> 
-
-`            `<p>Copyright Zozor - Tous droits réservés 
-
-`            `<a href="mailto:zorro@monsite.org">Me contacter !</a></p> ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.106.png)        </footer> 
-
-`    `</body> 
-
-</html> 
-
-Première NSI   Chap 18 : Le CSS  Page 18/19 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.010.png)
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Zozor - Le Site Web</title>
+    </head>
+    <body>
+        <header>
+            <h1>Zozor</h1>
+            <h2>Carnets de voyage</h2>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="accueil.html">Accueil</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="cv.html">CV</a></li>
+            </ul>
+        </nav>
+        
+        <section>
+            <aside>
+                <h1>À propos de l'auteur</h1>
+                <p>C'est moi, Zozor ! Je suis né un 23 novembre 2005.</p>
+            </aside>
+            <article>                
+                <h1>Je suis un grand voyageur</h1>
+                <p>Bla bla bla bla (texte de l'article)</p>
+            </article>
+        </section>
+        
+        <footer>
+            <p>Copyright Zozor - Tous droits réservés
+            <a href="mailto:zorro@monsite.org">Me contacter !</a></p>
+        </footer>
+    </body>
+</html>
+```
 
 ...et le code CSS associé. 
+```css
+nav
+{
+    display: inline-block;
+    width: 150px;
+    border: 1px solid black;
+    vertical-align: top;
+}
+section
+{
+    display: inline-block;    
+    border: 1px solid blue;
+    vertical-align: top;
+}
 
-nav ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.107.png)
+```
+ 
 
-{ 
-
-`    `display: inline-block; 
-
-`    `width: 150px; 
-
-`    `border: 1px solid black;     vertical-align: top; 
-
-} 
-
-section 
-
-{ 
-
-`    `display: inline-block;         border: 1px solid blue; 
-
-`    `vertical-align: top; 
-
-} 
+ 
 
 ## **12. Squelette<a name="_page17_x40.00_y239.92"></a> de base HTML – CSS** 
 
@@ -951,27 +898,38 @@ Le squelette d’une page web possède souvent une structure de base à cinq blo
 
 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.108.png)
 
-Cette structure de base à cinq blocs principaux convient dans la majorité des cas, car elle permet de fabriquer une grande variété de mises en page. ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.109.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.111.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.113.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.114.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.109.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.115.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.115.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.115.png)
+Cette structure de base à cinq blocs principaux convient dans la majorité des cas, car elle permet de fabriquer une grande variété de mises en page.
+```html
+<!DOCTYPE html>
+<html>
+<head>
+        <title>Titre de la page</title>
+        <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+         <div class="header">En-tête</div>
+         <div class="nav">Navigation</div>
+         <div class="content">Contenu</div>
+         <div class="aside">Contexte</div>
+         <div class="footer">Pied de page</div>
+</body>
+</html>
+```
+```css
+/* Mes styles */
 
-![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.116.png) **HTML  ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.116.png) CSS  ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.116.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.117.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.117.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.117.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.117.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.117.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.117.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.118.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.111.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.118.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.113.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.114.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.118.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.115.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.115.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.115.png)**
+.header {….}
 
-- <!DOCTYPE html>  ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)/\* Mes styles \*/  ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.120.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.121.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)<html>  ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)
+.nav {….}
 
-<head>  .header {….}  ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)
+.content {….}
 
-- <title>Titre de la page</title>  ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png) ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)
-- <link rel="stylesheet" href="style.css"/>  ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png).nav {….}  ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)</head>  ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)
+.aside {….}
 
-<body>  .content {….}  ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.122.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.122.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.122.png)
+.footer {….}
 
-`         `<div class="header">En-tête</div>  ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)
+```
 
-- <div class="nav">Navigation</div>  ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png).aside {….}  ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)
-- <div class="content">Contenu</div>  ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png) ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)         <div class="aside">Contexte</div>  .footer {….}  ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)
+Il existe sur le web des collections de modèles de mise en page, à télécharger gratuitement. 
+Exemple : «[ Layout Gala ](http://blog.html.it/layoutgala/)» 
 
-`         `<div class="footer">Pied de page</div>  ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.123.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)
-
-- </body>  ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png) ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.124.png)</html>  ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.124.png) ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.124.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.119.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.110.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.111.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.113.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.112.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.114.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.125.png)
-
-Il existe sur le web des collections de modèles de mise en page, à télécharger gratuitement. Exemple : «[ Layout Gala ](http://blog.html.it/layoutgala/)» 
-Première NSI   Chap 7 : Le CSS  Page 19/19 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.010.png)
