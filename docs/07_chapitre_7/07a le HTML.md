@@ -95,7 +95,7 @@ Ce sont les options des balises : appelées attributs. Ils donnent les options d
 ### **3.4. Structure<a name="_page2_x40.00_y347.92"></a> de base d’une page HTML5** 
 
 **Activité n°2. :**  
-```
+```html
 <!DOCTYPE html>
 <html>
     <head>
@@ -139,13 +139,13 @@ Tout le code source est accessible à partir du navigateur. Dans **Firefox** : M
 La plupart du temps, on écrit du texte à l’intérieur d’un paragraphe. Le langage HTML propose justement la balise ``` <p>```  pour délimiter les paragraphes. Il faut évidemment mettre ses paragraphes entre les balises body.
 
 **Activité n°3.:**  
-```
+```html
 <body> 
     <p>Bonjour et bienvenue sur ma page</p>     
 </body> 
 ```
 **Activité n°4. :** Je voudrais écrire le texte suivant exactement avec la même mise en page ci-dessous à la place de « Bonjour et bienvenue sur ma page ». **A vous de jouer !!** 
-```
+```html
 <body>
     <p>
         On appelle passoire tout instrument sur lequel on peut définir trois sous-ensembles : l’intérieur, l’extérieur, et les trous.
@@ -271,7 +271,7 @@ Il y a deux types de listes :
 Pour créer une liste d’éléments sans notion d’ordre, il suffit d’utiliser les balise ```<ul></ul>``` . Puis pour chacun des éléments on utilise les balises ```<li></li>```.
 
 Par exemple :  
-```
+```html
 <ul>
     <li>Fraises</li>
     <li>Framboises</li>
@@ -285,7 +285,7 @@ Par exemple :
 - Les listes ordonnée ou listes numérotées ou énumérations 
 
 Il suffit de remplacer les balises ```<ul>``` par ```<ol>``` et on utilise aussi les balise ```<li></li>```. Par exemple : 
-```
+```html
 <ol>
     <li>Fraises</li>
     <li>Framboises</li>
@@ -317,7 +317,7 @@ Pour faire un lien vers une page située dans un même dossier, on crée un lien
 
 **Activité n°16.** : Créer un nouvelle page html page2.html dans le dossier Documents\site** (Titre : Page 2). Après avoir rempli, la **structure minimale de la nouvelle page html** : 
 
-```
+```html
 <p>
     Pour consulter la <a href="index.html">logique sur les passoires</a>
 </p>
@@ -331,7 +331,7 @@ Pour faire un lien vers une page située dans un sous dossier, on utilise le che
 
 **Activité n°17.** : Créer un dossier **contenu** dans le dossier Documents\site**.** Créer un nouvelle page html page3.html** avec la **structure minimale** dans le dossier contenu (Titre : Page3). Sur la page2.html, rajouter : 
 
-```
+html
 <p>
     Pour consulter la <a href="contenu/page3.html">page 3 </a> du site
 </p>
@@ -346,7 +346,7 @@ Observer la page2.html dans Firefox.
 Pour faire un lien vers une page dans un dossier parent, on utilise toujours la même chose 
 
 **Activité n°18.** : Sur la page3.html, rajouter : 
-```
+```html
 <p>
     Pour consulter la <a href="../page2.html">page 2 </a> du site
 </p>
@@ -360,10 +360,10 @@ Une **ancre** est une sorte de point de repère que l’on peut mettre dans les 
 
 On crée un lien en bas de la page pour remonter vers le haut. Rajouter tout en bas (mais dans le body) la référence avec ```# ```
 
-```
-        <p>
-            <a href = "#haut">Aller en haut</a>
-        </p>
+```html
+    <p>
+        <a href = "#haut">Aller en haut</a>
+    </p>
 ```
 Enregistrer et observer dans Firefox. S’il ne se passe rien augmenter le zoom dans Firefox afin de faire apparaitre les barres de défilement sur le côté. 
 
@@ -374,7 +374,7 @@ Pour faire un lien vers **une ancre située dans une autre page,** on précise l
 **Activité n°20.** : Sur la page2.html, on va faire un lien vers l’ancre de la index.html.  
 ```<h1 id = "haut"> Les passoires</h1> ```
 On crée un lien en bas de la page pour remonter vers le haut. Rajouter tout en bas (mais dans le body) la référence avec #
-```
+```html
   <p>
       <a href = "index.html#haut">Aller en haut de la page logique sur les passoires</a>
   </p>
@@ -386,7 +386,7 @@ Enregistrer et observer dans Firefox.
 Avec l’**attribut** title 
 
 **Activité n°21.** : Sur la page2.html, on va faire une infobulle 
-```
+```html
 <p>
     <a href = "index.html#haut" title = "Vous ne le regretterez pas !">Aller en haut de la page logique sur les passoires</a>
 </p>
@@ -398,7 +398,7 @@ Enregistrer et observer dans Firefox.
 Pour forcer l’ouverture d’un lien dans une nouvelle fenêtre, on rajoutera target="\_blank" à la balise ```<a>``` 
 
 **Activité n°22.** : Sur la page2.html, on va faire une infobulle 
-```
+```html
 <p>
    <a href = "index.html#haut" title = "Vous ne le regretterez pas !" target = "_blank">Aller en haut de la page logique sur les passoires</a>
 </p> 
@@ -410,7 +410,7 @@ Enregistrer et observer dans Firefox.
 Avec un lien de type mailto, en cas de click, un nouveau message vide s’ouvre. 
 
 **Activité n°23.** : Sur la index.html, on va faire un lien vers un mail 
-```
+```html
 <p>
    <a href="mailto:votrenom@bidule.com">Envoyez-moi un e-mail !</a>
 </p>
@@ -459,7 +459,7 @@ Pour insérer une image, il faut utiliser la balise orpheline ```<img />```. La 
 - src : il permet d’avoir le chemin de la source ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.058.png)
 
 Par exemple :  
-```
+```html
 <img src="http://monsite.fr/fleur.jpg" />
 <img src="images/fleur.jpg" />
 ```
@@ -468,7 +468,7 @@ Par exemple :
 - title : permet d’insérer une info bulle (attribut facultatif) 
 
 On aura ainsi finalement :  
-```
+```html
 <p>
     Voici une photo d'une fleur de mon jardin <br />
     <img src="images/fleur.jpg" alt="Photo d'une fleur" title="C'est beau les fleurs quand même !" />
@@ -493,7 +493,7 @@ On peut proposer une miniature cliquable pour des images très grosse :
 Il faut les placer toutes les deux dans un dossier img. On affiche la version mini sur la page et on fait un lien vers la plus grosse image pour que l’image agrandie s’affiche lorsqu’on clique sur la miniature. 
 
 
-```
+```html
 <p>
     Voici une photo d'une fleur de mon jardin. Cliquez dessus !<br />
     <a href="img/fleur.jpg">
