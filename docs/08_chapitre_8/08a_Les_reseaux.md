@@ -244,6 +244,7 @@ Et c’est reparti !! Par forcément par la même route
 
 
 Par exemple : la table ARP de mon ordinateur ci-contre
+
 ![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.035.jpeg) 
 
 
@@ -273,7 +274,9 @@ Le **modèle TCP/IP** est une suite de protocoles utilisées pour le transfert d
 - La couche **Réseau** (couche 1) va acheminer les données de routeur en routeur par les réseaux Internet  
 
 ### **4.3. Principe<a name="_page6_x40.00_y290.92"></a> de l’encapsulation **
+
 ![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.044.png)
+
 Chaque couche **ne s’occupe que du rôle qu’elle a à jouer**  et non du rôle de la précédente.  
 
 ### **4.4. Application<a name="_page6_x40.00_y409.92"></a> au modèle  TCP/IP**   
@@ -321,9 +324,7 @@ Le protocole TCP permet d’assurer le transfert des données de façon fiable. 
 
 Dans le protocole du **bit alterné**, l’émetteur envoie les données encapsulées dans des trames contenant entre autres informations techniques, **le bit de séquence.** La couche émettrice **alterne la valeur du bit de séquence d’une trame émise à l’autre**.  
 
-- Lors de l’émission d’un segment, un numéro d’ordre est associé. La première trame aura pour **drapeau (flag)** 
-
-**0**.  
+- Lors de l’émission d’un segment, un numéro d’ordre est associé. La première trame aura pour **drapeau (flag) 0**.  
 
 - A réception d’un segment de donnée, la machine réceptrice va retourner un segment de donnée dont le **drapeau** (flag) ACK (acknowledgement : accusé de réception) **est à 1** (afin de signaler qu’il l’a bien reçu) accompagné d’un numéro d’accusé de réception égal au **numéro d’ordre précédent** qui seront ajouter au niveau de l’entête. 
 
