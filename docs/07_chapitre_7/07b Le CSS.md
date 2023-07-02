@@ -431,93 +431,101 @@ body {
 
 Depuis CSS, il est possible de donner plusieurs images de fond à un élément. Pour cela, il suffit de séparer les déclarations par une virgule, comme ceci : 
 
-body ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.047.png)
+```css
+body
+{
+    background: url("soleil.png") fixed no-repeat top right, url("neige.png") fixed;
+}
+```
 
-{ 
-
-`    `background: url("soleil.png") fixed no-repeat top right, url("neige.png") fixed; ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.048.png)
-
-} 
 
 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.049.png)
 
 La première image de cette liste sera placée par-dessus les autres. Attention donc, l'ordre de déclaration des images a son importance : si vous inversez le soleil et la neige dans le code CSS précédent, vous ne verrez plus le soleil ! 
 
 ## **6. Habillage<a name="_page8_x40.00_y542.92"></a>** 
+![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.050.png)
+Le CSS permet de faire flotter un élément autour d'un texte grâce à la propriété CSS ```float```. 
 
-Le CSS permet de faire flotter un élément autour d'un texte grâce à la propriété CSS ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.050.png)float. 
+- ```left``` : l'élément flottera à gauche. 
+- ```right``` : l'élément flottera à droite.
+```html
+<p>
+    <img src="flash.gif" class="imageflottante" alt="Image flottante" />
+</p>
+```
+```css
+.imageflottante
+{
+    float: left;
+}
+```
+![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.054.png)
+Pour ne plus faire flotter l'élément, il faut utiliser la propriété clear, qui peut prendre ces trois valeurs : 
 
-- left : l'élément flottera à gauche. 
-- right : l'élément flottera à droite. ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.051.png)
+- ```left``` : le texte se poursuit en-dessous après un float: left;
+- ```right``` : le texte se poursuit en-dessous après un float: right;
+- ```both``` : le texte se poursuit en-dessous, que ce soit après un float: left; ou après un float: right;. 
+```html
+<p><img src="flash.gif" class="imageflottante" alt="Image flottante" /></p>
+<p>Texte écrit à côté de l'image.</p>
+<p class="dessous">Texte écrit sous l'image.</p>  
+```
+```css
+.imageflottante
+{
+    float: left;
+}
+.dessous
+{
+    clear: both;
+}
+```  
 
-<p> ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.052.png)
 
-`    `<img src="flash.gif" class="imageflottante" alt="Image flottante" /> </p> 
-
-.imageflottante ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.053.png){ 
-
-`    `float: left; } 
-
-Pour ne plus faire flotter l'élément, il faut utiliser la propriété clear, qui peut prendre ces trois valeurs : ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.054.png)
-
-- left : le texte se poursuit en-dessous après un float: left;
-- right : le texte se poursuit en-dessous après un float: right;
-- both : le texte se poursuit en-dessous, que ce soit après un float: left; ou après un float: right;. 
-
-<p><img src="flash.gif" class="imageflottante" alt="Image flottante" /></p> ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.055.png)
-
-<p>Texte écrit à côté de l'image.</p> 
-
-<p class="dessous">Texte écrit sous l'image.</p>   
-
-.imageflottante ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.056.png){ 
-
-`    `float: left; } 
-
-.dessous 
-
-{ 
-
-`    `clear: both; } 
 
 ## **7. Créer<a name="_page9_x40.00_y302.92"></a> des bordures et des ombres** 
 ### **7.1. Bordures<a name="_page9_x40.00_y324.92"></a> standard** 
 
-Pour border on peut utiliser jusqu'à trois valeurs pour modifier l'apparence de la bordure : 
+Pour ```border``` on peut utiliser jusqu'à trois valeurs pour modifier l'apparence de la bordure : 
 
-- **La largeur** : indiquez la largeur de votre bordure. Mettez une valeur en pixels (comme 2px). 
-- **La couleur** : c'est la couleur de votre bordure. Utilisez, comme on l'a appris, soit un nom de couleur (black,red,…), soit une valeur hexadécimale (#FF0000), soit une valeur RGB (rgb(198, 212, 37)). 
+- **La largeur** : indiquez la largeur de votre bordure. Mettez une valeur en pixels (comme ```2px```). 
+- **La couleur** : c'est la couleur de votre bordure. Utilisez, comme on l'a appris, soit un nom de couleur (black,red,…), soit une valeur hexadécimale (```#FF0000```), soit une valeur RGB (```rgb(198, 212, 37)```). 
 - **Le type de bordure** : là, vous avez le choix. Votre bordure peut être un simple trait, ou des pointillés, ou encore des tirets, etc. Voici les différentes valeurs disponibles : 
-- none: pas de bordure (par défaut) ; 
-- solid: un trait simple ; 
-- dotted: pointillés ; 
-- double: bordure double ; 
+```none```: pas de bordure (par défaut) ; 
+- ```solid```: un trait simple ; 
+- ```dotted```: pointillés ; 
+- ```double```: bordure double ; 
 - *etc* 
 
 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.057.png)
 
-Ainsi, pour avoir une bordure bleue, en tirets, épaisse de 3 pixels autour de mes titres, je vais écrire : ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.058.png)
+Ainsi, pour avoir une bordure bleue, en tirets, épaisse de 3 pixels autour de mes titres, je vais écrire : 
 
-h1 
+```css
+h1
+{
+    border: 3px blue dashed;
+}
+```
 
-{ 
-
-`    `*border*: 3px blue dashed; } 
+ 
 
 Des bordures différentes en fonction du côté : 
 
-- border-top: bordure du haut ; ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.059.png)
-- border-bottom: bordure du bas ; 
-- border-left: bordure de gauche ; 
-- border-right*:* bordure de droite. 
+- ```border-top```: bordure du haut ; 
+- ```border-bottom```: bordure du bas ; 
+- ```border-left```: bordure de gauche ; 
+- ```border-right```: bordure de droite. 
 
 ### **7.2. **Bordures<a name="_page10_x40.00_y115.92"></a> arrondies** 
 
-La propriété border-radius va nous permettre d'arrondir facilement les angles de n'importe quel élément. Il suffit d'indiquer la taille (« l'importance ») de l'arrondi en pixels, par exemple : border-radius : 10px; 
+La propriété ```border-radius``` va nous permettre d'arrondir facilement les angles de n'importe quel élément. Il suffit d'indiquer la taille (« l'importance ») de l'arrondi en pixels, par exemple : ```border-radius : 10px```; 
 
-**Activité n°13.:** Modifier la feuille de style pour que le théorème soit entouré d’une bordure arrondie, d’une couleur, de style de traits et d’épaisseur au choix. Centrer le théorème. ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.060.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.061.jpeg)
+**Activité n°13.:** Modifier la feuille de style pour que le théorème soit entouré d’une bordure arrondie, d’une couleur, de style de traits et d’épaisseur au choix. Centrer le théorème. 
+![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.061.jpeg)
 
-### **7.3. **Les<a name="_page10_x40.00_y299.92"></a> ombres** 
+### **7.3. Les<a name="_page10_x40.00_y299.92"></a> ombres** 
 
 Il est possible de mettre des ombres portés sur : 
 
