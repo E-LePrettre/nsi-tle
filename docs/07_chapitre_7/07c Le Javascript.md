@@ -1,4 +1,7 @@
-﻿*Chap 07 : Le Javascript* 
+﻿---
+author: ELP
+title: 07c Le Javascript
+--- 
 
 **Table des matières** 
 
@@ -277,8 +280,8 @@ alert(result); // Affiche « false » car cet opérateur compare aussi les types
 ```JS
 var userName = prompt('Entrez votre prénom :'); 
 
-if (2 < 8 && 8 >= 4) { // Cette condition renvoie « true », le code est donc exécuté     alert('La condition est bien vérifiée.'); ![](Aspose.Words.e9d0b6b1-5c5b-49ac-81ba-f1da180d728c.044.png)
-
+if (2 < 8 && 8 >= 4) { // Cette condition renvoie « true », le code est donc exécuté     
+alert('La condition est bien vérifiée.'); 
 } 
 alert(userName);  
 ```
@@ -366,6 +369,7 @@ La partie ```default``` est optionnel.
 - L’opérateur ET se note ```&&``` 
 - L’opérateur OU se note ```||```  (Alt Gr +6)  
 - L’opérateur NON se note comme en Python avec ```!``` 
+
 ![](Aspose.Words.e9d0b6b1-5c5b-49ac-81ba-f1da180d728c.059.png)
 
 ## **8. Les<a name="_page6_x40.00_y626.92"></a> boucles** 
@@ -457,7 +461,7 @@ Toute variable déclarée dans une fonction n'est utilisable que dans cette mêm
 **Activité n°21.: Exemple de fonction avec argument** : Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo\_JS.html dans Firefox. 
 ```JS
 function myFunction(arg) { // Notre argument est la variable « arg » 
-   // Une fois que l'argument a été passé à la fonction, vous allez le retrouver dans la va riable « arg »![](Aspose.Words.e9d0b6b1-5c5b-49ac-81ba-f1da180d728c.072.png) 
+   // Une fois que l'argument a été passé à la fonction, vous allez le retrouver dans la va riable « arg »
    alert('Votre argument : ' + arg); 
 } 
 myFunction('En voilà un beau test !'); 
@@ -995,7 +999,7 @@ Vous pouvez aussi associer une fonction à votre ```eventListener``` sans qu'ell
 
 
 
-## 12. Exercices<a name="_page18_x40.00_y36.92"></a>** 
+## **12. Exercices<a name="_page18_x40.00_y36.92"></a>** 
 
 Ecrire  directement  le  script  dans  le  html  entre  balise  ```<script>…</script>```.  Les  fichiers  HTML exercice\_numéro.html sont à compléter pour le dossier Ressources 
 
