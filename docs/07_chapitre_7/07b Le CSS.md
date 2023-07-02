@@ -2,64 +2,48 @@
 
 **Table des matières** 
 
-1. [La petite histoire du CSS ........................................................................................................................................................ 1](#_page0_x40.00_y671.92)
-1. [Ou écrit-on le CSS ? ............................................................................................................................................................... 2](#_page1_x40.00_y36.92)
-1. [Appliquer un style .................................................................................................................................................................. 2](#_page1_x40.00_y534.92)
-1. [Sélectionner une balise ................................................................................................................................................. 3](#_page2_x40.00_y67.92)
-1. [Les commentaires ......................................................................................................................................................... 3](#_page2_x40.00_y258.92)
-1. [Class et id...................................................................................................................................................................... 3](#_page2_x40.00_y309.92)
-1. [L’attribut class .......................................................................................................................................................... 3](#_page2_x40.00_y406.92)
-1. [L’attribut id............................................................................................................................................................... 3](#_page2_x40.00_y639.92)
-4. [Les balises universelles ................................................................................................................................................. 4](#_page3_x40.00_y36.92)
-4. [Les sélecteurs avancés .................................................................................................................................................. 4](#_page3_x40.00_y425.92)
-4. [Formater du texte ................................................................................................................................................................... 5](#_page4_x40.00_y36.92)
-1. [Taille ............................................................................................................................................................................. 5](#_page4_x40.00_y58.92)
-1. [La police ....................................................................................................................................................................... 5](#_page4_x40.00_y513.92)
-1. [Italique, gras, souligné .................................................................................................................................................. 6](#_page5_x40.00_y342.92)
-1. [L’alignement ................................................................................................................................................................. 6](#_page5_x40.00_y410.92)
-5. [Ajouter de la couleur et un fond ............................................................................................................................................. 7](#_page6_x40.00_y36.92)
-1. [La couleur du texte ....................................................................................................................................................... 7](#_page6_x40.00_y58.92)
-1. [Arrière plan ................................................................................................................................................................... 7](#_page6_x40.00_y498.92)
-1. [Couleur de fond ........................................................................................................................................................ 7](#_page6_x40.00_y547.92)
-1. [Images de fond ......................................................................................................................................................... 8](#_page7_x40.00_y91.92)
-6. [Habillage ................................................................................................................................................................................ 9](#_page8_x40.00_y542.92)
-6. [Créer des bordures et des ombres ......................................................................................................................................... 10](#_page9_x40.00_y302.92)
-1. [Bordures standard ....................................................................................................................................................... 10](#_page9_x40.00_y324.92)
-1. [Bordures arrondies ...................................................................................................................................................... 11](#_page10_x40.00_y115.92)
-1. [Les ombres .................................................................................................................................................................. 11](#_page10_x40.00_y299.92)
-8. [Les apparences dynamiques ................................................................................................................................................. 11](#_page10_x40.00_y621.92)
-1. [Au survol .................................................................................................................................................................... 12](#_page11_x40.00_y36.92)
-1. [Au clic......................................................................................................................................................................... 12](#_page11_x40.00_y195.92)
-1. [Le lien déjà visité ........................................................................................................................................................ 12](#_page11_x40.00_y276.92)
-9. [Les tableaux.......................................................................................................................................................................... 12](#_page11_x40.00_y351.92)
-1. [Un tableau simple ....................................................................................................................................................... 12](#_page11_x40.00_y389.92)
-1. [L’en tête ...................................................................................................................................................................... 12](#_page11_x40.00_y705.92)
-1. [Titre du tableau ........................................................................................................................................................... 13](#_page12_x40.00_y36.92)
-1. [Gros tableau ................................................................................................................................................................ 13](#_page12_x40.00_y120.92)
-1. [Fusionner .................................................................................................................................................................... 13](#_page12_x40.00_y268.92)
-10. [Le modèle des boites ....................................................................................................................................................... 14](#_page13_x40.00_y36.92)
-10. [Le positionnement ........................................................................................................................................................... 16](#_page15_x40.00_y36.92)
-1. [Les positionnements absolu, fixe et relatif.................................................................................................................. 16](#_page15_x40.00_y58.92)
-1. [Le positionnement inline-block .................................................................................................................................. 16](#_page15_x40.00_y697.92)
-12. [Squelette de base HTML – CSS ...................................................................................................................................... 18](#_page17_x40.00_y239.92)
-1. **La<a name="_page0_x40.00_y671.92"></a> petite histoire du CSS** 
+1. [La petite histoire du CSS ](#_page0_x40.00_y671.92)
+2. [Ou écrit-on le CSS ? ](#_page1_x40.00_y36.92)
+3. [Appliquer un style](#_page1_x40.00_y534.92)
+4. [Formater du texte](#_page4_x40.00_y36.92)
+5. [Ajouter de la couleur et un fond](#_page6_x40.00_y36.92)
+6. [Habillage](#_page8_x40.00_y542.92)
+7. [Créer des bordures et des ombres](#_page9_x40.00_y302.92)
+8. [Les apparences dynamiques](#_page10_x40.00_y621.92)
+9. [Les tableaux](#_page11_x40.00_y351.92)
+10. [Le modèle des boites](#_page13_x40.00_y36.92)
+11. [Le positionnement](#_page15_x40.00_y36.92)
+12. [Squelette de base HTML – CSS8](#_page17_x40.00_y239.92)
+
+
+## **1. La<a name="_page0_x40.00_y671.92"></a> petite histoire du CSS** 
 
 CSS (**Cascading Style Sheets**), permet de choisir la couleur du texte, la police utilisée, la taille du texte, les bordures, le fond… et de faire la mise en page du site (menu à gauche, en-tête calé en haut, etc). 
 
 Aux débuts du Web, CSS n'existait pas, il n'y avait initialement que le langage HTML. Cependant, les pages HTML commençaient à devenir assez complexes. Il y avait de plus en plus de balises et c'était un joyeux mélange entre le fond et la forme, qui rendait la mise à jour des pages web de plus en plus complexe. C'est pour cela que l'on a créé le langage CSS. 
 
-2. **Ou<a name="_page1_x40.00_y36.92"></a> écrit-on le CSS ?  ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.001.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.002.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.003.png)**
-
+## **2. Ou<a name="_page1_x40.00_y36.92"></a> écrit-on le CSS ?  **
+![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.003.png)
 On peut écrire du code en langage CSS à trois endroits différents :  
 
-- dans un fichier .css (méthode la plus recommandée) ;  ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.004.png)
-- dans l'en-tête <head> du fichier HTML ;  
+- dans un fichier .css (méthode la plus recommandée) ;  
+- dans l'en-tête ```<head>``` du fichier HTML ;  
 - directement dans les balises du fichier HTML via un attribut style  (méthode **la moins recommandée).**  
 
 Nous écrirons le langage CSS dans un fichier style.css. On place ce fichier dans un dossier css dans le dossier Documents\site. 
 
 **Activité n°1.:** Dans la index.html rajouter le lien vers le fichier css. 
 
+```html
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="css/style.css" />
+        <title>Logique sur les passoires</title>
+    </head>
+```
 <!DOCTYPE html> ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.005.png)
 
 <html> 
@@ -88,7 +72,7 @@ Enregistrer et observer les page2.html et page3.html.
 
 On note un avantage du CSS, il ne suffit que d’écrire cette instruction qu’une seule fois pour tout le site !! et en cas de changement de style tous les fichiers seront changés en même temps. 
 
-3. **Appliquer<a name="_page1_x40.00_y534.92"></a> un style**  
+## **3. Appliquer<a name="_page1_x40.00_y534.92"></a> un style**  
 
 Dans un code CSS, on trouve trois éléments différents : 
 
@@ -117,7 +101,7 @@ Première NSI   Chap 3 : Le CSS3  Page 3/19 ![](Aspose.Words.d520a3b2-fd79-44d0-
 
 On peut mettre autant de propriétés que l'on veut à l'intérieur **des accolades.** Chaque propriété est suivie du symbole « deux-points » ( : ) puis de la valeur correspondante. Enfin, chaque ligne se termine par un point-virgule ( ; ). 
 
-1. **Sélectionner<a name="_page2_x40.00_y67.92"></a> une balise**
+### **3.1. Sélectionner<a name="_page2_x40.00_y67.92"></a> une balise**
 
 **Activité n°4.:** Avec la feuille de style modifier toutes les couleurs des mots entre les balises <em> et <strong>.  em ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.011.png)
 
@@ -137,11 +121,11 @@ strong
 
 **Activité n°5.:** Avec la feuille de style modifier toutes les couleurs des titres de la index h1, h2, h3, h4 et h5 
 
-2. **Les<a name="_page2_x40.00_y258.92"></a> commentaires** 
+### **3.2. Les<a name="_page2_x40.00_y258.92"></a> commentaires** 
 
 Les commentaires ne seront pas affichés, ils servent simplement à indiquer des informations. Taper /\*, suivi de votre commentaire, puis \*/ pour terminer votre commentaire. 
 
-3. **Class<a name="_page2_x40.00_y309.92"></a> et id** 
+### **3.3. Class<a name="_page2_x40.00_y309.92"></a> et id** 
 
 Ce qu’on vient de dire a un défaut : en appliquant une couleur aux paragraphes, tous les paragraphes possèdent la même présentation sur toutes les pages. 
 
@@ -149,7 +133,8 @@ On utilise alors des attributs spéciaux qui fonctionnent sur toutes les balises
 
 - l’attribut class![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.012.png)
 - l’attribut id
-1. L’attribut<a name="_page2_x40.00_y406.92"></a> class 
+
+#### **3.3.1. L’attribut<a name="_page2_x40.00_y406.92"></a> class**
 
 C’est un attribut que l’on peut mettre dans toutes les balises ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.013.png)
 
@@ -173,7 +158,7 @@ Enregistrer tout et observer dans Firefox.
 
 Noter que le nom de la class doit se noter **avec un point en CSS**. 
 
-2. L’attribut<a name="_page2_x40.00_y639.92"></a> id 
+#### **3.3.2. L’attribut<a name="_page2_x40.00_y639.92"></a> id** 
 
 L’attribut id est utilisé exactement de la même manière que l’attribut class. La différence est qu’il ne pourra être utilisé **qu’une seule fois par page.**  
 
@@ -185,7 +170,7 @@ En CSS un id doit etre précéder d’un # ![](Aspose.Words.d520a3b2-fd79-44d0-b
 
 /\* Indiquez les propriétés CSS ici \*/  } 
 
-4. **Les<a name="_page3_x40.00_y36.92"></a> balises universelles** 
+### **3.4. Les<a name="_page3_x40.00_y36.92"></a> balises universelles** 
 
 Pour le theorème de l’activité précédente, il a fallu rajouter des balises p. Or il existe des balises qui ne servent à rien : 
 
@@ -194,7 +179,7 @@ Pour le theorème de l’activité précédente, il a fallu rajouter des balises
 
 **Activité n°7.:** Modifier la index et la feuille de style pour que l’on puisse voir cela : ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.017.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.018.jpeg)
 
-5. **Les<a name="_page3_x40.00_y425.92"></a> sélecteurs avancés** 
+### **3.5. Les<a name="_page3_x40.00_y425.92"></a> sélecteurs avancés** 
 - \* est un sélecteur universelle il sélectionne toutes les balises sans exception. ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.019.png)
 
 \* ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.020.png)
@@ -232,8 +217,9 @@ Ce style sera sur :
 <a href="http://site.com" title="Infobulle"> 
 
 - Etc … pour une liste complète :[ site du W3C ](https://www.w3.org/Style/css3-selectors-updates/WD-css3-selectors-20010126.fr.html#selectors)
-4. **Formater<a name="_page4_x40.00_y36.92"></a> du texte** 
-1. **Taille<a name="_page4_x40.00_y58.92"></a>** 
+
+## **4. Formater<a name="_page4_x40.00_y36.92"></a> du texte** 
+### **4.1. Taille<a name="_page4_x40.00_y58.92"></a>** 
 
 On utilise la propriété font-size* avec deux techniques pour définir la taille : 
 
@@ -248,7 +234,7 @@ balise ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.030.png)
 
 **Activité n°8.:** Modifier la feuille de style pour que les paragraphes est une taille de 120% ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.031.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.032.jpeg)
 
-2. **La<a name="_page4_x40.00_y513.92"></a> police** 
+### **4.2. La<a name="_page4_x40.00_y513.92"></a> police** 
 
 C’est la propriété font-family. On peut définir plusieurs polices pour éviter des problèmes de compatibilité chez l’internaute.  
 
@@ -266,11 +252,11 @@ Il est possible d’utiliser des polices personnalisées que l’internaute tél
 
 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.034.png)
 
-3. **Italique,<a name="_page5_x40.00_y342.92"></a> gras, souligné** 
+### **4.3. Italique,<a name="_page5_x40.00_y342.92"></a> gras, souligné** 
 - la propriété font-style : normal, italic 
 - la propriété font-weight : normal, bold 
 - Le soulignement se traite avec text-decoration : underline*,* ou none 
-4. **L’alignement<a name="_page5_x40.00_y410.92"></a>** 
+### **4.4. L’alignement<a name="_page5_x40.00_y410.92"></a>** 
 
 On utilise la propriété text-align : left* ou center ou right* ou*  justify
 
@@ -278,8 +264,8 @@ On utilise la propriété text-align : left* ou center ou right* ou*  justify
 
 Première NSI   Chap 7 : Le CSS3  Page 7/19 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.010.png)
 
-5. **Ajouter<a name="_page6_x40.00_y36.92"></a> de la couleur et un fond** 
-1. **La<a name="_page6_x40.00_y58.92"></a> couleur du texte** 
+## **5. Ajouter<a name="_page6_x40.00_y36.92"></a> de la couleur et un fond** 
+### **5.1. **La<a name="_page6_x40.00_y58.92"></a> couleur du texte** 
 
 On utilise la propriété color suivie   
 
@@ -289,11 +275,11 @@ On utilise la propriété color suivie
 
 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.038.jpeg)
 
-2. **Arrière<a name="_page6_x40.00_y498.92"></a> plan** 
+### **5.2. Arrière<a name="_page6_x40.00_y498.92"></a> plan** 
 
 La propriété CSS background est une propriété raccourcie qui permet de définir les différentes valeurs des propriétés liées à la gestion des arrière-plans d'un élément (couleur, image, origine, taille, répétition, etc.). 
 
-1. Couleur<a name="_page6_x40.00_y547.92"></a> de fond 
+#### **5.2.1. Couleur<a name="_page6_x40.00_y547.92"></a> de fond**
 
 On utilise la propriété background-color avec les mêmes propriétés que color*.* Il faut mettre cette propriété sur body![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.039.png)
 
@@ -331,7 +317,7 @@ p
 
 `    `*background-color*: rgba(255, 0, 0, 0.5); /\* Fond rouge à moitié transparent \*/ } 
 
-2. Images<a name="_page7_x40.00_y91.92"></a> de fond 
+#### **5.2.2. Images<a name="_page7_x40.00_y91.92"></a> de fond**
 
 La propriété permettant d'indiquer une image de fond est background-image*.* Comme valeur, on doit renseigner url("nom\_de\_l\_image.png")
 
@@ -441,7 +427,7 @@ body ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.047.png)
 
 La première image de cette liste sera placée par-dessus les autres. Attention donc, l'ordre de déclaration des images a son importance : si vous inversez le soleil et la neige dans le code CSS précédent, vous ne verrez plus le soleil ! 
 
-6. **Habillage<a name="_page8_x40.00_y542.92"></a>** 
+## **6. Habillage<a name="_page8_x40.00_y542.92"></a>** 
 
 Le CSS permet de faire flotter un élément autour d'un texte grâce à la propriété CSS ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.050.png)float. 
 
@@ -478,8 +464,8 @@ Pour ne plus faire flotter l'élément, il faut utiliser la propriété clear, q
 
 `    `clear: both; } 
 
-7. **Créer<a name="_page9_x40.00_y302.92"></a> des bordures et des ombres** 
-1. **Bordures<a name="_page9_x40.00_y324.92"></a> standard** 
+## **7. Créer<a name="_page9_x40.00_y302.92"></a> des bordures et des ombres** 
+### **7.1. Bordures<a name="_page9_x40.00_y324.92"></a> standard** 
 
 Pour border on peut utiliser jusqu'à trois valeurs pour modifier l'apparence de la bordure : 
 
@@ -508,13 +494,14 @@ Des bordures différentes en fonction du côté :
 - border-bottom: bordure du bas ; 
 - border-left: bordure de gauche ; 
 - border-right*:* bordure de droite. 
-2. **Bordures<a name="_page10_x40.00_y115.92"></a> arrondies** 
+
+### **7.2. **Bordures<a name="_page10_x40.00_y115.92"></a> arrondies** 
 
 La propriété border-radius va nous permettre d'arrondir facilement les angles de n'importe quel élément. Il suffit d'indiquer la taille (« l'importance ») de l'arrondi en pixels, par exemple : border-radius : 10px; 
 
 **Activité n°13.:** Modifier la feuille de style pour que le théorème soit entouré d’une bordure arrondie, d’une couleur, de style de traits et d’épaisseur au choix. Centrer le théorème. ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.060.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.061.jpeg)
 
-3. **Les<a name="_page10_x40.00_y299.92"></a> ombres** 
+### **7.3. **Les<a name="_page10_x40.00_y299.92"></a> ombres** 
 
 Il est possible de mettre des ombres portés sur : 
 
@@ -536,7 +523,7 @@ p ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.063.png)
 
 **Activité n°14.:** Modifier la feuille de style pour que le théorème est une ombre portée sur sa bordure. ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.065.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.066.jpeg)
 
-8. **Les<a name="_page10_x40.00_y621.92"></a> apparences dynamiques** 
+## **8. Les<a name="_page10_x40.00_y621.92"></a> apparences dynamiques** 
 
 En CSS, on peut modifier l'apparence de certaines sections dynamiquement, après le chargement de la page, lorsque certains évènements se produisent. On utilise pour cela les pseudo-formats. 
 
@@ -544,7 +531,8 @@ En CSS, on peut modifier l'apparence de certaines sections dynamiquement, après
 - :active applique un style particulier au moment du clic. En pratique, il n'est utilisé que sur les liens. 
 - :focus applique un style lorsque l'élément est sélectionné. 
 - :visited applique un style à un lien vers une page qui a déjà été vue. 
-1. **Au<a name="_page11_x40.00_y36.92"></a> survol** 
+
+### **8.1. **Au<a name="_page11_x40.00_y36.92"></a> survol** 
 
 Lorsque la souris survole quelque chose on peut prévoir un style différent. Par exemple : 
 
@@ -566,7 +554,7 @@ a:hover /\* Apparence au survol des liens \*/ {
 
 } 
 
-2. **Au<a name="_page11_x40.00_y195.92"></a> clic** 
+### **8.2. Au<a name="_page11_x40.00_y195.92"></a> clic** 
 
 On peut par exemple changer la couleur de fond du lien lorsque l'on clique dessus : 
 
@@ -576,7 +564,7 @@ a:active /\* Quand le visiteur clique sur le lien \*/ ![](Aspose.Words.d520a3b2-
 
 } 
 
-3. **Le<a name="_page11_x40.00_y276.92"></a> lien déjà visité** 
+### **8.3. Le<a name="_page11_x40.00_y276.92"></a> lien déjà visité** 
 
 On peut changer cette apparence avec: *visited* (qui signifie « visité »).  
 
@@ -586,8 +574,8 @@ a:visited /\* Quand le visiteur a déjà vu la page concernée \*/ ![](Aspose.Wo
 
 } 
 
-9. **Les<a name="_page11_x40.00_y351.92"></a> tableaux** 
-1. **Un<a name="_page11_x40.00_y389.92"></a> tableau simple** 
+## **9. Les<a name="_page11_x40.00_y351.92"></a> tableaux** 
+### **9.1. Un<a name="_page11_x40.00_y389.92"></a> tableau simple** 
 
 On utilise la balise <table></table>. Puis il faut indiquer le début et la fin de chaque ligne : <tr></tr>. A l’intérieur de chaque ligne, il faut définir toutes les cellules avec <td></td>. 
 
@@ -629,28 +617,30 @@ td
 
 } 
 
-2. **L’en<a name="_page11_x40.00_y705.92"></a> tête** 
+### **9.2. L’en<a name="_page11_x40.00_y705.92"></a> tête** 
 
 La ligne d'en-tête est très facile à reconnaître pour deux raisons : 
 
 - les cellules sont des <th> au lieu des <td>* habituels ; ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.073.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.074.png)
 - c'est la première ligne du tableau 
-3. **Titre<a name="_page12_x40.00_y36.92"></a> du tableau** 
+### **9.3. Titre<a name="_page12_x40.00_y36.92"></a> du tableau** 
 
 Il est à mettre dans la balise*  <caption></caption>*  juste après la balise <table>
 
 On peut changer la position du titre avec la propriété CSS caption-side qui peut prendre deux valeurs : 
 
 - top: le titre sera placé au-dessus du tableau (par défaut) ; ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.075.png)
-- bottom: le titre sera placé en dessous du tableau. 
-4. **Gros<a name="_page12_x40.00_y120.92"></a> tableau  ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.076.png)**
+- bottom: le titre sera placé en dessous du tableau.
+
+### **9.4. Gros<a name="_page12_x40.00_y120.92"></a> tableau  ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.076.png)**
 
 Il existe des balises HTML qui permettent de  définir les trois « zones » du tableau :  
 
 - l'en-tête (en haut) : il se définit avec  les balises <thead></thead>; 
 - le corps (au centre) : il se définit avec  les balises* <tbody></tbody>;   
 - le  pied  du  tableau  (en  bas)  :  il  se  définit  avec  les  balises  <tfoot></tfoot>*.*  
-5. **Fusionner<a name="_page12_x40.00_y268.92"></a>**   
+
+### **9.5. Fusionner<a name="_page12_x40.00_y268.92"></a>**   
 - La fusion de colonnes : c'est ce que je viens de faire dans cet exemple. La fusion s'effectue horizontalement. On utilisera l'attribut colspan.
 - La fusion de lignes : là, deux lignes seront groupées entre elles. La fusion s'effectuera verticalement. On utilisera l'attribut rowspan.
 
@@ -700,7 +690,7 @@ Par exemple :![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.077.png)
 
 **Activité n°15.:** Rajouter un tableau résumé à la fin de la index. Modifier la feuille de style pour que le tableau ressemble à l’image ci-dessous. Penser à nommer les balise pour les utiliser en css. ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.079.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.080.png)
 
-10. **Le<a name="_page13_x40.00_y36.92"></a> modèle des boites** 
+## **10. Le<a name="_page13_x40.00_y36.92"></a> modèle des boites** 
 
 Dans une mise en page réalisée en CSS, tous les éléments sont considérés comme des boîtes. Chacune de ces boîtes est constituée d’un contenu, d’un espacement intérieur, d’une bordure, et d’une marge externe. 
 
@@ -772,8 +762,8 @@ Si vous voulez que le texte ne dépasse pas des limites du bloc, il va falloir u
 
 Remarque : la propriété word-wrap: break-word permet de forcer la césure des très longs mots (généralement des adresses un peu longues). 
 
-11. **Le<a name="_page15_x40.00_y36.92"></a> positionnement** 
-1. **Les<a name="_page15_x40.00_y58.92"></a> positionnements absolu, fixe et relatif** 
+## **11. Le<a name="_page15_x40.00_y36.92"></a> positionnement** 
+### **11.1. **Les<a name="_page15_x40.00_y58.92"></a> positionnements absolu, fixe et relatif** 
 
 La propriété CSS position permet de positionner avec précision des éléments sur la page. Pour cela, on lui donne une de ces valeurs : 
 
@@ -806,7 +796,7 @@ Remarque : les éléments positionnés en absolu sont placés par- dessus le res
 
 L'élément ayant la valeur de z-index la plus élevée sera placé par-dessus les autres, comme le montre la figure ci-contre. 
 
-2. **Le<a name="_page15_x40.00_y697.92"></a> positionnement inline-block** 
+### **11.2. Le<a name="_page15_x40.00_y697.92"></a> positionnement inline-block** 
 
 En CSS la propriété display permet de transformer n'importe quel élément de la page d'un type vers un autre et les faire apparaître sous forme de blocs. À ce moment-là, les éléments vont se positionner les uns en-dessous des autres et il devient possible de modifier leurs dimensions ! 
 
@@ -919,7 +909,7 @@ section
 
 } 
 
-12. **Squelette<a name="_page17_x40.00_y239.92"></a> de base HTML – CSS** 
+## **12. Squelette<a name="_page17_x40.00_y239.92"></a> de base HTML – CSS** 
 
 Le squelette d’une page web possède souvent une structure de base à cinq blocs principaux. 
 
