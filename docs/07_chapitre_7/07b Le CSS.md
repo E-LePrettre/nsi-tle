@@ -445,6 +445,7 @@ La première image de cette liste sera placée par-dessus les autres. Attention 
 
 ## **6. Habillage<a name="_page8_x40.00_y542.92"></a>** 
 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.050.png)
+
 Le CSS permet de faire flotter un élément autour d'un texte grâce à la propriété CSS ```float```. 
 
 - ```left``` : l'élément flottera à gauche. 
@@ -461,11 +462,12 @@ Le CSS permet de faire flotter un élément autour d'un texte grâce à la propr
 }
 ```
 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.054.png)
+
 Pour ne plus faire flotter l'élément, il faut utiliser la propriété clear, qui peut prendre ces trois valeurs : 
 
-- ```left``` : le texte se poursuit en-dessous après un float: left;
-- ```right``` : le texte se poursuit en-dessous après un float: right;
-- ```both``` : le texte se poursuit en-dessous, que ce soit après un float: left; ou après un float: right;. 
+- ```left``` : le texte se poursuit en-dessous après un ```float: left```;
+- ```right``` : le texte se poursuit en-dessous après un ```float: right```;
+- ```both``` : le texte se poursuit en-dessous, que ce soit après un ```float: left```; ou après un ```float: right```;. 
 ```html
 <p><img src="flash.gif" class="imageflottante" alt="Image flottante" /></p>
 <p>Texte écrit à côté de l'image.</p>
@@ -493,10 +495,10 @@ Pour ```border``` on peut utiliser jusqu'à trois valeurs pour modifier l'appare
 - **La couleur** : c'est la couleur de votre bordure. Utilisez, comme on l'a appris, soit un nom de couleur (black,red,…), soit une valeur hexadécimale (```#FF0000```), soit une valeur RGB (```rgb(198, 212, 37)```). 
 - **Le type de bordure** : là, vous avez le choix. Votre bordure peut être un simple trait, ou des pointillés, ou encore des tirets, etc. Voici les différentes valeurs disponibles : 
 ```none```: pas de bordure (par défaut) ; 
-- ```solid```: un trait simple ; 
-- ```dotted```: pointillés ; 
-- ```double```: bordure double ; 
-- *etc* 
+ ```solid```: un trait simple ; 
+ ```dotted```: pointillés ; 
+ ```double```: bordure double ; 
+ *etc* 
 
 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.057.png)
 
@@ -518,7 +520,7 @@ Des bordures différentes en fonction du côté :
 - ```border-left```: bordure de gauche ; 
 - ```border-right```: bordure de droite. 
 
-### **7.2. **Bordures<a name="_page10_x40.00_y115.92"></a> arrondies** 
+### **7.2. Bordures<a name="_page10_x40.00_y115.92"></a> arrondies** 
 
 La propriété ```border-radius``` va nous permettre d'arrondir facilement les angles de n'importe quel élément. Il suffit d'indiquer la taille (« l'importance ») de l'arrondi en pixels, par exemple : ```border-radius : 10px```; 
 
@@ -529,103 +531,113 @@ La propriété ```border-radius``` va nous permettre d'arrondir facilement les a
 
 Il est possible de mettre des ombres portés sur : 
 
-- Des boites : la propriété box-shadow s'applique à tout le bloc et prend quatre valeurs dans l'ordre suivant : ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.062.png)
-- le décalage horizontal de l'ombre ; 
-- le décalage vertical de l'ombre ; 
-- L’adoucissement du dégradé ; 
-- la couleur de l'ombre. 
+- Des boites : la propriété ```box-shadow``` s'applique à tout le bloc et prend quatre valeurs dans l'ordre suivant 
+
+le décalage horizontal de l'ombre ; 
+le décalage vertical de l'ombre ; 
+L’adoucissement du dégradé ; 
+la couleur de l'ombre. 
 
 Par exemple, pour une ombre noire de 6 pixels, sans adoucissement, on écrira :   
+```css
+p
+{
+    box-shadow: 6px 6px 0px black;
+}
+```
 
-p ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.063.png)
 
-{ 
+- du texte : avec ```text-shadow```  qui a le même fonctionnement 
 
-`    `*box-shadow*: 6px 6px 0px black; } 
-
-- du texte : avec text-shadow*  qui a le même fonctionnement ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.064.png)
-
-**Activité n°14.:** Modifier la feuille de style pour que le théorème est une ombre portée sur sa bordure. ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.065.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.066.jpeg)
+**Activité n°14.:** Modifier la feuille de style pour que le théorème est une ombre portée sur sa bordure. 
+![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.066.jpeg)
 
 ## **8. Les<a name="_page10_x40.00_y621.92"></a> apparences dynamiques** 
 
 En CSS, on peut modifier l'apparence de certaines sections dynamiquement, après le chargement de la page, lorsque certains évènements se produisent. On utilise pour cela les pseudo-formats. 
 
-- :hover permet de changer l'apparence au survol (par exemple : a:hover pour modifier l'apparence des liens lorsque la souris pointe dessus). 
-- :active applique un style particulier au moment du clic. En pratique, il n'est utilisé que sur les liens. 
-- :focus applique un style lorsque l'élément est sélectionné. 
-- :visited applique un style à un lien vers une page qui a déjà été vue. 
+- ```:hover``` permet de changer l'apparence au survol (par exemple : a:hover pour modifier l'apparence des liens lorsque la souris pointe dessus). 
+- ```:active``` applique un style particulier au moment du clic. En pratique, il n'est utilisé que sur les liens. 
+- ```:focus``` applique un style lorsque l'élément est sélectionné. 
+- ```:visited``` applique un style à un lien vers une page qui a déjà été vue. 
 
-### **8.1. **Au<a name="_page11_x40.00_y36.92"></a> survol** 
+### **8.1. Au<a name="_page11_x40.00_y36.92"></a> survol** 
 
 Lorsque la souris survole quelque chose on peut prévoir un style différent. Par exemple : 
 
-a /\* Liens par défaut (non survolés) \*/ ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.067.png){ 
+```css
+a /* Liens par défaut (non survolés) */
+{
+   text-decoration: none;
+   color: red;
+   font-style: italic;
+}
 
-`   `*text-decoration*: none; 
+a:hover /* Apparence au survol des liens */
+{
+   text-decoration: underline;
+   color: green;
+}
+```
 
-`   `*color*: red; 
 
-`   `*font-style*: italic; 
-
-} 
-
-a:hover /\* Apparence au survol des liens \*/ { 
-
-`   `*text-decoration*: underline; 
-
-`   `*color*: green; 
-
-} 
 
 ### **8.2. Au<a name="_page11_x40.00_y195.92"></a> clic** 
 
 On peut par exemple changer la couleur de fond du lien lorsque l'on clique dessus : 
+```css
+a:active /* Quand le visiteur clique sur le lien */
+{
+    background-color: #FFCC66;
+}
+```
 
-a:active /\* Quand le visiteur clique sur le lien \*/ ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.068.png){ 
-
-`    `*background-color*: #FFCC66; 
-
-} 
 
 ### **8.3. Le<a name="_page11_x40.00_y276.92"></a> lien déjà visité** 
 
 On peut changer cette apparence avec: *visited* (qui signifie « visité »).  
+```css
+a:visited /* Quand le visiteur a déjà vu la page concernée */
+{
+    color: #AAA; /* Appliquer une couleur grise */
+}
+```
 
-a:visited /\* Quand le visiteur a déjà vu la page concernée \*/ ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.069.png){ 
-
-`    `*color*: #AAA; /\* Appliquer une couleur grise \*/ 
-
-} 
 
 ## **9. Les<a name="_page11_x40.00_y351.92"></a> tableaux** 
 ### **9.1. Un<a name="_page11_x40.00_y389.92"></a> tableau simple** 
 
-On utilise la balise <table></table>. Puis il faut indiquer le début et la fin de chaque ligne : <tr></tr>. A l’intérieur de chaque ligne, il faut définir toutes les cellules avec <td></td>. 
+On utilise la balise ```<table></table>```. Puis il faut indiquer le début et la fin de chaque ligne : ```<tr></tr>```. A l’intérieur de chaque ligne, il faut définir toutes les cellules avec ```<td></td>```. 
 
 Par exemple : 
+```html
+<table>
+   <tr>
+       <td>Carmen</td>
+       <td>33 ans</td>
+       <td>Espagne</td>
+   </tr>
+   <tr>
+       <td>Michelle</td>
+       <td>26 ans</td>
+       <td>États-Unis</td>
+   </tr>
+</table>
+```
 
-<table> ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.070.png)
 
-`   `<tr> 
+Il faut prendre le soin d’indiquer le type de bordure pour les cellules et/ou les lignes dans la feuille de style css. Par exemple : 
 
-`       `<td>Carmen</td> 
-
-`       `<td>33 ans</td> 
-
-`       `<td>Espagne</td> 
-
-`   `</tr> 
-
-`   `<tr> 
-
-`       `<td>Michelle</td>        <td>26 ans</td> 
-
-`       `<td>États-Unis</td>    </tr> 
-
-</table> 
-
-Il faut prendre le soin d’indiquer le type de bordure pour les cellules et/ou les lignes dans la feuille de style css. Par exemple :  ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.071.png)
+```css
+table 
+{ 
+border-collapse: collapse; /* Les bordures du tableau seront collées (plus joli) */ 
+} 
+td 
+{ 
+border: 1px solid black; 
+}
+```
 
 table  
 
