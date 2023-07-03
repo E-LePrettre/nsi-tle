@@ -534,11 +534,11 @@ Itinéraire glouton en partant de F : Longueur de l'itinéraire en partant de F 
 
 Itinéraire glouton en partant de G : Longueur de l'itinéraire en partant de G :
 
-**Pour le plus court itinéraire glouton : il faut partir de … )**
+**Pour le plus court itinéraire glouton : il faut partir de … **
 
 **Longueur de ce plus court itinéraire :**
 
-Première NSI   Chap  : Algorithme glouton  Page / 
+ 
 
 ![](Aspose.Words.35e5d16a-adab-4fc0-8fbe-75d584bf8d1c.033.png) ![](Aspose.Words.35e5d16a-adab-4fc0-8fbe-75d584bf8d1c.033.png)
 
