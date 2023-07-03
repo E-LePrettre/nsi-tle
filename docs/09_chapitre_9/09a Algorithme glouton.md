@@ -68,6 +68,10 @@ print(renduMonnaie(somme,pieces))
 <tr><td colspan="1">Choisies </td><td colspan="1">….. </td><td colspan="1">….. </td><td colspan="1">….. </td><td colspan="2">…. </td><td colspan="1">…. </td><td colspan="1">…. </td><td colspan="1">…. </td><td colspan="1">…. </td><td colspan="1">…. </td></tr>
 </table>
 
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
+
 Soit 780 centimes, <b>l’algorithme fonctionne et est optimal</b> avec le système de pièces européen  
 
 **Test n°2 :**
@@ -84,6 +88,7 @@ print(renduMonnaie(somme,pieces))
 <tr><td colspan="1">Pièces </td><td colspan="1">4 </td><td colspan="1">3 </td><td colspan="1">1 </td>
 <tr><td colspan="1">Choisies </td><td colspan="1">…... </td><td colspan="1">…….. </td><td colspan="1">……. </td></tr>
 </table>
+
 
 Soit 6 euros, l’algorithme fonctionne, <b>mais n’est pas optimal</b>, car on aurait pu rendre 2 pièces de 3 € 
 
@@ -167,6 +172,9 @@ Vérification :
 <tr><td colspan="1">objets</td><td colspan="1"><img src="Aspose.Words.35e5d16a-adab-4fc0-8fbe-75d584bf8d1c.012.png"></td><td colspan="1"><img src="Aspose.Words.35e5d16a-adab-4fc0-8fbe-75d584bf8d1c.013.png"></td><td colspan="1"><img src="Aspose.Words.35e5d16a-adab-4fc0-8fbe-75d584bf8d1c.014.png"></td><td colspan="1"><img src="Aspose.Words.35e5d16a-adab-4fc0-8fbe-75d584bf8d1c.015.png"></td></tr>
 <tr><td colspan="1">Objets choisis </td><td colspan="1">…. </td><td colspan="1">… </td><td colspan="1">… </td><td colspan="1">… </td></tr>
 </table>
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
 L’algorithme choisit bien les articles selon notre prévision.
 
 
@@ -175,6 +183,9 @@ L’algorithme choisit bien les articles selon notre prévision.
 La caissière d’un supermarché doit vous rendre 99 euros, Elle dispose des pièces et billets suivants : pieces=[50,20,10,5,2,1] 
 Utiliser **l’algorithme glouton correspondant** afin d’indiquer le nombre de pièces et de billets rendus 
 
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
 
 **Activité n°4.: Sac à dos : affichage des objets choisis selon leur valeur et du poids total :** 
 
@@ -190,7 +201,9 @@ exemple :
 
 Utiliser l’algorithme glouton correspondant afin d’indiquer les objets pouvant être mis dans la valise. Pour cela dans le fichier sac_dos.py ajouter une fonction ```remplirSacpoids``` qui tiennent compte de la nouvelle situation 
 
+???+ question "Faire ce qui est proposé"
 
+    {{ IDE() }}
 
 **Activité n°5.: Sac à dos V2 : affichage des objets choisis selon leur valeur avec leur nombre:** on veut retourner un dictionnaire. Pour cela dans le fichier sac_dos.py ajouter une fonction ```remplirSacDico``` qui  tiennent compte de la nouvelle situation
 Le prototype de la fonction est : 
@@ -199,7 +212,9 @@ Le prototype de la fonction est :
 **Résultat attendu** : 
 ```{'chaussures': 1, 'habits': 1, 'trousse de toilette': 1, 'crèmes': 1, 'livres': 1, 'palmes tuba': 0, 'guide touristique': 1} ```
 
+???+ question "Faire ce qui est proposé"
 
+    {{ IDE() }}
 
 **Activité n°6.: Sac à dos V3 : affichage des objets choisis selon leur valeur avec leur nombre différent de 0 :** 
 on veut retourner un dictionnaire qui n’affichera que les objets réellement mis dans la valise (dont le nombre d’objet !=0). Pour cela dans le fichier sac_dos.py** ajouter une fonction ```remplirSacDico_V2``` qui tiennent compte de la nouvelle situation 
@@ -207,7 +222,9 @@ on veut retourner un dictionnaire qui n’affichera que les objets réellement m
 **Résultat attendu :** 
 ```{'chaussures': 1, 'habits': 1, 'trousse de toilette': 1, 'crèmes': 1, 'livres': 1, 'guide touristique': 1} ```
 
+???+ question "Faire ce qui est proposé"
 
+    {{ IDE() }}
 
 **Activité n°7.: Sac à dos : Affichage des objets choisis selon leur volume :** On souhaite remplir un camion de déménagement de 5 m<sup>3</sup>. Pour cela on dispose d’une liste de meubles et de leur volume en mètres cubes. 
 ```meubles=[['armoire',3], ['fauteuil',1.1], ['lave-vaisselle',1.0], ['lit',0.9], ['ordinateur',0.2]] ```
@@ -237,7 +254,9 @@ Les meubles choisis sont
 [1, 1, 0, 1, 0] 
 ```
 
+???+ question "Faire ce qui est proposé"
 
+    {{ IDE() }}
 
 
 **Activité n°8.: Sac à dos V2 : affichage des objets choisis selon leur volume et du volume total :** 
@@ -252,7 +271,9 @@ Le volume embarqué
 Les meubles choisis sont 
 ['armoire', 'fauteuil', 'lit'] 
 ```
+???+ question "Faire ce qui est proposé"
 
+    {{ IDE() }}
 
 **Activité n°9.: Sac à dos : affichage des activités choisies en fonction de leur durée :** 
 On considère qu’un après-midi actif dure 6h, on souhaite effectuer un maximum de choses durant cette période. Ces activités sont classéespar ordre croissant de durée dans la liste suivante : 
@@ -303,6 +324,10 @@ La durée utilisée
 Les activités choisies sont 
 ['préparer le contrôle de NSI', "passer l'aspirateur"] 
 ```
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
+    
 **Remarque** :  
 L’algorithme glouton est un algorithme qui ne remet jamais en cause une décision prise auparavant.  
 
