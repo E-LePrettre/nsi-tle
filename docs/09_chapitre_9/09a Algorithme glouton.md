@@ -23,18 +23,26 @@ Remarque : On dit qu'il s'agit d'un algorithme glouton, car il choisit la pièce
 
 Exemple avec le système de pièces européen : 
 
-<table>
-<tr><td colspan="11">Rendre la somme de 8€ </td><td colspan="11">Solution optimale</td><td colspan="11">Solution non optimale </td></tr>
-<tr><td colspan="11"><img src="Aspose.Words.35e5d16a-adab-4fc0-8fbe-75d584bf8d1c.004.png"</td><td colspan="11">1 billet de 5€<br> 1 pièce de 2€ <br>1 pièce de 1€</td><td colspan="11">4 pièces de 2€</td></tr>
+Rendre la somme de 8€ 
+
+![](Aspose.Words.35e5d16a-adab-4fc0-8fbe-75d584bf8d1c.004.png)
+<table xmlns="http://www.w3.org/1999/html">
+<tr><td colspan="11">Solution optimale</td><td colspan="11">Solution non optimale </td></tr>
+
+<td colspan="11">1 billet de 5€<br> 1 pièce de 2€ <br>1 pièce de 1€</td><td colspan="11">4 pièces de 2€</td></tr>
 </table>
 
 
 Avec le système de pièces européen, l’algorithme glouton donne toujours un choix optimal. 
 
 Mais que se passe-t-il, si l’on utilise un autre monnayeur avec des pièces différentes ? 
+
+Rendre la somme de 6 €
+
+![](Aspose.Words.35e5d16a-adab-4fc0-8fbe-75d584bf8d1c.005.png)
 <table>
-<tr><td colspan="11">Rendre la somme de 6 € </td><td colspan="11">Solution optimale</td><td colspan="11">Solution non optimale </td></tr>
-<tr><td colspan="11"><img src="Aspose.Words.35e5d16a-adab-4fc0-8fbe-75d584bf8d1c.005.png"></td><td colspan="11">2 pièces de 3€</td><td colspan="11">1 pièce de 4€<br>  2 pièces de 1€ <br>Total : 3 pièces (algorithme glouton)</td></tr>
+<tr><td colspan="11">Solution optimale</td><td colspan="11">Solution non optimale </td></tr>
+<tr><td colspan="11">2 pièces de 3€</td><td colspan="11">1 pièce de 4€<br>  2 pièces de 1€ <br>Total : 3 pièces (algorithme glouton)</td></tr>
 </table>
 
 **Activité n°1.**: Rendu de monnaie :Traduire l’algorithme suivant,  en Python dans un fichier nommé rendu_monnaie.py
@@ -89,7 +97,6 @@ print(renduMonnaie(somme,pieces))
 <tr><td colspan="1">Choisies </td><td colspan="1">…... </td><td colspan="1">…….. </td><td colspan="1">……. </td></tr>
 </table>
 
-
 Soit 6 euros, l’algorithme fonctionne, <b>mais n’est pas optimal</b>, car on aurait pu rendre 2 pièces de 3 € 
 
 **Remarque**:  Il existe d’autres méthodes permettant d’optimiser le rendu de monnaie comme la programmation dynamique (non abordé ici). L’idée est de calculer toutes les possibilités permettant d’obtenir 6 € avec le jeu de pièces tout en choisissant le nombre minimal de pièces.
@@ -122,10 +129,10 @@ Exemple :
 
 <table><tr><th colspan="1" rowspan="2"><b>Matériel à emmener dans un sac de 4.7KG</b> </th><th colspan="1" rowspan="2">Valeur et poids </th><th colspan="4">Emporté (oui/non) </th></tr>
 <tr><td colspan="1">Etape1 </td><td colspan="1">Etape2 </td><td colspan="1">Etape3 </td><td colspan="1">Etape4 </td></tr>
-<tr><td colspan="1" rowspan="4"><img src="Aspose.Words.35e5d16a-adab-4fc0-8fbe-75d584bf8d1c.010.jpeg"></td><td colspan="1">Valeur : 2 Poids : 1 </td><td colspan="1">x </td><td colspan="1">x </td><td colspan="1">Pas possible</td><td colspan="1"><p>Pas possible</p></td></tr>
-<tr><td colspan="1">Valeur : 5 Poids : 0.5 </td><td colspan="1">Oui </td><td colspan="1">Déjà pris </td><td colspan="1">Déjà pris </td><td colspan="1">Déjà pris </td></tr>
-<tr><td colspan="1">Valeur : 1 Poids : 0.2 </td><td colspan="1">x </td><td colspan="1">x </td><td colspan="1">x </td><td colspan="1">Oui </td></tr>
-<tr><td colspan="1">Valeur : 3 Poids : 4 </td><td colspan="1">x </td><td colspan="1">oui </td><td colspan="1">Déjà pris </td><td colspan="1">Déjà pris </td></tr>
+<tr><td colspan="1">gourde</td><td colspan="1">Valeur : 2 </br>Poids : 1 </td><td colspan="1">x </td><td colspan="1">x </td><td colspan="1">Pas possible</td><td colspan="1"><p>Pas possible</p></td></tr>
+<tr><td colspan="1">jumelles</td><td colspan="1">Valeur : 5 </br>Poids : 0.5 </td><td colspan="1">Oui </td><td colspan="1">Déjà pris </td><td colspan="1">Déjà pris </td><td colspan="1">Déjà pris </td></tr>
+<tr><td colspan="1">carte</td><td colspan="1">Valeur : 1 </br>Poids : 0.2 </td><td colspan="1">x </td><td colspan="1">x </td><td colspan="1">x </td><td colspan="1">Oui </td></tr>
+<tr><td colspan="1">tente</td><td colspan="1">Valeur : 3 </br>Poids : 4 </td><td colspan="1">x </td><td colspan="1">oui </td><td colspan="1">Déjà pris </td><td colspan="1">Déjà pris </td></tr>
 </table>
 
 
@@ -169,12 +176,13 @@ print(remplirSac(objets,poidsMax))
 Vérification : 
 <table>
 <tr><td colspan="1"></td><td colspan="1">Jumelles</td><td colspan="1">Tente </td><td colspan="1">Gourde</td><td colspan="1">Carte </td></tr>
-<tr><td colspan="1">objets</td><td colspan="1"><img src="Aspose.Words.35e5d16a-adab-4fc0-8fbe-75d584bf8d1c.012.png"></td><td colspan="1"><img src="Aspose.Words.35e5d16a-adab-4fc0-8fbe-75d584bf8d1c.013.png"></td><td colspan="1"><img src="Aspose.Words.35e5d16a-adab-4fc0-8fbe-75d584bf8d1c.014.png"></td><td colspan="1"><img src="Aspose.Words.35e5d16a-adab-4fc0-8fbe-75d584bf8d1c.015.png"></td></tr>
 <tr><td colspan="1">Objets choisis </td><td colspan="1">…. </td><td colspan="1">… </td><td colspan="1">… </td><td colspan="1">… </td></tr>
 </table>
+
 ???+ question "Faire ce qui est proposé"
 
     {{ IDE() }}
+
 L’algorithme choisit bien les articles selon notre prévision.
 
 
@@ -211,10 +219,10 @@ Le prototype de la fonction est :
 
 **Résultat attendu** : 
 ```{'chaussures': 1, 'habits': 1, 'trousse de toilette': 1, 'crèmes': 1, 'livres': 1, 'palmes tuba': 0, 'guide touristique': 1} ```
-
 ???+ question "Faire ce qui est proposé"
 
     {{ IDE() }}
+
 
 **Activité n°6.: Sac à dos V3 : affichage des objets choisis selon leur valeur avec leur nombre différent de 0 :** 
 on veut retourner un dictionnaire qui n’affichera que les objets réellement mis dans la valise (dont le nombre d’objet !=0). Pour cela dans le fichier sac_dos.py** ajouter une fonction ```remplirSacDico_V2``` qui tiennent compte de la nouvelle situation 
@@ -253,10 +261,10 @@ if __name__ == '__main__':
 Les meubles choisis sont 
 [1, 1, 0, 1, 0] 
 ```
-
 ???+ question "Faire ce qui est proposé"
 
     {{ IDE() }}
+
 
 
 **Activité n°8.: Sac à dos V2 : affichage des objets choisis selon leur volume et du volume total :** 
@@ -327,7 +335,7 @@ Les activités choisies sont
 ???+ question "Faire ce qui est proposé"
 
     {{ IDE() }}
-    
+
 **Remarque** :  
 L’algorithme glouton est un algorithme qui ne remet jamais en cause une décision prise auparavant.  
 
