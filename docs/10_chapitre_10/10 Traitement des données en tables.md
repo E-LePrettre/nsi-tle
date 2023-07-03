@@ -1,4 +1,7 @@
-﻿*Chap 10 : Traitement des données en tables* 
+﻿---
+author: ELP
+title: 10 Traitement des données en tables
+---
 
 **Table des matières** 
 
