@@ -161,11 +161,11 @@ Il existe plusieurs manières d'envoyer une requête HTTP depuis un navigateur. 
 
 Voici  un  exemple  de  code  HTML  pour  un  formulaire qui envoie une requête **POST** : 
 ```html
-        <form action="https://www.example.com/api/data" method="post">
-            <input type="text" name="username">
-            <input type="password" name="password">
-            <input type="submit" value="Submit">
-        </form>
+    <form action="https://www.example.com/api/data" method="post">
+        <input type="text" name="username">
+        <input type="password" name="password">
+        <input type="submit" value="Submit">
+    </form>
 ```
 
 
