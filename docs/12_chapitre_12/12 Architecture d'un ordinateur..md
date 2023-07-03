@@ -99,8 +99,7 @@ A l’heure actuelle on distingue trois grands types d’OS (Operating System) �
 
 
 
-<table><tr><th colspan="4" valign="top"><b>Activité n°1.:</b> Répondre par Vrai ou faux </th></tr>
-<tr><td colspan="4" valign="top">Remarque : Certaines questions nécessitent une recherche internet. </td></tr>
+<table><tr><th colspan="4" valign="top"><b>Activité n°1.:</b> Répondre par Vrai ou faux Remarque : Certaines questions nécessitent une recherche internet.</th></tr>
 <tr><td colspan="2" valign="top">Blaise Pascal a mis au point le logiciel Turbo Pascal. </td><td colspan="2"></td></tr>
 <tr><td colspan="2" valign="top">George Boole était un spécialiste de la logique binaire. </td><td colspan="2"></td></tr>
 <tr><td colspan="2" valign="top">Alan Turing a travaillé sur l’intelligence artificielle. </td><td colspan="2"></td></tr>
@@ -110,21 +109,21 @@ A l’heure actuelle on distingue trois grands types d’OS (Operating System) �
 <tr><td colspan="2" valign="top">L’invention du transistor a permis de miniaturiser les ordinateurs. </td><td colspan="2"></td></tr>
 <tr><td colspan="2" valign="top">Le premier micro-ordinateur est américain. </td><td colspan="2"></td></tr>
 <tr><td colspan="2" valign="top">Le processeur 8086 possède 1000000 de transistors </td><td colspan="2"></td></tr>
-<tr><td colspan="1" rowspan="2" valign="top"></td><td colspan="2" valign="top">Gary Kasparov est imbattable aux échecs. </td><td colspan="2"></td></tr>
+<tr><td colspan="2" valign="top">Gary Kasparov est imbattable aux échecs. </td><td colspan="2"></td></tr>
 <tr><td colspan="2" valign="top">La loi de Moore est toujours valide en 2020 </td><td colspan="2"></td></tr>
 </table>
 
 
-<table><tr><th colspan="8" valign="top"><b>Activité n°2.:</b> Cocher la ou les bonnes réponses. Remarque : Certaines questions nécessitent une </th></tr>
-<tr><td colspan="8" valign="top">recherche internet. </td></tr>
-<tr><td colspan="2" valign="top"><p>1\. Le premier algorithme connu remonte... </p><p>- au XX siècle </p><p>- au XIX siècle </p><p>- au 1er siècle </p><p>- bien avant le 1er siècle </p></td><td colspan="2" valign="top"><p>2\. Le mot algorithme vient du nom </p><p>- Al-Khwârizmi </p><p>- Grace Murray Hopper </p><p>- Steve Jobs </p><p>- Augusta Ada King </p></td><td colspan="2" valign="top"><p>3\. Le 1er compilateur fut conçu par </p><p>- Al-Khwârizmi </p><p>- Grace Murray Hopper </p><p>- Steve Jobs </p><p>- Augusta Ada King </p></td><td colspan="2"></td><td colspan="3" rowspan="2" valign="top"></td></tr>
-<tr><td colspan="2" valign="top"><p>4\. Le 1er programme fut  écrit par </p><p>- Al-Khwârizmi </p><p>- Grace Murray Hopper </p><p>- Steve Jobs </p><p>- Augusta Ada King </p></td><td colspan="2" valign="top"><p>5\. Le transistor fut inventé dans les années </p><p>- 1850 </p><p>- 1900 </p><p>- 1950 </p><p>- 2000 </p></td><td colspan="2" valign="top"><p>6\. Le circuit intégré fut inventé après le transistor. </p><p>- Vrai </p><p>- Faux </p><p>- Les deux ont été inventés en même temps </p><p>- Cette question n'a aucun sens</p></td><td colspan="2"></td></tr>
-<tr><td colspan="1" rowspan="6" valign="top"></td><td colspan="2" valign="top"><p>7\. La souris a été inventée après le disque dur. </p><p>- Vrai </p><p>- Faux </p><p>- Les deux ont été inventés en même temps </p><p>- Cette question n'a aucun sens </p></td><td colspan="2" valign="top"><p>8\.  L’invention  du  premier microprocesseur date des années </p><p>- 1945 </p><p>- 1970 </p><p>- 1990 </p><p>- début des années 2000 </p></td><td colspan="2" valign="top"><p>9\. L’internet a été inventé après le web. </p><p>- Vrai </p><p>- Faux </p><p>- Les deux ont été inventés en même temps </p><p>- Cette question n'a aucun sens</p></td><td colspan="2"></td><td colspan="3" valign="top"></td></tr>
-<tr><td colspan="6" valign="top">10\. Le moteur de recherche Google a été créé en </td><td colspan="3" rowspan="3" valign="top"></td></tr>
-<tr><td colspan="6" valign="top">❑ 1990 </td></tr>
-<tr><td colspan="6" valign="top">❑ 1998 </td></tr>
-<tr><td colspan="6" valign="top">❑ 2005 </td><td colspan="2" rowspan="2" valign="top"></td><td colspan="3" rowspan="2" valign="top"></td></tr>
-<tr><td colspan="6" valign="top">❑ 2010 ![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.010.png)</td></tr>
+<table><tr><th colspan="8" valign="top"><b>Activité n°2.:</b> Cocher la ou les bonnes réponses. Remarque : Certaines questions nécessitent une recherche internet.</th></tr>
+<tr><td colspan="8" valign="top">  </td></tr>
+<tr><td colspan="2" valign="top"><p>1. Le premier algorithme connu remonte... </p><p>- au XX siècle </p><p>- au XIX siècle </p><p>- au 1er siècle </p><p>- bien avant le 1er siècle </p></td><td colspan="2" valign="top"><p>2. Le mot algorithme vient du nom </p><p>- Al-Khwârizmi </p><p>- Grace Murray Hopper </p><p>- Steve Jobs </p><p>- Augusta Ada King </p></td><td colspan="2" valign="top"><p>3. Le 1er compilateur fut conçu par </p><p>- Al-Khwârizmi </p><p>- Grace Murray Hopper </p><p>- Steve Jobs </p><p>- Augusta Ada King </p></td><td colspan="2"></td><td colspan="3" rowspan="2" valign="top"></td></tr>
+<tr><td colspan="2" valign="top"><p>4. Le 1er programme fut  écrit par </p><p>- Al-Khwârizmi </p><p>- Grace Murray Hopper </p><p>- Steve Jobs </p><p>- Augusta Ada King </p></td><td colspan="2" valign="top"><p>5. Le transistor fut inventé dans les années </p><p>- 1850 </p><p>- 1900 </p><p>- 1950 </p><p>- 2000 </p></td><td colspan="2" valign="top"><p>6. Le circuit intégré fut inventé après le transistor. </p><p>- Vrai </p><p>- Faux </p><p>- Les deux ont été inventés en même temps </p><p>- Cette question n'a aucun sens</p></td><td colspan="2"></td><td colspan="3" rowspan="2" valign="top"></td></tr>
+<tr><td colspan="2" valign="top"><p>7. La souris a été inventée après le disque dur. </p><p>- Vrai </p><p>- Faux </p><p>- Les deux ont été inventés en même temps </p><p>- Cette question n'a aucun sens </p></td><td colspan="2" valign="top"><p>8.  L’invention  du  premier microprocesseur date des années </p><p>- 1945 </p><p>- 1970 </p><p>- 1990 </p><p>- début des années 2000 </p></td><td colspan="2" valign="top"><p>9. L’internet a été inventé après le web. </p><p>- Vrai </p><p>- Faux </p><p>- Les deux ont été inventés en même temps </p><p>- Cette question n'a aucun sens</p></td><td colspan="2"></td><td colspan="3" rowspan="2" valign="top"></td></tr>
+<tr><td colspan="6" valign="top"><p>10. Le moteur de recherche Google a été créé en </td><td colspan="3" rowspan="3" valign="top"></td></tr>
+<tr><td colspan="6" valign="top">- 1990 </td></tr>
+<tr><td colspan="6" valign="top">- 1998 </td></tr>
+<tr><td colspan="6" valign="top">- 2005 </td></tr>
+<tr><td colspan="6" valign="top">- 2010 </td></tr>
 </table>
 2. **Les<a name="_page3_x40.00_y539.92"></a> différents types de mémoires** 
 1. **Organisation<a name="_page3_x40.00_y567.92"></a> de la mémoire** 
