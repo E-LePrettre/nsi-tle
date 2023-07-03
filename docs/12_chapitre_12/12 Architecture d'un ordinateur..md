@@ -162,21 +162,21 @@ Il reste toujours pas mal de questions en suspens. Quatre exemples :
 
 L’architecture dite **architecture de Von Neumann est** un modèle pour un ordinateur qui utilise une structure de stockage unique pour conserver à la fois les instructions et les données demandées ou produites par le calcul. De telles machines sont aussi connues sous le nom d’**ordinateur à programme enregistré**. Le modèle de Von Neumann est conforme à un schéma qui a peu évolué depuis son origine en 1945. 
 
-1. **Organisation<a name="_page4_x40.00_y633.92"></a> générale** 
+### **3.1. Organisation<a name="_page4_x40.00_y633.92"></a> générale** 
 
-Les instructions qui composent les programmes sont exécutées par le **CPU** (Central Processing ![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.012.png)![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.013.png)![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.014.png)Unit). Il est schématiquement constitué de 3 parties.   
+Les instructions qui composent les programmes sont exécutées par le **CPU** (Central Processing Unit). Il est schématiquement constitué de 3 parties.   
 
 - **L’unité arithmétique et logique** (UAL ou ALU en anglais) est chargée de l’exécution de tous les calculs de base que peut réaliser le microprocesseur.  
 - **L’unité de contrôle** est chargée du séquençage des opérations : elle permet d’exécuter les instructions (les programmes). 
 - **la mémoire** contient à la fois les données et le programme. Le programme indique à l’unité de contrôle les calculs à faire sur les données. La mémoire est divisée en mémoire volatile (programmes  et  données  en  cours  de  fonctionnement)  et  mémoire  permanente (programmes et données de base de la machine). Un emplacement de mémoire interne à un processeur est appelé un registre. 
 
-Les données doivent circuler entre les différentes parties d’un ordinateur, notamment entre la mémoire vive et le CPU. Le système permettant cette circulation est appelé ![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.015.png)![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.016.png)![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.017.png)**bus** : un bus de 64 bits est constitué de 64 «fils électriques » qui permettent de faire transiter 64 bits simultanément.  Il existe, sans entrer dans les détails, 3 grands types de bus :   
+Les données doivent circuler entre les différentes parties d’un ordinateur, notamment entre la mémoire vive et le CPU. Le système permettant cette circulation est appelé **bus** : un bus de 64 bits est constitué de 64 «fils électriques » qui permettent de faire transiter 64 bits simultanément.  Il existe, sans entrer dans les détails, 3 grands types de bus :   
 
 - Le **bus d’adresses** permet de faire circuler des adresses (par exemple l’adresse d’une donnée à aller chercher en mémoire). 
 - Le **bus de données** permet de faire circuler des données. 
 - Le **bus de contrôle** permet de spécifier le type d’action (exemples : écriture d’une donnée en mémoire, lecture d’une donnée en mémoire). 
 
-Les **dispositifs d’entrée-sortie** permettent de communiquer avec le monde extérieur (clavier, écran, imprimante,…) ![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.018.png)![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.019.png)![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.020.png)
+Les **dispositifs d’entrée-sortie** permettent de communiquer avec le monde extérieur (clavier, écran, imprimante,…) 
 
 ![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.021.jpeg)
 
@@ -187,22 +187,16 @@ Remarques :
 - **L’architecture Havard** se distingue de l’architecture Von Neuman uniquement par le fait que les mémoires  programmes  et  données  **sont  séparées**.  Cette  organisation  permet  de  transférer instructions et des données simultanément, ce qui améliore les performances, mais augmente les coûts. 
 - Les ordinateurs **multiprocesseurs** permettent un parallélisme de tâches pour obtenir une plus grande puissance de calcul. Cette technologie a été utilisée pour des supercalculateurs, elle peut aussi l'être pour s'affranchir des limites de la montée en fréquence des processeurs : de nombreux processeurs actuels sont dits **multi-cœur**, et embarquent en fait plusieurs **monoprocesseurs** sur une même puce. 
 
+**Activité n°4.:**  
+On part du principe que le système doit pouvoir transporter en une seule opération une adresse via son bus d’adresses. Peux-tu répondre à ces deux questions.  
+1. Combien d’adresses-mémoires RAM différentes peut-on avoir dans un ordinateur dont le bus d’adresse est un bus 16 bits ? 
+2. Si on considère que chaque case mémoire correspond à un octet, quelle est la mémoire vive maximale disponible sur ce système s’il ne disposant pas d’autres manières d’adresser sa mémoire ?
 
+### **3.2. Le<a name="_page6_x40.00_y297.92"></a>  CPU** 
 
-|**Activité n°4.:**  |
-| - |
-|On part du principe que le système doit pouvoir transporter en une seule opération une adresse via |
-|son bus d’adresses. Peux-tu répondre à ces deux questions.  |
-|1\. Combien d’adresses-mémoires RAM différentes peut-on avoir dans un ordinateur dont le bus |
-|d’adresse est un bus 16 bits ? |
-|2\. Si on considère que chaque case mémoire correspond à un octet, quelle est la mémoire vive |
-|maximale disponible sur ce système s’il ne disposant pas d’autres manières d’adresser sa mémoire ?|
+Le processeur (CPU, pour Central Processing Unit) est le cerveau de l’ordinateur. Il permet de manipuler, des données et des instructions codées sous forme binaires. Le processeur est composé de millions  de  transistors  placés  dans  un  boitier  comportant  des  connecteurs  d’entrée-sortie, surmonté d’un ventilateur. C’est un circuit électronique cadencé au rythme d’une horloge interne qui envoie des impulsions. 
 
-2. **Le<a name="_page6_x40.00_y297.92"></a>  CPU** 
-
-Le processeur (CPU, pour Central Processing Unit) est le cerveau de l’ordinateur. Il permet de manipuler, des données et des instructions codées sous forme binaires. Le processeur est composé de ![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.022.png)![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.023.png)![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.024.png) millions  de  transistors  placés  dans  un  boitier  comportant  des  connecteurs  d’entrée-sortie, surmonté d’un ventilateur. C’est un circuit électronique cadencé au rythme d’une horloge interne qui envoie des impulsions. 
-
-3. **Le<a name="_page6_x40.00_y426.92"></a> role de l’horloge CPU** 
+### **3.3. Le<a name="_page6_x40.00_y426.92"></a> role de l’horloge CPU** 
 
 Une **horloge** rythme le travail du CPU: à chaque battement, une action. Plus la fréquence de l'horloge, mesurée en hertz (Hz), est élevée, plus le processeur est rapide. Cadencé à 2 GHz, il abat ainsi deux milliards d'opérations par seconde.  
 
@@ -212,17 +206,18 @@ On caractérise le microprocesseur par :
 - le nombre d’instructions par secondes qu’il est capable d’exécuter 
 - la taille des données qu’il est capable de traiter : en bits 
 
-**Activité n°5.:** Sur les photos ci-dessous, identifier le processeur. ![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.025.png)
+**Activité n°5.:** Sur les photos ci-dessous, identifier le processeur. 
+
+![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.026.png)
+![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.027.png)
+![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.028.png)
 
 
+### **3.4. Les<a name="_page7_x40.00_y274.92"></a> limites** 
 
-||![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.026.png)|![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.027.png)|![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.028.png)||
-| :- | - | - | - | :- |
-4. **Les<a name="_page7_x40.00_y274.92"></a> limites** 
+Ce modèle impose un **va-et-vient** constant entre le **CPU et la mémoire**, soit pour charger la prochaine instruction à exécuter, soit pour récupérer les données sur lesquelles l’instruction courante doit opérer. Mais la différence de vitesse entre les microprocesseurs et la mémoire est très grande. De plus, cet accès se fait à travers un bus, mais pour des raisons technologiques, le débit du bus a augmenté moins vite que le débit d’accès à la mémoire et surtout que la vitesse des processeurs. D’où un phénomène d’attente — le **« goulot de von Neumann »** — qui réduit les performances  
 
-Ce modèle impose un **va-et-vient** constant entre le **CPU et la mémoire**, soit pour charger la prochaine instruction à exécuter, soit pour récupérer les données sur lesquelles l’instruction courante doit opérer. Mais la différence ![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.029.png)![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.030.png)![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.031.png)de vitesse entre les microprocesseurs et la mémoire est très grande. De plus, cet accès se fait à travers un bus, mais pour des raisons technologiques, le débit du bus a augmenté moins vite que le débit d’accès à la mémoire et surtout que la vitesse des processeurs. D’où un phénomène d’attente — le **« goulot de von Neumann »** — qui réduit les performances  
-
-5. **Évolution<a name="_page7_x40.00_y423.92"></a> : le multiprocesseur et les mémoires caches** 
+### **3.5. **Évolution<a name="_page7_x40.00_y423.92"></a> : le multiprocesseur et les mémoires caches** 
 
 Selon la **loi de Moore** (1965), le nombre de transistors, c’est-à-dire l’élément principal qui compose les processeurs des ordinateurs**, double tous les deux ans**. Et parallèlement, double également la puissance des appareils. Moore fixa ensuite le cycle non plus sur 2 ans, mais **dix-huit mois.** Donc selon Moore tous les 18 mois il y a doublement du nombre de transistors, rendant les ordinateurs rapidement obsolètes. Sa loi  s’est  vérifiée  jusqu’à  récemment.  Il  avait  cependant  déclaré  en  1997  que  cette  croissance  des performances des puces se heurterait aux environs de 2017 à une limite physique : celle de la taille des atomes. Et nous y sommes. On voit en effet depuis quelques années le rythme du doublement diminuer en fréquence.  
 
@@ -233,16 +228,11 @@ De plus, la multiplication des cœurs pose le problème de la synchronisation de
 Ces évolutions ont pour conséquence de mettre la **mémoire**, plutôt que l’unité centrale, **au centre de l’ordinateur**, et **d’augmenter le degré de parallélisme** dans le traitement et la circulation de l’information 
 
 
+**Activité n°6.:** Ci-contre, retrouver les interfaces RJ45, VGA, HDMI et USB. 
 
-|**Activité n°6.:** Ci-contre, retrouver les interfaces RJ45, VGA, HDMI et USB. |
-| - |
+![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.032.jpeg)
 
-
-
-|![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.032.jpeg)|
-| - |
-
-4. **Langage<a name="_page8_x40.00_y390.92"></a> assembleur**  
+## **4. Langage<a name="_page8_x40.00_y390.92"></a> assembleur**  
 
 Le microprocesseur étant incapable d'interpréter la phrase "additionne le nombre 125 et la valeur située dans le registre R2, range le résultat dans le registre R1", il faut coder cette instruction sous forme binaire : 
 
@@ -256,104 +246,125 @@ Afin de faciliter la lecture et l'écriture d'instructions machine par les infor
 
 **Exemples d’instruction en assembleur :** 
 
-LDR R1,78 ![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.033.png)
+LDR R1,78 
 
 Place la valeur stockée à l'adresse mémoire 78 dans le registre R1 (par souci de simplification, nous continuons à utiliser des adresses mémoire codées en base 10) 
 
-STR R3,125 ![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.034.png)
+STR R3,125 
 
 Place la valeur stockée dans le registre R3 en mémoire vive à l'adresse 125 
 
-ADD R1,R0,#128 ![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.035.png)
+ADD R1,R0,#128 
 
 Additionne le nombre 128 (une valeur immédiate est identifiée grâce au symbole #) et la valeur stockée dans le registre R0, place le résultat dans le registre R1 
 
-ADD R0,R1,R2  ![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.036.png)
+ADD R0,R1,R2  
 
 Additionne la valeur stockée dans le registre R1 et la valeur stockée dans le registre R2, place le résultat dans le registre R0 
 
-SUB R1,R0,#128 ![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.037.png)
+SUB R1,R0,#128 
 
 Soustrait le nombre 128 de la valeur stockée dans le registre R0, place le résultat dans le registre R1 
 
-SUB R0,R1,R2  ![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.038.png)
+SUB R0,R1,R2  
 
 Soustrait la valeur stockée dans le registre R2 de la valeur stockée dans le registre R1, place le résultat dans le registre R0 
 
-MOV R1, #23 ![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.039.png)
+MOV R1, #23 
 
 Place le nombre 23 dans le registre R1 
 
-MOV R0, R3 ![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.040.png)
+MOV R0, R3 
 
 Place la valeur stockée dans le registre R3 dans le registre R0 
 
-B 45 ![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.041.png)
+B 45 
 
 Nous avons une structure de rupture de séquence, la prochaine instruction à exécuter se situe en mémoire vive à l'adresse 45 
 
-CMP R0, #23 ![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.042.png)
+CMP R0, #23 
 
 Compare la valeur stockée dans le registre R0 et le nombre 23. Cette instruction CMP doit précéder une instruction de branchement conditionnel BEQ, BNE, BGT, BLT (voir ci-dessous) 
 
-CMP R0, R1 ![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.043.png)
+CMP R0, R1 
 
 Compare la valeur stockée dans le registre R0 et la valeur stockée dans le registre R1. 
 
-CMP R0, #23 BEQ 78  ![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.044.png)
+CMP R0, #23 BEQ 78  
 
 La prochaine instruction à exécuter se situe à l'adresse mémoire 78 si la valeur stockée dans le registre R0 est égale à 23 
 
-CMP R0, #23 BNE 78  ![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.045.png)
+CMP R0, #23 BNE 78  
 
 La prochaine instruction à exécuter se situe à l'adresse mémoire 78 si la valeur stockée dans le registre R0 n'est pas égale à 23 
 
-CMP R0, #23 BGT 78  ![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.046.png)
+CMP R0, #23 BGT 78  
 
 La prochaine instruction à exécuter se situe à l'adresse mémoire 78 si la valeur stockée dans le registre R0 est plus grand que 23 
 
-CMP R0, #23 BLT 78  ![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.047.png)
+CMP R0, #23 BLT 78  
 
 La prochaine instruction à exécuter se situe à l'adresse mémoire 78 si la valeur stockée dans le registre R0 est plus petit que 23 
 
-HALT ![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.036.png)
+HALT !
 
 Arrête l'exécution du programme 
 
 
 
-|**Activité n°7.:** Expliquer les instructions suivantes ||
-| - | :- |
-||￿  ADD R0, R1, #42  |
-||￿  LDR R5,98 |
-||￿  CMP R4, #18 |
-||BGT 77 |
-||￿  STR R0,15 |
-||￿  B 100 |
-|||
+**Activité n°7.:** Expliquer les instructions suivantes 
+
+- ADD R0, R1, #42  
+- LDR R5,98 
+- CMP R4, #18 
+- BGT 77 
+- STR R0,15 
+- B 100 
 
 
-|**Activité n°8.:** Écrire les instructions en assembleur correspondant aux phrases suivantes : |
-| - |
-|￿  Additionne la valeur stockée dans le registre R0 et la valeur stockée dans le registre R1, le résultat |
-|est stocké dans le registre R5 |
-|￿  Place la valeur stockée à l'adresse mémoire 878 dans le registre R0 |
-|￿  Place le contenu du registre R0 en mémoire vive à l'adresse 124 |
-|￿  la prochaine instruction à exécuter se situe en mémoire vive à l'adresse 478 |
-|￿  Si la valeur stockée dans le registre R0 est égale 42 alors la prochaine instruction à exécuter se |
-|situe à l'adresse mémoire 85 |
-||
 
+**Activité n°8.:** Écrire les instructions en assembleur correspondant aux phrases suivantes : 
+-  Additionne la valeur stockée dans le registre R0 et la valeur stockée dans le registre R1, le résultat est stocké dans le registre R5 |
+-  Place la valeur stockée à l'adresse mémoire 878 dans le registre R0 
+-  Place le contenu du registre R0 en mémoire vive à l'adresse 124 
+-  la prochaine instruction à exécuter se situe en mémoire vive à l'adresse 478 
+-  Si la valeur stockée dans le registre R0 est égale 42 alors la prochaine instruction à exécuter se situe à l'adresse mémoire 85 
 
-<table><tr><th colspan="2"><b>Activité n°9.:</b> Correspondance du langage Python et du langage  assembleur </th></tr>
-<tr><td colspan="1" valign="top"><p><b>x = 4 ![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.048.png)</b></p><p><b>y = 8</b> </p><p><b>if x == 10:     y = 9 else:</b> </p><p>`    `<b>x = x + 1 z = 6</b> </p></td><td colspan="1"><p>`   `MOV R0, #4 ![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.049.png)</p><p>`   `STR R0,30 </p><p>`   `MOV R0, #8 </p><p>`   `STR R0,75 </p><p>`   `LDR R0,30 </p><p>`   `CMP R0, #10 </p><p>`   `BNE else </p><p>`   `MOV R0, #9 </p><p>`   `STR R0,75 </p><p>`   `B endif </p><p>else: </p><p>`   `LDR R0,30 </p><p>`   `ADD R0, R0, #1    STR R0,30 endif: </p><p>`   `MOV R0, #6 </p><p>`   `STR R0,23 </p><p>`   `HALT </p></td></tr>
-<tr><td colspan="2"></td></tr>
-<tr><td colspan="2">Après avoir analysé très attentivement le programme en assembleur ci-dessus, vous essaierez d'établir </td></tr>
-<tr><td colspan="2">une correspondance entre les lignes du programme en Python et les lignes du programme en </td></tr>
-<tr><td colspan="2">assembleur. À quoi sert la ligne "B endif" ? À quoi correspondent les adresses mémoires 23, 75 et 30 ? </td><td colspan="1" rowspan="2" valign="top"></td></tr>
-<tr><td colspan="2"></td></tr>
-</table>
-5. **Simulation<a name="_page11_x40.00_y36.92"></a> CPU** 
+**Activité n°9.:** Correspondance du langage Python et du langage  assembleur
+```python
+x = 4
+y = 8
+if x == 10:
+    y = 9
+else:
+    x = x + 1
+z = 6
+```
+
+```
+   MOV R0, #4
+   STR R0,30
+   MOV R0, #8
+   STR R0,75
+   LDR R0,30
+   CMP R0, #10
+   BNE else
+   MOV R0, #9
+   STR R0,75
+   B endif
+else:
+   LDR R0,30
+   ADD R0, R0, #1
+   STR R0,30
+endif:
+   MOV R0, #6
+   STR R0,23
+   HALT
+```
+
+Après avoir analysé très attentivement le programme en assembleur ci-dessus, vous essaierez d'établir une correspondance entre les lignes du programme en Python et les lignes du programme en assembleur. À quoi sert la ligne "B endif" ? À quoi correspondent les adresses mémoires 23, 75 et 30 ?
+
+## **5. Simulation<a name="_page11_x40.00_y36.92"></a> CPU** 
 
 On utilise un simulateur développé par Peter L Higginson. Ce simulateur est basé sur une architecture de von Neumann. Nous allons trouver dans ce simulateur :  
 
@@ -369,37 +380,36 @@ Les différentes parties du simulateur :
 - à droite, on trouve la mémoire vive ("main memory") 
 - au centre, on trouve le microprocesseur 
 - à gauche on trouve la zone d'édition ("Assembly Language"), c'est dans cette zone que nous allons saisir nos programmes en assembleur 
-1. **La<a name="_page11_x40.00_y648.92"></a> RAM** 
+
+### **5.1. La<a name="_page11_x40.00_y648.92"></a> RAM** 
 
 Par défaut le contenu des différentes cellules de la mémoire est en base 10 (entier signé), mais d'autres options sont possibles : base 10 (entier non-signé, "unsigned"), base 16 ("hex"), base 2 ("binary"). On accède à ces options à l'aide du bouton "OPTIONS" situé en bas dans la partie gauche du simulateur. 
 
 
 
-|**Activité n°10.:** À l'aide du bouton "OPTIONS", passer à un affichage en binaire. |
-| - |
-|Chaque cellule de la mémoire comporte 32 bits (classiquement une cellule de RAM comporte 8 bits). |
-|Chaque cellule de la mémoire possède une adresse (de 000 à 199), ces adresses sont codées en base 10. |
+**Activité n°10.:** À l'aide du bouton "OPTIONS", passer à un affichage en binaire. 
+Chaque cellule de la mémoire comporte 32 bits (classiquement une cellule de RAM comporte 8 bits). 
+Chaque cellule de la mémoire possède une adresse (de 000 à 199), ces adresses sont codées en base 10. 
+Repasser à un affichage en base 10 (bouton "OPTION"->"signed") 
 
-Repasser à un affichage en base 10 (bouton "OPTION"->"signed") ![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.051.png)
 
-2. **Le<a name="_page12_x40.00_y73.92"></a> CPU** 
+### **5.2. Le<a name="_page12_x40.00_y73.92"></a> CPU** 
 
 Dans la partie centrale du simulateur, nous allons trouver en allant du haut vers le bas : 
 
 - le **bloc "registre"** ("Registers") : nous avons 13 registres (R0 à R12) + 1 registre (PC) qui contient l'adresse mémoire de l'instruction en court d'exécution 
 - le  **bloc  "unité  de  commande"**  ("Control  Unit")  qui  contient  l'instruction  machine  en  cours d'exécution (au format hexadécimal) 
 - le **bloc "unité arithmétique et logique"** ("Arithmetic and Logic Unit") 
-3. **programmer<a name="_page12_x40.00_y218.92"></a> en assembleur** 
 
+### **5.3. programmer<a name="_page12_x40.00_y218.92"></a> en assembleur** 
 
-
-|**Activité n°11.:** **Activité n°11.:** Dans la partie "éditeur" ("Assembly Language") saisissez les lignes de |
-| - |
-|codes suivantes : |
-|MOV R0,#42 |
-|STR R0,150 |
-|HALT|
-|Cliquer sur le bouton "submit |
+**Activité n°11.:** **Activité n°11.:** Dans la partie "éditeur" ("Assembly Language") saisissez les lignes de codes suivantes : 
+```
+MOV R0,#42
+STR R0,150
+HALT
+```
+Cliquer sur le bouton "submit 
 
 L’assembleur converti les trois lignes du programme en instructions machines :  
 
@@ -407,53 +417,34 @@ L’assembleur converti les trois lignes du programme en instructions machines :
 - la deuxième à l’adresse 001 
 - la troisième à l’adresse 002 
 
+**Activité n°12.:** **Activité n°12.:** Exécution pas à pas : 
+Il suffit maintenant de cliquer sur le bouton "RUN". Le CPU va "travailler" en direct grâce à de petites animations. Si cela va trop vite (ou trop doucement), on peut régler la vitesse de simulation à l'aide des boutons "<<" et ">>". Un appui sur le bouton "STOP" met en pause la simulation. 
+Une fois la simulation terminée, on constate que la cellule mémoire d'adresse 150, contient bien le nombre 42 (en base 10) et que le registre R0 a bien stocké le nombre 42. 
+Attention : pour relancer la simulation il faut appuyer sur « RESET » 
 
 
-|**Activité n°12.:** **Activité n°12.:** Exécution pas à pas : |
-| - |
-||
-|Il suffit maintenant de cliquer sur le bouton "RUN". Le CPU va "travailler" en direct grâce à de petites |
-|animations. Si cela va trop vite (ou trop doucement), on peut régler la vitesse de simulation à l'aide des |
-|boutons "<<" et ">>". Un appui sur le bouton "STOP" met en pause la simulation. |
-|Une fois la simulation terminée, on constate que la cellule mémoire d'adresse 150, contient bien le |
-|nombre 42 (en base 10) et que le registre R0 a bien stocké le nombre 42. |
-|Attention : pour relancer la simulation il faut appuyer sur « RESET » |
+**Activité n°13.:** Modifier le programme précédent pour qu'à la fin de l'exécution on trouve le nombre 54 à l'adresse mémoire 50. On utilisera le registre R1 à la place du registre R0. Tester vos modifications en exécutant la simulation. 
 
 
 
-|**Activité n°13.:** Modifier le programme précédent pour qu'à la fin de l'exécution on trouve le nombre |
-| - |
-|54 à l'adresse mémoire 50. On utilisera le registre R1 à la place du registre R0. Tester vos |
-|modifications en exécutant la simulation. |
-
-
-
-|**Activité n°14.:** Saisir et tester le programme suivant : |
-| - |
-|MOV R0, #4 |
-|STR R0,30 |
-|MOV R0, #8 |
-|STR R0,75 |
-|LDR R0,30 |
-|CMP R0, #10 |
-|BNE else |
-|MOV R0, #9 |
-|STR R0,75 |
-
-Première NSI   Chap 13 : Architecture de Von Neumann  Page 13/14 ![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.052.png)
-
-
-
-|B endif |
-| - |
-|else: |
-|LDR R0,30 |
-|ADD R0, R0, #1 |
-|STR R0,30 |
-|endif: |
-|MOV R0, #6 |
-|STR R0,23 |
-|HALT|
-||
-
-Première NSI   Chap 12 : Architecture de Von Neumann  Page 14/14 ![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.052.png)
+**Activité n°14.:** Saisir et tester le programme suivant : 
+```
+   MOV R0, #4
+   STR R0,30
+   MOV R0, #8
+   STR R0,75
+   LDR R0,30
+   CMP R0, #10
+   BNE else
+   MOV R0, #9
+   STR R0,75
+   B endif
+else:
+   LDR R0,30
+   ADD R0, R0, #1
+   STR R0,30
+endif:
+   MOV R0, #6
+   STR R0,23
+   HALT
+```
