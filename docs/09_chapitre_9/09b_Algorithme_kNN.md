@@ -90,6 +90,10 @@ def genereListePoints(nbmin, nbmax):
 Tester votre fonction avec l’appel : 
 ```genereListePoints(5, 15)``` permet de retourner une liste de coordonnées de points contenant entre 5 et 15 points 
 
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
+
 Écrire et ajouter à la suite du code précédent une fonction distance prenant en paramètres 4 nombres x1, y1, x2, y2 et renvoyant la distance euclidienne entre les points M(x1,y1) et A(x2,y2). 
 
 ```python
@@ -125,7 +129,9 @@ def plusProcheVoisin(listePoints, x, y):
     distance_min = inf # initialisation à +infini
     # à compléter
 ```
+???+ question "Faire ce qui est proposé"
 
+    {{ IDE() }}
 
 ### **1.4. Présentation<a name="_page3_x40.00_y36.92"></a> de l’algorithme des k plus proches voisins** 
 
