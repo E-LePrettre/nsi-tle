@@ -120,10 +120,10 @@ A l’heure actuelle on distingue trois grands types d’OS (Operating System) �
 <tr><td colspan="2" valign="top"><p>4. Le 1er programme fut  écrit par </p><p>- Al-Khwârizmi </p><p>- Grace Murray Hopper </p><p>- Steve Jobs </p><p>- Augusta Ada King </p></td><td colspan="2" valign="top"><p>5. Le transistor fut inventé dans les années </p><p>- 1850 </p><p>- 1900 </p><p>- 1950 </p><p>- 2000 </p></td><td colspan="2" valign="top"><p>6. Le circuit intégré fut inventé après le transistor. </p><p>- Vrai </p><p>- Faux </p><p>- Les deux ont été inventés en même temps </p><p>- Cette question n'a aucun sens</p></td><td colspan="2"></td><td colspan="3" rowspan="2" valign="top"></td></tr>
 <tr><td colspan="2" valign="top"><p>7. La souris a été inventée après le disque dur. </p><p>- Vrai </p><p>- Faux </p><p>- Les deux ont été inventés en même temps </p><p>- Cette question n'a aucun sens </p></td><td colspan="2" valign="top"><p>8.  L’invention  du  premier microprocesseur date des années </p><p>- 1945 </p><p>- 1970 </p><p>- 1990 </p><p>- début des années 2000 </p></td><td colspan="2" valign="top"><p>9. L’internet a été inventé après le web. </p><p>- Vrai </p><p>- Faux </p><p>- Les deux ont été inventés en même temps </p><p>- Cette question n'a aucun sens</p></td><td colspan="2"></td><td colspan="3" rowspan="2" valign="top"></td></tr>
 <tr><td colspan="6" valign="top"><p>10. Le moteur de recherche Google a été créé en </td><td colspan="3" rowspan="3" valign="top"></td></tr>
-<tr><td colspan="6" valign="top">- 1990 </td>
-<<td colspan="6" valign="top">- 1998 </td>
-<td colspan="6" valign="top">- 2005 </td>
-<td colspan="6" valign="top">- 2010 </td></tr>
+<tr><td colspan="6" valign="top">- 1990 </td></tr>
+<tr><td colspan="6" valign="top">- 1998 </td></tr>
+<tr><td colspan="6" valign="top">- 2005 </td></tr>
+<tr><td colspan="6" valign="top">- 2010 </td></tr>
 </table>
 
 ## **2. Les<a name="_page3_x40.00_y539.92"></a> différents types de mémoires** 
@@ -143,7 +143,7 @@ Un **registre** est un emplacement **mémoire interne** au processeur. Les regis
 
 Il sert à **stocker des opérandes** et **des résultats intermédiaires** lors des opérations effectuées dans l’UAL. Leur capacité, leur nombre et leurs rôles varient selon les processeurs. La grande majorité des processeurs actuels ont des registres de taille 64 bits. Ils sont accessibles via un jeu d’instructions. 
 
-### **2.3. **Mémoires<a name="_page4_x40.00_y175.92"></a> centrales et mémoires caches** 
+### **2.3. Mémoires<a name="_page4_x40.00_y175.92"></a> centrales et mémoires caches** 
 
 La **mémoire centrale** est une mémoire vive qui contient les programmes en cours et les données qu’ils manipulent. Elle est de taille importante (plusieurs Go). Elle est organisée en **cellules** appelées « **cases mémoires** » qui contiennent chacune une donnée ou une instruction repérée par une **adresse** qui est un **nombre entier**. Le temps d’accès à chaque cellule est le même : on parle de mémoire à accès aléatoire (RAM) bien qu’il soit plus judicieux de parler de mémoire à accès direct.  
 
@@ -190,6 +190,7 @@ Remarques :
 **Activité n°4.:**  
 On part du principe que le système doit pouvoir transporter en une seule opération une adresse via son bus d’adresses. Peux-tu répondre à ces deux questions.  
 1. Combien d’adresses-mémoires RAM différentes peut-on avoir dans un ordinateur dont le bus d’adresse est un bus 16 bits ? 
+
 2. Si on considère que chaque case mémoire correspond à un octet, quelle est la mémoire vive maximale disponible sur ce système s’il ne disposant pas d’autres manières d’adresser sa mémoire ?
 
 ### **3.2. Le<a name="_page6_x40.00_y297.92"></a>  CPU** 
@@ -217,7 +218,7 @@ On caractérise le microprocesseur par :
 
 Ce modèle impose un **va-et-vient** constant entre le **CPU et la mémoire**, soit pour charger la prochaine instruction à exécuter, soit pour récupérer les données sur lesquelles l’instruction courante doit opérer. Mais la différence de vitesse entre les microprocesseurs et la mémoire est très grande. De plus, cet accès se fait à travers un bus, mais pour des raisons technologiques, le débit du bus a augmenté moins vite que le débit d’accès à la mémoire et surtout que la vitesse des processeurs. D’où un phénomène d’attente — le **« goulot de von Neumann »** — qui réduit les performances  
 
-### **3.5. **Évolution<a name="_page7_x40.00_y423.92"></a> : le multiprocesseur et les mémoires caches** 
+### **3.5. Évolution<a name="_page7_x40.00_y423.92"></a> : le multiprocesseur et les mémoires caches** 
 
 Selon la **loi de Moore** (1965), le nombre de transistors, c’est-à-dire l’élément principal qui compose les processeurs des ordinateurs**, double tous les deux ans**. Et parallèlement, double également la puissance des appareils. Moore fixa ensuite le cycle non plus sur 2 ans, mais **dix-huit mois.** Donc selon Moore tous les 18 mois il y a doublement du nombre de transistors, rendant les ordinateurs rapidement obsolètes. Sa loi  s’est  vérifiée  jusqu’à  récemment.  Il  avait  cependant  déclaré  en  1997  que  cette  croissance  des performances des puces se heurterait aux environs de 2017 à une limite physique : celle de la taille des atomes. Et nous y sommes. On voit en effet depuis quelques années le rythme du doublement diminuer en fréquence.  
 
@@ -236,77 +237,79 @@ Ces évolutions ont pour conséquence de mettre la **mémoire**, plutôt que l�
 
 Le microprocesseur étant incapable d'interpréter la phrase "additionne le nombre 125 et la valeur située dans le registre R2, range le résultat dans le registre R1", il faut coder cette instruction sous forme binaire : 
 
-"additionne le nombre 125 et la valeur située dans le registre R2, range le résultat dans le registre R1" ⇓ "11100010100000100001000001111101" 
+"additionne le nombre 125 et la valeur située dans le registre R2, range le résultat dans le registre R1" ⇓ 
+"11100010100000100001000001111101" 
 
 Afin de faciliter la lecture et l'écriture d'instructions machine par les informaticiens, on remplace les codes binaires par des symboles mnémoniques, en utilisant la syntaxe du langage appelé assembleur. 
 
-"additionne le nombre 125 et la valeur située dans le registre R2, range le résultat dans le registre R1" ⇓  "ADD R1,R2,#125" ⇓ 
+"additionne le nombre 125 et la valeur située dans le registre R2, range le résultat dans le registre R1" ⇓  
+"ADD R1,R2,#125" ⇓ 
 
 "11100010100000100001000001111101" 
 
 **Exemples d’instruction en assembleur :** 
 
-LDR R1,78 
+- LDR R1,78 
 
 Place la valeur stockée à l'adresse mémoire 78 dans le registre R1 (par souci de simplification, nous continuons à utiliser des adresses mémoire codées en base 10) 
 
-STR R3,125 
+- STR R3,125 
 
 Place la valeur stockée dans le registre R3 en mémoire vive à l'adresse 125 
 
-ADD R1,R0,#128 
+- ADD R1,R0,#128 
 
 Additionne le nombre 128 (une valeur immédiate est identifiée grâce au symbole #) et la valeur stockée dans le registre R0, place le résultat dans le registre R1 
 
-ADD R0,R1,R2  
+- ADD R0,R1,R2  
 
 Additionne la valeur stockée dans le registre R1 et la valeur stockée dans le registre R2, place le résultat dans le registre R0 
 
-SUB R1,R0,#128 
+- SUB R1,R0,#128 
 
 Soustrait le nombre 128 de la valeur stockée dans le registre R0, place le résultat dans le registre R1 
 
-SUB R0,R1,R2  
+- SUB R0,R1,R2  
 
 Soustrait la valeur stockée dans le registre R2 de la valeur stockée dans le registre R1, place le résultat dans le registre R0 
 
-MOV R1, #23 
+- MOV R1, #23 
 
 Place le nombre 23 dans le registre R1 
 
-MOV R0, R3 
+- MOV R0, R3 
 
 Place la valeur stockée dans le registre R3 dans le registre R0 
 
-B 45 
+- B 45 
 
 Nous avons une structure de rupture de séquence, la prochaine instruction à exécuter se situe en mémoire vive à l'adresse 45 
 
-CMP R0, #23 
+- CMP R0, #23 
 
 Compare la valeur stockée dans le registre R0 et le nombre 23. Cette instruction CMP doit précéder une instruction de branchement conditionnel BEQ, BNE, BGT, BLT (voir ci-dessous) 
 
-CMP R0, R1 
+- CMP R0, R1 
 
 Compare la valeur stockée dans le registre R0 et la valeur stockée dans le registre R1. 
 
-CMP R0, #23 BEQ 78  
+- CMP R0, #23 BEQ 78  
 
 La prochaine instruction à exécuter se situe à l'adresse mémoire 78 si la valeur stockée dans le registre R0 est égale à 23 
 
-CMP R0, #23 BNE 78  
+- CMP R0, #23 BNE 78  
 
 La prochaine instruction à exécuter se situe à l'adresse mémoire 78 si la valeur stockée dans le registre R0 n'est pas égale à 23 
 
-CMP R0, #23 BGT 78  
+- CMP R0, #23 BGT 78  
 
 La prochaine instruction à exécuter se situe à l'adresse mémoire 78 si la valeur stockée dans le registre R0 est plus grand que 23 
 
-CMP R0, #23 BLT 78  
+- CMP R0, #23 BLT 78  
 
 La prochaine instruction à exécuter se situe à l'adresse mémoire 78 si la valeur stockée dans le registre R0 est plus petit que 23 
 
-HALT !
+- HALT !
 
 Arrête l'exécution du programme 
 
@@ -323,11 +326,16 @@ Arrête l'exécution du programme
 
 
 
-**Activité n°8.:** Écrire les instructions en assembleur correspondant aux phrases suivantes : 
--  Additionne la valeur stockée dans le registre R0 et la valeur stockée dans le registre R1, le résultat est stocké dans le registre R5 |
+**Activité n°8.:** Écrire les instructions en assembleur correspondant aux phrases suivantes :
+
+-  Additionne la valeur stockée dans le registre R0 et la valeur stockée dans le registre R1, le résultat est stocké dans le registre R5 
+
 -  Place la valeur stockée à l'adresse mémoire 878 dans le registre R0 
+
 -  Place le contenu du registre R0 en mémoire vive à l'adresse 124 
+
 -  la prochaine instruction à exécuter se situe en mémoire vive à l'adresse 478 
+
 -  Si la valeur stockée dans le registre R0 est égale 42 alors la prochaine instruction à exécuter se situe à l'adresse mémoire 85 
 
 **Activité n°9.:** Correspondance du langage Python et du langage  assembleur
