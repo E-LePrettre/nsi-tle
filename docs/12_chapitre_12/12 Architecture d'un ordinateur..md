@@ -120,13 +120,14 @@ A l’heure actuelle on distingue trois grands types d’OS (Operating System) �
 <tr><td colspan="2" valign="top"><p>4. Le 1er programme fut  écrit par </p><p>- Al-Khwârizmi </p><p>- Grace Murray Hopper </p><p>- Steve Jobs </p><p>- Augusta Ada King </p></td><td colspan="2" valign="top"><p>5. Le transistor fut inventé dans les années </p><p>- 1850 </p><p>- 1900 </p><p>- 1950 </p><p>- 2000 </p></td><td colspan="2" valign="top"><p>6. Le circuit intégré fut inventé après le transistor. </p><p>- Vrai </p><p>- Faux </p><p>- Les deux ont été inventés en même temps </p><p>- Cette question n'a aucun sens</p></td><td colspan="2"></td><td colspan="3" rowspan="2" valign="top"></td></tr>
 <tr><td colspan="2" valign="top"><p>7. La souris a été inventée après le disque dur. </p><p>- Vrai </p><p>- Faux </p><p>- Les deux ont été inventés en même temps </p><p>- Cette question n'a aucun sens </p></td><td colspan="2" valign="top"><p>8.  L’invention  du  premier microprocesseur date des années </p><p>- 1945 </p><p>- 1970 </p><p>- 1990 </p><p>- début des années 2000 </p></td><td colspan="2" valign="top"><p>9. L’internet a été inventé après le web. </p><p>- Vrai </p><p>- Faux </p><p>- Les deux ont été inventés en même temps </p><p>- Cette question n'a aucun sens</p></td><td colspan="2"></td><td colspan="3" rowspan="2" valign="top"></td></tr>
 <tr><td colspan="6" valign="top"><p>10. Le moteur de recherche Google a été créé en </td><td colspan="3" rowspan="3" valign="top"></td></tr>
-<tr><td colspan="6" valign="top">- 1990 </td></tr>
-<tr><td colspan="6" valign="top">- 1998 </td></tr>
-<tr><td colspan="6" valign="top">- 2005 </td></tr>
-<tr><td colspan="6" valign="top">- 2010 </td></tr>
+<tr><td colspan="6" valign="top">- 1990 </td>
+<<td colspan="6" valign="top">- 1998 </td>
+<td colspan="6" valign="top">- 2005 </td>
+<td colspan="6" valign="top">- 2010 </td></tr>
 </table>
-2. **Les<a name="_page3_x40.00_y539.92"></a> différents types de mémoires** 
-1. **Organisation<a name="_page3_x40.00_y567.92"></a> de la mémoire** 
+
+## **2. Les<a name="_page3_x40.00_y539.92"></a> différents types de mémoires** 
+### **2.1. Organisation<a name="_page3_x40.00_y567.92"></a> de la mémoire** 
 
 Il  existe  de  nombreuses  technologies  de  mémoire  qui  se  distinguent  par  leur  durabilité  (volatile  ou permanente), leur mode d’accès (par adresse ou dans l’ordre de leur rangement) ou leur temps d’accès. En règle générale, plus une mémoire est performante, plus elle est chère.  
 
@@ -136,19 +137,19 @@ Il  existe  de  nombreuses  technologies  de  mémoire  qui  se  distinguent  pa
 
 Remarque : la mémoire ROM contient notamment le BIOS (Basic Input Output System) qu’il est possible, sur les machines dotées de carte mère récente, de mettre à jour (flashage du BIOS). 
 
-2. **Les<a name="_page4_x40.00_y47.92"></a> registres** 
+### **2.2. Les<a name="_page4_x40.00_y47.92"></a> registres** 
 
 Un **registre** est un emplacement **mémoire interne** au processeur. Les registres se situent au sommet de la hiérarchie mémoire : il s'agit de la **mémoire la plus rapide** d'un ordinateur, mais dont le coût de fabrication est le plus élevé, car la place dans un microprocesseur est limitée.  
 
 Il sert à **stocker des opérandes** et **des résultats intermédiaires** lors des opérations effectuées dans l’UAL. Leur capacité, leur nombre et leurs rôles varient selon les processeurs. La grande majorité des processeurs actuels ont des registres de taille 64 bits. Ils sont accessibles via un jeu d’instructions. 
 
-3. **Mémoires<a name="_page4_x40.00_y175.92"></a> centrales et mémoires caches** 
+### **2.3. **Mémoires<a name="_page4_x40.00_y175.92"></a> centrales et mémoires caches** 
 
 La **mémoire centrale** est une mémoire vive qui contient les programmes en cours et les données qu’ils manipulent. Elle est de taille importante (plusieurs Go). Elle est organisée en **cellules** appelées « **cases mémoires** » qui contiennent chacune une donnée ou une instruction repérée par une **adresse** qui est un **nombre entier**. Le temps d’accès à chaque cellule est le même : on parle de mémoire à accès aléatoire (RAM) bien qu’il soit plus judicieux de parler de mémoire à accès direct.  
 
 Afin de pouvoir adapter la très grande vitesse du processeur à celle plus faible de la mémoire centrale, on place entre les deux une mémoire plus rapide, la **mémoire cache** qui contient les instructions et les données en cours d’utilisation car, la plupart du temps, les données qui viennent d’être utilisées ont une probabilité plus grande d’être réutilisées que d’autres. La **mémoire cache** (de l’ordre de quelques Mo) est souvent constitué  de  mémoire  de  type  statique  SRAM  plus  rapide  mais  plus  chère  que  celle  de  type  **RAM dynamique (SDRAM, DDR** …) utilisée dans la mémoire centrale. Généralement la mémoire cache est intégrée au « socket » du processeur. 
 
-**Activité n°3.:** Quelques interrogations ![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.011.png)
+**Activité n°3.:** Quelques interrogations 
 
 Il reste toujours pas mal de questions en suspens. Quatre exemples :  
 
@@ -156,7 +157,8 @@ Il reste toujours pas mal de questions en suspens. Quatre exemples :
 1. Comment fait la machine pour faire une addition ?  
 1. Si on veut récupérer des données externes (clavier ?), on récupère à partir de quelle provenance ?  
 1. Si on veut envoyer des informations vers l’extérieur (écran ?), on envoie vers quelle destination ? 
-3. **Architecture<a name="_page4_x40.00_y536.92"></a> de Von Neumann** 
+
+## **3. Architecture<a name="_page4_x40.00_y536.92"></a> de Von Neumann** 
 
 L’architecture dite **architecture de Von Neumann est** un modèle pour un ordinateur qui utilise une structure de stockage unique pour conserver à la fois les instructions et les données demandées ou produites par le calcul. De telles machines sont aussi connues sous le nom d’**ordinateur à programme enregistré**. Le modèle de Von Neumann est conforme à un schéma qui a peu évolué depuis son origine en 1945. 
 
