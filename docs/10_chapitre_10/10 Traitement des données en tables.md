@@ -12,7 +12,7 @@ title: 10 Traitement des données en tables
 
 ## **1. Avec la bibliothèque csv<a name="_page0_x40.00_y360.92"></a>**
 
-### 1.1. Les fichiers CSV** 
+### **1.1. Les fichiers CSV** 
 
 Une **table est une liste de p-uplets nommés** qui partagent les mêmes descripteurs (chaque champ de chaque p-uplet a le même nom). 
 
@@ -377,7 +377,7 @@ print([p['Name']for p in pays if p['Currency_Code'] =='EUR'])
 On obtient une liste contenant beaucoup de doublons.  
 
 
-**Activité n°17.: A faire tout seul : Pour les supprimer les doublons :** on convertit la liste en ensemble (set) avec la  fonction ```set()```  à  placer  devant  l’instruction.  Écrire  l’instruction  permettant  de  lister  les  **codes** **(**Currency_Code**) de toutes les monnaies (**Currency_Name**) qui s’appellent ‘**Dollar**’** sans doublons 
+**Activité n°17.: A faire tout seul : Pour les supprimer les doublons :** on convertit la liste en ensemble (set) avec la  fonction ```set()```  à  placer  devant  l’instruction.  Écrire  l’instruction  permettant  de  lister  les  **codes** (Currency_Code) de toutes les monnaies (Currency_Name) qui s’appellent ‘**Dollar**’** sans doublons 
 
 > ```# ??``` 
 ```
@@ -386,7 +386,7 @@ On obtient une liste contenant beaucoup de doublons.
 
 
 
-**Activité n°18.: A faire tout seul : Question plus difficile :** Écrire l’instruction permettant de lister les **noms** **des pays (**Name**) de plus de 100 millions d’habitants** **(**Population**)**, sous la forme (Pays => Population (en Millions d’habitants)).  
+**Activité n°18.: A faire tout seul : Question plus difficile :** Écrire l’instruction permettant de lister les **noms des pays** (Name) **de plus de 100 millions d’habitants** (Population), sous la forme (Pays => Population (en Millions d’habitants)).  
 
 Aide :```p['……']```  renvoie un string, il faut donc utiliser les fonction ```int()``` et ```str()```.  Arrondir à 2 avec la fonction ```round()```. On doit obtenir : 
 
@@ -494,7 +494,7 @@ Ainsi, si on a trié les pays par ordre décroissant de population puis par cont
 
 
 
-**Activité n°24.: A faire tout seul :** Écrire les instructions permettant d’afficher les **8 pays possédant la plus grande** **densité de population**, dans l’**ordre inverse de densité**, sous la forme **(Pays, densité)**.  
+**Activité n°24.: A faire tout seul :** Écrire les instructions permettant d’afficher les **8 pays possédant la plus grande densité de population**, dans l’**ordre inverse de densité**, sous la forme (Pays, densité).  
 
 Aide : Se poser d’abord la question : comment calcule-t-on la densité ? On pourra également utiliser la fonction ```round()``` 
 
