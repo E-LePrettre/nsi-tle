@@ -1,4 +1,8 @@
-﻿*Chap 09 : Algorithmique avancée : Algorithme glouton* 
+﻿---
+author: ELP
+title: 09a Algorithme glouton
+---
+
 
 **Table des matières** 
 
