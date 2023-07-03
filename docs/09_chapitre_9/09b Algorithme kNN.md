@@ -173,6 +173,7 @@ La cible : caractéristique1 = 50 et caractéristique2 = 8
 **Activité n°2.:** On choisit k = 4 et la distance schématisée par un disque. 
 
 ![](Aspose.Words.3ff765a9-d01a-40a4-b89f-2b60e83d57aa.022.jpeg)
+
 a.  Quel est le type de notre donnée cible ? 
 b.  A quelle valeur de k peut-on décider du type de notre donnée cible ? 
 On choisit k = 10. Pour la distance, on décide que les valeurs de la caractéristique1 n’ont pas d’importance. La distance dépend de la caractéristique2. 
@@ -360,6 +361,7 @@ Conclusion : il y a de fortes chances que l’iris soit de l’espèce « iris s
 Dans ce cas il est plus difficile de choisir. Il faut alors  utiliser l’algorithme des « k plus proches voisins ».  
 
 ![](Aspose.Words.3ff765a9-d01a-40a4-b89f-2b60e83d57aa.034.jpeg)
+
 - on calcule la distance entre la cible et chaque  point issu du jeu de données « iris » (c’est un  calcul de distance entre deux points)  
 - on sélectionne uniquement les k distances les plus  petites (les k plus proches voisins)  
 - parmi les k plus proches voisins, on détermine  quelle est l’espèce majoritaire. On associe alors  l’espèce  majoritaire  parmi  les  k  plus  proches  voisins.  
@@ -571,7 +573,7 @@ Ouvrir le fichier test.txt qui se trouve dans Documents
 
 
 
-### **3.2. **Lecture dans un fichier** 
+### **3.2. Lecture dans un fichier** 
 #### **3.2.1. Lecture en mode texte** 
 
 **Activité n° 13.**: La lecture dans un fichier texte se fait avec la fonction ```open()``` en mode … lecture : 
