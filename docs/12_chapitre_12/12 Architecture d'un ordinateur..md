@@ -189,7 +189,7 @@ Remarques :
 
 **Activité n°4.:**  
 On part du principe que le système doit pouvoir transporter en une seule opération une adresse via son bus d’adresses. Peux-tu répondre à ces deux questions. 
- 
+
 1. Combien d’adresses-mémoires RAM différentes peut-on avoir dans un ordinateur dont le bus d’adresse est un bus 16 bits ? 
 
 2. Si on considère que chaque case mémoire correspond à un octet, quelle est la mémoire vive maximale disponible sur ce système s’il ne disposant pas d’autres manières d’adresser sa mémoire ?
@@ -239,6 +239,7 @@ Ces évolutions ont pour conséquence de mettre la **mémoire**, plutôt que l�
 Le microprocesseur étant incapable d'interpréter la phrase "additionne le nombre 125 et la valeur située dans le registre R2, range le résultat dans le registre R1", il faut coder cette instruction sous forme binaire : 
 
 "additionne le nombre 125 et la valeur située dans le registre R2, range le résultat dans le registre R1" ⇓ 
+
 "11100010100000100001000001111101" 
 
 Afin de faciliter la lecture et l'écriture d'instructions machine par les informaticiens, on remplace les codes binaires par des symboles mnémoniques, en utilisant la syntaxe du langage appelé assembleur. 
