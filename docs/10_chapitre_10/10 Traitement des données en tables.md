@@ -5,7 +5,7 @@ title: 10 Traitement des données en tables
 
 **Table des matières** 
 
-1. [**Avec la bibliothèque csv**](#_page0_x40.00_y360.92)]
+1. [**  AVEC LA BIBLIOTHEQUE CSV**](#_page0_x40.00_y360.92)
 2. [**EXPLOITATION DES DONNEES AVEC LA BIBLIOTHEQUE CSV**](#_page7_x40.00_y36.92)
 3. [**EXERCICES**](#_page12_x40.00_y36.92)
 3. [**PROJET (DEMARCHE D’INVESTIGATION)**](#_page13_x40.00_y36.92)
@@ -283,9 +283,9 @@ print(personnes)
 ```
 
 
-## **2.*Exploitation<a name="_page7_x40.00_y36.92"></a> des données avec la bibliothèque csv**
+## **2.Exploitation<a name="_page7_x40.00_y36.92"></a> des données avec la bibliothèque csv**
 
-On utilise un fichier nommé ‘countries.csv’ et ‘cities.csv’ contenant quelques données sur les différents pays et ville du monde. En voici les premières lignes pour countries.csv :**  
+On utilise un fichier nommé ‘countries.csv’ et ‘cities.csv’ contenant quelques données sur les différents pays et ville du monde. En voici les premières lignes pour countries.csv :  
 ```csv
 ISO;Name;Capital_Id;Area;Population;Continent;Currency_Code;Currency_Name
 AD;Andorra;3041563;468;84000;EU;EUR;Euro
@@ -358,7 +358,7 @@ print(pays[0])
 
 Cette fois ci, on obtient un tableau de p-uplets représentés sous forme de dictionnaire. 
 
-### **2.3. **Interrogation<a name="_page8_x40.00_y305.92"></a> de la base de données** 
+### **2.3. Interrogation<a name="_page8_x40.00_y305.92"></a> de la base de données** 
 
 On peut traduire en Python des questions simples.  
 
@@ -395,7 +395,7 @@ Aide :```p['……']```  renvoie un string, il faut donc utiliser les fonction `
 ['Bangladesh => 1.56', 'Brazil => 2.01', 'China => 13.3', 'Indonesia => 2.43', 'India => 11.73', 'Japan => 1.27', 'Mexico => 1.12', 'Nigeria => 1.54', 'Pakistan => 1.84', 'Russia => 1.41', 'United States => 3.1']
 ```
 
-### **2.4. **Tri<a name="_page9_x40.00_y140.92"></a>** 
+### **2.4. Tri<a name="_page9_x40.00_y140.92"></a>** 
 
 Pour exploiter les données, il peut être intéressant de les trier. Une utilisation possible est l’obtention du classement des entrées selon tel ou tel critère. Une autre utilisation vient du fait que, comme présenté dans la partie algorithmique du programme, la **recherche dichotomique** dans un tableau trié est bien plus efficace que la recherche séquentielle dans un tableau quelconque. 
 
@@ -538,7 +538,7 @@ Terta,Henry,12/06/1978
 ```
 
 
-1. Donner les différentes valeurs du descripteur "date\_naissance". 
+1. Donner les différentes valeurs du descripteur "date_naissance". 
 
 **Les données structurées au format CSV** 
 
