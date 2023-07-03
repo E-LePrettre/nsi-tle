@@ -411,7 +411,7 @@ Dans la partie centrale du simulateur, nous allons trouver en allant du haut ver
 
 ### **5.3. programmer<a name="_page12_x40.00_y218.92"></a> en assembleur** 
 
-**Activité n°11.:** **Activité n°11.:** Dans la partie "éditeur" ("Assembly Language") saisissez les lignes de codes suivantes : 
+**Activité n°11.:** Dans la partie "éditeur" ("Assembly Language") saisissez les lignes de codes suivantes : 
 ```
 MOV R0,#42
 STR R0,150
@@ -425,7 +425,7 @@ L’assembleur converti les trois lignes du programme en instructions machines :
 - la deuxième à l’adresse 001 
 - la troisième à l’adresse 002 
 
-**Activité n°12.:** **Activité n°12.:** Exécution pas à pas : 
+**Activité n°12.:** Exécution pas à pas : 
 Il suffit maintenant de cliquer sur le bouton "RUN". Le CPU va "travailler" en direct grâce à de petites animations. Si cela va trop vite (ou trop doucement), on peut régler la vitesse de simulation à l'aide des boutons "<<" et ">>". Un appui sur le bouton "STOP" met en pause la simulation. 
 Une fois la simulation terminée, on constate que la cellule mémoire d'adresse 150, contient bien le nombre 42 (en base 10) et que le registre R0 a bien stocké le nombre 42. 
 Attention : pour relancer la simulation il faut appuyer sur « RESET » 
