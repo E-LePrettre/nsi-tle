@@ -1,4 +1,4 @@
-﻿---
+---
 author: ELP
 title: 01c A la découverte de Python
 ---
@@ -392,7 +392,7 @@ x = [ 1 , 2 , 3 , 4]
 y = [ 5 , 6 , 7 , 8] 
 x + y 
 x = [ 0 , 1] 
-[ 0 ]\*10 
+[ 0 ]*10 
 ```
 
 ???+ question "Faire ce qui est proposé"
