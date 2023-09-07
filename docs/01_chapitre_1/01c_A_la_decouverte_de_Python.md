@@ -450,7 +450,7 @@ print(type(choix))
 
 ```python
 b = 10 
-print(b > 8) <
+print(b > 8) 
 print(b == 5) 
 print(b != 10) 
 print(0 <= b <= 20) 
