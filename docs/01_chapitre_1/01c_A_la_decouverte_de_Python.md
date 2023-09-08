@@ -500,6 +500,8 @@ La clé de contrôle située à la fin du numéro est calculée par la formule :
     {{ terminal() }}
 
 **Exercice n°3**  ★ Afficher la valeur numérique de √(4,63 - 15/16) Comparer avec votre calculette. 
+Aide : vous aurez besoin de la fonction racine carrée de python. Pour cela il faut l'importer en commandant par la ligne suivante:
+>>> from math import sqrt
 
 ???+ question "Faire ce qui est proposé"
 
