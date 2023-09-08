@@ -95,6 +95,7 @@ Le langage Python est gratuit, sous **licence libre**.
 ### **4.4. Premiers<a name="_page3_x40.00_y36.92"></a> pas avec l’interpréteur de commandes Python** 
 
 **Activité n°1.:Les calculs de bases :** Tester les calculs suivant :
+**ATTENTION : faire entrer à chaque ligne du scripts suivants **
 
 ```python
 7 + 3 * 4
@@ -123,6 +124,7 @@ Le langage Python est gratuit, sous **licence libre**.
 Que remarquez-vous ?............. 
 
 **Activité n°3.:** **La division entière et le modulo :** Tester les calculs :
+**ATTENTION : faire entrer à chaque ligne du scripts suivants **
 
 ```python
 10 // 5
@@ -144,6 +146,7 @@ On souhaite effectuer la division de 3395  par 99.
 On s’est arrêté car 29 est plus petit que 99 et qu’on ne souhaitait pas aller plus loin et se retrouver avec un nombre à virgule. On a effectué une division dite division entière. On en déduit donc que 3395 = 99 \* 34 + 29
 
 **Activité n°4.:** **L’exponentiation :** Tester les calculs :
+**ATTENTION : faire entrer à chaque ligne du scripts suivants **
 
 ```python
 3 ** 2
@@ -171,6 +174,7 @@ Exemple : age, mon\_age, temperature1  A éviter : Age, AGE, monAge, Temperature
 
 
 **Activité n°5.:** Tester les calculs : 
+**ATTENTION : faire entrer à chaque ligne du scripts suivants **
 
 ```python
 age = 17
@@ -191,6 +195,7 @@ print(type(age))
 
 
 **Activité n°6.:** L’incrémentation ou la décrémentation : Tester les calculs suivant dans la console
+**ATTENTION : faire entrer à chaque ligne du scripts suivants **
 
 ```python
 # ceci est un commentaire 
@@ -206,6 +211,7 @@ print(a)
 
 #### **4.5.3. Le<a name="_page4_x40.00_y602.92"></a> type float (nombres en virgule flottante)**
 **Activité n°7.:** Tester les calculs suivant dans la console
+**ATTENTION : faire entrer à chaque ligne du scripts suivants **
 
 ```python
 b = 17.0  # le séparateur décimal est un point (et non une virgule) 
@@ -239,6 +245,7 @@ print(c)
 
 
 **Activité n°8.:**  Tester les calculs suivant dans la console
+**ATTENTION : faire entrer à chaque ligne du scripts suivants **
 
 ```python
 nom = 'Dupont'    # entre apostrophes 
@@ -253,6 +260,7 @@ print(nom, prenom)   # ne pas oublier la virgule
     {{ terminal() }}
 
 **Activité n°9.:** La concaténation désigne la mise bout à bout de plusieurs chaînes de caractères (de type string). La concaténation utilise l’opérateur + 
+**ATTENTION : faire entrer à chaque ligne du scripts suivants **
 
 ```python
 nom = 'Dupont' 
@@ -280,6 +288,7 @@ NB : si pas < 0, la liste est parcourue dans le sens inverse.
 ![](Aimg.png)
 
 **Activité n°11.:** 
+**ATTENTION : faire entrer à chaque ligne du scripts suivants **
 
 ```python
 string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" 
@@ -298,6 +307,7 @@ string[-4:-2:]  # Renvoie du -4 au -2
     {{ terminal() }}
 
 **Activité n°12.:** ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.051.png)Attention aux apostrophes et guillemets dans les chaînes de caractères ! 
+**ATTENTION : faire entrer à chaque ligne du scripts suivants **
 
 ```python
 chaine = 'Aujourd'hui'
@@ -311,6 +321,7 @@ print(chaine)
     {{ terminal() }}
 
 **Activité n°13.:** La séquence d'échappement \n représente un saut ligne : 
+**ATTENTION : faire entrer à chaque ligne du scripts suivants **
 ```python
 chaine = 'Premiere ligne\nDeuxieme ligne' 
 print(chaine)
@@ -322,6 +333,7 @@ print(chaine)
 
 
 **Activité n°14.:** On ne peut pas mélanger les serviettes et les torchons (ici type str et type int) : 
+**ATTENTION : faire entrer à chaque ligne du scripts suivants **
 
 ```python
 chaine = 'a' 
@@ -336,6 +348,7 @@ chaine = chaine + 2
 Une liste est une structure de données. Le premier élément d’une liste possède l’indice (l’index) 0. Dans une liste, on peut avoir des éléments de plusieurs types. 
 
 **Activité n°15.:**  
+**ATTENTION : faire entrer à chaque ligne du scripts suivants **
 
 ```python
 liste = [5,7,8]   # Crée la liste [5,7,8] 
@@ -349,6 +362,7 @@ print('Age : ', infoperso[2])    # le troisième élément a l'indice 2
     {{ terminal() }}
 
 **Activité n°16.:** Quelques fonctions utiles len() 
+**ATTENTION : faire entrer à chaque ligne du scripts suivants **
 
 ```python
 liste = [5,7,8]   # Crée la liste [5,7,8]
@@ -359,6 +373,7 @@ len(liste)   # Affiche le nombre d'éléments dans liste 3
     {{ terminal() }}
 
 **Activité n°17.:** Quelques méthodes utiles : append() , pop()
+**ATTENTION : faire entrer à chaque ligne du scripts suivants **
 
 ```python
 liste = [5, 8, 11] 
@@ -373,6 +388,7 @@ liste
     {{ terminal() }}
 
 **Activité n°18.:** La méthode lower()retourne la chaîne de caractères en casse minuscule (upper() fait l’inverse): 
+**ATTENTION : faire entrer à chaque ligne du scripts suivants **
 
 ```python
 chaine = "BONJOUR"  # ou bien : chaine = str("BONJOUR") 
@@ -386,6 +402,7 @@ print(chaine)
 
 
 **Activité n°19.:** Les opérations sur les listes 
+**ATTENTION : faire entrer à chaque ligne du scripts suivants **
 
 ```python
 x = [ 1 , 2 , 3 , 4] 
@@ -400,6 +417,7 @@ x = [ 0 , 1]
     {{ terminal() }}
 
 **Activité n°20.:** La fonction split() permet de créer une liste en indiquant le séparateur (par exemple l’espace pour obtenir une liste de mot) : 
+**ATTENTION : faire entrer à chaque ligne du scripts suivants **
 ```python
 texte = "Il est important de construire" 
 a = texte.split(' ') 
@@ -413,6 +431,7 @@ Cette méthode est communément appelée tuple unpacking
     {{ terminal() }}
 
 **Activité n°21.:** La fonction ' '.join(a) fait l’inverse, elle prend une liste et renvoie un teste, entre guillemets on indique le séparateur si on ne met rien, tout sera attaché. 
+**ATTENTION : faire entrer à chaque ligne du scripts suivants **
 
 ```python
 texte = "Il est important de construire" 
@@ -433,6 +452,7 @@ C’est la méthode inverse du tuple unpacking
 
 
 **Activité n°22.:** Deux valeurs sont possibles : True et False 
+**ATTENTION : faire entrer à chaque ligne du scripts suivants **
 
 ```python
 choix = True 
@@ -447,6 +467,7 @@ print(type(choix))
 
 
 **Activité n°23.:**  
+**ATTENTION : faire entrer à chaque ligne du scripts suivants **
 
 ```python
 b = 10 
@@ -460,6 +481,7 @@ print(0 <= b <= 20)
     {{ terminal() }}
 
 **Activité n°24.:** Les opérateurs logiques : and, or, not
+**ATTENTION : faire entrer à chaque ligne du scripts suivants **
 
 ```python
 note = 13.0 
@@ -471,6 +493,7 @@ print(note >= 12.0 and note < 14.0 )
     {{ terminal() }}
 
 **Activité n°25.:** L’opérateur in s’utilise avec des chaînes (type str) ou des listes (type list) : 
+**ATTENTION : faire entrer à chaque ligne du scripts suivants **
 
 ```python
 chaine = 'Bonsoir' 
@@ -501,7 +524,9 @@ La clé de contrôle située à la fin du numéro est calculée par la formule :
 
 **Exercice n°3**  ★ Afficher la valeur numérique de √(4,63 - 15/16) Comparer avec votre calculette. 
 Aide : vous aurez besoin de la fonction racine carrée de python. Pour cela il faut l'importer en commandant par la ligne suivante:
->>> from math import sqrt
+```python
+from math import sqrt
+``` 
 
 ???+ question "Faire ce qui est proposé"
 
