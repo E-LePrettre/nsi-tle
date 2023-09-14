@@ -511,7 +511,7 @@ print(9 in maliste)
 
 ???+ question "Faire ce qui est proposé"
 
-    {{ terminal() }}
+    {{ IDE() }}
 
 **Exercice n°2**  ★ Le numéro de sécurité sociale est constitué de 13 chiffres auquel s’ajoute la clé de contrôle (2 chiffres). 
 Exemple : le numéro entier de sécurité sociale est : 1 89 11 26 108 268 91; il se compose de 1891126108268 et de 91 qui est la clé de contrôle
@@ -520,7 +520,7 @@ La clé de contrôle située à la fin du numéro est calculée par la formule :
 
 ???+ question "Faire ce qui est proposé"
 
-    {{ terminal() }}
+    {{ IDE() }}
 
 **Exercice n°3**  ★ Afficher la valeur numérique de √(4,63 - 15/16) Comparer avec votre calculette. 
 Aide : vous aurez besoin de la fonction racine carrée de python. Pour cela il faut l'importer en commandant par la ligne suivante:
@@ -530,13 +530,13 @@ from math import sqrt
 
 ???+ question "Faire ce qui est proposé"
 
-    {{ terminal() }}
+    {{ IDE() }}
 
 **Exercice n°4**  ★ A partir des deux variables prenom et nom, afficher les initiales (par exemple LM pour Léa Martin). 
 
 ???+ question "Faire ce qui est proposé"
 
-    {{ terminal() }}
+    {{ IDE() }}
 
 **Exercice n°5** ★** Quels résultats donnent les instructions suivantes ?  
 
@@ -546,7 +546,7 @@ len('123' \* 20)
 
 ???+ question "Faire ce qui est proposé"
 
-    {{ terminal() }}
+    {{ IDE() }}
 
 **Exercice n°6** ☆ Supposons que je veuille imprimer les quatre lignes suivantes :  
 
@@ -586,7 +586,7 @@ print("Hum \\Oh\/")
 ```
 ???+ question "Faire ce qui est proposé"
 
-    {{ terminal() }}
+    {{ IDE() }}
 
 **Exercice n°7**  ★☆ **PRÉPAREZ UNE MOUSSE AU CHOCOLAT !**  
 
@@ -615,7 +615,7 @@ Le nombre de sachet de vanille pour 7 personnes est :…
 ```
 ???+ question "Faire ce qui est proposé"
 
-    {{ terminal() }}
+    {{ IDE() }}
 
 Généraliser la recette pour un nombre déterminer par l’utilisateur. Par exemple : 
 
@@ -628,7 +628,7 @@ Le nombre de sachet de vanille pour  10  personnes est : 4
 ```
 ???+ question "Faire ce qui est proposé"
 
-    {{ terminal() }}
+    {{ IDE() }}
 
 **Remarque** : Vous aurez besoin de la fonction input() déjà vu en seconde
 ```python
@@ -637,7 +637,7 @@ print(a)
 ```
 ???+ question "Faire ce qui est proposé"
 
-    {{ terminal() }}
+    {{ IDE() }}
 
 **Exercice n°8**  ★☆ L’identifiant d’accès au réseau du lycée est construit de la manière suivante : initiale du prénom puis les 8 premiers caractères du nom (le tout en minuscule). 
 
@@ -645,7 +645,7 @@ Alexandre Lecouturier → alecoutur A partir des deux variables prenom et nom, c
 
 ???+ question "Faire ce qui est proposé"
 
-    {{ terminal() }}
+    {{ IDE() }}
     
 QCM :[ http://fabrice.sincere.free.fr/qcm/qcm.php?nom=qcm_python3x_1 ](http://fabrice.sincere.free.fr/qcm/qcm.php?nom=qcm_python3x_1)
 
