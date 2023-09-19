@@ -546,7 +546,7 @@ def table_de_multiplication(nombre):
     affiche la table de multiplication du nombre demandé 
     """ 
     for i in range(0,11): 
-        print(i, 'x', nombre, '=', i\*nombre) 
+        print(i, 'x', nombre, '=', i*nombre) 
     return 'voilà!!' 
 ```
 > table_de_multiplication(9) 
