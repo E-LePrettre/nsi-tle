@@ -886,7 +886,7 @@ Parfois **pour éviter d’avoir à coder une fonction surtout si elle est très
 **Activité n° 23.**: Au lieu de coder la fonction g(x)= 2x, on peut écrire 
 
 ```python
-g = lambda x: 2\*x 
+g = lambda x: 2*x 
 ```
 
 > g(3) 
@@ -1047,7 +1047,7 @@ help(random.choice)
 3. Quel est le nombre de combinaisons possibles ? 
 3. Quelle durée faut-il pour casser le mot de passe de longueur 10 avec un logiciel capable de générer 1 million de combinaisons par seconde ? Convertir la valeur trouvée dans une unité mieux adaptée. 
 
-Lien utile :[ www.exhaustif.com/Generateur-de-mot-de-passe-en.html ](http://www.exhaustif.com/Generateur-de-mot-de-passe-en.html)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.110.png)
+Lien utile :[ https://www.motdepasse.xyz/ ](https://www.motdepasse.xyz/)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.110.png)
 
 **Exercice 17** ★ Ecrire une fonction qui retourne une carte (au hasard) d’un jeu de Poker à 52 cartes. On utilisera la fonction choice() ou randint() du module random. On donne : 
 
