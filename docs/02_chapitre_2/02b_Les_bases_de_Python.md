@@ -921,18 +921,21 @@ Tester
 
     {{ IDE() }}
 
+Autre exemple :
+![](2023-09.png)
+
 ## **7. Exercices<a name="_page15_x40.00_y36.92"></a>** 
 
 **Exercice 13** ☆ 
 
-1. Ecrire une fonction carre() qui retourne le carré d’un nombre : 
+1.Ecrire une fonction carre() qui retourne le carré d’un nombre : 
 
 ```
 >>> carre(11.11111)
 123.4567654321
 ```
 
-2. Avec une boucle while et la fonction carre(), écrire un script qui affiche le carré des nombres entiers de 1 à 100 : 
+2.Avec une boucle while et la fonction carre(), écrire un script qui affiche le carré des nombres entiers de 1 à 100 : 
 
 ```
 >>> 
@@ -970,7 +973,7 @@ Tester
 
 **Exercice 14** ☆ 
 
-1. Ecrire une fonction qui retourne l’aire de la surface d’un disque de rayon R. Exemple : 
+1.Ecrire une fonction qui retourne l’aire de la surface d’un disque de rayon R. Exemple : 
 
 ```
 >>> airedisque(2.5)
@@ -979,7 +982,7 @@ Tester
 
 
 
-2. Ajouter un paramètre qui précise l’unité de mesure : 
+2.Ajouter un paramètre qui précise l’unité de mesure : 
 
 Aide on ne peut faire de l’affichage facilement qu’en concaténant les chaines de caractères… 
 
@@ -992,7 +995,7 @@ Aide on ne peut faire de l’affichage facilement qu’en concaténant les chain
 
 **Exercice 15** ★ 
 
-1. Ecrire une fonction qui retourne la factorielle d’un nombre entier N. On rappelle que : factorielle de N est noté N! 
+1.Ecrire une fonction qui retourne la factorielle d’un nombre entier N. On rappelle que : factorielle de N est noté N! 
 
 N!=1×2×…×(N−1)×N 
 
@@ -1016,11 +1019,11 @@ Exemple :
 
 
 
-2. Comparez avec le résultat de la fonction[ factorial() ](http://docs.python.org/3/library/math.html)du module math. 
+2.Comparez avec le résultat de la fonction[ factorial() ](http://docs.python.org/3/library/math.html)du module math. 
 
 **Exercice 16** ★ 
 
-1. A l’aide de la fonction randint() du module random, écrire une fonction qui retourne un mot de passe de longueur N (chiffres, lettres minuscules ou majuscules).  
+1.A l’aide de la fonction randint() du module random, écrire une fonction qui retourne un mot de passe de longueur N (chiffres, lettres minuscules ou majuscules).  
 
 [https://www.w3schools.com/python/ref_random_randint.asp ](https://www.w3schools.com/python/ref_random_randint.asp) 
 
@@ -1037,15 +1040,15 @@ On donne : chaine = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvw
 
 
 
-2. Reprendre la question 1) avec la fonction choice() du module random. Pour obtenir de l’aide sur cette fonction : 
+2.Reprendre la question 1) avec la fonction choice() du module random. Pour obtenir de l’aide sur cette fonction : 
 
 ```python
 import random 
 help(random.choice) 
 ```
 
-3. Quel est le nombre de combinaisons possibles ? 
-3. Quelle durée faut-il pour casser le mot de passe de longueur 10 avec un logiciel capable de générer 1 million de combinaisons par seconde ? Convertir la valeur trouvée dans une unité mieux adaptée. 
+3.Quel est le nombre de combinaisons possibles ? 
+4.Quelle durée faut-il pour casser le mot de passe de longueur 10 avec un logiciel capable de générer 1 million de combinaisons par seconde ? Convertir la valeur trouvée dans une unité mieux adaptée. 
 
 Lien utile :[ https://www.motdepasse.xyz/ ](https://www.motdepasse.xyz/)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.110.png)
 
@@ -1062,7 +1065,7 @@ ListeCarte = ['2s','2h','2d','2c','3s','3h','3d','3c','4s','4h','4d','4c','5s','
 
 **Exercice 18** ★★   
 
-1.  Ecrire une fonction qui retourne une liste de N cartes **différentes** d’un jeu de Poker à 52 cartes. Noter qu’une fonction peut appeler une fonction : on peut donc réutiliser la fonction tiragecarte() de l’exercice précédent. Exemple : 
+1.Ecrire une fonction qui retourne une liste de N cartes **différentes** d’un jeu de Poker à 52 cartes. Noter qu’une fonction peut appeler une fonction : on peut donc réutiliser la fonction tiragecarte() de l’exercice précédent. Exemple : 
 
 ```
 >>> tirage_n_carte(2)
@@ -1071,7 +1074,7 @@ ListeCarte = ['2s','2h','2d','2c','3s','3h','3d','3c','4s','4h','4d','4c','5s','
 '3c 4s 7c 7h 8d 4c Qd As Jd Jd'
 ```
 
-2.  Simplifier le script avec la fonction shuffle()` `et sample()` `du module random. 
+2.Simplifier le script avec la fonction shuffle()` `et sample()` `du module random. 
 
 
 **Exercice 19** ★★ Ecrire une fonction qui retourne une grille de numéros du jeu  Euro Millions. On utilisera la fonction sample() du module random.  
@@ -1084,7 +1087,7 @@ ListeCarte = ['2s','2h','2d','2c','3s','3h','3d','3c','4s','4h','4d','4c','5s','
 
 **Exercice 20**   
 
-1.  ★ Ecrire une fonction qui retourne la valeur de la fonction  mathématique f(x)= 27x3 -27x2 -18x +8 :  
+1.★ Ecrire une fonction qui retourne la valeur de la fonction  mathématique f(x)= 27x3 -27x2 -18x +8 :  
 
 ```
 >>> f(0), f(1), f(0.5), f(0.25), f(0.375)  
@@ -1092,7 +1095,7 @@ ListeCarte = ['2s','2h','2d','2c','3s','3h','3d','3c','4s','4h','4d','4c','5s','
 ```
 
 
-2. ★★ On se propose de chercher les zéros de cette fonction par la (Wikipédia)[ méthode de dichotomie.](https://fr.wikipedia.org/wiki/M%C3%A9thode_de_dichotomie) 
+2.★★ On se propose de chercher les zéros de cette fonction par la (Wikipédia)[ méthode de dichotomie.](https://fr.wikipedia.org/wiki/M%C3%A9thode_de_dichotomie) 
 
 Ecrire le script correspondant. On recherche d’un zéro dans l’intervalle [a, b] avec une précision de 
 1e-12
@@ -1103,7 +1106,7 @@ Ecrire le script correspondant. On recherche d’un zéro dans l’intervalle [a
 ```
 
 
-3.  Chercher tous les zéros de cette fonction. 
+3.Chercher tous les zéros de cette fonction. 
 
 ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.122.jpeg)
 
