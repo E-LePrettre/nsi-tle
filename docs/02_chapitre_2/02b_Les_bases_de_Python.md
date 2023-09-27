@@ -922,7 +922,7 @@ Tester
     {{ IDE() }}
 
 Autre exemple :
-![](2023-09.png=300x)
+![](2023-09-01.png)
 
 ## **7. Exercices<a name="_page15_x40.00_y36.92"></a>** 
 
