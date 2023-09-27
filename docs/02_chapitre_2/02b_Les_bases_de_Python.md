@@ -908,8 +908,8 @@ Il est parfois utile de définir des fonctions avec **plusieurs paramètres** do
 **Activité n° 24.**: 
 
 ```python
-def vetement(couleur\_pull='rouge', couleur\_pantalon='bleu'): 
-    return 'Le pull est '+couleur\_pull+' et le pantalon est '+ couleur\_pantalon 
+def vetement(couleur_pull='rouge', couleur_pantalon='bleu'): 
+    return 'Le pull est '+couleur_pull+' et le pantalon est '+ couleur_pantalon 
 ```
 
 Tester
@@ -922,7 +922,7 @@ Tester
     {{ IDE() }}
 
 Autre exemple :
-![](2023-09.png)
+![](2023-09.png =300x)
 
 ## **7. Exercices<a name="_page15_x40.00_y36.92"></a>** 
 
