@@ -1049,6 +1049,7 @@ help(random.choice)
 ```
 
 3.Quel est le nombre de combinaisons possibles ? 
+
 4.Quelle durée faut-il pour casser le mot de passe de longueur 10 avec un logiciel capable de générer 1 million de combinaisons par seconde ? Convertir la valeur trouvée dans une unité mieux adaptée. 
 
 Lien utile :[ https://www.motdepasse.xyz/ ](https://www.motdepasse.xyz/)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.110.png)
@@ -1088,7 +1089,7 @@ ListeCarte = ['2s','2h','2d','2c','3s','3h','3d','3c','4s','4h','4d','4c','5s','
 
 **Exercice 20**   
 
-1.★ Ecrire une fonction qui retourne la valeur de la fonction  mathématique f(x)= 27x3 -27x2 -18x +8 :  
+1.★ Ecrire une fonction qui retourne la valeur de la fonction  mathématique f(x)= 27x^3 -27x^2 -18^x +8 :  
 
 ```
 >>> f(0), f(1), f(0.5), f(0.25), f(0.375)  

@@ -4,7 +4,7 @@ title: 03 Mise au point des scripts et gestion des exceptions
 ---
 
 
-**Table des matières **
+**Table des matières**
 
 1. [Les bonnes pratiques : documenter les fonctions ](#_page0_x40.00_y447.92)
 2. [Les tests](#_page1_x40.00_y350.92)
@@ -38,21 +38,20 @@ def factorielle(n):
 ```
 Tester 
 > help(factorielle)
-
-???+ question "Faire ce qui est proposé"
-
-    {{ IDE() }}
+ 
+ NE FONCTIONNE PAS SUR LA CONSOLE EN LIGNE => Thonny
    
 Réaliser une telle chaîne de documentation permet 
 
-**à l’utilisateur** de la fonction de savoir 
-  - à quoi peut servir la fonction ; 
-  - comment il peut l’utiliser ; 
-  - et quelles conditions il doit respecter pour l’utiliser (CU). 
+**à l’utilisateur** de la fonction de savoir
+- à quoi peut servir la fonction ; 
+- comment il peut l’utiliser ; 
+- et quelles conditions il doit respecter pour l’utiliser (CU). 
+
 et **au programmeur** de la fonction de préciser 
-   - le nombre et la nature de ses paramètres ; 
-   - la relation entre la valeur renvoyée et celle du ou des paramètres ; 
-   - ses idées avec quelques exemples. 
+- le nombre et la nature de ses paramètres ; 
+- la relation entre la valeur renvoyée et celle du ou des paramètres ; 
+- ses idées avec quelques exemples. 
 
 ## **2. Les<a name="_page1_x40.00_y350.92"></a> tests** 
 
@@ -83,7 +82,7 @@ On utilise if \_\_name\_\_ == '\_\_main\_\_': qui permet de n’exécuter les te
 ```python 
 def division_euclidienne(a,b):   
    if a >=0 and b>0 and type(a)==int and type(b) == int:   
-      return a%b, a//b   
+      return a%b, a//b   # ici on a inversé le reste et le quotient
    else:   
       return -1   
    
@@ -134,60 +133,58 @@ Les exemples donnés dans les docstrings (chaine de documentation) peuvent être
 
 **Activité n° 4.**:  
 
-```python  
-def factorielle(n):  
-   *"""*  
-   *fonction qui retourne la factorielle d'un nombre*  
-   ***:param** n: int*  
-   ***:return**: int*  
-   *CU (conditions d'utilisation) : n >= 0*  
-   *>>> factorielle(0)*  
-   *1*  
-   *>>> factorielle(4)*  
-   *24*  
-   *"""*  
-
-   resultat = 1  
-   for i in range(2, n+1):  
-      resultat = resultat * i  
-   return resultat  
+```python
+def factorielle(n):
+   """
+   fonction qui retourne la factorielle d'un nombre
+   :param n: int
+   :return: int
+   CU (conditions d'utilisation) : n >= 0
+   >>> factorielle(0)
+   1
+   >>> factorielle(4)
+   24
+   """
+   resultat = 1
+   for i in range(2, n+1):
+      resultat = resultat * i
+   return resultat
 ```
+
+
 Tester :
-> import doctest  
+> import doctest
+> doctest.testmod()  
   
-La  fonction testmod du module doctest est  allée  chercher  dans  les docstring des  fonctions  du  module actuellement chargé,  tous les exemples (reconnaissables à la présence des triples chevrons >>>  
-![](Aspose.Words.e93ca6fc-1f42-415a-966d-a3fd9bc79766.021.png) **à mettre un espace après** ), et a vérifié que la fonction documentée satisfait bien ces exemples. Dans le cas présent, une seule fonction dont la documentation contient deux exemples (attempted = 2 ) a été testée, et il n’y a eu aucun échec (failed  = 0 )  
+La  fonction testmod du module doctest est  allée  chercher  dans  les docstring des  fonctions  du  module actuellement chargé,  tous les exemples (reconnaissables à la présence des triples chevrons >>>   **à mettre un espace après** ), et a vérifié que la fonction documentée satisfait bien ces exemples. Dans le cas présent, une seule fonction dont la documentation contient deux exemples (attempted = 2 ) a été testée, et il n’y a eu aucun échec (failed  = 0 )  
 
-???+ question "Faire ce qui est proposé"
 
-    {{ IDE() }}
 
 **Activité n° 5.**:on introduit une erreur dans un des exemples du docstring  
 
-```python  
-def factorielle(n):  
-   *"""*  
-   *fonction qui retourne la factorielle d'un nombre*  
-   ***:param** n: int*  
-   ***:return**: int*  
-   *CU (conditions d'utilisation) : n >= 0*  
-   *>>> factorielle(0)*  
-   *12*  
-   *>>> factorielle(4)*  
-   *24*  
-   *"""*  
-
-   resultat = 1  
-   for i in range(2, n+1):  
-      resultat = resultat * i  
-   return resultat  
+```python
+def factorielle(n):
+   """
+   fonction qui retourne la factorielle d'un nombre
+   :param n: int
+   :return: int
+   CU (conditions d'utilisation) : n >= 0
+   >>> factorielle(0)
+   100000000000000
+   >>> factorielle(4)
+   24
+   """
+   resultat = 1
+   for i in range(2, n+1):
+      resultat = resultat * i
+   return resultat
 ```
+
 Tester:
-> import doctest 
+> import doctest
+> doctest.testmod() 
 
-???+ question "Faire ce qui est proposé"
 
-    {{ IDE() }}
 
 **Activité n° 6.**: on peut rendre automatique les tests : 
 
@@ -217,29 +214,25 @@ if __name__ == '__main__':
 
 Ici il n’y a aucune erreur, on n’obtient **rien**, ce qui est parfois déconcertant 
 
-???+ question "Faire ce qui est proposé"
 
-    {{ IDE() }}
 
 **Activité n° 7.**:  avec une erreur   
 
-```python 
-def factorielle(n):   
-   *"""*   
-   *fonction qui retourne la factorielle d'un nombre*   
-   ***:param** n: int*   
-   ***:return**: int*   
-   *CU (conditions d'utilisation) : n >= 0*   
-      
-   *>>> factorielle(0)*   
-   *12*   
-   *>>> factorielle(4)*   
-   *24*   
-   *"""*   
-      
-   resultat = 1   
-   for i in range(2, n + 1):   
-      resultat = resultat * i   
+```python
+def factorielle(n):
+   """
+   fonction qui retourne la factorielle d'un nombre
+   :param n: int
+   :return: int
+   CU (conditions d'utilisation) : n >= 0
+   >>> factorielle(0)
+   100000000000000
+   >>> factorielle(4)
+   24
+   """
+   resultat = 1
+   for i in range(2, n+1):
+      resultat = resultat * i
    return resultat   
    
 if __name__ == '__main__':   
@@ -247,9 +240,6 @@ if __name__ == '__main__':
    doctest.testmod()   
 ```  
    
-???+ question "Faire ce qui est proposé"
-
-    {{ IDE() }}
 
  **Activité n° 8.**:  On rend les doctests bavard même en cas de succès avec le mode verbose   
 
@@ -276,9 +266,7 @@ if __name__ == '__main__':
    import doctest
    doctest.testmod(verbose=True)  
 ```  
-???+ question "Faire ce qui est proposé"
-
-    {{ IDE() }}   
+   
 
 ## **3. Les<a name="_page5_x40.00_y567.92"></a> préconditions et les postconditions** 
 
@@ -397,9 +385,7 @@ def table(nb, max=10):
         print(i + 1, "*", nb, "=", (i + 1) * nb)
         i += 1
 ```
-???+ question "Faire ce qui est proposé"
 
-    {{ IDE() }}
 
 Enregistrer votre fichier sous le nom multipli.py dans un dossier c:\langages\  
 Lancer l’invite de commande de windows (cmd)  
@@ -439,9 +425,7 @@ from multipli import *
 table(3,11)
 os.system("pause") 
 ```  
-???+ question "Faire ce qui est proposé"
 
-    {{ IDE() }}
 
 Si on est dans python (console précédente) utiliser la fonction exit()  
 
@@ -473,9 +457,7 @@ table(7) # 1ere methode appel de la fonction table
 import package.multipli  
 package.multipli.table(6) # 2eme methode appel de la fonction table  
 ```
-???+ question "Faire ce qui est proposé"
 
-    {{ IDE() }}
 
 Tester dans le cmd
 ```
@@ -574,8 +556,11 @@ except ZeroDivisionError:
    print("La valeur entrée au dénominateur est égale à 0.")   
 ```  
 Tester avec 
+
 - 20 et 0 
+
 - 20 et 'a'
+
 - 'a' et 3
 
 ???+ question "Faire ce qui est proposé"
@@ -626,7 +611,9 @@ finally:
    print('Ligne qui sera toujours affichée')   
 ```   
 Tester avec:
+
 - 20 et 4
+
 - 20 et 0
 
 ???+ question "Faire ce qui est proposé"
@@ -650,9 +637,13 @@ except AssertionError:
    print("L'année saisie est inférieure ou égale à 0.")   
 ```  
 Tester avec :
+
 - 2000
+
 - 'a'
+
 - -1999
+
 
 ???+ question "Faire ce qui est proposé"
 
@@ -676,6 +667,7 @@ except AssertionError:
    print("L'année saisie est inférieure ou égale à 0.")
 ```   
 Tester avec :
+
 - 3000   
    
 N’oubliez pas : un programme bien écrit doit **gérer proprement les exceptions.** 
@@ -688,22 +680,32 @@ N’oubliez pas : un programme bien écrit doit **gérer proprement les exceptio
 
 **Exercice 1 :** On considère la fonction multiplier\_par\_deux(x) qui prend en paramètre x et qui renvoie son double. Ecrire un script de cette fonction avec : 
 
-1. Cas des assert :  
+1.Cas des assert : 
+
 - Sa documentation dans le docstring comme dans l’activité 1. Ne pas mettre d’exemples 
+
 - 4 tests en assert (comme dans l’activité 3) : avec 0, avec -1, avec 3.2 et avec ‘a’ 
-2. Cas du doctest en mode verbose : 
-- Sa documentation dans le docstring comme dans l’activité 1.  
+
+2.Cas du doctest en mode verbose : 
+
+- Sa documentation dans le docstring comme dans l’activité 1. 
+
 - 4 tests dans le docstring (comme dans l’activité 10) : avec 0, avec -1,  avec 3.2 et avec ‘a’ 
 
 **Exercice 2** : On considère une fonction somme\_carres(x) qui prend en paramètre x (entier strictement positif) et renvoie la somme des x premiers carrés non nuls.  
 
 Ecrire un script de cette fonction avec : 
 
-1. Cas des assert :  
+1.Cas des assert : 
+
 - Sa documentation dans le docstring comme dans l’activité 1. Ne pas mettre d’exemples 
+
 - 3 tests en assert (comme dans l’activité 3) : avec 1, avec 2 et avec 3 
-2. Cas du doctest en mode verbose : 
-- Sa documentation dans le docstring comme dans l’activité 1.  
+
+2.Cas du doctest en mode verbose : 
+
+- Sa documentation dans le docstring comme dans l’activité 1.
+ 
 - 3 tests dans le docstring (comme dans l’activité 10) : avec 1, avec 2 et avec 3 
 
 **Exercice 3** : La fonction précédente à pour condition d’utilisation : x doit être strictement positif. Déclencher une exception et capturer là si le nombre entrée est 0 ou négatif. 
@@ -741,9 +743,13 @@ else:
 Compléter le script précédent de manière à ressaisir le nombre en cas d’erreur. On pourra englober le script dans une boucle while. Par exemple : 
 
 Tester avec :
+
 - 'a'
+
 - 'salut !'
+
 - 0
+
 - 2
 
 Aide : penser à une boucle infinie et au mot clé break.  
@@ -751,9 +757,13 @@ Aide : penser à une boucle infinie et au mot clé break.
 **Exercice 5 :** Ecrire un script qui calcule la racine carrée d’un nombre, avec gestion des exceptions. Utiliser la fonction sqrt() du module math.  
 
 Par exemple : 
+
 Tester avec :
+
 - "go"
+
 - -5.26
+
 - 16
 
 Remarquez bien qu’on demande le nombre à l’utilisateur *jusqu'à* ce qu’il convienne. 
