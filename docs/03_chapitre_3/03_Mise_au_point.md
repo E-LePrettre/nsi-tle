@@ -153,7 +153,9 @@ def factorielle(n):
 
 
 Tester :
+
 > import doctest
+
 > doctest.testmod()  
   
 La  fonction testmod du module doctest est  allée  chercher  dans  les docstring des  fonctions  du  module actuellement chargé,  tous les exemples (reconnaissables à la présence des triples chevrons >>>   **à mettre un espace après** ), et a vérifié que la fonction documentée satisfait bien ces exemples. Dans le cas présent, une seule fonction dont la documentation contient deux exemples (attempted = 2 ) a été testée, et il n’y a eu aucun échec (failed  = 0 )  
@@ -181,7 +183,9 @@ def factorielle(n):
 ```
 
 Tester:
+
 > import doctest
+
 > doctest.testmod() 
 
 
