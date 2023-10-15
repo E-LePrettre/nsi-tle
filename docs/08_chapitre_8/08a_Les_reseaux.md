@@ -30,14 +30,14 @@ On a différents éléments :
 
 Une **adresse MAC** (Media Access Control), parfois appelée **adresse physique**, est un **identifiant physique** stocké dans **une carte réseau** ou **une interface réseau** similaire. Elle est **unique au monde**. 
 
-### 1.2. Une<a name="_page1_x40.00_y36.92"></a> adresse IP** 
+### **1.2. Une<a name="_page1_x40.00_y36.92"></a> adresse IP** 
 
 Une **adresse IP** (Internet Protocol), est un numéro d’identification qui est **attribué de façon permanente ou provisoire à chaque périphérique relié à un réseau informatique qui utilise l’Internet Protocol**.  L’adresse IP est à la base du **système d’acheminement** (le **routage**) des paquets de données sur Internet. 
 
 Il existe des adresse IP de **version 4 (IPV4)** sur 32 bits et de **version 6 (IPV6)** sur 128 bits. La version 4 est actuellement la plus utilisée. 
 
 ### **1.3. Anatomie<a name="_page1_x40.00_y162.92"></a> d’une adresse IP**  
-#### **1.3.1. Adresse<a name="_page1_x40.00_y181.92"></a> machine **
+#### **1.3.1. Adresse<a name="_page1_x40.00_y181.92"></a> machine**
 
 Chaque  adresse  IP  contient  deux  informations  basiques,  **une  adresse  de  réseau**  et  une  **adresse  d'hôte**.  La combinaison des deux désigne de **manière unique** une machine et une seule sur un réseau. 
 
@@ -61,7 +61,7 @@ Les 24 premiers bits désignent le préfixe du réseau :
 
 **10000011.11111110.01100100**.**xxxxxxxx/24**  
 
-**Combien de machines sont adressables sur ce réseau ? **
+**Combien de machines sont adressables sur ce réseau ?**
 
 On a l’identification de l’interface réseau de la machine comprend **8 bits**, on peut donc avoir 28 = **256 possibilités** soit 256-2 = **254 machines différentes** dans le réseau.  
 
@@ -75,15 +75,14 @@ On obtient **l'adresse du sous réseau** avec l'opérateur AND
 
 **Exemple 1 : Par exemple : Voici une IPv4 192.168.1.55/24 et son masque de sous réseau 255.255.255.0** En binaire cela donne 
 ```
-   11000000.10101000.00000001.00110111 
-+  11111111.11111111.11111111.00000000
+  	 11000000.10101000.00000001.00110111 
+AND  11111111.11111111.11111111.00000000
 
-   11000000.10101000.00000001.000000000 
+   	 11000000.10101000.00000001.000000000 
 ```
-(AND : cela fait 1 quand les deux bits sont à 1) cela fait 
-
-soit 192.168.1.0 **c'est l'adresse du (sous) réseau**.
-et 192.168.1.255 **c'est l'adresse du broadcast**.
+(AND : cela fait 1 quand les deux bits sont à 1) cela fait :
+* soit 192.168.1.0 **c'est l'adresse du (sous) réseau**.
+* et 192.168.1.255 **c'est l'adresse du broadcast**.
 
 On comprend vite que donner ces réponses avec des masques de 255 et 0 **est très simple** et ne nécessite pas le passage en binaire. 
 ```
@@ -112,7 +111,8 @@ AND  11111111.11111111 .11111000.00000000
      01011010.01100010.01100000.000000000 
 ```
 
-soit 90.98.96.0 pour IP **du (sous) réseau**  L'adresse de broadcast sera: 
+soit 90.98.96.0 pour IP **du (sous) réseau**  
+L'adresse de broadcast sera: 
 ```01011010.01100010.01100111.1111111111=> 90.98.103.255```
 
 Pour aller plus loin:
@@ -169,9 +169,13 @@ J'ai enfin **l'adresse IP** du site que je veux voir. Mon ordinateur va pouvoir 
 
 Je regarde si la page est dans le **cache du navigateur**. Sinon, mon programme (le navigateur) va se débrouiller  pour **envoyer ma demande sur internet** et faire en sorte  que la réponse me revienne   
 ![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.032.jpeg)
+
 1. Il faut que je dise quel genre de données je veux, c'est la **couche application** (couche 4) qui décide cela. Ici on veut une page **html** 
+
 2. La **couche transport** (couche 3) va dire qu'elle veut une page html: elle va appliquer le **protocole TCP** car c'est celui qui est approprié à cette demande et dire qu'elle fait une requête http. Ce message est un **segment TCP.** 
+
 3. elle prépare un message en donnant: ip de destination, son ip et tout ce que l'on a dit avant  ! C'est la **couche internet** (couche 2). Ce message est **un paquet.** 
+
 4. Notre poste possède **une table ARP** (address resolution protocol). Elle contient des associations **d'adresses IP et des adresses MA**C. 
 
 **2 cas : soit la table ARP connait ou ne connait pas notre box !** 
@@ -273,7 +277,7 @@ Le **modèle TCP/IP** est une suite de protocoles utilisées pour le transfert d
 - La couche **Internet** (couche 2) va s’occuper de l’acheminement des données de bout en bout sur Internet, c’est ce qu’on appelle le routage. Elle gère aussi le réassemblage des paquets à la réception. 
 - La couche **Réseau** (couche 1) va acheminer les données de routeur en routeur par les réseaux Internet  
 
-### **4.3. Principe<a name="_page6_x40.00_y290.92"></a> de l’encapsulation **
+### **4.3. Principe<a name="_page6_x40.00_y290.92"></a> de l’encapsulation**
 
 ![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.044.png)
 
