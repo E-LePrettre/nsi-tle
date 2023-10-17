@@ -585,7 +585,7 @@ try:
    resultat = int(numerateur) / int(denominateur)   
 except ValueError:   
    print("La variable numérateur ou dénominateur possède un type incompatible avec la division.")   
-except ZeroDivisionError as division\_par\_zero : # ici on renomme l’exception   
+except ZeroDivisionError as division_par_zero : # ici on renomme l’exception   
    print("La valeur entrée au dénominateur est égale à 0.")   
 else:   
    print("Le résultat obtenu est", resultat)   
@@ -607,7 +607,7 @@ try:
    resultat = int(numerateur) / int(denominateur)   
 except ValueError:   
    print("La variable numérateur ou dénominateur possède un type incompatible avec la division.")   
-except ZeroDivisionError as division\_par\_zero : # ici on renomme l’exception   
+except ZeroDivisionError as division_par_zero : # ici on renomme l’exception   
    print("La valeur entrée au dénominateur est égale à 0.")   
 else:   
    print("Le résultat obtenu est", resultat)   
