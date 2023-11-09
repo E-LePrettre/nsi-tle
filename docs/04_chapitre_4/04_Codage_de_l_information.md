@@ -363,8 +363,7 @@ Exemple : 0b 1111 0111
 
 1 ★ Écrire un programme qui convertisse un nombre décimal en binaire. Utiliser une fonction dec2bin. On donne l’algorithme suivant : 
 
-'''
-Algorithme dec2bin
+'''Algorithme dec2bin
 	lire(nombre)
 	fonction(nombre)
 		binaire.ajout(nombre modulo 2)	{ ajout en fin de tableau }
@@ -375,8 +374,7 @@ Algorithme dec2bin
 			binaire.ajout(0)
 		binaire.renversée
 		mot := chaine de caractère correspondant à binaire
-	afficher(mot)
-'''
+	afficher(mot)'''
 
 
 **Aide :**  
