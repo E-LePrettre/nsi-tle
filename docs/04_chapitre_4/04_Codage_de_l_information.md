@@ -42,14 +42,14 @@ Beaucoup d'informaticiens ont appris que 1 kilooctet valait 1024 octets. Or, dep
 
 Voici les unités standardisées : 
 
-- Un kilooctet (ko)  = 103 octets 
-- Un mégaoctet (Mo)  = 106 octets 
-- Un gigaoctet (Go)  = 109 octets 
-- Un téraoctet (To)  = 1012 octets 
-- Un pétaoctet (Po)  = 1015 octets 
-- Un exaoctet (Eo)  = 1018 octets 
-- Un zettaoctet (Zo)  = 1021 octets 
-- Un 1yottaoctet (Yo)  = 1024 octets 
+- Un kilooctet (ko)  = 10<sup>3</sup> octets 
+- Un mégaoctet (Mo)  = 10<sup>6</sup> octets 
+- Un gigaoctet (Go)  = 10<sup>9</sup> octets 
+- Un téraoctet (To)  = 10<sup>12</sup> octets 
+- Un pétaoctet (Po)  = 10<sup>15</sup> octets 
+- Un exaoctet (Eo)  = 10<sup>18</sup> octets 
+- Un zettaoctet (Zo)  = 10<sup>21</sup> octets 
+- Un 1yottaoctet (Yo)  = 10<sup>24</sup> octets 
 
 Un mégaoctet devrait en principe valoir 1000 x 1000 octets, c'est-à- dire 1.000.000 d'octets, mais il vaut 1024 x 1024 octets en informatique, c'est-à-dire 1.048.576 octets... ce qui correspond à une différence de 4,63% ! 
 
@@ -60,7 +60,7 @@ Elle s’appuie sur **10 « symboles »** : 0, 1, 2, 3, 4, 5, 6, 7, 8, 9. On peu
 
 ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.008.png)
 
-185 = 1 × 102 + 8 × 101 + 5 × 100 
+185 = 1 × 10<sup>3</sup> + 8 × 10<sup>1</sup> + 5 × 10<sup>0</sup> 
 **La position des chiffres définit la valeur associée à ce chiffre.** 
 
 ### **2.2. La<a name="_page1_x40.00_y677.92"></a> base 2 ou base binaire** 
