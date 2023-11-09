@@ -363,7 +363,8 @@ Exemple : 0b 1111 0111
 
 1 ★ Écrire un programme qui convertisse un nombre décimal en binaire. Utiliser une fonction dec2bin. On donne l’algorithme suivant : 
 
-'''Algorithme dec2bin
+```
+Algorithme dec2bin
 	lire(nombre)
 	fonction(nombre)
 		binaire.ajout(nombre modulo 2)	{ ajout en fin de tableau }
@@ -374,7 +375,8 @@ Exemple : 0b 1111 0111
 			binaire.ajout(0)
 		binaire.renversée
 		mot := chaine de caractère correspondant à binaire
-	afficher(mot)'''
+	afficher(mot)
+```
 
 
 **Aide :**  
@@ -386,8 +388,11 @@ Exemple : 0b 1111 0111
 Tout au début du programme, ne pas oublier cette ligne : # coding: utf-8
 
 2 Indiquer l’utilité de cette ligne. 
-3 Donner la conversion de 1843 en binaire2. 
+
+3 Donner la conversion de 1843 en binaire. 
+
 4 Convertir -2 et conclure. 
+
 5 ★★★ Modifier le programme pour coder un nombre négatif selon la méthode du complément à 2. 
 
 **Aide :** 
@@ -399,10 +404,11 @@ Tout au début du programme, ne pas oublier cette ligne : # coding: utf-8
 * 40 en binaire => 010 1000 
 Le bit de signe donne donc 1010 1000 
 
-- Faire une deuxième fonction dec2bin\_negatif qui teste si le nombre entré est positif ou négatif et qui fait appel à la première fonction codée 
+- Faire une deuxième fonction dec2bin_negatif qui teste si le nombre entré est positif ou négatif et qui fait appel à la première fonction codée 
 
 
 6 Convertir -1 pour un codage sur un mot et conclure. 
+
 7 Convertir -1.1 et conclure. 
 
 Pour éviter que le programme « crash » sur une erreur de valeur d’entrée (ValueError), une façon de gérer cette erreur est d’intercepter le message d’erreur et de le traiter correctement à l’aide des instructions try et except. 
@@ -417,7 +423,9 @@ except ValueError:
 ```
 
 8 ★★ Modifier le programme précédent en conséquence. 
+
 9 ★★Faire une boucle infinie pour que le programme demande un autre nombre tant que la valeur n’est pas un entier relatif 
+
 10 Vérifier la cohérence et la stabilité du programme avec quelques tests : 1, -1, 0, 1.1, -1.0, a 
 
 **Exercice 6 :** Conversion hexadécimal – binaire
@@ -426,11 +434,12 @@ except ValueError:
 
 **Aide :**  
 - On utilisera une chaîne : chaine = "0123456789ABCDEF"
-
 - Et on pourra utiliser la méthode index()[ https://www.geeksforgeeks.org/python-list-index/ ](https://www.geeksforgeeks.org/python-list-index/)
 
 2 Donner les conversions de 1, A, a et A5 en décimal. 
+
 3 Donner la conversion de AZ et conclure. 
+
 4 Modifier votre programme comme précédemment pour gérer des erreurs éventuelles (bugs). 
 
 NB : on affichera « valeur héxadécimale incorrecte » 
@@ -447,6 +456,7 @@ def carre(nombre : int) -> int:
 ```
 
 5 Dans le programme hex2bin, faire un copier/coller du code du programme dec2bin. 
+
 6 ★★ Remodeler (refactor) le code pour le transformer en fonction dont le prototype sera le suivant : 
 ```dec2bin(nombre : int, nbits : int) -> list ```
 
@@ -457,9 +467,8 @@ def carre(nombre : int) -> int:
 7 Tester la fonction en l’appelant depuis le corps principal (main) du programme. 
 
 **Aide** :  
-   - Juste après la fonction : print(dec2bin(501, 10))
-
-   - vérifier que l’on obtient [0, 1, 1, 1, 1, 1, 0, 1, 0, 1]
+- Juste après la fonction : print(dec2bin(501, 10))
+- vérifier que l’on obtient [0, 1, 1, 1, 1, 1, 0, 1, 0, 1]
 
 8 A la suite de cette fonction, faire un copier/coller du code du programme hex2dec.
 
@@ -473,7 +482,6 @@ def carre(nombre : int) -> int:
 
 **Aide** :  
 - Juste après la fonction : print(hex2dec('AF'))
-
 - vérifier que l’on obtient 175
 
 11 ★★ Enchaîner les appels successifs pour afficher la valeur binaire sur 8 bits des nombres suivants : 1, A et A5. 
@@ -496,6 +504,7 @@ except :
 NB : L'objet Python None, exprime l'absence de valeur. Cet objet n'a aucune méthode. 
 
 14 ★★ Modifier le corps principal du programme pour tester la valeur de retour sur chaque fonction appelée. En cas d’erreur (valeur None), afficher le message d’erreur . 
+
 15 Créer un docstring pour chacune des fonctions du programme hex2bin. 
 
 Syntaxe, par exemple : 
