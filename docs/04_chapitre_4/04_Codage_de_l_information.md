@@ -482,6 +482,7 @@ def carre(nombre : int) -> int:
 
 **Aide** :  
 - Juste après la fonction : print(hex2dec('AF'))
+
 - vérifier que l’on obtient 175
 
 11 ★★ Enchaîner les appels successifs pour afficher la valeur binaire sur 8 bits des nombres suivants : 1, A et A5. 
