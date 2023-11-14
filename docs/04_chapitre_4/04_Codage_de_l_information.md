@@ -460,7 +460,7 @@ Exemple pour une fonction qui calcule le carré d’un nombre et renvoie la vale
 
 ```python
 def carre(nombre : int) -> int:     
-    return nombre \*\* 2 
+    return nombre ** 2 
 ```
 
 5 Dans le programme hex2bin, faire un copier/coller du code du programme dec2bin. 
