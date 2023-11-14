@@ -365,25 +365,16 @@ Exemple : 0b 1111 0111
 
 ```
 Algorithme dec2bin
-	lire(nombre)
 	fonction(nombre)
-		binaire.ajout(nombre modulo 2)	{ ajout en fin de tableau }
+		binaire := nombre modulo 2	# binaire étant un string
 		tantque nombre ≥ 2 faire
 			nombre := nombre / 2
-			binaire.ajout(nombre modulo 2)
+			binaire := ajout(nombre modulo 2) devant 
 		tantque longueur(binaire)<7
-			binaire.ajout(0)
-		binaire.renversée
-		mot := chaine de caractère correspondant à binaire
-	afficher(mot)
+			binaire : = ajout(0) devant
+	afficher(binaire)
 ```
 
-
-**Aide :**  
-
-- la méthode renversée avec reverse()[ https://www.geeksforgeeks.org/python-list-reverse/ ](https://www.geeksforgeeks.org/python-list-reverse/)ou avec slicing inverse : binaire[::-1]
-- pour transformer la liste en chaine de caractère : 
-```mot=''.join(str(element) for element in binaire) ```
 
 Tout au début du programme, ne pas oublier cette ligne : # coding: utf-8
 
@@ -393,23 +384,29 @@ Tout au début du programme, ne pas oublier cette ligne : # coding: utf-8
 
 4 Convertir -2 et conclure. 
 
-5 ★★★ Modifier le programme pour coder un nombre négatif selon la méthode du complément à 2. 
+5 ★★ Modifier le programme pour coder un nombre négatif. On rajoutera une deuxième fonction dec2bin_negatif qui convertit un nombre négatif en binaire 
 
 **Aide :** 
 
-- Le complément à 2 peut être calculer par une autre méthode : Sur 8 bits, -88 en complément à 2 correspond au nombre binaire suivant : 
+- 	Les nombres entiers positifs sont codés sur 1 octet donc on peut les coder entre 0 et et 255. Les nombres entiers signés sont également codés sur 1 octet entre -128 à 127. 
+-  Les nombres positifs commence par 0
+-  Les nombres négatifs commence par 1.
+-  Le complément à 2 peut être calculer par une autre méthode : Sur 8 bits, -88 en complément à 2 correspond au nombre binaire suivant :
+ 
 
 * 2<sup>7</sup> – 88 = 40 
 
 * 40 en binaire => 010 1000 
-Le bit de signe donne donc 1010 1000 
-
-- Faire une deuxième fonction dec2bin_negatif qui teste si le nombre entré est positif ou négatif et qui fait appel à la première fonction codée 
+Le bit de signe donne donc **1**010 1000 
 
 
 6 Convertir -1 pour un codage sur un mot et conclure. 
 
-7 Convertir -1.1 et conclure. 
+7 Faire une troisième fonction **conversion** qui teste si le nombre entré est positif ou négatif et qui fait appel aux deux autres fonctions codées.  
+
+8   Tester avec 88 et -88 et vérifier avec l’exercice précédent
+9   Convertir -1.1 et conclure.
+
 
 Pour éviter que le programme « crash » sur une erreur de valeur d’entrée (ValueError), une façon de gérer cette erreur est d’intercepter le message d’erreur et de le traiter correctement à l’aide des instructions try et except. 
 
@@ -421,12 +418,23 @@ try:
 except ValueError:
     # afficher « erreur de valeur »
 ```
+Ou 
+```
+assert isinstance(nombre, int), « phrase à écrire »
+```
+Ou 
+```
+assert type(nombre)== int, « phrase à écrire »
+```
 
-8 ★★ Modifier le programme précédent en conséquence. 
 
-9 ★★Faire une boucle infinie pour que le programme demande un autre nombre tant que la valeur n’est pas un entier relatif 
+10 ★★ Modifier le programme précédent en conséquence. 
 
-10 Vérifier la cohérence et la stabilité du programme avec quelques tests : 1, -1, 0, 1.1, -1.0, a 
+**On peut rajouter d’autres fonctionnalité**
+
+11 ★★Faire une boucle infinie pour que le programme demande un autre nombre tant que la valeur n’est pas un entier relatif 
+
+12 Vérifier la cohérence et la stabilité du programme avec quelques tests : 1, -1, 0, 88, etc…
 
 **Exercice 6 :** Conversion hexadécimal – binaire
 
