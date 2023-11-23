@@ -365,48 +365,68 @@ Exemple : 0b 1111 0111
 
 ```
 Algorithme dec2bin
-	fonction(nombre)
-		binaire := nombre modulo 2	# binaire étant un string
+	fonction(nombre : entier) renvoie un string
+		binaire := nombre modulo 2	# binaire étant un string 
 		tantque nombre ≥ 2 faire
 			nombre := nombre / 2
 			binaire := ajout(nombre modulo 2) devant 
 		tantque longueur(binaire)<7
 			binaire : = ajout(0) devant
-	afficher(binaire)
+	    renvoyer(binaire)
 ```
 
 
 Tout au début du programme, ne pas oublier cette ligne : # coding: utf-8
 
-2 Indiquer l’utilité de cette ligne. 
+2 Vérifier les conversions suivantes:
 
-3 Donner la conversion de 1843 en binaire. 
+- dec2bin(1843) == '11100110011' 
+- dec2bin(43) == '0101011'
 
-4 Convertir -2 et conclure. 
+3 Convertir -2 et conclure. 
 
-5 ★★ Modifier le programme pour coder un nombre négatif. On rajoutera une deuxième fonction dec2bin_negatif qui convertit un nombre négatif en binaire 
+4 ★★ Modifier le programme pour coder un nombre négatif : pour cela, on rajoutera une deuxième fonction dec2bin_negatif(nombre : int)-> str qui convertit un nombre négatif en binaire
 
 **Aide :** 
 
 - 	Les nombres entiers positifs sont codés sur 1 octet donc on peut les coder entre 0 et et 255. Les nombres entiers signés sont également codés sur 1 octet entre -128 à 127. 
 -  Les nombres positifs commence par 0
 -  Les nombres négatifs commence par 1.
--  Le complément à 2 peut être calculer par une autre méthode : Sur 8 bits, -88 en complément à 2 correspond au nombre binaire suivant :
- 
+-  Le complément à 2 peut être calculer par une autre méthode : 
+
+Sur 8 bits, -88 en complément à 2 correspond au nombre binaire suivant :
 
 * 2<sup>7</sup> – 88 = 40 
 
 * 40 en binaire => 010 1000 
+
 Le bit de signe donne donc **1**010 1000 
 
+**On prototype** une fonction en indiquant son nom, le type des éventuels paramètres et de la valeur renvoyée le cas échéant. 
 
-6 Convertir -1 pour un codage sur un mot et conclure. 
+Exemple pour une fonction qui calcule le carré d’un nombre et renvoie la valeur trouvée : 
 
-7 Faire une troisième fonction **conversion** qui teste si le nombre entré est positif ou négatif et qui fait appel aux deux autres fonctions codées.  
+```python
+def carre(nombre : int) -> int:     
+    return nombre ** 2 
+```
 
-8   Tester avec 88 et -88 et vérifier avec l’exercice précédent
-9   Convertir -1.1 et conclure.
 
+5	Vérifier les conversions suivantes
+
+- dec2bin_negatif(-2) == '11111110'
+- dec2bin_negatif(-1) == '11111111'
+
+
+6 Faire une troisième fonction **conversion(nombre : int)-> str** qui teste si le nombre entré est positif ou négatif et qui fait appel aux deux autres fonctions codées et qui renverra la conversion du nombre positif ou négatif en binaire.
+
+7 Vérifier les conversions suivantes :
+
+- conversion(88) == '01011000'
+- conversion(-88) == '10101000'
+
+8	Convertir -1.1 et conclure.
+ 
 
 Pour éviter que le programme « crash » sur une erreur de valeur d’entrée (ValueError), une façon de gérer cette erreur est d’intercepter le message d’erreur et de le traiter correctement à l’aide des instructions try et except. 
 
@@ -427,110 +447,14 @@ Ou
 assert type(nombre)== int, « phrase à écrire »
 ```
 
+9 ★★ Modifier le programme précédent en conséquence. 
 
-10 ★★ Modifier le programme précédent en conséquence. 
-
-**On peut rajouter d’autres fonctionnalité**
-
-11 ★★Faire une boucle infinie pour que le programme demande un autre nombre tant que la valeur n’est pas un entier relatif 
-
-12 Vérifier la cohérence et la stabilité du programme avec quelques tests : 1, -1, 0, 88, etc…
-
-**Exercice 6 :** Conversion hexadécimal – binaire
-
-1 ★★★ Écrire un programme hex2dec qui convertisse un nombre hexadécimal en décimal non signé. !
-
-**Aide :**  
-- On utilisera une chaîne : chaine = "0123456789ABCDEF"
-- Et on pourra utiliser la méthode index()[ https://www.geeksforgeeks.org/python-list-index/ ](https://www.geeksforgeeks.org/python-list-index/)
-
-2 Donner les conversions de 1, A, a et A5 en décimal. 
-
-3 Donner la conversion de AZ et conclure. 
-
-4 Modifier votre programme comme précédemment pour gérer des erreurs éventuelles (bugs). 
-
-NB : on affichera « valeur héxadécimale incorrecte » 
-
-On souhaite réutiliser le code de programme dec2bin pour écrire un programme hex2bin qui convertisse un nombre hexadécimal en binaire. Pour cela, il « suffit » de récupérer la valeur obtenue par hex2dec et la passer à dec2bin. 
-
-**On prototype** une fonction en indiquant son nom, le type des éventuels paramètres et de la valeur renvoyée le cas échéant. 
-
-Exemple pour une fonction qui calcule le carré d’un nombre et renvoie la valeur trouvée : 
-
-```python
-def carre(nombre : int) -> int:     
-    return nombre ** 2 
-```
-
-5 Dans le programme hex2bin, faire un copier/coller du code du programme dec2bin. 
-
-6 ★★ Remodeler (refactor) le code pour le transformer en fonction dont le prototype sera le suivant : 
-```dec2bin(nombre : int, nbits : int) -> list ```
-
-- nombre est le nombre décimal à convertir 
-- nbits est le nombre de bits 
-- la fonction renvoie la conversion sous forme d’une liste binaire (au lieu de l’afficher) 
-
-7 Tester la fonction en l’appelant depuis le corps principal (main) du programme. 
-
-**Aide** :  
-- Juste après la fonction : print(dec2bin(501, 10))
-- vérifier que l’on obtient [0, 1, 1, 1, 1, 1, 0, 1, 0, 1]
-
-8 A la suite de cette fonction, faire un copier/coller du code du programme hex2dec.
-
-9 ★★ Remodeler (refactor) le code pour le transformer en fonction dont le prototype sera le suivant : 
-```hex2dec(hexa : str) -> int ```
-
-- hexa est le nombre hexadécimal à convertir 
-- la fonction renvoie la conversion sous forme d’un nombre décimal 
-
-10 Tester la fonction en l’appelant dans le corps principal (main) du programme. 
-
-**Aide** :  
-- Juste après la fonction : print(hex2dec('AF'))
-
-- vérifier que l’on obtient 175
-
-11 ★★ Enchaîner les appels successifs pour afficher la valeur binaire sur 8 bits des nombres suivants : 1, A et A5. 
-
-12 Donner la conversion de AZ et conclure. 
-
-Traiter l’erreur en local a ses limites : il faut faire remonter l’erreur vers les couches supérieures. La dernière couche traitera en dernier l’erreur selon des spécifications bien précises. 
-
-13 ★★ Modifier les fonctions hex2dec et dec2bin pour qu’elles renvoient « None » au lieu d’afficher une erreur.  
-
-Syntaxe : 
-
-```
-try:
-    # bloc d’instructions à exécuter
-except :
-    return None
-```
-
-NB : L'objet Python None, exprime l'absence de valeur. Cet objet n'a aucune méthode. 
-
-14 ★★ Modifier le corps principal du programme pour tester la valeur de retour sur chaque fonction appelée. En cas d’erreur (valeur None), afficher le message d’erreur . 
-
-15 Créer un docstring pour chacune des fonctions du programme hex2bin. 
-
-Syntaxe, par exemple : 
-
-```python
-def fonction (x : int, y : int) -> tuple:     
-    """
-    fonction qui …
-    :param x: int
-    :param y: int
-    :return: tuple
-    """
-```
 
 Convertisseur en ligne :[ https://www.exploringbinary.com/twos-complement-converter/ ](https://www.exploringbinary.com/twos-complement-converter/)
 
-QCM :[ http://www.scientillula.net/MPI/fex6_conversions/fex6_conversions.html ](http://www.scientillula.net/MPI/fex6_conversions/fex6_conversions.html)QCM 2 :[ http://fabrice.sincere.free.fr/qcm/qcm.php?nom=qcm_numerique](http://fabrice.sincere.free.fr/qcm/qcm.php?nom=qcm_numerique)
+QCM :[ http://www.scientillula.net/MPI/fex6_conversions/fex6_conversions.html ](http://www.scientillula.net/MPI/fex6_conversions/fex6_conversions.html)
+
+QCM 2 :[ http://fabrice.sincere.free.fr/qcm/qcm.php?nom=qcm_numerique](http://fabrice.sincere.free.fr/qcm/qcm.php?nom=qcm_numerique)
 
 ## **5.  Représentation des nombres réels<a name="_page12_x40.00_y36.92"></a>** 
 
@@ -643,88 +567,52 @@ En convertissant en hexadécimal :
 
 ## **6.  Exercices<a name="_page15_x40.00_y36.92"></a>** 
 
-**Exercice 7** convertir en base 10  
+**Exercice 6** convertir en base 10  
 
 1. 0,0101010101<sub>2</sub>  
 2. 11100,10001<sub>2</sub> 
 
-**Exercice 8 :** Convertir en binaire puis en norme IEEE-754 
+**Exercice 7 :** Convertir en binaire puis en norme IEEE-754 
 
 1. 5,1875
 2. 4,3125
 3. 0,3125 
 
-**Exercice 9** : **conversion des flottants** 
+**Exercice 8** : **conversion des flottants** 
 
-On souhaite transformer un nombre binaire décimal en base 10. Pour simplifier, on va déjà écrire un programme qui transforme la partie décimale en binaire, puis dans un deuxième temps on transformera la partie entière. 
-
-**PARTIE I**
-
-1 ★ Écrire un programme bin2float.py qui convertisse la partie décimale d’un nombre binaire en flottant. 
-
-**Aide** : on pourra utiliser la méthode split() de l’objet str pour récupérer la partie décimale. On utilisera le séparateur ','. Attention ce n’est pas une méthode en place donc il faut la réaffecter :[ https://www.w3schools.com/python/ref_string_split.asp ](https://www.w3schools.com/python/ref_string_split.asp)
-
-2 ★ Transformer 0,0101010101<sub>2</sub> et 11100,10001<sub>2</sub> en base 10. 
-
-**Aide** : ```print(bin2float(nombre)) ```
-
-3 ★ Modifier le programme précédent pour créer une fonction avec le prototype suivant : 
-```decimale(nom_variable_a_changer : str) -> float```
- 
-- binaire : chaine binaire de la partie décimale
-
-- la fonction doit renvoyer le nombre flottant correspondant 
-
-4 ★ Ajouter une fonction qui convertisse en base 10 la partie entière du binaire. Le prototype est le suivant : 
-```entiere(nom_variable_a_changer : str) -> int```
-
-5  ★ Enchaîner les appels successifs pour transformer un nombre binaire décimal en base 10. On utilisera une fonction avec le prototype suivant : 
-```bin2float(nombre : str) -> float```
+On souhaite transformer un nombre binaire décimal en base 10. Pour simplifier, on va déjà écrire un programme qui transforme **la partie décimale en binaire**, **puis** dans un deuxième temps on transformera **la partie entière**. 
 
 
-**PARTIE II** 
-On souhaite maintenant réaliser l’opération inverse et transformer un flottant en binaire. Pour cela, on va encore séparer le problème en deux sous problèmes : d’abord transformer la partie décimale, puis terminer avec la partie entière. 
+1	★ Écrire un programme **decimal(nombre : str) -> float** qui convertisse la partie décimale d’un nombre binaire en flottant.
 
-6 ★ Écrire un programme float2bin qui convertisse la partie décimale d’un nombre flottant en binaire. On donne l’algorithme : 
+**Aide** : on pourra utiliser la méthode split() de l’objet str pour récupérer la partie décimale. 
+On utilisera le séparateur ','. Attention ce n’est pas une méthode en place donc il faut la réaffecter : [https://www.w3schools.com/python/ref_string_split.asp](https://www.w3schools.com/python/ref_string_split.asp)
 
-````
-algorithme float2bin
-tantque decimal <> 0 ET i < precision faire
-      decimal := decimal * 2
-      si decimal < 1 alors
-            binaire := binaire + "0"
-      sinon
-            binaire := binaire + "1"
-             decimal := decimal modulo 1
-             i := i + 1
-````
+On pourra s’aider de ce bout de script :
 
-decimal <> 0 signifie différent de 0 
+```
+nombre = str(nombre) # on convertit le nombre en string
+x = nombre.split(',') # on le sépare en 2 selon la place de la virgule
+decimal = x[1] # partie décimale qui sera un str
+entier = x[0] # partie entière qui sera un str
+```
+on n’utilisera pas la variable « entier » dans cette fonction
 
-7 Donner la signification de l’instruction : decimal := decimal modulo 1 
+2	Vérifier les conversions suivantes :
 
-8 Tester le programme. Résultat attendu : 0101100011010100. 
+- decimal('0,0101010101') == 0.3330078125
+- decimal('11100,10001') == 0.53125
 
-9 ★ Modifier le programme précédent pour créer une fonction avec le prototype suivant : 
-```bin_decimal(decimal : float, precision : int) -> str```
+3	★ Ajouter une fonction qui convertisse en base 10 la partie entière du binaire. 
+Le prototype est le suivant : **entiere(nombre : str) -> int**
+Aide : Penser à utiliser la méthode split comme précédemment
 
-- décimal : partie décimale du nombre flottant 
-- precision : précision souhaité dans le calcul 
-- la fonction doit renvoyer la chaîne binaire correspondante 
+4	Vérifier que **entiere('11100,10001') == 28**
+5	★ Enchaîner les appels successifs des 2 autres fonctions pour transformer un nombre binaire décimal en base 10. On utilisera une fonction avec le prototype suivant :
+**bin2float(nombre : str) -> float**
+6	Vérifier que **bin2float('11100,10001') == 28.53125**
 
-10 Transformer 0,5625 et 0,15 en base 2. 
 
-11 ★★Ajouter une fonction qui convertisse en base 2 la partie entière du nombre flottant. Le prototype est le suivant : 
-```bin_entiere(entier :int) -> str``` 
-
-**Aide** : on pourra utiliser la fonction float(),  int() et le modulo 1 
-
-12 ★★ Enchaîner les appels successifs pour transformer un nombre binaire décimal en base 10. On utilisera une fonction avec le prototype suivant : 
-```float2bin(nombre : str) -> str```
- 
-13 Transformer 12,9 en base 2.
-
-14 ★ Créer un docstring pour chacune des fonctions du programme float2bin. 
 
 ## **7.  Codage des caractères<a name="_page16_x40.00_y36.92"></a>** 
 
