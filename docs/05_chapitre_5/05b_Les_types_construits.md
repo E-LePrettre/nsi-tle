@@ -21,7 +21,7 @@ Nous allons étudier plus particulièrement 2 types de séquences **: les tuples
 Les **tuples** sont des séquences (ou p-uplet), assez semblables aux listes, sauf qu'on ne peut **PAS MODIFIER** un tuple après qu'il ait été créé :  ils sont **non mutables.** Cela signifie qu'on définit le contenu d'un tuple (les objets qu'il doit contenir) lors de sa création, mais qu'on ne peut en ajouter ou en retirer par la suite. 
 
 
-**Activité n°1.: Les parentaises sont facultatives**  
+**Activité n°1.: Les parenthèses sont facultatives**  
 
 ```python
 tuple = 'a', 123 , True
