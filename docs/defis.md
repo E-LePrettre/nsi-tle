@@ -3,9 +3,11 @@
 ..............................................................................
 
 Un grand merci Laurent Abbal, l'auteur du site [codepuzzle.io](https://www.codepuzzle.io/), pour son formidable travail
+
 ..............................................................................
 
 [Défi au hasard](https://www.codepuzzle.io/DVZJ6)
+
 ..............................................................................
 
 **Liste des défis**
@@ -76,5 +78,7 @@ Un grand merci Laurent Abbal, l'auteur du site [codepuzzle.io](https://www.codep
 [Défi n°32](https://www.codepuzzle.io/DAGJE) écrire la fonction ecriture_binaire...
 
 [Défi n°33](https://www.codepuzzle.io/DC6BQ) écrire la fonction renverse...
+
+..............................................................................
 
 Un grand merci également à David Roche pour son tableau
