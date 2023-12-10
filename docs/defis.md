@@ -1,14 +1,15 @@
 # 🏷️ Défis Programmation
 
--------------------
+..............................................................................
 
 Un grand merci Laurent Abbal, l'auteur du site [codepuzzle.io](https://www.codepuzzle.io/), pour son formidable travail
+..............................................................................
 
 [Défi au hasard](https://www.codepuzzle.io/DVZJ6)
+..............................................................................
 
 **Liste des défis**
 
-numéro défi                 description
 
 [Défi n°1](https://www.codepuzzle.io/DW4KV) écrire la fonction maxListe...
 
