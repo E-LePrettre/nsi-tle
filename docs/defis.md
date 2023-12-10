@@ -1,147 +1,431 @@
-# 🏷️ Défis Programmation
+<div class="content">
 
--------------------
+<div class="titre">
+
+## Défis Programmation
 
 Un grand merci Laurent Abbal, l'auteur du site [codepuzzle.io](https://www.codepuzzle.io/), pour son formidable travail
 
-[Défi au hasard](https://www.codepuzzle.io/DVZJ6)
+</div>
 
-Liste des défis
+<div class="hasard_defi">[Défi au hasard](https://www.codepuzzle.io/DVZJ6)</div>
 
-numéro défi
+<div class="liste_defi">
 
-description
+<table><caption>Liste des défis</caption>
 
-[Défi n°1](https://www.codepuzzle.io/DW4KV)
+<tbody>
+
+<tr>
+
+<th>numéro défi</th>
+
+<th>description</th>
+
+</tr>
+
+<tr>
+
+<td>[Défi n°1](https://www.codepuzzle.io/DW4KV)</td>
+
+<td>
 
 écrire la fonction maxListe...
 
-[Défi n°2](https://www.codepuzzle.io/DA7MF)
+</td>
+
+</tr>
+
+<tr>
+
+<td>[Défi n°2](https://www.codepuzzle.io/DA7MF)</td>
+
+<td>
 
 écrire la fonction multiplication...
 
-[Défi n°3](https://www.codepuzzle.io/DQ4A8)
+</td>
 
-écrire la fonction max\_dico...
+</tr>
 
-[Défi n°4](https://www.codepuzzle.io/DVZJ6)
+<tr>
+
+<td>[Défi n°3](https://www.codepuzzle.io/DQ4A8)</td>
+
+<td>
+
+écrire la fonction max_dico...
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>[Défi n°4](https://www.codepuzzle.io/DVZJ6)</td>
+
+<td>
 
 écrire la fonction fusion...
 
-[Défi n°5](https://www.codepuzzle.io/D5PYG)
+</td>
+
+</tr>
+
+<tr>
+
+<td>[Défi n°5](https://www.codepuzzle.io/D5PYG)</td>
+
+<td>
 
 écrire la fonction recherche...
 
-[Défi n°6](https://www.codepuzzle.io/DJPXR)
+</td>
+
+</tr>
+
+<tr>
+
+<td>[Défi n°6](https://www.codepuzzle.io/DJPXR)</td>
+
+<td>
 
 écrire la fonction doublon...
 
-[Défi n°7](https://www.codepuzzle.io/D2MXJ)
+</td>
+
+</tr>
+
+<tr>
+
+<td>[Défi n°7](https://www.codepuzzle.io/D2MXJ)</td>
+
+<td>
 
 écrire la fonction moyenne...
 
-[Défi n°8](https://www.codepuzzle.io/D9GLK)
+</td>
 
-écrire la fonction indices\_maxi...
+</tr>
 
-[Défi n°9](https://www.codepuzzle.io/D2JZH)
+<tr>
+
+<td>[Défi n°8](https://www.codepuzzle.io/D9GLK)</td>
+
+<td>
+
+écrire la fonction indices_maxi...
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>[Défi n°9](https://www.codepuzzle.io/D2JZH)</td>
+
+<td>
 
 écrire la fonction verifie...
 
-[Défi n°10](https://www.codepuzzle.io/DEZCY)
+</td>
+
+</tr>
+
+<tr>
+
+<td>[Défi n°10](https://www.codepuzzle.io/DEZCY)</td>
+
+<td>
 
 écrire la fonction estpresent...
 
-[Défi n°11](https://www.codepuzzle.io/DFKHX)
+</td>
+
+</tr>
+
+<tr>
+
+<td>[Défi n°11](https://www.codepuzzle.io/DFKHX)</td>
+
+<td>
 
 écrire la fonction convertir...
 
-[Défi n°12](https://www.codepuzzle.io/DL2PC)
+</td>
+
+</tr>
+
+<tr>
+
+<td>[Défi n°12](https://www.codepuzzle.io/DL2PC)</td>
+
+<td>
 
 écrire la fonction recherche...
 
-[Défi n°13](https://www.codepuzzle.io/D3JVA)
+</td>
+
+</tr>
+
+<tr>
+
+<td>[Défi n°13](https://www.codepuzzle.io/D3JVA)</td>
+
+<td>
 
 écrire la fonction recherche...
 
-[Défi n°14](https://www.codepuzzle.io/D3DPY)
+</td>
+
+</tr>
+
+<tr>
+
+<td>[Défi n°14](https://www.codepuzzle.io/D3DPY)</td>
+
+<td>
 
 écrire la fonction mini...
 
-[Défi n°15](https://www.codepuzzle.io/DLN75)
+</td>
+
+</tr>
+
+<tr>
+
+<td>[Défi n°15](https://www.codepuzzle.io/DLN75)</td>
+
+<td>
 
 écrire la fonction recherche...
 
-[Défi n°16](https://www.codepuzzle.io/D34WN)
+</td>
 
-écrire la fonction max\_et\_indice...
+</tr>
 
-[Défi n°17](https://www.codepuzzle.io/DMR79)
+<tr>
 
-écrire la fonction recherche\_dicho...
+<td>[Défi n°16](https://www.codepuzzle.io/D34WN)</td>
 
-[Défi n°18](https://www.codepuzzle.io/DDUA2)
+<td>
 
-écrire la fonction ajoute\_dico...
+écrire la fonction max_et_indice...
 
-[Défi n°19](https://www.codepuzzle.io/D6GC7)
+</td>
 
-écrire la fonction delta\_encoding...
+</tr>
 
-[Défi n°20](https://www.codepuzzle.io/D92HY)
+<tr>
 
-écrire la fonction nbre\_occurences chaine...
+<td>[Défi n°17](https://www.codepuzzle.io/DMR79)</td>
 
-[Défi n°21](https://www.codepuzzle.io/D4KNP)
+<td>
+
+écrire la fonction recherche_dicho...
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>[Défi n°18](https://www.codepuzzle.io/DDUA2)</td>
+
+<td>
+
+écrire la fonction ajoute_dico...
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>[Défi n°19](https://www.codepuzzle.io/D6GC7)</td>
+
+<td>
+
+écrire la fonction delta_encoding...
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>[Défi n°20](https://www.codepuzzle.io/D92HY)</td>
+
+<td>
+
+écrire la fonction nbre_occurences chaine...
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>[Défi n°21](https://www.codepuzzle.io/D4KNP)</td>
+
+<td>
 
 écrire la fonction enumere...
 
-[Défi n°22](https://www.codepuzzle.io/DF64A)
+</td>
 
-écrire la fonction recherche\_mini...
+</tr>
 
-[Défi n°23](https://www.codepuzzle.io/DET9D)
+<tr>
+
+<td>[Défi n°22](https://www.codepuzzle.io/DF64A)</td>
+
+<td>
+
+écrire la fonction recherche_mini...
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>[Défi n°23](https://www.codepuzzle.io/DET9D)</td>
+
+<td>
 
 écrire la fonction moyenne...
 
-[Défi n°24](https://www.codepuzzle.io/D5GHK)
+</td>
 
-écrire la fonction nb\_repetitions...
+</tr>
 
-[Défi n°25](https://www.codepuzzle.io/D79SJ)
+<tr>
 
-écrire la fonction min\_et\_max...
+<td>[Défi n°24](https://www.codepuzzle.io/D5GHK)</td>
 
-[Défi n°26](https://www.codepuzzle.io/DTLK2)
+<td>
 
-écrire la fonction ou\_exclusif...
+écrire la fonction nb_repetitions...
 
-[Défi n°27](https://www.codepuzzle.io/DQH9Z)
+</td>
 
-écrire la fonction couples\_consecutifs...
+</tr>
 
-[Défi n°28](https://www.codepuzzle.io/DYS2C)
+<tr>
+
+<td>[Défi n°25](https://www.codepuzzle.io/D79SJ)</td>
+
+<td>
+
+écrire la fonction min_et_max...
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>[Défi n°26](https://www.codepuzzle.io/DTLK2)</td>
+
+<td>
+
+écrire la fonction ou_exclusif...
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>[Défi n°27](https://www.codepuzzle.io/DQH9Z)</td>
+
+<td>
+
+écrire la fonction couples_consecutifs...
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>[Défi n°28](https://www.codepuzzle.io/DYS2C)</td>
+
+<td>
 
 écrire la fonction correspond...
 
-[Défi n°29](https://www.codepuzzle.io/DG93P)
+</td>
 
-écrire la fonction nombre\_de\_mots...
+</tr>
 
-[Défi n°30](https://www.codepuzzle.io/DKDFB)
+<tr>
 
-écrire la fonction recherche\_caractere\_chaine...
+<td>[Défi n°29](https://www.codepuzzle.io/DG93P)</td>
 
-[Défi n°31](https://www.codepuzzle.io/DHYUM)
+<td>
 
-écrire la fonction tri\_selection...
+écrire la fonction nombre_de_mots...
 
-[Défi n°32](https://www.codepuzzle.io/DAGJE)
+</td>
 
-écrire la fonction ecriture\_binaire...
+</tr>
 
-[Défi n°33](https://www.codepuzzle.io/DC6BQ)
+<tr>
+
+<td>[Défi n°30](https://www.codepuzzle.io/DKDFB)</td>
+
+<td>
+
+écrire la fonction recherche_caractere_chaine...
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>[Défi n°31](https://www.codepuzzle.io/DHYUM)</td>
+
+<td>
+
+écrire la fonction tri_selection...
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>[Défi n°32](https://www.codepuzzle.io/DAGJE)</td>
+
+<td>
+
+écrire la fonction ecriture_binaire...
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>[Défi n°33](https://www.codepuzzle.io/DC6BQ)</td>
+
+<td>
 
 écrire la fonction renverse...
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
 
 Un grand merci également à David Roche pour son tableau
