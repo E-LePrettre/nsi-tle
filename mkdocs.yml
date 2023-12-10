@@ -110,7 +110,7 @@ plugins:
         collapse_single_pages: true
   - macros
   - tags:
-      tags_file: tags.md
+      tags_file: defis.md
   
 
 extra_javascript:
