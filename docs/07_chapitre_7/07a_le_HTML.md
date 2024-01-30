@@ -309,13 +309,13 @@ Par exemple :
 
 ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.046.jpeg)
 
-**Remarque** : Si vous faites un lien vers un site qui comporte une adresse un peu bizarre avec des &, comme : ```http://www.site.com/?data=15&name=mateo21```, vous devrez remplacer tous les « & » par « &amp; » dans votre lien comme ceci :```http://www.site.com/?data=15&amp;name=mateo21```. 
+**Remarque** : Si vous faites un lien vers un site qui comporte une adresse un peu bizarre avec des &, comme : ```http://www.site.com/?data=15&name=mateo21```, vous devrez remplacer tous les « & » par « ```&amp;``` » dans votre lien comme ceci :```http://www.site.com/?data=15&amp;name=mateo21```. 
 
 #### **4.6.2. Lien<a name="_page8_x40.00_y259.92"></a> relatif vers une page d’un même dossier** 
 
 Pour faire un lien vers une page située dans un même dossier, on crée un lien relatif. Il suffit d’utiliser les balises ```<a>``` avec l’attribut href.  
 
-**Activité n°16.** : Créer un nouvelle page html page2.html dans le dossier Documents\site** (Titre : Page 2). Après avoir rempli, la **structure minimale de la nouvelle page html** : 
+**Activité n°16.** : Créer une nouvelle page html page2.html dans le dossier Documents\site** (Titre : Page 2). Après avoir rempli, la **structure minimale de la nouvelle page html** : 
 
 ```html
 <p>
@@ -331,7 +331,7 @@ Pour faire un lien vers une page située dans un sous dossier, on utilise le che
 
 **Activité n°17.** : Créer un dossier **contenu** dans le dossier Documents\site**.** Créer un nouvelle page html page3.html** avec la **structure minimale** dans le dossier contenu (Titre : Page3). Sur la page2.html, rajouter : 
 
-html
+```html
 <p>
     Pour consulter la <a href="contenu/page3.html">page 3 </a> du site
 </p>
