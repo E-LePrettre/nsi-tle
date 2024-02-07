@@ -7,8 +7,8 @@ title: 07c Le Javascript
 
 1. [Qu'est-ce que JavaScript et à quoi sert-il ? ](#_page0_x40.00_y687.92)
 2. [Comment utiliser JavaScript avec HTML et CSS ?](#_page1_x40.00_y280.92)
-3. [La syntaxe ](#_page2_x40.00_y113.92)
-4. [Boite de dialogue](#_page2_x40.00_y237.92)
+3. [Boite de dialogue](#_page2_x40.00_y237.92)
+4. [La console](#_page2_x40.00_y113.92)
 5. [Les variables](#_page2_x40.00_y641.92)
 6. [Les conditions](#_page4_x40.00_y693.92)
 7. [Les opérateurs logiques](#_page6_x40.00_y544.92)
@@ -19,20 +19,20 @@ title: 07c Le Javascript
 12. [Exercices ](#_page18_x40.00_y36.92)
 
 
-## **1. Qu'est-ce que JavaScript et à quoi sert-il ? <a name="_page0_x40.00_y687.92"></a> **
+## **1. Qu'est-ce que JavaScript et à quoi sert-il ? <a name="_page0_x40.00_y687.92"></a>**
 ![](Aspose.Words.e9d0b6b1-5c5b-49ac-81ba-f1da180d728c.004.png)
 
-JavaScript est un langage de programmation de scripts côté client. Il est utilisé pour créer des  pages web **interactives** et **dynamiques** en ajoutant des fonctionnalités telles que les  **animations**, les **formulaires interactifs**, les **scripts de validation**, les **galeries d'images,** etc.  sans avoir besoin de charger une nouvelle page du serveur. 
+Javascript est un langage de programmation utilisé **côté client** pour créer des fonctionnalités interactives sur les sites web.
+Javascript est **polyvalent, compatible** avec tous les navigateurs et permet la manipulation du contenu web en temps réel.
 
-JavaScript  peut  être  utilisé  conjointement  avec  HTML  et  CSS  pour  créer  des  pages  web  complètes et riches en fonctionnalités. Il fonctionne dans les navigateurs web modernes sur les  ordinateurs de bureau et les appareils mobiles, ce qui en fait un outil de développement web très puissant et largement utilisé.s![](Aspose.Words.e9d0b6b1-5c5b-49ac-81ba-f1da180d728c.005.png)
 
 Le Javascript est un langage dit **client-side** c’est-à-dire que les scripts sont exécutés par le navigateur chez ![](Aspose.Words.e9d0b6b1-5c5b-49ac-81ba-f1da180d728c.006.png)![](Aspose.Words.e9d0b6b1-5c5b-49ac-81ba-f1da180d728c.007.png)![](Aspose.Words.e9d0b6b1-5c5b-49ac-81ba-f1da180d728c.008.png)l’internaute. 
 
 Pour cela :  
 
-- votre ordinateur récupère le code  source d'une page web sur un  serveur.  
-- votre navigateur interprète la  page et les scripts qu'elle  contient.  
-- la page formatée s'affiche sur  votre écran. Les scripts, quant à  eux, sont mis en mémoire et  seront lancés dès que l'événement  attendu se produira  
+- votre ordinateur **récupère le code  source d'une page web** sur un  serveur.  
+- votre navigateur **interprète la  page et les scripts** qu'elle  contient.  
+- la page **formatée s'affiche sur  votre écran**. Les scripts, quant à  eux, sont mis en mémoire et  seront lancés dès que l'événement  attendu se produira  
 ![](Aspose.Words.e9d0b6b1-5c5b-49ac-81ba-f1da180d728c.009.png)
 
 ## **2. Comment<a name="_page1_x40.00_y280.92"></a> utiliser JavaScript avec HTML et CSS ?** 
@@ -56,14 +56,19 @@ En intégrant le code JavaScript directement dans la page HTML, à l'intérieur 
 </html>
 ```
 
-On peut les placer **soit dans l'en-tête** (```<head>``` ... ```</head>```;), **soit dans le corps** (```<body>``` ... ```</body>```;) de la page HTML. 
 
-### **2.2. Fichier<a name="_page1_x40.00_y558.92"></a> js externalisé  **
+### **2.2. Fichier<a name="_page1_x40.00_y558.92"></a> js externalisé**
 ![](Aspose.Words.e9d0b6b1-5c5b-49ac-81ba-f1da180d728c.013.png)
 
 Pour bien faire on externalise dans un dossier js. 
 
 On écrit le javascript dans un fichier script.js que l’on mettra aussi  dans le dossier js.  
+
+On peut placer 
+```html
+<script src="js/script.js"></script>
+```
+**soit dans l'en-tête** (```<head>``` ... ```</head>```;), **soit dans le corps** (```<body>``` ... ```</body>```;) de la page HTML. 
 
 **Activité n°1.:** Dans la index.html rajouter le lien vers le fichier js 
 ```html
@@ -76,43 +81,46 @@ On écrit le javascript dans un fichier script.js que l’on mettra aussi  dans 
     </head>
 ```
 
-
 ```type="text/javascript"``` est facultatif 
 
-Créer un nouveau fichier vide avec l’éditeur. Enregistrer-le dans le dossier js sous le nom ***script.js***  ![](Aspose.Words.e9d0b6b1-5c5b-49ac-81ba-f1da180d728c.005.png)
+**Activité n°1 suite.:** 
+**Puis il faut créer le nouveau fichier javascript :**Créer un nouveau fichier vide avec l’éditeur. Enregistrer-le dans le dossier js sous le nom ***script.js***  ![](Aspose.Words.e9d0b6b1-5c5b-49ac-81ba-f1da180d728c.005.png)
 
 ![](Aspose.Words.e9d0b6b1-5c5b-49ac-81ba-f1da180d728c.015.png)
 
-## **3. La<a name="_page2_x40.00_y113.92"></a> syntaxe** 
-- Les instructions sont séparées par des **points-virgules** 
-- Les commentaires se placent entre ```/*``` et ```*/``` 
-- Les scripts peuvent s’intégrer directement dans la page dans des balise ```<script>``` ou peuvent être dans un fichier .js par exemple : ```<script src="js/hello.js"></script>``` 
-## **4. Boite<a name="_page2_x40.00_y237.92"></a> de dialogue** 
 
-Le fichier javascript est appelé depuis la page Web au moyen de l’élément ```<script>``` et ```scr``` avec l’URL du fichier .js*.* 
-La fonction ```alert()``` existe déjà dans javascript donc on peut directement l’écrire dans la page Web. 
+## **3. Boite<a name="_page2_x40.00_y237.92"></a> de dialogue** 
 
-**Activité n°2.:** Dans la index.html rajouter n’importe où dans les balises ```<body>``` 
+**Nous allons dans la suite faire des activités indépendantes sur une nouvelle page HTML**
+
+
+
+**Activité n°2.:**Dans une nouvelle page html que l’on appelera exo_JS.html Le fichier sera enregistré dans le dossier Documents\site.
+
 ```html
-<script>
-     </script>
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Page de tests du code js</title>
+    </head>
+    <body>
+        Page de tests du code JS
+    </body>
+</html>
 ```
-
-Enregistrer et observer la index.html dans Firefox. 
-
-Externalisons le code :  
+ 
 
 
 
-**Activité n°3.**Dans le fichier script.js écrire le script suivant :
-```js
-alert('Hello world!');
+**Activité n°3.**Dans exo_JS.html rajouter n’importe où dans les balises ```<body>```
+```html
+<script> alert('Hello world!');
+</script>
 ```
+Enregistrer et observer la page dans Firefox. 
 
 
-Enregistrer le tout et observer la index.html dans Firefox  La suite du cours sur le javascript se fera sur des fichiers  extérieurs.  
-
-**Activité n°4.:** Dans une nouvelle page html que l’on appelera exo\_JS.html rajouter le lien vers le fichier js. Le fichier sera enregistré dans le dossier Documents\site. 
+**Activité n°4.:** Dans exo_JS.html rajouter le lien vers le fichier js.
 
 ```html
 <!DOCTYPE html>
@@ -125,11 +133,31 @@ Enregistrer le tout et observer la index.html dans Firefox  La suite du cours su
         Page de tests du code JS
     </body>
 </html>
+
 ```
 
 
+Créer un nouveau fichier vide avec l’éditeur. Enregistrer-le dans le dossier js sous le nom **\site\js\exo.js**
 
-Créer un nouveau fichier vide avec l’éditeur. Enregistrer-le dans le dossier js sous le nom exo.js
+**Activité n°5.:** Dans le fichier exo.js écrire le script suivant  :
+```js
+alert('Hello world!');
+```
+Enlever de la page exo_JS.html
+```html
+<script> alert('Hello world!');
+</script>
+```
+Enregistrer le tout et observer la page dans Firefox
+
+## **4. La<a name="_page2_x40.00_y113.92"></a> console** 
+
+**Activité n°6.:** Dans le fichier exo.js écrire le script suivant (**à la place** de ce qu’il y avait) :
+```js
+console.log('Hello world!');
+```
+Enregistrer le tout et observer la page dans Firefox (ou EDGE) on fait **ctrl+Maj+I**
+![](image1.png)
 
 ## **5. Les<a name="_page2_x40.00_y641.92"></a> variables** 
 ### **5.1. Déclarer<a name="_page2_x40.00_y663.92"></a> une variable** 
