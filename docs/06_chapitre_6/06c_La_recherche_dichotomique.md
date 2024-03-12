@@ -154,10 +154,11 @@ ALGORITHME recherche_dichotomique
                 gauche = milieu + 1   # on modifie la valeur de gauche en conséquence
             sinon si T[milieu] > x     # la recherche peut se restreindre à la partie gauche du tableau
                 droite = milieu-1     # on modifie la valeur de gauche en conséquence
-            sinon 
-                renvoyer milieu             # on a trouvé la valeur 
+            sinon si T[milieu] = x 
+                renvoyer milieu   #True     # on a trouvé la valeur 
         FIN TANT QUE
-        renvoyer None                # gauche <= droite n'est plus vraie. La valeur x n'est pas dans T     
+        renvoyer None  #False     # gauche <= droite n'est plus vraie. La valeur x n'est pas dans T     
+  
 ```
 
 
