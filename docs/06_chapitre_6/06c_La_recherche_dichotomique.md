@@ -145,7 +145,7 @@ La valeur 72 se trouve à l’indice 13 (milieu) dans le tableau
 
 ```
 ALGORITHME recherche_dichotomique
-    PROCEDURE recherche_dichotomique(elmt, tableau)
+    PROCEDURE recherche_dichotomique(x, tableau)
         gauche <- 1
         droite <- taille du tableau
         TANT QUE gauche <= droite FAIRE     
