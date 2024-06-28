@@ -1,6 +1,6 @@
 ---
 author: ELP
-title: 01c A la découverte de Python
+title: 01b A la découverte de Python
 ---
 
 
@@ -89,13 +89,13 @@ Le langage Python est gratuit, sous **licence libre**.
 - Les commandes à faire dans l’interpréteur, aussi appelée console python, seront dans le style de rectangle suivant et commenceront par un prompt >>> 
 - Taper chacune des commandes présentées et vérifier son résultat. 
 - Ouvrir un **éditeur de Python**  
-- Compléter votre script resume\_ch02.py avec les nouvelles commandes apprises : c’est l’équivalent d’une fiche de cours, il faut donc en prendre soin 
-- Pour chaque série d’exercice (à la fin des cours) : réaliser chaque exercice dans un fichier nommé : exo\_ch02\_01.py, exo\_ch02\_02.py, exo\_ch02\_03.py,…… 
+- Compléter votre script resume\_ch0X.py avec les nouvelles commandes apprises : c’est l’équivalent d’une fiche de cours, il faut donc en prendre soin 
+- Pour chaque série d’exercice (à la fin des cours) : réaliser chaque exercice dans un fichier nommé : exo\_ch0X\_01.py, exo\_ch0X\_02.py, exo\_ch0X\_03.py,…… 
 
 ### **4.4. Premiers<a name="_page3_x40.00_y36.92"></a> pas avec l’interpréteur de commandes Python** 
 
 **Activité n°1.:Les calculs de bases :** Tester les calculs suivant :
-**ATTENTION : faire entrer à chaque ligne du scripts suivants **
+**ATTENTION : faire entrer à chaque ligne du scripts suivants**
 
 ```python
 7 + 3 * 4
@@ -124,7 +124,7 @@ Le langage Python est gratuit, sous **licence libre**.
 Que remarquez-vous ?............. 
 
 **Activité n°3.:** **La division entière et le modulo :** Tester les calculs :
-**ATTENTION : faire entrer à chaque ligne du scripts suivants **
+**ATTENTION : faire entrer à chaque ligne du scripts suivant**
 
 ```python
 10 // 5
@@ -146,7 +146,7 @@ On souhaite effectuer la division de 3395  par 99.
 On s’est arrêté car 29 est plus petit que 99 et qu’on ne souhaitait pas aller plus loin et se retrouver avec un nombre à virgule. On a effectué une division dite division entière. On en déduit donc que 3395 = 99 \* 34 + 29
 
 **Activité n°4.:** **L’exponentiation :** Tester les calculs :
-**ATTENTION : faire entrer à chaque ligne du scripts suivants **
+**ATTENTION : faire entrer à chaque ligne du scripts suivant**
 
 ```python
 3 ** 2
