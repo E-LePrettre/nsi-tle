@@ -174,7 +174,7 @@ Exemple : age, mon\_age, temperature1  A éviter : Age, AGE, monAge, Temperature
 
 
 **Activité n°5.:** Tester les calculs : 
-**ATTENTION : faire entrer à chaque ligne du scripts suivants **
+**ATTENTION : faire entrer à chaque ligne du scripts suivants**
 
 ```python
 age = 17
@@ -195,7 +195,7 @@ print(type(age))
 
 
 **Activité n°6.:** L’incrémentation ou la décrémentation : Tester les calculs suivant dans la console
-**ATTENTION : faire entrer à chaque ligne du scripts suivants **
+**ATTENTION : faire entrer à chaque ligne du scripts suivants**
 
 ```python
 # ceci est un commentaire 
@@ -211,7 +211,7 @@ print(a)
 
 #### **4.5.3. Le<a name="_page4_x40.00_y602.92"></a> type float (nombres en virgule flottante)**
 **Activité n°7.:** Tester les calculs suivant dans la console
-**ATTENTION : faire entrer à chaque ligne du scripts suivants **
+**ATTENTION : faire entrer à chaque ligne du scripts suivants**
 
 ```python
 b = 17.0  # le séparateur décimal est un point (et non une virgule) 
@@ -245,7 +245,7 @@ print(c)
 
 
 **Activité n°8.:**  Tester les calculs suivant dans la console
-**ATTENTION : faire entrer à chaque ligne du scripts suivants **
+**ATTENTION : faire entrer à chaque ligne du scripts suivants**
 
 ```python
 nom = 'Dupont'    # entre apostrophes 
@@ -260,7 +260,7 @@ print(nom, prenom)   # ne pas oublier la virgule
     {{ terminal() }}
 
 **Activité n°9.:** La concaténation désigne la mise bout à bout de plusieurs chaînes de caractères (de type string). La concaténation utilise l’opérateur + 
-**ATTENTION : faire entrer à chaque ligne du scripts suivants **
+**ATTENTION : faire entrer à chaque ligne du scripts suivants**
 
 ```python
 nom = 'Dupont' 
@@ -288,7 +288,7 @@ NB : si pas < 0, la liste est parcourue dans le sens inverse.
 ![](Aimg.png)
 
 **Activité n°11.:** 
-**ATTENTION : faire entrer à chaque ligne du scripts suivants **
+**ATTENTION : faire entrer à chaque ligne du scripts suivants**
 
 ```python
 string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" 
@@ -307,7 +307,7 @@ string[-4:-2:]  # Renvoie du -4 au -2
     {{ terminal() }}
 
 **Activité n°12.:** ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.051.png)Attention aux apostrophes et guillemets dans les chaînes de caractères ! 
-**ATTENTION : faire entrer à chaque ligne du scripts suivants **
+**ATTENTION : faire entrer à chaque ligne du scripts suivants**
 
 ```python
 chaine = 'Aujourd'hui'
@@ -550,11 +550,14 @@ len('123' \* 20)
 
 **Exercice n°6** ☆ Supposons que je veuille imprimer les quatre lignes suivantes :  
 
-Hello World Aujourd'hui 
+```txt
+Hello World 
+Aujourd'hui 
+C'est "Dommage!" 
+Hum \Oh/ 
+```
 
-C'est "Dommage!" Hum \Oh/ 
-
-Quel code est valide ?  
+Quel code est valide pour afficher le message ci-dessus **sans les tester auparavant** puis vérifier à l’aide d’une console python ? 
 
 - code 1 
 ```python
