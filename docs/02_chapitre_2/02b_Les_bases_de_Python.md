@@ -456,6 +456,11 @@ Exemple :
 
 Pour revoir les formules à appliquer :[ https://www.maths-et-tiques.fr/telech/Secondegre2.pdf ](https://www.maths-et-tiques.fr/telech/Secondegre2.pdf)
 
+![](1.png)
+![](2.png)
+Par exemple : 
+![](3.png)
+
 Il faut importer la fonction racine  from math import sqrt Exemple : 
 ```
 >>> racine(1, -3, 2)
@@ -1089,7 +1094,7 @@ ListeCarte = ['2s','2h','2d','2c','3s','3h','3d','3c','4s','4h','4d','4c','5s','
 
 **Exercice 20**   
 
-1.★ Ecrire une fonction qui retourne la valeur de la fonction  mathématique f(x)= 27x^3 - 27x^2 - 18^x + 8 :  
+1.★ Ecrire une fonction qui retourne la valeur de la fonction  mathématique f(x)= 27x^3 - 27x^2 - 18x + 8 :  
 
 ```
 >>> f(0), f(1), f(0.5), f(0.25), f(0.375)  
