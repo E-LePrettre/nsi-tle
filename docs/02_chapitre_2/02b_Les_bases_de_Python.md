@@ -456,7 +456,7 @@ Exemple :
 
 Pour revoir les formules à appliquer :[ https://www.maths-et-tiques.fr/telech/Secondegre2.pdf ](https://www.maths-et-tiques.fr/telech/Secondegre2.pdf)
 
-<img src="1.png" alt="image" width="300" height="auto">
+![](1.png =300x)
 ![](2.png)
 Par exemple : 
 ![](3.png)
