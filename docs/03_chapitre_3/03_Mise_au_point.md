@@ -151,15 +151,15 @@ def factorielle(n):
    for i in range(2, n+1):
       resultat = resultat * i
    return resultat
+
+import doctest
+doctest.testmod()  
 ```
+Tester 
+???+ question "Faire ce qui est proposé"
 
+    {{ IDE() }}
 
-Tester :
-
-> import doctest
-
-> doctest.testmod()  
-  
 La  fonction testmod du module doctest est  allée  chercher  dans  les docstring des  fonctions  du  module actuellement chargé,  tous les exemples (reconnaissables à la présence des triples chevrons >>>   **à mettre un espace après** ), et a vérifié que la fonction documentée satisfait bien ces exemples. Dans le cas présent, une seule fonction dont la documentation contient deux exemples (attempted = 2 ) a été testée, et il n’y a eu aucun échec (failed  = 0 )  
 
 
@@ -182,13 +182,13 @@ def factorielle(n):
    for i in range(2, n+1):
       resultat = resultat * i
    return resultat
+import doctest
+doctest.testmod()  
 ```
+Tester 
+???+ question "Faire ce qui est proposé"
 
-Tester:
-
-> import doctest
-
-> doctest.testmod() 
+    {{ IDE() }}
 
 
 
@@ -218,6 +218,10 @@ if __name__ == '__main__':
    doctest.testmod()
 ```
 
+Tester 
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
 Ici il n’y a aucune erreur, on n’obtient **rien**, ce qui est parfois déconcertant 
 
 
@@ -245,7 +249,11 @@ if __name__ == '__main__':
    import doctest   
    doctest.testmod()   
 ```  
-   
+
+Tester 
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}   
 
  **Activité n° 8.**:  On rend les doctests bavard même en cas de succès avec le mode verbose   
 
@@ -272,7 +280,10 @@ if __name__ == '__main__':
    import doctest
    doctest.testmod(verbose=True)  
 ```  
-   
+Tester 
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}    
 
 ## **3. Les<a name="_page5_x40.00_y567.92"></a> préconditions et les postconditions** 
 
@@ -295,10 +306,11 @@ def square_root(x):     # racine carrée ...
 ```
 
 Tester
-> print(square_root(25))
+```python
+print(square_root(25))
+print(square_root(-25))
+``` 
 
-> print(square_root(-25)) 
-  
 La ligne assert x >=0 s’appelle une **précondition**, puisqu’elle est appelée au début de la fonction et vérifie les propriétés des arguments passés dans la fonction  
 La ligne assert solution \*\*2 == x s’appelle une **postcondition**, puisqu’elle et appelée juste avant le retour.  
 Les préconditions et les postconditions permettent de trouver très rapidement les bugs.   
@@ -315,7 +327,13 @@ Pour plus de précisions :[ https://www.youtube.com/watch?v=DRVoh5XiAZo ](https:
 Un module est un bout de code que l’on a **enfermé dans un fichier**. On emprisonne ainsi des fonctions et des variables ayant toutes un rapport entre elles. Puis si l’on veut travailler avec les fonctionnalités prévues par le module, il n’y a qu’à **importer le module** et utiliser ensuite toutes les fonctions et variables prévues. Par exemple le module math. **Rappels** : 
 ```
 >>> import math as m
->>> mathematiques.sqrt(25) 
+>>> m.sqrt(25) 
+
+>>> import math
+>>> math.sqrt(25) 
+
+>>> from math import sqrt
+>>> m.sqrt(25) 
 
 >>> import random 
 >>> x = random.randint(0,10)  
@@ -323,16 +341,20 @@ Un module est un bout de code que l’on a **enfermé dans un fichier**. On empr
 >>> from random import randint 
 >>> randint(0,10) 
 
->>> from random import \* 
+>>> from random import * 
 >>> randint(0,10) 
 >>> randrange(10,20,3) #retourne un entier entre 10 et 19 et un pas =3 
 ```
+Tester 
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }} 
 
 ### **4.2. Emprisonner<a name="_page6_x40.00_y498.92"></a> le code dans un fichier** 
 
 Le code doit être enregistrer dans un fichier en .py. (sous windows) 
 
-Sous Linux, comme les extensions ne servent à rien, il faut ajouter dans le fichier une ligne, tout au début, spécifiant le chemin de l’interpréteur Python : 
+**Sous Linux**, comme les extensions ne servent à rien, il faut ajouter dans le fichier une ligne, tout au début, spécifiant le chemin de l’interpréteur Python : 
 
 ```
 #!/usr/bin/python3.8
@@ -370,11 +392,11 @@ blablabla
 os.system("pause")
 ```
 
-Sous Linux : on peut simplement exécuter le programme dans la console. Si l’on veut faire une pause on peut utilisez input avant la fin du programme (pas très élégant mais fonctionne) 
+**Sous Linux** : on peut simplement exécuter le programme dans la console. Si l’on veut faire une pause on peut utilisez input avant la fin du programme (pas très élégant mais fonctionne) 
 
 ### **4.4. Utilisation<a name="_page7_x40.00_y231.92"></a> en module**
 
-
+**ON VA TRAVAILLER SUR THONNY**
 
  **Activité n° 10. :** On crée un fichier multipli.py qui contiendra la fonction table : table de multiplication  
 
@@ -683,6 +705,7 @@ N’oubliez pas : un programme bien écrit doit **gérer proprement les exceptio
     {{ IDE() }}
     
 ## **6. Exercices<a name="_page13_x40.00_y375.92"></a>** 
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
 
 **Exercice 1 :** On considère la fonction multiplier\_par\_deux(x) qui prend en paramètre x et qui renvoie son double. Ecrire un script de cette fonction avec : 
 
