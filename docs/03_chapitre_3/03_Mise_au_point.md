@@ -740,12 +740,16 @@ Ecrire un script de cette fonction avec :
 **Exercice 3** : La fonction précédente à pour condition d’utilisation : x doit être strictement positif. Déclencher une exception et capturer là si le nombre entrée est 0 ou négatif. 
 
 Exemple : 
+```
+>>> somme_carres(5)
+55
 
-> somme\_carres(5) 
+>>> somme_carres(0)
+Le nombre entré est nul ou négatif
 
-> somme\_carres(0) 
-
-> somme\_carres(-2) 
+>>> somme_carres(-2)
+Le nombre entré est nul ou négatif
+```
 
 
 
@@ -786,6 +790,14 @@ Aide : penser à une boucle infinie et au mot clé break.
 **Exercice 5 :** Ecrire un script qui calcule la racine carrée d’un nombre, avec gestion des exceptions. Utiliser la fonction sqrt() du module math.  
 
 Par exemple : 
+```python 
+Entrer un nombre : >? go
+go n'est pas un nombre valide !
+Entrer un nombre : >? -5.26
+-5.26 n'est pas un nombre valide !
+Entrer un nombre : >? 16
+La racine de  16.0 est : 4.0
+```
 
 Tester avec :
 
