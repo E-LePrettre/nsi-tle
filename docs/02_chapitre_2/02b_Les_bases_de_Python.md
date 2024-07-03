@@ -754,10 +754,10 @@ Pour ne pas être dérangé dans ses aventures il décide de les couper chaque f
 **Exercice 10** ★★ Ecrire une méthode heron(U, n) qui donne la valeur de la suite pour un rang n (méthode de Héron) : La méthode de Héron permet d’approcher la valeur de la racine carrée d’un nombre. Nous allons l’appliquer pour déterminer la valeur approchée de la racine de 2. Elle est définie par la suite : 
 
 
-$$U_0=k$$, k étant une valeur initiale
-Et $$\forall n\in\mathbb{N}$$, $$U_{n+1}=\frac{1}{2}\left(U_n+\frac{2}{U_n}\right)$$
+$U_0=k$, k étant une valeur initiale
+Et $\forall n\in\mathbb{N}$, $U_{n+1}=\frac{1}{2}\left(U_n+\frac{2}{U_n}\right)$
 Donc cela signifie :
-$$U_1=\frac{1}{2}\left(U_0+\frac{2}{U_0}\right)$$, 	 $$U_2=\frac{1}{2}\left(U_1+\frac{2}{U_1}\right)$$, 	$$U_3=\frac{1}{2}\left(U_2+\frac{2}{U_2}\right)$$,	$$U_4=\frac{1}{2}\left(U_3+\frac{2}{U_3}\right)$$, etc
+$U_1=\frac{1}{2}\left(U_0+\frac{2}{U_0}\right)$, 	 $U_2=\frac{1}{2}\left(U_1+\frac{2}{U_1}\right)$, 	$U_3=\frac{1}{2}\left(U_2+\frac{2}{U_2}\right)$,	$U_4=\frac{1}{2}\left(U_3+\frac{2}{U_3}\right)$, etc
 
 n étant le rang que l’on veut calculer la suite 
 
@@ -783,10 +783,10 @@ Le nombre d’or est un célèbre nombre irrationnel :[ Wikipédia.](https://fr.
 Il a été étudié par de nombreux mathématiciens au cours du temps.  
 Il vaut $\phi$ =$\frac{1+√5}{2}$  et vaut approximativement 1,61803. On peut  estimer la valeur numérique de la fraction continue suivante :  
 
-Il vaut $$\varphi=\frac{1+\sqrt5}{2}$$ et vaut approximativement 1,61803. On peut estimer la valeur numérique de la fraction continue suivante :
-$$\varphi=1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{\ldots}}}}}$$
+
+$\varphi=1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{\ldots}}}}}$
 Cela signifie que pour le rang 3, on aura :
-$$\varphi=1$$,		$$\varphi=1+\frac{1}{1}$$		$$\varphi=1+\frac{1}{1+\frac{1}{1}}$$,		$$\varphi=1+\frac{1}{1+\frac{1}{1+\frac{1}{1}}}$$, 	$$\varphi=1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1}}}}$$, 
+$\varphi=1$,		$\varphi=1+\frac{1}{1}$		$\varphi=1+\frac{1}{1+\frac{1}{1}}$,		$\varphi=1+\frac{1}{1+\frac{1}{1+\frac{1}{1}}}$, 	$\varphi=1+\frac{1}{1+\frac{1}{1+\frac{1}{1+\frac{1}{1}}}}$, 
 
 
 Ecrire une fonction nombre_dor(n) qui détermine la valeur approchée du nombre d’or (seulement la valeur 
