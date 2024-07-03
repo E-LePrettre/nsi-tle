@@ -507,20 +507,18 @@ print(9 in maliste)
 
 ## **5. Exercices<a name="_page10_x40.00_y36.92"></a>** 
 
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
+
 **Exercice n°1**  ☆ Afficher la taille en octets et en bits d’un fichier de 536 ko. On donne : 1 ko (1 kilooctet) = 1000 octets !!! 1 octet = 1 byte = 8 bits 
 
-???+ question "Faire ce qui est proposé"
 
-    {{ IDE() }}
 
 **Exercice n°2**  ★ Le numéro de sécurité sociale est constitué de 13 chiffres auquel s’ajoute la clé de contrôle (2 chiffres). 
 Exemple : le numéro entier de sécurité sociale est : 1 89 11 26 108 268 91; il se compose de 1891126108268 et de 91 qui est la clé de contrôle
 
 La clé de contrôle située à la fin du numéro est calculée par la formule : 97 - (numéro de sécurité sociale modulo 97) Retrouver la clé de contrôle de votre numéro de sécurité sociale. Quel est l’intérêt de la clé de contrôle ? 
 
-???+ question "Faire ce qui est proposé"
 
-    {{ IDE() }}
 
 **Exercice n°3**  ★ Afficher la valeur numérique de √(4,63 - 15/16) Comparer avec votre calculette. 
 Aide : vous aurez besoin de la fonction racine carrée de python. Pour cela il faut l'importer en commandant par la ligne suivante:
@@ -528,15 +526,11 @@ Aide : vous aurez besoin de la fonction racine carrée de python. Pour cela il f
 from math import sqrt
 ``` 
 
-???+ question "Faire ce qui est proposé"
 
-    {{ IDE() }}
 
 **Exercice n°4**  ★ A partir des deux variables prenom et nom, afficher les initiales (par exemple LM pour Léa Martin). 
 
-???+ question "Faire ce qui est proposé"
 
-    {{ IDE() }}
 
 **Exercice n°5** ★** Quels résultats donnent les instructions suivantes ?  
 
@@ -544,9 +538,7 @@ len("C'est facile de compter")
 
 len('123' \* 20) 
 
-???+ question "Faire ce qui est proposé"
 
-    {{ IDE() }}
 
 **Exercice n°6** ☆ Supposons que je veuille imprimer les quatre lignes suivantes :  
 
@@ -587,9 +579,7 @@ print("Aujourd'hui")
 print("C'est \"Dommage!\"") 
 print("Hum \\Oh\/") 
 ```
-???+ question "Faire ce qui est proposé"
 
-    {{ IDE() }}
 
 **Exercice n°7**  ★☆ **PRÉPAREZ UNE MOUSSE AU CHOCOLAT !**  
 
@@ -616,9 +606,7 @@ Le nombre d'oeufs pour 7 personnes est : …
 La quantité de chocolat pour 7 personnes est : … 
 Le nombre de sachet de vanille pour 7 personnes est :… 
 ```
-???+ question "Faire ce qui est proposé"
 
-    {{ IDE() }}
 
 Généraliser la recette pour un nombre déterminer par l’utilisateur. Par exemple : 
 
@@ -629,26 +617,20 @@ Le nombre d'oeufs pour  10  personnes est : 13
 La quantité de chocolat pour  10  personnes est : 438  g 
 Le nombre de sachet de vanille pour  10  personnes est : 4 
 ```
-???+ question "Faire ce qui est proposé"
 
-    {{ IDE() }}
 
 **Remarque** : Vous aurez besoin de la fonction input() déjà vu en seconde
 ```python
 a = int(input('quel est votre âge?')) # entrer votre âge
 print(a)
 ```
-???+ question "Faire ce qui est proposé"
 
-    {{ IDE() }}
 
 **Exercice n°8**  ★☆ L’identifiant d’accès au réseau du lycée est construit de la manière suivante : initiale du prénom puis les 8 premiers caractères du nom (le tout en minuscule). 
 
 Alexandre Lecouturier → alecoutur A partir des deux variables prenom et nom, construire l’identifiant. 
 
-???+ question "Faire ce qui est proposé"
 
-    {{ IDE() }}
     
 QCM :[ http://fabrice.sincere.free.fr/qcm/qcm.php?nom=qcm_python3x_1 ](http://fabrice.sincere.free.fr/qcm/qcm.php?nom=qcm_python3x_1)
 
