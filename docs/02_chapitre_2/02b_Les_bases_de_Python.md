@@ -933,6 +933,10 @@ Tester
 Autre exemple :
 
 ![](2023-09-02.png)
+Tester 
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
 
 ## **7. Exercices<a name="_page15_x40.00_y36.92"></a>** 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
@@ -1065,32 +1069,9 @@ help(random.choice)
 
 Lien utile :[ https://www.motdepasse.xyz/ ](https://www.motdepasse.xyz/)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.110.png)
 
-**Exercice 17** ★ Ecrire une fonction qui retourne une carte (au hasard) d’un jeu de Poker à 52 cartes. On utilisera la fonction choice() ou randint() du module random. On donne : 
-
-ListeCarte = ['2s','2h','2d','2c','3s','3h','3d','3c','4s','4h','4d','4c','5s','5h','5d','5c', '6s','6h','6d','6c','7s','7h','7d','7c','8s','8h','8d','8c','9s','9h','9d','9c', 'Ts','Th','Td','Tc','Js','Jh','Jd','Jc','Qs','Qh','Qd','Qc','Ks','Kh','Kd','Kc','As','Ah','Ad','Ac'] 
-
-```
->>> tiragecarte() 
-'9s' 
->>> tiragecarte() 
-'7c' 
-```
-
-**Exercice 18** ★★   
-
-1.Ecrire une fonction qui retourne une liste de N cartes **différentes** d’un jeu de Poker à 52 cartes. Noter qu’une fonction peut appeler une fonction : on peut donc réutiliser la fonction tiragecarte() de l’exercice précédent. Exemple : 
-
-```
->>> tirage_n_carte(2)
-'5h 8c'
->>> tirage_n_carte(10)
-'3c 4s 7c 7h 8d 4c Qd As Jd Jd'
-```
-
-2.Simplifier le script avec la fonction shuffle()` `et sample()` `du module random. 
 
 
-**Exercice 19** ★★ Ecrire une fonction qui retourne une grille de numéros du jeu  Euro Millions. On utilisera la fonction sample() du module random.  
+**Exercice 17** ★★ Ecrire une fonction qui retourne une grille de numéros du jeu  Euro Millions. On utilisera la fonction sample() du module random.  
 ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.114.png)
 
 ```
@@ -1098,7 +1079,7 @@ ListeCarte = ['2s','2h','2d','2c','3s','3h','3d','3c','4s','4h','4d','4c','5s','
 '43 31 35 41 39 22 14 ' 
 ```
 
-**Exercice 20**   
+**Exercice 18**   
 
 1.★ Ecrire une fonction qui retourne la valeur de la fonction  mathématique f(x)= 27x^3 - 27x^2 - 18x + 8 :  
 
