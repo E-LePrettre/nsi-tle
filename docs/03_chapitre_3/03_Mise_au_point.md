@@ -790,7 +790,7 @@ Aide : penser à une boucle infinie et au mot clé break.
 **Exercice 5 :** Ecrire un script qui calcule la racine carrée d’un nombre, avec gestion des exceptions. Utiliser la fonction sqrt() du module math.  
 
 Par exemple : 
-```python 
+``` 
 Entrer un nombre : >? go
 go n'est pas un nombre valide !
 Entrer un nombre : >? -5.26
