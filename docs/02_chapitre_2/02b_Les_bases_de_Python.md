@@ -370,6 +370,8 @@ Tester
 
 ### **2.3. Exercices<a name="_page5_x40.00_y36.92"></a>** 
 
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
+
 
 **Exercice 1** ★ Le numéro de sécurité sociale est constitué de 13 chiffres auquel s’ajoute la clé de contrôle (2 chiffres). La clé de contrôle est calculée par la formule : 97 - (numéro de sécurité sociale modulo 97) 
 
@@ -650,6 +652,7 @@ Si  vous  **connaissez  le  nombre  de  boucles  à  effectuer,  utiliser  une  
 
 ### **3.6. Exercices<a name="_page10_x40.00_y36.92"></a>** 
 
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
 
 
 **Exercice 5** ★ Ecrire une fonction moyenne(liste) qui calcule la moyenne d’une série de notes. On pourra utiliser une variable qui contient la somme intermédiaire des notes.
@@ -931,6 +934,8 @@ Autre exemple :
 ![](2023-09-02.png)
 
 ## **7. Exercices<a name="_page15_x40.00_y36.92"></a>** 
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
+
 
 **Exercice 13** ☆ 
 
