@@ -336,7 +336,14 @@ Exemple : 0b 1111 0111
 
 ![](Aimg9.png)
 
+**On prototype** une fonction en indiquant son nom, le type des éventuels paramètres et de la valeur renvoyée le cas échéant. 
 
+Exemple pour une fonction qui calcule le carré d’un nombre et renvoie la valeur trouvée : 
+
+```python
+def carre(nombre : int) -> int:     
+    return nombre ** 2 
+```
 
 ## **4. Exercices<a name="_page9_x40.00_y36.92"></a>** 
 
@@ -402,14 +409,7 @@ Sur 8 bits, -88 en complément à 2 correspond au nombre binaire suivant :
 
 Le bit de signe donne donc **1**010 1000 
 
-**On prototype** une fonction en indiquant son nom, le type des éventuels paramètres et de la valeur renvoyée le cas échéant. 
 
-Exemple pour une fonction qui calcule le carré d’un nombre et renvoie la valeur trouvée : 
-
-```python
-def carre(nombre : int) -> int:     
-    return nombre ** 2 
-```
 
 
 5	Vérifier les conversions suivantes
