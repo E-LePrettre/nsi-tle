@@ -39,7 +39,9 @@ def factorielle(n):
 Tester 
 > help(factorielle)
  
- NE FONCTIONNE PAS SUR LA CONSOLE EN LIGNE => Thonny
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
    
 Réaliser une telle chaîne de documentation permet 
 
