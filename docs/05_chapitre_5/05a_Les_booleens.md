@@ -205,6 +205,9 @@ Le  complément  d’un  produit  logique  (non  arithmétique)  est  égal  à 
 
 ## **4. Exercices<a name="_page4_x40.00_y43.04"></a>** 
 
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
+
+
 **Exercice n°1** ★ **:** On considère le circuit logique suivant. 
 
 ![](Aspose.Words.097e3465-a1f8-4dd1-8604-dd29d3a73091.022.png)
@@ -325,7 +328,7 @@ Indication : a et b n'étant pas des variables binaires, il convient de créer d
 Aide : on posera x= a + b <= 10  et  y = a > b 
 
 1. Écrivez la table de vérité pour l'ouverture des barrières A et B. 
-2. Donnez les équations logiques pour l'ouverture des barrières A puis pour l’ouverture de la barrière B. Aide : utilisez les tableaux de Karnaugh 
+2. Donnez les équations logiques pour l'ouverture des barrières A puis pour l’ouverture de la barrière B. 
 3. Dessinez le circuit logique déterminant l'ouverture des barrières. 
 
 
