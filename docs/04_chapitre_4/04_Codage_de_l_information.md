@@ -346,6 +346,7 @@ def carre(nombre : int) -> int:
 ```
 
 ## **4. Exercices<a name="_page9_x40.00_y36.92"></a>** 
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
 
 **Exercice 1 :** ★ On suppose toujours nos entiers encodés sur un octet. 
 
@@ -567,6 +568,8 @@ En convertissant en hexadécimal :
 
 ## **6.  Exercices<a name="_page15_x40.00_y36.92"></a>** 
 
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
+
 **Exercice 6** convertir en base 10  
 
 1. 0,0101010101<sub>2</sub>  
@@ -679,6 +682,8 @@ Chaque pixel est un carré d'une couleur définie.  Cette  couleur  se  code  à
 Ainsi, le pixel grisé désigné sur la photo est codé comme la  combinaison de 174 de rouge (Red), 181 de vert (Green) et  190 de bleu (Blue). Chacun de ces trois nombres étant codé  sur 8 bits, il faut 3x8=24 bits au total pour coder un pixel.  En codant ainsi chaque pixel de l'image originale, on peut  ainsi traduire une image en série de bit. Et inversement, on  peut  reconstituer  une  image  à  partir  d'une  série  de  bits  donnée.  
 
 ## **9. Exercices<a name="_page18_x40.00_y36.92"></a>** 
+
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
 
 **Exercice 10 :** Image matricielle 
 
