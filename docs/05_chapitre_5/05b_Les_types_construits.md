@@ -680,7 +680,7 @@ ListeCarte = ['2s','2h','2d','2c','3s','3h','3d','3c','4s','4h','4d','4c','5s','
 
 Pour cet exercice nous allons utiliser la fonction chr de Python qui prend en argument un entier (codé en décimal) et qui renvoie le caractère ASCII associé. 
 
-Voici une table ASCII : ASCII.txt (**dans dossier du chapitre)** 
+Voici une table ASCII :  ![](Figure-1-15.png)
 
 a. Quels sont les entiers qui code l'alphabet en lettre capitale? 
 
