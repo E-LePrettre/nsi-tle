@@ -838,12 +838,12 @@ Matplotlib est une bibliothèque du langage de programmation Python destinée à
 
 Matplotlib est distribuée librement et gratuitement sous une licence de style BSD. 
 
+1 Créer un fichier Python graphics.py.
 
-
-1 Écrire une fonction f, qui à x → x² + x – 4, et dont le prototype est le suivant : 
+2 Écrire une fonction f, qui à x → x² + x – 4, et dont le prototype est le suivant : 
 ```f(x : float) ->  float ```
 
-2 Compléter le code ci-dessous en utilisant une **compréhension de liste** pour liste\_x et liste\_y.
+3 Compléter le code ci-dessous en utilisant une **compréhension de liste** pour liste\_x et liste\_y.
 
 - liste\_x contient les éléments  ∈ [−3,0;3,0] par intervalle de 0,1. **Attention : la fonction range() n’accepte que les nombres entiers**
 
@@ -853,7 +853,6 @@ Matplotlib est distribuée librement et gratuitement sous une licence de style B
 import matplotlib.pyplot as plt 
 
 def f(x : float) -> float: 
-
   # à compléter 
 
 #à compléter 
@@ -873,13 +872,13 @@ Résultat attendu :
 
 On souhaite tracer une deuxième courbe sur le même graphique précédent dont l’équation est y = x<sup>3</sup> – 3x + 2. 
 
-3 Modifier votre programme en rajoutant une fonction f2 qui renvoie l’image de x pour l’équation ci-dessus. 
+4 Modifier votre programme en rajoutant une fonction f2 qui renvoie l’image de x pour l’équation ci-dessus. 
 
-4 Mettre à jour une troisième liste liste\_y2 à l’aide d’une compréhension de liste. 
+5 Mettre à jour une troisième liste liste\_y2 à l’aide d’une compréhension de liste. 
 
-5 Modifier les paramètres de la fonction plot() pour obtenir le résultat ci-dessous. 
+6 Modifier les paramètres de la fonction plot() pour obtenir le résultat ci-dessous. 
 
-6 Rajouter la légende sur le graphique.  
+7 Rajouter la légende sur le graphique.  
 
 Résultat attendu :  
 ![](Aimg021.png)
