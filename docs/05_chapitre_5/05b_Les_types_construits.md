@@ -395,6 +395,7 @@ Comme les listes et les tuples, les dictionnaires permettent de stocker des donn
 Un dictionnaire est créé avec des accolades, les différents couples étant séparés par des virgules. La clé et la valeur correspondante d’un élément sont séparées par **deux-points.** 
 
 Exemple : dico = {"A": 0, "B": 1, "C": 2, "D": 3}. 
+**Activité  n°16.:  Création  d’un  dictionnaire**  :  Pour  ajouter  une  couple  de  clé,valeur  il  suffit  d'écrire  : d[nouvelle\_clé]=nouvelle\_valeur 
 
 ```python
 res={'nsi' :18,'maths':17,'svt':14,'français':14,'lv1':8,'physique':12,'HG':11}
@@ -410,7 +411,7 @@ Tester :
 
     {{ IDE() }}
 
-**Activité  n°16.:  Création  d’un  dictionnaire**  :  Pour  ajouter  une  couple  de  clé,valeur  il  suffit  d'écrire  : d[nouvelle\_clé]=nouvelle\_valeur 
+
 
 
 
@@ -596,6 +597,8 @@ L’implémentation d’un dictionnaire **optimise le coût en temps** de la rec
 
 ### **3. Exercices<a name="_page9_x40.00_y273.92"></a>** 
 
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
+
 **Exercice 1 :** ★ **Utilisation des opérations et méthodes :**  en utilisant le code ci-dessous, compléter .   **jours\_1=('lundi','mardi','mercredi','jeudi','vendredi') jours\_2=('samedi','dimanche')** 
 
 - **Tester si samedi est un élément de jours\_1** 
@@ -644,7 +647,34 @@ classement=[(12,1406),(1,1613),(4,1507),(9,1429),(16,1341),(11,1416)]
 
 3 Appliquer votre fonction const\_dico(cle,valeur) sur les joueurs de LOL. 
 
-**Exercice 5 :** ★★ **Le chiffrement de César (version light)** : Cryptographie 
+**Exercice 5** ★ Ecrire une fonction qui retourne une carte (au hasard) d’un jeu de Poker à 52 cartes. On utilisera la fonction choice() ou randint() du module random. On donne : 
+
+ListeCarte = ['2s','2h','2d','2c','3s','3h','3d','3c','4s','4h','4d','4c','5s','5h','5d','5c', '6s','6h','6d','6c','7s','7h','7d','7c','8s','8h','8d','8c','9s','9h','9d','9c', 'Ts','Th','Td','Tc','Js','Jh','Jd','Jc','Qs','Qh','Qd','Qc','Ks','Kh','Kd','Kc','As','Ah','Ad','Ac'] 
+
+```
+>>> tiragecarte() 
+'9s' 
+>>> tiragecarte() 
+'7c' 
+```
+
+**Exercice 6** ★★   
+
+1.Ecrire une fonction qui retourne une liste de N cartes **différentes** d’un jeu de Poker à 52 cartes. Noter qu’une fonction peut appeler une fonction : on peut donc réutiliser la fonction tiragecarte() de l’exercice précédent. Exemple : 
+
+```
+>>> tirage_n_carte(2)
+'5h 8c'
+>>> tirage_n_carte(10)
+'3c 4s 7c 7h 8d 4c Qd As Jd Jd'
+```
+
+2.Simplifier le script avec la fonction shuffle()` `et sample()` `du module random. 
+
+
+
+
+**Exercice 7 :** ★★ **Le chiffrement de César (version light)** : Cryptographie 
 
 1 la fonction chr() 
 
@@ -682,12 +712,12 @@ b. Dans le script précédent quel est le statut de 'A', 'D' et 'E'? Clé ou val
 
 c. Ecrire une fonction en Python codage(mot) qui prend en argument un chaine de caractère écrit en lettre capitale et qui renvoie le mot codé par le chiffrement de César. 
 
-**Exercice 6 :** ★ **Création de matrice  :** Ecrire une fonction ```matriceAlea(n:int,m:int)->list``` Python qui renvoie une matrice à n lignes et m colonnes d'entiers aléatoires entre 0 et 100. Créer la fonction qui utilise la création en compréhension 
+**Exercice 8 :** ★ **Création de matrice  :** Ecrire une fonction ```matriceAlea(n:int,m:int)->list``` Python qui renvoie une matrice à n lignes et m colonnes d'entiers aléatoires entre 0 et 100. Créer la fonction qui utilise la création en compréhension 
 
 
 Aide : ne pas oublier d’importer le module random 
 
-**Exercice 7 :** ★★ **Carré magique  :** Un carré magique d’ordre 3 est une matrice de 3 lignes et de 3 dans laquelle des nombres sont placés de telle sorte que la somme des nombres de chaque colonne, chaque ligne et de chacune des deux diagonales soit la même. De plus, le carré doit contenir une fois chaque nombre, de 1 au nombre de cases de la grille. Ecrire un script Python qui vérifie que ce carré est magique. On pourra utiliser : 
+**Exercice 9 :** ★★ **Carré magique  :** Un carré magique d’ordre 3 est une matrice de 3 lignes et de 3 dans laquelle des nombres sont placés de telle sorte que la somme des nombres de chaque colonne, chaque ligne et de chacune des deux diagonales soit la même. De plus, le carré doit contenir une fois chaque nombre, de 1 au nombre de cases de la grille. Ecrire un script Python qui vérifie que ce carré est magique. On pourra utiliser : 
 
 ```python
 L=[ [2,7,6],
@@ -727,7 +757,7 @@ Chacun des chiffres de 1 à 9 apparaît exactement une fois dans la grille. De p
 
 ![](Aimg020.png)
 
-**Exercice 8:** ★ **avec les chaine de caractères  :** 
+**Exercice 10:** ★ **avec les chaine de caractères  :** 
 
 Python considère une phrase comme une séquence. Vous pouvez réaliser des essais avec cette citation célèbre du philosophe Confusius : "Je ne cherche pas à connaître les réponses, je cherche à comprendre les questions." De quelle type de séquence se rapproche-t-on? De la liste et/ou du tuple ? Faire des tests à partir de vos connaissances en python. 
 
@@ -744,7 +774,7 @@ citation.append('!')
 
 En utilisant la méthode count(), compter le nombre de 'a' dans la citation. 
 
-**Exercice 9 :** ★★ **Jeu de cartes :   **
+**Exercice 11 :** ★★ **Jeu de cartes :   **
 
 Un jeu de 32 cartes est composé de :  
 
@@ -802,7 +832,7 @@ On veut pouvoir comparer des cartes pour réaliser par exemple des jeux.
 
 9 Inventer  une  notion  de  distance  entre  deux  cartes.  Ecrire  une  fonction ```distance(carte1:tuple,carte2:tuple)->int``` qui renvoie la "distance" entre deux cartes. 
 
-**Exercice 10** ★★ **Tracé graphique**  
+**Exercice 12** ★★ **Tracé graphique**  
 
 Matplotlib est une bibliothèque du langage de programmation Python destinée à tracer et visualiser des données sous formes de graphiques. Elle peut être combinée avec les bibliothèques python de calcul scientifique NumPy et SciPy. L’avantage de cette librairie est qu’elle est très simple d’utilisation et permet en quelques lignes de tracer des courbes par exemple. Il n’est donc pas nécessaire de passer par la phase (éventuellement longue et fastidieuse) de conception et de développement d’interfaces graphiques, pour des besoins de représentation qui peuvent être ponctuels par ailleurs. 
 
@@ -853,7 +883,7 @@ On souhaite tracer une deuxième courbe sur le même graphique précédent dont 
 Résultat attendu :  
 ![](Aimg021.png)
 
-**Exercice 11 :** ★★ **Bulletins de vote Génération des votes:**  
+**Exercice 13 :** ★★ **Bulletins de vote Génération des votes:**  
 
 On souhaite réaliser le comptage automatique d’un dépouillement d’une élection. Votre startup reçoit un fichier texte qui contient ligne par ligne les noms des candidats qui ont reçu le vote des électeurs. 
 
@@ -948,7 +978,7 @@ print(read\_ballots("votes.txt"))
 
 - On pourra utiliser la fonction sum.  [https://www.programiz.com/python-programming/methods/built-in/sum ](https://www.programiz.com/python-programming/methods/built-in/sum)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.010.png)
 
-**Exercice 12 :** ★★★ **format EXIF Introduction  **
+**Exercice 14 :** ★★★ **format EXIF Introduction  **
 
 ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.072.png)
 
@@ -1183,7 +1213,7 @@ except KeyboardInterrupt:
 
 21 Vérifier que toutes les fonctions soient bien documentées (docstring). 
 
-**Exercice 13 :** ★★★ **Le chiffrement de Caesar** 
+**Exercice 15 :** ★★★ **Le chiffrement de Caesar** 
 
 ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.089.png)
 
@@ -1308,7 +1338,7 @@ Le chiffrement de César a été utilisé mais avec une clef différente de 1.
 - Ne pas oublier d’importer le module caesar et la fonction caesar()
 - La clef de chiffrement étant inconnue, il faut faire une boucle qui les teste toutes (technique de l’attaque par force brute). 
 
-**Exercice 14 :** ★★★ **Le chiffrement de Vigenère** 
+**Exercice 16 :** ★★★ **Le chiffrement de Vigenère** 
 
 Le chiffre de Vigenère est un système de chiffrement polyalphabétique, c’est un chiffrement par substitution, mais une même lettre du message clair peut, suivant sa position dans celui-ci, être remplacée par des lettres différentes, contrairement à un système de chiffrement mono alphabétique comme le chiffre de César (qu'il utilise cependant comme composant). Cette méthode résiste ainsi à l'analyse de fréquences, ce qui est un avantage décisif sur les chiffrements mono alphabétiques. Cependant le chiffre de Vigenère a été percé par le major prussien Friedrich Kasiski qui a publié sa méthode en 1863. Depuis cette époque, il n‘offre plus aucune sécurité. 
 
@@ -1562,7 +1592,7 @@ ZCNUVJ LUYLNQL GXA PFPPJ LV XHKSA UFLPX HXJJ UFPPYL GXAGQSG JZV SHKSL GY ZCNUV X
 - Mettre  à la fin du script un print() indenté comme la dernière boucle for (pour un retour à la ligne) 
 
 
-**Exercice 15 :** ★★★ **Séquences nucléiques  Acide nucléique** 
+**Exercice 17 :** ★★★ **Séquences nucléiques  Acide nucléique** 
 
 ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.116.png)
 ![](Aimg023.png)
@@ -1684,26 +1714,26 @@ Les acides aminés sont désignés par une lettre qui représente la forme du no
 **Le code génétique :** 
 
 ```
-'UUU', 'UUC' : 							                  'F'
-'UUA', 'UUG', 'CUU', 'CUC', 'CUA', 'CUG' : 		'L'
+'UUU', 'UUC' : 							                'F'
+'UUA', 'UUG', 'CUU', 'CUC', 'CUA', 'CUG' : 		        'L'
 'AUU', 'AUC', 'AUA' : 						            'I'
-'AUG' : 								                      'M'
+'AUG' : 								                'M'
 'GUU', 'GUC', 'GUA', 'GUG' : 					        'V'
-'UCU', 'UCC', 'UCA', 'UCG', 'AGU', 'AGC' : 		'S'
+'UCU', 'UCC', 'UCA', 'UCG', 'AGU', 'AGC' : 		        'S'
 'CCU', 'CCC', 'CCA', 'CCG' : 					        'P'
 'ACU', 'ACC', 'ACA', 'ACG' : 					        'T'
 'GCU', 'GCC', 'GCA', 'GCG' : 					        'A'
-'UAU', 'UAC' : 							                  'Y'
+'UAU', 'UAC' : 							                'Y'
 'UAA', 'UAG', 'UGA' : 						            '*'
-'CAU', 'CAC' : 							                  'H'
-'CAA', 'CAG' : 							                  'Q'
-'AAU', 'AAC' : 							                  'N'
-'AAA', 'AAG' :  							                'K'
-'GAU', 'GAC' : 							                  'D'
-'GAA', 'GAG' : 							                  'E'
-'UGU', 'UGC' :  							                'C'
-'UGG' : 								                      'W'
-'CGU', 'CGC', 'CGA', 'CGG', 'AGA', 'AGG' : 		'R'
+'CAU', 'CAC' : 							                'H'
+'CAA', 'CAG' : 							                'Q'
+'AAU', 'AAC' : 							                'N'
+'AAA', 'AAG' :  							            'K'
+'GAU', 'GAC' : 							                'D'
+'GAA', 'GAG' : 							                'E'
+'UGU', 'UGC' :  							            'C'
+'UGG' : 								                'W'
+'CGU', 'CGC', 'CGA', 'CGG', 'AGA', 'AGG' : 		        'R'
 'GGU', 'GGC', 'GGA', 'GGG' : 					        'G'
 ```
 
