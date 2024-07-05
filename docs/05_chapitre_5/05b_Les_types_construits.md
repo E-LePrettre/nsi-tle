@@ -855,13 +855,14 @@ import matplotlib.pyplot as plt
 def f(x : float) -> float: 
 
   # à compléter 
-  #à compléter 
-  liste_x =  
-  liste_y =  
 
-  plt.plot(liste_x, liste_y, "b-", label="x² + x - 4", linewidth=3) 
-  plt.legend() 
-  plt.show() 
+#à compléter 
+liste_x =  
+liste_y =  
+
+plt.plot(liste_x, liste_y, "b-", label="x² + x - 4", linewidth=3) 
+plt.legend() 
+plt.show() 
 ```
 
 Résultat attendu : 
