@@ -48,7 +48,7 @@ Tester :
 
     {{ terminal() }}
 
-**Activité n°3.: Concaténation :** Il existe deux opérations de concaténation avec les opérateurs + et \*. De nouveaux 
+**Activité n°3.: Concaténation :** Il existe deux opérations de concaténation avec les opérateurs + et *. De nouveaux 
 
 
 ```python
@@ -148,7 +148,7 @@ print(f"{mon_tuple[0]} + {mon_tuple[1]} = {mon_tuple[2]}")
 |s.index(x)|Renvoie l'indice de la première apparition de x dans s |
 |s.count(x)|Renvoie le nombre d'apparitions de x dans s |
 |s+t|Renvoie une nouvelle séquence concaténation de s et t. |
-|n\*t|Renvoie une nouvelle séquence composée de la concaténation de t avec lui même n fois. |
+|n*t|Renvoie une nouvelle séquence composée de la concaténation de t avec lui même n fois. |
 
 ### **1.2. Les<a name="_page2_x40.00_y419.92"></a> tableaux** 
 
@@ -246,7 +246,7 @@ Tester avec
 
     {{ IDE() }}
 
-mon\_tab3 permet d’obtenir une liste qui contient tous les éléments de liste élevés au carré à condition que ces |
+mon_tab3 permet d’obtenir une liste qui contient tous les éléments de liste élevés au carré à condition que ces |
 |éléments de liste soient inférieurs à 10. 
 
 
@@ -395,7 +395,7 @@ Comme les listes et les tuples, les dictionnaires permettent de stocker des donn
 Un dictionnaire est créé avec des accolades, les différents couples étant séparés par des virgules. La clé et la valeur correspondante d’un élément sont séparées par **deux-points.** 
 
 Exemple : dico = {"A": 0, "B": 1, "C": 2, "D": 3}. 
-**Activité  n°16.:  Création  d’un  dictionnaire**  :  Pour  ajouter  une  couple  de  clé,valeur  il  suffit  d'écrire  : d[nouvelle\_clé]=nouvelle\_valeur 
+**Activité  n°16.:  Création  d’un  dictionnaire**  :  Pour  ajouter  une  couple  de  clé,valeur  il  suffit  d'écrire  : d[nouvelle_clé]=nouvelle_valeur 
 
 ```python
 res={'nsi' :18,'maths':17,'svt':14,'français':14,'lv1':8,'physique':12,'HG':11}
@@ -599,22 +599,22 @@ L’implémentation d’un dictionnaire **optimise le coût en temps** de la rec
 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
-**Exercice 1 :** ★ **Utilisation des opérations et méthodes :**  en utilisant le code ci-dessous, compléter .   **jours\_1=('lundi','mardi','mercredi','jeudi','vendredi') jours\_2=('samedi','dimanche')** 
+**Exercice 1 :** ★ **Utilisation des opérations et méthodes :**  en utilisant le code ci-dessous, compléter .   **jours_1=('lundi','mardi','mercredi','jeudi','vendredi') jours_2=('samedi','dimanche')** 
 
-- **Tester si samedi est un élément de jours\_1** 
-- **Donner la longueur de jours\_2** 
-- **Tester si jours\_1 est égal à jours\_2** 
-- **Donner le deuxième élément de jours\_1** 
-- **Donner la partie de jours\_1 entre le deuxième élément et le quatrième élément **
-- **renvoyer l'indice de dimanche dans jours\_2** 
-- **Renvoyer le nombre de samedi dans jours\_2** 
-- **Créer un tuple semaine par concaténation de jours\_1 et de jours\_2** 
+- Tester si samedi est un élément de jours_1 
+- Donner la longueur de jours_2
+- Tester si jours_1 est égal à jours_2
+- Donner le deuxième élément de jours_1** 
+- Donner la partie de jours_1 entre le deuxième élément et le quatrième élément
+- renvoyer l'indice de dimanche dans jours_2
+- Renvoyer le nombre de samedi dans jours_2
+- Créer un tuple semaine par concaténation de jours_1 et de jours_2
 
-**Exercice 2 :** ★ **Test d’appartenance :** En utilisant un parcours de tuple avec la présence d'un indice, écrire une fonction est\_dans(element,tple) qui en argument reçoit un entiers ( élément) et un tuple d'entier ( tple) qui renvoie un booleen indiquant la présence de élément dans tuple. On testera la fonction sur les scripts suivants : 
+**Exercice 2 :** ★ **Test d’appartenance :** En utilisant un parcours de tuple avec la présence d'un indice, écrire une fonction est_dans(element,tple) qui en argument reçoit un entiers ( élément) et un tuple d'entier ( tple) qui renvoie un booleen indiquant la présence de élément dans tuple. On testera la fonction sur les scripts suivants : 
 
-- **est\_dans(4,(1,2,3,4,5,6))** #qui devrait renvoyer True** 
+- **est_dans(4,(1,2,3,4,5,6))** #qui devrait renvoyer True** 
 
-- **est\_dans(9,(1,2,3,4,5,6))** #qui devrait renvoyer False** 
+- **est_dans(9,(1,2,3,4,5,6))** #qui devrait renvoyer False** 
 
 En Python, une fonction qui renvoie plusieurs éléments ( ex : return a,b,c ) renvoie un tuple.  
 
@@ -635,7 +635,7 @@ Par exemple :
 
 **Exercice 4 :** ★**  **Dictionnaire et fonction**   
 
-1 Ecrire une fonction const\_dico(cle,valeur) qui renvoie le dictionnaire définie par les clés et les valeurs entrées en argument.** 
+1 Ecrire une fonction const_dico(cle,valeur) qui renvoie le dictionnaire définie par les clés et les valeurs entrées en argument.** 
 On donne des listes de certains joueurs de League Of Legend ainsi que leur classement et leur nombre de points :** 
 ```python
 pseudo=['Major Alexander','KBM Wiz', 'FNC MagiFelix','Avalanche','love camile','Nobody'] 
@@ -645,7 +645,7 @@ classement=[(12,1406),(1,1613),(4,1507),(9,1429),(16,1341),(11,1416)]
 
 2 Quel est le type de chacun des éléments?
 
-3 Appliquer votre fonction const\_dico(cle,valeur) sur les joueurs de LOL. 
+3 Appliquer votre fonction const_dico(cle,valeur) sur les joueurs de LOL. 
 
 **Exercice 5** ★ Ecrire une fonction qui retourne une carte (au hasard) d’un jeu de Poker à 52 cartes. On utilisera la fonction choice() ou randint() du module random. On donne : 
 
@@ -843,11 +843,11 @@ Matplotlib est distribuée librement et gratuitement sous une licence de style B
 2 Écrire une fonction f, qui à x → x² + x – 4, et dont le prototype est le suivant : 
 ```f(x : float) ->  float ```
 
-3 Compléter le code ci-dessous en utilisant une **compréhension de liste** pour liste\_x et liste\_y.
+3 Compléter le code ci-dessous en utilisant une **compréhension de liste** pour liste_x et liste_y.
 
-- liste\_x contient les éléments  ∈ [−3,0;3,0] par intervalle de 0,1. **Attention : la fonction range() n’accepte que les nombres entiers**
+- liste_x contient les éléments  ∈ [−3,0;3,0] par intervalle de 0,1. **Attention : la fonction range() n’accepte que les nombres entiers**
 
-- liste\_y contient les images de x par f.
+- liste_y contient les images de x par f.
 
 ```python
 import matplotlib.pyplot as plt 
@@ -874,7 +874,7 @@ On souhaite tracer une deuxième courbe sur le même graphique précédent dont 
 
 4 Modifier votre programme en rajoutant une fonction f2 qui renvoie l’image de x pour l’équation ci-dessus. 
 
-5 Mettre à jour une troisième liste liste\_y2 à l’aide d’une compréhension de liste. 
+5 Mettre à jour une troisième liste liste_y2 à l’aide d’une compréhension de liste. 
 
 6 Modifier les paramètres de la fonction plot() pour obtenir le résultat ci-dessous. 
 
@@ -895,7 +895,7 @@ On souhaite générer une liste de votes factices à partir d’une liste de nom
 
 2 Ecrire une fonction qui crée un fichier texte (vote.txt) avec un nom par ligne qui a été tiré aléatoirement depuis une liste de noms. 
 
-```generate\_ballots(total : int, noise : int) -> bool ```
+```generate_ballots(total : int, noise : int) -> bool ```
 
 - total -- nombre de bulletins 
 - noise -- numero de bulletin "bruité" . Le bulletin bruité est un vote étranger (ie : d’un candidat pirate)  qui ne fait pas partie de la liste « officielle ». 
@@ -967,18 +967,18 @@ return #le dictionnaire
 7 Tester les fonctions avec  
 ```python
 generate_ballots(5000, 3951) 
-print(read\_ballots("votes.txt"))
+print(read_ballots("votes.txt"))
 ```
 
 8 Déterminer les intrus qui se sont glissés dans le fichier et supprimer les du dictionnaire sans utiliser 'Sex Pistols' on pourra imaginer que tous les intrus ont qu’un seul vote. 
 
-9 Afficher le nombre de votants à l’aide d’une compréhension de liste faite sur le dictionnaire retourné par la fonction read\_ballots().
+9 Afficher le nombre de votants à l’aide d’une compréhension de liste faite sur le dictionnaire retourné par la fonction read_ballots().
 
 **Aide :**  
 
 - On pourra utiliser la fonction sum.  [https://www.programiz.com/python-programming/methods/built-in/sum ](https://www.programiz.com/python-programming/methods/built-in/sum)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.010.png)
 
-**Exercice 14 :** ★★★ **format EXIF Introduction  **
+**Exercice 14 :** ★★★ **format EXIF Introduction** => Thonny
 
 ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.072.png)
 
@@ -1018,12 +1018,12 @@ La plupart des appareils photos récents et téléphones portables enregistrent 
 
 ```from PIL import Image```
 
-- On utilisera la bibliothèque PIL ainsi que les méthodes associées \_getexif() et get().  
+- On utilisera la bibliothèque PIL ainsi que les méthodes associées _getexif() et get().  
 ```from PIL.ExifTags import TAGS, GPSTAGS``` 
-- L’appel à \_getexif() se fait de la façon suivante : 
+- L’appel à _getexif() se fait de la façon suivante : 
 ```python
 image = Image.open(filename) 
-exif = image.\_getexif() 
+exif = image._getexif() 
 ```
 
 - Cependant, on obtient par ce biais un dictionnaire indexé avec des identifiants numériques. Pour avoir les noms correspondants, on utilise ExifTags et on renommera les clefs du dictionnaire : 
@@ -1080,7 +1080,7 @@ aussi noté 47°37'29,107360"
 
 - La variable exif contient l’ensemble des métadonnées de l’image : objectif, ouverture, vitesse, auteur…  
 
-```exif = get\_exif(filename) ```
+```exif = get_exif(filename) ```
 
 - Les données GPS sont stockées dans exif['GPSInfo'].Il est conseillé de faire afficher cette clé de dictionnaire pour obtenir les noms des champs associés aux informations GPS. Pour récupérer le couple clé, valeur il faut écrire :  
 
@@ -1166,7 +1166,7 @@ On souhaite combiner les fonctions pour obtenir les coordonnées GPS d’une ima
 
 15 documenter la fonction 
 
-16 Créer un fichier exif\_test.py.
+16 Créer un fichier exif_test.py.
 
 17 Valider les tests unitaires suivants : 
 ```
@@ -1183,7 +1183,7 @@ exif.get_exif("valley.jpg")['BodySerialNumber'] == "2506446"
 
 On souhaite avoir un programme qui extrait toutes les EXIF d’une photo entrée en input 
 
-18 Créer un fichier exif\_main.py
+18 Créer un fichier exif_main.py
 
 19 Le programme doit demander la photo et retourner chaque donnée EXIF ligne par ligne : 
 
@@ -1286,14 +1286,14 @@ Le prototype de la fonction est : ```caesar_encode(text : str, key : int = 1) ->
 
 7 Factoriser le code des deux fonctions précédentes pour obtenir une fonction qui chiffre ou déchiffre. Le prototype de la fonction est : ```caesar(str_in : str, key : int) -> str```
 
-- str\_in représente le texte à chiffrer/déchiffrer, 
+- str_in représente le texte à chiffrer/déchiffrer, 
 - key représente la clef de chiffrement. Si key > 0 c’est un chiffrage si key < 0 c’est un déchiffrement.  
 - La fonction doit renvoyer le texte déchiffré/chiffré. 
 8 Documenter la fonction 
 
 Une fonction est basée sur le modèle de la boite noire ; les sorties n’étant fonction que des entrées. Cette boite noire doit être à la fois cohérente (des entrées supposées fournir un résultat juste doivent donner un résultat juste, des entrées supposées donner un résultat faux doivent donner un résultat faux) et stable (le programme doit terminer, ne pas « crasher » ou avoir un comportement erratique). La vérification de ces deux critères se fait à travers des tests unitaires. 
 
-9 Créer un fichier caesar\_test.py. 
+9 Créer un fichier caesar_test.py. 
 
 10 Tests de cohérence. Écrire une série de tests unitaires qui vérifie les conditions suivantes : 
 
@@ -1311,9 +1311,9 @@ pour key = 0, str_in = ‘a’ : sortie = ‘A’
 **Aide :** 
 
 - utiliser l’instruction assert. 
-- Ecrire une fonction pour chaque test. Par exemple : test\_caesar\_rot0():
+- Ecrire une fonction pour chaque test. Par exemple : test_caesar_rot0():
 - Ne pas oublier d’importer le module caesar et la fonction caesar()
-- Prévoir une fonction d’appel unit\_test() pour appeler chaque fonction test\_caesar…
+- Prévoir une fonction d’appel unit_test() pour appeler chaque fonction test_caesar…
 
 **Décryptage** 
 
@@ -1329,7 +1329,7 @@ EZ KFLK R WRZK LEV RLKIV, VK D’RZDV VK DV TFDGIVEU.
 
 Le chiffrement de César a été utilisé mais avec une clef différente de 1. 
 
-11 Créer un fichier caesar\_main.py.
+11 Créer un fichier caesar_main.py.
 
 12 Écrire un programme afin de donner le nom de l’auteur du message crypté. 
 
@@ -1338,7 +1338,7 @@ Le chiffrement de César a été utilisé mais avec une clef différente de 1.
 - Ne pas oublier d’importer le module caesar et la fonction caesar()
 - La clef de chiffrement étant inconnue, il faut faire une boucle qui les teste toutes (technique de l’attaque par force brute). 
 
-**Exercice 16 :** ★★★ **Le chiffrement de Vigenère** 
+**Exercice 16 :** ★★★ **Le chiffrement de Vigenère** => THONNY
 
 Le chiffre de Vigenère est un système de chiffrement polyalphabétique, c’est un chiffrement par substitution, mais une même lettre du message clair peut, suivant sa position dans celui-ci, être remplacée par des lettres différentes, contrairement à un système de chiffrement mono alphabétique comme le chiffre de César (qu'il utilise cependant comme composant). Cette méthode résiste ainsi à l'analyse de fréquences, ce qui est un avantage décisif sur les chiffrements mono alphabétiques. Cependant le chiffre de Vigenère a été percé par le major prussien Friedrich Kasiski qui a publié sa méthode en 1863. Depuis cette époque, il n‘offre plus aucune sécurité. 
 
@@ -1373,7 +1373,7 @@ E S A I N T R U L O D C P M V Q G F H B X J Y Z K W avec les fréquences (souven
 
 |E |S |A |I |N |T |R |U |L |O |D |
 | - | - | - | - | - | - | - | - | - | - | - |
-|14\.69% |8\.01% |7\.54% |7\.18% |6\.89% |6\.88% |6\.49% |6\.12% |5\.63% |5\.29% |3\.66% |
+|14.69% |8.01% |7.54% |7.18% |6.89% |6.88% |6.49% |6.12% |5.63% |5.29% |3.66% |
 
 Voici la méthode d’attaque : dans le texte crypté, on cherche la lettre qui apparaît le plus, et si le texte est assez long cela devrait être le chiffrement du E, la lettre qui apparaît ensuite dans l’étude des fréquences devrait être le chiffrement du S, puis le chiffrement du A... On obtient des morceaux de texte clair sous la forme d’un texte à trous et il faut ensuite deviner les lettres manquantes. 
 
@@ -1382,12 +1382,12 @@ On compte les apparitions des lettres → H : 6 F : 4 P : 3 Z : 3
 
 On suppose donc que le H crypte la lettre E, le F la lettre S, ce qui donne : 
 
-\*E\*\* ES\* \*\* ESS\*\* \*E \*\*\*SE \*\*\*\*E 
+*E** ES* ** ESS** *E ***SE ****E 
 
 
-D’après les statistiques P et Z devraient se décrypter en A et I (ou I et A). Le quatrième mot "HFFPZ", pour l’instant décrypté en "ESS\*\*", se complète donc en "ESSAI" ou "ESSIA". La première solution semble correcte. Ainsi P crypte A, et Z crypte I. La phrase est maintenant : 
+D’après les statistiques P et Z devraient se décrypter en A et I (ou I et A). Le quatrième mot "HFFPZ", pour l’instant décrypté en "ESS**", se complète donc en "ESSAI" ou "ESSIA". La première solution semble correcte. Ainsi P crypte A, et Z crypte I. La phrase est maintenant : 
 
-\*E\*I ES\* \*\* ESSAI \*E \*\*\*ASE \*\*AIE 
+*E*I ES* ** ESSAI *E ***ASE **AIE 
 
 En réfléchissant un petit peu, on décrypte le message : CECI EST UN ESSAI DE PHRASE VRAIE 
 
@@ -1445,7 +1445,7 @@ On donne le prototype : ```count_in_file(file : str, encode = 'utf-8') -> list``
 
 10 Documenter la fonction
 
-11 Tester la fonction avec le fichier « book\_vh.txt » dans le dossier Ressources.
+11 Tester la fonction avec le fichier « book_vh.txt » dans le dossier Ressources.
 
 
 **Résultat attendu** : [['e', 139996], ['a', 67618], ['s', 60385], ['i', 59208], ['t', 58033], ['u', 52989], ['r', 52377], ['n', 51021], ['l', 48412], ['o', 41961], ['d', 30221], ['c', 25215], ['m', 21676], ['p', 21393], ['v', 13206], ['q', 9631], ['g', 8972], ['f', 8856],...]
@@ -1458,18 +1458,18 @@ except FileNotFoundError:
   return [] 
 ```
 
-13 Écrire une fonction qui va filtrer la liste de valeurs [lettre, occurrences] sur les lettres. On donne le prototype : ```occurrence(sorted\_list : list) -> list```
-- sorted\_list :  liste  de  valeurs  [lettre,  occurrences],  triée  par  ordre  décroissant  selon  le  nombre d’occurrences de chaque lettre. 
+13 Écrire une fonction qui va filtrer la liste de valeurs [lettre, occurrences] sur les lettres. On donne le prototype : ```occurrence(sorted_list : list) -> list```
+- sorted_list :  liste  de  valeurs  [lettre,  occurrences],  triée  par  ordre  décroissant  selon  le  nombre d’occurrences de chaque lettre. 
 - La fonction renvoie une liste de lettres triées par ordre décroissant de fréquence d’apparition.  
 
 **Aide :** 
 
-- la liste renvoyée par la fonction letter\_count() est déjà triées par ordre décroissant  ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.105.png)
-- modifier la fonction count\_in\_file() pour qu’elle renvoie la liste de lettres triées par ordre décroissant de fréquence d’apparition en combinant les fonctions 
+- la liste renvoyée par la fonction letter_count() est déjà triées par ordre décroissant  ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.105.png)
+- modifier la fonction count_in_file() pour qu’elle renvoie la liste de lettres triées par ordre décroissant de fréquence d’apparition en combinant les fonctions 
 
 14 Documenter la fonction précédente 
 
-15 Tester la fonction avec le fichier « book\_vh.txt ». 
+15 Tester la fonction avec le fichier « book_vh.txt ». 
 
 **Résultat attendu** : ['e', 'a', 's', 'i', 't', 'u', 'r', 'n',  ...] 
 
@@ -1552,13 +1552,13 @@ Le texte (en français) suivant a été chiffré par un code mono alphabétique.
 
 17 Créer un fichier substitution.py.
 
-18 Afficher les occurrences des lettres du texte chiffré ci-dessus à l’aide de la fonction letter\_count() du et la fonction occurrence() module occurrences.py.
+18 Afficher les occurrences des lettres du texte chiffré ci-dessus à l’aide de la fonction letter_count() du et la fonction occurrence() module occurrences.py.
 
 **Résultat attendu** : [['s', 11], ['p', 10],…]
 
 **Aide :** 
 
-- Importer les fonctions letter\_count() et occurrence()
+- Importer les fonctions letter_count() et occurrence()
 
 19 Enregistrer ces occurrences dans une liste : entree.
 
@@ -1624,7 +1624,7 @@ Les processus du dogme central de la biologie moléculaire, réalisés par les c
 
 3 Documenter la fonction 
 
-4 Créer un fichier dna\_test.py et valider les tests unitaires suivants : 
+4 Créer un fichier dna_test.py et valider les tests unitaires suivants : 
 ```python
 is_DNA_strand("ATGCGATC") == True 
 is_DNA_strand("ACKT") == False 
@@ -1748,7 +1748,7 @@ Les acides aminés sont désignés par une lettre qui représente la forme du no
 
 16 Valider les tests unitaires suivants : 
 ```python
-genetic_code('UGA') == '\*' 
+genetic_code('UGA') == '*' 
 genetic_code('AAAA') == None 
 genetic_code('XYZ') == None 
 genetic_code(0) == None 
@@ -1765,7 +1765,7 @@ genetic_code(0) == None
 
 19 Valider les tests unitaires suivants : 
 ```python
-traduction('AUGCGAAGCCGAAAGAACACCGGCUAA') == 'MRSRKNTG\*' 
+traduction('AUGCGAAGCCGAAAGAACACCGGCUAA') == 'MRSRKNTG*' 
 traduction('AUGCGAAGCCGAAAGAACACCGGCUA') == None 
 traduction(0) == None 
 ```
@@ -1792,7 +1792,7 @@ replication('') == None
 replication(0) == None 
 ```
 
-23 Créer un fichier dna\_main.py.
+23 Créer un fichier dna_main.py.
 
 24 Écrire un programme qui demande de façon interactive de saisir une séquence ARN et afficher la séquence d’acides aminés correspondante. Par exemple :
 
