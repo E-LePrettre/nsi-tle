@@ -845,7 +845,7 @@ Matplotlib est distribuée librement et gratuitement sous une licence de style B
 
 3 Compléter le code ci-dessous en utilisant une **compréhension de liste** pour liste\_x et liste\_y.
 
-- liste\_x contient les éléments  ∈ [−3,0;3,0] par intervalle de 0,1. 
+- liste\_x contient les éléments  ∈ [−3,0;3,0] par intervalle de 0,1. **Attention : la fonction range() n’accepte que les nombres entiers**
 
 - liste\_y contient les images de x par f.
 
