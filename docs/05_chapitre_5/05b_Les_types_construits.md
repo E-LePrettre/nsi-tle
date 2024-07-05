@@ -595,7 +595,7 @@ L’implémentation d’un dictionnaire optimise le coût en temps de la recherc
 
 L’implémentation d’un dictionnaire **optimise le coût en temps** de la recherche d’un élément. 
 
-### **3. Exercices<a name="_page9_x40.00_y273.92"></a>** 
+## **3. Exercices<a name="_page9_x40.00_y273.92"></a>** 
 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
