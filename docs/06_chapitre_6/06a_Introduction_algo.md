@@ -276,6 +276,8 @@ RESSOURCES :
 
 ## **5. Exercices<a name="_page7_x40.00_y36.92"></a>** 
 
+=> CAPYTALE Le code vous sera donné par votre enseignant
+
 **Exercice 1** : Calculer le coût de cet algorithme 
 
 ```
