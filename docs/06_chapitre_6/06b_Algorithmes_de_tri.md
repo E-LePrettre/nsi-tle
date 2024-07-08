@@ -173,6 +173,8 @@ On a deux boucles for qui sont imbriquées
 
 ### **2.8. Implémentation<a name="_page3_x40.00_y497.92"></a> en Python** 
 
+=> CAPYTALE Le code vous sera donné par votre enseignant
+
 **Activité n°2.:** Création de la liste aléatoire **avec l’activité 1** 
 
 ```python
@@ -378,6 +380,8 @@ La boucle for se termine forcément. Pour la boucle while, on part de j qui vaut
 
 ### **3.7. Implémentation<a name="_page7_x40.00_y36.92"></a> en Python** 
 
+=> CAPYTALE Le code vous sera donné par votre enseignant
+
 **Activité n°5.:** Création de la liste aléatoire **avec l’activité 1** : reprendre l’activité 1 et 2 
 
 **Activité n°6.: implémentation classique** : ajouter à l’activité précédente les deux fonctions suivantes : 
@@ -465,6 +469,8 @@ On optimise l’algorithme en se basant sur la propriété que le dernier élém
 
 Comme le tri par insertion, le tri à bulle est un tri stable. Illustration vidéo :[ https://www.youtube.com/watch?v=lyZQPjUT5B4 ](https://www.youtube.com/watch?v=lyZQPjUT5B4) 
 
+=> CAPYTALE Le code vous sera donné par votre enseignant
+
 **Activité n°8.:** Création de la liste aléatoire **avec l’activité 1** : reprendre l’activité 1 et 2 
 
 **Activité n°9.: implémentation classique Avec la fonction echange et la fonction bubble\_sort** 
@@ -526,6 +532,8 @@ print("Temps d execution pour 10_000: %s secondes ---" % (moyenne))
 Animation :[ http://lwh.free.fr/pages/algo/tri/tri_bulle.html ](http://lwh.free.fr/pages/algo/tri/tri_bulle.html)
 
 ## **5. Exercices<a name="_page9_x40.00_y511.92"></a>** 
+
+=> CAPYTALE Le code vous sera donné par votre enseignant
 
 **Exercice n°1** : Créer une fonction selection\_sort\_desc() qui permet trier avec l’algorithme de tri par sélection une liste aléatoire par valeurs décroissantes. 
 
