@@ -190,62 +190,61 @@ L'algorithme de recherche dichotomique est **plus efficace** que l'algorithme de
 
 ## **5. Preuve<a name="_page5_x40.00_y211.92"></a> de correction :** 
 
-TERMINAISON : La fonction recherche\_dichotomique contient une boucle non bornée, une boucle while, et pour être sûr de toujours obtenir un résultat, il faut s’assurer que le programme termine, **que l’on ne reste pas bloqué infiniment dans la boucle**. Pour prouver que c’est bien le cas, nous allons utiliser **un variant de boucle**. 
+### **5.1.	Correction partielle**
 
-**Variant de boucle** : Il s’agit d’une quantité entière qui :  
+**Invariant de boucle** : À chaque début de la boucle while, si la cible est dans le tableau, alors elle se trouve entre les indices gauche et droite inclus.
 
-- doit être positive ou nulle pour rester dans la boucle ;  
-- doit décroître à chaque itération.  
+1 **Initialisation** : Avant la première itération de la boucle, gauche est initialisé à 0 et droite à len(T) - 1. Donc, l’invariant est vrai car si la cible est dans le tableau, elle doit se trouver quelque part entre ces indices.
 
-Si l’on arrive trouver une telle quantité, il est évident que l’on va nécessairement sortir de la boucle au bout d’un nombre fini d’itérations, puisqu’**un entier positif ne peut décroître infiniment.**  
+2 **Maintien** : Supposons que l’invariant est vrai au début d’une itération. La boucle while calcule milieu comme étant la moyenne de gauche et droite. Il y a trois cas à considérer :
 
-**Preuve de la terminaison** : Pour le cas qui nous occupe, un variant est très facile à trouver : il s’agit de la largeur de la quantité droite - gauche.  
+- Cas 1 : Si T[milieu] == x, alors l’algorithme retourne milieu, ce qui est correct et l’invariant reste vrai.
 
-La condition de boucle étant gauche <= droite, cela correspond exactement à ce que notre variant soit positif ou nul. Montrons maintenant que le variant décroit strictement lors de l’exécution du corps de la boucle. On commence par définir milieu = (gauche + droite) / 2. En particulier, on a alors gauche <= milieu <= droite.
+- Cas 2 : Si T[milieu] < x, alors la cible, si elle est présente, doit être à droite de milieu. Nous mettons donc à jour gauche à milieu + 1. L’invariant reste vrai car nous avons réduit l’intervalle de recherche de manière correcte.
 
-Ensuite, trois cas sont possibles.  
+- Cas 3 : Si T[milieu] > x, alors la cible, si elle est présente, doit être à gauche de milieu. Nous mettons donc à jour droite à milieu - 1. Encore une fois, l’invariant reste vrai car nous avons correctement réduit l’intervalle de recherche.
 
-- si T[milieu] = x, on sort directement de la boucle à l’aide d’un return. La **terminaison est assurée.**  
+3 **Terminaison** : La boucle se termine lorsque gauche > droite. À ce moment-là, si la cible était dans le tableau, elle aurait été trouvée dans une itération précédente, donc nous pouvons conclure que la cible n’est pas présente dans le tableau. Ainsi, l’algorithme retourne -1.
 
-- si T[milieu] > x, on modifie la valeur de gauche. En appelant gauche' cette nouvelle valeur, on a : 
-```droite - gauche' < droite - milieu <= droite - gauche```
-Ainsi, le variant a **strictement décru.** 
+### **5.2.	Correction Totale**
 
-- sinon, on modifie droite et on a de même :
-```droite' - gauche < milieu - gauche <= droite - gauche``` 
-De même, le variant a **strictement décru.**  
+Pour prouver la correction totale, nous devons également prouver que l’algorithme termine toujours. Cela peut être prouvé en utilisant un variant de boucle.
+Variant de Boucle : Pour l’algorithme de recherche dichotomique, un variant de boucle approprié est la longueur de l’intervalle de recherche, c’est-à-dire droite - gauche.
 
-On a trouvé un variant pour notre boucle, nous avons prouvé qu’**elle termine bien**. Bien sûr, l’utilisation très basique de ce variant ne permet pas, telle qu’elle, de justifier la complexité de la recherche dichotomique.  
+1 **Définition du Variant** : Au début de chaque itération de la boucle while, le variant est droite - gauche.
 
-*POUR ALLER PLUS LOIN : CORRECTION : Pour prouver que si le programme renvoie None, alors c’est bien que la valeur recherchée n’est pas présente dans le tableau, nous allons utiliser l’invariant de boucle suivant :*  
+2 **Initialisation** :
 
-**Invariant** *: Si* x *est présente dans* T*, c’est nécessairement à un indice compris entre* gauche *et* droite *(inclus).*  
+- Avant la première itération, gauche est initialisé à 0 et droite à len(T) - 1.
 
-*Prouvons qu’il s’agit bien d’un invariant de la boucle de la fonction recherche\_dichotomique. Pour cela, il faut s’intéresser à une exécution qui va jusqu’à la fin du corps de la boucle.* 
+- Ainsi, initialement, le variant est len(T) - 1.
 
-*On suppose donc qu’en entrée de boucle, l’***Invariant** *est vérifié. Après avoir défini milieu, trois cas sont examinés :*
+3 **Maintien et Diminution du Variant** :
 
-- *si* T[milieu] = x, *on sort de la boucle prématurément à l’aide de l’instruction retourner milieu, donc ce cas ne nous intéresse pas dans le cadre de la preuve d’invariant de boucle.*
+- À chaque itération de la boucle while, la variable milieu est calculée comme la moyenne de gauche et droite.
 
-- *si* T [milieu] > x*, et si* x *est présente dans le tableau, alors comme celui-ci est ordonné de façon croissante, cela implique que* x *ne peut être présent à l’indice milieu, ni avant. On en déduit d’après l’***Invariant** *que si* x *se trouve dans* T *c’est nécessairement à un indice compris entre* milieu + 1 *et* droite*. Ainsi, après l’affectation* gauche =  milieu + 1*, l’***Invariant** *est encore vérifié.*
+- Ensuite, il y a trois cas :
 
-- *sinon, on a* T[milieu] < x *et, de même, cela implique que l’on ne peut trouver* x *dans le tableau à un indice inférieur ou égal à* milieu*. Ainsi, en supposant* **Invariant** *vrai au départ et en effectuant l’affectation* droite = milieu - 1, *l’***invariant** *reste vérifié.***  
+o	Cas 1 : Si T[milieu] == x, l’algorithme termine immédiatement.
 
-*Ainsi, dans tous les cas d’une exécution menant à la fin du corps de la boucle, si l’***Invariant** *est vérifié au début du corps, il l’est encore à la fin. C’est donc un invariant de la boucle de la fonction* recherche\_dichotomique*.*  
+o	Cas 2 : Si T[milieu] < x, alors gauche est mis à jour à milieu + 1. La nouvelle longueur de l’intervalle de recherche est droite - (milieu + 1), ce qui est strictement inférieur à l’ancienne longueur.
 
-*Voyons maintenant comme cela nous permet de prouver la correction de cette fonction lorsque le résultat est* None*. Avant d’entrer dans la boucle, on a* gauche = 1 *et* droite = milieu - 1*, et donc si* x *est présente dans* T*, c’est nécessairement à un indice compris entre* gauche *et* droite*. Ainsi, l’***Invariant** *est vérifié en entrant dans la boucle.  Puisqu’il s’agit d’un invariant de cette boucle, il est encore vérifié en sortant de la boucle. Mais à ce moment, on sait que :*  
+o	Cas 3 : Si T[milieu] > x, alors droite est mis à jour à milieu - 1. La nouvelle longueur de l’intervalle de recherche est (milieu - 1) - gauche, ce qui est strictement inférieur à l’ancienne longueur.
 
-- **Invariant** *: si* x *est présente dans* T *sa position sera comprise entre* gauche *et* droite.
+- Dans les cas 2 et 3, la nouvelle valeur de droite - gauche est strictement inférieure à l’ancienne valeur, donc le variant décroît à chaque itération.
 
-- *Sortie de boucle : la condition de boucle* gauche <= droite *n’est plus vérifiée, on a donc* droite < gauche.  
+4 **Borne Inférieure** :
 
-*En combinant les deux, si* x *est présente dans* T *à une position comprise entre* gauche *et* droite*, ce qui implique que* gauche <= droite*, qui est incompatible avec* droite < gauche*.*  
+- Le variant droite - gauche est toujours non négatif.
 
-*Ainsi, en sortie de boucle,* x *ne peut être présente dans le tableau (car aucun indice n’est possible) et le résultat renvoyé* None *est donc correct.*  
+- La boucle continue tant que gauche <= droite, donc droite - gauche est toujours au moins 0.
 
-*En conclusion, la fonction* recherche\_dichotomique *a deux comportements possibles : si le résultat renvoyé est un entier positif, on a montré qu’il correspond à un indice où se trouve la valeur recherchée dans le tableau ; sinon, le résultat renvoyé est* None  *et on a montré que dans ce cas, la valeur recherchée n’apparaît pas dans le tableau.* 
+5 **Terminaison** : Puisque le variant de boucle commence à une valeur positive et décroît strictement à chaque itération tout en étant borné inférieurement par 0, la boucle doit nécessairement terminer après un nombre fini d’itérations.
+
 
 ## **6. Implémentation<a name="_page6_x40.00_y408.92"></a> en Python** 
+
+=> CAPYTALE Le code vous sera donné par votre enseignant
 
 **Activité n°2.:** compléter le script suivant
 
@@ -267,11 +266,7 @@ t1.sort()
 print(rechercheDichotomique(t1, 0))
 ```
 
-???+ question "Faire ce qui est proposé"
 
-    {{ IDE() }}
-
-Ne pas oublier de télécharger le script complété
 
 **Activité n°3.: Observation de durées**
 On peut mesurer les durées pour trouver une valeur dans un tableau déjà trié. Comme les temps d’exécution sont très faibles, et que la fonction time est peu précise il faut avoir recourt à la fonction magique %timeit de iPython. Voilà un exemple de script pour mesurer les durées sur des tableaux de longueurs différentes :
@@ -314,6 +309,8 @@ Observer et commenter
 ```
 
 ## **7. Exercices<a name="_page7_x40.00_y407.92"></a>** 
+
+=> CAPYTALE Le code vous sera donné par votre enseignant
 
 **Exercice 1** : Recherche d’un maximum dans une liste de n éléments 
 
