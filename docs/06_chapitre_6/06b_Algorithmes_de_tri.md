@@ -404,11 +404,7 @@ def insertion_sort(T):
 
 print("Liste triée   : ", insertion_sort(data))
 ```
-???+ question "Faire ce qui est proposé"
 
-    {{ IDE() }}
-
-Ne pas oublier de télécharger le script complété
 
 
 **Remarque : on aurait pu également faire une seule fonction**  
@@ -448,11 +444,7 @@ print("Temps d execution pour 10_000: %s secondes ---" % (moyenne))
 ```
 On mesure la durée moyenne (sur 5 tableaux) d’exécution du tri sur des tableaux dont le nombre d’éléments est de plus en plus grand.
 
-???+ question "Faire ce qui est proposé"
 
-    {{ IDE() }}
-
-Ne pas oublier de télécharger le script.
 
 **Animation :[ http://lwh.free.fr/pages/algo/tri/tri_insertion.html ](http://lwh.free.fr/pages/algo/tri/tri_insertion.html)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.006.png)**
 
@@ -492,9 +484,7 @@ def bubble_sort(T : list) -> list:
     la plus grande valeur en fin de la liste  """
     # à compléter
 ```
-???+ question "Faire ce qui est proposé"
 
-    {{ IDE() }}
 
 **Remarque : il existe d’autres versions du tri bulle** 
 
@@ -531,9 +521,7 @@ for i in range(5):
 moyenne = somme_des_durees/5
 print("Temps d execution pour 10_000: %s secondes ---" % (moyenne))
 ```
-???+ question "Faire ce qui est proposé"
 
-    {{ IDE() }}
 
 
 Animation :[ http://lwh.free.fr/pages/algo/tri/tri_bulle.html ](http://lwh.free.fr/pages/algo/tri/tri_bulle.html)
