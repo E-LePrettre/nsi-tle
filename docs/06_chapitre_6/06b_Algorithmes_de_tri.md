@@ -81,7 +81,7 @@ ALGORITHME tri_selection
                 FIN SI
                 j <- j + 1
             FIN POUR
-            SI mini =! i ALORS        		  	# donc la condition SI a été vérifié
+            SI mini =! i ALORS        		  	# condition non nécessaire!
                 echange(T, i, mini)            	# on :appelle la procédure d'échange
             FIN SI
             i <- i + 1
@@ -157,19 +157,23 @@ L'intérêt d'un tri stable est **qu'on peut appliquer ce tri successivement, av
 
 ### **2.7. Preuve<a name="_page3_x40.00_y297.92"></a> de correction** 
 
-**Recherche de l’invariant de boucle** : Deux éléments 
+#### **2.7.1.	Correction** 
+Pour prouver la correction de cet algorithme, nous définissons un **invariant de boucle** qui doit être vrai avant et après chaque itération de la boucle externe for. L’invariant est le suivant :
+Invariant de boucle : À chaque début de l’itération de l’indice i de la boucle externe, les éléments T[0] à T[i-1] sont triés et sont les i plus petits éléments du tableau original.
+1. Initialisation : Avant la première itération de la boucle externe (i = 0), il n’y a pas d’éléments dans la partie triée, donc l’invariant est trivialement vrai.
+2. Maintien : Supposons que l’invariant est vrai au début de l’itération pour un certain i. Nous devons montrer qu’il reste vrai après la fin de cette itération.
+- Pendant l’itération, l’algorithme trouve l’index du plus petit élément dans la sous-liste T[i] à T[n-1] et le place en T[i] par un échange, avec n = len(T)
+- Après cet échange, T[i] est le i-ème plus petit élément du tableau original, et les éléments T[0] à T[i] sont triés et sont les i+1 plus petits éléments du tableau original.
+- Ainsi, à la fin de l’itération, les éléments T[0] à T[i] sont triés et sont les i+1 plus petits éléments du tableau original, ce qui montre que l’invariant est maintenu.
+3. Terminaison : La boucle se termine lorsque i atteint n. À ce moment-là, i = n, donc tous les éléments T[0] à T[n-1] sont triés. L’invariant garantit que ces éléments sont les plus petits éléments du tableau original et qu’ils sont triés.
+En utilisant cet invariant de boucle, nous avons prouvé que l’algorithme de tri par sélection est correct. L’invariant de boucle nous permet de démontrer que l’algorithme maintient la partie triée du tableau correctement à chaque itération et qu’il termine avec l’ensemble du tableau trié.
 
-- Au début de la ième étape, les i-1 premiers éléments du tableau sont triés par ordre croissant. 
-- Au début de la ième étape, les éléments de rang supérieurs ou égal à i sont tous supérieurs au i-1ème élément 
+#### **2.7.2.	Terminaison**
+Pour prouver la terminaison de l'algorithme de tri par sélection, nous devons utiliser un **variant de boucle** pour montrer que la boucle externe et la boucle interne de l'algorithme se terminent après un nombre fini d'itérations.
+- Variant de Boucle pour la Boucle Externe : Pour la boucle externe for de l'algorithme de tri par sélection, le variant de boucle est simplement l'indice i qui va de 0 à n-1. La boucle externe se termine lorsque i atteint n. À ce moment-là, n - i = 0, donc la boucle externe se termine.
+- Variant de Boucle pour la Boucle Interne : Pour la boucle interne for de l'algorithme de tri par sélection, le variant de boucle est l'indice j qui va de i + 1 à n-1. La boucle interne se termine lorsque j atteint n. À ce moment-là, n - j = 0, donc la boucle interne se termine.
+Puisque les deux boucles terminent après un nombre fini d'itérations, nous avons prouvé que l'algorithme de tri par sélection termine toujours.
 
-D’où la correction de cet algorithme 
-
-On a deux boucles for qui sont imbriquées  
-
-- À chaque tour de la boucle extérieure, la liste restante diminue. 
-- À chaque tour de la boucle intérieure, j augmente. Elle s’arrête bien. 
-
-**La terminaison est assurée** 
 
 ### **2.8. Implémentation<a name="_page3_x40.00_y497.92"></a> en Python** 
 
@@ -187,9 +191,7 @@ def genere_liste_aleatoire(N, n):
 data = genere_liste_aleatoire(5, 20)
 print("Liste initiale: ", data)
 ```
-???+ question "Faire ce qui est proposé"
 
-    {{ IDE() }}
 
 **Activité n°3.: implémentation classique** : AJOUTER à l’activité 2 les deux fonctions suivantes à compléter avec l'algorithme précédent : 
 
@@ -206,11 +208,7 @@ def selection_sort(T : list) -> list:
 print("Liste triée   : ", selection_sort(data))
 ```
 
-???+ question "Faire ce qui est proposé"
 
-    {{ IDE() }}
-
-Ne pas oublier de télécharger le script complété
 
 **Activité n°4.: Tri par sélection et temps d’exécution** : AJOUTER ce script aux fonctions de l’activité précédente en mettant en commentaire les deux print précédent : 
 
@@ -249,9 +247,6 @@ print("Temps d execution pour 10_000: %s secondes ---" % (moyenne))
 ```
 On mesure la durée moyenne (sur 5 tableaux) d’exécution du tri sur des tableaux dont le nombre d’éléments est de plus en plus grand.
 
-???+ question "Faire ce qui est proposé"
-
-    {{ IDE() }}
 
 On voit bien que multiplier par 10 le nombre d’éléments du tableau à trier revient à multiplier le temps par 10². 
 
@@ -323,25 +318,24 @@ ALGORITHME tri_insertion
 L’algorithme du tri par insertion a une complexité de O(N²). Calculons le nombre d’instructions : 
 
 ```
-                        PROCEDURE insere(T, i, tmp)                     
-                            i, j, tmp ENTIERS
+                        PROCEDURE insere(T, i)                     
+1                           tmp = T[i]
 1                           j <- i                                                          
-N-1 fois                    TANT QUE j > 0 et T[j-1] > tmp ALORS        
-    1                           T[j] <- T [j-1]                         
+N-1 fois                    TANT QUE j >= 0 et T[j] > tmp ALORS        
+    1                           T[j+1] <- T [j]                         
     1                           j <- j - 1                              
                             FIN TANT QUE
-1                           T[j] <- tmp                                   
-                        PROCEDURE tri_insertion(T)     
-                            i, ENTIERS                                                     
+1                           T[j+1] <- tmp                                   
+                        PROCEDURE tri_insertion(T)                                                         
 N fois                      POUR i ALLANT DE 1 A n [SAUT DE 1] FAIRE         
-    insere                      insere (T, i, T[i])             
+    insere                      insere (T, i)             
     1                           i <- i + 1                                     
                             FIN POUR
 ```
 
 
-- Procédure insere : 1 + (N – 1) x 2 + 1 = 2 + (N – 1) x 2 = 2 N 
-- Procédure tri\_insertion : N x (2N +1) = 2 N² + N 
+- Procédure insere : 2 + (N – 1) x 2 + 1 = 3 + (N – 1) x 2 = 2 N + 2
+- Procédure tri\_insertion : N x (2N + 2) = 2 N² + 2 N 
 
 Pour simplifier les calculs de complexité, on s’intéresse seulement aux nombres de itérations des boucles, puisque c’est elles qui vont donner le comportement asymptotique (quand N très grand). 
 
@@ -367,14 +361,27 @@ Cependant des améliorations et des variantes permettent de le rendre plus rapid
 
 ### **3.6. Preuve<a name="_page6_x40.00_y637.92"></a> de correction** 
 
-Recherche de **l’invariant de boucle** : Deux éléments 
 
-- Boucle for : A la ième étape, les i premiers éléments du tableau sont triés par ordre croissant. 
-- Boucle while : A la fin de la jème étape, la valeur que l’on cherche à insérer est plus petite que toutes les valeurs de l’indice j+1 à l’indice i 
+#### **3.6.1.	Correction**
+Pour prouver la correction de cet algorithme, nous définissons un **invariant de boucle** qui doit être vrai avant et après chaque itération de la boucle externe for. L’invariant est le suivant :
+Invariant de boucle : À chaque début de l’itération de l’indice i de la boucle externe, les éléments T[0] à T[i-1] sont triés.
+1. Initialisation : Avant la première itération de la boucle externe (i = 1), il n’y a qu’un seul élément dans la partie considérée du tableau (T[0]), qui est trivialement trié. Donc l’invariant est vrai.
+2. Maintien : Supposons que l’invariant est vrai au début de l’itération pour un certain i. Nous devons montrer qu’il reste vrai après la fin de cette itération.
+- Pendant l’itération, l’algorithme sélectionne tmp = T[i] et cherche sa place correcte dans la sous-liste triée T[0] à T[i-1].
+- La boucle while déplace les éléments plus grands que tmp d’une position vers la droite pour faire de la place pour tmp.
+- Après avoir trouvé la place correcte pour tmp, l’algorithme insère tmp à cette position.
+- À la fin de cette itération, les éléments T[0] à T[i] sont triés.
+Ainsi, l’invariant est maintenu, car après chaque itération, les éléments T[0] à T[i] sont triés.
+3. Terminaison : La boucle se termine lorsque i atteint n. À ce moment-là, i = n, donc tous les éléments T[0] à T[n-1] sont triés. L’invariant garantit que ces éléments sont triés.
+En utilisant cet invariant de boucle, nous avons prouvé que l’algorithme de tri par insertion est correct. L’invariant de boucle nous permet de démontrer que l’algorithme maintient la partie triée du tableau correctement à chaque itération et qu’il termine avec l’ensemble du tableau trié.
 
-D’où la correction de cet algorithme 
+#### **3.6.2.	Terminaison**
+Pour prouver la terminaison de l'algorithme de tri par insertion, nous devons utiliser un **variant de boucle**. Un variant de boucle est une fonction numérique qui décroît à chaque itération de la boucle et qui est bornée inférieurement.
+- Variant de Boucle pour la Boucle Externe : Pour la boucle externe for de l'algorithme de tri par insertion, le variant de boucle est simplement l'indice i qui va de 1 à n-1. La boucle externe se termine lorsque i atteint n. À ce moment-là, n - i = 0, donc la boucle externe se termine.
+- Variant de Boucle pour la Boucle Interne : Pour la boucle interne while de l'algorithme de tri par insertion, le variant de boucle est l'indice j qui est initialisé à i - 1 et qui décroît jusqu'à ce que la condition j >= 0 ou T[j] > tmp ne soit plus satisfaite. La boucle interne se termine lorsque j devient négatif ou lorsque T[j] <= tmp. Dans les deux cas, la condition de la boucle while n'est plus satisfaite et la boucle se termine.
 
-La boucle for se termine forcément. Pour la boucle while, on part de j qui vaut n jusqu’à 0. **La terminaison est assurée.** 
+Puisque les deux boucles terminent après un nombre fini d'itérations, nous avons prouvé que l'algorithme de tri par sélection termine toujours.
+
 
 
 
