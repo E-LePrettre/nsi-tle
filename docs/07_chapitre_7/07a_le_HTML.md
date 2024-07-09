@@ -57,10 +57,9 @@ HTML  HTML + CSS
 
 ### **2.3. Les<a name="_page1_x40.00_y687.92"></a> éditeurs et les logiciels conseillés** 
 
-Pour ce cours, nous utiliserons principalement Capytale pour les activités du cours et CodePen[https://codepen.io/ ](https://codepen.io/ ) pour les projets un éditeur en ligne qui permet de voir instantanément le résultat de son code HTML, CSS et JavaScript. Il est vivement conseillé de se créer un compte gratuit sur CodePen pour sauvegarder ses travaux et les partager facilement. 
+Pour ce cours, nous utiliserons principalement **Capytale** pour les activités du cours et repl.it pour les projets un éditeur en ligne qui permet de voir instantanément le résultat de son code HTML, CSS et JavaScript.  
 
-Un logiciel intéressant pour cette partie est **Visual Studio code**
-
+**un logiciel interressant pour cette partie est Visual Studio code** 
 
 De plus, il est conseillé d’installer plusieurs navigateurs sur son ordinateur pour s’assurer que son site fonctionne correctement sur chacun d’eux : **Microsoft Edge et Firefox** au minimum.  
 
@@ -71,7 +70,7 @@ Le site[ https://caniuse.com/ ](https://caniuse.com/)tient à jour une liste des
 
 **Activité n°1. :**  
 
-=> CAPYTALE Le code vous sera donné par votre enseignant
+=> CAPYTALE Le code vous sera donné par votre enseignant 
 
 ### **3.2. Les<a name="_page2_x40.00_y155.92"></a> balises** 
 
@@ -98,18 +97,17 @@ Ce sont les options des balises : appelées attributs. Ils donnent les options d
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta charset="utf-8" />
         <title>Logique sur les passoires</title>
     </head>
     <body>
         Bonjour tout le monde
     </body>
 </html>
-
 ```
 Par souci de lisibilité du code on met des indentations (non obligatoires en HTML5) 
 
-
+Enregistrer, ouvrer le fichier et observer… 
 
 - La première ligne s’appelle le **doctype**, elle indique qu’il s’agit bien d’une page web HTML. 
 
@@ -132,34 +130,6 @@ Il faut savoir que le titre apparaît aussi dans les résultats de recherche, co
 ```<!-- je fais un commentaire-->``` 
 
 Tout le code source est accessible à partir du navigateur. Dans **Firefox** : Menu > Web developer > page source ou CTRL + u.
-
-**Exemple de structure complète d’une page HTML**
-Voici un exemple complet d'une page HTML simple :
-
-```html
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Exemple de page HTML</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
-</head>
-<body>
-    <h1>Bienvenue sur ma page</h1>
-    <p>Ceci est un paragraphe.</p>
-    <a href="https://example.com">Un lien</a>
-</body>
-</html>
-<!DOCTYPE html> : Indique qu'il s'agit d'un document HTML5.
-<html> : Conteneur principal de tout le contenu HTML.
-<head> : Contient des informations sur le document, comme le titre et les liens vers les ressources externes.
-<body> : Contient le contenu visible et interactif de la page.
-```
-•	<!DOCTYPE html> : Indique qu'il s'agit d'un document HTML5.
-•	<html> : Conteneur principal de tout le contenu HTML.
-•	<head> : Contient des informations sur le document, comme le titre et les liens vers les ressources externes.
-•	<body> : Contient le contenu visible et interactif de la page.
 
 ## **4. L’organisation<a name="_page3_x40.00_y117.92"></a> d’une page HTML5** 
 ### **4.1. Les<a name="_page3_x40.00_y139.92"></a> paragraphes** 
@@ -343,7 +313,7 @@ Par exemple :
 
 Pour faire un lien vers une page située dans un même dossier, on crée un lien relatif. Il suffit d’utiliser les balises ```<a>``` avec l’attribut href.  
 
-**Activité n°16.** : Créer une nouvelle page html page2.html dans le dossier Documents\site** (Titre : Page 2). Après avoir rempli, la **structure minimale de la nouvelle page html** : 
+**Activité n°16.** : Créer une nouvelle page html page2.html dans le dossier contenant la page1  (Titre : Page 2). Après avoir rempli, la **structure minimale de la nouvelle page html** : 
 
 ```html
 <p>
@@ -351,13 +321,14 @@ Pour faire un lien vers une page située dans un même dossier, on crée un lien
 </p>
 ```
 
-Observer la page2.html dans Firefox. 
+Observer la page2.html. 
 
 #### **4.6.3. Lien<a name="_page8_x40.00_y391.92"></a> relatif vers une page située dans un dossier fils **
 
+**ON NE POURRA PAS LE FAIRE AVEC CAPYTALE**
 Pour faire un lien vers une page située dans un sous dossier, on utilise le chemin relatif : 
 
-**Activité n°17.** : Créer un dossier **contenu** dans le dossier Documents\site**.** Créer un nouvelle page html page3.html** avec la **structure minimale** dans le dossier contenu (Titre : Page3). Sur la page2.html, rajouter : 
+Créer un dossier **contenu** dans le dossier contentant la page index.html. Créer un nouvelle page html page3.html avec la **structure minimale** dans le dossier contenu (Titre : Page3). Sur la page2.html, rajouter : 
 
 ```html
 <p>
@@ -367,13 +338,13 @@ Pour faire un lien vers une page située dans un sous dossier, on utilise le che
 
 
 
-Observer la page2.html dans Firefox.
+Observer la page2.html
 
 #### **4.6.4. Lien<a name="_page8_x40.00_y511.92"></a> relatif vers une page située dans un dossier parent **
-
+**ON NE POURRA PAS LE FAIRE AVEC CAPYTALE**
 Pour faire un lien vers une page dans un dossier parent, on utilise toujours la même chose 
 
-**Activité n°18.** : Sur la page3.html, rajouter : 
+Sur la page3.html, rajouter : 
 ```html
 <p>
     Pour consulter la <a href="../page2.html">page 2 </a> du site
@@ -383,7 +354,7 @@ Pour faire un lien vers une page dans un dossier parent, on utilise toujours la 
 
 Une **ancre** est une sorte de point de repère que l’on peut mettre dans les pages html lorsqu’elles sont très longues. Il peut alors être utile de faire un lien amenant plus bas dans la même page pour que le visiteur puisse sauter directement à la partie qui l'intéresse. Pour créer une ancre, il suffit de rajouter l'attribut id à une balise qui va alors servir de repère. Ce peut être n'importe quelle balise. 
 
-**Activité n°19.** : Sur la index.html, on va faire une ancre sur le titre en haut de page 
+**Activité n°17.** : Sur la index.html, on va faire une ancre sur le titre en haut de page 
 ```<h1 id = "haut"> Les passoires</h1> ```
 
 On crée un lien en bas de la page pour remonter vers le haut. Rajouter tout en bas (mais dans le body) la référence avec ```# ```
@@ -393,13 +364,13 @@ On crée un lien en bas de la page pour remonter vers le haut. Rajouter tout en 
         <a href = "#haut">Aller en haut</a>
     </p>
 ```
-Enregistrer et observer dans Firefox. S’il ne se passe rien augmenter le zoom dans Firefox afin de faire apparaitre les barres de défilement sur le côté. 
+Enregistrer et observer. S’il ne se passe rien augmenter le zoom afin de faire apparaitre les barres de défilement sur le côté. 
 
 #### **4.6.6. Lien<a name="_page9_x40.00_y36.92"></a> vers une ancre sur une autre page **
 
 Pour faire un lien vers **une ancre située dans une autre page,** on précise l’adresse de la page et le nom de l’ancre précédée de #.
 
-**Activité n°20.** : Sur la page2.html, on va faire un lien vers l’ancre de la index.html.  
+**Activité n°18.** : Sur la page2.html, on va faire un lien vers l’ancre de la index.html.  
 ```<h1 id = "haut"> Les passoires</h1> ```
 On crée un lien en bas de la page pour remonter vers le haut. Rajouter tout en bas (mais dans le body) la référence avec #
 ```html
@@ -407,43 +378,43 @@ On crée un lien en bas de la page pour remonter vers le haut. Rajouter tout en 
       <a href = "index.html#haut">Aller en haut de la page logique sur les passoires</a>
   </p>
 ```
-Enregistrer et observer dans Firefox. 
+Enregistrer et observer. 
 
 #### **4.6.7. Lien<a name="_page9_x40.00_y195.92"></a> affichant une infobulle **
 
 Avec l’**attribut** title 
 
-**Activité n°21.** : Sur la page2.html, on va faire une infobulle 
+**Activité n°19.** : Sur la page2.html, on va faire une infobulle 
 ```html
 <p>
     <a href = "index.html#haut" title = "Vous ne le regretterez pas !">Aller en haut de la page logique sur les passoires</a>
 </p>
 ```
-Enregistrer et observer dans Firefox. 
+Enregistrer et observer. 
 
 #### **4.6.8. Lien<a name="_page9_x40.00_y316.92"></a> qui ouvre une nouvelle fenêtre **
 
 Pour forcer l’ouverture d’un lien dans une nouvelle fenêtre, on rajoutera target="\_blank" à la balise ```<a>``` 
 
-**Activité n°22.** : Sur la page2.html, on va faire une infobulle 
+**Activité n°20.** : Sur la page2.html, on va faire une infobulle 
 ```html
 <p>
    <a href = "index.html#haut" title = "Vous ne le regretterez pas !" target = "_blank">Aller en haut de la page logique sur les passoires</a>
 </p> 
 ```
-Enregistrer et observer dans Firefox. 
+Enregistrer et observer. 
 
 #### **4.6.9. Un<a name="_page9_x40.00_y437.92"></a> lien pour envoyer un e-mail **
 
 Avec un lien de type mailto, en cas de click, un nouveau message vide s’ouvre. 
 
-**Activité n°23.** : Sur la index.html, on va faire un lien vers un mail 
+**Activité n°21.** : Sur la index.html, on va faire un lien vers un mail 
 ```html
 <p>
    <a href="mailto:votrenom@bidule.com">Envoyez-moi un e-mail !</a>
 </p>
 ```
-Enregistrer et observer dans Firefox. 
+Enregistrer et observer. 
 
 #### **4.6.10. Un<a name="_page9_x40.00_y544.92"></a> lien pour télécharger un fichier **
 
@@ -504,7 +475,8 @@ On aura ainsi finalement :
 ```
 **Attention** : a ne pas mettre d’espace dans le nom !! 
 
-**Activité n°24.** : Chercher trois images sur le web d’une passoire, d’une casserole et d’un autobus. Les enregistrer dans un dossier** images dans le dossier Documents\site. Ouvrir la index.html et insérer ces trois images de telle sorte à obtenir la page ci-dessous. Mettre des infobulles du type « Ceci est une passoire ! » 
+**ON NE POURRA PAS LE FAIRE AVEC CAPYTALE**
+ Chercher trois images sur le web d’une passoire, d’une casserole et d’un autobus. Les enregistrer dans un dossier** images dans le dossier Documents\site. Ouvrir la index.html et insérer ces trois images de telle sorte à obtenir la page ci-dessous. Mettre des infobulles du type « Ceci est une passoire ! » 
 
 ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.063.jpeg)
 
@@ -512,7 +484,7 @@ On aura ainsi finalement :
 
 ![](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.065.png)
 
-Enregistrer et observer dans Firefox. 
+Enregistrer et observer. 
 
 On peut proposer une miniature cliquable pour des images très grosse : 
 
