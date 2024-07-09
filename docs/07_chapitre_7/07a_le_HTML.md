@@ -57,9 +57,10 @@ HTML  HTML + CSS
 
 ### **2.3. Les<a name="_page1_x40.00_y687.92"></a> éditeurs et les logiciels conseillés** 
 
-**Notepad ++, Visual Studio code**, Visual Studio Community, Sublime Text (qui fonctionne sous différents OS).  
+Pour ce cours, nous utiliserons principalement Capytale pour les activités du cours et CodePen[https://codepen.io/ ](https://codepen.io/ ) pour les projets un éditeur en ligne qui permet de voir instantanément le résultat de son code HTML, CSS et JavaScript. Il est vivement conseillé de se créer un compte gratuit sur CodePen pour sauvegarder ses travaux et les partager facilement. 
 
-**Il est vivement conseillé d’installer** **Notepad ++, Visual Studio code** 
+Un logiciel intéressant pour cette partie est **Visual Studio code**
+
 
 De plus, il est conseillé d’installer plusieurs navigateurs sur son ordinateur pour s’assurer que son site fonctionne correctement sur chacun d’eux : **Microsoft Edge et Firefox** au minimum.  
 
@@ -70,9 +71,7 @@ Le site[ https://caniuse.com/ ](https://caniuse.com/)tient à jour une liste des
 
 **Activité n°1. :**  
 
-Ouvrir un éditeur (Notepad++, Visual Studio code ou Notepad) Faire menu Fichier>Enregistrer (ou File >Save en anglais)  Enregistrer dans un **dossier** Documents\site**.** 
-
-Donner au fichier le nom, en terminant par.html **:** index.html. 
+=> CAPYTALE Le code vous sera donné par votre enseignant
 
 ### **3.2. Les<a name="_page2_x40.00_y155.92"></a> balises** 
 
@@ -99,17 +98,18 @@ Ce sont les options des balises : appelées attributs. Ils donnent les options d
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8" />
+        <meta charset="UTF-8">
         <title>Logique sur les passoires</title>
     </head>
     <body>
         Bonjour tout le monde
     </body>
 </html>
+
 ```
 Par souci de lisibilité du code on met des indentations (non obligatoires en HTML5) 
 
-Enregistrer, ouvrer le fichier dans Firefox et observer… 
+
 
 - La première ligne s’appelle le **doctype**, elle indique qu’il s’agit bien d’une page web HTML. 
 
@@ -132,6 +132,34 @@ Il faut savoir que le titre apparaît aussi dans les résultats de recherche, co
 ```<!-- je fais un commentaire-->``` 
 
 Tout le code source est accessible à partir du navigateur. Dans **Firefox** : Menu > Web developer > page source ou CTRL + u.
+
+**Exemple de structure complète d’une page HTML**
+Voici un exemple complet d'une page HTML simple :
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Exemple de page HTML</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <h1>Bienvenue sur ma page</h1>
+    <p>Ceci est un paragraphe.</p>
+    <a href="https://example.com">Un lien</a>
+</body>
+</html>
+<!DOCTYPE html> : Indique qu'il s'agit d'un document HTML5.
+<html> : Conteneur principal de tout le contenu HTML.
+<head> : Contient des informations sur le document, comme le titre et les liens vers les ressources externes.
+<body> : Contient le contenu visible et interactif de la page.
+```
+•	<!DOCTYPE html> : Indique qu'il s'agit d'un document HTML5.
+•	<html> : Conteneur principal de tout le contenu HTML.
+•	<head> : Contient des informations sur le document, comme le titre et les liens vers les ressources externes.
+•	<body> : Contient le contenu visible et interactif de la page.
 
 ## **4. L’organisation<a name="_page3_x40.00_y117.92"></a> d’une page HTML5** 
 ### **4.1. Les<a name="_page3_x40.00_y139.92"></a> paragraphes** 
