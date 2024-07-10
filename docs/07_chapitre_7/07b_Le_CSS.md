@@ -33,7 +33,11 @@ On peut écrire du code en langage CSS à trois endroits différents :
 - dans l'en-tête ```<head>``` du fichier HTML ;  
 - directement dans les balises du fichier HTML via un attribut style  (méthode **la moins recommandée).**  
 
-Nous écrirons le langage CSS dans un fichier style.css. On place ce fichier dans un dossier css dans le dossier Documents\site. 
+Nous écrirons le langage CSS dans un fichier style.css. On place ce fichier **habituellement** dans un dossier css. Ici (dans capytale) nous le laisserons à la racine
+
+Voici un exemple d’arborescence de site web :
+
+![](6789.png)
 
 **Activité n°1.:** Dans la index.html rajouter le lien vers le fichier css. 
 

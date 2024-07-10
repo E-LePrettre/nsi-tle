@@ -150,10 +150,10 @@ Voici un exemple complet d'une page HTML simple :
 </html>
 ```
 
--	<!DOCTYPE html> : Indique qu'il s'agit d'un document HTML5.
--	<html> : Conteneur principal de tout le contenu HTML.
--	<head> : Contient des **informations sur le document, comme le titre et les liens vers les ressources externes**.
--	<body> : Contient le **contenu visible et interactif de la page**.
+-	```<!DOCTYPE html> ```: Indique qu'il s'agit d'un document HTML5.
+-	```<html>``` : Conteneur principal de tout le contenu HTML.
+-	```<head>``` : Contient des **informations sur le document, comme le titre et les liens vers les ressources externes**.
+-	```<body>``` : Contient le **contenu visible et interactif de la page**.
 
 
 ![](DOM-model.svg.png)
