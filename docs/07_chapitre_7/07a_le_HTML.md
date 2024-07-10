@@ -131,6 +131,33 @@ Il faut savoir que le titre apparaît aussi dans les résultats de recherche, co
 
 Tout le code source est accessible à partir du navigateur. Dans **Firefox** : Menu > Web developer > page source ou CTRL + u.
 
+**Exemple de structure complète d’une page HTML**
+Voici un exemple complet d'une page HTML simple :
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Exemple de page HTML</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <h1>Bienvenue sur ma page</h1>
+    <p>Ceci est un paragraphe.</p>
+    <a href="https://example.com">Un lien</a>
+</body>
+</html>
+```
+
+-	<!DOCTYPE html> : Indique qu'il s'agit d'un document HTML5.
+-	<html> : Conteneur principal de tout le contenu HTML.
+-	<head> : Contient des **informations sur le document, comme le titre et les liens vers les ressources externes**.
+-	<body> : Contient le **contenu visible et interactif de la page**.
+
+
+![](DOM-model.svg.png)
+
 ## **4. L’organisation<a name="_page3_x40.00_y117.92"></a> d’une page HTML5** 
 ### **4.1. Les<a name="_page3_x40.00_y139.92"></a> paragraphes** 
 
