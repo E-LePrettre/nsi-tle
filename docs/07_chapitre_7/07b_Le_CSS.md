@@ -47,25 +47,25 @@ Voici un exemple d’arborescence de site web :
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="style.css">
         <title>Logique sur les passoires</title>
     </head>
 ``` 
 
-Créer un nouveau fichier vide avec l’éditeur. Enregistrer-le dans le dossier css sous le nom style.css et entrer le code ci-dessous 
+Dans le fichier style.css
 
 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.006.png)
 
-Enregistrer et observer la index.html dans Firefox. 
+Enregistrer et observer la index.html. 
 
 **Activité n°2.:** Dans la page2.html rajouter le lien vers le fichier css. 
 ```html
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="style.css">
 ``` 
 
 
 
-**Activité n°3.:** Faire un lien également vers le fichier style.css depuis la page3.html. **Attention** à bien retrouver le chemin relatif. 
+**Activité n°3.:** Faire un lien également vers le fichier style.css depuis la page3.html. 
 
 Enregistrer et observer les page2.html et page3.html. 
 
@@ -160,7 +160,7 @@ Puis dans la feuille de style rajouter
 }
 ```
 
-Enregistrer tout et observer dans Firefox. 
+Enregistrer tout et observer. 
 
 Noter que le nom de la class doit se noter **avec un point en CSS**. 
 
