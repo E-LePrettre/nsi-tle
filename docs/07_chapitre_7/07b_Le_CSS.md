@@ -25,8 +25,10 @@ CSS (**Cascading Style Sheets**), permet de choisir la couleur du texte, la poli
 
 Aux débuts du Web, CSS n'existait pas, il n'y avait initialement que le langage HTML. Cependant, les pages HTML commençaient à devenir assez complexes. Il y avait de plus en plus de balises et c'était un joyeux mélange entre le fond et la forme, qui rendait la mise à jour des pages web de plus en plus complexe. C'est pour cela que l'on a créé le langage CSS. 
 
-## **2. Ou<a name="_page1_x40.00_y36.92"></a> écrit-on le CSS ?  **
+## **2. Ou<a name="_page1_x40.00_y36.92"></a> écrit-on le CSS ?**
+
 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.003.png)
+
 On peut écrire du code en langage CSS à trois endroits différents :  
 
 - dans un fichier .css (méthode la plus recommandée) ;  
@@ -275,6 +277,7 @@ Il est possible d’utiliser des polices personnalisées que l’internaute tél
 On utilise la propriété ```text-align : left``` ou ```center``` ou ```right``` ou ```justify```
 
 **Activité n°10.:** Modifier la feuille de style pour que les paragraphes soient justifiés et centré les images (penser à mettre des nom aux balises des images sur la index) 
+
 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.036.jpeg)
 
 
@@ -662,8 +665,10 @@ On peut changer la position du titre avec la propriété CSS ```caption-side``` 
 - ```top```: le titre sera placé au-dessus du tableau (par défaut) ; 
 - ```bottom```: le titre sera placé en dessous du tableau.
 
-### **9.4. Gros<a name="_page12_x40.00_y120.92"></a> tableau **
+### **9.4. Gros<a name="_page12_x40.00_y120.92"></a> tableau**
+
 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.076.png)
+
 Il existe des balises HTML qui permettent de  définir les trois « zones » du tableau :  
 
 - l'en-tête (en haut) : il se définit avec  les balises ```<thead></thead>```; 
@@ -704,6 +709,7 @@ Par exemple :
 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.078.jpeg)
 
 **Activité n°15.:** Rajouter un tableau résumé à la fin de la index. Modifier la feuille de style pour que le tableau ressemble à l’image ci-dessous. Penser à nommer les balise pour les utiliser en css. 
+
 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.079.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.080.png)
 
 ## **10. Le<a name="_page13_x40.00_y36.92"></a> modèle des boites** 
@@ -807,7 +813,9 @@ element
 
 
 Remarque : les éléments positionnés en absolu sont placés par- dessus le reste des éléments de la page ! Par ailleurs, si vous placez deux éléments en absolu vers le même endroit, ils risquent de se chevaucher.  Dans  ce  cas,  utilisez  la propriété ```z-index```  pour indiquer quel élément doit apparaître au-dessus des autres. 
+
 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.097.png) 
+
 L'élément ayant la valeur de ```z-index``` la plus élevée sera placé par-dessus les autres, comme le montre la figure ci-contre. 
 
 ### **11.2. Le<a name="_page15_x40.00_y697.92"></a> positionnement inline-block** 
@@ -831,7 +839,9 @@ Les éléments en ```inline-block``` nous permet d'utiliser la propriété ```ve
 - ```bottom``` : aligne en bas ; 
 - (valeur en px ou %) : aligne à une certaine distance de la ligne de base (```baseline```). 
 
-NB : les éléments ```inline-block``` se positionnent sur une même ligne de base (appelée ```baseline```), en bas. Exemple : nous voulons réaliser la page suivante.  ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.101.jpeg)
+NB : les éléments ```inline-block``` se positionnent sur une même ligne de base (appelée ```baseline```), en bas. Exemple : nous voulons réaliser la page suivante.  
+
+![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.101.jpeg)
 
 Donnons le code HTML correspondant...  
 ```html
