@@ -58,17 +58,18 @@ En intégrant le code JavaScript directement dans la page HTML, à l'intérieur 
 
 
 ### **2.2. Fichier<a name="_page1_x40.00_y558.92"></a> js externalisé**
-![](Aspose.Words.e9d0b6b1-5c5b-49ac-81ba-f1da180d728c.013.png)
+
 
 Pour bien faire on externalise dans un dossier js. 
 
-On écrit le javascript dans un fichier script.js que l’on mettra aussi  dans le dossier js.  
+On écrit le javascript dans un fichier script.js que l’on met **généralement**  dans le dossier js.  
 
 On peut placer 
 ```html
-<script src="js/script.js"></script>
+<script src="script.js"></script>
 ```
-**soit dans l'en-tête** (```<head>``` ... ```</head>```;), **soit dans le corps** (```<body>``` ... ```</body>```;) de la page HTML. 
+- **soit dans l'en-tête** (```<head>``` ... ```</head>```;), 
+- **soit dans le corps** (```<body>``` ... ```</body>```;) de la page HTML. 
 
 **Activité n°1.:** Dans la index.html rajouter le lien vers le fichier js 
 ```html
@@ -81,12 +82,14 @@ On peut placer
     </head>
 ```
 
-```type="text/javascript"``` est facultatif 
+```type="text/javascript"``` est **facultatif**
 
 **Activité n°1 suite.:** 
-**Puis il faut créer le nouveau fichier javascript :**Créer un nouveau fichier vide avec l’éditeur. Enregistrer-le dans le dossier js sous le nom ***script.js***  ![](Aspose.Words.e9d0b6b1-5c5b-49ac-81ba-f1da180d728c.005.png)
+**Puis il faut créer le nouveau fichier javascript :**Créer un nouveau fichier vide (si ce n’est déjà fait) sous le nom **script.js**   
 
-![](Aspose.Words.e9d0b6b1-5c5b-49ac-81ba-f1da180d728c.015.png)
+![](Aspose.Words.e9d0b6b1-5c5b-49ac-81ba-f1da180d728c.005.png)
+
+
 
 
 ## **3. Boite<a name="_page2_x40.00_y237.92"></a> de dialogue** 
@@ -95,7 +98,7 @@ On peut placer
 
 
 
-**Activité n°2.:**Dans une nouvelle page html que l’on appelera exo_JS.html Le fichier sera enregistré dans le dossier Documents\site.
+**Activité n°2.:**Dans une nouvelle page html que l’on appelera **exo_JS.html**
 
 ```html
 <!DOCTYPE html>
@@ -117,7 +120,7 @@ On peut placer
 <script> alert('Hello world!');
 </script>
 ```
-Enregistrer et observer la page dans Firefox. 
+Enregistrer et observer. 
 
 
 **Activité n°4.:** Dans exo_JS.html rajouter le lien vers le fichier js.
@@ -126,7 +129,7 @@ Enregistrer et observer la page dans Firefox.
 <!DOCTYPE html>
     <head>
         <meta charset="utf-8" />
-        <script type="text/javascript" src="js/exo.js"></script>
+        <script type="text/javascript" src="exo.js"></script>
         <title>Page de tests du code js</title>
     </head>
     <body>
@@ -137,7 +140,7 @@ Enregistrer et observer la page dans Firefox.
 ```
 
 
-Créer un nouveau fichier vide avec l’éditeur. Enregistrer-le dans le dossier js sous le nom **\site\js\exo.js**
+Créer un nouveau fichier vide **exo.js**
 
 **Activité n°5.:** Dans le fichier exo.js écrire le script suivant  :
 ```js
@@ -148,7 +151,7 @@ Enlever de la page exo_JS.html
 <script> alert'Hello world!');
 </script>
 ```
-Enregistrer le tout et observer la page dans Firefox
+Enregistrer le tout et observer
 
 ## **4. La<a name="_page2_x40.00_y113.92"></a> console** 
 
@@ -156,8 +159,10 @@ Enregistrer le tout et observer la page dans Firefox
 ```js
 console.log('Hello world!');
 ```
-Enregistrer le tout et observer la page dans Firefox (ou EDGE) on fait **ctrl+Maj+I**
+Enregistrer le tout et observer dans **console** la page dans Firefox (ou EDGE) on fait **ctrl+Maj+I**
+
 ![](image1.png)
+
 
 ## **5. Les<a name="_page2_x40.00_y641.92"></a> variables** 
 ### **5.1. Déclarer<a name="_page2_x40.00_y663.92"></a> une variable** 
@@ -193,8 +198,8 @@ console.log(myVariable);
 dans Firefox (ou EDGE) on fait **ctrl+Maj+I**
 
 
-### **5.2. Les<a name="_page3_x40.00_y137.92"></a> types de variables  **
-)
+### **5.2. Les<a name="_page3_x40.00_y137.92"></a> types de variables**
+
 
 Le Javascript est un langage typé dynamiquement : **on n’a pas besoin de déclarer le type des variables**. Il existe trois types principaux de variable : 
 
@@ -204,7 +209,7 @@ Le Javascript est un langage typé dynamiquement : **on n’a pas besoin de déc
 
 ### **5.3. Les<a name="_page3_x40.00_y247.92"></a> chaines de caractères**  
 
-Pour inclure des guillemets " ou des apostrophes dans une chaînes, il faut utiliser le caractère d'échappement \ (antislash). 
+Pour inclure des guillemets " ou des apostrophes dans une chaînes, il faut utiliser le caractère d'échappement ```\``` (antislash). 
 
 **Activité n°8.:** Dans le fichier exo.js écrire le script suivant. Enregistrer et observer le fichier exo_JS.html dans Firefox. 
 ```JS
@@ -229,7 +234,7 @@ On peut également insérer des retours à la ligne ainsi que des tabulations av
 
 L’instruction ```typeof``` permet de tester l’existence d’une variable ou d’en vérifier son type. Par exemple : 
 
-**Activité n°9.:** Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo\_JS.html dans Firefox. 
+**Activité n°9.:** Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo_JS.html dans Firefox. 
 ```JS
 var number = 2;
 console.log(typeof number); 
@@ -246,7 +251,7 @@ console.log(typeof aBoolean);
 
 Tous les opérateurs classiques peuvent être utilisée. Ainsi on pourra écrire 
 
-**Activité n°10.:** Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo\_JS.html dans Firefox. 
+**Activité n°10.:** Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo_JS.html dans Firefox. 
 
 ```JS
 var divisor = 3, result1, result2, result3; 
@@ -261,7 +266,7 @@ console.log(result3);
 
 ### **5.6. La<a name="_page4_x40.00_y154.92"></a> concaténation** 
 
-**Activité n°11.:** Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo\_JS.html dans Firefox. 
+**Activité n°11.:** Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo_JS.html dans Firefox. 
 ```JS
 var hi = 'Bonjour ', name = 'toi', result; 
 result = hi + name;  
@@ -275,17 +280,16 @@ On peut aussi concaténer des **chaines de caractères et un  nombre.**
 
 Avec la fonction prompt(). Elle s’utilise comme alert(). Elle renvoie ce que l’utilisateur a écrit sous forme d’une chaine de caractère. 
 
-**Activité n°12.:** Dans le fichier exo.js passer les lignes  précédentes en  commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le  fichier exo\_JS.html dans Firefox. 
+**Activité n°12.:** Dans le fichier exo.js passer les lignes  précédentes en  commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le  fichier exo_JS.html dans Firefox. 
 
 ```JS
 var userName = prompt('Entrez votre prénom :');  
-console.log(userName);   
+console.log("Bonjour "+userName);   
 ```
 ![](Aspose.Words.e9d0b6b1-5c5b-49ac-81ba-f1da180d728c.036.png)
 
-On peut également  dire bonjour à nos visiteurs 
 
-**Activité n°13.:** Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo\_JS.html dans Firefox. 
+**Activité n°13.:** Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo_JS.html dans Firefox. 
 ```JS
 var start = 'Bonjour ', name, end = ' !', result; 
 
@@ -295,7 +299,7 @@ console.log(result);
 ```
 Tout ce qui est récupéré avec ```prompt()``` est sous forme d’une chaine de caractères. Pour convertir la chaine de caractères en **nombre entier** on utilise la fonction ```parseInt()```*.* On pourra utiliser la fonction ```parseFloat()``` pour convertir une chaine de caractère en nombre décimal.* Par exemple 
 
-**Activité n°14.:** Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo\_JS.html dans Firefox. 
+**Activité n°14.:** Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo_JS.html dans Firefox. 
 ```JS
 var first, second, result;  
 first = prompt('Entrez le premier chiffre :');  
@@ -310,7 +314,7 @@ Les opérations de comparaison classiques sont les mêmes : ```==``` ; ```!= ```
 
 Pour pouvoir comparer 4 en tant que ```number``` et 4 en tant que string  il faut utiliser d’autres opérateurs : 
 
-**Activité n°15.:** Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo\_JS.html dans Firefox. 
+**Activité n°15.:** Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo_JS.html dans Firefox. 
 ```JS
 var number = 4, text = '4', result; 
 
@@ -324,7 +328,7 @@ console.log(result); // Affiche « false » car cet opérateur compare aussi les
 ### **6.2. Les<a name="_page5_x40.00_y167.92"></a> structures conditionnelles** 
 #### **6.2.1. La<a name="_page5_x40.00_y186.92"></a> condition « if else *»** 
 
-**Activité n°16.:** Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo\_JS.html dans Firefox. 
+**Activité n°16.:** Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo_JS.html dans Firefox. 
 ```JS
 var userName = prompt('Entrez votre prénom :'); 
 
@@ -336,12 +340,12 @@ console.log(userName);
 
 La fonction ```confirm()```. On lui passe en paramètre une chaine de caractère qui sera affichée à l’écran et elle retourne un booléen en fonction de l’action de l’utilisateur. 
 
-**Activité n°17.:** Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo\_JS.html dans Firefox. 
+**Activité n°17.:** Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo_JS.html dans Firefox. 
 ```JS
 if (confirm('Voulez-vous exécuter le code JavaScript de cette page ?')) { 
    console.log('Le code a bien été exécuté !')}; 
 ```
-Relancer la Web exo\_Js.html en choisissant l’autre proposition. 
+Relancer la Web exo_Js.html en choisissant l’autre proposition. 
 
 La structure ```else``` existe également et permet d’exécuter un certain code si la condition n’a pas été vérifié. Par contre il est conseillé de l’écrire ainsi (directement après l’accolade de fermeture de la structure ```if```) : 
 ```JS
@@ -367,7 +371,7 @@ if ( /* condition */ ) {
 
 Supposons qu’on est besoin de nombreux ```else if``` les uns à la suite des autres. Par exemple : 
 
-**Activité n°18.:** Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo\_JS.html dans Firefox. 
+**Activité n°18.:** Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo_JS.html dans Firefox. 
 ```JS
 var tiroir = parseInt(prompt('Choisissez le tiroir à ouvrir (1 à 4) :')); 
 if (tiroir == 1) { 
@@ -384,7 +388,7 @@ if (tiroir == 1) {
 ```
 Avec ```switch``` c'est un peu plus facile : 
 
-**Activité n°19.:** Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo\_JS.html dans Firefox. 
+**Activité n°19.:** Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo_JS.html dans Firefox. 
 ```JS
 var tiroir = parseInt(prompt('Choisissez le tiroir à ouvrir (1 à 4) :'));
 
@@ -413,7 +417,7 @@ Tout ce qui suit les deux points d’un ```case``` sera exécuté si la variable
 
 La partie ```default``` est optionnel.  
 
-## **7. Les<a name="_page6_x40.00_y544.92"></a> opérateurs logiques  **
+## **7. Les<a name="_page6_x40.00_y544.92"></a> opérateurs logiques**
 - L’opérateur ET se note ```&&``` 
 - L’opérateur OU se note ```||```  (Alt Gr +6)  
 - L’opérateur NON se note comme en Python avec ```!``` 
@@ -425,7 +429,7 @@ La partie ```default``` est optionnel.
 
 L’incrémentation permet d’ajouter une unité à un nombre et à l’inverse, la décrémentation permet de soustraire une unité. 
 
-**Activité n°20.:** Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo\_JS.html dans Firefox. 
+**Activité n°20.:** Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo_JS.html dans Firefox. 
 ```JS
 var number1 = 0, number2 = 0; 
 
@@ -444,7 +448,7 @@ La position de l’opérateur ```++``` est important si on veut récupérer le r
 
 A chaque fois que la boucle se répète on parle d’itération. Par exemple :  
 
-**Activité n°21.:** Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo\_JS.html dans Firefox. 
+**Activité n°21.:** Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo_JS.html dans Firefox. 
 ```JS
 var number = 1; 
 
@@ -477,7 +481,7 @@ for (initialisation; condition; incrémentation) {
 ```
 
 
-**Activité n°22:** Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo\_JS.html dans Firefox. 
+**Activité n°22:** Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo_JS.html dans Firefox. 
 ```JS
 for (var iter = 0; iter < 5; iter++) { 
    console.log('Itération n°' + iter); 
@@ -494,7 +498,7 @@ function* myFunction(arguments) {
 } 
 ```
 
-**Activité n°23.: Exemple de fonction sans argument** : Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo\_JS.html dans Firefox. 
+**Activité n°23.: Exemple de fonction sans argument** : Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo_JS.html dans Firefox. 
 ```JS
 function showMsg() { 
    console.log('Et une première fonction, une !');
@@ -506,7 +510,7 @@ La fonction ```showMsg()``` exécute elle-même une autre fonction qui n'est aut
 
 Toute variable déclarée dans une fonction n'est utilisable que dans cette même fonction. Ce sont les variables locales. 
 
-**Activité n°24.: Exemple de fonction avec argument** : Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo\_JS.html dans Firefox. 
+**Activité n°24.: Exemple de fonction avec argument** : Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo_JS.html dans Firefox. 
 ```JS
 function myFunction(arg) { // Notre argument est la variable « arg » 
    // Une fois que l'argument a été passé à la fonction, vous allez le retrouver dans la va riable « arg »
@@ -515,14 +519,14 @@ function myFunction(arg) { // Notre argument est la variable « arg »
 myFunction('En voilà un beau test !'); 
 ```
 
-**Activité n°25.: Exemple de fonction avec** ```prompt()``` *:* Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo\_JS.html dans Firefox. 
+**Activité n°25.: Exemple de fonction avec** ```prompt()``` *:* Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo_JS.html dans Firefox. 
 ```JS
 function myFunction(arg) { 
    console.log('Votre argument : ' + arg); 
 } 
 myFunction(prompt('Que souhaitez-vous passer en argument à la fonction ?')); 
 ```
-**Activité n°26.: Exemple de fonction avec un ```return```** *:* Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo\_JS.html dans Firefox. 
+**Activité n°26.: Exemple de fonction avec un ```return```** *:* Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo_JS.html dans Firefox. 
 ```JS
 function sayHello() {
    return 'Bonjour !'; 
@@ -564,7 +568,7 @@ Le Javascript va modifier les pages html et css en accédant aux **éléments ci
 
 Trouve tous les éléments ayant la classe « paragraphe »  
 
-**Activité n°27.:** Créer un fichier **interaction.html**, dans **site** et saisir le code ci-dessous.
+**Activité n°27.:** Créer un fichier **interaction.html**, et saisir le code ci-dessous.
 
 
 ```html
@@ -578,7 +582,7 @@ Trouve tous les éléments ayant la classe « paragraphe »
     <p id='important'>Ceci est un texte qu'il faut mettre en valeur !</p>
     <button onclick="change_couleur()">Cliquez ici !</button>
 </body>
-<script src="js/interaction.js"></script>
+<script src="interaction.js"></script>
 </html>
 ```
 ![](Aspose.Words.e9d0b6b1-5c5b-49ac-81ba-f1da180d728c.081.png)
@@ -602,7 +606,7 @@ Ouvrez la console et observer dans console :
 
 Vous devez constater que la **variable paragraphe contient maintenant la balise paragraphe et son contenu** c’est-à-dire ```<p id='important'>Ceci est un texte qu'il faut mettre en valeur !</p>```
 
-**Activité n°28.:** Ajouter le code ci-dessous à la fonction du fichier js. Puis  enregistrer et observer le fichier interaction.html dans Firefox.  
+**Activité n°28.:** Ajouter le code ci-dessous à la fonction du fichier js (**sous console.log...**). Puis  enregistrer et observer le fichier interaction.html dans Firefox.  
 ```JS
 paragraphe.style.color="red"; 
 ```
@@ -612,7 +616,7 @@ Appuyez sur le bouton, et constatez le changement. Habituellement on  utilise le
 
 ![](Aspose.Words.e9d0b6b1-5c5b-49ac-81ba-f1da180d728c.089.jpeg)
 
-**Activité n°29.:** Créer un fichier interaction.css dans le dossier css. Rajouter le code suivant à la page CSS  
+**Activité n°29.:** Créer un fichier interaction.css. Rajouter le code suivant à la page CSS  
 ```CSS
 h1{
     text-align: center;
@@ -628,7 +632,7 @@ h1{
 
 Puis ajouter la ligne suivante dans le html pour lier le CSS avec le html.  
 ```html
-<link rel="stylesheet" href="css/interaction.css"> 
+<link rel="stylesheet" href="interaction.css"> 
 ```
 
 Modifier le fichier Js comme suit. Puis enregistrer et observer le fichier interaction.html dans Firefox. 
@@ -649,7 +653,7 @@ On va à présent modifier la couleur
 
 **Activité n°30.:** Ajouter le bouton suivant dans le html 
 ```html
-<button onclick="reset\_couleur()">Reset</button> 
+<button onclick="reset_couleur()">Reset</button> 
 ```
 
 
@@ -922,7 +926,7 @@ Résumé des événements JS : Il est important de noter que les événements pe
 
 ### **11.2. La<a name="_page14_x40.00_y550.92"></a> pratique** 
 
-**Activité n°45.:** Créer un fichier (avec tout ce qu’il faut  ) evenement.html*,* dans Documents\site et saisir le code ci-dessous. 
+**Activité n°45.:** Créer un fichier (avec tout ce qu’il faut  ) **evenement.html**, et saisir le code ci-dessous. 
 ```html
    <body>
       <span onclick="alert('Hello')" > Cliquez ici !</span>
@@ -1052,41 +1056,236 @@ Vous pouvez aussi associer une fonction à votre ```eventListener``` sans qu'ell
 
 ## **12. Exercices<a name="_page18_x40.00_y36.92"></a>** 
 
-Ecrire  directement  le  script  dans  le  html  entre  balise  ```<script>…</script>```.  Les  fichiers  HTML exercice\_numéro.html sont à compléter pour le dossier Ressources 
+=> CAPYTALE Le code vous sera donné par votre enseignant 
 
-**Exercice 1 : Ecrire une fonction simple** 
+**Exercice 1 : Jeu de devinette de nombre**
 
-Vous utiliserez les fonctions ```console.log()``` (qui affiche une chaîne de caractères) et ```prompt()``` (qui invite à la saisie d'une donnée), dont voici les syntaxes : 
+**But du jeu :** L'utilisateur doit deviner un nombre aléatoire entre 1 et 100.
 
-- ```console.log(Chaîne à afficher à l'écran)``` 
-- ```variable=prompt(Question à afficher à l'écran)```
-1. Complétez le  fichier exercice1.html pour  que le click  sur le bouton lance  une  fonction.  Cette  fonction demande la saisie d'une largeur, d'une longueur et affiche la surface du rectangle correspondant. 
-2. Remplacez ce calcul par celui du périmètre (double de la somme de la longueur et de la largeur). 
+**Étapes :**
+1. **HTML :** Créez une structure de base avec un champ de saisie pour entrer la supposition et un bouton pour soumettre la supposition.
+2. **JavaScript :**
+   - Générer un nombre aléatoire entre 1 et 100.
+   - Ajouter un événement de clic au bouton de soumission.
+   - Lorsque le bouton est cliqué, récupérer la supposition de l'utilisateur et vérifier si elle est correcte, trop élevée ou trop basse.
+   - Afficher un message indiquant si la supposition est correcte, trop élevée ou trop basse.
+   - Utiliser une boucle pour permettre plusieurs essais jusqu'à ce que l'utilisateur devine correctement.
 
-**Exercice 2 : Ecrire une fonction renvoyant une valeur** 
+**Code HTML de exo1.html**
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Jeu de Devinette</title>
+</head>
+<body>
+    <h1>Devinez le nombre</h1>
+    <p>Je pense à un nombre entre 1 et 100. Pouvez-vous le deviner ?</p>
+    <input type="number" id="guess" placeholder="Entrez votre supposition">
+    <button id="submitGuess">Soumettre</button>
+    <p id="result"></p>
+    <script src="exo1.js"></script>
+</body>
+</html>
+```
 
-1. Créez une fonction qui : 
-   1. demande la saisie d'un rayon ; 
-   1. retourne la surface du cercle de ce rayon 
-1. Affichez le résultat de l'appel à cette fonction en cliquant sur le bouton. 
+**Code JavaScript de exo1.js à trous à compléter**
+```javascript
+// exo1.js
 
-**Exercice 3 : Changements de couleurs** 
+// Question 1 : Quelle méthode permet de générer un nombre aléatoire entre 1 et 100 ?
+// Remplissez le blanc avec la bonne méthode pour générer un nombre aléatoire.
+// Indice : Utilisez Math.random() et Math.floor().
+let randomNumber = ...(... * 100) + 1;
 
-Les changements de couleurs d'une zone de texte font appel à ```onmouseover```, ```onmouseout```, ```onclick``` et ```ondblclick```, ainsi qu'aux méthodes de contrôle du style par JavaScript appliquées à l'objet courant indiqué par ```this```.
+let guesses = 0;
 
-Exemple : Ceci est un texte dont la couleur va changer au passage de la souris.  
+// Question 2 : Comment ajouter un événement de clic au bouton "Soumettre" ?
+document.getElementById('submitGuess').addEventListener(..., function() {
 
-Créer une page web comportant une phrase, dont un groupe de mots, de couleur noire au chargement, doit prendre la couleur : 
+    let userGuess = parseInt(document.getElementById('guess').value);
+    guesses++;
+    
+    // Question 3 : Où devons-nous afficher le résultat du jeu ?
+    let result = document.getElementById(...);
 
-1. rouge au passage de la souris ; 
-1. citron vert (lime) en réponse à un click ; 
-1. bleu marine (navy) en réponse à un double click. 
+    // Question 4 : Comment vérifier si la supposition de l'utilisateur est correcte ?
+    if (... === randomNumber) {
+        result.textContent = `Félicitations ! Vous avez deviné le nombre en ${guesses} essais.`;
+    } else if (userGuess < randomNumber) {
+        // Question 5 : Complétez le message à afficher lorsque la supposition est trop basse.
+        result.textContent = ...;
+    } else {
+        // Question 6 : Complétez le message à afficher lorsque la supposition est trop haute.
+        result.textContent = ...;
+    }
+});
+```
 
-**Exercice 4 : Manipulation des méthodes d’accès aux éléments** 
+**Exercice 2 : Calculatrice de base**
+**Concepts : Variables, opérateurs, fonctions**
+- **Mise en contexte :** Développez une calculatrice simple où les utilisateurs peuvent entrer deux nombres et choisir une opération (addition, soustraction, multiplication, division) pour obtenir le résultat.
 
-On a utilisé les méthodes ```getElementById```, ```getElementsByName``` et ```getElementsByTagName```.  
+**Code HTML de exo2.html**
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculatrice</title>
+</head>
+<body>
+    <h1>Calculatrice Simple</h1>
+    <input type="number" id="num1" placeholder="Nombre 1">
+    <input type="number" id="num2" placeholder="Nombre 2">
+    <select id="operation">
+        <option value="add">Addition</option>
+        <option value="subtract">Soustraction</option>
+        <option value="multiply">Multiplication</option>
+        <option value="divide">Division</option>
+    </select>
+    <button id="calculate">Calculer</button>
+    <p id="result"></p>
+    <script src="exo2.js"></script>
+</body>
+</html>
+```
 
-1. Créer une fonction ```modif_paragraphe()```, appelée en cliquant sur le titre. Cette fonction sélectionne le paragraphe en utilisant son identifiant, puis le modifie avec la propriété ```innerHTML```, en remplaçant le mot **original** en caractères droit par le mot **corrigé**, en italique. 
-1. Créer une fonction ```centrage_h1()```, appelée en cliquant sur le paragraphe. Cette fonction détecte d'abord les éléments portant le nom de balise h1. Elle sélectionne ensuite le premier d'entre eux et modifie son attribut ```align```, en lui affectant la valeur "```center```", à l'aide de la méthode ```setAttribute```.... 
+**Code JavaScript de exo2.js à trous à compléter**
+```javascript
+// exo2.js
+document.getElementById('calculate').addEventListener('click', function() {
+    let num1 = parseFloat(document.getElementById('num1').value);
+    let num2 = parseFloat(document.getElementById('num2').value);
+    let operation = document.getElementById('operation').value;
+    let result;
 
-**Aide :** ```titre.setAttribute("align", "center");```
+    if (operation === 'add') {
+        result = num1 + num2;
+    } else if (operation === 'subtract') {
+        result = num1 - num2;
+    } else if (operation === 'multiply') {
+        result = num1 * num2;
+    } else if (operation === 'divide') {
+        result = num1 / num2;
+    }
+
+    document.getElementById('result').textContent = 'Résultat : ' + result;
+});
+```
+
+**Exercice 3 : Liste de tâches (To-Do List)**
+**Concepts : Manipulation du DOM, événements, boucles**
+- **Mise en contexte :** Créez une application où les utilisateurs peuvent ajouter des tâches, les marquer comme complétées, et les supprimer.
+
+**Code HTML de exo3.html**
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste de Tâches</title>
+</head>
+<body>
+    <h1>Liste de Tâches</h1>
+    <input type="text" id="taskInput" placeholder="Nouvelle tâche">
+    <button id="addTask">Ajouter</button>
+    <ul id="taskList"></ul>
+    <script src="exo3.js"></script>
+</body>
+</html>
+```
+
+**Code JavaScript de exo3.js à trous à compléter**
+```javascript
+// exo3.js
+// Question 1 : Comment ajouter un événement de clic au bouton "Ajouter" ?
+document.getElementById('addTask').addEventListener(..., function() {
+
+    // Question 2 : Comment récupérer la valeur du champ de saisie ?
+    let taskInput = document.getElementById('taskInput');
+    let taskText = taskInput....;
+
+    taskInput.value = '';
+
+    // Question 3 : Comment créer un nouvel élément de liste (li) pour la nouvelle tâche ?
+    let li = document.createElement(...);
+    li.textContent = taskText;
+
+    // Question 4 : Comment créer un bouton pour marquer la tâche comme complétée ?
+    let completeButton = document.createElement(...);
+    completeButton.textContent = 'Compléter';
+    completeButton.addEventListener('click', function() {
+        li.style.textDecoration = 'line-through';
+    });
+
+    // Question 5 : Comment créer un bouton pour supprimer la tâche ?
+    let deleteButton = document.createElement(...);
+    deleteButton.textContent = 'Supprimer';
+    deleteButton.addEventListener('click', function() {
+        li.remove();
+    });
+
+    // Question 6 : Comment ajouter les boutons à l'élément de liste ?
+    li.appendChild(...);
+    li.appendChild(...);
+
+    // Question 7 : Comment ajouter l'élément de liste à la liste de tâches ?
+    document.getElementById(...).appendChild(li);
+});
+```
+
+**Exercice 4 : Quiz interactif**
+**Concepts : Conditions, boucles, manipulation du DOM**
+- **Mise en contexte :** Créez un quiz où les utilisateurs répondent à une série de questions et reçoivent une note à la fin.
+
+**Code HTML de exo4.html**
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Interactif</title>
+</head>
+<body>
+    <h1>Quiz Interactif</h1>
+    <div id="quiz">
+        <p>1. Quelle est la capitale de la France ?</p>
+        <input type="radio" name="q1" value="Paris"> Paris<br>
+        <input type="radio" name="q1" value="Londres"> Londres<br>
+        <input type="radio" name="q1" value="Berlin"> Berlin<br>
+        <p>2. Quelle est la capitale de l'Allemagne ?</p>
+        <input type="radio" name="q2" value="Paris"> Paris<br>
+        <input type="radio" name="q2" value="Londres"> Londres<br>
+        <input type="radio" name="q2" value="Berlin"> Berlin<br>
+        <button id="submitQuiz">Soumettre</button>
+        <p id="result"></p>
+    </div>
+    <script src="exo4.js"></script>
+</body>
+</html>
+```
+
+**Code JavaScript de exo4.js à trous à compléter**
+```javascript
+// exo4.js
+document.getElementById('submitQuiz').addEventListener('click', function() {
+    let score = 0;
+    let totalQuestions = 2;
+
+    let q1 = document.querySelector('input[name="q1"]:checked');
+    let q2 = document.querySelector('input[name="q2"]:checked');
+
+    if (q1 && q1.value === 'Paris') {
+        score++;
+    }
+
+    if (q2 && q2.value === 'Berlin') {
+        score++;
+    }
+
+    let result = document.getElementById('result');
+    result.textContent = `Vous avez obtenu ${score} sur ${totalQuestions}`;
+});
+```
