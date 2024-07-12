@@ -61,7 +61,7 @@ Ce tri se décompose réellement en deux étapes distinctes : À chaque tour, on
 
 ### **2.3. Illustration<a name="_page1_x40.00_y434.92"></a> en vidéo** 
 
-Vidéo :[ https://www.youtube.com/watch?v=Ns4TPTC8whw ](https://www.youtube.com/watch?v=Ns4TPTC8whw)Attention : les danseurs s’échangent (si nécessaire) à chaque fois alors que le vrai algorithme ne procède à l’échange qu’à la fin de chaque tour  
+Vidéo :[ https://ladigitale.dev/digiview/#/v/668aea84a26ef ](https://ladigitale.dev/digiview/#/v/668aea84a26ef)Attention : les danseurs s’échangent (si nécessaire) à chaque fois alors que le vrai algorithme ne procède à l’échange qu’à la fin de chaque tour  
 
 ### **2.4. Pseudo-code<a name="_page1_x40.00_y485.92"></a>** 
 
@@ -300,7 +300,7 @@ Pour insérer un élément dans la partie triée, on parcourt de droite à gauch
 
 ### **3.3. Illustration<a name="_page5_x40.00_y491.92"></a> vidéo** 
 
-Vidéo :[ https://www.youtube.com/watch?v=ROalU379l3U ](https://www.youtube.com/watch?v=ROalU379l3U)
+Vidéo :[ https://ladigitale.dev/digiview/#/v/668aed171ea50 ](https://ladigitale.dev/digiview/#/v/668aed171ea50)
 
 ### **3.4. Pseudo-code<a name="_page5_x40.00_y542.92"></a>** 
 
@@ -490,7 +490,9 @@ On optimise l’algorithme en se basant sur la propriété que le dernier élém
 
 **Conclusion** : Le tri à bulles présente une complexité en **O(N²)** dans le pire des cas (où N est la longueur de la liste), et en O(N) dans le cas où le tableau est déjà trié, ce qui le classe parmi les mauvais algorithmes de tri. Il n'est donc quasiment pas utilisé en pratique. 
 
-Comme le tri par insertion, le tri à bulle est un tri stable. Illustration vidéo :[ https://www.youtube.com/watch?v=lyZQPjUT5B4 ](https://www.youtube.com/watch?v=lyZQPjUT5B4) 
+Comme le tri par insertion, le tri à bulle est un tri stable. 
+
+Illustration vidéo :[ https://ladigitale.dev/digiview/#/v/668aed8c3bab4 ](https://ladigitale.dev/digiview/#/v/668aed8c3bab4) 
 
 => CAPYTALE Le code vous sera donné par votre enseignant
 
