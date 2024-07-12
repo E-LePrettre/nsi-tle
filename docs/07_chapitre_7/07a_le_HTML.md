@@ -14,7 +14,7 @@ title: 07a Le HTML
 
 ## **1. Historique<a name="_page0_x40.00_y600.92"></a>** 
 
-**Video** : historique 
+**Video** : historique : [https://ladigitale.dev/digiview/#/v/6690fec0420aa ](https://ladigitale.dev/digiview/#/v/6690fec0420aa)
 
 Le "World Wide Web", plus communément appelé "Web" a été développé au CERN (Conseil Européen pour la Recherche Nucléaire) par le Britannique **Sir Timothy John Berners-Lee** et le Belge **Robert Cailliau** en 1991. À cette époque les principaux centres de recherche mondiaux étaient déjà connectés les uns aux autres, mais pour faciliter les échanges d'information Tim Berners-Lee met au point le système hypertexte. Le système hypertexte permet, à partir d'un document, de consulter d'autres documents en cliquant sur des mots clés. Ces mots "cliquables" sont appelés **hyperliens** et sont souvent soulignés et en bleu.  
 
