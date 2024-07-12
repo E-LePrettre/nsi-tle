@@ -10,7 +10,10 @@ title: 08a Les réseaux
 2. [Observation d’un réseau](#_page5_x40.00_y260.92)
 3. [Le protocole ARP](#_page5_x40.00_y455.92)
 4. [Le modèle TCP/IP](#_page5_x40.00_y630.92)
-5. [Simulation d’un réseau](#_page10_x40.00_y36.92)
+5. [Menaces courantes sur les réseaux](#_titre5)
+6. [Mesures de protection des réseaux](#_titre6)
+7. [Analyse de trame](#_titre7)
+8. [Simulation d’un réseau avec Filius](#_page10_x40.00_y36.92)
 
 **Un  réseau**  est  une  **connexion  de  plusieurs machines  entre  elles,**  afin  qu’elles  puissent  communiquer, échanger des informations suivant **des protocoles communs (règles communes)** définis à l’avance. 
 
@@ -358,9 +361,88 @@ La règle est relativement simple : la première trame envoyée par A aura pour 
 
 *Pour aller encore plus loin : TCP sur site[ https://www.frameip.com/entete-tcp/ ](https://www.frameip.com/entete-tcp/) ![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.008.png)*
 
-## **5.  Simulation d’un réseau<a name="_page10_x40.00_y36.92"></a>** 
+## **5. Menaces courantes sur les réseaux<a name="#_titre5"></a>** 
 
-**Activité n°3.:** Lien direct entre deux ordinateurs  
+### **5.1. Phishing**
+- **Description** : Le phishing est une technique de fraude où un attaquant se fait passer pour une entité de confiance pour obtenir des informations sensibles comme des identifiants de connexion, des numéros de carte bancaire, etc.
+- **Exemple** : Un utilisateur reçoit un email qui semble provenir de sa banque, lui demandant de vérifier ses informations de compte en cliquant sur un lien qui mène à un faux site web.
+
+### **5.2. DDoS (Distributed Denial of Service)**
+- **Description** : Une attaque DDoS vise à rendre un service ou un réseau indisponible en le submergeant de trafic provenant de multiples sources. Cela surcharge les serveurs et les réseaux, empêchant les utilisateurs légitimes d'accéder aux services.
+- **Exemple** : Un site web d'e-commerce est bombardé de requêtes malveillantes provenant de milliers d'ordinateurs compromis, rendant le site inaccessible aux clients.
+
+### **5.3. Man-In-The-Middle (MITM)**
+- **Description** : Dans une attaque MITM, un attaquant intercepte et peut altérer les communications entre deux parties sans qu'elles le sachent. Cela permet à l'attaquant de voler des informations sensibles ou d'injecter des données malveillantes.
+- **Exemple** : Un utilisateur se connecte à un Wi-Fi public et un attaquant intercepte les communications entre l'utilisateur et un site web sécurisé, dérobant ainsi les identifiants de connexion de l'utilisateur.
+
+## **6. Mesures de protection des réseaux<a name="#_titre6"></a>** 
+
+### **6.1. Firewalls**
+- **Description** : Un firewall est une barrière de sécurité qui surveille et contrôle le trafic réseau entrant et sortant en fonction de règles de sécurité prédéfinies. Il peut être matériel, logiciel, ou les deux.
+- **Fonctionnement** : 
+  - **Filtrage des paquets** : Analyse chaque paquet de données entrant ou sortant et le bloque ou le permet en fonction des règles établies.
+  - **Proxy** : Intercepte toutes les communications entre les utilisateurs et le réseau, les inspecte et les transfère si elles sont sûres.
+- **Exemple** : Un firewall bloque les tentatives de connexion non autorisées provenant d'adresses IP suspectes.
+
+### **6.2. VPN (Virtual Private Network)**
+- **Description** : Un VPN crée une connexion sécurisée et chiffrée entre l'utilisateur et le réseau, permettant de masquer l'adresse IP de l'utilisateur et de protéger ses données contre les interceptions.
+- **Fonctionnement** :
+  - **Tunneling** : Les données sont encapsulées dans un protocole de tunneling et chiffrées, rendant difficile pour les attaquants d'intercepter ou de lire les informations.
+  - **Authentification** : Utilise des protocoles d'authentification pour s'assurer que seuls les utilisateurs autorisés peuvent accéder au réseau.
+- **Exemple** : Un employé utilise un VPN pour accéder aux ressources de l'entreprise en travaillant à distance, garantissant que les données transmises sont sécurisées.
+
+### **6.3. Chiffrement**
+- **Description** : Le chiffrement transforme les données en une forme illisible pour toute personne non autorisée. Seules les parties possédant la clé de déchiffrement peuvent lire les données.
+- **Fonctionnement** :
+  - **Chiffrement symétrique** : Utilise la même clé pour chiffrer et déchiffrer les données.
+  - **Chiffrement asymétrique** : Utilise une paire de clés (publique et privée). La clé publique chiffre les données, et seule la clé privée correspondante peut les déchiffrer.
+- **Exemple** : Les transactions bancaires en ligne utilisent le chiffrement SSL/TLS pour sécuriser les données échangées entre le client et le serveur bancaire.
+
+## **7. Mesures de protection des réseaux<a name="#_titre7"></a>** 
+
+Activité n°3 : Analyse d'une trame fictive
+
+```
+Frame 1: 66 bytes on wire (528 bits), 66 bytes captured (528 bits) on interface en0, id 0
+Ethernet II, Src: 00:0c:29:36:bc:5a, Dst: 00:50:56:c0:00:01
+Internet Protocol Version 4, Src: 192.168.1.101, Dst: 192.168.1.1
+Transmission Control Protocol, Src Port: 443, Dst Port: 56324, Seq: 1, Ack: 1, Len: 0
+```
+- Question 1 : Adresse MAC : Quelle est l'adresse MAC source et l'adresse MAC de destination ?
+- Question 2 : Adresse IP: Quelle est l'adresse IP source et l'adresse IP de destination ?
+- Question 3 : Protocole utilisé : Quel protocole de couche transport est utilisé par cette trame ?
+- Question 4 : Ports utilisés : Quels sont les ports source et destination ?
+- Question 5 : Numéro de séquence et d'accusé de réception : Quel est le numéro de séquence et le numéro d'accusé de réception de cette trame TCP ?
+
+**Remarque** pour faire une analyse de trame, on peut utiliser un logiciel type wiresharp
+**Installation et prise en main de Wireshark**
+1. **Installation de Wireshark**
+   - Aller sur le site officiel de Wireshark : [https://www.wireshark.org/](https://www.wireshark.org/).
+   - Télécharger la version appropriée pour votre système d'exploitation (Windows, macOS, Linux).
+   - Suivre les instructions d'installation.
+
+2. **Premier lancement et configuration**
+   - Ouvrir Wireshark.
+   - Sélectionner l'interface réseau à utiliser pour la capture (par exemple, Wi-Fi ou Ethernet).
+   - Démarrer une capture en cliquant sur le bouton "Start capturing packets".
+
+
+**Capture et analyse de trames réseau**
+
+1. **Démarrer une capture réseau**
+   - Avec Wireshark ouvert et une capture en cours, ouvrir un navigateur web et visiter quelques sites web (ex. : www.google.com, www.wikipedia.org).
+   - Retourner à Wireshark et arrêter la capture en cliquant sur le bouton "Stop capturing packets".
+
+2. **Analyse des trames capturées**
+   - Dans la fenêtre principale de Wireshark, vous verrez une liste de trames capturées.
+   - Sélectionner une trame TCP et observer les détails dans les différentes sections (Frame, Ethernet, IP, TCP).
+
+
+
+
+## **8.  Simulation d’un réseau avec Filius<a name="_page10_x40.00_y36.92"></a>** 
+
+**Activité n°4.:** Lien direct entre deux ordinateurs  
 ![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.058.png)
 
 - Lancer Filius  
@@ -371,7 +453,7 @@ La règle est relativement simple : la première trame envoyée par A aura pour 
 - Afficher les données échangées avec un click droit sur l’ordinateur 
 - Faire un ipconfig dans le cmd du poste 10 et comparer l’adresse Mac avec l’adresse Mac de la source sur le tabelau des données échangées  
 
-**Activité n°4.:** 2 ordinateurs et un serveur  
+**Activité n°5.:** 2 ordinateurs et un serveur  
 ![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.059.png)
 - Modifier le réseau précédent pour mettre un serveur 192.168.1.12 et un switch  
 - Installer sur le serveur générique (port 55555) et démarrer le serveur  
@@ -395,7 +477,7 @@ Puis envoi du message du client au serveur L’accusé de réception du serveur 
 
 On voit des échanges entre le client et le serveur en 4 temps 
 
-**Activité n°5.:** 2 réseaux  
+**Activité n°6.:** 2 réseaux  
 ![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.060.jpeg)
 
 - Modifier le réseau précédent pour obtenir  les deux réseaux inter connectés suivants :  
@@ -410,7 +492,7 @@ Il  faut  donc  indiquer  une  passerelle  qui  sera  l’adresse du routeur 192
 - Installer un client générique sur le poste 2.10 et connecter le poste en 2.10 au serveur en 1.12 pour lui envoyer le message « bonjour » 
 - Afficher et observer les données échangées 
 
-**Activité n°6.:** Simulation du web avec adresse IP 
+**Activité n°7.:** Simulation du web avec adresse IP 
 
 - Installer un serveur web  et un éditeur de texte sur le serveur en 1.12 
 - Utiliser l’éditeur de texte pour ouvrir le fichier index.html qui se trouve sur le répertoire root/webserver 
@@ -423,7 +505,7 @@ Sauvegarder.
 
 On voit deux choses : le css ne fonctionne pas ni le codage utf-8 !! 
 
-**Activité  n°7.:**  Simulation  du  web  avec  serveur DNS  
+**Activité  n°8.:**  Simulation  du  web  avec  serveur DNS  
 ![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.061.jpeg)
 Normalement on ne s’adresse pas ainsi à un  serveur : on n’utilise pas l’adresse IP mais  son url. Le serveur de noms de domaine (ou  DNS) va traduire url en IP.  
 
@@ -437,7 +519,7 @@ Vérification :
 
 - Aller sur le poste1.10. Dans l’editeur de commande taper host[ www.serverwebdensi.fr.](http://www.serverwebdensi.fr/) Observer 
 
-**Activité n°8.:** Chemin d’un client à un serveur 
+**Activité n°9.:** Chemin d’un client à un serveur 
 
 - ouvrir le fichier snt\_sim\_res.fls. 
 - Faire un "traceroute" entre l'ordinateur M14 et l'ordinateur M9 (n'oubliez pas de faire un "ipconfig" sur la machine M9 afin d'obtenir son adresse IP). Noter le chemin parcouru pour aller de la machine M14 à la machine M9. 
@@ -445,7 +527,7 @@ Vérification :
 
 Sous windows c’est tracert 
 
-**Activité n°9.:** Chemin d’un client à un serveur version graphique 
+**Activité n°10.:** Chemin d’un client à un serveur version graphique 
 
 Sur le site[ https://gsuite.tools/traceroute ](https://gsuite.tools/traceroute)on pourra voir le chemin vers un des serveurs de plusieurs site web 
 
