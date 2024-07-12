@@ -19,7 +19,7 @@ title: 08a Les réseaux
 
 Le mot **réseau** s’applique aussi bien à l’ensemble des machines qu’aux infrastructures qui les relient.  
 
-**Video 1** : Histoire de l’internet[ https://www.youtube.com/watch?v=dFmTbZMGRdQ ](https://www.youtube.com/watch?v=dFmTbZMGRdQ) 
+**Video 1** : Histoire de l’internet[ https://ladigitale.dev/digiview/#/v/6690fd5d7c1bd ](https://ladigitale.dev/digiview/#/v/6690fd5d7c1bd) 
 
 Le Web correspond à **World Wide Web**, composé de worldwide (« **mondial** ») et de web (« **toile d’araignée** ») 
 
