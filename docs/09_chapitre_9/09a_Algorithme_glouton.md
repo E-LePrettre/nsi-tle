@@ -13,14 +13,14 @@ title: 09a Algorithme glouton
 test
 # Diagramme de l'algorithme glouton pour le rendu de monnaie
 
-```mermaid
 graph TD;
-A(Somme = 8€) --> B{Choisir la plus grande pièce}
-B -->|5€| C(Somme restante = 3€)
-C --> D{Choisir la plus grande pièce}
-D -->|2€| E(Somme restante = 1€)
-E --> F{Choisir la plus grande pièce}
-F -->|1€| G(Somme restante = 0€
+    A(Ville A) -->|Ville la plus proche| B(Ville C)
+    B -->|Ville la plus proche| C(Ville F)
+    C -->|Ville la plus proche| D(Ville G)
+    D -->|Ville la plus proche| E(Ville B)
+    E -->|Ville la plus proche| F(Ville D)
+    F -->|Ville la plus proche| G(Ville E)
+    G -->|Retour à la ville de départ| A
 
 
 ## **1. Algorithmes<a name="_page0_x51.00_y229.00"></a> gloutons** 
