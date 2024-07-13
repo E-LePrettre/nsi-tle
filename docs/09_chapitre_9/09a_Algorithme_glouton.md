@@ -10,6 +10,19 @@ title: 09a Algorithme glouton
 2. [EXERCICES ](#_page7_x51.00_y32.00)
 3. [PROBLEME : TSP - LE VOYAGEUR DE COMMERCE ](#_page9_x51.00_y32.00)
 
+test
+# Diagramme de l'algorithme glouton pour le rendu de monnaie
+
+```mermaid
+graph TD;
+A(Somme = 8€) --> B{Choisir la plus grande pièce}
+B -->|5€| C(Somme restante = 3€)
+C --> D{Choisir la plus grande pièce}
+D -->|2€| E(Somme restante = 1€)
+E --> F{Choisir la plus grande pièce}
+F -->|1€| G(Somme restante = 0€
+
+
 ## **1. Algorithmes<a name="_page0_x51.00_y229.00"></a> gloutons** 
 
 En informatique, un algorithme glouton (greedy algorithm) est une **technique** permettant de résoudre un problème. Un algorithme glouton va aborder la résolution d'un problème en plusieurs étapes :
