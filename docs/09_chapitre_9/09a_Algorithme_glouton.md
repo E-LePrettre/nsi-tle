@@ -230,9 +230,7 @@ Il y a par exemple six triplets de pièces (ou billets) de 1, 2 et 5 euros qui p
 
 La solution au problème de rendu de monnaie (S, 7) est alors le triplet (x1, x2, x3) qui minimise le nombre total x1 + x2 + x3 de pièces rendues, soit (0, 1, 1), c'est-à-dire une pièce de 2 euros et une de 5 (un billet). On a donc le nombre minimal de pièces du système $M_(1,2 5)$(7) = 2. 
 
-Pour rendre toute somme inférieure à 500€ pièces il faut au plus 3 pièces pour les unités, 3 billets pour les dizaines et jusqu'à 2 billets pour les centaines, soit au plus 8 pièces ou billets. L'optimum au-delà est alors formé de $v/500$ billets de 500
-
-500€, plus les pièces et billets nécessaires pour le reste v modulo 500€. 
+Pour rendre toute somme inférieure à 500€ pièces il faut au plus 3 pièces pour les unités, 3 billets pour les dizaines et jusqu'à 2 billets pour les centaines, soit au plus 8 pièces ou billets. L'optimum au-delà est alors formé de $v/500$ billets de 500€, plus les pièces et billets nécessaires pour le reste v modulo 500€. 
 
 Ainsi, 2019 = 500×4 + 19 = 500×4 + 10×1 + 5×1 + 2×2, soit 4+1+1+2 = 6 billets et 2 pièces. 
 
@@ -242,26 +240,34 @@ Ainsi, 2019 = 500×4 + 19 = 500×4 + 10×1 + 5×1 + 2×2, soit 4+1+1+2 = 6 bille
 
 - Noter les entrées et le(s) sortie(s).  
 - S’inspirer de l’algorithme en pseudo-code de recherche dichotomique 
-2. Montrer que l’algorithme termine. 
+
+2 Montrer que l’algorithme termine. 
 
 **Rappels :** 
 
 Pour s'assurer qu'un algorithme est correct, il faut démontrer deux choses : 
+
 - que l'algorithme se termine (**terminaison**), autrement dit qu'il **ne boucle pas** ou ne diverge pas, produisant au moins un résultat. 
+
 - que le résultat de l'algorithme **satisfait la spécification du résultat** comme énoncé dans la description de l'algorithme (**correction partielle**). 
 
 La conjonction de la **correction partielle et de la terminaison** s'appelle la **correction totale.** 
 
-3. Implémenter cet algorithme en langage Python. On donne le prototype de la fonction : 
+3 Implémenter cet algorithme en langage Python. On donne le prototype de la fonction : 
 
 ```rendu(S : list, valeur : int) -> list``` 
+
 - ```S``` -- liste des pièces ordonnées 
+
 - ```valeur``` -- somme à rendre 
+
 - la fonction retourne la liste des pièces à rendre 
 
-4. Documenter la fonction  
-5. Tester le programme pour deux systèmes de monnaies : 
+4 Documenter la fonction  
+5 Tester le programme pour deux systèmes de monnaies : 
+
 - européen : ```S = (1, 2, 5, 10, 20, 50, 100, 200, 500)```
+
 - royaume uni : ```S = (1, 3, 4, 10, 30, 40, 100, 300, 400)```[^2] on prendra 2019 pour somme à rendre 
 
 ★★ **le voyageur** 
