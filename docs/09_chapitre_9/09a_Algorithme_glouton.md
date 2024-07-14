@@ -10,17 +10,6 @@ title: 09a Algorithme glouton
 2. [EXERCICES ](#_page7_x51.00_y32.00)
 3. [PROBLEME : TSP - LE VOYAGEUR DE COMMERCE ](#_page9_x51.00_y32.00)
 
-test
-# Diagramme de l'algorithme glouton pour le rendu de monnaie
-
-graph TD;
-    A(Ville A) -->|Ville la plus proche| B(Ville C)
-    B -->|Ville la plus proche| C(Ville F)
-    C -->|Ville la plus proche| D(Ville G)
-    D -->|Ville la plus proche| E(Ville B)
-    E -->|Ville la plus proche| F(Ville D)
-    F -->|Ville la plus proche| G(Ville E)
-    G -->|Retour à la ville de départ| A
 
 
 ## **1. Algorithmes<a name="_page0_x51.00_y229.00"></a> gloutons** 
@@ -36,11 +25,9 @@ Les algorithmes gloutons servent principalement à résoudre des **problèmes d'
 
 Un des grands classiques est le problème du rendu de monnaie où l'on souhaite rendre une somme en utilisant le moins de pièces (ou de billets) possibles. Le principe de l'algorithme consiste à répéter **le choix de la pièce de plus grande valeur** qui ne dépasse pas la somme restante. 
 
-Remarque : On dit qu'il s'agit d'un algorithme glouton, car il choisit la pièce la plus grosse à chaque étape sans réfléchir à la suite. 
+**Remarque** : On dit qu'il s'agit d'un algorithme glouton, car il choisit la pièce la plus grosse à chaque étape sans réfléchir à la suite. 
 
-Exemple avec le système de pièces européen : 
-
-Rendre la somme de 8€ 
+Exemple avec le système de pièces européen : Rendre la somme de 8€ 
 
 ![](Aspose.Words.35e5d16a-adab-4fc0-8fbe-75d584bf8d1c.004.png)
 <table xmlns="http://www.w3.org/1999/html">
@@ -62,21 +49,27 @@ Rendre la somme de 6 €
 <tr><td colspan="11">2 pièces de 3€</td><td colspan="11">1 pièce de 4€<br>  2 pièces de 1€ <br>Total : 3 pièces (algorithme glouton)</td></tr>
 </table>
 
-**Activité n°1.**: Rendu de monnaie :Traduire l’algorithme suivant,  en Python dans un fichier nommé rendu_monnaie.py
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
+
+**Activité n°1.**: Rendu de monnaie : Traduire l’algorithme suivant,  en Python dans capytale
+
 ```
 Fonction renduMonnaie (somme : entier, pièces : liste des pièces dans l’ordre décroissant) : liste des pièces choisies
 
 	n←longueur de la liste de pièces
-	initialiser à zéro la liste choisie de dimension n
+	initialiser à zéro la liste "choisies" de dimension n
 	Pour i de 1 à n par pas de 1
 		Tant que somme>= pieces[i]
 			somme←somme-pieces[i]
 			choisies[i]← choisies[i]+1
 		fin tant que
 	fin pour
-```
-Aide
+    retourner choisies
+``` 
+Aide : 	
+
 - le prototype de la fonction est donc : ```renduMonnaie(somme: int, pieces: list) -> list``` 
+
 - Ne pas oublier de documenter la fonction 
 
 **Test n°1 :**
@@ -87,15 +80,7 @@ somme=780
 print('Les pièces choisies sont')
 print(renduMonnaie(somme,pieces))
 ```
-<table>
-<tr><td colspan="11">Vérification : </td></tr>
-<tr><td colspan="1">Pièces </td><td colspan="1">500 </td><td colspan="1">200 </td><td colspan="1">100 </td><td colspan="2">50 </td><td colspan="1">20 </td><td colspan="1">10 </td><td colspan="1">5 </td><td colspan="1">2 </td><td colspan="1">1 </td></tr>
-<tr><td colspan="1">Choisies </td><td colspan="1">….. </td><td colspan="1">….. </td><td colspan="1">….. </td><td colspan="2">…. </td><td colspan="1">…. </td><td colspan="1">…. </td><td colspan="1">…. </td><td colspan="1">…. </td><td colspan="1">…. </td></tr>
-</table>
 
-???+ question "Faire ce qui est proposé"
-
-    {{ IDE() }}
 
 Soit 780 centimes, <b>l’algorithme fonctionne et est optimal</b> avec le système de pièces européen  
 
@@ -108,11 +93,7 @@ somme=6
 print('Les pièces choisies sont')
 print(renduMonnaie(somme,pieces))
 ```
-<table>
-<tr><td colspan="11">Vérification : </td></tr>
-<tr><td colspan="1">Pièces </td><td colspan="1">4 </td><td colspan="1">3 </td><td colspan="1">1 </td>
-<tr><td colspan="1">Choisies </td><td colspan="1">…... </td><td colspan="1">…….. </td><td colspan="1">……. </td></tr>
-</table>
+
 
 Soit 6 euros, l’algorithme fonctionne, <b>mais n’est pas optimal</b>, car on aurait pu rendre 2 pièces de 3 € 
 
@@ -127,11 +108,7 @@ somme=31
 print('Les pièces choisies sont')
 print(renduMonnaie(somme,pieces))
 ```
-<table>
-<tr><td colspan="11">Vérification : </td></tr>
-<tr><td colspan="1">Pièces </td><td colspan="1">10 </td><td colspan="1">5 </td><td colspan="1">2 </td></tr>
-<tr><td colspan="1">Choisies </td><td colspan="1">….. </td><td colspan="1">….. </td><td colspan="1">……. </td></tr>
-</table>
+
 Soit 30 euros, l’algorithme ne fonctionne plus, car il manque une pièce de 1 euro. 
 
 ## **2. Le<a name="_page2_x51.00_y32.00"></a> problème du sac à dos** 
