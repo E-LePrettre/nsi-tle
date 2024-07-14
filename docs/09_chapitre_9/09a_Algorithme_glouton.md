@@ -220,7 +220,7 @@ C’est donc une **méthode de résolution approchée.** Pour trouver la solutio
 
 Par exemple, la meilleure façon de rendre 7€ est de rendre un billet de cinq et une pièce de deux, même si d'autres façons existent (rendre 7 pièces de 1€, par exemple). 
 
-Ce problème est NP-complet[^1] dans le cas général, c'est-à-dire difficile à résoudre. Cependant pour certains systèmes de monnaie, l'algorithme glouton est optimal, c'est-à-dire qu'il suffit de rendre systématiquement la pièce ou le billet de valeur maximale — ce tant qu'il reste quelque chose à rendre. 
+Ce problème est **NP-complet**[^1] dans le cas général, c'est-à-dire difficile à résoudre. Cependant pour certains systèmes de monnaie, l'algorithme glouton est optimal, c'est-à-dire qu'il suffit de rendre systématiquement la pièce ou le billet de valeur maximale — ce tant qu'il reste quelque chose à rendre. 
 
 Dans la zone euro, le système S en vigueur est, en mettant de côté les centimes d'euros : 
 
@@ -228,11 +228,9 @@ Dans la zone euro, le système S en vigueur est, en mettant de côté les centim
 
 Il y a par exemple six triplets de pièces (ou billets) de 1, 2 et 5 euros qui permettent de rendre la valeur v = 7€ (les billets de 10 euros ou plus étant inutiles) : (7,0,0), (5,1,0), (3,2,0), (1,3,0), (2,0,1), (0,1,1). 
 
-La solution au problème de rendu de monnaie (S, 7) est alors le triplet (x1, x2, x3) qui minimise le nombre total x1 + x2 + x3 de pièces rendues, soit (0, 1, 1), c'est-à-dire une pièce de 2 euros et une de 5 (un billet). On a donc le nombre minimal de pièces du système M(1,2 5)(7) = 2. 
+La solution au problème de rendu de monnaie (S, 7) est alors le triplet (x1, x2, x3) qui minimise le nombre total x1 + x2 + x3 de pièces rendues, soit (0, 1, 1), c'est-à-dire une pièce de 2 euros et une de 5 (un billet). On a donc le nombre minimal de pièces du système M_(1,2 5)(7) = 2. 
 
-Pour rendre toute somme inférieure à 500€ pièces il faut au plus 3 pièces pour les unités, 3 billets pour les dizaines et jusqu'à 2 billets pour les centaines, soit au plus 8 pièces ou billets. L'optimum au-delà est alors formé de  billets de ![](Aspose.Words.35e5d16a-adab-4fc0-8fbe-75d584bf8d1c.025.png)
-
-500
+Pour rendre toute somme inférieure à 500€ pièces il faut au plus 3 pièces pour les unités, 3 billets pour les dizaines et jusqu'à 2 billets pour les centaines, soit au plus 8 pièces ou billets. L'optimum au-delà est alors formé de  billets de 500
 
 500€, plus les pièces et billets nécessaires pour le reste v modulo 500€. 
 
