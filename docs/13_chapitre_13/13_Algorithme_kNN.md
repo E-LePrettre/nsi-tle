@@ -1,6 +1,6 @@
 ﻿---
 author: ELP
-title: 09b Algorithme des k plus proches voisins
+title: 13 Algorithme des k plus proches voisins
 ---
 
 **Table des matières** 
