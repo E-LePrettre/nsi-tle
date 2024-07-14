@@ -230,11 +230,11 @@ Il y a par exemple six triplets de pièces (ou billets) de 1, 2 et 5 euros qui p
 
 La solution au problème de rendu de monnaie (S, 7) est alors le triplet (x1, x2, x3) qui minimise le nombre total x1 + x2 + x3 de pièces rendues, soit (0, 1, 1), c'est-à-dire une pièce de 2 euros et une de 5 (un billet). On a donc le nombre minimal de pièces du système $M_{(1,2 5)}$(7) = 2. 
 
-Pour rendre toute somme inférieure à 500€ pièces il faut au plus 3 pièces pour les unités, 3 billets pour les dizaines et jusqu'à 2 billets pour les centaines, soit au plus 8 pièces ou billets. L'optimum au-delà est alors formé de $v//500$ billets de 500€, plus les pièces et billets nécessaires pour le reste v modulo 500€. 
+Pour rendre toute somme inférieure à 500€ pièces il faut au plus 3 pièces pour les unités, 3 billets pour les dizaines et jusqu'à 2 billets pour les centaines, soit au plus 8 pièces ou billets. L'optimum au-delà est alors formé de $v/500$ billets de 500€, plus les pièces et billets nécessaires pour le reste v modulo 500€. 
 
 Ainsi, 2019 = 500×4 + 19 = 500×4 + 10×1 + 5×1 + 2×2, soit 4+1+1+2 = 6 billets et 2 pièces. 
 
-1. Écrire **l’algorithme de rendu de monnaie en pseudo-code** pour une valeur** v à rendre avec un système de pièces S, trié par ordre croissant.  
+1 Écrire **l’algorithme de rendu de monnaie en pseudo-code** pour une valeur** v à rendre avec un système de pièces S, trié par ordre croissant.  
 
 **Aide :** 
 
@@ -276,16 +276,22 @@ Une route comporte n+1 stations-service, numérotées dans l'ordre du parcours, 
 
 Un automobiliste prend le départ de la route avec une voiture dont le réservoir d'essence est plein. Il désire faire le plein le moins souvent possible. Sa voiture possède une autonomie notée autonomie avec un plein. 
 
-1. Écrire l’algorithme qui détermine à quelles stations-service il doit s'arrêter avec la distance parcourue. 
-2. Montrer que l’algorithme termine. 
-3. Implémenter cet algorithme en langage Python. On donne le prototype de la fonction : 
-```voyage(distance : list, autonomie : int) -> lis```
-- ```distance``` -- liste des distances entre les stations-service <
+1 Écrire l’algorithme qui détermine à quelles stations-service il doit s'arrêter avec la distance parcourue. 
+2 Montrer que l’algorithme termine. 
+3 Implémenter cet algorithme en langage Python. On donne le prototype de la fonction : 
+```voyage(distance : list, autonomie : int) -> list```
+
+- ```distance``` -- liste des distances entre les stations-service 
+
 - ```autonomie``` -- distance maximum que l'on peut parcourir 
+
 - la fonction retourne la liste de tuple (numéro de la station, distance parcourue depuis le début) 
-4. Documenter la fonction 
-5. Tester le programme : 
-- 17 stations-service avec  
+
+4 Documenter la fonction 
+5 Tester le programme : 
+
+- 17 stations-service avec 
+ 
 ```python
 distance = [23, 40, 12, 44, 21, 9, 67, 32, 51, 30, 11, 55, 24, 64, 32, 57, 12, 80] 
 autonomie = 100 
