@@ -311,7 +311,8 @@ Un cambrioleur entre par effraction dans une maison. Il n'est capable de porter 
 - Pour amasser le plus gros butin, il suffit de considérer le rapport prix/masse. A chaque fois, on en prend le rapport maximal. 
 - il faut rajouter ce critère à la liste [prix, poids] et la trier sur ce critère par ordre décroissant. 
 
-2 Montrer que cet algorithme termine. 
+2 Montrer que cet algorithme termine.
+ 
 3 Programmez une fonction remplir dont le prototype est le suivant : 
 ```voleur(articles : list, masse : int) -> list```
 
