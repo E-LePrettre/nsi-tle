@@ -264,6 +264,7 @@ La conjonction de la **correction partielle et de la terminaison** s'appelle la 
 - la fonction retourne la liste des pièces à rendre 
 
 4 Documenter la fonction  
+
 5 Tester le programme pour deux systèmes de monnaies : 
 
 - européen : ```S = (1, 2, 5, 10, 20, 50, 100, 200, 500)```
@@ -312,7 +313,7 @@ Un cambrioleur entre par effraction dans une maison. Il n'est capable de porter 
 - il faut rajouter ce critère à la liste [prix, poids] et la trier sur ce critère par ordre décroissant. 
 
 2 Montrer que cet algorithme termine.
- 
+
 3 Programmez une fonction remplir dont le prototype est le suivant : 
 ```voleur(articles : list, masse : int) -> list```
 
