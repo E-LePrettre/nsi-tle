@@ -10,9 +10,10 @@
 6. L'algorithmique
 7. Le web
 8. Les réseaux
-9. Algorithmique avancée
-10. Traitement des données en tables
-11. Système d'exploitation
-12. Architecture d'un ordinateur
+9. Algorithme glouton
+10. Système d'exploitation
+11. Architecture d'un ordinateur
+12. Traitement des données en tables
+13. Algorithme knn
 
 *Elisabeth Le Prettre*

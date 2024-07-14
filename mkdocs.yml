@@ -5,7 +5,7 @@ site_description: NSI 1ère de Elisabeth Le Prettre au lycée Jean Cassaigne
 # À modifier, avec votre nom et la licence choisie
 copyright: |
     <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr"><img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br/>
-    Hébergé sur la forge gérée par l'<a href="https://aeif.fr">AEIF</a>
+    Hébergé sur la forge gérée par l'<a href="https://forge.apps.education.fr">Education</a>
 
 # À modifier, avec votre mail
 extra:
@@ -15,7 +15,7 @@ extra:
           name: Écrire à l'auteur
         - icon: fontawesome/brands/gitlab
           link: !ENV [CI_PROJECT_ROOT_NAMESPACE] 
-          name: AEIF
+          name: EN 
 
 # Éventuellement à modifier avec votre thème de couleurs
 theme:

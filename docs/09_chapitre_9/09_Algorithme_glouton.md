@@ -214,6 +214,8 @@ C’est donc une **méthode de résolution approchée.** Pour trouver la solutio
 
 ## **2. Exercice<a name="_page7_x51.00_y32.00"></a>**  
 
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
+
 ★ **Rendu de monnaie** 
 
 Étant donné un système de monnaie (pièces et billets), comment rendre une somme donnée de façon optimale, c'est-à- dire avec le nombre minimal de pièces et billets ? 
