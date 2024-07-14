@@ -344,19 +344,13 @@ Les domaines d’application sont nombreux : problèmes  de logistique, de trans
 
 **Exercice 1 :** 
 
-1- Pour un ensemble de 4 villes, combien existe t-il de  
+1- Pour un ensemble de 4 villes, combien existe t-il de chemins différents possibles ?  
 
-chemins différents possibles ?  
-
-2- Pour un ensemble de 5 villes, combien existe t-il de  
-
-chemins possibles ?
+2- Pour un ensemble de 5 villes, combien existe t-il de chemins possibles ?
 
 3- Pour un ensemble de 71 villes, combien existe t-il de chemins différents possibles ?
 
-4- Sachant que mon ordinateur est capable de traiter 10 000 000 de trajets par seconde, en combien de temps aura 
-
-t-il traité le problème des 71 villes ? 
+4- Sachant que mon ordinateur est capable de traiter 10 000 000 de trajets par seconde, en combien de temps aura t-il traité le problème des 71 villes ? 
 
 **L'objectif de ce TP est de réaliser un algorithme glouton pour résoudre le TSP** en considérons les villes nommées succinctement A, B, C, D, E, F et G dont ont connaît les coordonnées géographiques (longitude, latitude) :
 
@@ -405,8 +399,6 @@ BD² = (xB-xD)² + (yB – yD)²
 
 Avec un petit peu d'organisation, on pourrait se répartir le travail…
 
-Première NSI   Chap  : Algorithme glouton  Page / 
-
 **Uniquement en utilisant ce distancier (SANS REGARDER les "cartes"), déterminer :** 
 
 Itinéraire glouton en partant de A : Longueur de l'itinéraire en partant de A :
@@ -417,7 +409,7 @@ Itinéraire glouton en partant de C : Longueur de l'itinéraire en partant de C 
 
 Itinéraire glouton en partant de D : Longueur de l'itinéraire en partant de D :
 
- Itinéraire glouton en partant de E : Longueur de l'itinéraire en partant de E :
+Itinéraire glouton en partant de E : Longueur de l'itinéraire en partant de E :
 
 Itinéraire glouton en partant de F : Longueur de l'itinéraire en partant de F :
 
@@ -437,7 +429,7 @@ Itinéraire glouton en partant de G : Longueur de l'itinéraire en partant de G 
 
 ![](Aspose.Words.35e5d16a-adab-4fc0-8fbe-75d584bf8d1c.033.png) ![](Aspose.Words.35e5d16a-adab-4fc0-8fbe-75d584bf8d1c.033.png)
 
-**Maintenant c’est à vous de compléter le fichier voyageur_commerc\_eleve.py**  
+**Maintenant c’est à vous de compléter le fichier sur capytale**  
 
 
 
