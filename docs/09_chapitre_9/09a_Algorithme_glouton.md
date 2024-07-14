@@ -1,6 +1,6 @@
 ﻿---
 author: ELP
-title: 09a Algorithme glouton
+title: 09 Algorithme glouton
 ---
 
 
@@ -131,7 +131,7 @@ Exemple :
 
 
 
-**Activité n°2.: Sac à dos : affichage des objets choisis selon leur valeur:** Traduire l’algorithme suivant,  en Python dans un fichier nommé sac_dos.py : 
+**Activité n°2.: Sac à dos : affichage des objets choisis selon leur valeur:** Traduire l’algorithme suivant,  en Python  dans capytale : 
 ```
 Fonction remplirSac (objets : liste des objets dans l’ordre décroissant, poidsMax : en décimal) : liste des objets choisis
 
@@ -148,6 +148,7 @@ Fonction remplirSac (objets : liste des objets dans l’ordre décroissant, poid
 ```
 
 **Aide :** 
+
 - Ne pas oublier le prototype de la fonction et de la documenter
 
 
@@ -167,29 +168,12 @@ poidsMax=4.7
 print('Les objets choisis sont')
 print(remplirSac(objets,poidsMax))
 ```
-Vérification : 
-<table>
-<tr><td colspan="1"></td><td colspan="1">Jumelles</td><td colspan="1">Tente </td><td colspan="1">Gourde</td><td colspan="1">Carte </td></tr>
-<tr><td colspan="1">Objets choisis </td><td colspan="1">…. </td><td colspan="1">… </td><td colspan="1">… </td><td colspan="1">… </td></tr>
-</table>
 
-???+ question "Faire ce qui est proposé"
-
-    {{ IDE() }}
 
 L’algorithme choisit bien les articles selon notre prévision.
 
 
-
-**Activité n°3.: Rendu de monnaie :**
-La caissière d’un supermarché doit vous rendre 99 euros, Elle dispose des pièces et billets suivants : pieces=[50,20,10,5,2,1] 
-Utiliser **l’algorithme glouton correspondant** afin d’indiquer le nombre de pièces et de billets rendus 
-
-???+ question "Faire ce qui est proposé"
-
-    {{ IDE() }}
-
-**Activité n°4.: Sac à dos : affichage des objets choisis selon leur valeur et du poids total :** 
+**Activité n°3.: Sac à dos : affichage des objets choisis selon leur valeur et du poids total :** 
 
 Avant de partir aux Bahamas, on doit remplir sa valise. La compagnie d’aviation n’accepte qu’une valise de dépassant pas 23kg. 
 
@@ -201,134 +185,27 @@ objets=[[6,5.0,'chaussures'],[5,5.0,'habits'],[4.5,2.0,'trousse de toilette'],[4
 exemple :  
 ```[6,5.0,'chaussures'] → 6 : valeur, 5.0 : poids, 'chaussures' : désignation ```
 
-Utiliser l’algorithme glouton correspondant afin d’indiquer les objets pouvant être mis dans la valise. Pour cela dans le fichier sac_dos.py ajouter une fonction ```remplirSacpoids``` qui tiennent compte de la nouvelle situation 
+Utiliser l’algorithme glouton correspondant afin d’indiquer les objets pouvant être mis dans la valise. Coder une fonction ```remplirSacpoids``` qui tiennent compte de la nouvelle situation et qui soit basée sur l'algorithme glouton 
 
-???+ question "Faire ce qui est proposé"
 
-    {{ IDE() }}
 
-**Activité n°5.: Sac à dos V2 : affichage des objets choisis selon leur valeur avec leur nombre:** on veut retourner un dictionnaire. Pour cela dans le fichier sac_dos.py ajouter une fonction ```remplirSacDico``` qui  tiennent compte de la nouvelle situation
+**Activité n°4.: Sac à dos V2 : affichage des objets choisis selon leur valeur avec leur nombre:** on veut retourner un dictionnaire. Coder une fonction ```remplirSacDico``` qui tiennent compte de la nouvelle situation et qui soit basée sur l'algorithme glouton
 Le prototype de la fonction est : 
 ```remplirSacDico(objets: list,poidsMax: float) -> dict: ```
 
 **Résultat attendu** : 
 ```{'chaussures': 1, 'habits': 1, 'trousse de toilette': 1, 'crèmes': 1, 'livres': 1, 'palmes tuba': 0, 'guide touristique': 1} ```
-???+ question "Faire ce qui est proposé"
-
-    {{ IDE() }}
 
 
-**Activité n°6.: Sac à dos V3 : affichage des objets choisis selon leur valeur avec leur nombre différent de 0 :** 
-on veut retourner un dictionnaire qui n’affichera que les objets réellement mis dans la valise (dont le nombre d’objet !=0). Pour cela dans le fichier sac_dos.py** ajouter une fonction ```remplirSacDico_V2``` qui tiennent compte de la nouvelle situation 
+
+
+**Activité n°5.: Sac à dos V3 : affichage des objets choisis selon leur valeur avec leur nombre différent de 0 :** 
+on veut retourner un dictionnaire qui n’affichera que les objets réellement mis dans la valise (dont le nombre d’objet !=0). Coder une fonction ```remplirSacDico_V2``` qui tiennent compte de la nouvelle situation et qui soit basée sur l'algorithme glouton
 
 **Résultat attendu :** 
 ```{'chaussures': 1, 'habits': 1, 'trousse de toilette': 1, 'crèmes': 1, 'livres': 1, 'guide touristique': 1} ```
 
-???+ question "Faire ce qui est proposé"
 
-    {{ IDE() }}
-
-**Activité n°7.: Sac à dos : Affichage des objets choisis selon leur volume :** On souhaite remplir un camion de déménagement de 5 m<sup>3</sup>. Pour cela on dispose d’une liste de meubles et de leur volume en mètres cubes. 
-```meubles=[['armoire',3], ['fauteuil',1.1], ['lave-vaisselle',1.0], ['lit',0.9], ['ordinateur',0.2]] ```
-
-Dans un fichier nommé sac_dos_camion.py, utiliser l’algorithme glouton correspondant afin d’indiquer les meubles pouvant être emportés dans le camion.  
-```python
-def remplirCamion(meubles : list,volumeMax: float) -> list:
-    """
-    fonction qui retourne une liste d'objets choisis
-    """
-    v=0
-    n=len(meubles)
-    meublesChoisis ???
-    # A compléter 
-
-if __name__ == '__main__':
-    print("Activité 07")
-    #liste des objets
-    meubles=[['armoire',3],['fauteuil',1.1],['lave- vaisselle',1.0],['lit',0.9],['ordinateur',0.2]]
-    volumeMax=5
-    print('Les meubles choisis sont')
-    print(remplirCamion(meubles,volumeMax))
-```
-**Résultats à faire afficher dans la console :** 
-```python
-Les meubles choisis sont 
-[1, 1, 0, 1, 0] 
-```
-???+ question "Faire ce qui est proposé"
-
-    {{ IDE() }}
-
-
-
-**Activité n°8.: Sac à dos V2 : affichage des objets choisis selon leur volume et du volume total :** 
-On veut que l’algorithme précédent pour qu’il affiche également le volume réellement embarqué (comme dans l’activité 4). Pour cela dans le fichier sac_dos_camion.py ajouter deux fonctions : ```remplirCamionvolume``` retourne le volume et ```remplirCamion_V2``` qui retourne la liste des noms des meubles. 
-Le prototype de la fonction supplémentaire sera : 
-```remplirCamionvolume(meubles: list,volumeMax: float) -> float```
-
-**Résultat attendu :** 
-```python
-Le volume embarqué 
-5.0 
-Les meubles choisis sont 
-['armoire', 'fauteuil', 'lit'] 
-```
-???+ question "Faire ce qui est proposé"
-
-    {{ IDE() }}
-
-**Activité n°9.: Sac à dos : affichage des activités choisies en fonction de leur durée :** 
-On considère qu’un après-midi actif dure 6h, on souhaite effectuer un maximum de choses durant cette période. Ces activités sont classéespar ordre croissant de durée dans la liste suivante : 
-
-```activites=[[1,"faire la vaisselle"], [2,"passer l'aspirateur"], [3,"terminer le projet NSI"], [4,"préparer le contrôle NSI"]] ```
-
-Faire la vaisselle prend 1h, etc. 
-Dans un fichier nommé sac_dos_activite.py, utiliser l’algorithme glouton correspondant afin d’indiquer les activités pouvant être faites dans l’après-midi. 
-
-```python
-def journee(activites: list ,dureeMax: int) -> list :
-    """
-    fonction qui retourne une liste d'activités choisies
-    """
-    d=0
-    n=len(activites)
-    activitesChoisis ???
-    # A compléter 
-
-def journeeheure(activites: list,dureeMax: int) -> int:
-    """
-    fonction qui retourne la durée totale selon les activités choisies
-    """
-    d=0
-    n=len(activites)
-    activitesChoisis= ???
-    # A compléter
-
-if __name__ == '__main__':
-    print("Activité 09")
-    #liste des objets
-    activites=[[1,"faire la vaisselle"],[2,"passer l'aspirateur"],[3,"terminer le projet NSI"],[4,"préparer le contrôle de NSI"]]
-    print(activites)
-    dureeMax=6
-    print('La durée utilisée')
-    print(journeeheure(activites,dureeMax))
-    print('Les activités choisies sont')
-    activites = sorted(activites, reverse=True)
-    print(journee(activites,dureeMax))
-```
-
-
-**Résultat attendu :** 
-```python
-[[1, 'faire la vaisselle'], [2, "passer l'aspirateur"], [3, 'terminer le projet NSI'], [4, 'préparer le contrôle de NSI']] 
-La durée utilisée 
-6 
-Les activités choisies sont 
-['préparer le contrôle de NSI', "passer l'aspirateur"] 
-```
-???+ question "Faire ce qui est proposé"
-
-    {{ IDE() }}
 
 **Remarque** :  
 L’algorithme glouton est un algorithme qui ne remet jamais en cause une décision prise auparavant.  
