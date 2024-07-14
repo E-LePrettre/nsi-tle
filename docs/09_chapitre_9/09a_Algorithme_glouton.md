@@ -277,7 +277,9 @@ Une route comporte n+1 stations-service, numérotées dans l'ordre du parcours, 
 Un automobiliste prend le départ de la route avec une voiture dont le réservoir d'essence est plein. Il désire faire le plein le moins souvent possible. Sa voiture possède une autonomie notée autonomie avec un plein. 
 
 1 Écrire l’algorithme qui détermine à quelles stations-service il doit s'arrêter avec la distance parcourue. 
+
 2 Montrer que l’algorithme termine. 
+
 3 Implémenter cet algorithme en langage Python. On donne le prototype de la fonction : 
 ```voyage(distance : list, autonomie : int) -> list```
 
@@ -288,10 +290,11 @@ Un automobiliste prend le départ de la route avec une voiture dont le réservoi
 - la fonction retourne la liste de tuple (numéro de la station, distance parcourue depuis le début) 
 
 4 Documenter la fonction 
+
 5 Tester le programme : 
 
 - 17 stations-service avec 
- 
+
 ```python
 distance = [23, 40, 12, 44, 21, 9, 67, 32, 51, 30, 11, 55, 24, 64, 32, 57, 12, 80] 
 autonomie = 100 
@@ -301,25 +304,30 @@ autonomie = 100
 
 Un cambrioleur entre par effraction dans une maison. Il n'est capable de porter qu’une masse limitée : il lui faudra donc choisir entre les différents objets de valeur, afin d'amasser le plus gros magot possible. 
 
-1. Écrire un algorithme qui donne un choix optimal pour le voleur. 
+1 Écrire un algorithme qui donne un choix optimal pour le voleur. 
 
 **Aide** : 
 
 - Pour amasser le plus gros butin, il suffit de considérer le rapport prix/masse. A chaque fois, on en prend le rapport maximal. 
 - il faut rajouter ce critère à la liste [prix, poids] et la trier sur ce critère par ordre décroissant. 
-2. Montrer que cet algorithme termine. 
-3. Programmez une fonction remplir dont le prototype est le suivant : 
+
+2 Montrer que cet algorithme termine. 
+3 Programmez une fonction remplir dont le prototype est le suivant : 
 ```voleur(articles : list, masse : int) -> list```
+
 - ```articles``` -- liste des articles (masse, valeur)  
+
 - ```masse``` -- masse maximale
+
 - la fonction retourne la liste des articles : liste de tuple(masse, valeur)
+
 - Le programme ou la fonction précédente retournera aussi** la masse totale **et** la valeur totale 
 
-4. Documenter la fonction 
+4 Documenter la fonction 
 
 On dispose d’une liste d’objets de masses ```m = [9, 10, 12, 14, 11, 5, 7, 5, 6, 2]``` ainsi que de leurs valeurs associées ```v = [10, 8, 7, 7, 5, 4, 3, 2, 2, 1]```.
 
-5. Tester le programme pour une masse maximale de 22 kg. Conclure. 
+5 Tester le programme pour une masse maximale de 22 kg. Conclure. 
 
 ## **3.  Problème : TSP - Le voyageur de commerce<a name="_page9_x51.00_y32.00"></a>** 
 
