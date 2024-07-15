@@ -24,7 +24,7 @@ La communication entre un client et un serveur se fait généralement à l'aide 
 
 Les serveurs sont aujourd’hui **capables de générer eux-mêmes du code HTML**. Les résultats qui s’affichent à l’écran dépendent des demandes effectuées par l’utilisateur du site : le web est devenu **dynamique** 
 
-Différents langages de programmation peuvent être utilisés « coté serveur » afin de permettre au serveur de générer lui-même le code HTML à envoyer. Le plus utilisé encore aujourd’hui se nomme **PHP**. D’autres langage sont utilisables côté serveur : Java, Python,… 
+Différents langages de programmation peuvent être utilisés « coté serveur » afin de permettre au serveur de générer lui-même le code HTML à envoyer. Le plus utilisé encore aujourd’hui se nomme **PHP**. D’autres langages sont utilisables côté serveur : Java, Python,… 
 
 Par exemple : 
 ```php
