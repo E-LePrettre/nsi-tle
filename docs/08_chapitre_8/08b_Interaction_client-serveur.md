@@ -56,8 +56,8 @@ Les **codes de statuts** sont des codes numériques qui indiquent **le résultat
 
 - 200 et suivants indiquent une **réussite**.  
 - 300 et suivants indiquent **un déplacement de la ressource demandée**.  
-- 400 et suivants indiquent une **erreur du client** : requête mal formulée ou ressource inexistante (la fameuse erreur **404 : ressource indisponible** ou **403 pour permission refusée**)  
-- 500 et suivants indiquent une **erreur du serveur.** 
+- 400 et suivants indiquent une **erreur du client** : requête mal formulée ou ressource inexistante (400: "Bad Request", 401: "Unauthorized", 402: "Payment Required", 403: "Forbidden", 404: "Not Found",...) 
+- 500 et suivants indiquent une **erreur du serveur.** (500: "Internal Server Error", 501: "Not Implemented", 502: "Bad Gateway", 503: "Service Unavailable",...)
 
 ### **2.3. Principe<a name="_page1_x40.00_y564.92"></a> d’une requête** 
 
@@ -69,26 +69,123 @@ Composition simplifiée d’une requête HTTP (client vers serveur) :
 - Le **navigateur employé** (Firefox, Chrome) et sa **version** 
 - Le **type du document demandé** (par exemple HTML) 
 
-Exemple de requête HTTP : 
+#### **2.3.1. Ligne de Requête**
+La première ligne d'une requête HTTP est la ligne de requête, qui spécifie le type de requête (méthode HTTP), l'URL de la ressource demandée, et la version du protocole HTTP.
+
+**Exemple:**
 ```
-GET /mondossier/monFichier.html HTTP/1.1  User-Agent : Mozilla/5.0  
-Accept : text/html 
+GET /index.html HTTP/1.1
+```
+- **GET** : Méthode HTTP utilisée (GET, POST, PUT, DELETE, etc.).
+- **/index.html** : URL de la ressource demandée.
+- **HTTP/1.1** : Version du protocole HTTP.
+
+#### **2.3.2. En-têtes de Requête (Headers)**
+Les en-têtes de requête fournissent des informations supplémentaires sur la requête ou sur le client lui-même. Ils sont placés après la ligne de requête, chaque en-tête étant sur une nouvelle ligne.
+
+**Exemple:**
+```
+Host: www.example.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+```
+- **Host** : Spécifie le domaine de destination (nécessaire pour les serveurs hébergeant plusieurs domaines).
+- **User-Agent** : Fournit des informations sur le client (navigateur, système d'exploitation).
+- **Accept** : Indique les types MIME que le client accepte.
+- **Accept-Language** : Indique les langues préférées du client.
+
+#### **2.3.3. Corps de la Requête (Request Body)**
+Le corps de la requête est utilisé pour envoyer des données au serveur. Il est généralement utilisé avec les méthodes POST, PUT, et PATCH. Dans une requête GET, le corps est généralement vide.
+
+**Exemple:**
+Pour une requête POST envoyant des données de formulaire :
+```
+POST /submit-form HTTP/1.1
+Host: www.example.com
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 27
+
+name=John&age=30&city=Paris
+```
+- **Content-Type** : Spécifie le type de données envoyées dans le corps de la requête.
+- **Content-Length** : Spécifie la longueur du corps de la requête.
+- Le corps de la requête : Contient les données réelles (ex: `name=John&age=30&city=Paris`).
+
+Une requête HTTP utilise une méthode (c’est une commande qui demande au serveur d’effectuer une certaine action). Il y a plusieurs méthodes disponibles :
+-	**GET** : c’est la méthode la plus courante pour demander une ressource. Elle est sans effet sur la ressource.
+-	**POST** : cette méthode est utilisée pour soumettre des données en vue d’un traitement (côté serveur). Typiquement c’est la méthode employée lorsque l’on envoie au serveur les données issues d’un formulaire.
+-	**DELETE** : cette méthode permet de supprimer une ressource sur le serveur.
+-	**PUT** : cette méthode permet de modifier une ressource sur le serveur
+-	**PATCH** : pour modifier une ressource existante
+
+#### **2.3.4. Composition Complète de la Requête**
+Voici à quoi ressemble une requête HTTP complète en utilisant une requête POST comme exemple :
+
+```
+POST /submit-form HTTP/1.1
+Host: www.example.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 27
+
+name=John&age=30&city=Paris
 ```
 
-On voit plusieurs informations : 
+- **Ligne de requête** : Début de la requête, spécifiant la méthode, l'URL et la version du protocole.
+- **En-têtes de requête** : Informations supplémentaires sur la requête ou le client.
+- **Corps de la requête** : Données envoyées au serveur (utilisé principalement dans les requêtes POST et PUT).
 
-- GET est la méthode employée
-- /mondossier/monFichier.html correspond à l’URL de la ressource demandée 
-- Mozilla/5.0 correspond au navigateur web employé 
-- text/html : le client s’attend à recevoir du HTML 
+### **2.4. Réponse HTTP du Serveur avec PHP**
 
-Une requête HTTP utilise une **méthode** (c’est une commande qui demande au serveur d’effectuer une certaine action). Il y a plusieurs méthodes disponibles : 
+#### **2.4.1. En-têtes de Réponse**
+Les en-têtes de réponse restent les mêmes.
 
-- **GET** : c’est la méthode **la plus courante** pour demander une ressource. Elle est sans effet sur la ressource. 
-- **POST** : cette méthode est utilisée pour soumettre des données en vue d’un traitement (côté serveur). Typiquement c’est la méthode employée lorsque l’on envoie au serveur les données **issues d’un formulaire**. 
-- **DELETE** : cette méthode permet de supprimer une ressource sur le serveur. 
-- **PUT** : cette méthode permet de modifier une ressource sur le serveur 
-- **PATCH** : pour modifier une ressource existante 
+**Exemple:**
+```
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=UTF-8
+Content-Length: [calculated automatically by server]
+Connection: keep-alive
+```
+**Ligne de Statut** :
+   - `HTTP/1.1 200 OK` : Indique que la requête a été traitée avec succès et que le serveur renvoie la page demandée.
+
+**En-têtes de Réponse** :
+   - `Content-Type: text/html; charset=UTF-8` : Indique que le contenu de la réponse est une page HTML encodée en UTF-8.
+   - `Content-Length: [calculated automatically by server]` : La longueur du corps de la réponse est calculée automatiquement par le serveur.
+   - `Connection: keep-alive` : Indique que la connexion doit rester ouverte pour les requêtes suivantes.
+
+#### **2.4.2. Corps de la Réponse avec PHP**
+
+Le corps de la réponse contient le code HTML avec du PHP pour afficher dynamiquement les informations.
+
+**Exemple:**
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvenue</title>
+</head>
+<body>
+    <?php
+    // Récupérer les données POST
+    $name = $_POST['name'];
+    $city = $_POST['city'];
+    ?>
+    <h1>Bienvenue sur mon site, <?php echo htmlspecialchars($name); ?> de <?php echo htmlspecialchars($city); ?>!</h1>
+    <p>Nous sommes heureux de vous accueillir.</p>
+</body>
+</html>
+```
+**Corps de la Réponse avec PHP** :
+   - Utilise PHP pour récupérer les données de la requête POST.
+   - Utilise `htmlspecialchars` pour échapper correctement les caractères spéciaux et éviter les attaques XSS.
+   - Génère dynamiquement le message de bienvenue avec le nom et la ville fournis.
+
 
 Une fois la requête reçue, le serveur va renvoyer une réponse, par exemple : 
 ```html
@@ -111,15 +208,6 @@ Content-Type: text/html; charset=ISO-8859-1
 </html>
 ```
 
-
-La première ligne se nomme la **ligne de statut** : on note la **version de HTTP utilisé** par le serveur et **200** correspond au code qui signifie le **document recherché a été trouvé**.  
-
-Les 5 lignes suivantes constituent **l’entête** de la réponse.  On note à la troisième ligne :  
-
-![](Aimg.png)
-
-- le serveur web qui a fourni la réponse HTTP ci-dessus a comme système d'exploitation une distribution **GNU/Linux nommée "Debian**".  
-- "**Apache**" est le cœur du serveur web puisque c'est ce **logiciel qui va gérer les requêtes HTTP** (recevoir les requêtes HTTP en provenance des clients et renvoyer les réponses HTTP). Il existe d'autres logiciels capables de gérer les requêtes HTTP (nginx, ligHTTPd...) mais Apache est toujours le **plus populaire** puisqu'il est installé sur environ **la moitié des serveurs web mondiaux.** 
 
 Le **HTTPS** est la version « sécurisée » du protocole HTTP : les données **sont chiffrées avant d’être transmises sur le réseau.** Lorsque la communication avec un site WEB est sécurisée, la barre d’adresse commence par un **cadenas**. 
 
@@ -159,56 +247,56 @@ Il existe plusieurs manières d'envoyer une requête HTTP depuis un navigateur. 
 ### **3.1. Exemples<a name="_page4_x40.00_y36.92"></a> de formulaire HTML**
 ![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.039.png)
 
-Voici  un  exemple  de  code  HTML  pour  un  formulaire qui envoie une requête **POST** : 
+
+**Activité n°2.** : Ouvrir un bloc note. Ajouter le script suivant et vérifier ce qu’on obtient dans le navigateur. Enregistrer le sous index.html **ATTENTION** à bien sélectionner tous les fichiers !
+
+![](AZE.png)
 ```html
-    <form action="https://www.example.com/api/data" method="post">
-        <input type="text" name="username">
-        <input type="password" name="password">
-        <input type="submit" value="Submit">
-    </form>
-```
-
-
-Lorsque l'utilisateur soumet le formulaire en cliquant sur le bouton "Submit", le navigateur envoie une requête **POST** à **```https://www.example.com/api/data```** avec les données saisies dans les champs du formulaire. Les données sont envoyées dans le corps de la requête sous forme d'une série de paires clé-valeur qui correspondent aux noms des champs de formulaire. 
-
-On peut aussi envoyer une requête **GET** en utilisant un formulaire en définissant la méthode sur **get** : 
-```html
-<form action="https://www.example.com/api/data" method="get">
-    <input type="text" name="username">
-    <input type="password" name="password">
-    <input type="submit" value="Submit">
-</form>
-```
-
-
-Dans ce cas, les données du formulaire sont incluses dans la requête sous forme de paramètres dans l'URL. Par exemple, si l'utilisateur saisit "johndoe" comme nom d'utilisateur et "password123" comme mot de passe, la requête envoyée ressemblera à ceci : 
-
-GET[ https://www.example.com/api/data?username=johndoe&password=password123 ](https://www.example.com/api/data?username=johndoe&password=password123)![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.045.png)
-
-**Activité n°2. :** Créer une page.html. **Dans le body** ajouter le script suivant et vérifier ce qu’on obtient dans le navigateur  
-```html
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>requête</title>
+</head>
+<body>
 <form method='GET' action='./login'>
     <input name='user' type='text' required>
     <input name='password' type='password' required>
     <button type='submit'>login</button>
 </form>
+</body>
 ```
 
 
 
-**Activité n°3. :** Remplir ce formulaire et le soumettre fera envoyer une requête GET vers l'URL ./login. Notons que si le verbe est GET, alors les données du formulaire seront encodées **dans l'URL.**  
+**Activité n°3. :** Remplir ce formulaire et le soumettre fera envoyer une requête GET vers l'URL ./login. Observer la nouvelle URL
+
+Avec la méthode GET, les données du formulaire seront encodées **dans l'URL.**  
 
 Si on saisit trois valeurs par exemple «Dupont », « azerty » et qu’on clique sur le bouton, alors le navigateur charge la page correspondante à ```user=dupont&password=*****```
 
-Dans le cas d'un POST ils seront alors encodés **dans le corps de la requête**.  
+ 
 
-**Activité n°4. :** Modifier la page pour pouvoir la soumettre avec une requête POST. Remplir ce formulaire et le soumettre fera envoyer une requête POST
+**Activité n°4. :** Modifier la page pour pouvoir la soumettre avec une requête POST. Remplir ce formulaire et le soumettre fera envoyer une requête POST et observer la nouvelle URL.
+
+Dans le cas d'un POST ils seront alors encodés **dans le corps de la requête**. 
 
 ### **3.2. Les<a name="_page4_x40.00_y568.92"></a> éléments d’un formulaire HTML**
 
 ![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.047.jpeg)
 
-![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.048.png)
+| Type         | Description                                                                            |
+|--------------|----------------------------------------------------------------------------------------|
+| `<button>`   | Définit un bouton cliquable.                                                           |
+| `<fieldset>` | Regroupe les éléments liés dans un formulaire.                                         |
+| `<form>`     | Définit le conteneur de formulaire.                                                    |
+| `<input>`    | Définit un champ de saisie. HTML5 définit plus de 20 types d'entrée différents.        |
+| `<label>`    | Définit une étiquette pour un élément d’entrée de formulaire.                          |
+| `<legend>`   | Définit l'étiquette d'un groupe de champs.                                             |
+| `<option>`   | Définit une option dans une liste multi-éléments.                                      |
+| `<optgroup>` | Définit un groupe d'options connexes dans une liste à éléments multiples.              |
+| `<select>`   | Définit une liste à choix multiples.                                                   |
+| `<textarea>` | Définit une zone de saisie de texte multiligne.                                        |
+
 
 ### **3.3. Elément<a name="_page5_x40.00_y275.92"></a> ```<input>``` : quelques exemples**
 
@@ -226,7 +314,22 @@ L'attribut value de l'élément est utilisé pour spécifier quelle valeur sera 
 
 ### **3.6. Les<a name="_page6_x40.00_y300.92"></a> boutons de commande** 
 
+| Type                      | Description                                                                                                                                                       |
+|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `<input type="submit">`   | Crée un bouton qui soumet les données du formulaire au serveur.                                                                                                    |
+| `<input type="reset">`    | Crée un bouton qui efface les données de formulaire déjà entrées par l’utilisateur.                                                                                |
+| `<input type="button">`   | Crée un bouton personnalisé. Ce bouton peut nécessiter l’ajout de Javascript à toute action.                                                                       |
+| `<input type="image">`    | Crée un bouton de soumission personnalisé qui utilise une image pour son affichage.                                                                                |
+| `<button>`                | Crée un bouton personnalisé. L'élément `<button>` diffère de `<input type="button">` en ce que vous pouvez complètement personnaliser ce qui apparaît dans le bouton. |
+|                           | En l’utilisant, vous pouvez par exemple inclure à la fois des images et du texte ou ignorer entièrement le traitement côté serveur à l’aide de liens hypertexte.     |
+|                           | Vous pouvez transformer le bouton en bouton de soumission en utilisant l’attribut type = `submit`.                                                                 |
 ![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.057.png)
+
+**ATTENTION** à ne pas confondre :
+-	```<button>``` avec ```<input type=’button’>```
+-	```<input type=’submit’>``` avec ```<button type=’submit’>```
+
+
 
 ### **3.7. Comment<a name="_page7_x40.00_y36.92"></a> le formulaire interagit avec le serveur ?** 
 
