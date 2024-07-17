@@ -416,7 +416,7 @@ Lorsqu'un client (navigateur web) reçoit cette réponse du serveur, il stocke l
 
 ## **4. APPLICATION<a name="_page8_x40.00_y503.92"></a> : Création d’une page web dynamique**
 ### **4.1. Mise<a name="_page8_x40.00_y525.92"></a> en place d’un serveur en Python ou un serveur Apache Lamp**
-En fin d’année ….  
+ 
 ![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.067.png)
 
 2. **Mise<a name="_page8_x40.00_y565.92"></a> en place d’un serveur Apache Wamp**  
