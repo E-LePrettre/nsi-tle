@@ -322,11 +322,13 @@ L'attribut value de l'élément est utilisé pour spécifier quelle valeur sera 
 | `<input type="image">`    | Crée un bouton de soumission personnalisé qui utilise une image pour son affichage.                                                                                |
 | `<button>`                | Crée un bouton personnalisé. L'élément `<button>` diffère de `<input type="button">` en ce que vous pouvez complètement personnaliser ce qui apparaît dans le bouton. |
 |                           | En l’utilisant, vous pouvez par exemple inclure à la fois des images et du texte ou ignorer entièrement le traitement côté serveur à l’aide de liens hypertexte.     |
-|                           | Vous pouvez transformer le bouton en bouton de soumission en utilisant l’attribut type = `submit`.                                                                 |
+|                           | Vous pouvez transformer le bouton en bouton de soumission en utilisant l’attribut type = = `submit`.                                                                 |                                                                 |
 ![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.057.png)
 
 **ATTENTION** à ne pas confondre :
+
 -	```<button>``` avec ```<input type=’button’>```
+
 -	```<input type=’submit’>``` avec ```<button type=’submit’>```
 
 
