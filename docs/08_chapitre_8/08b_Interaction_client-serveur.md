@@ -280,64 +280,7 @@ Si on saisit trois valeurs par exemple «Dupont », « azerty » et qu’on cliq
 
 Dans le cas d'un POST ils seront alors encodés **dans le corps de la requête**. 
 
-### **3.2. Les<a name="_page4_x40.00_y568.92"></a> éléments d’un formulaire HTML**
-
-![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.047.jpeg)
-
-| Type         | Description                                                                            |
-|--------------|----------------------------------------------------------------------------------------|
-| `<button>`   | Définit un bouton cliquable.                                                           |
-| `<fieldset>` | Regroupe les éléments liés dans un formulaire.                                         |
-| `<form>`     | Définit le conteneur de formulaire.                                                    |
-| `<input>`    | Définit un champ de saisie. HTML5 définit plus de 20 types d'entrée différents.        |
-| `<label>`    | Définit une étiquette pour un élément d’entrée de formulaire.                          |
-| `<legend>`   | Définit l'étiquette d'un groupe de champs.                                             |
-| `<option>`   | Définit une option dans une liste multi-éléments.                                      |
-| `<optgroup>` | Définit un groupe d'options connexes dans une liste à éléments multiples.              |
-| `<select>`   | Définit une liste à choix multiples.                                                   |
-| `<textarea>` | Définit une zone de saisie de texte multiligne.                                        |
-
-
-### **3.3. Elément<a name="_page5_x40.00_y275.92"></a> ```<input>``` : quelques exemples**
-
-![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.050.png)
-
-### **3.4. Elément<a name="_page5_x40.00_y485.92"></a> ```<select>``` : quelques exemples**
-
-![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.052.png)
-
-### **3.5. Elément<a name="_page6_x40.00_y36.92"></a> value dans ```<select>```**
-
-L'attribut value de l'élément est utilisé pour spécifier quelle valeur sera renvoyée au serveur. L'attribut value est **facultatif**. S’il n’est pas spécifié, alors **le texte** dans le conteneur **est envoyé à la place** 
-
-![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.055.png)
-
-### **3.6. Les<a name="_page6_x40.00_y300.92"></a> boutons de commande** 
-
-| Type                      | Description                                                                                                                                                       |
-|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `<input type="submit">`   | Crée un bouton qui soumet les données du formulaire au serveur.                                                                                                    |
-| `<input type="reset">`    | Crée un bouton qui efface les données de formulaire déjà entrées par l’utilisateur.                                                                                |
-| `<input type="button">`   | Crée un bouton personnalisé. Ce bouton peut nécessiter l’ajout de Javascript à toute action.                                                                       |
-| `<input type="image">`    | Crée un bouton de soumission personnalisé qui utilise une image pour son affichage.                                                                                |
-| `<button>`                | Crée un bouton personnalisé. L'élément `<button>` diffère de `<input type="button">` en ce que vous pouvez complètement personnaliser ce qui apparaît dans le bouton. |
-|                           | En l’utilisant, vous pouvez par exemple inclure à la fois des images et du texte ou ignorer entièrement le traitement côté serveur à l’aide de liens hypertexte.     |
-|                           | Vous pouvez transformer le bouton en bouton de soumission en utilisant l’attribut type = = `submit`.                                                                 |                                                                 |
-![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.057.png)
-
-**ATTENTION** à ne pas confondre :
-
--	```<button>``` avec ```<input type=’button’>```
-
--	```<input type=’submit’>``` avec ```<button type=’submit’>```
-
-
-
-### **3.7. Comment<a name="_page7_x40.00_y36.92"></a> le formulaire interagit avec le serveur ?** 
-
-![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.059.jpeg)
-
-### **3.8. Précision<a name="_page7_x40.00_y370.92"></a> sur la méthode GET ou POST** 
+### **3.2. Précision<a name="_page7_x40.00_y370.92"></a> sur la méthode GET ou POST** 
 
 Lors de l’utilisation de la méthode GET dans un formulaire**, les données sont transmises en clair** dans la barre d’adresse du navigateur. Dans les faits, on obtient ```action.php?identifiant=<texte entré>```.  
 
@@ -366,26 +309,110 @@ POST :
 
 ![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.061.jpeg)
 
-GET vs POST 
+ 
+### **3.3. Les<a name="_page4_x40.00_y568.92"></a> éléments d’un formulaire HTML**
+
+![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.047.jpeg)
+
+| Type         | Description                                                                            |
+|--------------|----------------------------------------------------------------------------------------|
+| `<button>`   | Définit un bouton cliquable.                                                           |
+| `<fieldset>` | Regroupe les éléments liés dans un formulaire.                                         |
+| `<form>`     | Définit le conteneur de formulaire.                                                    |
+| `<input>`    | Définit un champ de saisie. HTML5 définit plus de 20 types d'entrée différents.        |
+| `<label>`    | Définit une étiquette pour un élément d’entrée de formulaire.                          |
+| `<legend>`   | Définit l'étiquette d'un groupe de champs.                                             |
+| `<option>`   | Définit une option dans une liste multi-éléments.                                      |
+| `<optgroup>` | Définit un groupe d'options connexes dans une liste à éléments multiples.              |
+| `<select>`   | Définit une liste à choix multiples.                                                   |
+| `<textarea>` | Définit une zone de saisie de texte multiligne.                                        |
+
+
+### **3.4. Elément<a name="_page5_x40.00_y275.92"></a> ```<input>``` : quelques exemples**
+
+![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.050.png)
+
+### **3.5. Elément<a name="_page5_x40.00_y485.92"></a> ```<select>``` : quelques exemples**
+
+![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.052.png)
+
+### **3.6. Elément<a name="_page6_x40.00_y36.92"></a> value dans ```<select>```**
+
+L'attribut value de l'élément est utilisé pour spécifier quelle valeur sera renvoyée au serveur. L'attribut value est **facultatif**. S’il n’est pas spécifié, alors **le texte** dans le conteneur **est envoyé à la place** 
+
+![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.055.png)
+
+### **3.7. Les<a name="_page6_x40.00_y300.92"></a> boutons de commande** 
+
+| Type                      | Description                                                                                                                                                       |
+|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `<input type="submit">`   | Crée un bouton qui soumet les données du formulaire au serveur.                                                                                                    |
+| `<input type="reset">`    | Crée un bouton qui efface les données de formulaire déjà entrées par l’utilisateur.                                                                                |
+| `<input type="button">`   | Crée un bouton personnalisé. Ce bouton peut nécessiter l’ajout de Javascript à toute action.                                                                       |
+| `<input type="image">`    | Crée un bouton de soumission personnalisé qui utilise une image pour son affichage.                                                                                |
+| `<button>`                | Crée un bouton personnalisé. L'élément `<button>` diffère de `<input type="button">` en ce que vous pouvez complètement personnaliser ce qui apparaît dans le bouton. |
+|                           | En l’utilisant, vous pouvez par exemple inclure à la fois des images et du texte ou ignorer entièrement le traitement côté serveur à l’aide de liens hypertexte.     |
+|                           | Vous pouvez transformer le bouton en bouton de soumission en utilisant l’attribut type = = `submit`.                                                                | |                                                                 |
+![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.057.png)
+
+**ATTENTION** à ne pas confondre :
+
+-	```<button>``` avec ```<input type=’button’>```
+
+-	```<input type=’submit’>``` avec ```<button type=’submit’>```
+
+
+
+### **3.8. Comment<a name="_page7_x40.00_y36.92"></a> le formulaire interagit avec le serveur ?** 
+
+![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.059.jpeg)
+
+
 
 ### **3.9. Les<a name="_page8_x40.00_y290.92"></a> cookies** 
 
 Il est important pour un site web de pouvoir identifier ces différents clients. Il utilise des **cookies**. C’est une petite quantité de données. Il est composé d’un nom, d’une valeur et optionnellement d’une date d’expiration. Le nom, la valeur et la durée de vie sont choisie par le serveur.  
 
-Lorsqu’un serveur veut déposer un cookie particulier chez un client, il l’envoie comme un entête de réponse HTTP.  **Par exemple** 
-```html
-HTTP/1.1 200 OK  
-Server: nginx/1.10.3 (Ubuntu)  
-Date: Thu, 15 feb 2019 12:02:32 GMT  
-Content-Type: text/html 
-Content-Length: 1023 
-Set-Cookie: test=42; Expire=Mon, 30 May 2019 18:10:12 GMT; 
-... 
+Lorsqu’un serveur veut déposer un cookie particulier chez un client, il l’envoie comme un entête de réponse HTTP.  
+
+**Exemple d'Entête de Réponse HTTP avec Cookie**
+
+```http
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=UTF-8
+Set-Cookie: username=JohnDoe; Expires=Wed, 21 Jul 2024 07:28:00 GMT; Path=/; Domain=example.com; Secure; HttpOnly
 ```
 
-Le navigateur Web du client voit que le serveur lui envoie un **cookie** dont le nom est test, la valeur est 42 et la date d’expiration est le 30 mai 2019 à 18h10,12.  
 
-Le **navigateur stocke le cookie** en l’associant au nom de domaine du site visité. Lorsque le navigateur effectue une nouvelle connexion, il **renvoie le cookie** au serveur dans sa requête, si la date d’expiration n’est pas dépassée. 
+**Ligne de Statut** :
+   - `HTTP/1.1 200 OK` : Indique que la requête a été traitée avec succès et que le serveur renvoie une réponse correcte.
+
+**En-têtes de Réponse** :
+   - `Content-Type: text/html; charset=UTF-8` : Spécifie le type de contenu de la réponse. Ici, il s'agit de HTML encodé en UTF-8.
+   
+**Set-Cookie** :
+   - `Set-Cookie: username=JohnDoe` : Crée un cookie nommé `username` avec la valeur `JohnDoe`.
+   - `Expires=Wed, 21 Jul 2024 07:28:00 GMT` : Date et heure d'expiration du cookie. Passée cette date, le cookie sera supprimé par le navigateur.
+   - `Path=/` : Le cookie est disponible pour toutes les URL du domaine.
+   - `Domain=example.com` : Le domaine pour lequel le cookie est valide. Le cookie sera envoyé pour toutes les requêtes à `example.com` et ses sous-domaines.
+   - `Secure` : Indique que le cookie doit être envoyé uniquement via des connexions sécurisées (HTTPS).
+   - `HttpOnly` : Indique que le cookie n'est accessible que par le serveur et ne peut pas être manipulé par le JavaScript côté client, ce qui aide à protéger contre les attaques XSS.
+
+**Utilisation Typique**
+
+Lorsqu'un client (navigateur web) reçoit cette réponse du serveur, il stocke le cookie conformément aux directives spécifiées. Par exemple :
+
+**Connexion sécurisée** :
+   - Le cookie ne sera envoyé au serveur que lors de requêtes via HTTPS (grâce au flag `Secure`).
+
+**Accès au cookie** :
+   - Le cookie est accessible pour toutes les pages du domaine `example.com` (grâce au flag `Path=/` et `Domain=example.com`).
+
+**Durée de vie** :
+   - Le cookie expirera et sera supprimé automatiquement après le 21 juillet 2024 (grâce au flag `Expires`).
+
+**Protection contre XSS** :
+   - Le cookie n'est pas accessible via JavaScript, ce qui le protège contre certaines attaques XSS (grâce au flag `HttpOnly`).
 
 ## **4. APPLICATION<a name="_page8_x40.00_y503.92"></a> : Création d’une page web dynamique**
 ### **4.1. Mise<a name="_page8_x40.00_y525.92"></a> en place d’un serveur en Python ou un serveur Apache Lamp**
