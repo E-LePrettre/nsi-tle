@@ -612,6 +612,8 @@ Même si dans notre cas cette opération de modification d'URL est inoffensive, 
 
 Il est important de bien comprendre que la méthode "POST" **n'offre pas non plus une sécurité absolue** puisque toute personne ayant un bagage technique minimum sera capable de lire les données transmises à l'aide de la méthode "POST" en analysant la requête HTTP, même si ces données ne sont pas directement visibles dans l'URL. Seule l'utilisation du **protocole sécurisé HTTPS** garantit un transfert sécurisé des données entre le client et le serveur (les données sont chiffrées et donc illisibles pour une personne ne possédant pas la clé de déchiffrement). 
 
+**Activité n°16**. : Fermer le serveur Wamp
+
 Si le PHP vous passionne :  
 
 - Introduction.[ http://www.phpdebutant.org/article118.php ](http://www.phpdebutant.org/article118.php)
@@ -637,12 +639,15 @@ Editeurs PHP en ligne :
 
 Vérification  que  **flask**  est  installée :  dans  la  console  python   
 
-**Activité n°18. :**  
+**Activité n°17. :**  
 ```python
 >>> import flask 
 ```
-Si flask n’est pas installé : lancer **l’invite de commande  windows** en mode administrateur (taper cmd dans la barre  de recherche de windows) puis bouton droit et « exécuter  en tant qu’administrateur ».  
+Si flask n’est pas installé : 
 
+- Cas n°1 : sur Thonny > Outils > gérer les paquets : chercher flask et l’instaler
+
+- Cas n°2 : sur un autre éditeur python : lancer  **l’invite de commande  windows** en mode administrateur (taper cmd dans la barre  de recherche de windows) puis bouton droit et « exécuter  en tant qu’administrateur ».  
 Mise à jour de l’installateur *pip* de python : 
 ```
 python -m pip install --upgrade pip 
@@ -660,6 +665,8 @@ ou python -m pip install --user pygame --user
 ```
 -U est l’abréviation de --user. De même python peut être remplacé par py. 
 
+---
+
 Comme déjà évoqué dans la partie consacrée au modèle client-serveur, **un serveur web** (aussi appelé serveur HTTP) **permet de répondre à une requête HTTP effectuée par un client** (très souvent un navigateur web). On va travailler avec le serveur web qui est installé sur l’ordinateur. La configuration est un peu particulière puisque le client et le serveur vont se trouver sur la même machine. Cette configuration est classique lorsque l'on désire effectuer de **simples tests**. Il y aura donc 2 logiciels sur le même ordinateur :  
 
 - **le client (navigateur web)**  
@@ -669,9 +676,9 @@ Ces 2 logiciels vont communiquer en utilisant le protocole **HTTP.** Il existe d
 
 ### **5.1. Cas<a name="_page13_x40.00_y512.92"></a> très simple où le serveur va renvoyer au client une simple page HTML statique.**  
 
-**Activité n°19. :** Dans le répertoire Documents , créez un répetoire nommé "flask". 
+**Activité n°18. :** Dans le répertoire Documents , créez un répetoire nommé "flask". 
 
-**Activité n°20. :** À l'aide d’un éditeur python (Idle ou PyCharm ou …), créer un fichier Python "views.py" (ce fichier devra  être  sauvegardé  dans  le  répertoire  "flask"  précédemment  créé).  Saisir  le  code  suivant  dans  le  fichier "views.py" 
+**Activité n°19. :** À l'aide d’un éditeur python , créer un fichier Python "views.py" (ce fichier devra  être  sauvegardé  dans  le  répertoire  "flask"  précédemment  créé).  Saisir  le  code  suivant  dans  le  fichier "views.py" 
 ```python
 from flask import Flask
 
