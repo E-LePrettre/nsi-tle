@@ -421,32 +421,13 @@ En fin d’année ….
 
 2. **Mise<a name="_page8_x40.00_y565.92"></a> en place d’un serveur Apache Wamp**  
 
-Installer un serveur sous Windows avec uniform server (version super  simple et light) :  
+Telecharger un serveur Wamp (choisissez le exe) : UwAmp Wamp Server - Apache MySQL PHP [https://www.uwamp.com/fr/](https://www.uwamp.com/fr/)
 
-[https://sourceforge.net/projects/miniserver/files/ ](https://sourceforge.net/projects/miniserver/files/) 
+Normalement il s’installe dans C:\UwAmp
 
-Il se trouve déjà dans C:\UniServerZ  
-```
-1 Start UniController (click cancel)
-2 Create a server certificate:
-   From UniController: Apache >  Apache SSL > click "Server Certificate and Key generator"  
-   Server Certificate and Key generator form opens click "Generate" button
-   A confirmation pop-up displayed, click OK button
-3 From UniController enable module: Apache > Edit Basic and Modules > click "Apache Modules Enable/Disable"
-   Apache Modules Enable/Disable form opens.
-   Navigate to entry "http2_module" and click check box to the left of it.
-   Close form, click cross top right.
-4 Firefox download and install the following  Firefox plugin:
-    https://addons.mozilla.org/fr/firefox/addon/http2-indicator/
-----
-Test
-----
-5 Start Apache server
-6 Click "View ssl" page button
-   Firefox "This connection is untrusted", click "I understand the risks" and click  "Add exception"
-   The add security exception form is displayed, click "Confirm Security Exception"
-7 Firefox lightning indicator in browser address bar confirms http2 is working.
-```
+**Activité n°5**. : Demarrer le serveur Wamp
+
+
 
 
 ### **4.3. Formulaire<a name="_page9_x40.00_y154.92"></a> d’une page Web version php**
@@ -458,9 +439,8 @@ Cas très simple où le serveur va renvoyer au client une simple page HTML stati
 
 
 
-**Activité n°5.** Créer un fichier "index.html", placez ce fichier "index.html" dans le répertoire "www".
+**Activité n°6.** Créer avec le bloc note, un fichier où on aura copier :
 
-**Activité n°6.** Copier le code HTML ci-dessous dans le fichier "index.html". 
 ```html
 <!doctype html>
 <html lang="fr">
@@ -473,10 +453,11 @@ Cas très simple où le serveur va renvoyer au client une simple page HTML stati
     </body>
 </html>
 ```
+Enregistrer le dans le répertoire C:\UwAmp\www  sous le nom "index.html". **ATTENTION** à bien sélectionner tous les fichiers.
+![](AZE.png)
 
 
-
-**Activité n°7. :** Ouvrir votre navigateur Web et taper dans la barre d'adresse "localhost". On devrait voir la page Web s'afficher. 
+**Activité n°7. :** Ouvrir votre navigateur Web et taper dans la barre d'adresse **"localhost"**. On devrait voir la page Web s'afficher. 
 
 Avec le "localhost", on indique au navigateur que le serveur Web se trouve sur le même ordinateur que lui (on parle de machine locale). Dans un cas normal, la barre d'adresse devrait être renseignée avec l'adresse du serveur Web. 
 
@@ -491,20 +472,21 @@ Il est très important de bien comprendre les processus mis en œuvre :
 - **le serveur Web envoie la page nouvellement créée au** client 
 - une fois reçue, **la page HTML est affichée dans le navigateur** Web 
 
-Le langage PHP est déjà installé sur l'ordinateur avec UniServerZ. 
 
-**Activité n°8. :** Après avoir supprimé le fichier "index.html" préalablement créé dans le répertoire "www", créer un fichier "index.php", toujours dans le répertoire "www". 
 
-**Activité n°9. :** Copier le code PHP ci-dessous dans le fichier "index.php" 
+**Activité n°8. :** Après avoir supprimé le fichier "index.html" préalablement créé dans le répertoire "www" **ET** le fichier "index.php", Créer avec le bloc note, un fichier où on aura copier : toujours dans le répertoire "www". 
 ```php
 <?php
+date_default_timezone_set('Europe/Paris'); // Définir le fuseau horaire à Paris
 $heure = date("H:i");
 echo '<h1>Bienvenue sur mon site</h1>
       <p>Il est '.$heure.'</p>';
 ?>
 ```
+Enregistrer le dans le répertoire C:\UwAmp\www  sous le nom "index.php". **ATTENTION** à bien sélectionner tous les fichiers.
 
-**Activité n°10** Ouvrir votre navigateur Web et taper dans la barre d'adresse "localhost". 
+
+**Activité n°9.** Ouvrir votre navigateur Web et taper dans la barre d'adresse **"localhost"**. 
 
 On doit avoir une page HTML qui donne l'heure, si on **actualise** la page, **l'heure évolue**. On a donc bien une page dynamique : le serveur PHP crée la page Web au moment où elle est demandée. À chaque fois que la page est actualisée, la page HTML est générée de nouveau. 
 
@@ -513,6 +495,7 @@ L’extension ".html" a été remplacée par ".php". Au moment de la requête, l
 **Comment ça marche ?** 
 
 - "```$heure = date("H:i");```", "```$heure```" est une variable (en **PHP les variables commencent** par **un "**$**"**), cette variable "contient" une chaîne de caractères qui correspond à l'heure courante 
+
 - **l'instruction "**```echo```**" permet d'afficher la chaîne de caractères** **qui suit l'instruction**. 
 
 Dans  notre  cas,  la  chaîne  de  caractères  est  "```<h1>Bienvenue  sur  mon  site</h1>  <p>Il  est '.$heure.'</p>```" ce qui correspond à du HTML à l'exception de "$heure" qui permet d'afficher le contenu de la variable "```$heure```".  
@@ -526,9 +509,8 @@ Si un client effectue une requête à 18h23, le serveur enverra au client le cod
 <h1>Bienvenue sur mon site</h1> 
 <p>Il est 18h23</p> 
 ```
-**Activité n°11. :** Après avoir supprimé le fichier "index.php" préalablement créé dans le répertoire "www", créer un fichier "index.html", et un fichier « trait_form.php » toujours dans le répertoire "www". 
+**Activité n°10. :** Après avoir supprimé le fichier "index.php" préalablement créé dans le répertoire "www", Créer avec le bloc note, un fichier où on aura copier : toujours dans le répertoire "www". 
 
-**Activité n°12. :** Copier le code HTML ci-dessous dans le fichier "index.html". 
 ```html
 <!doctype html>
 <html lang="fr">
@@ -545,9 +527,9 @@ Si un client effectue une requête à 18h23, le serveur enverra au client le cod
     </body>
 </html>
 ```
+Enregistrer le dans le répertoire C:\UwAmp\www  sous le nom "index.html". ATTENTION à bien sélectionner tous les fichiers.
 
-
-Et le code PHP dans le fichier « trait_form.php » 
+**Activité n°11.** : Créer avec le bloc note, un fichier où on aura copier : toujours dans le répertoire "www".  
 ```php
 <?php
     $n=$_POST['nom'];
@@ -555,9 +537,9 @@ Et le code PHP dans le fichier « trait_form.php »
     echo "<p>Bonjour ".$p." ".$n.", j'espère que vous allez bien.</p>";
 ?>
 ```
+Enregistrer le dans le répertoire C:\UwAmp\www  sous le nom " trait_form.php  ". ATTENTION à bien sélectionner tous les fichiers.
 
-
-**Activité n°13. :** Ouvrir le navigateur Web et taper dans la barre d'adresse "localhost". Une fois la page Web affichée dans votre navigateur, remplir le formulaire proposé et valider en cliquant sur le bouton "Envoyer" 
+**Activité n°12.** : Ouvrir le navigateur Web et taper dans la barre d'adresse "localhost". Une fois la page Web affichée dans votre navigateur, remplir le formulaire proposé et valider en cliquant sur le bouton "Envoyer"
 
 **Comment ça marche ?** 
 
@@ -581,11 +563,9 @@ Un clic sur le bouton "Envoyer" **déclenche une requête HTTP** vers le serveur
 
 Ces informations transitent entre le client et le serveur selon méthode utilisée par la requête HTTP. Dans l'exemple ci-dessus, la méthode utilisée est la méthode "POST" ("```method="post```"). 
 
-**Activité n°14. :** Ouvrir le navigateur Web et taper dans la barre d'adresse "localhost". Une fois la page Web affichée dans le navigateur, Saisissez "Sophie" pour le prénom et "Martin" pour le nom puis valider en cliquant sur le bouton "Envoyer". Observer attentivement la barre d'adresse du navigateur.  
 
-Dans la barre d'adresse, rien de spécial à signaler, on constate que le fichier "trait_form.php" a bien été utilisé. Il est possible d'utiliser une méthode HTTP "GET" à la place de la méthode "POST" (dans la suite du cours) 
 
-**Activité n°15. :** Modifier les fichiers "index.html" et "trait_form.php" comme suit : 
+**Activité n°13. :** Modifier les fichiers "index.html" et "trait_form.php" comme suit : 
 Pour index.html
 ```html
 <!doctype html>
@@ -616,7 +596,7 @@ Pour trait_form.php
 
 
 
-**Activité n°16. :** Ouvrir le navigateur Web et taper dans la barre d'adresse "localhost". Une fois la page Web affichée dans votre navigateur, Saisir le prénom et le nom puis valider en cliquant sur le bouton "Envoyer". **Observer attentivement la barre d'adresse du navigateur.** 
+**Activité n°14. :** Ouvrir le navigateur Web et taper dans la barre d'adresse "localhost". Une fois la page Web affichée dans votre navigateur, Saisir le prénom et le nom puis valider en cliquant sur le bouton "Envoyer". **Observer attentivement la barre d'adresse du navigateur.** 
 
 Cette  fois-ci,  les  informations  du  formulaire  sont  transmises  au  serveur  par  l'intermédiaire  de  l'url  : ```localhost/trait_form.php?nom=tartempion&prenom=tartiflette```
 
@@ -624,7 +604,7 @@ Dans le cas de l'utilisation d'une méthode "POST" les données issues d'un form
 
 Les données envoyées par l'intermédiaire d'une méthode "GET" peuvent être modifiées directement dans l'url. 
 
-**Activité n°17. :** Ouvrir le navigateur Web et taper dans la barre d'adresse "localhost". Une fois la page Web affichée dans votre navigateur, Saisir le prénom et le nom puis valider en cliquant sur le bouton "Envoyer". Modifier l'url : "```localhost/trait_form.php?nom=Martin&prenom=Jean-Pierre```", validez votre modification en appuyant sur la touche "Entrée". 
+**Activité n°15. :** Ouvrir le navigateur Web et taper dans la barre d'adresse "localhost". Une fois la page Web affichée dans votre navigateur, Saisir le prénom et le nom puis valider en cliquant sur le bouton "Envoyer". Modifier l'url : "```localhost/trait_form.php?nom=Martin&prenom=Jean-Pierre```", validez votre modification en appuyant sur la touche "Entrée". 
 
 Normalement la page a bien été modifiée : "Bonjour Jean-Pierre Martin, j'espère que vous allez bien." 
 
