@@ -385,7 +385,7 @@ for i in range(0, nb_ligne):
     {{ IDE() }}
 
 
-## **<H2 STYLE="COLOR:BLUE;">2.   Les<a name="_page6_x40.00_y36.92"></a> dictionnaires** 
+## **<H2 STYLE="COLOR:BLUE;">2.   Les<a name="_page6_x40.00_y36.92"></a> dictionnaires</h2>** 
 
 Comme les listes et les tuples, les dictionnaires permettent de stocker des données Une différence essentielle entre les listes et les dictionnaires est que les éléments d’une liste sont repérés par des indices 0, 1, 2, … alors que dans les dictionnaires ils sont remplacés par des objets de type str, float, tuples que l’on appelle clé et à chaque clé correspond une valeur. 
 **Ces clés ne sont pas ordonnées**. Chaque élément d’un dictionnaire est donc composé de 2 parties, on parle de pairs **« clé/valeur ».** 
@@ -598,7 +598,7 @@ L’implémentation d’un dictionnaire optimise le coût en temps de la recherc
 
 L’implémentation d’un dictionnaire **optimise le coût en temps** de la recherche d’un élément. 
 
-## **<H2 STYLE="COLOR:BLUE;">3.   Exercices<a name="_page9_x40.00_y273.92"></a>** 
+## **<H2 STYLE="COLOR:BLUE;">3.   Exercices<a name="_page9_x40.00_y273.92"></a></h2>** 
 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
