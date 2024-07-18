@@ -17,7 +17,7 @@ title: 04 Codage de l'information
 9. [Exercices](#_page18_x40.00_y36.92)
 
 
-## **<H2 STYLE="COLOR:BLUE;">1. Vocabulaire<a name="_page0_x40.00_y610.92"></a>** 
+## **<H2 STYLE="COLOR:BLUE;">1. Vocabulaire<a name="_page0_x40.00_y610.92"></a></h2>** 
 
 La mémoire des ordinateurs est constituée d’une multitude de petits circuits électroniques qui ne peuvent être, chacun, que dans **deux états conventionnellement appelés 0 et 1**, (1, y'a du courant, 0, y'en a pas), mais on aurait pu tout aussi bien les appeler faux et vrai.  
 
@@ -289,7 +289,7 @@ Exemple : pour 27
 
 Le complément à 2 sur un octet de 27 est 0b 0001 1011 
 
-#### **<H4 STYLE="COLOR:MAGENTA;">3.1.2. De<a name="_page7_x40.00_y158.92"></a> décimal vers binaire : Pour les entiers négatifs<H4>** 
+#### **<H4 STYLE="COLOR:MAGENTA;">3.1.2. De<a name="_page7_x40.00_y158.92"></a> décimal vers binaire : Pour les entiers négatifs</H4>** 
 - Coder la valeur absolue du nombre en base 2, 
 - compléter l’octet avec des 0 devant, 
 - échanger tous les bits (1↔0), 
@@ -540,15 +540,15 @@ Exemple : -10,125 au format simple précision
 - 10<sub>10</sub> = 1010<sub>2</sub> 
 - 0,125<sub>10</sub> 
 
+```
 0,125 x 2 = 0,250 
-
 0,250 x 2 = 0,50 
-
 0,50 x 2 = 1 + 0 (arrêt) 
+```
 
 - 0,125<sub>10</sub> =  0,001<sub>2</sub>  
 
-10,125<sub>10</sub> = 1010,001<sub>2</sub> 
+soit 10,125<sub>10</sub> = 1010,001<sub>2</sub> 
 
 2ème étape : utilisation de la norme IEEE 754 
 
