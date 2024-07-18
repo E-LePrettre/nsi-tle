@@ -248,7 +248,7 @@ La syntaxe des URL est de la forme ```protocole://nom-ou-adresse:port/document?n
 
 
 
-**<h2>Activité n°1.</h2>** Passage de paramètre  un serveur 
+**<h2 style="color:green;">Activité n°1.</h2>** Passage de paramètre  un serveur 
 
 - Aller sur[ HTTPs://fr.wikipedia.org ](https://fr.wikipedia.org/)
 - Dans la zone de recherche taper informatique 
@@ -272,7 +272,7 @@ Il existe plusieurs manières d'envoyer une requête HTTP depuis un navigateur. 
 
 
 
-**<h2>Activité n°2.</h2>** : Ouvrir un bloc note. Ajouter le script suivant et vérifier ce qu’on obtient dans le navigateur. Enregistrer le sous index.html **ATTENTION** à bien sélectionner tous les fichiers !
+**<h2 style="color:green;">Activité n°2.</h2>** : Ouvrir un bloc note. Ajouter le script suivant et vérifier ce qu’on obtient dans le navigateur. Enregistrer le sous index.html **ATTENTION** à bien sélectionner tous les fichiers !
 
 ![](AZE.png)
 ```html
@@ -292,7 +292,7 @@ Il existe plusieurs manières d'envoyer une requête HTTP depuis un navigateur. 
 
 
 
-**<h2>Activité n°3. :</h2>** Remplir ce formulaire et le soumettre fera envoyer une requête GET vers l'URL ./login. Observer la nouvelle URL
+**<h2 style="color:green;">Activité n°3. :</h2>** Remplir ce formulaire et le soumettre fera envoyer une requête GET vers l'URL ./login. Observer la nouvelle URL
 
 Avec la méthode GET, les données du formulaire seront encodées **dans l'URL.**  
 
@@ -300,7 +300,7 @@ Si on saisit trois valeurs par exemple «Dupont », « azerty » et qu’on cliq
 
  
 
-**<h2>Activité n°4. :</h2>** Modifier la page pour pouvoir la soumettre avec une requête POST. Remplir ce formulaire et le soumettre fera envoyer une requête POST et observer la nouvelle URL.
+**<h2 style="color:green;">Activité n°4. :</h2>** Modifier la page pour pouvoir la soumettre avec une requête POST. Remplir ce formulaire et le soumettre fera envoyer une requête POST et observer la nouvelle URL.
 
 Dans le cas d'un POST ils seront alors encodés **dans le corps de la requête**. 
 
@@ -461,7 +461,7 @@ Telecharger un serveur Wamp (choisissez le exe) : UwAmp Wamp Server - Apache MyS
 
 Normalement il s’installe dans C:\UwAmp
 
-**<h2 style="color:red;">Activité n°5</h2>**. : Demarrer le serveur Wamp
+**<h2 style="color:green;">Activité n°5</h2>** Demarrer le serveur Wamp
 
 
 
@@ -475,7 +475,7 @@ Cas très simple où le serveur va renvoyer au client une simple page HTML stati
 
 
 
-**Activité n°6.** Créer avec le bloc note, un fichier où on aura copier :
+**<h2 style="color:green;">Activité n°6.</h2>** Créer avec le bloc note, un fichier où on aura copier :
 
 ```html
 <!doctype html>
@@ -493,7 +493,7 @@ Enregistrer le dans le répertoire C:\UwAmp\www  sous le nom "index.html". **ATT
 ![](AZE.png)
 
 
-**Activité n°7. :** Ouvrir votre navigateur Web et taper dans la barre d'adresse **"localhost"**. On devrait voir la page Web s'afficher. 
+**<h2 style="color:green;">Activité n°7. </h2>:** Ouvrir votre navigateur Web et taper dans la barre d'adresse **"localhost"**. On devrait voir la page Web s'afficher. 
 
 Avec le "localhost", on indique au navigateur que le serveur Web se trouve sur le même ordinateur que lui (on parle de machine locale). Dans un cas normal, la barre d'adresse devrait être renseignée avec l'adresse du serveur Web. 
 
@@ -510,7 +510,7 @@ Il est très important de bien comprendre les processus mis en œuvre :
 
 
 
-**Activité n°8. :** Après avoir supprimé le fichier "index.html" préalablement créé dans le répertoire "www" **ET** le fichier "index.php", Créer avec le bloc note, un fichier où on aura copier : toujours dans le répertoire "www". 
+**<h2 style="color:green;">Activité n°8. </h2>:** Après avoir supprimé le fichier "index.html" préalablement créé dans le répertoire "www" **ET** le fichier "index.php", Créer avec le bloc note, un fichier où on aura copier : toujours dans le répertoire "www". 
 ```php
 <?php
 date_default_timezone_set('Europe/Paris'); // Définir le fuseau horaire à Paris
@@ -522,7 +522,7 @@ echo '<h1>Bienvenue sur mon site</h1>
 Enregistrer le dans le répertoire C:\UwAmp\www  sous le nom "index.php". **ATTENTION** à bien sélectionner tous les fichiers.
 
 
-**Activité n°9.** Ouvrir votre navigateur Web et taper dans la barre d'adresse **"localhost"**. 
+**<h2 style="color:green;">Activité n°9.</h2>** Ouvrir votre navigateur Web et taper dans la barre d'adresse **"localhost"**. 
 
 On doit avoir une page HTML qui donne l'heure, si on **actualise** la page, **l'heure évolue**. On a donc bien une page dynamique : le serveur PHP crée la page Web au moment où elle est demandée. À chaque fois que la page est actualisée, la page HTML est générée de nouveau. 
 
@@ -545,7 +545,7 @@ Si un client effectue une requête à 18h23, le serveur enverra au client le cod
 <h1>Bienvenue sur mon site</h1> 
 <p>Il est 18h23</p> 
 ```
-**Activité n°10. :** Après avoir supprimé le fichier "index.php" préalablement créé dans le répertoire "www", Créer avec le bloc note, un fichier où on aura copier : toujours dans le répertoire "www". 
+**<h2 style="color:green;">Activité n°10. </h2>:** Après avoir supprimé le fichier "index.php" préalablement créé dans le répertoire "www", Créer avec le bloc note, un fichier où on aura copier : toujours dans le répertoire "www". 
 
 ```html
 <!doctype html>
@@ -565,7 +565,7 @@ Si un client effectue une requête à 18h23, le serveur enverra au client le cod
 ```
 Enregistrer le dans le répertoire C:\UwAmp\www  sous le nom "index.html". ATTENTION à bien sélectionner tous les fichiers.
 
-**Activité n°11.** : Créer avec le bloc note, un fichier où on aura copier : toujours dans le répertoire "www".  
+**<h2 style="color:green;">Activité n°11.</h2>** : Créer avec le bloc note, un fichier où on aura copier : toujours dans le répertoire "www".  
 ```php
 <?php
     $n=$_POST['nom'];
@@ -575,7 +575,7 @@ Enregistrer le dans le répertoire C:\UwAmp\www  sous le nom "index.html". ATTEN
 ```
 Enregistrer le dans le répertoire C:\UwAmp\www  sous le nom " trait_form.php  ". ATTENTION à bien sélectionner tous les fichiers.
 
-**Activité n°12.** : Ouvrir le navigateur Web et taper dans la barre d'adresse "localhost". Une fois la page Web affichée dans votre navigateur, remplir le formulaire proposé et valider en cliquant sur le bouton "Envoyer"
+**<h2 style="color:green;">Activité n°12.</h2>** : Ouvrir le navigateur Web et taper dans la barre d'adresse "localhost". Une fois la page Web affichée dans votre navigateur, remplir le formulaire proposé et valider en cliquant sur le bouton "Envoyer"
 
 **Comment ça marche ?** 
 
@@ -601,7 +601,7 @@ Ces informations transitent entre le client et le serveur selon méthode utilis�
 
 
 
-**Activité n°13. :** Modifier les fichiers "index.html" et "trait_form.php" comme suit : 
+**<h2 style="color:green;">Activité n°13. </h2>:** Modifier les fichiers "index.html" et "trait_form.php" comme suit : 
 Pour index.html
 ```html
 <!doctype html>
@@ -632,7 +632,7 @@ Pour trait_form.php
 
 
 
-**Activité n°14. :** Ouvrir le navigateur Web et taper dans la barre d'adresse "localhost". Une fois la page Web affichée dans votre navigateur, Saisir le prénom et le nom puis valider en cliquant sur le bouton "Envoyer". **Observer attentivement la barre d'adresse du navigateur.** 
+**<h2 style="color:green;">Activité n°14. </h2>:** Ouvrir le navigateur Web et taper dans la barre d'adresse "localhost". Une fois la page Web affichée dans votre navigateur, Saisir le prénom et le nom puis valider en cliquant sur le bouton "Envoyer". **Observer attentivement la barre d'adresse du navigateur.** 
 
 Cette  fois-ci,  les  informations  du  formulaire  sont  transmises  au  serveur  par  l'intermédiaire  de  l'url  : ```localhost/trait_form.php?nom=tartempion&prenom=tartiflette```
 
@@ -640,7 +640,7 @@ Dans le cas de l'utilisation d'une méthode "POST" les données issues d'un form
 
 Les données envoyées par l'intermédiaire d'une méthode "GET" peuvent être modifiées directement dans l'url. 
 
-**Activité n°15. :** Ouvrir le navigateur Web et taper dans la barre d'adresse "localhost". Une fois la page Web affichée dans votre navigateur, Saisir le prénom et le nom puis valider en cliquant sur le bouton "Envoyer". Modifier l'url : "```localhost/trait_form.php?nom=Martin&prenom=Jean-Pierre```", validez votre modification en appuyant sur la touche "Entrée". 
+**<h2 style="color:green;">Activité n°15. </h2>:** Ouvrir le navigateur Web et taper dans la barre d'adresse "localhost". Une fois la page Web affichée dans votre navigateur, Saisir le prénom et le nom puis valider en cliquant sur le bouton "Envoyer". Modifier l'url : "```localhost/trait_form.php?nom=Martin&prenom=Jean-Pierre```", validez votre modification en appuyant sur la touche "Entrée". 
 
 Normalement la page a bien été modifiée : "Bonjour Jean-Pierre Martin, j'espère que vous allez bien." 
 
@@ -648,7 +648,7 @@ Même si dans notre cas cette opération de modification d'URL est inoffensive, 
 
 Il est important de bien comprendre que la méthode "POST" **n'offre pas non plus une sécurité absolue** puisque toute personne ayant un bagage technique minimum sera capable de lire les données transmises à l'aide de la méthode "POST" en analysant la requête HTTP, même si ces données ne sont pas directement visibles dans l'URL. Seule l'utilisation du **protocole sécurisé HTTPS** garantit un transfert sécurisé des données entre le client et le serveur (les données sont chiffrées et donc illisibles pour une personne ne possédant pas la clé de déchiffrement). 
 
-**Activité n°16**. : Fermer le serveur Wamp
+**<h2 style="color:green;">Activité n°16</h2>**. : Fermer le serveur Wamp
 
 Si le PHP vous passionne :  
 
