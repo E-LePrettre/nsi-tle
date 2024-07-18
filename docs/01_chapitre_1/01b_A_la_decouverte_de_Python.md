@@ -13,7 +13,7 @@ title: 01b A la découverte de Python
 3. [**Pseudo-code**](#_page2_x40.00_y367.92)
 4. [**Python**](#_page2_x40.00_y464.92)
 
-5. [**<H3 STYLE="COLOR:red;">Exercices**](#_page10_x40.00_y36.92)
+5. [**Exercices**](#_page10_x40.00_y36.92)
 
 ## **<H2 STYLE="COLOR:blue;">1. Un<a name="_page0_x40.00_y432.92"></a> langage de programmation ? Qu’est ce que c’est ?</h2>** 
 
@@ -163,13 +163,13 @@ Une variable est un espace mémoire dans lequel il est possible de stocker une v
 
 ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.024.png)**Attention le symbole de l’affectation est =** 
 
-#### **<H4 STYLE="COLOR:DARKMAGENTA;">4.5.1. Noms<a name="_page4_x40.00_y194.92"></a> de variables</h4>**
+#### **<H4 STYLE="COLOR:MAGENTA;">4.5.1. Noms<a name="_page4_x40.00_y194.92"></a> de variables</h4>**
 
 Le nom d’une variable s'écrit avec des lettres (**non accentuées**), des chiffres ou bien l’underscore \_ Le nom d’une variable ne doit pas commencer par un chiffre. 
 
 Exemple : age, mon\_age, temperature1  A éviter : Age, AGE, monAge, Temperature1 
 
-#### **<H4 STYLE="COLOR:DARKMAGENTA;">4.5.2. Le<a name="_page4_x40.00_y249.92"></a> type int (integer)</h4>** 
+#### **<H4 STYLE="COLOR:MAGENTA;">4.5.2. Le<a name="_page4_x40.00_y249.92"></a> type int (integer)</h4>** 
 
 
 
@@ -209,7 +209,7 @@ print(a)
 
     {{ terminal() }}
 
-#### **<H4 STYLE="COLOR:DARKMAGENTA;">4.5.3. Le<a name="_page4_x40.00_y602.92"></a> type float (nombres en virgule flottante)</h4>**
+#### **<H4 STYLE="COLOR:MAGENTA;">4.5.3. Le<a name="_page4_x40.00_y602.92"></a> type float (nombres en virgule flottante)</h4>**
 **<H3 STYLE="COLOR:red;">Activité n°7.:</H3>** Tester les calculs suivant dans la console
 **ATTENTION : faire entrer à chaque ligne du scripts suivants**
 
@@ -241,7 +241,7 @@ print(c)
 
     {{ terminal() }}
 
-#### **<H4 STYLE="COLOR:DARKMAGENTA;">4.5.4. Le<a name="_page5_x40.00_y196.92"></a> type str (string : chaîne de caractères)</h4>**
+#### **<H4 STYLE="COLOR:MAGENTA;">4.5.4. Le<a name="_page5_x40.00_y196.92"></a> type str (string : chaîne de caractères)</h4>**
 
 
 **<H3 STYLE="COLOR:red;">Activité n°8.:</H3>**  Tester les calculs suivant dans la console
@@ -343,7 +343,7 @@ chaine = chaine + 2
 
     {{ terminal() }}
 
-#### **<H4 STYLE="COLOR:DARKMAGENTA;">4.5.5. Le<a name="_page6_x40.00_y680.92"></a> type list (liste)</h4>**
+#### **<H4 STYLE="COLOR:MAGENTA;">4.5.5. Le<a name="_page6_x40.00_y680.92"></a> type list (liste)</h4>**
 
 Une liste est une structure de données. Le premier élément d’une liste possède l’indice (l’index) 0. Dans une liste, on peut avoir des éléments de plusieurs types. 
 
@@ -447,7 +447,7 @@ C’est la méthode inverse du tuple unpacking
 
     {{ terminal() }}
 
-#### **<H4 STYLE="COLOR:DARKMAGENTA;">4.5.6. Le<a name="_page8_x40.00_y323.92"></a> type bool (booléen)</h4>** 
+#### **<H4 STYLE="COLOR:MAGENTA;">4.5.6. Le<a name="_page8_x40.00_y323.92"></a> type bool (booléen)</h4>** 
 
 
 

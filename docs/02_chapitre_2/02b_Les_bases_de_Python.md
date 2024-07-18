@@ -16,13 +16,13 @@ title: 02b Les bases de Python
 8. [**Problèmes**](#_page15_x40.00_y36.91)
 
 
-## **1. Définir<a name="_page0_x40.00_y467.92"></a> une fonction** 
+## **<H2 STYLE="COLOR:BLUE;">1. Définir<a name="_page0_x40.00_y467.92"></a> une fonction</h2>** 
 
 On utilise l’instruction def puis dans la définition de la fonction l’instruction return pour quitter l’appel. 
 
 
 
-**Activité n° 1.**:   
+**<H3 STYLE="COLOR:red;">Activité n° 1.:</H3>**  
 ```python
 def mapremierefonction():  # cette fonction n'a pas de paramètre 
     """  
@@ -46,7 +46,7 @@ L’accès à la documentation se fait avec la fonction pré-définie help() :
     {{ IDE() }}
 
 
-**Activité n° 2.**:   
+**<H3 STYLE="COLOR:red;">Activité n° 2.:</H3>**  
 ```python 
 def parite(nombre): 
     """ Affiche la parité d'un nombre entier """ 
@@ -65,10 +65,10 @@ Une fois la fonction définie, nous pouvons l’appeler :
     {{ IDE() }}
 
 
-## **2. Les<a name="_page1_x40.00_y240.92"></a> conditions  ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.009.png)**
+## **<H2 STYLE="COLOR:BLUE;">2. Les<a name="_page1_x40.00_y240.92"></a> conditions  ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.009.png)</h2>**
 
-### **2.1. Les<a name="_page1_x40.00_y262.92"></a> structures conditionnelles**  
-#### **2.1.1. L’instruction<a name="_page1_x40.00_y281.92"></a> simple if**
+### **<H3 STYLE="COLOR:GREEN;">2.1. Les<a name="_page1_x40.00_y262.92"></a> structures conditionnelles</h3>**  
+#### **<H4 STYLE="COLOR:MAGENTA;">2.1.1. L’instruction<a name="_page1_x40.00_y281.92"></a> simple if</h4>**
 ![](Aimg0.png)
 
 L’instruction if  (si en français) permet d’exécuter des instructions  seulement si une certaine condition est satisfaite.  
@@ -81,7 +81,7 @@ suite du programme
 
 Si l’expression est vraie (True) alors le bloc d’instructions est exécuté.  Si l’expression est fausse (False) on passe directement à la suite du  programme.  
 
-**Activité n° 3.: Condition**    
+**<H3 STYLE="COLOR:red;">Activité n° 3.: Condition</H3>**   
  
 Recopier le code suivant 
 ```python
@@ -102,7 +102,7 @@ Exécuter le programme
 
     {{ IDE() }}
 
-**Activité n° 4. : Condition** 
+**<H3 STYLE="COLOR:red;">Activité n° 4. : Condition</H3>**
  
 Recopier le code suivant 
 ```python
@@ -124,7 +124,7 @@ Exécuter le programme
 
     {{ IDE() }}
 
-#### **2.1.2. L’instruction<a name="_page2_x40.00_y36.92"></a> else**![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.014.png)**
+#### **<H4 STYLE="COLOR:MAGENTA;">2.1.2. L’instruction<a name="_page2_x40.00_y36.92"></a> else</h4>**![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.014.png)**
 
 Une instruction else est toujours associée à une instruction if 
 
@@ -142,7 +142,7 @@ Si l’expression est fausse (False) alors c’est le bloc d’instructions 2 qu
 
 
 
-**Activité n° 5. Condition** 
+**<H3 STYLE="COLOR:red;">Activité n° 5. Condition</H3>**
 
 recopier et tester le code suivant
 ```python
@@ -169,7 +169,7 @@ Tester le script avec
     {{ IDE() }}
 
 
-**Activité n° 6.** Pour traiter le cas des notes invalides (<0 ou >20), on peut imbriquer des instructions conditionnelles, recopier 
+**<H3 STYLE="COLOR:red;">Activité n° 6.</H3>**Pour traiter le cas des notes invalides (<0 ou >20), on peut imbriquer des instructions conditionnelles, recopier 
 et tester le code suivant :
 ```python
 def moyenne(note): 
@@ -198,7 +198,7 @@ Tester le script avec
 
     {{ IDE() }}
 
-**Activité n° 7.** On ajoute encore un niveau d’imbrication pour traiter les cas particuliers 0 et 20 : 
+**<H3 STYLE="COLOR:red;">Activité n° 7.</H3>**On ajoute encore un niveau d’imbrication pour traiter les cas particuliers 0 et 20 : 
 
 ```python
 def moyenne(note): 
@@ -232,7 +232,7 @@ Tester le script avec
 
     {{ IDE() }}
 
-#### **2.1.3. L’instruction<a name="_page3_x40.00_y321.92"></a> elif**
+#### **<H4 STYLE="COLOR:MAGENTA;">2.1.3. L’instruction<a name="_page3_x40.00_y321.92"></a> elif</h4>**
 
 Une instruction elif (contraction de else if) est toujours associée à une instruction if
 
@@ -254,7 +254,7 @@ suite du programme
 
 L’instruction elif évite souvent l’utilisation de conditions imbriquées (et souvent compliquées).
 
-**Activité n° 8.**  
+**<H3 STYLE="COLOR:red;">Activité n° 8.</H3>** 
 ```python
 def moyenne(note):
     """
@@ -277,11 +277,11 @@ Tester le avec différentes notes
 
     {{ IDE() }}
 
-### **2.2. Les<a name="_page4_x40.00_y36.92"></a> prédicats et booléens** 
+### **<H3 STYLE="COLOR:GREEN;">2.2. Les<a name="_page4_x40.00_y36.92"></a> prédicats et booléens</h3>** 
 
 Les conditions qui se trouvent entre le if et les deux points sont appelés des prédicats. On peut tester directement ces prédicats dans l’interpréteur. 
 
-#### **2.2.1. Les<a name="_page4_x40.00_y87.92"></a> booléens True et False :**
+#### **<H4 STYLE="COLOR:MAGENTA;">2.2.1. Les<a name="_page4_x40.00_y87.92"></a> booléens True et False :</h4>**
 
 Tester dans  la console
 > a = 0 
@@ -298,12 +298,12 @@ L’interpréteur renvoie True (« vrai ») ou False (« faux »). True et False
 
     {{ terminal() }}
 
-#### **2.2.2. Les<a name="_page4_x40.00_y255.92"></a> booléens And, Or et Not :**
+#### **<H4 STYLE="COLOR:MAGENTA;">2.2.2. Les<a name="_page4_x40.00_y255.92"></a> booléens And, Or et Not :</h4>**
 
 
 
 
-**Activité n° 9.  avec** And**.**  
+**<H3 STYLE="COLOR:red;">Activité n° 9.  avec And</h3>**  
 
 ```python 
 def bool_and(a): 
@@ -324,7 +324,7 @@ Tester
 
     {{ IDE() }}
 
-**Activité n° 10. avec** or  
+**<H3 STYLE="COLOR:red;">Activité n° 10. avec or </h3>** 
 
 ```python
 def bool_or(a): 
@@ -345,7 +345,7 @@ Tester
 
     {{ IDE() }}
 
-**Activité n° 11. avec Not.**  
+**<H3 STYLE="COLOR:red;">Activité n° 11. avec Not.</H3>** 
 
 ```python 
 def bool_not(a): 
@@ -368,12 +368,12 @@ Tester
 
     {{ IDE() }}
 
-### **2.3. Exercices<a name="_page5_x40.00_y36.92"></a>** 
+### **<H3 STYLE="COLOR:GREEN;">2.3. Exercices<a name="_page5_x40.00_y36.92"></a></h3>** 
 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
 
-**Exercice 1** ★ Le numéro de sécurité sociale est constitué de 13 chiffres auquel s’ajoute la clé de contrôle (2 chiffres). La clé de contrôle est calculée par la formule : 97 - (numéro de sécurité sociale modulo 97) 
+**<H3 STYLE="COLOR:red;">Exercice 1</H3>**★ Le numéro de sécurité sociale est constitué de 13 chiffres auquel s’ajoute la clé de contrôle (2 chiffres). La clé de contrôle est calculée par la formule : 97 - (numéro de sécurité sociale modulo 97) 
 
 Ecrire un script qui contrôle la validité d’un numéro de sécurité sociale. On pourra utiliser la fonction int() 
 
@@ -391,7 +391,7 @@ Votre numéro de sécurité sociale est INVALIDE !
 
 
 
-**Exercice 2.** ★ Ecrire une fonction mention(note) qui affichera la mention correspondante à la note obtenue.  Les mentions sont obtenues 
+**<H3 STYLE="COLOR:red;">Exercice 2.</H3>**★ Ecrire une fonction mention(note) qui affichera la mention correspondante à la note obtenue.  Les mentions sont obtenues 
 
 - Une mention "assez bien" si sa moyenne est égale ou supérieure à 12/20 et inférieure à 14/20. 
 - Une mention "bien" si sa moyenne est au moins égale à 14/20 et inférieure à 16/20. 
@@ -417,7 +417,7 @@ Par exemple :
 
 
 
-**Exercice 3.** ★ Ecrire une fonction IMC(poids, taille) qui calcule l’indice de masse corporelle (IMC) d’un adulte et qui en donne l’interprétation (corpulence normale, surpoids…). 
+**<H3 STYLE="COLOR:red;">Exercice 3.</H3>**★ Ecrire une fonction IMC(poids, taille) qui calcule l’indice de masse corporelle (IMC) d’un adulte et qui en donne l’interprétation (corpulence normale, surpoids…). 
 
 Il se calcule simplement en divisant le poids (en kg) par le carré de la taille (m). Indice de masse corporelle (IMC) Interprétation (d'après l'OMS) ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.036.png)
 
@@ -439,7 +439,7 @@ Exemple :
 
 
 
-**Exercice 4.** ★★: Ecrire une fonction annee\_bissextile(annee) qui indique qu’il s’agit d’une année bissextile. On rappelle qu’une année est bissextile si elle est multiple de 4 mais pas multiple de 100, ou si elle est multiple de 400. 
+**<H3 STYLE="COLOR:red;">Exercice 4.</H3>**★★: Ecrire une fonction annee\_bissextile(annee) qui indique qu’il s’agit d’une année bissextile. On rappelle qu’une année est bissextile si elle est multiple de 4 mais pas multiple de 100, ou si elle est multiple de 400. 
 
 Exemple : 
 ```
@@ -454,7 +454,7 @@ Exemple :
 
 
 
-**Exercice 5.** ★★ - Niveau première en mathématiques - Ecrire un script qui résout l'équation du second degré : ax² + bx + c = 0  
+**<H3 STYLE="COLOR:red;">Exercice 5.</H3>**★★ - Niveau première en mathématiques - Ecrire un script qui résout l'équation du second degré : ax² + bx + c = 0  
 
 Pour revoir les formules à appliquer :[ https://www.maths-et-tiques.fr/telech/Secondegre2.pdf ](https://www.maths-et-tiques.fr/telech/Secondegre2.pdf)
 
@@ -481,8 +481,8 @@ Le discriminant vaut : 0
 
 QCM :[ http://fabrice.sincere.free.fr/qcm/qcm.php?nom=qcm_python3x_2 ](http://fabrice.sincere.free.fr/qcm/qcm.php?nom=qcm_python3x_2)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.006.png)
 
-## **3. Les<a name="_page7_x40.00_y36.92"></a> boucles** 
-### **3.1. L’instruction<a name="_page7_x40.00_y58.92"></a> for…in**
+## **<H2 STYLE="COLOR:BLUE;">3. Les<a name="_page7_x40.00_y36.92"></a> boucles</h2>** 
+### **<H3 STYLE="COLOR:GREEN;">3.1. L’instruction<a name="_page7_x40.00_y58.92"></a> for…in</h3>**
 
 L'instruction for travaille sur des séquences. Elle est en fait spécialisée dans le parcours d'une séquence de plusieurs données.
 
@@ -492,7 +492,7 @@ for élément in séquence :
 suite du programme 
 ```
 
-**Activité n° 12.**:  Avec une séquence de caractères : 
+**<H3 STYLE="COLOR:red;">Activité n° 12.:</H3>** Avec une séquence de caractères : 
 ```python
 def epeler(chaine): 
     """ 
@@ -514,18 +514,18 @@ exécuté… Le bloc d’instructions est exécuté une dernière fois lorsqu’
 
     {{ IDE() }}
 
-**Activité n° 13.**:  Tester le script précédent sur[ http://pythontutor.com/ ](http://pythontutor.com/)  
+**<H3 STYLE="COLOR:red;">Activité n° 13.:</H3>** Tester le script précédent sur[ http://pythontutor.com/ ](http://pythontutor.com/)  
 
 
-**Activité n° 14.**:  avec les éléments d’une liste : 
+**<H3 STYLE="COLOR:red;">Activité n° 14.:</H3>** avec les éléments d’une liste : 
 Tester la fonction précédente avec  
 >  epeler(['Pierre', 67.5, 18])  
 
-### **3.2. L’instruction<a name="_page7_x40.00_y637.92"></a> for avec la fonction range()**
+### **<H3 STYLE="COLOR:GREEN;">3.2. L’instruction<a name="_page7_x40.00_y637.92"></a> for avec la fonction range()</h3>**
 
 
 
-**Activité n° 15.**:  L’association avec la fonction range() est très utile pour créer des **séquences automatiques de nombres entiers :** 
+**<H3 STYLE="COLOR:red;">Activité n° 15.:</H3>** L’association avec la fonction range() est très utile pour créer des **séquences automatiques de nombres entiers :** 
 
 ```python
 def compter(nombre): 
@@ -544,7 +544,7 @@ def compter(nombre):
     {{ IDE() }}
 
 
-**Activité n° 16.**:  Table de multiplication 
+**<H3 STYLE="COLOR:red;">Activité n° 16.:</H3>** Table de multiplication 
  - 
 La création d’une table de multiplication paraît plus simple avec une boucle for qu’avec une boucle while :
 ```python 
@@ -562,7 +562,7 @@ def table_de_multiplication(nombre):
 
     {{ IDE() }}
 
-### **3.3. L’instruction<a name="_page8_x40.00_y448.92"></a> while**
+### **<H3 STYLE="COLOR:GREEN;">3.3. L’instruction<a name="_page8_x40.00_y448.92"></a> while</h3>**
 
 On utilise généralement la boucle while lorsqu’on souhaite répéter un nombre de fois une même instruction et **qu’on ne sait pas combien de fois cette instruction va être répétée**. 
 
@@ -578,7 +578,7 @@ suite du programme
 
 Si l’expression est vraie (True) le bloc d’instructions est exécuté, puis l’expression est à nouveau évaluée. Le cycle continue jusqu'à ce que l’expression soit fausse (False) : on passe alors à la suite du programme. 
 
-**Activité n° 17.**:  un script qui compte de 1 à 4 
+**<H3 STYLE="COLOR:red;">Activité n° 17.:</H3>** un script qui compte de 1 à 4 
 
 ```python
 def compteur():
@@ -599,14 +599,14 @@ def compteur():
 
     {{ IDE() }}
 
-**Activité n° 18.**:  Tester le script précédent sur[ http://pythontutor.com/ ](http://pythontutor.com/)  
+**<H3 STYLE="COLOR:red;">Activité n° 18.:</H3>** Tester le script précédent sur[ http://pythontutor.com/ ](http://pythontutor.com/)  
 
 
 ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.065.png)Attention aux programmes qui cyclent (bouclent) : selon la condition de continuation on peut se retrouver sur une **boucle infinie.** Par exemple avec l’application précédente, avec une condition du type compteur > 0, condition qui sera toujours vrai, le programme exécute la boucle sans jamais s’arrêter.  
 
 
 
-**Activité n° 19.**:  Affichage de l’heure courante 
+**<H3 STYLE="COLOR:red;">Activité n° 19.:</H3>** Affichage de l’heure courante 
 
 ```python
 import time     # importation du module time 
@@ -622,7 +622,7 @@ print("A bientôt")
 
     {{ IDE() }}
 
-### **3.4. L’instruction<a name="_page9_x40.00_y446.92"></a> break**
+### **<H3 STYLE="COLOR:GREEN;">3.4. L’instruction<a name="_page9_x40.00_y446.92"></a> break</h3>**
 
 L’instruction break provoque une **sortie immédiate** d’une boucle while ou d’une boucle for. 
 
@@ -630,7 +630,7 @@ Dans l’exemple suivant, l’expression True est toujours … vraie : on a une 
 
 
 
-**Activité n° 20.**:  Affichage de l’heure courante 
+**<H3 STYLE="COLOR:red;">Activité n° 20.:</H3>** Affichage de l’heure courante 
  
 ```python
 import time     # importation du module time 
@@ -646,22 +646,22 @@ print("A bientôt")
 
     {{ IDE() }}
 
-### **3.5. Astuce<a name="_page9_x40.00_y739.92"></a>**  
+### **<H3 STYLE="COLOR:GREEN;">3.5. Astuce<a name="_page9_x40.00_y739.92"></a></h3>** 
 
 Si  vous  **connaissez  le  nombre  de  boucles  à  effectuer,  utiliser  une  boucle for**.  Autrement,  utiliser  une boucle while (notamment pour faire des boucles sans fin). 
 
-### **3.6. Exercices<a name="_page10_x40.00_y36.92"></a>** 
+### **<H3 STYLE="COLOR:GREEN;">3.6. Exercices<a name="_page10_x40.00_y36.92"></a></h3>** 
 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
 
-**Exercice 5** ★ Ecrire une fonction moyenne(liste) qui calcule la moyenne d’une série de notes. On pourra utiliser une variable qui contient la somme intermédiaire des notes.
+**<H3 STYLE="COLOR:red;">Exercice 5</H3>**★ Ecrire une fonction moyenne(liste) qui calcule la moyenne d’une série de notes. On pourra utiliser une variable qui contient la somme intermédiaire des notes.
 ```
 >>> moyenne([15, 11.5, 16])
 14.17
 ```
 
-**Exercice 6** ★ 
+**<H3 STYLE="COLOR:red;">Exercice 6</H3>**★ 
 
 1.  Avec une boucle for, écrire une fonction nombre_de_z(chaine) qui compte le nombre de lettres z dans une chaîne de caractères. Par exemple : 
 ```
@@ -675,7 +675,7 @@ méthode count() de la classe str. Pour obtenir de l’aide sur cette méthode :
 help(str.count)
 ```
 
-**Exercice 7** ★ 
+**<H3 STYLE="COLOR:red;">Exercice 7</H3>**★ 
 
 1.  Ecrire la fonction devinette(proposition) du jeu de devinette suivant : 
 
@@ -704,7 +704,7 @@ import random
 nombre = random.randint(1,100)
 ``` 
 
-**Exercice 8** ★★ Code de César 
+**<H3 STYLE="COLOR:red;">Exercice 8</H3>**★★ Code de César 
 En cryptographie, le code de César est une technique de chiffrement élémentaire qui consiste à décaler une lettre de 3 rangs vers la droite : 
 
 A → D 
@@ -743,7 +743,7 @@ On pourra utiliser la chaîne 'abcdefghijklmnopqrstuvwxyz',  la méthode find() 
 
 
 
-**Exercice 9** ★ Geralt de Riv kiffe ses cheveux. 
+**<H3 STYLE="COLOR:red;">Exercice 9</H3>**★ Geralt de Riv kiffe ses cheveux. 
 
 Pour ne pas être dérangé dans ses aventures il décide de les couper chaque fois qu’ils font plus de 40 cm. Ce matin Geralt a coupé ses cheveux et ils mesurent 17 cm. Chaque jour la longueur de ses cheveux augmente d’un pour cent (leur longueur est multipliée par 1.01). 
 
@@ -751,7 +751,7 @@ Pour ne pas être dérangé dans ses aventures il décide de les couper chaque f
 
 **Les exercices suivants nécessitent quelques (peu quand même) aptitudes en mathématiques…** 
 
-**Exercice 10** ★★ Ecrire une méthode heron(U, n) qui donne la valeur de la suite pour un rang n (méthode de Héron) : La méthode de Héron permet d’approcher la valeur de la racine carrée d’un nombre. Nous allons l’appliquer pour déterminer la valeur approchée de la racine de 2. Elle est définie par la suite : 
+**<H3 STYLE="COLOR:red;">Exercice 10</H3>**★★ Ecrire une méthode heron(U, n) qui donne la valeur de la suite pour un rang n (méthode de Héron) : La méthode de Héron permet d’approcher la valeur de la racine carrée d’un nombre. Nous allons l’appliquer pour déterminer la valeur approchée de la racine de 2. Elle est définie par la suite : 
 
 
 $U_0=k$, k étant une valeur initiale
@@ -776,7 +776,7 @@ Aide :
 
 - Utiliser seulement  n et U comme variable, 
 
-**Exercice 11** ★★ Fraction continue infinie  
+**<H3 STYLE="COLOR:red;">Exercice 11</H3>**★★ Fraction continue infinie  
 ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.086.jpeg)
 
 Le nombre d’or est un célèbre nombre irrationnel :[ Wikipédia.](https://fr.wikipedia.org/wiki/Nombre_d%27or)  
@@ -805,7 +805,7 @@ la valeur de (1+math.sqrt(5))/2 est : 1.618033988749895
 ```
 
 
-**Exercice 12** 
+**<H3 STYLE="COLOR:red;">Exercice 12</H3>**
 
 ★ Ecrire une fonction premier(nombre) qui détermine si un nombre entier est premier ou pas. 
 
@@ -828,15 +828,15 @@ Une fois toutes les valeurs testées si le nombre_en_cours est en fait égal au 
 
 Source :[ Fabrice Sincère ](http://fsincere.free.fr/isn/python/cours_python_ch3.php)-[ Contenu sous licence CC BY-NC-SA 3.0 ](http://creativecommons.org/licenses/by-nc-sa/3.0/fr/)![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.006.png)
 
-## **4. Portée<a name="_page13_x40.00_y36.92"></a> de variables : variables globales et locales** 
+## **<H2 STYLE="COLOR:BLUE;">4. Portée<a name="_page13_x40.00_y36.92"></a> de variables : variables globales et locales</h2>** 
 
 La **portée d’une variable** est l’endroit du programme où on peut accéder à la variable. 
 
-### **4.1. Variables<a name="_page13_x40.00_y76.92"></a> locales** 
+### **<H3 STYLE="COLOR:GREEN;">4.1. Variables<a name="_page13_x40.00_y76.92"></a> locales</h3>** 
 
 
 
-**Activité n° 21.**: Observons le script suivant : 
+**<H3 STYLE="COLOR:red;">Activité n° 21.:</H3>**Observons le script suivant : 
 ```python
 a = 10     # variable globale au programme 
 
@@ -859,11 +859,11 @@ Nous avons deux variables différentes qui portent le même nom a
 
 Une variable a de valeur 20 est créée dans la fonction : c’est une **variable locale** à la fonction. **Elle est détruite dès que l’on sort de la fonction.** 
 
-### **4.2. Variables<a name="_page13_x40.00_y329.92"></a> globales** 
+### **<H3 STYLE="COLOR:GREEN;">4.2. Variables<a name="_page13_x40.00_y329.92"></a> globales</h3>** 
 
 
 
-**Activité n° 22.**: L’instruction global rend une variable globale : 
+**<H3 STYLE="COLOR:red;">Activité n° 22.:</H3>**L’instruction global rend une variable globale : 
 
 ```python
 a = 10     # variable globale 
@@ -886,13 +886,13 @@ Tester
 
 **Remarque** : il est préférable **d'éviter** l’utilisation de l’instruction global car c’est une source d’erreurs (on peut ainsi modifier le contenu d’une variable globale en croyant agir sur une variable locale).  
 
-## **5. La<a name="_page13_x40.00_y581.92"></a> fonction lambda** 
+## **<H2 STYLE="COLOR:BLUE;">5. La<a name="_page13_x40.00_y581.92"></a> fonction lambda</h2>** 
 
 Parfois **pour éviter d’avoir à coder une fonction surtout si elle est très courte,** on préfère utiliser une fonction que l’on appelle **lambda** 
 
 
 
-**Activité n° 23.**: Au lieu de coder la fonction g(x)= 2x, on peut écrire 
+**<H3 STYLE="COLOR:red;">Activité n° 23.:</H3>**Au lieu de coder la fonction g(x)= 2x, on peut écrire 
 
 ```python
 g = lambda x: 2*x 
@@ -908,13 +908,13 @@ Point de vocabulaire : En toute rigueur, on appelle fonctions les **fonctions** 
 
     {{ IDE() }}
 
-## **6. Fonctions<a name="_page14_x40.00_y36.92"></a> avec des valeurs par défaut** 
+## **<H2 STYLE="COLOR:BLUE;">6. Fonctions<a name="_page14_x40.00_y36.92"></a> avec des valeurs par défaut</H2>** 
 
 Il est parfois utile de définir des fonctions avec **plusieurs paramètres** dont certains, parce que par exemple rarement modifiés, sont **optionnels et possèdent donc une valeur par défaut**. 
 
 
 
-**Activité n° 24.**: 
+**<H3 STYLE="COLOR:red;">Activité n° 24.:</H3>**
 
 ```python
 def vetement(couleur_pull='rouge', couleur_pantalon='bleu'): 
@@ -938,11 +938,11 @@ Tester
 
     {{ IDE() }}
 
-## **7. Exercices<a name="_page15_x40.00_y36.92"></a>** 
+## **<H2 STYLE="COLOR:BLUE;">7. Exercices<a name="_page15_x40.00_y36.92"></a></h2>**
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
 
-**Exercice 13** ☆ 
+**<H3 STYLE="COLOR:red;">Exercice 13</H3>**☆ 
 
 1.Ecrire une fonction carre() qui retourne le carré d’un nombre : 
 
@@ -987,7 +987,7 @@ Tester
 
 
 
-**Exercice 14** ☆ 
+**<H3 STYLE="COLOR:red;">Exercice 14</H3>**☆ 
 
 1.Ecrire une fonction qui retourne l’aire de la surface d’un disque de rayon R. Exemple : 
 
@@ -1009,7 +1009,7 @@ Aide on ne peut faire de l’affichage facilement qu’en concaténant les chain
 
 
 
-**Exercice 15** ★ 
+**<H3 STYLE="COLOR:red;">Exercice 15</H3>**★ 
 
 1.Ecrire une fonction qui retourne la factorielle d’un nombre entier N. On rappelle que : factorielle de N est noté N! 
 
@@ -1037,7 +1037,7 @@ Exemple :
 
 2.Comparez avec le résultat de la fonction[ factorial() ](http://docs.python.org/3/library/math.html)du module math. 
 
-**Exercice 16** ★ 
+**<H3 STYLE="COLOR:red;">Exercice 16</H3>**★ 
 
 1.A l’aide de la fonction randint() du module random, écrire une fonction qui retourne un mot de passe de longueur N (chiffres, lettres minuscules ou majuscules).  
 
@@ -1071,7 +1071,7 @@ Lien utile :[ https://www.motdepasse.xyz/ ](https://www.motdepasse.xyz/)![](Aspo
 
 
 
-**Exercice 17** ★★ Ecrire une fonction qui retourne une grille de numéros du jeu  Euro Millions. On utilisera la fonction sample() du module random.  
+**<H3 STYLE="COLOR:red;">Exercice 17</H3>**★★ Ecrire une fonction qui retourne une grille de numéros du jeu  Euro Millions. On utilisera la fonction sample() du module random.  
 ![](Aspose.Words.f2199d1c-8d1a-44f2-a36d-ef25b61e0a7d.114.png)
 
 ```
@@ -1079,7 +1079,7 @@ Lien utile :[ https://www.motdepasse.xyz/ ](https://www.motdepasse.xyz/)![](Aspo
 '43 31 35 41 39 22 14 ' 
 ```
 
-**Exercice 18**   
+**<H3 STYLE="COLOR:red;">Exercice 18</H3>**  
 
 1.★ Ecrire une fonction qui retourne la valeur de la fonction  mathématique f(x)= 27x^3 - 27x^2 - 18x + 8 :  
 
@@ -1112,6 +1112,6 @@ Source :[ Fabrice  ](http://fsincere.free.fr/isn/python/cours_python_ch4.php)
 
 
 
-## **8. Problème<a name="_page15_x40.00_y36.91"></a>** 
+## **<H2 STYLE="COLOR:BLUE;">8. Problème<a name="_page15_x40.00_y36.91"></a></h2>** 
 Le chifoumi sur **CAPYTALE**
 
