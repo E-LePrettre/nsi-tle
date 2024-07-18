@@ -76,8 +76,11 @@ La première ligne d'une requête HTTP est la ligne de requête, qui spécifie l
 ```
 GET /index.html HTTP/1.1
 ```
+
 - **GET** : Méthode HTTP utilisée (GET, POST, PUT, DELETE, etc.).
+
 - **/index.html** : URL de la ressource demandée.
+
 - **HTTP/1.1** : Version du protocole HTTP.
 
 #### **2.3.2. En-têtes de Requête (Headers)**
@@ -90,10 +93,13 @@ User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
 Accept-Language: en-US,en;q=0.5
 ```
+
 - **Host** : Spécifie le domaine de destination (nécessaire pour les serveurs hébergeant plusieurs domaines).
+
 - **User-Agent** : Fournit des informations sur le client (navigateur, système d'exploitation).
+
 - **Accept** : Indique les types MIME que le client accepte.
-- **Accept-Language** : Indique les langues préférées du client.
+age** : Indique les langues préférées du client.
 
 #### **2.3.3. Corps de la Requête (Request Body)**
 Le corps de la requête est utilisé pour envoyer des données au serveur. Il est généralement utilisé avec les méthodes POST, PUT, et PATCH. Dans une requête GET, le corps est généralement vide.
@@ -108,15 +114,23 @@ Content-Length: 27
 
 name=John&age=30&city=Paris
 ```
+
 - **Content-Type** : Spécifie le type de données envoyées dans le corps de la requête.
+
 - **Content-Length** : Spécifie la longueur du corps de la requête.
+
 - Le corps de la requête : Contient les données réelles (ex: `name=John&age=30&city=Paris`).
 
 Une requête HTTP utilise une méthode (c’est une commande qui demande au serveur d’effectuer une certaine action). Il y a plusieurs méthodes disponibles :
+
 -	**GET** : c’est la méthode la plus courante pour demander une ressource. Elle est sans effet sur la ressource.
+
 -	**POST** : cette méthode est utilisée pour soumettre des données en vue d’un traitement (côté serveur). Typiquement c’est la méthode employée lorsque l’on envoie au serveur les données issues d’un formulaire.
+
 -	**DELETE** : cette méthode permet de supprimer une ressource sur le serveur.
+
 -	**PUT** : cette méthode permet de modifier une ressource sur le serveur
+
 -	**PATCH** : pour modifier une ressource existante
 
 #### **2.3.4. Composition Complète de la Requête**
@@ -135,7 +149,9 @@ name=John&age=30&city=Paris
 ```
 
 - **Ligne de requête** : Début de la requête, spécifiant la méthode, l'URL et la version du protocole.
+
 - **En-têtes de requête** : Informations supplémentaires sur la requête ou le client.
+
 - **Corps de la requête** : Données envoyées au serveur (utilisé principalement dans les requêtes POST et PUT).
 
 ### **2.4. Réponse HTTP du Serveur avec PHP**
@@ -150,12 +166,17 @@ Content-Type: text/html; charset=UTF-8
 Content-Length: [calculated automatically by server]
 Connection: keep-alive
 ```
+
 **Ligne de Statut** :
+
    - `HTTP/1.1 200 OK` : Indique que la requête a été traitée avec succès et que le serveur renvoie la page demandée.
 
 **En-têtes de Réponse** :
+
    - `Content-Type: text/html; charset=UTF-8` : Indique que le contenu de la réponse est une page HTML encodée en UTF-8.
+
    - `Content-Length: [calculated automatically by server]` : La longueur du corps de la réponse est calculée automatiquement par le serveur.
+   
    - `Connection: keep-alive` : Indique que la connexion doit rester ouverte pour les requêtes suivantes.
 
 #### **2.4.2. Corps de la Réponse avec PHP**
