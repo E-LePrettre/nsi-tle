@@ -13,11 +13,11 @@ title: 03 Mise au point des scripts et gestion des exceptions
 5. [Gestion des exceptions](#_page9_x40.00_y401.92)
 6. [Exercices](#_page13_x40.00_y375.92)
 
-## **1.  Les bonnes pratiques : <a name="_page0_x40.00_y447.92"></a>documenter les fonctions** 
+## **<H2 STYLE="COLOR:BLUE;">1.  Les bonnes pratiques : <a name="_page0_x40.00_y447.92"></a>documenter les fonctions</h2>** 
 
 Chaque fonction doit être **documentée** avec une « chaine de documentation » ou « docstring » c’est-à-dire une chaine de caractère placée immédiatement après l’en-tête de la fonction.
 
-**Activité n° 1.**: Exemple de documentation de fonctions que l’on obtient dans l’aide de la fonction 
+**<H3 STYLE="COLOR:red;">Activité n° 1.:</H3>** Exemple de documentation de fonctions que l’on obtient dans l’aide de la fonction 
 
 ```python
 def factorielle(n):
@@ -55,7 +55,7 @@ et **au programmeur** de la fonction de préciser
 - la relation entre la valeur renvoyée et celle du ou des paramètres ; 
 - ses idées avec quelques exemples. 
 
-## **2. Les<a name="_page1_x40.00_y350.92"></a> tests** 
+## **<H2 STYLE="COLOR:BLUE;">2. Les<a name="_page1_x40.00_y350.92"></a> tests</h2>** 
 
 Pour vérifier si un programme ne produit pas d’erreur au cours de son exécution et s’il effectue réellement la tâche que l’on attend de lui, une première méthode consiste à exécuter plusieurs fois ce programme, en lui fournissant des entrées, **appelées tests**, qui servent à détecter les erreurs éventuelles.  
 
@@ -65,7 +65,7 @@ Pour qu’elles jouent leur rôle, il faut choisir ces entrées de sorte que :
 - Chaque cas distinct d’exécution du programme soit parcouru avec au moins un choix d’entrées 
 - Les cas limites soient essayés : nombres nuls ou négatifs, liste vide etc.. 
 
-### **2.1. Les<a name="_page1_x40.00_y523.92"></a> tests simples avec assert**
+### **<H3 STYLE="COLOR:GREEN;">2.1. Les<a name="_page1_x40.00_y523.92"></a> tests simples avec assert</h3>**
 
 L’idée la plus simple à mettre en place est d’utiliser la commande assert pour vérifier que les résultats voulus correspondent à ce que renvoie la fonction désirée.  
 
@@ -75,11 +75,11 @@ En particulier :
 - celles de −10 par 7, de 10 par −7, de 10.3 par 4 ou encore de 11 par 3.5 doivent toutes renvoyer le code −1 « d’erreur »   
 - reste le cas particulier du zéro : une division par zéro doit renvoyer −1  
 
-On utilise if \_\_name\_\_ == '\_\_main\_\_': qui permet de n’exécuter les tests que lorsqu’on  travaille sur ce fichier et pas lorsque ce fichier est appelé par un autre fichier du programme.  
+On utilise if ```__name__ == '__main__'```: qui permet de n’exécuter les tests que lorsqu’on  travaille sur ce fichier et pas lorsque ce fichier est appelé par un autre fichier du programme.  
 
 
 
- **Activité n° 2.**:    
+ **<H3 STYLE="COLOR:red;">Activité n° 2.:</H3>**    
 
 ```python 
 def division_euclidienne(a,b):   
@@ -103,7 +103,7 @@ L’inconvénient majeur de cette méthode est que l’on doit traiter **une ass
 
     {{ IDE() }}
 
-**Activité n° 3.**:    
+**<H3 STYLE="COLOR:red;">Activité n° 3.:</H3>**    
 
 ```python  
 def division_euclidienne(a,b):   
@@ -127,13 +127,13 @@ if __name__ == '__main__':
 
     {{ IDE() }}
 
-### **2.2. Les<a name="_page2_x40.00_y650.92"></a> tests avec doctest** 
+### **<H3 STYLE="COLOR:GREEN;">2.2. Les<a name="_page2_x40.00_y650.92"></a> tests avec doctest</h3>** 
 
 Les exemples donnés dans les docstrings (chaine de documentation) peuvent être testés à l’aide du module 
 
 
 
-**Activité n° 4.**:  
+**<H3 STYLE="COLOR:red;">Activité n° 4.:</H3>**  
 
 ```python
 def factorielle(n):
@@ -164,7 +164,7 @@ La  fonction testmod du module doctest est  allée  chercher  dans  les docstrin
 
 
 
-**Activité n° 5.**:on introduit une erreur dans un des exemples du docstring  
+**<H3 STYLE="COLOR:red;">Activité n° 5.:</H3>**on introduit une erreur dans un des exemples du docstring  
 
 ```python
 def factorielle(n):
@@ -192,7 +192,7 @@ Tester
 
 
 
-**Activité n° 6.**: on peut rendre automatique les tests : 
+**<H3 STYLE="COLOR:red;">Activité n° 6.:</H3>** on peut rendre automatique les tests : 
 
 ```python
 def factorielle(n):
@@ -226,7 +226,7 @@ Ici il n’y a aucune erreur, on n’obtient **rien**, ce qui est parfois décon
 
 
 
-**Activité n° 7.**:  avec une erreur   
+**<H3 STYLE="COLOR:red;">Activité n° 7.:</H3>**  avec une erreur   
 
 ```python
 def factorielle(n):
@@ -255,7 +255,7 @@ Tester
 
     {{ IDE() }}   
 
- **Activité n° 8.**:  On rend les doctests bavard même en cas de succès avec le mode verbose   
+ **<H3 STYLE="COLOR:red;">Activité n° 8.:</H3>**  On rend les doctests bavard même en cas de succès avec le mode verbose   
 
 ```python 
 def factorielle(n):
@@ -285,7 +285,7 @@ Tester
 
     {{ IDE() }}    
 
-## **3. Les<a name="_page5_x40.00_y567.92"></a> préconditions et les postconditions** 
+## **<H2 STYLE="COLOR:BLUE;">3. Les<a name="_page5_x40.00_y567.92"></a> préconditions et les postconditions</h2>** 
 
 Les assertions sont utilisées pour vérifier un résultat lorsque le test se fait, **test par test**. Donc un seul test à la fois. 
 
@@ -293,7 +293,7 @@ Mais les assertions peuvent aussi être dans le programme **pour vérifier tous 
 
 
 
- **Activité n° 9. : Utilisation de l’assertion dans une fonction**   
+ **<H3 STYLE="COLOR:red;">Activité n° 9. : Utilisation de l’assertion dans une fonction</H3>**  
 
 ```python
 from math import sqrt
@@ -321,8 +321,8 @@ Pour plus de précisions :[ https://www.youtube.com/watch?v=DRVoh5XiAZo ](https:
 
     {{ IDE() }}
 
-## **4. Les<a name="_page6_x40.00_y233.92"></a> modules** 
-### **4.1. Qu’est<a name="_page6_x40.00_y255.92"></a> ce que c’est ?** 
+## **<H2 STYLE="COLOR:BLUE;">4. Les<a name="_page6_x40.00_y233.92"></a> modules</h2>** 
+### **<H3 STYLE="COLOR:GREEN;">4.1. Qu’est<a name="_page6_x40.00_y255.92"></a> ce que c’est ?</h3>** 
 
 Un module est un bout de code que l’on a **enfermé dans un fichier**. On emprisonne ainsi des fonctions et des variables ayant toutes un rapport entre elles. Puis si l’on veut travailler avec les fonctionnalités prévues par le module, il n’y a qu’à **importer le module** et utiliser ensuite toutes les fonctions et variables prévues. Par exemple le module math. **Rappels** : 
 ```
@@ -350,7 +350,7 @@ Tester
 
     {{ IDE() }} 
 
-### **4.2. Emprisonner<a name="_page6_x40.00_y498.92"></a> le code dans un fichier** 
+### **<H3 STYLE="COLOR:GREEN;">4.2. Emprisonner<a name="_page6_x40.00_y498.92"></a> le code dans un fichier</h3>** 
 
 Le code doit être enregistrer dans un fichier en .py. (sous windows) 
 
@@ -367,14 +367,14 @@ ls -l
 sudo chmod a+x *lefichier* 
 ```
 
-### **4.3. Derniers<a name="_page6_x40.00_y664.92"></a> ajustements** 
+### **<H3 STYLE="COLOR:GREEN;">4.3. Derniers<a name="_page6_x40.00_y664.92"></a> ajustements</h3>** 
 
 Si le programme contient des accents, il est nécessaire de préciser à Python l’encodage de ces accents. Il faut donc lui indiquer l’encodage. Ligne à placer tout en haut du fichier (juste après le chemin de python sous Linux) 
 ```
 # coding: utf-8 
 ```
 
-Il est probable, si vous exécutez votre application d’un double-clic, que votre programme **se referme immédiatement** après avoir exécuté le programme. Il faut donc demander au programme **de se mettre en pause à la fin de son exécution**.  
+Il est probable, si vous exécutez votre activité d’un double-clic, que votre programme **se referme immédiatement** après avoir exécuté le programme. Il faut donc demander au programme **de se mettre en pause à la fin de son exécution**.  
 
 Ligne à placer dans le fichier (sous windows) 
 
@@ -394,11 +394,11 @@ os.system("pause")
 
 **Sous Linux** : on peut simplement exécuter le programme dans la console. Si l’on veut faire une pause on peut utilisez input avant la fin du programme (pas très élégant mais fonctionne) 
 
-### **4.4. Utilisation<a name="_page7_x40.00_y231.92"></a> en module**
+### **<H3 STYLE="COLOR:GREEN;">4.4. Utilisation<a name="_page7_x40.00_y231.92"></a> en module</h3>**
 
 **ON VA TRAVAILLER SUR THONNY**
 
- **Activité n° 10. :** On crée un fichier multipli.py qui contiendra la fonction table : table de multiplication  
+ **<H3 STYLE="COLOR:red;">Activité n° 10. :</H3>**On crée un fichier multipli.py qui contiendra la fonction table : table de multiplication  
 
 ```python
 # coding: utf-8
@@ -434,11 +434,11 @@ Type "help", "copyright", "credits" or "license" for more information.
 ```
 
 
-### **4.5. Création<a name="_page8_x40.00_y36.92"></a> de son propre module** 
+### **<H3 STYLE="COLOR:GREEN;">4.5. Création<a name="_page8_x40.00_y36.92"></a> de son propre module</h3>**
 
 
 
-**Activité n°11. :** On crée deux fichiers :   
+**<H3 STYLE="COLOR:red;">Activité n°11. :</H3>**On crée deux fichiers :   
 
 -  le fichier multipli.py créé précédemment  
 -  Un fichier test.py qui contiendra le test d’exécution du module. Enregistrer votre fichier sous le nom test.py  dans un dossier c:\langages\ 
@@ -470,13 +470,13 @@ Au moment d'importer le module, Python va lire (ou créer s’il n'existe pas) u
 
 Ce fichier est généré par Python et contient le code compilé (ou presque) du module. Il ne s'agit pas réellement de langage machine mais d'un format que Python décode un peu plus vite que le code que vous pouvez écrire. 
 
-### **4.6. Les<a name="_page8_x40.00_y616.92"></a> packages** 
+### **<H3 STYLE="COLOR:GREEN;">4.6. Les<a name="_page8_x40.00_y616.92"></a> packages</h3>** 
 
 Les modules sont un des moyens de **regrouper plusieurs fonctions**. On peut aller encore au-delà en regroupant des modules dans des packages. Cela permet de ranger plus proprement les modules dans des emplacements séparés.  En pratique, les packages sont des répertoires. 
 
 
 
-**Activité n°12. :** Créer un dossier package *dans* le dossier c:\langages\ y placer le fichier multipli.py. Pour importer la fonction table dans un nouveau fichier que l’on appelera multipli\_away.py : 
+**<H3 STYLE="COLOR:red;">Activité n°12. :</H3>**Créer un dossier package *dans* le dossier c:\langages\ y placer le fichier multipli.py. Pour importer la fonction table dans un nouveau fichier que l’on appelera multipli\_away.py : 
 
 ```python
 from package.multipli import table  
@@ -493,17 +493,17 @@ Tester dans le cmd
 c:\langages>python multipli_away.py 
 ```
   
-## **5. Gestion<a name="_page9_x40.00_y401.92"></a> des exceptions** 
+## **<H2 STYLE="COLOR:BLUE;">5. Gestion<a name="_page9_x40.00_y401.92"></a> des exceptions</h2>** 
 
 Ce sont les erreurs que peut rencontrer Python en exécutant le programme. Ces erreurs peuvent être **interceptées** très facilement et dans certains cas indispensables. 
 
-### **5.1. Lever<a name="_page9_x40.00_y467.92"></a> d’exception** 
+### **<H3 STYLE="COLOR:GREEN;">5.1. Lever<a name="_page9_x40.00_y467.92"></a> d’exception</h3>** 
 
 Quand Python rencontre une erreur dans le code, il lève **une exception**.  
 
 
 
-**Application n°13. :** Tester  
+**<H3 STYLE="COLOR:red;">Activité n°13. :</H3>**Tester  
 
 > 1/0 
   
@@ -518,11 +518,11 @@ A chaque fois qu’il y a une levée d’exception, Python **arrête** l’exéc
 
     {{ IDE() }}
 
-### **5.2. Gestions<a name="_page9_x40.00_y734.92"></a> des exceptions**
+### **<H3 STYLE="COLOR:GREEN;">5.2. Gestions<a name="_page9_x40.00_y734.92"></a> des exceptions</h3>**
 
 Il  est  possible  de  gérer  les  exceptions  pour  éviter  l’arrêt  brutal  du  programme.  Pour  cela,  on  utilise conjointement les instructions try et except. 
 
-#### **5.2.1. Forme<a name="_page10_x40.00_y106.92"></a> minimale du bloc try**
+#### **<H4 STYLE="COLOR:MAGENTA;">5.2.1. Forme<a name="_page10_x40.00_y106.92"></a> minimale du bloc try</h4>**
 
 Syntaxe : 
 
@@ -537,7 +537,7 @@ except:
 
 
 
-**Application n°14. :** On suppose que l’utilisateur entre une année. Ici il peut fournir une valeur impossible à convertir en entier.  
+**<H3 STYLE="COLOR:red;">Activité n°14. :</H3>**On suppose que l’utilisateur entre une année. Ici il peut fournir une valeur impossible à convertir en entier.  
   
 ```python
 annee = input()  
@@ -559,7 +559,7 @@ Tester
 
 Ensuite et surtout, **cette méthode est assez grossière** : elle essaye une instruction et **intercepte n'importe quelle exception** liée à cette instruction. Ici, c'est acceptable car nous n'avons pas énormément d'erreurs possibles sur cette instruction. Mais c'est une **mauvaise habitude. On va voir une méthode plus fine dans la suite.** 
 
-#### **5.2.2. Interception<a name="_page10_x40.00_y547.92"></a> d’exceptions particulières Dans le cas d’une division :** 
+#### **<H4 STYLE="COLOR:MAGENTA;">5.2.2. Interception<a name="_page10_x40.00_y547.92"></a> d’exceptions particulières Dans le cas d’une division :</h4>** 
 
 resultat = numerateur / denominateur 
 
@@ -570,7 +570,7 @@ Ici plusieurs erreurs sont susceptibles d’intervenir, chacune levant une excep
 
 
 
- **Application n°15. :** On peut ainsi intercepter ces erreurs possibles à l’exécution du code  
+ **<H3 STYLE="COLOR:red;">Activité n°15. :</H3>**On peut ainsi intercepter ces erreurs possibles à l’exécution du code  
 
 ```python 
 numerateur = input('Numérateur ?')  
@@ -595,11 +595,11 @@ Tester avec
 
     {{ IDE() }}
 
-#### **5.2.3. Le<a name="_page11_x40.00_y338.92"></a> bloc try/except et les mots clés else et finally**
+#### **<H4 STYLE="COLOR:MAGENTA;">5.2.3. Le<a name="_page11_x40.00_y338.92"></a> bloc try/except et les mots clés else et finally</h4>**
 
 
 
-**Application n°16. :** L’instruction else se déroule **s’il n’y a pas d’exceptions** de lever   
+**<H3 STYLE="COLOR:red;">Activité n°16. :</H3>**L’instruction else se déroule **s’il n’y a pas d’exceptions** de lever   
 
 ```python 
 numerateur = input('Numérateur ?')   
@@ -621,7 +621,7 @@ Dans les faits, on utilise assez peu else. La plupart des codeurs préfère mett
 
     {{ IDE() }}
 
-**Application n°17. :** L’instruction finally permet d'exécuter du code après un bloc try, **quel que soit le résultat** de l'exécution du bloc. 
+**<H3 STYLE="COLOR:red;">Activité n°17. :</H3>**L’instruction finally permet d'exécuter du code après un bloc try, **quel que soit le résultat** de l'exécution du bloc. 
 
 ```python
 numerateur = input('Numérateur ?')  
@@ -648,11 +648,11 @@ Tester avec:
 
     {{ IDE() }}
 
-#### **5.2.4. Avec<a name="_page12_x40.00_y346.92"></a> les assertions**
+#### **<H4 STYLE="COLOR:MAGENTA;">5.2.4. Avec<a name="_page12_x40.00_y346.92"></a> les assertions</h4>**
 
 L’utilisation de* assert* permet de faire des tests Si le test renvoie True*,* l’exécution se poursuit normalement. Sinon, une exception AssertionError* est levée. 
 
-**Application n°18. :** Dans le programme testant si une année est bissextile, on pourrait vouloir s’assurer que l’utilisateur ne  saisit pas une année inférieure ou égale à 0 par exemple : 
+**<H3 STYLE="COLOR:red;">Activité n°18. :</H3>**Dans le programme testant si une année est bissextile, on pourrait vouloir s’assurer que l’utilisateur ne  saisit pas une année inférieure ou égale à 0 par exemple : 
 
 ```python
 annee = input("Saisissez une année supérieure à 0 :")   
@@ -677,11 +677,11 @@ Tester avec :
 
     {{ IDE() }}
 
-#### **5.2.5. Déclencher<a name="_page12_x40.00_y748.92"></a> une exception**
+#### **<H4 STYLE="COLOR:MAGENTA;">5.2.5. Déclencher<a name="_page12_x40.00_y748.92"></a> une exception</h4>**
 
 L’instruction raise permet au programmeur de déclencher une exception spécifique.
 
-**Application n°19. :** Si l’utilisateur entre une année trop grande par exemple supérieure à 3000, on peut estimer qu’il s’agit d’une erreur 
+**<H3 STYLE="COLOR:red;">Activité n°19. :</H3>**Si l’utilisateur entre une année trop grande par exemple supérieure à 3000, on peut estimer qu’il s’agit d’une erreur 
 
 ```python
 annee = input("Saisissez une année supérieure à 0 :")   
@@ -704,10 +704,10 @@ N’oubliez pas : un programme bien écrit doit **gérer proprement les exceptio
 
     {{ IDE() }}
     
-## **6. Exercices<a name="_page13_x40.00_y375.92"></a>** 
+## **<H2 STYLE="COLOR:BLUE;">6. Exercices<a name="_page13_x40.00_y375.92"></a></h2>** 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
-**Exercice 1 :** On considère la fonction multiplier\_par\_deux(x) qui prend en paramètre x et qui renvoie son double. Ecrire un script de cette fonction avec : 
+**<H3 STYLE="COLOR:red;">Exercice 1 :</H3>** On considère la fonction multiplier_par_deux(x) qui prend en paramètre x et qui renvoie son double. Ecrire un script de cette fonction avec : 
 
 1.Cas des assert : 
 
@@ -721,7 +721,7 @@ N’oubliez pas : un programme bien écrit doit **gérer proprement les exceptio
 
 - 4 tests dans le docstring (comme dans l’activité 10) : avec 0, avec -1,  avec 3.2 et avec ‘a’ 
 
-**Exercice 2** : On considère une fonction somme\_carres(x) qui prend en paramètre x (entier strictement positif) et renvoie la somme des x premiers carrés non nuls.  
+**<H3 STYLE="COLOR:red;">Exercice 2:</H3>** : On considère une fonction somme_carres(x) qui prend en paramètre x (entier strictement positif) et renvoie la somme des x premiers carrés non nuls.  
 
 Ecrire un script de cette fonction avec : 
 
@@ -737,7 +737,7 @@ Ecrire un script de cette fonction avec :
  
 - 3 tests dans le docstring (comme dans l’activité 10) : avec 1, avec 2 et avec 3 
 
-**Exercice 3** : La fonction précédente à pour condition d’utilisation : x doit être strictement positif. Déclencher une exception et capturer là si le nombre entrée est 0 ou négatif. 
+**<H3 STYLE="COLOR:red;">Exercice 3:</H3>** : La fonction précédente à pour condition d’utilisation : x doit être strictement positif. Déclencher une exception et capturer là si le nombre entrée est 0 ou négatif. 
 
 Exemple : 
 ```
@@ -753,7 +753,7 @@ Le nombre entré est nul ou négatif
 
 
 
-**Exercice 4 :** On part du script suivant qui permet d’inverser un nombre 
+**<H3 STYLE="COLOR:red;">Exercice 4 :</H3>** On part du script suivant qui permet d’inverser un nombre 
 
 ```python
 try:
@@ -787,7 +787,7 @@ Tester avec :
 
 Aide : penser à une boucle infinie et au mot clé break.  
 
-**Exercice 5 :** Ecrire un script qui calcule la racine carrée d’un nombre, avec gestion des exceptions. Utiliser la fonction sqrt() du module math.  
+**<H3 STYLE="COLOR:red;">Exercice 5 :</H3>** Ecrire un script qui calcule la racine carrée d’un nombre, avec gestion des exceptions. Utiliser la fonction sqrt() du module math.  
 
 Par exemple : 
 ``` 
