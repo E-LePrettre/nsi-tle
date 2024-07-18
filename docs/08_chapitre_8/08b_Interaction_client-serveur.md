@@ -176,7 +176,7 @@ Connection: keep-alive
    - `Content-Type: text/html; charset=UTF-8` : Indique que le contenu de la réponse est une page HTML encodée en UTF-8.
 
    - `Content-Length: [calculated automatically by server]` : La longueur du corps de la réponse est calculée automatiquement par le serveur.
-   
+
    - `Connection: keep-alive` : Indique que la connexion doit rester ouverte pour les requêtes suivantes.
 
 #### **2.4.2. Corps de la Réponse avec PHP**
@@ -203,8 +203,11 @@ Le corps de la réponse contient le code HTML avec du PHP pour afficher dynamiqu
 </html>
 ```
 **Corps de la Réponse avec PHP** :
+
    - Utilise PHP pour récupérer les données de la requête POST.
+
    - Utilise `htmlspecialchars` pour échapper correctement les caractères spéciaux et éviter les attaques XSS.
+
    - Génère dynamiquement le message de bienvenue avec le nom et la ville fournis.
 
 
@@ -235,7 +238,7 @@ Le **HTTPS** est la version « sécurisée » du protocole HTTP : les données *
 
 ![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.028.jpeg)
 
-### **2.4. Syntaxe<a name="_page3_x40.00_y314.92"></a> complète des URL** 
+### **2.5. Syntaxe<a name="_page3_x40.00_y314.92"></a> complète des URL** 
 
 La syntaxe des URL est de la forme ```protocole://nom-ou-adresse:port/document?n1=v1&…nk=vk#id```
 
@@ -245,7 +248,7 @@ La syntaxe des URL est de la forme ```protocole://nom-ou-adresse:port/document?n
 
 
 
-**Activité n°1.** Passage de paramètre  un serveur 
+**<h2>Activité n°1.</h2>** Passage de paramètre  un serveur 
 
 - Aller sur[ HTTPs://fr.wikipedia.org ](https://fr.wikipedia.org/)
 - Dans la zone de recherche taper informatique 
