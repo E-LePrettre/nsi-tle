@@ -17,7 +17,7 @@ title: 04 Codage de l'information
 9. [Exercices](#_page18_x40.00_y36.92)
 
 
-## **1. Vocabulaire<a name="_page0_x40.00_y610.92"></a>** 
+## **<H2 STYLE="COLOR:BLUE;">1. Vocabulaire<a name="_page0_x40.00_y610.92"></a>** 
 
 La mémoire des ordinateurs est constituée d’une multitude de petits circuits électroniques qui ne peuvent être, chacun, que dans **deux états conventionnellement appelés 0 et 1**, (1, y'a du courant, 0, y'en a pas), mais on aurait pu tout aussi bien les appeler faux et vrai.  
 
@@ -53,8 +53,8 @@ Voici les unités standardisées :
 
 Un mégaoctet devrait en principe valoir 1000 x 1000 octets, c'est-à- dire 1.000.000 d'octets, mais il vaut 1024 x 1024 octets en informatique, c'est-à-dire 1.048.576 octets... ce qui correspond à une différence de 4,63% ! 
 
-## **2. Les<a name="_page1_x40.00_y467.92"></a> bases courantes** 
-### **2.1. La<a name="_page1_x40.00_y489.92"></a> base 10 ou base décimale** 
+## **<H2 STYLE="COLOR:BLUE;">2. Les<a name="_page1_x40.00_y467.92"></a> bases courantes</h2>** 
+### **<H3 STYLE="COLOR:GREEN;">2.1. La<a name="_page1_x40.00_y489.92"></a> base 10 ou base décimale</h3>** 
 
 Elle s’appuie sur **10 « symboles »** : 0, 1, 2, 3, 4, 5, 6, 7, 8, 9. On peut ainsi compter jusqu'à 9. Et si l'on veut aller au- delà de 9, il faut changer de rang. Cela signifie que si le rang des unités est plein, il faut passer à celui des dizaines, puis des centaines, milliers… 
 
@@ -63,8 +63,8 @@ Elle s’appuie sur **10 « symboles »** : 0, 1, 2, 3, 4, 5, 6, 7, 8, 9. On peu
 185 = 1 × 10<sup>3</sup> + 8 × 10<sup>1</sup> + 5 × 10<sup>0</sup> 
 **La position des chiffres définit la valeur associée à ce chiffre.** 
 
-### **2.2. La<a name="_page1_x40.00_y677.92"></a> base 2 ou base binaire** 
-#### **2.2.1. Le<a name="_page1_x40.00_y697.92"></a> binaire**
+### **<H3 STYLE="COLOR:GREEN;">2.2. La<a name="_page1_x40.00_y677.92"></a> base 2 ou base binaire</h3>** 
+#### **<H4 STYLE="COLOR:MAGENTA;">2.2.1. Le<a name="_page1_x40.00_y697.92"></a> binaire</h4>**
 
 **Remarque** : Il faut toujours indiquer la base dans laquelle un nombre est exprimé (sauf, par usage et commodité, en base 10) : 1010<sub>2</sub> ou %1010. La base par défaut du code Python est la base 10. 
 
@@ -74,9 +74,9 @@ Par exemple :
 
 **Binaire**  0000  0001  0010  0011  0100  0101  0110  0111  1000  1001  1010 
 
-#### **2.2.2. Le<a name="_page2_x40.00_y74.92"></a> binaire en Python**
+#### **<H4 STYLE="COLOR:MAGENTA;">2.2.2. Le<a name="_page2_x40.00_y74.92"></a> binaire en Python</h4>**
 
-**Activité n° 1.**: La fonction bin de Python donne une chaîne de caractères représentant l’écriture binaire de l’entier passé en paramètre. 
+**<H3 STYLE="COLOR:red;">Activité n° 1.:</H3>** La fonction bin de Python donne une chaîne de caractères représentant l’écriture binaire de l’entier passé en paramètre. 
 
 Tester
 > bin(47) 
@@ -89,7 +89,7 @@ Tester
 
 En Python on peut écrire les nombres entiers directement en binaire. Il suffit pour cela de faire précéder cette écriture par **0b**.  
 
-#### **2.2.3. Passage<a name="_page2_x40.00_y235.92"></a> du système décimal au binaire**
+#### **<H4 STYLE="COLOR:MAGENTA;">2.2.3. Passage<a name="_page2_x40.00_y235.92"></a> du système décimal au binaire</h4>**
 
 **Méthode de Horner :**   
 
@@ -130,7 +130,7 @@ La conversion de 145 en binaire est donc : 10010001<sub>2</sub>
 167 = 0b10100111
 
 
-#### **2.2.4. Passage<a name="_page2_x40.00_y722.92"></a> du système binaire au décimal**
+#### **<H4 STYLE="COLOR:MAGENTA;">2.2.4. Passage<a name="_page2_x40.00_y722.92"></a> du système binaire au décimal</h4>**
 
 Les nombres écrits en binaire suivent le même principe que ceux écrits en décimal mais avec les** puissances de deux.** 
 Le mot de 8 bits %01101110 =  1.2<sup>6</sup> +  1.2<sup>5</sup> +  1.2<sup>3</sup> +  1.2<sup>2</sup> +  1.2<sup>1</sup> en décimale. 
@@ -139,7 +139,7 @@ Le mot de 8 bits %01101110 =  1.2<sup>6</sup> +  1.2<sup>5</sup> +  1.2<sup>3</s
 
 Donc, quand on a un nombre binaire, **il suffit de multiplier chaque nombre qui le compose par la puissance de 2 correspondante au rang de son bit et d’additionner tous les résultats.** 
 
-**Activité n° 2.**: La fonction int de Python donne une chaîne de caractères représentant l’écriture décimal d’un entier passé en paramètre. 
+**<H3 STYLE="COLOR:red;">Activité n° 2.:</H3>** La fonction int de Python donne une chaîne de caractères représentant l’écriture décimal d’un entier passé en paramètre. 
 
 Tester
 > int('01101110', 2) 
@@ -150,7 +150,7 @@ Tester
 
 On retrouve bien la valeur 110 précédente. 
 
-#### **2.2.5. Addition<a name="_page3_x40.00_y258.92"></a> de deux nombres binaires** 
+#### **<H4 STYLE="COLOR:MAGENTA;">2.2.5. Addition<a name="_page3_x40.00_y258.92"></a> de deux nombres binaires</h4>** 
 
 On procède comme avec les nombre écrit en décimal, sauf que 1 + 1 = 10. 
 
@@ -161,7 +161,7 @@ Exemple :
 
 On remarque que la somme de deux nombres binaires sur m bits et n bits donne un nombre binaire sur le plus grand nombre de bits **(m ou n) + 1 au maximum**. 
 
-#### **2.2.6. Multiplication<a name="_page3_x40.00_y462.92"></a> de deux nombres binaires**  
+#### **<H4 STYLE="COLOR:MAGENTA;">2.2.6. Multiplication<a name="_page3_x40.00_y462.92"></a> de deux nombres binaires</h4>**  
 
 Exemple :
 
@@ -169,8 +169,8 @@ Exemple :
 
 On remarque que le produit de deux nombres binaires sur m bits et n bits donne un nombre binaire sur **m + n bits au maximum.** 
 
-### **2.3. La<a name="_page3_x40.00_y727.92"></a> base 16 ou base hexadécimal** 
-#### **2.3.1. L’hexadécimal<a name="_page3_x40.00_y747.92"></a>** 
+### **<H3 STYLE="COLOR:GREEN;">2.3. La<a name="_page3_x40.00_y727.92"></a> base 16 ou base hexadécimal</h3>** 
+#### **<H4 STYLE="COLOR:MAGENTA;">2.3.1. L’hexadécimal<a name="_page3_x40.00_y747.92"></a></h4>** 
 
 En informatique, tout est basé sur le binaire, et étant une base d'indice 2, c'est plus aisé d'encoder les informations sur un nombre multiple de 2. On utilise donc souvent la base 16, appelé **système hexadécimal**  
 
@@ -180,7 +180,7 @@ Décimal  0  1  2  3  4  5  6  7  8  9  10  11  12  13  14  15
 
 **Remarque** : Il faut toujours indiquer la base dans laquelle un nombre est exprimé (sauf, par usage et commodité, en base 10) : A9<sub>16</sub> ou $A9 ou #A9. La base par défaut du code Python est la base 10. 
 
-#### **2.3.2. Passage<a name="_page4_x40.00_y103.92"></a> du système binaire au système hexadécimal et réciproquement**
+#### **<H4 STYLE="COLOR:MAGENTA;">2.3.2. Passage<a name="_page4_x40.00_y103.92"></a> du système binaire au système hexadécimal et réciproquement</h4>**
 
 Pour convertir un nombre binaire en base 16, **on regroupe les bits 4 à 4**, chaque groupe donnant un chiffre hexadécimal. À l'inverse, passer d'un nombre hexadécimal à sa représentation binaire se fait en remplaçant chaque chiffre pour son équivalent sur 4 bits  
 
@@ -192,7 +192,7 @@ Si le nombre binaire de départ n'a pas un nombre de bits multiple de 4, **il fa
 
 À noter que la chaîne de caractères, avec Python, débute par **0x**, le **x** mettant en évidence qu’il s’agit de l’écriture décimal d’un entier. 
 
-#### **2.3.3. Passage<a name="_page4_x40.00_y309.92"></a> du système décimal au système hexadécimal**  
+#### **<H4 STYLE="COLOR:MAGENTA;">2.3.3. Passage<a name="_page4_x40.00_y309.92"></a> du système décimal au système hexadécimal</h4>**  
 
 **Méthode de Horner** : Pour convertir un nombre binaire en base 16, on regroupe les bits 4 à 4, chaque groupe donnant un chiffre hexadécimal.  
 
@@ -206,7 +206,7 @@ Exemple : Convertir 185 en hexadécimal
 La conversion de 185 en hexadécimal est donc : B9.
  **L’algorithme des divisions successives :** comme pour le binaire 
 
-**Activité n° 3.**: La fonction hex de Python donne une chaîne de caractères représentant l’écriture binaire de l’entier passé en paramètre. 
+**<H3 STYLE="COLOR:red;">Activité n° 3.:</H3>** La fonction hex de Python donne une chaîne de caractères représentant l’écriture binaire de l’entier passé en paramètre. 
 
 Tester
 > hex(185) 
@@ -217,7 +217,7 @@ Tester
 
     {{ terminal() }}
 
-#### **2.3.4. Passage<a name="_page4_x40.00_y569.92"></a> du système hexadécimal au décimal** 
+#### **<H4 STYLE="COLOR:MAGENTA;">2.3.4. Passage<a name="_page4_x40.00_y569.92"></a> du système hexadécimal au décimal</h4>** 
 
 Il faut remplacer les lettres par les nombres correspondants : 
 
@@ -235,7 +235,7 @@ Par exemple :
 
 
 
-**Activité n° 4.**: La fonction int de Python donne une chaîne de caractères représentant l’écriture décimal d’un entier passé en paramètre. 
+**<H3 STYLE="COLOR:red;">Activité n° 4.:</H3>** La fonction int de Python donne une chaîne de caractères représentant l’écriture décimal d’un entier passé en paramètre. 
 
 Tester
 > int('12B7', 16) 
@@ -244,7 +244,7 @@ Tester
 
     {{ terminal() }}
 
-#### **2.3.5. Addition<a name="_page5_x40.00_y90.92"></a> de deux nombres en base 16** 
+#### **<H4 STYLE="COLOR:MAGENTA;">2.3.5. Addition<a name="_page5_x40.00_y90.92"></a> de deux nombres en base 16</H4>** 
 
 ![](Aimg5.png)
 
@@ -257,7 +257,7 @@ Ce nombre 151 en hexadécimal se lirait donc "une seizaine-carré cinq seizaines
 
 On pouvait aussi convertir les deux nombres en binaire et faire leur addition. 
 
-### **2.4. Une<a name="_page5_x40.00_y421.92"></a> base quelconque** 
+### **<H3 STYLE="COLOR:GREEN;">2.4. Une<a name="_page5_x40.00_y421.92"></a> base quelconque</h3>** 
 
 Par exemple la représentation de base cinq de 58 
 
@@ -267,7 +267,7 @@ Donc, 58 objets se regroupent en 11 paquets et 3 unités, puis les 11 paquets se
 
 58 = 2 × 5² + 1× 5<sup>1</sup> +3 × 5<sup>0</sup>. Donc 58 = 213<sub>5</sub>. 
 
-## **3. Le<a name="_page5_x40.00_y574.92"></a> codage des nombres entiers signés en binaire** 
+## **<H2 STYLE="COLOR:BLUE;">3. Le<a name="_page5_x40.00_y574.92"></a> codage des nombres entiers signés en binaire</h2>** 
 
 Un entier naturel est appelé **entiers non signés.** En Python, on ne manipule que des **entiers relatifs.** 
 
@@ -275,9 +275,9 @@ Un entier naturel est appelé **entiers non signés.** En Python, on ne manipule
 
 **Entiers relatifs** : entiers de n’importe quel signe (…, -2, -1, 0, 1,…) 
 
-### **3.1. Principe<a name="_page6_x40.00_y773.92"></a> du complément à 2<sup>n</sup> :**
+### **<H3 STYLE="COLOR:GREEN;">3.1. Principe<a name="_page6_x40.00_y773.92"></a> du complément à 2<sup>n</sup> :</h3>**
 
-#### **3.1.1. De<a name="_page7_x40.00_y36.92"></a> décimal vers binaire : Pour un entier positif**
+#### **<H4 STYLE="COLOR:MAGENTA;">3.1.1. De<a name="_page7_x40.00_y36.92"></a> décimal vers binaire : Pour un entier positif</h4>**
 
 - coder l’entier en binaire comme d’habitude, 
 - compléter l’octet avec des 0 devant. 
@@ -289,7 +289,7 @@ Exemple : pour 27
 
 Le complément à 2 sur un octet de 27 est 0b 0001 1011 
 
-#### **3.1.2. De<a name="_page7_x40.00_y158.92"></a> décimal vers binaire : Pour les entiers négatifs** 
+#### **<H4 STYLE="COLOR:MAGENTA;">3.1.2. De<a name="_page7_x40.00_y158.92"></a> décimal vers binaire : Pour les entiers négatifs<H4>** 
 - Coder la valeur absolue du nombre en base 2, 
 - compléter l’octet avec des 0 devant, 
 - échanger tous les bits (1↔0), 
@@ -304,7 +304,7 @@ Exemple pour -9 :
 
 Le complément à 2 sur un octet de −9 est 0b 1111 0111 
 
-#### **3.1.3. Addition<a name="_page7_x40.00_y335.92"></a> de deux nombres binaires** 
+#### **<H4 STYLE="COLOR:MAGENTA;">3.1.3. Addition<a name="_page7_x40.00_y335.92"></a> de deux nombres binaires</h4>** 
 
 Vérifions : 27+(−9)=18
 
@@ -314,7 +314,7 @@ On vérifie immédiatement que 18 = 0b10010
 
 **Remarque** la dernière retenue (tout à gauche) disparait. 
 
-#### **3.1.4. De<a name="_page7_x40.00_y496.92"></a> binaire vers décimal : Pour les entiers négatifs** 
+#### **<H4 STYLE="COLOR:MAGENTA;">3.1.4. De<a name="_page7_x40.00_y496.92"></a> binaire vers décimal : Pour les entiers négatifs</h4>** 
 
 Si l’entier est négatif (si premier bit est 1) 
 - On échange tous les bits 0↔1, 
@@ -332,7 +332,7 @@ Exemple : 0b 1111 0111
 - On change le signe. 
 0b 1111 0111 = -9 
 
-### **3.2. Table<a name="_page7_x40.00_y758.92"></a> de valeurs** 
+### **<H3 STYLE="COLOR:GREEN;">3.2. Table<a name="_page7_x40.00_y758.92"></a> de valeurs</h3>** 
 
 ![](Aimg9.png)
 
@@ -345,29 +345,29 @@ def carre(nombre : int) -> int:
     return nombre ** 2 
 ```
 
-## **4. Exercices<a name="_page9_x40.00_y36.92"></a>** 
+## **<H2 STYLE="COLOR:BLUE;">4. Exercices<a name="_page9_x40.00_y36.92"></a></h2>** 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
-**Exercice 1 :** ★ On suppose toujours nos entiers encodés sur un octet. 
+**<H3 STYLE="COLOR:red;">Exercice 1 :</H3>** ★ On suppose toujours nos entiers encodés sur un octet. 
 
 - Donner la représentation binaire 12, 100 et 88 
 - Réaliser l’addition binaire bit à bit de ces 3 nombres. 
 
-**Exercice 2 :** ★ On suppose toujours nos entiers encodés sur un octet. Donner les compléments à 2 de -12, -100 et -88. 
+**<H3 STYLE="COLOR:red;">Exercice 2 :</H3>** ★ On suppose toujours nos entiers encodés sur un octet. Donner les compléments à 2 de -12, -100 et -88. 
 
-**Exercice 3 :** ★
+**<H3 STYLE="COLOR:red;">Exercice 3 :</H3>** ★
 
 - Réaliser l’addition binaire des compléments à 2 des nombres 12 et -100. 
 - Vérifier qu’on retrouve bien le résultat précédent pour -88. 
 
-**Exercice 4 :** ★ Donner les notations décimales des binaires signés sur un octet suivant : 
+**<H3 STYLE="COLOR:red;">Exercice 4 :</H3>** ★ Donner les notations décimales des binaires signés sur un octet suivant : 
 
 - 0b1111 1111 
 - 0b1000 0000 
 - 0b0111 1111 
 - 0b1010 0011 
 
-**Exercice 5 :** Conversion décimal – binaire 
+**<H3 STYLE="COLOR:red;">Exercice 5 :</H3>** Conversion décimal – binaire 
 
 1 ★ Écrire un programme qui convertisse un nombre décimal en binaire. Utiliser une fonction dec2bin. On donne l’algorithme suivant : 
 
@@ -457,7 +457,7 @@ QCM :[ http://www.scientillula.net/MPI/fex6_conversions/fex6_conversions.html ](
 
 QCM 2 :[ http://fabrice.sincere.free.fr/qcm/qcm.php?nom=qcm_numerique](http://fabrice.sincere.free.fr/qcm/qcm.php?nom=qcm_numerique)
 
-## **5.  Représentation des nombres réels<a name="_page12_x40.00_y36.92"></a>** 
+## **<H2 STYLE="COLOR:BLUE;">5.  Représentation des nombres réels<a name="_page12_x40.00_y36.92"></a></h2>** 
 
 En base 10, l’expression 652,375 est une manière abrégée d’écrire : 
 
@@ -467,13 +467,13 @@ Il en va de même pour la base 2. L’expression 110,101 signifie :
 
 1.2<sup>2</sup> + 1.2<sup>1</sup> + 0.2<sup>0</sup> + 1.2<sup>-1</sup> + 0.2<sup>-2</sup> + 1.2<sup>-3</sup>
 
-### **5.1. Conversion<a name="_page12_x40.00_y115.92"></a> de binaire en décimal** 
+### **<H3 STYLE="COLOR:GREEN;">5.1. Conversion<a name="_page12_x40.00_y115.92"></a> de binaire en décimal</h3>** 
 
 On peut ainsi facilement convertir un nombre réel de la base 2 vers la base 10. Par exemple : 
 
 110,101 = 1.2<sup>2</sup> + 1.2<sup>1</sup> + 0.2<sup>0</sup> + 1.2<sup>-1</sup> + 0.2<sup>-2</sup> + 1.2<sup>-3</sup> = 4 + 2 + 0,5 + 0,125 = 6,625 
 
-### **5.2. Conversion<a name="_page12_x40.00_y167.92"></a> de décimal en binaire** 
+### **<H3 STYLE="COLOR:GREEN;">5.2. Conversion<a name="_page12_x40.00_y167.92"></a> de décimal en binaire</h3>** 
 
 Le passage de base 10 en base 2 est plus subtil. Par exemple : convertissons 1234,347 en base 2. 
 
@@ -488,7 +488,7 @@ Attention ! Un nombre à développement décimal fini en base 10 ne l'est pas fo
 
 
 
-### **5.3. Représentation<a name="_page13_x40.00_y36.92"></a> des flottants dans un ordinateur** 
+### **<H3 STYLE="COLOR:GREEN;">5.3. Représentation<a name="_page13_x40.00_y36.92"></a> des flottants dans un ordinateur></h3>** 
 
 Il est parfois nécessaire d’approximer la valeur à représenter. 
 Règles de base : 
@@ -498,7 +498,7 @@ Règles de base :
 
 
 
-**Activité n° 5.**:  
+**<H3 STYLE="COLOR:red;">Activité n° 5.:</H3>**  
 Tester :
 > 0.1
 
@@ -566,22 +566,22 @@ En convertissant en hexadécimal :
 
 [https://www.h-schmidt.net/FloatConverter/IEEE754.html ](https://www.h-schmidt.net/FloatConverter/IEEE754.html) 
 
-## **6.  Exercices<a name="_page15_x40.00_y36.92"></a>** 
+## **<H2 STYLE="COLOR:BLUE;">6.  Exercices<a name="_page15_x40.00_y36.92"></a></h2>** 
 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
-**Exercice 6** convertir en base 10  
+**<H3 STYLE="COLOR:red;">Exercice 6 </h3>** convertir en base 10  
 
 1. 0,0101010101<sub>2</sub>  
 2. 11100,10001<sub>2</sub> 
 
-**Exercice 7 :** Convertir en binaire puis en norme IEEE-754 
+**<H3 STYLE="COLOR:red;">Exercice 7 :</H3>** Convertir en binaire puis en norme IEEE-754 
 
 1. 5,1875
 2. 4,3125
 3. 0,3125 
 
-**Exercice 8** : **conversion des flottants** 
+**<H3 STYLE="COLOR:red;">Exercice 8 : </h3>**  **conversion des flottants** 
 
 On souhaite transformer un nombre binaire décimal en base 10. Pour simplifier, on va déjà écrire un programme qui transforme **la partie décimale en binaire**, **puis** dans un deuxième temps on transformera **la partie entière**. 
 
@@ -617,9 +617,9 @@ Aide : Penser à utiliser la méthode split comme précédemment
 
 
 
-## **7.  Codage des caractères<a name="_page16_x40.00_y36.92"></a>** 
+## **<H2 STYLE="COLOR:BLUE;">7.  Codage des caractères<a name="_page16_x40.00_y36.92"></a></h2>** 
 
-### **7.1. Le<a name="_page16_x40.00_y58.92"></a> code ASCII**[^3]** 
+### **<H3 STYLE="COLOR:GREEN;">7.1. Le<a name="_page16_x40.00_y58.92"></a> code ASCII</h3>**[^3]** 
 
 La norme ASCII[^4] (on prononce généralement « aski ») établit une correspondance entre une représentation binaire des caractères de l'alphabet latin et les symboles, les signes, qui constituent cet alphabet.  
 
@@ -634,7 +634,7 @@ La norme ASCII permet ainsi à toutes sortes de machines de stocker, analyser et
 3. La Joconde en haute définition (HD) sur une image de 7 479 × 11 146 pixels pour une taille de fichier de 89,94 mégaoctets (89,94 Mo). 
 4. Une minute de vidéo sur YouTube de qualité web pour smartphone, fait 3,1 méga-octets (3 Mo) 
 
-**Activité n° 6.**: **Python et la table ascii** Les fonctions chr et ord permettent d’accéder à la table 
+**<H3 STYLE="COLOR:red;">Activité n° 6. : Python et la table ascii</h3>** Les fonctions chr et ord permettent d’accéder à la table 
 
 Tester
 > chr(65) # caractère 65 (décimal) 
@@ -645,7 +645,7 @@ Tester
 
     {{ terminal() }}
 
-### **7.2. Les<a name="_page16_x40.00_y611.92"></a> encodages ISO-latin** 
+### **<H3 STYLE="COLOR:GREEN;">7.2. Les<a name="_page16_x40.00_y611.92"></a> encodages ISO-latin</h3>** 
 
 Dans les années 1990, pour satisfaire les besoins des pays européens, ont été définis plusieurs encodages alternatifs, connus sous le nom de ISO-latin, ou encore ISO-8859.  
 
@@ -653,7 +653,7 @@ Idéalement, on aurait pu et certainement dû définir un seul encodage pour rep
 
 Dès lors il n'y avait pas d'autre choix que de définir plusieurs encodages distincts; par exemple pour le **français** on a utilisé à l'époque **ISO-latin-1**; pour le russe ISO-latin-5. 
 
-### **7.3. Unicode<a name="_page17_x40.00_y54.92"></a>** 
+### **<H3 STYLE="COLOR:GREEN;">7.3. Unicode<a name="_page17_x40.00_y54.92"></a></h3>** 
 
 Il existe d'autres normes que l'ASCII, comme l'Unicode par exemple, qui présentent l'avantage de proposer une version unifiée des différents encodages de caractères complétant l'ASCII mais aussi de permettre l'encodage de caractères autres que ceux de l'alphabet latin. Unicode définit des dizaines de milliers de codes, mais les 128 premiers restent compatibles avec ASCII. 
 
@@ -669,7 +669,7 @@ Toutes  ces  normes  différentes  et  leurs  incompatibilités partielles sont 
 - En mémoire elle occupe 2 octets (elle n’est pas dans la table ascii) 
 - Ces deux octets ont été décodés en iso-latin1 (1 octet par caractère). 
 
-## **8. Représentation<a name="_page17_x40.00_y448.92"></a> des images**
+## **<H2 STYLE="COLOR:BLUE;">8. Représentation<a name="_page17_x40.00_y448.92"></a> des images</h2>**
 
 Une image peut être vue comme un quadrillage  rempli d'une multitude de petits cases appelées  pixels.
 
@@ -681,11 +681,11 @@ Chaque pixel est un carré d'une couleur définie.  Cette  couleur  se  code  à
 
 Ainsi, le pixel grisé désigné sur la photo est codé comme la  combinaison de 174 de rouge (Red), 181 de vert (Green) et  190 de bleu (Blue). Chacun de ces trois nombres étant codé  sur 8 bits, il faut 3x8=24 bits au total pour coder un pixel.  En codant ainsi chaque pixel de l'image originale, on peut  ainsi traduire une image en série de bit. Et inversement, on  peut  reconstituer  une  image  à  partir  d'une  série  de  bits  donnée.  
 
-## **9. Exercices<a name="_page18_x40.00_y36.92"></a>** 
+## **<H2 STYLE="COLOR:BLUE;">9. Exercices<a name="_page18_x40.00_y36.92"></a></h2>** 
 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
-**Exercice 10 :** Image matricielle 
+**<H3 STYLE="COLOR:red;">Exercice 9 : Image matricielle </h3>**
 
 L’objectif de cet exercice est de dessiner une image matricielle dans le quadrillage 8x8 en page 1, ci-dessous, grâce à vos réponses aux différentes questions de conversions entre les bases numériques. 
 
@@ -719,7 +719,7 @@ Un nombre hexadécimal s’écrit ainsi : **9A<sub>(16)</sub>** ou **0x9A** ou *
 
 
 
-**Exercice 11** L’heure en binaire ????  
+**<H3 STYLE="COLOR:red;">Exercice 10 L’heure en binaire ????</h3>**  
 
 ![](Aspose.Words.764b7a7a-9a22-42aa-a7aa-fadf25e6a13d.109.png)
 
