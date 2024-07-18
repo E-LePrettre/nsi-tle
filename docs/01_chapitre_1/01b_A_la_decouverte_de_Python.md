@@ -13,7 +13,7 @@ title: 01b A la découverte de Python
 3. [**Pseudo-code**](#_page2_x40.00_y367.92)
 4. [**Python**](#_page2_x40.00_y464.92)
 
-5. [**<H4 STYLE="COLOR:lime;">Exercices**](#_page10_x40.00_y36.92)
+5. [**<H3 STYLE="COLOR:purple;">Exercices**](#_page10_x40.00_y36.92)
 
 ## **<H2 STYLE="COLOR:blue;">1. Un<a name="_page0_x40.00_y432.92"></a> langage de programmation ? Qu’est ce que c’est ?</h2>** 
 
@@ -94,7 +94,7 @@ Le langage Python est gratuit, sous **licence libre**.
 
 ### **<H3 STYLE="COLOR:GREEN;">4.4. Premiers<a name="_page3_x40.00_y36.92"></a> pas avec l’interpréteur de commandes Python</h3>** 
 
-**<H4 STYLE="COLOR:lime;">Activité n°1.:Les calculs de bases :</h4>** Tester les calculs suivant :
+**<H3 STYLE="COLOR:purple;">Activité n°1.:Les calculs de bases :</h3>** Tester les calculs suivant :
 **ATTENTION : faire entrer à chaque ligne du scripts suivants**
 
 ```python
@@ -111,7 +111,7 @@ Le langage Python est gratuit, sous **licence libre**.
  Les espaces sont optionnels. 
  Les règles de priorité en maths sont-elles respectées ? …………………….
  
-**<H4 STYLE="COLOR:lime;">Activité n°2.:** **Addition de float :</h4>** Tester les calculs suivant :
+**<H3 STYLE="COLOR:purple;">Activité n°2.:** **Addition de float :</h3>** Tester les calculs suivant :
 
 ```python
 3.11 + 2.08
@@ -123,7 +123,7 @@ Le langage Python est gratuit, sous **licence libre**.
     
 Que remarquez-vous ?............. 
 
-**<H4 STYLE="COLOR:lime;">Activité n°3.:La division entière et le modulo :</h4>** Tester les calculs :
+**<H3 STYLE="COLOR:purple;">Activité n°3.:La division entière et le modulo :</h3>** Tester les calculs :
 **ATTENTION : faire entrer à chaque ligne du scripts suivant**
 
 ```python
@@ -145,7 +145,7 @@ On souhaite effectuer la division de 3395  par 99.
 
 On s’est arrêté car 29 est plus petit que 99 et qu’on ne souhaitait pas aller plus loin et se retrouver avec un nombre à virgule. On a effectué une division dite division entière. On en déduit donc que 3395 = 99 \* 34 + 29
 
-**<H4 STYLE="COLOR:lime;">Activité n°4.:** **L’exponentiation :</h4>** Tester les calculs :
+**<H3 STYLE="COLOR:purple;">Activité n°4.:** **L’exponentiation :</h3>** Tester les calculs :
 **ATTENTION : faire entrer à chaque ligne du scripts suivant**
 
 ```python
@@ -173,7 +173,7 @@ Exemple : age, mon\_age, temperature1  A éviter : Age, AGE, monAge, Temperature
 
 
 
-**<H4 STYLE="COLOR:lime;">Activité n°5.:</H4>** Tester les calculs : 
+**<H3 STYLE="COLOR:purple;">Activité n°5.:</H3>** Tester les calculs : 
 **ATTENTION : faire entrer à chaque ligne du scripts suivants**
 
 ```python
@@ -194,7 +194,7 @@ print(type(age))
     {{ terminal() }}
 
 
-**<H4 STYLE="COLOR:lime;">Activité n°6.:</H4>** L’incrémentation ou la décrémentation : Tester les calculs suivant dans la console
+**<H3 STYLE="COLOR:purple;">Activité n°6.:</H3>** L’incrémentation ou la décrémentation : Tester les calculs suivant dans la console
 **ATTENTION : faire entrer à chaque ligne du scripts suivants**
 
 ```python
@@ -210,7 +210,7 @@ print(a)
     {{ terminal() }}
 
 #### **<H4 STYLE="COLOR:FUCHSIA;">4.5.3. Le<a name="_page4_x40.00_y602.92"></a> type float (nombres en virgule flottante)</h4>**
-**<H4 STYLE="COLOR:lime;">Activité n°7.:</H4>** Tester les calculs suivant dans la console
+**<H3 STYLE="COLOR:purple;">Activité n°7.:</H3>** Tester les calculs suivant dans la console
 **ATTENTION : faire entrer à chaque ligne du scripts suivants**
 
 ```python
@@ -244,7 +244,7 @@ print(c)
 #### **<H4 STYLE="COLOR:FUCHSIA;">4.5.4. Le<a name="_page5_x40.00_y196.92"></a> type str (string : chaîne de caractères)</h4>**
 
 
-**<H4 STYLE="COLOR:lime;">Activité n°8.:</H4>**  Tester les calculs suivant dans la console
+**<H3 STYLE="COLOR:purple;">Activité n°8.:</H3>**  Tester les calculs suivant dans la console
 **ATTENTION : faire entrer à chaque ligne du scripts suivants**
 
 ```python
@@ -259,7 +259,7 @@ print(nom, prenom)   # ne pas oublier la virgule
 
     {{ terminal() }}
 
-**<H4 STYLE="COLOR:lime;">Activité n°9.:</H4>** La concaténation désigne la mise bout à bout de plusieurs chaînes de caractères (de type string). La concaténation utilise l’opérateur + 
+**<H3 STYLE="COLOR:purple;">Activité n°9.:</H3>** La concaténation désigne la mise bout à bout de plusieurs chaînes de caractères (de type string). La concaténation utilise l’opérateur + 
 **ATTENTION : faire entrer à chaque ligne du scripts suivants**
 
 ```python
@@ -272,7 +272,7 @@ print(chaine)
 
     {{ terminal() }}
 
-**<H4 STYLE="COLOR:lime;">Activité n°10.:</H4>** La fonction len() retourne la longueur (length) de la chaîne de caractères : 
+**<H3 STYLE="COLOR:purple;">Activité n°10.:</H3>** La fonction len() retourne la longueur (length) de la chaîne de caractères : 
 
 ```python
 len("abc")  
@@ -287,7 +287,7 @@ NB : si pas < 0, la liste est parcourue dans le sens inverse.
 
 ![](Aimg.png)
 
-**<H4 STYLE="COLOR:lime;">Activité n°11.:</H4>** 
+**<H3 STYLE="COLOR:purple;">Activité n°11.:</H3>** 
 **ATTENTION : faire entrer à chaque ligne du scripts suivants**
 
 ```python
@@ -306,7 +306,7 @@ string[-4:-2:]  # Renvoie du -4 au -2
 
     {{ terminal() }}
 
-**<H4 STYLE="COLOR:lime;">Activité n°12.:</H4>** ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.051.png)Attention aux apostrophes et guillemets dans les chaînes de caractères ! 
+**<H3 STYLE="COLOR:purple;">Activité n°12.:</H3>** ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.051.png)Attention aux apostrophes et guillemets dans les chaînes de caractères ! 
 **ATTENTION : faire entrer à chaque ligne du scripts suivants**
 
 ```python
@@ -320,7 +320,7 @@ print(chaine)
 
     {{ terminal() }}
 
-**<H4 STYLE="COLOR:lime;">Activité n°13.:</H4>** La séquence d'échappement \n représente un saut ligne : 
+**<H3 STYLE="COLOR:purple;">Activité n°13.:</H3>** La séquence d'échappement \n représente un saut ligne : 
 **ATTENTION : faire entrer à chaque ligne du scripts suivants**
 ```python
 chaine = 'Premiere ligne\nDeuxieme ligne' 
@@ -332,7 +332,7 @@ print(chaine)
     {{ terminal() }}
 
 
-**<H4 STYLE="COLOR:lime;">Activité n°14.:</H4>** On ne peut pas mélanger les serviettes et les torchons (ici type str et type int) : 
+**<H3 STYLE="COLOR:purple;">Activité n°14.:</H3>** On ne peut pas mélanger les serviettes et les torchons (ici type str et type int) : 
 **ATTENTION : faire entrer à chaque ligne du scripts suivants**
 
 ```python
@@ -347,7 +347,7 @@ chaine = chaine + 2
 
 Une liste est une structure de données. Le premier élément d’une liste possède l’indice (l’index) 0. Dans une liste, on peut avoir des éléments de plusieurs types. 
 
-**<H4 STYLE="COLOR:lime;">Activité n°15.:</H4>**  
+**<H3 STYLE="COLOR:purple;">Activité n°15.:</H3>**  
 **ATTENTION : faire entrer à chaque ligne du scripts suivants**
 
 ```python
@@ -361,7 +361,7 @@ print('Age : ', infoperso[2])    # le troisième élément a l'indice 2
 
     {{ terminal() }}
 
-**<H4 STYLE="COLOR:lime;">Activité n°16.:</H4>** Quelques fonctions utiles len() 
+**<H3 STYLE="COLOR:purple;">Activité n°16.:</H3>** Quelques fonctions utiles len() 
 **ATTENTION : faire entrer à chaque ligne du scripts suivants**
 
 ```python
@@ -372,7 +372,7 @@ len(liste)   # Affiche le nombre d'éléments dans liste 3
 
     {{ terminal() }}
 
-**<H4 STYLE="COLOR:lime;">Activité n°17.:</H4>** Quelques méthodes utiles : append() , pop()
+**<H3 STYLE="COLOR:purple;">Activité n°17.:</H3>** Quelques méthodes utiles : append() , pop()
 **ATTENTION : faire entrer à chaque ligne du scripts suivants**
 
 ```python
@@ -387,7 +387,7 @@ liste
 
     {{ terminal() }}
 
-**<H4 STYLE="COLOR:lime;">Activité n°18.:</H4>** La méthode lower()retourne la chaîne de caractères en casse minuscule (upper() fait l’inverse): 
+**<H3 STYLE="COLOR:purple;">Activité n°18.:</H3>** La méthode lower()retourne la chaîne de caractères en casse minuscule (upper() fait l’inverse): 
 **ATTENTION : faire entrer à chaque ligne du scripts suivants**
 
 ```python
@@ -401,7 +401,7 @@ print(chaine)
     {{ terminal() }}
 
 
-**<H4 STYLE="COLOR:lime;">Activité n°19.:</H4>** Les opérations sur les listes 
+**<H3 STYLE="COLOR:purple;">Activité n°19.:</H3>** Les opérations sur les listes 
 **ATTENTION : faire entrer à chaque ligne du scripts suivants**
 
 ```python
@@ -416,7 +416,7 @@ x = [ 0 , 1]
 
     {{ terminal() }}
 
-**<H4 STYLE="COLOR:lime;">Activité n°20.:</H4>** La fonction split() permet de créer une liste en indiquant le séparateur (par exemple l’espace pour obtenir une liste de mot) : 
+**<H3 STYLE="COLOR:purple;">Activité n°20.:</H3>** La fonction split() permet de créer une liste en indiquant le séparateur (par exemple l’espace pour obtenir une liste de mot) : 
 **ATTENTION : faire entrer à chaque ligne du scripts suivants**
 ```python
 texte = "Il est important de construire" 
@@ -430,7 +430,7 @@ Cette méthode est communément appelée tuple unpacking
 
     {{ terminal() }}
 
-**<H4 STYLE="COLOR:lime;">Activité n°21.:</H4>** La fonction ' '.join(a) fait l’inverse, elle prend une liste et renvoie un teste, entre guillemets on indique le séparateur si on ne met rien, tout sera attaché. 
+**<H3 STYLE="COLOR:purple;">Activité n°21.:</H3>** La fonction ' '.join(a) fait l’inverse, elle prend une liste et renvoie un teste, entre guillemets on indique le séparateur si on ne met rien, tout sera attaché. 
 **ATTENTION : faire entrer à chaque ligne du scripts suivants**
 
 ```python
@@ -451,7 +451,7 @@ C’est la méthode inverse du tuple unpacking
 
 
 
-**<H4 STYLE="COLOR:lime;">Activité n°22.:</H4>** Deux valeurs sont possibles : True et False 
+**<H3 STYLE="COLOR:purple;">Activité n°22.:</H3>** Deux valeurs sont possibles : True et False 
 **ATTENTION : faire entrer à chaque ligne du scripts suivants**
 
 ```python
@@ -466,7 +466,7 @@ print(type(choix))
     {{ terminal() }}
 
 
-**<H4 STYLE="COLOR:lime;">Activité n°23.:</H4>**  
+**<H3 STYLE="COLOR:purple;">Activité n°23.:</H3>**  
 **ATTENTION : faire entrer à chaque ligne du scripts suivants**
 
 ```python
@@ -480,7 +480,7 @@ print(0 <= b <= 20)
 
     {{ terminal() }}
 
-**<H4 STYLE="COLOR:lime;">Activité n°24.:</H4>** Les opérateurs logiques : and, or, not
+**<H3 STYLE="COLOR:purple;">Activité n°24.:</H3>** Les opérateurs logiques : and, or, not
 **ATTENTION : faire entrer à chaque ligne du scripts suivants**
 
 ```python
@@ -492,7 +492,7 @@ print(note >= 12.0 and note < 14.0 )
 
     {{ terminal() }}
 
-**<H4 STYLE="COLOR:lime;">Activité n°25.:</H4>** L’opérateur in s’utilise avec des chaînes (type str) ou des listes (type list) : 
+**<H3 STYLE="COLOR:purple;">Activité n°25.:</H3>** L’opérateur in s’utilise avec des chaînes (type str) ou des listes (type list) : 
 **ATTENTION : faire entrer à chaque ligne du scripts suivants**
 
 ```python
@@ -509,18 +509,18 @@ print(9 in maliste)
 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
-**<H4 STYLE="COLOR:lime;">Exercice n°1</H4>**  ☆ Afficher la taille en octets et en bits d’un fichier de 536 ko. On donne : 1 ko (1 kilooctet) = 1000 octets !!! 1 octet = 1 byte = 8 bits 
+**<H3 STYLE="COLOR:purple;">Exercice n°1</H3>**  ☆ Afficher la taille en octets et en bits d’un fichier de 536 ko. On donne : 1 ko (1 kilooctet) = 1000 octets !!! 1 octet = 1 byte = 8 bits 
 
 
 
-**<H4 STYLE="COLOR:lime;">Exercice n°2</H4>**  ★ Le numéro de sécurité sociale est constitué de 13 chiffres auquel s’ajoute la clé de contrôle (2 chiffres). 
+**<H3 STYLE="COLOR:purple;">Exercice n°2</H3>**  ★ Le numéro de sécurité sociale est constitué de 13 chiffres auquel s’ajoute la clé de contrôle (2 chiffres). 
 Exemple : le numéro entier de sécurité sociale est : 1 89 11 26 108 268 91; il se compose de 1891126108268 et de 91 qui est la clé de contrôle
 
 La clé de contrôle située à la fin du numéro est calculée par la formule : 97 - (numéro de sécurité sociale modulo 97) Retrouver la clé de contrôle de votre numéro de sécurité sociale. Quel est l’intérêt de la clé de contrôle ? 
 
 
 
-**<H4 STYLE="COLOR:lime;">Exercice n°3</H4>** ★ Afficher la valeur numérique de √(4,63 - 15/16) Comparer avec votre calculette. 
+**<H3 STYLE="COLOR:purple;">Exercice n°3</H3>** ★ Afficher la valeur numérique de √(4,63 - 15/16) Comparer avec votre calculette. 
 Aide : vous aurez besoin de la fonction racine carrée de python. Pour cela il faut l'importer en commandant par la ligne suivante:
 ```python
 from math import sqrt
@@ -528,11 +528,11 @@ from math import sqrt
 
 
 
-**<H4 STYLE="COLOR:lime;">Exercice n°4</H4>** ★ A partir des deux variables prenom et nom, afficher les initiales (par exemple LM pour Léa Martin). 
+**<H3 STYLE="COLOR:purple;">Exercice n°4</H3>** ★ A partir des deux variables prenom et nom, afficher les initiales (par exemple LM pour Léa Martin). 
 
 
 
-**<H4 STYLE="COLOR:lime;">Exercice n°5</H4>**★** Quels résultats donnent les instructions suivantes ?  
+**<H3 STYLE="COLOR:purple;">Exercice n°5</H3>**★** Quels résultats donnent les instructions suivantes ?  
 
 len("C'est facile de compter") 
 
@@ -540,7 +540,7 @@ len('123' \* 20)
 
 
 
-**<H4 STYLE="COLOR:lime;">Exercice n°6</H4>**☆ Supposons que je veuille imprimer les quatre lignes suivantes :  
+**<H3 STYLE="COLOR:purple;">Exercice n°6</H3>**☆ Supposons que je veuille imprimer les quatre lignes suivantes :  
 
 ```txt
 Hello World 
@@ -581,7 +581,7 @@ print("Hum \\Oh\/")
 ```
 
 
-**<H4 STYLE="COLOR:lime;">Exercice n°7</H4>** ★☆ **PRÉPAREZ UNE MOUSSE AU CHOCOLAT !**  
+**<H3 STYLE="COLOR:purple;">Exercice n°7</H3>** ★☆ **PRÉPAREZ UNE MOUSSE AU CHOCOLAT !**  
 
 La recette de la mousse au chocolat sur le site marmiton.org est la suivante : Ingrédients (pour 4 personnes) : 
 
@@ -626,7 +626,7 @@ print(a)
 ```
 
 
-**<H4 STYLE="COLOR:lime;">Exercice n°8</H4>** ★☆ L’identifiant d’accès au réseau du lycée est construit de la manière suivante : initiale du prénom puis les 8 premiers caractères du nom (le tout en minuscule). 
+**<H3 STYLE="COLOR:purple;">Exercice n°8</H3>** ★☆ L’identifiant d’accès au réseau du lycée est construit de la manière suivante : initiale du prénom puis les 8 premiers caractères du nom (le tout en minuscule). 
 
 Alexandre Lecouturier → alecoutur A partir des deux variables prenom et nom, construire l’identifiant. 
 
