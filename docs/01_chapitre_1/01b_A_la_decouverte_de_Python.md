@@ -15,7 +15,7 @@ title: 01b A la découverte de Python
 
 5. [**Exercices**](#_page10_x40.00_y36.92)
 
-## **1. Un<a name="_page0_x40.00_y432.92"></a> langage de programmation ? Qu’est ce que c’est ?** 
+## **<H2 STYLE="COLOR:blue;">1. Un<a name="_page0_x40.00_y432.92"></a> langage de programmation ? Qu’est ce que c’est ?</h2>** 
 
 ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.001.png)
 
@@ -28,25 +28,25 @@ On peut les classer en :
 - Le **langage de haut niveau**   
 - **Langage compilé** : C, C++, Pascal et OCaml.  
 - **Langage interprété :** Java (+ JavaScool), Ruby et Python ;  
-### **1.1. Les<a name="_page1_x40.00_y36.92"></a> langages compilés**  
+### **<h3 style="color:green;">1.1. Les<a name="_page1_x40.00_y36.92"></a> langages compilés</h3>**  
 ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.002.jpeg)
 
 Dans ces langages, le code source (celui que vous  écrivez) est tout d'abord **compilé**, par un logiciel le  **compilateur**, en un code binaire qui est très facile à  lire pour un ordinateur.   
 
 ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.003.png)
 
-### **1.2. Les<a name="_page1_x40.00_y402.92"></a> langages interprétés**  
+### **<h3 style="color:green;">1.2. Les<a name="_page1_x40.00_y402.92"></a> langages interprétés</h3>**  
 ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.004.png)
 
 Dans ces langages, le code source est **interprété**,  par un logiciel l’**interpréteur**.   
 
-### **1.3. Principales<a name="_page1_x40.00_y504.92"></a> différences**  
+### **<h3 style="color:green;">1.3. Principales<a name="_page1_x40.00_y504.92"></a> différences</h3>**  
 
 Dans un langage interprété, **le même code source pourra marcher directement sur tout ordinateur**. Avec un langage compilé, il faudra (en général) **tout recompiler à chaque fois** ce qui pose parfois des soucis. 
 
 Par contre, dans un langage **compilé**, le programme est directement exécuté sur l'ordinateur, donc il sera en général **plus rapide** que le même programme dans un langage interprété. 
 
-### **1.4. Un<a name="_page1_x40.00_y593.92"></a> langage particulier : Python** 
+### **<h3 style="color:green;">1.4. Un<a name="_page1_x40.00_y593.92"></a> langage particulier : Python</h3>** 
 
 ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.005.png)
 
@@ -56,35 +56,35 @@ Le **bytecode** (forme intermédiaire) est **portable** sur tout ordinateur muni
 
 Pour exécuter un programme, Python charge le fichier **source .py** en mémoire vive, en fait **l’analyse,** produit le **bytecode** et enfin **l’exécute**. Afin de ne pas refaire inutilement toute la phase d’analyse et de production, Python **sauvegarde le bytecode** produit (dans un fichier .pyo ou .pyc) et recharge simplement le fichier bytecode s’il est plus récent que le fichier source dont il est issu.  
 
-## **2. Quelques<a name="_page2_x40.00_y36.92"></a> langages de programmation courants** 
-### **2.1. Historique<a name="_page2_x40.00_y58.92"></a>** 
+## **<H2 STYLE="COLOR:BLUE;">2. Quelques<a name="_page2_x40.00_y36.92"></a> langages de programmation courants</h2>** 
+### **<h3 style="color:green;">2.1. Historique<a name="_page2_x40.00_y58.92"></a></h3>** 
 
 ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.006.jpeg)
 
-### **2.2. «<a name="_page2_x40.00_y316.92"></a> Hello world ! »** 
+### **<H3 STYLE="COLOR:GREEN;">2.2. «<a name="_page2_x40.00_y316.92"></a> Hello world ! »</h3>** 
 
 C'est dans un mémorandum interne de Brian Kernighan, Programming in C : A tutorial, écrit en 1974 dans les laboratoires Bell, que l'on trouve la première version d'un mini-programme affichant à l'écran « Hello World! ».  
 
-## **3. Pseudo-code<a name="_page2_x40.00_y367.92"></a>** 
+## **<H2 STYLE="COLOR:BLUE;">3. Pseudo-code<a name="_page2_x40.00_y367.92"></a></h2>** 
 
 En programmation, le pseudo-code est une façon de décrire un algorithme en respectant certaines conventions, mais sans référence à un langage de programmation en particulier. L'écriture en pseudo-code permet de développer une démarche structurée. 
 
 Il n'existe **pas de convention universelle** pour le pseudo-code. Afin de bien nous comprendre dans la suite de ce cours, nous adopterons celle décrite ci-dessous. 
 
-## **4. Python<a name="_page2_x40.00_y464.92"></a>** 
-### **4.1. Pourquoi<a name="_page2_x40.00_y486.92"></a> apprendre le langage Python ?** 
+## **<H2 STYLE="COLOR:BLUE;">4. Python<a name="_page2_x40.00_y464.92"></a></h2>** 
+### **<H3 STYLE="COLOR:GREEN;">4.1. Pourquoi<a name="_page2_x40.00_y486.92"></a> apprendre le langage Python ?</h3>** 
 
 Python est à la fois simple et puissant, il vous permet d'écrire **des scripts très simples**, mais grâce à ses nombreuses bibliothèques, vous pouvez travailler sur des **projets plus ambitieux.** 
 
 
 
-### **4.2. Qu’est-ce<a name="_page2_x40.00_y550.92"></a> que c’est ?** 
+### **<H3 STYLE="COLOR:GREEN;">4.2. Qu’est-ce<a name="_page2_x40.00_y550.92"></a> que c’est ?</h3>** 
 
 En 1989, le hollandais **Guido van Rossum** commence le développement du langage de programmation Python. Python est un langage **multi plateforme**. 
 
 Le langage Python est gratuit, sous **licence libre**. 
 
-### **4.3. Les<a name="_page2_x40.00_y614.92"></a> consignes** 
+### **<H3 STYLE="COLOR:GREEN;">4.3. Les<a name="_page2_x40.00_y614.92"></a> consignes</h3>** 
 - Dans la suite du cours, ouvrir l’interpréteur Python  
 - Les commandes à faire dans l’interpréteur, aussi appelée console python, seront dans le style de rectangle suivant et commenceront par un prompt >>> 
 - Taper chacune des commandes présentées et vérifier son résultat. 
@@ -92,7 +92,7 @@ Le langage Python est gratuit, sous **licence libre**.
 - Compléter votre script resume\_ch0X.py avec les nouvelles commandes apprises : c’est l’équivalent d’une fiche de cours, il faut donc en prendre soin 
 - Pour chaque série d’exercice (à la fin des cours) : réaliser chaque exercice dans un fichier nommé : exo\_ch0X\_01.py, exo\_ch0X\_02.py, exo\_ch0X\_03.py,…… 
 
-### **4.4. Premiers<a name="_page3_x40.00_y36.92"></a> pas avec l’interpréteur de commandes Python** 
+### **<H3 STYLE="COLOR:GREEN;">4.4. Premiers<a name="_page3_x40.00_y36.92"></a> pas avec l’interpréteur de commandes Python</h3>** 
 
 **Activité n°1.:Les calculs de bases :** Tester les calculs suivant :
 **ATTENTION : faire entrer à chaque ligne du scripts suivants**
@@ -157,19 +157,19 @@ On s’est arrêté car 29 est plus petit que 99 et qu’on ne souhaitait pas al
 
     {{ terminal() }}
 
-### **4.5. Variables,<a name="_page4_x40.00_y133.92"></a> types** 
+### **<h3 STYLE="COLOR:GREEN;">4.5. Variables,<a name="_page4_x40.00_y133.92"></a> types</h3>** 
 
 Une variable est un espace mémoire dans lequel il est possible de stocker une valeur (une donnée). On va affecter des valeurs à des variables.  
 
 ![](Aspose.Words.7488426a-f593-4c9d-89c4-e8b91637fe20.024.png)**Attention le symbole de l’affectation est =** 
 
-#### **4.5.1. Noms<a name="_page4_x40.00_y194.92"></a> de variables**
+#### **<H4 STYLE="COLOR:FUCHSIA;">4.5.1. Noms<a name="_page4_x40.00_y194.92"></a> de variables</h4>**
 
 Le nom d’une variable s'écrit avec des lettres (**non accentuées**), des chiffres ou bien l’underscore \_ Le nom d’une variable ne doit pas commencer par un chiffre. 
 
 Exemple : age, mon\_age, temperature1  A éviter : Age, AGE, monAge, Temperature1 
 
-#### **4.5.2. Le<a name="_page4_x40.00_y249.92"></a> type int (integer)** 
+#### **<H4 STYLE="COLOR:FUCHSIA;">4.5.2. Le<a name="_page4_x40.00_y249.92"></a> type int (integer)</h4>** 
 
 
 
@@ -209,7 +209,7 @@ print(a)
 
     {{ terminal() }}
 
-#### **4.5.3. Le<a name="_page4_x40.00_y602.92"></a> type float (nombres en virgule flottante)**
+#### **<H4 STYLE="COLOR:FUCHSIA;">4.5.3. Le<a name="_page4_x40.00_y602.92"></a> type float (nombres en virgule flottante)</h4>**
 **Activité n°7.:** Tester les calculs suivant dans la console
 **ATTENTION : faire entrer à chaque ligne du scripts suivants**
 
@@ -241,7 +241,7 @@ print(c)
 
     {{ terminal() }}
 
-#### **4.5.4. Le<a name="_page5_x40.00_y196.92"></a> type str (string : chaîne de caractères)**
+#### **<H4 STYLE="COLOR:FUCHSIA;">4.5.4. Le<a name="_page5_x40.00_y196.92"></a> type str (string : chaîne de caractères)</h4>**
 
 
 **Activité n°8.:**  Tester les calculs suivant dans la console
@@ -343,7 +343,7 @@ chaine = chaine + 2
 
     {{ terminal() }}
 
-#### **4.5.5. Le<a name="_page6_x40.00_y680.92"></a> type list (liste)**
+#### **<H4 STYLE="COLOR:FUCHSIA;">4.5.5. Le<a name="_page6_x40.00_y680.92"></a> type list (liste)</h4>**
 
 Une liste est une structure de données. Le premier élément d’une liste possède l’indice (l’index) 0. Dans une liste, on peut avoir des éléments de plusieurs types. 
 
@@ -447,7 +447,7 @@ C’est la méthode inverse du tuple unpacking
 
     {{ terminal() }}
 
-#### **4.5.6. Le<a name="_page8_x40.00_y323.92"></a> type bool (booléen)** 
+#### **<H4 STYLE="COLOR:FUCHSIA;">4.5.6. Le<a name="_page8_x40.00_y323.92"></a> type bool (booléen)</h4>** 
 
 
 
@@ -505,7 +505,7 @@ print(9 in maliste)
 
     {{ terminal() }}
 
-## **5. Exercices<a name="_page10_x40.00_y36.92"></a>** 
+## **<H2 STYLE="COLOR:BLUE;">5. Exercices<a name="_page10_x40.00_y36.92"></a></h2>** 
 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
