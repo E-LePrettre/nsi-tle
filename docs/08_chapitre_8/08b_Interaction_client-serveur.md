@@ -269,10 +269,10 @@ Il existe plusieurs manières d'envoyer une requête HTTP depuis un navigateur. 
 - **En utilisant JavaScript** : en utilisant JavaScript, vous pouvez envoyer une requête HTTP en utilisant l'objet **XMLHttpRequest** ou en utilisant une bibliothèque telle que jQuery. Cela permet de faire des requêtes **GET**, **POST**, **PUT**, **DELETE**, etc. en fonction de vos besoins. 
 
 ### **3.1. Exemples<a name="_page4_x40.00_y36.92"></a> de formulaire HTML**
-![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.039.png)
 
 
-**Activité n°2.** : Ouvrir un bloc note. Ajouter le script suivant et vérifier ce qu’on obtient dans le navigateur. Enregistrer le sous index.html **ATTENTION** à bien sélectionner tous les fichiers !
+
+**<h2>Activité n°2.</h2>** : Ouvrir un bloc note. Ajouter le script suivant et vérifier ce qu’on obtient dans le navigateur. Enregistrer le sous index.html **ATTENTION** à bien sélectionner tous les fichiers !
 
 ![](AZE.png)
 ```html
@@ -292,7 +292,7 @@ Il existe plusieurs manières d'envoyer une requête HTTP depuis un navigateur. 
 
 
 
-**Activité n°3. :** Remplir ce formulaire et le soumettre fera envoyer une requête GET vers l'URL ./login. Observer la nouvelle URL
+**<h2>Activité n°3. :</h2>** Remplir ce formulaire et le soumettre fera envoyer une requête GET vers l'URL ./login. Observer la nouvelle URL
 
 Avec la méthode GET, les données du formulaire seront encodées **dans l'URL.**  
 
@@ -300,7 +300,7 @@ Si on saisit trois valeurs par exemple «Dupont », « azerty » et qu’on cliq
 
  
 
-**Activité n°4. :** Modifier la page pour pouvoir la soumettre avec une requête POST. Remplir ce formulaire et le soumettre fera envoyer une requête POST et observer la nouvelle URL.
+**<h2>Activité n°4. :</h2>** Modifier la page pour pouvoir la soumettre avec une requête POST. Remplir ce formulaire et le soumettre fera envoyer une requête POST et observer la nouvelle URL.
 
 Dans le cas d'un POST ils seront alors encodés **dans le corps de la requête**. 
 
@@ -354,11 +354,11 @@ POST :
 
 ### **3.4. Elément<a name="_page5_x40.00_y275.92"></a> ```<input>``` : quelques exemples**
 
-![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.050.png)
+![](090.png)
 
 ### **3.5. Elément<a name="_page5_x40.00_y485.92"></a> ```<select>``` : quelques exemples**
 
-![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.052.png)
+![](091.png)
 
 ### **3.6. Elément<a name="_page6_x40.00_y36.92"></a> value dans ```<select>```**
 
