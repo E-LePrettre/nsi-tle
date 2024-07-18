@@ -12,7 +12,7 @@ Bienvenue en spécialité NSI (Numérique et Sciences Informatiques) ! Cette fic
 
 ## <h1 style="color:blue;">1. Les Logiciels à Utiliser</h1>
 
-### **1.1. Environnement de Développement :**
+### **<h2 style="color:green;">1.1. Environnement de Développement :</h2>**
 
 - **Thonny :** Un IDE (Integrated Development Environment) simple et adapté aux débutants, parfait pour apprendre à programmer en Python.
 - **Visual Studio Code (VS Code) :** Un éditeur de code puissant et polyvalent, gratuit et open-source. Il supporte de nombreux langages de programmation grâce à ses extensions.
