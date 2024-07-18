@@ -10,18 +10,18 @@ title: 05b Types construits
 2. [Les dictionnaires](#_page6_x40.00_y36.92)
 3. [Exercices](#_page9_x40.00_y273.92)
 
-## **1. Les<a name="_page0_x40.00_y242.92"></a> séquences en Python** 
+## **<H2 STYLE="COLOR:BLUE;">1.  Les<a name="_page0_x40.00_y242.92"></a> séquences en Python</h2>** 
 
 Il est possible de "stocker" plusieurs grandeurs dans une même structure, ce type de structure est appelé **une séquence.** De façon plus précise, nous définirons une séquence comme un ensemble fini et ordonné d'éléments indicés de 0 à n-1 (si cette séquence comporte n éléments). 
 
 Nous allons étudier plus particulièrement 2 types de séquences **: les tuples et les listes** (il en existe d'autres que nous n'évoquerons pas ici). 
 
-### **1.1. Les<a name="_page0_x40.00_y378.92"></a> tuples en Python** 
+### **<H3 STYLE="COLOR:GREEN;">1.1.  Les<a name="_page0_x40.00_y378.92"></a> tuples en Python</h3>** 
 
 Les **tuples** sont des séquences (ou p-uplet), assez semblables aux listes, sauf qu'on ne peut **PAS MODIFIER** un tuple après qu'il ait été créé :  ils sont **non mutables.** Cela signifie qu'on définit le contenu d'un tuple (les objets qu'il doit contenir) lors de sa création, mais qu'on ne peut en ajouter ou en retirer par la suite. 
 
 
-**Activité n°1.: Les parenthèses sont facultatives**  
+**<H3 STYLE="COLOR:red;">Activité n°1.: Les parenthèses sont facultatives</H3>**  
 
 ```python
 tuple = 'a', 123 , True
@@ -33,7 +33,7 @@ print(autre_tuple)
 
     {{ IDE() }}
 
-**Activité n°2.: Création de tuples à partir d’une liste :** avec la fonction tuple() : 
+**<H3 STYLE="COLOR:red;">Activité n°2.: Création de tuples à partir d’une liste :</H3>** avec la fonction tuple() : 
 
 Tester :
 
@@ -48,7 +48,7 @@ Tester :
 
     {{ terminal() }}
 
-**Activité n°3.: Concaténation :** Il existe deux opérations de concaténation avec les opérateurs + et *. De nouveaux 
+**<H3 STYLE="COLOR:red;">Activité n°3.: Concaténation :</H3>** Il existe deux opérations de concaténation avec les opérateurs + et *. De nouveaux 
 
 
 ```python
@@ -62,7 +62,7 @@ print(3 * t1)
     {{ IDE() }}
 
 
-**Activité n°4.: Utilisation des indices :** Les** indices permettent d’accéder aux différents éléments d’un tuple : 
+**<H3 STYLE="COLOR:red;">Activité n°4.: Utilisation des indices :</H3>** Les indices permettent d’accéder aux différents éléments d’un tuple : 
 
 Tester :
 
@@ -88,7 +88,7 @@ Tester :
 
 
 
-**Activité n°5.: Tuple de tuples :**On peut créer des tuples de tuples : 
+**<H3 STYLE="COLOR:red;">Activité n°5.: Tuple de tuples :</H3>**On peut créer des tuples de tuples : 
 
 ```python
 tuple1 = 'a', 123 , True
@@ -105,7 +105,7 @@ Un **tuple est immuable** (on ne peut pas le modifier) mais il contient des obje
 
 
 
-**Activité n°6.: Parcours d’un tuples de deux manières :**  
+**<H3 STYLE="COLOR:red;">Activité n°6.: Parcours d’un tuples de deux manières :</H3>**  
 
 ```python
 prenoms="bruno","Marie"
@@ -119,7 +119,7 @@ for i in range(len(prenoms)): # méthode 2, on parcourt les indices de la séque
     {{ IDE() }}
 
 
-**Activité n°7.:** Grâce au tuple, une fonction peut renvoyer plusieurs valeurs  
+**<H3 STYLE="COLOR:red;">Activité n°7.:</H3>** Grâce au tuple, une fonction peut renvoyer plusieurs valeurs  
 
 ```python
 def add(a, b):
@@ -150,7 +150,7 @@ print(f"{mon_tuple[0]} + {mon_tuple[1]} = {mon_tuple[2]}")
 |s+t|Renvoie une nouvelle séquence concaténation de s et t. |
 |n*t|Renvoie une nouvelle séquence composée de la concaténation de t avec lui même n fois. |
 
-### **1.2. Les<a name="_page2_x40.00_y419.92"></a> tableaux** 
+### **<H3 STYLE="COLOR:GREEN;">1.2.  Les<a name="_page2_x40.00_y419.92"></a> tableaux</h3>** 
 
 Sous Python, les **tableaux** sont appelés **listes** et on peut définir une liste comme une collection d’éléments séparés par des virgules, l’ensemble étant enfermé dans des crochets. Une liste est une séquence **mutable.** 
 
@@ -160,7 +160,7 @@ Les  objets  placés  dans  une  liste  sont  rendus  accessibles  par  l’inte
 
 
 
-**Activité n°8.: Création de listes** 
+**<H3 STYLE="COLOR:red;">Activité n°8.: Création de listes</H3>** 
 
 ```python
 liste_vide = []
@@ -184,7 +184,7 @@ Tester avec
 
 
 
-**Activité n° 9.**: **Construction par compréhension** L’instruction s’écrit sous la **forme [expression(i) for i in objet]**. Ce type de construction est très spécifique au langage Python. 
+**<H3 STYLE="COLOR:red;">Activité n° 9.: Construction par compréhension</H3>** L’instruction s’écrit sous la **forme [expression(i) for i in objet]**. Ce type de construction est très spécifique au langage Python. 
 
 ```python
 carres = [i*i for i in range(11)]
@@ -208,7 +208,7 @@ for i in range(11):
 ```
 
 
-**Activité n° 10.**: **Construction par compréhension**  
+**<H3 STYLE="COLOR:red;">Activité n° 10. : Construction par compréhension</H3>**  
 
 ```python
 multiples_de_3 = [3 * i for i in range(30)]
@@ -251,7 +251,7 @@ mon_tab3 permet d’obtenir une liste qui contient tous les éléments de liste 
 
 
 
-**Activité n°11.: Copie de liste**  
+**<H3 STYLE="COLOR:red;">Activité n°11.: Copie de liste</H3>**  
 
 ```python
 liste3 = [1, 49, 81, 25, 64]
@@ -279,7 +279,7 @@ Tester avec
 
 
 
-**Activité n°12.:** Ajouter et supprimer des éléments 
+**<H3 STYLE="COLOR:red;">Activité n°12.:</H3>** Ajouter et supprimer des éléments 
 
 ```python
 liste3 = [1, 49, 81, 25, 64]
@@ -293,7 +293,7 @@ print(liste3)
 
     {{ IDE() }}
 
-**Activité n°13.: avec les chaine de caractères  :** Il existe pour les listes des méthodes très intéressantes dans le traitement des chaines de caractères. Ce sont les méthodes split() et join(). Observer le code proposé et réaliser les affichages des listes créées. Penser à également utiliser la commande type(variables) afin de vérifier le type des variables créées. 
+**<H3 STYLE="COLOR:red;">Activité n°13.: avec les chaine de caractères  :</H3>** Il existe pour les listes des méthodes très intéressantes dans le traitement des chaines de caractères. Ce sont les méthodes split() et join(). Observer le code proposé et réaliser les affichages des listes créées. Penser à également utiliser la commande type(variables) afin de vérifier le type des variables créées. 
 
 ```python
 citation="Je ne cherche pas à connaître les réponses, je cherche à comprendre les questions."
@@ -323,7 +323,7 @@ Les mêmes opérations et méthodes peuvent être appliquées aux listes qu’au
 
 Quel **est l'intérêt d'utiliser un tuple** ? La réponse est simple : les opérations sur les tuples sont **plus "rapides".** Quand vous savez que votre liste ne sera pas modifiée, il est préférable d'utiliser un tuple à la place d'une liste. 
 
-### **1.3. Les<a name="_page5_x40.00_y36.92"></a> tableaux de tableaux** 
+### **<H3 STYLE="COLOR:GREEN;">1.3.  Les<a name="_page5_x40.00_y36.92"></a> tableaux de tableaux</h3>** 
 
 Les éléments d'un tableau peuvent être également un tableau. Ce type d'objet rappelle un objet mathématique qui s'appelle une **matrice**. Cet objet est utilisé dans de nombreux domaines, notamment dans le traitement des images. Une image est une **matrice de pixels**. 
 
@@ -341,7 +341,7 @@ Si notre matrice contient n listes de m éléments on peut la voir ainsi :
 
 
 
-**Activité n°14.: Travailler sur des listes de listes** 
+**<H3 STYLE="COLOR:red;">Activité n°14.: Travailler sur des listes de listes</H3>** 
 
 ```python
 m = [[1, 3, 4], [5 ,6 ,8], [2, 1, 3], [7, 8, 15]]
@@ -367,7 +367,7 @@ Tester avec :
     {{ IDE() }}
 
 
-**Activité n°15.: Parcours de liste de listes** Il est possible de parcourir l'ensemble des éléments d'une matrice à l'aide d'une "double boucle for" :
+**<H3 STYLE="COLOR:red;">Activité n°15.: Parcours de liste de listes</H3>** Il est possible de parcourir l'ensemble des éléments d'une matrice à l'aide d'une "double boucle for" :
 
 ```python
 m = [[1, 3, 4],
@@ -385,17 +385,17 @@ for i in range(0, nb_ligne):
     {{ IDE() }}
 
 
-## **2. Les<a name="_page6_x40.00_y36.92"></a> dictionnaires** 
+## **<H2 STYLE="COLOR:BLUE;">2.   Les<a name="_page6_x40.00_y36.92"></a> dictionnaires** 
 
 Comme les listes et les tuples, les dictionnaires permettent de stocker des données Une différence essentielle entre les listes et les dictionnaires est que les éléments d’une liste sont repérés par des indices 0, 1, 2, … alors que dans les dictionnaires ils sont remplacés par des objets de type str, float, tuples que l’on appelle clé et à chaque clé correspond une valeur. 
 **Ces clés ne sont pas ordonnées**. Chaque élément d’un dictionnaire est donc composé de 2 parties, on parle de pairs **« clé/valeur ».** 
 
-### **2.1. Création<a name="_page6_x79.00_y161.92"></a> de dictionnaires** 
+### **<H3 STYLE="COLOR:GREEN;">2.1. Création<a name="_page6_x79.00_y161.92"></a> de dictionnaires</h3>** 
 
 Un dictionnaire est créé avec des accolades, les différents couples étant séparés par des virgules. La clé et la valeur correspondante d’un élément sont séparées par **deux-points.** 
 
 Exemple : dico = {"A": 0, "B": 1, "C": 2, "D": 3}. 
-**Activité  n°16.:  Création  d’un  dictionnaire**  :  Pour  ajouter  une  couple  de  clé,valeur  il  suffit  d'écrire  : d[nouvelle_clé]=nouvelle_valeur 
+**<H3 STYLE="COLOR:red;">Activité  n°16.:  Création  d’un  dictionnaire</H3>**  :  Pour  ajouter  une  couple  de  clé,valeur  il  suffit  d'écrire  : d[nouvelle_clé]=nouvelle_valeur 
 
 ```python
 res={'nsi' :18,'maths':17,'svt':14,'français':14,'lv1':8,'physique':12,'HG':11}
@@ -415,7 +415,7 @@ Tester :
 
 
 
-**Activité n°17.: Construction d’un dictionnaire en compréhension** (comme avec les listes) :  
+**<H3 STYLE="COLOR:red;">Activité n°17.: Construction d’un dictionnaire en compréhension (comme avec les listes) :</h3>**  
 
 ```python
 dico1 = {x:x**2 for x in range(1,5)}
@@ -434,7 +434,7 @@ Tester :
     {{ IDE() }}
 
 
-**Activité n°18.: Création de dictionnaire à partir d’une liste de listes avec la fonction** dict :  
+**<H3 STYLE="COLOR:red;">Activité n°18.: Création de dictionnaire à partir d’une liste de listes avec la fonction dict :</h3>**  
 
 ```python
 liste = [['A', 0], ['B', 1], ['C', 2]]
@@ -449,11 +449,11 @@ Tester :
 
     {{ IDE() }}
 
-### **2.2. Accès<a name="_page7_x40.00_y36.92"></a> aux éléments** 
+### **<H3 STYLE="COLOR:GREEN;">2.2. Accès<a name="_page7_x40.00_y36.92"></a> aux éléments</h3>** 
 
 
 
-**Activité n°19.: Avec les méthodes** keys() **et** values() **:**Accès aux éléments avec les méthodes keys et 
+**<H3 STYLE="COLOR:red;">Activité n°19.: Avec les méthodes keys() et values() :</h3>**
 
 
 ```python
@@ -473,7 +473,7 @@ for i in turing.values():
     {{ IDE() }}
 
 
-**Activité n°20.: Avec la méthode** item() **:** Accès à l’ensemble des couples clés-valeurs avec la méthode items
+**<H3 STYLE="COLOR:red;">Activité n°20.: Avec la méthode item() :</h3>** Accès à l’ensemble des couples clés-valeurs avec la méthode items
 
 ```python
 turing={'nom':'Turing','prenom':('Alan','Mathison'),'nation':'anglaise','naissance' : 
@@ -499,7 +499,7 @@ Remarque : dans le dernier exemple, on voit la chaine de caractère formatée av
 
 
 
-**Activité n°21.: Test d’appartenance** : avec **l’opérateur** in 
+**<H3 STYLE="COLOR:red;">Activité n°21.: Test d’appartenance : avec l’opérateur in </h3>**
 
 ```python
 d = {'A': 0, 'B': 1, 'C': 2}
@@ -514,7 +514,7 @@ print(('C', 2) in d.items()) # teste si ('C', 2) est un couple clé-valeur
     {{ IDE() }}
 
 
-**Activité n°22.: Modification d’une valeur particulière**  
+**<H3 STYLE="COLOR:red;">Activité n°22.: Modification d’une valeur particulière</H3>**  
 
 ```python
 mes_fruits = {"poire": 3, "pomme": 4, "orange": 2}
@@ -530,7 +530,9 @@ print(mes_fruits)
     {{ IDE() }}
 
 
-**Activité n°23. Méthode** get : Une instruction comme v = d["E"] provoque **une erreur** car la clé ”E” n’existe pas. La méthode **get permet de gérer ce genre de problème.** 
+**<H3 STYLE="COLOR:red;">Activité n°23. Méthode get :</h3>**
+
+Une instruction comme v = d["E"] provoque **une erreur** car la clé ”E” n’existe pas. La méthode **get permet de gérer ce genre de problème.** 
 **Si** la clé n'existe pas la méthode get() ne génère pas d'erreur mais renvoie la valeur None.  
 
 ```python
@@ -548,7 +550,8 @@ print(v)
 
 
 
-**Activité n°24.: fonction** len() **:** Donner le nombre de couple clé-valeur d’un dictionnaire  
+**<H3 STYLE="COLOR:red;">Activité n°24.: fonction len() :</h3>** 
+Donner le nombre de couple clé-valeur d’un dictionnaire  
 
 ```python
 d = {'A': 0, 'B': 1, 'C': 2, 'D': 3}
@@ -561,7 +564,7 @@ print(len(d))
     {{ IDE() }}
 
 
-**Activité n°25.: Avec la fonction** del() : 
+**<H3 STYLE="COLOR:red;">Activité n°25.: Avec la fonction del() : </h3>**
 
 ```python
 d = {'A': 0, 'B': 1, 'C': 2, 'D': 3}
@@ -575,7 +578,7 @@ print(d)
     {{ IDE() }}
 
 
-**Activité n°26.: Exemple de formatage de chaine** :  
+**<H3 STYLE="COLOR:red;">Activité n°26.: Exemple de formatage de chaine : </h3>**  
 
 ```python
 mon_dico = {"nom": "Durand", "prenom": "Christophe", "date de naissance": "29/02/1981"} 
@@ -595,11 +598,11 @@ L’implémentation d’un dictionnaire optimise le coût en temps de la recherc
 
 L’implémentation d’un dictionnaire **optimise le coût en temps** de la recherche d’un élément. 
 
-## **3. Exercices<a name="_page9_x40.00_y273.92"></a>** 
+## **<H2 STYLE="COLOR:BLUE;">3.   Exercices<a name="_page9_x40.00_y273.92"></a>** 
 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
-**Exercice 1 :** ★ **Utilisation des opérations et méthodes :**  en utilisant le code ci-dessous, compléter .   **jours_1=('lundi','mardi','mercredi','jeudi','vendredi') jours_2=('samedi','dimanche')** 
+**<H3 STYLE="COLOR:red;">Exercice 1 :</H3>** ★ **Utilisation des opérations et méthodes :**  en utilisant le code ci-dessous, compléter .   **jours_1=('lundi','mardi','mercredi','jeudi','vendredi') jours_2=('samedi','dimanche')** 
 
 - Tester si samedi est un élément de jours_1 
 - Donner la longueur de jours_2
@@ -610,7 +613,7 @@ L’implémentation d’un dictionnaire **optimise le coût en temps** de la rec
 - Renvoyer le nombre de samedi dans jours_2
 - Créer un tuple semaine par concaténation de jours_1 et de jours_2
 
-**Exercice 2 :** ★ **Test d’appartenance :** En utilisant un parcours de tuple avec la présence d'un indice, écrire une fonction est_dans(element,tple) qui en argument reçoit un entiers ( élément) et un tuple d'entier ( tple) qui renvoie un booleen indiquant la présence de élément dans tuple. On testera la fonction sur les scripts suivants : 
+**<H3 STYLE="COLOR:red;">Exercice 2 :** ★ **Test d’appartenance :</H3>** En utilisant un parcours de tuple avec la présence d'un indice, écrire une fonction est_dans(element,tple) qui en argument reçoit un entiers ( élément) et un tuple d'entier ( tple) qui renvoie un booleen indiquant la présence de élément dans tuple. On testera la fonction sur les scripts suivants : 
 
 - **est_dans(4,(1,2,3,4,5,6))** #qui devrait renvoyer True** 
 
@@ -618,7 +621,7 @@ L’implémentation d’un dictionnaire **optimise le coût en temps** de la rec
 
 En Python, une fonction qui renvoie plusieurs éléments ( ex : return a,b,c ) renvoie un tuple.  
 
-**Exercice 3 :** ★**Tuple et fonction :** Ecrire une fonction triangle(n) qui renvoie un tuple ou chaque élément est un tuple de longueur trois. Ces tuples sont constitués de trois entiers a, b,c tels que 0<a≤b≤c<n et le triangle de cotés a, b et c soit rectangle.  
+**<H3 STYLE="COLOR:red;">Exercice 3 :** ★**Tuple et fonction :</H3>** Ecrire une fonction triangle(n) qui renvoie un tuple ou chaque élément est un tuple de longueur trois. Ces tuples sont constitués de trois entiers a, b,c tels que 0<a≤b≤c<n et le triangle de cotés a, b et c soit rectangle.  
 
 Aide :  
 ```python
@@ -633,7 +636,7 @@ Par exemple :
 
 ```assert(triangle(15)== ((3, 4, 5), (5, 12, 13), (6, 8, 10)))``` 
 
-**Exercice 4 :** ★**  **Dictionnaire et fonction**   
+**<H3 STYLE="COLOR:red;">Exercice 4 :** ★**  **Dictionnaire et fonction</H3>**   
 
 1 Ecrire une fonction const_dico(cle,valeur) qui renvoie le dictionnaire définie par les clés et les valeurs entrées en argument.** 
 On donne des listes de certains joueurs de League Of Legend ainsi que leur classement et leur nombre de points :** 
@@ -647,7 +650,7 @@ classement=[(12,1406),(1,1613),(4,1507),(9,1429),(16,1341),(11,1416)]
 
 3 Appliquer votre fonction const_dico(cle,valeur) sur les joueurs de LOL. 
 
-**Exercice 5** ★ Ecrire une fonction qui retourne une carte (au hasard) d’un jeu de Poker à 52 cartes. On utilisera la fonction choice() ou randint() du module random. On donne : 
+**<H3 STYLE="COLOR:red;">Exercice 5</h3>** ★ Ecrire une fonction qui retourne une carte (au hasard) d’un jeu de Poker à 52 cartes. On utilisera la fonction choice() ou randint() du module random. On donne : 
 
 ListeCarte = ['2s','2h','2d','2c','3s','3h','3d','3c','4s','4h','4d','4c','5s','5h','5d','5c', '6s','6h','6d','6c','7s','7h','7d','7c','8s','8h','8d','8c','9s','9h','9d','9c', 'Ts','Th','Td','Tc','Js','Jh','Jd','Jc','Qs','Qh','Qd','Qc','Ks','Kh','Kd','Kc','As','Ah','Ad','Ac'] 
 
@@ -658,7 +661,7 @@ ListeCarte = ['2s','2h','2d','2c','3s','3h','3d','3c','4s','4h','4d','4c','5s','
 '7c' 
 ```
 
-**Exercice 6** ★★   
+**<H3 STYLE="COLOR:red;">Exercice 6</h3>** ★★   
 
 1.Ecrire une fonction qui retourne une liste de N cartes **différentes** d’un jeu de Poker à 52 cartes. Noter qu’une fonction peut appeler une fonction : on peut donc réutiliser la fonction tiragecarte() de l’exercice précédent. Exemple : 
 
@@ -674,7 +677,7 @@ ListeCarte = ['2s','2h','2d','2c','3s','3h','3d','3c','4s','4h','4d','4c','5s','
 
 
 
-**Exercice 7 :** ★★ **Le chiffrement de César (version light)** : Cryptographie 
+**<H3 STYLE="COLOR:red;">Exercice 7 :** ★★ **Le chiffrement de César (version light)** : Cryptographie</h3> 
 
 1 la fonction chr() 
 
@@ -712,12 +715,12 @@ b. Dans le script précédent quel est le statut de 'A', 'D' et 'E'? Clé ou val
 
 c. Ecrire une fonction en Python codage(mot) qui prend en argument un chaine de caractère écrit en lettre capitale et qui renvoie le mot codé par le chiffrement de César. 
 
-**Exercice 8 :** ★ **Création de matrice  :** Ecrire une fonction ```matriceAlea(n:int,m:int)->list``` Python qui renvoie une matrice à n lignes et m colonnes d'entiers aléatoires entre 0 et 100. Créer la fonction qui utilise la création en compréhension 
+**<H3 STYLE="COLOR:red;">Exercice 8 :** ★ **Création de matrice  :</h3>** Ecrire une fonction ```matriceAlea(n:int,m:int)->list``` Python qui renvoie une matrice à n lignes et m colonnes d'entiers aléatoires entre 0 et 100. Créer la fonction qui utilise la création en compréhension 
 
 
 Aide : ne pas oublier d’importer le module random 
 
-**Exercice 9 :** ★★ **Carré magique  :** Un carré magique d’ordre 3 est une matrice de 3 lignes et de 3 dans laquelle des nombres sont placés de telle sorte que la somme des nombres de chaque colonne, chaque ligne et de chacune des deux diagonales soit la même. De plus, le carré doit contenir une fois chaque nombre, de 1 au nombre de cases de la grille. Ecrire un script Python qui vérifie que ce carré est magique. On pourra utiliser : 
+**<H3 STYLE="COLOR:red;">Exercice 9 :** ★★ **Carré magique  :</h3>** Un carré magique d’ordre 3 est une matrice de 3 lignes et de 3 dans laquelle des nombres sont placés de telle sorte que la somme des nombres de chaque colonne, chaque ligne et de chacune des deux diagonales soit la même. De plus, le carré doit contenir une fois chaque nombre, de 1 au nombre de cases de la grille. Ecrire un script Python qui vérifie que ce carré est magique. On pourra utiliser : 
 
 ```python
 L=[ [2,7,6],
@@ -757,7 +760,7 @@ Chacun des chiffres de 1 à 9 apparaît exactement une fois dans la grille. De p
 
 ![](Aimg020.png)
 
-**Exercice 10:** ★ **avec les chaine de caractères  :** 
+**<H3 STYLE="COLOR:red;">Exercice 10:** ★ **avec les chaine de caractères  :</H3>** 
 
 Python considère une phrase comme une séquence. Vous pouvez réaliser des essais avec cette citation célèbre du philosophe Confusius : "Je ne cherche pas à connaître les réponses, je cherche à comprendre les questions." De quelle type de séquence se rapproche-t-on? De la liste et/ou du tuple ? Faire des tests à partir de vos connaissances en python. 
 
@@ -774,7 +777,7 @@ citation.append('!')
 
 En utilisant la méthode count(), compter le nombre de 'a' dans la citation. 
 
-**Exercice 11 :** ★★ **Jeu de cartes :   **
+**<H3 STYLE="COLOR:red;">Exercice 11 :** ★★ **Jeu de cartes :</H3>**
 
 Un jeu de 32 cartes est composé de :  
 
@@ -832,7 +835,7 @@ On veut pouvoir comparer des cartes pour réaliser par exemple des jeux.
 
 9 Inventer  une  notion  de  distance  entre  deux  cartes.  Ecrire  une  fonction ```distance(carte1:tuple,carte2:tuple)->int``` qui renvoie la "distance" entre deux cartes. 
 
-**Exercice 12** ★★ **Tracé graphique**  
+**<H3 STYLE="COLOR:red;">Exercice 12** ★★ **Tracé graphique</h3>**  
 
 Matplotlib est une bibliothèque du langage de programmation Python destinée à tracer et visualiser des données sous formes de graphiques. Elle peut être combinée avec les bibliothèques python de calcul scientifique NumPy et SciPy. L’avantage de cette librairie est qu’elle est très simple d’utilisation et permet en quelques lignes de tracer des courbes par exemple. Il n’est donc pas nécessaire de passer par la phase (éventuellement longue et fastidieuse) de conception et de développement d’interfaces graphiques, pour des besoins de représentation qui peuvent être ponctuels par ailleurs. 
 
@@ -883,7 +886,7 @@ On souhaite tracer une deuxième courbe sur le même graphique précédent dont 
 Résultat attendu :  
 ![](Aimg021.png)
 
-**Exercice 13 :** ★★ **Bulletins de vote Génération des votes:**  
+**<H3 STYLE="COLOR:red;">Exercice 13 :** ★★ **Bulletins de vote Génération des votes:</h3>**  
 
 On souhaite réaliser le comptage automatique d’un dépouillement d’une élection. Votre startup reçoit un fichier texte qui contient ligne par ligne les noms des candidats qui ont reçu le vote des électeurs. 
 
@@ -978,7 +981,7 @@ print(read_ballots("votes.txt"))
 
 - On pourra utiliser la fonction sum.  [https://www.programiz.com/python-programming/methods/built-in/sum ](https://www.programiz.com/python-programming/methods/built-in/sum)![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.010.png)
 
-**Exercice 14 :** ★★★ **format EXIF Introduction** => Thonny
+**<H3 STYLE="COLOR:red;">Exercice 14 :** ★★★ **format EXIF Introduction</h3>** => Thonny
 
 ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.072.png)
 
@@ -1213,7 +1216,7 @@ except KeyboardInterrupt:
 
 21 Vérifier que toutes les fonctions soient bien documentées (docstring). 
 
-**Exercice 15 :** ★★★ **Le chiffrement de Caesar** 
+**<H3 STYLE="COLOR:red;">Exercice 15 :** ★★★ **Le chiffrement de Caesar</h3>** 
 
 ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.089.png)
 
@@ -1338,7 +1341,7 @@ Le chiffrement de César a été utilisé mais avec une clef différente de 1.
 - Ne pas oublier d’importer le module caesar et la fonction caesar()
 - La clef de chiffrement étant inconnue, il faut faire une boucle qui les teste toutes (technique de l’attaque par force brute). 
 
-**Exercice 16 :** ★★★ **Le chiffrement de Vigenère** => THONNY
+**<H3 STYLE="COLOR:red;">Exercice 16 :** ★★★ **Le chiffrement de Vigenère</h3>** => THONNY
 
 Le chiffre de Vigenère est un système de chiffrement polyalphabétique, c’est un chiffrement par substitution, mais une même lettre du message clair peut, suivant sa position dans celui-ci, être remplacée par des lettres différentes, contrairement à un système de chiffrement mono alphabétique comme le chiffre de César (qu'il utilise cependant comme composant). Cette méthode résiste ainsi à l'analyse de fréquences, ce qui est un avantage décisif sur les chiffrements mono alphabétiques. Cependant le chiffre de Vigenère a été percé par le major prussien Friedrich Kasiski qui a publié sa méthode en 1863. Depuis cette époque, il n‘offre plus aucune sécurité. 
 
@@ -1592,7 +1595,7 @@ ZCNUVJ LUYLNQL GXA PFPPJ LV XHKSA UFLPX HXJJ UFPPYL GXAGQSG JZV SHKSL GY ZCNUV X
 - Mettre  à la fin du script un print() indenté comme la dernière boucle for (pour un retour à la ligne) 
 
 
-**Exercice 17 :** ★★★ **Séquences nucléiques  Acide nucléique** 
+**<H3 STYLE="COLOR:red;">Exercice 17 :** ★★★ **Séquences nucléiques  Acide nucléique</h3>** 
 
 ![](Aspose.Words.27dc2d78-26ce-4ee4-872c-63e471312ff5.116.png)
 ![](Aimg023.png)
