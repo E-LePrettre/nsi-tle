@@ -10,7 +10,7 @@ Bienvenue en spécialité NSI (Numérique et Sciences Informatiques) ! Cette fic
 
 ---
 
-## 1. Les Logiciels à Utiliser
+## 1. <h1 style="color:blue;">Les Logiciels à Utiliser</h1>
 
 ### **1.1. Environnement de Développement :**
 
