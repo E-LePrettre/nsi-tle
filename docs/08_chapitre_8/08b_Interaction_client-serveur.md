@@ -409,17 +409,25 @@ Set-Cookie: username=JohnDoe; Expires=Wed, 21 Jul 2024 07:28:00 GMT; Path=/; Dom
 
 
 **Ligne de Statut** :
+
    - `HTTP/1.1 200 OK` : Indique que la requête a été traitée avec succès et que le serveur renvoie une réponse correcte.
 
 **En-têtes de Réponse** :
+
    - `Content-Type: text/html; charset=UTF-8` : Spécifie le type de contenu de la réponse. Ici, il s'agit de HTML encodé en UTF-8.
    
 **Set-Cookie** :
+
    - `Set-Cookie: username=JohnDoe` : Crée un cookie nommé `username` avec la valeur `JohnDoe`.
+
    - `Expires=Wed, 21 Jul 2024 07:28:00 GMT` : Date et heure d'expiration du cookie. Passée cette date, le cookie sera supprimé par le navigateur.
+
    - `Path=/` : Le cookie est disponible pour toutes les URL du domaine.
+
    - `Domain=example.com` : Le domaine pour lequel le cookie est valide. Le cookie sera envoyé pour toutes les requêtes à `example.com` et ses sous-domaines.
+
    - `Secure` : Indique que le cookie doit être envoyé uniquement via des connexions sécurisées (HTTPS).
+
    - `HttpOnly` : Indique que le cookie n'est accessible que par le serveur et ne peut pas être manipulé par le JavaScript côté client, ce qui aide à protéger contre les attaques XSS.
 
 **Utilisation Typique**
@@ -427,39 +435,43 @@ Set-Cookie: username=JohnDoe; Expires=Wed, 21 Jul 2024 07:28:00 GMT; Path=/; Dom
 Lorsqu'un client (navigateur web) reçoit cette réponse du serveur, il stocke le cookie conformément aux directives spécifiées. Par exemple :
 
 **Connexion sécurisée** :
+
    - Le cookie ne sera envoyé au serveur que lors de requêtes via HTTPS (grâce au flag `Secure`).
 
 **Accès au cookie** :
+
    - Le cookie est accessible pour toutes les pages du domaine `example.com` (grâce au flag `Path=/` et `Domain=example.com`).
 
 **Durée de vie** :
+
    - Le cookie expirera et sera supprimé automatiquement après le 21 juillet 2024 (grâce au flag `Expires`).
 
 **Protection contre XSS** :
+
    - Le cookie n'est pas accessible via JavaScript, ce qui le protège contre certaines attaques XSS (grâce au flag `HttpOnly`).
 
 ## **4. APPLICATION<a name="_page8_x40.00_y503.92"></a> : Création d’une page web dynamique**
-### **4.1. Mise<a name="_page8_x40.00_y525.92"></a> en place d’un serveur en Python ou un serveur Apache Lamp**
+
  
 ![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.067.png)
 
-2. **Mise<a name="_page8_x40.00_y565.92"></a> en place d’un serveur Apache Wamp**  
+### **4.1. Mise<a name="_page8_x40.00_y565.92"></a> en place d’un serveur Apache Wamp**  
 
 Telecharger un serveur Wamp (choisissez le exe) : UwAmp Wamp Server - Apache MySQL PHP [https://www.uwamp.com/fr/](https://www.uwamp.com/fr/)
 
 Normalement il s’installe dans C:\UwAmp
 
-**Activité n°5**. : Demarrer le serveur Wamp
+**<h2 style="color:red;">Activité n°5</h2>**. : Demarrer le serveur Wamp
 
 
 
 
-### **4.3. Formulaire<a name="_page9_x40.00_y154.92"></a> d’une page Web version php**
+### **4.2. Formulaire<a name="_page9_x40.00_y154.92"></a> d’une page Web version php**
 ![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.072.png)
 
 PHP est un langage de programmation qui s'intègre dans vos pages  HTML. Le sigle PHP est un acronyme récursif pour : PHP **Hypertext  Preprocessor** ! Il permet la **génération automatisée** (Preprocessor)  de vos pages Web (Hypertext). Celles-ci peuvent ainsi **s'adapter à la  demande ou suivant certaines conditions**. C'est pour cela que l'on  parle de pages **web dynamiques.**   
 
-Cas très simple où le serveur va renvoyer au client une simple page HTML statique. Le  serveur Web Apache a été configuré pour qu'il envoie vers le client une page HTML située  dans un répertoire nommé "www", ce répertoire "www" devant se trouver dans votre répertoire UniServerZ. 
+Cas très simple où le serveur va renvoyer au client une simple page HTML statique. Le serveur Web Apache a été configuré pour qu'il envoie vers le client une page HTML située dans un répertoire nommé "www", ce répertoire "www" devant se trouver dans votre répertoire C:\UwAmp
 
 
 
