@@ -153,6 +153,10 @@ Voici un exemple complet d'une page HTML simple :
 - `<head>` : Contient des **informations sur le document, comme le titre et les liens vers les ressources externes**.
 - `<body>` : Contient le **contenu visible et interactif de la page**.
 
+<p align="center">
+  <img src="DOM-model.svg.png" alt="DOM-model" style="width:50%;">
+</p>
+
 ![DOM-model](DOM-model.svg.png)
 
 ## <H2 STYLE="COLOR:BLUE;">4. L’organisation<a name="_page3_x40.00_y117.92"></a> d’une page HTML5</H2>
