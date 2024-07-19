@@ -1,354 +1,563 @@
 ---
 author: ELP
-title: 06a Introduction à l’algorithmique
+title: 06b Algorithmes de tri
 ---
+
 
 **Table des matières** 
 
-1. [Un peu d’histoire](#_page0_x40.00_y471.92)
-2. [Efficacité d’un algorithme](#_page1_x40.00_y36.92)
-3. [Création d’un algorithme](#_page1_x40.00_y488.92)
-4. [Complexité](#_page3_x40.00_y361.92)
-5. [Exercices](#_page7_x40.00_y36.92)
+1. [Créer une liste de données aléatoire](#_page0_x40.00_y438.92)
+2. [Le tri par sélection](#_page1_x40.00_y54.92)
+3. [Tri par insertion](#_page4_x40.00_y702.92)
+4. [Autres algorithmes de tris : le tri à bulles (Bubble sort) ](#_page8_x40.00_y36.92)
+5. [Exercices ](#_page9_x40.00_y511.92)
 
-On désigne par algorithmique l'ensemble des activités logiques qui relèvent des algorithmes ; en particulier, en informatique, cette discipline désigne l'ensemble des règles et des techniques qui sont impliquées dans la définition et la conception des algorithmes. 
+Introduction : Qu’est-ce que trier ? Pourquoi trier ? 
 
-*Sources : Stéphane Grandcolas, Didier Müller, wikipedia* 
+## <H2 STYLE="COLOR:BLUE;">1. Créer<a name="_page0_x40.00_y438.92"></a> une liste de données aléatoire</H2>
 
-## <H2 STYLE="COLOR:BLUE;">1. Un<a name="_page0_x40.00_y471.92"></a> peu d’histoire</H2>
+**<H3 STYLE="COLOR:red;">Ce premier script sera nécessaire dans tous les algorithmes de tri.</H3>**
 
-![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.001.png)
+**<H3 STYLE="COLOR:red;">Activité n°1.:** Commencer par créer des données de façon aléatoire grâce au module random afin de pouvoir les classer.</H3>
 
-Le mot « algorithme » vient du nom du mathématicien perse Al Khwarizmi (780 – 850), qui, au  9ème siècle écrivit le premier ouvrage systématique sur la solution des équations linéaires et  quadratiques. La notion d'algorithme est donc historiquement liée aux manipulations numériques,  mais elle s'est progressivement développée pour porter sur des objets de plus en plus complexes :  des textes, des images, des formules logiques, des objets physiques, etc.  
+```python
+import random
+def genere_liste_aleatoire(N, n):
+    """Génére une liste aléatoire de N éléments compris entre 0 et n"""
+    return [random.randrange(n) for i in range(N)]
 
-**Un algorithme est un énoncé d'une suite d'opérations permettant de donner la réponse à un  problème en un temps fini.**
+# Création d'une liste de 50 valeurs comprises entre 0 et 100
+liste_aleatoire = genere_liste_aleatoire(50, 100)
+print(liste_aleatoire)
+```
+???+ question "Faire ce qui est proposé"
 
-![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.003.png)
+    {{ IDE() }}
 
-## <H2 STYLE="COLOR:BLUE;">2. Efficacité<a name="_page1_x40.00_y36.92"></a> d’un algorithme</H2>
+## <H2 STYLE="COLOR:BLUE;">2. Le<a name="_page1_x40.00_y54.92"></a> tri par sélection :</H2>
+### <H3 STYLE="COLOR:GREEN;">2.1. Le<a name="_page1_x40.00_y76.92"></a> principe</H3>
 
-Un algorithme doit être **efficace**. Imaginez par exemple qu'après avoir cherché quelque chose sur un moteur de recherche, il faille attendre plusieurs heures pour avoir le résultat ! Il faut donc être attentif à ce qu'un programme soit assez rapide. Il faut trouver l'idée, l'algorithme qui soit le plus efficace pour résoudre le problème qu'il nous est posé.  
+Sur un tableau de N éléments (numérotés de 0 à N), le principe du tri par sélection est le suivant : 
 
-Regardons quelques situations pour lesquelles plusieurs algorithmes existent :  
+- **Rechercher le plus petit élément** du tableau, et l'échanger avec l'élément d'indice 0 ; 
+- **Rechercher le second plus petit élément** du tableau, et l'échanger avec l'élément d'indice 1 ; 
+- Continuer de cette façon jusqu'à ce que le tableau soit entièrement trié.
 
-Pour calculer le nombre de pages d'un livre on peut :  
+### <H3 STYLE="COLOR:GREEN;">2.2. Illustration<a name="_page1_x40.00_y201.92"></a> graphique</H3>
 
-- Compter les pages une par une (la première, la deuxième,...) jusqu'à arriver à la fin du livre. 
-- Regarder directement le numéro de la dernière page du livre. 
+![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.010.png)
 
-De même, quand on va faire ses achats avec sa liste de courses, on peut :  
+Exemple : Soit la suite de nombres suivante : 6, 1, 9, 3. Trions cette suite avec l’algorithme du tri par  sélection dans l’ordre croissant :  
 
-- Passer dans chaque rayon l'un après l'autre en prenant les produits s'ils sont sur la liste.  
-- Aller chercher dans le bon rayon chacun des produits de la liste, l'un après l'autre, dans l'ordre dans lequel ils sont écrits.  
+*1er tour* : 6, **1**, 9, 3 -> le plus petit élément du tableau est 1, on le place donc sur la première case (en  l'échangeant avec le 6).  
 
-Dans les deux situations ci-dessus, chacune des techniques proposées (des algorithmes utilisés) est correcte car elle donnera le bon résultat. Cependant, certaines sont **beaucoup plus lentes que d'autres** et on ne les utiliserait jamais en pratique. Il nous faut donc un moyen pour pouvoir comparer deux algorithmes, afin de savoir lequel sera le plus rapide.  
+*2ème tour* : 1, 6, 9, **3** -> le deuxième plus petit élément est 3, on le place sur la deuxième case et on  l’échange avec le 6.  
 
-Comme le temps d’exécution d’un programme dépend de nombreux paramètres (langage utilisé, processeur, type de mémoire,  talent  du  programmeur,  autre  programmes  en  tache  de  fond,…),  on  ne  pourra  pas  comparer  deux algorithmes en les implémentant. 
+*3ème tour* : 1, 3, 9, **6** -> le troisième plus petit élément est 6, on l’échange avec 9 pour le placer sur la  troisième case.  
 
-Reprenons le premier exemple de l'introduction et essayons de compter le nombre d'actions nécessaires pour mettre en œuvre les deux techniques proposées. On suppose que le livre contient 1000 pages.  
+*4ème tour* : 1, 3, 6, **9** -> le quatrième plus petit élément du tableau est 9, il est déjà en quatrième  position on ne fait rien.  
 
-- Technique 1 : on doit regarder chacune des pages, donc on va devoir en regarder 1000 au total. 
-- Technique 2 : on ne doit regarder que la dernière page, donc on ne regarde que 1 page au total. 
+Ce tri se décompose réellement en deux étapes distinctes : À chaque tour, on cherche le minimum dans  l'espace non trié du tableau (le minimum est représenté en bleu, et la partie non triée en blanc), ensuite on déplace cet élément à sa place définitive (représentée en vert). En faisant cela pour chaque élément du tableau, ce dernier se retrouve trié au bout de N tours maximum (N étant la taille du tableau). 
 
-La deuxième technique est donc 1000 fois plus rapide que la première sur cet exemple de livre.  
+### <H3 STYLE="COLOR:GREEN;">2.3. Illustration<a name="_page1_x40.00_y434.92"></a> en vidéo</H3>
 
-Afin d'avoir un résultat généralisable, on va supposer que le livre contient *N* pages. La technique 1 va alors regarder *N* pages au total et elle est donc *N* fois plus lente que la seconde.  
+Vidéo :[ https://ladigitale.dev/digiview/#/v/668aea84a26ef ](https://ladigitale.dev/digiview/#/v/668aea84a26ef) Attention : les danseurs s’échangent (si nécessaire) à chaque fois alors que le vrai algorithme ne procède à l’échange qu’à la fin de chaque tour  
 
-Ainsi pour évaluer l'efficacité d'un algorithme **nous allons compter le nombre d'opérations qu'il effectue**. Il sera alors bien plus facile de le comparer à un autre algorithme résolvant le même problème.  
-
-## <H2 STYLE="COLOR:BLUE;">3. Création<a name="_page1_x40.00_y488.92"></a> d’un algorithme</H2>
-### <H3 STYLE="COLOR:GREEN;">3.1. Le<a name="_page1_x40.00_y516.92"></a> pseudo-code</H3>
-
-Le pseudo-code permet de décrire facilement un algorithme avec un vocabulaire simple et sans connaissance à priori du langage de programmation utilisé pour son implémentation machine. Ce travail d’algorithmique peut se faire sans  ordinateur,  sur  une  simple  **feuille  de  papier.**  En  ayant  comme  connaissances  quelques  principes  de programmation, comme les structures de boucles et les instructions, on peut ainsi échanger en pseudo-code avec une autre personne qui utilise un langage de programmation qu’on ne maitrise pas. 
-
-### <H3 STYLE="COLOR:GREEN;">3.2. Règles<a name="_page1_x40.00_y618.92"></a> d’écriture d’un algorithme</H3>
-
-Il existe différentes manières de réaliser une trace de programme et/ou d'algorithmes. Une trace : 
-
-- permet de suivre pas à pas l'algorithme; 
-- permet de détecter des erreurs; 
-- permet de contrôler que l'algorithme fait bien ce que l'on avant prévu; 
-- permet de déterminer ce que fait un algorithme. 
-
-Dans la mesure du possible, on peut organiser une trace d'exécution d'un algorithme en **constituant un tableau avec toutes les variables de l'algorithme**.  
-
-Voici un exemple : 
-
-![](Aimg.png)
-
-Il faut numéroter toutes les lignes de l'algorithme. 
-
-![](Aimg2.png)
-
-Voici une trace de l'algorithme avec n=5. Quelle est la valeur de la variable r ? 
-
-|#ligne |n |r |Commentaires |
-| - | - | - | - |
-|1 |5 |0 |Initialisation |
-|2 |5 |0 |0\*0<=5 , on entre dans la ligne 3 |
-|3 |5 |1 |r←1 |
-|2 |5 |1 |1\*1<=5 , on entre dans la ligne 3 |
-|3 |5 |2 |r←2 |
-|2 |5 |2 |2\*2<=5 , on entre dans la ligne 3 |
-|3 |5 |3 |r←3 |
-|2 |5 |3 |3\*3>5 , on sort de la boucle |
-|4 |5 |2 |r←2 |
-
-La variable r a pour valeur 2 
-
-En mathématiques, vous auriez une version minimaliste de ce tableau, qui correspondrait à l'état des variables : 
-
-|n |5 |5 |5 |5 |5 |5 |
-| - | - | - | - | - | - | - |
-|r |0 |0 |1 |2 |3 |2 |
-
-### <H3 STYLE="COLOR:GREEN;">3.3. Recherche<a name="_page2_x40.00_y447.92"></a> du processus itératif</H3>
-
-La construction d’un algorithme qui met en jeu un processus itératif s’effectue en 4 étapes : 
-
-1. rechercher l’itération qui s’applique au processus 
-2. déterminer si le nombre d’itérations est connu 
-3. initialiser les entrées et conditions de boucles 
-4. vérifier les sorties de boucle 
-
-Exemple : en septembre 2004, un iceberg de 25 tonnes dérive depuis l’Islande et perd 10 % de sa masse chaque jour. Déterminer à partir de quel jour il reste moins d’une tonne de glace. 
-
-Solution : 
-
-1. le processus itératif est masse restante = masse iceberg – 10 % masse iceberg, appliqué à chaque jour. On incrémente le nombre de jours à chaque fois. 
-2. il n’est pas possible de connaître à l’avance le nombre de jours, on utilisera une boucle tantque. 
-3. on entre dans la boucle si masse restante est initialisée et masse restante > 1 tonne. Au départ le nombre de jour est 1. 
-4. l’opération masse restante = masse iceberg – 10 % masse iceberg converge vers 0 < 1 tonne, on termine forcément. 
+### <H3 STYLE="COLOR:GREEN;">2.4. Pseudo-code<a name="_page1_x40.00_y485.92"></a></H3>
 
 ```
-nombre de jours := 1
-masse restante := masse iceberg
-tantque masse restante > 1 tonne faire
+ALGORITHME tri_selection
+    PROCEDURE echange (T, i, j)      # on échange la valeur de T[i] avec celle de T[j]
+        tmp <- T[i]                 # variable temporaire pour stocker
+        T[i] <- T[j]
+        T[j] <- tmp
 
-
-    masse restante := masse restante – 10 % masse restante
-    nombre de jours := nombre de jours + 1
+    PROCEDURE tri_sélection (T)
+        POUR i ALLANT DE 1 A N [SAUT DE 1] FAIRE    # parcours 
+            mini <- i                                # on stocke l'indice du premier terme
+            POUR j ALLANT DE i+1 A N [SAUT DE 1]    # parcours
+                SI T[j] < T[mini] ALORS         	# si la valeur stockée n'est pas la plus petite
+                    mini <- j                       
+                FIN SI
+                j <- j + 1
+            FIN POUR
+            SI mini =! i ALORS        		  	# condition non nécessaire!
+                echange(T, i, mini)            	# on appelle la procédure d'échange
+            FIN SI
+            i <- i + 1
+        FIN POUR    
 ```
 
-### <H3 STYLE="COLOR:GREEN;">3.4. Correction<a name="_page3_x40.00_y125.92"></a></H3>
+### <H3 STYLE="COLOR:GREEN;">2.5. Complexité<a name="_page2_x40.00_y36.92"></a></H3>
 
-Pour s'assurer qu'un algorithme est correct, il faut démontrer deux choses :
+Le tri par sélection a une complexité en O(N²) : Calculons le nombre d’itérations 
 
-1. que l'algorithme se termine (**terminaison**), autrement dit qu'il **ne boucle pas** ou ne diverge pas, produisant au moins un résultat. 
-2. que  le  résultat  de  l'algorithme  **satisfait  la  spécification  du  résultat**  comme  énoncé  dans  la description de l'algorithme (**correction partielle**). 
+```
+                            PROCEDURE echange (T, i, j)
+1                               tmp <- T[i]                                 	
+1                               T[i] <- T[j]				
+1                               T[j] <- tmp	
+			
+                            PROCEDURE tri_sélection (T)
+N fois                          POUR i ALLANT DE 1 A N [SAUT DE 1] FAIRE  
+    1                               mini <- i                                		
+    N-1 fois                        POUR j ALLANT DE i+1 A N [SAUT DE 1]                         
+        1                               SI T[j] < T[mini] ALORS              			
+        1 (pire cas)                        mini <- j     					               
+                                        FIN SI
+        1+1 pour le calcul              j <- j + 1				
+                                    FIN POUR
+    N-1 (pire cas)                  SI mini =! i FAIRE                       		
+                                        echange(T, i, mini)           
+                                    FIN SI
+    1+1 pour le calcul              i <- i + 1					
+                                FIN POUR    
+```
 
-La conjonction de la **correction partielle et de la terminaison** s'appelle la **correction totale.** 
+Procédure d’échange 3 opérations pour chaque échange 
 
-**Remarque pour aller plus loin** : **Correction d’un algorithme itératif :**  L'argument principal de la démonstration de la correction partielle d'un algorithme itératif est la recherche d'un **invariant de boucle**.  
+Procédure tri\_sélection : 
 
-Un invariant est un **prédicat** portant sur les variables du programme qui doit être stable lors de l'exécution de la boucle :  **l'invariant est satisfait avant, pendant et après l'exécution du corps de la boucle**. 
+- Boucle « POUR j ALLANT DE i+1 A N» : (N-1) x 4 
+- Si min =! i FAIRE echange (T, T[i], T[min]) : (N-1) x 3       
+- Boucle « POUR i ALLANT DE 1 A N» : N x (1 + (N-1) x 4 + (N-1) x 3 +2)  
 
-## <H2 STYLE="COLOR:BLUE;">4. Complexité<a name="_page3_x40.00_y361.92"></a></H2>
+Donc le nombre d’itérations dans le pire des cas : N x (3+4N-4+3N-3) = N x (7N – 4) = 7 N² -4 N 
 
-Un algorithme est implémenté dans un langage spécifique (Java, C, Python,...) et va s'exécuter sur une machine. 
+*Pour aller plus loin : De la même manière en ne s’intéressant qu’aux boucle, dans le pire des cas, chaque élément est inséré au début de la partie trié. Dans ce cas, tous les éléments de la partie triée doivent être déplacés à chaque itération. La ième itération génère (i-1) comparaisons et échanges de valeurs :* 
 
-La durée d'exécution du programme va dépendre du nombre d'instructions élémentaires mobilisées lors de son exécution. On parle alors de **complexité temporelle.** 
+![](Aimg7.png)
 
-Le programme va également mobiliser un certain nombre de ressources machines, en particulier la mémoire. On parle alors de complexité spatiale.  
+**Conclusion** : Le **tri par sélection** est donc un algorithme assez simple, mais peu efficace à cause de sa complexité en **O(N²) dans le meilleur des cas ou dans le pire des cas.**  
 
-Être capable d'évaluer la complexité d'un algorithme est importante, tout particulièrement, dans le cadre du traitement de données importantes (big data). Cela va permettre de sélectionner l'algorithme le plus performant en fonction des données à traiter. 
+On parle aussi de **complexité quadratique.** 
 
-On va donc effectuer des calculs sur l’algorithme en lui-même, dans sa version "papier". Les résultats de ces calculs fourniront une **estimation du temps d’exécution de l’algorithme lors de son fonctionnement.** 
+Le tri par sélection sert de base à d'autres algorithmes plus efficaces que nous étudierons plus tard. C’est un tri instable et en place (travail sur la structure et non sur une copie).
 
-### <H3 STYLE="COLOR:GREEN;">4.1. Complexité<a name="_page3_x40.00_y529.92"></a> temporelle</H3>
-#### <H4 STYLE="COLOR:MAGENTA;">4.1.1. Règles<a name="_page3_x40.00_y549.92"></a> de calcul</H4>
+### <H3 STYLE="COLOR:GREEN;">2.6. Stabilité<a name="_page2_x40.00_y632.92"></a> d’un algorithme</H3>
 
-Pour calculer la complexité, il faut examiner chaque ligne de code et l'y attribuer un **coût en temps.** 
+On dit qu'un algorithme de tri est ***stable
 
-Le coût ainsi obtenu n'aura pas d'unité, il s'agit d'un nombre d'opérations dont chacune aurait le même temps d’exécution : 1. Les opérations qui vont devoir être comptabilisées sont : 
+*** s'il ne modifie pas l'ordre initial des clés identiques. 
 
-- Les affectations comptent pour 1 unité de temps: a←2 
+Par exemple, imaginez que vous vouliez trier la collection de bouteilles ci-dessous par ordre de volume (le volume est indiqué sous la bouteille) : 
 
-- Les comparaisons comptent pour 1 unité de temps: 2<3  
+![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.016.png)
 
-- L'accès aux mémoires  comptent pour une 1 unité de temps et afficher pour 2 unités de temps: Lire a  Afficher a 
-- Chaque opération élémentaire compte pour une 1 unité de temps : 3+2  
 
-Déterminons le coût de la ligne de code suivante : 
+Si vous obtenez ceci, alors votre tri n'était **pas stable** : 
 
-a←a+1 
+![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.017.png)
 
-T(n) = 1(affectation) + 1(accès à la mémoire) + 1(addition) = 3 
+En effet, la bouteille noire de volume *1* se trouve maintenant avant la bouteille bleue de même volume alors qu'elle devrait être après. Il en est de même pour les deux bouteilles de volume *4* qui sont inversées par rapport à l'ordre initial. 
 
-On ne comptera **pas la définition des fonctions**. 
+Avec un **tri stable**, on aurait obtenu : 
 
-#### <H4 STYLE="COLOR:MAGENTA;">4.1.2. Algorithmes<a name="_page4_x40.00_y124.92"></a> sans structure de contrôle</H4>
+![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.018.png)
 
-**<H3 STYLE="COLOR:red;">Activité n°1.:** Le coût T(n) de cet algorithme écrit en python.</H3>
+L'intérêt d'un tri stable est **qu'on peut appliquer ce tri successivement, avec des critères différents.**  
 
-![](Aimg3.png)
+### <H3 STYLE="COLOR:GREEN;">2.7. Preuve<a name="_page3_x40.00_y297.92"></a> de correction</H3>
 
-T(n) = 1(//) + 1(affectation) + 1 (mémoire) + 1(\*) + 1(-) + 1(//) + 1(affectation) + 2 (mémoire) + 1(%) + 1 affectation + 1 (mémoire) + 3(accès mémoire) = 15 
+#### <H4 STYLE="COLOR:MAGENTA;">2.7.1.	Correction</H4>
+Pour prouver la correction de cet algorithme, nous définissons un **invariant de boucle** qui doit être vrai avant et après chaque itération de la boucle externe for. L’invariant est le suivant :
 
-![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.018.png)
+Invariant de boucle : À chaque début de l’itération de l’indice i de la boucle externe, les éléments T[0] à T[i-1] sont triés et sont les i plus petits éléments du tableau original.
 
-Le coût C est constant et ne dépend pas de n, on le note alors O(1) en notation de Landau.  
+1 **Initialisation** : Avant la première itération de la boucle externe (i = 0), il n’y a pas d’éléments dans la partie triée, donc l’invariant est trivialement vrai.
 
-O caractérise le comportement asymptotique quand n → +∞.  
+2 **Maintien** : Supposons que l’invariant est vrai au début de l’itération pour un certain i. Nous devons montrer qu’il reste vrai après la fin de cette itération.
 
-#### <H4 STYLE="COLOR:MAGENTA;">4.1.3. Algorithmes sans structure conditionnelle</H4>
+- Pendant l’itération, l’algorithme trouve l’index du plus petit élément dans la sous-liste T[i] à T[n-1] et le place en T[i] par un échange, avec n = len(T)
 
-**<H3 STYLE="COLOR:red;">Activité n°2.:** On s’intéresse à la fonction (−1)<sup>n</sup>.  Le coût T(n) de cet algorithme écrit en python.</H3>
+- Après cet échange, T[i] est le i-ème plus petit élément du tableau original, et les éléments T[0] à T[i] sont triés et sont les i+1 plus petits éléments du tableau original.
 
-![](Aimg4.png)
+- Ainsi, à la fin de l’itération, les éléments T[0] à T[i] sont triés et sont les i+1 plus petits éléments du tableau original, ce qui montre que l’invariant est maintenu.
 
-T(n) = 1(comparaison) + 1(%) + 1 (mémoire) + 1(affectation) + 1(accès mémoire) = 5 
+3 **Terminaison** : La boucle se termine lorsque i atteint n. À ce moment-là, i = n, donc tous les éléments T[0] à T[n-1] sont triés. L’invariant garantit que ces éléments sont les plus petits éléments du tableau original et qu’ils sont triés.
 
-#### <H4 STYLE="COLOR:MAGENTA;">4.1.4. Algorithmes<a name="_page4_x40.00_y507.92"></a> avec structure itérative</H4>
+En utilisant cet invariant de boucle, nous avons prouvé que l’algorithme de tri par sélection est **correct**. L’invariant de boucle nous permet de démontrer que l’algorithme maintient la partie triée du tableau correctement à chaque itération et qu’il termine avec l’ensemble du tableau trié.
 
-**<H3 STYLE="COLOR:red;">Activité n°3.:** On s’intéresse à la fonction qui utilise une structure for pour calculer la somme des n premiers entiers. Le coût T(n) de cet algorithme écrit en python.</H3>
+#### <H4 STYLE="COLOR:MAGENTA;">2.7.2.	Terminaison</H4>
+Pour prouver la terminaison de l'algorithme de tri par sélection, nous devons utiliser un **variant de boucle** pour montrer que la boucle externe et la boucle interne de l'algorithme se terminent après un nombre fini d'itérations.
 
-![](Aimg5.png)
+- Variant de Boucle pour la Boucle Externe : Pour la boucle externe for de l'algorithme de tri par sélection, le variant de boucle est simplement l'indice i qui va de 0 à n-1. La boucle externe se termine lorsque i atteint n. À ce moment-là, n - i = 0, donc la boucle externe se termine.
 
-T(n)   = 1(affectation) + (n + 1) \*[1(+) +1(affectation) +1(mémoire) +1(affectation)] + 1(accès mémoire)  
+- Variant de Boucle pour la Boucle Interne : Pour la boucle interne for de l'algorithme de tri par sélection, le variant de boucle est l'indice j qui va de i + 1 à n-1. La boucle interne se termine lorsque j atteint n. À ce moment-là, n - j = 0, donc la boucle interne se termine.
 
-= 1 + (n + 1) \* 4 + 1  
-= 2 + 4n + 4
-= 4n + 6
+Puisque les deux boucles terminent après un nombre fini d'itérations, nous avons prouvé que l'algorithme de tri par sélection **termine toujours**.
 
-La complexité de cet algorithme est dite **linéaire.**  
-
-Ce sera le cas de tous les algorithmes avec un coût du type : **T(n)=an + b** où a et b sont des réels. 
-
-Ici, le coût dépend linéairement du nombre d’éléments à traiter. On le note O(n).
-
-#### <H4 STYLE="COLOR:MAGENTA;">4.1.5. Algorithmes<a name="_page5_x40.00_y36.92"></a> avec deux structures itératives imbriquées</H4>
-
-**<H3 STYLE="COLOR:red;">Activité n°4.:** On considère que la taille des listes mots et fichiers\_test sont de n.  La complexité T(n) de cet algorithme écrit en python.</H3>
-
-![](Aimg6.png)
-
-T(n)  = 1(affectation)+n\*[n \*[1(comparaison)+1(affectation+1(mémoire))]+1(mémoire)  
-
-= 1 + n \* (n \* 3) + 1  
-= 2 + 3 n²  
-
-La complexité de cet algorithme est dite **quadratique**.  
-
-Ce sera le cas de tous les algorithmes avec un coût du type : **T(n)=an² + bn + c** où a, b et c sont des réels. 
-
-Le coût est fonction du carré du nombre d’éléments à traiter. On le note O(n²).
-
-### <H3 STYLE="COLOR:GREEN;">4.2. Complexité<a name="_page5_x40.00_y322.92"></a> en espace</H3>
-
-La complexité en espace est une mesure de l'espace utilisé par un algorithme, exprimé comme fonction de la taille de l'entrée. L'espace compte le nombre maximum de cases mémoire utilisées simultanément pendant un calcul. 
-
-### <H3 STYLE="COLOR:GREEN;">4.3. Echelle<a name="_page5_x40.00_y386.92"></a> de comparaisons</H3>
-
-L'étude des différents algorithmes proposés dans la suite des activités (Tris, Recherche, Knn,...) permettra de mettre en évidence les différents ordres de grandeur suivants.  
-
-|**Ordre de complexité**|**Exemples** |**Type de complexité** |
-| - | - | - |
-|O(1) |Ici la complexité ne dépend pas des données. Accès à une cellule d'un tableau. |constante |
-|O(log(n)) |Algorithme divisant le problème par une constante k. O(log(n)) pour la recherche dichotomique  |Logarithmique |
-|O(n) |Parcours de liste. |linéaire |
-|O(n.log(n)) |Algorithme  divisant  le  problème  en  nombre  de  sous-problèmes constants, dont les résultats sont réutilisés par recombinaison (Ex Tri fusion). |quasi-linéaire |
-|O(n²) |Algorithme  traitant  généralement  de  couples  de  données  (boucles imbriquées). Parcours d'une matrice de pixels. |quadratique |
-
-![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.032.jpeg)
-
-Comparaison des temps d’exécution d’algorithmes de différentes complexités 
-
-![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.033.jpeg)
-
-Si on double la taille d’un tableau : 
-
-- Pour un algorithme de complexité n, le temps d’exécution est doublé 
-- Pour un algorithme de complexité n², le temps d’exécution est quadruplé 
-- Pour un algorithme de complexité log<sub>2</sub>(n), le temps d’exécution prend une unité. 
-
-RESSOURCES : 
-
-- Vidéo (définition de la complexité) :[ https://www.youtube.com/watch?v=exaHKrP6RsA ](https://www.youtube.com/watch?v=exaHKrP6RsA)
-- Vidéo (calcul de complexités) :[ https://www.youtube.com/watch?v=clZ4q5zPBlE ](https://www.youtube.com/watch?v=clZ4q5zPBlE)![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.002.png)
-
-## <H2 STYLE="COLOR:BLUE;">5. Exercices<a name="_page7_x40.00_y36.92"></a></H2>
+### <H3 STYLE="COLOR:GREEN;">2.8. Implémentation<a name="_page3_x40.00_y497.92"></a> en Python</H3>
 
 => CAPYTALE Le code vous sera donné par votre enseignant
 
-**<H3 STYLE="COLOR:red;">Exercice 1** : Calculer le coût de cet algorithme</H3>
+**<H3 STYLE="COLOR:red;">Activité n°2.:** Création de la liste aléatoire **avec l’activité 1**</H3>
 
-```
-largeur <- LireEntier() 
-longueur <- LireEntier() 
-aire <- largeur * longueur 
-perimetre <- (largeur + longueur) * 2 
-Afficher aire 
-Afficher perimetre 
-```
+```python
+import random
+def genere_liste_aleatoire(N, n):
+    """Génére une liste aléatoire de N éléments compris entre 0 et n"""
+    return [random.randrange(n) for i in range(N)]
 
-**<H3 STYLE="COLOR:red;">Exercice 2** : Calculer le coût de cet algorithme</H3>
-
-```
-nbLivres <- LireEntier() 
-Si nbLivres < 10 
-    prix <- nbLivres * 10 
-Sinon 
-    prix <- nbLivres * 9 
-Afficher prix 
+# Création d'une liste de 5 valeurs comprises entre 0 et 20 à trier
+data = genere_liste_aleatoire(5, 20)
+print("Liste initiale: ", data)
 ```
 
-**<H3 STYLE="COLOR:red;">Exercice 3** : Calculer le coût de cet algorithme</H3>
+**<H3 STYLE="COLOR:red;">Activité n°3.:** implémentation classique : AJOUTER à l’activité 2 les deux fonctions suivantes à compléter avec l'algorithme précédent :</H3>
 
-```
-X <- 1 
-Tant que X <= 100 
-    Afficher "Bonjour !"    
-    X <- X + 1 
-```
+```python
+def swap(T : list, i : int, j : int) -> list:
+    """ fonction permutation (à garder elle sert beaucoup!!)  """
+    # à compléter
 
-**<H3 STYLE="COLOR:red;">Exercice 4** : Calculer le coût de cet algorithme</H3>
+def selection_sort(T : list) -> list:
+    """ fonction tri par sélection recherche de la valeur minimum dans une liste
+    puis permutation avec indice précédent """
+    # à compléter
 
-```
-total <- 0 
-i <- 1 
-Tant que i <= 100 
-    total <- total + i    
-    i <- i + 1 
-Afficher total 
+print("Liste triée   : ", selection_sort(data))
 ```
 
-**<H3 STYLE="COLOR:red;">Exercice 5** : Calculer le coût de cet algorithme</H3>
+**<H3 STYLE="COLOR:red;">Activité n°4.:** Tri par sélection et temps d’exécution : AJOUTER ce script aux fonctions de l’activité précédente en mettant en commentaire les deux print précédent :</H3>
+
+```python
+import time
+
+# on fait une moyenne sur plusieurs tris de tableau de même longueur
+somme_des_durees = 0
+for i in range(5):
+    liste = genere_liste_aleatoire(1_000, 1_000_000)
+    start_time=time.time()
+    selection_sort(liste)
+    somme_des_durees = somme_des_durees + time.time() - start_time
+moyenne = somme_des_durees/5
+print("Temps d execution pour 1_000: %s secondes ---" % (moyenne))
+
+
+somme_des_durees = 0
+for i in range(5):
+    liste = genere_liste_aleatoire(2_000, 1_000_000)
+    start_time=time.time()
+    selection_sort(liste)
+    somme_des_durees = somme_des_durees + time.time() - start_time
+moyenne = somme_des_durees/5
+print("Temps d execution pour 2_000: %s secondes ---" % (moyenne))
+
+
+somme_des_durees = 0
+for i in range(5):
+    liste = genere_liste_aleatoire(10_000, 1_000_000)
+    start_time=time.time()
+    selection_sort(liste)
+    somme_des_durees = somme_des_durees + time.time() - start_time
+moyenne = somme_des_durees/5
+print("Temps d execution pour 10_000: %s secondes ---" % (moyenne))
+```
+On mesure la durée moyenne (sur 5 tableaux) d’exécution du tri sur des tableaux dont le nombre d’éléments est de plus en plus grand.
+
+On voit bien que multiplier par 10 le nombre d’éléments du tableau à trier revient à multiplier le temps par 10². 
+
+**Animation :[** http://lwh.free.fr/pages/algo/tri/tri_selection.html ](http://lwh.free.fr/pages/algo/tri/tri_selection.html)**
+
+## <H2 STYLE="COLOR:BLUE;">3. Tri<a name="_page4_x40.00_y702.92"></a> par insertion</H2>
+### <H3 STYLE="COLOR:GREEN;">3.1. Le<a name="_page4_x40.00_y724.92"></a> principe</H3>
+
+Le tri par insertion est un algorithme de **tri stable** et le plus rapide en pratique sur une entrée de petite taille. ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.006.png)
+
+**Principe de l’algorithme :** Le principe du tri par insertion est de trier les éléments du tableau comme avec des cartes:** 
+
+- On prend nos cartes mélangées dans notre main. 
+- On crée deux ensembles de carte, l’un correspond à l’ensemble de carte triée, l’autre contient l’ensemble des cartes restantes (non triées). 
+- On
+
+ prend au fur et à mesure, une carte dans l’ensemble non trié et on l’insère à sa bonne place dans l’ensemble de carte triée. 
+- On répète cette opération tant qu’il y a des cartes dans l’ensemble non trié. 
+
+Dans l'algorithme, on parcourt le tableau à trier du début à la fin. Au moment où on considère le i-ème élément, les éléments qui le précèdent sont déjà triés.  ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.036.png)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.037.png)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.038.png)
+
+L'objectif d'une étape est donc d'insérer le i-ème élément à sa place parmi ceux qui précèdent. Il faut pour cela : 
+
+- **trouver où l'élément** doit être inséré en le comparant aux autres,  
+- puis **décaler les éléments** afin de pouvoir effectuer l'insertion.  
+
+En pratique, ces deux actions sont fréquemment effectuées en une passe, qui consiste à faire « remonter » l'élément au fur et à mesure jusqu'à rencontrer un élément plus petit. 
+
+### <H3 STYLE="COLOR:GREEN;">3.2. Illustration<a name="_page5_x40.00_y290.92"></a> graphique</H3>
+
+![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.039.png)
+
+Exemple : 9, 2, 7, 1 à trier en ordre croissant avec l’algorithme du tri par insertion :  
+
+*1er tour* : 9 | **2**, 7, 1 -> à gauche la partie triée du tableau (le premier élément est considéré comme trié  puisqu'il est seul dans cette partie), à droite la partie non triée. On prend le premier élément de la partie  non triée, 2, et on l'insère à sa place dans la partie triée, c'est-à-dire à gauche de 9.  
+
+*2ème tour* : 2, 9 | **7**, 1 -> on prend 7, et on le place entre 2 et 9 dans la partie triée.  
+
+*3ème tour* : 2, 7, 9 | **1** -> on continue avec 1 que l’on place au début de la première partie.  
+
+Pour insérer un élément dans la partie triée, on parcourt de droite à gauche tant que l'élément est plus  grand que celui que l'on souhaite insérer. Pour résumer l'idée de l'algorithme : La partie verte du tableau  est la partie triée, l'élément en bleu est le prochain élément non trié à placer et la partie blanche est la  partie non triée. 
+
+### <H3 STYLE="COLOR:GREEN;">3.3. Illustration<a name="_page5_x40.00_y491.92"></a> vidéo</H3>
+
+Vidéo :[ https://ladigitale.dev/digiview/#/v/668aed171ea50 ](https://ladigitale.dev/digiview/#/v/668aed171ea50)
+
+### <H3 STYLE="COLOR:GREEN;">3.4. Pseudo-code<a name="_page5_x40.00_y542.92"></a></H3>
 
 ```
-iMax <- LireEntier() 
-total <- 0 
-i <- 1 
-Tant que i <= iMax 
-    total <- total + i    
-    i <- i + 1 
-Afficher total 
+ALGORITHME tri_insertion
+    PROCEDURE insere(T, i)            # insère tmp dans le tableau[0...i[ trié
+        tmp = T[i]          			# valeur à inserer
+        j <- i-1		    		# indice en cours                                                        
+        TANT QUE j >= 0 et T[j] > tmp ALORS        
+            T[j+1] <- T [j]         
+	     # l'élément qui précède on le décale vers la droite jusqu'à laisser la place libre à tmp           
+            j <- j - 1              	# on décale l'indice
+        FIN TANT QUE
+        T[j+1] <- tmp   			# on insère tmp
+
+    PROCEDURE tri_insertion(T)     
+        POUR i ALLANT DE 1 A n [SAUT DE 1] FAIRE         
+            insere (T, i)             
+            i <- i + 1                                     
+        FIN POUR
 ```
 
-**<H3 STYLE="COLOR:red;">Exercice 6** : Calculer le coût de cet algorithme</H3>
+### <H3 STYLE="COLOR:GREEN;">3.5. Complexité<a name="_page6_x40.00_y36.92"></a></H3>
+
+L’algorithme du tri par insertion a une complexité de O(N²). Calculons le nombre d’instructions : 
 
 ```
-iMax <- LireEntier() 
-total <- 0 
-Tant que iMax > 0 
-    total <- total + iMax    
-    iMax <- iMax - 1 
-Afficher total 
+                        PROCEDURE insere(T, i)                     
+1                           tmp = T[i]
+1                           j <- i                                                          
+N-1 fois                    TANT QUE j >= 0 et T[j] > tmp ALORS        
+    1                           T[j+1] <- T [j]                         
+    1                           j <- j - 1                              
+                            FIN TANT QUE
+1                           T[j+1] <- tmp                                   
+                        PROCEDURE tri_insertion(T)                                                         
+N fois                      POUR i ALLANT DE 1 A n [SAUT DE 1] FAIRE         
+    insere                      insere (T, i)             
+    1                           i <- i + 1                                     
+                            FIN POUR
 ```
 
-**<H3 STYLE="COLOR:red;">Exercice 7** : Calculer le coût de cet algorithme</H3>
+- Procédure insere : 2 + (N – 1) x 2 + 1 = 3 + (N – 1) x 2 = 2 N + 2
+- Procédure tri\_insertion : N x (2N + 2) = 2 N² + 2 N 
 
+Pour simplifier les calculs de complexité, on s’intéresse seulement aux nombres de itérations des boucles, puisque c’est elles qui vont donner le comportement asymptotique (quand N très grand). 
+
+*Pour aller plus loin : Exemple t = [ 4, 3, 2, 1]* 
+
+*Le 2ème élément : le « 3 » est décalé d’un cran vers la gauche [ 3, 4, 2, 1]* 
+
+*Le 3ème élément : le « 2 » est décalé de deux crans vers la gauche [ 2, 3, 4, 1]* 
+
+*Le 4ème élément : le « 1 » est décalé de trois crans vers la gauche [ 1, 2, 3, 4]* 
+
+*Pour trouver le plus petit élément, (n-1) itérations sont nécessaires, pour le 2ème plus petit élément, (n-2) itérations sont effectuées, .… Pour trouver le dernier plus petit élément, 0 itération sont effectuées.* 
+
+*Le nombre de itérations des deux boucles est 1 + 2 + 3 = 6 c’est-à-dire* ![](Aimg8.png)
+
+*Donc le pire des cas, le tableau est trié à l’envers, pour chaque valeur i on compte N - 1 passages dans la boucle for :* 
+
+![](Aimg7.png)
+
+**Conclusion** : le **tri par insertion** a une complexité en temps de **O(N²) dans le pire des cas O(N) dans le meilleur des cas (tableau déjà trié).**  
+
+Cependant des améliorations et des variantes permettent de le rendre plus rapide comme le tri shell. C’est un algorithme stable et en place (travail sur la structure et non sur la copie).
+
+### <H3 STYLE="COLOR:GREEN;">3.6. Preuve<a name="_page6_x40.00_y637.92"></a> de correction</H3>
+
+#### <H4 STYLE="COLOR:MAGENTA;">3.6.1.	Correction</H4>
+Pour prouver la correction de cet algorithme, nous définissons un **invariant de boucle** qui doit être vrai avant et après chaque itération de la boucle externe for. L’invariant est le suivant :
+
+Invariant de boucle : À chaque début de l’itération de l’indice i de la boucle externe, les éléments T[0] à T[i-1] sont triés.
+
+1 **Initialisation** : Avant la première itération de la boucle externe (i = 1), il n’y a qu’un seul élément dans la partie considérée du tableau (T[0]), qui est trivialement trié. Donc l’invariant est vrai.
+
+2 **Maintien** : Supposons que l’invariant est vrai au début de l’itération pour un certain i. Nous devons montrer qu’il reste vrai après la fin de cette itération.
+
+- Pendant l’itération, l’algorithme sélectionne tmp = T[i] et cherche sa place correcte dans la sous-liste triée T[0] à T[i-1].
+
+- La boucle while déplace les éléments plus grands que tmp d’une position vers la droite pour faire de la place pour tmp.
+
+- Après avoir trouvé la place correcte pour tmp, l’algorithme insère tmp à cette position.
+
+- À la fin de cette itération, les éléments T[0] à T[i] sont triés.
+Ainsi, l’invariant est maintenu, car après chaque itération, les éléments T[0] à T[i] sont triés.
+
+3 **Termina
+
+ison** : La boucle se termine lorsque i atteint n. À ce moment-là, i = n, donc tous les éléments T[0] à T[n-1] sont triés. L’invariant garantit que ces éléments sont triés.
+
+En utilisant cet invariant de boucle, nous avons prouvé que l’algorithme de tri par insertion est **correct**. L’invariant de boucle nous permet de démontrer que l’algorithme maintient la partie triée du tableau correctement à chaque itération et qu’il termine avec l’ensemble du tableau trié.
+
+#### <H4 STYLE="COLOR:MAGENTA;">3.6.2.	Terminaison</H4>
+Pour prouver la terminaison de l'algorithme de tri par insertion, nous devons utiliser un **variant de boucle**. Un variant de boucle est une fonction numérique qui décroît à chaque itération de la boucle et qui est bornée inférieurement.
+
+- Variant de Boucle pour la Boucle Externe : Pour la boucle externe for de l'algorithme de tri par insertion, le variant de boucle est simplement l'indice i qui va de 1 à n-1. La boucle externe se termine lorsque i atteint n. À ce moment-là, n - i = 0, donc la boucle externe se termine.
+
+- Variant de Boucle pour la Boucle Interne : Pour la boucle interne while de l'algorithme de tri par insertion, le variant de boucle est l'indice j qui est initialisé à i - 1 et qui décroît jusqu'à ce que la condition j >= 0 ou T[j] > tmp ne soit plus satisfaite. La boucle interne se termine lorsque j devient négatif ou lorsque T[j] <= tmp. Dans les deux cas, la condition de la boucle while n'est plus satisfaite et la boucle se termine.
+
+Puisque les deux boucles terminent après un nombre fini d'itérations, nous avons prouvé que l'algorithme de tri par insertion **termine toujours**.
+
+### <H3 STYLE="COLOR:GREEN;">3.7. Implémentation<a name="_page7_x40.00_y36.92"></a> en Python</H3>
+
+=> CAPYTALE Le code vous sera donné par votre enseignant
+
+**<H3 STYLE="COLOR:red;">Activité n°5.:** Création de la liste aléatoire **avec l’activité 1** : reprendre l’activité 1 et 2</H3>
+
+**<H3 STYLE="COLOR:red;">Activité n°6.:** implémentation classique : ajouter à l’activité précédente les deux fonctions suivantes :</H3>
+
+```python
+def insert(T, i):
+    """ fonction qui insère la valeur T[i] à la bonne place dans le tableau"""
+    # à compléter
+
+def insertion_sort(T):
+    """ fonction tri par insertion parcours du vecteur avec décalage ascendant des éléments """
+    # à compléter
+
+print("Liste triée   : ", insertion_sort(data))
 ```
-taille <- LireEntier()			1
-X <- 0						    2
-Tant que X < taille				3
-   Y <- 0					    4
-   Tant que Y < taille			5
-      Si X = Y					6
-         Afficher "X"			7
-      Sinon					    8
-         Afficher "."			9		
-      Y <- Y + 1				10
-   Retour à la ligne			11
-   X <- X + 1		            12
+
+**Remarque : on aurait pu également faire une seule fonction**  
+
+**<H3 STYLE="COLOR:red;">Activité n°7.:** Tri par insertion et temps d’exécution : ajouter ce script aux fonctions de l’activité précédente en mettant en commentaire les deux print précédent :</H3>
+
+```python
+import time
+
+# on fait une moyenne sur plusieurs tris de tableau de même longueur
+somme_des_durees = 0
+for i in range(5):
+    liste = genere_liste_aleatoire(1_000, 1_000_000)
+    start_time=time.time()
+    insertion_sort(liste)
+    somme_des_durees = somme_des_durees + time.time() - start_time
+moyenne = somme_des_durees/5
+print("Temps d execution pour 1_000: %s secondes ---" % (moyenne))
+
+somme_des_durees = 0
+for i in range(5):
+    liste = genere_liste_aleatoire(2_000, 1_000_000)
+    start_time=time.time()
+    insertion_sort(liste)
+    somme_des_durees = somme_des_durees + time.time() - start_time
+moyenne = somme_des_durees/5
+print("Temps d execution pour 2_000: %s secondes ---" % (moyenne))
+
+somme_des_durees = 0
+for i in range(5):
+    liste = genere_liste_aleatoire(10_000, 1_000_000)
+    start_time=time.time()
+    insertion_sort(liste)
+    somme_des_durees = somme_des_durees + time.time() - start_time
+moyenne = somme_des_durees/5
+print("Temps d execution pour 10_000: %s secondes ---" % (moyenne))
 ```
+On mesure la durée moyenne (sur 5 tableaux) d’exécution du tri sur des tableaux dont le nombre d’éléments est de plus en plus grand.
+
+**Animation :[ http://lwh.free.fr/pages/algo/tri/tri_insertion.html ](http://lwh.free.fr/pages/algo/tri/tri_insertion.html)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.006.png)**
+
+## <H2 STYLE="COLOR:BLUE;">4. Autres<a name="_page8_x40.00_y36.92"></a> algorithmes de tris : le tri à bulles (Bubble sort)</H2>
+
+Le tri à bulles est un algorithme de tri qui consiste à faire  **remonter  progressivement les plus petits éléments d'une liste**, comme les bulles  d'air remontent à la surface d'un liquide. 
+
+![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.055.png)
+
+L'algorithme  parcourt  la  liste,  et  **compare  les  couples  d'éléments  successifs**.   
+
+Lorsque deux éléments successifs ne sont pas dans l'ordre croissant, **ils  sont échangés**.   
+
+Après chaque parcours complet de la liste, l'algorithme **recommence l'opération**. Lorsque aucun échange n'a lieu pendant un parcours, cela signifie que la liste est triée : l'algorithme peut s'arrêter. 
+
+On optimise l’algorithme en se basant sur la propriété que le dernier élément permuté se trouve nécessairement bien trié. Il n’est alors pas besoin de parcourir la liste jusqu’à la fin : combsort (tri à peignes) 
+
+**Conclusion** : Le tri à bulles présente une complexité en **O(N²)** dans le pire des cas (où N est la longueur de la liste), et en O(N) dans le cas où le tableau est déjà trié, ce qui le classe parmi les mauvais algorithmes de tri. Il n'est donc quasiment pas utilisé en pratique. 
+
+Comme le tri par insertion, le tri à bulle est un tri stable. 
+
+Illustration vidéo :[ https://ladigitale.dev/digiview/#/v/668aed8c3bab4 ](https://ladigitale.dev/digiview/#/v/668aed8c3bab4) 
+
+=> CAPYTALE Le code vous sera donné par votre enseignant
+
+**<H3 STYLE="COLOR:red;">Activité n°8.:** Création de la liste aléatoire **avec l’activité 1** : reprendre l’activité 1 et 2</H3>
+
+**<H3 STYLE="COLOR:red;">Activité n°9.:** implémentation classique Avec la fonction echange et la fonction bubble\_sort</H3>
+
+```python
+def swap(T : list, i : int, j : int) -> list:
+    """ fonction permutation (à garder elle sert beaucoup!!)  """
+    # à compléter
+
+def bubble_sort(T : list) -> list:
+    """ fonction tri a bulle permutation des éléments 2 à 2 en faisant remonter
+    la plus grande valeur en fin de la liste  """
+    # à compléter
+```
+
+**Remarque : il existe d’autres versions du tri bulle** 
+
+**<H3 STYLE="COLOR:red;">Activité n°10.:** Tri bulle et temps d’exécution : ajouter ce script aux fonctions de l’activité précédente en mettant en commentaire les deux print précédent :</H3>
+
+```python
+import time
+
+# on fait une moyenne sur plusieurs tris de tableau de même longueur
+somme_des_durees = 0
+for i in range(5):
+    liste = genere_liste_aleatoire(1_000, 1_000_000)
+    start_time=time.time()
+    bubble_sort(liste)
+    somme_des_durees = somme_des_durees + time.time() - start_time
+moyenne = somme_des_durees/5
+print("Temps d execution pour 1_000: %s secondes ---" % (moyenne))
+
+somme_des_durees = 0
+for i in range(5):
+    liste = genere_liste_aleatoire(2_000, 1_000_000)
+    start_time=time.time()
+    bubble_sort(liste)
+    somme_des_durees = somme_des_durees + time.time() - start_time
+moyenne = somme_des_durees/5
+print("Temps d execution pour 2_000: %s secondes ---" % (moyenne))
+
+somme_des_durees = 0
+for i in range(5):
+    liste = genere
+
+_liste_aleatoire(10_000, 1_000_000)
+    start_time=time.time()
+    bubble_sort(liste)
+    somme_des_durees = somme_des_durees + time.time() - start_time
+moyenne = somme_des_durees/5
+print("Temps d execution pour 10_000: %s secondes ---" % (moyenne))
+```
+
+Animation :[ http://lwh.free.fr/pages/algo/tri/tri_bulle.html ](http://lwh.free.fr/pages/algo/tri/tri_bulle.html)
+
+## <H2 STYLE="COLOR:BLUE;">5. Exercices<a name="_page9_x40.00_y511.92"></a></H2>
+
+=> CAPYTALE Le code vous sera donné par votre enseignant
+
+**<H3 STYLE="COLOR:red;">Exercice n°1** : Créer une fonction selection\_sort\_desc() qui permet trier avec l’algorithme de tri par sélection une liste aléatoire par valeurs décroissantes.</H3>
+
+**<H3 STYLE="COLOR:red;">Exercice n°2** : Créer une fonction selection\_sort\_asc\_partir\_fin() qui permet trier avec l’algorithme de tri par sélection une liste aléatoire par valeurs croissantes de manière à compléter l’algorithme suivant :</H3>
+
+```python
+def selection_sort_asc_partir_fin(T):
+    for i in range(…, 0, …):
+        maxi = …
+        for j in range(…):
+            if T[j]> T[…]:
+                maxi = j
+        if maxi !=i:
+            …
+    return T
+```
+
+**<H3 STYLE="COLOR:red;">Exercice n°3** : Créer une fonction selection\_sort\_desc\_partir\_fin() qui permet trier avec l’algorithme de tri par sélection et l’algorithme de l’exercice 2, une liste aléatoire par valeurs décroissantes.</H3>
+
+**<H3 STYLE="COLOR:red;">Exercice n°4** : Créer une fonction bubble\_sort\_desc() qui permet trier avec l’algorithme de tri à bulles une liste aléatoire par valeurs décroissantes.</H3>
