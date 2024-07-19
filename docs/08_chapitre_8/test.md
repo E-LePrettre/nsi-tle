@@ -56,8 +56,10 @@ La partie réseau  (**NetID**) aussi appelé **préfixe**, de l'adresse IP vient
 
 *Exemple :* 
 
-*Si les trois premiers octets désignent l’adresse du réseau, toutes les machines de  ce réseau auront une adresse commençant par 131.254.100.xxx.*  
+*Si les trois premiers octets désignent l’adresse du réseau, toutes les machines de  ce réseau auront une adresse commençant par 131.254.100.xxx.* 
+
 ![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.015.png)
+
 On indique toujours la taille du préfixe à la suite de l’adresse IPv4. Dans notre exemple la machine aura l’adresse suivante : 131.254.100.48 **/24.**  
 
 Les 24 premiers bits désignent le préfixe du réseau :  
@@ -84,7 +86,9 @@ AND  11111111.11111111.11111111.00000000
    	 11000000.10101000.00000001.000000000 
 ```
 (AND : cela fait 1 quand les deux bits sont à 1) cela fait :
+
 * soit 192.168.1.0 **c'est l'adresse du (sous) réseau**.
+
 * et 192.168.1.255 **c'est l'adresse du broadcast**.
 
 On comprend vite que donner ces réponses avec des masques de 255 et 0 **est très simple** et ne nécessite pas le passage en binaire. 
@@ -129,9 +133,7 @@ Pour aller plus loin:
 
 Les **adresses publiques** permettent à une machine de communiquer avec l’Internet. 
 
-Les **adresses privées** peuvent être attribuées dans des réseaux internes qui n’ont pas vocation à
-
- communiquer directement avec Internet. On dit que les adresses privées **ne sont pas routables** 
+Les **adresses privées** peuvent être attribuées dans des réseaux internes qui n’ont pas vocation à communiquer directement avec Internet. On dit que les adresses privées **ne sont pas routables** 
 
 Si  un  réseau  utilisant  **un  adressage  privé**  veut  communiquer  avec  l’Internet,  il  faudra  qu’un  équipement fasse une **translation** (ou traduction)  entre l’adresse privée et une adresse publique qui  serait disponible pour dialoguer avec l’Internet. On  appelle cette opération le **NAT**[^1].  
 
@@ -245,9 +247,7 @@ Et c’est reparti !! Par forcément par la même route
 - **netstat**: permet d'afficher les ports actifs. Utile pour détecter un virus 
 ## <H2 STYLE="COLOR:BLUE;">**3. Le<a name="_page5_x40.00_y455.92"></a> protocole ARP**</H2>
 
-**ARP** (Adresse Resolution Protocol) est un protocole de communication, compagnon du protocole IP qui permet de **mettre en correspondance une adresse IPv4** d’un équipement **avec l’adresse physique** (MAC codage unique de l’équipement  quelque soit
-
- le réseau)  
+**ARP** (Adresse Resolution Protocol) est un protocole de communication, compagnon du protocole IP qui permet de **mettre en correspondance une adresse IPv4** d’un équipement **avec l’adresse physique** (MAC codage unique de l’équipement  quelque soit le réseau)  
 
 *Pour aller plus loin Protocole ARP :*   
 [*https://www.supinfo.com/articles/single/2440-protocole-arp* ](https://www.supinfo.com/articles/single/2440-protocole-arp) 
@@ -325,7 +325,7 @@ Exemple : 3002 + 1 = 3003
 
 ![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.053.png)
 
-*Il existe une technique de piratage, appelée spoofing IP, permettant de corrompre cette relation d'approbation ! *
+*Il existe une technique de piratage, appelée spoofing IP, permettant de corrompre cette relation d'approbation !*
 
 ### <H3 STYLE="COLOR:GREEN;">**4.6. Fiabilité<a name="_page8_x40.00_y36.92"></a> des transferts : protocole du bit alterné**</H3>
 
@@ -357,9 +357,7 @@ En fait la trame n’a pas été perdu, elle arrive tout de même à destination
 
 Il en va de même pour le chevauchement d’acquittements. Le récepteur rejettera l’acquittement qui n’aura pas le bit de séquence attendu. 
 
-![](Aspose.Words.15f906fb-bf44-45f2-af
-
-d3-4f489997c9e9.057.jpeg)
+![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.057.jpeg)
 
 - **Pourquoi bit alterné ?** 
 
@@ -406,7 +404,7 @@ La règle est relativement simple : la première trame envoyée par A aura pour 
 
 ## <H2 STYLE="COLOR:BLUE;">**7. Mesures de protection des réseaux<a name="#_titre7"></a>**</H2>
 
-<H3 STYLE="COLOR:red;">**Activité n°3 :**</H3> Analyse d'une trame fictive
+**<H3 STYLE="COLOR:red;">Activité n°3 :**</H3> Analyse d'une trame fictive
 
 ```
 Frame 1: 66 bytes on wire (528 bits), 66 bytes captured (528 bits) on interface en0, id 0
@@ -414,10 +412,15 @@ Ethernet II, Src: 00:0c:29:36:bc:5a, Dst: 00:50:56:c0:00:01
 Internet Protocol Version 4, Src: 192.168.1.101, Dst: 192.168.1.1
 Transmission Control Protocol, Src Port: 443, Dst Port: 56324, Seq: 1, Ack: 1, Len: 0
 ```
+
 - Question 1 : Adresse MAC : Quelle est l'adresse MAC source et l'adresse MAC de destination ?
+
 - Question 2 : Adresse IP: Quelle est l'adresse IP source et l'adresse IP de destination ?
+
 - Question 3 : Protocole utilisé : Quel protocole de couche transport est utilisé par cette trame ?
+
 - Question 4 : Ports utilisés : Quels sont les ports source et destination ?
+
 - Question 5 : Numéro de séquence et d'accusé de réception : Quel est le numéro de séquence et le numéro d'accusé de réception de cette trame TCP ?
 
 **Remarque** pour faire une analyse de trame, on peut utiliser un logiciel type wiresharp
@@ -448,7 +451,7 @@ Transmission Control Protocol, Src Port: 443, Dst Port: 56324, Seq: 1, Ack: 1, L
 
 ## <H2 STYLE="COLOR:BLUE;">**8.  Simulation d’un réseau avec Filius<a name="_page10_x40.00_y36.92"></a>**</H2>
 
-<H3 STYLE="COLOR:red;">**Activité n°4.:**</H3> Lien direct entre deux ordinateurs  
+**<H3 STYLE="COLOR:red;">Activité n°4.:**</H3> Lien direct entre deux ordinateurs  
 ![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.058.png)
 
 - Lancer Filius  
@@ -459,7 +462,7 @@ Transmission Control Protocol, Src Port: 443, Dst Port: 56324, Seq: 1, Ack: 1, L
 - Afficher les données échangées avec un click droit sur l’ordinateur 
 - Faire un ipconfig dans le cmd du poste 10 et comparer l’adresse Mac avec l’adresse Mac de la source sur le tabelau des données échangées  
 
-<H3 STYLE="COLOR:red;">**Activité n°5.:**</H3> 2 ordinateurs et un serveur  
+**<H3 STYLE="COLOR:red;">Activité n°5.:**</H3> 2 ordinateurs et un serveur  
 ![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.059.png)
 -
 
@@ -485,7 +488,7 @@ Puis envoi du message du client au serveur L’accusé de réception du serveur 
 
 On voit des échanges entre le client et le serveur en 4 temps 
 
-<H3 STYLE="COLOR:red;">**Activité n°6.:**</H3> 2 réseaux  
+**<H3 STYLE="COLOR:red;">Activité n°6.:**</H3> 2 réseaux  
 ![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.060.jpeg)
 
 - Modifier le réseau précédent pour obtenir  les deux réseaux inter connectés suivants :  
@@ -500,7 +503,7 @@ Il  faut  donc  indiquer  une  passerelle  qui  sera  l’adresse du routeur 192
 - Installer un client générique sur le poste 2.10 et connecter le poste en 2.10 au serveur en 1.12 pour lui envoyer le message « bonjour » 
 - Afficher et observer les données échangées 
 
-<H3 STYLE="COLOR:red;">**Activité n°7.:**</H3> Simulation du web avec adresse IP 
+**<H3 STYLE="COLOR:red;">Activité n°7.:**</H3> Simulation du web avec adresse IP 
 
 - Installer un serveur web  et un éditeur de texte sur le serveur en 1.12 
 - Utiliser l’éditeur de texte pour ouvrir le fichier index.html qui se trouve sur le répertoire root/webserver 
@@ -513,8 +516,10 @@ Sauvegarder.
 
 On voit deux choses : le css ne fonctionne pas ni le codage utf-8 !! 
 
-<H3 STYLE="COLOR:red;">**Activité  n°8.:**</H3>  Simulation  du  web  avec  serveur DNS  
+**<H3 STYLE="COLOR:red;">Activité  n°8.:**</H3>  Simulation  du  web  avec  serveur DNS  
+
 ![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.061.jpeg)
+
 Normalement on ne s’adresse pas ainsi à un  serveur : on n’utilise pas l’adresse IP mais  son url. Le serveur de noms de domaine (ou  DNS) va traduire url en IP.  
 
 - Il faut ajouter un serveur d’adresse IP  192.168.3.10 et comme passerelle on  mettra  192.168.3.1.  et  ajouter  une  connexion au routeur en 192.168.3.1  
@@ -527,7 +532,7 @@ Vérification :
 
 - Aller sur le poste1.10. Dans l’editeur de commande taper host[ www.serverwebdensi.fr.](http://www.serverwebdensi.fr/) Observer 
 
-<H3 STYLE="COLOR:red;">**Activité n°9.:**</H3> Chemin d’un client à un serveur 
+**<H3 STYLE="COLOR:red;">Activité n°9.:**</H3> Chemin d’un client à un serveur 
 
 - ouvrir le fichier snt\_sim\_res.fls. 
 - Faire un "traceroute" entre l'ordinateur M14 et l'ordinateur M9 (n'oubliez pas de faire un "ipconfig" sur la machine M9 afin d'obtenir son adresse IP). Noter le chemin parcouru pour aller de la machine M14 à la machine M9. 
@@ -535,7 +540,7 @@ Vérification :
 
 Sous windows c’est tracert 
 
-<H3 STYLE="COLOR:red;">**Activité n°10.:**</H3> Chemin d’un client à un serveur version graphique 
+**<H3 STYLE="COLOR:red;">Activité n°10.:**</H3> Chemin d’un client à un serveur version graphique 
 
 Sur le site[ https://gsuite.tools/traceroute ](https://gsuite.tools/traceroute)on pourra voir le chemin vers un des serveurs de plusieurs site web 
 
