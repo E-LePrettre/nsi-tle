@@ -496,7 +496,7 @@ function myFunction(arg) {
 myFunction(prompt('Que souhaitez-vous passer en argument à la fonction ?')); 
 ```
 
-**<H3 STYLE="COLOR:red;">Activité n°26 : Exemple de fonction avec un ```return```* :</H3>** Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo_JS.html dans Firefox. 
+**<H3 STYLE="COLOR:red;">Activité n°26 : Exemple de fonction avec un ```return``` :</H3>** Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo_JS.html dans Firefox. 
 ```JS
 function sayHello() {
    return 'Bonjour !'; 
