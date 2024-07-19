@@ -1,6 +1,3 @@
-Voici le cours avec les balises de couleur ajoutées :
-
-```markdown
 ---
 author: ELP
 title: 07a Le HTML
@@ -532,4 +529,3 @@ Pour une page Web locale (pas encore publiée sur le Web) :
 Validate by File Upload → Check
 
 S'il y a des erreurs, elles vous seront indiquées, avec des explications.
-```
