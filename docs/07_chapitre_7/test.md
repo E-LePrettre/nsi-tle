@@ -59,7 +59,9 @@ Pour bien faire on externalise dans un dossier js. On écrit le javascript dans 
 ```html
 <script src="script.js"></script>
 ```
+
 - **soit dans l'en-tête** (```<head>``` ... ```</head>```), 
+
 - **soit dans le corps** (```<body>``` ... ```</body>```) de la page HTML. 
 
 **<H3 STYLE="COLOR:red;">Activité n°1 :</H3>** Dans la index.html rajouter le lien vers le fichier js 
@@ -172,9 +174,7 @@ console.log(myVariable);
 ```  
 dans Firefox (ou EDGE) on fait **ctrl+Maj+I**
 
-### <H3 STYLE="COLOR:GREEN;">5.2. Les<a name="_page3_x40.00
-
-_y137.92"></a> types de variables</H3>
+### <H3 STYLE="COLOR:GREEN;">5.2. Les<a name="_page3_x40.00_y137.92"></a> types de variables</H3>
 
 Le Javascript est un langage typé dynamiquement : **on n’a pas besoin de déclarer le type des variables**. Il existe trois types principaux de variable : 
 
@@ -190,7 +190,7 @@ Pour inclure des guillemets " ou des apostrophes dans une chaînes, il faut util
 ```JS
 // deux chaines de caracteres
 var message1 = "Ceci est un \"petit\" test (pas besoin d'antislash \).";
-var message2 = 'Un autre "petit" test (attention à l\'antislash)';
+var message2 = 'Un autre "petit" test (attention à l\'antislash \)';
 
 // maintenant, on les affiche
 console.log(message1);
@@ -297,7 +297,7 @@ console.log(result); // Affiche « false » car cet opérateur compare aussi les
 ```
 
 ### <H3 STYLE="COLOR:GREEN;">6.2. Les<a name="_page5_x40.00_y167.92"></a> structures conditionnelles</H3>
-#### <H4 STYLE="COLOR:ORANGE;">6.2.1. La<a name="_page5_x40.00_y186.92"></a> condition « if else *»</H4>
+#### <H4 STYLE="COLOR:ORANGE;">6.2.1. La<a name="_page5_x40.00_y186.92"></a> condition « if else »</H4>
 
 **<H3 STYLE="COLOR:red;">Activité n°16 :</H3>** Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo_JS.html dans Firefox. 
 ```JS
@@ -311,9 +311,7 @@ console.log(userName);
 
 La fonction ```confirm()```. On lui passe en paramètre une chaine de caractère qui sera affichée à l’écran et elle retourne un booléen en fonction de l’action de l’utilisateur. 
 
-**
-
-<H3 STYLE="COLOR:red;">Activité n°17 :</H3>** Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo_JS.html dans Firefox. 
+**<H3 STYLE="COLOR:red;">Activité n°17 :</H3>** Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo_JS.html dans Firefox. 
 ```JS
 if (confirm('Voulez-vous exécuter le code JavaScript de cette page ?')) { 
    console.log('Le code a bien été exécuté !')}; 
@@ -411,8 +409,10 @@ number2--;
 console.log(number2); 
 ```
 
-La position de l’opérateur ```++``` est importante si on veut récupérer le résultat de l’incrémentation :  ```var number = 0;``` Il y a deux possibilités : 
+La position de l’opérateur ```++``` est importante si on veut récupérer le résultat de l’incrémentation :  ```var number = 0;``` Il y a deux possibilités :
+
 - ```var output = ++number;``` → retournera 1 car retourne la valeur de number incrémentée 
+
 - ```var output = number++``` → retournera 0 car retourne la valeur de number avant incrémentation 
 
 ### <H3 STYLE="COLOR:GREEN;">8.2. La<a name="_page7_x40.00_y168.92"></a> boucle while</H3>
@@ -477,9 +477,7 @@ function showMsg() {
 showMsg(); // On exécute ici le code contenu dans la fonction 
 ```
 
-La fonction ```showMsg()``` exécute elle-même une autre fonction qui n'est autre que ```console.log()``` avec un message prédéfini. Bien sûr, tout code écrit dans une fonction ne s'exécute pas immédiatement, sinon aucun intérêt. C'est pourquoi à la **fin du code
-
- on appelle la fonction** afin de l'exécuter, ce qui affiche le message souhaité. Toute variable déclarée dans une fonction n'est utilisable que dans cette même fonction. Ce sont les variables locales. 
+La fonction ```showMsg()``` exécute elle-même une autre fonction qui n'est autre que ```console.log()``` avec un message prédéfini. Bien sûr, tout code écrit dans une fonction ne s'exécute pas immédiatement, sinon aucun intérêt. C'est pourquoi à la **fin du code on appelle la fonction** afin de l'exécuter, ce qui affiche le message souhaité. Toute variable déclarée dans une fonction n'est utilisable que dans cette même fonction. Ce sont les variables locales. 
 
 **<H3 STYLE="COLOR:red;">Activité n°24 : Exemple de fonction avec argument :</H3>** Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo_JS.html dans Firefox. 
 ```JS
@@ -490,7 +488,7 @@ function myFunction(arg) { // Notre argument est la variable « arg »
 myFunction('En voilà un beau test !'); 
 ```
 
-**<H3 STYLE="COLOR:red;">Activité n°25 : Exemple de fonction avec** ```prompt()```* :** Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo_JS.html dans Firefox. 
+**<H3 STYLE="COLOR:red;">Activité n°25 : Exemple de fonction avec** ```prompt()``` :</h3> Dans le fichier exo.js passer les lignes précédentes en commentaire ```//``` devant chaque ligne ou ```/*``` et ```*/``` et rajouter le script suivant. Enregistrer et observer le fichier exo_JS.html dans Firefox. 
 ```JS
 function myFunction(arg) { 
    console.log('Votre argument : ' + arg); 
@@ -798,7 +796,7 @@ On cible chaque élément de la liste et on le remplace par « Element » et le 
 </body>
 ```
 
-- Modification de l'attribut src d'une image pour changer son URL : 
+Modification de l'attribut src d'une image pour changer son URL : 
 ```html
 <body>
    <img src="dinosaur.jpg">
@@ -991,7 +989,7 @@ Comme vous le voyez, il est possible d'ajouter plusieurs ```EventListener``` à 
 
 => CAPYTALE Le code vous sera donné par votre enseignant 
 
-**Exercice 1 : Jeu de devinette de nombre**
+**<H3 STYLE="COLOR:red;">Exercice 1 : Jeu de devinette de nombre</h3>**
 
 **But du jeu :** L'utilisateur doit deviner un nombre aléatoire entre 1 et 100.
 
@@ -1058,7 +1056,7 @@ document.getElementById('submitGuess').addEventListener(..., function() {
 });
 ```
 
-**Exercice 2 : Calculatrice de base**
+**<H3 STYLE="COLOR:red;">Exercice 2 : Calculatrice de base</h3>**
 **Concepts : Variables, opérateurs, fonctions**
 - **Mise en contexte :** Développez une calculatrice simple où les utilisateurs peuvent entrer deux nombres et choisir une opération (addition, soustraction, multiplication, division) pour obtenir le résultat.
 
@@ -1110,7 +1108,7 @@ document.getElementById('calculate').addEventListener('click', function() {
 });
 ```
 
-**Exercice 3 : Liste de tâches (To-Do List)**
+**<H3 STYLE="COLOR:red;">Exercice 3 : Liste de tâches (To-Do List)</h3>**
 **Concepts : Manipulation du DOM, événements, boucles**
 - **Mise en contexte :** Créez une application où les utilisateurs peuvent ajouter des tâches, les marquer comme complétées, et les supprimer.
 
@@ -1171,7 +1169,7 @@ document.getElementById('addTask').addEventListener(..., function() {
 });
 ```
 
-**Exercice 4 : Quiz interactif**
+**<H3 STYLE="COLOR:red;">Exercice 4 : Quiz interactif</h3>**
 **Concepts : Conditions, boucles, manipulation du DOM**
 - **Mise en contexte :** Créez un quiz où les utilisateurs répondent à une série de questions et reçoivent une note à la fin.
 
