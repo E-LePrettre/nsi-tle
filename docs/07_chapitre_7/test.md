@@ -1,529 +1,956 @@
 ---
 author: ELP
-title: 07a Le HTML
----
+title: 07b Le CSS
+--- 
 
 **Table des matières** 
 
-1. [Historique](#_page0_x40.00_y600.92)
-2. [Le fonctionnement des sites web](#_page1_x40.00_y237.92)
-3. [Le langage HTML5](#_page2_x40.00_y48.92)
-4. [L’organisation d’une page HTML5](#_page3_x40.00_y117.92)
-5. [Insérer une image](#_page9_x40.00_y607.92)
+1. [La petite histoire du CSS ](#_page0_x40.00_y671.92)
+2. [Ou écrit-on le CSS ? ](#_page1_x40.00_y36.92)
+3. [Appliquer un style](#_page1_x40.00_y534.92)
+4. [Formater du texte](#_page4_x40.00_y36.92)
+5. [Ajouter de la couleur et un fond](#_page6_x40.00_y36.92)
+6. [Habillage](#_page8_x40.00_y542.92)
+7. [Créer des bordures et des ombres](#_page9_x40.00_y302.92)
+8. [Les apparences dynamiques](#_page10_x40.00_y621.92)
+9. [Les tableaux](#_page11_x40.00_y351.92)
+10. [Le modèle des boites](#_page13_x40.00_y36.92)
+11. [Le positionnement](#_page15_x40.00_y36.92)
+12. [Squelette de base HTML – CSS8](#_page17_x40.00_y239.92)
 
 
-## <H2 STYLE="COLOR:BLUE;">1. Historique<a name="_page0_x40.00_y600.92"></a></H2>
+## <H2 STYLE="COLOR:BLUE;">1. La<a name="_page0_x40.00_y671.92"></a> petite histoire du CSS</H2>
 
-**Vidéo** : historique : [https://ladigitale.dev/digiview/#/v/6690fec0420aa](https://ladigitale.dev/digiview/#/v/6690fec0420aa)
+CSS (**Cascading Style Sheets**), permet de choisir la couleur du texte, la police utilisée, la taille du texte, les bordures, le fond… et de faire la mise en page du site (menu à gauche, en-tête calé en haut, etc). 
 
-Le "World Wide Web", plus communément appelé "Web" a été développé au CERN (Conseil Européen pour la Recherche Nucléaire) par le Britannique **Sir Timothy John Berners-Lee** et le Belge **Robert Cailliau** en 1991. À cette époque, les principaux centres de recherche mondiaux étaient déjà connectés les uns aux autres, mais pour faciliter les échanges d'information, Tim Berners-Lee met au point le système hypertexte. Le système hypertexte permet, à partir d'un document, de consulter d'autres documents en cliquant sur des mots clés. Ces mots "cliquables" sont appelés **hyperliens** et sont souvent soulignés et en bleu.
+Aux débuts du Web, CSS n'existait pas, il n'y avait initialement que le langage HTML. Cependant, les pages HTML commençaient à devenir assez complexes. Il y avait de plus en plus de balises et c'était un joyeux mélange entre le fond et la forme, qui rendait la mise à jour des pages web de plus en plus complexe. C'est pour cela que l'on a créé le langage CSS. 
 
-La première page web est toujours consultable à l'adresse suivante :
+## <H2 STYLE="COLOR:BLUE;">2. Ou<a name="_page1_x40.00_y36.92"></a> écrit-on le CSS ?</H2>
 
-- [http://info.cern.ch/hypertext/WWW/TheProject.html](http://info.cern.ch/hypertext/WWW/TheProject.html)
+![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.003.png)
 
-Tim Berners-Lee développe le premier navigateur web (logiciel permettant de lire des pages contenant des hypertextes), il l'appelle simplement "**WorldWideWeb**". Tim Berners-Lee a créé le World Wide Web Consortium (W3C) qui définit les nouvelles versions des langages liés au Web.
+On peut écrire du code en langage CSS à trois endroits différents :  
 
-Le web se base sur trois choses : le **protocole HTTP** (HyperText Transfert Protocol), les **URL** (Uniform Resource Locator) et le langage de description **HTML** (HyperText Markup Language).
+- dans un fichier .css (méthode la plus recommandée) ;  
+- dans l'en-tête ```<head>``` du fichier HTML ;  
+- directement dans les balises du fichier HTML via un attribut style  (méthode **la moins recommandée).**  
 
-Une chose très importante à bien avoir à l'esprit : beaucoup de personnes confondent "web" et "internet". L’"**internet**" est un "**réseau de réseaux**" alors que, comme nous venons de le voir, le web est la combinaison de trois technologies : HTTP, URL et HTML. D'ailleurs, on trouve autre chose que le "web" sur internet, par exemple, les emails avec le protocole SMTP (Simple Mail Transfert Protocol) et les transferts de fichiers avec le protocole FTP (File Transfert Protocol).
+Nous écrirons le langage CSS dans un fichier style.css. On place ce fichier **habituellement** dans un dossier css. Ici (dans capytale) nous le laisserons à la racine
 
-Tim Berners-Lee n'est donc pas l'inventeur d'Internet, c'est « seulement » l'inventeur du Web.
+Voici un exemple d’arborescence de site web :
 
-## <H2 STYLE="COLOR:BLUE;">2. Le<a name="_page1_x40.00_y237.92"></a> fonctionnement des sites web</H2>
-### <H3 STYLE="COLOR:GREEN;">2.1. Les<a name="_page1_x40.00_y259.92"></a> navigateurs utilisés</H3>
+![](6789.png)
 
-Pour consulter un site web, on doit lancer un programme appelé **navigateur web** :
+**<H3 STYLE="COLOR:red;">Activité n°1.:</H3>** Dans la index.html rajouter le lien vers le fichier css. 
 
-![Navigateurs](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.004.png)
+```html
+<!DOCTYPE html>
 
-### <H3 STYLE="COLOR:GREEN;">2.2. Les<a name="_page1_x40.00_y340.92"></a> langages</H3>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="style.css">
+        <title>Logique sur les passoires</title>
+    </head>
+``` 
 
-Pour créer des sites web, on utilise des langages particuliers : le CSS et le HTML.
+Dans le fichier style.css
 
-Ces deux langages ont des rôles différents :
+![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.006.png)
 
-- HTML (HyperText Markup Language) : Son rôle est de gérer et organiser le contenu. C’est donc en HTML que l’on écrit ce qui doit être affiché sur la page : le texte, les liens, les images….
+Enregistrer et observer la index.html. 
 
-- CSS (Cascading Style Sheets) : le rôle du CSS est de gérer l’apparence de la page Web (agencement, positionnement, …). Il est apparu en 1996. Il a besoin d’une page HTML pour fonctionner.
+**<H3 STYLE="COLOR:red;">Activité n°2.:</H3>** Dans la page2.html rajouter le lien vers le fichier css. 
+```html
+    <link rel="stylesheet" href="style.css">
+``` 
 
-![HTML CSS](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.005.png)
 
-- Le HTML définit le contenu.
-- Le CSS permet de définir la présentation : couleurs, image de fond, marges, taille du texte…
 
-### <H3 STYLE="COLOR:GREEN;">2.3. Les<a name="_page1_x40.00_y687.92"></a> éditeurs et les logiciels conseillés</H3>
+**<H3 STYLE="COLOR:red;">Activité n°3.:</H3>** Faire un lien également vers le fichier style.css depuis la page3.html. 
 
-Pour ce cours, nous utiliserons principalement **Capytale** pour les activités du cours et repl.it pour les projets, un éditeur en ligne qui permet de voir instantanément le résultat de son code HTML, CSS et JavaScript.
+Enregistrer et observer les page2.html et page3.html. 
 
-**Un logiciel intéressant pour cette partie est Visual Studio Code**
+On note un avantage du CSS, il ne suffit que d’écrire cette instruction qu’une seule fois pour tout le site !! et en cas de changement de style tous les fichiers seront changés en même temps. 
 
-De plus, il est conseillé d’installer plusieurs navigateurs sur son ordinateur pour s’assurer que son site fonctionne correctement sur chacun d’eux : **Microsoft Edge et Firefox** au minimum.
+## <H2 STYLE="COLOR:BLUE;">3. Appliquer<a name="_page1_x40.00_y534.92"></a> un style</H2> 
 
-Le site [https://caniuse.com/](https://caniuse.com/) tient à jour une liste des fonctionnalités prises en charge par les différentes versions de chaque navigateur.
+Dans un code CSS, on trouve trois éléments différents : 
 
-## <H2 STYLE="COLOR:BLUE;">3. Le<a name="_page2_x40.00_y48.92"></a> langage HTML5</H2>
-### <H3 STYLE="COLOR:GREEN;">3.1. Page<a name="_page2_x40.00_y70.92"></a> web en HTML</H3>
+- Des noms de balises : on écrit des noms des balises dont on veut modifier l’apparence. Pour modifier l’apparence de tous les paragraphes ```<p>``` on doit écrire p. 
+- Des propriétés CSS : les effets de style de la page sont rangés dans des propriétés.  Par exemple color ou font-size 
 
-**<H3 STYLE="COLOR:red;">Activité n°1. :</H3>**
+- Les valeurs : le nom de la couleur ou la taille de la police 
 
-=> CAPYTALE Le code vous sera donné par votre enseignant
+Par exemple : 
+```css
+balise1
+{
+    propriete1: valeur1;
+}
 
-### <H3 STYLE="COLOR:GREEN;">3.2. Les<a name="_page2_x40.00_y155.92"></a> balises</H3>
+balise2
+{
+    propriete1: valeur1;
+    propriete2: valeur2;
+    propriete3: valeur3;
+    propriete4: valeur4;
+}
+```
 
-Pour donner les instructions en HTML il faut utiliser des **balises**. Celles-ci sont invisibles à l’écran mais elles permettent à l’ordinateur de comprendre ce qu’il doit afficher. Les balises se repèrent facilement. Elles sont entourées de « chevrons », c’est-à-dire des symboles < balise>.
 
-#### <H4 STYLE="COLOR:MAGENTA;">3.2.1. Les<a name="_page2_x40.00_y212.92"></a> balises en paires</H4>
+On peut mettre autant de propriétés que l'on veut à l'intérieur **des accolades.** Chaque propriété est suivie du symbole « deux-points » ( : ) puis de la valeur correspondante. Enfin, chaque ligne se termine par un point-virgule ( ; ). 
 
-Elles fonctionnent en nombre paire : `<balise1>` des indications `</balise1>`. On distingue une balise ouvrante et une balise fermante.
+### <H3 STYLE="COLOR:GREEN;">3.1. Sélectionner<a name="_page2_x40.00_y67.92"></a> une balise</H3>
 
-#### <H4 STYLE="COLOR:MAGENTA;">3.2.2. Les<a name="_page2_x40.00_y258.92"></a> balises orphelines</H4>
+**<H3 STYLE="COLOR:red;">Activité n°4.:</H3>** Avec la feuille de style modifier toutes les couleurs des mots entre les balises ```<em>``` et ```<strong>```. 
 
-Elles servent en un point précis `<balise/>`.
+```css
+em
+{
+    color: red;
+}
+strong
+{
+    color : rgb(35, 241, 241) ;
+}
+```
 
-### <H3 STYLE="COLOR:GREEN;">3.3. Les<a name="_page2_x40.00_y290.92"></a> attributs</H3>
 
-Ce sont les options des balises : appelées attributs. Ils donnent les options des balises. Ils se placent après le nom de la balise ouvrante.
+**<H3 STYLE="COLOR:red;">Activité n°5.:</H3>** Avec la feuille de style modifier toutes les couleurs des titres de la index h1, h2, h3, h4 et h5 
 
-`<balise attribut="valeur">`
+### <H3 STYLE="COLOR:GREEN;">3.2. Les<a name="_page2_x40.00_y258.92"></a> commentaires</H3> 
 
-### <H3 STYLE="COLOR:GREEN;">3.4. Structure<a name="_page2_x40.00_y347.92"></a> de base d’une page HTML5</H3>
+Les commentaires ne seront pas affichés, ils servent simplement à indiquer des informations. Taper ```/*```, suivi de votre commentaire, puis ```*/``` pour terminer votre commentaire. 
 
-**<H3 STYLE="COLOR:red;">Activité n°2. :</H3>**
+### <H3 STYLE="COLOR:GREEN;">3.3. Class<a name="_page2_x40.00_y309.92"></a> et id</H3> 
+
+Ce qu’on vient de dire a un défaut : en appliquant une couleur aux paragraphes, tous les paragraphes possèdent la même présentation sur toutes les pages. 
+
+On utilise alors des attributs spéciaux qui fonctionnent sur toutes les balises :  
+
+- l’attribut class
+- l’attribut id
+
+#### <H4 STYLE="COLOR:MAGENTA;">3.3.1. L’attribut<a name="_page2_x40.00_y406.92"></a> class</H4>
+
+C’est un attribut que l’on peut mettre dans toutes les balises 
+
+```html
+<h1 class=""> </h1> 
+<p class=""> </p> 
+<img class="" />
+```
+
+
+
+Entre les doubles cotes on associe un nom. 
+
+**<H3 STYLE="COLOR:red;">Activité n°6.:</H3>** Mettre des balises p autour du **théorème** de la index.html. 
+
+```html
+    <p class ="theoreme"> …………………………………………..</p>
+```
+
+
+Puis dans la feuille de style rajouter 
+
+```css
+.theoreme
+{
+    color : red
+}
+```
+
+Enregistrer tout et observer. 
+
+Noter que le nom de la class doit se noter **avec un point en CSS**. 
+
+#### <H4 STYLE="COLOR:MAGENTA;">3.3.2. L’attribut<a name="_page2_x40.00_y639.92"></a> id</H4> 
+
+L’attribut id est utilisé exactement de la même manière que l’attribut class. La différence est qu’il ne pourra être utilisé **qu’une seule fois par page.**  
+
+Par exemple id = "tata" => 1 seul fois mais id = "titi"  pourra aussi être utilisé sur la même page. Habituellement, on ne met un attribut id qu’à quelque chose d’unique sur la page, **par exemple le logo ou l’introduction** 
+
+En CSS un id doit etre précéder d’un # 
+```css
+#logo 
+{ 
+/* Indiquez les propriétés CSS ici */ 
+}
+```
+
+
+### <H3 STYLE="COLOR:GREEN;">3.4. Les<a name="_page3_x40.00_y36.92"></a> balises universelles</H3> 
+
+Pour le theorème de l’activité précédente, il a fallu rajouter des balises p. Or il existe des balises qui ne servent à rien : 
+
+- ```<span> </span>``` c’est une balise inline c’est-à-dire que l’on place au sein d
+
+’un paragraphe de texte, pour sélectionner certains mots uniquement  
+- ```<div> </div>``` c’est une balise block qui entoure un bloc de texte. Elles créent un nouveau bloc dans la page et provoquent donc obligatoirement un retour à la ligne.  
+
+**<H3 STYLE="COLOR:red;">Activité n°7.:</H3>** Modifier la index et la feuille de style pour que l’on puisse voir cela : 
+
+![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.018.jpeg)
+
+### <H3 STYLE="COLOR:GREEN;">3.5. Les<a name="_page3_x40.00_y425.92"></a> sélecteurs avancés</H3> 
+- ```*``` est un sélecteur universelle il sélectionne toutes les balises sans exception. 
+```css
+*
+{
+}
+```
+ 
+
+- une balise dans une autre : par exemple toutes les balises ```<em>``` **situées à l’intérieur** d’une balise ```<h3>```
+
+```css
+h3 em
+{
+}
+```
+ 
+
+- La balise qui suit une autre : par exemple la première balise ```<p>``` **située après** un titre ```<h3>```
+```css
+h3 + p
+{
+}
+```
+
+
+- Une balise possédant un attribut : Sélectionne tous les liens ```<a>``` qui possèdent un **attribut** title.
+```css
+a[title]
+{ 
+} 
+```
+Ce style sera sur : 
+```html
+<a href="http://site.com" title="Infobulle"> 
+```
+- Etc … pour une liste complète :[ site du W3C ](https://www.w3.org/Style/CSS-selectors-updates/WD-CSS-selectors-20010126.fr.html#selectors)
+
+## <H2 STYLE="COLOR:BLUE;">4. Formater<a name="_page4_x40.00_y36.92"></a> du texte</H2> 
+### <H3 STYLE="COLOR:GREEN;">4.1. Taille<a name="_page4_x40.00_y58.92"></a></H3> 
+
+On utilise la propriété font-size* avec deux techniques pour définir la taille : 
+
+- La taille absolue : en pixels, en cm ou en mm 
+- La taille relative : en % , ou nom (small, large, xx-large) ou nombre relatif (1em, 1.3em, 0.8em) qui permet de s’adapter à la taille des visiteurs 
+```css
+balise 
+{ 
+    font-size: 16px; 
+} 
+```
+
+**<H3 STYLE="COLOR:red;">Activité n°8.:</H3>** Modifier la feuille de style pour que les paragraphes est une taille de 120% 
+
+![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.032.jpeg)
+
+### <H3 STYLE="COLOR:GREEN;">4.2. La<a name="_page4_x40.00_y513.92"></a> police</H3> 
+
+C’est la propriété font-family. On peut définir plusieurs polices pour éviter des problèmes de compatibilité chez l’internaute.  
+```css
+balise 
+{ 
+    font-family: police1, police2, police3, police4; 
+} 
+```
+
+Les polices qui fonctionnent sur la plupart des navigateurs : Arial ; Arial Black ; Comic Sans MS ; Courier New ; Georgia ; Impact ; Times New Roman ; Trebuchet MS ; Verdana. 
+
+Il est possible d’utiliser des polices personnalisées que l’internaute téléchargera automatiquement lors de la visite du site. 
+
+**<H3 STYLE="COLOR:red;">Activité n°9.:</H3>** Modifier la feuille de style pour que les paragraphes est une police en Trebuchet MS. 
+
+![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.034.png)
+
+### <H3 STYLE="COLOR:GREEN;">4.3. Italique,<a name="_page5_x40.00_y342.92"></a> gras, souligné</H3> 
+
+- la propriété ```font-style : normal, italic``` 
+- la propriété ```font-weight : normal, bold```
+- Le soulignement se traite avec ```text-decoration : underline*,* ou none```
+
+### <H3 STYLE="COLOR:GREEN;">4.4. L’alignement<a name="_page5_x40.00_y410.92"></a></H3> 
+
+On utilise la propriété ```text-align : left``` ou ```center``` ou ```right``` ou ```justify```
+
+**<H3 STYLE="COLOR:red;">Activité n°10.:</H3>** Modifier la feuille de style pour que les paragraphes soient justifiés et centré les images (penser à mettre des nom aux balises des images sur la index) 
+
+![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.036.jpeg)
+
+
+
+## <H2 STYLE="COLOR:BLUE;">5. Ajouter<a name="_page6_x40.00_y36.92"></a> de la couleur et un fond</H2> 
+### <H3 STYLE="COLOR:GREEN;">5.1. La<a name="_page6_x40.00_y58.92"></a> couleur du texte</H3> 
+
+On utilise la propriété color suivie   
+
+- Du nom de la couleur : white, silver, gray, red, green, blue, fuchsia, purple*…* ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.037.png)
+- De son code hecadécimal : #FF5A28*, …[* https://htmlcolorcodes.com/fr/ ](https://htmlcolorcodes.com/fr/)*ou[ http://www.colorpicker.com/ ](http://www.colorpicker.com/)
+- De son code rgb : rgb(240,96,204)*….[ https://htmlcolorcodes.com/fr/ ](https://htmlcolorcodes.com/fr/)*ou[ http://www.colorpicker.com/ ](http://www.colorpicker.com/)
+
+![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.038.jpeg)
+
+### <H3 STYLE="COLOR:GREEN;">5.2. Arrière<a name="_page6_x40.00_y498.92"></a> plan</H3> 
+
+La propriété CSS background est une propriété raccourcie qui permet de définir les différentes valeurs des propriétés liées à la gestion des arrière-plans d'un élément (couleur, image, origine, taille, répétition, etc.). 
+
+#### <H4 STYLE="COLOR:MAGENTA;">5.2.1. Couleur<a name="_page6_x40.00_y547.92"></a> de fond</H4>
+
+On utilise la propriété background-color avec les mêmes propriétés que color*.* Il faut mettre cette propriété sur body
+
+
+**<H3 STYLE="COLOR:red;">Activité n°11.:</H3>** La couleur de fond d'une page est définie comme suit :  
+```css
+body
+{
+    background-color: lightblue;
+}
+```
+
+
+Modifier la feuille de style pour que la couleur de fond soit #F3E0C5 
+```css
+body
+{
+    background-color: #F3E0C5
+}
+```
+ 
+
+Modifier la feuille de style pour que la couleur de fond soit rgb(255,0,0) 
+```css
+body
+{
+    background-color: rgb(255,0,0)
+}
+```
+ 
+
+Il existe aussi un niveau de transparence avec la notation RGBa. Par exemple :  
+```css
+p
+{
+    background-color: rgba(255, 0, 0, 0.5); /* Fond rouge à moitié transparent */
+}
+``` 
+
+
+
+#### <H4 STYLE="COLOR:MAGENTA;">5.2.2. Images<a name="_page7_x40.00_y91.92"></a> de fond</H4>
+
+La propriété permettant d'indiquer une image de fond est ```background-image```. Comme valeur, on doit renseigner ```url("nom_de_l_image.png")```
+
+**<H3 STYLE="COLOR:red;">Activité n°12.:</H3>** Choisir une image neutre sur internet que l’on appellera paper.gif et modifier la feuille de style pour y mettre une image de fond sous forme d’url 
+```css
+body
+{
+    background-image: url("paper.gif");
+```
+
+
+
+##### <H4 STYLE="COLOR:MAGENTA;">5.2.2.1. Répétition d’arrière plan</H4>
+
+Par défaut, la background-image propriété répète une image à la fois horizontalement et verticalement. 
+
+Certaines images doivent être répétées uniquement horizontalement ou verticalement, sinon elles auront l'air étrange, comme ceci 
+
+```css
+body
+{
+    background-image: url("paper.gif");
+    background-repeat: repeat-x;
+}
+```
+
+
+
+Le ```background-repeat```: répétition du fond. Par défaut, l'image de fond est répétée en mosaïque 
+
+- ```no-repeat```: le fond ne sera pas répété. L'image sera donc unique sur la page. 
+- ```repeat-x```: le fond sera répété uniquement sur la
+
+ première ligne, horizontalement. 
+- ```repeat-y```: le fond sera répété uniquement sur la première colonne, verticalement. 
+- ```repeat```: le fond sera répété en mosaïque (par défaut). 
+
+##### <H4 STYLE="COLOR:MAGENTA;">5.2.2.2. Position d’arrière plan</H4>
+
+La ```background-position``` propriété est utilisée pour spécifier la position de l'image d'arrière-plan. 
+```css
+body
+{
+    background-image: url("paper.gif");
+    background-repeat: repeat-x;
+    background-position: right top;
+}
+```
+
+
+Le ```background-position``` permet d’indiquer la position du fond par rapport au coin supérieur gauche de la page ou les mots clé ```top, bottom, left```… 
+
+##### <H4 STYLE="COLOR:MAGENTA;">5.2.2.3. Fixe ou scroll de l’arrière plan</H4> 
+
+La ```background-attachment``` propriété spécifie si l'image d'arrière-plan doit défiler ou être fixe (ne défile pas avec le reste de la page) 
+```css
+body
+{
+    background-image: url("paper.gif");
+    background-repeat: repeat-x;
+    background-position: right top;
+     background-attachment: scroll;
+}
+```
+
+
+Le ```background-attachment```: fixer le fond. Deux valeurs sont disponibles :  
+
+- ```fixed```: l'image de fond reste fixe ; 
+- ```scroll```: l'image de fond défile avec le texte (par défaut).
+
+##### <H4 STYLE="COLOR:MAGENTA;">5.2.2.4. Propriétés de l’arrière plan abrégée</H4> 
+
+Pour raccourcir le code, il est également possible de spécifier toutes les propriétés du fond dans une seule propriété. C'est ce qu'on appelle une propriété abrégée. 
+
+```css
+body {
+    background-color: #ffffff;
+    background-image: url("img_tree.png");
+    background-repeat: no-repeat;
+    background-position: right top;
+}
+```
+
+
+
+On peut écrire une propriété abrégée dans une seule déclaration 
+
+```css
+body {
+    background: #ffffff url("img_tree.png") no-repeat right top;
+  }
+```
+
+
+
+##### <H4 STYLE="COLOR:MAGENTA;">5.2.2.5. Plusieurs images</H4> 
+
+Depuis CSS, il est possible de donner plusieurs images de fond à un élément. Pour cela, il suffit de séparer les déclarations par une virgule, comme ceci : 
+
+```css
+body
+{
+    background: url("soleil.png") fixed no-repeat top right, url("neige.png") fixed;
+}
+```
+
+
+![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.049.png)
+
+La première image de cette liste sera placée par-dessus les autres. Attention donc, l'ordre de déclaration des images a son importance : si vous inversez le soleil et la neige dans le code CSS précédent, vous ne verrez plus le soleil ! 
+
+## <H2 STYLE="COLOR:BLUE;">6. Habillage<a name="_page8_x40.00_y542.92"></a></H2> 
+![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.050.png)
+
+Le CSS permet de faire flotter un élément autour d'un texte grâce à la propriété CSS ```float```. 
+
+- ```left``` : l'élément flottera à gauche. 
+- ```right``` : l'élément flottera à droite.
+```html
+<p>
+    <img src="flash.gif" class="imageflottante" alt="Image flottante" />
+</p>
+```
+```css
+.imageflottante
+{
+    float: left;
+}
+```
+![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.054.png)
+
+Pour ne plus faire flotter l'élément, il faut utiliser la propriété clear, qui peut prendre ces trois valeurs : 
+
+- ```left``` : le texte se poursuit en-dessous après un ```float: left```;
+- ```right``` : le texte se poursuit en-dessous après un ```float: right```;
+- ```both``` : le texte se poursuit en-dessous, que ce soit après un ```float: left```; ou après un ```float: right```;. 
+```html
+<p><img src="flash.gif" class="imageflottante" alt="Image flottante" /></p>
+<p>Texte écrit à côté de l'image.</p>
+<p class="dessous">Texte écrit sous l'image.</p>  
+```
+```css
+.imageflottante
+{
+    float: left;
+}
+.dessous
+{
+    clear: both;
+}
+```  
+
+
+
+## <H2 STYLE="COLOR:BLUE;">7. Créer<a name="_page9_x40.00_y302.92"></a> des bordures et des ombres</H2> 
+### <H3 STYLE="COLOR:GREEN;">7.1. Bordures<a name="_page9_x40.00_y324.92"></a> standard</H3> 
+
+Pour ```border``` on peut utiliser jusqu'à trois valeurs pour modifier l'apparence de la bordure : 
+
+- **La largeur** : indiquez la largeur de votre bordure. Mettez une valeur en pixels (comme ```2px```). 
+- **La couleur** : c'est la couleur de votre bordure. Utilisez, comme on l'a appris, soit un nom de couleur (black,red,…), soit une valeur hexadécimale (```#FF0000```), soit une valeur RGB (```rgb(198, 212, 37)```). 
+- **Le type de bordure** : là, vous avez le choix. Votre bordure peut être un simple trait, ou des pointillés, ou encore des tirets, etc. Voici les différentes valeurs disponibles : 
+```none```: pas de bordure (par défaut) ; 
+ ```solid```: un trait simple ; 
+ ```dotted```: pointillés ; 
+ ```double```: bordure double ; 
+ *etc* 
+
+![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.057.png)
+
+Ainsi, pour avoir une bordure bleue, en tirets, épaisse de 3 pixels autour de mes titres, je vais écrire : 
+
+```css
+h1
+{
+    border: 3px blue dashed;
+}
+```
+
+ 
+
+Des bordures différentes en fonction du côté : 
+
+- ```border-top```: bordure du haut ; 
+- ```border-bottom```: bordure du bas ; 
+- ```border-left```: bordure de gauche ; 
+- ```border-right```: bordure de droite. 
+
+### <H3 STYLE="COLOR:GREEN;">7.2. Bordures<a name="_page10_x40.00_y115.92"></a> arrondies</H3> 
+
+La propriété ```border-radius``` va nous permettre d'arrondir facilement les angles de n'importe quel élément. Il suffit d'indiquer la taille (« l'importance ») de l'arrondi en pixels, par exemple : ```border-radius : 10px```; 
+
+**<H3 STYLE="COLOR:red;">Activité n°13.:</H3>** Modifier la feuille de style pour que le théorème soit entouré d’une bordure arrondie, d’une couleur, de style de traits et d’épaisseur au choix. Centrer le théorème. 
+![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.061.jpeg)
+
+### <H3 STYLE="COLOR:GREEN;">7.3. Les<a name="_page10_x40.00_y299.92"></a> ombres</H3> 
+
+Il est possible de mettre des ombres portés sur : 
+
+- Des boites : la propriété ```box-shadow``` s'applique à tout le bloc et prend quatre valeurs dans l'ordre suivant 
+
+le décalage horizontal de l'ombre ; 
+le décalage vertical de l'ombre ; 
+L’adoucissement du dégradé ; 
+la couleur de l'ombre. 
+
+Par exemple, pour une ombre noire de 6 pixels, sans adoucissement, on écrira :   
+```css
+p
+{
+    box-shadow: 6px 6px 0px black;
+}
+```
+
+
+- du texte : avec ```text-shadow```  qui a le même fonctionnement 
+
+**<H3 STYLE="COLOR:red;">Activité n°14.:</H3>** Modifier la feuille de style pour que le théorème est une ombre portée sur sa bordure. 
+![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.066.jpeg)
+
+## <H2 STYLE="COLOR:BLUE;">8. Les<a name="_page10_x40.00_y621.92"></a> apparences dynamiques</H2> 
+
+En CSS, on peut modifier l'apparence de certaines sections dynamiquement, après le chargement de la page, lorsque certains évènements se produisent. On utilise pour cela les pseudo-formats. 
+
+- ```:hover``` permet de changer l'apparence au survol (par exemple : a:hover pour modifier l'apparence des liens lorsque la souris pointe dessus). 
+- ```:active``` applique un style particulier au moment du clic. En pratique, il n'est utilisé que sur les liens.
+
+ 
+- ```:focus``` applique un style lorsque l'élément est sélectionné. 
+- ```:visited``` applique un style à un lien vers une page qui a déjà été vue. 
+
+### <H3 STYLE="COLOR:GREEN;">8.1. Au<a name="_page11_x40.00_y36.92"></a> survol</H3> 
+
+Lorsque la souris survole quelque chose on peut prévoir un style différent. Par exemple : 
+
+```css
+a /* Liens par défaut (non survolés) */
+{
+   text-decoration: none;
+   color: red;
+   font-style: italic;
+}
+
+a:hover /* Apparence au survol des liens */
+{
+   text-decoration: underline;
+   color: green;
+}
+```
+
+
+
+### <H3 STYLE="COLOR:GREEN;">8.2. Au<a name="_page11_x40.00_y195.92"></a> clic</H3> 
+
+On peut par exemple changer la couleur de fond du lien lorsque l'on clique dessus : 
+```css
+a:active /* Quand le visiteur clique sur le lien */
+{
+    background-color: #FFCC66;
+}
+```
+
+
+### <H3 STYLE="COLOR:GREEN;">8.3. Le<a name="_page11_x40.00_y276.92"></a> lien déjà visité</H3> 
+
+On peut changer cette apparence avec: *visited* (qui signifie « visité »).  
+```css
+a:visited /* Quand le visiteur a déjà vu la page concernée */
+{
+    color: #AAA; /* Appliquer une couleur grise */
+}
+```
+
+
+## <H2 STYLE="COLOR:BLUE;">9. Les<a name="_page11_x40.00_y351.92"></a> tableaux</H2> 
+### <H3 STYLE="COLOR:GREEN;">9.1. Un<a name="_page11_x40.00_y389.92"></a> tableau simple</H3> 
+
+On utilise la balise ```<table></table>```. Puis il faut indiquer le début et la fin de chaque ligne : ```<tr></tr>```. A l’intérieur de chaque ligne, il faut définir toutes les cellules avec ```<td></td>```. 
+
+Par exemple : 
+```html
+<table>
+   <tr>
+       <td>Carmen</td>
+       <td>33 ans</td>
+       <td>Espagne</td>
+   </tr>
+   <tr>
+       <td>Michelle</td>
+       <td>26 ans</td>
+       <td>États-Unis</td>
+   </tr>
+</table>
+```
+
+
+Il faut prendre le soin d’indiquer le type de bordure pour les cellules et/ou les lignes dans la feuille de style css. Par exemple : 
+
+```css
+table 
+{ 
+border-collapse: collapse; /* Les bordures du tableau seront collées (plus joli) */ 
+} 
+td 
+{ 
+border: 1px solid black; 
+}
+```
+
+
+
+### <H3 STYLE="COLOR:GREEN;">9.2. L’en<a name="_page11_x40.00_y705.92"></a> tête</H3> 
+
+La ligne d'en-tête est très facile à reconnaître pour deux raisons : 
+
+- les cellules sont des ```<th>``` au lieu des ```<td>``` habituels ; 
+
+- c'est la première ligne du tableau 
+
+### <H3 STYLE="COLOR:GREEN;">9.3. Titre<a name="_page12_x40.00_y36.92"></a> du tableau</H3> 
+
+Il est à mettre dans la balise ```  <caption></caption>```  juste après la balise ```<table>```
+
+On peut changer la position du titre avec la propriété CSS ```caption-side``` qui peut prendre deux valeurs : 
+
+- ```top```: le titre sera placé au-dessus du tableau (par défaut) ; 
+- ```bottom```: le titre sera placé en dessous du tableau.
+
+### <H3 STYLE="COLOR:GREEN;">9.4. Gros<a name="_page12_x40.00_y120.92"></a> tableau</H3>
+
+![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.076.png)
+
+Il existe des balises HTML qui permettent de  définir les trois « zones » du tableau :  
+
+- l'en-tête (en haut) : il se définit avec  les balises ```<thead></thead>```; 
+- le corps (au centre) : il se définit avec  les balises ```<tbody></tbody>```;   
+- le  pied  du  tableau  (en  bas)  :  il  se  définit  avec  les  balises  ```<tfoot></tfoot>```*.*  
+
+### <H3 STYLE="COLOR:GREEN;">9.5. Fusionner<a name="_page12_x40.00_y268.92"></a></H3>   
+- La fusion de colonnes : c'est ce que je viens de faire dans cet exemple. La fusion s'effectue horizontalement. On utilisera l'attribut ```colspan```.
+- La fusion de lignes : là, deux lignes seront groupées entre elles. La fusion s'effectuera verticalement. On utilisera l'attribut ```rowspan```.
+
+Par exemple :
+
+```html
+<table>
+   <tr>
+       <th>Titre du film</th>
+       <th>Pour enfants ?</th>
+       <th>Pour adolescents ?</th>
+   </tr>
+   <tr>
+       <td>Massacre à la tronçonneuse</td>
+       <td >Non, trop violent</td>
+       <td>Oui</td>
+   </tr>
+   <tr>
+       <td>Les bisounours font du ski</td>
+       <td>Oui, adapté</td>
+       <td>Pas assez violent...</td>
+   </tr>
+   <tr>
+       <td>Lucky Luke, seul contre tous</td>
+       <td colspan="2">Pour toute la famille !</td>
+   </tr>
+</table>
+```
+
+
+![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.078.jpeg)
+
+**<H3 STYLE="COLOR:red;">Activité n°15.:</H3>** Rajouter un tableau résumé à la fin de la index. Modifier la feuille de style pour que le tableau ressemble à l’image ci-dessous. Penser à nommer les balise pour les utiliser en css. 
+
+![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.079.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.080.png)
+
+## <H2 STYLE="COLOR:BLUE;">10. Le<a name="_page13_x40.00_y36.92"></a> modèle des boites</H2>
+
+Dans une mise en page réalisée en CSS, tous les éléments sont considérés comme des boîtes. Chacune de ces boîtes est constituée d’un contenu, d’un espacement intérieur, d’une bordure, et d’une marge externe. 
+
+Voici les  propriétés  CSS  qui  permettent  de  déterminer  les  dimensions, la  couleur,  le style  de chacun  de  ses constituants : 
+
+
+
+|**Propriété CSS** |**Ce qui est concerné :** |
+| - | - |
+|```width``` et ```height``` |largeur et hauteur du contenu (texte, image, etc.) |
+|```padding``` |espacement intérieur, entre le contenu et la bordure |
+|```border``` |bordure (ou encadrement) |
+|```margin``` |marge externe, espace (transparent) entourant le tout |
+
+![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.082.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.081.png)
+
+- ```width``` : c'est la largeur du bloc exprimé en pixels (px) ou en pourcentage (%). 
+- ```height``` : c'est la hauteur du bloc exprimé en pixels (px) ou en pourcentage (%). 
+- ```padding``` : indique la taille de la marge intérieure en pixels (px). 
+- ```margin``` : indique la taille de la marge extérieure en pixels (px). 
+1. Un bloc peut avoir des dimensions minimales et maximales : 
+- ```min-width``` : largeur minimale ; 
+- ```min-height``` : hauteur minimale ; 
+- ```max-width``` : largeur maximale ; 
+- ```max-height``` : hauteur maximale. 
+2. Les marges extérieures peuvent avoir des valeurs différentes : 
+- ```margin-top``` : marge extérieure en haut ; 
+- ```margin-bottom``` : marge extérieure en bas ; 
+- ```margin-left``` : marge extérieure à gauche ; 
+- ```margin-right``` : marge extérieure à droite. 
+3. Idem pour les marges intérieures ! 
+
+Exemple : 
+```css
+p
+{
+   width: 350px;
+   border: 1px solid black;
+   text-align: justify;
+   padding: 12px;
+   margin: 50px; /* Marge extérieure de 50px */
+}
+```
+
+
+
+![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.088.jpeg)
+
+Remarque : utiliser la propriété ```
+
+margin: auto``` pour centrer des blocs. Pour cela, il faut obligatoirement donner une largeur au bloc (avec la propriété ```width```). 
+
+Exemple : 
+
+```css
+p
+{
+    width: 350px; /* On a indiqué une largeur (obligatoire) */
+    margin: auto; /* On peut donc demander à ce que le bloc soit centré avec auto */
+}
+```
+
+
+![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.091.jpeg)
+
+Si vous voulez que le texte ne dépasse pas des limites du bloc, il va falloir utiliser la propriété ```overflow```. Voici les valeurs qu'elle peut accepter : 
+
+- ```visible``` (par défaut) : si le texte dépasse les limites de taille, il reste visible et sort volontairement du bloc. 
+- ```hidden``` : si le texte dépasse les limites, il sera tout simplement coupé. On ne pourra pas voir tout le texte. 
+- ```scroll``` : le texte sera coupé s'il dépasse les limites. Sauf que cette fois, le navigateur mettra en place des barres de défilement pour qu'on puisse lire l'ensemble du texte. 
+- ```auto``` : le navigateur décide de mettre ou non des barres de défilement. 
+
+Remarque : la propriété ```word-wrap: break-word``` permet de forcer la césure des très longs mots (généralement des adresses un peu longues). 
+
+## <H2 STYLE="COLOR:BLUE;">11. Le<a name="_page15_x40.00_y36.92"></a> positionnement</H2> 
+### <H3 STYLE="COLOR:GREEN;">11.1. Les<a name="_page15_x40.00_y58.92"></a> positionnements absolu, fixe et relatif</H3> 
+
+La propriété CSS ```position``` permet de positionner avec précision des éléments sur la page. Pour cela, on lui donne une de ces valeurs : 
+
+- ```absolute``` : positionnement absolu ; il permet de placer un élément n'importe où sur la page (en haut à gauche, en bas à droite, tout au centre, etc.). 
+- ```fixed``` : positionnement fixe ; identique au positionnement absolu mais, cette fois, l'élément reste toujours visible, même si on descend plus bas dans la page. 
+- ```relative``` : positionnement relatif ; ce positionnement permet d'effectuer des « ajustements » : l'élément est décalé par rapport à sa position initiale. 
+
+Si un bloc est positionné en absolu, il faut indiquer au navigateur où le positionner sur la page à l'aide des quatre propriétés CSS : 
+![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.093.png)
+- ```left``` : position par rapport à la gauche de la page ; 
+- ```right``` : position par rapport à la droite de la page ;
+- ```top``` : position par rapport au haut de la page ; 
+- ```bottom``` : position par rapport au bas de la page. 
+
+Exemple : 
+```css
+element
+{
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+}
+```
+
+
+Remarque : les éléments positionnés en absolu sont placés par- dessus le reste des éléments de la page ! Par ailleurs, si vous placez deux éléments en absolu vers le même endroit, ils risquent de se chevaucher.  Dans  ce  cas,  utilisez  la propriété ```z-index```  pour indiquer quel élément doit apparaître au-dessus des autres. 
+
+![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.097.png) 
+
+L'élément ayant la valeur de ```z-index``` la plus élevée sera placé par-dessus les autres, comme le montre la figure ci-contre. 
+
+### <H3 STYLE="COLOR:GREEN;">11.2. Le<a name="_page15_x40.00_y697.92"></a> positionnement inline-block</H3> 
+
+En CSS la propriété ```display``` permet de transformer n'importe quel élément de la page d'un type vers un autre et les faire apparaître sous forme de blocs. À ce moment-là, les éléments vont se positionner les uns en-dessous des autres et il devient possible de modifier leurs dimensions ! 
+
+Voici quelques-unes des principales valeurs que peut prendre la propriété ```display``` : 
+
+|**Valeur** |**Exemples** |**Description** |
+| - | - | - |
+|```inline``` |```<a>, <em>, <span>```…|Eléments d'une ligne. Se placent les uns à côté des autres. |
+|```block``` |```<p>, <div>, <section>```… |Eléments en forme de blocs. Se placent les uns en-dessous des autres et peuvent être redimensionnés. |
+|```inline-block``` |```<select>, <input>``` |Eléments positionnés les uns à côté des autres (comme les inlines) mais qui peuvent être redimensionnés (comme les blocs). |
+|```none``` |```<head>``` |Eléments non affichés. |
+
+Les éléments en ```inline-block``` nous permet d'utiliser la propriété ```vertical-align```. Cette propriété permet de modifier l'alignement vertical des éléments. Voici quelques-unes des valeurs possibles pour cette propriété : 
+
+- ```baseline``` : aligne de la base de l'élément avec celle de l'élément parent (par défaut) ; 
+- ```top``` : aligne en haut ; 
+- ```middle``` : centre verticalement ;
+- ```bottom``` : aligne en bas ; 
+- (valeur en px ou %) : aligne à une certaine distance de la ligne de base (```baseline```). 
+
+NB : les éléments ```inline-block``` se positionnent sur une même ligne de base (appelée ```baseline```), en bas. Exemple : nous voulons réaliser la page suivante.  
+
+![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.101.jpeg)
+
+Donnons le code HTML correspondant...  
 ```html
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>Logique sur les passoires</title>
+        <link rel="stylesheet" href="style.css" />
+        <title>Zozor - Le Site Web</title>
     </head>
     <body>
-        Bonjour tout le monde
+        <header>
+            <h1>Zozor</h1>
+            <h2>Carnets de voyage</h2>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="accueil.html">Accueil</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="cv.html">CV</a></li>
+            </ul>
+        </nav>
+        
+        <section>
+            <aside>
+                <h1>À propos de l'auteur</h1>
+                <p>C'est moi, Zozor ! Je suis né un 23 novembre 2005.</p>
+            </aside>
+            <article>                
+                <h1>Je suis un grand voyageur</h1>
+                <p>Bla bla bla bla (texte de l'article)</p>
+            </article>
+        </section>
+        
+        <footer>
+            <p>Copyright Zozor - Tous droits réservés
+            <a href="mailto:zorro@monsite.org">Me contacter !</a></p>
+        </footer>
     </body>
 </html>
 ```
-Par souci de lisibilité du code on met des indentations (non obligatoires en HTML5).
 
-Enregistrer, ouvrir le fichier et observer…
+...et le code CSS associé. 
+```css
+nav
+{
+    display: inline-block;
+    width: 150px;
+    border: 1px solid black;
+    vertical-align: top;
+}
+section
+{
+    display: inline-block;    
+    border: 1px solid blue;
+    vertical-align: top;
+}
 
-- La première ligne s’appelle le **doctype**, elle indique qu’il s’agit bien d’une page web HTML.
-- Les deux balises html englobent tout le contenu de la page.
-- L’en-tête head donne le titre, l’encodage. Le titre s’affichera dans l’onglet du navigateur et dans les résultats de recherche de Google par exemple. Les informations que contient l'en-tête ne sont pas affichées sur la page, ce sont simplement des informations générales à destination de l'ordinateur.
+```
+ 
 
-`<meta charset="utf-8" />` : Cette balise indique l'encodage utilisé dans le fichier .html qui détermine comment les caractères spéciaux vont s'afficher (accents, idéogrammes chinois et japonais, caractères arabes, etc.). Il y a plusieurs techniques d'encodage mais aujourd'hui autant que possible on utilise UTF-8.
+ 
 
-`<title>` : C'est le titre de votre page, probablement l'élément le plus important ! Toute page doit avoir un titre qui décrit ce qu'elle contient.
+## <H2 STYLE="COLOR:BLUE;">12. Squelette<a name="_page17_x40.00_y239.92"></a> de base HTML – CSS</H2> 
 
-![Title](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.008.png)
+Le squelette d’une page web possède souvent une structure de base à cinq blocs principaux. 
 
-Il faut savoir que le titre apparaît
+![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.108.png)
 
- aussi dans les résultats de recherche, comme sur Google.
-
-- Le corps body : tout ce qui est écrit ici sera affiché.
-
-**Les commentaires** : (pour pouvoir se relire ou pour expliquer le code)
-
-`<!-- je fais un commentaire-->`
-
-Tout le code source est accessible à partir du navigateur. Dans **Firefox** : Menu > Web developer > page source ou CTRL + u.
-
-**Exemple de structure complète d’une page HTML**
-
-Voici un exemple complet d'une page HTML simple :
+Cette structure de base à cinq blocs principaux convient dans la majorité des cas, car elle permet de fabriquer une grande variété de mises en page.
 ```html
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>Exemple de page HTML</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+        <title>Titre de la page</title>
+        <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-    <h1>Bienvenue sur ma page</h1>
-    <p>Ceci est un paragraphe.</p>
-    <a href="https://example.com">Un lien</a>
+         <div class="header">En-tête</div>
+         <div class="nav">Navigation</div>
+         <div class="content">Contenu</div>
+         <div class="aside">Contexte</div>
+         <div class="footer">Pied de page</div>
 </body>
 </html>
 ```
+```css
+/* Mes styles */
 
-- `<!DOCTYPE html>` : Indique qu'il s'agit d'un document HTML5.
-- `<html>` : Conteneur principal de tout le contenu HTML.
-- `<head>` : Contient des **informations sur le document, comme le titre et les liens vers les ressources externes**.
-- `<body>` : Contient le **contenu visible et interactif de la page**.
+.header {….}
 
-![DOM-model](DOM-model.svg.png)
+.nav {….}
 
-## <H2 STYLE="COLOR:BLUE;">4. L’organisation<a name="_page3_x40.00_y117.92"></a> d’une page HTML5</H2>
-### <H3 STYLE="COLOR:GREEN;">4.1. Les<a name="_page3_x40.00_y139.92"></a> paragraphes</H3>
+.content {….}
 
-La plupart du temps, on écrit du texte à l’intérieur d’un paragraphe. Le langage HTML propose justement la balise `<p>` pour délimiter les paragraphes. Il faut évidemment mettre ses paragraphes entre les balises body.
+.aside {….}
 
-**<H3 STYLE="COLOR:red;">Activité n°3. :</H3>**
-```html
-<body> 
-    <p>Bonjour et bienvenue sur ma page</p>     
-</body> 
-```
-**<H3 STYLE="COLOR:red;">Activité n°4. :</H3>** Je voudrais écrire le texte suivant exactement avec la même mise en page ci-dessous à la place de « Bonjour et bienvenue sur ma page ». **À vous de jouer !!**
-```html
-<body>
-    <p>
-        On appelle passoire tout instrument sur lequel on peut définir trois sous-ensembles : l’intérieur, l’extérieur, et les trous.
-        L’intérieur est généralement placé au-dessus de l’extérieur et se compose le plus souvent de nouilles et d’eau.
-        Les trous ne sont pas importants. En effet, une expérience simple permet de se rendre compte que l’on ne change pas notablement les qualités de l’instrument en réduisant de moitié le nombre des trous, puis en réduisant cette moitié de moitié… etc… etc… et à la limite jusqu’à ce qu’il n’y ait plus de trous du tout. D’où le théorème :
-        La notion de passoires est indépendante de la notion de trous et réciproquement.
-    </p>
-</body>
-```
-**Attention à mettre des indentations pour que le code soit lisible !!**
-
-### <H3 STYLE="COLOR:GREEN;">4.2. La<a name="_page3_x40.00_y481.92"></a> balise retour à la ligne</H3>
-
-Il existe une balise orpheline `<br />` qui permet un retour à la ligne.
-
-**<H3 STYLE="COLOR:red;">Activité n°5. :</H3>** Modifier l’application n°4 pour ne mettre qu’un seul paragraphe et garder la mise en page.
-
-![Exemple](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.018.jpeg)
-
-### <H3 STYLE="COLOR:GREEN;">4.3. Les<a name="_page3_x40.00_y702.92"></a> titres</H3>
-
-Il a y six niveaux de titres différents :
-
-- Entre les balises `<h1></h1>` : titre de niveau 1.
-- Entre les balises `<h2></h2>` : titre de niveau 2.
-- ….
-- Entre les balises `<h6></h6>` : titre de niveau 6.
-
-**<H3 STYLE="COLOR:red;">Activité n°6. :</H3>** Ajouter un titre à l’application n°4 : Les passoires Puis un sous-titre : Le théorème des passoires,
-
-Ainsi, on aura :
-
-![Exemple](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.022.jpeg)
-
-**<H3 STYLE="COLOR:red;">Activité n°7. :</H3>** Ajouter un autre paragraphe à la suite dont voici le texte :
+.footer {….}
 
 ```
-Les différents ordres de passoires
-On appelle passoires du premier ordre les passoires qui ne laissent passer ni les nouilles ni l'eau. 
-On appelle passoires du second ordre les passoires qui laissent passer et les nouilles et l'eau.
-On appelle passoires du troisième ordre, ou passoires complexes, les passoires qui laissent passer quelquefois l'un ou l'autre et quelquefois pas.   
-```
 
-Ajouter les bonnes balises pour observer cela sur le navigateur.
-
-![Exemple](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.025.jpeg)
-
-**Attention à mettre des indentations pour que le code soit lisible !!**
-
-**<H3 STYLE="COLOR:red;">Activité n°8. :</H3>** Ajouter des titres d’ordre inférieurs et des paragraphes correspondants, dont voici le texte :
-
-```
-Les différents types de passoires du troisième ordre
-Pour qu'une passoire complexe laisse passer l'eau et pas les nouilles, il faut et il suffit que le diamètre des trous soit notablement inférieur au diamètre des nouilles.
-Pour qu'une passoire complexe laisse passer les nouilles et pas l'eau, il faut et il suffit que le diamètre des trous soit notablement inférieur au diamètre de l'eau.
-Les différents types de passoire du premier ordre
-Quant aux passoires du premier ordre qui ne laissent passer ni les nouilles ni l'eau, il y en a de deux sortes : 
-Les passoires qui ne laissent passer ni les nouilles ni l'eau ni dans un sens ni dans l'autre et celles qui ne laissent passer ni les nouilles ni l'eau que dans un sens unique. 
-Ces passoires là on les appelle des casseroles.
-```
-
-Ajouter les bonnes balises pour observer cela sur le navigateur.
-
-![Exemple](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.029.jpeg)
-
-**<H3 STYLE="COLOR:red;">Activité n°9. :</H3>** Ajouter des titres d’ordre inférieurs et des paragraphes correspondants, dont voici le texte :
-
-```
-Les différents types de casseroles
-Il y a trois sortes de casseroles. Les casseroles avec la queue à droite, les casseroles avec la queue à gauche, et les casseroles avec pas de queues du tout. Mais celles-là on les appelle des autobus.
-Les différents types d'autobus
-Il y a trois sortes d'autobus : les autobus qui marchent à droite ; les autobus qui marchent à gauche et les autobus qui ne marchent ni d'un côté ni de l'autre. Mais ceux-là, on les appelle des casseroles.
-```
-
-![Exemple](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.031.png)
-
-### <H3 STYLE="COLOR:GREEN;">4.4. Mettre<a name="_page5_x40.00_y676.92"></a> en valeur</H3>
-
-Il y a différentes façons de mettre en valeur :
-
-- Pour mettre un peu en valeur le texte on utilise la balise `<em></em>`.
-
-**<H3 STYLE="COLOR:red;">Activité n°10. :</H3>** utiliser les balises précédentes pour le mot passoire et théorème du premier paragraphe.
-
-![Exemple](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.033.png)
-
-- Pour mettre en valeur le texte on utilise la balise `<strong></strong>`.
-
-**<H3 STYLE="COLOR:red;">Activité n°11. :</H3>** utiliser les balises précédentes pour les mots ci-dessous du deuxième paragraphe.
-
-![Exemple](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.036.jpeg)
-
-- Les balises `<mark></mark>` permettent de faire ressortir visuellement une portion de texte. L’extrait n’est pas forcément considéré comme important mais on veut qu’il se distingue bien du reste du texte.
-
-**<H3 STYLE="COLOR:red;">Activité n°12. :</H3>** utiliser les balises précédentes pour les mots ci-dessous du troisième paragraphe.
-
-![Exemple](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.038.jpeg)
-
-**Attention** : HTML pour le fond, CSS pour la forme
-
-Le rôle des balises est d
-
-'indiquer le sens du texte. Ainsi, `<strong>` indique à l'ordinateur « Ce texte est important ». C'est tout.
-
-Et pour montrer que le texte est **important**, l'ordinateur décide de le mettre en gras (mais il pourrait aussi bien l'écrire en rouge !). La plupart des navigateurs affichent les textes importants en gras, mais rien ne les y oblige.
-
-Pourquoi c’est important de différencier par les balises adéquates le texte ?
-
-De nombreux programmes analysent le code source des pages web, à commencer par les robots de moteurs de recherche. Ces robots parcourent le Web en lisant le code HTML de tous les sites. C'est le cas des robots de Google et de Bing, par exemple. Les mots-clés « **importants** » ont tendance à avoir plus de valeur à leurs yeux, donc si quelqu'un fait une recherche sur ces mots, il a plus de chances de tomber sur votre site.
-
-### <H3 STYLE="COLOR:GREEN;">4.5. Les<a name="_page7_x40.00_y36.92"></a> listes</H3>
-
-Il y a deux types de listes :
-
-- Les listes non ordonnées ou listes à puces
-
-Pour créer une liste d’éléments sans notion d’ordre, il suffit d’utiliser les balises `<ul></ul>`. Puis pour chacun des éléments on utilise les balises `<li></li>`.
-
-Par exemple :
-```html
-<ul>
-    <li>Fraises</li>
-    <li>Framboises</li>
-    <li>Cerises</li>
-</ul>
-```
-**<H3 STYLE="COLOR:red;">Activité n°13. :</H3>** utiliser les balises précédentes pour les mots ci-dessous du cinquième paragraphe.
-
-![Exemple](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.040.png)
-
-- Les listes ordonnées ou listes numérotées ou énumérations
-
-Il suffit de remplacer les balises `<ul>` par `<ol>` et on utilise aussi les balises `<li></li>`. Par exemple :
-```html
-<ol>
-    <li>Fraises</li>
-    <li>Framboises</li>
-    <li>Cerises</li>
-</ol>
-```
-**<H3 STYLE="COLOR:red;">Activité n°14. :</H3>** utiliser les balises précédentes pour les mots ci-dessous du dernier paragraphe.
-
-![Exemple](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.043.jpeg)
-
-### <H3 STYLE="COLOR:GREEN;">4.6. Les<a name="_page7_x40.00_y697.92"></a> liens hypertexte</H3>
-#### <H4 STYLE="COLOR:MAGENTA;">4.6.1. Les<a name="_page7_x40.00_y717.92"></a> liens absolus</H4>
-
-Pour faire un lien vers un autre site, il faut utiliser les balises `<a></a>` et un attribut href qui indiquera la page.
-Par exemple :
-```html
-<a href="https://fr.wikipedia.org/wiki/Passoire">Passoire</a>
-```
-**<H3 STYLE="COLOR:red;">Activité n°15. :</H3>** utiliser les balises précédentes pour mettre un lien vers casserole sur Wikipedia comme ci-dessous.
-
-![Exemple](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.046.jpeg)
-
-**Remarque** : Si vous faites un lien vers un site qui comporte une adresse un peu bizarre avec des &, comme : `http://www.site.com/?data=15&name=mateo21`, vous devrez remplacer tous les « & » par « `&amp;` » dans votre lien comme ceci : `http://www.site.com/?data=15&amp;name=mateo21`.
-
-#### <H4 STYLE="COLOR:MAGENTA;">4.6.2. Lien<a name="_page8_x40.00_y259.92"></a> relatif vers une page d’un même dossier</H4>
-
-Pour faire un lien vers une page située dans un même dossier, on crée un lien relatif. Il suffit d’utiliser les balises `<a>` avec l’attribut href.
-
-**<H3 STYLE="COLOR:red;">Activité n°16. :</H3>** Créer une nouvelle page html page2.html dans le dossier contenant la page1 (Titre : Page 2). Après avoir rempli, la **structure minimale de la nouvelle page html** :
-```html
-<p>
-    Pour consulter la <a href="index.html">logique sur les passoires</a>
-</p>
-```
-
-Observer la page2.html.
-
-#### <H4 STYLE="COLOR:MAGENTA;">4.6.3. Lien<a name="_page8_x40.00_y391.92"></a> relatif vers une page située dans un dossier fils</H4>
-
-**ON NE POURRA PAS LE FAIRE AVEC CAPYTALE**
-Pour faire un lien vers une page située dans un sous-dossier, on utilise le chemin relatif :
-
-Créer un dossier **contenu** dans le dossier contenant la page index.html. Créer une nouvelle page html page3.html avec la **structure minimale** dans le dossier contenu (Titre : Page3). Sur la page2.html, rajouter :
-```html
-<p>
-    Pour consulter la <a href="contenu/page3.html">page 3</a> du site
-</p>
-```
-
-Observer la page2.html.
-
-#### <H4 STYLE="COLOR:MAGENTA;">4.6.4. Lien<a name="_page8_x40.00_y511.92"></a> relatif vers une page située dans un dossier parent</H4>
-**ON NE POURRA PAS LE FAIRE AVEC CAPYTALE**
-Pour faire un lien vers une page dans un dossier parent, on utilise toujours la même chose.
-
-Sur la page3.html, rajouter :
-```html
-<p>
-    Pour consulter la <a href="../page2.html">page 2</a> du site
-</p>
-```
-#### <H4 STYLE="COLOR:MAGENTA;">4.6.5. Lien<a name="_page8_x40.00_y599.92"></a> vers une ancre sur une même page</H4>
-
-Une **ancre** est une sorte de point de repère que l’on peut mettre dans les pages html lorsqu’elles sont très longues. Il peut alors être utile de faire un lien amenant plus bas dans la même page pour que le visiteur puisse sauter directement à la partie qui l'intéresse. Pour créer une ancre, il suffit de rajouter l'attribut id à une balise qui va alors servir de repère. Ce peut être n'importe quelle balise.
-
-**<H3 STYLE="COLOR:red;">Activité n°17. :</H3>** Sur la index.html, on va faire une ancre sur le titre en haut de page
-```html
-<h1 id="haut">Les passoires</h1>
-```
-
-On crée un lien en bas de la page pour remonter vers le haut. Rajouter tout en bas (mais dans le body) la référence avec `#`
-```html
-<p>
-    <a href="#haut">Aller en haut</a>
-</p>
-```
-Enregistrer et observer. S’il ne se passe rien, augmenter le zoom afin de faire apparaître les barres de défilement sur le côté.
-
-#### <H4 STYLE="COLOR:MAGENTA;">4.6.6. Lien<a name="_page9_x40.00_y36.92"></a> vers une ancre sur une autre page</H4>
-
-Pour faire un lien vers **une ancre située dans une autre page,** on précise l’adresse de la page et le nom de l’ancre précédée de #.
-
-**<H3 STYLE="COLOR:red;">Activité n°18. :</H3>** Sur la page2.html, on va faire un lien vers l’ancre de la index.html.
-```html
-<h1 id="haut">Les passoires</h1>
-```
-On crée un lien en bas de la page pour remonter vers le haut. Rajouter tout en bas (mais dans le body) la référence avec #
-```html
-<p>
-    <a href="index.html#haut">Aller en haut de la page logique sur les passoires</a>
-</p>
-```
-Enregistrer et observer.
-
-#### <H4 STYLE="COLOR:MAGENTA;">4.6.7. Lien<a name="_page9_x40.00_y195.92"></a> affichant une infobulle</H4>
-
-Avec l’**attribut** title
-
-**<H3 STYLE="COLOR:red;">Activité n°19. :</H3>** Sur la page2.html, on va faire une infobulle
-```html
-<p>
-    <a href="index.html#haut" title="Vous ne le regretterez pas !">Aller en haut de la page logique sur les passoires</a>
-</p>
-```
-Enregistrer et observer.
-
-#### <H4 STYLE="COLOR:MAGENTA;">4.6.8. Lien<a name="_page9_x40.00_y316.92"></a> qui ouvre une nouvelle fenêtre</H4>
-
-Pour forcer l’ouverture d’un lien dans une nouvelle fenêtre, on rajoutera target="_blank" à la balise `<a>`
-
-**<H3 STYLE="COLOR:red;">Activité n°20. :</H3>** Sur la page2.html, on va faire une infobulle
-```html
-<p>
-    <a href="index.html#haut" title="Vous ne le regretterez pas !" target="_blank">Aller en haut de la page logique sur les passoires</a>
-</p>
-```
-Enregistrer et observer.
-
-#### <H4 STYLE="COLOR:MAGENTA;">4.6.9. Un<a name="_page9_x40.00_y437.92"></a> lien pour envoyer un e-mail</H4>
-
-Avec un lien de type mailto, en cas de clic, un nouveau message vide s’ouvre.
-
-**<H3 STYLE="COLOR:red;">Activité n°21. :</H3>** Sur la index.html, on va faire un lien vers un mail
-```html
-<p>
-    <a href="mailto:votrenom@bidule.com">Envoyez-moi un e-mail !</a>
-</p>
-```
-Enregistrer et observer.
-
-#### <H4 STYLE="COLOR:MAGENTA;">4.6.10. Un<a name="_page9_x40.00_y544.92"></a> lien pour télécharger un fichier</H4>
-
-Il s’agit d’un même type de lien mais vers le dossier à télécharger.
-
-Par exemple :
-```html
-<p><a href="monfichier.zip">Télécharger le fichier</a></p>
-```
-
-## <H2 STYLE="COLOR:BLUE;">5. Insérer<a name="_page9_x40.00_y607.92"></a> une image</H2>
-### <H3 STYLE="COLOR:GREEN;">5.1. Les<a name="_page9_x40.00_y629.92"></a> différents formats d’images</H3>
-
-Le format de l’image influence le poids mais également la qualité de l’image. Toutes les images diffusées sur internet ont un point commun : elles sont **compressées.**
-
-#### <H4 STYLE="COLOR:MAGENTA;">5.1.1. Le<a name="_page9_x40.00_y680.92"></a> JPEG</H4>
-
-Les images au format JPEG (Joint Photographic Expert Group) sont très répandues sur le Web. Ce format est conçu pour réduire le poids des photos qui peuvent comporter plus de 16 millions de couleurs différentes. Les images JPEG sont enregistrées avec l’extension .jpg ou .jpeg. Ce format permet de réduire le poids des photos mais les images sont de moindre qualité.
-
-#### <H4 STYLE="COLOR:MAGENTA;">5.1.2. Le<a name="_page9_x40.00_y751.92"></a> PNG</H4>
-
-Le format PNG (Portable Network Graphics) est le plus récent de tous. Le PNG a deux gros avantages : il peut être rendu transparent et il n’altère pas la qualité de l’image.
-
-Le PNG existe en deux versions :
-
-- PNG 8 bits : 256 couleurs
-- PNG 24 bits : 16 millions de couleurs
-
-Une photo au format PNG a un poids plus important qu’au format JPEG.
-
-#### <H4 STYLE="COLOR:MAGENTA;">5.1.3. Le<a name="_page10_x40.00_y106.92"></a> GIF</H4>
-
-Le format GIF est limité à 256 couleurs. Par contre il peut être animé.
-
-#### <H4 STYLE="COLOR:MAGENTA;">5.1.4. Le<a name="_page10_x40.00_y144.92"></a> BITMAP</H4>
-
-C’est un format non compressé donc très (trop) gros.
-
-### <H3 STYLE="COLOR:GREEN;">5.2. Insérer<a name="_page10_x40.00_y183.92"></a> une image</H3>
-
-Pour insérer une image, il faut utiliser la balise orpheline `<img />`. La balise doit être accompagnée de deux attributs obligatoires :
-
-- src : il permet d’avoir le chemin de la source 
-
-Par exemple :
-```html
-<img src="http://monsite.fr/fleur.jpg" />
-<img src="images/fleur.jpg" />
-```
-- alt : cela signifie « texte alternatif ». Il faut toujours indiquer un texte alternatif à l’image qui permet de décrire l’image si elle ne s’affiche pas dans le navigateur de l’utilisateur. De plus, elle sera d’une aide précieuse pour les personnes mal voyantes. Cela aide aussi les robots des moteurs de recherche pour les recherches d'images. Pour la fleur, on mettrait par exemple : alt="Une fleur".
-
-- title : permet d’insérer une info bulle (attribut facultatif)
-
-On aura ainsi finalement :
-```html
-<p>
-    Voici une photo d'une fleur de mon jardin <br />
-    <img src="images/fleur.jpg" alt="Photo d'une fleur" title="C'est beau les fleurs quand même !" />
-</p>
-```
-**Attention** : à ne pas mettre d’espace dans le nom !!
-
-**ON NE POURRA PAS LE FAIRE AVEC CAPYTALE**
-Chercher trois images sur le web d’une passoire, d’une casserole et d’un autobus. Les enregistrer dans un dossier **images** dans le dossier Documents\site. Ouvrir la index.html et insérer ces trois images de telle sorte à obtenir la page ci-dessous. Mettre des infobulles du type « Ceci est une passoire ! »
-
-![Exemple](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.063.jpeg)
-
-![Exemple](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.064.png)
-
-![Exemple](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.065.png)
-
-Enregistrer et observer.
-
-On peut proposer une miniature cliquable pour des images très grosses :
-
-![Exemple](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.066.png)
-
-Il faut les placer toutes les deux dans un dossier img. On affiche la version mini sur la page et on fait un lien vers la plus grosse image pour que l’image agrandie s’affiche lorsqu’on clique sur la miniature.
-
-```html
-<p>
-    Voici une photo d'une fleur de mon jardin. Cliquez dessus !<br />
-    <a href="img/fleur.jpg">
-        <img src="images/fleur_mini.jpg" alt="Photo d'une fleur" title="C'est beau les fleurs quand même !" />
-    </a>
-</p>
-```
-Vérification de la syntaxe de votre page.
-
-Pour vérifier que votre page Web est conforme aux spécifications HTML5, rendez-vous sur le site du W3C (World Wide Web Consortium) : [http://validator.w3.org](http://validator.w3.org)
-
-Pour une page Web locale (pas encore publiée sur le Web) :
-
-Validate by File Upload → Check
-
-S'il y a des erreurs, elles vous seront indiquées, avec des explications.
+Il existe sur le web des collections de modèles de mise en page, à télécharger gratuitement. 
+Exemple : «[ Layout Gala ](http://blog.html.it/layoutgala/)» 
