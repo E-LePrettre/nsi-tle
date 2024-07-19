@@ -154,7 +154,7 @@ Voici un exemple complet d'une page HTML simple :
 - `<body>` : Contient le **contenu visible et interactif de la page**.
 
 
-![DOM-model](DOM-model.svg.png =250x)
+![DOM-model](DOM-model.svg.png)
 
 ## <H2 STYLE="COLOR:BLUE;">4. L’organisation<a name="_page3_x40.00_y117.92"></a> d’une page HTML5</H2>
 ### <H3 STYLE="COLOR:GREEN;">4.1. Les<a name="_page3_x40.00_y139.92"></a> paragraphes</H3>
