@@ -276,8 +276,8 @@ RESSOURCES :
 ```
 largeur <- LireEntier() 
 longueur <- LireEntier() 
-aire <- largeur \* longueur 
-perimetre <- (largeur + longueur) \* 2 
+aire <- largeur * longueur 
+perimetre <- (largeur + longueur) * 2 
 Afficher aire 
 Afficher perimetre 
 ```
@@ -287,9 +287,9 @@ Afficher perimetre
 ```
 nbLivres <- LireEntier() 
 Si nbLivres < 10 
-    prix <- nbLivres \* 10 
+    prix <- nbLivres * 10 
 Sinon 
-    prix <- nbLivres \* 9 
+    prix <- nbLivres * 9 
 Afficher prix 
 ```
 
