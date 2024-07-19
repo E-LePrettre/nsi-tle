@@ -410,11 +410,9 @@ Enregistrer et observer.
 
 #### <H4 STYLE="COLOR:MAGENTA;">4.6.8. Lien<a name="_page9_x40.00_y316.92"></a> qui ouvre une nouvelle fenêtre</H4>
 
-Pour forcer l’ouverture d’un lien dans une nouvelle fenêtre, on rajoutera target="\_blank" à la balise `<a>`
+Pour forcer l’ouverture d’un lien dans une nouvelle fenêtre, on rajoutera target="_blank" à la balise `<a>`
 
-**<H3 STYLE="COLOR:red;">Activité
-
- n°20. :</H3>** Sur la page2.html, on va faire une infobulle
+**<H3 STYLE="COLOR:red;">Activité n°20. :</H3>** Sur la page2.html, on va faire une infobulle
 ```html
 <p>
     <a href="index.html#haut" title="Vous ne le regretterez pas !" target="_blank">Aller en haut de la page logique sur les passoires</a>
@@ -475,7 +473,7 @@ C’est un format non compressé donc très (trop) gros.
 
 Pour insérer une image, il faut utiliser la balise orpheline `<img />`. La balise doit être accompagnée de deux attributs obligatoires :
 
-- src : il permet d’avoir le chemin de la source ![Source](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.058.png)
+- src : il permet d’avoir le chemin de la source 
 
 Par exemple :
 ```html
@@ -496,7 +494,7 @@ On aura ainsi finalement :
 **Attention** : à ne pas mettre d’espace dans le nom !!
 
 **ON NE POURRA PAS LE FAIRE AVEC CAPYTALE**
-Chercher trois images sur le web d’une passoire, d’une casserole et d’un autobus. Les enregistrer dans un dossier **images dans le dossier Documents\site. Ouvrir la index.html et insérer ces trois images de telle sorte à obtenir la page ci-dessous. Mettre des infobulles du type « Ceci est une passoire ! »
+Chercher trois images sur le web d’une passoire, d’une casserole et d’un autobus. Les enregistrer dans un dossier **images** dans le dossier Documents\site. Ouvrir la index.html et insérer ces trois images de telle sorte à obtenir la page ci-dessous. Mettre des infobulles du type « Ceci est une passoire ! »
 
 ![Exemple](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.063.jpeg)
 
