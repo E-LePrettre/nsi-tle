@@ -1,558 +1,779 @@
 ---
 author: ELP
-title: 08a Les réseaux
+title: 08b Interaction client-serveur - Requête
 ---
-
 
 **Table des matières** 
 
-1. [Que se passe-t-il lorsqu’on veut afficher une page web dans le navigateur ?](#_page0_x40.00_y569.92)
-2. [Observation d’un réseau](#_page5_x40.00_y260.92)
-3. [Le protocole ARP](#_page5_x40.00_y455.92)
-4. [Le modèle TCP/IP](#_page5_x40.00_y630.92)
-5. [Menaces courantes sur les réseaux](#_titre5)
-6. [Mesures de protection des réseaux](#_titre6)
-7. [Analyse de trame](#_titre7)
-8. [Simulation d’un réseau avec Filius](#_page10_x40.00_y36.92)
+1. [Modèle client/serveur=](#_page0_x40.00_y516.92)
+1. [Le protocole HTTP=](#_page1_x40.00_y233.92)
+3. [Coder l’envoi d’une requête par le navigateur](#_page3_x40.00_y617.92)
+4. [APPLICATION : Création d’une page web dynamique](#_page8_x40.00_y503.92)
+5. [Exercices](#_page13_x40.00_y36.92)
 
-**Un  réseau**  est  une  **connexion  de  plusieurs machines  entre  elles,**  afin  qu’elles  puissent  communiquer, échanger des informations suivant **des protocoles communs (règles communes)** définis à l’avance. 
+<H2 STYLE="COLOR:BLUE;">## 1. Modèle<a name="_page0_x40.00_y516.92"></a> client/serveur</H2>
+![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.004.png)
 
-Le mot **réseau** s’applique aussi bien à l’ensemble des machines qu’aux infrastructures qui les relient.  
+Deux  ordinateurs  en  réseau  peuvent  s’échanger  des  **données**.  Un ordinateur A va souvent se contenter de **demander** (faire une **requête**)  des ressources à un ordinateur B. L’ordinateur B va lui se contenter de  **fournir**  des  ressources  à tous les ordinateurs  qui lui  en feront la  demande. On dira que A est le **client** alors que B est le **serveur**.   
 
-**Video 1** : Histoire de l’internet[ https://ladigitale.dev/digiview/#/v/6690fd5d7c1bd ](https://ladigitale.dev/digiview/#/v/6690fd5d7c1bd) 
+Un client peut être défini comme une application logicielle qui **envoie** des requêtes à un serveur. Un serveur peut être défini comme une application logicielle qui **attend** et **traite les requêtes** provenant de clients.  
 
-Le Web correspond à **World Wide Web**, composé de worldwide (« **mondial** ») et de web (« **toile d’araignée** ») 
+La communication entre un client et un serveur se fait généralement à l'aide d'un **protocole de communication spécifique**.(par exemple : HTTP entre navigateurs web et serveurs web) 
 
-## <H2 STYLE="COLOR:BLUE;">**1. Que<a name="_page0_x40.00_y569.92"></a> se passe-t-il lorsqu’on veut afficher une page web dans le navigateur ?**</H2>
+Les serveurs sont aujourd’hui **capables de générer eux-mêmes du code HTML**. Les résultats qui s’affichent à l’écran dépendent des demandes effectuées par l’utilisateur du site : le web est devenu **dynamique** 
 
-On a différents éléments : 
+Différents langages de programmation peuvent être utilisés « coté serveur » afin de permettre au serveur de générer lui-même le code HTML à envoyer. Le plus utilisé encore aujourd’hui se nomme **PHP**. D’autres langages sont utilisables côté serveur : Java, Python,… 
 
-![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.004.jpeg)
-
-### <H3 STYLE="COLOR:GREEN;">**1.1. Une<a name="_page0_x40.00_y699.92"></a> adresse MAC**</H3>
-
-Une **adresse MAC** (Media Access Control), parfois appelée **adresse physique**, est un **identifiant physique** stocké dans **une carte réseau** ou **une interface réseau** similaire. Elle est **unique au monde**. 
-
-### <H3 STYLE="COLOR:GREEN;">**1.2. Une<a name="_page1_x40.00_y36.92"></a> adresse IP**</H3>
-
-Une **adresse IP** (Internet Protocol), est un numéro d’identification qui est **attribué de façon permanente ou provisoire à chaque périphérique relié à un réseau informatique qui utilise l’Internet Protocol**.  L’adresse IP est à la base du **système d’acheminement** (le **routage**) des paquets de données sur Internet. 
-
-Il existe des adresse IP de **version 4 (IPV4)** sur 32 bits et de **version 6 (IPV6)** sur 128 bits. La version 4 est actuellement la plus utilisée. 
-
-### <H3 STYLE="COLOR:GREEN;">**1.3. Anatomie<a name="_page1_x40.00_y162.92"></a> d’une adresse IP**</H3>  
-#### <H4 STYLE="COLOR:MAGENTA;">**1.3.1. Adresse<a name="_page1_x40.00_y181.92"></a> machine**</H4>
-
-Chaque  adresse  IP  contient  deux  informations  basiques,  **une  adresse  de  réseau**  et  une  **adresse  d'hôte**.  La combinaison des deux désigne de **manière unique** une machine et une seule sur un réseau. 
-
-La partie réseau  (**NetID**) aussi appelé **préfixe**, de l'adresse IP vient toujours en tête, la partie hôte (**HostID**) est donc toujours en queue. 
-
-*Exemple : une machine dont l’adresse serait 131.254.100.48.* 
-
-
-
-|*Réseau* |*Réseau* |*Réseau* |*Machine* |
-| - | - | - | - |
-|*131* |*254* |*100* |*48* |
-
-*Exemple :* 
-
-*Si les trois premiers octets désignent l’adresse du réseau, toutes les machines de  ce réseau auront une adresse commençant par 131.254.100.xxx.* 
-
-![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.015.png)
-
-On indique toujours la taille du préfixe à la suite de l’adresse IPv4. Dans notre exemple la machine aura l’adresse suivante : 131.254.100.48 **/24.**  
-
-Les 24 premiers bits désignent le préfixe du réseau :  
-
-**10000011.11111110.01100100**.**xxxxxxxx/24**  
-
-**Combien de machines sont adressables sur ce réseau ?**
-
-On a l’identification de l’interface réseau de la machine comprend **8 bits**, on peut donc avoir 28 = **256 possibilités** soit 256-2 = **254 machines différentes** dans le réseau.  
-
-Il y a deux **adresses réservées** : 
-
-- la **zéro (adresse du sous réseau)** 
-- la **255** (c’est le **broadcast (adresse de diffusion)** : envoie vers toutes les machines) 
-#### <H4 STYLE="COLOR:MAGENTA;">**1.3.2. Adresse<a name="_page1_x40.00_y612.92"></a> du sous réseau**</H4>
-
-On obtient **l'adresse du sous réseau** avec l'opérateur AND  
-
-**Exemple 1 : Par exemple : Voici une IPv4 192.168.1.55/24 et son masque de sous réseau 255.255.255.0** En binaire cela donne 
-```
-  	 11000000.10101000.00000001.00110111 
-AND  11111111.11111111.11111111.00000000
-
-   	 11000000.10101000.00000001.000000000 
-```
-(AND : cela fait 1 quand les deux bits sont à 1) cela fait :
-
-* soit 192.168.1.0 **c'est l'adresse du (sous) réseau**.
-
-* et 192.168.1.255 **c'est l'adresse du broadcast**.
-
-On comprend vite que donner ces réponses avec des masques de 255 et 0 **est très simple** et ne nécessite pas le passage en binaire. 
-```
-192.168.1.239/24
- 	=> 192.168.1.0 pour le sous réseau
-	=> 0.0.0.239 pour la partie hôte
-	=> 192.168.1.255 pour le broadcast
-192.168.1.239/16
- 	=> 192.168.0.0 pour le sous réseau
-	=> 0.0.1.239 pour la partie hôte
-	=> 192.168.255.255 pour le broadcast
-192.168.1.239/8
- 	=> 192.0.0.0 pour le sous réseau
-	=> 0.168.1.239 pour la partie hôte
-	=> 192.255.255.255 pour le broadcast
+Par exemple : 
+```php
+<?php 
+$heure = date("H:i"); 
+echo '<h1>Bienvenue sur mon site</h1> 
+	<p>Il est '.$heure.'</p>'; 
+?> 
 ```
 
 
-**Exemple 2 : Par exemple 90.98.100.3/21** indique que le masque est 11111111.11111111.11111000.00000000 soit 255.255.248.0 
-
-Cherchons l'adresse du sous réseau puis de l'hôte destination: 
-```
-     01011010.01100010.01100100.00000011 
-AND  11111111.11111111 .11111000.00000000
-
-     01011010.01100010.01100000.000000000 
+Si un client se connecte à un serveur web qui exécute ce code à 18h23, le serveur enverra au client le code HTML ci-dessous : 
+```html
+<h1>Bienvenue sur mon site</h1> 
+<p>Il est 18h23</p>
 ```
 
-soit 90.98.96.0 pour IP **du (sous) réseau**  
-L'adresse de broadcast sera: 
-```01011010.01100010.01100111.1111111111=> 90.98.103.255```
 
-Pour aller plus loin:
+<H2 STYLE="COLOR:BLUE;">## 2. Le<a name="_page1_x40.00_y233.92"></a> protocole HTTP</H2>
+<H3 STYLE="COLOR:GREEN;">### 2.1. Qu’est<a name="_page1_x40.00_y255.92"></a> ce que c’est et quel est son rôle ?</H3>
 
-- Protocole IP[ https://www.commentcamarche.net/contents/530-le-protocole-ip ](https://www.commentcamarche.net/contents/530-le-protocole-ip)
+Le **HTTP (HyperText Transfert Protocol)** va permettre au client **d’effectuer des requêtes** à destination d’un serveur web. En retour, le serveur web va envoyer **une réponse**.  
 
-- Classes d’adresse[ https://www.inetdoc.net/articles/adressage.ipv4/adressage.ipv4.class.html ](https://www.inetdoc.net/articles/adressage.ipv4/adressage.ipv4.class.html)
+Le rôle de HTTP dans les interactions client-serveur est de fournir **une structure pour les requêtes et les réponses.**  La requête HTTP est composée de plusieurs lignes de texte qui **décrivent ce que le client demande au serveur**.  La réponse HTTP est également composée de plusieurs lignes de texte qui **décrivent ce que le serveur renvoie au client.** 
 
-#### <H4 STYLE="COLOR:MAGENTA;">**1.3.3. Adresse<a name="_page2_x40.00_y473.92"></a> publique et adresse privée**</H4>
-![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.030.png)
+<H3 STYLE="COLOR:GREEN;">### 2.2. Les<a name="_page1_x40.00_y417.92"></a> codes de statut HTTP</H3>
 
-Les **adresses publiques** permettent à une machine de communiquer avec l’Internet. 
+Les **codes de statuts** sont des codes numériques qui indiquent **le résultat** d'une requête HTTP :  
 
-Les **adresses privées** peuvent être attribuées dans des réseaux internes qui n’ont pas vocation à communiquer directement avec Internet. On dit que les adresses privées **ne sont pas routables** 
+- 200 et suivants indiquent une **réussite**.  
+- 300 et suivants indiquent **un déplacement de la ressource demandée**.  
+- 400 et suivants indiquent une **erreur du client** : requête mal formulée ou ressource inexistante (400: "Bad Request", 401: "Unauthorized", 402: "Payment Required", 403: "Forbidden", 404: "Not Found",...) 
+- 500 et suivants indiquent une **erreur du serveur.** (500: "Internal Server Error", 501: "Not Implemented", 502: "Bad Gateway", 503: "Service Unavailable",...)
 
-Si  un  réseau  utilisant  **un  adressage  privé**  veut  communiquer  avec  l’Internet,  il  faudra  qu’un  équipement fasse une **translation** (ou traduction)  entre l’adresse privée et une adresse publique qui  serait disponible pour dialoguer avec l’Internet. On  appelle cette opération le **NAT**[^1].  
+<H3 STYLE="COLOR:GREEN;">### 2.3. Principe<a name="_page1_x40.00_y564.92"></a> d’une requête</H3>
 
-### <H3 STYLE="COLOR:GREEN;">**1.4. Un<a name="_page3_x40.00_y36.92"></a> switch (commutateur réseau)**</H3>
+Composition simplifiée d’une requête HTTP (client vers serveur) : 
 
-Un commutateur est un dispositif qui **achemine les données issues** d'un des différents **ports d'entrée vers un port de sortie spécifique** qui, à son tour, transfère ces données vers la destination prévue. 
+- La **méthode employée** pour effectuer la requête 
+- L’**URL** de la ressource 
+- La **version du protocole** utilisé par le client (souvent HTTP 1.1) 
+- Le **navigateur employé** (Firefox, Chrome) et sa **version** 
+- Le **type du document demandé** (par exemple HTML) 
 
-Le commutateur **garde en mémoire dans une table, l'adresse mac des destinataires.** Il décode ainsi **l'en-tête du paquet** pour y trouver son **adresse mac et l'envoyer uniquement à l'ordinateur concerné.** 
+<H4 STYLE="COLOR:MAGENTA;">#### 2.3.1. Ligne de Requête</H4>
+La première ligne d'une requête HTTP est la ligne de requête, qui spécifie le type de requête (méthode HTTP), l'URL de la ressource demandée, et la version du protocole HTTP.
 
-Lorsqu'il reçoit une trame destinée à une adresse présente dans cette table, le commutateur renvoie la trame sur le port correspondant.  
-
-- Si **pas de problème** la **trame est transmise** 
-- Si le **port de destination est le même que celui de l'émetteur**, la **trame n'est pas transmise**.  
-- Si **l'adresse du destinataire est inconnue** dans la table, alors la trame est traitée **comme un broadcast**, c'est-à-dire qu'elle est transmise à tous les ports du commutateur à l'exception du port de réception. 
-
-### <H3 STYLE="COLOR:GREEN;">**1.5. Un<a name="_page3_x40.00_y209.92"></a> routeur**</H3>
-
-Le routeur est un périphérique faisant la **liaison entre deux réseaux**.  
-
-Un routeur est un élément intermédiaire dans un réseau informatique assurant le **routage des paquets** entre réseaux indépendants. Ce routage est réalisé selon un ensemble de règles formant la **table de routage**.  
-
-### <H3 STYLE="COLOR:GREEN;">**1.6. Etude<a name="_page3_x40.00_y273.92"></a> de cas concret**</H3>
-
-Je veux aller sur[ www.nsi.fr.](http://www.nsi.fr/) Cette adresse n’existe pas sous cette forme. On a besoin de l’adresse réelle de ce site : **son IP**.  
-
-- C’est le rôle du **serveur DNS**. 
-
-Cette IP est de la forme : 200.16.0.1  
-
-![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.031.jpeg)
-
-J’interroge : 
-
-- ma box  
-- puis mon fournisseur d’accès qui a un serveur DNS.  
-
-Une fois l’adresse IP connue elle me renvient. 
-
-J'ai enfin **l'adresse IP** du site que je veux voir. Mon ordinateur va pouvoir demander à ce que je vois cette page. Pour cela, le procédé est du **même type** que la recherche DNS 
-
-Je regarde si la page est dans le **cache du navigateur**. Sinon, mon programme (le navigateur) va se débrouiller  pour **envoyer ma demande sur internet** et faire en sorte  que la réponse me revienne   
-![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.032.jpeg)
-
-1. Il faut que je dise quel genre de données je veux, c'est la **couche application** (couche 4) qui décide cela. Ici on veut une page **html** 
-
-2. La **couche transport** (couche 3) va dire qu'elle veut une page html: elle va appliquer le **protocole TCP** car c'est celui qui est approprié à cette demande et dire qu'elle fait une requête http. Ce message est un **segment TCP.** 
-
-3. elle prépare un message en donnant: ip de destination, son ip et tout ce que l'on a dit avant  ! C'est la **couche internet** (couche 2). Ce message est **un paquet.** 
-
-4. Notre poste possède **une table ARP** (address resolution protocol). Elle contient des associations **d'adresses IP et des adresses MA**C. 
-
-**2 cas : soit la table ARP connait ou ne connait pas notre box !** 
-
-- Si la **table ARP connait notre box** notre message va aller vers lui 
-- Si la **table ARP** ne connait pas notre box ? 
-
-La destination ip n'est pas dans mon réseau donc je dois trouver l'adresse mac **de ma passerelle** par défaut (ma box). Je sais que c'est par là que j'en sors. 
-
-1. J'envoie donc une **requête ARP**. (« je cherche Ma box  »). Je donne mon adresse mac et celle que je veux. Je ne donne pas mon IP. On ne va pas quitter notre réseau. Le rôle d'une requête ARP est la **recherche d'adresse MAC**. 
-2. Le switch reçoit cette requête. Du coup il connait maintenant ma MAC adresse! il l'ajoute à sa table. S'il connait l'adresse **MAC de ma box, il me la renvoie.** 
-3. S'il ne la connait pas? Le switch va faire du **'flooding**'. Il va **dupliquer**  ma demande ARP et l'envoyer à tout le monde autour de lui. Celui qui se reconnait comme destination en profite pour m'enregistrer dans sa table ARP et fait une réponse ARP (**'c'est moi**'). Son adresse MAC passe dans **ma table ARP** 
-
-Maintenant je connais la sortie vers l'internet, j'avais commencé à préparer un **paquet** avec : 
-
-- les données  
-- les  IP (src et dst)  
-- et j’ajoute maintenant **mon adresse mac et l'adresse mac de la sortie** vers l'internet  
-
-On est donc en **couche Réseau** : couche 1.  
-
-Cet ensemble est appelé **TRAME** (ou **frame**), le protocole employé est nommé **Ethernet.** 
-
-Tout cela arrive au routeur « ma box ». Il regarde la trame, voit qu'elle lui est destinée ! Il regarde donc le **paquet** (IP src, IP dst).  
-
-Le routeur va chercher dans sa **table de routage** pour voir s'il connait cette adresse.   
-
-- Si oui il suit la route en reformant une trame avec le même paquet mais en adresse de destination il met la nouvelle. 
-- Si non, il reforme une **trame en conservant** le paquet et une destination vers un autre serveur. 
-
-![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.033.jpeg)
-
-On arrive enfin au serveur contenant ma page ! 
-
-Il lit la trame. Ah !! mais c’est pour moi (mon adresse mac). Il ouvre alors le **segment TCP**. C’est son IP. Il regarde donc les données …. Et là il voit une **requête HTTP**. 
-
-Le serveur doit envoyer une page html, son application lui dit qu’on va utiliser le HTTP, donc le **protocole TCP.** Il fait le **paquet IP** avec :  
-
-- mon IP,  
-- son IP  
-- le **segment TCP** 
-
-On ajoute par le **protocole Ethernet** :  
-
-- mon port comme destination,  
-- le sien 
-- le paquet IP  
-
-Et c’est reparti !! Par forcément par la même route 
-
-## <H2 STYLE="COLOR:BLUE;">**2. Observation<a name="_page5_x40.00_y260.92"></a> d’un réseau**</H2>
-
-**<H3 STYLE="COLOR:red;">Activité n°1.:</H3>** Dans une fenêtre **cmd** lancer les commandes 
-
-- **hostname** : affiche le nom réseau de l'ordinateur 
-- **ipconfig** (ifconfig sous linux): affiche un résumé des propriétés IP des cartes réseaux. Vous pourrez voir l'IP, le masque de sous réseau, la passerelle par défaut, si vous êtes en IPv6 ou Ipv4. 
-- **ipconfig /all** : donne en plus le nom de l'ordinateur (l'hôte) l'adresse MAC, le serveur dns 
-- **ipconfig /flushdns** : vide le cache dns 
-- **ipconfig /displaydns** : affiche le cache dns 
-- **ping** : suivi d'une ip ou d'une adresse de site, teste la connexion vers le site 
-- **tracert**: suivi d'une ip ou d'une adresse de site, affiche tous les sauts (la route) permettant l'accès au site demandé. 
-- **netstat**: permet d'afficher les ports actifs. Utile pour détecter un virus 
-## <H2 STYLE="COLOR:BLUE;">**3. Le<a name="_page5_x40.00_y455.92"></a> protocole ARP**</H2>
-
-**ARP** (Adresse Resolution Protocol) est un protocole de communication, compagnon du protocole IP qui permet de **mettre en correspondance une adresse IPv4** d’un équipement **avec l’adresse physique** (MAC codage unique de l’équipement  quelque soit le réseau)  
-
-*Pour aller plus loin Protocole ARP :*   
-[*https://www.supinfo.com/articles/single/2440-protocole-arp* ](https://www.supinfo.com/articles/single/2440-protocole-arp) 
-
-
-
-Par exemple : la table ARP de mon ordinateur ci-contre
-
-![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.035.jpeg) 
-
-
-**<H3 STYLE="COLOR:red;">Activité n°2.:</H3>** Dans une fenêtre **cmd** lancer la commande   l’instant fait 
-```arp -a```
-
-## <H2 STYLE="COLOR:BLUE;">**4. Le<a name="_page5_x40.00_y630.92"></a> modèle TCP/IP**</H2>
-### <H3 STYLE="COLOR:GREEN;">**4.1. Principe<a name="_page5_x40.00_y658.92"></a> des couches**</H3>
-
-Le **modèle OSI** (Open Systems Interconnexion) est une **norme de communication**, en réseau, de tous les systèmes informatiques. C'est un modèle de communications entre ordinateurs. Il fut conçu dans les années 70. 
-
-A l’époque de sa sortie, les grands opérateurs télécoms européens, alors tous publics, le combattent.  
-
-C'est à cause de ce retard et de son contexte trop peu ouvert, que la norme OSI **sera supplantée par TCP/IP** dans le domaine de l'Internet naissant puisqu'il sera adopté par le **réseau Arpanet le 1er janvier 1983.**
-
-Le sigle **TCP/IP regroupe un ensemble de protocoles** dont **TCP et IP.** Cette famille de protocole a été mise au point à partir d’une étude commandée au début des années 1970 par le DARPA (Defense Advanced Project Research Agency) qui dépend du département de la défense américaine. 
-
-A l’origine, un groupe de réseaux TCP/IP interconnectés était appelé inter-réseau ou **inter-net.** 
-
-### <H3 STYLE="COLOR:GREEN;">**4.2. Les<a name="_page6_x40.00_y147.92"></a> rôles des couches dans le modèle TCP/IP**</H3>
-
-Le **modèle TCP/IP** est une suite de protocoles utilisées pour le transfert des données sur Internet. Il comporte  **4 couches** :  
-
-- La couche **application** (couche n°4) se charge de traduire en langage machine les messages qui seront envoyés sur le réseau Internet. 
-- La couche **transport** (couche 3) permet d’envoyer les messages à la bonne application  et s’occupe de découper les paquets, vérifier les erreurs etc.. 
-- La couche **Internet** (couche 2) va s’occuper de l’acheminement des données de bout en bout sur Internet, c’est ce qu’on appelle le routage. Elle gère aussi le réassemblage des paquets à la réception. 
-- La couche **Réseau** (couche 1) va acheminer les données de routeur en routeur par les réseaux Internet  
-
-### <H3 STYLE="COLOR:GREEN;">**4.3. Principe<a name="_page6_x40.00_y290.92"></a> de l’encapsulation**</H3>
-
-![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.044.png)
-
-Chaque couche **ne s’occupe que du rôle qu’elle a à jouer**  et non du rôle de la précédente.  
-
-### <H3 STYLE="COLOR:GREEN;">**4.4. Application<a name="_page6_x40.00_y409.92"></a> au modèle  TCP/IP**</H3>   
-
-![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.048.png)
-
-En émission les données traversent chacune des couches de la machine émettrice et à chaque couche une information est ajoutée au paquet de données => c’est l’entête 
-
-L’entête définit le protocole utilisé dans chaque couche => c’est **l’encapsulation** 
-
-Le message est découpé en segment.  
-Chacun des segments est alors **encapsulé** dans un **paquet TCP** comprenant en particulier les numéros de ports des applications sources et destinataires.  
-Ce paquet TCP est alors transmis à la **couche Internet** qui **l’encapsule** dans un **datagramme IP**.  
-Celui-ci est ensuite transmis à la **couche Réseau** qui l’encapsule dans une **trame Ethernet**. 
-
-![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.052.jpeg)
-
-L’entête est lu, interprétée et supprimée => **désencapsulation** 
-
-### <H3 STYLE="COLOR:GREEN;">**4.5. Etablissement<a name="_page7_x40.00_y349.92"></a> de la communication TCP (« three way handshake »)**</H3>
-
-Une communication TCP s’établit selon le principe d’une connexion en trois temps (three way handshake = poignée de main en trois temps) 
-
-- **Le client envoie** un numéro aléatoire de séquence dans un paquet TCP : qui sera un **SYN** 
-
-Exemple : 1010 
-
-- **Le serveur qui reçoit** le paquet SYN génère un numéro aléatoire  **qu’il va renvoyer** dans un paquet particulier (**SYN-ACK**) qui contient aussi le numéro du client incrémenté de 1. Ce paquet est à la fois un accusé  de  réception  (acknowledgement)  pour  le  client  et  une  synchronisation  au  niveau  des  numéros d’échange côté serveur et client. 
-
-Exemple : 1010 + 1 = 1011 et le numéro aléatoire 3002 
-
-- **Le client qui reçoit** ce paquet se considère connecté au serveur et envoie un dernier paquet particulier (ACK) dans lequel le numéro de séquence serveur aura été incrémenté. Le serveur qui reçoit ce paquet se considère à son tour connecté au client. 
-
-Exemple : 3002 + 1 = 3003 
-
-![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.053.png)
-
-*Il existe une technique de piratage, appelée spoofing IP, permettant de corrompre cette relation d'approbation !*
-
-### <H3 STYLE="COLOR:GREEN;">**4.6. Fiabilité<a name="_page8_x40.00_y36.92"></a> des transferts : protocole du bit alterné**</H3>
-
-Le protocole TCP permet d’assurer le transfert des données de façon fiable. Pour cela, il possède un **système d’accusé de réception** permettant au client et au serveur de s’assurer de la bonne réception mutuelle des données.  
-
-- **Cas où l’échange se passe correctement** 
-
-Dans le protocole du **bit alterné**, l’émetteur envoie les données encapsulées dans des trames contenant entre autres informations techniques, **le bit de séquence.** La couche émettrice **alterne la valeur du bit de séquence d’une trame émise à l’autre**.  
-
-- Lors de l’émission d’un segment, un numéro d’ordre est associé. La première trame aura pour **drapeau (flag) 0**.  
-
-- A réception d’un segment de donnée, la machine réceptrice va retourner un segment de donnée dont le **drapeau** (flag) ACK (acknowledgement : accusé de réception) **est à 1** (afin de signaler qu’il l’a bien reçu) accompagné d’un numéro d’accusé de réception égal au **numéro d’ordre précédent** qui seront ajouter au niveau de l’entête. 
-
-![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.054.jpeg)
-
-- **Cas où la trame émise n’est pas reçue** 
-
-Si la trame émise n’est pas reçue, l’émetteur réagit. Il constate, en effet, qu’il n’a pas reçue d’accusé de réception dans les délais et renvoie la trame 
-
-![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.055.jpeg)
-
-- **Cas du chevauchement de message** 
-
-En fait la trame n’a pas été perdu, elle arrive tout de même à destination. Le récepteur reçoit finalement deux trames identiques, mais écartera la seconde car son bit de séquence ne correspondra pas au bit attendu.  
-
-![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.056.jpeg)
-
-- **Cas du chevauchement d’acquittements** 
-
-Il en va de même pour le chevauchement d’acquittements. Le récepteur rejettera l’acquittement qui n’aura pas le bit de séquence attendu. 
-
-![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.057.jpeg)
-
-- **Pourquoi bit alterné ?** 
-
-La règle est relativement simple : la première trame envoyée par A aura pour drapeau 0, dès cette trame reçue par B, ce dernier va envoyer un accusé de réception avec le drapeau 1 (ce 1 signifie "la prochaine trame que A va m'envoyer devra avoir son drapeau à 1"). Dès que A reçoit l'accusé de réception avec le drapeau à 1, il envoie la 2e trame avec un drapeau à 1, et ainsi de suite... 
-
-*Pour aller encore plus loin : TCP sur site[ https://www.frameip.com/entete-tcp/ ](https://www.frameip.com/entete-tcp/) ![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.008.png)*
-
-## <H2 STYLE="COLOR:BLUE;">**5. Menaces courantes sur les réseaux<a name="#_titre5"></a>**</H2>
-
-### <H3 STYLE="COLOR:GREEN;">**5.1. Phishing**</H3>
-- **Description** : Le phishing est une technique de fraude où un attaquant se fait passer pour une entité de confiance pour obtenir des informations sensibles comme des identifiants de connexion, des numéros de carte bancaire, etc.
-- **Exemple** : Un utilisateur reçoit un email qui semble provenir de sa banque, lui demandant de vérifier ses informations de compte en cliquant sur un lien qui mène à un faux site web.
-
-### <H3 STYLE="COLOR:GREEN;">**5.2. DDoS (Distributed Denial of Service)**</H3>
-- **Description** : Une attaque DDoS vise à rendre un service ou un réseau indisponible en le submergeant de trafic provenant de multiples sources. Cela surcharge les serveurs et les réseaux, empêchant les utilisateurs légitimes d'accéder aux services.
-- **Exemple** : Un site web d'e-commerce est bombardé de requêtes malveillantes provenant de milliers d'ordinateurs compromis, rendant le site inaccessible aux clients.
-
-### <H3 STYLE="COLOR:GREEN;">**5.3. Man-In-The-Middle (MITM)**</H3>
-- **Description** : Dans une attaque MITM, un attaquant intercepte et peut altérer les communications entre deux parties sans qu'elles le sachent. Cela permet à l'attaquant de voler des informations sensibles ou d'injecter des données malveillantes.
-- **Exemple** : Un utilisateur se connecte à un Wi-Fi public et un attaquant intercepte les communications entre l'utilisateur et un site web sécurisé, dérobant ainsi les identifiants de connexion de l'utilisateur.
-
-## <H2 STYLE="COLOR:BLUE;">**6. Mesures de protection des réseaux<a name="#_titre6"></a>**</H2>
-
-### <H3 STYLE="COLOR:GREEN;">**6.1. Firewalls**</H3>
-- **Description** : Un firewall est une barrière de sécurité qui surveille et contrôle le trafic réseau entrant et sortant en fonction de règles de sécurité prédéfinies. Il peut être matériel, logiciel, ou les deux.
-- **Fonctionnement** : 
-  - **Filtrage des paquets** : Analyse chaque paquet de données entrant ou sortant et le bloque ou le permet en fonction des règles établies.
-  - **Proxy** : Intercepte toutes les communications entre les utilisateurs et le réseau, les inspecte et les transfère si elles sont sûres.
-- **Exemple** : Un firewall bloque les tentatives de connexion non autorisées provenant d'adresses IP suspectes.
-
-### <H3 STYLE="COLOR:GREEN;">**6.2. VPN (Virtual Private Network)**</H3>
-- **Description** : Un VPN crée une connexion sécurisée et chiffrée entre l'utilisateur et le réseau, permettant de masquer l'adresse IP de l'utilisateur et de protéger ses données contre les interceptions.
-- **Fonctionnement** :
-  - **Tunneling** : Les données sont encapsulées dans un protocole de tunneling et chiffrées, rendant difficile pour les attaquants d'intercepter ou de lire les informations.
-  - **Authentification** : Utilise des protocoles d'authentification pour s'assurer que seuls les utilisateurs autorisés peuvent accéder au réseau.
-- **Exemple** : Un employé utilise un VPN pour accéder aux ressources de l'entreprise en travaillant à distance, garantissant que les données transmises sont sécurisées.
-
-### <H3 STYLE="COLOR:GREEN;">**6.3. Chiffrement**</H3>
-- **Description** : Le chiffrement transforme les données en une forme illisible pour toute personne non autorisée. Seules les parties possédant la clé de déchiffrement peuvent lire les données.
-- **Fonctionnement** :
-  - **Chiffrement symétrique** : Utilise la même clé pour chiffrer et déchiffrer les données.
-  - **Chiffrement asymétrique** : Utilise une paire de clés (publique et privée). La clé publique chiffre les données, et seule la clé privée correspondante peut les déchiffrer.
-- **Exemple** : Les transactions bancaires en ligne utilisent le chiffrement SSL/TLS pour sécuriser les données échangées entre le client et le serveur bancaire.
-
-## <H2 STYLE="COLOR:BLUE;">**7. Mesures de protection des réseaux<a name="#_titre7"></a>**</H2>
-
-**<H3 STYLE="COLOR:red;">Activité n°3 :**</H3> Analyse d'une trame fictive
-
+**Exemple:**
 ```
-Frame 1: 66 bytes on wire (528 bits), 66 bytes captured (528 bits) on interface en0, id 0
-Ethernet II, Src: 00:0c:29:36:bc:5a, Dst: 00:50:56:c0:00:01
-Internet Protocol Version 4, Src: 192.168.1.101, Dst: 192.168.1.1
-Transmission Control Protocol, Src Port: 443, Dst Port: 56324, Seq: 1, Ack: 1, Len: 0
+GET /index.html HTTP/1.1
 ```
 
-- Question 1 : Adresse MAC : Quelle est l'adresse MAC source et l'adresse MAC de destination ?
+- **GET** : Méthode HTTP utilisée (GET, POST, PUT, DELETE, etc.).
 
-- Question 2 : Adresse IP: Quelle est l'adresse IP source et l'adresse IP de destination ?
+- **/index.html** : URL de la ressource demandée.
 
-- Question 3 : Protocole utilisé : Quel protocole de couche transport est utilisé par cette trame ?
+- **HTTP/1.1** : Version du protocole HTTP.
 
-- Question 4 : Ports utilisés : Quels sont les ports source et destination ?
+<H4 STYLE="COLOR:MAGENTA;">#### 2.3.2. En-têtes de Requête (Headers)</H4>
+Les en-têtes de requête fournissent des informations supplémentaires sur la requête ou sur le client lui-même. Ils sont placés après la ligne de requête, chaque en-tête étant sur une nouvelle ligne.
 
-- Question 5 : Numéro de séquence et d'accusé de réception : Quel est le numéro de séquence et le numéro d'accusé de réception de cette trame TCP ?
+**Exemple:**
+```
+Host: www.example.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+```
 
-**Remarque** pour faire une analyse de trame, on peut utiliser un logiciel type wiresharp
-**Installation et prise en main de Wireshark**
+- **Host** : Spécifie le domaine de destination (nécessaire pour les serveurs hébergeant plusieurs domaines).
 
-1. **Installation de Wireshark**
+- **User-Agent** : Fournit des informations sur le client (navigateur, système d'exploitation).
 
-   - Aller sur le site officiel de Wireshark : [https://www.wireshark.org/](https://www.wireshark.org/).
+- **Accept** : Indique les types MIME que le client accepte.
 
-   - Télécharger la version appropriée pour votre système d'exploitation (Windows, macOS, Linux).
+- **Accept-Language** : Indique les langues préférées du client.
 
-   - Suivre les instructions d'installation.
+<H4 STYLE="COLOR:MAGENTA;">#### 2.3.3. Corps de la Requête (Request Body)</H4>
+Le corps de la requête est utilisé pour envoyer des données au serveur. Il est généralement utilisé avec les méthodes POST, PUT, et PATCH. Dans une requête GET, le corps est généralement vide.
 
-2. **Premier lancement et configuration**
-   - Ouvrir Wireshark.
-   - Sélectionner l'interface réseau à utiliser pour la capture (par exemple, Wi-Fi ou Ethernet).
-   - Démarrer une capture en cliquant sur le bouton "Start capturing packets".
+**Exemple:**
+Pour une requête POST envoyant des données de formulaire :
+```
+POST /submit-form HTTP/1.1
+Host: www.example.com
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 27
 
+name=John&age=30&city=Paris
+```
 
-**Capture et analyse de trames réseau**
+- **Content-Type** : Spécifie le type de données envoyées dans le corps de la requête.
 
-1. **Démarrer une capture réseau**
-   - Avec Wireshark ouvert et une capture en cours, ouvrir un navigateur web et visiter quelques sites web (ex. : www.google.com, www.wikipedia.org).
-   - Retourner à Wireshark et arrêter la capture en cliquant sur le bouton "Stop capturing packets".
+- **Content-Length** : Spécifie la longueur du corps de la requête.
 
-2. **Analyse des trames capturées**
-   - Dans la fenêtre principale de Wireshark, vous verrez une liste de trames capturées.
-   - Sélectionner une trame TCP et observer les détails dans les différentes sections (Frame, Ethernet, IP, TCP).
+- Le corps de la requête : Contient les données réelles (ex: `name=John&age=30&city=Paris`).
 
+Une requête HTTP utilise une méthode (c’est une commande qui demande au serveur d’effectuer une certaine action). Il y a plusieurs méthodes disponibles :
 
+-	**GET** : c’est la méthode la plus courante pour demander une ressource. Elle est sans effet sur la ressource.
 
+-	**POST** : cette méthode est utilisée pour soumettre des données en vue d’un traitement (côté serveur). Typiquement c’est la méthode employée lorsque l’on envoie au serveur les données issues d’un formulaire.
 
-## <H2 STYLE="COLOR:BLUE;">**8.  Simulation d’un réseau avec Filius<a name="_page10_x40.00_y36.92"></a>**</H2>
+-	**DELETE** : cette méthode permet de supprimer une ressource sur le serveur.
 
-**<H3 STYLE="COLOR:red;">Activité n°4.:**</H3> Lien direct entre deux ordinateurs  
-![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.058.png)
+-	**PUT** : cette méthode permet de modifier une ressource sur le serveur
 
-- Lancer Filius  
-- Créer le réseau ci contre.   
-- Lancer la simulation   
-- Sur le poste 10 installer Ligne de commande  
-- Ouvrir le logiciel et faire ping 192.168.1.11  
-- Afficher les données échangées avec un click droit sur l’ordinateur 
-- Faire un ipconfig dans le cmd du poste 10 et comparer l’adresse Mac avec l’adresse Mac de la source sur le tabelau des données échangées  
+-	**PATCH** : pour modifier une ressource existante
 
-**<H3 STYLE="COLOR:red;">Activité n°5.:**</H3> 2 ordinateurs et un serveur  
-![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.059.png)
+<H4 STYLE="COLOR:MAGENTA;">#### 2.3.4. Composition Complète de la Requête</H4>
+Voici à quoi ressemble une requête HTTP complète en utilisant une requête POST comme exemple :
 
-- Modifier le réseau précédent pour mettre un serveur 192.168.1.12 et un switch  
-- Installer sur le serveur générique (port 55555) et démarrer le serveur  
-- sur  un  des  ordinateurs  installer  client  générique  et connecter  le  client  au  serveur   
-- envoyer un message au serveur en utilisant le client générique  
-- Afficher les données échangées avec un click droit sur l’ordinateur  
+```
+POST /submit-form HTTP/1.1
+Host: www.example.com
+User-Agent: Mozilla/5.0 (Windows NT 10.
 
-La couche de transport est utilisée pour la première fois. On voit :  
+0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 27
 
-Selon le protocole de communication TCP, une connexion entre deux hôtes s’établit en trois étapes : Tri-wayhandshake. Dès la connexion on définit les numéros de séquence que l’on utilisera pour le transfert de données TCP 
+name=John&age=30&city=Paris
+```
 
-1. SYN : le client qui désire établir une connexion avec le serveur va envoyer un premier paquet SYN (synchronize) au serveur. Le numéro de séquence de ce paquet est un nombre aléatoire A. 
-1. SYN-ACK : le serveur va répondre au client à l’aide d’un paquet SYN-ACK (synchronize acknowledge). Le numéro du ACK est A+1. Tandis que le numéro de séquence du paquet SYN-ACK est un nombre aléatoire B. 
-1. ACK : pour terminer, le client va envoyer un paquet ACK au serveur qui va servir d’accusé de réception. Le numéro de séquence de ce paquet est défini par A+1 et le numéro du ACK est B+1 
+- **Ligne de requête** : Début de la requête, spécifiant la méthode, l'URL et la version du protocole.
 
-Puis envoi du message du client au serveur L’accusé de réception du serveur au client en A+2 L’envoi du message du serveur au client L’accusé de réception du client en B+2 
+- **En-têtes de requête** : Informations supplémentaires sur la requête ou le client.
 
-- Cliquer sur déconnexion  
+- **Corps de la requête** : Données envoyées au serveur (utilisé principalement dans les requêtes POST et PUT).
 
-On voit des échanges entre le client et le serveur en 4 temps 
+<H3 STYLE="COLOR:GREEN;">### 2.4. Réponse HTTP du Serveur avec PHP</H3>
 
-**<H3 STYLE="COLOR:red;">Activité n°6.:**</H3> 2 réseaux  
-![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.060.jpeg)
+<H4 STYLE="COLOR:MAGENTA;">#### 2.4.1. En-têtes de Réponse</H4>
+Les en-têtes de réponse restent les mêmes.
 
-- Modifier le réseau précédent pour obtenir  les deux réseaux inter connectés suivants :  
-- Pinguer depuis le poste en 1.10 le poste en 2.10   
+**Exemple:**
+```
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=UTF-8
+Content-Length: [calculated automatically by server]
+Connection: keep-alive
+```
 
-Normalement le message n’arrive pas à quitter le  premier réseau pour le second.  
+**Ligne de Statut** :
 
-Il  faut  donc  indiquer  une  passerelle  qui  sera  l’adresse du routeur 192.168.1.1 et 192.168.1.2  
+   - `HTTP/1.1 200 OK` : Indique que la requête a été traitée avec succès et que le serveur renvoie la page demandée.
 
-- Mettre une passerelle sur chaque ordinateur en 1.x et faire de même pour chaque ordinateur en 2.x. 
-- Pinguer de nouveau depuis le poste en 1.10, le poste en 2.10 
-- Installer un client générique sur le poste 2.10 et connecter le poste en 2.10 au serveur en 1.12 pour lui envoyer le message « bonjour » 
-- Afficher et observer les données échangées 
+**En-têtes de Réponse** :
 
-**<H3 STYLE="COLOR:red;">Activité n°7.:**</H3> Simulation du web avec adresse IP 
+   - `Content-Type: text/html; charset=UTF-8` : Indique que le contenu de la réponse est une page HTML encodée en UTF-8.
 
-- Installer un serveur web  et un éditeur de texte sur le serveur en 1.12 
-- Utiliser l’éditeur de texte pour ouvrir le fichier index.html qui se trouve sur le répertoire root/webserver 
+   - `Content-Length: [calculated automatically by server]` : La longueur du corps de la réponse est calculée automatiquement par le serveur.
 
-- Modifier pour qu’il affiche une de vos pages créées. Pour cela installer un explorateur de document. Importer la page1.html, importer le fichier script.js dans un dossier js et le fichier style.css dans un dossier css et éventuellement les images dans un dossier images. Renommer index.html en indexold.html et renommer la page1.html en index.html 
-Sauvegarder. 
+   - `Connection: keep-alive` : Indique que la connexion doit rester ouverte pour les requêtes suivantes.
 
-- Sur le bureau de votre serveur web, lancer l’application «Serveur Web ». Appuyer sur « Démarrer ». 
-- Ensuite installer un navigateur web sur le poste 2.10. Lancer et se connecter au serveur 1.12 en tapant l’URL ```http://192.168.1.12``` dans la barre d’adresse du navigateur. 
+<H4 STYLE="COLOR:MAGENTA;">#### 2.4.2. Corps de la Réponse avec PHP</H4>
 
-On voit deux choses : le css ne fonctionne pas ni le codage utf-8 !! 
+Le corps de la réponse contient le code HTML avec du PHP pour afficher dynamiquement les informations.
 
-**<H3 STYLE="COLOR:red;">Activité  n°8.:**</H3>  Simulation  du  web  avec  serveur DNS  
+**Exemple:**
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvenue</title>
+</head>
+<body>
+    <?php
+    // Récupérer les données POST
+    $name = $_POST['name'];
+    $city = $_POST['city'];
+    ?>
+    <h1>Bienvenue sur mon site, <?php echo htmlspecialchars($name); ?> de <?php echo htmlspecialchars($city); ?>!</h1>
+    <p>Nous sommes heureux de vous accueillir.</p>
+</body>
+</html>
+```
+**Corps de la Réponse avec PHP** :
 
-![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.061.jpeg)
+   - Utilise PHP pour récupérer les données de la requête POST.
 
-Normalement on ne s’adresse pas ainsi à un  serveur : on n’utilise pas l’adresse IP mais  son url. Le serveur de noms de domaine (ou  DNS) va traduire url en IP.  
+   - Utilise `htmlspecialchars` pour échapper correctement les caractères spéciaux et éviter les attaques XSS.
 
-- Il faut ajouter un serveur d’adresse IP  192.168.3.10 et comme passerelle on  mettra  192.168.3.1.  et  ajouter  une  connexion au routeur en 192.168.3.1  
-- Pour  permettre  à  tous  les  postes  d’utiliser les services du DNS, il faut ajouter l’adresse IP du DNS dans la configuration de tous les ordinateurs du réseau. Sur chaque ordinateur rajouter dans serveur DNS l’IP du serveur DNS. 
-- Installer sur le serveur DNS l’application serveur DNS. Lancer et paramétrer pour faire correspondre l’adresse : .www.serverwebdensi.fr avec 192.168.1.12 (IP du serveur). Puis démarrer le serveur DNS. 
-- Sur le poste 2.10, taper l’url[ www.serverwebdensi.fr.](http://www.serverwebdensi.fr/)  
-
-Le DNS fait son travaille 
-Vérification :  
-
-- Aller sur le poste1.10. Dans l’editeur de commande taper host[ www.serverwebdensi.fr.](http://www.serverwebdensi.fr/) Observer 
-
-**<H3 STYLE="COLOR:red;">Activité n°9.:**</H3> Chemin d’un client à un serveur 
-
-- ouvrir le fichier snt\_sim\_res.fls. 
-- Faire un "traceroute" entre l'ordinateur M14 et l'ordinateur M9 (n'oubliez pas de faire un "ipconfig" sur la machine M9 afin d'obtenir son adresse IP). Noter le chemin parcouru pour aller de la machine M14 à la machine M9. 
-- Supprimer le câble réseau qui relie le routeur F au routeur E (simulation de panne), refaites un "traceroute" entre M14 et M9. Que constatez-vous ? (ATTENTION : cela peut ne pas fonctionner du premier coup, car la mise à jour des tables de routage n'est pas immédiate : vous pouvez essayer de faire un ping entre M14 et M9, si cela ne fonctionne pas (timeout), attendez quelques secondes et recommencez. Une fois que le ping fonctionne, vous pouvez faire le traceroute). 
-
-Sous windows c’est tracert 
-
-**<H3 STYLE="COLOR:red;">Activité n°10.:**</H3> Chemin d’un client à un serveur version graphique 
-
-Sur le site[ https://gsuite.tools/traceroute ](https://gsuite.tools/traceroute)on pourra voir le chemin vers un des serveurs de plusieurs site web 
-
-- Visualiser le chemin pour le site gs-cassaigne.fr (on peut zoomer) 
-- Visualiser le chemin pour le site aliexpress.com (site chinois) 
-- De même pour[ www.intechinfo.fr ](http://www.intechinfo.fr/)
-- De même pour malekal.com 
-
-commande ipconfig pcastuces :[ https://www.pcastuces.com/pratique/windows/outils_reseau/page4.htm ](https://www.pcastuces.com/pratique/windows/outils_reseau/page4.htm)
-
-commande ipconfig papergeek[ https://www.papergeek.fr/ipconfig-comment-connaitre-son-adresse-ip-locale-et-son- adresse-mac-sous-windows-80996 ](https://www.papergeek.fr/ipconfig-comment-connaitre-son-adresse-ip-locale-et-son-adresse-mac-sous-windows-80996)
+   - Génère dynamiquement le message de bienvenue avec le nom et la ville fournis.
 
 
-[^1]: Network Address Translation : Traduction d’adresse réseau
+Une fois la requête reçue, le serveur va renvoyer une réponse, par exemple : 
+```html
+Date: Thu, 15 feb 2019 12:02:32 GMT 
+Server: Apache/2.0.54 (Debian GNU/Linux) DAV/2 SVN/1.1.4 
+Connection: close 
+Transfer-Encoding: chunked 
+Content-Type: text/html; charset=ISO-8859-1 
+
+<!doctype html> 
+<html lang="fr"> 
+<head> 
+<meta charset="utf-8"> 
+<title>Voici mon site</title> 
+</head> 
+<body> 
+<h1>Hello World! Ceci est un titre</h1> 
+<p>Ceci est un <strong>paragraphe</strong>. Avez-vous bien compris ?</p> 
+</body> 
+</html>
+```
+
+
+Le **HTTPS** est la version « sécurisée » du protocole HTTP : les données **sont chiffrées avant d’être transmises sur le réseau.** Lorsque la communication avec un site WEB est sécurisée, la barre d’adresse commence par un **cadenas**. 
+
+
+![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.028.jpeg)
+
+<H3 STYLE="COLOR:GREEN;">### 2.5. Syntaxe<a name="_page3_x40.00_y314.92"></a> complète des URL</H3>
+
+La syntaxe des URL est de la forme ```protocole://nom-ou-adresse:port/document?n1=v1&…nk=vk#id```
+
+- Le port est **le port TCP** sur lequel effectuer la connexion.  
+- Le document est écrit comme **chemin relatif** à partir du répertoire où est stocké le site sur le serveur. La partie marquée par un « ? » est la liste des **paramètres de requête**.  
+- Ces paramètres sont des paires ni=vi où ni est le **nom du paramètre** et vi sa **valeur**. La portion finale #id est appelé un **signet** et permet de cibler un élément particulier dans la ressource demandée. 
+
+
+
+<H3 STYLE="COLOR:RED;">**Activité n°1.**</H3> Passage de paramètre  un serveur 
+
+- Aller sur[ HTTPs://fr.wikipedia.org ](https://fr.wikipedia.org/)
+- Dans la zone de recherche taper informatique 
+- Noter URL complète obtenue 
+- Aller sur[ HTTPs://fr.wikipedia.org/w/index.php?search=informatique.](https://fr.wikipedia.org/w/index.php?search=informatique) Que remarque-t-on ? 
+- Aller sur[ HTTPs://fr.wikipedia.org/wiki/Informatique#Algorithmique.](https://fr.wikipedia.org/wiki/Informatique#Algorithmique) Que remarque-t-on ? 
+
+En fait sur la page la portion de code HTML correspondant est : 
+
+```<span… id="Algorithmique">Algorithmique</span>```
+
+<H2 STYLE="COLOR:BLUE;">## 3.  Coder l’envoi d’une requête par le navigateur<a name="_page3_x40.00_y617.92"></a></H2>
+
+Il existe plusieurs manières d'envoyer une requête HTTP depuis un navigateur. Voici quelques-unes des méthodes les plus courantes : 
+
+- **En utilisant une URL dans la barre d'adresse du navigateur** : le navigateur envoie une requête **GET** à la ressource indiquée dans la URL. 
+- **En utilisant un formulaire HTML** : un formulaire HTML peut être soumis en utilisant la méthode **GET** ou la méthode **POST**. La requête envoyée inclura les données saisies dans les champs du formulaire.
+- **En utilisant JavaScript** : en utilisant JavaScript, vous pouvez envoyer une requête HTTP en utilisant l'objet **XMLHttpRequest** ou en utilisant une bibliothèque telle que jQuery. Cela permet de faire des requêtes **GET**, **POST**, **PUT**, **DELETE**, etc. en fonction de vos besoins. 
+
+<H3 STYLE="COLOR:GREEN;">### 3.1. Exemples<a name="_page4_x40.00_y36.92"></a> de formulaire HTML</H3>
+
+
+
+<H3 STYLE="COLOR:RED;">**Activité n°2.**</H3> : Ouvrir un bloc note. Ajouter le script suivant et vérifier ce qu’on obtient dans le navigateur. Enregistrer le sous index.html **ATTENTION** à bien sélectionner tous les fichiers !
+
+![](AZE.png)
+```html
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>requête</title>
+</head>
+<body>
+<form method='GET' action='./login'>
+    <input name='user' type='text' required>
+    <input name='password' type='password' required>
+    <button type='submit'>login</button>
+</form>
+</body>
+```
+
+
+
+<H3 STYLE="COLOR:RED;">**Activité n°3. :</H3> Remplir ce formulaire et le soumettre fera envoyer une requête GET vers l'URL ./login. Observer la nouvelle URL
+
+Avec la méthode GET, les données du formulaire seront encodées **dans l'URL.**  
+
+Si on saisit trois valeurs par exemple «Dupont », « azerty » et qu’on clique sur le bouton, alors le navigateur charge la page correspondante à ```user=dupont&password=*****```
+
+
+<H3 STYLE="COLOR:RED;">**Activité n°4. :</H3> Modifier la page pour pouvoir la soumettre avec une requête POST. Remplir ce formulaire et le soumettre fera envoyer une requête POST et observer la nouvelle URL.
+
+Dans le cas d'un POST ils seront alors encodés **dans le corps de la requête**. 
+
+<H3 STYLE="COLOR:GREEN;">### 3.2. Précision<a name="_page7_x40.00_y370.92"></a> sur la méthode GET ou POST</H3>
+
+Lors de l’utilisation de la méthode GET dans un formulaire**, les données sont transmises en clair** dans la barre d’adresse du navigateur. Dans les faits, on obtient ```action.php?identifiant=<texte entré>```.  
+
+L’intérêt de la méthode GET est que toutes l’information nécessaire est contenue dans l’URL. Il est donc possible de recharger plusieurs fois la même URL.  
+
+**Par exemple** :
+
+[ HTTPs://www.data.gouv.fr/fr/search/?q=informatique.](https://www.data.gouv.fr/fr/search/?q=informatique) 
+
+Par contre les URL ne peuvent **pas être de taille longue** : si le **champ du formulaire est long** le serveur peut renvoyer un **code d’erreur 414.**  
+
+De plus, les mots de passes sont affichés comme une suite d’étoile dans l’URL mais lorsqu’ on clique sur le bouton le navigateur exécute la requête et affiche sans sa barre d’adresse URL **le mot de passe en clair**, et une personne présente à proximité de l’écran peut le voir. 
+
+Les caractéristique de la méthode POST sont exactement inverses. Lors du processus de soumission, l’URL n’est pas suffisante : il faut que les paramètres soient passés dans le corps de la requête. On ne pourra **pas sauvegarder l’URL**. **Si la taille des paramètres** envoyés est **trop importante** alors seule la méthode POST garanti que la requête ne sera pas tronquée. De même, pour les formulaires demandant un **mot de passe**, la méthode POST ne rendra **pas visible** ce dernier dans la barre d’adresse.  
+
+GET : 
+
+- Les données transmises sont visibles dans la barre d’adresse 
+- Les données restent dans l’historique du navigateur et dans le cache 
+- Les données peuvent être stockées dans un signet 
+- Limite le nombre de caractères dans les données de formulaire renvoyées 
+
+POST : 
+
+- Les données peuvent contenir des données binaires 
+- Les données sont masquées à l’utilisateur 
+- Les données soumises ne sont pas stockées dans le cache, l’historique ou les signets 
+
+![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.061.jpeg)
+
+<H3 STYLE="COLOR:GREEN;">### 3.3. Les<a name="_page4_x40.00_y568.92"></a> éléments d’un formulaire HTML</H3>
+
+![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.047.jpeg)
+
+| Type         | Description                                                                            |
+|--------------|----------------------------------------------------------------------------------------|
+| `<button>`   | Définit un bouton cliquable.                                                           |
+| `<fieldset>` | Regroupe les éléments liés dans un formulaire.                                         |
+| `<form>`     | Définit le conteneur de formulaire.                                                    |
+| `<input>`    | Définit un champ de saisie. HTML5 définit plus de 20 types d'entrée différents.        |
+| `<label>`    | Définit une étiquette pour un élément d’entrée de formulaire.                          |
+| `<legend>`   | Définit l'étiquette d'un groupe de champs.                                             |
+| `<option>`   | Définit une option dans une liste multi-éléments.                                      |
+| `<optgroup>` | Définit un groupe d'options connexes dans une liste à éléments multiples.              |
+| `<select>`   | Définit une liste à choix multiples.                                                   |
+| `<textarea>` | Définit une zone de saisie de texte multiligne.                                        |
+
+
+<H3 STYLE="COLOR:GREEN;">### 3.4. Elément<a name="_page5_x40.00_y275.92"></a> ```<input>``` : quelques exemples</H3>
+
+![](090.png)
+
+<H3 STYLE="COLOR:GREEN;">### 3.5. Elément<a name="_page5_x40.00_y485.92"></a> ```<select>``` : quelques exemples</H3>
+
+![](091.png)
+
+<H3 STYLE="COLOR:GREEN;">### 3.6. Elément<a name="_page6_x40.00_y36.92"></a> value dans ```<select>```</H3>
+
+L'attribut value de l'élément est utilisé pour spécifier quelle valeur sera renvoyée au serveur. L'attribut value est **facultatif**. S’il n’est pas spécifié, alors **le texte** dans le conteneur **est envoyé à la place** 
+
+![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.055.png)
+
+<H3 STYLE="COLOR:GREEN;">### 3.7. Les<a name="_page6_x40.00_y300.92"></a> boutons de commande</H3>
+
+| Type                      | Description                                                                                                                                                       |
+|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `<input type="submit">`   | Crée un bouton qui soumet les données du formulaire au serveur.                                                                                                    |
+| `<input type="reset">`    | Crée un bouton qui efface les données de formulaire déjà entrées par l’utilisateur.                                                                                |
+| `<input type="button">`   | Crée un bouton personnalisé. Ce bouton peut nécessiter l’ajout de Javascript à toute action.                                                                       |
+| `<input type="image">`    | Crée un bouton de soumission personnalisé qui utilise une image pour son affichage.                                                                                |
+| `<button>`                | Crée un bouton personnalisé. L'élément `<button>` diffère de `<input type="button">` en ce que vous pouvez complètement personnaliser ce qui apparaît dans le bouton. |
+|                           | En l’utilisant, vous pouvez par exemple inclure à la fois des images et du texte ou ignorer entièrement le traitement côté serveur à l’aide de liens hypertexte.     |
+|                           | Vous pouvez transformer le bouton en bouton de soumission en utilisant l’attribut type = = `submit`.                                                                | |                                                                 |
+![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.057.png)
+
+**ATTENTION** à ne pas confondre :
+
+-	```<button>``` avec ```<input type=’button’>```
+
+-	```<input type=’submit’>``` avec ```<button type=’submit’>```
+
+
+
+<H3 STYLE="COLOR:GREEN;">### 3.8. Comment<a name="_page7_x40.00_y36.92"></a> le formulaire interagit avec le serveur ?</H3>
+
+![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.059.jpeg)
+
+
+
+<H3 STYLE="COLOR:GREEN;">### 3.9. Les<a name="_page8_x40.00_y290.92"></a> cookies</H3>
+
+Il est important pour un site web de pouvoir identifier ces différents clients. Il utilise des **cookies**. C’est une petite quantité de données. Il est composé d’un nom, d’une valeur et optionnellement d’une date d’expiration. Le nom, la valeur et la durée de vie sont choisie par le serveur.  
+
+Lorsqu’un serveur veut déposer un cookie particulier chez un client, il l’envoie comme un entête de réponse HTTP.  
+
+**Exemple d'Entête de Réponse HTTP avec Cookie**
+
+```http
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=UTF-8
+Set-Cookie: username=JohnDoe; Expires=Wed, 21 Jul 2024 07:28:00 GMT; Path=/; Domain=example.com; Secure; HttpOnly
+```
+
+
+**Ligne de Statut** :
+
+   - `HTTP/1.1 200 OK` : Indique que la requête a été traitée avec succès et que le serveur renvoie une réponse correcte.
+
+**En-têtes de Réponse** :
+
+   - `Content-Type: text/html; charset=UTF-8` : Spécifie le type de contenu de la réponse. Ici, il s'agit de HTML encodé en UTF-8.
+   
+**Set-Cookie** :
+
+   - `Set-Cookie: username=JohnDoe` : Crée un cookie nommé `username` avec la valeur `JohnDoe`.
+
+   - `Expires=Wed, 21 Jul 2024 07:28:00 GMT` : Date et heure d'expiration du cookie. Passée cette date, le cookie sera supprimé par le navigateur.
+
+   - `Path=/` : Le cookie est disponible pour toutes les URL du domaine.
+
+   - `Domain=example.com` : Le domaine pour lequel le cookie est valide. Le cookie sera envoyé pour toutes les requêtes à `example.com` et ses sous-domaines.
+
+   - `Secure` : Indique que le cookie doit être envoyé uniquement via des connexions sécurisées (HTTPS).
+
+   - `HttpOnly` : Indique que le cookie n'est accessible que par le serveur et ne peut pas être manipulé par le JavaScript côté client, ce qui aide à protéger contre les attaques XSS.
+
+**Utilisation Typique**
+
+Lorsqu'un client (navigateur web) reçoit cette réponse du serveur, il stocke le cookie conformément aux directives spécifiées. Par exemple :
+
+**Connexion sécurisée** :
+
+   - Le cookie ne sera envoyé au serveur que lors de requêtes via HTTPS (grâce au flag `Secure`).
+
+**Accès au cookie** :
+
+   - Le cookie est accessible pour toutes les pages du domaine `example.com` (grâce au flag `Path=/` et `Domain=example.com`).
+
+**Durée de vie** :
+
+   - Le cookie expirera et sera supprimé automatiquement après le 21 juillet 2024 (grâce au flag `Expires`).
+
+**Protection contre XSS** :
+
+   - Le cookie n'est pas accessible via JavaScript, ce qui le protège contre
+
+ certaines attaques XSS (grâce au flag `HttpOnly`).
+
+<H2 STYLE="COLOR:BLUE;">## 4. APPLICATION<a name="_page8_x40.00_y503.92"></a> : Création d’une page web dynamique</H2>
+
+ 
+![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.067.png)
+
+<H3 STYLE="COLOR:GREEN;">### 4.1. Mise<a name="_page8_x40.00_y565.92"></a> en place d’un serveur Apache Wamp</H3>  
+
+Telecharger un serveur Wamp (choisissez le exe) : UwAmp Wamp Server - Apache MySQL PHP [https://www.uwamp.com/fr/](https://www.uwamp.com/fr/)
+
+Normalement il s’installe dans C:\UwAmp
+
+<H3 STYLE="COLOR:RED;">**Activité n°5**</H3> Demarrer le serveur Wamp
+
+
+
+
+<H3 STYLE="COLOR:GREEN;">### 4.2. Formulaire<a name="_page9_x40.00_y154.92"></a> d’une page Web version php</H3>
+![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.072.png)
+
+PHP est un langage de programmation qui s'intègre dans vos pages  HTML. Le sigle PHP est un acronyme récursif pour : PHP **Hypertext  Preprocessor** ! Il permet la **génération automatisée** (Preprocessor)  de vos pages Web (Hypertext). Celles-ci peuvent ainsi **s'adapter à la  demande ou suivant certaines conditions**. C'est pour cela que l'on  parle de pages **web dynamiques.**   
+
+Cas très simple où le serveur va renvoyer au client une simple page HTML statique. Le serveur Web Apache a été configuré pour qu'il envoie vers le client une page HTML située dans un répertoire nommé "www", ce répertoire "www" devant se trouver dans votre répertoire C:\UwAmp
+
+
+
+<H3 STYLE="COLOR:RED;">**Activité n°6.**</H3> Créer avec le bloc note, un fichier où on aura copier :
+
+```html
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Utilisation d'Apache</title>
+    </head>
+    <body>
+        <p>Le serveur Apache fonctionne parfaitement</p>
+    </body>
+</html>
+```
+Enregistrer le dans le répertoire C:\UwAmp\www  sous le nom "index.html". **ATTENTION** à bien sélectionner tous les fichiers.
+![](AZE.png)
+
+
+<H3 STYLE="COLOR:RED;">**Activité n°7. </H3>: Ouvrir votre navigateur Web et taper dans la barre d'adresse **"localhost"**. On devrait voir la page Web s'afficher. 
+
+Avec le "localhost", on indique au navigateur que le serveur Web se trouve sur le même ordinateur que lui (on parle de machine locale). Dans un cas normal, la barre d'adresse devrait être renseignée avec l'adresse du serveur Web. 
+
+Pour l'instant, le site est **statique** : la page reste identique, quelles que soient les actions des visiteurs. Pour avoir un **site dynamique**, nous allons **exécuter, côté serveur, un programme qui va créer de toute pièce une page HTML**, cette page HTML sera ensuite envoyée au client par l'intermédiaire du serveur Web. Il existe différents langages de programmation qui permettent de générer des pages HTML à la volée **: Python, Java, Ruby...** Dans notre cas, nous allons utiliser le **PHP.**  
+
+Le PHP est un langage très utilisé même si dans le monde professionnel Java, Python, Ruby,... sont préférés au PHP.  
+
+Il est très important de bien comprendre les processus mis en œuvre : 
+
+- **le client (le navigateur Web) envoie** une requête HTTP vers un serveur Web 
+- en fonction de la requête reçue **le serveur "fabrique" une page HTML** grâce à l'exécution d'un programme écrit en PHP (ou en Python, Java...) 
+- **le serveur Web envoie la page nouvellement créée au** client 
+- une fois reçue, **la page HTML est affichée dans le navigateur** Web 
+
+
+
+<H3 STYLE="COLOR:RED;">**Activité n°8. </H3>: Après avoir supprimé le fichier "index.html" préalablement créé dans le répertoire "www" **ET** le fichier "index.php", Créer avec le bloc note, un fichier où on aura copier : toujours dans le répertoire "www". 
+```php
+<?php
+date_default_timezone_set('Europe/Paris'); // Définir le fuseau horaire à Paris
+$heure = date("H:i");
+echo '<h1>Bienvenue sur mon site</h1>
+      <p>Il est '.$heure.'</p>';
+?>
+```
+Enregistrer le dans le répertoire C:\UwAmp\www  sous le nom "index.php". **ATTENTION** à bien sélectionner tous les fichiers.
+
+
+<H3 STYLE="COLOR:RED;">**Activité n°9.**</H3> Ouvrir votre navigateur Web et taper dans la barre d'adresse **"localhost"**. 
+
+On doit avoir une page HTML qui donne l'heure, si on **actualise** la page, **l'heure évolue**. On a donc bien une page dynamique : le serveur PHP crée la page Web au moment où elle est demandée. À chaque fois que la page est actualisée, la page HTML est générée de nouveau. 
+
+L’extension ".html" a été remplacée par ".php". Au moment de la requête, le programme contenu dans ce fichier a été exécuté et la page HTML a été générée. Dans les 2 cas, le fichier se nomme "index", car par défaut, le serveur prend en compte un fichier nommé "index" ("index.php" ou "index.html" selon les cas).  
+
+**Comment ça marche ?** 
+
+- "```$heure = date("H:i");```", "```$heure```" est une variable (en **PHP les variables commencent** par **un "**$**"**), cette variable "contient" une chaîne de caractères qui correspond à l'heure courante 
+
+- **l'instruction "**```echo```**" permet d'afficher la chaîne de caractères** **qui suit l'instruction**. 
+
+Dans  notre  cas,  la  chaîne  de  caractères  est  "```<h1>Bienvenue  sur  mon  site</h1>  <p>Il  est '.$heure.'</p>```" ce qui correspond à du HTML à l'exception de "$heure" qui permet d'afficher le contenu de la variable "```$heure```".  
+
+La page Web générée contiendra le code HTML et le contenu de la variable "$heure".  
+
+**Le point "**.**" est, en PHP, l'opérateur de concaténation** (alors que par exemple en Python, l'opérateur de concaténation est le "+")  
+
+Si un client effectue une requête à 18h23, le serveur enverra au client le code HTML ci-dessous : 
+```html
+<h1>Bienvenue sur mon site</h1> 
+<p>Il est 18h23</p> 
+```
+<H3 STYLE="COLOR:RED;">**Activité n°10. </H3>: Après avoir supprimé le fichier "index.php" préalablement créé dans le répertoire "www", Créer avec le bloc note, un fichier où on aura copier : toujours dans le répertoire "www". 
+
+```html
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Le formulaire</title>
+    </head>
+    <body>
+        <form action="trait_form.php" method="post">
+                <label>Nom</label> : <input type="text" name="nom" />
+                <label>Prénom</label> : <input type="text" name="prenom" />
+                <input type="submit" value="Envoyer" />
+        </form>
+    </body>
+</html>
+```
+Enregistrer le dans le répertoire C:\UwAmp\www  sous le nom "index.html". ATTENTION à bien sélectionner tous les fichiers.
+
+<H3 STYLE="COLOR:RED;">**Activité n°11.**</H3> : Créer avec le bloc note, un fichier où on aura copier : toujours dans le répertoire "www".  
+```php
+<?php
+    $n=$_POST['nom'];
+    $p=$_POST['prenom'];
+    echo "<p>Bonjour ".$p." ".$n.", j'espère que vous allez bien.</p>";
+?>
+```
+Enregistrer le dans le répertoire C:\UwAmp\www  sous le nom " trait_form.php  ". ATTENTION à bien sélectionner tous les fichiers.
+
+<H3 STYLE="COLOR:RED;">**Activité n°12.**</H3> : Ouvrir le navigateur Web et taper dans la barre d'adresse "localhost". Une fois la page Web affichée dans votre navigateur, remplir le formulaire proposé et valider en cliquant sur le bouton "Envoyer"
+
+**Comment ça marche ?** 
+
+- **Dans la page en HTML** :   
+
+Dans la balise ```<form>``` du code HTML, il y a 2 attributs : « action » et « method ».  
+
+- L’attribut ```action="trait_form.php"
+
+```  indique que le client enverra une requête http vers le serveur en cas de click sur le bouton « envoyer ». Pour répondre à cette requête du client, le serveur devra exécuter le programme PHP contenu dans le fichier « trait_form.php ».  
+- La ```method="post"``` indique que la méthode utilisée pour effectuer cette requête http est une méthode « POST » . 
+
+Au niveau des deux balises « input » permettant de saisir le nom et le prénom, on voit l’attribut « name »   
+
+- **Dans la page en PHP** :  
+- la ligne ```$n=$\_POST['nom'];``` permet d’attribuer à la variable $n la chaine de caractères qui a été saisie par l’utilisateur dans le formulaire : balise input ayant l’attribut name="nom". Le nom de ```$_POST['nom']``` est directement lié au nom de l’attribut ```name="nom"```.
+- Le principe est le même pour la variable $p : le ```prenom``` de ```$_POST['prenom']``` est directement lié au prenom de l’attribut ```name="prenom"```.
+Un ```$_POST['toto']```  contiendra  la  chaine  de  caractère  saisie  par  l’utilisateur  dans  le  champ correspondant à une balise input possédant un attribut ```name="toto"```. 
+
+- ```echo "<p>Bonjour ".$p." ".$n.", j'espère que vous allez bien.</p>"```  contient l’instruction echo déjà vu précédemment 
+
+Un clic sur le bouton "Envoyer" **déclenche une requête HTTP** vers le serveur et que les informations saisies dans le formulaire sont envoyées vers le serveur (puisqu'il est possible de récupérer ces informations au niveau du code PHP : une fois de plus, le code **PHP est uniquement exécuté du côté serveur**).  
+
+Ces informations transitent entre le client et le serveur selon méthode utilisée par la requête HTTP. Dans l'exemple ci-dessus, la méthode utilisée est la méthode "POST" ("```method="post```"). 
+
+
+<H3 STYLE="COLOR:RED;">**Activité n°13. </H3>: Modifier les fichiers "index.html" et "trait_form.php" comme suit : 
+Pour index.html
+```html
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Le formulaire</title>
+    </head>
+    <body>
+        <form action="trait_form.php" method="get">
+                <label>Nom</label> : <input type="text" name="nom" />
+                <label>Prénom</label> : <input type="text" name="prenom" />
+                <input type="submit" value="Envoyer" />
+        </form>
+    </body>
+</html>
+```
+
+
+Pour trait_form.php 
+```php
+<?php
+    $n=$_GET['nom'];
+    $p=$_GET['prenom'];
+    echo "<p>Bonjour ".$p." ".$n.", j'espère que vous allez bien.</p>";
+?>
+```
+
+
+<H3 STYLE="COLOR:RED;">**Activité n°14. </H3>: Ouvrir le navigateur Web et taper dans la barre d'adresse "localhost". Une fois la page Web affichée dans votre navigateur, Saisir le prénom et le nom puis valider en cliquant sur le bouton "Envoyer". **Observer attentivement la barre d'adresse du navigateur.** 
+
+Cette  fois-ci,  les  informations  du  formulaire  sont  transmises  au  serveur  par  l'intermédiaire  de  l'url  : ```localhost/trait_form.php?nom=tartempion&prenom=tartiflette```
+
+Dans le cas de l'utilisation d'une méthode "POST" les données issues d'un formulaire sont envoyées au serveur **sans être directement visibles**, alors que dans le cas de l'utilisation d'une méthode "GET", les données **sont visibles** (et accessibles) puisqu'elles sont envoyées par l'intermédiaire de l'url. 
+
+Les données envoyées par l'intermédiaire d'une méthode "GET" peuvent être modifiées directement dans l'url. 
+
+<H3 STYLE="COLOR:RED;">**Activité n°15. </H3>: Ouvrir le navigateur Web et taper dans la barre d'adresse "localhost". Une fois la page Web affichée dans votre navigateur, Saisir le prénom et le nom puis valider en cliquant sur le bouton "Envoyer". Modifier l'url : "```localhost/trait_form.php?nom=Martin&prenom=Jean-Pierre```", validez votre modification en appuyant sur la touche "Entrée". 
+
+Normalement la page a bien été modifiée : "Bonjour Jean-Pierre Martin, j'espère que vous allez bien." 
+
+Même si dans notre cas cette opération de modification d'URL est inoffensive, il faut bien se douter que dans des situations plus complexes, une telle modification pourrait entrainer des conséquences plus problématiques (piratage). **Il faut donc éviter d'utiliser la méthode "**GET**" pour transmettre les données issues d'un formulaire vers un serveur.** 
+
+Il est important de bien comprendre que la méthode "POST" **n'offre pas non plus une sécurité absolue** puisque toute personne ayant un bagage technique minimum sera capable de lire les données transmises à l'aide de la méthode "POST" en analysant la requête HTTP, même si ces données ne sont pas directement visibles dans l'URL. Seule l'utilisation du **protocole sécurisé HTTPS** garantit un transfert sécurisé des données entre le client et le serveur (les données sont chiffrées et donc illisibles pour une personne ne possédant pas la clé de déchiffrement). 
+
+<H3 STYLE="COLOR:RED;">**Activité n°16**</H3>. : Fermer le serveur Wamp
+
+Si le PHP vous passionne :  
+
+- Introduction.[ http://www.phpdebutant.org/article118.php ](http://www.phpdebutant.org/article118.php)
+- Afficher une phrase ou une image.[ http://www.phpdebutant.org/article14.php ](http://www.phpdebutant.org/article14.php) 
+- Afficher la date et l'heure.[ http://www.phpdebutant.org/article53.php ](http://www.phpdebutant.org/article53.php) 
+- PHP dans du code HTML.[ http://www.phpdebutant.org/article54.php ](http://www.phpdebutant.org/article54.php) 
+- La concaténation.[ http://www.phpdebutant.org/article55.php ](http://www.phpdebutant.org/article55.php) 
+- Récupérer les valeurs d'un formulaire.[ http://www.phpdebutant.org/article56.php ](http://www.phpdebutant.org/article56.php) 
+- Les structures de contrôle.[ http://www.phpdebutant.org/article57.php ](http://www.phpdebutant.org/article57.php) 
+- Ecrire et lire dans un fichier texte.[ http://www.phpdebutant.org/article58.php ](http://www.phpdebutant.org/article58.php) 
+- Les fonctions utilisateurs.[ http://www.phpdebutant.org/article59.php ](http://www.phpdebutant.org/article59.php) 
+- Les variables d'environnement.[ http://www.phpdebutant.org/article60.php ](http://www.phpdebutant.org/article60.php) 
+- Quelques fonctions utiles.[ http://www.phpdebutant.org/article61.php ](http://www.phpdebutant.org/article61.php) 
+- Les sessions.[ http://www.phpdebutant.org/article69.php ](http://www.phpdebutant.org/article69.php) 
+
+Editeurs PHP en ligne : 
+
+- [http://phpfiddle.org/ ](http://phpfiddle.org/) 
+- [https://www.runphponline.com/ ](https://www.runphponline.com/) ![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.008.png)
+
+
+
+<H2 STYLE="COLOR:BLUE;">## 5. Exercices<a name="_page13_x40.00_y36.92"></a></H2>
+
+<H3 STYLE="COLOR:RED;">**Exercice n°1 :**</H3> Réaliser le visuel du formulaire suivant :
+
+![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.129.jpeg)
+
+Pour cela : 
+
+- vous utilisez les balises input et select,  
+- vous préciserez le type lors de l'utilisation d'une balise input, 
+- vous préciserez le name dans chacun des cas (attribut name utilisé plus tard pour retrouver la valeur d'un élément d'un formulaire).
+- vous proposerez deux types de carte bancaire possibles : 'Visa' et 'Bleue' (carte par défaut). 
+- Attention ! Sans Javascript, votre bouton 'Valider le paiement' sera sans effet.
+
+<H3 STYLE="COLOR:RED;">**Exercice n°2 :**</H3> Expliquer ce que fait ce code. 
+```html
+<form>
+<p> Choix d'une nationalité :</p>
+    <select id="choix" name="lang" onchange="selection()">
+        <option value="ras">Choisir sa nationalité</option>
+        <option value="fr">Français</option>
+        <option value="zh">Chinois</option>
+        <option value="it">Italien</option>
+    </select>
+<p> Vous avez choisi comme nationalité :<
+
+span id="nat">  </span> </p>
+</form>
+```
+
+
+<H3 STYLE="COLOR:RED;">**Pour aller plus loin (avec du JS) : Exercice n°3 :**</H3>
+
+Pour l'exercice on a besoin de trois instructions (déjà vues) : 
+
+- **getElementById('id')** est une méthode qui récupère l'objet de la page identifié par 'id'. 
+
+document.getElementById('id') récupère l'objet de la page en cours identifié par 'id'.
+
+- **selectedIndex** est une méthode qui renvoie la valeur l'option choisie par une liste déroulante ; plus généralement, cette méthode indique le rang à partir de 0 de l'élément de la liste qui a été sélectionnée par l'utilisateur.
+
+selecteur.selectedIndex renvoie l'indice du choix fait par l'utilisateur de la liste déroulante nommée 'selecteur'. 
+
+- **innerHTML** est une méthode qui permet de récupérer tout le contenu HTML d'un élément d'une page html.
+
+document.getElementById('ici').innerHTML intégre du contenu html à l'emplacement de la page identifié par l'id nommé 'ici'. 
+
+voilà le script d'une fonction écrite en javascript :
+```JS
+function selection() {
+        const selecteur = document.getElementById('choix');
+        const monChoix = selecteur[selecteur.selectedIndex];
+        console.log(monChoix.value +' '+ monChoix.text);
+        document.getElementById('nat').innerHTML = monChoix.text;
+    }
+```
+
+
+1. Intégrer au code de l'exercice 2 ci-dessus ce script, soit directement, soit avec un lien vers un fichier javascript. 
+1. Relancer le code ainsi augmenté de l'exercice 2. Que remarquez-vous ? 
+1. Commenter chaque ligne de cette fonction écrite en JavaScript. 
+
+Utiliser la console de votre navigateur afin de voir l'effet d'une des lignes. 
+
+<H3 STYLE="COLOR:RED;">**Pour aller plus loin (avec du JS) : Exercice n°4 :**</H3>  
+
+Ecrire un formulaire qui demande votre âge et qui indique dans la même page si vous êtes majeur ou mineur. 
+
+![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.136.png) ![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.137.jpeg)
+
+<H3 STYLE="COLOR:RED;">**Pour aller plus loin (avec du JS) : Exercice n°5 :**</H3>  
+
+On donne le code suivant : 
+```html
+<form>
+    <fieldset>
+        <legend>Veuillez sélectionner vos spécialités l'année prochaine :
+        </legend>
+        <div>
+            <input type="checkbox" id="nsi" name="interest" value="nsi">
+            <label for="nsi">NSI</label>
+        </div>
+        <div>
+            <input type="checkbox" id="ma" name="interest" value="ma">
+            <label for="ma">Maths</label>
+        </div>
+        <div>
+            <input type="checkbox" id="svt" name="interest" value="svt">
+            <label for="svt">SVT</label>
+        </div>
+    </fieldset>
+</form>
+```
+
+
+En vous inspirant de l'exercice précédent, faire un formulaire qui demande quelles spécialités vous allez conserver l'année prochaine 
+
+Vous ferez une question pour la première 
+
+La réponse sera affichée dans la page HTML. 
+
+Si la réponse contient NSI, la page HTML doit afficher : "Bravo, bon choix !". 
