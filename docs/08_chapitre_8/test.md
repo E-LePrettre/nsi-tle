@@ -425,9 +425,13 @@ Transmission Control Protocol, Src Port: 443, Dst Port: 56324, Seq: 1, Ack: 1, L
 
 **Remarque** pour faire une analyse de trame, on peut utiliser un logiciel type wiresharp
 **Installation et prise en main de Wireshark**
+
 1. **Installation de Wireshark**
+
    - Aller sur le site officiel de Wireshark : [https://www.wireshark.org/](https://www.wireshark.org/).
+
    - Télécharger la version appropriée pour votre système d'exploitation (Windows, macOS, Linux).
+
    - Suivre les instructions d'installation.
 
 2. **Premier lancement et configuration**
@@ -464,9 +468,8 @@ Transmission Control Protocol, Src Port: 443, Dst Port: 56324, Seq: 1, Ack: 1, L
 
 **<H3 STYLE="COLOR:red;">Activité n°5.:**</H3> 2 ordinateurs et un serveur  
 ![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.059.png)
--
 
- Modifier le réseau précédent pour mettre un serveur 192.168.1.12 et un switch  
+- Modifier le réseau précédent pour mettre un serveur 192.168.1.12 et un switch  
 - Installer sur le serveur générique (port 55555) et démarrer le serveur  
 - sur  un  des  ordinateurs  installer  client  générique  et connecter  le  client  au  serveur   
 - envoyer un message au serveur en utilisant le client générique  
@@ -474,9 +477,7 @@ Transmission Control Protocol, Src Port: 443, Dst Port: 56324, Seq: 1, Ack: 1, L
 
 La couche de transport est utilisée pour la première fois. On voit :  
 
-Selon le protocole de communication TCP, une connexion entre deux hôtes s’établit 
-
-en trois étapes : Tri-wayhandshake. Dès la connexion on définit les numéros de séquence que l’on utilisera pour le transfert de données TCP 
+Selon le protocole de communication TCP, une connexion entre deux hôtes s’établit en trois étapes : Tri-wayhandshake. Dès la connexion on définit les numéros de séquence que l’on utilisera pour le transfert de données TCP 
 
 1. SYN : le client qui désire établir une connexion avec le serveur va envoyer un premier paquet SYN (synchronize) au serveur. Le numéro de séquence de ce paquet est un nombre aléatoire A. 
 1. SYN-ACK : le serveur va répondre au client à l’aide d’un paquet SYN-ACK (synchronize acknowledge). Le numéro du ACK est A+1. Tandis que le numéro de séquence du paquet SYN-ACK est un nombre aléatoire B. 

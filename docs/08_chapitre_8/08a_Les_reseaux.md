@@ -23,24 +23,24 @@ Le mot **réseau** s’applique aussi bien à l’ensemble des machines qu’aux
 
 Le Web correspond à **World Wide Web**, composé de worldwide (« **mondial** ») et de web (« **toile d’araignée** ») 
 
-## **1. Que<a name="_page0_x40.00_y569.92"></a> se passe-t-il lorsqu’on veut afficher une page web dans le navigateur ?** 
+## <H2 STYLE="COLOR:BLUE;">**1. Que<a name="_page0_x40.00_y569.92"></a> se passe-t-il lorsqu’on veut afficher une page web dans le navigateur ?**</H2>
 
 On a différents éléments : 
 
 ![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.004.jpeg)
 
-### **1.1. Une<a name="_page0_x40.00_y699.92"></a> adresse MAC** 
+### <H3 STYLE="COLOR:GREEN;">**1.1. Une<a name="_page0_x40.00_y699.92"></a> adresse MAC**</H3>
 
 Une **adresse MAC** (Media Access Control), parfois appelée **adresse physique**, est un **identifiant physique** stocké dans **une carte réseau** ou **une interface réseau** similaire. Elle est **unique au monde**. 
 
-### **1.2. Une<a name="_page1_x40.00_y36.92"></a> adresse IP** 
+### <H3 STYLE="COLOR:GREEN;">**1.2. Une<a name="_page1_x40.00_y36.92"></a> adresse IP**</H3>
 
 Une **adresse IP** (Internet Protocol), est un numéro d’identification qui est **attribué de façon permanente ou provisoire à chaque périphérique relié à un réseau informatique qui utilise l’Internet Protocol**.  L’adresse IP est à la base du **système d’acheminement** (le **routage**) des paquets de données sur Internet. 
 
 Il existe des adresse IP de **version 4 (IPV4)** sur 32 bits et de **version 6 (IPV6)** sur 128 bits. La version 4 est actuellement la plus utilisée. 
 
-### **1.3. Anatomie<a name="_page1_x40.00_y162.92"></a> d’une adresse IP**  
-#### **1.3.1. Adresse<a name="_page1_x40.00_y181.92"></a> machine**
+### <H3 STYLE="COLOR:GREEN;">**1.3. Anatomie<a name="_page1_x40.00_y162.92"></a> d’une adresse IP**</H3>  
+#### <H4 STYLE="COLOR:MAGENTA;">**1.3.1. Adresse<a name="_page1_x40.00_y181.92"></a> machine**</H4>
 
 Chaque  adresse  IP  contient  deux  informations  basiques,  **une  adresse  de  réseau**  et  une  **adresse  d'hôte**.  La combinaison des deux désigne de **manière unique** une machine et une seule sur un réseau. 
 
@@ -56,8 +56,10 @@ La partie réseau  (**NetID**) aussi appelé **préfixe**, de l'adresse IP vient
 
 *Exemple :* 
 
-*Si les trois premiers octets désignent l’adresse du réseau, toutes les machines de  ce réseau auront une adresse commençant par 131.254.100.xxx.*  
+*Si les trois premiers octets désignent l’adresse du réseau, toutes les machines de  ce réseau auront une adresse commençant par 131.254.100.xxx.* 
+
 ![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.015.png)
+
 On indique toujours la taille du préfixe à la suite de l’adresse IPv4. Dans notre exemple la machine aura l’adresse suivante : 131.254.100.48 **/24.**  
 
 Les 24 premiers bits désignent le préfixe du réseau :  
@@ -72,7 +74,7 @@ Il y a deux **adresses réservées** :
 
 - la **zéro (adresse du sous réseau)** 
 - la **255** (c’est le **broadcast (adresse de diffusion)** : envoie vers toutes les machines) 
-#### **1.3.2. Adresse<a name="_page1_x40.00_y612.92"></a> du sous réseau** 
+#### <H4 STYLE="COLOR:MAGENTA;">**1.3.2. Adresse<a name="_page1_x40.00_y612.92"></a> du sous réseau**</H4>
 
 On obtient **l'adresse du sous réseau** avec l'opérateur AND  
 
@@ -84,7 +86,9 @@ AND  11111111.11111111.11111111.00000000
    	 11000000.10101000.00000001.000000000 
 ```
 (AND : cela fait 1 quand les deux bits sont à 1) cela fait :
+
 * soit 192.168.1.0 **c'est l'adresse du (sous) réseau**.
+
 * et 192.168.1.255 **c'est l'adresse du broadcast**.
 
 On comprend vite que donner ces réponses avec des masques de 255 et 0 **est très simple** et ne nécessite pas le passage en binaire. 
@@ -124,7 +128,7 @@ Pour aller plus loin:
 
 - Classes d’adresse[ https://www.inetdoc.net/articles/adressage.ipv4/adressage.ipv4.class.html ](https://www.inetdoc.net/articles/adressage.ipv4/adressage.ipv4.class.html)
 
-#### **1.3.3. Adresse<a name="_page2_x40.00_y473.92"></a> publique et adresse privée** 
+#### <H4 STYLE="COLOR:MAGENTA;">**1.3.3. Adresse<a name="_page2_x40.00_y473.92"></a> publique et adresse privée**</H4>
 ![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.030.png)
 
 Les **adresses publiques** permettent à une machine de communiquer avec l’Internet. 
@@ -133,7 +137,7 @@ Les **adresses privées** peuvent être attribuées dans des réseaux internes q
 
 Si  un  réseau  utilisant  **un  adressage  privé**  veut  communiquer  avec  l’Internet,  il  faudra  qu’un  équipement fasse une **translation** (ou traduction)  entre l’adresse privée et une adresse publique qui  serait disponible pour dialoguer avec l’Internet. On  appelle cette opération le **NAT**[^1].  
 
-### **1.4. Un<a name="_page3_x40.00_y36.92"></a> switch (commutateur réseau)** 
+### <H3 STYLE="COLOR:GREEN;">**1.4. Un<a name="_page3_x40.00_y36.92"></a> switch (commutateur réseau)**</H3>
 
 Un commutateur est un dispositif qui **achemine les données issues** d'un des différents **ports d'entrée vers un port de sortie spécifique** qui, à son tour, transfère ces données vers la destination prévue. 
 
@@ -145,13 +149,13 @@ Lorsqu'il reçoit une trame destinée à une adresse présente dans cette table,
 - Si le **port de destination est le même que celui de l'émetteur**, la **trame n'est pas transmise**.  
 - Si **l'adresse du destinataire est inconnue** dans la table, alors la trame est traitée **comme un broadcast**, c'est-à-dire qu'elle est transmise à tous les ports du commutateur à l'exception du port de réception. 
 
-### **1.5. Un<a name="_page3_x40.00_y209.92"></a> routeur** 
+### <H3 STYLE="COLOR:GREEN;">**1.5. Un<a name="_page3_x40.00_y209.92"></a> routeur**</H3>
 
 Le routeur est un périphérique faisant la **liaison entre deux réseaux**.  
 
 Un routeur est un élément intermédiaire dans un réseau informatique assurant le **routage des paquets** entre réseaux indépendants. Ce routage est réalisé selon un ensemble de règles formant la **table de routage**.  
 
-### **1.6. Etude<a name="_page3_x40.00_y273.92"></a> de cas concret** 
+### <H3 STYLE="COLOR:GREEN;">**1.6. Etude<a name="_page3_x40.00_y273.92"></a> de cas concret**</H3>
 
 Je veux aller sur[ www.nsi.fr.](http://www.nsi.fr/) Cette adresse n’existe pas sous cette forme. On a besoin de l’adresse réelle de ce site : **son IP**.  
 
@@ -229,9 +233,9 @@ On ajoute par le **protocole Ethernet** :
 
 Et c’est reparti !! Par forcément par la même route 
 
-## **2. Observation<a name="_page5_x40.00_y260.92"></a> d’un réseau** 
+## <H2 STYLE="COLOR:BLUE;">**2. Observation<a name="_page5_x40.00_y260.92"></a> d’un réseau**</H2>
 
-**Activité n°1.:** Dans une fenêtre **cmd** lancer les commandes 
+**<H3 STYLE="COLOR:red;">Activité n°1.:</H3>** Dans une fenêtre **cmd** lancer les commandes 
 
 - **hostname** : affiche le nom réseau de l'ordinateur 
 - **ipconfig** (ifconfig sous linux): affiche un résumé des propriétés IP des cartes réseaux. Vous pourrez voir l'IP, le masque de sous réseau, la passerelle par défaut, si vous êtes en IPv6 ou Ipv4. 
@@ -241,7 +245,7 @@ Et c’est reparti !! Par forcément par la même route
 - **ping** : suivi d'une ip ou d'une adresse de site, teste la connexion vers le site 
 - **tracert**: suivi d'une ip ou d'une adresse de site, affiche tous les sauts (la route) permettant l'accès au site demandé. 
 - **netstat**: permet d'afficher les ports actifs. Utile pour détecter un virus 
-## **3. Le<a name="_page5_x40.00_y455.92"></a> protocole ARP** 
+## <H2 STYLE="COLOR:BLUE;">**3. Le<a name="_page5_x40.00_y455.92"></a> protocole ARP**</H2>
 
 **ARP** (Adresse Resolution Protocol) est un protocole de communication, compagnon du protocole IP qui permet de **mettre en correspondance une adresse IPv4** d’un équipement **avec l’adresse physique** (MAC codage unique de l’équipement  quelque soit le réseau)  
 
@@ -255,11 +259,11 @@ Par exemple : la table ARP de mon ordinateur ci-contre
 ![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.035.jpeg) 
 
 
-**Activité n°2.:** Dans une fenêtre **cmd** lancer la commande   l’instant fait 
+**<H3 STYLE="COLOR:red;">Activité n°2.:</H3>** Dans une fenêtre **cmd** lancer la commande   l’instant fait 
 ```arp -a```
 
-## **4. Le<a name="_page5_x40.00_y630.92"></a> modèle TCP/IP** 
-### **4.1. Principe<a name="_page5_x40.00_y658.92"></a> des couches** 
+## <H2 STYLE="COLOR:BLUE;">**4. Le<a name="_page5_x40.00_y630.92"></a> modèle TCP/IP**</H2>
+### <H3 STYLE="COLOR:GREEN;">**4.1. Principe<a name="_page5_x40.00_y658.92"></a> des couches**</H3>
 
 Le **modèle OSI** (Open Systems Interconnexion) est une **norme de communication**, en réseau, de tous les systèmes informatiques. C'est un modèle de communications entre ordinateurs. Il fut conçu dans les années 70. 
 
@@ -271,7 +275,7 @@ Le sigle **TCP/IP regroupe un ensemble de protocoles** dont **TCP et IP.** Cette
 
 A l’origine, un groupe de réseaux TCP/IP interconnectés était appelé inter-réseau ou **inter-net.** 
 
-### **4.2. Les<a name="_page6_x40.00_y147.92"></a> rôles des couches dans le modèle TCP/IP** 
+### <H3 STYLE="COLOR:GREEN;">**4.2. Les<a name="_page6_x40.00_y147.92"></a> rôles des couches dans le modèle TCP/IP**</H3>
 
 Le **modèle TCP/IP** est une suite de protocoles utilisées pour le transfert des données sur Internet. Il comporte  **4 couches** :  
 
@@ -280,13 +284,13 @@ Le **modèle TCP/IP** est une suite de protocoles utilisées pour le transfert d
 - La couche **Internet** (couche 2) va s’occuper de l’acheminement des données de bout en bout sur Internet, c’est ce qu’on appelle le routage. Elle gère aussi le réassemblage des paquets à la réception. 
 - La couche **Réseau** (couche 1) va acheminer les données de routeur en routeur par les réseaux Internet  
 
-### **4.3. Principe<a name="_page6_x40.00_y290.92"></a> de l’encapsulation**
+### <H3 STYLE="COLOR:GREEN;">**4.3. Principe<a name="_page6_x40.00_y290.92"></a> de l’encapsulation**</H3>
 
 ![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.044.png)
 
 Chaque couche **ne s’occupe que du rôle qu’elle a à jouer**  et non du rôle de la précédente.  
 
-### **4.4. Application<a name="_page6_x40.00_y409.92"></a> au modèle  TCP/IP**   
+### <H3 STYLE="COLOR:GREEN;">**4.4. Application<a name="_page6_x40.00_y409.92"></a> au modèle  TCP/IP**</H3>   
 
 ![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.048.png)
 
@@ -303,7 +307,7 @@ Celui-ci est ensuite transmis à la **couche Réseau** qui l’encapsule dans un
 
 L’entête est lu, interprétée et supprimée => **désencapsulation** 
 
-### **4.5. Etablissement<a name="_page7_x40.00_y349.92"></a> de la communication TCP (« three way handshake »)** 
+### <H3 STYLE="COLOR:GREEN;">**4.5. Etablissement<a name="_page7_x40.00_y349.92"></a> de la communication TCP (« three way handshake »)**</H3>
 
 Une communication TCP s’établit selon le principe d’une connexion en trois temps (three way handshake = poignée de main en trois temps) 
 
@@ -321,9 +325,9 @@ Exemple : 3002 + 1 = 3003
 
 ![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.053.png)
 
-*Il existe une technique de piratage, appelée spoofing IP, permettant de corrompre cette relation d'approbation ! *
+*Il existe une technique de piratage, appelée spoofing IP, permettant de corrompre cette relation d'approbation !*
 
-### **4.6. Fiabilité<a name="_page8_x40.00_y36.92"></a> des transferts : protocole du bit alterné** 
+### <H3 STYLE="COLOR:GREEN;">**4.6. Fiabilité<a name="_page8_x40.00_y36.92"></a> des transferts : protocole du bit alterné**</H3>
 
 Le protocole TCP permet d’assurer le transfert des données de façon fiable. Pour cela, il possède un **système d’accusé de réception** permettant au client et au serveur de s’assurer de la bonne réception mutuelle des données.  
 
@@ -361,46 +365,46 @@ La règle est relativement simple : la première trame envoyée par A aura pour 
 
 *Pour aller encore plus loin : TCP sur site[ https://www.frameip.com/entete-tcp/ ](https://www.frameip.com/entete-tcp/) ![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.008.png)*
 
-## **5. Menaces courantes sur les réseaux<a name="#_titre5"></a>** 
+## <H2 STYLE="COLOR:BLUE;">**5. Menaces courantes sur les réseaux<a name="#_titre5"></a>**</H2>
 
-### **5.1. Phishing**
+### <H3 STYLE="COLOR:GREEN;">**5.1. Phishing**</H3>
 - **Description** : Le phishing est une technique de fraude où un attaquant se fait passer pour une entité de confiance pour obtenir des informations sensibles comme des identifiants de connexion, des numéros de carte bancaire, etc.
 - **Exemple** : Un utilisateur reçoit un email qui semble provenir de sa banque, lui demandant de vérifier ses informations de compte en cliquant sur un lien qui mène à un faux site web.
 
-### **5.2. DDoS (Distributed Denial of Service)**
+### <H3 STYLE="COLOR:GREEN;">**5.2. DDoS (Distributed Denial of Service)**</H3>
 - **Description** : Une attaque DDoS vise à rendre un service ou un réseau indisponible en le submergeant de trafic provenant de multiples sources. Cela surcharge les serveurs et les réseaux, empêchant les utilisateurs légitimes d'accéder aux services.
 - **Exemple** : Un site web d'e-commerce est bombardé de requêtes malveillantes provenant de milliers d'ordinateurs compromis, rendant le site inaccessible aux clients.
 
-### **5.3. Man-In-The-Middle (MITM)**
+### <H3 STYLE="COLOR:GREEN;">**5.3. Man-In-The-Middle (MITM)**</H3>
 - **Description** : Dans une attaque MITM, un attaquant intercepte et peut altérer les communications entre deux parties sans qu'elles le sachent. Cela permet à l'attaquant de voler des informations sensibles ou d'injecter des données malveillantes.
 - **Exemple** : Un utilisateur se connecte à un Wi-Fi public et un attaquant intercepte les communications entre l'utilisateur et un site web sécurisé, dérobant ainsi les identifiants de connexion de l'utilisateur.
 
-## **6. Mesures de protection des réseaux<a name="#_titre6"></a>** 
+## <H2 STYLE="COLOR:BLUE;">**6. Mesures de protection des réseaux<a name="#_titre6"></a>**</H2>
 
-### **6.1. Firewalls**
+### <H3 STYLE="COLOR:GREEN;">**6.1. Firewalls**</H3>
 - **Description** : Un firewall est une barrière de sécurité qui surveille et contrôle le trafic réseau entrant et sortant en fonction de règles de sécurité prédéfinies. Il peut être matériel, logiciel, ou les deux.
 - **Fonctionnement** : 
   - **Filtrage des paquets** : Analyse chaque paquet de données entrant ou sortant et le bloque ou le permet en fonction des règles établies.
   - **Proxy** : Intercepte toutes les communications entre les utilisateurs et le réseau, les inspecte et les transfère si elles sont sûres.
 - **Exemple** : Un firewall bloque les tentatives de connexion non autorisées provenant d'adresses IP suspectes.
 
-### **6.2. VPN (Virtual Private Network)**
+### <H3 STYLE="COLOR:GREEN;">**6.2. VPN (Virtual Private Network)**</H3>
 - **Description** : Un VPN crée une connexion sécurisée et chiffrée entre l'utilisateur et le réseau, permettant de masquer l'adresse IP de l'utilisateur et de protéger ses données contre les interceptions.
 - **Fonctionnement** :
   - **Tunneling** : Les données sont encapsulées dans un protocole de tunneling et chiffrées, rendant difficile pour les attaquants d'intercepter ou de lire les informations.
   - **Authentification** : Utilise des protocoles d'authentification pour s'assurer que seuls les utilisateurs autorisés peuvent accéder au réseau.
 - **Exemple** : Un employé utilise un VPN pour accéder aux ressources de l'entreprise en travaillant à distance, garantissant que les données transmises sont sécurisées.
 
-### **6.3. Chiffrement**
+### <H3 STYLE="COLOR:GREEN;">**6.3. Chiffrement**</H3>
 - **Description** : Le chiffrement transforme les données en une forme illisible pour toute personne non autorisée. Seules les parties possédant la clé de déchiffrement peuvent lire les données.
 - **Fonctionnement** :
   - **Chiffrement symétrique** : Utilise la même clé pour chiffrer et déchiffrer les données.
   - **Chiffrement asymétrique** : Utilise une paire de clés (publique et privée). La clé publique chiffre les données, et seule la clé privée correspondante peut les déchiffrer.
 - **Exemple** : Les transactions bancaires en ligne utilisent le chiffrement SSL/TLS pour sécuriser les données échangées entre le client et le serveur bancaire.
 
-## **7. Mesures de protection des réseaux<a name="#_titre7"></a>** 
+## <H2 STYLE="COLOR:BLUE;">**7. Mesures de protection des réseaux<a name="#_titre7"></a>**</H2>
 
-Activité n°3 : Analyse d'une trame fictive
+**<H3 STYLE="COLOR:red;">Activité n°3 :**</H3> Analyse d'une trame fictive
 
 ```
 Frame 1: 66 bytes on wire (528 bits), 66 bytes captured (528 bits) on interface en0, id 0
@@ -408,17 +412,26 @@ Ethernet II, Src: 00:0c:29:36:bc:5a, Dst: 00:50:56:c0:00:01
 Internet Protocol Version 4, Src: 192.168.1.101, Dst: 192.168.1.1
 Transmission Control Protocol, Src Port: 443, Dst Port: 56324, Seq: 1, Ack: 1, Len: 0
 ```
+
 - Question 1 : Adresse MAC : Quelle est l'adresse MAC source et l'adresse MAC de destination ?
+
 - Question 2 : Adresse IP: Quelle est l'adresse IP source et l'adresse IP de destination ?
+
 - Question 3 : Protocole utilisé : Quel protocole de couche transport est utilisé par cette trame ?
+
 - Question 4 : Ports utilisés : Quels sont les ports source et destination ?
+
 - Question 5 : Numéro de séquence et d'accusé de réception : Quel est le numéro de séquence et le numéro d'accusé de réception de cette trame TCP ?
 
 **Remarque** pour faire une analyse de trame, on peut utiliser un logiciel type wiresharp
 **Installation et prise en main de Wireshark**
+
 1. **Installation de Wireshark**
+
    - Aller sur le site officiel de Wireshark : [https://www.wireshark.org/](https://www.wireshark.org/).
+
    - Télécharger la version appropriée pour votre système d'exploitation (Windows, macOS, Linux).
+
    - Suivre les instructions d'installation.
 
 2. **Premier lancement et configuration**
@@ -440,9 +453,9 @@ Transmission Control Protocol, Src Port: 443, Dst Port: 56324, Seq: 1, Ack: 1, L
 
 
 
-## **8.  Simulation d’un réseau avec Filius<a name="_page10_x40.00_y36.92"></a>** 
+## <H2 STYLE="COLOR:BLUE;">**8.  Simulation d’un réseau avec Filius<a name="_page10_x40.00_y36.92"></a>**</H2>
 
-**Activité n°4.:** Lien direct entre deux ordinateurs  
+**<H3 STYLE="COLOR:red;">Activité n°4.:**</H3> Lien direct entre deux ordinateurs  
 ![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.058.png)
 
 - Lancer Filius  
@@ -453,8 +466,9 @@ Transmission Control Protocol, Src Port: 443, Dst Port: 56324, Seq: 1, Ack: 1, L
 - Afficher les données échangées avec un click droit sur l’ordinateur 
 - Faire un ipconfig dans le cmd du poste 10 et comparer l’adresse Mac avec l’adresse Mac de la source sur le tabelau des données échangées  
 
-**Activité n°5.:** 2 ordinateurs et un serveur  
+**<H3 STYLE="COLOR:red;">Activité n°5.:**</H3> 2 ordinateurs et un serveur  
 ![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.059.png)
+
 - Modifier le réseau précédent pour mettre un serveur 192.168.1.12 et un switch  
 - Installer sur le serveur générique (port 55555) et démarrer le serveur  
 - sur  un  des  ordinateurs  installer  client  générique  et connecter  le  client  au  serveur   
@@ -463,9 +477,7 @@ Transmission Control Protocol, Src Port: 443, Dst Port: 56324, Seq: 1, Ack: 1, L
 
 La couche de transport est utilisée pour la première fois. On voit :  
 
-Selon le protocole de communication TCP, une connexion entre deux hôtes s’établit 
-
-en trois étapes : Tri-wayhandshake. Dès la connexion on définit les numéros de séquence que l’on utilisera pour le transfert de données TCP 
+Selon le protocole de communication TCP, une connexion entre deux hôtes s’établit en trois étapes : Tri-wayhandshake. Dès la connexion on définit les numéros de séquence que l’on utilisera pour le transfert de données TCP 
 
 1. SYN : le client qui désire établir une connexion avec le serveur va envoyer un premier paquet SYN (synchronize) au serveur. Le numéro de séquence de ce paquet est un nombre aléatoire A. 
 1. SYN-ACK : le serveur va répondre au client à l’aide d’un paquet SYN-ACK (synchronize acknowledge). Le numéro du ACK est A+1. Tandis que le numéro de séquence du paquet SYN-ACK est un nombre aléatoire B. 
@@ -477,7 +489,7 @@ Puis envoi du message du client au serveur L’accusé de réception du serveur 
 
 On voit des échanges entre le client et le serveur en 4 temps 
 
-**Activité n°6.:** 2 réseaux  
+**<H3 STYLE="COLOR:red;">Activité n°6.:**</H3> 2 réseaux  
 ![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.060.jpeg)
 
 - Modifier le réseau précédent pour obtenir  les deux réseaux inter connectés suivants :  
@@ -492,7 +504,7 @@ Il  faut  donc  indiquer  une  passerelle  qui  sera  l’adresse du routeur 192
 - Installer un client générique sur le poste 2.10 et connecter le poste en 2.10 au serveur en 1.12 pour lui envoyer le message « bonjour » 
 - Afficher et observer les données échangées 
 
-**Activité n°7.:** Simulation du web avec adresse IP 
+**<H3 STYLE="COLOR:red;">Activité n°7.:**</H3> Simulation du web avec adresse IP 
 
 - Installer un serveur web  et un éditeur de texte sur le serveur en 1.12 
 - Utiliser l’éditeur de texte pour ouvrir le fichier index.html qui se trouve sur le répertoire root/webserver 
@@ -505,8 +517,10 @@ Sauvegarder.
 
 On voit deux choses : le css ne fonctionne pas ni le codage utf-8 !! 
 
-**Activité  n°8.:**  Simulation  du  web  avec  serveur DNS  
+**<H3 STYLE="COLOR:red;">Activité  n°8.:**</H3>  Simulation  du  web  avec  serveur DNS  
+
 ![](Aspose.Words.15f906fb-bf44-45f2-afd3-4f489997c9e9.061.jpeg)
+
 Normalement on ne s’adresse pas ainsi à un  serveur : on n’utilise pas l’adresse IP mais  son url. Le serveur de noms de domaine (ou  DNS) va traduire url en IP.  
 
 - Il faut ajouter un serveur d’adresse IP  192.168.3.10 et comme passerelle on  mettra  192.168.3.1.  et  ajouter  une  connexion au routeur en 192.168.3.1  
@@ -519,7 +533,7 @@ Vérification :
 
 - Aller sur le poste1.10. Dans l’editeur de commande taper host[ www.serverwebdensi.fr.](http://www.serverwebdensi.fr/) Observer 
 
-**Activité n°9.:** Chemin d’un client à un serveur 
+**<H3 STYLE="COLOR:red;">Activité n°9.:**</H3> Chemin d’un client à un serveur 
 
 - ouvrir le fichier snt\_sim\_res.fls. 
 - Faire un "traceroute" entre l'ordinateur M14 et l'ordinateur M9 (n'oubliez pas de faire un "ipconfig" sur la machine M9 afin d'obtenir son adresse IP). Noter le chemin parcouru pour aller de la machine M14 à la machine M9. 
@@ -527,7 +541,7 @@ Vérification :
 
 Sous windows c’est tracert 
 
-**Activité n°10.:** Chemin d’un client à un serveur version graphique 
+**<H3 STYLE="COLOR:red;">Activité n°10.:**</H3> Chemin d’un client à un serveur version graphique 
 
 Sur le site[ https://gsuite.tools/traceroute ](https://gsuite.tools/traceroute)on pourra voir le chemin vers un des serveurs de plusieurs site web 
 
@@ -541,4 +555,4 @@ commande ipconfig pcastuces :[ https://www.pcastuces.com/pratique/windows/outils
 commande ipconfig papergeek[ https://www.papergeek.fr/ipconfig-comment-connaitre-son-adresse-ip-locale-et-son- adresse-mac-sous-windows-80996 ](https://www.papergeek.fr/ipconfig-comment-connaitre-son-adresse-ip-locale-et-son-adresse-mac-sous-windows-80996)
 
 
-[^1]: Network Address Translation : Traduction d’adresse réseau 
+[^1]: Network Address Translation : Traduction d’adresse réseau
