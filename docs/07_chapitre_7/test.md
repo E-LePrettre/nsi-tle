@@ -185,9 +185,7 @@ En CSS un id doit etre précéder d’un #
 
 Pour le theorème de l’activité précédente, il a fallu rajouter des balises p. Or il existe des balises qui ne servent à rien : 
 
-- ```<span> </span>``` c’est une balise inline c’est-à-dire que l’on place au sein d
-
-’un paragraphe de texte, pour sélectionner certains mots uniquement  
+- ```<span> </span>``` c’est une balise inline c’est-à-dire que l’on place au sein d’un paragraphe de texte, pour sélectionner certains mots uniquement  
 - ```<div> </div>``` c’est une balise block qui entoure un bloc de texte. Elles créent un nouveau bloc dans la page et provoquent donc obligatoirement un retour à la ligne.  
 
 **<H3 STYLE="COLOR:red;">Activité n°7.:</H3>** Modifier la index et la feuille de style pour que l’on puisse voir cela : 
@@ -373,9 +371,7 @@ body
 Le ```background-repeat```: répétition du fond. Par défaut, l'image de fond est répétée en mosaïque 
 
 - ```no-repeat```: le fond ne sera pas répété. L'image sera donc unique sur la page. 
-- ```repeat-x```: le fond sera répété uniquement sur la
-
- première ligne, horizontalement. 
+- ```repeat-x```: le fond sera répété uniquement sur la première ligne, horizontalement. 
 - ```repeat-y```: le fond sera répété uniquement sur la première colonne, verticalement. 
 - ```repeat```: le fond sera répété en mosaïque (par défaut). 
 
@@ -536,6 +532,7 @@ Des bordures différentes en fonction du côté :
 La propriété ```border-radius``` va nous permettre d'arrondir facilement les angles de n'importe quel élément. Il suffit d'indiquer la taille (« l'importance ») de l'arrondi en pixels, par exemple : ```border-radius : 10px```; 
 
 **<H3 STYLE="COLOR:red;">Activité n°13.:</H3>** Modifier la feuille de style pour que le théorème soit entouré d’une bordure arrondie, d’une couleur, de style de traits et d’épaisseur au choix. Centrer le théorème. 
+
 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.061.jpeg)
 
 ### <H3 STYLE="COLOR:GREEN;">7.3. Les<a name="_page10_x40.00_y299.92"></a> ombres</H3> 
@@ -739,17 +736,22 @@ Voici les  propriétés  CSS  qui  permettent  de  déterminer  les  dimensions,
 - ```height``` : c'est la hauteur du bloc exprimé en pixels (px) ou en pourcentage (%). 
 - ```padding``` : indique la taille de la marge intérieure en pixels (px). 
 - ```margin``` : indique la taille de la marge extérieure en pixels (px). 
-1. Un bloc peut avoir des dimensions minimales et maximales : 
+
+Un bloc peut avoir des dimensions minimales et maximales : 
+
 - ```min-width``` : largeur minimale ; 
 - ```min-height``` : hauteur minimale ; 
 - ```max-width``` : largeur maximale ; 
 - ```max-height``` : hauteur maximale. 
-2. Les marges extérieures peuvent avoir des valeurs différentes : 
+
+Les marges extérieures peuvent avoir des valeurs différentes : 
+
 - ```margin-top``` : marge extérieure en haut ; 
 - ```margin-bottom``` : marge extérieure en bas ; 
 - ```margin-left``` : marge extérieure à gauche ; 
 - ```margin-right``` : marge extérieure à droite. 
-3. Idem pour les marges intérieures ! 
+
+Idem pour les marges intérieures ! 
 
 Exemple : 
 ```css
@@ -767,9 +769,7 @@ p
 
 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.088.jpeg)
 
-Remarque : utiliser la propriété ```
-
-margin: auto``` pour centrer des blocs. Pour cela, il faut obligatoirement donner une largeur au bloc (avec la propriété ```width```). 
+Remarque : utiliser la propriété ```margin: auto``` pour centrer des blocs. Pour cela, il faut obligatoirement donner une largeur au bloc (avec la propriété ```width```). 
 
 Exemple : 
 
@@ -803,7 +803,9 @@ La propriété CSS ```position``` permet de positionner avec précision des él�
 - ```relative``` : positionnement relatif ; ce positionnement permet d'effectuer des « ajustements » : l'élément est décalé par rapport à sa position initiale. 
 
 Si un bloc est positionné en absolu, il faut indiquer au navigateur où le positionner sur la page à l'aide des quatre propriétés CSS : 
+
 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.093.png)
+
 - ```left``` : position par rapport à la gauche de la page ; 
 - ```right``` : position par rapport à la droite de la page ;
 - ```top``` : position par rapport au haut de la page ; 

@@ -19,13 +19,13 @@ title: 07b Le CSS
 12. [Squelette de base HTML – CSS8](#_page17_x40.00_y239.92)
 
 
-## **1. La<a name="_page0_x40.00_y671.92"></a> petite histoire du CSS** 
+## <H2 STYLE="COLOR:BLUE;">1. La<a name="_page0_x40.00_y671.92"></a> petite histoire du CSS</H2>
 
 CSS (**Cascading Style Sheets**), permet de choisir la couleur du texte, la police utilisée, la taille du texte, les bordures, le fond… et de faire la mise en page du site (menu à gauche, en-tête calé en haut, etc). 
 
 Aux débuts du Web, CSS n'existait pas, il n'y avait initialement que le langage HTML. Cependant, les pages HTML commençaient à devenir assez complexes. Il y avait de plus en plus de balises et c'était un joyeux mélange entre le fond et la forme, qui rendait la mise à jour des pages web de plus en plus complexe. C'est pour cela que l'on a créé le langage CSS. 
 
-## **2. Ou<a name="_page1_x40.00_y36.92"></a> écrit-on le CSS ?**
+## <H2 STYLE="COLOR:BLUE;">2. Ou<a name="_page1_x40.00_y36.92"></a> écrit-on le CSS ?</H2>
 
 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.003.png)
 
@@ -41,7 +41,7 @@ Voici un exemple d’arborescence de site web :
 
 ![](6789.png)
 
-**Activité n°1.:** Dans la index.html rajouter le lien vers le fichier css. 
+**<H3 STYLE="COLOR:red;">Activité n°1.:</H3>** Dans la index.html rajouter le lien vers le fichier css. 
 
 ```html
 <!DOCTYPE html>
@@ -60,20 +60,20 @@ Dans le fichier style.css
 
 Enregistrer et observer la index.html. 
 
-**Activité n°2.:** Dans la page2.html rajouter le lien vers le fichier css. 
+**<H3 STYLE="COLOR:red;">Activité n°2.:</H3>** Dans la page2.html rajouter le lien vers le fichier css. 
 ```html
     <link rel="stylesheet" href="style.css">
 ``` 
 
 
 
-**Activité n°3.:** Faire un lien également vers le fichier style.css depuis la page3.html. 
+**<H3 STYLE="COLOR:red;">Activité n°3.:</H3>** Faire un lien également vers le fichier style.css depuis la page3.html. 
 
 Enregistrer et observer les page2.html et page3.html. 
 
 On note un avantage du CSS, il ne suffit que d’écrire cette instruction qu’une seule fois pour tout le site !! et en cas de changement de style tous les fichiers seront changés en même temps. 
 
-## **3. Appliquer<a name="_page1_x40.00_y534.92"></a> un style**  
+## <H2 STYLE="COLOR:BLUE;">3. Appliquer<a name="_page1_x40.00_y534.92"></a> un style</H2> 
 
 Dans un code CSS, on trouve trois éléments différents : 
 
@@ -101,9 +101,9 @@ balise2
 
 On peut mettre autant de propriétés que l'on veut à l'intérieur **des accolades.** Chaque propriété est suivie du symbole « deux-points » ( : ) puis de la valeur correspondante. Enfin, chaque ligne se termine par un point-virgule ( ; ). 
 
-### **3.1. Sélectionner<a name="_page2_x40.00_y67.92"></a> une balise**
+### <H3 STYLE="COLOR:GREEN;">3.1. Sélectionner<a name="_page2_x40.00_y67.92"></a> une balise</H3>
 
-**Activité n°4.:** Avec la feuille de style modifier toutes les couleurs des mots entre les balises ```<em>``` et ```<strong>```. 
+**<H3 STYLE="COLOR:red;">Activité n°4.:</H3>** Avec la feuille de style modifier toutes les couleurs des mots entre les balises ```<em>``` et ```<strong>```. 
 
 ```css
 em
@@ -117,13 +117,13 @@ strong
 ```
 
 
-**Activité n°5.:** Avec la feuille de style modifier toutes les couleurs des titres de la index h1, h2, h3, h4 et h5 
+**<H3 STYLE="COLOR:red;">Activité n°5.:</H3>** Avec la feuille de style modifier toutes les couleurs des titres de la index h1, h2, h3, h4 et h5 
 
-### **3.2. Les<a name="_page2_x40.00_y258.92"></a> commentaires** 
+### <H3 STYLE="COLOR:GREEN;">3.2. Les<a name="_page2_x40.00_y258.92"></a> commentaires</H3> 
 
 Les commentaires ne seront pas affichés, ils servent simplement à indiquer des informations. Taper ```/*```, suivi de votre commentaire, puis ```*/``` pour terminer votre commentaire. 
 
-### **3.3. Class<a name="_page2_x40.00_y309.92"></a> et id** 
+### <H3 STYLE="COLOR:GREEN;">3.3. Class<a name="_page2_x40.00_y309.92"></a> et id</H3> 
 
 Ce qu’on vient de dire a un défaut : en appliquant une couleur aux paragraphes, tous les paragraphes possèdent la même présentation sur toutes les pages. 
 
@@ -132,7 +132,7 @@ On utilise alors des attributs spéciaux qui fonctionnent sur toutes les balises
 - l’attribut class
 - l’attribut id
 
-#### **3.3.1. L’attribut<a name="_page2_x40.00_y406.92"></a> class**
+#### <H4 STYLE="COLOR:MAGENTA;">3.3.1. L’attribut<a name="_page2_x40.00_y406.92"></a> class</H4>
 
 C’est un attribut que l’on peut mettre dans toutes les balises 
 
@@ -146,7 +146,7 @@ C’est un attribut que l’on peut mettre dans toutes les balises
 
 Entre les doubles cotes on associe un nom. 
 
-**Activité n°6.:** Mettre des balises p autour du **théorème** de la index.html. 
+**<H3 STYLE="COLOR:red;">Activité n°6.:</H3>** Mettre des balises p autour du **théorème** de la index.html. 
 
 ```html
     <p class ="theoreme"> …………………………………………..</p>
@@ -166,7 +166,7 @@ Enregistrer tout et observer.
 
 Noter que le nom de la class doit se noter **avec un point en CSS**. 
 
-#### **3.3.2. L’attribut<a name="_page2_x40.00_y639.92"></a> id** 
+#### <H4 STYLE="COLOR:MAGENTA;">3.3.2. L’attribut<a name="_page2_x40.00_y639.92"></a> id</H4> 
 
 L’attribut id est utilisé exactement de la même manière que l’attribut class. La différence est qu’il ne pourra être utilisé **qu’une seule fois par page.**  
 
@@ -181,18 +181,18 @@ En CSS un id doit etre précéder d’un #
 ```
 
 
-### **3.4. Les<a name="_page3_x40.00_y36.92"></a> balises universelles** 
+### <H3 STYLE="COLOR:GREEN;">3.4. Les<a name="_page3_x40.00_y36.92"></a> balises universelles</H3> 
 
 Pour le theorème de l’activité précédente, il a fallu rajouter des balises p. Or il existe des balises qui ne servent à rien : 
 
 - ```<span> </span>``` c’est une balise inline c’est-à-dire que l’on place au sein d’un paragraphe de texte, pour sélectionner certains mots uniquement  
 - ```<div> </div>``` c’est une balise block qui entoure un bloc de texte. Elles créent un nouveau bloc dans la page et provoquent donc obligatoirement un retour à la ligne.  
 
-**Activité n°7.:** Modifier la index et la feuille de style pour que l’on puisse voir cela : 
+**<H3 STYLE="COLOR:red;">Activité n°7.:</H3>** Modifier la index et la feuille de style pour que l’on puisse voir cela : 
 
 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.018.jpeg)
 
-### **3.5. Les<a name="_page3_x40.00_y425.92"></a> sélecteurs avancés** 
+### <H3 STYLE="COLOR:GREEN;">3.5. Les<a name="_page3_x40.00_y425.92"></a> sélecteurs avancés</H3> 
 - ```*``` est un sélecteur universelle il sélectionne toutes les balises sans exception. 
 ```css
 *
@@ -230,8 +230,8 @@ Ce style sera sur :
 ```
 - Etc … pour une liste complète :[ site du W3C ](https://www.w3.org/Style/CSS-selectors-updates/WD-CSS-selectors-20010126.fr.html#selectors)
 
-## **4. Formater<a name="_page4_x40.00_y36.92"></a> du texte** 
-### **4.1. Taille<a name="_page4_x40.00_y58.92"></a>** 
+## <H2 STYLE="COLOR:BLUE;">4. Formater<a name="_page4_x40.00_y36.92"></a> du texte</H2> 
+### <H3 STYLE="COLOR:GREEN;">4.1. Taille<a name="_page4_x40.00_y58.92"></a></H3> 
 
 On utilise la propriété font-size* avec deux techniques pour définir la taille : 
 
@@ -244,11 +244,11 @@ balise
 } 
 ```
 
-**Activité n°8.:** Modifier la feuille de style pour que les paragraphes est une taille de 120% 
+**<H3 STYLE="COLOR:red;">Activité n°8.:</H3>** Modifier la feuille de style pour que les paragraphes est une taille de 120% 
 
 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.032.jpeg)
 
-### **4.2. La<a name="_page4_x40.00_y513.92"></a> police** 
+### <H3 STYLE="COLOR:GREEN;">4.2. La<a name="_page4_x40.00_y513.92"></a> police</H3> 
 
 C’est la propriété font-family. On peut définir plusieurs polices pour éviter des problèmes de compatibilité chez l’internaute.  
 ```css
@@ -262,28 +262,28 @@ Les polices qui fonctionnent sur la plupart des navigateurs : Arial ; Arial Blac
 
 Il est possible d’utiliser des polices personnalisées que l’internaute téléchargera automatiquement lors de la visite du site. 
 
-**Activité n°9.:** Modifier la feuille de style pour que les paragraphes est une police en Trebuchet MS. 
+**<H3 STYLE="COLOR:red;">Activité n°9.:</H3>** Modifier la feuille de style pour que les paragraphes est une police en Trebuchet MS. 
 
 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.034.png)
 
-### **4.3. Italique,<a name="_page5_x40.00_y342.92"></a> gras, souligné** 
+### <H3 STYLE="COLOR:GREEN;">4.3. Italique,<a name="_page5_x40.00_y342.92"></a> gras, souligné</H3> 
 
 - la propriété ```font-style : normal, italic``` 
 - la propriété ```font-weight : normal, bold```
 - Le soulignement se traite avec ```text-decoration : underline*,* ou none```
 
-### **4.4. L’alignement<a name="_page5_x40.00_y410.92"></a>** 
+### <H3 STYLE="COLOR:GREEN;">4.4. L’alignement<a name="_page5_x40.00_y410.92"></a></H3> 
 
 On utilise la propriété ```text-align : left``` ou ```center``` ou ```right``` ou ```justify```
 
-**Activité n°10.:** Modifier la feuille de style pour que les paragraphes soient justifiés et centré les images (penser à mettre des nom aux balises des images sur la index) 
+**<H3 STYLE="COLOR:red;">Activité n°10.:</H3>** Modifier la feuille de style pour que les paragraphes soient justifiés et centré les images (penser à mettre des nom aux balises des images sur la index) 
 
 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.036.jpeg)
 
 
 
-## **5. Ajouter<a name="_page6_x40.00_y36.92"></a> de la couleur et un fond** 
-### **5.1. La<a name="_page6_x40.00_y58.92"></a> couleur du texte** 
+## <H2 STYLE="COLOR:BLUE;">5. Ajouter<a name="_page6_x40.00_y36.92"></a> de la couleur et un fond</H2> 
+### <H3 STYLE="COLOR:GREEN;">5.1. La<a name="_page6_x40.00_y58.92"></a> couleur du texte</H3> 
 
 On utilise la propriété color suivie   
 
@@ -293,16 +293,16 @@ On utilise la propriété color suivie
 
 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.038.jpeg)
 
-### **5.2. Arrière<a name="_page6_x40.00_y498.92"></a> plan** 
+### <H3 STYLE="COLOR:GREEN;">5.2. Arrière<a name="_page6_x40.00_y498.92"></a> plan</H3> 
 
 La propriété CSS background est une propriété raccourcie qui permet de définir les différentes valeurs des propriétés liées à la gestion des arrière-plans d'un élément (couleur, image, origine, taille, répétition, etc.). 
 
-#### **5.2.1. Couleur<a name="_page6_x40.00_y547.92"></a> de fond**
+#### <H4 STYLE="COLOR:MAGENTA;">5.2.1. Couleur<a name="_page6_x40.00_y547.92"></a> de fond</H4>
 
 On utilise la propriété background-color avec les mêmes propriétés que color*.* Il faut mettre cette propriété sur body
 
 
-**Activité n°11.:** La couleur de fond d'une page est définie comme suit :  
+**<H3 STYLE="COLOR:red;">Activité n°11.:</H3>** La couleur de fond d'une page est définie comme suit :  
 ```css
 body
 {
@@ -339,11 +339,11 @@ p
 
 
 
-#### **5.2.2. Images<a name="_page7_x40.00_y91.92"></a> de fond**
+#### <H4 STYLE="COLOR:MAGENTA;">5.2.2. Images<a name="_page7_x40.00_y91.92"></a> de fond</H4>
 
 La propriété permettant d'indiquer une image de fond est ```background-image```. Comme valeur, on doit renseigner ```url("nom_de_l_image.png")```
 
-**Activité n°12.:** Choisir une image neutre sur internet que l’on appelera paper.gif et modifier la feuille de style pour y mettre une image de fond sous forme d’url 
+**<H3 STYLE="COLOR:red;">Activité n°12.:</H3>** Choisir une image neutre sur internet que l’on appellera paper.gif et modifier la feuille de style pour y mettre une image de fond sous forme d’url 
 ```css
 body
 {
@@ -352,7 +352,7 @@ body
 
 
 
-##### **5.2.2.1. Répétition d’arrière plan**
+##### <H4 STYLE="COLOR:MAGENTA;">5.2.2.1. Répétition d’arrière plan</H4>
 
 Par défaut, la background-image propriété répète une image à la fois horizontalement et verticalement. 
 
@@ -375,7 +375,7 @@ Le ```background-repeat```: répétition du fond. Par défaut, l'image de fond e
 - ```repeat-y```: le fond sera répété uniquement sur la première colonne, verticalement. 
 - ```repeat```: le fond sera répété en mosaïque (par défaut). 
 
-##### **5.2.2.2. Position d’arrière plan**
+##### <H4 STYLE="COLOR:MAGENTA;">5.2.2.2. Position d’arrière plan</H4>
 
 La ```background-position``` propriété est utilisée pour spécifier la position de l'image d'arrière-plan. 
 ```css
@@ -390,7 +390,7 @@ body
 
 Le ```background-position``` permet d’indiquer la position du fond par rapport au coin supérieur gauche de la page ou les mots clé ```top, bottom, left```… 
 
-##### **5.2.2.3. Fixe ou scroll de l’arrière plan** 
+##### <H4 STYLE="COLOR:MAGENTA;">5.2.2.3. Fixe ou scroll de l’arrière plan</H4> 
 
 La ```background-attachment``` propriété spécifie si l'image d'arrière-plan doit défiler ou être fixe (ne défile pas avec le reste de la page) 
 ```css
@@ -409,7 +409,7 @@ Le ```background-attachment```: fixer le fond. Deux valeurs sont disponibles :
 - ```fixed```: l'image de fond reste fixe ; 
 - ```scroll```: l'image de fond défile avec le texte (par défaut).
 
-##### **5.2.2.4. Propriétés de l’arrière plan abrégée** 
+##### <H4 STYLE="COLOR:MAGENTA;">5.2.2.4. Propriétés de l’arrière plan abrégée</H4> 
 
 Pour raccourcir le code, il est également possible de spécifier toutes les propriétés du fond dans une seule propriété. C'est ce qu'on appelle une propriété abrégée. 
 
@@ -434,7 +434,7 @@ body {
 
 
 
-##### **5.2.2.5. Plusieurs images** 
+##### <H4 STYLE="COLOR:MAGENTA;">5.2.2.5. Plusieurs images</H4> 
 
 Depuis CSS, il est possible de donner plusieurs images de fond à un élément. Pour cela, il suffit de séparer les déclarations par une virgule, comme ceci : 
 
@@ -450,7 +450,7 @@ body
 
 La première image de cette liste sera placée par-dessus les autres. Attention donc, l'ordre de déclaration des images a son importance : si vous inversez le soleil et la neige dans le code CSS précédent, vous ne verrez plus le soleil ! 
 
-## **6. Habillage<a name="_page8_x40.00_y542.92"></a>** 
+## <H2 STYLE="COLOR:BLUE;">6. Habillage<a name="_page8_x40.00_y542.92"></a></H2> 
 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.050.png)
 
 Le CSS permet de faire flotter un élément autour d'un texte grâce à la propriété CSS ```float```. 
@@ -493,8 +493,8 @@ Pour ne plus faire flotter l'élément, il faut utiliser la propriété clear, q
 
 
 
-## **7. Créer<a name="_page9_x40.00_y302.92"></a> des bordures et des ombres** 
-### **7.1. Bordures<a name="_page9_x40.00_y324.92"></a> standard** 
+## <H2 STYLE="COLOR:BLUE;">7. Créer<a name="_page9_x40.00_y302.92"></a> des bordures et des ombres</H2> 
+### <H3 STYLE="COLOR:GREEN;">7.1. Bordures<a name="_page9_x40.00_y324.92"></a> standard</H3> 
 
 Pour ```border``` on peut utiliser jusqu'à trois valeurs pour modifier l'apparence de la bordure : 
 
@@ -527,14 +527,15 @@ Des bordures différentes en fonction du côté :
 - ```border-left```: bordure de gauche ; 
 - ```border-right```: bordure de droite. 
 
-### **7.2. Bordures<a name="_page10_x40.00_y115.92"></a> arrondies** 
+### <H3 STYLE="COLOR:GREEN;">7.2. Bordures<a name="_page10_x40.00_y115.92"></a> arrondies</H3> 
 
 La propriété ```border-radius``` va nous permettre d'arrondir facilement les angles de n'importe quel élément. Il suffit d'indiquer la taille (« l'importance ») de l'arrondi en pixels, par exemple : ```border-radius : 10px```; 
 
-**Activité n°13.:** Modifier la feuille de style pour que le théorème soit entouré d’une bordure arrondie, d’une couleur, de style de traits et d’épaisseur au choix. Centrer le théorème. 
+**<H3 STYLE="COLOR:red;">Activité n°13.:</H3>** Modifier la feuille de style pour que le théorème soit entouré d’une bordure arrondie, d’une couleur, de style de traits et d’épaisseur au choix. Centrer le théorème. 
+
 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.061.jpeg)
 
-### **7.3. Les<a name="_page10_x40.00_y299.92"></a> ombres** 
+### <H3 STYLE="COLOR:GREEN;">7.3. Les<a name="_page10_x40.00_y299.92"></a> ombres</H3> 
 
 Il est possible de mettre des ombres portés sur : 
 
@@ -556,19 +557,21 @@ p
 
 - du texte : avec ```text-shadow```  qui a le même fonctionnement 
 
-**Activité n°14.:** Modifier la feuille de style pour que le théorème est une ombre portée sur sa bordure. 
+**<H3 STYLE="COLOR:red;">Activité n°14.:</H3>** Modifier la feuille de style pour que le théorème est une ombre portée sur sa bordure. 
 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.066.jpeg)
 
-## **8. Les<a name="_page10_x40.00_y621.92"></a> apparences dynamiques** 
+## <H2 STYLE="COLOR:BLUE;">8. Les<a name="_page10_x40.00_y621.92"></a> apparences dynamiques</H2> 
 
 En CSS, on peut modifier l'apparence de certaines sections dynamiquement, après le chargement de la page, lorsque certains évènements se produisent. On utilise pour cela les pseudo-formats. 
 
 - ```:hover``` permet de changer l'apparence au survol (par exemple : a:hover pour modifier l'apparence des liens lorsque la souris pointe dessus). 
-- ```:active``` applique un style particulier au moment du clic. En pratique, il n'est utilisé que sur les liens. 
+- ```:active``` applique un style particulier au moment du clic. En pratique, il n'est utilisé que sur les liens.
+
+ 
 - ```:focus``` applique un style lorsque l'élément est sélectionné. 
 - ```:visited``` applique un style à un lien vers une page qui a déjà été vue. 
 
-### **8.1. Au<a name="_page11_x40.00_y36.92"></a> survol** 
+### <H3 STYLE="COLOR:GREEN;">8.1. Au<a name="_page11_x40.00_y36.92"></a> survol</H3> 
 
 Lorsque la souris survole quelque chose on peut prévoir un style différent. Par exemple : 
 
@@ -589,7 +592,7 @@ a:hover /* Apparence au survol des liens */
 
 
 
-### **8.2. Au<a name="_page11_x40.00_y195.92"></a> clic** 
+### <H3 STYLE="COLOR:GREEN;">8.2. Au<a name="_page11_x40.00_y195.92"></a> clic</H3> 
 
 On peut par exemple changer la couleur de fond du lien lorsque l'on clique dessus : 
 ```css
@@ -600,7 +603,7 @@ a:active /* Quand le visiteur clique sur le lien */
 ```
 
 
-### **8.3. Le<a name="_page11_x40.00_y276.92"></a> lien déjà visité** 
+### <H3 STYLE="COLOR:GREEN;">8.3. Le<a name="_page11_x40.00_y276.92"></a> lien déjà visité</H3> 
 
 On peut changer cette apparence avec: *visited* (qui signifie « visité »).  
 ```css
@@ -611,8 +614,8 @@ a:visited /* Quand le visiteur a déjà vu la page concernée */
 ```
 
 
-## **9. Les<a name="_page11_x40.00_y351.92"></a> tableaux** 
-### **9.1. Un<a name="_page11_x40.00_y389.92"></a> tableau simple** 
+## <H2 STYLE="COLOR:BLUE;">9. Les<a name="_page11_x40.00_y351.92"></a> tableaux</H2> 
+### <H3 STYLE="COLOR:GREEN;">9.1. Un<a name="_page11_x40.00_y389.92"></a> tableau simple</H3> 
 
 On utilise la balise ```<table></table>```. Puis il faut indiquer le début et la fin de chaque ligne : ```<tr></tr>```. A l’intérieur de chaque ligne, il faut définir toutes les cellules avec ```<td></td>```. 
 
@@ -648,7 +651,7 @@ border: 1px solid black;
 
 
 
-### **9.2. L’en<a name="_page11_x40.00_y705.92"></a> tête** 
+### <H3 STYLE="COLOR:GREEN;">9.2. L’en<a name="_page11_x40.00_y705.92"></a> tête</H3> 
 
 La ligne d'en-tête est très facile à reconnaître pour deux raisons : 
 
@@ -656,7 +659,7 @@ La ligne d'en-tête est très facile à reconnaître pour deux raisons :
 
 - c'est la première ligne du tableau 
 
-### **9.3. Titre<a name="_page12_x40.00_y36.92"></a> du tableau** 
+### <H3 STYLE="COLOR:GREEN;">9.3. Titre<a name="_page12_x40.00_y36.92"></a> du tableau</H3> 
 
 Il est à mettre dans la balise ```  <caption></caption>```  juste après la balise ```<table>```
 
@@ -665,7 +668,7 @@ On peut changer la position du titre avec la propriété CSS ```caption-side``` 
 - ```top```: le titre sera placé au-dessus du tableau (par défaut) ; 
 - ```bottom```: le titre sera placé en dessous du tableau.
 
-### **9.4. Gros<a name="_page12_x40.00_y120.92"></a> tableau**
+### <H3 STYLE="COLOR:GREEN;">9.4. Gros<a name="_page12_x40.00_y120.92"></a> tableau</H3>
 
 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.076.png)
 
@@ -675,7 +678,7 @@ Il existe des balises HTML qui permettent de  définir les trois « zones » du 
 - le corps (au centre) : il se définit avec  les balises ```<tbody></tbody>```;   
 - le  pied  du  tableau  (en  bas)  :  il  se  définit  avec  les  balises  ```<tfoot></tfoot>```*.*  
 
-### **9.5. Fusionner<a name="_page12_x40.00_y268.92"></a>**   
+### <H3 STYLE="COLOR:GREEN;">9.5. Fusionner<a name="_page12_x40.00_y268.92"></a></H3>   
 - La fusion de colonnes : c'est ce que je viens de faire dans cet exemple. La fusion s'effectue horizontalement. On utilisera l'attribut ```colspan```.
 - La fusion de lignes : là, deux lignes seront groupées entre elles. La fusion s'effectuera verticalement. On utilisera l'attribut ```rowspan```.
 
@@ -708,11 +711,11 @@ Par exemple :
 
 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.078.jpeg)
 
-**Activité n°15.:** Rajouter un tableau résumé à la fin de la index. Modifier la feuille de style pour que le tableau ressemble à l’image ci-dessous. Penser à nommer les balise pour les utiliser en css. 
+**<H3 STYLE="COLOR:red;">Activité n°15.:</H3>** Rajouter un tableau résumé à la fin de la index. Modifier la feuille de style pour que le tableau ressemble à l’image ci-dessous. Penser à nommer les balise pour les utiliser en css. 
 
 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.079.png)![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.080.png)
 
-## **10. Le<a name="_page13_x40.00_y36.92"></a> modèle des boites** 
+## <H2 STYLE="COLOR:BLUE;">10. Le<a name="_page13_x40.00_y36.92"></a> modèle des boites</H2>
 
 Dans une mise en page réalisée en CSS, tous les éléments sont considérés comme des boîtes. Chacune de ces boîtes est constituée d’un contenu, d’un espacement intérieur, d’une bordure, et d’une marge externe. 
 
@@ -733,17 +736,22 @@ Voici les  propriétés  CSS  qui  permettent  de  déterminer  les  dimensions,
 - ```height``` : c'est la hauteur du bloc exprimé en pixels (px) ou en pourcentage (%). 
 - ```padding``` : indique la taille de la marge intérieure en pixels (px). 
 - ```margin``` : indique la taille de la marge extérieure en pixels (px). 
-1. Un bloc peut avoir des dimensions minimales et maximales : 
+
+Un bloc peut avoir des dimensions minimales et maximales : 
+
 - ```min-width``` : largeur minimale ; 
 - ```min-height``` : hauteur minimale ; 
 - ```max-width``` : largeur maximale ; 
 - ```max-height``` : hauteur maximale. 
-2. Les marges extérieures peuvent avoir des valeurs différentes : 
+
+Les marges extérieures peuvent avoir des valeurs différentes : 
+
 - ```margin-top``` : marge extérieure en haut ; 
 - ```margin-bottom``` : marge extérieure en bas ; 
 - ```margin-left``` : marge extérieure à gauche ; 
 - ```margin-right``` : marge extérieure à droite. 
-3. Idem pour les marges intérieures ! 
+
+Idem pour les marges intérieures ! 
 
 Exemple : 
 ```css
@@ -785,8 +793,8 @@ Si vous voulez que le texte ne dépasse pas des limites du bloc, il va falloir u
 
 Remarque : la propriété ```word-wrap: break-word``` permet de forcer la césure des très longs mots (généralement des adresses un peu longues). 
 
-## **11. Le<a name="_page15_x40.00_y36.92"></a> positionnement** 
-### **11.1. Les<a name="_page15_x40.00_y58.92"></a> positionnements absolu, fixe et relatif** 
+## <H2 STYLE="COLOR:BLUE;">11. Le<a name="_page15_x40.00_y36.92"></a> positionnement</H2> 
+### <H3 STYLE="COLOR:GREEN;">11.1. Les<a name="_page15_x40.00_y58.92"></a> positionnements absolu, fixe et relatif</H3> 
 
 La propriété CSS ```position``` permet de positionner avec précision des éléments sur la page. Pour cela, on lui donne une de ces valeurs : 
 
@@ -795,7 +803,9 @@ La propriété CSS ```position``` permet de positionner avec précision des él�
 - ```relative``` : positionnement relatif ; ce positionnement permet d'effectuer des « ajustements » : l'élément est décalé par rapport à sa position initiale. 
 
 Si un bloc est positionné en absolu, il faut indiquer au navigateur où le positionner sur la page à l'aide des quatre propriétés CSS : 
+
 ![](Aspose.Words.d520a3b2-fd79-44d0-beb1-46503fd463ef.093.png)
+
 - ```left``` : position par rapport à la gauche de la page ; 
 - ```right``` : position par rapport à la droite de la page ;
 - ```top``` : position par rapport au haut de la page ; 
@@ -818,7 +828,7 @@ Remarque : les éléments positionnés en absolu sont placés par- dessus le res
 
 L'élément ayant la valeur de ```z-index``` la plus élevée sera placé par-dessus les autres, comme le montre la figure ci-contre. 
 
-### **11.2. Le<a name="_page15_x40.00_y697.92"></a> positionnement inline-block** 
+### <H3 STYLE="COLOR:GREEN;">11.2. Le<a name="_page15_x40.00_y697.92"></a> positionnement inline-block</H3> 
 
 En CSS la propriété ```display``` permet de transformer n'importe quel élément de la page d'un type vers un autre et les faire apparaître sous forme de blocs. À ce moment-là, les éléments vont se positionner les uns en-dessous des autres et il devient possible de modifier leurs dimensions ! 
 
@@ -906,7 +916,7 @@ section
 
  
 
-## **12. Squelette<a name="_page17_x40.00_y239.92"></a> de base HTML – CSS** 
+## <H2 STYLE="COLOR:BLUE;">12. Squelette<a name="_page17_x40.00_y239.92"></a> de base HTML – CSS</H2> 
 
 Le squelette d’une page web possède souvent une structure de base à cinq blocs principaux. 
 
@@ -944,6 +954,6 @@ Cette structure de base à cinq blocs principaux convient dans la majorité des 
 
 ```
 
-Il existe sur le web des collections de modèles de mise en page, à télécharger gratuitement. 
+Il existe sur le web des collections de modèles de mise en page, à télécharger gratuitement.
+ 
 Exemple : «[ Layout Gala ](http://blog.html.it/layoutgala/)» 
-
