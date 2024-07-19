@@ -201,7 +201,7 @@ T(n) = 1(comparaison) + 1(%) + 1 (mémoire) + 1(affectation) + 1(accès mémoire
 
 #### <H4 STYLE="COLOR:MAGENTA;">4.1.4. Algorithmes<a name="_page4_x40.00_y507.92"></a> avec structure itérative</H4>
 
-**<H3 STYLE="COLOR:red;">Activité n°3.:** On s’intéresse à la fonction qui utilise une structure for pour calculer la somme des n premiers entiers.** Le coût T(n) de cet algorithme écrit en python.</H3>
+**<H3 STYLE="COLOR:red;">Activité n°3.:** On s’intéresse à la fonction qui utilise une structure for pour calculer la somme des n premiers entiers. Le coût T(n) de cet algorithme écrit en python.</H3>
 
 ![](Aimg5.png)
 
@@ -219,7 +219,7 @@ Ici, le coût dépend linéairement du nombre d’éléments à traiter. On le n
 
 #### <H4 STYLE="COLOR:MAGENTA;">4.1.5. Algorithmes<a name="_page5_x40.00_y36.92"></a> avec deux structures itératives imbriquées</H4>
 
-**<H3 STYLE="COLOR:red;">Activité n°4.:** On considère que la taille des listes mots et fichiers\_test sont de n.**  La complexité T(n) de cet algorithme écrit en python.</H3>
+**<H3 STYLE="COLOR:red;">Activité n°4.:** On considère que la taille des listes mots et fichiers\_test sont de n.  La complexité T(n) de cet algorithme écrit en python.</H3>
 
 ![](Aimg6.png)
 
@@ -247,9 +247,7 @@ L'étude des différents algorithmes proposés dans la suite des activités (Tri
 |O(1) |Ici la complexité ne dépend pas des données. Accès à une cellule d'un tableau. |constante |
 |O(log(n)) |Algorithme divisant le problème par une constante k. O(log(n)) pour la recherche dichotomique  |Logarithmique |
 |O(n) |Parcours de liste. |linéaire |
-|O(n.log(n)) |Algorithme  divisant  le  problème  en  nombre  de  sous-problèmes constants, dont les résultats sont ré
-
-utilisés par recombinaison (Ex Tri fusion). |quasi-linéaire |
+|O(n.log(n)) |Algorithme  divisant  le  problème  en  nombre  de  sous-problèmes constants, dont les résultats sont réutilisés par recombinaison (Ex Tri fusion). |quasi-linéaire |
 |O(n²) |Algorithme  traitant  généralement  de  couples  de  données  (boucles imbriquées). Parcours d'une matrice de pixels. |quadratique |
 
 ![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.032.jpeg)
@@ -262,7 +260,7 @@ Si on double la taille d’un tableau :
 
 - Pour un algorithme de complexité n, le temps d’exécution est doublé 
 - Pour un algorithme de complexité n², le temps d’exécution est quadruplé 
-- Pour un algorithme de complexité log2(n), le temps d’exécution prend une unité. 
+- Pour un algorithme de complexité log<sub>2</sub>(n), le temps d’exécution prend une unité. 
 
 RESSOURCES : 
 
@@ -270,6 +268,8 @@ RESSOURCES :
 - Vidéo (calcul de complexités) :[ https://www.youtube.com/watch?v=clZ4q5zPBlE ](https://www.youtube.com/watch?v=clZ4q5zPBlE)![](Aspose.Words.a85c3482-3dff-4bb5-bcc8-000ab623943b.002.png)
 
 ## <H2 STYLE="COLOR:BLUE;">5. Exercices<a name="_page7_x40.00_y36.92"></a></H2>
+
+=> CAPYTALE Le code vous sera donné par votre enseignant
 
 **<H3 STYLE="COLOR:red;">Exercice 1** : Calculer le coût de cet algorithme</H3>
 
