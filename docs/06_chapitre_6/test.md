@@ -12,11 +12,11 @@ title: 06b Algorithmes de tri
 4. [Autres algorithmes de tris : le tri à bulles (Bubble sort) ](#_page8_x40.00_y36.92)
 5. [Exercices ](#_page9_x40.00_y511.92)
 
-Introduction : Qu’est-ce que trier ? Pourquoi trier ? 
+<H2 STYLE="COLOR:BLUE;">Introduction : Qu’est-ce que trier ? Pourquoi trier ? </h2>
 
 ## <H2 STYLE="COLOR:BLUE;">1. Créer<a name="_page0_x40.00_y438.92"></a> une liste de données aléatoire</H2>
 
-**<H3 STYLE="COLOR:red;">Ce premier script sera nécessaire dans tous les algorithmes de tri.</H3>**
+**Ce premier script sera nécessaire dans tous les algorithmes de tri.**
 
 **<H3 STYLE="COLOR:red;">Activité n°1.:** Commencer par créer des données de façon aléatoire grâce au module random afin de pouvoir les classer.</H3>
 
@@ -61,7 +61,9 @@ Ce tri se décompose réellement en deux étapes distinctes : À chaque tour, on
 
 ### <H3 STYLE="COLOR:GREEN;">2.3. Illustration<a name="_page1_x40.00_y434.92"></a> en vidéo</H3>
 
-Vidéo :[ https://ladigitale.dev/digiview/#/v/668aea84a26ef ](https://ladigitale.dev/digiview/#/v/668aea84a26ef) Attention : les danseurs s’échangent (si nécessaire) à chaque fois alors que le vrai algorithme ne procède à l’échange qu’à la fin de chaque tour  
+Vidéo :[ https://ladigitale.dev/digiview/#/v/668aea84a26ef ](https://ladigitale.dev/digiview/#/v/668aea84a26ef) 
+
+Attention : les danseurs s’échangent (si nécessaire) à chaque fois alors que le vrai algorithme ne procède à l’échange qu’à la fin de chaque tour  
 
 ### <H3 STYLE="COLOR:GREEN;">2.4. Pseudo-code<a name="_page1_x40.00_y485.92"></a></H3>
 
@@ -136,9 +138,7 @@ Le tri par sélection sert de base à d'autres algorithmes plus efficaces que no
 
 ### <H3 STYLE="COLOR:GREEN;">2.6. Stabilité<a name="_page2_x40.00_y632.92"></a> d’un algorithme</H3>
 
-On dit qu'un algorithme de tri est ***stable
-
-*** s'il ne modifie pas l'ordre initial des clés identiques. 
+On dit qu'un algorithme de tri est **stable** s'il ne modifie pas l'ordre initial des clés identiques. 
 
 Par exemple, imaginez que vous vouliez trier la collection de bouteilles ci-dessous par ordre de volume (le volume est indiqué sous la bouteille) : 
 
@@ -204,7 +204,7 @@ data = genere_liste_aleatoire(5, 20)
 print("Liste initiale: ", data)
 ```
 
-**<H3 STYLE="COLOR:red;">Activité n°3.:** implémentation classique : AJOUTER à l’activité 2 les deux fonctions suivantes à compléter avec l'algorithme précédent :</H3>
+**<H3 STYLE="COLOR:red;">Activité n°3.:** implémentation classique :</H3> AJOUTER à l’activité 2 les deux fonctions suivantes à compléter avec l'algorithme précédent :
 
 ```python
 def swap(T : list, i : int, j : int) -> list:
@@ -219,7 +219,7 @@ def selection_sort(T : list) -> list:
 print("Liste triée   : ", selection_sort(data))
 ```
 
-**<H3 STYLE="COLOR:red;">Activité n°4.:** Tri par sélection et temps d’exécution : AJOUTER ce script aux fonctions de l’activité précédente en mettant en commentaire les deux print précédent :</H3>
+**<H3 STYLE="COLOR:red;">Activité n°4.:** Tri par sélection et temps d’exécution :</H3> AJOUTER ce script aux fonctions de l’activité précédente en mettant en commentaire les deux print précédents :
 
 ```python
 import time
@@ -258,14 +258,14 @@ On mesure la durée moyenne (sur 5 tableaux) d’exécution du tri sur des table
 
 On voit bien que multiplier par 10 le nombre d’éléments du tableau à trier revient à multiplier le temps par 10². 
 
-**Animation :[** http://lwh.free.fr/pages/algo/tri/tri_selection.html ](http://lwh.free.fr/pages/algo/tri/tri_selection.html)**
+**Animation :[http://lwh.free.fr/pages/algo/tri/tri_selection.html ](http://lwh.free.fr/pages/algo/tri/tri_selection.html)**
 
 ## <H2 STYLE="COLOR:BLUE;">3. Tri<a name="_page4_x40.00_y702.92"></a> par insertion</H2>
 ### <H3 STYLE="COLOR:GREEN;">3.1. Le<a name="_page4_x40.00_y724.92"></a> principe</H3>
 
 Le tri par insertion est un algorithme de **tri stable** et le plus rapide en pratique sur une entrée de petite taille. ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.006.png)
 
-**Principe de l’algorithme :** Le principe du tri par insertion est de trier les éléments du tableau comme avec des cartes:** 
+**Principe de l’algorithme :** Le principe du tri par insertion est de trier les éléments du tableau comme avec des cartes:
 
 - On prend nos cartes mélangées dans notre main. 
 - On crée deux ensembles de carte, l’un correspond à l’ensemble de carte triée, l’autre contient l’ensemble des cartes restantes (non triées). 
@@ -387,9 +387,7 @@ Invariant de boucle : À chaque début de l’itération de l’indice i de la b
 - À la fin de cette itération, les éléments T[0] à T[i] sont triés.
 Ainsi, l’invariant est maintenu, car après chaque itération, les éléments T[0] à T[i] sont triés.
 
-3 **Termina
-
-ison** : La boucle se termine lorsque i atteint n. À ce moment-là, i = n, donc tous les éléments T[0] à T[n-1] sont triés. L’invariant garantit que ces éléments sont triés.
+3 **Terminaison** : La boucle se termine lorsque i atteint n. À ce moment-là, i = n, donc tous les éléments T[0] à T[n-1] sont triés. L’invariant garantit que ces éléments sont triés.
 
 En utilisant cet invariant de boucle, nous avons prouvé que l’algorithme de tri par insertion est **correct**. L’invariant de boucle nous permet de démontrer que l’algorithme maintient la partie triée du tableau correctement à chaque itération et qu’il termine avec l’ensemble du tableau trié.
 
@@ -406,9 +404,9 @@ Puisque les deux boucles terminent après un nombre fini d'itérations, nous avo
 
 => CAPYTALE Le code vous sera donné par votre enseignant
 
-**<H3 STYLE="COLOR:red;">Activité n°5.:** Création de la liste aléatoire **avec l’activité 1** : reprendre l’activité 1 et 2</H3>
+**<H3 STYLE="COLOR:red;">Activité n°5.:** Création de la liste aléatoire **avec l’activité 1** :</H3> reprendre l’activité 1 et 2
 
-**<H3 STYLE="COLOR:red;">Activité n°6.:** implémentation classique : ajouter à l’activité précédente les deux fonctions suivantes :</H3>
+**<H3 STYLE="COLOR:red;">Activité n°6.:** implémentation classique :</H3> ajouter à l’activité précédente les deux fonctions suivantes :
 
 ```python
 def insert(T, i):
@@ -424,7 +422,7 @@ print("Liste triée   : ", insertion_sort(data))
 
 **Remarque : on aurait pu également faire une seule fonction**  
 
-**<H3 STYLE="COLOR:red;">Activité n°7.:** Tri par insertion et temps d’exécution : ajouter ce script aux fonctions de l’activité précédente en mettant en commentaire les deux print précédent :</H3>
+**<H3 STYLE="COLOR:red;">Activité n°7.:** Tri par insertion et temps d’exécution :</H3> ajouter ce script aux fonctions de l’activité précédente en mettant en commentaire les deux print précédent :
 
 ```python
 import time
@@ -483,9 +481,9 @@ Illustration vidéo :[ https://ladigitale.dev/digiview/#/v/668aed8c3bab4 ](https
 
 => CAPYTALE Le code vous sera donné par votre enseignant
 
-**<H3 STYLE="COLOR:red;">Activité n°8.:** Création de la liste aléatoire **avec l’activité 1** : reprendre l’activité 1 et 2</H3>
+**<H3 STYLE="COLOR:red;">Activité n°8.:** Création de la liste aléatoire **avec l’activité 1** :</H3> reprendre l’activité 1 et 2
 
-**<H3 STYLE="COLOR:red;">Activité n°9.:** implémentation classique Avec la fonction echange et la fonction bubble\_sort</H3>
+**<H3 STYLE="COLOR:red;">Activité n°9.:** implémentation classique </H3> Avec la fonction echange et la fonction bubble_sort
 
 ```python
 def swap(T : list, i : int, j : int) -> list:
@@ -500,7 +498,7 @@ def bubble_sort(T : list) -> list:
 
 **Remarque : il existe d’autres versions du tri bulle** 
 
-**<H3 STYLE="COLOR:red;">Activité n°10.:** Tri bulle et temps d’exécution : ajouter ce script aux fonctions de l’activité précédente en mettant en commentaire les deux print précédent :</H3>
+**<H3 STYLE="COLOR:red;">Activité n°10.:** Tri bulle et temps d’exécution :</H3> ajouter ce script aux fonctions de l’activité précédente en mettant en commentaire les deux print précédent :
 
 ```python
 import time
@@ -542,9 +540,9 @@ Animation :[ http://lwh.free.fr/pages/algo/tri/tri_bulle.html ](http://lwh.free.
 
 => CAPYTALE Le code vous sera donné par votre enseignant
 
-**<H3 STYLE="COLOR:red;">Exercice n°1** : Créer une fonction selection\_sort\_desc() qui permet trier avec l’algorithme de tri par sélection une liste aléatoire par valeurs décroissantes.</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°1** </H3>: Créer une fonction selection_sort_desc() qui permet trier avec l’algorithme de tri par sélection une liste aléatoire par valeurs décroissantes.
 
-**<H3 STYLE="COLOR:red;">Exercice n°2** : Créer une fonction selection\_sort\_asc\_partir\_fin() qui permet trier avec l’algorithme de tri par sélection une liste aléatoire par valeurs croissantes de manière à compléter l’algorithme suivant :</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°2** </H3>: Créer une fonction selection\_sort\_asc\_partir\_fin() qui permet trier avec l’algorithme de tri par sélection une liste aléatoire par valeurs croissantes de manière à compléter l’algorithme suivant :
 
 ```python
 def selection_sort_asc_partir_fin(T):
@@ -558,6 +556,6 @@ def selection_sort_asc_partir_fin(T):
     return T
 ```
 
-**<H3 STYLE="COLOR:red;">Exercice n°3** : Créer une fonction selection\_sort\_desc\_partir\_fin() qui permet trier avec l’algorithme de tri par sélection et l’algorithme de l’exercice 2, une liste aléatoire par valeurs décroissantes.</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°3** </H3>: Créer une fonction selection_sort_desc_partir_fin() qui permet trier avec l’algorithme de tri par sélection et l’algorithme de l’exercice 2, une liste aléatoire par valeurs décroissantes.
 
-**<H3 STYLE="COLOR:red;">Exercice n°4** : Créer une fonction bubble\_sort\_desc() qui permet trier avec l’algorithme de tri à bulles une liste aléatoire par valeurs décroissantes.</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°4** :</H3> Créer une fonction bubble_sort_desc() qui permet trier avec l’algorithme de tri à bulles une liste aléatoire par valeurs décroissantes.
