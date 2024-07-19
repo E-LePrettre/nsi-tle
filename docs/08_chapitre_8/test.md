@@ -250,7 +250,7 @@ La syntaxe des URL est de la forme ```protocole://nom-ou-adresse:port/document?n
 
 
 
-<H3 STYLE="COLOR:RED;">**Activité n°1.**</H3> Passage de paramètre  un serveur 
+**<H3 STYLE="COLOR:RED;">Activité n°1.**</H3> Passage de paramètre  un serveur 
 
 - Aller sur[ HTTPs://fr.wikipedia.org ](https://fr.wikipedia.org/)
 - Dans la zone de recherche taper informatique 
@@ -274,7 +274,7 @@ Il existe plusieurs manières d'envoyer une requête HTTP depuis un navigateur. 
 
 
 
-<H3 STYLE="COLOR:RED;">**Activité n°2.**</H3> : Ouvrir un bloc note. Ajouter le script suivant et vérifier ce qu’on obtient dans le navigateur. Enregistrer le sous index.html **ATTENTION** à bien sélectionner tous les fichiers !
+**<H3 STYLE="COLOR:RED;">Activité n°2.**</H3> : Ouvrir un bloc note. Ajouter le script suivant et vérifier ce qu’on obtient dans le navigateur. Enregistrer le sous index.html **ATTENTION** à bien sélectionner tous les fichiers !
 
 ![](AZE.png)
 ```html
@@ -294,7 +294,7 @@ Il existe plusieurs manières d'envoyer une requête HTTP depuis un navigateur. 
 
 
 
-<H3 STYLE="COLOR:RED;">**Activité n°3.**</H3> Remplir ce formulaire et le soumettre fera envoyer une requête GET vers l'URL ./login. Observer la nouvelle URL
+**<H3 STYLE="COLOR:RED;">Activité n°3.**</H3> Remplir ce formulaire et le soumettre fera envoyer une requête GET vers l'URL ./login. Observer la nouvelle URL
 
 Avec la méthode GET, les données du formulaire seront encodées **dans l'URL.**  
 
@@ -302,7 +302,7 @@ Si on saisit trois valeurs par exemple «Dupont », « azerty » et qu’on cliq
 
  
 
-<H3 STYLE="COLOR:RED;">**Activité n°4.**</H3> Modifier la page pour pouvoir la soumettre avec une requête POST. Remplir ce formulaire et le soumettre fera envoyer une requête POST et observer la nouvelle URL.
+**<H3 STYLE="COLOR:RED;">Activité n°4.**</H3> Modifier la page pour pouvoir la soumettre avec une requête POST. Remplir ce formulaire et le soumettre fera envoyer une requête POST et observer la nouvelle URL.
 
 Dans le cas d'un POST ils seront alors encodés **dans le corps de la requête**. 
 
@@ -312,9 +312,7 @@ Lors de l’utilisation de la méthode GET dans un formulaire**, les données so
 
 L’intérêt de la méthode GET est que toutes l’information nécessaire est contenue dans l’URL. Il est donc possible de recharger plusieurs fois la même URL.  
 
-**Par exemple** :[ HTTPs://www.data.gouv.fr/fr/search/?q=informatique.](https
-
-://www.data.gouv.fr/fr/search/?q=informatique) 
+**Par exemple** :[ HTTPs://www.data.gouv.fr/fr/search/?q=informatique.](https://www.data.gouv.fr/fr/search/?q=informatique) 
 
 Par contre les URL ne peuvent **pas être de taille longue** : si le **champ du formulaire est long** le serveur peut renvoyer un **code d’erreur 414.**  
 
@@ -454,9 +452,7 @@ Lorsqu'un client (navigateur web) reçoit cette réponse du serveur, il stocke l
 
    - Le cookie n'est pas accessible via JavaScript, ce qui le protège contre certaines attaques XSS (grâce au flag `HttpOnly`).
 
-## <
-
-H2 STYLE="COLOR:BLUE;">4. APPLICATION<a name="_page8_x40.00_y503.92"></a> : Création d’une page web dynamique</H2>
+## <H2 STYLE="COLOR:BLUE;">4. APPLICATION<a name="_page8_x40.00_y503.92"></a> : Création d’une page web dynamique</H2>
 
  
 ![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.067.png)
@@ -467,7 +463,7 @@ Telecharger un serveur Wamp (choisissez le exe) : UwAmp Wamp Server - Apache MyS
 
 Normalement il s’installe dans C:\UwAmp
 
-<H3 STYLE="COLOR:RED;">**Activité n°5**</H3> Demarrer le serveur Wamp
+**<H3 STYLE="COLOR:RED;">Activité n°5**</H3> Demarrer le serveur Wamp
 
 
 
@@ -481,7 +477,7 @@ Cas très simple où le serveur va renvoyer au client une simple page HTML stati
 
 
 
-<H3 STYLE="COLOR:RED;">**Activité n°6.**</H3> Créer avec le bloc note, un fichier où on aura copier :
+**<H3 STYLE="COLOR:RED;">Activité n°6.**</H3> Créer avec le bloc note, un fichier où on aura copier :
 
 ```html
 <!doctype html>
@@ -499,7 +495,7 @@ Enregistrer le dans le répertoire C:\UwAmp\www  sous le nom "index.html". **ATT
 ![](AZE.png)
 
 
-<H3 STYLE="COLOR:RED;">**Activité n°7. **</H3> Ouvrir votre navigateur Web et taper dans la barre d'adresse **"localhost"**. On devrait voir la page Web s'afficher. 
+**<H3 STYLE="COLOR:RED;">Activité n°7. **</H3> Ouvrir votre navigateur Web et taper dans la barre d'adresse **"localhost"**. On devrait voir la page Web s'afficher. 
 
 Avec le "localhost", on indique au navigateur que le serveur Web se trouve sur le même ordinateur que lui (on parle de machine locale). Dans un cas normal, la barre d'adresse devrait être renseignée avec l'adresse du serveur Web. 
 
@@ -516,7 +512,7 @@ Il est très important de bien comprendre les processus mis en œuvre :
 
 
 
-<H3 STYLE="COLOR:RED;">**Activité n°8. **</H3> Après avoir supprimé le fichier "index.html" préalablement créé dans le répertoire "www" **ET** le fichier "index.php", Créer avec le bloc note, un fichier où on aura copier : toujours dans le répertoire "www". 
+**<H3 STYLE="COLOR:RED;">Activité n°8. **</H3> Après avoir supprimé le fichier "index.html" préalablement créé dans le répertoire "www" **ET** le fichier "index.php", Créer avec le bloc note, un fichier où on aura copier : toujours dans le répertoire "www". 
 ```php
 <?php
 date_default_timezone_set('Europe/Paris'); // Définir le fuseau horaire à Paris
@@ -528,7 +524,7 @@ echo '<h1>Bienvenue sur mon site</h1>
 Enregistrer le dans le répertoire C:\UwAmp\www  sous le nom "index.php". **ATTENTION** à bien sélectionner tous les fichiers.
 
 
-<H3 STYLE="COLOR:RED;">**Activité n°9.**</H3> Ouvrir votre navigateur Web et taper dans la barre d'adresse **"localhost"**. 
+**<H3 STYLE="COLOR:RED;">Activité n°9.**</H3> Ouvrir votre navigateur Web et taper dans la barre d'adresse **"localhost"**. 
 
 On doit avoir une page HTML qui donne l'heure, si on **actualise** la page, **l'heure évolue**. On a donc bien une page dynamique : le serveur PHP crée la page Web au moment où elle est demandée. À chaque fois que la page est actualisée, la page HTML est générée de nouveau. 
 
@@ -551,7 +547,7 @@ Si un client effectue une requête à 18h23, le serveur enverra au client le cod
 <h1>Bienvenue sur mon site</h1> 
 <p>Il est 18h23</p> 
 ```
-<H3 STYLE="COLOR:RED;">**Activité n°10. **</H3> Après avoir supprimé le fichier "index.php" préalablement créé dans le répertoire "www", Créer avec le bloc note, un fichier où on aura copier : toujours dans le répertoire "www". 
+**<H3 STYLE="COLOR:RED;">Activité n°10. **</H3> Après avoir supprimé le fichier "index.php" préalablement créé dans le répertoire "www", Créer avec le bloc note, un fichier où on aura copier : toujours dans le répertoire "www". 
 
 ```html
 <!doctype html>
@@ -571,7 +567,7 @@ Si un client effectue une requête à 18h23, le serveur enverra au client le cod
 ```
 Enregistrer le dans le répertoire C:\UwAmp\www  sous le nom "index.html". ATTENTION à bien sélectionner tous les fichiers.
 
-<H3 STYLE="COLOR:RED;">**Activité n°11.**</H3> : Créer avec le bloc note, un fichier où on aura copier : toujours dans le répertoire "www".  
+**<H3 STYLE="COLOR:RED;">Activité n°11.**</H3> : Créer avec le bloc note, un fichier où on aura copier : toujours dans le répertoire "www".  
 ```php
 <?php
     $n=$_POST['nom'];
@@ -581,7 +577,7 @@ Enregistrer le dans le répertoire C:\UwAmp\www  sous le nom "index.html". ATTEN
 ```
 Enregistrer le dans le répertoire C:\UwAmp\www  sous le nom " trait_form.php  ". ATTENTION à bien sélectionner tous les fichiers.
 
-<H3 STYLE="COLOR:RED;">**Activité n°12.**</H3> : Ouvrir le navigateur Web et taper dans la barre d'adresse "localhost". Une fois la page Web affichée dans votre navigateur, remplir le formulaire proposé et valider en cliquant sur le bouton "Envoyer"
+**<H3 STYLE="COLOR:RED;">Activité n°12.**</H3> : Ouvrir le navigateur Web et taper dans la barre d'adresse "localhost". Une fois la page Web affichée dans votre navigateur, remplir le formulaire proposé et valider en cliquant sur le bouton "Envoyer"
 
 **Comment ça marche ?** 
 
@@ -589,9 +585,8 @@ Enregistrer le dans le répertoire C:\UwAmp\www  sous le nom " trait_form.php  "
 
 Dans la balise ```<form>``` du code HTML, il y a 2 attributs : « action » et « method ».  
 
-- L’attribut ```action="trait_form.php"```  indique que le client enverra une requête http
+- L’attribut ```action="trait_form.php"```  indique que le client enverra une requête http vers le serveur en cas de click sur le bouton « envoyer ». Pour répondre à cette requête du client, le serveur devra exécuter le programme PHP contenu dans le fichier « trait_form.php ».  
 
- vers le serveur en cas de click sur le bouton « envoyer ». Pour répondre à cette requête du client, le serveur devra exécuter le programme PHP contenu dans le fichier « trait_form.php ».  
 - La ```method="post"``` indique que la méthode utilisée pour effectuer cette requête http est une méthode « POST » . 
 
 Au niveau des deux balises « input » permettant de saisir le nom et le prénom, on voit l’attribut « name »   
@@ -609,7 +604,7 @@ Ces informations transitent entre le client et le serveur selon méthode utilis�
 
 
 
-<H3 STYLE="COLOR:RED;">**Activité n°13. **</H3> Modifier les fichiers "index.html" et "trait_form.php" comme suit : 
+**<H3 STYLE="COLOR:RED;">Activité n°13. **</H3> Modifier les fichiers "index.html" et "trait_form.php" comme suit : 
 Pour index.html
 ```html
 <!doctype html>
@@ -640,7 +635,7 @@ Pour trait_form.php
 
 
 
-<H3 STYLE="COLOR:RED;">**Activité n°14. **</H3> Ouvrir le navigateur Web et taper dans la barre d'adresse "localhost". Une fois la page Web affichée dans votre navigateur, Saisir le prénom et le nom puis valider en cliquant sur le bouton "Envoyer". **Observer attentivement la barre d'adresse du navigateur.** 
+**<H3 STYLE="COLOR:RED;">Activité n°14. **</H3> Ouvrir le navigateur Web et taper dans la barre d'adresse "localhost". Une fois la page Web affichée dans votre navigateur, Saisir le prénom et le nom puis valider en cliquant sur le bouton "Envoyer". **Observer attentivement la barre d'adresse du navigateur.** 
 
 Cette  fois-ci,  les  informations  du  formulaire  sont  transmises  au  serveur  par  l'intermédiaire  de  l'url  : ```localhost/trait_form.php?nom=tartempion&prenom=tartiflette```
 
@@ -648,7 +643,7 @@ Dans le cas de l'utilisation d'une méthode "POST" les données issues d'un form
 
 Les données envoyées par l'intermédiaire d'une méthode "GET" peuvent être modifiées directement dans l'url. 
 
-<H3 STYLE="COLOR:RED;">**Activité n°15. **</H3> Ouvrir le navigateur Web et taper dans la barre d'adresse "localhost". Une fois la page Web affichée dans votre navigateur, Saisir le prénom et le nom puis valider en cliquant sur le bouton "Envoyer". Modifier l'url : "```localhost/trait_form.php?nom=Martin&prenom=Jean-Pierre```", validez votre modification en appuyant sur la touche "Entrée". 
+**<H3 STYLE="COLOR:RED;">Activité n°15. **</H3> Ouvrir le navigateur Web et taper dans la barre d'adresse "localhost". Une fois la page Web affichée dans votre navigateur, Saisir le prénom et le nom puis valider en cliquant sur le bouton "Envoyer". Modifier l'url : "```localhost/trait_form.php?nom=Martin&prenom=Jean-Pierre```", validez votre modification en appuyant sur la touche "Entrée". 
 
 Normalement la page a bien été modifiée : "Bonjour Jean-Pierre Martin, j'espère que vous allez bien." 
 
@@ -656,7 +651,7 @@ Même si dans notre cas cette opération de modification d'URL est inoffensive, 
 
 Il est important de bien comprendre que la méthode "POST" **n'offre pas non plus une sécurité absolue** puisque toute personne ayant un bagage technique minimum sera capable de lire les données transmises à l'aide de la méthode "POST" en analysant la requête HTTP, même si ces données ne sont pas directement visibles dans l'URL. Seule l'utilisation du **protocole sécurisé HTTPS** garantit un transfert sécurisé des données entre le client et le serveur (les données sont chiffrées et donc illisibles pour une personne ne possédant pas la clé de déchiffrement). 
 
-<H3 STYLE="COLOR:RED;">**Activité n°16**</H3>. : Fermer le serveur Wamp
+**<H3 STYLE="COLOR:RED;">Activité n°16**</H3>. : Fermer le serveur Wamp
 
 Si le PHP vous passionne :  
 
@@ -682,7 +677,7 @@ Editeurs PHP en ligne :
 
 ## <H2 STYLE="COLOR:BLUE;">5. Exercices<a name="_page13_x40.00_y36.92"></a></H2> 
 
-<H3 STYLE="COLOR:RED;">**Exercice n°1 :**</H3> Réaliser le visuel du formulaire suivant :
+**<H3 STYLE="COLOR:RED;">Exercice n°1 :**</H3> Réaliser le visuel du formulaire suivant :
 
 ![](Aspose.Words.bec3aaa5-551c-40be-9a61-cdd26a2bc5a1.129.jpeg)
 
@@ -694,7 +689,7 @@ Pour cela :
 - vous proposerez deux types de carte bancaire possibles : 'Visa' et 'Bleue' (carte par défaut). 
 - Attention ! Sans Javascript, votre bouton 'Valider le paiement' sera sans effet.
 
-<H3 STYLE="COLOR:RED;">**Exercice n°2 :**</H3> Expliquer ce que fait ce code. 
+**<H3 STYLE="COLOR:RED;">Exercice n°2 :**</H3> Expliquer ce que fait ce code. 
 ```html
 <form>
 <p> Choix d'une nationalité :</p>
