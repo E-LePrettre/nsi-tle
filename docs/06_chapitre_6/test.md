@@ -289,7 +289,7 @@ Observer et commenter
 
 => CAPYTALE Le code vous sera donné par votre enseignant
 
-**<H3 STYLE="COLOR:red;">Exercice 1**</H3> : Recherche d’un maximum dans une liste de n éléments
+**<H3 STYLE="COLOR:red;">Exercice 1 : Recherche d’un maximum dans une liste de n éléments**</H3> : 
 
 1. Ecrire l’algorithme en pseudo – code
 2. Calculer la complexité de cet algorithme
@@ -297,9 +297,7 @@ Observer et commenter
 4. Modifier le programme pour créer une fonction ```maximum(T :list) -> int```
 5. Tester la fonction avec une liste aléatoire de 20 valeurs
 
-**<H3 STYLE="COLOR:red;">Exercice 2**</H3> : Recherche de la moyenne des
-
- éléments d’une liste de n éléments
+**<H3 STYLE="COLOR:red;">Exercice 2 : Recherche de la moyenne des éléments d’une liste de n éléments**</H3> : 
 
 1. Ecrire l’algorithme en pseudo – code
 2. Calculer la complexité de cet algorithme
