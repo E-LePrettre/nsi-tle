@@ -365,16 +365,86 @@ Compléter le *distancier* ci-dessous en utilisant les coordonnées des villes :
 **A ( 0 ; 0 )  B ( 7 ; 3 )  C ( 3 ; 1 )  D ( 2 ; 4 )  E ( 4 ; 6 )  F ( 3 ; 2 )  G ( 5 ; 0 )![](Aspose.Words.35e5d16a-adab-4fc0-8fbe-75d584bf8d1c.009.png)**
 
 <table>
-<tr><td colspan="1"></td><td colspan="1">A</td><td colspan="1">B</td><td colspan="1">C</td><td colspan="1">D</td><td colspan="1">E</td><td colspan="1">F</td><td colspan="1">G</td></tr>
-<tr><td colspan="1">A</td><td colspan="1">0 </td><td colspan="1"></td><td colspan="1"></td><td colspan="1"></td><td colspan="1"></td><td colspan="1"></td><td colspan="1"></td></tr>
-<tr><td colspan="1">B</td><td colspan="1"></td><td colspan="1">0</td><td colspan="1"></td><td colspan="1">√26</td><td colspan="1"></td><td colspan="1"></td><td colspan="1"></td></tr>
-<tr><td colspan="1">C</td><td colspan="1"> </td><td colspan="1"></td><td colspan="1">0</td><td colspan="1"></td><td colspan="1"></td><td colspan="1"></td><td colspan="1"></td></tr>
-<tr><td colspan="1">D</td><td colspan="1"> </td><td colspan="1">√26</td><
-
-td colspan="1"></td><td colspan="1">0</td><td colspan="1"></td><td colspan="1"></td><td colspan="1"></td></tr>
-<tr><td colspan="1">E</td><td colspan="1"></td><td colspan="1"></td><td colspan="1"></td><td colspan="1"></td><td colspan="1">0</td><td colspan="1"></td><td colspan="1"></td></tr>
-<tr><td colspan="1">F</td><td colspan="1"> </td><td colspan="1"></td><td colspan="1"></td><td colspan="1"></td><td colspan="1"></td><td colspan="1">0</td><td colspan="1"></td></tr>
-<tr><td colspan="1">G</td><td colspan="1"> </td><td colspan="1"></td><td colspan="1"></td><td colspan="1"></td><td colspan="1"></td><td colspan="1"></td><td colspan="1">0</td></tr>
+  <tr>
+    <td></td>
+    <td>A</td>
+    <td>B</td>
+    <td>C</td>
+    <td>D</td>
+    <td>E</td>
+    <td>F</td>
+    <td>G</td>
+  </tr>
+  <tr>
+    <td>A</td>
+    <td>0</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>B</td>
+    <td></td>
+    <td>0</td>
+    <td></td>
+    <td>√26</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>C</td>
+    <td></td>
+    <td></td>
+    <td>0</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>D</td>
+    <td></td>
+    <td>√26</td>
+    <td></td>
+    <td>0</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>E</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>0</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>F</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>0</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>G</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>0</td>
+  </tr>
 </table>
 
 
@@ -407,7 +477,7 @@ Itinéraire glouton en partant de F : Longueur de l'itinéraire en partant de F 
 
 Itinéraire glouton en partant de G : Longueur de l'itinéraire en partant de G :
 
-**Pour le plus court itinéraire glouton : il faut partir de … **
+**Pour le plus court itinéraire glouton : il faut partir de …**
 
 **Longueur de ce plus court itinéraire :**
 
