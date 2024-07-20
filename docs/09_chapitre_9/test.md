@@ -11,7 +11,7 @@ title: 09 Algorithme glouton
 2. [EXERCICES](#_page7_x51.00_y32.00)
 3. [PROBLEME : TSP - LE VOYAGEUR DE COMMERCE](#_page9_x51.00_y32.00)
 
-<H2 STYLE="COLOR:BLUE;">## **1. Algorithmes<a name="_page0_x51.00_y229.00"></a> gloutons**</H2> 
+## <H2 STYLE="COLOR:BLUE;"> **1. Algorithmes<a name="_page0_x51.00_y229.00"></a> gloutons**</H2> 
 
 En informatique, un algorithme glouton (greedy algorithm) est une **technique** permettant de résoudre un problème. Un algorithme glouton va aborder la résolution d'un problème en plusieurs étapes :
 
@@ -20,7 +20,7 @@ En informatique, un algorithme glouton (greedy algorithm) est une **technique** 
 
 Les algorithmes gloutons servent principalement à résoudre des **problèmes d'optimisation**. Il existe de multiples exemples. 
 
-<H3 STYLE="COLOR:GREEN;">### **1.1. Le<a name="_page0_x51.00_y404.00"></a> problème de rendu de monnaie**</H3> 
+### <H3 STYLE="COLOR:GREEN;"> **1.1. Le<a name="_page0_x51.00_y404.00"></a> problème de rendu de monnaie**</H3> 
 
 Un des grands classiques est le problème du rendu de monnaie où l'on souhaite rendre une somme en utilisant le moins de pièces (ou de billets) possibles. Le principe de l'algorithme consiste à répéter **le choix de la pièce de plus grande valeur** qui ne dépasse pas la somme restante. 
 
@@ -50,7 +50,7 @@ Rendre la somme de 6 €
 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
-<H3 STYLE="COLOR:RED;">**Activité n°1.**</H3> Rendu de monnaie : Traduire l’algorithme suivant, en Python dans capytale
+**<H3 STYLE="COLOR:RED;">Activité n°1.**</H3> Rendu de monnaie : Traduire l’algorithme suivant, en Python dans capytale
 
 ```
 Fonction renduMonnaie (somme : entier, pièces : liste des pièces dans l’ordre décroissant) : liste des pièces choisies
@@ -108,7 +108,7 @@ print(renduMonnaie(somme,pieces))
 
 Soit 30 euros, l’algorithme ne fonctionne plus, car il manque une pièce de 1 euro. 
 
-<H2 STYLE="COLOR:BLUE;">## **2. Le<a name="_page2_x51.00_y32.00"></a> problème du sac à dos**</H2> 
+### <H3 STYLE="COLOR:GREEN;"> **1.2. Le<a name="_page2_x51.00_y32.00"></a> problème du sac à dos**</H3> 
 
 Le problème du sac à dos (knapsack problem) est aussi un **problème d’optimisation.** Il permet de résoudre le problème du remplissage d’un sac à dos. 
 
@@ -126,7 +126,7 @@ Exemple :
 <tr><td colspan="1">tente</td><td colspan="1">Valeur : 3 </br>Poids : 4 </td><td colspan="1">x </td><td colspan="1">oui </td><td colspan="1">Déjà pris </td><td colspan="1">Déjà pris </td></tr>
 </table>
 
-<H3 STYLE="COLOR:RED;">**Activité n°2.**: Sac à dos : affichage des objets choisis selon leur valeur:</H3> Traduire l’algorithme suivant, en Python dans capytale : 
+**<H3 STYLE="COLOR:RED;">Activité n°2.**: Sac à dos :</H3> affichage des objets choisis selon leur valeur: Traduire l’algorithme suivant, en Python dans capytale : 
 ```
 Fonction remplirSac (objets : liste des objets dans l’ordre décroissant, poidsMax : en décimal) : liste des objets choisis
 
@@ -166,7 +166,7 @@ print(remplirSac(objets,poidsMax))
 
 L’algorithme choisit bien les articles selon notre prévision.
 
-<H3 STYLE="COLOR:RED;">**Activité n°3.**: Sac à dos : affichage des objets choisis selon leur valeur et du poids total :</H3> 
+**<H3 STYLE="COLOR:RED;">Activité n°3.**: Sac à dos :</H3> affichage des objets choisis selon leur valeur et du poids total : 
 
 Avant de partir aux Bahamas, on doit remplir sa valise. La compagnie d’aviation n’accepte qu’une valise de dépassant pas 23kg. 
 
@@ -180,14 +180,14 @@ exemple :
 
 Utiliser l’algorithme glouton correspondant afin d’indiquer les objets pouvant être mis dans la valise. Coder une fonction ```remplirSacpoids``` qui tiennent compte de la nouvelle situation et qui soit basée sur l'algorithme glouton 
 
-<H3 STYLE="COLOR:RED;">**Activité n°4.**: Sac à dos V2 : affichage des objets choisis selon leur valeur avec leur nombre:</H3> on veut retourner un dictionnaire. Coder une fonction ```remplirSacDico``` qui tiennent compte de la nouvelle situation et qui soit basée sur l'algorithme glouton
+**<H3 STYLE="COLOR:RED;">Activité n°4.**: Sac à dos V2 :</H3> affichage des objets choisis selon leur valeur avec leur nombre: on veut retourner un dictionnaire. Coder une fonction ```remplirSacDico``` qui tiennent compte de la nouvelle situation et qui soit basée sur l'algorithme glouton
 Le prototype de la fonction est : 
 ```remplirSacDico(objets: list,poidsMax: float) -> dict: ```
 
 **Résultat attendu** : 
 ```{'chaussures': 1, 'habits': 1, 'trousse de toilette': 1, 'crèmes': 1, 'livres': 1, 'palmes tuba': 0, 'guide touristique': 1} ```
 
-<H3 STYLE="COLOR:RED;">**Activité n°5.**: Sac à dos V3 : affichage des objets choisis selon leur valeur avec leur nombre différent de 0 :</H3> 
+**<H3 STYLE="COLOR:RED;">Activité n°5.**: Sac à dos V3 :</H3> affichage des objets choisis selon leur valeur avec leur nombre différent de 0 : 
 on veut retourner un dictionnaire qui n’affichera que les objets réellement mis dans la valise (dont le nombre d’objet !=0). Coder une fonction ```remplirSacDico_V2``` qui tiennent compte de la nouvelle situation et qui soit basée sur l'algorithme glouton
 
 **Résultat attendu :** 
@@ -198,11 +198,11 @@ L’algorithme glouton est un algorithme qui ne remet jamais en cause une décis
 
 C’est donc une **méthode de résolution approchée.** Pour trouver la solution optimale, et être certain qu’il n’y a pas mieux, il faut utiliser une méthode exacte qui demande un temps de calcul beaucoup plus long. On peut citer la procédure par  séparation  et  évaluation  (PSE)  qui  peut  énumère  toutes  les  solutions  possibles,  mais  seules  les  solutions potentiellement de bonnes qualités sont énumérées. Il faut alors mettre en place un ***arbre de recherche*** qui sera vu en terminale. 
 
-<H2 STYLE="COLOR:BLUE;">## **2. Exercice<a name="_page7_x51.00_y32.00"></a>**</H2>  
+## <H2 STYLE="COLOR:BLUE;"> **2. Exercice<a name="_page7_x51.00_y32.00"></a>**</H2>  
 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
-★ **Rendu de monnaie** 
+★ **<H3 STYLE="COLOR:RED;">Rendu de monnaie**</h3> 
 
 Étant donné un système de monnaie (pièces et billets), comment rendre une somme donnée de façon optimale, c'est-à- dire avec le nombre minimal de pièces et billets ? 
 
@@ -259,11 +259,9 @@ La conjonction de la **correction partielle et de la terminaison** s'appelle la 
 
 - royaume uni : ```S = (1, 3, 4, 10, 30, 40, 100, 300, 400)```[^2] on prendra 2019 pour somme à rendre 
 
-★★ **le voyageur** 
+★★ **<H3 STYLE="COLOR:RED;">le voyageur**</h3>
 
-Une route comporte n+1 stations-service, numérotées dans l'ordre du parcours, de 0 à n. La première est à une distance d[0] du départ, la deuxième est à une distance
-
- d[1] de la première, la troisième à une distance d[2] de la deuxième, etc. La fin de la route est à une distance d[n] de la n-ième et dernière station-service. 
+Une route comporte n+1 stations-service, numérotées dans l'ordre du parcours, de 0 à n. La première est à une distance d[0] du départ, la deuxième est à une distance d[1] de la première, la troisième à une distance d[2] de la deuxième, etc. La fin de la route est à une distance d[n] de la n-ième et dernière station-service. 
 
 Un automobiliste prend le départ de la route avec une voiture dont le réservoir d'essence est plein. Il désire faire le plein le moins souvent possible. Sa voiture possède une autonomie notée autonomie avec un plein. 
 
@@ -291,7 +289,7 @@ distance = [23, 40, 12, 44, 21, 9, 67, 32, 51, 30, 11, 55, 24, 64, 32, 57, 12, 8
 autonomie = 100 
 ```
 
-★★★ **le cambrioleur** 
+★★★ **<H3 STYLE="COLOR:RED;">le cambrioleur**</h3> 
 
 Un cambrioleur entre par effraction dans une maison. Il n'est capable de porter qu’une masse limitée : il lui faudra donc choisir entre les différents objets de valeur, afin d'amasser le plus gros magot possible. 
 
@@ -321,7 +319,7 @@ On dispose d’une liste d’objets de masses ```m = [9, 10, 12, 14, 11, 5, 7, 5
 
 5 Tester le programme pour une masse maximale de 22 kg. Conclure. 
 
-<H2 STYLE="COLOR:BLUE;">## **3.  Problème : TSP - Le voyageur de commerce<a name="_page9_x51.00_y32.00"></a>**</H2> 
+## <H2 STYLE="COLOR:BLUE;"> **3.  Problème : TSP - Le voyageur de commerce<a name="_page9_x51.00_y32.00"></a>**</H2> 
 
 Le problème du voyageur de commerce - *Traveling Salesman Problem* TSP -, étudié depuis le 19e siècle, est l’un des plus connus dans le domaine de la recherche opérationnelle. William Rowan Hamilton a posé pour la première fois ce problème sous forme de jeu dès 1859.
 
@@ -334,7 +332,7 @@ Ce problème d’optimisation combinatoire appartient à la  classe des problèm
 
 Les domaines d’application sont nombreux : problèmes  de logistique, de transport aussi bien de marchandises  que  de  personnes,  et plus largement  toutes  sortes  de  problèmes d’ordonnancement.  Certains  problèmes rencontrés dans l’industrie se modélisent sous la forme  d’un  problème  de  voyageur  de  commerce, comme  l’optimisation  de  trajectoires  de  machines outils  :  comment  percer  plusieurs  points  sur  une carte  électronique le plus vite possible ? 
 
-<H3 STYLE="COLOR:RED;">**Exercice 1 :**</H3> 
+**<H3 STYLE="COLOR:RED;">Exercice 1 :**</H3> 
 
 1- Pour un ensemble de 4 villes, combien existe t-il de chemins différents possibles ?  
 
@@ -348,19 +346,19 @@ Les domaines d’application sont nombreux : problèmes  de logistique, de trans
 
 **A ( 0 ; 0 )  B ( 7 ; 3 )  C ( 3 ; 1 )  D ( 2 ; 4 )  E ( 4 ; 6 )  F ( 3 ; 2 )  G ( 5 ; 0 )**
 
-<H3 STYLE="COLOR:RED;">**Exercice 2  :**</H3> Sur la première "carte" à votre disposition, **en partant de la ville F (que vous entourerez)**, tracer l'itinéraire (boucle) **qui vous semble optimal pour minimiser la distance à parcourir**.
+**<H3 STYLE="COLOR:RED;">Exercice 2  :**</H3> Sur la première "carte" à votre disposition, **en partant de la ville F (que vous entourerez)**, tracer l'itinéraire (boucle) **qui vous semble optimal pour minimiser la distance à parcourir**.
 
-<H3 STYLE="COLOR:RED;">**Exercice 3 :**</H3> Ecrire en une phrase **la méthode gloutonne** qui détermine le choix (qui vous semble optimale) de votre prochaine étape.
+**<H3 STYLE="COLOR:RED;">Exercice 3 :**</H3> Ecrire en une phrase **la méthode gloutonne** qui détermine le choix (qui vous semble optimale) de votre prochaine étape.
 
-<H3 STYLE="COLOR:RED;">**Exercice 4 :**</H3> sur chacune des autres "cartes" à votre disposition, **en partant d'une autre ville (que vous entourerez)**, tracer l'itinéraire (boucle) déterminée par la méthode gloutonne précédente.![](Aspose.Words.35e5d16a-adab-4fc0-8fbe-75d584bf8d1c.009.png)
+**<H3 STYLE="COLOR:RED;">Exercice 4 :**</H3> sur chacune des autres "cartes" à votre disposition, **en partant d'une autre ville (que vous entourerez)**, tracer l'itinéraire (boucle) déterminée par la méthode gloutonne précédente.![](Aspose.Words.35e5d16a-adab-4fc0-8fbe-75d584bf8d1c.009.png)
 
-<H3 STYLE="COLOR:RED;">**Exercice 5 :**</H3>Quels sont les itinéraires qui paraissent bien "longs" et que l’on peut éliminer ?
+**<H3 STYLE="COLOR:RED;">Exercice 5 :**</H3>Quels sont les itinéraires qui paraissent bien "longs" et que l’on peut éliminer ?
 
 Visuellement, à l'aide de la carte, vous arrivez assez facilement à distinguer quelle est la ville la plus proche de votre étape, mais un ordinateur n'a pas accès à cette "vision d'ensemble"! Pour chaque étape, il doit calculer la distance qui sépare la position actuelle de chacune des autres villes à partir de leur coordonnées.
 
 **A vous de vous mettre dans "la peau d'un ordinateur" en CACHANT les cartes.**
 
-<H3 STYLE="COLOR:RED;">**Exercice 6 :**</H3>
+**<H3 STYLE="COLOR:RED;">Exercice 6 :**</H3>
 
 Compléter le *distancier* ci-dessous en utilisant les coordonnées des villes :
 
