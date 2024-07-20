@@ -389,6 +389,89 @@ Compléter le *distancier* ci-dessous en utilisant les coordonnées des villes :
 <tr><td colspan="1">G</td><td colspan="1"> </td><td colspan="1"></td><td colspan="1"></td><td colspan="1"></td><td colspan="1"></td><td colspan="1"></td><td colspan="1">0</td></tr>
 </table>
 
+---
+<table>
+  <tr>
+    <td></td>
+    <td>A</td>
+    <td>B</td>
+    <td>C</td>
+    <td>D</td>
+    <td>E</td>
+    <td>F</td>
+    <td>G</td>
+  </tr>
+  <tr>
+    <td>A</td>
+    <td>0</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>B</td>
+    <td></td>
+    <td>0</td>
+    <td></td>
+    <td>√26</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>C</td>
+    <td></td>
+    <td></td>
+    <td>0</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>D</td>
+    <td></td>
+    <td>√26</td>
+    <td></td>
+    <td>0</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>E</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>0</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>F</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>0</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>G</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>0</td>
+  </tr>
+</table>
 
 Exemple : détermination de la distance BD ou DB: B ( 7 ; 3 )	D ( 2 ; 4 )
 
