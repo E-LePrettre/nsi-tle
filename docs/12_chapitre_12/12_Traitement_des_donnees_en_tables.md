@@ -1,6 +1,6 @@
 ﻿---
 author: ELP
-title: 10 Traitement des données en tables
+title: 12 Traitement des données en tables
 ---
 
 **Table des matières** 

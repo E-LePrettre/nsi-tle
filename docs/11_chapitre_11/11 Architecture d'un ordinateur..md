@@ -1,6 +1,6 @@
 ﻿---
 author: ELP
-title: 12 Architecture de l’ordinateur
+title: 11 Architecture de l’ordinateur
 ---
 
 
