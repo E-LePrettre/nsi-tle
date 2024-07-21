@@ -97,25 +97,23 @@ A l’heure actuelle on distingue trois grands types d’OS (Operating System) �
 
 **<H3 STYLE="COLOR:red;">Activité n°1.:</H3>** Répondre par Vrai ou faux Remarque : Certaines questions nécessitent une recherche internet. 
 <table>
-<tr><th colspan="4" valign="top"><b>Activité n°1.:</b> Répondre par Vrai ou faux Remarque : Certaines questions nécessitent une recherche internet.</th></tr>
-<tr><td colspan="2" valign="top">Blaise
 
- Pascal a mis au point le logiciel Turbo Pascal. </td><td colspan="2"></td></tr>
-<tr><td colspan="2" valign="top">George Boole était un spécialiste de la logique binaire. </td><td colspan="2"></td></tr>
-<tr><td colspan="2" valign="top">Alan Turing a travaillé sur l’intelligence artificielle. </td><td colspan="2"></td></tr>
-<tr><td colspan="2" valign="top">Alan Turing a cassé le code Enigma. </td><td colspan="2"></td></tr>
-<tr><td colspan="2" valign="top">L’ordinateur ENIAC était aussi petit qu’une boite à chaussure. </td><td colspan="2"></td></tr>
-<tr><td colspan="2" valign="top">John Von Neumann a conçu l’architecture de base de tous les ordinateurs actuels. </td><td colspan="2"></td></tr>
-<tr><td colspan="2" valign="top">L’invention du transistor a permis de miniaturiser les ordinateurs. </td><td colspan="2"></td></tr>
-<tr><td colspan="2" valign="top">Le premier micro-ordinateur est américain. </td><td colspan="2"></td></tr>
-<tr><td colspan="2" valign="top">Le processeur 8086 possède 1000000 de transistors </td><td colspan="2"></td></tr>
-<tr><td colspan="2" valign="top">Gary Kasparov est imbattable aux échecs. </td><td colspan="2"></td></tr>
-<tr><td colspan="2" valign="top">La loi de Moore est toujours valide en 2020 </td><td colspan="2"></td></tr>
+<tr><td colspan="2" valign="top">1. Blaise Pascal a mis au point le logiciel Turbo Pascal. </td><td colspan="2"></td></tr>
+<tr><td colspan="2" valign="top">2. George Boole était un spécialiste de la logique binaire. </td><td colspan="2"></td></tr>
+<tr><td colspan="2" valign="top">3. Alan Turing a travaillé sur l’intelligence artificielle. </td><td colspan="2"></td></tr>
+<tr><td colspan="2" valign="top">4. Alan Turing a cassé le code Enigma. </td><td colspan="2"></td></tr>
+<tr><td colspan="2" valign="top">5. L’ordinateur ENIAC était aussi petit qu’une boite à chaussure. </td><td colspan="2"></td></tr>
+<tr><td colspan="2" valign="top">6. John Von Neumann a conçu l’architecture de base de tous les ordinateurs actuels. </td><td colspan="2"></td></tr>
+<tr><td colspan="2" valign="top">7. L’invention du transistor a permis de miniaturiser les ordinateurs. </td><td colspan="2"></td></tr>
+<tr><td colspan="2" valign="top">8. Le premier micro-ordinateur est américain. </td><td colspan="2"></td></tr>
+<tr><td colspan="2" valign="top">9. Le processeur 8086 possède 1000000 de transistors </td><td colspan="2"></td></tr>
+<tr><td colspan="2" valign="top">10. Gary Kasparov est imbattable aux échecs. </td><td colspan="2"></td></tr>
+<tr><td colspan="2" valign="top">11. La loi de Moore est toujours valide en 2020 </td><td colspan="2"></td></tr>
 </table>
 
 **<H3 STYLE="COLOR:red;">Activité n°2.:</H3>** Cocher la ou les bonnes réponses. Remarque : Certaines questions nécessitent une recherche internet. 
 <table>
-<tr><th colspan="8" valign="top"><b>Activité n°2.:</b> Cocher la ou les bonnes réponses. Remarque : Certaines questions nécessitent une recherche internet.</th></tr>
+
 <tr><td colspan="8" valign="top">  </td></tr>
 <tr><td colspan="2" valign="top"><p>1. Le premier algorithme connu remonte... </p><p>- au XX siècle </p><p>- au XIX siècle </p><p>- au 1er siècle </p><p>- bien avant le 1er siècle </p></td><td colspan="2" valign="top"><p>2. Le mot algorithme vient du nom </p><p>- Al-Khwârizmi </p><p>- Grace Murray Hopper </p><p>- Steve Jobs </p><p>- Augusta Ada King </p></td><td colspan="2" valign="top"><p>3. Le 1er compilateur fut conçu par </p><p>- Al-Khwârizmi </p><p>- Grace Murray Hopper </p><p>- Steve Jobs </p><p>- Augusta Ada King </p></td><td colspan="2"></td><td colspan="3" rowspan="2" valign="top"></td></tr>
 <tr><td colspan="2" valign="top"><p>4. Le 1er programme fut écrit par </p><p>- Al-Khwârizmi </p><p>- Grace Murray Hopper </p><p>- Steve Jobs </p><p>- Augusta Ada King </p></td><td colspan="2" valign="top"><p>5. Le transistor fut inventé dans les années </p><p>- 1850 </p><p>- 1900 </p><p>- 1950 </p><p>- 2000 </p></td><td colspan="2" valign="top"><p>6. Le circuit intégré fut inventé après le transistor. </p><p>- Vrai </p><p>- Faux </p><p>- Les deux ont été inventés en même temps </p><p>- Cette question n'a aucun sens</p></td><td colspan="2"></td><td colspan="3" rowspan="2" valign="top"></td></tr>
