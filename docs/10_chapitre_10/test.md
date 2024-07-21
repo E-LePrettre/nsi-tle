@@ -1,501 +1,504 @@
 ---
-
 author: ELP
-title: 09 Algorithme glouton
-
+title: 10 Les systèmes d’exploitation
 ---
 
 **Table des matières** 
 
-1. [ALGORITHMES GLOUTONS](#_page0_x51.00_y229.00)
-2. [EXERCICES](#_page7_x51.00_y32.00)
-3. [PROBLEME : TSP - LE VOYAGEUR DE COMMERCE](#_page9_x51.00_y32.00)
-
-## <H2 STYLE="COLOR:BLUE;"> **1. Algorithmes<a name="_page0_x51.00_y229.00"></a> gloutons**</H2> 
-
-En informatique, un algorithme glouton (greedy algorithm) est une **technique** permettant de résoudre un problème. Un algorithme glouton va aborder la résolution d'un problème en plusieurs étapes :
-
-- À chaque étape, l’algorithme va adopter un choix qui lui **semble le meilleur,** et ce, **dans l'espoir** qu'à la fin de la résolution, le résultat obtenu soit lui-même **optimal**. 
-- Mais un algorithme glouton **ne repart jamais en arrière** afin de modifier ses choix (le choix qui semble le meilleur à un instant t est définitif) donc il se peut que le résultat final ne soit pas. 
-
-Les algorithmes gloutons servent principalement à résoudre des **problèmes d'optimisation**. Il existe de multiples exemples. 
-
-### <H3 STYLE="COLOR:GREEN;"> **1.1. Le<a name="_page0_x51.00_y404.00"></a> problème de rendu de monnaie**</H3> 
-
-Un des grands classiques est le problème du rendu de monnaie où l'on souhaite rendre une somme en utilisant le moins de pièces (ou de billets) possibles. Le principe de l'algorithme consiste à répéter **le choix de la pièce de plus grande valeur** qui ne dépasse pas la somme restante. 
-
-**Remarque** : On dit qu'il s'agit d'un algorithme glouton, car il choisit la pièce la plus grosse à chaque étape sans réfléchir à la suite. 
-
-Exemple avec le système de pièces européen : Rendre la somme de 8€ 
-
-![](Aspose.Words.35e5d16a-adab-4fc0-8fbe-75d584bf8d1c.004.png)
-<table xmlns="http://www.w3.org/1999/html">
-<tr><td colspan="11">Solution optimale</td><td colspan="11">Solution non optimale </td></tr>
-
-<td colspan="11">1 billet de 5€<br> 1 pièce de 2€ <br>1 pièce de 1€</td><td colspan="11">4 pièces de 2€</td></tr>
-</table>
+1. [Les systèmes d’exploitation](#_page0_x40.00_y421.92)
+2. [Premiers pas ](#_page2_x40.00_y222.92)
+3. [Gestion des utilisateurs et des groupes](#_page5_x40.00_y526.92)
+4. [Les commandes de base](#_page8_x40.00_y727.92)
+5. [Exercices](#_page10_x40.00_y36.92)
 
 
-Avec le système de pièces européen, l’algorithme glouton donne toujours un choix optimal. 
+## <H2 STYLE="COLOR:BLUE;">**1. Les<a name="_page0_x40.00_y421.92"></a> systèmes d’exploitation**</H2>
+### <H3 STYLE="COLOR:GREEN;">**1.1. Historique<a name="_page0_x40.00_y449.92"></a> des systèmes d’exploitation**</H3>
 
-Mais que se passe-t-il, si l’on utilise un autre monnayeur avec des pièces différentes ? 
+**<H3 STYLE="COLOR:red;">Activité n°1.</H3>**: Visualiser la video suivante : **VIDEO** : Histoire des systèmes d’exploitation 
 
-Rendre la somme de 6 €
+**<H3 STYLE="COLOR:red;">Activité n°2.</H3>**: Visualiser la video suivante : **VIDEO** : Comprendre ce qu’est un système d’exploitation 
 
-![](Aspose.Words.35e5d16a-adab-4fc0-8fbe-75d584bf8d1c.005.png)
-<table>
-<tr><td colspan="11">Solution optimale</td><td colspan="11">Solution non optimale </td></tr>
-<tr><td colspan="11">2 pièces de 3€</td><td colspan="11">1 pièce de 4€<br>  2 pièces de 1€ <br>Total : 3 pièces (algorithme glouton)</td></tr>
-</table>
+Microsoft a été créée par **Bill Gates et Paul Allen en 1975**. Windows est un système d'exploitation "**propriétaire**", la première version de Windows date 1983, mais à cette date Windows n'est qu'un ajout sur un autre système d'exploitation nommé **MS-DOS.**  
 
-=> **CAPYTALE Le code vous sera donné par votre enseignant**
+Aujourd'hui Windows reste le système d'exploitation **le plus utilisé au monde** sur les ordinateurs grand public.  Tous les ordinateurs d'Apple sont livrés avec le système d'exploitation **macOS**. Ce système macOS est un système d'exploitation **UNIX**, c'est donc un système d'exploitation **propriétaire**. 
 
-**<H3 STYLE="COLOR:RED;">Activité n°1.**</H3> Rendu de monnaie : Traduire l’algorithme suivant, en Python dans capytale
+### <H3 STYLE="COLOR:GREEN;">**1.2. Le<a name="_page0_x40.00_y600.92"></a> libre et l’open source**</H3>
 
-```
-Fonction renduMonnaie (somme : entier, pièces : liste des pièces dans l’ordre décroissant) : liste des pièces choisies
+**<H3 STYLE="COLOR:red;">Activité n°3.</H3>**: Visualiser la video suivante : **VIDEO** : Libre et open source 
 
-	n←longueur de la liste de pièces
-	initialiser à zéro la liste "choisies" de dimension n
-	Pour i de 1 à n par pas de 1
-		Tant que somme>= pieces[i]
-			somme←somme-pieces[i]
-			choisies[i]← choisies[i]+1
-		fin tant que
-	fin pour
-    retourner choisies
-``` 
-Aide : 	
+Un logiciel libre est un logiciel dont **l'utilisation, l'étude, la modification et la duplication** par autrui en vue de **sa diffusion** sont **permises,** techniquement et légalement, ceci afin de garantir certaines libertés induites, dont le contrôle du programme par l'utilisateur et la possibilité de partage entre individus". 
 
-- le prototype de la fonction est donc : ```renduMonnaie(somme: int, pieces: list) -> list``` 
+### <H3 STYLE="COLOR:GREEN;">**1.3. UNIX<a name="_page0_x40.00_y725.92"></a>**</H3>
 
-- Ne pas oublier de documenter la fonction 
+**<H3 STYLE="COLOR:red;">Activité n°4.</H3>**: Visualiser la video suivante : **VIDEO** : Unix 
 
-**Test n°1 :**
-```python
-#pieces en centimes d'euros
-pieces=[500,200,100,50,20,10,5,2,1]
-somme=780
-print('Les pièces choisies sont')
-print(renduMonnaie(somme,pieces))
-```
+Le système UNIX est un système dit "**propriétaire**" (certaines personnes disent "privateur"), c'est-à-dire un système **non libre.**
 
-Soit 780 centimes, <b>l’algorithme fonctionne et est optimal</b> avec le système de pièces européen  
+### <H3 STYLE="COLOR:GREEN;">**1.4. Linux<a name="_page1_x40.00_y36.92"></a>**</H3>
 
-**Test n°2 :**
-```python
-print('Test n°2')
-#pieces en euros
-pieces=[4,3,1]
-somme=6
-print('Les pièces choisies sont')
-print(renduMonnaie(somme,pieces))
-```
+**<H3 STYLE="COLOR:red;">Activité n°5.</H3>**: Visualiser la video suivante :  **VIDEO** : Linux 
 
-Soit 6 euros, l’algorithme fonctionne, <b>mais n’est pas optimal</b>, car on aurait pu rendre 2 pièces de 3 € 
+En fait Linux est avant tout **un noyau de système**, c’est pour ça qu’on parle d’ailleurs de “Linux kernel” (Kernel veut dire noyau en français). Le noyau d'un système est **l'ensemble des programmes** (développé essentiellement en langage C pour Linux) qui permettent de **démarrer** la machine, **d'assurer la liaison avec le matériel** (souris, carte graphique , carte réseau,...) et de **permettre l'exécution des logiciels**. 
 
-**Remarque**:  Il existe d’autres méthodes permettant d’optimiser le rendu de monnaie comme la programmation dynamique (non abordé ici). L’idée est de calculer toutes les possibilités permettant d’obtenir 6 € avec le jeu de pièces tout en choisissant le nombre minimal de pièces.
+En **1991**, l’étudiant finlandais **Linus Torvalds** qui a alors 22 ans, commence le développement d’un noyau de système d’exploitation qui va être une alternative à UNIX. Après quelques mois, il diffusa le code de son travail via un compte FTP de l’Université d’Helsinki. Et pour la petite anecdote le dossier contenant ces travaux a été nommé « Linux » par un administrateur du serveur FTP. Linux pour « Linus UNIX ». Linus publie par la suite ses travaux sur Internet en demandant à d’autres développeurs de l’aider pour le finaliser. Aujourd’hui Linus continue de diriger le développement du noyau Linux. 
 
-**Test n°3**
-```python
-print('Test n°3')
-#pieces en euros
-pieces=[10,5,2]
-somme=31
-print('Les pièces choisies sont')
-print(renduMonnaie(somme,pieces))
-```
+Concernant la mascotte officielle de Linux, il s’agit d’un manchot du nom de **TUX**. TUX étant un acronyme composé des mots Torvalds et UNIX. 
 
-Soit 30 euros, l’algorithme ne fonctionne plus, car il manque une pièce de 1 euro. 
+Linux est beaucoup plus présent dans le **monde des serveurs** que sur les postes de travail. Le noyau Linux équipe la plupart des **systèmes embarqués** (box, robots, aérospatial, drones…), mais aussi les **supercalculateurs.** Linux domine le marché des smartphones via l’OS Android qui s’appuie sur un noyau Linux. 
 
-### <H3 STYLE="COLOR:GREEN;"> **1.2. Le<a name="_page2_x51.00_y32.00"></a> problème du sac à dos**</H3> 
+### <H3 STYLE="COLOR:GREEN;">**1.5. Rôles<a name="_page1_x40.00_y333.92"></a> du système d’exploitation**</H3>
 
-Le problème du sac à dos (knapsack problem) est aussi un **problème d’optimisation.** Il permet de résoudre le problème du remplissage d’un sac à dos. 
+Un système d'exploitation représente **l'ensemble des programmes qui pilote les différents composants** (disque dur, écran, processeur, mémoire etc...) de l'appareil informatique et lui permet donc de fonctionner. Il permet donc de faire l'interface entre l'utilisateur et le matériel informatique. 
 
-On dispose pour cela de plusieurs objets (chaque objet possède une valeur et un poids). Seulement le sac ne peut pas contenir plus d’un certain poids. Le but des de choisir judicieusement les objets afin de **maximiser la valeur des objets** sans dépasser le poids maximum. 
+Il permet :  
 
-L’algorithme glouton va choisir **à chaque étape du remplissage l’objet de plus grande valeur**. On répète les étapes du remplissage juste avant que le poids maximal soit atteint. 
+- **Gestion du processeur:** le système d'exploitation est chargé de gérer l'allocation du processeur entre les différents programmes grâce à un algorithme d'ordonnancement. 
+- **Gestion de la mémoire vive:** le système d'exploitation est chargé de gérer l'espace mémoire alloué à chaque application 
+- **Gestion des entrées/sorties:** le système d'exploitation permet d'unifier et de contrôler l'accès des programmes aux ressources matérielles par l'intermédiaire des pilotes (appelés également gestionnaires de périphériques). 
+- **Gestion de l'exécution des applications:** le système d'exploitation est chargé de la bonne exécution des applications en leur affectant les ressources nécessaires à leur bon fonctionnement. 
+- **Gestion des droits:** le système d'exploitation est chargé de la sécurité liée à l'exécution des programmes en garantissant que les ressources ne sont utilisées que par les programmes et utilisateurs possédant les droits adéquats. 
+- **Gestion des fichiers:** le système d'exploitation gère la lecture et l'écriture dans le système de fichiers et les droits d'accès aux fichiers par les utilisateurs et les applications.
 
-Exemple : 
+### <H3 STYLE="COLOR:GREEN;">**1.6. Composantes<a name="_page1_x40.00_y691.92"></a> d’un système d’exploitation**</H3>
 
-<table><tr><th colspan="1" rowspan="2"><b>Matériel à emmener dans un sac de 4.7KG</b> </th><th colspan="1" rowspan="2">Valeur et poids </th><th colspan="4">Emporté (oui/non) </th></tr>
-<tr><td colspan="1">Etape1 </td><td colspan="1">Etape2 </td><td colspan="1">Etape3 </td><td colspan="1">Etape4 </td></tr>
-<tr><td colspan="1">gourde</td><td colspan="1">Valeur : 2 </br>Poids : 1 </td><td colspan="1">x </td><td colspan="1">x </td><td colspan="1">Pas possible</td><td colspan="1"><p>Pas possible</p></td></tr>
-<tr><td colspan="1">jumelles</td><td colspan="1">Valeur : 5 </br>Poids : 0.5 </td><td colspan="1">Oui </td><td colspan="1">Déjà pris </td><td colspan="1">Déjà pris </td><td colspan="1">Déjà pris </td></tr>
-<tr><td colspan="1">carte</td><td colspan="1">Valeur : 1 </br>Poids : 0.2 </td><td colspan="1">x </td><td colspan="1">x </td><td colspan="1">x </td><td colspan="1">Oui </td></tr>
-<tr><td colspan="1">tente</td><td colspan="1">Valeur : 3 </br>Poids : 4 </td><td colspan="1">x </td><td colspan="1">oui </td><td colspan="1">Déjà pris </td><td colspan="1">Déjà pris </td></tr>
-</table>
+Le système d'exploitation est composé d'un ensemble de logiciels permettant de gérer les interactions avec le matériel. 
 
-**<H3 STYLE="COLOR:RED;">Activité n°2.**: Sac à dos :</H3> affichage des objets choisis selon leur valeur: Traduire l’algorithme suivant, en Python dans capytale : 
-```
-Fonction remplirSac (objets : liste des objets dans l’ordre décroissant, poidsMax : en décimal) : liste des objets choisis
+Parmi cet ensemble de logiciels on distingue généralement les éléments suivants : 
 
-	p←0
+- **Le noyau (kernel)** 
 
+ce sont les fonctions fondamentales du système d'exploitation telles que la gestion de la mémoire, des processus, des fichiers, des entrées-sorties principales, et des fonctionnalités de communication. 
 
-	n←longueur de la liste des objets
-	initialiser à zéro la liste objetschoisis de dimension n
-	Pour i de 1 à n par pas de 1
-		Si p+objets[i][1]<= poidsMax alors
-			objetsChoisis[i]←1
-			p ← p + objets[i][1]
-		fin si
-	fin pour
-	retourner objetschoisis
-```
+- **L'interpréteur de commande (shell, traduisez «coquille» par opposition au noyau)** 
 
-**Aide :** 
+il permet la communication avec le système d'exploitation par l'intermédiaire d'un langage de commandes, afin de permettre à l'utilisateur de piloter les périphériques en ignorant tout des caractéristiques du matériel qu'il utilise, de la gestion des adresses physiques, etc. 
 
-- Ne pas oublier le prototype de la fonction et de la documenter
+- **Le système de fichiers (file system, noté FS)** 
 
-**Test** 
+il permet d'enregistrer les fichiers dans une arborescence. 
 
-Attention **: il faudra trier les objets par ordre décroissant de valeur** avant d’appeler la fonction remplirSac(objets,poidsMax)
+## <H2 STYLE="COLOR:BLUE;">**2. Premiers<a name="_page2_x40.00_y222.92"></a> pas**</H2>
+### <H3 STYLE="COLOR:GREEN;">**2.1. Qu’est<a name="_page2_x40.00_y245.92"></a> ce qu’un shell ?**</H3>
 
-**Résultat dans la console** 
-```python
-print('Test')
-#liste du matériel
-objets=[[2,1],[5,0.5],[1,0.2],[3,4]]
-objets=list(reversed(sorted(objets)))
-print(objets)
-poidsMax=4.7
-print('Les objets choisis sont')
-print(remplirSac(objets,poidsMax))
-```
+Un shell est une **couche logicielle** qui fournit l'interface utilisateur d'un système d'exploitation.  
 
-L’algorithme choisit bien les articles selon notre prévision.
+Il existe plusieurs environnements console : **les shells.**   
 
-**<H3 STYLE="COLOR:RED;">Activité n°3.**: Sac à dos :</H3> affichage des objets choisis selon leur valeur et du poids total : 
+![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.020.png)
 
-Avant de partir aux Bahamas, on doit remplir sa valise. La compagnie d’aviation n’accepte qu’une valise de dépassant pas 23kg. 
+La console a toujours un fond noir et un texte blanc. En revanche, les fonctionnalités offertes  par l'invite de commandes peuvent varier en fonction du shell que l'on utilise.  
 
-La liste des objets est la suivante :
-```python
-objets=[[6,5.0,'chaussures'],[5,5.0,'habits'],[4.5,2.0,'trousse de toilette'],[4,2.0,'crêmes'],[3,8.0,'livres'],[2,2.0,'palmes tuba'],[1,0.5,'guide touristique']]
-```
+Le **bash** est le shell par défaut. Cependant, **sh** reste toujours plus répandu que bash.  
 
-exemple :  
-```[6,5.0,'chaussures'] → 6 : valeur, 5.0 : poids, 'chaussures' : désignation ```
+Beaucoup de solutions sont données en ligne de commande, car l'utilisation de la ligne de  commande s'avère bien **plus pratique et plus puissante** que la souris. C'est donc un outil  indispensable à maîtriser pour tout administrateur système qui se respecte ;-)  
 
-Utiliser l’algorithme glouton correspondant afin d’indiquer les objets pouvant être mis dans la valise. Coder une fonction ```remplirSacpoids``` qui tiennent compte de la nouvelle situation et qui soit basée sur l'algorithme glouton 
+### <H3 STYLE="COLOR:GREEN;">**2.2. Présentation<a name="_page2_x40.00_y485.92"></a>**</H3>
 
-**<H3 STYLE="COLOR:RED;">Activité n°4.**: Sac à dos V2 :</H3> affichage des objets choisis selon leur valeur avec leur nombre: on veut retourner un dictionnaire. Coder une fonction ```remplirSacDico``` qui tiennent compte de la nouvelle situation et qui soit basée sur l'algorithme glouton
-Le prototype de la fonction est : 
-```remplirSacDico(objets: list,poidsMax: float) -> dict: ```
+Le mot ***prompt*** fait référence à l’invite de commande  affichée dans un terminal Linux. Par exemple raspbian  :
 
-**Résultat attendu** : 
-```{'chaussures': 1, 'habits': 1, 'trousse de toilette': 1, 'crèmes': 1, 'livres': 1, 'palmes tuba': 0, 'guide touristique': 1} ```
+![](Aspose.Words.4630a434-9278-4262-8878-c
 
-**<H3 STYLE="COLOR:RED;">Activité n°5.**: Sac à dos V3 :</H3> affichage des objets choisis selon leur valeur avec leur nombre différent de 0 : 
-on veut retourner un dictionnaire qui n’affichera que les objets réellement mis dans la valise (dont le nombre d’objet !=0). Coder une fonction ```remplirSacDico_V2``` qui tiennent compte de la nouvelle situation et qui soit basée sur l'algorithme glouton
+d9ee4c8cc3e.021.jpeg)
 
-**Résultat attendu :** 
-```{'chaussures': 1, 'habits': 1, 'trousse de toilette': 1, 'crèmes': 1, 'livres': 1, 'guide touristique': 1} ```
+   
 
-**Remarque** :  
-L’algorithme glouton est un algorithme qui ne remet jamais en cause une décision prise auparavant.  
+Ce  prompt  indique  que  l’on  est  sur  une  **machine  rapberry,** connecté en tant qu’utilisateur **pi** et que l’on  se trouve dans le **répertoire de base** (home directory).   Le symbole $ invite à rentrer la première commande  Linux.   
 
-C’est donc une **méthode de résolution approchée.** Pour trouver la solution optimale, et être certain qu’il n’y a pas mieux, il faut utiliser une méthode exacte qui demande un temps de calcul beaucoup plus long. On peut citer la procédure par  séparation  et  évaluation  (PSE)  qui  peut  énumère  toutes  les  solutions  possibles,  mais  seules  les  solutions potentiellement de bonnes qualités sont énumérées. Il faut alors mettre en place un ***arbre de recherche*** qui sera vu en terminale. 
+Sur Python le prompt est : >>> 
 
-## <H2 STYLE="COLOR:BLUE;"> **2. Exercice<a name="_page7_x51.00_y32.00"></a>**</H2>  
+### <H3 STYLE="COLOR:GREEN;">**2.3. Système<a name="_page3_x285.00_y54.92"></a> de fichier**</H3>
+
+![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.022.jpeg)
+
+L'un des systèmes d'exploitation le plus populaire dans les années  80  est  le  DOS  (juillet  1981)  créé  par  Bill  Gates créateur de la société Microsoft. L'acronyme DOS signifie Disk Operating System. En effet la gestion des fichiers sur le disque était l'une des fonctions principales du système au départ. 
+
+Sous Linux, **tout est fichier**. Ils sont organisés suivant une unique arborescence (dont la racine est nommée / et dont l’administrateur est root). 
+
+On parle d'arborescence, car ce système de fichier ressemble à un arbre à l'envers. La base de l’arbre s’appelle la racine de l’arborescence et se représente par un « / ». 
+
+### <H3 STYLE="COLOR:GREEN;">**2.4. La<a name="_page3_x285.00_y270.92"></a> racine**</H3>
+
+Dans les systèmes de la famille Unix, la racine représente le **sommet de l'arborescence** des répertoires. 
+
+La racine est représentée par le caractère / (slash) et signifie "root". 
+
+Tous les répertoires de votre système sont liés à la racine de façon directe ou indirecte. 
+
+Une chose très importante à savoir quand on est connecté dans un shell, c'est de savoir où on se trouve dans l'arborescence. 
+
+La commande **pwd** (PrintWorkingDirectory) affiche votre localisation dans l'arborescence. 
+
+### <H3 STYLE="COLOR:GREEN;">**2.5. Chemin<a name="_page3_x40.00_y516.92"></a> absolu ou chemin relatif**</H3>
+
+Pour indiquer la position d'un fichier (ou d'un répertoire) dans l'arborescence, il existe 2 méthodes : indiquer un **chemin absolu** ou indiquer un **chemin relatif**.   
+
+![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.029.png)
+
+- Le **chemin absolu** doit indiquer "le chemin" depuis la racine.   Par exemple le chemin absolu du fichier fiche.ods sera :  
+
+/home/elsa/documents/fiche.ods  
+
+On **note le / au début** indiquant que l’on part de la racine.  
+
+- Il est possible d'indiquer le chemin non pas depuis la racine,  mais depuis un répertoire quelconque, nous parlerons alors de  **chemin  relatif**.  Le  chemin  relatif  permettant  d'accéder  au  fichier  "photo_1.jpg"  depuis  le  répertoire  "max"  est  :  "images/photo_vac/photo_1.jpg"  
+
+On note **l’absence du /.** 
+
+Si  on  cherche  le  chemin  relatif  pour  accéder  au  fichier  "gdbd_3.jpg"  depuis  le  répertoire  "photos_vac".  Il  faut  "remonter" d'un "niveau" dans l'arborescence pour se retrouver dans le répertoire "images" et ainsi pouvoir repartir vers la bonne "branche". Pour ce faire il faut utiliser 2 points : "../ski/gdbd_3.jpg" 
+
+Il est tout à fait possible de remonter de plusieurs "crans" : "../../" . 
 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
-★ **<H3 STYLE="COLOR:RED;">Rendu de monnaie**</h3> 
+**<H3 STYLE="COLOR:red;">Activité n°6.</H3>**: Chemin absolu : en utilisant, l’arborescence précédente déterminer le chemin absolu permettant d’accéder au fichier : 
+-  "cat" 
+-  "rapport.odt" 
 
-Étant donné un système de monnaie (pièces et billets), comment rendre une somme donnée de façon optimale, c'est-à- dire avec le nombre minimal de pièces et billets ? 
+**<H3 STYLE="COLOR:red;">Activité n°7.</H3>**: Chemin relatif : en utilisant, l’arborescence précédente déterminer le chemin relatif permettant d’accéder au fichier : 
+-  "rapport.odt" depuis le répertoire "elsa" 
+-  "fiche.ods" depuis le répertoire "boulot" 
 
-Par exemple, la meilleure façon de rendre 7€ est de rendre un billet de cinq et une pièce de deux, même si d'autres façons existent (rendre 7 pièces de 1€, par exemple). 
+Les systèmes de type « UNIX » sont des systèmes « **multi-utilisateurs** » : chaque utilisateur possède son propre compte. Ces répertoires personnels se situent traditionnellement dans le répertoire ‘home’. Dans l’arborescence précédente il y a 2 utilisateurs : « max » et « elsa ».  
 
-Ce problème est **NP-complet**[^1] dans le cas général, c'est-à-dire difficile à résoudre. Cependant pour certains systèmes de monnaie, l'algorithme glouton est optimal, c'est-à-dire qu'il suffit de rendre systématiquement la pièce ou le billet de valeur maximale — ce tant qu'il reste quelque chose à rendre. 
+### <H3 STYLE="COLOR:GREEN;">**2.6. La<a name="_page4_x40.00_y243.92"></a> commande cd (change directory)**</H3>
 
-Dans la zone euro, le système S en vigueur est, en mettant de côté les centimes d'euros : 
+La commande "**cd**" permet de changer le répertoire courant. Il suffit d'indiquer le chemin (relatif ou absolu) qui permet d'atteindre le nouveau répertoire. 
 
-```S = (1, 2, 5, 10, 20, 50, 100, 200, 500)```. 
+Par exemple (en utilisant l'arborescence ci-contre) :
 
-Il y a par exemple six triplets de pièces (ou billets) de 1, 2 et 5 euros qui permettent de rendre la valeur v = 7€ (les billets de 10 euros ou plus étant inutiles) : (7,0,0), (5,1,0), (3,2,0), (1,3,0), (2,0,1), (0,1,1). 
+![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.029.png)
 
-La solution au problème de rendu de monnaie (S, 7) est alors le triplet (x1, x2, x3) qui minimise le nombre total x1 + x2 + x3 de pièces rendues, soit (0, 1, 1), c'est-à-dire une pièce de 2 euros et une de 5 (un billet). On a donc le nombre minimal de pièces du système $M_{(1,2 5)}$(7) = 2. 
+- si  le  répertoire  courant  est  le  répertoire  "elsa"  et  que  vous  "voulez-vous  rendre"  dans  le  répertoire "documents", il faudra saisir la commande : "cd documents" (relatif) ou "cd /home/elsa/documents" (absolu) 
+- si le répertoire courant est le répertoire "photos_vac" et  que vous "voulez-vous rendre" dans le répertoire "ski", il faudra saisir la commande : "cd ../ski" (relatif) ou "cd  /home/max/images/ski" (absolu)  
 
-Pour rendre toute somme inférieure à 500€ pièces il faut au plus 3 pièces pour les unités, 3 billets pour les dizaines et jusqu'à 2 billets pour les centaines, soit au plus 8 pièces ou billets. L'optimum au-delà est alors formé de $v/500$ billets de 500€, plus les pièces et billets nécessaires pour le reste v modulo 500€. 
+- si le répertoire courant est le répertoire "boulot" et que vous "voulez-vous rendre" dans le répertoire "documents", il faudra saisir la commande : "cd .." (relatif) ou "cd /home/elsa/documents" (absolu)  
 
-Ainsi, 2019 = 500×4 + 19 = 500×4 + 10×1 + 5×1 + 2×2, soit 4+1+1+2 = 6 billets et 2 pièces. 
+Autres commandes à connaitre :  
 
-1 Écrire **l’algorithme de rendu de monnaie en pseudo-code** pour une valeur** v à rendre avec un système de pièces S, trié par ordre croissant.  
+![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.036.png)
 
-**Aide :** 
+- cd ~ : permet de revenir au répertoire précédent  
+- cd / : permet de se placer à la racine des fichiers 
 
-- Noter les entrées et le(s) sortie(s).  
-- S’inspirer de l’algorithme en pseudo-code de recherche dichotomique 
+### <H3 STYLE="COLOR:GREEN;">**2.7. La<a name="_page4_x40.00_y599.92"></a> commande ls**</H3>
 
-2 Montrer que l’algorithme termine. 
+La commande **ls** permet de lister le contenu du répertoire courant. 
 
-**Rappels :** 
+**<H3 STYLE="COLOR:red;">Activité n°8.</H3>**: Faire l’exercice 1 
 
-Pour s'assurer qu'un algorithme est correct, il faut démontrer deux choses : 
+### <H3 STYLE="COLOR:GREEN;">**2.8. La<a name="_page4_x40.00_y695.92"></a> commande mkdir**</H3>
 
-- que l'algorithme se termine (**terminaison**), autrement dit qu'il **ne boucle pas** ou ne diverge pas, produisant au moins un résultat. 
+La commande "**mkdir**" permet de créer un répertoire dans le répertoire courant. La commande est de la forme "mkdir nom_du_répertoire". 
 
-- que le résultat de l'algorithme **satisfait la spécification du résultat** comme énoncé dans la description de l'algorithme (**correction partielle**). 
+Il est **VIVEMENT** préférable de ne **pas** utiliser de **caractères accentués** dans les noms de répertoire (ou de fichier). Il en est de même pour les **espaces** (à remplacer par des caractères tirets bas "_"). 
 
-La conjonction de la **correction partielle et de la terminaison** s'appelle la **correction totale.** 
+### <H3 STYLE="COLOR:GREEN;">**2.9. La<a name="_page5_x40.00_y112.92"></a> commande rm**</H3>
 
-3 Implémenter cet algorithme en langage Python. On donne le prototype de la fonction : 
+La commande "**rm**" permet de supprimer un fichier ou un répertoire. La commande est de la forme "rm nom_du_répertoire_ou_nom_du_fichier". 
+"rm *" supprime tous les fichiers. 
 
-```rendu(S : list, valeur : int) -> list``` 
+La plupart des commandes UNIX peuvent être utilisées avec une ou des options. Par exemple, pour supprimer un répertoire non vide, il est nécessaire d'utiliser la commande "rm" avec l'option "-r" : "rm -r nom_du_répertoire". 
 
-- ```S``` -- liste des pièces ordonnées 
+### <H3 STYLE="COLOR:GREEN;">**2.10. La<a name="_page5_x40.00_y265.92"></a> commande touch**</H3>
 
-- ```valeur``` -- somme à rendre 
+La  commande  "touch"  permet  de  créer  un  fichier  vide.  La  commande  est  de  la  forme  "touch nom_du_fichier_à_créer". 
 
-- la fonction retourne la liste des pièces à rendre 
+### <H3 STYLE="COLOR:GREEN;">**2.11. La<a name="_page5_x40.00_y367.92"></a> commande cp**</H3>
 
-4 Documenter la fonction  
+La  commande  "cp"  permet  de  copier  un  fichier.  La  commande  est  de  la  forme "cp/répertoire_source/nom_fichier_à_copier /répertoire_destination/
 
-5 Tester le programme pour deux systèmes de monnaies : 
+nom_fichier"  
 
-- européen : ```S = (1, 2, 5, 10, 20, 50, 100, 200, 500)```
+À noter : le nom du fichier "destination" n'est pas obligatoirement le même que le nom du fichier "source" (on peut avoir "cp fic.txt info/fiche.txt") 
 
-- royaume uni : ```S = (1, 3, 4, 10, 30, 40, 100, 300, 400)```[^2] on prendra 2019 pour somme à rendre 
+## <H2 STYLE="COLOR:BLUE;">**3. Gestion<a name="_page5_x40.00_y526.92"></a> des utilisateurs et des groupes**</H2>
 
-★★ **<H3 STYLE="COLOR:RED;">le voyageur**</h3>
+Les systèmes de type "UNIX" sont des systèmes **multi-utilisateurs**, plusieurs utilisateurs peuvent donc partager un même ordinateur, chaque utilisateur possédant un environnement de travail qui lui est propre. 
 
-Une route comporte n+1 stations-service, numérotées dans l'ordre du parcours, de 0 à n. La première est à une distance d[0] du départ, la deuxième est à une distance d[1] de la première, la troisième à une distance d[2] de la deuxième, etc. La fin de la route est à une distance d[n] de la n-ième et dernière station-service. 
+Chaque utilisateur possède **certains droits** lui permettant d'effectuer certaines opérations et pas d'autres.  
 
-Un automobiliste prend le départ de la route avec une voiture dont le réservoir d'essence est plein. Il désire faire le plein le moins souvent possible. Sa voiture possède une autonomie notée autonomie avec un plein. 
+Le système d'exploitation permet de gérer ces droits **très finement**. Un utilisateur un peu particulier est autorisé à modifier tous les droits : ce "super utilisateur" est appelé "**administrateur**" ou "**root**". L'administrateur pourra donc attribuer ou retirer des droits aux autres utilisateurs.  
 
-1 Écrire l’algorithme qui détermine à quelles stations-service il doit s'arrêter avec la distance parcourue. 
+Au lieu de gérer les utilisateurs un par un, il est possible de créer des **groupes** **d'utilisateurs**. L'administrateur attribue des droits à un groupe au lieu d'attribuer des droits particuliers à chaque utilisateur.  
 
-2 Montrer que l’algorithme termine. 
+Les fichiers et les répertoires possèdent 3 types de droits : 
 
-3 Implémenter cet algorithme en langage Python. On donne le prototype de la fonction : 
-```voyage(distance : list, autonomie : int) -> list```
+- les droits en **lecture** (symbolisés par la lettre r)  
+- les droits en **écriture** (symbolisés par la lettre w)  
+- les droits en **exécution** (symbolisés par la lettre x) 
 
-- ```distance``` -- liste des distances entre les stations-service 
+Il existe 3 types d'utilisateurs pour un fichier ou un répertoire : 
 
-- ```autonomie``` -- distance maximum que l'on peut parcourir 
+- le **propriétaire** du fichier (par défaut c'est la personne qui a créé le fichier), il est symbolisé par la lettre u 
+- un fichier est associé à un **groupe**, tous les utilisateurs appartenant à ce groupe possèdent des droits particuliers sur ce fichier. Le groupe est symbolisé par la lettre g 
+- **tous les autres utilisateurs** (ceux qui ne sont pas le propriétaire du fichier et qui n'appartiennent pas au groupe associé au fichier). Ces utilisateurs sont symbolisés la lettre "o" 
 
-- la fonction retourne la liste de tuple (numéro de la station, distance parcourue depuis le début) 
+Il est possible d'utiliser la commande "ls" avec l'option "-l" afin d'avoir des informations supplémentaires. 
 
-4 Documenter la fonction 
+![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.056.jpeg)
 
-5 Tester le programme : 
+Si on fait la commande ls -l, on peut obtenir :  Sur la première ligne : 
 
-- 17 stations-service avec 
+- le symbole "-" signifie que l'on a affaire à un fichier, dans le cas d'un répertoire, nous aurions un "d" (voir la 4e ligne) 
+- les 3 symboles suivants "rw-"donnent les **droits du propriétaire** du fichier : lecture autorisée (r), écriture autorisée (w), exécution interdite (- à la place de x)  
+- les 3 symboles suivants "r--"donnent les **droits du groupe** lié au fichier : lecture autorisée (r), écriture interdite (- à la place de w), exécution interdite (- à la place de x)  
+- les 3 symboles suivants "r--"donnent les **droits des autres utilisateurs** : lecture autorisée (r), écriture interdite (- à la place de w), exécution interdite (- à la place de x) 
+- le caractère suivant "1" donne le nombre de liens  
+- le premier "pi" représente le nom du propriétaire du fichier 
+- le second "pi" représente le nom du groupe lié au fichier 
+- le "204678" représente la taille du fichier en octet  
+- "Mar 21 22 :01" donne la date et l'heure de la dernière modification du fichier 
+- "2020-03-21-220103_792x600_scrot.png " est le nom du fichier 
 
-```python
-distance = [23, 40, 12, 44, 21, 9, 67, 32, 51, 30, 11, 55, 24, 64, 32, 57, 12, 80] 
-autonomie = 100 
+Sur la 4ème ligne : 
+
+- le premier symbole "d" signifie que l'on a un répertoire 
+- les 3 symboles suivants "rwx" donnent les droits du propriétaire du répertoire : lecture du contenu du répertoire autorisée (r), modification du contenu du répertoire autorisée (w), il est possible de parcourir le répertoire (voir le contenu) (x) 
+- les 3 symboles suivants "r-x" donnent les droits du groupe lié au répertoire : modification du contenu du répertoire interdite (- à la place de w) 
+- les 3 symboles suivants "r-x" donnent les droits des autres utilisateurs : modification du contenu du répertoire interdite (- à la place de w)  
+- le caractère suivant "2" donne le nombre de liens  
+- le premier "pi" représente le nom du propriétaire du répertoire 
+- le second "pi" représente le nom du groupe lié au répertoire 
+- le "4096" représente la taille du répertoire en octets 
+- "Desktop" est le nom du répertoire 
+
+L’utilisateur "root" a la possibilité de modifier les droits de tous les utilisateurs. 
+
+Le propriétaire d'un fichier peut modifier les permissions d'un fichier ou d'un répertoire à l'aide de la commande "chmod". Pour utiliser cette commande, il est nécessaire de connaitre certains symboles : 
+
+De cette façon, on va choisir : 
+```
+- À qui s'applique le changement 
+  - u (user, utilisateur) représente la catégorie "propriétaire" ; 
+  - g (group, groupe) représente la catégorie "groupe propriétaire" ; 
+  - o (others, autres) représente la catégorie "reste du monde" ; 
+  - a (all, tous) représente l'ensemble des trois catégories. 
+- La modification que l'on veut faire 
+  - + : ajouter 
+  - - : supprimer 
+  - = : affectation 
+- Le droit que l'on veut modifier 
+  - r : read ⇒ lecture 
+  - w : write ⇒ écriture 
+  - x : execute exécution 
 ```
 
-★★★ **<H3 STYLE="COLOR:RED;">le cambrioleur**</h3> 
+La commande "chmod" à cette forme : 
 
-Un cambrioleur entre par effraction dans une maison. Il n'est capable de porter qu’une masse limitée : il lui faudra donc choisir entre les différents objets de valeur, afin d'amasser le plus gros magot possible. 
+```chmod [u g o a] [+ - =] [r w x] nom_du_fichier``` 
 
-1 Écrire un algorithme qui donne un choix optimal pour le voleur. 
+Par exemple  
 
-**Aide** : 
+```chmod o+w toto.txt``` 
 
-- Pour amasser le plus gros butin, il suffit de considérer le rapport prix/masse. A chaque fois, on en prend le rapport maximal. 
-- il faut rajouter ce critère à la liste [prix, poids] et la trier sur ce critère par ordre décroissant. 
+attribuera la permission "écriture" pour le fichier "toto.txt" "aux autres utilisateurs".  
 
-2 Montrer que cet algorithme termine.
+Il est possible de combiner les symboles :  
 
-3 Programmez une fonction remplir dont le prototype est le suivant : 
-```voleur(articles : list, masse : int) -> list```
+```chmod g-wx toto.txt```
 
-- ```articles``` -- liste des articles (masse, valeur)  
+La commande "chmod" ci-dessus permet de supprimer la permission "écriture" et la permission "exécution" pour le fichier "toto.txt" "au groupe lié au fichier" 
 
-- ```masse``` -- masse maximale
+En[ octal,](https://fr.wikipedia.org/wiki/Systeme_octal) chaque « groupement » de droits (pour user, group et other) sera représenté par un chiffre et à chaque droit correspond une valeur : 
+- r (read) = 4 
+- w (write) = 2 
+- x (execute) = 1 
 
-- la fonction retourne la liste des articles : liste de tuple(masse, valeur)
+Par exemple, 
 
-- Le programme ou la fonction précédente retournera aussi** la masse totale **et** la valeur totale 
+- Pour **rwx**, on aura : 4+2+1 = 7 
+- Pour **rw-**, on aura : 4+2+0 = 6 
+- Pour **r--**, on aura : 4+0+0 = 4 
 
-4 Documenter la fonction 
+Ce qui permet de faire toutes les combinaisons : 
 
-On dispose d’une liste d’objets de masses ```m = [9, 10, 12, 14, 11, 5, 7, 5, 6, 2]``` ainsi que de leurs valeurs associées ```v = [10, 8, 7, 7, 5, 4, 3, 2, 2, 1]```.
+|0  |1  |2  |3  |4  |5  |6  |7 |
+|-|-|-|-|-|-|-|-|
+|**- - -** |**- - x** |**- w –** |**- w x** |**r - -** |**r - x** |**r w –** |**r w x** | 
+|aucun droit |exécution |écriture  |écriture et exécution |lecture seule |lecture et exécution |lecture et écriture |lecture  écriture exécution | 
 
-5 Tester le programme pour une masse maximale de 22 kg. Conclure. 
+Une fois de plus, "root" a tous les droits sur l'ensemble des fichiers et des répertoires, il peut donc utiliser la commande "chmod" sur tous les répertoires et tous les fichiers. 
 
-## <H2 STYLE="COLOR:BLUE;"> **3.  Problème : TSP - Le voyageur de commerce<a name="_page9_x51.00_y32.00"></a>**</H2> 
+**<H3 STYLE="COLOR:red;">Activité n°9.</H3>**: analyser l’enchainement de commandes suivantes : 
 
-Le problème du voyageur de commerce - *Traveling Salesman Problem* TSP -, étudié depuis le 19e siècle, est l’un des plus connus dans le domaine de la recherche opérationnelle. William Rowan Hamilton a posé pour la première fois ce problème sous forme de jeu dès 1859.
+![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.087.jpeg)
 
-**Problème**  
-![](Aspose.Words.35e5d16a-adab-4fc0-8fbe-75d584bf8d1c.028.jpeg)
+**<H3 STYLE="COLOR:red;">Activité n°10.</H3>**: Conversion en octal : donner les droits de la commande suivante 
 
-Le problème du TSP sous sa forme la plus classique est  le suivant : « Un voyageur de commerce doit visiter une  et une seule fois un nombre fini de villes et revenir à son  point d’origine. **Comment trouver l’ordre de visite des  villes qui minimise la distance totale parcourue par le  voyageur. ? »** 
+```chmod 750 Template```
 
-Ce problème d’optimisation combinatoire appartient à la  classe des problèmes NP-Complets. 
+**<H3 STYLE="COLOR:red;">Activité n°11.</H3>**: gestion des droits : Dans le répertoire utilisateur ‘~’, les droits du dossier rep1 sont par défaut 
+à 755 (rwxr-xr-x). Compléter les tableaux avec les commandes (en notation symbolique et en base 8) pour lui donner les droits suivants (on suppose qu'après chaque commande on remet le répertoire à 755) : 
 
-Les domaines d’application sont nombreux : problèmes  de logistique, de transport aussi bien de marchandises  que  de  personnes,  et plus largement  toutes  sortes  de  problèmes d’ordonnancement.  Certains  problèmes rencontrés dans l’industrie se modélisent sous la forme  d’un  problème  de  voyageur  de  commerce, comme  l’optimisation  de  trajectoires  de  machines outils  :  comment  percer  plusieurs  points  sur  une carte  électronique le plus vite possible ? 
+|**Par défaut** |![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.088.png)|
+| - | - |
+|**Commande 1** |![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.089.png)|
+|**Commande 2** |![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.090.png)|
+|**Commande 3**
 
-**<H3 STYLE="COLOR:RED;">Exercice 1 :**</H3> 
+ |![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.091.png)|
+|**Commande 4** |![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.092.png)|
 
-1- Pour un ensemble de 4 villes, combien existe t-il de chemins différents possibles ?  
+||***Propriétaire(u)*** |***Groupe(g)*** |***Autres(o)*** |||||||
+| :- | - | - | - | :- | :- | :- | :- | :- | :- |
+||Lecture |Écriture |Accès |Lecture |Écriture |Accès |Lecture |Écriture |Accès |
+|**défaut** |oui |oui |oui |oui |non |oui |oui |non |oui |
+|**Commande 1** ||||||||||
+|**Commande 2** ||||||||||
+|**Commande 3** ||||||||||
+|**Commande 4** ||||||||||
 
-2- Pour un ensemble de 5 villes, combien existe t-il de chemins possibles ?
+||**Notation symbolique (relatif)** |**Notation en base 8 (absolu)** |
+| :- | - | - |
+|**Commande 1** |chmod u-x,o-r rep1 |chmod 651 rep1 |
+|**Commande 2** |||
+|**Commande 3** |||
+|**Commande 4** |||
 
-3- Pour un ensemble de 71 villes, combien existe t-il de chemins différents possibles ?
+## <H2 STYLE="COLOR:BLUE;">**4. Les commandes de base**</H2>
 
-4- Sachant que mon ordinateur est capable de traiter 10 000 000 de trajets par seconde, en combien de temps aura t-il traité le problème des 71 villes ? 
+cat     Lit (concatène) un ou plusieurs fichier(s), affichage sur la sortie standard 
 
-**L'objectif de ce TP est de réaliser un algorithme glouton pour résoudre le TSP** en considérons les villes nommées succinctement A, B, C, D, E, F et G dont ont connaît les coordonnées géographiques (longitude, latitude) :
+cd      ChangeDirectory, change de répertoire 
 
-**A ( 0 ; 0 )  B ( 7 ; 3 )  C ( 3 ; 1 )  D ( 2 ; 4 )  E ( 4 ; 6 )  F ( 3 ; 2 )  G ( 5 ; 0 )**
+chmod  CHangeMODe - change le mode d'accès (permissions d'accès) d'un ou plusieurs fichier(s) 
 
-**<H3 STYLE="COLOR:RED;">Exercice 2  :**</H3> Sur la première "carte" à votre disposition, **en partant de la ville F (que vous entourerez)**, tracer l'itinéraire (boucle) **qui vous semble optimal pour minimiser la distance à parcourir**.
+chown  CHangeOWNer - change le propriétaire d'un ou de plusieurs fichier(s) 
 
-**<H3 STYLE="COLOR:RED;">Exercice 3 :**</H3> Ecrire en une phrase **la méthode gloutonne** qui détermine le choix (qui vous semble optimale) de votre prochaine étape.
+cp      copier des fichiers 
 
-**<H3 STYLE="COLOR:RED;">Exercice 4 :**</H3> sur chacune des autres "cartes" à votre disposition, **en partant d'une autre ville (que vous entourerez)**, tracer l'itinéraire (boucle) déterminée par la méthode gloutonne précédente.![](Aspose.Words.35e5d16a-adab-4fc0-8fbe-75d584bf8d1c.009.png)
+crontab	planification de tâches
 
-**<H3 STYLE="COLOR:RED;">Exercice 5 :**</H3>Quels sont les itinéraires qui paraissent bien "longs" et que l’on peut éliminer ?
+cut    	Retire des parties précises de texte dans chaque ligne d'un fichier
 
-Visuellement, à l'aide de la carte, vous arrivez assez facilement à distinguer quelle est la ville la plus proche de votre étape, mais un ordinateur n'a pas accès à cette "vision d'ensemble"! Pour chaque étape, il doit calculer la distance qui sépare la position actuelle de chacune des autres villes à partir de leur coordonnées.
+date  	Affiche la date selon le format demandé
 
-**A vous de vous mettre dans "la peau d'un ordinateur" en CACHANT les cartes.**
+dd    	DevicetoDevice - Recopie octet par octet tout ou partie du contenu d'un périphérique (habituellement de stockage) vers un autre péripherique.
 
-**<H3 STYLE="COLOR:RED;">Exercice 6 :**</H3>
+df    	affichage de la quantité d'espace libre disponible sur tous les systèmes de fichiers
 
-Compléter le *distancier* ci-dessous en utilisant les coordonnées des villes :
+du    	DiksUsage - l'utilisation de disque
 
-**A ( 0 ; 0 )  B ( 7 ; 3 )  C ( 3 ; 1 )  D ( 2 ; 4 )  E ( 4 ; 6 )  F ( 3 ; 2 )  G ( 5 ; 0 )![](Aspose.Words.35e5d16a-adab-4fc0-8fbe-75d584bf8d1c.009.png)**
+echo  	Affiche du texte sur la sortie standard (à l'écran)
 
-<table>
-  <tr>
-    <td></td>
-    <td>A</td>
-    <td>B</td>
-    <td>C</td>
-    <td>D</td>
-    <td>E</td>
-    <td>F</td>
-    <td>G</td>
-  </tr>
-  <tr>
-    <td>A</td>
-    <td>0</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>B</td>
-    <td></td>
-    <td>0</td>
-    <td></td>
-    <td>√26</td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>C</td>
-    <td></td>
-    <td></td>
-    <td>0</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>D</td>
-    <td></td>
-    <td>√26</td>
-    <td></td>
-    <td>0</td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>E</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td>0</td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>F</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td>0</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>G</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td>0</td>
-  </tr>
-</table>
+exit  	arrête l'exécution du shell
 
+find  	recherche de fichiers
 
-Exemple : détermination de la distance BD ou DB: B ( 7 ; 3 )	D ( 2 ; 4 )
+fsck  	FileSystemChecK - vérification d'intégralité de système de fichiers
 
-D'après le théorème de Pythagore : 
-```
-BD² = (xB-xD)² + (yB – yD)²
-    = (7-2)²+(3-4)²
-    = 5² + 1² 
-    = 25 + 1 
-    = 26
-```
+grep  	recherche dans un ou plusieurs fichiers les lignes qui correspondent à un motif. Exemple : grep -n montexte monfichier Retourne toutes les lignes ainsi que leur numéro où montexte apparait dans monfichier
 
-Avec un petit peu d'organisation, on pourrait se répartir le travail…
+groupadd	Ajouter un groupe d'utilisateurs
 
-**Uniquement en utilisant ce distancier (SANS REGARDER les "cartes"), déterminer :** 
+gunzip	décompression de fichiers
 
-Itinéraire glouton en partant de A : Longueur de l'itinéraire en partant de A :
+gzip  	compression de fichiers
 
-Itinéraire glouton en partant de B : Longueur de l'itinéraire en partant de B :
+head  	affiche les premières lignes (par défaut 10) d'un fichier
 
-Itinéraire glouton en partant de C : Longueur de l'itinéraire en partant de C : 
+help  	affiche une aide sur les commandes internes de bash
 
-Itinéraire glouton en partant de D : Longueur de l'itinéraire en partant de D :
+kill  	envoyer un signal à un processus
 
-Itinéraire glouton en partant de E : Longueur de l'itinéraire en partant de E :
+less  	programme d'affichage à l'écran
 
-Itinéraire glouton en partant de F : Longueur de l'itinéraire en partant de F :
+ln    	création de liens
 
-Itinéraire glouton en partant de G : Longueur de l'itinéraire en partant de G :
+ls    	liste le contenu des répertoires
 
-**Pour le plus court itinéraire glouton : il faut partir de …**
+man   	affiche les pages de manuel. On peut même l'utiliser avec elle-même (man man)
 
-**Longueur de ce plus court itinéraire :**
+mkdir	MaKeDIRectory - crée un répertoire
 
- 
+mkfs  	MaKeFileSystem - création de systèmes de fichiers
 
-![](Aspose.Words.35e5d16a-adab-4fc0-8fbe-75d584bf8d1c.033.png) ![](Aspose.Words.35e5d16a-adab-4fc0-8fbe-75d584bf8d1c.033.png)
+more  	programme d'affichage à l'écran
 
-![](Aspose.Words.35e5d16a-adab-4fc0-8fbe-75d584bf8d1c.033.png) ![](Aspose.Words.35e5d16a-adab-4fc0-8fbe-75d584bf8d1c.033.png)
+mount	monter un système de fichiers
 
-![](Aspose.Words.35e5d16a-adab-4fc0-8fbe-75d584bf8d1c.033.png) ![](Aspose.Words.35e5d16a-adab-4fc0-8fbe-75d584bf8d1c.033.png)
+mv    	déplacer, renommer un fichier
 
-![](Aspose.Words.35e5d16a-adab-4fc0-8fbe-75d584bf8d1c.033.png) ![](Aspose.Words.35e5d16a-adab-4fc0-8fbe-75d584bf8d1c.033.png)
+ps    	affiche les processus en cours d'exécution
 
-**Maintenant c’est à vous de compléter le fichier sur capytale**  
+pwd   	Print name of current/working directory - affiche le chemin complet du repertoire courant
 
+rm    	suppression de fichiers
 
+rmdir	Remove empty directories - suppression d'un dossier vide
 
+tail  	affiche les 10 dernières lignes d'un fichier
 
-[^1]: c'est-à-dire un problème complet pour la classe NP (non déterministe polynomial) 
-[^2]: avant sa réforme en 1971
+tar   	création d'archives
 
+touch	Créer un objet
+
+su    	Substitute User identity ou Switch User - prendre l'identité d'un utilisateur
+
+uname	Affiche des informations sur le système.
+
+unzip	Récupérer les fichiers zippés
+
+useradd	ajouter un utilisateur
+
+whereis	localiser une commande
+
+Pour aller plus loin sur Linux :[ https://openclassrooms.com/fr/courses/43538-reprenez-le-controle-a-laide-de-linux](https://openclassrooms.com/fr/courses/43538-reprenez-le-controle-a-laide-de-linux)![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.008.png)
+
+## <H2 STYLE="COLOR:BLUE;">**5. Exercices<a name="_page10_x40.00_y36.92"></a>**</H2>
+
+**<H3 STYLE="COLOR:red;">Exercice n° 1 : Terminus</H3>**
+
+Dans ce TP vous allez appliquer un certain nombre de commandes UNIX, utilisable dans le Shell (ou encore dans un terminal) en jouant à un jeu en ligne : TERMINUS.  
+
+Vous  trouverez  ce  jeu  à  l’url  suivante  : 
+
+[http://luffah.xyz/bidules/Terminus/ ](http://luffah.xyz/bidules/Terminus/)
+
+Cette barre d’outils présente en bas du jeu : ![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.095.png)   est très utile.  
+
+**Remarques :**  
+
+Pour obtenir le caractère À : ctrl Alt 7 puis Maj A  
+
+Pour obtenir le caractère É : Alt maintenu avec 0201 puis relâcher la touche  
+
+Vous devrez quasiment à chaque étape utiliser les commandes ls et cat.  
+
+La commande touch est utilisée pour « créer » un objet (et pas le « toucher », comme une mauvaise traduction le dit dans le jeu) 
+
+**Il faut absolument tout lire pour ne pas manquer d’informations (cat)** Avant de commencer :  
+
+- Lire  : [ https://www.alsacreations.com/astuce/lire/78-Quelle-est-la-difference-entre-les-chemins-relatifs- et-absolus-.html ](https://www.alsacreations.com/astuce/lire/78-Quelle-est-la-difference-entre-les-chemins-relatifs-et-absolus-.html)
+- **Remarque :  ./ est facultatif**
+- [https://www1.zonewebmaster.eu/serveur-debian-general/les-jokers-utilisation ](https://www1.zonewebmaster.eu/serveur-debian-general/les-jokers-utilisation)
+
+Ceci pourra vous aider à gagner beaucoup de temps à la fin du jeu, quand vous chercherez le « password » 
+
+**Quelques indices**  
+
+- Vous trouverez dans la suite le plan du jeu, cela peut vous aider (document de Charles Poulmaire). Je donne aussi quelques indications qui permettent de ne pas perdre trop de temps. 
+- Toujours commencer par ls. Vous verrez le rôle de cette commande. Il est préférable d’interagir et de parler, avant de se déplacer. 
+- Depuis la maison, commencer par aller dans le Bois des lutins, avant d’aller dans la prairie. 
+
+![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.097.jpeg)
+
+![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.098.jpeg)
+
+![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.100.jpeg)
+
+![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.099.jpeg)
+
+![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.101.png)
+
+![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.102.jpeg)
+
+![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.103.jpeg)
+
+![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.104.jpeg)
+
+**Liste des commandes du jeu TERMINUS **
+
+![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.105.jpeg)
+![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.106.jpeg)
