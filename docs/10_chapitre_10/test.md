@@ -15,9 +15,9 @@ title: 10 Les systèmes d’exploitation
 ## <H2 STYLE="COLOR:BLUE;">**1. Les<a name="_page0_x40.00_y421.92"></a> systèmes d’exploitation**</H2>
 ### <H3 STYLE="COLOR:GREEN;">**1.1. Historique<a name="_page0_x40.00_y449.92"></a> des systèmes d’exploitation**</H3>
 
-**<H3 STYLE="COLOR:red;">Activité n°1.</H3>**: Visualiser la video suivante : **VIDEO** : Histoire des systèmes d’exploitation 
+**<H3 STYLE="COLOR:red;">Activité n°1.:</H3>** Visualiser la video suivante : **VIDEO** : Histoire des systèmes d’exploitation [https://ladigitale.dev/digiview/#/v/669b7d43efb95](https://ladigitale.dev/digiview/#/v/669b7d43efb95)
 
-**<H3 STYLE="COLOR:red;">Activité n°2.</H3>**: Visualiser la video suivante : **VIDEO** : Comprendre ce qu’est un système d’exploitation 
+**<H3 STYLE="COLOR:red;">Activité n°2.:</H3>** Visualiser la video suivante : **VIDEO** : Comprendre ce qu’est un système d’exploitation [https://ladigitale.dev/digiview/#/v/669b8058569c3](https://ladigitale.dev/digiview/#/v/669b8058569c3)
 
 Microsoft a été créée par **Bill Gates et Paul Allen en 1975**. Windows est un système d'exploitation "**propriétaire**", la première version de Windows date 1983, mais à cette date Windows n'est qu'un ajout sur un autre système d'exploitation nommé **MS-DOS.**  
 
@@ -25,19 +25,19 @@ Aujourd'hui Windows reste le système d'exploitation **le plus utilisé au monde
 
 ### <H3 STYLE="COLOR:GREEN;">**1.2. Le<a name="_page0_x40.00_y600.92"></a> libre et l’open source**</H3>
 
-**<H3 STYLE="COLOR:red;">Activité n°3.</H3>**: Visualiser la video suivante : **VIDEO** : Libre et open source 
+**<H3 STYLE="COLOR:red;">Activité n°3.:</H3>** Visualiser la video suivante : **VIDEO** : Libre et open source [https://ladigitale.dev/digiview/#/v/669b821ab4d41](https://ladigitale.dev/digiview/#/v/669b821ab4d41)
 
 Un logiciel libre est un logiciel dont **l'utilisation, l'étude, la modification et la duplication** par autrui en vue de **sa diffusion** sont **permises,** techniquement et légalement, ceci afin de garantir certaines libertés induites, dont le contrôle du programme par l'utilisateur et la possibilité de partage entre individus". 
 
 ### <H3 STYLE="COLOR:GREEN;">**1.3. UNIX<a name="_page0_x40.00_y725.92"></a>**</H3>
 
-**<H3 STYLE="COLOR:red;">Activité n°4.</H3>**: Visualiser la video suivante : **VIDEO** : Unix 
+**<H3 STYLE="COLOR:red;">Activité n°4.:</H3>** Visualiser la video suivante : **VIDEO** : Unix [https://ladigitale.dev/digiview/#/v/669beef2e5737](https://ladigitale.dev/digiview/#/v/669beef2e5737)
 
 Le système UNIX est un système dit "**propriétaire**" (certaines personnes disent "privateur"), c'est-à-dire un système **non libre.**
 
 ### <H3 STYLE="COLOR:GREEN;">**1.4. Linux<a name="_page1_x40.00_y36.92"></a>**</H3>
 
-**<H3 STYLE="COLOR:red;">Activité n°5.</H3>**: Visualiser la video suivante :  **VIDEO** : Linux 
+**<H3 STYLE="COLOR:red;">Activité n°5.:</H3>** Visualiser la video suivante :  **VIDEO** : Linux [https://ladigitale.dev/digiview/#/v/669beff7c88ee](https://ladigitale.dev/digiview/#/v/669beff7c88ee)
 
 En fait Linux est avant tout **un noyau de système**, c’est pour ça qu’on parle d’ailleurs de “Linux kernel” (Kernel veut dire noyau en français). Le noyau d'un système est **l'ensemble des programmes** (développé essentiellement en langage C pour Linux) qui permettent de **démarrer** la machine, **d'assurer la liaison avec le matériel** (souris, carte graphique , carte réseau,...) et de **permettre l'exécution des logiciels**. 
 
@@ -97,9 +97,7 @@ Beaucoup de solutions sont données en ligne de commande, car l'utilisation de l
 
 Le mot ***prompt*** fait référence à l’invite de commande  affichée dans un terminal Linux. Par exemple raspbian  :
 
-![](Aspose.Words.4630a434-9278-4262-8878-c
-
-d9ee4c8cc3e.021.jpeg)
+![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.021.jpeg)
 
    
 
@@ -151,12 +149,16 @@ Il est tout à fait possible de remonter de plusieurs "crans" : "../../" .
 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
-**<H3 STYLE="COLOR:red;">Activité n°6.</H3>**: Chemin absolu : en utilisant, l’arborescence précédente déterminer le chemin absolu permettant d’accéder au fichier : 
+**<H3 STYLE="COLOR:red;">Activité n°6.:</H3>** Chemin absolu : en utilisant, l’arborescence précédente déterminer le chemin absolu permettant d’accéder au fichier :
+
 -  "cat" 
+
 -  "rapport.odt" 
 
-**<H3 STYLE="COLOR:red;">Activité n°7.</H3>**: Chemin relatif : en utilisant, l’arborescence précédente déterminer le chemin relatif permettant d’accéder au fichier : 
+**<H3 STYLE="COLOR:red;">Activité n°7.:</H3>** Chemin relatif : en utilisant, l’arborescence précédente déterminer le chemin relatif permettant d’accéder au fichier : 
+
 -  "rapport.odt" depuis le répertoire "elsa" 
+
 -  "fiche.ods" depuis le répertoire "boulot" 
 
 Les systèmes de type « UNIX » sont des systèmes « **multi-utilisateurs** » : chaque utilisateur possède son propre compte. Ces répertoires personnels se situent traditionnellement dans le répertoire ‘home’. Dans l’arborescence précédente il y a 2 utilisateurs : « max » et « elsa ».  
@@ -185,7 +187,7 @@ Autres commandes à connaitre :
 
 La commande **ls** permet de lister le contenu du répertoire courant. 
 
-**<H3 STYLE="COLOR:red;">Activité n°8.</H3>**: Faire l’exercice 1 
+**<H3 STYLE="COLOR:red;">Activité n°8.:</H3>** Faire l’exercice 1 
 
 ### <H3 STYLE="COLOR:GREEN;">**2.8. La<a name="_page4_x40.00_y695.92"></a> commande mkdir**</H3>
 
@@ -206,9 +208,7 @@ La  commande  "touch"  permet  de  créer  un  fichier  vide.  La  commande  est
 
 ### <H3 STYLE="COLOR:GREEN;">**2.11. La<a name="_page5_x40.00_y367.92"></a> commande cp**</H3>
 
-La  commande  "cp"  permet  de  copier  un  fichier.  La  commande  est  de  la  forme "cp/répertoire_source/nom_fichier_à_copier /répertoire_destination/
-
-nom_fichier"  
+La  commande  "cp"  permet  de  copier  un  fichier.  La  commande  est  de  la  forme "cp/répertoire_source/nom_fichier_à_copier /répertoire_destination/nom_fichier"  
 
 À noter : le nom du fichier "destination" n'est pas obligatoirement le même que le nom du fichier "source" (on peut avoir "cp fic.txt info/fiche.txt") 
 
@@ -320,27 +320,25 @@ Ce qui permet de faire toutes les combinaisons :
 
 Une fois de plus, "root" a tous les droits sur l'ensemble des fichiers et des répertoires, il peut donc utiliser la commande "chmod" sur tous les répertoires et tous les fichiers. 
 
-**<H3 STYLE="COLOR:red;">Activité n°9.</H3>**: analyser l’enchainement de commandes suivantes : 
+**<H3 STYLE="COLOR:red;">Activité n°9.:</H3>** analyser l’enchainement de commandes suivantes : 
 
 ![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.087.jpeg)
 
-**<H3 STYLE="COLOR:red;">Activité n°10.</H3>**: Conversion en octal : donner les droits de la commande suivante 
+**<H3 STYLE="COLOR:red;">Activité n°10.:</H3>** Conversion en octal : donner les droits de la commande suivante 
 
 ```chmod 750 Template```
 
-**<H3 STYLE="COLOR:red;">Activité n°11.</H3>**: gestion des droits : Dans le répertoire utilisateur ‘~’, les droits du dossier rep1 sont par défaut 
+**<H3 STYLE="COLOR:red;">Activité n°11.:</H3>** gestion des droits : Dans le répertoire utilisateur ‘~’, les droits du dossier rep1 sont par défaut 
 à 755 (rwxr-xr-x). Compléter les tableaux avec les commandes (en notation symbolique et en base 8) pour lui donner les droits suivants (on suppose qu'après chaque commande on remet le répertoire à 755) : 
 
 |**Par défaut** |![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.088.png)|
 | - | - |
 |**Commande 1** |![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.089.png)|
 |**Commande 2** |![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.090.png)|
-|**Commande 3**
-
- |![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.091.png)|
+|**Commande 3** |![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.091.png)|
 |**Commande 4** |![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.092.png)|
 
-||***Propriétaire(u)*** |***Groupe(g)*** |***Autres(o)*** |||||||
+|||***Propriétaire(u)*** |||***Groupe(g)*** |||***Autres(o)*** ||
 | :- | - | - | - | :- | :- | :- | :- | :- | :- |
 ||Lecture |Écriture |Accès |Lecture |Écriture |Accès |Lecture |Écriture |Accès |
 |**défaut** |oui |oui |oui |oui |non |oui |oui |non |oui |
