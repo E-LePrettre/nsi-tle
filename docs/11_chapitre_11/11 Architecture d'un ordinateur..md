@@ -17,7 +17,7 @@ Video 1 :[ https://www.dailymotion.com/video/xhleks ](https://www.dailymotion.co
 
 ## **1. Historique<a name="_page0_x40.00_y403.92"></a> de l’informatique** 
 
-Video 2 :[ https://www.youtube.com/watch?v=7TrsMU5DukE ](https://www.youtube.com/watch?v=7TrsMU5DukE)
+Video 2 :[ https://ladigitale.dev/digiview/#/v/669d6e5b4ed67 ](https://ladigitale.dev/digiview/#/v/669d6e5b4ed67)
 
 ### **1.1. Les<a name="_page0_x40.00_y459.92"></a> machines à programmes externes** 
 - **Machines électromécaniques** 

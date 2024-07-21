@@ -1,465 +1,452 @@
 ---
 author: ELP
-title: 10 Les systèmes d’exploitation
+title: 11 Architecture de l’ordinateur
 ---
 
-**Table des matières** 
+**Table des matières**
 
-1. [Les systèmes d’exploitation](#_page0_x40.00_y421.92)
-2. [Premiers pas ](#_page2_x40.00_y222.92)
-3. [Gestion des utilisateurs et des groupes](#_page5_x40.00_y526.92)
-4. [Les commandes de base](#_page8_x40.00_y727.92)
-5. [Exercices](#_page10_x40.00_y36.92)
+1. [**Historique de l’informatique**](#_page0_x40.00_y403.92)
+2. [**Les différents types de mémoires**](#_page3_x40.00_y539.92)
+3. [**Architecture de Von Neumann**](#_page4_x40.00_y536.92)
+4. [**Langage assembleur**](#_page8_x40.00_y390.92)
+5. [**Simulation CPU**](#_page11_x40.00_y36.92)
 
+Video 1 :[ https://www.dailymotion.com/video/xhleks ](https://www.dailymotion.com/video/xhleks)
 
-## <H2 STYLE="COLOR:BLUE;">**1. Les<a name="_page0_x40.00_y421.92"></a> systèmes d’exploitation**</H2>
-### <H3 STYLE="COLOR:GREEN;">**1.1. Historique<a name="_page0_x40.00_y449.92"></a> des systèmes d’exploitation**</H3>
+<H2 STYLE="COLOR:BLUE;">## **1. Historique<a name="_page0_x40.00_y403.92"></a> de l’informatique** </H2>
 
-**<H3 STYLE="COLOR:red;">Activité n°1.:</H3>** Visualiser la video suivante : **VIDEO** : Histoire des systèmes d’exploitation [https://ladigitale.dev/digiview/#/v/669b7d43efb95](https://ladigitale.dev/digiview/#/v/669b7d43efb95)
+Video 2 :[ https://ladigitale.dev/digiview/#/v/669d6e5b4ed67 ](https://ladigitale.dev/digiview/#/v/669d6e5b4ed67)
 
-**<H3 STYLE="COLOR:red;">Activité n°2.:</H3>** Visualiser la video suivante : **VIDEO** : Comprendre ce qu’est un système d’exploitation [https://ladigitale.dev/digiview/#/v/669b8058569c3](https://ladigitale.dev/digiview/#/v/669b8058569c3)
+<H3 STYLE="COLOR:GREEN;">### **1.1. Les<a name="_page0_x40.00_y459.92"></a> machines à programmes externes** </H3>
+- **Machines électromécaniques**
 
-Microsoft a été créée par **Bill Gates et Paul Allen en 1975**. Windows est un système d'exploitation "**propriétaire**", la première version de Windows date 1983, mais à cette date Windows n'est qu'un ajout sur un autre système d'exploitation nommé **MS-DOS.**  
+L’allemand **Konrad ZUSE** achève le **Z1** en 1938, un ordinateur mécanique utilisant le système binaire, puis le **Z3** en 1941, premier ordinateur complètement automatique lisant son programme sur une bande perforée. Le Z3 utilisait déjà le calcul en virgule flottante et réalisait 3 à 4 additions par seconde.
 
-Aujourd'hui Windows reste le système d'exploitation **le plus utilisé au monde** sur les ordinateurs grand public.  Tous les ordinateurs d'Apple sont livrés avec le système d'exploitation **macOS**. Ce système macOS est un système d'exploitation **UNIX**, c'est donc un système d'exploitation **propriétaire**. 
+**Réplique du Zuse Z3 au Deutsches Museum de Munich.**
+![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.002.png)
 
-### <H3 STYLE="COLOR:GREEN;">**1.2. Le<a name="_page0_x40.00_y600.92"></a> libre et l’open source**</H3>
+Peu après aux Etats-Unis, **Howard H. AIKEN** construit l’ordinateur électromécanique **MARK I** (1944). Le MARK I pesait environ 5 tonnes et était composé de plus de 750 000 pièces !
 
-**<H3 STYLE="COLOR:red;">Activité n°3.:</H3>** Visualiser la video suivante : **VIDEO** : Libre et open source [https://ladigitale.dev/digiview/#/v/669b821ab4d41](https://ladigitale.dev/digiview/#/v/669b821ab4d41)
+**L’ordinateur MARK inauguré à Harvard le 7 août 1944 mesurait 16m de long, 2,40m de haut, 0,5 m de profondeur et pesait 4,5 tonnes.**
 
-Un logiciel libre est un logiciel dont **l'utilisation, l'étude, la modification et la duplication** par autrui en vue de **sa diffusion** sont **permises,** techniquement et légalement, ceci afin de garantir certaines libertés induites, dont le contrôle du programme par l'utilisateur et la possibilité de partage entre individus". 
+![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.001.png)
+Source : espace-turing.fr
 
-### <H3 STYLE="COLOR:GREEN;">**1.3. UNIX<a name="_page0_x40.00_y725.92"></a>**</H3>
+Le **Mark I** lisait ses instructions sur des cartes perforées et exécutait l’instruction courante puis lisait la suivante.
 
-**<H3 STYLE="COLOR:red;">Activité n°4.:</H3>** Visualiser la video suivante : **VIDEO** : Unix [https://ladigitale.dev/digiview/#/v/669beef2e5737](https://ladigitale.dev/digiview/#/v/669beef2e5737)
+![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.003.png)
+Source : Wikipédia
 
-Le système UNIX est un système dit "**propriétaire**" (certaines personnes disent "privateur"), c'est-à-dire un système **non libre.**
+- **Machines électroniques**
 
-### <H3 STYLE="COLOR:GREEN;">**1.4. Linux<a name="_page1_x40.00_y36.92"></a>**</H3>
+L’apparition des **tubes à vide**, bien plus rapides que les relais des machines électromécaniques, marque le début de l’électronique moderne.
 
-**<H3 STYLE="COLOR:red;">Activité n°5.:</H3>** Visualiser la video suivante :  **VIDEO** : Linux [https://ladigitale.dev/digiview/#/v/669beff7c88ee](https://ladigitale.dev/digiview/#/v/669beff7c88ee)
+Entre 1943 et 1945 les Britanniques **Max NEWMAN** et **Tomy FLOWERS** mettent en service les **COLOSSUS** utilisés pour déchiffrer le code de LORENZ employé par les allemands durant la seconde guerre mondiale.
 
-En fait Linux est avant tout **un noyau de système**, c’est pour ça qu’on parle d’ailleurs de “Linux kernel” (Kernel veut dire noyau en français). Le noyau d'un système est **l'ensemble des programmes** (développé essentiellement en langage C pour Linux) qui permettent de **démarrer** la machine, **d'assurer la liaison avec le matériel** (souris, carte graphique , carte réseau,...) et de **permettre l'exécution des logiciels**. 
+Le célèbre **ENIAC** des Américains **John MAUCHLY** et **John ECKERT** est achevé en novembre 1945 et effectue des calculs balistiques à l’aide de 18 00 tubes à vide.
 
-En **1991**, l’étudiant finlandais **Linus Torvalds** qui a alors 22 ans, commence le développement d’un noyau de système d’exploitation qui va être une alternative à UNIX. Après quelques mois, il diffusa le code de son travail via un compte FTP de l’Université d’Helsinki. Et pour la petite anecdote le dossier contenant ces travaux a été nommé « Linux » par un administrateur du serveur FTP. Linux pour « Linus UNIX ». Linus publie par la suite ses travaux sur Internet en demandant à d’autres développeurs de l’aider pour le finaliser. Aujourd’hui Linus continue de diriger le développement du noyau Linux. 
+**L'ENIAC** (Electronic Numerical Integrator And Computer) : premier ordinateur entièrement électronique (1945).
 
-Concernant la mascotte officielle de Linux, il s’agit d’un manchot du nom de **TUX**. TUX étant un acronyme composé des mots Torvalds et UNIX. 
+Il peut être reprogrammé pour résoudre, en principe, tous les problèmes calculatoires.
 
-Linux est beaucoup plus présent dans le **monde des serveurs** que sur les postes de travail. Le noyau Linux équipe la plupart des **systèmes embarqués** (box, robots, aérospatial, drones…), mais aussi les **supercalculateurs.** Linux domine le marché des smartphones via l’OS Android qui s’appuie sur un noyau Linux. 
+![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.004.png)
+Source : Wikipédia
 
-### <H3 STYLE="COLOR:GREEN;">**1.5. Rôles<a name="_page1_x40.00_y333.92"></a> du système d’exploitation**</H3>
+<H3 STYLE="COLOR:GREEN;">### **1.2. Les<a name="_page1_x40.00_y480.92"></a> machines à programmes enregistrés** </H3>
 
-Un système d'exploitation représente **l'ensemble des programmes qui pilote les différents composants** (disque dur, écran, processeur, mémoire etc...) de l'appareil informatique et lui permet donc de fonctionner. Il permet donc de faire l'interface entre l'utilisateur et le matériel informatique. 
+- Basés sur les travaux de **MAUCHLY**, **ECKERT** et **VON NEUMANN**, les machines à programmes enregistrés sont les ancêtres directs des ordinateurs actuels. Dans ce type de machines, les données et les programmes résident en mémoire. Les premières machines de ce type apparaissent dès 1948 avec les ordinateurs britanniques BABY et EDSAC, suivis par leurs homologues américains **EDVAC** et **UNIVAC**.
+- Le début des années 1950 voient apparaître les premiers ordinateurs commerciaux et les modèles se succèdent avec comme principaux acteurs les constructeurs **IBM** (International Business Machines), **DEC** (Digital Equipment Corporation) et **BULL**.
 
-Il permet :  
+<H3 STYLE="COLOR:GREEN;">### **1.3. Du<a name="_page1_x40.00_y644.92"></a> micro-ordinateur à la micro-informatique** </H3>
+- **Miniaturisation et explosion du marché**
 
-- **Gestion du processeur:** le système d'exploitation est chargé de gérer l'allocation du processeur entre les différents programmes grâce à un algorithme d'ordonnancement. 
-- **Gestion de la mémoire vive:** le système d'exploitation est chargé de gérer l'espace mémoire alloué à chaque application 
-- **Gestion des entrées/sorties:** le système d'exploitation permet d'unifier et de contrôler l'accès des programmes aux ressources matérielles par l'intermédiaire des pilotes (appelés également gestionnaires de périphériques). 
-- **Gestion de l'exécution des applications:** le système d'exploitation est chargé de la bonne exécution des applications en leur affectant les ressources nécessaires à leur bon fonctionnement. 
-- **Gestion des droits:** le système d'exploitation est chargé de la sécurité liée à l'exécution des programmes en garantissant que les ressources ne sont utilisées que par les programmes et utilisateurs possédant les droits adéquats. 
-- **Gestion des fichiers:** le système d'exploitation gère la lecture et l'écriture dans le système de fichiers et les droits d'accès aux fichiers par les utilisateurs et les applications.
+Le **transistor** (1947) devient un produit industriel très fiable qu’on peut fabriquer à faible coût au milieu des années 1950. Son émergence technologique, marque la fin des tubes à vide.
 
-### <H3 STYLE="COLOR:GREEN;">**1.6. Composantes<a name="_page1_x40.00_y691.92"></a> d’un système d’exploitation**</H3>
+Le **circuit intégré** qui rassemble de nombreux composants miniaturisés sur une petite surface apparaît en 1958 et ne cessera de se perfectionner au fil du temps.
 
-Le système d'exploitation est composé d'un ensemble de logiciels permettant de gérer les interactions avec le matériel. 
+Durant plus de 10 ans, **IBM** et **DEC** dominent le marché alors que la science informatique encore naissante, permet de former dans les université des personnes qui se spécialisent dans l’utilisation et la programmation des ordinateurs. L’apparition du **microprocesseur** (INTEL 4004 en 1971) permet à de nouveaux acteurs d’apparaître et d’innover : l’informatique s’ouvre au grand public.
 
-Parmi cet ensemble de logiciels on distingue généralement les éléments suivants : 
+Une multitude de machines sont commercialisées : **l’ALTAIR 8800** premier ordinateur grand public, sans clavier ni écran, l’**APLLE II** (1977), l’**IBM PC** (1981), le **COMMODORE 64** (1982), le **APPLE MACINTOSH** (1984). Ce dernier est d’ailleurs le premier ordinateur personnel équipé d’une souris et d’une interface graphique.
 
-- **Le noyau (kernel)** 
+![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.005.png)
+ALTAIR 8800
 
-ce sont les fonctions fondamentales du système d'exploitation telles que la gestion de la mémoire, des processus, des fichiers, des entrées-sorties principales, et des fonctionnalités de communication. 
+![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.007.png)
+APLLE II
 
-- **L'interpréteur de commande (shell, traduisez «coquille» par opposition au noyau)** 
+![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.006.png)
+IBM PC
 
-il permet la communication avec le système d'exploitation par l'intermédiaire d'un langage de commandes, afin de permettre à l'utilisateur de piloter les périphériques en ignorant tout des caractéristiques du matériel qu'il utilise, de la gestion des adresses physiques, etc. 
+![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.008.png)
+COMMODORE 64
 
-- **Le système de fichiers (file system, noté FS)** 
+![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.009.png)
+APPLE MACINTOSH
 
-il permet d'enregistrer les fichiers dans une arborescence. 
+- **Langages et système d’exploitation**
 
-## <H2 STYLE="COLOR:BLUE;">**2. Premiers<a name="_page2_x40.00_y222.92"></a> pas**</H2>
-### <H3 STYLE="COLOR:GREEN;">**2.1. Qu’est<a name="_page2_x40.00_y245.92"></a> ce qu’un shell ?**</H3>
+Après la naissance des premiers compilateurs conçus Grace HOPPER à partir de 1951, **John BACKUS** achève l’élaboration du langage **FORTRAN** en 1956. Il est suivi par **LISP**, **COBOL** et enfin **BASIC** en 1964. Les grands principes des langages de programmation étant formulés, de nombreux langages voient le jour entre les années 1970 et 2000 : le **C** (1972), **ML** (1973) dont est issu **CAML**, **ADA** (1983) et APPLE **C++** en 1986. Le langage **PYTHON** verra le jour quant à lui en 1991 et JAVASCRIPT en 1995.
 
-Un shell est une **couche logicielle** qui fournit l'interface utilisateur d'un système d'exploitation.  
+Au milieu des années 1960, chaque constructeur développe son propre système d’exploitation : **OS 360** puis **MVS** chez **IBM**, le système **UNIX** (1970) chez AT&T…
 
-Il existe plusieurs environnements console : **les shells.**   
+En 1984 **Richard STALLMAN**, chercheur au MIT entame la création du système **GNU** (GNU’s Not Unix) et promeut le mouvement du logiciel libre.
 
-![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.020.png)
+Par la suite, c’est finalement **MS-DOS**, écrit par Microsoft pour IBM qui s’imposera sur les micro-ordinateurs grand public, suivi par Windows en 1985.
 
-La console a toujours un fond noir et un texte blanc. En revanche, les fonctionnalités offertes  par l'invite de commandes peuvent varier en fonction du shell que l'on utilise.  
+A l’heure actuelle on distingue trois grands types d’OS (Operating System) équipant les ordinateurs modernes : **WINDOWS**, **MAC OS** et **GNU LINUX** créé par **Linus TORVALDS** en 1991.
 
-Le **bash** est le shell par défaut. Cependant, **sh** reste toujours plus répandu que bash.  
+<H3 STYLE="COLOR:red;">### **Activité n°1.:** Répondre par Vrai ou faux Remarque : Certaines questions nécessitent une recherche internet. </H3>
+<table>
+<tr><th colspan="4" valign="top"><b>Activité n°1.:</b> Répondre par Vrai ou faux Remarque : Certaines questions nécessitent une recherche internet.</th></tr>
+<tr><td colspan="2" valign="top">Blaise
 
-Beaucoup de solutions sont données en ligne de commande, car l'utilisation de la ligne de  commande s'avère bien **plus pratique et plus puissante** que la souris. C'est donc un outil  indispensable à maîtriser pour tout administrateur système qui se respecte ;-)  
+ Pascal a mis au point le logiciel Turbo Pascal. </td><td colspan="2"></td></tr>
+<tr><td colspan="2" valign="top">George Boole était un spécialiste de la logique binaire. </td><td colspan="2"></td></tr>
+<tr><td colspan="2" valign="top">Alan Turing a travaillé sur l’intelligence artificielle. </td><td colspan="2"></td></tr>
+<tr><td colspan="2" valign="top">Alan Turing a cassé le code Enigma. </td><td colspan="2"></td></tr>
+<tr><td colspan="2" valign="top">L’ordinateur ENIAC était aussi petit qu’une boite à chaussure. </td><td colspan="2"></td></tr>
+<tr><td colspan="2" valign="top">John Von Neumann a conçu l’architecture de base de tous les ordinateurs actuels. </td><td colspan="2"></td></tr>
+<tr><td colspan="2" valign="top">L’invention du transistor a permis de miniaturiser les ordinateurs. </td><td colspan="2"></td></tr>
+<tr><td colspan="2" valign="top">Le premier micro-ordinateur est américain. </td><td colspan="2"></td></tr>
+<tr><td colspan="2" valign="top">Le processeur 8086 possède 1000000 de transistors </td><td colspan="2"></td></tr>
+<tr><td colspan="2" valign="top">Gary Kasparov est imbattable aux échecs. </td><td colspan="2"></td></tr>
+<tr><td colspan="2" valign="top">La loi de Moore est toujours valide en 2020 </td><td colspan="2"></td></tr>
+</table>
 
-### <H3 STYLE="COLOR:GREEN;">**2.2. Présentation<a name="_page2_x40.00_y485.92"></a>**</H3>
+<H3 STYLE="COLOR:red;">### **Activité n°2.:** Cocher la ou les bonnes réponses. Remarque : Certaines questions nécessitent une recherche internet. </H3>
+<table>
+<tr><th colspan="8" valign="top"><b>Activité n°2.:</b> Cocher la ou les bonnes réponses. Remarque : Certaines questions nécessitent une recherche internet.</th></tr>
+<tr><td colspan="8" valign="top">  </td></tr>
+<tr><td colspan="2" valign="top"><p>1. Le premier algorithme connu remonte... </p><p>- au XX siècle </p><p>- au XIX siècle </p><p>- au 1er siècle </p><p>- bien avant le 1er siècle </p></td><td colspan="2" valign="top"><p>2. Le mot algorithme vient du nom </p><p>- Al-Khwârizmi </p><p>- Grace Murray Hopper </p><p>- Steve Jobs </p><p>- Augusta Ada King </p></td><td colspan="2" valign="top"><p>3. Le 1er compilateur fut conçu par </p><p>- Al-Khwârizmi </p><p>- Grace Murray Hopper </p><p>- Steve Jobs </p><p>- Augusta Ada King </p></td><td colspan="2"></td><td colspan="3" rowspan="2" valign="top"></td></tr>
+<tr><td colspan="2" valign="top"><p>4. Le 1er programme fut écrit par </p><p>- Al-Khwârizmi </p><p>- Grace Murray Hopper </p><p>- Steve Jobs </p><p>- Augusta Ada King </p></td><td colspan="2" valign="top"><p>5. Le transistor fut inventé dans les années </p><p>- 1850 </p><p>- 1900 </p><p>- 1950 </p><p>- 2000 </p></td><td colspan="2" valign="top"><p>6. Le circuit intégré fut inventé après le transistor. </p><p>- Vrai </p><p>- Faux </p><p>- Les deux ont été inventés en même temps </p><p>- Cette question n'a aucun sens</p></td><td colspan="2"></td><td colspan="3" rowspan="2" valign="top"></td></tr>
+<tr><td colspan="2" valign="top"><p>7. La souris a été inventée après le disque dur. </p><p>- Vrai </p><p>- Faux </p><p>- Les deux ont été inventés en même temps </p><p>- Cette question n'a aucun sens </p></td><td colspan="2" valign="top"><p>8. L’invention du premier microprocesseur date des années </p><p>- 1945 </p><p>- 1970 </p><p>- 1990 </p><p>- début des années 2000 </p></td><td colspan="2" valign="top"><p>9. L’internet a été inventé après le web. </p><p>- Vrai </p><p>- Faux </p><p>- Les deux ont été inventés en même temps </p><p>- Cette question n'a aucun sens</p></td><td colspan="2"></td><td colspan="3" rowspan="2" valign="top"></td></tr>
+<tr><td colspan="6" valign="top"><p>10. Le moteur de recherche Google a été créé en </td><td colspan="3" rowspan="3" valign="top"></td></tr>
+<tr><td colspan="6" valign="top">- 1990 </td></tr>
+<tr><td colspan="6" valign="top">- 1998 </td></tr>
+<tr><td colspan="6" valign="top">- 2005 </td></tr>
+<tr><td colspan="6" valign="top">- 2010 </td></tr>
+</table>
 
-Le mot ***prompt*** fait référence à l’invite de commande  affichée dans un terminal Linux. Par exemple raspbian  :
+<H2 STYLE="COLOR:BLUE;">## **2. Les<a name="_page3_x40.00_y539.92"></a> différents types de mémoires** </H2>
+<H3 STYLE="COLOR:GREEN;">### **2.1. Organisation<a name="_page3_x40.00_y567.92"></a> de la mémoire** </H3>
 
-![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.021.jpeg)
+Il existe de nombreuses technologies de mémoire qui se distinguent par leur durabilité (volatile ou permanente), leur mode d’accès (par adresse ou dans l’ordre de leur rangement) ou leur temps d’accès. En règle générale, plus une mémoire est performante, plus elle est chère.
 
-   
+- Il existe la **mémoire morte** ( **ROM** = Read Only Memory ) chargée de stocker le programme. C’est une mémoire à lecture seule, en principe.
+- On parle de **mémoire vive** (ou volatile) (**RAM** = Random Access Memory) quand le contenu est perdu lorsque le courant s’arrête : il s’agit des registres, des mémoires cache, de la mémoire centrale.
+- Les disques durs, disquettes, CDROM, etc… sont des périphériques de stockage et sont considérés comme des mémoires secondaires.
 
-Ce  prompt  indique  que  l’on  est  sur  une  **machine  rapberry,** connecté en tant qu’utilisateur **pi** et que l’on  se trouve dans le **répertoire de base** (home directory).   Le symbole $ invite à rentrer la première commande  Linux.   
+Remarque : la mémoire ROM contient notamment le BIOS (Basic Input Output System) qu’il est possible, sur les machines dotées de carte mère récente, de mettre à jour (flashage du BIOS).
 
-Sur Python le prompt est : >>> 
+<H3 STYLE="COLOR:GREEN;">### **2.2. Les<a name="_page4_x40.00_y47.92"></a> registres** </H3>
 
-### <H3 STYLE="COLOR:GREEN;">**2.3. Système<a name="_page3_x285.00_y54.92"></a> de fichier**</H3>
+Un **registre** est un emplacement **mémoire interne** au processeur. Les registres se situent au sommet de la hiérarchie mémoire : il s'agit de la **mémoire la plus rapide** d'un ordinateur, mais dont le coût de fabrication est le plus élevé, car la place dans un microprocesseur est limitée.
 
-![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.022.jpeg)
+Il sert à **stocker des opérandes** et **des résultats intermédiaires** lors des opérations effectuées dans l’UAL. Leur capacité, leur nombre et leurs rôles varient selon les processeurs. La grande majorité des processeurs actuels ont des registres de taille 64 bits. Ils sont accessibles via un jeu d’instructions.
 
-L'un des systèmes d'exploitation le plus populaire dans les années  80  est  le  DOS  (juillet  1981)  créé  par  Bill  Gates créateur de la société Microsoft. L'acronyme DOS signifie Disk Operating System. En effet la gestion des fichiers sur le disque était l'une des fonctions principales du système au départ. 
+<H3 STYLE="COLOR:GREEN;">### **2.3. Mémoires<a name="_page4_x40.00_y175.92"></a> centrales et mémoires caches** </H3>
 
-Sous Linux, **tout est fichier**. Ils sont organisés suivant une unique arborescence (dont la racine est nommée / et dont l’administrateur est root). 
+La **mémoire centrale** est une mémoire vive qui contient les programmes en cours et les données qu’ils manipulent. Elle est de taille importante (plusieurs Go). Elle est organisée en **cellules** appelées « **cases mémoires** » qui contiennent chacune une donnée ou une instruction repérée par une **adresse** qui est un **nombre entier**. Le temps d’accès à chaque cellule est le même : on parle de mémoire à accès aléatoire (RAM) bien qu’il soit plus judicieux de parler de mémoire à accès direct.
 
-On parle d'arborescence, car ce système de fichier ressemble à un arbre à l'envers. La base de l’arbre s’appelle la racine de l’arborescence et se représente par un « / ». 
+Afin de pouvoir adapter la très grande vitesse du processeur à celle plus faible de la mémoire centrale, on place entre les deux une mémoire plus rapide, la **mémoire cache** qui contient les instructions et les données en cours d’utilisation car, la plupart du temps, les données qui viennent d’être utilisées ont une probabilité plus grande d’être réutilisées que d’autres. La **mémoire cache** (de l’ordre de quelques Mo) est souvent constitué de mémoire de type statique **SRAM** plus rapide mais plus chère que celle de type **RAM dynamique (SDRAM, DDR** …) utilisée dans la mémoire centrale. Généralement la mémoire cache est intégrée au « socket » du processeur.
 
-### <H3 STYLE="COLOR:GREEN;">**2.4. La<a name="_page3_x285.00_y270.92"></a> racine**</H3>
+<H3 STYLE="
 
-Dans les systèmes de la famille Unix, la racine représente le **sommet de l'arborescence** des répertoires. 
+COLOR:red;">### **Activité n°3.:** Quelques interrogations </H3>
 
-La racine est représentée par le caractère / (slash) et signifie "root". 
+Il reste toujours pas mal de questions en suspens. Quatre exemples :
 
-Tous les répertoires de votre système sont liés à la racine de façon directe ou indirecte. 
+1. Où sont stockés les programmes là-dedans ? ça doit être forcément dedans puisque le programme fait partie de la machine. Mais où ?
+2. Comment fait la machine pour faire une addition ?
+3. Si on veut récupérer des données externes (clavier ?), on récupère à partir de quelle provenance ?
+4. Si on veut envoyer des informations vers l’extérieur (écran ?), on envoie vers quelle destination ?
 
-Une chose très importante à savoir quand on est connecté dans un shell, c'est de savoir où on se trouve dans l'arborescence. 
+<H2 STYLE="COLOR:BLUE;">## **3. Architecture<a name="_page4_x40.00_y536.92"></a> de Von Neumann** </H2>
 
-La commande **pwd** (PrintWorkingDirectory) affiche votre localisation dans l'arborescence. 
+L’architecture dite **architecture de Von Neumann est** un modèle pour un ordinateur qui utilise une structure de stockage unique pour conserver à la fois les instructions et les données demandées ou produites par le calcul. De telles machines sont aussi connues sous le nom d’**ordinateur à programme enregistré**. Le modèle de Von Neumann est conforme à un schéma qui a peu évolué depuis son origine en 1945.
 
-### <H3 STYLE="COLOR:GREEN;">**2.5. Chemin<a name="_page3_x40.00_y516.92"></a> absolu ou chemin relatif**</H3>
+<H3 STYLE="COLOR:GREEN;">### **3.1. Organisation<a name="_page4_x633.92"></a> générale** </H3>
 
-Pour indiquer la position d'un fichier (ou d'un répertoire) dans l'arborescence, il existe 2 méthodes : indiquer un **chemin absolu** ou indiquer un **chemin relatif**.   
+Les instructions qui composent les programmes sont exécutées par le **CPU** (Central Processing Unit). Il est schématiquement constitué de 3 parties.
 
-![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.029.png)
+- **L’unité arithmétique et logique** (UAL ou ALU en anglais) est chargée de l’exécution de tous les calculs de base que peut réaliser le microprocesseur.
+- **L’unité de contrôle** est chargée du séquençage des opérations : elle permet d’exécuter les instructions (les programmes).
+- **la mémoire** contient à la fois les données et le programme. Le programme indique à l’unité de contrôle les calculs à faire sur les données. La mémoire est divisée en mémoire volatile (programmes et données en cours de fonctionnement) et mémoire permanente (programmes et données de base de la machine). Un emplacement de mémoire interne à un processeur est appelé un registre.
 
-- Le **chemin absolu** doit indiquer "le chemin" depuis la racine.   Par exemple le chemin absolu du fichier fiche.ods sera :  
+Les données doivent circuler entre les différentes parties d’un ordinateur, notamment entre la mémoire vive et le CPU. Le système permettant cette circulation est appelé **bus** : un bus de 64 bits est constitué de 64 «fils électriques » qui permettent de faire transiter 64 bits simultanément. Il existe, sans entrer dans les détails, 3 grands types de bus :
 
-/home/elsa/documents/fiche.ods  
+- Le **bus d’adresses** permet de faire circuler des adresses (par exemple l’adresse d’une donnée à aller chercher en mémoire).
+- Le **bus de données** permet de faire circuler des données.
+- Le **bus de contrôle** permet de spécifier le type d’action (exemples : écriture d’une donnée en mémoire, lecture d’une donnée en mémoire).
 
-On **note le / au début** indiquant que l’on part de la racine.  
+Les **dispositifs d’entrée-sortie** permettent de communiquer avec le monde extérieur (clavier, écran, imprimante,…)
 
-- Il est possible d'indiquer le chemin non pas depuis la racine,  mais depuis un répertoire quelconque, nous parlerons alors de  **chemin  relatif**.  Le  chemin  relatif  permettant  d'accéder  au  fichier  "photo_1.jpg"  depuis  le  répertoire  "max"  est  :  "images/photo_vac/photo_1.jpg"  
+![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.021.jpeg)
 
-On note **l’absence du /.** 
+**Architecture simplifiée de Von Neumann**
 
-Si  on  cherche  le  chemin  relatif  pour  accéder  au  fichier  "gdbd_3.jpg"  depuis  le  répertoire  "photos_vac".  Il  faut  "remonter" d'un "niveau" dans l'arborescence pour se retrouver dans le répertoire "images" et ainsi pouvoir repartir vers la bonne "branche". Pour ce faire il faut utiliser 2 points : "../ski/gdbd_3.jpg" 
+Remarques :
 
-Il est tout à fait possible de remonter de plusieurs "crans" : "../../" . 
+- **L’architecture Havard** se distingue de l’architecture Von Neuman uniquement par le fait que les mémoires programmes et données **sont séparées**. Cette organisation permet de transférer instructions et des données simultanément, ce qui améliore les performances, mais augmente les coûts.
+- Les ordinateurs **multiprocesseurs** permettent un parallélisme de tâches pour obtenir une plus grande puissance de calcul. Cette technologie a été utilisée pour des supercalculateurs, elle peut aussi l'être pour s'affranchir des limites de la montée en fréquence des processeurs : de nombreux processeurs actuels sont dits **multi-cœur**, et embarquent en fait plusieurs **monoprocesseurs** sur une même puce.
 
-=> **CAPYTALE Le code vous sera donné par votre enseignant**
+<H3 STYLE="COLOR:red;">### **Activité n°4.:** On part du principe que le système doit pouvoir transporter en une seule opération une adresse via son bus d’adresses. Peux-tu répondre à ces deux questions. </H3>
 
-**<H3 STYLE="COLOR:red;">Activité n°6.:</H3>** Chemin absolu : en utilisant, l’arborescence précédente déterminer le chemin absolu permettant d’accéder au fichier :
+1. Combien d’adresses-mémoires RAM différentes peut-on avoir dans un ordinateur dont le bus d’adresse est un bus 16 bits ?
 
--  "cat" 
+2. Si on considère que chaque case mémoire correspond à un octet, quelle est la mémoire vive maximale disponible sur ce système s’il ne disposant pas d’autres manières d’adresser sa mémoire ?
 
--  "rapport.odt" 
+<H3 STYLE="COLOR:GREEN;">### **3.2. Le<a name="_page6_x297.92"></a> CPU** </H3>
 
-**<H3 STYLE="COLOR:red;">Activité n°7.:</H3>** Chemin relatif : en utilisant, l’arborescence précédente déterminer le chemin relatif permettant d’accéder au fichier : 
+Le processeur (CPU, pour Central Processing Unit) est le cerveau de l’ordinateur. Il permet de manipuler, des données et des instructions codées sous forme binaires. Le processeur est composé de millions de transistors placés dans un boitier comportant des connecteurs d’entrée-sortie, surmonté d’un ventilateur. C’est un circuit électronique cadencé au rythme d’une horloge interne qui envoie des impulsions.
 
--  "rapport.odt" depuis le répertoire "elsa" 
+<H3 STYLE="COLOR:GREEN;">### **3.3. Le<a name="_page6_x426.92"></a> rôle de l’horloge CPU** </H3>
 
--  "fiche.ods" depuis le répertoire "boulot" 
+Une **horloge** rythme le travail du CPU: à chaque battement, une action. Plus la fréquence de l'horloge, mesurée en hertz (Hz), est élevée, plus le processeur est rapide. Cadencé à 2 GHz, il abat ainsi deux milliards d'opérations par seconde.
 
-Les systèmes de type « UNIX » sont des systèmes « **multi-utilisateurs** » : chaque utilisateur possède son propre compte. Ces répertoires personnels se situent traditionnellement dans le répertoire ‘home’. Dans l’arborescence précédente il y a 2 utilisateurs : « max » et « elsa ».  
+On caractérise le microprocesseur par :
 
-### <H3 STYLE="COLOR:GREEN;">**2.6. La<a name="_page4_x40.00_y243.92"></a> commande cd (change directory)**</H3>
+- sa fréquence d’horloge : en MHz ou GHz
+- le nombre d’instructions par secondes qu’il est capable d’exécuter
+- la taille des données qu’il est capable de traiter : en bits
 
-La commande "**cd**" permet de changer le répertoire courant. Il suffit d'indiquer le chemin (relatif ou absolu) qui permet d'atteindre le nouveau répertoire. 
+<H3 STYLE="COLOR:red;">### **Activité n°5.:** Sur les photos ci-dessous, identifier le processeur. </H3>
 
-Par exemple (en utilisant l'arborescence ci-contre) :
+![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.026.png)
+![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.027.png)
+![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.028.png)
 
-![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.029.png)
+<H3 STYLE="COLOR:GREEN;">### **3.4. Les<a name="_page7_x274.92"></a> limites** </H3>
 
-- si  le  répertoire  courant  est  le  répertoire  "elsa"  et  que  vous  "voulez-vous  rendre"  dans  le  répertoire "documents", il faudra saisir la commande : "cd documents" (relatif) ou "cd /home/elsa/documents" (absolu) 
-- si le répertoire courant est le répertoire "photos_vac" et  que vous "voulez-vous rendre" dans le répertoire "ski", il faudra saisir la commande : "cd ../ski" (relatif) ou "cd  /home/max/images/ski" (absolu)  
+Ce modèle impose un **va-et-vient** constant entre le **CPU et la mémoire**, soit pour charger la prochaine instruction à exécuter, soit pour récupérer les données sur lesquelles l’instruction courante doit opérer. Mais la différence de vitesse entre les microprocesseurs et la mémoire est très grande. De plus, cet accès se fait à travers un bus, mais pour des raisons technologiques, le débit du bus a augmenté moins vite que le débit d’accès à la mémoire et surtout que la vitesse des processeurs. D’où un phénomène d’attente — le **« goulot de von Neumann »** — qui réduit les performances
 
-- si le répertoire courant est le répertoire "boulot" et que vous "voulez-vous rendre" dans le répertoire "documents", il faudra saisir la commande : "cd .." (relatif) ou "cd /home/elsa/documents" (absolu)  
+<H3 STYLE="COLOR:GREEN;">### **3.5. Évolution<a name="_page7_x423.92"></a> : le multiprocesseur et les mémoires caches** </H3>
 
-Autres commandes à connaitre :  
+Selon la **loi de Moore** (1965), le nombre de transistors, c’est-à-dire l’élément principal qui compose les processeurs des ordinateurs**, double tous les deux ans**. Et parallèlement, double également la puissance des appareils. Moore fixa ensuite le cycle non plus sur 2 ans, mais **dix-huit mois.** Donc selon Moore tous les 18 mois il y a doublement du nombre de transistors, rendant les ordinateurs rapidement obsolètes. Sa loi s’est vérifiée jusqu’à récemment. Il avait cependant déclaré en 1997 que cette croissance des performances des puces se heurterait aux environs de 2017 à une limite physique : celle de la taille des atomes. Et nous y sommes. On voit en effet depuis quelques années le rythme du doublement diminuer en fréquence.
 
-![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.036.png)
+Mais, l'augmentation de la fréquence devenant techniquement de plus en plus difficile (problème de surchauffe), une nouvelle idée permet de poursuivre la loi de Moore : mettre **plus de processeurs** dans un seul PC.
 
-- cd ~ : permet de revenir au répertoire précédent  
-- cd / : permet de se placer à la racine des fichiers 
+De plus, la multiplication des cœurs pose le problème de la synchronisation de la mémoire. Il existe plusieurs stratégies pour répartir la mémoire cache de chaque processeur.
 
-### <H3 STYLE="COLOR:GREEN;">**2.7. La<a name="_page4_x40.00_y599.92"></a> commande ls**</H3>
+Ces évolutions ont pour conséquence de mettre la **mémoire**, plutôt que l’unité centrale, **au centre de l’ordinateur**, et **d’augmenter le degré de parallélisme** dans le traitement et la circulation de l’information
 
-La commande **ls** permet de lister le contenu du répertoire courant. 
+<H3 STYLE="COLOR:red;">### **Activité n°6.:** Ci-contre, retrouver les interfaces RJ45, VGA, HDMI et USB. </H3>
 
-**<H3 STYLE="COLOR:red;">Activité n°8.:</H3>** Faire l’exercice 1 
+![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.032.jpeg)
 
-### <H3 STYLE="COLOR:GREEN;">**2.8. La<a name="_page4_x40.00_y695.92"></a> commande mkdir**</H3>
+<H2 STYLE="COLOR:BLUE;">## **4. Langage<a name="_page8_x40.00_y390.92"></a> assembleur** </H2>
 
-La commande "**mkdir**" permet de créer un répertoire dans le répertoire courant. La commande est de la forme "mkdir nom_du_répertoire". 
+Le microprocesseur étant incapable d'interpréter la phrase "additionne le nombre 125 et la valeur située dans le registre R2,
 
-Il est **VIVEMENT** préférable de ne **pas** utiliser de **caractères accentués** dans les noms de répertoire (ou de fichier). Il en est de même pour les **espaces** (à remplacer par des caractères tirets bas "_"). 
+ range le résultat dans le registre R1", il faut coder cette instruction sous forme binaire :
 
-### <H3 STYLE="COLOR:GREEN;">**2.9. La<a name="_page5_x40.00_y112.92"></a> commande rm**</H3>
+"additionne le nombre 125 et la valeur située dans le registre R2, range le résultat dans le registre R1" ⇓
 
-La commande "**rm**" permet de supprimer un fichier ou un répertoire. La commande est de la forme "rm nom_du_répertoire_ou_nom_du_fichier". 
-"rm *" supprime tous les fichiers. 
+"11100010100000100001000001111101"
 
-La plupart des commandes UNIX peuvent être utilisées avec une ou des options. Par exemple, pour supprimer un répertoire non vide, il est nécessaire d'utiliser la commande "rm" avec l'option "-r" : "rm -r nom_du_répertoire". 
+Afin de faciliter la lecture et l'écriture d'instructions machine par les informaticiens, on remplace les codes binaires par des symboles mnémoniques, en utilisant la syntaxe du langage appelé assembleur.
 
-### <H3 STYLE="COLOR:GREEN;">**2.10. La<a name="_page5_x40.00_y265.92"></a> commande touch**</H3>
+"additionne le nombre 125 et la valeur située dans le registre R2, range le résultat dans le registre R1" ⇓  
+"ADD R1,R2,#125" ⇓
 
-La  commande  "touch"  permet  de  créer  un  fichier  vide.  La  commande  est  de  la  forme  "touch nom_du_fichier_à_créer". 
+"11100010100000100001000001111101"
 
-### <H3 STYLE="COLOR:GREEN;">**2.11. La<a name="_page5_x40.00_y367.92"></a> commande cp**</H3>
+**Exemples d’instruction en assembleur :**
 
-La  commande  "cp"  permet  de  copier  un  fichier.  La  commande  est  de  la  forme "cp/répertoire_source/nom_fichier_à_copier /répertoire_destination/nom_fichier"  
+- LDR R1,78
 
-À noter : le nom du fichier "destination" n'est pas obligatoirement le même que le nom du fichier "source" (on peut avoir "cp fic.txt info/fiche.txt") 
+Place la valeur stockée à l'adresse mémoire 78 dans le registre R1 (par souci de simplification, nous continuons à utiliser des adresses mémoire codées en base 10)
 
-## <H2 STYLE="COLOR:BLUE;">**3. Gestion<a name="_page5_x40.00_y526.92"></a> des utilisateurs et des groupes**</H2>
+- STR R3,125
 
-Les systèmes de type "UNIX" sont des systèmes **multi-utilisateurs**, plusieurs utilisateurs peuvent donc partager un même ordinateur, chaque utilisateur possédant un environnement de travail qui lui est propre. 
+Place la valeur stockée dans le registre R3 en mémoire vive à l'adresse 125
 
-Chaque utilisateur possède **certains droits** lui permettant d'effectuer certaines opérations et pas d'autres.  
+- ADD R1,R0,#128
 
-Le système d'exploitation permet de gérer ces droits **très finement**. Un utilisateur un peu particulier est autorisé à modifier tous les droits : ce "super utilisateur" est appelé "**administrateur**" ou "**root**". L'administrateur pourra donc attribuer ou retirer des droits aux autres utilisateurs.  
+Additionne le nombre 128 (une valeur immédiate est identifiée grâce au symbole #) et la valeur stockée dans le registre R0, place le résultat dans le registre R1
 
-Au lieu de gérer les utilisateurs un par un, il est possible de créer des **groupes** **d'utilisateurs**. L'administrateur attribue des droits à un groupe au lieu d'attribuer des droits particuliers à chaque utilisateur.  
+- ADD R0,R1,R2
 
-Les fichiers et les répertoires possèdent 3 types de droits : 
+Additionne la valeur stockée dans le registre R1 et la valeur stockée dans le registre R2, place le résultat dans le registre R0
 
-- les droits en **lecture** (symbolisés par la lettre r)  
-- les droits en **écriture** (symbolisés par la lettre w)  
-- les droits en **exécution** (symbolisés par la lettre x) 
+- SUB R1,R0,#128
 
-Il existe 3 types d'utilisateurs pour un fichier ou un répertoire : 
+Soustrait le nombre 128 de la valeur stockée dans le registre R0, place le résultat dans le registre R1
 
-- le **propriétaire** du fichier (par défaut c'est la personne qui a créé le fichier), il est symbolisé par la lettre u 
-- un fichier est associé à un **groupe**, tous les utilisateurs appartenant à ce groupe possèdent des droits particuliers sur ce fichier. Le groupe est symbolisé par la lettre g 
-- **tous les autres utilisateurs** (ceux qui ne sont pas le propriétaire du fichier et qui n'appartiennent pas au groupe associé au fichier). Ces utilisateurs sont symbolisés la lettre "o" 
+- SUB R0,R1,R2
 
-Il est possible d'utiliser la commande "ls" avec l'option "-l" afin d'avoir des informations supplémentaires. 
+Soustrait la valeur stockée dans le registre R2 de la valeur stockée dans le registre R1, place le résultat dans le registre R0
 
-![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.056.jpeg)
+- MOV R1, #23
 
-Si on fait la commande ls -l, on peut obtenir :  Sur la première ligne : 
+Place le nombre 23 dans le registre R1
 
-- le symbole "-" signifie que l'on a affaire à un fichier, dans le cas d'un répertoire, nous aurions un "d" (voir la 4e ligne) 
-- les 3 symboles suivants "rw-"donnent les **droits du propriétaire** du fichier : lecture autorisée (r), écriture autorisée (w), exécution interdite (- à la place de x)  
-- les 3 symboles suivants "r--"donnent les **droits du groupe** lié au fichier : lecture autorisée (r), écriture interdite (- à la place de w), exécution interdite (- à la place de x)  
-- les 3 symboles suivants "r--"donnent les **droits des autres utilisateurs** : lecture autorisée (r), écriture interdite (- à la place de w), exécution interdite (- à la place de x) 
-- le caractère suivant "1" donne le nombre de liens  
-- le premier "pi" représente le nom du propriétaire du fichier 
-- le second "pi" représente le nom du groupe lié au fichier 
-- le "204678" représente la taille du fichier en octet  
-- "Mar 21 22 :01" donne la date et l'heure de la dernière modification du fichier 
-- "2020-03-21-220103_792x600_scrot.png " est le nom du fichier 
+- MOV R0, R3
 
-Sur la 4ème ligne : 
+Place la valeur stockée dans le registre R3 dans le registre R0
 
-- le premier symbole "d" signifie que l'on a un répertoire 
-- les 3 symboles suivants "rwx" donnent les droits du propriétaire du répertoire : lecture du contenu du répertoire autorisée (r), modification du contenu du répertoire autorisée (w), il est possible de parcourir le répertoire (voir le contenu) (x) 
-- les 3 symboles suivants "r-x" donnent les droits du groupe lié au répertoire : modification du contenu du répertoire interdite (- à la place de w) 
-- les 3 symboles suivants "r-x" donnent les droits des autres utilisateurs : modification du contenu du répertoire interdite (- à la place de w)  
-- le caractère suivant "2" donne le nombre de liens  
-- le premier "pi" représente le nom du propriétaire du répertoire 
-- le second "pi" représente le nom du groupe lié au répertoire 
-- le "4096" représente la taille du répertoire en octets 
-- "Desktop" est le nom du répertoire 
+- B 45
 
-L’utilisateur "root" a la possibilité de modifier les droits de tous les utilisateurs. 
+Nous avons une structure de rupture de séquence, la prochaine instruction à exécuter se situe en mémoire vive à l'adresse 45
 
-Le propriétaire d'un fichier peut modifier les permissions d'un fichier ou d'un répertoire à l'aide de la commande "chmod". Pour utiliser cette commande, il est nécessaire de connaitre certains symboles : 
+- CMP R0, #23
 
-De cette façon, on va choisir : 
+Compare la valeur stockée dans le registre R0 et le nombre 23. Cette instruction CMP doit précéder une instruction de branchement conditionnel BEQ, BNE, BGT, BLT (voir ci-dessous)
+
+- CMP R0, R1
+
+Compare la valeur stockée dans le registre R0 et la valeur stockée dans le registre R1.
+
+- CMP R0, #23 BEQ 78
+
+La prochaine instruction à exécuter se situe à l'adresse mémoire 78 si la valeur stockée dans le registre R0 est égale à 23
+
+- CMP R0, #23 BNE 78
+
+La prochaine instruction à exécuter se situe à l'adresse mémoire 78 si la valeur stockée dans le registre R0 n'est pas égale à 23
+
+- CMP R0, #23 BGT 78
+
+La prochaine instruction à exécuter se situe à l'adresse mémoire 78 si la valeur stockée dans le registre R0 est plus grand que 23
+
+- CMP R0, #23 BLT 78
+
+La prochaine instruction à exécuter se situe à l'adresse mémoire 78 si la valeur stockée dans le registre R0 est plus petit que 23
+
+- HALT !
+
+Arrête l'exécution du programme
+
+<H3 STYLE="COLOR:red;">### **Activité n°7.:** Expliquer les instructions suivantes </H3>
+
+- ADD R0, R1, #42  
+- LDR R5,98 
+- CMP R4, #18 
+- BGT 77 
+- STR R0,15 
+- B 100
+
+<H3 STYLE="COLOR:red;">### **Activité n°8.:** Écrire les instructions en assembleur correspondant aux phrases suivantes : </H3>
+
+- Additionne la valeur stockée dans le registre R0 et la valeur stockée dans le registre R1, le résultat est stocké dans le registre R5
+- Place la valeur stockée à l'adresse mémoire 878 dans le registre R0
+- Place le contenu du registre R0 en mémoire vive à l'adresse 124
+- la prochaine instruction à exécuter se situe en mémoire vive à l'adresse 478
+- Si la valeur stockée dans le registre R0 est égale 42 alors la prochaine instruction à exécuter se situe à l'adresse mémoire 85
+
+<H3 STYLE="COLOR:red;">### **Activité n°9.:** Correspondance du langage Python et du langage assembleur </H3>
+
+```python
+x = 4
+y = 8
+if x == 10:
+    y = 9
+else:
+    x = x + 1
+z = 6
 ```
-- À qui s'applique le changement 
-  - u (user, utilisateur) représente la catégorie "propriétaire" ; 
-  - g (group, groupe) représente la catégorie "groupe propriétaire" ; 
-  - o (others, autres) représente la catégorie "reste du monde" ; 
-  - a (all, tous) représente l'ensemble des trois catégories. 
-- La modification que l'on veut faire 
-  - + : ajouter 
-  - - : supprimer 
-  - = : affectation 
-- Le droit que l'on veut modifier 
-  - r : read ⇒ lecture 
-  - w : write ⇒ écriture 
-  - x : execute exécution 
+
+```
+   MOV R0, #4
+   STR R0,30
+   MOV R0, #8
+   STR R0,75
+   LDR R0,30
+   CMP R0, #10
+   BNE else
+   MOV R0, #9
+   STR R0,75
+   B endif
+else:
+   LDR R0,30
+   ADD R0, R0, #1
+   STR R0,30
+endif:
+   MOV R0, #6
+   STR R0,23
+   HALT
 ```
 
-La commande "chmod" à cette forme : 
+Après avoir analysé très attentivement le programme en assembleur ci-dessus, vous essaierez d'établir une correspondance entre les lignes du programme en Python et les lignes du programme en assembleur. À quoi sert la ligne "B endif" ? À quoi correspondent les adresses mémoires 23, 75 et 30?
 
-```chmod [u g o a] [+ - =] [r w x] nom_du_fichier``` 
+<H2 STYLE="COLOR:BLUE;">## **5. Simulation<a name="_page11_x40.00_y36.92"></a> CPU** </H2>
 
-Par exemple  
+On utilise un simulateur développé par Peter L Higginson. Ce simulateur est basé sur une architecture de von Neumann. Nous allons trouver dans ce simulateur :
 
-```chmod o+w toto.txt``` 
+- une RAM
+- un CPU
 
-attribuera la permission "écriture" pour le fichier "toto.txt" "aux autres utilisateurs".  
+Une version en ligne de ce simulateur est disponible ici :[ http://www.peterhigginson.co.uk/AQA/ ](http://www.peterhigginson.co.uk/AQA/)
 
-Il est possible de combiner les symboles :  
+![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.050.jpeg)
 
-```chmod g-wx toto.txt```
+Les différentes parties du simulateur :
 
-La commande "chmod" ci-dessus permet de supprimer la permission "écriture" et la permission "exécution" pour le fichier "toto.txt" "au groupe lié au fichier" 
+- à droite, on trouve la mémoire vive ("main memory")
+- au centre, on trouve le microprocesseur
+- à gauche on trouve la zone d'édition ("Assembly Language"), c'est dans cette zone que nous allons saisir nos programmes en assembleur
 
-En[ octal,](https://fr.wikipedia.org/wiki/Systeme_octal) chaque « groupement » de droits (pour user, group et other) sera représenté par un chiffre et à chaque droit correspond une valeur : 
-- r (read) = 4 
-- w (write) = 2 
-- x (execute) = 1 
+<H3 STYLE="COLOR:GREEN;">### **5.1. La<a name="_page11_x648.92"></a> RAM** </H3>
 
-Par exemple, 
+Par défaut le contenu des différentes cellules de la mémoire est en base 10 (entier signé), mais d'autres options sont possibles : base 10 (entier non-signé, "unsigned"), base 16 ("hex"), base 2 ("binary"). On accède à ces options à l'aide du bouton "OPTIONS" situé en bas dans la partie gauche du simulateur.
 
-- Pour **rwx**, on aura : 4+2+1 = 7 
-- Pour **rw-**, on aura : 4+2+0 = 6 
-- Pour **r--**, on aura : 4+0+0 = 4 
+<H3 STYLE="COLOR:red;">### **Activité n°10.:** À l'aide du bouton "OPTIONS", passer à un affichage en binaire. </H3>
 
-Ce qui permet de faire toutes les combinaisons : 
+Chaque cellule de la mémoire comporte 32 bits (classiquement une cellule de RAM comporte 8 bits).
+Chaque cellule de la mémoire possède une adresse (de 000 à 199), ces adresses sont codées en base 10.
+Repasser à un affichage en base 10 (bouton "OPTION"->"signed")
 
-|0  |1  |2  |3  |4  |5  |6  |7 |
-|-|-|-|-|-|-|-|-|
-|**- - -** |**- - x** |**- w –** |**- w x** |**r - -** |**r - x** |**r w –** |**r w x** | 
-|aucun droit |exécution |écriture  |écriture et exécution |lecture seule |lecture et exécution |lecture et écriture |lecture  écriture exécution | 
+<H3 STYLE="COLOR:GREEN;">### **5.2. Le<a name="_page12_x73.92"></a> CPU** </H3>
 
-Une fois de plus, "root" a tous les droits sur l'ensemble des fichiers et des répertoires, il peut donc utiliser la commande "chmod" sur tous les répertoires et tous les fichiers. 
+Dans la partie centrale du simulateur, nous allons trouver en allant du haut vers le bas :
 
-**<H3 STYLE="COLOR:red;">Activité n°9.:</H3>** analyser l’enchainement de commandes suivantes : 
+- le **bloc "registre"** ("Registers") : nous avons 13 registres (R0 à R12) + 1 registre (PC) qui contient l'adresse mémoire de l'instruction en court d'exécution
+- le **bloc "unité de commande"** ("Control Unit") qui contient l'instruction machine en cours d'exécution (au format hexadécimal)
+- le **bloc "unité arithmétique et logique"** ("Arithmetic and Logic Unit")
 
-![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.087.jpeg)
+<H3 STYLE="COLOR:GREEN;">### **5.3. Programmer<a name="_page12_x218.92"></a> en assembleur** </H3>
 
-**<H3 STYLE="COLOR:red;">Activité n°10.:</H3>** Conversion en octal : donner les droits de la commande suivante 
+<H3 STYLE="COLOR:red;">### **Activité n°11.:** Dans la partie "éditeur" ("Assembly Language") saisissez les lignes de codes suivantes :</H3>
+```
+MOV R0,#42
+STR R0,150
+HALT
+```
+Cliquer sur le bouton "submit
 
-```chmod 750 Template```
+L’assembleur converti les trois lignes du programme en instructions machines :
 
-**<H3 STYLE="COLOR:red;">Activité n°11.:</H3>** gestion des droits : Dans le répertoire utilisateur ‘~’, les droits du dossier rep1 sont par défaut 
-à 755 (rwxr-xr-x). Compléter les tableaux avec les commandes (en notation symbolique et en base 8) pour lui donner les droits suivants (on suppose qu'après chaque commande on remet le répertoire à 755) : 
+- la première instruction est stockée à l’adresse mémoire 000
+- la deuxième à l’adresse 001
+- la troisième à l’adresse 002
 
-|**Par défaut** |![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.088.png)|
-| - | - |
-|**Commande 1** |![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.089.png)|
-|**Commande 2** |![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.090.png)|
-|**Commande 3** |![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.091.png)|
-|**Commande 4** |![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.092.png)|
+<H3 STYLE="COLOR:red;">### **Activité n°12.:** Exécution pas à pas :</H3>
+Il suffit maintenant de cliquer sur le bouton "RUN". Le CPU va "travailler" en direct grâce à de petites animations. Si cela va trop vite (ou trop doucement), on peut régler la vitesse de simulation à
 
-|||***Propriétaire(u)*** |||***Groupe(g)*** |||***Autres(o)*** ||
-| :- | - | - | - | :- | :- | :- | :- | :- | :- |
-||Lecture |Écriture |Accès |Lecture |Écriture |Accès |Lecture |Écriture |Accès |
-|**défaut** |oui |oui |oui |oui |non |oui |oui |non |oui |
-|**Commande 1** ||||||||||
-|**Commande 2** ||||||||||
-|**Commande 3** ||||||||||
-|**Commande 4** ||||||||||
+ l'aide des boutons "<<" et ">>". Un appui sur le bouton "STOP" met en pause la simulation.
+Une fois la simulation terminée, on constate que la cellule mémoire d'adresse 150, contient bien le nombre 42 (en base 10) et que le registre R0 a bien stocké le nombre 42.
+Attention : pour relancer la simulation il faut appuyer sur « RESET »
 
-||**Notation symbolique (relatif)** |**Notation en base 8 (absolu)** |
-| :- | - | - |
-|**Commande 1** |chmod u-x,o-r rep1 |chmod 651 rep1 |
-|**Commande 2** |||
-|**Commande 3** |||
-|**Commande 4** |||
+<H3 STYLE="COLOR:red;">### **Activité n°13.:** Modifier le programme précédent pour qu'à la fin de l'exécution on trouve le nombre 54 à l'adresse mémoire 50. On utilisera le registre R1 à la place du registre R0. Tester vos modifications en exécutant la simulation.</H3>
 
-## <H2 STYLE="COLOR:BLUE;">**4. Les commandes de base**</H2>
-
-| **Commande** | **Description** |
-|--------------|------------------|
-| `cat`        | Lit (concatène) un ou plusieurs fichier(s), affichage sur la sortie standard |
-| `cd`         | ChangeDirectory, change de répertoire |
-| `chmod`      | CHangeMODe - change le mode d'accès (permissions d'accès) d'un ou plusieurs fichier(s) |
-| `chown`      | CHangeOWNer - change le propriétaire d'un ou de plusieurs fichier(s) |
-| `cp`         | Copier des fichiers |
-| `crontab`    | Planification de tâches |
-| `cut`        | Retire des parties précises de texte dans chaque ligne d'un fichier |
-| `date`       | Affiche la date selon le format demandé |
-| `dd`         | DevicetoDevice - Recopie octet par octet tout ou partie du contenu d'un périphérique (habituellement de stockage) vers un autre périphérique |
-| `df`         | Affichage de la quantité d'espace libre disponible sur tous les systèmes de fichiers |
-| `du`         | DiksUsage - l'utilisation de disque |
-| `echo`       | Affiche du texte sur la sortie standard (à l'écran) |
-| `exit`       | Arrête l'exécution du shell |
-| `find`       | Recherche de fichiers |
-| `fsck`       | FileSystemChecK - vérification d'intégralité de système de fichiers |
-| `grep`       | Recherche dans un ou plusieurs fichiers les lignes qui correspondent à un motif. Exemple : `grep -n montexte monfichier` Retourne toutes les lignes ainsi que leur numéro où montexte apparait dans monfichier |
-| `groupadd`   | Ajouter un groupe d'utilisateurs |
-| `gunzip`     | Décompression de fichiers |
-| `gzip`       | Compression de fichiers |
-| `head`       | Affiche les premières lignes (par défaut 10) d'un fichier |
-| `help`       | Affiche une aide sur les commandes internes de bash |
-| `kill`       | Envoyer un signal à un processus |
-| `less`       | Programme d'affichage à l'écran |
-| `ln`         | Création de liens |
-| `ls`         | Liste le contenu des répertoires |
-| `man`        | Affiche les pages de manuel. On peut même l'utiliser avec elle-même (`man man`) |
-| `mkdir`      | MaKeDIRectory - crée un répertoire |
-| `mkfs`       | MaKeFileSystem - création de systèmes de fichiers |
-| `more`       | Programme d'affichage à l'écran |
-| `mount`      | Monter un système de fichiers |
-| `mv`         | Déplacer, renommer un fichier |
-| `ps`         | Affiche les processus en cours d'exécution |
-| `pwd`        | Print name of current/working directory - affiche le chemin complet du répertoire courant |
-| `rm`         | Suppression de fichiers |
-| `rmdir`      | Remove empty directories - suppression d'un dossier vide |
-| `tail`       | Affiche les 10 dernières lignes d'un fichier |
-| `tar`        | Création d'archives |
-| `touch`      | Créer un objet |
-| `su`         | Substitute User identity ou Switch User - prendre l'identité d'un utilisateur |
-| `uname`      | Affiche des informations sur le système |
-| `unzip`      | Récupérer les fichiers zippés |
-| `useradd`    | Ajouter un utilisateur |
-| `whereis`    | Localiser une commande |
-
-
-
-
-Pour aller plus loin sur Linux :[ https://openclassrooms.com/fr/courses/43538-reprenez-le-controle-a-laide-de-linux](https://openclassrooms.com/fr/courses/43538-reprenez-le-controle-a-laide-de-linux)![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.008.png)
-
-## <H2 STYLE="COLOR:BLUE;">**5. Exercices<a name="_page10_x40.00_y36.92"></a>**</H2>
-
-**<H3 STYLE="COLOR:red;">Exercice n° 1 : Terminus</H3>**
-
-Dans ce TP vous allez appliquer un certain nombre de commandes UNIX, utilisable dans le Shell (ou encore dans un terminal) en jouant à un jeu en ligne : TERMINUS.  
-
-Vous  trouverez  ce  jeu  à  l’url  suivante  : 
-
-[http://luffah.xyz/bidules/Terminus/ ](http://luffah.xyz/bidules/Terminus/)
-
-Cette barre d’outils présente en bas du jeu : ![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.095.png)   est très utile.  
-
-**Remarques :**  
-
-Pour obtenir le caractère À : ctrl Alt 7 puis Maj A  
-
-Pour obtenir le caractère É : Alt maintenu avec 0201 puis relâcher la touche  
-
-Vous devrez quasiment à chaque étape utiliser les commandes ls et cat.  
-
-La commande touch est utilisée pour « créer » un objet (et pas le « toucher », comme une mauvaise traduction le dit dans le jeu) 
-
-**Il faut absolument tout lire pour ne pas manquer d’informations (cat)** Avant de commencer :  
-
-- Lire  : [ https://www.alsacreations.com/astuce/lire/78-Quelle-est-la-difference-entre-les-chemins-relatifs- et-absolus-.html ](https://www.alsacreations.com/astuce/lire/78-Quelle-est-la-difference-entre-les-chemins-relatifs-et-absolus-.html)
-- **Remarque :  ./ est facultatif**
-- [https://www1.zonewebmaster.eu/serveur-debian-general/les-jokers-utilisation ](https://www1.zonewebmaster.eu/serveur-debian-general/les-jokers-utilisation)
-
-Ceci pourra vous aider à gagner beaucoup de temps à la fin du jeu, quand vous chercherez le « password » 
-
-**Quelques indices**  
-
-- Vous trouverez dans la suite le plan du jeu, cela peut vous aider (document de Charles Poulmaire). Je donne aussi quelques indications qui permettent de ne pas perdre trop de temps. 
-- Toujours commencer par ls. Vous verrez le rôle de cette commande. Il est préférable d’interagir et de parler, avant de se déplacer. 
-- Depuis la maison, commencer par aller dans le Bois des lutins, avant d’aller dans la prairie. 
-
-![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.097.jpeg)
-
-![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.098.jpeg)
-
-![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.100.jpeg)
-
-![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.099.jpeg)
-
-![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.101.png)
-
-![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.102.jpeg)
-
-![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.103.jpeg)
-
-![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.104.jpeg)
-
-**Liste des commandes du jeu TERMINUS **
-
-![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.105.jpeg)
-![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.106.jpeg)
+<H3 STYLE="COLOR:red;">### **Activité n°14.:** Saisir et tester le programme suivant :</H3>
+```
+   MOV R0, #4
+   STR R0,30
+   MOV R0, #8
+   STR R0,75
+   LDR R0,30
+   CMP R0, #10
+   BNE else
+   MOV R0, #9
+   STR R0,75
+   B endif
+else:
+   LDR R0,30
+   ADD R0, R0, #1
+   STR R0,30
+endif:
+   MOV R0, #6
+   STR R0,23
+   HALT
+```
