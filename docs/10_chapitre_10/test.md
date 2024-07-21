@@ -356,91 +356,54 @@ Une fois de plus, "root" a tous les droits sur l'ensemble des fichiers et des r�
 
 ## <H2 STYLE="COLOR:BLUE;">**4. Les commandes de base**</H2>
 
-cat     Lit (concatène) un ou plusieurs fichier(s), affichage sur la sortie standard 
+| **Commande** | **Description** |
+|--------------|------------------|
+| `cat`        | Lit (concatène) un ou plusieurs fichier(s), affichage sur la sortie standard |
+| `cd`         | ChangeDirectory, change de répertoire |
+| `chmod`      | CHangeMODe - change le mode d'accès (permissions d'accès) d'un ou plusieurs fichier(s) |
+| `chown`      | CHangeOWNer - change le propriétaire d'un ou de plusieurs fichier(s) |
+| `cp`         | Copier des fichiers |
+| `crontab`    | Planification de tâches |
+| `cut`        | Retire des parties précises de texte dans chaque ligne d'un fichier |
+| `date`       | Affiche la date selon le format demandé |
+| `dd`         | DevicetoDevice - Recopie octet par octet tout ou partie du contenu d'un périphérique (habituellement de stockage) vers un autre périphérique |
+| `df`         | Affichage de la quantité d'espace libre disponible sur tous les systèmes de fichiers |
+| `du`         | DiksUsage - l'utilisation de disque |
+| `echo`       | Affiche du texte sur la sortie standard (à l'écran) |
+| `exit`       | Arrête l'exécution du shell |
+| `find`       | Recherche de fichiers |
+| `fsck`       | FileSystemChecK - vérification d'intégralité de système de fichiers |
+| `grep`       | Recherche dans un ou plusieurs fichiers les lignes qui correspondent à un motif. Exemple : `grep -n montexte monfichier` Retourne toutes les lignes ainsi que leur numéro où montexte apparait dans monfichier |
+| `groupadd`   | Ajouter un groupe d'utilisateurs |
+| `gunzip`     | Décompression de fichiers |
+| `gzip`       | Compression de fichiers |
+| `head`       | Affiche les premières lignes (par défaut 10) d'un fichier |
+| `help`       | Affiche une aide sur les commandes internes de bash |
+| `kill`       | Envoyer un signal à un processus |
+| `less`       | Programme d'affichage à l'écran |
+| `ln`         | Création de liens |
+| `ls`         | Liste le contenu des répertoires |
+| `man`        | Affiche les pages de manuel. On peut même l'utiliser avec elle-même (`man man`) |
+| `mkdir`      | MaKeDIRectory - crée un répertoire |
+| `mkfs`       | MaKeFileSystem - création de systèmes de fichiers |
+| `more`       | Programme d'affichage à l'écran |
+| `mount`      | Monter un système de fichiers |
+| `mv`         | Déplacer, renommer un fichier |
+| `ps`         | Affiche les processus en cours d'exécution |
+| `pwd`        | Print name of current/working directory - affiche le chemin complet du répertoire courant |
+| `rm`         | Suppression de fichiers |
+| `rmdir`      | Remove empty directories - suppression d'un dossier vide |
+| `tail`       | Affiche les 10 dernières lignes d'un fichier |
+| `tar`        | Création d'archives |
+| `touch`      | Créer un objet |
+| `su`         | Substitute User identity ou Switch User - prendre l'identité d'un utilisateur |
+| `uname`      | Affiche des informations sur le système |
+| `unzip`      | Récupérer les fichiers zippés |
+| `useradd`    | Ajouter un utilisateur |
+| `whereis`    | Localiser une commande |
 
-cd      ChangeDirectory, change de répertoire 
 
-chmod  CHangeMODe - change le mode d'accès (permissions d'accès) d'un ou plusieurs fichier(s) 
 
-chown  CHangeOWNer - change le propriétaire d'un ou de plusieurs fichier(s) 
-
-cp      copier des fichiers 
-
-crontab	planification de tâches
-
-cut    	Retire des parties précises de texte dans chaque ligne d'un fichier
-
-date  	Affiche la date selon le format demandé
-
-dd    	DevicetoDevice - Recopie octet par octet tout ou partie du contenu d'un périphérique (habituellement de stockage) vers un autre péripherique.
-
-df    	affichage de la quantité d'espace libre disponible sur tous les systèmes de fichiers
-
-du    	DiksUsage - l'utilisation de disque
-
-echo  	Affiche du texte sur la sortie standard (à l'écran)
-
-exit  	arrête l'exécution du shell
-
-find  	recherche de fichiers
-
-fsck  	FileSystemChecK - vérification d'intégralité de système de fichiers
-
-grep  	recherche dans un ou plusieurs fichiers les lignes qui correspondent à un motif. Exemple : grep -n montexte monfichier Retourne toutes les lignes ainsi que leur numéro où montexte apparait dans monfichier
-
-groupadd	Ajouter un groupe d'utilisateurs
-
-gunzip	décompression de fichiers
-
-gzip  	compression de fichiers
-
-head  	affiche les premières lignes (par défaut 10) d'un fichier
-
-help  	affiche une aide sur les commandes internes de bash
-
-kill  	envoyer un signal à un processus
-
-less  	programme d'affichage à l'écran
-
-ln    	création de liens
-
-ls    	liste le contenu des répertoires
-
-man   	affiche les pages de manuel. On peut même l'utiliser avec elle-même (man man)
-
-mkdir	MaKeDIRectory - crée un répertoire
-
-mkfs  	MaKeFileSystem - création de systèmes de fichiers
-
-more  	programme d'affichage à l'écran
-
-mount	monter un système de fichiers
-
-mv    	déplacer, renommer un fichier
-
-ps    	affiche les processus en cours d'exécution
-
-pwd   	Print name of current/working directory - affiche le chemin complet du repertoire courant
-
-rm    	suppression de fichiers
-
-rmdir	Remove empty directories - suppression d'un dossier vide
-
-tail  	affiche les 10 dernières lignes d'un fichier
-
-tar   	création d'archives
-
-touch	Créer un objet
-
-su    	Substitute User identity ou Switch User - prendre l'identité d'un utilisateur
-
-uname	Affiche des informations sur le système.
-
-unzip	Récupérer les fichiers zippés
-
-useradd	ajouter un utilisateur
-
-whereis	localiser une commande
 
 Pour aller plus loin sur Linux :[ https://openclassrooms.com/fr/courses/43538-reprenez-le-controle-a-laide-de-linux](https://openclassrooms.com/fr/courses/43538-reprenez-le-controle-a-laide-de-linux)![](Aspose.Words.4630a434-9278-4262-8878-cd9ee4c8cc3e.008.png)
 
