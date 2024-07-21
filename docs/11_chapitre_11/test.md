@@ -13,7 +13,7 @@ title: 11 Architecture de l’ordinateur
 
 Video 1 :[ https://www.dailymotion.com/video/xhleks ](https://www.dailymotion.com/video/xhleks)
 
-##<H2 STYLE="COLOR:BLUE;">## **1. Historique<a name="_page0_x40.00_y403.92"></a> de l’informatique** </H2>
+##<H2 STYLE="COLOR:BLUE;"> **1. Historique<a name="_page0_x40.00_y403.92"></a> de l’informatique** </H2>
 
 Video 2 :[ https://ladigitale.dev/digiview/#/v/669d6e5b4ed67 ](https://ladigitale.dev/digiview/#/v/669d6e5b4ed67)
 
@@ -95,7 +95,7 @@ Par la suite, c’est finalement **MS-DOS**, écrit par Microsoft pour IBM qui s
 
 A l’heure actuelle on distingue trois grands types d’OS (Operating System) équipant les ordinateurs modernes : **WINDOWS**, **MAC OS** et **GNU LINUX** créé par **Linus TORVALDS** en 1991.
 
-**<H3 STYLE="COLOR:red;">Activité n°1.:** Répondre par Vrai ou faux Remarque : Certaines questions nécessitent une recherche internet. </H3>
+**<H3 STYLE="COLOR:red;">Activité n°1.:</H3>** Répondre par Vrai ou faux Remarque : Certaines questions nécessitent une recherche internet. 
 <table>
 <tr><th colspan="4" valign="top"><b>Activité n°1.:</b> Répondre par Vrai ou faux Remarque : Certaines questions nécessitent une recherche internet.</th></tr>
 <tr><td colspan="2" valign="top">Blaise
@@ -113,7 +113,7 @@ A l’heure actuelle on distingue trois grands types d’OS (Operating System) �
 <tr><td colspan="2" valign="top">La loi de Moore est toujours valide en 2020 </td><td colspan="2"></td></tr>
 </table>
 
-**<H3 STYLE="COLOR:red;">Activité n°2.:** Cocher la ou les bonnes réponses. Remarque : Certaines questions nécessitent une recherche internet. </H3>
+**<H3 STYLE="COLOR:red;">Activité n°2.:</H3>** Cocher la ou les bonnes réponses. Remarque : Certaines questions nécessitent une recherche internet. 
 <table>
 <tr><th colspan="8" valign="top"><b>Activité n°2.:</b> Cocher la ou les bonnes réponses. Remarque : Certaines questions nécessitent une recherche internet.</th></tr>
 <tr><td colspan="8" valign="top">  </td></tr>
@@ -127,7 +127,7 @@ A l’heure actuelle on distingue trois grands types d’OS (Operating System) �
 <tr><td colspan="6" valign="top">- 2010 </td></tr>
 </table>
 
-##<H2 STYLE="COLOR:BLUE;">## **2. Les<a name="_page3_x40.00_y539.92"></a> différents types de mémoires** </H2>
+##<H2 STYLE="COLOR:BLUE;"> **2. Les<a name="_page3_x40.00_y539.92"></a> différents types de mémoires** </H2>
 ###<H3 STYLE="COLOR:GREEN;"> **2.1. Organisation<a name="_page3_x40.00_y567.92"></a> de la mémoire** </H3>
 
 Il existe de nombreuses technologies de mémoire qui se distinguent par leur durabilité (volatile ou permanente), leur mode d’accès (par adresse ou dans l’ordre de leur rangement) ou leur temps d’accès. En règle générale, plus une mémoire est performante, plus elle est chère.
@@ -152,7 +152,7 @@ Afin de pouvoir adapter la très grande vitesse du processeur à celle plus faib
 
 <H3 STYLE="
 
-COLOR:red;">### **Activité n°3.:** Quelques interrogations </H3>
+COLOR:red;">### **Activité n°3.:</H3>** Quelques interrogations 
 
 Il reste toujours pas mal de questions en suspens. Quatre exemples :
 
@@ -161,7 +161,7 @@ Il reste toujours pas mal de questions en suspens. Quatre exemples :
 3. Si on veut récupérer des données externes (clavier ?), on récupère à partir de quelle provenance ?
 4. Si on veut envoyer des informations vers l’extérieur (écran ?), on envoie vers quelle destination ?
 
-##<H2 STYLE="COLOR:BLUE;">## **3. Architecture<a name="_page4_x40.00_y536.92"></a> de Von Neumann** </H2>
+##<H2 STYLE="COLOR:BLUE;"> **3. Architecture<a name="_page4_x40.00_y536.92"></a> de Von Neumann** </H2>
 
 L’architecture dite **architecture de Von Neumann est** un modèle pour un ordinateur qui utilise une structure de stockage unique pour conserver à la fois les instructions et les données demandées ou produites par le calcul. De telles machines sont aussi connues sous le nom d’**ordinateur à programme enregistré**. Le modèle de Von Neumann est conforme à un schéma qui a peu évolué depuis son origine en 1945.
 
@@ -190,7 +190,7 @@ Remarques :
 - **L’architecture Havard** se distingue de l’architecture Von Neuman uniquement par le fait que les mémoires programmes et données **sont séparées**. Cette organisation permet de transférer instructions et des données simultanément, ce qui améliore les performances, mais augmente les coûts.
 - Les ordinateurs **multiprocesseurs** permettent un parallélisme de tâches pour obtenir une plus grande puissance de calcul. Cette technologie a été utilisée pour des supercalculateurs, elle peut aussi l'être pour s'affranchir des limites de la montée en fréquence des processeurs : de nombreux processeurs actuels sont dits **multi-cœur**, et embarquent en fait plusieurs **monoprocesseurs** sur une même puce.
 
-**<H3 STYLE="COLOR:red;">Activité n°4.:** On part du principe que le système doit pouvoir transporter en une seule opération une adresse via son bus d’adresses. Peux-tu répondre à ces deux questions. </H3>
+**<H3 STYLE="COLOR:red;">Activité n°4.:</H3>** On part du principe que le système doit pouvoir transporter en une seule opération une adresse via son bus d’adresses. Peux-tu répondre à ces deux questions. 
 
 1. Combien d’adresses-mémoires RAM différentes peut-on avoir dans un ordinateur dont le bus d’adresse est un bus 16 bits ?
 
@@ -210,7 +210,7 @@ On caractérise le microprocesseur par :
 - le nombre d’instructions par secondes qu’il est capable d’exécuter
 - la taille des données qu’il est capable de traiter : en bits
 
-**<H3 STYLE="COLOR:red;">Activité n°5.:** Sur les photos ci-dessous, identifier le processeur. </H3>
+**<H3 STYLE="COLOR:red;">Activité n°5.:</H3>** Sur les photos ci-dessous, identifier le processeur. 
 
 ![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.026.png)
 ![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.027.png)
@@ -230,11 +230,11 @@ De plus, la multiplication des cœurs pose le problème de la synchronisation de
 
 Ces évolutions ont pour conséquence de mettre la **mémoire**, plutôt que l’unité centrale, **au centre de l’ordinateur**, et **d’augmenter le degré de parallélisme** dans le traitement et la circulation de l’information
 
-**<H3 STYLE="COLOR:red;">Activité n°6.:** Ci-contre, retrouver les interfaces RJ45, VGA, HDMI et USB. </H3>
+**<H3 STYLE="COLOR:red;">Activité n°6.:</H3>** Ci-contre, retrouver les interfaces RJ45, VGA, HDMI et USB. 
 
 ![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.032.jpeg)
 
-##<H2 STYLE="COLOR:BLUE;">## **4. Langage<a name="_page8_x40.00_y390.92"></a> assembleur** </H2>
+##<H2 STYLE="COLOR:BLUE;"> **4. Langage<a name="_page8_x40.00_y390.92"></a> assembleur** </H2>
 
 Le microprocesseur étant incapable d'interpréter la phrase "additionne le nombre 125 et la valeur située dans le registre R2,
 
@@ -317,7 +317,7 @@ La prochaine instruction à exécuter se situe à l'adresse mémoire 78 si la va
 
 Arrête l'exécution du programme
 
-**<H3 STYLE="COLOR:red;">Activité n°7.:** Expliquer les instructions suivantes </H3>
+**<H3 STYLE="COLOR:red;">Activité n°7.:</H3>** Expliquer les instructions suivantes 
 
 - ADD R0, R1, #42  
 - LDR R5,98 
@@ -326,7 +326,7 @@ Arrête l'exécution du programme
 - STR R0,15 
 - B 100
 
-**<H3 STYLE="COLOR:red;">Activité n°8.:** Écrire les instructions en assembleur correspondant aux phrases suivantes : </H3>
+**<H3 STYLE="COLOR:red;">Activité n°8.:</H3>** Écrire les instructions en assembleur correspondant aux phrases suivantes : 
 
 - Additionne la valeur stockée dans le registre R0 et la valeur stockée dans le registre R1, le résultat est stocké dans le registre R5
 - Place la valeur stockée à l'adresse mémoire 878 dans le registre R0
@@ -334,7 +334,7 @@ Arrête l'exécution du programme
 - la prochaine instruction à exécuter se situe en mémoire vive à l'adresse 478
 - Si la valeur stockée dans le registre R0 est égale 42 alors la prochaine instruction à exécuter se situe à l'adresse mémoire 85
 
-**<H3 STYLE="COLOR:red;">Activité n°9.:** Correspondance du langage Python et du langage assembleur </H3>
+**<H3 STYLE="COLOR:red;">Activité n°9.:</H3>** Correspondance du langage Python et du langage assembleur 
 
 ```python
 x = 4
@@ -369,7 +369,7 @@ endif:
 
 Après avoir analysé très attentivement le programme en assembleur ci-dessus, vous essaierez d'établir une correspondance entre les lignes du programme en Python et les lignes du programme en assembleur. À quoi sert la ligne "B endif" ? À quoi correspondent les adresses mémoires 23, 75 et 30?
 
-##<H2 STYLE="COLOR:BLUE;">## **5. Simulation<a name="_page11_x40.00_y36.92"></a> CPU** </H2>
+##<H2 STYLE="COLOR:BLUE;"> **5. Simulation<a name="_page11_x40.00_y36.92"></a> CPU** </H2>
 
 On utilise un simulateur développé par Peter L Higginson. Ce simulateur est basé sur une architecture de von Neumann. Nous allons trouver dans ce simulateur :
 
@@ -390,7 +390,7 @@ Les différentes parties du simulateur :
 
 Par défaut le contenu des différentes cellules de la mémoire est en base 10 (entier signé), mais d'autres options sont possibles : base 10 (entier non-signé, "unsigned"), base 16 ("hex"), base 2 ("binary"). On accède à ces options à l'aide du bouton "OPTIONS" situé en bas dans la partie gauche du simulateur.
 
-**<H3 STYLE="COLOR:red;">Activité n°10.:** À l'aide du bouton "OPTIONS", passer à un affichage en binaire. </H3>
+**<H3 STYLE="COLOR:red;">Activité n°10.:</H3>** À l'aide du bouton "OPTIONS", passer à un affichage en binaire. 
 
 Chaque cellule de la mémoire comporte 32 bits (classiquement une cellule de RAM comporte 8 bits).
 Chaque cellule de la mémoire possède une adresse (de 000 à 199), ces adresses sont codées en base 10.
@@ -406,7 +406,7 @@ Dans la partie centrale du simulateur, nous allons trouver en allant du haut ver
 
 ###<H3 STYLE="COLOR:GREEN;"> **5.3. Programmer<a name="_page12_x218.92"></a> en assembleur** </H3>
 
-**<H3 STYLE="COLOR:red;">Activité n°11.:** Dans la partie "éditeur" ("Assembly Language") saisissez les lignes de codes suivantes :</H3>
+**<H3 STYLE="COLOR:red;">Activité n°11.:</H3>** Dans la partie "éditeur" ("Assembly Language") saisissez les lignes de codes suivantes :
 ```
 MOV R0,#42
 STR R0,150
@@ -427,9 +427,9 @@ Il suffit maintenant de cliquer sur le bouton "RUN". Le CPU va "travailler" en d
 Une fois la simulation terminée, on constate que la cellule mémoire d'adresse 150, contient bien le nombre 42 (en base 10) et que le registre R0 a bien stocké le nombre 42.
 Attention : pour relancer la simulation il faut appuyer sur « RESET »
 
-**<H3 STYLE="COLOR:red;">Activité n°13.:** Modifier le programme précédent pour qu'à la fin de l'exécution on trouve le nombre 54 à l'adresse mémoire 50. On utilisera le registre R1 à la place du registre R0. Tester vos modifications en exécutant la simulation.</H3>
+**<H3 STYLE="COLOR:red;">Activité n°13.:</H3>** Modifier le programme précédent pour qu'à la fin de l'exécution on trouve le nombre 54 à l'adresse mémoire 50. On utilisera le registre R1 à la place du registre R0. Tester vos modifications en exécutant la simulation.
 
-**<H3 STYLE="COLOR:red;">Activité n°14.:** Saisir et tester le programme suivant :</H3>
+**<H3 STYLE="COLOR:red;">Activité n°14.:</H3>** Saisir et tester le programme suivant :
 ```
    MOV R0, #4
    STR R0,30
