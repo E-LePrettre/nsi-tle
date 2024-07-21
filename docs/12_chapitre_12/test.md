@@ -95,6 +95,8 @@ Par la suite, c’est finalement **MS-DOS**, écrit par Microsoft pour IBM qui s
 
 A l’heure actuelle on distingue trois grands types d’OS (Operating System) équipant les ordinateurs modernes : **WINDOWS**, **MAC OS** et **GNU LINUX** créé par **Linus TORVALDS** en 1991.
 
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
+
 **<H3 STYLE="COLOR:red;">Activité n°1.:</H3>** Répondre par Vrai ou faux Remarque : Certaines questions nécessitent une recherche internet. 
 <table>
 
@@ -148,9 +150,7 @@ La **mémoire centrale** est une mémoire vive qui contient les programmes en co
 
 Afin de pouvoir adapter la très grande vitesse du processeur à celle plus faible de la mémoire centrale, on place entre les deux une mémoire plus rapide, la **mémoire cache** qui contient les instructions et les données en cours d’utilisation car, la plupart du temps, les données qui viennent d’être utilisées ont une probabilité plus grande d’être réutilisées que d’autres. La **mémoire cache** (de l’ordre de quelques Mo) est souvent constitué de mémoire de type statique **SRAM** plus rapide mais plus chère que celle de type **RAM dynamique (SDRAM, DDR** …) utilisée dans la mémoire centrale. Généralement la mémoire cache est intégrée au « socket » du processeur.
 
-<H3 STYLE="
-
-COLOR:red;">### **Activité n°3.:</H3>** Quelques interrogations 
+**<H3 STYLE="COLOR:red;">Activité n°3.:</H3>** Quelques interrogations 
 
 Il reste toujours pas mal de questions en suspens. Quatre exemples :
 
