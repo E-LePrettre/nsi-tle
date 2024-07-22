@@ -5,21 +5,22 @@ title: 12 Traitement des données en tables
 
 **Table des matières** 
 
-1. [**  AVEC LA BIBLIOTHEQUE CSV**](#_page0_x40.00_y360.92)
-2. [**EXPLOITATION DES DONNEES AVEC LA BIBLIOTHEQUE CSV**](#_page7_x40.00_y36.92)
-3. [**EXERCICES**](#_page12_x40.00_y36.92)
-3. [**PROJET (DEMARCHE D’INVESTIGATION)**](#_page13_x40.00_y36.92)
+1. [**LES FICHIERS CSV ET LES FICHIERS JSON**](#_page0_x40.00_y360.92)
+2. [**IMPORTATION D’UN FICHIER CSV**](#_page7_x40.00_y36.92)
+3. [**TRI**](#_page7)
+4. [**FUSION DE TABLES**](#_page12)
+5. [**PROJET (DEMARCHE D’INVESTIGATION)**](#_page13_x40.00_y36.92)
 
-## **1. Avec la bibliothèque csv<a name="_page0_x40.00_y360.92"></a>**
+## **1. Les fichiers CSV et les fichiers JSON<a name="_page0_x40.00_y360.92"></a>**
 
-### **1.1. Les fichiers CSV** 
+On trouve souvent des jeux de données en libre accès. Les fichiers correspondants sont souvent proposés aux formats
+- **csv** pour Comma Separated Values,
+- **json** pour JavaScript Object Notation.
+Ces deux formats de fichiers permettent de présenter des données textuelles. 
 
-Une **table est une liste de p-uplets nommés** qui partagent les mêmes descripteurs (chaque champ de chaque p-uplet a le même nom). 
-
-**Remarque** : Un fichier CSV est un fichier dans lequel il y a une table. **En général, la première ligne de la table correspond aux descripteurs**. Les lignes suivantes correspondent **aux données**. Les lignes sont séparées par le caractère \n (retour chariot). Chaque champ est séparé par **une tabulation, une virgule ou un point-virgule**. Le séparateur en France est **;** mais ce n'est pas le même dans d'autres pays, ni pour tous les logiciels (soyez vigilants)!  
-
-Voici un exemple du contenu d'un fichier CSV : 
-```CSV
+Voici par exemple les mêmes informations présentées dans chacun des formats :
+- Au format CSV :
+```
 Album;groupe;année;classement
 Master of Puppets;Metalica;1986;1
 Paranoid;Black Sabbath;1970;2
@@ -37,495 +38,370 @@ Painkiller;Judas Priest;1990;13
 Powerslave;Iron maiden;1984;14
 Blawater Park;Opeth;2001;15
 ```
- 
+- Au format JSON
+```
+{ "amis": [
+    {"nom": "Jean","âge": 26,"ville": "Paris","passion": "VTT"},
+    {"nom": "Marion","âge": 28,"ville": "Lyon","passion": "badminton"},
+          ]
+}
+```
 
-Notez que la première ligne contient les noms de colonnes que l'on pourrait associer aux clés vues dans les dictionnaires.... On appelle ces noms les **descripteurs**. 
+Nous travaillerons désormais avec les fichiers csv. L'exemple précédent permet de remarquer plusieurs choses :
+- un fichier csv contient des **données textuelles**,
+- les données sont organisées en lignes,
+- la première ligne regroupe le nom **des descripteurs** (il y en a quatre ici : nom, âge, ville et passion),
+- les autres lignes contiennent **des enregistrements** 
+- au sein de chaque ligne, les valeurs sont délimitées par un **séparateur** (ici le caractère " ;"), mais les séparateurs peuvent être une tabulation ou une virgule
+- les données peuvent être de types différents. 
 
-### **1.2. Ouvrir<a name="_page1_x40.00_y36.92"></a> un fichier CSV, le passer en table ou dictionnaire** 
+**Attention** : Le séparateur en France est ; mais ce n'est pas le même dans d'autres pays, ni pour tous les logiciels (soyez vigilants)!
 
-On peut récupérer les données d'un fichier CSV dans un tableau doublement indexé : lignes, colonnes. Pour cela on utilise la **commande** reader de la bibliothèque csv qui retourne une **liste de listes.** 
+**Remarque** : il existe aussi un autre format pour conserver des données : le format xml pour eXtensible Markup Language qui utilise des balises au même titre que le html :
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<amis>
+    <personne>
+        <nom>Jean</nom>
+        <âge>26</âge>
+        <ville>Paris</ville>
+        <passion>VTT</passion>
+    </personne>
+    <personne>
+        <nom>Marion</nom>
+        <âge>28</âge>
+        <ville>Lyon</ville>
+        <passion>badminton</passion>
+    </personne>
+</amis>
+```
+## **2. Importation d’un fichier CSV<a name="_page7_x40.00_y36.92"></a>**
+
+### **2.1. En liste<a name="_page1_x40.00_y36.92"></a>** 
+
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
 
 
+**Activité n°1.: Lecture et création de liste avec un CSV (délimiteur ;)** : 
+```python
+import csv
+f = open("musique.csv")       			# ouvre le fichier CSV
+donnees = csv.reader(f, delimiter=';')       		# lit et précise le délimiteur
+for row in donnees:                                    	# pour chaque ligne de donnees
+    print(row)                                  	# affiche chaque ligne
+f.close()						# toujours fermer le fichier
+```
+**Attention sur Thonny** (par exemple) il faut enregistrer le fichier python au même endroit que le fichier CSV.
+```
+>>>
+['Album', 'groupe', 'annÃ©e', 'classement']
+['Master of Puppets', 'Metalica', '1986', '1']
+['Paranoid', 'Black Sabbath', '1970', '2']
+['Rage against the machine', 'Rage against the machine', '1992', '3']
+['Ride the lightning', 'Metallica', '1984', '4']
+['Rust in peace', 'Megadeth', '1990', '5']
+['Metallica', 'Metallica', '1991', '6']
+['Toxicity', 'System of a down', '2001', '7']
+['reign in blood', 'Slayer', '1986', '8']
+['the number of the beast', 'Iron maiden', '1982', '9']
+['From mars to sirius', 'Gojira', '2005', '10']
+['..and justice for all', 'Metallica', '1988', '11']
+['Mutter', 'Rammstein', '2001', '12']
+['Painkiller', 'Judas Priest', '1990', '13']
+['Powerslave', 'Iron maiden', '1984', '14']
+['Blawater Park', 'Opeth', '2001', '15']
+```
 
-**Activité n°1.: Création d’un fichier CSV** : Copier-coller le contenu de **la fenêtre ci-dessus** dans un fichier ouvert avec Notepad++, notepad, Excel, ou autre… et enregistrer le sous le nom musique.csv dans le dossier Documents. Une version du fichier se trouve dans Ressources
-Le délimiteur dans ce fichier CSV est un point-virgule. 
+Ici le problème est que les données ne sont pas structurées : la première ligne est la ligne des **«descripteurs»** (ou des **«champs»**), alors que les lignes suivantes sont les **valeurs** de ces descripteurs.
 
+### **2.2. En liste de liste<a name="_page5_x40.00_y36.92"></a>** 
 
+**Activité  n°2.:  Lecture et création de liste de listes avec un CSV (délimiteur ;)** :
 
-**Activité n°2.: Lecture et création de liste puis de liste de listes avec un CSV (délimiteur ;)** : copier-coller et enregistrer le fichier python créé dans le dossier Documents précédent sous le nom de musique.py. Puis lancer le script. 
 ```python
 import csv
 table=[]
-csv_fichier = open("musique.csv")       # ouvre le fichier CSV
-csv_read = csv.reader(csv_fichier, delimiter=';')       # lit et précise le délimiteur
-for row in csv_read:                                    # pour chaque ligne de csv_read
-    print(row)                                  	 # affiche chaque ligne
-
-    # pour construire la liste de liste
-    table.append(row)                                   # construit la liste de liste
-print("#############################################""")# decoration
-print("la liste est : ",table)                          # affichage de la liste de liste
-print("#############################################""")# decoration
-print("1ère ligne :", table[0][0], ", 2ème colonne :",table[0][1])  # affiche l'élément
-csv_fichier.close()
+f = open("musique.csv")       		# ouvre le fichier CSV
+donnees = csv.reader(f, delimiter=';')       	# lit et précise le délimiteur
+for row in donnees:                           # pour chaque ligne de donnees
+    table.append(row)                         # construit la liste de liste
+print(table)                          	# affichage de la liste de liste
+f.close()					# toujours fermer le fichier
+```
+```
+>>>
+[['Album', 'groupe', 'annÃ©e', 'classement'], ['Master of Puppets', 'Metalica', '1986', '1'], ['Paranoid', 'Black Sabbath', '1970', '2'], ['Rage against the machine', 'Rage against the machine', '1992', '3'], ['Ride the lightning', 'Metallica', '1984', '4'], ['Rust in peace', 'Megadeth', '1990', '5'], ['Metallica', 'Metallica', '1991', '6'], ['Toxicity', 'System of a down', '2001', '7'], ['reign in blood', 'Slayer', '1986', '8'], ['the number of the beast', 'Iron maiden', '1982', '9'], ['From mars to sirius', 'Gojira', '2005', '10'], ['..and justice for all', 'Metallica', '1988', '11'], ['Mutter', 'Rammstein', '2001', '12'], ['Painkiller', 'Judas Priest', '1990', '13'], ['Powerslave', 'Iron maiden', '1984', '14'], ['Blawater Park', 'Opeth', '2001', '15']]
 ```
 
-
-On peut alors facilement manipuler cette table puisque c'est **une liste de listes**.  
-
-
-
-**Activité  n°3.:  Lecture  et  creation  de  liste  avec  un  fichier  CSV  (délimiteur ,)** :  Copier  le  fichier personnes.csv du dossier Ressources dans le dossier Documents. Puis copier-coller et enregistrer le fichier python créé dans le dossier Documents précédent sous le nom de personne.py. Puis lancer le script. 
-```python
-import csv
-table=[]
-csv_fichier = open("personnes.csv")                     # ouvre le fichier CSV
-csv_read = csv.reader(csv_fichier, delimiter=',')       # lit et précise le délimiteur
-for row in csv_read:                                    # pour chaque ligne de csv_read
-    print("ligne : ",row)                               # affiche chaque ligne
-    table.append(row) 				      # construit la liste de liste
-print(table)                                                            
-csv_fichier.close()
-```
+### **2.3. En liste de dictionnaires<a name="_page6_x79.00_y408.92"></a>** 
 
 
 
+**Activité n°3.: Création de liste de dictionnaires** : 
 
-**Activité n°4.: Lecture et creation de dictionnaires avec un fichier CSV (délimiteur ,)** : copier-coller et enregistrer le fichier python créé dans le dossier Documents précédent sous le nom de personne_dico.py. 
-Puis lancer le script. 
-```python
-import csv
-csv_file = open('personnes.csv', "r")
-reader = csv.DictReader(csv_file, delimiter=',')
-for row in reader:
-    print(dict(row))
-csv_file.close()
-```
-
-**Autre méthode**, on récupère le fichier CSV dans une **liste de dictionnaires** qui ont tous les mêmes descripteurs avec la commande DictReader de la bibliothèque csv. 
-A noter que DictReader crée une liste de dictionnaires ordonnés ! 
-
-**Activité n°5.: Création de liste de dictionnaires** : copier-coller et enregistrer le fichier python créé dans le dossier Documents précédent sous le nom de musique_dico.py. Puis lancer le script. 
 ```python
 import csv
 dico=[]
-csv_fichier = open("musique.csv")       # ouvre le fichier CSV
-csv_read = csv.DictReader(csv_fichier, delimiter=';')   # lit convertit en dico précise le délimiteur
-
-for row in csv_read:                                    # pour chaque ligne de csv_read
-    print("ligne",row)                                  # affiche chaque ligne
-    print(row['Album'])
+f = open("musique.csv")       			# ouvre le fichier CSV
+donnees = csv.DictReader(f, delimiter=';')   	# lit convertit en dico précise le délimiteur
+for row in donnees:                                    # pour chaque ligne de donnees
     dico.append(row)                                    # construit la liste de dico
-print("#############################################""")# decoration
-print("le dico est : ",dico)                            # affichage de dico
-print("#############################################""")# decoration
-print("1ère ligne, 2ème colonne :",dico[0]['Album'])    # affiche l'élément
-csv_fichier.close()
+print(dico)                            		# affichage de dico
+f.close()						# toujours fermer le fichier
 ```
 
+```
+>>>
+ [{'Album': 'Master of Puppets', 'groupe': 'Metalica', 'annÃ©e': '1986', 'classement': '1'}, {'Album': 'Paranoid', 'groupe': 'Black Sabbath', 'annÃ©e': '1970', 'classement': '2'}, {'Album': 'Rage against the machine', 'groupe': 'Rage against the machine', 'annÃ©e': '1992', 'classement': '3'}, {'Album': 'Ride the lightning', 'groupe': 'Metallica', 'annÃ©e': '1984', 'classement': '4'}, {'Album': 'Rust in peace', 'groupe': 'Megadeth', 'annÃ©e': '1990', 'classement': '5'}, {'Album': 'Metallica', 'groupe': 'Metallica', 'annÃ©e': '1991', 'classement': '6'}, {'Album': 'Toxicity', 'groupe': 'System of a down', 'annÃ©e': '2001', 'classement': '7'}, {'Album': 'reign in blood', 'groupe': 'Slayer', 'annÃ©e': '1986', 'classement': '8'}, {'Album': 'the number of the beast', 'groupe': 'Iron maiden', 'annÃ©e': '1982', 'classement': '9'}, {'Album': 'From mars to sirius', 'groupe': 'Gojira', 'annÃ©e': '2005', 'classement': '10'}, {'Album': '..and justice for all', 'groupe': 'Metallica', 'annÃ©e': '1988', 'classement': '11'}, {'Album': 'Mutter', 'groupe': 'Rammstein', 'annÃ©e': '2001', 'classement': '12'}, {'Album': 'Painkiller', 'groupe': 'Judas Priest', 'annÃ©e': '1990', 'classement': '13'}, {'Album': 'Powerslave', 'groupe': 'Iron maiden', 'annÃ©e': '1984', 'classement': '14'}, {'Album': 'Blawater Park', 'groupe': 'Opeth', 'annÃ©e': '2001', 'classement': '15'}]
+ ```
+On récupère le fichier CSV dans une **liste de dictionnaires** qui ont tous les mêmes descripteurs avec la commande **DictReader** de la bibliothèque **csv**.
+A noter que **DictReader** crée une liste de dictionnaires ordonnés !
 
+### **2.4. Application<a name="_page7_x40.00_y304.92"></a>** 
 
+**Exploitation graphique**
+Nous allons utiliser le module Matplotlib pour illustrer les données de notre fichier csv.
+Pour tracer un nuage de points (par l'instruction plt.plot), Matplotlib requiert :
+- une liste X contenant toutes les abscisses des points à tracer.
+- une liste Y contenant toutes les ordonnées des points à tracer.
+Exemple :
 
-**Activité n°6.: Création de liste de dictionnaires v2**: copier-coller et enregistrer le fichier python créé dans Documents précédent sous le nom de personne_dico2.py. Puis lancer le script. 
+```python
+import matplotlib.pyplot as plt
+X = [0, 1, 3, 6]
+Y = [12, 10, 7, 15]
+plt.plot(X, Y, 'ro') 
+plt.show()
+```
+Dans l'instruction plt.plot(X, Y, 'ro') :
+- X sont les abscisses,
+- Y sont les ordonnées,
+- 'ro' signifie :
+- qu'on veut des points (c'est le 'o', plus de choix ici).
+- qu'on veut qu'ils soient rouges (c'est le 'r' plus de choix ici).
+
+![](15.png)
+
+**Activité n°4.: Application** : on travaillera avec le fichier metalbands.csv. Comme ce fichier n’est pas encodé en ‘utf-8’ il faut utiliser une autre manière de l’ouvrir  pour pouvoir spécifier l’encodage :
+
 ```python
 import csv
-reader = csv.DictReader(open('personnes.csv', 'r',))
-personnes = []
-for row in reader:
-    personnes.append(dict(row))
+dico = []
+# ouvrez le fichier en spécifiant l'encodage
+with open("MetalBands.csv", encoding='ISO-8859-1') as f: 
+    # lit et convertit en dictionnaire, précise le délimiteur
+    donnees = csv.DictReader(f, delimiter=',')  
+    for row in donnees:  # pour chaque ligne de donnees
+        dico.append(row)  # construit la liste de dico
+print(dico)  # affichage de dico
+f.close()
+```
+1.	Combien de groupes sont présents dans ce fichier ?
+2.	Quel est le nom du groupe en 812
+3.	Combien de groupe se sont formés en 1981. Attention les dates sont ici des chaines de caractères
+4.	Donner la liste des groupes dont le genre est du ‘Melodic death’.ATTENTION à tout mettre en minuscule pour ne pas avoir d’ennuis. Pour les supprimer les doublons : on convertit la liste en ensemble (set) avec la fonction set() à placer devant l’instruction
+5.	Afficher sur un graphique tous les groupes de métal, en mettant l’année en abscisse et le nombre de fans en ordonnée.
+6.	Faire apparaitre ensuite (par-dessus) les groupes de ‘Melodic death’ en bleu (‘bo’) et les groupes de Heavy en vert (‘go’). Attention aux majuscules, minuscules => pensez à tout mettre en minuscule
 
-print(personnes)
+
+
+## **3.Tri<a name="_page7"></a>**
+
+Pour exploiter les données, il peut être intéressant de les trier. Une utilisation possible est l’obtention du classement des entrées selon tel ou tel critère. Une autre utilisation vient du fait que la **recherche dichotomique** dans un tableau trié est bien plus efﬁcace que la recherche séquentielle dans un tableau quelconque.
+
+### **3.1. Fonction filtre<a name="_page7_x"></a>** 
+
+**Activité n°5.: fonction filtre**: on travaillera avec le fichier metalbands.csv. Créer une fonction groupeGenre qui renvoie une liste contenant les fiches de tous les groupes de métal d’un genre passée en paramètre.
+
+Exemple d'utilisation :
+```
+>>> print(groupeGenre('Extreme folk'))
+[{'': '17', 'band_name': 'Ensiferum', 'fans': '1879', 'formed': '1995', 'origin': 'Finland', 'split': '1995', 'style': 'Extreme folk'}, {'': '67', 'band_name': 'Ensiferum', 'fans': '1879', 'formed': '1995', 'origin': 'Finland', 'split': '1995', 'style': 'Extreme folk'}, {'': '113', 'band_name': 'Finntroll', 'fans': '967', 'formed': '1997', 'origin': 'Finland', 'split': '1997', 'style': 'Extreme folk'}, {'': '652', 'band_name': 'Brymir', 'fans': '108', 'formed': '2006', 'origin': 'Finland', 'split': '-', 'style': 'Extreme folk'}]
+```
+Attention aux majuscules, minuscules
+
+
+### **3.2. Fonction tri<a name="_page7_x40.00_y"></a>** 
+
+On ne peut pas directement trier le tableau précédent… car cela ne veut rien dire. Il faut indiquer selon quels critères on veut effectuer ce tri.
+Pour cela, on appelle la fonction **sorted()**  ou la méthode **.sort()** , avec l’argument supplémentaire **key** qui est une fonction renvoyant la valeur utilisée pour le tri.
+
+La méthode **.sort()**  trie la liste en place, alors que la fonction **sorted()** renvoie une **nouvelle liste** correspondant la liste triée, la liste initiale étant laissée intacte.
+
+Un exemple de tri de dictionnaire
+```python
+Simpsons = [{"Prenom" : "Bart", "age estimé": "10"},
+           {"Prenom" : "Lisa", "age estimé": "8"},
+           {"Prenom" : "Maggie", "age estimé": "1"},
+           {"Prenom" : "Homer", "age estimé": "38"},
+           {"Prenom" : "Marge", "age estimé": "37"}]
+
+def age(personnage):
+    return int(personnage["age estimé"])
+```
+
+```
+>>> age(Simpsons[0])
+10
+```
+La création de cette fonction age va nous permettre de spécifier une clé de tri, par le paramètre key :
+Tri d'un dictionnaire  
+```
+>>> triSimpsons = sorted(Simpsons, key=age)
+>>> triSimpsons
+    [{'Prenom': 'Maggie', 'age estimé': '1'},
+     {'Prenom': 'Lisa', 'age estimé': '8'},
+     {'Prenom': 'Bart', 'age estimé': '10'},
+     {'Prenom': 'Marge', 'age estimé': '37'},
+     {'Prenom': 'Homer', 'age estimé': '38'}]
+```
+On peut aussi inverser l'ordre de tri :
+```
+>>> triSimpsons = sorted(Simpsons, key=age, reverse=True)
+>>> triSimpsons
+    [{'Prenom': 'Homer', 'age estimé': '38'},
+     {'Prenom': 'Marge', 'age estimé': '37'},
+     {'Prenom': 'Bart', 'age estimé': '10'},
+     {'Prenom': 'Lisa', 'age estimé': '8'},
+     {'Prenom': 'Maggie', 'age estimé': '1'}]
 ```
 
 
-**Activité n°7.: Création de liste de dictionnaires v3 encore plus court** : copier-coller et enregistrer le fichier python créé dans le Documents précédent sous le nom de personne_dico3.py. Puis lancer le script. 
+**Activité n°6.:** : on travaillera avec le fichier metalbands.csv. Trier les noms des groupes par nombre de fans et afficher les groupes qui ont plus de 2000 fans
+
+**Activité n°7.:** : on travaillera avec le fichier metalbands.csv. Trier les noms des groupes par année de formation et afficher les groupes qui se sont formés entre 1980 compris et 1990 compris.
+
+## **4.Fusion de tables<a name="_page12"></a>**
+
+On considère dans ce sujet les trois fichiers csv décrits ci-dessous :
+countries.csv contient des informations décrivant les pays :
+- CountryCode : le code du pays (texte, clé primaire)
+-	Name : le nom du pays (texte)
+-	Continent : le continent du pays (texte)
+-	SurfaceArea : la surface du pays (nombre décimal)
+-	Population : la population du pays (entier)
+-	Capital : la capitale du pays (nombre entier correspondant à un ID dans le fichier cities.csv)
+-	d'autres descripteurs qui ne nous intéressent pas ici...
+languages.csv contient les informations sur les langues parlées dans chaque pays :
+-	CountryCode : le code du pays (texte)
+-	Language : la langue concernée par cette entrée (texte)
+-	IsOfficial : cette langue est-elle officielle dans ce pays ? (texte, T pour True, F pour False)
+-	Percentage : le pourcentage de locuteurs dans le pays (nombre décimal)
+cities.csv contient des informations décrivant des villes :
+-	ID : l'identifiant de la ville (entier)
+-	Name : le nom de la ville (texte)
+-	code : le code du pays dans lequel est situé la ville (texte)
+-	District : la région d'appartenance de la ville (texte)
+-	Population : la population de la ville (entier)
+
+**Activité n°8.: ouverture des tables** :  
 ```python
 import csv
-reader = csv.DictReader(open('personnes.csv', 'r'))
-personnes = [dict(ligne) for ligne in reader]
+pays=[]
+f = open("countries.csv")       			
+donnees = csv.DictReader(f, delimiter=';')   	
+for row in donnees:                                    
+    pays.append(row)                                   
+print(pays)                            		
+f.close()	
 
-print(personnes)
+langues=[]
+f = open("languages.csv")       			
+donnees = csv.DictReader(f, delimiter=';')   	
+for row in donnees:                                    
+    langues.append(row)                                   
+print(langues)                            		
+f.close()	
+
+villes=[]
+f = open("cities.csv")       			
+donnees = csv.DictReader(f, delimiter=';')   	
+for row in donnees:                                    
+    villes.append(row)                                   
+print(villes)                            		
+f.close()		
 ```
 
-En créant une liste de dictionnaires qui possèdent les mêmes clés, on obtient une structure qui ressemble à une base de données.  
+**Activité n°9.: Langues parlées dans chaque pays** :  
+Quelles sont les langues parlées en Haïti ? Pour le savoir il faut :
+- parcourir la liste pays jusqu'à trouver le code de Haïti (orthographié Haiti dans la liste pays),
+- parcourir la liste langues et en extraire les valeurs correspondant à ce code.
 
-**Remarque** : un fichier JSON qui est un autre type de base de données peut également contenir une liste de dictionnaires. 
-
-
-
-**Activité n°8.: Création de liste de dictionnaires sans le module** csv **de Python** : copier_coller et enregistrer le fichier python créé dans le Documents précédent sous le nom de personne_dico4.py. Puis lancer le script. 
+**Langues parlées en Haïti**
+Compléter le code ci-dessous permettant de déterminer les langues parlées en Haïti.
 ```python
-csv_file = open('personnes.csv', "r")
-personnes = []
-entetes = csv_file.readline().strip().split(',')
+i_haiti = 0
+while pays[i_haiti]["Name"]... "Haiti":
+    i_haiti = ...
 
-for ligne in csv_file:
-    donnees = ligne.strip().split(',')
-    personnes.append({entete: donnees[index] for index, entete in enumerate(entetes)})
-csv_file.close()
+code = pays[i_haiti][...]
 
-print(personnes)
+langues_haiti = []
+for entree in langues:
+    if entree[...] == code:
+        langues_haiti.append(entree)
+
+for langue in langues_haiti:
+    print(langue)
 ```
+Le descripteur CountryCode permet donc de faire le lien entre les deux listes pays et langues.
+Utilisons cette relation afin de déterminer les langues parlées dans un pays quelconque.
 
-### **1.3. Enregistrer<a name="_page5_x40.00_y36.92"></a> un fichier CSV, ajouter une ligne** 
-
-Tout comme précédemment, on peut enregistrer des tables dans un fichier CSV, ou une liste de dictionnaires. Il faudra veiller à la cohérence des données ! 
-
-
-**Activité n°9.: Création d’un fichier csv à partir d’une liste et à partir d’une liste de tuples** : Copier-coller le script dans un fichier qui sera nommé creationCSV.py. Lancer le et observer le fichier creationstock.csv
-Le fichier CSV contient :
-```csv
-Symbol;Prix;Date;Heure;Change;Vol
-AB;30;6/2/2018;8:11am;-0.28;15500
-KJL;55;6/2/2018;8:11am;-0.95;445500
-MMP;88;6/2/2018;8:11am;-0.26;966000
+**Langues parlées dans un pays**
+On demande d'écrire deux fonctions :
+- code_pays prend en argument la liste des pays ainsi que le nom d'un pays et renvoie son code ;
+- langues_parlees prend en argument les listes des données des pays et celle des langues (arguments pays et langues) ainsi que le nom d'un pays (nom) et renvoie la liste des noms des langues parlées dans ce pays.
+Exemples :
 ```
-```python
-import csv
-en_tetes = ['Symbol','Prix','Date','Heure','Change','Vol'] 	#liste
-lignes = [('AB', 30, '6/2/2018', '8:11am', -0.28, 15500),
-        ('KJL', 55, '6/2/2018', '8:11am', -0.95, 445500),
-        ('MMP', 88, '6/2/2018', '8:11am', -0.26, 966000),
-       ]                                                    	#liste de tuples
-
-with open("creationstock.csv",'w') as stock:    # ouvre le fichier CSV
-    stock_csv = csv.writer(stock,delimiter=';') # ouvre en écriture précision délimiteur
-    stock_csv.writerow(en_tetes)                # écrit la liste en_tetes
-    # extraction des tuples de la liste pour les mettre dans une nouvelle lists
-    for symbol, prix, date, heure, change, vol in lignes: 
-        table=[]
-        table.append(symbol)
-        table.append(prix)
-        table.append(date)
-        table.append(heure)
-        table.append(change)
-        table.append(vol)
-        print(table)                        #affiche les tuples convertis en liste
-        stock_csv.writerow(table)           #écrit les tuples extrait en converti en liste
-
-stock.close()
+>>> code_pays(pays, "Haiti")
+"HTI"
+>>> langues_parlees(pays, langues, "Haiti")
+['French', 'Haiti Creole']
 ```
-
-**Activité n°10.: Création d’un fichier csv à partir d’une liste et à partir d’une liste de tuples** : Copier-coller le script dans un fichier qui sera nommé creationCSVversioncourte.py. Lancer et observer le fichier creationstockversioncourte.csv. Noter la difference de syntaxe entre une création d’un CSV à partir d’une liste ou d’une liste de tuples
-Le fichier CSV contient :
-```csv
-Symbol;Prix;Date;Heure;Change;Vol
-AB;30;6/2/2018;8:11am;-0.28;15500
-KJL;55;6/2/2018;8:11am;-0.95;445500
-MMP;88;6/2/2018;8:11am;-0.26;966000
-``` 
-```python
-import csv
-en_tetes = ['Symbol','Prix','Date','Heure','Change','Vol'] #liste
-lignes = [('AB', 30, '6/2/2018', '8:11am', -0.28, 15500),
-        ('KJL', 55, '6/2/2018', '8:11am', -0.95, 445500),
-        ('MMP', 88, '6/2/2018', '8:11am', -0.26, 966000),
-       ]                                                    #liste de tuple
-
-stock = open("creationstockversioncourte.csv",'w') # ouvre le fichier CSV
-stock_csv = csv.writer(stock,delimiter=';')     # ouvre en écriture précision délimiteur
-stock_csv.writerow(en_tetes)                    # écrit la liste en_tetes
-stock_csv.writerows(lignes)                     # écrit la liste des tuples versn supercourt
-stock.close()
-```
-
-**Activité n°11.: Création d’un fichier csv à partir d’une séquence de dictionnaire** : à partir d’une liste et à partir d’une liste de dictionnaires. Copier-coller le script dans un fichier qui sera nommé creationCSVdico.py. 
-Lancer le et observer le fichier creationstockdico.csv
-Le fichier CSV contient :
-```csv
-Symbol;Prix;Date;Heure;Change;Vol
-AB;30;6/2/2018;8:11am;-0.28;15500
-KJL;55;6/2/2018;8:11am;-0.95;445500
-MMP;88;6/2/2018;8:11am;-0.26;966000
-``` 
-```python
-import csv
-en_tetes = ['Symbol','Prix','Date','Heure','Change','Vol'] #liste
-lignes = [{'Symbole':'HHA', 'Prix':350.48, 'Date':'6/1/2018',
-          'Heure':'50:36am', 'Change':-0.58, 'Vol':585855},
-        {'Symbole':'NNG', 'Prix': 75.38, 'Date':'6/1/2018',
-          'Heure':'50:36am', 'Change':-0.55, 'Vol': 5505555},
-        {'Symbole':'UOP', 'Prix': 62.58, 'Date':'6/1/2018',
-          'Heure':'50:36am', 'Change':-0.46, 'Vol': 5035550},
-        ]                                                       #liste de dictionnaire
-
-with open("creationstockdico.csv",'w') as stock:                # ouvre le fichier CSV
-    #il faut définir l'endroit de l'entete
-    stock_csv = csv.DictWriter(stock,fieldnames=lignes[0].keys(),delimiter=';')
-    stock_csv.writeheader()                                     # écrit la liste en_tetes
-    for i in lignes:                                            #extraction des dicos
-        stock_csv.writerow(i)                                   #ecrit les dico extraits
-stock.close()
-```
-
-On a utilisé ici ```with``` qui permet seulement une plus grande clarté du code. **Les deux scripts sont totalement équivalents.** 
-
-### **1.4. Fusion<a name="_page6_x79.00_y408.92"></a> de deux fichiers CSV** 
-
-**Activité  n°12.:  Création  de  liste  de  dictionnaires à  partir  de  2  fichiers  CSV**  :  Copier  le  fichier transports.csv du dossier Ressources dans le  dossier Documents. Copier-coller et enregistrer le fichier python créé dans le dossier Documents précédent sous le nom de transports.py. Puis lancer le script. 
-```python
-import csv
-reader = csv.DictReader(open('transports.csv', 'r',))
-transports = []
-for row in reader:
-    transports.append(dict(row))
-
-reader = csv.DictReader(open('personnes.csv', 'r',))
-personnes = []
-for row in reader:
-    personnes.append(dict(row))
-
-for i in range(len(personnes)):
-    for v in [ vh for vh in transports if vh['age']==personnes[i]['age'] ]:
-        personnes[i]['vehicule'] = v['vehicule']
-
-print(personnes)
-```
-
-
-## **2.Exploitation<a name="_page7_x40.00_y36.92"></a> des données avec la bibliothèque csv**
-
-On utilise un fichier nommé ‘countries.csv’ et ‘cities.csv’ contenant quelques données sur les différents pays et ville du monde. En voici les premières lignes pour countries.csv :  
-```csv
-ISO;Name;Capital_Id;Area;Population;Continent;Currency_Code;Currency_Name
-AD;Andorra;3041563;468;84000;EU;EUR;Euro
-AE;United Arab Emirates;292968;82880;4975593;AS;AED;Dirham
-AF;Afghanistan;1138958;647500;29121286;AS;AFN;Afghani
-AG;Antigua and Barbuda;3576022;443;86754;NA;XCD;Dollar
-AI;Anguilla;3573374;102;13254;NA;XCD;Dollar
-AL;Albania;3183875;28748;2986952;EU;ALL;Lek
-```
-
-
-**Remarques :** 
-
-- Les champs sont clairement séparés par des **points-virgules.** 
-- Comme c’est souvent le cas, la première ligne est utilisée pour indiquer le nom des différents champs : c’est **l’entête**. Dans ce cas, le premier enregistrement se trouve sur la deuxième ligne du fichier. 
-- La signification des différents champs est transparente. A part le champ nommé Capital_Id dont les valeurs sont des numéros d’identifiants de villes que l’on trouvera dans le fichier nommé cities.csv. 
-
-Les données sont issues du site[ http://www.geonames.org ](http://www.geonames.org/)
-
-### **2.1. Importation<a name="_page7_x40.00_y304.92"></a> des données en liste de listes** 
-
-
-
-**Activité n°13.: Importation des données** : Copier le fichier countries.csv dans le dossier Documents. Et copier coller le script suivant dans un fichier countries.py 
-```python
-import csv
-
-pays = []
-csvfile = open('countries.csv', newline='')   # Ouverture du fichier .csv
-reader = csv.reader(csvfile, delimiter=';')  # Création d'un objet "lecteur", à itérer
-for row in reader:
-    pays.append(row)
-
-csvfile.close()
-```
-
-Dans ce cas, les résultats sont stockés sous forme d’un tableau de tableaux (ou liste de listes au sens de Python). On peut ainsi obtenir la liste des noms des champs (ligne d’en-tête) : 
-```python
-print(pays[**0**]) 
-```
-ou le premier enregistrement : 
-```python
-print(pays[**1**]) 
-```
-
-
-Cette structure n’est pas la plus satisfaisante car le lien entre les valeurs du tableau pays[1]  et le nom des enregistrements, contenus dans pays[0] , n’est pas direct. 
-
-### **2.2. Importation<a name="_page7_x40.00_y724.92"></a> des données en dictionnaire ordonné** 
-
-La  fonction ```DictReader()```  de  da  bibliothèque csv   retourne  un  objet  DictReader   pour  chaque enregistrement, la première ligne étant utilisée pour nommer les différents champs. 
-
-
-**Activité n°14.: Importation des données** : Copier coller le script suivant dans un fichier countriesdico.py 
-```python
-import csv
-
-pays = []
-with open('countries.csv', newline='') as csvfile:
-    reader = csv.DictReader(csvfile, delimiter=';')  # Objet DictReader (itérateur)
-    for row in reader:
-        pays.append(dict(row))  # Conversion du type OrderedDict en dictionnaire
-
-csvfile.close()        
-print(pays[0])
-```
-
-
-**Remarque** : La conversion du *dictionnaire ordonné* en *dictionnaire* ```dict(row)``` permet uniquement d’avoir un affichage plus plaisant. 
-
-Cette fois ci, on obtient un tableau de p-uplets représentés sous forme de dictionnaire. 
-
-### **2.3. Interrogation<a name="_page8_x40.00_y305.92"></a> de la base de données** 
-
-On peut traduire en Python des questions simples.  
-
-**Activité n°15.: Question simple :** on peut poser la question : quels sont les pays où l’on paye en euro ? Ajouter à la place du ```print(pays[0])``` dans le fichier countriesdico.py le script suivant : 
-```python
-print([p['Name']for p in pays if p['Currency_Code'] =='EUR']) 
-```
-
-**Activité n°16.: A faire tout seul :** Écrire l’instruction permettant de lister les **codes (**Currency_Code**) de** **toutes les monnaies (**Currency_Name**) qui s’appellent ‘**Dollar**’**. 
-
-> ```# ??```
-```
-['XCD', 'XCD', 'USD', 'AUD', 'BBD', 'BMD', 'BND', 'BSD', 'BZD', 'CAD', 'AUD', 'NZD', 'AUD', 'XCD', 'USD', 'FJD', 'USD', 'XCD', 'USD', 'GYD', 'HKD', 'JMD', 'AUD', 'XCD', 'KYD', 'XCD', 'LRD', 'USD', 'USD', 'XCD', 'NAD', 'AUD', 'AUD', 'NZD', 'NZD', 'NZD', 'USD', 'USD', 'SBD', 'SGD', 'SRD', 'USD', 'USD', 'USD', 'TTD', 'AUD', 'TWD', 'USD', 'XCD', 'USD', 'USD', 'ZWL']
-```
-
-On obtient une liste contenant beaucoup de doublons.  
-
-
-**Activité n°17.: A faire tout seul : Pour les supprimer les doublons :** on convertit la liste en ensemble (set) avec la  fonction ```set()```  à  placer  devant  l’instruction.  Écrire  l’instruction  permettant  de  lister  les  **codes** (Currency_Code) de toutes les monnaies (Currency_Name) qui s’appellent ‘**Dollar**’** sans doublons 
-
-> ```# ??``` 
-```
-{'TWD', 'CAD', 'BBD', 'BSD', 'TTD', 'SRD', 'BMD', 'SGD', 'BZD', 'XCD', 'JMD', 'NZD', 'KYD', 'HKD', 'BND', 'LRD', 'NAD', 'FJD', 'USD', 'ZWL', 'SBD', 'GYD', 'AUD'}
-```
-
-
-
-**Activité n°18.: A faire tout seul : Question plus difficile :** Écrire l’instruction permettant de lister les **noms des pays** (Name) **de plus de 100 millions d’habitants** (Population), sous la forme (Pays => Population (en Millions d’habitants)).  
-
-Aide :```p['……']```  renvoie un string, il faut donc utiliser les fonction ```int()``` et ```str()```.  Arrondir à 2 avec la fonction ```round()```. On doit obtenir : 
-
-> ```# ?? ```
-```
-['Bangladesh => 1.56', 'Brazil => 2.01', 'China => 13.3', 'Indonesia => 2.43', 'India => 11.73', 'Japan => 1.27', 'Mexico => 1.12', 'Nigeria => 1.54', 'Pakistan => 1.84', 'Russia => 1.41', 'United States => 3.1']
-```
-
-### **2.4. Tri<a name="_page9_x40.00_y140.92"></a>** 
-
-Pour exploiter les données, il peut être intéressant de les trier. Une utilisation possible est l’obtention du classement des entrées selon tel ou tel critère. Une autre utilisation vient du fait que, comme présenté dans la partie algorithmique du programme, la **recherche dichotomique** dans un tableau trié est bien plus efficace que la recherche séquentielle dans un tableau quelconque. 
-
-#### **2.4.1. Tri<a name="_page9_x40.00_y216.92"></a> selon un unique critère** 
-
-On ne peut pas directement trier le tableau pays… car cela ne veut rien dire. Il faut indiquer selon quels critères on veut effectuer ce tri. 
-
-Pour cela, on appelle la fonction ```sorted()```  ou la méthode ```.sort()``` , avec l’argument supplémentaire key  qui est une fonction renvoyant la valeur utilisée pour le tri. 
-
-La  méthode ```.sort()```   trie  la liste en  place,  alors que  la fonction ```sorted()```  renvoie  une  nouvelle liste correspondant la liste triée, la liste initiale étant laissée intacte. 
-
-**Activité n°19.:** Par exemple, si l’on veut trier les pays par leur superficie, on doit spécifier la clé Area . Pour cela, on définit une fonction appropriée (A ajouter à la suite du précédent fichier): 
-```python
-def cle_superficie(p):
-   return p['Area']
-```
-
-Ainsi, pour classer les pays par superficie décroissante, on effectue (A ajouter à la suite du précédent fichier)
-```python
-pays.sort(key=cle_superficie, reverse=True) 
-```
-
-Mais un petit problème demeure. Si on récupère les noms des 5 premiers pays ainsi classés, le résultat est étonnant
-
-> ```[(p['Name'], p['Area'])for p in pays[:5]]``` 
-
-On ne s’attend pas à trouver la Corée du Sud parmi eux. La raison est que lors de l’import, tous les champs sont considérés comme des chaînes de caractères, et le tri utilise l’ordre du dictionnaire. Ainsi, de même que 'aa'  arrive avant 'b' , '10'  arrive avant '2' . Cela apparaît ici en regardant les superficies qui commencent par 998, puis par 984, par 962, etc. 
-
-**Activité n°20.:** Pour remédier à cela, on modifie la fonction de clé : 
-```python
-def cle_superficie(p):
-   return float(p['Area'])
-pays.sort(key=cle_superficie, reverse=True)
-```
-> ```[(p['Name'], p['Area']) for p in sorted(pays, key=cle_superficie, reverse=True)[:5]]``` 
-
-Ou plus simplement (sans la fonction cle_superficie) 
-
-> ```sorted([(p['Name'], float(p['Area'])) for p in pays], key=lambda p:p[1], reverse=True)[:5]```
-
-
-**Activité n°21.: A faire tout seul :** Écrire les instructions permettant d’afficher les **10 pays les moins peuplés**, dans l’**ordre croissant de leur population**, sous la forme **(pays, population)** 
-Puis, **é**crire les instructions permettant d’afficher les **10 pays les moins peuplés**, dans l’**ordre inverse de leur** **population**, sous la forme **(pays, population)** 
-
-> ```# ??```
-```
-ordre décroissant :
-[('China', '1330044000'), ('India', '1173108018'), ('United States', '310232863'), ('Indonesia', '242968342'), ('Brazil', '201103330'), ('Pakistan', '184404791'), ('Bangladesh', '156118464'), ('Nigeria', '154000000'), ('Russia', '140702000'), ('Japan', '127288000')]
-```
-
-> ```# ??```
-```
-ordre croissant :
-[('South Georgia and the South Sandwich Islands', '30'), ('Pitcairn', '46'), ('French Southern Territories', '140'), ('Cocos Islands', '628'), ('Vatican', '921'), ('Christmas Island', '1500'), ('Norfolk Island', '1828'), ('Niue', '2166'), ('Svalbard and Jan Mayen', '2550'), ('Falkland Islands', '2638')]
-```
-
-
-#### **2.4.2. Tri<a name="_page10_x40.00_y371.92"></a> selon plusieurs critères** 
-
-
-
-**Activité n°22.: Trie à clé unique :** Supposons maintenant que l’on veut trier les pays selon deux critères : tout d’abord le *continent*, puis le *nom* *du pays*. On peut faire cela en définissant une fonction de clé qui renvoie une paire (*continent*, *nom du pays*) : 
-```python
-def cle_combinee(p):
-   return (p['Continent'], p['Name'])
-```
-
-> ```[(p['Continent'], p['Name']) for p in sorted(pays, key=cle_combinee)]```
-
-
-
-Cependant, dans ce tri, les deux critères ont été utilisés pour un ordre croissant.  
-
-**Activité n°23.: Trie à double clé :** Supposons maintenant que l’on veuille trier les pays par *continent* et, pour chaque continent, avoir les pays par population décroissante. La méthode précédente n’est pas applicable, car on a utilisé une unique clé (composée de deux éléments) pour un tri croissant. 
-À la place, nous allons procéder en deux étapes : 
-1.  **trier tous les pays par populations décroissantes** ; 
-2.  **trier ensuite le tableau obtenu par continents croissants**. 
 
 ```python
-def cle_population(p):
-    return int(p['Population'])
+def code_pays(pays, nom):
+    """Renvoie le code d'un pays"""
+    ...
 
-def cle_continent(p):
-    return p['Continent']
 
-pays.sort(key = cle_population, reverse = True)
-pays.sort(key = cle_continent)
+def langues_parlees(pays, langues, nom):
+    """Renvoie la liste des noms des langues parlées dans le pays indiqué par son nom"""
+    ...
+
+assert sorted(langues_parlees(pays, langues, "Haiti")) == ['French', 'Haiti Creole']
 ```
 
-> ```[(p['Name'], p['Continent'], p['Population']) for p in pays]```
+**Activité n°10.: Capitales** : 
+Quelle est la capitale d'Haïti ? Là encore, il faut :
+- parcourir la liste des pays jusqu'à trouver l'entrée correspondant à Haïti,
+- repérer le code de la capitale correspondante,
+- parcourir la liste des villes jusqu'à trouver le code cherché.
+Nous allons effectuer ces actions pour chacun des pays présents dans la liste. La capitale étant trouvée, nous ajouterons une nouvelle clé CapitalName au dictionnaire du pays. La valeur associée sera le nom de la capitale obtenu.
 
+Certains des « pays » listés n'en sont pas vraiment et n'ont donc pas de capitale. C'est par exemple le cas de l'Antarctique.
+Lors de l'import des données, on leur a associé la valeur -1 à la clé Capital.
 
-La fonction de tri de Python vérifie une propriété très importante : la **STABILITE**. Cela signifie que lors d’un tri, si plusieurs enregistrements ont la même clé, l’ordre initial des enregistrements est conservé. 
+Associer les capitales aux pays
+Compléter le code ci-dessous afin d'ajouter à chaque dictionnaire correspondant à un pays une nouvelle entrée CapitalName contenant le nom de sa capitale.
+On utilisera la chaîne vide "" comme valeur pour les « pays » sans capitale.
+Ainsi :
+- le dictionnaire correspondant à la France contiendra un nouveau couple "CapitalName": "Paris",
+- celui de l'Antarctique "CapitalName": "".
 
-Ainsi, si on a trié les pays par ordre décroissant de population puis par continent, les pays d’un même continent seront regroupés en conservant l’ordre précédent, ici la population décroissante. 
+```python
+# Compléter ici
 
-
-
-**Activité n°24.: A faire tout seul :** Écrire les instructions permettant d’afficher les **8 pays possédant la plus grande densité de population**, dans l’**ordre inverse de densité**, sous la forme (Pays, densité).  
-
-Aide : Se poser d’abord la question : comment calcule-t-on la densité ? On pourra également utiliser la fonction ```round()``` 
-
-> ```# ??```
+print(f"La capitale de la {pays[72]['Name']} est {pays[72]['CapitalName']}.")
 ```
-[('Nigeria', 'AF', '154000000'), ('Ethiopia', 'AF', '88013491'), ('Egypt', 'AF', '80471869'), ('Democratic Republic of the Congo', 'AF', '70916439'), ('South Africa', 'AF', '49000000'), ('Tanzania', 'AF', '41892895'), ('Kenya', 'AF', '40046566'), ('Sudan', 'AF', '35000000'), ('Algeria', 'AF', '34586184'), ('Morocco', 'AF', '33848242'), ('Uganda', 'AF', '33398682'), ('Ghana', 'AF', '24339838'), ('Mozambique', 'AF', '22061451'), ('Madagascar', 'AF', '21281844'), ('Ivory Coast', 'AF', '21058798'), ('Cameroon', 'AF', '19294149'), ('Burkina Faso', 'AF', '16241811'), ('Niger', 'AF', '15878271'), ('Malawi', 'AF', '15447500'), ('Mali', 'AF', '13796354'), ('Zambia', 'AF', '13460305'), ('Angola', 'AF', '13068161'), ('Zimbabwe', 'AF', 
-…
-```
 
-Nous l’avons vu, il est assez facile d’écrire en Python des commandes simples pour exploiter un ensemble de données. Cependant, une utilisation plus poussée va vite donner lieu à des programmes fastidieux : notamment, pour pouvoir exploiter les capitales des pays, nous allons devoir utiliser des données présentes dans un fichier supplémentaire. Pour remédier à ce problème, on peut utiliser la bibliothèque pandas qui permet d’exprimer de façon simple, lisible et concise ce genre de manipulation de données. 
+ 
 
-## **3. Exercices<a name="_page12_x40.00_y36.92"></a>** 
-
-**Exercice 1** : **Sélection dans la Bibliothèque** 
-
-![](Aspose.Words.5d6a7bee-2757-45f8-93f7-fc7ecadeaafd.015.png)![](Aspose.Words.5d6a7bee-2757-45f8-93f7-fc7ecadeaafd.016.png)
-
-1. Donner une condition logique (pas en Python) sur la table *LIVRE* vraie pour tous les livres de *Kawabata* (et seulement eux) 
-1. Donner une expression d’interrogation utilisant seulement l’opérateur de sélection pour calculer à partir de la table *LIVRE* la table répondant à la question : « Donner les livres de *Kawabata* (c’est-à-dire des lignes complètes de la table *LIVRE*) ». 
-1. Ecrire un code Python qui calcule, à partir de la représentation Python de la table *LIVRE*, la représentation Python de la sélection de la question précédente, la place dans une variable, puis l’affiche (avec une deuxième boucle) 
-
-**Exercice 2** : **Composition dans la Bibliothèque** 
-
-![](Aspose.Words.5d6a7bee-2757-45f8-93f7-fc7ecadeaafd.015.png)![](Aspose.Words.5d6a7bee-2757-45f8-93f7-fc7ecadeaafd.016.png)
-
-1. Donner une expression d’interrogation utilisant la composition des opérateurs de sélection et de projection pour calculer la table répondant à la question : « Donner les titres des livres de Kawabata ». 
-1. Ecrire un code Python qui calcule la représentation Python de la table valeur de l’expression de la question précédente, comme suit. La sous-expression la plus interne est calculée et sa valeur est placée dans une variable. Puis l’expression englobante est calculée à partir de la table contenue dans cette variable. Sa table résultat est placée dans une nouvelle variable, puis affichée. 
-
-**4.  Projet (démarche d’investigation)<a name="_page13_x40.00_y36.92"></a>** 
+**5.  Projet (démarche d’investigation)<a name="_page13_x40.00_y36.92"></a>** 
 
 **Projet 1** : ★**  **pandy pandas pas à pas** 
+
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
 
 On trouve énormément de données au format CSV sur internet. Une partie de ces données sont publiques, par exemple le site[ data.gouv.fr ](https://www.data.gouv.fr/fr/)récence un grand nombre de données publiques. Ces données sont librement réutilisables. 
 
@@ -797,6 +673,8 @@ Comme vous pouvez le constater, l'ordre des colonnes est différent. Il faudra d
 
 **Projet 2** : ★** ★  **Qualité de l’air** 
 
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
+
 La ville de Digne, en association avec[ les petits débrouillards du 04 ](https://www.lespetitsdebrouillardspaca.org/-04-Alpes-de-Hautes-Provence-.html)a initié une campagne de  mesures de la qualité de l’air. Ces mesures sont issues des[ 4 stations ](http://umap.openstreetmap.fr/fr/map/capteurs-datadigne_131379#17/44.09167/6.23628)répartis dans le centre-ville de Digne-les-Bains. 
 
 Les stations de qualité de l’air sont connectées et ont été réalisées par les élèves du Lycée Pierre Gilles de Gennes dans le cadre du projet [ Data'Digne.](https://www.dignelesbains.fr/2018/01/datadigne-concevoir-de-capteurs-de-mesure-de-la-qualite-de-lair/) Ces capteurs ont une vocation pédagogique et citoyenne sur la pollution atmosphérique. 
@@ -914,3 +792,4 @@ On  veut  afficher  l’évolution  des  valeurs  journalières  sous  forme  de
 
 **Projet 3** : ★** Pokémon 
 
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
