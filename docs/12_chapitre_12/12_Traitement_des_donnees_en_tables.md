@@ -171,10 +171,14 @@ A noter que **DictReader** crée une liste de dictionnaires ordonnés !
 ### <H3 STYLE="COLOR:GREEN;">**2.4. Application<a name="_page7_x40.00_y304.92"></a></h3>** 
 
 **Exploitation graphique**
+
 Nous allons utiliser le module Matplotlib pour illustrer les données de notre fichier csv.
 Pour tracer un nuage de points (par l'instruction plt.plot), Matplotlib requiert :
+
 - une liste X contenant toutes les abscisses des points à tracer.
+
 - une liste Y contenant toutes les ordonnées des points à tracer.
+
 Exemple :
 
 ```python
@@ -185,10 +189,14 @@ plt.plot(X, Y, 'ro')
 plt.show()
 ```
 Dans l'instruction plt.plot(X, Y, 'ro') :
+
 - X sont les abscisses,
+
 - Y sont les ordonnées,
 - 'ro' signifie :
+
 - qu'on veut des points (c'est le 'o', plus de choix ici).
+
 - qu'on veut qu'ils soient rouges (c'est le 'r' plus de choix ici).
 
 ![](15.png)
@@ -207,12 +215,17 @@ with open("MetalBands.csv", encoding='ISO-8859-1') as f:
 print(dico)  # affichage de dico
 f.close()
 ```
-1.	Combien de groupes sont présents dans ce fichier ?
-2.	Quel est le nom du groupe en 812
-3.	Combien de groupe se sont formés en 1981. Attention les dates sont ici des chaines de caractères
-4.	Donner la liste des groupes dont le genre est du ‘Melodic death’.ATTENTION à tout mettre en minuscule pour ne pas avoir d’ennuis. Pour les supprimer les doublons : on convertit la liste en ensemble (set) avec la fonction set() à placer devant l’instruction
-5.	Afficher sur un graphique tous les groupes de métal, en mettant l’année en abscisse et le nombre de fans en ordonnée.
-6.	Faire apparaitre ensuite (par-dessus) les groupes de ‘Melodic death’ en bleu (‘bo’) et les groupes de Heavy en vert (‘go’). Attention aux majuscules, minuscules => pensez à tout mettre en minuscule
+1 Combien de groupes sont présents dans ce fichier ?
+
+2 Quel est le nom du groupe en 812
+
+3 Combien de groupe se sont formés en 1981. Attention les dates sont ici des chaines de caractères
+
+4 Donner la liste des groupes dont le genre est du ‘Melodic death’.ATTENTION à tout mettre en minuscule pour ne pas avoir d’ennuis. Pour les supprimer les doublons : on convertit la liste en ensemble (set) avec la fonction set() à placer devant l’instruction
+
+5 Afficher sur un graphique tous les groupes de métal, en mettant l’année en abscisse et le nombre de fans en ordonnée.
+
+6 Faire apparaitre ensuite (par-dessus) les groupes de ‘Melodic death’ en bleu (‘bo’) et les groupes de Heavy en vert (‘go’). Attention aux majuscules, minuscules => pensez à tout mettre en minuscule
 
 
 
@@ -286,23 +299,41 @@ On peut aussi inverser l'ordre de tri :
 
 On considère dans ce sujet les trois fichiers csv décrits ci-dessous :
 countries.csv contient des informations décrivant les pays :
-- CountryCode : le code du pays (texte, clé primaire)
+
+-   CountryCode : le code du pays (texte, clé primaire)
+
 -	Name : le nom du pays (texte)
+
 -	Continent : le continent du pays (texte)
+
 -	SurfaceArea : la surface du pays (nombre décimal)
+
 -	Population : la population du pays (entier)
+
 -	Capital : la capitale du pays (nombre entier correspondant à un ID dans le fichier cities.csv)
+
 -	d'autres descripteurs qui ne nous intéressent pas ici...
+
 languages.csv contient les informations sur les langues parlées dans chaque pays :
+
 -	CountryCode : le code du pays (texte)
+
 -	Language : la langue concernée par cette entrée (texte)
+
 -	IsOfficial : cette langue est-elle officielle dans ce pays ? (texte, T pour True, F pour False)
+
 -	Percentage : le pourcentage de locuteurs dans le pays (nombre décimal)
+
 cities.csv contient des informations décrivant des villes :
+
 -	ID : l'identifiant de la ville (entier)
+
 -	Name : le nom de la ville (texte)
+
 -	code : le code du pays dans lequel est situé la ville (texte)
+
 -	District : la région d'appartenance de la ville (texte)
+
 -	Population : la population de la ville (entier)
 
 **<H3 STYLE="COLOR:red;">Activité n°8.:</h3> ouverture des tables** :  
@@ -335,10 +366,13 @@ f.close()
 
 **<H3 STYLE="COLOR:red;">Activité n°9.:</h3> Langues parlées dans chaque pays** :  
 Quelles sont les langues parlées en Haïti ? Pour le savoir il faut :
+
 - parcourir la liste pays jusqu'à trouver le code de Haïti (orthographié Haiti dans la liste pays),
+
 - parcourir la liste langues et en extraire les valeurs correspondant à ce code.
 
 **Langues parlées en Haïti**
+
 Compléter le code ci-dessous permettant de déterminer les langues parlées en Haïti.
 ```python
 i_haiti = 0
@@ -359,9 +393,13 @@ Le descripteur CountryCode permet donc de faire le lien entre les deux listes pa
 Utilisons cette relation afin de déterminer les langues parlées dans un pays quelconque.
 
 **Langues parlées dans un pays**
+
 On demande d'écrire deux fonctions :
+
 - code_pays prend en argument la liste des pays ainsi que le nom d'un pays et renvoie son code ;
+
 - langues_parlees prend en argument les listes des données des pays et celle des langues (arguments pays et langues) ainsi que le nom d'un pays (nom) et renvoie la liste des noms des langues parlées dans ce pays.
+
 Exemples :
 ```
 >>> code_pays(pays, "Haiti")
@@ -385,9 +423,13 @@ assert sorted(langues_parlees(pays, langues, "Haiti")) == ['French', 'Haiti Creo
 
 **<H3 STYLE="COLOR:red;">Activité n°10.:</h3> Capitales** : 
 Quelle est la capitale d'Haïti ? Là encore, il faut :
+
 - parcourir la liste des pays jusqu'à trouver l'entrée correspondant à Haïti,
+
 - repérer le code de la capitale correspondante,
+
 - parcourir la liste des villes jusqu'à trouver le code cherché.
+
 Nous allons effectuer ces actions pour chacun des pays présents dans la liste. La capitale étant trouvée, nous ajouterons une nouvelle clé CapitalName au dictionnaire du pays. La valeur associée sera le nom de la capitale obtenu.
 
 Certains des « pays » listés n'en sont pas vraiment et n'ont donc pas de capitale. C'est par exemple le cas de l'Antarctique.
@@ -396,8 +438,11 @@ Lors de l'import des données, on leur a associé la valeur -1 à la clé Capita
 Associer les capitales aux pays
 Compléter le code ci-dessous afin d'ajouter à chaque dictionnaire correspondant à un pays une nouvelle entrée CapitalName contenant le nom de sa capitale.
 On utilisera la chaîne vide "" comme valeur pour les « pays » sans capitale.
+
 Ainsi :
+
 - le dictionnaire correspondant à la France contiendra un nouveau couple "CapitalName": "Paris",
+
 - celui de l'Antarctique "CapitalName": "".
 
 ```python
@@ -682,7 +727,7 @@ Comme vous pouvez le constater, l'ordre des colonnes est différent. Il faudra d
 
 27 De la même manière, aucun trace de la commande n° 1324 du 01/02/2017 dans le tableau "com_cl" (ou "cl_com"). Dire pourquoi. 
 
-**<H3 STYLE="COLOR:red;">Projet 2** :w/h3> ★** ★  **Qualité de l’air** 
+**<H3 STYLE="COLOR:red;">Projet 2** :</h3> ★** ★  **Qualité de l’air** 
 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
