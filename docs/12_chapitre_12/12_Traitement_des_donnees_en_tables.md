@@ -14,11 +14,15 @@ title: 12 Traitement des données en tables
 ## <H2 STYLE="COLOR:BLUE;">**1. Les fichiers CSV et les fichiers JSON<a name="_page0_x40.00_y360.92"></a></h2>**
 
 On trouve souvent des jeux de données en libre accès. Les fichiers correspondants sont souvent proposés aux formats
+
 - **csv** pour Comma Separated Values,
+
 - **json** pour JavaScript Object Notation.
+
 Ces deux formats de fichiers permettent de présenter des données textuelles. 
 
 Voici par exemple les mêmes informations présentées dans chacun des formats :
+
 - Au format CSV :
 ```
 Album;groupe;année;classement
@@ -48,11 +52,17 @@ Blawater Park;Opeth;2001;15
 ```
 
 Nous travaillerons désormais avec les fichiers csv. L'exemple précédent permet de remarquer plusieurs choses :
+
 - un fichier csv contient des **données textuelles**,
+
 - les données sont organisées en lignes,
+
 - la première ligne regroupe le nom **des descripteurs** (il y en a quatre ici : nom, âge, ville et passion),
-- les autres lignes contiennent **des enregistrements** 
+
+- les autres lignes contiennent **des enregistrements**
+
 - au sein de chaque ligne, les valeurs sont délimitées par un **séparateur** (ici le caractère " ;"), mais les séparateurs peuvent être une tabulation ou une virgule
+
 - les données peuvent être de types différents. 
 
 **Attention** : Le séparateur en France est ; mais ce n'est pas le même dans d'autres pays, ni pour tous les logiciels (soyez vigilants)!
@@ -153,7 +163,8 @@ f.close()						# toujours fermer le fichier
 ```
 >>>
  [{'Album': 'Master of Puppets', 'groupe': 'Metalica', 'annÃ©e': '1986', 'classement': '1'}, {'Album': 'Paranoid', 'groupe': 'Black Sabbath', 'annÃ©e': '1970', 'classement': '2'}, {'Album': 'Rage against the machine', 'groupe': 'Rage against the machine', 'annÃ©e': '1992', 'classement': '3'}, {'Album': 'Ride the lightning', 'groupe': 'Metallica', 'annÃ©e': '1984', 'classement': '4'}, {'Album': 'Rust in peace', 'groupe': 'Megadeth', 'annÃ©e': '1990', 'classement': '5'}, {'Album': 'Metallica', 'groupe': 'Metallica', 'annÃ©e': '1991', 'classement': '6'}, {'Album': 'Toxicity', 'groupe': 'System of a down', 'annÃ©e': '2001', 'classement': '7'}, {'Album': 'reign in blood', 'groupe': 'Slayer', 'annÃ©e': '1986', 'classement': '8'}, {'Album': 'the number of the beast', 'groupe': 'Iron maiden', 'annÃ©e': '1982', 'classement': '9'}, {'Album': 'From mars to sirius', 'groupe': 'Gojira', 'annÃ©e': '2005', 'classement': '10'}, {'Album': '..and justice for all', 'groupe': 'Metallica', 'annÃ©e': '1988', 'classement': '11'}, {'Album': 'Mutter', 'groupe': 'Rammstein', 'annÃ©e': '2001', 'classement': '12'}, {'Album': 'Painkiller', 'groupe': 'Judas Priest', 'annÃ©e': '1990', 'classement': '13'}, {'Album': 'Powerslave', 'groupe': 'Iron maiden', 'annÃ©e': '1984', 'classement': '14'}, {'Album': 'Blawater Park', 'groupe': 'Opeth', 'annÃ©e': '2001', 'classement': '15'}]
- ```
+```
+
 On récupère le fichier CSV dans une **liste de dictionnaires** qui ont tous les mêmes descripteurs avec la commande **DictReader** de la bibliothèque **csv**.
 A noter que **DictReader** crée une liste de dictionnaires ordonnés !
 
