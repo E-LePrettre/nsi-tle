@@ -13,11 +13,11 @@ title: 11 Architecture de l’ordinateur
 
 Video 1 :[ https://www.dailymotion.com/video/xhleks ](https://www.dailymotion.com/video/xhleks)
 
-##<H2 STYLE="COLOR:BLUE;"> **1. Historique<a name="_page0_x40.00_y403.92"></a> de l’informatique** </H2>
+## <H2 STYLE="COLOR:BLUE;"> **1. Historique<a name="_page0_x40.00_y403.92"></a> de l’informatique** </H2>
 
 Video 2 :[ https://ladigitale.dev/digiview/#/v/669d6e5b4ed67 ](https://ladigitale.dev/digiview/#/v/669d6e5b4ed67)
 
-###<H3 STYLE="COLOR:GREEN;"> **1.1. Les<a name="_page0_x40.00_y459.92"></a> machines à programmes externes** </H3>
+### <H3 STYLE="COLOR:GREEN;"> **1.1. Les<a name="_page0_x40.00_y459.92"></a> machines à programmes externes** </H3>
 - **Machines électromécaniques**
 
 L’allemand **Konrad ZUSE** achève le **Z1** en 1938, un ordinateur mécanique utilisant le système binaire, puis le **Z3** en 1941, premier ordinateur complètement automatique lisant son programme sur une bande perforée. Le Z3 utilisait déjà le calcul en virgule flottante et réalisait 3 à 4 additions par seconde.
@@ -52,12 +52,12 @@ Il peut être reprogrammé pour résoudre, en principe, tous les problèmes calc
 ![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.004.png)
 Source : Wikipédia
 
-###<H3 STYLE="COLOR:GREEN;"> **1.2. Les<a name="_page1_x40.00_y480.92"></a> machines à programmes enregistrés** </H3>
+### <H3 STYLE="COLOR:GREEN;"> **1.2. Les<a name="_page1_x40.00_y480.92"></a> machines à programmes enregistrés** </H3>
 
 - Basés sur les travaux de **MAUCHLY**, **ECKERT** et **VON NEUMANN**, les machines à programmes enregistrés sont les ancêtres directs des ordinateurs actuels. Dans ce type de machines, les données et les programmes résident en mémoire. Les premières machines de ce type apparaissent dès 1948 avec les ordinateurs britanniques BABY et EDSAC, suivis par leurs homologues américains **EDVAC** et **UNIVAC**.
 - Le début des années 1950 voient apparaître les premiers ordinateurs commerciaux et les modèles se succèdent avec comme principaux acteurs les constructeurs **IBM** (International Business Machines), **DEC** (Digital Equipment Corporation) et **BULL**.
 
-###<H3 STYLE="COLOR:GREEN;"> **1.3. Du<a name="_page1_x40.00_y644.92"></a> micro-ordinateur à la micro-informatique** </H3>
+### <H3 STYLE="COLOR:GREEN;"> **1.3. Du<a name="_page1_x40.00_y644.92"></a> micro-ordinateur à la micro-informatique** </H3>
 - **Miniaturisation et explosion du marché**
 
 Le **transistor** (1947) devient un produit industriel très fiable qu’on peut fabriquer à faible coût au milieu des années 1950. Son émergence technologique, marque la fin des tubes à vide.
@@ -127,8 +127,8 @@ A l’heure actuelle on distingue trois grands types d’OS (Operating System) �
 <tr><td colspan="6" valign="top">- 2010 </td></tr>
 </table>
 
-##<H2 STYLE="COLOR:BLUE;"> **2. Les<a name="_page3_x40.00_y539.92"></a> différents types de mémoires** </H2>
-###<H3 STYLE="COLOR:GREEN;"> **2.1. Organisation<a name="_page3_x40.00_y567.92"></a> de la mémoire** </H3>
+## <H2 STYLE="COLOR:BLUE;"> **2. Les<a name="_page3_x40.00_y539.92"></a> différents types de mémoires** </H2>
+### <H3 STYLE="COLOR:GREEN;"> **2.1. Organisation<a name="_page3_x40.00_y567.92"></a> de la mémoire** </H3>
 
 Il existe de nombreuses technologies de mémoire qui se distinguent par leur durabilité (volatile ou permanente), leur mode d’accès (par adresse ou dans l’ordre de leur rangement) ou leur temps d’accès. En règle générale, plus une mémoire est performante, plus elle est chère.
 
@@ -138,13 +138,13 @@ Il existe de nombreuses technologies de mémoire qui se distinguent par leur dur
 
 Remarque : la mémoire ROM contient notamment le BIOS (Basic Input Output System) qu’il est possible, sur les machines dotées de carte mère récente, de mettre à jour (flashage du BIOS).
 
-###<H3 STYLE="COLOR:GREEN;"> **2.2. Les<a name="_page4_x40.00_y47.92"></a> registres** </H3>
+### <H3 STYLE="COLOR:GREEN;"> **2.2. Les<a name="_page4_x40.00_y47.92"></a> registres** </H3>
 
 Un **registre** est un emplacement **mémoire interne** au processeur. Les registres se situent au sommet de la hiérarchie mémoire : il s'agit de la **mémoire la plus rapide** d'un ordinateur, mais dont le coût de fabrication est le plus élevé, car la place dans un microprocesseur est limitée.
 
 Il sert à **stocker des opérandes** et **des résultats intermédiaires** lors des opérations effectuées dans l’UAL. Leur capacité, leur nombre et leurs rôles varient selon les processeurs. La grande majorité des processeurs actuels ont des registres de taille 64 bits. Ils sont accessibles via un jeu d’instructions.
 
-###<H3 STYLE="COLOR:GREEN;"> **2.3. Mémoires<a name="_page4_x40.00_y175.92"></a> centrales et mémoires caches** </H3>
+### <H3 STYLE="COLOR:GREEN;"> **2.3. Mémoires<a name="_page4_x40.00_y175.92"></a> centrales et mémoires caches** </H3>
 
 La **mémoire centrale** est une mémoire vive qui contient les programmes en cours et les données qu’ils manipulent. Elle est de taille importante (plusieurs Go). Elle est organisée en **cellules** appelées « **cases mémoires** » qui contiennent chacune une donnée ou une instruction repérée par une **adresse** qui est un **nombre entier**. Le temps d’accès à chaque cellule est le même : on parle de mémoire à accès aléatoire (RAM) bien qu’il soit plus judicieux de parler de mémoire à accès direct.
 
@@ -159,11 +159,11 @@ Il reste toujours pas mal de questions en suspens. Quatre exemples :
 3. Si on veut récupérer des données externes (clavier ?), on récupère à partir de quelle provenance ?
 4. Si on veut envoyer des informations vers l’extérieur (écran ?), on envoie vers quelle destination ?
 
-##<H2 STYLE="COLOR:BLUE;"> **3. Architecture<a name="_page4_x40.00_y536.92"></a> de Von Neumann** </H2>
+## <H2 STYLE="COLOR:BLUE;"> **3. Architecture<a name="_page4_x40.00_y536.92"></a> de Von Neumann** </H2>
 
 L’architecture dite **architecture de Von Neumann est** un modèle pour un ordinateur qui utilise une structure de stockage unique pour conserver à la fois les instructions et les données demandées ou produites par le calcul. De telles machines sont aussi connues sous le nom d’**ordinateur à programme enregistré**. Le modèle de Von Neumann est conforme à un schéma qui a peu évolué depuis son origine en 1945.
 
-###<H3 STYLE="COLOR:GREEN;"> **3.1. Organisation<a name="_page4_x633.92"></a> générale** </H3>
+### <H3 STYLE="COLOR:GREEN;"> **3.1. Organisation<a name="_page4_x633.92"></a> générale** </H3>
 
 Les instructions qui composent les programmes sont exécutées par le **CPU** (Central Processing Unit). Il est schématiquement constitué de 3 parties.
 
@@ -194,11 +194,11 @@ Remarques :
 
 2. Si on considère que chaque case mémoire correspond à un octet, quelle est la mémoire vive maximale disponible sur ce système s’il ne disposant pas d’autres manières d’adresser sa mémoire ?
 
-###<H3 STYLE="COLOR:GREEN;"> **3.2. Le<a name="_page6_x297.92"></a> CPU** </H3>
+### <H3 STYLE="COLOR:GREEN;"> **3.2. Le<a name="_page6_x297.92"></a> CPU** </H3>
 
 Le processeur (CPU, pour Central Processing Unit) est le cerveau de l’ordinateur. Il permet de manipuler, des données et des instructions codées sous forme binaires. Le processeur est composé de millions de transistors placés dans un boitier comportant des connecteurs d’entrée-sortie, surmonté d’un ventilateur. C’est un circuit électronique cadencé au rythme d’une horloge interne qui envoie des impulsions.
 
-###<H3 STYLE="COLOR:GREEN;"> **3.3. Le<a name="_page6_x426.92"></a> rôle de l’horloge CPU** </H3>
+### <H3 STYLE="COLOR:GREEN;"> **3.3. Le<a name="_page6_x426.92"></a> rôle de l’horloge CPU** </H3>
 
 Une **horloge** rythme le travail du CPU: à chaque battement, une action. Plus la fréquence de l'horloge, mesurée en hertz (Hz), est élevée, plus le processeur est rapide. Cadencé à 2 GHz, il abat ainsi deux milliards d'opérations par seconde.
 
@@ -214,11 +214,11 @@ On caractérise le microprocesseur par :
 ![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.027.png)
 ![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.028.png)
 
-###<H3 STYLE="COLOR:GREEN;"> **3.4. Les<a name="_page7_x274.92"></a> limites** </H3>
+### <H3 STYLE="COLOR:GREEN;"> **3.4. Les<a name="_page7_x274.92"></a> limites** </H3>
 
 Ce modèle impose un **va-et-vient** constant entre le **CPU et la mémoire**, soit pour charger la prochaine instruction à exécuter, soit pour récupérer les données sur lesquelles l’instruction courante doit opérer. Mais la différence de vitesse entre les microprocesseurs et la mémoire est très grande. De plus, cet accès se fait à travers un bus, mais pour des raisons technologiques, le débit du bus a augmenté moins vite que le débit d’accès à la mémoire et surtout que la vitesse des processeurs. D’où un phénomène d’attente — le **« goulot de von Neumann »** — qui réduit les performances
 
-###<H3 STYLE="COLOR:GREEN;"> **3.5. Évolution<a name="_page7_x423.92"></a> : le multiprocesseur et les mémoires caches** </H3>
+### <H3 STYLE="COLOR:GREEN;"> **3.5. Évolution<a name="_page7_x423.92"></a> : le multiprocesseur et les mémoires caches** </H3>
 
 Selon la **loi de Moore** (1965), le nombre de transistors, c’est-à-dire l’élément principal qui compose les processeurs des ordinateurs**, double tous les deux ans**. Et parallèlement, double également la puissance des appareils. Moore fixa ensuite le cycle non plus sur 2 ans, mais **dix-huit mois.** Donc selon Moore tous les 18 mois il y a doublement du nombre de transistors, rendant les ordinateurs rapidement obsolètes. Sa loi s’est vérifiée jusqu’à récemment. Il avait cependant déclaré en 1997 que cette croissance des performances des puces se heurterait aux environs de 2017 à une limite physique : celle de la taille des atomes. Et nous y sommes. On voit en effet depuis quelques années le rythme du doublement diminuer en fréquence.
 
@@ -232,7 +232,7 @@ Ces évolutions ont pour conséquence de mettre la **mémoire**, plutôt que l�
 
 ![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.032.jpeg)
 
-##<H2 STYLE="COLOR:BLUE;"> **4. Langage<a name="_page8_x40.00_y390.92"></a> assembleur** </H2>
+## <H2 STYLE="COLOR:BLUE;"> **4. Langage<a name="_page8_x40.00_y390.92"></a> assembleur** </H2>
 
 Le microprocesseur étant incapable d'interpréter la phrase "additionne le nombre 125 et la valeur située dans le registre R2,
 
@@ -367,7 +367,7 @@ endif:
 
 Après avoir analysé très attentivement le programme en assembleur ci-dessus, vous essaierez d'établir une correspondance entre les lignes du programme en Python et les lignes du programme en assembleur. À quoi sert la ligne "B endif" ? À quoi correspondent les adresses mémoires 23, 75 et 30?
 
-##<H2 STYLE="COLOR:BLUE;"> **5. Simulation<a name="_page11_x40.00_y36.92"></a> CPU** </H2>
+## <H2 STYLE="COLOR:BLUE;"> **5. Simulation<a name="_page11_x40.00_y36.92"></a> CPU** </H2>
 
 On utilise un simulateur développé par Peter L Higginson. Ce simulateur est basé sur une architecture de von Neumann. Nous allons trouver dans ce simulateur :
 
@@ -384,7 +384,7 @@ Les différentes parties du simulateur :
 - au centre, on trouve le microprocesseur
 - à gauche on trouve la zone d'édition ("Assembly Language"), c'est dans cette zone que nous allons saisir nos programmes en assembleur
 
-###<H3 STYLE="COLOR:GREEN;"> **5.1. La<a name="_page11_x648.92"></a> RAM** </H3>
+### <H3 STYLE="COLOR:GREEN;"> **5.1. La<a name="_page11_x648.92"></a> RAM** </H3>
 
 Par défaut le contenu des différentes cellules de la mémoire est en base 10 (entier signé), mais d'autres options sont possibles : base 10 (entier non-signé, "unsigned"), base 16 ("hex"), base 2 ("binary"). On accède à ces options à l'aide du bouton "OPTIONS" situé en bas dans la partie gauche du simulateur.
 
@@ -394,7 +394,7 @@ Chaque cellule de la mémoire comporte 32 bits (classiquement une cellule de RAM
 Chaque cellule de la mémoire possède une adresse (de 000 à 199), ces adresses sont codées en base 10.
 Repasser à un affichage en base 10 (bouton "OPTION"->"signed")
 
-###<H3 STYLE="COLOR:GREEN;"> **5.2. Le<a name="_page12_x73.92"></a> CPU** </H3>
+### <H3 STYLE="COLOR:GREEN;"> **5.2. Le<a name="_page12_x73.92"></a> CPU** </H3>
 
 Dans la partie centrale du simulateur, nous allons trouver en allant du haut vers le bas :
 
@@ -402,7 +402,7 @@ Dans la partie centrale du simulateur, nous allons trouver en allant du haut ver
 - le **bloc "unité de commande"** ("Control Unit") qui contient l'instruction machine en cours d'exécution (au format hexadécimal)
 - le **bloc "unité arithmétique et logique"** ("Arithmetic and Logic Unit")
 
-###<H3 STYLE="COLOR:GREEN;"> **5.3. Programmer<a name="_page12_x218.92"></a> en assembleur** </H3>
+### <H3 STYLE="COLOR:GREEN;"> **5.3. Programmer<a name="_page12_x218.92"></a> en assembleur** </H3>
 
 **<H3 STYLE="COLOR:red;">Activité n°11.:</H3>** Dans la partie "éditeur" ("Assembly Language") saisissez les lignes de codes suivantes :
 ```

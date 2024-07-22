@@ -11,7 +11,7 @@ title: 12 Traitement des données en tables
 4. [**FUSION DE TABLES**](#_page12)
 5. [**PROJET (DEMARCHE D’INVESTIGATION)**](#_page13_x40.00_y36.92)
 
-## **1. Les fichiers CSV et les fichiers JSON<a name="_page0_x40.00_y360.92"></a>**
+## <H2 STYLE="COLOR:BLUE;">**1. Les fichiers CSV et les fichiers JSON<a name="_page0_x40.00_y360.92"></a></h2>**
 
 On trouve souvent des jeux de données en libre accès. Les fichiers correspondants sont souvent proposés aux formats
 - **csv** pour Comma Separated Values,
@@ -75,14 +75,14 @@ Nous travaillerons désormais avec les fichiers csv. L'exemple précédent perme
     </personne>
 </amis>
 ```
-## **2. Importation d’un fichier CSV<a name="_page7_x40.00_y36.92"></a>**
+## <H2 STYLE="COLOR:BLUE;">**2. Importation d’un fichier CSV<a name="_page7_x40.00_y36.92"></a></h2>**
 
-### **2.1. En liste<a name="_page1_x40.00_y36.92"></a>** 
+### <H3 STYLE="COLOR:GREEN;">**2.1. En liste<a name="_page1_x40.00_y36.92"></a></h3>** 
 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
 
-**Activité n°1.: Lecture et création de liste avec un CSV (délimiteur ;)** : 
+**<H3 STYLE="COLOR:red;">Activité n°1.:</h3> Lecture et création de liste avec un CSV (délimiteur ;)** : 
 ```python
 import csv
 f = open("musique.csv")       			# ouvre le fichier CSV
@@ -114,9 +114,9 @@ f.close()						# toujours fermer le fichier
 
 Ici le problème est que les données ne sont pas structurées : la première ligne est la ligne des **«descripteurs»** (ou des **«champs»**), alors que les lignes suivantes sont les **valeurs** de ces descripteurs.
 
-### **2.2. En liste de liste<a name="_page5_x40.00_y36.92"></a>** 
+### <H3 STYLE="COLOR:GREEN;">**2.2. En liste de liste<a name="_page5_x40.00_y36.92"></a></h3>** 
 
-**Activité  n°2.:  Lecture et création de liste de listes avec un CSV (délimiteur ;)** :
+**<H3 STYLE="COLOR:red;">Activité  n°2.:</h3>  Lecture et création de liste de listes avec un CSV (délimiteur ;)** :
 
 ```python
 import csv
@@ -133,11 +133,11 @@ f.close()					# toujours fermer le fichier
 [['Album', 'groupe', 'annÃ©e', 'classement'], ['Master of Puppets', 'Metalica', '1986', '1'], ['Paranoid', 'Black Sabbath', '1970', '2'], ['Rage against the machine', 'Rage against the machine', '1992', '3'], ['Ride the lightning', 'Metallica', '1984', '4'], ['Rust in peace', 'Megadeth', '1990', '5'], ['Metallica', 'Metallica', '1991', '6'], ['Toxicity', 'System of a down', '2001', '7'], ['reign in blood', 'Slayer', '1986', '8'], ['the number of the beast', 'Iron maiden', '1982', '9'], ['From mars to sirius', 'Gojira', '2005', '10'], ['..and justice for all', 'Metallica', '1988', '11'], ['Mutter', 'Rammstein', '2001', '12'], ['Painkiller', 'Judas Priest', '1990', '13'], ['Powerslave', 'Iron maiden', '1984', '14'], ['Blawater Park', 'Opeth', '2001', '15']]
 ```
 
-### **2.3. En liste de dictionnaires<a name="_page6_x79.00_y408.92"></a>** 
+### <H3 STYLE="COLOR:GREEN;">**2.3. En liste de dictionnaires<a name="_page6_x79.00_y408.92"></a></h3>** 
 
 
 
-**Activité n°3.: Création de liste de dictionnaires** : 
+**<H3 STYLE="COLOR:red;">Activité n°3.:</h3> Création de liste de dictionnaires** : 
 
 ```python
 import csv
@@ -157,7 +157,7 @@ f.close()						# toujours fermer le fichier
 On récupère le fichier CSV dans une **liste de dictionnaires** qui ont tous les mêmes descripteurs avec la commande **DictReader** de la bibliothèque **csv**.
 A noter que **DictReader** crée une liste de dictionnaires ordonnés !
 
-### **2.4. Application<a name="_page7_x40.00_y304.92"></a>** 
+### <H3 STYLE="COLOR:GREEN;">**2.4. Application<a name="_page7_x40.00_y304.92"></a></h3>** 
 
 **Exploitation graphique**
 Nous allons utiliser le module Matplotlib pour illustrer les données de notre fichier csv.
@@ -182,7 +182,7 @@ Dans l'instruction plt.plot(X, Y, 'ro') :
 
 ![](15.png)
 
-**Activité n°4.: Application** : on travaillera avec le fichier metalbands.csv. Comme ce fichier n’est pas encodé en ‘utf-8’ il faut utiliser une autre manière de l’ouvrir  pour pouvoir spécifier l’encodage :
+**<H3 STYLE="COLOR:red;">Activité n°4.:</h3> Application** : on travaillera avec le fichier metalbands.csv. Comme ce fichier n’est pas encodé en ‘utf-8’ il faut utiliser une autre manière de l’ouvrir  pour pouvoir spécifier l’encodage :
 
 ```python
 import csv
@@ -205,13 +205,13 @@ f.close()
 
 
 
-## **3.Tri<a name="_page7"></a>**
+## <H2 STYLE="COLOR:BLUE;">**3.Tri<a name="_page7"></a></h2>**
 
 Pour exploiter les données, il peut être intéressant de les trier. Une utilisation possible est l’obtention du classement des entrées selon tel ou tel critère. Une autre utilisation vient du fait que la **recherche dichotomique** dans un tableau trié est bien plus efﬁcace que la recherche séquentielle dans un tableau quelconque.
 
-### **3.1. Fonction filtre<a name="_page7_x"></a>** 
+### <H3 STYLE="COLOR:GREEN;">**3.1. Fonction filtre<a name="_page7_x"></a></h3>** 
 
-**Activité n°5.: fonction filtre**: on travaillera avec le fichier metalbands.csv. Créer une fonction groupeGenre qui renvoie une liste contenant les fiches de tous les groupes de métal d’un genre passée en paramètre.
+**<H3 STYLE="COLOR:red;">Activité n°5.:</h3> fonction filtre**: on travaillera avec le fichier metalbands.csv. Créer une fonction groupeGenre qui renvoie une liste contenant les fiches de tous les groupes de métal d’un genre passée en paramètre.
 
 Exemple d'utilisation :
 ```
@@ -221,7 +221,7 @@ Exemple d'utilisation :
 Attention aux majuscules, minuscules
 
 
-### **3.2. Fonction tri<a name="_page7_x40.00_y"></a>** 
+### <H3 STYLE="COLOR:GREEN;">**3.2. Fonction tri<a name="_page7_x40.00_y"></a></h3>** 
 
 On ne peut pas directement trier le tableau précédent… car cela ne veut rien dire. Il faut indiquer selon quels critères on veut effectuer ce tri.
 Pour cela, on appelle la fonction **sorted()**  ou la méthode **.sort()** , avec l’argument supplémentaire **key** qui est une fonction renvoyant la valeur utilisée pour le tri.
@@ -267,11 +267,11 @@ On peut aussi inverser l'ordre de tri :
 ```
 
 
-**Activité n°6.:** : on travaillera avec le fichier metalbands.csv. Trier les noms des groupes par nombre de fans et afficher les groupes qui ont plus de 2000 fans
+**<H3 STYLE="COLOR:red;">Activité n°6.:**</h3> on travaillera avec le fichier metalbands.csv. Trier les noms des groupes par nombre de fans et afficher les groupes qui ont plus de 2000 fans
 
-**Activité n°7.:** : on travaillera avec le fichier metalbands.csv. Trier les noms des groupes par année de formation et afficher les groupes qui se sont formés entre 1980 compris et 1990 compris.
+**<H3 STYLE="COLOR:red;">Activité n°7.:**</h3> on travaillera avec le fichier metalbands.csv. Trier les noms des groupes par année de formation et afficher les groupes qui se sont formés entre 1980 compris et 1990 compris.
 
-## **4.Fusion de tables<a name="_page12"></a>**
+## <H2 STYLE="COLOR:BLUE;">**4.Fusion de tables<a name="_page12"></a></h2>**
 
 On considère dans ce sujet les trois fichiers csv décrits ci-dessous :
 countries.csv contient des informations décrivant les pays :
@@ -294,7 +294,7 @@ cities.csv contient des informations décrivant des villes :
 -	District : la région d'appartenance de la ville (texte)
 -	Population : la population de la ville (entier)
 
-**Activité n°8.: ouverture des tables** :  
+**<H3 STYLE="COLOR:red;">Activité n°8.:</h3> ouverture des tables** :  
 ```python
 import csv
 pays=[]
@@ -322,7 +322,7 @@ print(villes)
 f.close()		
 ```
 
-**Activité n°9.: Langues parlées dans chaque pays** :  
+**<H3 STYLE="COLOR:red;">Activité n°9.:</h3> Langues parlées dans chaque pays** :  
 Quelles sont les langues parlées en Haïti ? Pour le savoir il faut :
 - parcourir la liste pays jusqu'à trouver le code de Haïti (orthographié Haiti dans la liste pays),
 - parcourir la liste langues et en extraire les valeurs correspondant à ce code.
@@ -372,7 +372,7 @@ def langues_parlees(pays, langues, nom):
 assert sorted(langues_parlees(pays, langues, "Haiti")) == ['French', 'Haiti Creole']
 ```
 
-**Activité n°10.: Capitales** : 
+**<H3 STYLE="COLOR:red;">Activité n°10.:</h3> Capitales** : 
 Quelle est la capitale d'Haïti ? Là encore, il faut :
 - parcourir la liste des pays jusqu'à trouver l'entrée correspondant à Haïti,
 - repérer le code de la capitale correspondante,
@@ -397,9 +397,9 @@ print(f"La capitale de la {pays[72]['Name']} est {pays[72]['CapitalName']}.")
 
  
 
-**5.  Projet (démarche d’investigation)<a name="_page13_x40.00_y36.92"></a>** 
+## <H2 STYLE="COLOR:BLUE;">**5.  Projet (démarche d’investigation)<a name="_page13_x40.00_y36.92"></a></h2>** 
 
-**Projet 1** : ★**  **pandy pandas pas à pas** 
+**<H3 STYLE="COLOR:red;">Projet 1** :</h3> ★**  **pandy pandas pas à pas** 
 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
@@ -414,7 +414,7 @@ Terta,Henry,12/06/1978
 ```
 
 
-1. Donner les différentes valeurs du descripteur "date_naissance". 
+1 Donner les différentes valeurs du descripteur "date_naissance". 
 
 **Les données structurées au format CSV** 
 
@@ -671,7 +671,7 @@ Comme vous pouvez le constater, l'ordre des colonnes est différent. Il faudra d
 
 27 De la même manière, aucun trace de la commande n° 1324 du 01/02/2017 dans le tableau "com_cl" (ou "cl_com"). Dire pourquoi. 
 
-**Projet 2** : ★** ★  **Qualité de l’air** 
+**<H3 STYLE="COLOR:red;">Projet 2** :w/h3> ★** ★  **Qualité de l’air** 
 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
@@ -790,6 +790,6 @@ On  veut  afficher  l’évolution  des  valeurs  journalières  sous  forme  de
 
 
 
-**Projet 3** : ★** Pokémon 
+**<H3 STYLE="COLOR:red;">Projet 3** :</h3> ★** Pokémon 
 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
