@@ -12,15 +12,13 @@ title: 13 Algorithme des k plus proches voisins
 ## <H2 STYLE="COLOR:BLUE;"> **1. Algorithmes<a name="_page0_x61.00_y296.92"></a> des k plus proches voisins (k Nearest Neighbors : k-NN)** </H2>
 ### <H3 STYLE="COLOR:GREEN;"> **1.1. Le<a name="_page0_x40.00_y318.92"></a> machine learning** </H3>
 
-**L’apprentissage  machine**  (ou  apprentissage  automatique)  consiste  en  des  programmes  capables  de **modifier leur comportement à des données.**  
-
-- On fournit à une machine un très grand nombre de données.  
-- À partir de ces données, la machine s’entraîne (**phase d’apprentissage ou d’entraînement**) pour définir son comportement ultérieur (**phase d’inférence**).  
-- Il exploite des **méthodes mathématiques** qui, à partir du repérage de tendances (corrélations, similarités) sur de très grandes quantités de données (**Big Data**), permettent de faire des **prédictions ou de prendre des décisions** sur d’autres données. 
+Le **machine learning**, ou **apprentissage automatique**, est une technique où l'ordinateur apprend à partir de données. On donne à l'ordinateur beaucoup d'exemples, et il apprend à reconnaître des modèles pour faire des prédictions ou des décisions basées sur de nouvelles données.
 
 Il y a trois catégories d’apprentissage machine : 
 
-- **Avec supervision** : les opérateurs donnent à l’ordinateur des **exemples d’entrées et les sorties souhaitées**,  et  l’ordinateur  recherche  les  **solutions  par  modélisation  prédictive**.  Il  existe  de nombreux algorithmes qui entrent dans cette catégorie : **méthode du k plus proche voisin**, **la régression linéaire**, **les arbres décisionnels**… Cette catégorie est par exemple utilisée dans les prévisions météorologiques.  
+- **Apprentissage supervisé** : On montre à l'ordinateur des exemples et leurs réponses correctes. Ensuite, l'ordinateur apprend à faire la même chose pour de nouvelles données. Par exemple, cet apprentissage est utilisé pour prédire la météo.
+
+  
 
 Le **deep learning** (apprentissage profond) est une des méthodes d’apprentissage supervisé. Les sorties de chaque module servent d’entrée aux suivants. On parle alors de réseaux de neurones artificiels. 
 
@@ -31,7 +29,7 @@ Le **deep learning** (apprentissage profond) est une des méthodes d’apprentis
 
 ### <H3 STYLE="COLOR:GREEN;"> **1.2. Le<a name="_page1_x40.00_y258.92"></a> principe de l’algorithme k-NN** </H3>
 
-**L’algorithme k-NN** est un **apprentissage supervisé.** A partir d’un ensemble de données labellisées, il sera possible de **classer** (déterminer le label) d’une nouvelle donnée. 
+L'*algorithme k-NN* est un type d'apprentissage où l'ordinateur utilise des exemples avec des étiquettes pour apprendre à classer de nouvelles données. 
 
 Il est par exemple utilisé par des entreprises d’Internet comme Amazon, Netflix, Spotify ou iTunes afin de prévoir si on est intéressé ou non par un produit. 
 
@@ -47,9 +45,9 @@ On comprend bien que la notion de distance est un élément central de cet algor
 
 ### <H3 STYLE="COLOR:GREEN;"> 1.3. **Distances<a name="_page1_x40.00_y681.92"></a>** </H3>
 
-La **distance Euclidienne** (dans un repère orthonormé) : 
+La **distance Euclidienne** est une façon de mesurer à quel point deux points sont éloignés dans un espace. 
 
-Soit deux données<sub>1</sub> et  donnée<sub>2</sub> de coordonnées respectives  (x1, y1) et  (x2, y2)
+Par exemple, pour deux points avec des coordonnées $\left(x_1,y_1\right)$ et $\left(x_2,y_2\right)$,\ la distance Euclidienne est la ligne droite entre eux.t  
 
 distance(données<sub>1</sub>,  donnée<sub>2</sub>)=$\sqrt{(x1-x2)²+(y1- y2)²}$
 
