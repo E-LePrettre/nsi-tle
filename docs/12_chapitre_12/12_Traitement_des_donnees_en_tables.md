@@ -219,11 +219,15 @@ f.close()
 
 2 Quel est le nom du groupe en 812
 
-3 Combien de groupe se sont formés en 1981. Attention les dates sont ici des chaines de caractères
+3 Combien de groupes se sont formés en 1981. Attention les dates sont ici des chaines de caractères
 
-4 Donner la liste des groupes dont le genre est du ‘Melodic death’.ATTENTION à tout mettre en minuscule pour ne pas avoir d’ennuis. Pour les supprimer les doublons : on convertit la liste en ensemble (set) avec la fonction set() à placer devant l’instruction
+4 Donner la liste des groupes dont le genre est du ‘Melodic death’. 
+**Aide** : il y a 275 groupe
+ATTENTION à tout mettre en minuscule pour ne pas avoir d’ennuis. Pour les supprimer les doublons : on convertit la liste en ensemble (set) avec la fonction set() à placer devant l’instruction
 
-5 Afficher sur un graphique tous les groupes de métal, en mettant l’année en abscisse et le nombre de fans en ordonnée.
+5 Afficher sur un graphique tous les groupes de métal, en mettant l’année de formation en abscisse et le nombre de fans en ordonnée.
+Attention à convertir les nombres en entier.
+Cela peut prendre un peu de temps
 
 6 Faire apparaitre ensuite (par-dessus) les groupes de ‘Melodic death’ en bleu (‘bo’) et les groupes de Heavy en vert (‘go’). Attention aux majuscules, minuscules => pensez à tout mettre en minuscule
 
@@ -291,9 +295,16 @@ On peut aussi inverser l'ordre de tri :
 ```
 
 
-**<H3 STYLE="COLOR:red;">Activité n°6.:**</h3> on travaillera avec le fichier metalbands.csv. Trier les noms des groupes par nombre de fans et afficher les groupes qui ont plus de 2000 fans
+**<H3 STYLE="COLOR:red;">Activité n°6.:**</h3> on travaillera avec le fichier metalbands.csv. Trier les noms des groupes par nombre de fans décroissants et afficher les groupes qui ont plus de 2000 fans. 
 
-**<H3 STYLE="COLOR:red;">Activité n°7.:**</h3> on travaillera avec le fichier metalbands.csv. Trier les noms des groupes par année de formation et afficher les groupes qui se sont formés entre 1980 compris et 1990 compris.
+
+On va faire apparaitre la liste avec une seule fois chaque groupe
+**Aide** il y a 13 groupes
+
+**<H3 STYLE="COLOR:red;">Activité n°7.:**</h3> on travaillera avec le fichier metalbands.csv. Trier les noms des groupes par année de formation et afficher les groupes qui se sont formés entre 1980 compris et 1985 compris.
+
+On va faire apparaitre la liste avec une seule fois chaque groupe
+**Aide** il y a 240 groupes
 
 ## <H2 STYLE="COLOR:BLUE;">**4.Fusion de tables<a name="_page12"></a></h2>**
 
@@ -341,7 +352,7 @@ cities.csv contient des informations décrivant des villes :
 import csv
 pays=[]
 f = open("countries.csv")       			
-donnees = csv.DictReader(f, delimiter=';')   	
+donnees = csv.DictReader(f, delimiter=',')   	
 for row in donnees:                                    
     pays.append(row)                                   
 print(pays)                            		
@@ -349,7 +360,7 @@ f.close()
 
 langues=[]
 f = open("languages.csv")       			
-donnees = csv.DictReader(f, delimiter=';')   	
+donnees = csv.DictReader(f, delimiter=',')   	
 for row in donnees:                                    
     langues.append(row)                                   
 print(langues)                            		
@@ -357,7 +368,7 @@ f.close()
 
 villes=[]
 f = open("cities.csv")       			
-donnees = csv.DictReader(f, delimiter=';')   	
+donnees = csv.DictReader(f, delimiter=',')   	
 for row in donnees:                                    
     villes.append(row)                                   
 print(villes)                            		
@@ -451,7 +462,7 @@ Ainsi :
 print(f"La capitale de la {pays[72]['Name']} est {pays[72]['CapitalName']}.")
 ```
 
- 
+ Merci à Nicolas Revéret
 
 ## <H2 STYLE="COLOR:BLUE;">**5.  Projet (démarche d’investigation)<a name="_page13_x40.00_y36.92"></a></h2>** 
 
