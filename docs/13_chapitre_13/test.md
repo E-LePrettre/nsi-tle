@@ -1,450 +1,612 @@
 ---
 author: ELP
-title: 11 Architecture de l’ordinateur
+title: 13 Algorithme des k plus proches voisins
 ---
 
-**Table des matières**
+**Table des matières** 
 
-1. [**Historique de l’informatique**](#_page0_x40.00_y403.92)
-2. [**Les différents types de mémoires**](#_page3_x40.00_y539.92)
-3. [**Architecture de Von Neumann**](#_page4_x40.00_y536.92)
-4. [**Langage assembleur**](#_page8_x40.00_y390.92)
-5. [**Simulation CPU**](#_page11_x40.00_y36.92)
+1. [**ALGORITHMES DES K PLUS PROCHES VOISINS (K NEAREST NEIGHBORS : K-NN)**](#_page0_x61.00_y296.92)
+2. [**EXERCICES**](#_page12_x40.00_y36.92)
+3. [**PROBLEME : ANALYSE DE TEXTE**](#_page14_x40.00_y36.92)
 
-Video 1 :[ https://www.dailymotion.com/video/xhleks ](https://www.dailymotion.com/video/xhleks)
+<H2 STYLE="COLOR:BLUE;">## **1. Algorithmes<a name="_page0_x61.00_y296.92"></a> des k plus proches voisins (k Nearest Neighbors : k-NN)** </H2>
+<H3 STYLE="COLOR:GREEN;">### **1.1. Le<a name="_page0_x40.00_y318.92"></a> machine learning** </H3>
 
-##<H2 STYLE="COLOR:BLUE;"> **1. Historique<a name="_page0_x40.00_y403.92"></a> de l’informatique** </H2>
+**L’apprentissage  machine**  (ou  apprentissage  automatique)  consiste  en  des  programmes  capables  de **modifier leur comportement à des données.**  
 
-Video 2 :[ https://ladigitale.dev/digiview/#/v/669d6e5b4ed67 ](https://ladigitale.dev/digiview/#/v/669d6e5b4ed67)
+- On fournit à une machine un très grand nombre de données.  
+- À partir de ces données, la machine s’entraîne (**phase d’apprentissage ou d’entraînement**) pour définir son comportement ultérieur (**phase d’inférence**).  
+- Il exploite des **méthodes mathématiques** qui, à partir du repérage de tendances (corrélations, similarités) sur de très grandes quantités de données (**Big Data**), permettent de faire des **prédictions ou de prendre des décisions** sur d’autres données. 
 
-###<H3 STYLE="COLOR:GREEN;"> **1.1. Les<a name="_page0_x40.00_y459.92"></a> machines à programmes externes** </H3>
-- **Machines électromécaniques**
+Il y a trois catégories d’apprentissage machine : 
 
-L’allemand **Konrad ZUSE** achève le **Z1** en 1938, un ordinateur mécanique utilisant le système binaire, puis le **Z3** en 1941, premier ordinateur complètement automatique lisant son programme sur une bande perforée. Le Z3 utilisait déjà le calcul en virgule flottante et réalisait 3 à 4 additions par seconde.
+- **Avec supervision** : les opérateurs donnent à l’ordinateur des **exemples d’entrées et les sorties souhaitées**,  et  l’ordinateur  recherche  les  **solutions  par  modélisation  prédictive**.  Il  existe  de nombreux algorithmes qui entrent dans cette catégorie : **méthode du k plus proche voisin**, **la régression linéaire**, **les arbres décisionnels**… Cette catégorie est par exemple utilisée dans les prévisions météorologiques.  
 
-**Réplique du Zuse Z3 au Deutsches Museum de Munich.**
-![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.002.png)
+Le **deep learning** (apprentissage profond) est une des méthodes d’apprentissage supervisé. Les sorties de chaque module servent d’entrée aux suivants. On parle alors de réseaux de neurones artificiels. 
 
-Peu après aux Etats-Unis, **Howard H. AIKEN** construit l’ordinateur électromécanique **MARK I** (1944). Le MARK I pesait environ 5 tonnes et était composé de plus de 750 000 pièces !
+- **Sans supervision** : l’algorithme est **laissé à lui-même**, alors qu’on lui fournit un grand nombre de données  non  étiquetées.  La  machine  y  repère  des  corrélations  pour  construire  elle-même  son algorithme de classification. Par exemple, l’algorithme de **reconnaissance faciale de Facebook** qui identifie les personnes sur les photos est un exemple d’apprentissage machine sans supervision. 
+- **Par renforcement** : un programme informatique interagit avec un environnement dynamique dans lequel il doit atteindre un but. Le programme-apprenti reçoit **des récompenses ou des punitions** pendant qu’il navigue dans l’espace du problème et qu’il apprend à identifier le comportement le plus efficace. C’est ce type d’apprentissage qui a permis au programme Alpha Zero de Google de battre le champion de jeu de go Lee Sedol en 2016. 
 
-**L’ordinateur MARK inauguré à Harvard le 7 août 1944 mesurait 16m de long, 2,40m de haut, 0,5 m de profondeur et pesait 4,5 tonnes.**
+![](Aspose.Words.3ff765a9-d01a-40a4-b89f-2b60e83d57aa.008.jpeg)
 
-![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.001.png)
-Source : espace-turing.fr
+<H3 STYLE="COLOR:GREEN;">### **1.2. Le<a name="_page1_x40.00_y258.92"></a> principe de l’algorithme k-NN** </H3>
 
-Le **Mark I** lisait ses instructions sur des cartes perforées et exécutait l’instruction courante puis lisait la suivante.
+**L’algorithme k-NN** est un **apprentissage supervisé.** A partir d’un ensemble de données labellisées, il sera possible de **classer** (déterminer le label) d’une nouvelle donnée. 
 
-![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.003.png)
-Source : Wikipédia
+Il est par exemple utilisé par des entreprises d’Internet comme Amazon, Netflix, Spotify ou iTunes afin de prévoir si on est intéressé ou non par un produit. 
 
-- **Machines électroniques**
+![](Aspose.Words.3ff765a9-d01a-40a4-b89f-2b60e83d57aa.009.png)
 
-L’apparition des **tubes à vide**, bien plus rapides que les relais des machines électromécaniques, marque le début de l’électronique moderne.
+Voici le principe de l’algorithme des k plus proches voisins : 
 
-Entre 1943 et 1945 les Britanniques **Max NEWMAN** et **Tomy FLOWERS** mettent en service les **COLOSSUS** utilisés pour déchiffrer le code de LORENZ employé par les allemands durant la seconde guerre mondiale.
+- On calcule les distances entre la donnée à classer *u* et chaque donnée appartenant à l’ensemble E des données à l’aide de la fonction d . 
+- On retient les k données du jeu de données E, les plus proches de la donnée *u* à classer. 
+- On attribue à *u* la classe qui est la plus fréquente parmi les k données les plus proches. 
 
-Le célèbre **ENIAC** des Américains **John MAUCHLY** et **John ECKERT** est achevé en novembre 1945 et effectue des calculs balistiques à l’aide de 18 00 tubes à vide.
+On comprend bien que la notion de distance est un élément central de cet algorithme. 
 
-**L'ENIAC** (Electronic Numerical Integrator And Computer) : premier ordinateur entièrement électronique (1945).
+<H3 STYLE="COLOR:GREEN;">### 1.3. **Distances<a name="_page1_x40.00_y681.92"></a>** </H3>
 
-Il peut être reprogrammé pour résoudre, en principe, tous les problèmes calculatoires.
+La **distance Euclidienne** (dans un repère orthonormé) : 
 
-![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.004.png)
-Source : Wikipédia
+Soit deux données<sub>1</sub> et  donnée<sub>2</sub> de coordonnées respectives  (x1, y1) et  (x2, y2)
 
-###<H3 STYLE="COLOR:GREEN;"> **1.2. Les<a name="_page1_x40.00_y480.92"></a> machines à programmes enregistrés** </H3>
+distance(données<sub>1</sub>,  donnée<sub>2</sub>)=$\sqrt{(x1-x2)²+(y1- y2)²}$
 
-- Basés sur les travaux de **MAUCHLY**, **ECKERT** et **VON NEUMANN**, les machines à programmes enregistrés sont les ancêtres directs des ordinateurs actuels. Dans ce type de machines, les données et les programmes résident en mémoire. Les premières machines de ce type apparaissent dès 1948 avec les ordinateurs britanniques BABY et EDSAC, suivis par leurs homologues américains **EDVAC** et **UNIVAC**.
-- Le début des années 1950 voient apparaître les premiers ordinateurs commerciaux et les modèles se succèdent avec comme principaux acteurs les constructeurs **IBM** (International Business Machines), **DEC** (Digital Equipment Corporation) et **BULL**.
+<H3 STYLE="COLOR:red;">**Activité n°1. : Calcul de distance euclidienne** </H3>
 
-###<H3 STYLE="COLOR:GREEN;"> **1.3. Du<a name="_page1_x40.00_y644.92"></a> micro-ordinateur à la micro-informatique** </H3>
-- **Miniaturisation et explosion du marché**
+Dans un fichier distance_euclidienne.py 
+Ecrire une fonction qui permet de générer au hasard une liste de points à coordonnées entières : 
+- Abscisses comprises entre xmin et xmax 
+-  Ordonnées comprises entre ymin et ymax 
+Le nombre de points de cette liste sera généré au hasard entre nbmin et nbmax (paramètre de la fonction).  
+```python
+from random import randint
+xmin, xmax = -20, 20
+ymin, ymax = -20, 20
 
-Le **transistor** (1947) devient un produit industriel très fiable qu’on peut fabriquer à faible coût au milieu des années 1950. Son émergence technologique, marque la fin des tubes à vide.
 
-Le **circuit intégré** qui rassemble de nombreux composants miniaturisés sur une petite surface apparaît en 1958 et ne cessera de se perfectionner au fil du temps.
+def genereListePoints(nbmin, nbmax):
+    """
+    nbmin -- entier
+    nbmax -- entier
+    précondition: nbmin < nbmax
 
-Durant plus de 10 ans, **IBM** et **DEC** dominent le marché alors que la science informatique encore naissante, permet de former dans les université des personnes qui se spécialisent dans l’utilisation et la programmation des ordinateurs. L’apparition du **microprocesseur** (INTEL 4004 en 1971) permet à de nouveaux acteurs d’apparaître et d’innover : l’informatique s’ouvre au grand public.
+    Renvoie une liste de couples d'entiers,
+    le premier élément de chaque couple
+    est compris entre xmin et xmax (au sens large),
+    le second élément de chaque couple est
+    compris entre ymin et ymax (au sens large).
+    Les couples (x, y) sont générés au hasard.
+    Le nombre de couples est généré au hasard, entre nbmin et nbmax.
+    """
+    
+    # à compléter
+```
 
-Une multitude de machines sont commercialisées : **l’ALTAIR 8800** premier ordinateur grand public, sans clavier ni écran, l’**APLLE II** (1977), l’**IBM PC** (1981), le **COMMODORE 64** (1982), le **APPLE MACINTOSH** (1984). Ce dernier est d’ailleurs le premier ordinateur personnel équipé d’une souris et d’une interface graphique.
+Tester votre fonction avec l’appel : 
+```genereListePoints(5, 15)``` permet de retourner une liste de coordonnées de points contenant entre 5 et 15 points 
 
-![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.005.png)
-ALTAIR 8800
+???+ question "Faire ce qui est proposé"
 
-![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.007.png)
-APLLE II
+    {{ IDE() }}
 
-![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.006.png)
-IBM PC
-
-![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.008.png)
-COMMODORE 64
-
-![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.009.png)
-APPLE MACINTOSH
-
-- **Langages et système d’exploitation**
-
-Après la naissance des premiers compilateurs conçus Grace HOPPER à partir de 1951, **John BACKUS** achève l’élaboration du langage **FORTRAN** en 1956. Il est suivi par **LISP**, **COBOL** et enfin **BASIC** en 1964. Les grands principes des langages de programmation étant formulés, de nombreux langages voient le jour entre les années 1970 et 2000 : le **C** (1972), **ML** (1973) dont est issu **CAML**, **ADA** (1983) et APPLE **C++** en 1986. Le langage **PYTHON** verra le jour quant à lui en 1991 et JAVASCRIPT en 1995.
-
-Au milieu des années 1960, chaque constructeur développe son propre système d’exploitation : **OS 360** puis **MVS** chez **IBM**, le système **UNIX** (1970) chez AT&T…
-
-En 1984 **Richard STALLMAN**, chercheur au MIT entame la création du système **GNU** (GNU’s Not Unix) et promeut le mouvement du logiciel libre.
-
-Par la suite, c’est finalement **MS-DOS**, écrit par Microsoft pour IBM qui s’imposera sur les micro-ordinateurs grand public, suivi par Windows en 1985.
-
-A l’heure actuelle on distingue trois grands types d’OS (Operating System) équipant les ordinateurs modernes : **WINDOWS**, **MAC OS** et **GNU LINUX** créé par **Linus TORVALDS** en 1991.
-
-=> **CAPYTALE Le code vous sera donné par votre enseignant**
-
-**<H3 STYLE="COLOR:red;">Activité n°1.:</H3>** Répondre par Vrai ou faux Remarque : Certaines questions nécessitent une recherche internet. 
-<table>
-
-<tr><td colspan="2" valign="top">1. Blaise Pascal a mis au point le logiciel Turbo Pascal. </td><td colspan="2"></td></tr>
-<tr><td colspan="2" valign="top">2. George Boole était un spécialiste de la logique binaire. </td><td colspan="2"></td></tr>
-<tr><td colspan="2" valign="top">3. Alan Turing a travaillé sur l’intelligence artificielle. </td><td colspan="2"></td></tr>
-<tr><td colspan="2" valign="top">4. Alan Turing a cassé le code Enigma. </td><td colspan="2"></td></tr>
-<tr><td colspan="2" valign="top">5. L’ordinateur ENIAC était aussi petit qu’une boite à chaussure. </td><td colspan="2"></td></tr>
-<tr><td colspan="2" valign="top">6. John Von Neumann a conçu l’architecture de base de tous les ordinateurs actuels. </td><td colspan="2"></td></tr>
-<tr><td colspan="2" valign="top">7. L’invention du transistor a permis de miniaturiser les ordinateurs. </td><td colspan="2"></td></tr>
-<tr><td colspan="2" valign="top">8. Le premier micro-ordinateur est américain. </td><td colspan="2"></td></tr>
-<tr><td colspan="2" valign="top">9. Le processeur 8086 possède 1000000 de transistors </td><td colspan="2"></td></tr>
-<tr><td colspan="2" valign="top">10. Gary Kasparov est imbattable aux échecs. </td><td colspan="2"></td></tr>
-<tr><td colspan="2" valign="top">11. La loi de Moore est toujours valide en 2020 </td><td colspan="2"></td></tr>
-</table>
-
-**<H3 STYLE="COLOR:red;">Activité n°2.:</H3>** Cocher la ou les bonnes réponses. Remarque : Certaines questions nécessitent une recherche internet. 
-<table>
-
-<tr><td colspan="8" valign="top">  </td></tr>
-<tr><td colspan="2" valign="top"><p>1. Le premier algorithme connu remonte... </p><p>- au XX siècle </p><p>- au XIX siècle </p><p>- au 1er siècle </p><p>- bien avant le 1er siècle </p></td><td colspan="2" valign="top"><p>2. Le mot algorithme vient du nom </p><p>- Al-Khwârizmi </p><p>- Grace Murray Hopper </p><p>- Steve Jobs </p><p>- Augusta Ada King </p></td><td colspan="2" valign="top"><p>3. Le 1er compilateur fut conçu par </p><p>- Al-Khwârizmi </p><p>- Grace Murray Hopper </p><p>- Steve Jobs </p><p>- Augusta Ada King </p></td><td colspan="2"></td><td colspan="3" rowspan="2" valign="top"></td></tr>
-<tr><td colspan="2" valign="top"><p>4. Le 1er programme fut écrit par </p><p>- Al-Khwârizmi </p><p>- Grace Murray Hopper </p><p>- Steve Jobs </p><p>- Augusta Ada King </p></td><td colspan="2" valign="top"><p>5. Le transistor fut inventé dans les années </p><p>- 1850 </p><p>- 1900 </p><p>- 1950 </p><p>- 2000 </p></td><td colspan="2" valign="top"><p>6. Le circuit intégré fut inventé après le transistor. </p><p>- Vrai </p><p>- Faux </p><p>- Les deux ont été inventés en même temps </p><p>- Cette question n'a aucun sens</p></td><td colspan="2"></td><td colspan="3" rowspan="2" valign="top"></td></tr>
-<tr><td colspan="2" valign="top"><p>7. La souris a été inventée après le disque dur. </p><p>- Vrai </p><p>- Faux </p><p>- Les deux ont été inventés en même temps </p><p>- Cette question n'a aucun sens </p></td><td colspan="2" valign="top"><p>8. L’invention du premier microprocesseur date des années </p><p>- 1945 </p><p>- 1970 </p><p>- 1990 </p><p>- début des années 2000 </p></td><td colspan="2" valign="top"><p>9. L’internet a été inventé après le web. </p><p>- Vrai </p><p>- Faux </p><p>- Les deux ont été inventés en même temps </p><p>- Cette question n'a aucun sens</p></td><td colspan="2"></td><td colspan="3" rowspan="2" valign="top"></td></tr>
-<tr><td colspan="6" valign="top"><p>10. Le moteur de recherche Google a été créé en </td><td colspan="3" rowspan="3" valign="top"></td></tr>
-<tr><td colspan="6" valign="top">- 1990 </td></tr>
-<tr><td colspan="6" valign="top">- 1998 </td></tr>
-<tr><td colspan="6" valign="top">- 2005 </td></tr>
-<tr><td colspan="6" valign="top">- 2010 </td></tr>
-</table>
-
-##<H2 STYLE="COLOR:BLUE;"> **2. Les<a name="_page3_x40.00_y539.92"></a> différents types de mémoires** </H2>
-###<H3 STYLE="COLOR:GREEN;"> **2.1. Organisation<a name="_page3_x40.00_y567.92"></a> de la mémoire** </H3>
-
-Il existe de nombreuses technologies de mémoire qui se distinguent par leur durabilité (volatile ou permanente), leur mode d’accès (par adresse ou dans l’ordre de leur rangement) ou leur temps d’accès. En règle générale, plus une mémoire est performante, plus elle est chère.
-
-- Il existe la **mémoire morte** ( **ROM** = Read Only Memory ) chargée de stocker le programme. C’est une mémoire à lecture seule, en principe.
-- On parle de **mémoire vive** (ou volatile) (**RAM** = Random Access Memory) quand le contenu est perdu lorsque le courant s’arrête : il s’agit des registres, des mémoires cache, de la mémoire centrale.
-- Les disques durs, disquettes, CDROM, etc… sont des périphériques de stockage et sont considérés comme des mémoires secondaires.
-
-Remarque : la mémoire ROM contient notamment le BIOS (Basic Input Output System) qu’il est possible, sur les machines dotées de carte mère récente, de mettre à jour (flashage du BIOS).
-
-###<H3 STYLE="COLOR:GREEN;"> **2.2. Les<a name="_page4_x40.00_y47.92"></a> registres** </H3>
-
-Un **registre** est un emplacement **mémoire interne** au processeur. Les registres se situent au sommet de la hiérarchie mémoire : il s'agit de la **mémoire la plus rapide** d'un ordinateur, mais dont le coût de fabrication est le plus élevé, car la place dans un microprocesseur est limitée.
-
-Il sert à **stocker des opérandes** et **des résultats intermédiaires** lors des opérations effectuées dans l’UAL. Leur capacité, leur nombre et leurs rôles varient selon les processeurs. La grande majorité des processeurs actuels ont des registres de taille 64 bits. Ils sont accessibles via un jeu d’instructions.
-
-###<H3 STYLE="COLOR:GREEN;"> **2.3. Mémoires<a name="_page4_x40.00_y175.92"></a> centrales et mémoires caches** </H3>
-
-La **mémoire centrale** est une mémoire vive qui contient les programmes en cours et les données qu’ils manipulent. Elle est de taille importante (plusieurs Go). Elle est organisée en **cellules** appelées « **cases mémoires** » qui contiennent chacune une donnée ou une instruction repérée par une **adresse** qui est un **nombre entier**. Le temps d’accès à chaque cellule est le même : on parle de mémoire à accès aléatoire (RAM) bien qu’il soit plus judicieux de parler de mémoire à accès direct.
-
-Afin de pouvoir adapter la très grande vitesse du processeur à celle plus faible de la mémoire centrale, on place entre les deux une mémoire plus rapide, la **mémoire cache** qui contient les instructions et les données en cours d’utilisation car, la plupart du temps, les données qui viennent d’être utilisées ont une probabilité plus grande d’être réutilisées que d’autres. La **mémoire cache** (de l’ordre de quelques Mo) est souvent constitué de mémoire de type statique **SRAM** plus rapide mais plus chère que celle de type **RAM dynamique (SDRAM, DDR** …) utilisée dans la mémoire centrale. Généralement la mémoire cache est intégrée au « socket » du processeur.
-
-**<H3 STYLE="COLOR:red;">Activité n°3.:</H3>** Quelques interrogations 
-
-Il reste toujours pas mal de questions en suspens. Quatre exemples :
-
-1. Où sont stockés les programmes là-dedans ? ça doit être forcément dedans puisque le programme fait partie de la machine. Mais où ?
-2. Comment fait la machine pour faire une addition ?
-3. Si on veut récupérer des données externes (clavier ?), on récupère à partir de quelle provenance ?
-4. Si on veut envoyer des informations vers l’extérieur (écran ?), on envoie vers quelle destination ?
-
-##<H2 STYLE="COLOR:BLUE;"> **3. Architecture<a name="_page4_x40.00_y536.92"></a> de Von Neumann** </H2>
-
-L’architecture dite **architecture de Von Neumann est** un modèle pour un ordinateur qui utilise une structure de stockage unique pour conserver à la fois les instructions et les données demandées ou produites par le calcul. De telles machines sont aussi connues sous le nom d’**ordinateur à programme enregistré**. Le modèle de Von Neumann est conforme à un schéma qui a peu évolué depuis son origine en 1945.
-
-###<H3 STYLE="COLOR:GREEN;"> **3.1. Organisation<a name="_page4_x633.92"></a> générale** </H3>
-
-Les instructions qui composent les programmes sont exécutées par le **CPU** (Central Processing Unit). Il est schématiquement constitué de 3 parties.
-
-- **L’unité arithmétique et logique** (UAL ou ALU en anglais) est chargée de l’exécution de tous les calculs de base que peut réaliser le microprocesseur.
-- **L’unité de contrôle** est chargée du séquençage des opérations : elle permet d’exécuter les instructions (les programmes).
-- **la mémoire** contient à la fois les données et le programme. Le programme indique à l’unité de contrôle les calculs à faire sur les données. La mémoire est divisée en mémoire volatile (programmes et données en cours de fonctionnement) et mémoire permanente (programmes et données de base de la machine). Un emplacement de mémoire interne à un processeur est appelé un registre.
-
-Les données doivent circuler entre les différentes parties d’un ordinateur, notamment entre la mémoire vive et le CPU. Le système permettant cette circulation est appelé **bus** : un bus de 64 bits est constitué de 64 «fils électriques » qui permettent de faire transiter 64 bits simultanément. Il existe, sans entrer dans les détails, 3 grands types de bus :
-
-- Le **bus d’adresses** permet de faire circuler des adresses (par exemple l’adresse d’une donnée à aller chercher en mémoire).
-- Le **bus de données** permet de faire circuler des données.
-- Le **bus de contrôle** permet de spécifier le type d’action (exemples : écriture d’une donnée en mémoire, lecture d’une donnée en mémoire).
-
-Les **dispositifs d’entrée-sortie** permettent de communiquer avec le monde extérieur (clavier, écran, imprimante,…)
-
-![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.021.jpeg)
-
-**Architecture simplifiée de Von Neumann**
-
-Remarques :
-
-- **L’architecture Havard** se distingue de l’architecture Von Neuman uniquement par le fait que les mémoires programmes et données **sont séparées**. Cette organisation permet de transférer instructions et des données simultanément, ce qui améliore les performances, mais augmente les coûts.
-- Les ordinateurs **multiprocesseurs** permettent un parallélisme de tâches pour obtenir une plus grande puissance de calcul. Cette technologie a été utilisée pour des supercalculateurs, elle peut aussi l'être pour s'affranchir des limites de la montée en fréquence des processeurs : de nombreux processeurs actuels sont dits **multi-cœur**, et embarquent en fait plusieurs **monoprocesseurs** sur une même puce.
-
-**<H3 STYLE="COLOR:red;">Activité n°4.:</H3>** On part du principe que le système doit pouvoir transporter en une seule opération une adresse via son bus d’adresses. Peux-tu répondre à ces deux questions. 
-
-1. Combien d’adresses-mémoires RAM différentes peut-on avoir dans un ordinateur dont le bus d’adresse est un bus 16 bits ?
-
-2. Si on considère que chaque case mémoire correspond à un octet, quelle est la mémoire vive maximale disponible sur ce système s’il ne disposant pas d’autres manières d’adresser sa mémoire ?
-
-###<H3 STYLE="COLOR:GREEN;"> **3.2. Le<a name="_page6_x297.92"></a> CPU** </H3>
-
-Le processeur (CPU, pour Central Processing Unit) est le cerveau de l’ordinateur. Il permet de manipuler, des données et des instructions codées sous forme binaires. Le processeur est composé de millions de transistors placés dans un boitier comportant des connecteurs d’entrée-sortie, surmonté d’un ventilateur. C’est un circuit électronique cadencé au rythme d’une horloge interne qui envoie des impulsions.
-
-###<H3 STYLE="COLOR:GREEN;"> **3.3. Le<a name="_page6_x426.92"></a> rôle de l’horloge CPU** </H3>
-
-Une **horloge** rythme le travail du CPU: à chaque battement, une action. Plus la fréquence de l'horloge, mesurée en hertz (Hz), est élevée, plus le processeur est rapide. Cadencé à 2 GHz, il abat ainsi deux milliards d'opérations par seconde.
-
-On caractérise le microprocesseur par :
-
-- sa fréquence d’horloge : en MHz ou GHz
-- le nombre d’instructions par secondes qu’il est capable d’exécuter
-- la taille des données qu’il est capable de traiter : en bits
-
-**<H3 STYLE="COLOR:red;">Activité n°5.:</H3>** Sur les photos ci-dessous, identifier le processeur. 
-
-![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.026.png)
-![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.027.png)
-![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.028.png)
-
-###<H3 STYLE="COLOR:GREEN;"> **3.4. Les<a name="_page7_x274.92"></a> limites** </H3>
-
-Ce modèle impose un **va-et-vient** constant entre le **CPU et la mémoire**, soit pour charger la prochaine instruction à exécuter, soit pour récupérer les données sur lesquelles l’instruction courante doit opérer. Mais la différence de vitesse entre les microprocesseurs et la mémoire est très grande. De plus, cet accès se fait à travers un bus, mais pour des raisons technologiques, le débit du bus a augmenté moins vite que le débit d’accès à la mémoire et surtout que la vitesse des processeurs. D’où un phénomène d’attente — le **« goulot de von Neumann »** — qui réduit les performances
-
-###<H3 STYLE="COLOR:GREEN;"> **3.5. Évolution<a name="_page7_x423.92"></a> : le multiprocesseur et les mémoires caches** </H3>
-
-Selon la **loi de Moore** (1965), le nombre de transistors, c’est-à-dire l’élément principal qui compose les processeurs des ordinateurs**, double tous les deux ans**. Et parallèlement, double également la puissance des appareils. Moore fixa ensuite le cycle non plus sur 2 ans, mais **dix-huit mois.** Donc selon Moore tous les 18 mois il y a doublement du nombre de transistors, rendant les ordinateurs rapidement obsolètes. Sa loi s’est vérifiée jusqu’à récemment. Il avait cependant déclaré en 1997 que cette croissance des performances des puces se heurterait aux environs de 2017 à une limite physique : celle de la taille des atomes. Et nous y sommes. On voit en effet depuis quelques années le rythme du doublement diminuer en fréquence.
-
-Mais, l'augmentation de la fréquence devenant techniquement de plus en plus difficile (problème de surchauffe), une nouvelle idée permet de poursuivre la loi de Moore : mettre **plus de processeurs** dans un seul PC.
-
-De plus, la multiplication des cœurs pose le problème de la synchronisation de la mémoire. Il existe plusieurs stratégies pour répartir la mémoire cache de chaque processeur.
-
-Ces évolutions ont pour conséquence de mettre la **mémoire**, plutôt que l’unité centrale, **au centre de l’ordinateur**, et **d’augmenter le degré de parallélisme** dans le traitement et la circulation de l’information
-
-**<H3 STYLE="COLOR:red;">Activité n°6.:</H3>** Ci-contre, retrouver les interfaces RJ45, VGA, HDMI et USB. 
-
-![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.032.jpeg)
-
-##<H2 STYLE="COLOR:BLUE;"> **4. Langage<a name="_page8_x40.00_y390.92"></a> assembleur** </H2>
-
-Le microprocesseur étant incapable d'interpréter la phrase "additionne le nombre 125 et la valeur située dans le registre R2,
-
- range le résultat dans le registre R1", il faut coder cette instruction sous forme binaire :
-
-"additionne le nombre 125 et la valeur située dans le registre R2, range le résultat dans le registre R1" ⇓
-
-"11100010100000100001000001111101"
-
-Afin de faciliter la lecture et l'écriture d'instructions machine par les informaticiens, on remplace les codes binaires par des symboles mnémoniques, en utilisant la syntaxe du langage appelé assembleur.
-
-"additionne le nombre 125 et la valeur située dans le registre R2, range le résultat dans le registre R1" ⇓  
-"ADD R1,R2,#125" ⇓
-
-"11100010100000100001000001111101"
-
-**Exemples d’instruction en assembleur :**
-
-- LDR R1,78
-
-Place la valeur stockée à l'adresse mémoire 78 dans le registre R1 (par souci de simplification, nous continuons à utiliser des adresses mémoire codées en base 10)
-
-- STR R3,125
-
-Place la valeur stockée dans le registre R3 en mémoire vive à l'adresse 125
-
-- ADD R1,R0,#128
-
-Additionne le nombre 128 (une valeur immédiate est identifiée grâce au symbole #) et la valeur stockée dans le registre R0, place le résultat dans le registre R1
-
-- ADD R0,R1,R2
-
-Additionne la valeur stockée dans le registre R1 et la valeur stockée dans le registre R2, place le résultat dans le registre R0
-
-- SUB R1,R0,#128
-
-Soustrait le nombre 128 de la valeur stockée dans le registre R0, place le résultat dans le registre R1
-
-- SUB R0,R1,R2
-
-Soustrait la valeur stockée dans le registre R2 de la valeur stockée dans le registre R1, place le résultat dans le registre R0
-
-- MOV R1, #23
-
-Place le nombre 23 dans le registre R1
-
-- MOV R0, R3
-
-Place la valeur stockée dans le registre R3 dans le registre R0
-
-- B 45
-
-Nous avons une structure de rupture de séquence, la prochaine instruction à exécuter se situe en mémoire vive à l'adresse 45
-
-- CMP R0, #23
-
-Compare la valeur stockée dans le registre R0 et le nombre 23. Cette instruction CMP doit précéder une instruction de branchement conditionnel BEQ, BNE, BGT, BLT (voir ci-dessous)
-
-- CMP R0, R1
-
-Compare la valeur stockée dans le registre R0 et la valeur stockée dans le registre R1.
-
-- CMP R0, #23 BEQ 78
-
-La prochaine instruction à exécuter se situe à l'adresse mémoire 78 si la valeur stockée dans le registre R0 est égale à 23
-
-- CMP R0, #23 BNE 78
-
-La prochaine instruction à exécuter se situe à l'adresse mémoire 78 si la valeur stockée dans le registre R0 n'est pas égale à 23
-
-- CMP R0, #23 BGT 78
-
-La prochaine instruction à exécuter se situe à l'adresse mémoire 78 si la valeur stockée dans le registre R0 est plus grand que 23
-
-- CMP R0, #23 BLT 78
-
-La prochaine instruction à exécuter se situe à l'adresse mémoire 78 si la valeur stockée dans le registre R0 est plus petit que 23
-
-- HALT !
-
-Arrête l'exécution du programme
-
-**<H3 STYLE="COLOR:red;">Activité n°7.:</H3>** Expliquer les instructions suivantes 
-
-- ADD R0, R1, #42  
-- LDR R5,98 
-- CMP R4, #18 
-- BGT 77 
-- STR R0,15 
-- B 100
-
-**<H3 STYLE="COLOR:red;">Activité n°8.:</H3>** Écrire les instructions en assembleur correspondant aux phrases suivantes : 
-
-- Additionne la valeur stockée dans le registre R0 et la valeur stockée dans le registre R1, le résultat est stocké dans le registre R5
-- Place la valeur stockée à l'adresse mémoire 878 dans le registre R0
-- Place le contenu du registre R0 en mémoire vive à l'adresse 124
-- la prochaine instruction à exécuter se situe en mémoire vive à l'adresse 478
-- Si la valeur stockée dans le registre R0 est égale 42 alors la prochaine instruction à exécuter se situe à l'adresse mémoire 85
-
-**<H3 STYLE="COLOR:red;">Activité n°9.:</H3>** Correspondance du langage Python et du langage assembleur 
+Écrire et ajouter à la suite du code précédent une fonction distance prenant en paramètres 4 nombres x1, y1, x2, y2 et renvoyant la distance euclidienne entre les points M(x1,y1) et A(x2,y2). 
 
 ```python
-x = 4
-y = 8
-if x == 10:
-    y = 9
-else:
-    x = x + 1
-z = 6
+from math import sqrt
+
+def distance(x1,y1,x2,y2):
+    """
+    Renvoie la distance euclidienne entre A(a,b) et M(x,y)
+    """
+    # à compléter
 ```
 
+Exemple d'appel (distance entre les points A(4,0) et B(1,4)): 
 ```
-   MOV R0, #4
-   STR R0,30
-   MOV R0, #8
-   STR R0,75
-   LDR R0,30
-   CMP R0, #10
-   BNE else
-   MOV R0, #9
-   STR R0,75
-   B endif
-else:
-   LDR R0,30
-   ADD R0, R0, #1
-   STR R0,30
-endif:
-   MOV R0, #6
-   STR R0,23
-   HALT
+>>> distance(4, 0, 1, 4) 
+5.0 
 ```
 
-Après avoir analysé très attentivement le programme en assembleur ci-dessus, vous essaierez d'établir une correspondance entre les lignes du programme en Python et les lignes du programme en assembleur. À quoi sert la ligne "B endif" ? À quoi correspondent les adresses mémoires 23, 75 et 30?
+Écrire une fonction python ```plusProcheVoisin(listePoints, x, y)``` prenant en paramètres: 
+-  une liste de points telle que celle de l'activité 1 ci-dessus. 
+-  un nouveau point A de coordonnées entières (abscisse entre xmin et xmax et ordonnée entre ymin et ymax). 
 
-##<H2 STYLE="COLOR:BLUE;"> **5. Simulation<a name="_page11_x40.00_y36.92"></a> CPU** </H2>
+et renvoyant le point de la liste qui est le plus proche de A. 
+```python
+def plusProcheVoisin(listePoints, x, y):
+    """
+    listePoints -- liste de points à coordonnées entières
+    x -- entier entre xmin et xmax
+    y -- entier entre ymin et ymax
 
-On utilise un simulateur développé par Peter L Higginson. Ce simulateur est basé sur une architecture de von Neumann. Nous allons trouver dans ce simulateur :
-
-- une RAM
-- un CPU
-
-Une version en ligne de ce simulateur est disponible ici :[ http://www.peterhigginson.co.uk/AQA/ ](http://www.peterhigginson.co.uk/AQA/)
-
-![](Aspose.Words.49fb7717-1633-4b59-ac3e-82de7dfc0910.050.jpeg)
-
-Les différentes parties du simulateur :
-
-- à droite, on trouve la mémoire vive ("main memory")
-- au centre, on trouve le microprocesseur
-- à gauche on trouve la zone d'édition ("Assembly Language"), c'est dans cette zone que nous allons saisir nos programmes en assembleur
-
-###<H3 STYLE="COLOR:GREEN;"> **5.1. La<a name="_page11_x648.92"></a> RAM** </H3>
-
-Par défaut le contenu des différentes cellules de la mémoire est en base 10 (entier signé), mais d'autres options sont possibles : base 10 (entier non-signé, "unsigned"), base 16 ("hex"), base 2 ("binary"). On accède à ces options à l'aide du bouton "OPTIONS" situé en bas dans la partie gauche du simulateur.
-
-**<H3 STYLE="COLOR:red;">Activité n°10.:</H3>** À l'aide du bouton "OPTIONS", passer à un affichage en binaire. 
-
-Chaque cellule de la mémoire comporte 32 bits (classiquement une cellule de RAM comporte 8 bits).
-Chaque cellule de la mémoire possède une adresse (de 000 à 199), ces adresses sont codées en base 10.
-Repasser à un affichage en base 10 (bouton "OPTION"->"signed")
-
-###<H3 STYLE="COLOR:GREEN;"> **5.2. Le<a name="_page12_x73.92"></a> CPU** </H3>
-
-Dans la partie centrale du simulateur, nous allons trouver en allant du haut vers le bas :
-
-- le **bloc "registre"** ("Registers") : nous avons 13 registres (R0 à R12) + 1 registre (PC) qui contient l'adresse mémoire de l'instruction en court d'exécution
-- le **bloc "unité de commande"** ("Control Unit") qui contient l'instruction machine en cours d'exécution (au format hexadécimal)
-- le **bloc "unité arithmétique et logique"** ("Arithmetic and Logic Unit")
-
-###<H3 STYLE="COLOR:GREEN;"> **5.3. Programmer<a name="_page12_x218.92"></a> en assembleur** </H3>
-
-**<H3 STYLE="COLOR:red;">Activité n°11.:</H3>** Dans la partie "éditeur" ("Assembly Language") saisissez les lignes de codes suivantes :
+    Renvoie le point de la liste listePoints le plus proche de (x,y)
+    """
+    distance_min = inf # initialisation à +infini
+    # à compléter
 ```
-MOV R0,#42
-STR R0,150
-HALT
+???+ question "Faire ce qui est proposé"
+
+    {{ IDE() }}
+
+<H3 STYLE="COLOR:GREEN;">### **1.4. Présentation<a name="_page3_x40.00_y36.92"></a> de l’algorithme des k plus proches voisins** </H3>
+
+On considère un jeu de données constitué de la façon suivante : 
+- les données sont réparties suivant deux types : le type 1 et le type 2 
+- les données n'ont que deux caractéristiques 
+
+Voici une représentation de ces données : 
+
+![](Aspose.Words.3ff765a9-d01a-40a4-b89f-2b60e83d57aa.013.jpeg)
+
+Il faut introduire une **nouvelle donnée** (appelée cible) avec ses deux caractéristiques.  
+
+Dans un premier temps, il faut fixer le nombre de voisins. On choisit k = 6. C’est un choix arbitraire. Voici une nouvelle représentation avec la cible et la recherche des 
+
+6 voisins : 
+
+![](Aspose.Words.3ff765a9-d01a-40a4-b89f-2b60e83d57aa.014.jpeg)
+
+Parmi ses 6 voisins, il y a 2 voisins de type 1 et 4 voisins de type 2. Il est donc probable que la cible soit de type 2. On a choisi la **distance Euclidienne** mais on aurait pu choisir une **autre distance (**Manhattan, Tchebychev…) **.** 
+
+<H3 STYLE="COLOR:GREEN;">### **1.5. L’algorithme<a name="_page3_x40.00_y616.92"></a>** </H3>
+<H4 STYLE="COLOR:MAGENTA;">#### **1.5.1. Préconditions**<a name="_page3_x40.00_y636.92"></a>  </H4>
+
+Pour prédire la classe d’un nouvel élément, il faut: 
+
+- Un **échantillon de données** 
+- Un **nouvel élément** dont on veut prédire le type 
+- La **valeur de k **
+
+Une fois ces données modélisées, on peut formaliser l’algorithme de la façon suivante : 
+
+- Trouver, dans l’échantillon, les k plus proches voisins de l’élément à déterminer 
+- Parmi ces proches_voisins, trouver la classification majoritaire 
+- Renvoyer la classification_majoritaire 
+
+**Remarque** : k = 6 est ici un **choix arbitraire**. Cette valeur doit néanmoins être choisie judicieusement. 
+
+<H4 STYLE="COLOR:MAGENTA;">#### **1.5.2. Un<a name="_page4_x40.00_y149.92"></a> premier exemple** </H4>
+
+![](Aspose.Words.3ff765a9-d01a-40a4-b89f-2b60e83d57aa.021.jpeg)
+
+La cible : caractéristique1 = 50 et caractéristique2 = 8
+
+<H3 STYLE="COLOR:red;">**Activité n°2.:** On choisit k = 4 et la distance schématisée par un disque. </H3>
+
+![](Aspose.Words.3ff765a9-d01a-40a4-b89f-2b60e83d57aa.022.jpeg)
+
+a.  Quel est le type de notre donnée cible ? 
+b.  A quelle valeur de k peut-on décider du type de notre donnée cible ? 
+On choisit k = 10. Pour la distance, on décide que les valeurs de la caractéristique1 n’ont pas d’importance. La distance dépend de la caractéristique2. 
+
+![](Aspose.Words.3ff765a9-d01a-40a4-b89f-2b60e83d57aa.023.jpeg)
+
+c.  Quel est le type de notre donnée cible ? 
+On choisit k = 7. Pour la distance, on décide que les valeurs de la caractéristique2 n’ont pas d’importance. La distance dépend de la caractéristique1 
+
+![](Aspose.Words.3ff765a9-d01a-40a4-b89f-2b60e83d57aa.024.jpeg)
+
+d.  Quel est le type de notre donnée cible ? 
+
+<H4 STYLE="COLOR:MAGENTA;">#### **1.5.3. Comment<a name="_page5_x40.00_y520.92"></a> représenter ce type de donnée en Python avec matplotlib** </H4>
+
+Vérification que **matplotlib** est installée : dans la console python (on vérifie aussi pour la bibliothèque **sklearn**) 
+
+**vérification de l’installation** 
 ```
-Cliquer sur le bouton "submit
-
-L’assembleur converti les trois lignes du programme en instructions machines :
-
-- la première instruction est stockée à l’adresse mémoire 000
-- la deuxième à l’adresse 001
-- la troisième à l’adresse 002
-
-**<H3 STYLE="COLOR:red;">Activité n°12.:** Exécution pas à pas :</H3>
-Il suffit maintenant de cliquer sur le bouton "RUN". Le CPU va "travailler" en direct grâce à de petites animations. Si cela va trop vite (ou trop doucement), on peut régler la vitesse de simulation à
-
- l'aide des boutons "<<" et ">>". Un appui sur le bouton "STOP" met en pause la simulation.
-Une fois la simulation terminée, on constate que la cellule mémoire d'adresse 150, contient bien le nombre 42 (en base 10) et que le registre R0 a bien stocké le nombre 42.
-Attention : pour relancer la simulation il faut appuyer sur « RESET »
-
-**<H3 STYLE="COLOR:red;">Activité n°13.:</H3>** Modifier le programme précédent pour qu'à la fin de l'exécution on trouve le nombre 54 à l'adresse mémoire 50. On utilisera le registre R1 à la place du registre R0. Tester vos modifications en exécutant la simulation.
-
-**<H3 STYLE="COLOR:red;">Activité n°14.:</H3>** Saisir et tester le programme suivant :
+>>> import matplotlib 
+>>> import sklearn  
 ```
-   MOV R0, #4
-   STR R0,30
-   MOV R0, #8
-   STR R0,75
-   LDR R0,30
-   CMP R0, #10
-   BNE else
-   MOV R0, #9
-   STR R0,75
-   B endif
-else:
-   LDR R0,30
-   ADD R0, R0, #1
-   STR R0,30
-endif:
-   MOV R0, #6
-   STR R0,23
-   HALT
+Si matplotlib n’est pas installé : 
+Lancer **l’invite de commande windows** en mode administrateur (taper cmd dans la barre de recherche de windows) puis bouton droit et « exécuter en tant qu’administrateur ». 
+Mise à jour de l’installateur *pip* de python : 
+```python -m pip install --upgrade pip ```
+
+Installation de matplotlib :  
+```python -m pip install matplotlib sklearn ```
+
+on peut en profiter pour installer d’autres bibliothèques : 
+```python -m pip install numpy scipy pandas ipython jupyter sympy nose pygame flask pillow ```
+
+<H3 STYLE="COLOR:red;">**Activité n°3.: Représentation avec matplotlib**</H3> Copier coller le script suivant dans un fichier python 
+```python
+from math import *
+import matplotlib.pyplot as plt
+
+# Données de type 1
+liste_x_1=[1,3,8,13]
+liste_y_1=[28,27.2,37.6,40.7]
+
+# Données de type 2
+liste_x_2=[2,3,10,15]
+liste_y_2=[30,26,39,35.5]
+
+plt.axis([0,15, 0, 50]) # Attention [x1,x2,y1,y2]
+plt.xlabel('Caractéristique 1')
+plt.ylabel('Caractérstique 2')
+plt.title('Représentation des deux types')
+plt.grid()
+plt.scatter(liste_x_1,liste_y_1, label='type 1')
+plt.scatter(liste_x_2,liste_y_2, label='type 2')
+plt.legend()
+plt.show()
 ```
+
+![](Aspose.Words.3ff765a9-d01a-40a4-b89f-2b60e83d57aa.026.jpeg)
+
+<H3 STYLE="COLOR:red;">**Activité n°4.: Représentation avec matplotlib avec les rectangle et ellipse :**</H3> Copier coller le script suivant dans un fichier python 
+```python
+from math import *
+import matplotlib.pyplot as plt
+
+# Données de type 1
+liste_x_1=[1,3,8,13]
+liste_y_1=[28,27.2,37.6,40.7]
+
+# Données de type 2
+liste_x_2=[2,3,10,15]
+liste_y_2=[30,26,39,35.5]
+
+fig, ax = plt.subplots()
+
+plt.axis([0,15, 0, 50]) # Attention [x1,x2,y1,y2]
+plt.xlabel('Caractéristique 1')
+plt.ylabel('Caractérstique 2')
+plt.title('Représentation des deux types')
+plt.grid()
+plt.scatter(liste_x_1,liste_y_1, label='type 1')
+plt.scatter(liste_x_2,liste_y_2, label='type 2')
+plt.legend()
+
+ax.add_artist(plt.Circle((6, 30), 4, edgecolor='b', facecolor='none'))
+ax.add_artist(
+    plt.Rectangle((6,0), 2, 50,
+                      edgecolor = 'black', facecolor = 'none',
+                      fill = True, hatch = '/', linestyle = 'dashed',
+                      linewidth = 3, zorder = 1))
+
+plt.show()
+```
+
+![](Aspose.Words.3ff765a9-d01a-40a4-b89f-2b60e83d57aa.027.jpeg)
+
+<H3 STYLE="COLOR:GREEN;">### **1.6. Etude<a name="_page8_x40.00_y36.92"></a> sur le jeu de données « iris »** </H3>
+
+En 1936, Edgar Anderson a collecté des données sur 3 espèces d'iris : "iris setosa", "iris virginica" et "iris versicolor" 
+
+![](Aspose.Words.3ff765a9-d01a-40a4-b89f-2b60e83d57aa.028.png)
+iris setosa
+
+![](Aspose.Words.3ff765a9-d01a-40a4-b89f-2b60e83d57aa.029.png)
+iris virginica
+
+![](Aspose.Words.3ff765a9-d01a-40a4-b89f-2b60e83d57aa.030.png)
+iris versicolor
+
+
+Pour chaque iris étudié, Anderson a mesuré (en cm) : 
+
+- la largeur des sépales 
+- la longueur des sépales 
+- la largeur des pétales 
+- la longueur des pétales 
+
+Par souci simplification, on étudiera uniquement la largeur et à la longueur des pétales. Pour chaque iris mesuré, Anderson a aussi noté l'espèce ("iris setosa", "iris  virginica" ou "iris versicolor") 
+
+![](Aspose.Words.3ff765a9-d01a-40a4-b89f-2b60e83d57aa.031.png)
+
+Le fichier iris.csv se trouve dans le dossier Ressources. Copier le dans  le dossier personnel noté kNN  
+
+En résumé, le fichier contient :  
+
+- la longueur des pétales  
+- la largeur des pétales  
+- l'espèce de l'iris (au lieu d'utiliser les noms des espèces, on utilisera  des chiffres : 0 pour "iris setosa", 1 pour "iris virginica" et 2 pour  "iris versicolor")  
+
+Ce jeu de donnée est actuellement utilisé par des personnes désirant s’initier aux algorithmes de machine learning 
+
+
+
+<H3 STYLE="COLOR:red;">**Activité n°5.: Représentation avec matplotlib et pandas :**</H3> Visualiser le résultats du code suivant : 
+```python
+import
+
+ pandas
+import matplotlib.pyplot as plt
+
+iris=pandas.read_csv("iris.csv")
+x=iris.loc[:,"petal_length"]
+y=iris.loc[:,"petal_width"]
+lab=iris.loc[:,"species"]
+plt.scatter(x[lab == 0], y[lab == 0], color='g', label='setosa')
+plt.scatter(x[lab == 1], y[lab == 1], color='r', label='virginica')
+plt.scatter(x[lab == 2], y[lab == 2], color='b', label='versicolor')
+plt.legend()
+plt.show()
+```
+
+**Sur la figure** : x correspond à la longueur des pétales, correspond à la largeur des pétales et lab correspond à l'espèce d'iris (0,1 ou 2).|
+
+```"plt.scatter"``` permet de tracer des points, et ```"x[lab == 0]"``` permet de considérer uniquement l'espèce "iris setosa" (lab==0).  
+
+Le premier ```"plt.scatter"``` permet de tracer les points correspondant à l'espèce "iris setosa", ces points seront vert (```color='g'```), 
+
+Le deuxième ```"plt.scatter"``` permet de tracer les points correspondant à l'espèce "iris virginica", ces points seront rouge (```color='r'```), 
+
+Le troisième ```"plt.scatter"``` permet de tracer les points correspondant à l'espèce "iris versicolor", ces points seront bleu (```color='b'```).  
+
+On a en abscisse la longueur du pétale et en ordonnée la largeur du pétale. On remarque que les points sont regrouper par espèces d’iris. 
+
+![](Aspose.Words.3ff765a9-d01a-40a4-b89f-2b60e83d57aa.032.jpeg)
+
+
+
+<H3 STYLE="COLOR:red;">**Activité n°6.: Choix de la cible :**</H3>  On choisit un pétale de 0,5 cm de large et 2 cm de long. Rajouter au fichier précédent (avant ```ptl.show()```) : 
+```python
+plt.scatter(**2.0, 0.5,** color='k') 
+```
+
+![](Aspose.Words.3ff765a9-d01a-40a4-b89f-2b60e83d57aa.033.jpeg)
+
+Conclusion : il y a de fortes chances que l’iris soit de l’espèce « iris setosa » 
+
+
+
+<H3 STYLE="COLOR:red;">**Activité n°7.: Autre choix de la cible :**</H3>  On choisit un pétale de 0,75 cm de large et 2,5 cm de long. Modifier le fichier pour observer la nouvelle cible. 
+
+Dans ce cas il est plus difficile de choisir. Il faut alors  utiliser l’algorithme des « k plus proches voisins ».  
+
+![](Aspose.Words.3ff765a9-d01a-40a4-b89f-2b60e83d57aa.034.jpeg)
+
+- on calcule la distance entre la cible et chaque  point issu du jeu de données « iris » (c’est un  calcul de distance entre deux points)  
+- on sélectionne uniquement les k distances les plus  petites (les k plus proches voisins)  
+- parmi les k plus proches voisins, on détermine  quelle est l’espèce majoritaire. On associe alors  l’espèce  majoritaire  parmi  les  k  plus  proches  voisins.  
+
+Si k = 3   
+
+![](Aspose.Words.3ff765a9-d01a-40a4-b89f-2b60e83d57aa.035.png)
+
+L’espèce inconnue est l’espèce « setosa ».  
+
+La bibliothèque Python Scikit Learn propose un grand  nombre d'algorithmes lié au machine learning (c'est sans  aucun doute la bibliothèque la plus utilisée en machine  learning).  Parmi  tous  ces  algorithmes, Scikit Learn propose l'algorithme des k plus proches voisins.  
+
+<H3 STYLE="COLOR:red;">**Activité n°8.: Représentation avec matplotlib, pandas et sklean :**</H3> Visualiser le résultat du code suivant 
+```python
+import pandas
+import matplotlib.pyplot as plt
+from sklearn.neighbors import KNeighborsClassifier
+
+#traitement CSV
+iris=pandas.read_csv("iris.csv")
+x=iris.loc[:,"petal_length"]
+y=iris.loc[:,"petal_width"]
+lab=iris.loc[:,"species"]
+#fin traitement CSV
+
+#valeurs
+longueur=2.5
+largeur=0.75
+k=3
+#fin valeurs
+
+#graphique
+plt.scatter(x[lab == 0], y[lab == 0], color='g', label='setosa')
+plt.scatter(x[lab == 1], y[lab == 1], color='r', label='virginica')
+plt.scatter(x[lab == 2], y[lab == 2], color='b', label='versicolor')
+plt.scatter(longueur, largeur, color='k')
+plt.legend()
+#fin graphique
+
+#algo knn
+d=list(zip(x,y))
+model = KNeighborsClassifier(n_neighbors=k)
+model.fit(d,lab)
+prediction= model.predict([[longueur,largeur]])
+#fin algo knn
+
+#Affichage résultats
+txt="Résultat : "
+if prediction[0]==0:
+  txt=txt+"setosa"
+if prediction[0]==1:
+  txt=txt+"virginica"
+if prediction[0]==2:
+  txt=txt+"versicolor"
+plt.text(3,0.5, f"largeur : {largeur} cm longueur : {longueur} cm", fontsize=12)
+plt.text(3,0.3, f"k : {k}", fontsize=12)
+plt.text(3,0.1, txt, fontsize=12)
+#fin affichage résultats
+
+plt.show()
+```
+
+![](Aspose.Words.3ff765a9-d01a-40a4-b89f-2b60e83d57aa.037.jpeg)
+
+
+Interressons nous à la partie « knn » 
+```python
+#algo knn
+d=list(zip(x,y))
+model = KNeighborsClassifier(n_neighbors=k)
+model.fit(d,lab)
+prediction= model.predict([[longueur,largeur]])
+#fin algo knn
+```
+
+La fonction ```zip()``` permet de faire **des boucles sur deux séquences en même temps**. On passe alors de  
+```python
+x = [1.4, 1.4, 1.3, 1.5, 1.4, 1.7, 1.4, ...] 
+y = [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.4,....] 
+```
+à une **liste de tuples** d : 
+```python
+d = [(1.4, 0.2), (1.4, 0.2), (1.3, 0.2) (1.5, 0.2), (1.4, 0.2), (1.7, 0.2), (1.4, 0.4), ...] 
+```
+On obtient ainsi une liste de tuples qui représentent les coordonnées (x, y). 
+
+- ```KNeighborsClassifier``` est une méthode issue de la bibliothèque scikit-learn (voir plus haut le ```from sklearn.neighbors import KNeighborsClassifier```), cette méthode prend ici en paramètre le nombre de "plus proches voisins" (```model = KNeighborsClassifier(n\_neighbors=k)```)
+- ```model.fit(d, lab)``` permet d'associer les tuples présents dans la liste d avec les labels (0 : "iris setosa", 1 : "iris virginica" ou 2 : "iris versicolor").  
+Par exemple le premier tuple de la liste d, (1.4, 0.2) est associé au premier label de la liste lab (0), et ainsi de suite...
+
+- La ligne ```prediction= model.predict([[longueur,largeur]])``` permet d'effectuer une prédiction pour un couple [longueur, largeur] (dans l'exemple ci-dessus longueur=2.5 et largeur=0.75). La variable prediction contient alors le label trouvé par l'algorithme knn.  
+Attention, prediction est une liste Python qui contient un seul élément (le label), il est donc nécessaire d'écrire prediction[0] afin d'obtenir le label. 
+
+<H3 STYLE="COLOR:red;">**Activité n°9.: Utilisation de l’algorithme knn :**</H3> Modifier l’algorithme précédent pour qu’il affiche un nombre de voisin différents → k = 5 
+
+<H3 STYLE="COLOR:red;">**Activité n°10.: Utilisation de l’algorithme knn :**</H3> Modifier l’algorithme précédent pour qu’il affiche un nombre de voisin différents et une cible différente. 
+
+<H2 STYLE="COLOR:BLUE;">## **2. Exercices<a name="_page12_x40.00_y36.92"></a>** </H2>
+
+<H3 STYLE="COLOR:red;">**Exercice n° 1 : Distance de Hamming :**</H3> On appelle[ distance de Hamming ](https://fr.wikipedia.org/wiki/Distance_de_Hamming)entre deux chaînes de caractères A et B de même longueur le nombre
+
+ d'indices i tels que A[i] ≠≠ B[i]. 
+
+Exemples. 
+
+- distance('ami' , 'amu') = 1 
+- distance('don' , 'bon') = 1 
+- distance('zozo' , 'bobo') = 2 
+
+Écrire une fonction python prenant en entrée deux chaînes de caractères de même longueur et renvoyant la distance de Hamming entre ces deux chaînes. 
+
+Tests : 
+```python
+if __name__ == '__main__':
+    assert hamming('abri', 'ubri') == 1
+    assert hamming('010101', '010110') == 2
+```
+
+<H3 STYLE="COLOR:red;">**Exercice n° 2 : k-NN et distance :**</H3> Ouvrir le fichier k-nn.py
+
+1. Afficher le résultat de la fonction k\_plus\_proches\_voisins(table,cible,k). Quel est le type de la cible ? 
+1. Quelle est la valeur de k ? 
+1. Quelle distance a-t-on utilisée ? 
+1. Utiliser d'autres valeurs de k. Quel est l'effet sur le type de la cible ? 
+1. Changer la distance. Programmer la distance de Tchebychev. Quel est l'effet sur le type de la cible ? 
+
+<H3 STYLE="COLOR:red;">**Exercice n° 3 : algorithme k-NN**</H3> 
+
+Sur un champ de bataille de la Première Guerre Mondiale un mémorial a été construit. Afin de réaliser une extension, des fouilles préventives ont été réalisées par l'INRAP (Institut National de Recherches Archéologiques Préventives). Au cours de ces fouilles, différents objets ou éléments de squelettes humains ont été trouvés. L'étude de ces découvertes a permis d'identifier la nationalité de nombreux artéfacts retrouvés : soit allemand, anglais ou français. Le plan ci-dessous représente la zone de fouille et la position des éléments dont l'origine a été identifiée. L'unité est le mètre. 
+
+Un élément d'un squelette a été retrouvé en (10;4) ; il est représenté par un losange couleur magenta sur le plan. L'objectif est de déterminer une origine probable pour cet élément de squelette avant de le déposer dans un ossuaire. 
+
+
+![](Aspose.Words.3ff765a9-d01a-40a4-b89f-2b60e83d57aa.045.jpeg)
+
+La distance qui sera prise en compte est la distance dite de Tchebychev. (la définition précise de celle-ci sera donnée au 2.) 
+
+Ce que vous devez seulement savoir sur cette distance pour cet exercice c'est que l'ensemble des points se trouvant à une  distance r d'un  point I correspond  au  pourtour  du  carré,  de  centre I,  de  côtés  parallèles  aux  axes  et  de longueurs 2r. 
+
+Sur le graphique ci-dessus, le carré dessiné : 
+
+- en rouge correspond ainsi à l'ensemble des points se trouvant à 3 mètres. 
+- en noir correspond ainsi à l'ensemble des points se trouvant à 1 mètre. 
+ 
+1. À quelle valeur de k correspond le carré noir ? 
+1. Quelle serait l'origine de l'élément de squelette en considérant cette valeur de k ? 
+2. On choisit k=9. Quelle serait l'origine de l'élément de squelette en considérant cette valeur de k ? 
+2. On choisit k=11. Quelle serait l'origine de l'élément de squelette en considérant cette valeur de k ? 
+2. Peut-on savoir à coup sûr, en prenant une valeur de k inférieure au égale à 11, si le combattant dont on a trouvé un élément de squelette était un combattant de la Triple-Entente (France + Royaume-Uni + Russie) ou de la Triple-Alliance (Allemagne + Autriche-Hongrie + Italie) ? 
+
+<H2 STYLE="COLOR:BLUE;">## **3.  Problème : analyse de texte<a name="_page14_x40.00_y36.92"></a>** </H2>
+
+**Nous aurons besoin de quelques connaissances : Lecture et écriture dans un fichier** 
+
+<H3 STYLE="COLOR:GREEN;">### **3.1. Ecriture dans un fichier** </H3>
+
+<H4 STYLE="COLOR:MAGENTA;">#### **3.1.1. Le mode write**</H4>
+
+L’écriture dans un fichier se fait avec la fonction ```open()``` en mode écriture : 
+
+<H3 STYLE="COLOR:red;">**Activité n° 11.**</H3>: création, ouverture et écriture dans un fichier texte 
+
+```python
+# coding=utf-8
+# script lecture.py
+
+NomFichier = 'test.txt'
+# création et ouverture du fichier test.txt en mode write 'w' (écriture)
+# si le fichier test.txt existe déjà, il est écrasé
+Fichier = open(NomFichier,'w')      # instanciation de l'objet Fichier de la classe file
+
+# écriture dans le fichier avec la méthode write()
+Fichier.write('Bonjour à tous !')
+
+# fermeture du fichier avec la méthode close()
+Fichier.close()
+```
+
+Enregistrer le script dans Documents et lancer le script 
+Ouvrir le fichier test.txt qui se trouve dans Documents 
+
+![](Aspose.Words.3ff765a9-d01a-40a4-b89f-2b60e83d57aa.047.jpeg)
+
+<H4 STYLE="COLOR:MAGENTA;">#### **3.1.2. Le mode append**</H4>
+
+Pour écrire à la fin d’un fichier, on utilise la fonction ```open()``` en mode ajout. 
+
+<H3 STYLE="COLOR:red;">**Activité n° 12.**</H3>: Repartons du fichier précédent : en mode append (ajout)  
+```python
+# coding=utf-8
+# ouverture du fichier test.txt en mode append 'a' (ajout)
+Fichier = open('test.txt','a')    # instanciation de l'objet Fichier
+Fichier.write('\nUne deuxième ligne.\n')# '\n' saut de ligne
+Fichier.write('abc\tABC\t123\n')   # '\t' tabulation
+Fichier.write(str(126.85)+'\n')       # str() transforme un nombre en chaîne de caractères
+Fichier.write('\x31\x41\x61\n')       # écriture de '1Aa' en code ASCII
+Fichier.write(chr(0x62)+'\n')     # écriture de 'b' en code ASCII
+Fichier.write(chr(99))       # écriture de 'c' en code ASCII
+Fichier.close()
+```
+
+Enregistrer le script dans Documents et lancer le script 
+Ouvrir le fichier test.txt qui se trouve dans Documents 
+
+![](Aspose.Words.3ff765a9-d01a-40a4-b89f-2b60e83d57aa.049.jpeg)
+
+
+
+<H3 STYLE="COLOR:GREEN;">### **3.2. Lecture dans un fichier** </H3>
+<H4 STYLE="COLOR:MAGENTA;">#### **3.2.1. Lecture en mode texte** </H4>
+
+<H3 STYLE="COLOR:red;">**Activité n° 13.**</H3>: La lecture dans un fichier texte se fait avec la fonction ```open()``` en mode … lecture : 
+```python
+# coding=utf-8
+# ouverture du fichier test.txt en mode read 'r' (lecture en mode texte)
+Fichier = open('test.txt','r')      # instanciation de l'objet Fichier de la classe file
+# lecture dans le fichier avec la méthode read()
+chaine = Fichier.read()
+# affichage du contenu du fichier
+print('Contenu du fichier :\n' + chaine)
+# fermeture du fichier avec la méthode close()
+Fichier.close()
+```
+
+<H4 STYLE="COLOR:MAGENTA;">#### **3.2.2. Conversion un fichier txt en Liste en insertion d’une phrase dans un fichier txt**</H4>   
+
+<H3 STYLE="COLOR:red;">**Activité n° 14.**</H3>: la méthode ```readlines()``` permet de récupérer l’ensemble des lignes du fichier texte sous forme d’une liste. Le premier élément de la liste sera la première ligne, le second élément sera le deuxième élément … 
+```python
+# coding: utf-8
+Fichier = open('test.txt', 'r')
+Liste = Fichier.readlines() # permet de récupérer le fichier txt sous forme d'une liste
+Fichier.close()
+```
+
+<H3 STYLE="COLOR:red;">**Activité n° 15.**</H3>: La méthode ```insert()``` permet de d’insérer un élément dans une liste, puis on utilise ```writelines()```pour insérer chaque élément de la liste dans une ligne seule : le premier élément sera sur la première ligne, … 
+```python
+# coding: utf-8
+Fichier = open('test.txt', 'r')
+Liste = Fichier.readlines() # permet de récupérer le fichier txt sous forme d'une liste
+Fichier.close()
+phrase_a_inserer = "Je suis en NSI! \n" # ne pas oublier le retour à la ligne
+Liste.insert(2,phrase_a_inserer) # insertion de la phrase à la troisième position
+Fichier = open("test.txt", "w") # on mode write donc on écrase le contenu existant
+Fichier.writ
+
+elines(Liste)
+Fichier.close()
+```
+
+<H3 STYLE="COLOR:GREEN;">### **3.3. Suivre les indications du fichier knn_analyse_texte_eleve.py**</H3>

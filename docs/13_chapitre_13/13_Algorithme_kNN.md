@@ -6,8 +6,8 @@ title: 13 Algorithme des k plus proches voisins
 **Table des matières** 
 
 1. [**ALGORITHMES DES K PLUS PROCHES VOISINS (K NEAREST NEIGHBORS : K-NN)**](#_page0_x61.00_y296.92)
-2. [**EXERCICES **](#_page12_x40.00_y36.92)
-3. [**PROBLEME : ANALYSE DE TEXTE **](#_page14_x40.00_y36.92)
+2. [**EXERCICES**](#_page12_x40.00_y36.92)
+3. [**PROBLEME : ANALYSE DE TEXTE**](#_page14_x40.00_y36.92)
 
 ## **1. Algorithmes<a name="_page0_x61.00_y296.92"></a> des k plus proches voisins (k Nearest Neighbors : k-NN)** 
 ### **1.1. Le<a name="_page0_x40.00_y318.92"></a> machine learning** 
@@ -619,4 +619,4 @@ Fichier.close()
 ```
 
 
-### **3.3. Suivre les indications du fichier knn_analyse_texte_eleve.py **
+### **3.3. Suivre les indications du fichier knn_analyse_texte_eleve.py**
