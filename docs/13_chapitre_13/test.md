@@ -9,8 +9,8 @@ title: 13 Algorithme des k plus proches voisins
 2. [**EXERCICES**](#_page12_x40.00_y36.92)
 3. [**PROBLEME : ANALYSE DE TEXTE**](#_page14_x40.00_y36.92)
 
-<H2 STYLE="COLOR:BLUE;">## **1. Algorithmes<a name="_page0_x61.00_y296.92"></a> des k plus proches voisins (k Nearest Neighbors : k-NN)** </H2>
-<H3 STYLE="COLOR:GREEN;">### **1.1. Le<a name="_page0_x40.00_y318.92"></a> machine learning** </H3>
+## <H2 STYLE="COLOR:BLUE;"> **1. Algorithmes<a name="_page0_x61.00_y296.92"></a> des k plus proches voisins (k Nearest Neighbors : k-NN)** </H2>
+### <H3 STYLE="COLOR:GREEN;"> **1.1. Le<a name="_page0_x40.00_y318.92"></a> machine learning** </H3>
 
 **L’apprentissage  machine**  (ou  apprentissage  automatique)  consiste  en  des  programmes  capables  de **modifier leur comportement à des données.**  
 
@@ -29,7 +29,7 @@ Le **deep learning** (apprentissage profond) est une des méthodes d’apprentis
 
 ![](Aspose.Words.3ff765a9-d01a-40a4-b89f-2b60e83d57aa.008.jpeg)
 
-<H3 STYLE="COLOR:GREEN;">### **1.2. Le<a name="_page1_x40.00_y258.92"></a> principe de l’algorithme k-NN** </H3>
+### <H3 STYLE="COLOR:GREEN;"> **1.2. Le<a name="_page1_x40.00_y258.92"></a> principe de l’algorithme k-NN** </H3>
 
 **L’algorithme k-NN** est un **apprentissage supervisé.** A partir d’un ensemble de données labellisées, il sera possible de **classer** (déterminer le label) d’une nouvelle donnée. 
 
@@ -45,7 +45,7 @@ Voici le principe de l’algorithme des k plus proches voisins :
 
 On comprend bien que la notion de distance est un élément central de cet algorithme. 
 
-<H3 STYLE="COLOR:GREEN;">### 1.3. **Distances<a name="_page1_x40.00_y681.92"></a>** </H3>
+### <H3 STYLE="COLOR:GREEN;"> 1.3. **Distances<a name="_page1_x40.00_y681.92"></a>** </H3>
 
 La **distance Euclidienne** (dans un repère orthonormé) : 
 
@@ -53,7 +53,7 @@ Soit deux données<sub>1</sub> et  donnée<sub>2</sub> de coordonnées respectiv
 
 distance(données<sub>1</sub>,  donnée<sub>2</sub>)=$\sqrt{(x1-x2)²+(y1- y2)²}$
 
-<H3 STYLE="COLOR:red;">**Activité n°1. : Calcul de distance euclidienne** </H3>
+**<H3 STYLE="COLOR:red;">Activité n°1. : Calcul de distance euclidienne**</H3>
 
 Dans un fichier distance_euclidienne.py 
 Ecrire une fonction qui permet de générer au hasard une liste de points à coordonnées entières : 
@@ -130,7 +130,7 @@ def plusProcheVoisin(listePoints, x, y):
 
     {{ IDE() }}
 
-<H3 STYLE="COLOR:GREEN;">### **1.4. Présentation<a name="_page3_x40.00_y36.92"></a> de l’algorithme des k plus proches voisins** </H3>
+### <H3 STYLE="COLOR:GREEN;"> **1.4. Présentation<a name="_page3_x40.00_y36.92"></a> de l’algorithme des k plus proches voisins** </H3>
 
 On considère un jeu de données constitué de la façon suivante : 
 - les données sont réparties suivant deux types : le type 1 et le type 2 
@@ -150,8 +150,8 @@ Dans un premier temps, il faut fixer le nombre de voisins. On choisit k = 6. C�
 
 Parmi ses 6 voisins, il y a 2 voisins de type 1 et 4 voisins de type 2. Il est donc probable que la cible soit de type 2. On a choisi la **distance Euclidienne** mais on aurait pu choisir une **autre distance (**Manhattan, Tchebychev…) **.** 
 
-<H3 STYLE="COLOR:GREEN;">### **1.5. L’algorithme<a name="_page3_x40.00_y616.92"></a>** </H3>
-<H4 STYLE="COLOR:MAGENTA;">#### **1.5.1. Préconditions**<a name="_page3_x40.00_y636.92"></a>  </H4>
+### <H3 STYLE="COLOR:GREEN;"> **1.5. L’algorithme<a name="_page3_x40.00_y616.92"></a>** </H3>
+#### <H4 STYLE="COLOR:MAGENTA;"> **1.5.1. Préconditions**<a name="_page3_x40.00_y636.92"></a>  </H4>
 
 Pour prédire la classe d’un nouvel élément, il faut: 
 
@@ -167,13 +167,13 @@ Une fois ces données modélisées, on peut formaliser l’algorithme de la faç
 
 **Remarque** : k = 6 est ici un **choix arbitraire**. Cette valeur doit néanmoins être choisie judicieusement. 
 
-<H4 STYLE="COLOR:MAGENTA;">#### **1.5.2. Un<a name="_page4_x40.00_y149.92"></a> premier exemple** </H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> **1.5.2. Un<a name="_page4_x40.00_y149.92"></a> premier exemple** </H4>
 
 ![](Aspose.Words.3ff765a9-d01a-40a4-b89f-2b60e83d57aa.021.jpeg)
 
 La cible : caractéristique1 = 50 et caractéristique2 = 8
 
-<H3 STYLE="COLOR:red;">**Activité n°2.:** On choisit k = 4 et la distance schématisée par un disque. </H3>
+**<H3 STYLE="COLOR:red;">Activité n°2.:** On choisit k = 4 et la distance schématisée par un disque. </H3>
 
 ![](Aspose.Words.3ff765a9-d01a-40a4-b89f-2b60e83d57aa.022.jpeg)
 
@@ -190,7 +190,7 @@ On choisit k = 7. Pour la distance, on décide que les valeurs de la caractéris
 
 d.  Quel est le type de notre donnée cible ? 
 
-<H4 STYLE="COLOR:MAGENTA;">#### **1.5.3. Comment<a name="_page5_x40.00_y520.92"></a> représenter ce type de donnée en Python avec matplotlib** </H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> **1.5.3. Comment<a name="_page5_x40.00_y520.92"></a> représenter ce type de donnée en Python avec matplotlib** </H4>
 
 Vérification que **matplotlib** est installée : dans la console python (on vérifie aussi pour la bibliothèque **sklearn**) 
 
@@ -210,7 +210,7 @@ Installation de matplotlib :
 on peut en profiter pour installer d’autres bibliothèques : 
 ```python -m pip install numpy scipy pandas ipython jupyter sympy nose pygame flask pillow ```
 
-<H3 STYLE="COLOR:red;">**Activité n°3.: Représentation avec matplotlib**</H3> Copier coller le script suivant dans un fichier python 
+**<H3 STYLE="COLOR:red;">Activité n°3.: Représentation avec matplotlib**</H3> Copier coller le script suivant dans un fichier python 
 ```python
 from math import *
 import matplotlib.pyplot as plt
@@ -236,7 +236,7 @@ plt.show()
 
 ![](Aspose.Words.3ff765a9-d01a-40a4-b89f-2b60e83d57aa.026.jpeg)
 
-<H3 STYLE="COLOR:red;">**Activité n°4.: Représentation avec matplotlib avec les rectangle et ellipse :**</H3> Copier coller le script suivant dans un fichier python 
+**<H3 STYLE="COLOR:red;">Activité n°4.: Représentation avec matplotlib avec les rectangle et ellipse :**</H3> Copier coller le script suivant dans un fichier python 
 ```python
 from math import *
 import matplotlib.pyplot as plt
@@ -272,7 +272,7 @@ plt.show()
 
 ![](Aspose.Words.3ff765a9-d01a-40a4-b89f-2b60e83d57aa.027.jpeg)
 
-<H3 STYLE="COLOR:GREEN;">### **1.6. Etude<a name="_page8_x40.00_y36.92"></a> sur le jeu de données « iris »** </H3>
+### <H3 STYLE="COLOR:GREEN;"> **1.6. Etude<a name="_page8_x40.00_y36.92"></a> sur le jeu de données « iris »** </H3>
 
 En 1936, Edgar Anderson a collecté des données sur 3 espèces d'iris : "iris setosa", "iris virginica" et "iris versicolor" 
 
@@ -309,7 +309,7 @@ Ce jeu de donnée est actuellement utilisé par des personnes désirant s’init
 
 
 
-<H3 STYLE="COLOR:red;">**Activité n°5.: Représentation avec matplotlib et pandas :**</H3> Visualiser le résultats du code suivant : 
+**<H3 STYLE="COLOR:red;">Activité n°5.: Représentation avec matplotlib et pandas :**</H3> Visualiser le résultats du code suivant : 
 ```python
 import
 
@@ -343,7 +343,7 @@ On a en abscisse la longueur du pétale et en ordonnée la largeur du pétale. O
 
 
 
-<H3 STYLE="COLOR:red;">**Activité n°6.: Choix de la cible :**</H3>  On choisit un pétale de 0,5 cm de large et 2 cm de long. Rajouter au fichier précédent (avant ```ptl.show()```) : 
+**<H3 STYLE="COLOR:red;">Activité n°6.: Choix de la cible :**</H3>  On choisit un pétale de 0,5 cm de large et 2 cm de long. Rajouter au fichier précédent (avant ```ptl.show()```) : 
 ```python
 plt.scatter(**2.0, 0.5,** color='k') 
 ```
@@ -354,7 +354,7 @@ Conclusion : il y a de fortes chances que l’iris soit de l’espèce « iris s
 
 
 
-<H3 STYLE="COLOR:red;">**Activité n°7.: Autre choix de la cible :**</H3>  On choisit un pétale de 0,75 cm de large et 2,5 cm de long. Modifier le fichier pour observer la nouvelle cible. 
+**<H3 STYLE="COLOR:red;">Activité n°7.: Autre choix de la cible :**</H3>  On choisit un pétale de 0,75 cm de large et 2,5 cm de long. Modifier le fichier pour observer la nouvelle cible. 
 
 Dans ce cas il est plus difficile de choisir. Il faut alors  utiliser l’algorithme des « k plus proches voisins ».  
 
@@ -372,7 +372,7 @@ L’espèce inconnue est l’espèce « setosa ».
 
 La bibliothèque Python Scikit Learn propose un grand  nombre d'algorithmes lié au machine learning (c'est sans  aucun doute la bibliothèque la plus utilisée en machine  learning).  Parmi  tous  ces  algorithmes, Scikit Learn propose l'algorithme des k plus proches voisins.  
 
-<H3 STYLE="COLOR:red;">**Activité n°8.: Représentation avec matplotlib, pandas et sklean :**</H3> Visualiser le résultat du code suivant 
+**<H3 STYLE="COLOR:red;">Activité n°8.: Représentation avec matplotlib, pandas et sklean :**</H3> Visualiser le résultat du code suivant 
 ```python
 import pandas
 import matplotlib.pyplot as plt
@@ -453,13 +453,13 @@ Par exemple le premier tuple de la liste d, (1.4, 0.2) est associé au premier l
 - La ligne ```prediction= model.predict([[longueur,largeur]])``` permet d'effectuer une prédiction pour un couple [longueur, largeur] (dans l'exemple ci-dessus longueur=2.5 et largeur=0.75). La variable prediction contient alors le label trouvé par l'algorithme knn.  
 Attention, prediction est une liste Python qui contient un seul élément (le label), il est donc nécessaire d'écrire prediction[0] afin d'obtenir le label. 
 
-<H3 STYLE="COLOR:red;">**Activité n°9.: Utilisation de l’algorithme knn :**</H3> Modifier l’algorithme précédent pour qu’il affiche un nombre de voisin différents → k = 5 
+**<H3 STYLE="COLOR:red;">Activité n°9.: Utilisation de l’algorithme knn :**</H3> Modifier l’algorithme précédent pour qu’il affiche un nombre de voisin différents → k = 5 
 
-<H3 STYLE="COLOR:red;">**Activité n°10.: Utilisation de l’algorithme knn :**</H3> Modifier l’algorithme précédent pour qu’il affiche un nombre de voisin différents et une cible différente. 
+**<H3 STYLE="COLOR:red;">Activité n°10.: Utilisation de l’algorithme knn :**</H3> Modifier l’algorithme précédent pour qu’il affiche un nombre de voisin différents et une cible différente. 
 
-<H2 STYLE="COLOR:BLUE;">## **2. Exercices<a name="_page12_x40.00_y36.92"></a>** </H2>
+## <H2 STYLE="COLOR:BLUE;"> **2. Exercices<a name="_page12_x40.00_y36.92"></a>** </H2>
 
-<H3 STYLE="COLOR:red;">**Exercice n° 1 : Distance de Hamming :**</H3> On appelle[ distance de Hamming ](https://fr.wikipedia.org/wiki/Distance_de_Hamming)entre deux chaînes de caractères A et B de même longueur le nombre
+**<H3 STYLE="COLOR:red;">Exercice n° 1 : Distance de Hamming :**</H3> On appelle[ distance de Hamming ](https://fr.wikipedia.org/wiki/Distance_de_Hamming)entre deux chaînes de caractères A et B de même longueur le nombre
 
  d'indices i tels que A[i] ≠≠ B[i]. 
 
@@ -478,7 +478,7 @@ if __name__ == '__main__':
     assert hamming('010101', '010110') == 2
 ```
 
-<H3 STYLE="COLOR:red;">**Exercice n° 2 : k-NN et distance :**</H3> Ouvrir le fichier k-nn.py
+**<H3 STYLE="COLOR:red;">Exercice n° 2 : k-NN et distance :**</H3> Ouvrir le fichier k-nn.py
 
 1. Afficher le résultat de la fonction k\_plus\_proches\_voisins(table,cible,k). Quel est le type de la cible ? 
 1. Quelle est la valeur de k ? 
@@ -486,7 +486,7 @@ if __name__ == '__main__':
 1. Utiliser d'autres valeurs de k. Quel est l'effet sur le type de la cible ? 
 1. Changer la distance. Programmer la distance de Tchebychev. Quel est l'effet sur le type de la cible ? 
 
-<H3 STYLE="COLOR:red;">**Exercice n° 3 : algorithme k-NN**</H3> 
+**<H3 STYLE="COLOR:red;">Exercice n° 3 : algorithme k-NN**</H3> 
 
 Sur un champ de bataille de la Première Guerre Mondiale un mémorial a été construit. Afin de réaliser une extension, des fouilles préventives ont été réalisées par l'INRAP (Institut National de Recherches Archéologiques Préventives). Au cours de ces fouilles, différents objets ou éléments de squelettes humains ont été trouvés. L'étude de ces découvertes a permis d'identifier la nationalité de nombreux artéfacts retrouvés : soit allemand, anglais ou français. Le plan ci-dessous représente la zone de fouille et la position des éléments dont l'origine a été identifiée. L'unité est le mètre. 
 
@@ -510,17 +510,17 @@ Sur le graphique ci-dessus, le carré dessiné :
 2. On choisit k=11. Quelle serait l'origine de l'élément de squelette en considérant cette valeur de k ? 
 2. Peut-on savoir à coup sûr, en prenant une valeur de k inférieure au égale à 11, si le combattant dont on a trouvé un élément de squelette était un combattant de la Triple-Entente (France + Royaume-Uni + Russie) ou de la Triple-Alliance (Allemagne + Autriche-Hongrie + Italie) ? 
 
-<H2 STYLE="COLOR:BLUE;">## **3.  Problème : analyse de texte<a name="_page14_x40.00_y36.92"></a>** </H2>
+## <H2 STYLE="COLOR:BLUE;"> **3.  Problème : analyse de texte<a name="_page14_x40.00_y36.92"></a>** </H2>
 
 **Nous aurons besoin de quelques connaissances : Lecture et écriture dans un fichier** 
 
-<H3 STYLE="COLOR:GREEN;">### **3.1. Ecriture dans un fichier** </H3>
+### <H3 STYLE="COLOR:GREEN;"> **3.1. Ecriture dans un fichier** </H3>
 
-<H4 STYLE="COLOR:MAGENTA;">#### **3.1.1. Le mode write**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> **3.1.1. Le mode write**</H4>
 
 L’écriture dans un fichier se fait avec la fonction ```open()``` en mode écriture : 
 
-<H3 STYLE="COLOR:red;">**Activité n° 11.**</H3>: création, ouverture et écriture dans un fichier texte 
+**<H3 STYLE="COLOR:red;">Activité n° 11.**</H3>: création, ouverture et écriture dans un fichier texte 
 
 ```python
 # coding=utf-8
@@ -543,11 +543,11 @@ Ouvrir le fichier test.txt qui se trouve dans Documents
 
 ![](Aspose.Words.3ff765a9-d01a-40a4-b89f-2b60e83d57aa.047.jpeg)
 
-<H4 STYLE="COLOR:MAGENTA;">#### **3.1.2. Le mode append**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> **3.1.2. Le mode append**</H4>
 
 Pour écrire à la fin d’un fichier, on utilise la fonction ```open()``` en mode ajout. 
 
-<H3 STYLE="COLOR:red;">**Activité n° 12.**</H3>: Repartons du fichier précédent : en mode append (ajout)  
+**<H3 STYLE="COLOR:red;">Activité n° 12.**</H3>: Repartons du fichier précédent : en mode append (ajout)  
 ```python
 # coding=utf-8
 # ouverture du fichier test.txt en mode append 'a' (ajout)
@@ -568,10 +568,10 @@ Ouvrir le fichier test.txt qui se trouve dans Documents
 
 
 
-<H3 STYLE="COLOR:GREEN;">### **3.2. Lecture dans un fichier** </H3>
-<H4 STYLE="COLOR:MAGENTA;">#### **3.2.1. Lecture en mode texte** </H4>
+### <H3 STYLE="COLOR:GREEN;"> **3.2. Lecture dans un fichier** </H3>
+#### <H4 STYLE="COLOR:MAGENTA;"> **3.2.1. Lecture en mode texte** </H4>
 
-<H3 STYLE="COLOR:red;">**Activité n° 13.**</H3>: La lecture dans un fichier texte se fait avec la fonction ```open()``` en mode … lecture : 
+**<H3 STYLE="COLOR:red;">Activité n° 13.**</H3>: La lecture dans un fichier texte se fait avec la fonction ```open()``` en mode … lecture : 
 ```python
 # coding=utf-8
 # ouverture du fichier test.txt en mode read 'r' (lecture en mode texte)
@@ -584,9 +584,9 @@ print('Contenu du fichier :\n' + chaine)
 Fichier.close()
 ```
 
-<H4 STYLE="COLOR:MAGENTA;">#### **3.2.2. Conversion un fichier txt en Liste en insertion d’une phrase dans un fichier txt**</H4>   
+#### <H4 STYLE="COLOR:MAGENTA;"> **3.2.2. Conversion un fichier txt en Liste en insertion d’une phrase dans un fichier txt**</H4>   
 
-<H3 STYLE="COLOR:red;">**Activité n° 14.**</H3>: la méthode ```readlines()``` permet de récupérer l’ensemble des lignes du fichier texte sous forme d’une liste. Le premier élément de la liste sera la première ligne, le second élément sera le deuxième élément … 
+**<H3 STYLE="COLOR:red;">Activité n° 14.**</H3>: la méthode ```readlines()``` permet de récupérer l’ensemble des lignes du fichier texte sous forme d’une liste. Le premier élément de la liste sera la première ligne, le second élément sera le deuxième élément … 
 ```python
 # coding: utf-8
 Fichier = open('test.txt', 'r')
@@ -594,7 +594,7 @@ Liste = Fichier.readlines() # permet de récupérer le fichier txt sous forme d'
 Fichier.close()
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 15.**</H3>: La méthode ```insert()``` permet de d’insérer un élément dans une liste, puis on utilise ```writelines()```pour insérer chaque élément de la liste dans une ligne seule : le premier élément sera sur la première ligne, … 
+**<H3 STYLE="COLOR:red;">Activité n° 15.**</H3>: La méthode ```insert()``` permet de d’insérer un élément dans une liste, puis on utilise ```writelines()```pour insérer chaque élément de la liste dans une ligne seule : le premier élément sera sur la première ligne, … 
 ```python
 # coding: utf-8
 Fichier = open('test.txt', 'r')
@@ -609,4 +609,4 @@ elines(Liste)
 Fichier.close()
 ```
 
-<H3 STYLE="COLOR:GREEN;">### **3.3. Suivre les indications du fichier knn_analyse_texte_eleve.py**</H3>
+### <H3 STYLE="COLOR:GREEN;"> **3.3. Suivre les indications du fichier knn_analyse_texte_eleve.py**</H3>
