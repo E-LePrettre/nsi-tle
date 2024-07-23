@@ -455,6 +455,8 @@ Attention, prediction est une liste Python qui contient un seul élément (le la
 
 ## <H2 STYLE="COLOR:BLUE;"> **2. Exercices<a name="_page12_x40.00_y36.92"></a>** </H2>
 
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
+
 **<H3 STYLE="COLOR:red;">Exercice n° 1 : Distance de Hamming :**</H3> On appelle[ distance de Hamming ](https://fr.wikipedia.org/wiki/Distance_de_Hamming)entre deux chaînes de caractères A et B de même longueur le nombre
 
  d'indices i tels que A[i] ≠≠ B[i]. 
@@ -500,13 +502,14 @@ Sur le graphique ci-dessus, le carré dessiné :
 - en rouge correspond ainsi à l'ensemble des points se trouvant à 3 mètres. 
 - en noir correspond ainsi à l'ensemble des points se trouvant à 1 mètre. 
  
-1. À quelle valeur de k correspond le carré noir ? 
-1. Quelle serait l'origine de l'élément de squelette en considérant cette valeur de k ? 
-2. On choisit k=9. Quelle serait l'origine de l'élément de squelette en considérant cette valeur de k ? 
-2. On choisit k=11. Quelle serait l'origine de l'élément de squelette en considérant cette valeur de k ? 
-2. Peut-on savoir à coup sûr, en prenant une valeur de k inférieure au égale à 11, si le combattant dont on a trouvé un élément de squelette était un combattant de la Triple-Entente (France + Royaume-Uni + Russie) ou de la Triple-Alliance (Allemagne + Autriche-Hongrie + Italie) ? 
+1 À quelle valeur de k correspond le carré noir ? 
+2 Quelle serait l'origine de l'élément de squelette en considérant cette valeur de k ? 
+3 On choisit k=9. Quelle serait l'origine de l'élément de squelette en considérant cette valeur de k ? 
+4 On choisit k=11. Quelle serait l'origine de l'élément de squelette en considérant cette valeur de k ? 
+5 Peut-on savoir à coup sûr, en prenant une valeur de k inférieure au égale à 11, si le combattant dont on a trouvé un élément de squelette était un combattant de la Triple-Entente (France + Royaume-Uni + Russie) ou de la Triple-Alliance (Allemagne + Autriche-Hongrie + Italie) ? 
 
 ## <H2 STYLE="COLOR:BLUE;"> **3.  Problème : analyse de texte<a name="_page14_x40.00_y36.92"></a>** </H2>
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
 
 **Nous aurons besoin de quelques connaissances : Lecture et écriture dans un fichier** 
 
