@@ -51,13 +51,15 @@ Par exemple, pour deux points avec des coordonnées $\left(x_1,y_1\right)$ et $\
 
 distance(données<sub>1</sub>,  donnée<sub>2</sub>)=$\sqrt{(x1-x2)²+(y1- y2)²}$
 
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
+
 **<H3 STYLE="COLOR:red;">Activité n°1. : Calcul de distance euclidienne**</H3>
 
-Dans un fichier distance_euclidienne.py 
 Ecrire une fonction qui permet de générer au hasard une liste de points à coordonnées entières : 
 - Abscisses comprises entre xmin et xmax 
 -  Ordonnées comprises entre ymin et ymax 
-Le nombre de points de cette liste sera généré au hasard entre nbmin et nbmax (paramètre de la fonction).  
+Le nombre de points de cette liste sera généré au hasard entre nbmin et nbmax (paramètre de la fonction). 
+
 ```python
 from random import randint
 xmin, xmax = -20, 20
@@ -85,11 +87,9 @@ def genereListePoints(nbmin, nbmax):
 Tester votre fonction avec l’appel : 
 ```genereListePoints(5, 15)``` permet de retourner une liste de coordonnées de points contenant entre 5 et 15 points 
 
-???+ question "Faire ce qui est proposé"
 
-    {{ IDE() }}
 
-Écrire et ajouter à la suite du code précédent une fonction distance prenant en paramètres 4 nombres x1, y1, x2, y2 et renvoyant la distance euclidienne entre les points M(x1,y1) et A(x2,y2). 
+Écrire une fonction distance prenant en paramètres 4 nombres x1, y1, x2, y2 et renvoyant la distance euclidienne entre les points M(x1,y1) et A(x2,y2). 
 
 ```python
 from math import sqrt
@@ -124,9 +124,6 @@ def plusProcheVoisin(listePoints, x, y):
     distance_min = inf # initialisation à +infini
     # à compléter
 ```
-???+ question "Faire ce qui est proposé"
-
-    {{ IDE() }}
 
 ### <H3 STYLE="COLOR:GREEN;"> **1.4. Présentation<a name="_page3_x40.00_y36.92"></a> de l’algorithme des k plus proches voisins** </H3>
 
@@ -295,7 +292,7 @@ Par souci simplification, on étudiera uniquement la largeur et à la longueur d
 
 ![](Aspose.Words.3ff765a9-d01a-40a4-b89f-2b60e83d57aa.031.png)
 
-Le fichier iris.csv se trouve dans le dossier Ressources. Copier le dans  le dossier personnel noté kNN  
+Pour ceux qui travaillent avec Thonny : le fichier iris.csv se trouve dans le dossier Ressources. Copier le dans  le dossier personnel noté kNN  
 
 En résumé, le fichier contient :  
 
@@ -341,9 +338,9 @@ On a en abscisse la longueur du pétale et en ordonnée la largeur du pétale. O
 
 
 
-**<H3 STYLE="COLOR:red;">Activité n°6.: Choix de la cible :**</H3>  On choisit un pétale de 0,5 cm de large et 2 cm de long. Rajouter au fichier précédent (avant ```ptl.show()```) : 
+**<H3 STYLE="COLOR:red;">Activité n°6.: Choix de la cible :**</H3>  On choisit un pétale de 0,5 cm de large et 2 cm de long. Rajouter au fichier précédent (avant ```plt.legend()```) : 
 ```python
-plt.scatter(**2.0, 0.5,** color='k') 
+plt.scatter(2.0, 0.5, color='k')
 ```
 
 ![](Aspose.Words.3ff765a9-d01a-40a4-b89f-2b60e83d57aa.033.jpeg)
@@ -454,6 +451,7 @@ Attention, prediction est une liste Python qui contient un seul élément (le la
 **<H3 STYLE="COLOR:red;">Activité n°9.: Utilisation de l’algorithme knn :**</H3> Modifier l’algorithme précédent pour qu’il affiche un nombre de voisin différents → k = 5 
 
 **<H3 STYLE="COLOR:red;">Activité n°10.: Utilisation de l’algorithme knn :**</H3> Modifier l’algorithme précédent pour qu’il affiche un nombre de voisin différents et une cible différente. 
+
 
 ## <H2 STYLE="COLOR:BLUE;"> **2. Exercices<a name="_page12_x40.00_y36.92"></a>** </H2>
 
