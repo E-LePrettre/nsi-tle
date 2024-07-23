@@ -485,11 +485,9 @@ Terta,Henry,12/06/1978
 
 **Les données structurées au format CSV** 
 
-2 Afin de découvrir ce qu'est "l'open data", se rendre sur le site data.gouv.fr. En haut et à gauche de la page d’accueil, cliquer sur "Découvrez L’OpenData". Résumer en quelques lignes ce que vous aurez appris en lisant cette page.
+2 Afin de découvrir ce qu'est "l'open data", se rendre sur le site [ data.gouv.fr ](https://www.data.gouv.fr/fr/). En haut et à gauche de la page d’accueil, cliquer sur "Découvrez L’OpenData". Résumer en quelques lignes ce que vous aurez appris en lisant cette page.
 
-3 Explorer pendant quelques minutes le site data.gouv.fr. Rechercher les données "Opérations coordonnées par les CROSS" à l'aide du moteur de recherche proposé par le site. 
-
-Ces données sont au format CSV 
+3 Explorer pendant quelques minutes le site [ data.gouv.fr ](https://www.data.gouv.fr/fr/). Rechercher les données "Opérations coordonnées par les CROSS" à l'aide du moteur de recherche proposé par le site. Quel est le format proposé dans les fichiers principaux ?
 
 4 Après avoir téléchargé le fichier ident_pointVirgule.csv du dossier Ressources, ouvrir ce dernier à l'aide d'un tableur. 
 
