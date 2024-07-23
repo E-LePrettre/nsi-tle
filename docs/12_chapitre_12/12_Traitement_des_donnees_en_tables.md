@@ -489,19 +489,16 @@ Terta,Henry,12/06/1978
 
 3 Explorer pendant quelques minutes le site [ data.gouv.fr ](https://www.data.gouv.fr/fr/). Rechercher les données "Opérations coordonnées par les CROSS" à l'aide du moteur de recherche proposé par le site. Quel est le format proposé dans les fichiers principaux ?
 
-4 Après avoir téléchargé le fichier ident_pointVirgule.csv du dossier Ressources, ouvrir ce dernier à l'aide d'un tableur. 
-
-Si par hasard le tableur ne gère pas correctement le fichier avec le séparateur "point-virgule", il y a une version "séparateur virgule" du fichier : ident_virgule.csv dans le dossier Ressources 
-
-Dans la suite, garder toujours cet éventuel problème à l'esprit (surtout avec des données "made in France"). Résultat attendu : 
+4 on va travailler sur le fichier ident_virgule.csv (pour ceux sur Thonny :du dossier Ressources), le séparateur est la "virgule".
+Dans un tableur type libre offiche on obtient :
 
 ![](Aspose.Words.5d6a7bee-2757-45f8-93f7-fc7ecadeaafd.018.png)
 
 Les données sont bien "rangées" dans un tableau avec des lignes et des colonnes (voilà pourquoi on parle de données tabulaires). 
 
-Il est possible de trouver sur le web des données beaucoup plus intéressantes à traiter que celles contenues dans le fichier "ident_pointVirgule.csv" (ou "ident_virgule.csv"). Par exemple, le site sql.sh, propose un fichier csv contenant des informations sur l'ensemble des communes françaises. 
 
-5 Ouvrir le fichier ville_point_virgule.csv du dossier Ressources à l'aide d'un tableur (c’est une version légèrement modifiée de celle disponible sur le site sql.sh, dans laquelle des entêtes ont été ajoutées). En cas de problème avec le tableur, il y a une version "séparateur virgule" : ville_virgule.csv (attention le séparateur "décimal" est ici le point). 
+
+5 on va travailler avec ville_virgule.csv (pour Thonny : du dossier Ressources) 
 
 On obtient 12 colonnes (et 36700 lignes si on ne compte pas l'entête !), voici la signification de ces colonnes : 
 
@@ -518,15 +515,12 @@ On obtient 12 colonnes (et 36700 lignes si on ne compte pas l'entête !), voici 
 - alt_min : altitude minimale de la commune (il manque des données pour certains territoires d'outre-mer) 
 - alt_max : altitude maximale de la commune (il manque des données pour certains territoires d'outre-mer) 
 
-6 Déterminer l'altitude maximale et l'altitude minimale de votre commune, en utilisant les tris et les filtres 
+
 
 **Le traitement des données structurées** 
 
-7 Copier le fichier ident\_virgule.csv et le placer dans le dossier Documents  
 
-![](Aspose.Words.5d6a7bee-2757-45f8-93f7-fc7ecadeaafd.019.png)
-
-8 Créer le fichier csv_pandas.py et saisir le code Python suivant :  
+6 Executer le code Python suivant : 
 ```python
 import pandas
 
@@ -549,7 +543,7 @@ Les  colonnes  possèdent  également  des  index,  dans  notre  exemple ces ind
 ![](Aimg.png)
 En résumé : les lignes possèdent des index (0,1,2..), les colonnes possèdent aussi des index ("nom", "prenom", …). 
 
-9 Il est possible de récupérer certaines données du tableau, par exemple, certaines lignes, certaines colonnes ou bien encore des valeurs uniques. Pour cela, il suffit d'utiliser l'instruction "loc" avec les index des lignes et les index des colonnes. Le principe de fonctionnement de "loc" est relativement simple puisque l'on aura une instruction de la forme "```loc[index_ligne,index_colonne]```" 
+7 Il est possible de récupérer certaines données du tableau, par exemple, certaines lignes, certaines colonnes ou bien encore des valeurs uniques. Pour cela, il suffit d'utiliser l'instruction "loc" avec les index des lignes et les index des colonnes. Le principe de fonctionnement de "loc" est relativement simple puisque l'on aura une instruction de la forme "```loc[index_ligne,index_colonne]```" 
 ```python
 import pandas
 
@@ -561,38 +555,45 @@ print(info)
 ```
  
 
-La variable "info" doit contenir le prénom "christophe". 
 
-10 Modifier le programme pour que la variable info affiche "12/06/1978". 
-11 Il  est  possible  de  récupérer  plusieurs  toutes  les  lignes  d'une  colonne,  il  suffit  de  remplacer  la  partie "index_ligne" de "loc" par ":" (pour faire un slicing): 
+8 Recopier et modifier le programme pour que la variable info affiche "12/06/1978".
+
+9 Il  est  possible  de  récupérer  plusieurs  toutes  les  lignes  d'une  colonne,  il  suffit  de  remplacer  la  partie "index_ligne" de "loc" par ":" (pour faire un slicing): 
 ```python
 import pandas
 
 ident = pandas.read_csv("ident_virgule.csv")
 info  = ident.loc[:, 'prenom']
+print(info)
 ```
 
 
-Vérifier que la variable "info" contient bien toutes les données de la dernière ligne (index 2). 
 
-12 Il est aussi possible de récupérer seulement certaines lignes et certaines colonnes en utilisant la notation suivante : ```loc[[index_ligne_1,index_ligne_2,...],[index_colonne_1,index_colonne_2,…]]``` : 
+
+10 Il est aussi possible de récupérer seulement certaines lignes et certaines colonnes en utilisant la notation suivante : ```loc[[index_ligne_1,index_ligne_2,...],[index_colonne_1,index_colonne_2,…]]``` : 
 ```python
 import pandas
 
 ident = pandas.read_csv("ident_virgule.csv")
 info  = ident.loc[[0,1], ['nom','date_naissance']]
+print(info)
 ```
 
+ 
 
-Vérifiez que la variable "info" contient bien un tableau avec uniquement les colonnes "nom" et "date_naissance" de la première ligne (index 0) et de la deuxième ligne (index 1). 
+Afin d'avoir des exemples plus complexes à traiter, on travaille dans la suite sur les données contenues dans le fichier ville_virgule.csv. 
 
-Afin d'avoir des exemples plus complexes à traiter, dans la suite, on travaille dans la suite sur les données contenues dans le fichier ville_virgule.csv. 
+Les descripteurs de ce fichier sont :
 
-13 Tester le programme suivant : 
+| dep | nom          | cp    | nb_hab_2010 | nb_hab_1999 | nb_hab_2012 | dens | surf | long | lat  | alt_min | alt_max |
+
+
+11 Tester le programme suivant : 
 ```python
 import pandas
 
 info_villes = pandas.read_csv("villes_virgule.csv")
+print(info_villes)
 ```
 
 
@@ -602,7 +603,7 @@ En explorant le tableau, on devrait, notamment dans les colonnes l'altitude mini
 
 Maintenant, pour obtenir un tableau contenant toutes les villes qui ont une altitude minimum supérieure à 1500 m, on va devoir introduire des conditions dans la sélection des villes. 
 
-14 Tester le programme suivant : 
+12 Tester le programme suivant : 
 ```python
 import pandas
 
@@ -613,8 +614,9 @@ print(nom_alt)
 
 Dans la fonction "loc", l'expression "```info_villes["alt_min"]>1500```" est bien avant la virgule, elle concerne donc les index des lignes du tableau. On sélectionnera uniquement les lignes qui auront la valeur du descripteur "alt_min" supérieure à 1500. Nous allons donc bien sélectionner les villes qui ont une altitude minimum supérieure à 1500 m. 
 
-15 Écrire un programme qui permet d'avoir les villes qui ont une densité d'habitant inférieure à 50 (dans le tableau ainsi créé, on aura 3 colonnes : le nom de la ville, la densité de la population et l'altitude minimum) 
-16 Il est possible de combiner plusieurs facteurs de sélection en utilisant un "et"("&") ou un "ou"("|") : 
+13 Écrire un programme qui permet d'avoir les villes qui ont une densité d'habitant (descripteur : "dens") inférieure à 50 (dans le tableau ainsi créé, on aura 3 colonnes : le nom de la ville, la densité de la population et l'altitude minimum)  
+
+14 Il est possible de combiner plusieurs facteurs de sélection en utilisant un "et"("&") ou un "ou"("|") : 
 ```python
 import pandas
 
@@ -625,9 +627,9 @@ print(nom_alt)
 ```
 
 
-Il y a, en France, une seule ville avec une densité de population supérieure à 50 et une altitude minimum supérieure à 1500 m. Donner son nom. 
+Il y a, en France, une seule ville avec une densité de population inférieure à 2 et une altitude minimum supérieure à 1600 m. Donner son nom.  
 
-17 Il est aussi possible d'effectuer des calculs sur des colonnes, par exemple des moyennes. Il suffit d'utiliser l'instruction "mean" pour effectuer une moyenne : 
+15 Il est aussi possible d'effectuer des calculs sur des colonnes, par exemple des moyennes. Il suffit d'utiliser l'instruction "mean" pour effectuer une moyenne : 
 ```python
 import pandas
 
@@ -637,13 +639,14 @@ print(moyenne_alt_min)
 ```
 
 
-L'altitude minimum moyenne est de 193 m en France.
+
  
 
-On rappelle que dans "```loc[:,"alt\_min"]```" le ":" signifie que l'on considère toutes les lignes du tableau. De plus le "alt_min" que le calcul de la moyenne porte bien sur les données du descripteur "alt_min". 
+On rappelle que dans "```loc[:,"alt_min"]```" le ":" signifie que l'on considère toutes les lignes du tableau. De plus le "alt_min" que le calcul de la moyenne porte bien sur les données du descripteur "alt_min". 
 
-18 Écrire un programme permettant de calculer le nombre moyen d'habitants en 2012 
-19 Pour l'instant nous avons calculé une moyenne sur l'ensemble des lignes, il est aussi possible d'imposer une condition sur les lignes qui seront utilisées pour le calcul : 
+16 Écrire un programme permettant de calculer le nombre moyen d'habitants en 2012 
+
+17 Pour l'instant nous avons calculé une moyenne sur l'ensemble des lignes, il est aussi possible d'imposer une condition sur les lignes qui seront utilisées pour le calcul : 
 ```python
 import pandas
 
@@ -656,17 +659,18 @@ print(nombre_hab)
 
 On constate que les villes ayant une altitude minimum supérieure à 1500 m avaient en moyenne 350 habitants en 2012. 
 
-20 Il est aussi possible de trier le tableau en fonction des valeurs d'un descripteur. Il suffit d'utiliser l'instruction "sort_values" : 
+18 Il est aussi possible de trier le tableau en fonction des valeurs d'un descripteur. Il suffit d'utiliser l'instruction "sort_values" : 
 ```python
 import pandas
 info_villes=pandas.read_csv("villes_virgule.csv")
 tri_alt_min=info_villes.sort_values(by=["alt_min"])
+print(tri_alt_min)
 ```
 
 
 On obtient un nouveau tableau de données "tri_alt_min" trié dans l'ordre croissant des altitudes minimums. Donner la ville ayant l'altitude minimum la plus faible de France. 
 
-21 Il est aussi possible de trier par ordre décroissant en ajoutant "```ascending=False```" 
+19 Il est aussi possible de trier par ordre décroissant en ajoutant "```ascending=False```" 
 ```python
 import pandas
 
@@ -678,13 +682,13 @@ print(tri_alt_min)
 
 Indiquer la ville ayant l'altitude minimum la plus importante de France. 
 
-22 Écrire un programme permettant de répondre à la question suivante de façon très facile : quelle est la ville ayant la densité de population la plus forte ? 
+20 Écrire un programme permettant de répondre à la question suivante de façon très facile : quelle est la ville ayant la densité de population la plus forte ? 
 
 Il est possible de fusionner 2 tableaux de données qui ont une colonne commune. 
 
 Afin  de  travailler  sur  cette  fusion,  nous  allons  utiliser  2  fichiers  au  format  CSV  : fiches_client.csv  et fiches_com.csv. 
 
-23 Copier les 2 fichiers ci-dessus dans le dossier Documents, tester le code suivant : 
+21 (pour Thonny, copier les 2 fichiers ci-dessus dans le dossier Documents), tester le code suivant : 
 ```python
 import pandas
 
@@ -699,7 +703,7 @@ print(print(commande))
 
 Nous avons un tableau qui référence les clients (nom, prénom, ville), chaque client possède un numéro de client. Le deuxième tableau référence des commandes : pour chaque commande, nous avons un numéro de commande, une date et le numéro du client qui a passé la commande, ce numéro de client correspond évidemment au numéro de client que l'on trouve dans le premier tableau. 
 
-24 Sachant que nous avons deux colonnes contenant les mêmes types d'information (numéros de client), nous allons pouvoir fusionner les deux tableaux en un seul : 
+22 Sachant que nous avons deux colonnes contenant les mêmes types d'information (numéros de client), nous allons pouvoir fusionner les deux tableaux en un seul : 
 ```python
 import pandas
 
@@ -717,7 +721,7 @@ Prenons l'exemple de Mme Julie Gabriaux qui habite à Bordeaux (n° de client 24
 
 Nous avons bien fusionné les 2 tableaux "client" et "commande" en un seul tableau "cl_com" qui regroupe les informations pour chaque commande. Quand on effectue ce genre de fusion, on dit souvent que l'on effectue une jointure. 
 
-25 Il faut prendre garde à l'ordre des arguments de la fonction "merge" : 
+23 Il faut prendre garde à l'ordre des arguments de la fonction "merge" : 
 ```python
 import pandas
 
@@ -732,9 +736,9 @@ print(cmde_client)
 
 Comme vous pouvez le constater, l'ordre des colonnes est différent. Il faudra donc être attentif à l'ordre des paramètres de la fonction "merge". 
 
-26 Mme Élodie Gaulin (n° de client 895) bien que présente dans le tableau "client", est absente du tableau "com_cl" (ou "cl_com"). Dire pourquoi. 
+24 Mme Élodie Gaulin (n° de client 895) bien que présente dans le tableau "client", est absente du tableau "com_cl" (ou "cl_com"). Dire pourquoi. 
 
-27 De la même manière, aucun trace de la commande n° 1324 du 01/02/2017 dans le tableau "com_cl" (ou "cl_com"). Dire pourquoi. 
+25 De la même manière, aucun trace de la commande n° 1324 du 01/02/2017 dans le tableau "com_cl" (ou "cl_com"). Dire pourquoi. 
 
 **<H3 STYLE="COLOR:red;">Projet 2** :</h3> ★** ★  **Qualité de l’air** 
 
@@ -754,12 +758,12 @@ Pour des mesures de qualité de l’air à vocation non pédagogique, rendez-vou
 
 On désire exploiter fichier des mesures 2018 fourni au format CSV. On  souhaite en particulier voir l’évolution des mesures sur la journée choisie  par  l’utilisateur,  conformément  au  graphe  ci-contre.  Pour  cela  on  va  décomposer le programme en fonctions élémentaires que l’on validera  avant de passer à la suite.  
 
-On complétera le programme air_quality.py à l’aide de l’objet Python  csv.  
+Pour ceux qui travaille sur Thonny : On complétera le programme air_quality.py à l’aide de l’objet Python csv.
 
-1. Copier le  fichier  des  mesures  2018  au  format  CSV  (Coma  Separated Values).  
-2. L'enregistrer dans votre répertoire Documents  
-3. Ouvrir le fichier et observer la manière dont est codée la date. 
-4. Écrire une fonction qui enregistre uniquement les mesures sur une date précise dans un fichier CSV ayant comme  nom digne-année-mois-jour.csv,  où  année,  mois  et  jour  seront  saisies  interactivement  par l’utilisateur sous la forme jour/mois/année. 
+Voici une image du fichier :
+![](17.png)
+
+1 Écrire une fonction qui enregistre uniquement les mesures sur une date précise dans un fichier CSV ayant comme  nom digne-année-mois-jour.csv,  où  année,  mois  et  jour  seront  saisies  interactivement  par l’utilisateur sous la forme jour/mois/année. 
 
 On donne le prototype suivant : 
 
@@ -788,7 +792,7 @@ On donne le prototype suivant :
 
 NB : on utilisera les méthodes reader, writer et writerow de l’objet Python csv. 
 
-5 Tester la fonction pour le 01/04/2018. 
+2 Tester la fonction pour le 01/04/2018. 
 
 Résultat attendu :
 
@@ -796,7 +800,7 @@ Résultat attendu :
 [['DataDigne.PS', '2018-04-01 00:01:49', '1.12', '0.0', '1.12', '50.93', '937.13', '8.08'],  ['DataDigne.HDV',  '2018-04-01  00:06:27',  '0.5',  '0.0',  '0.5',  '48.5', '935.01', '8.15'], ['DataDigne.CCRC', '2018-04-01 00:08:10', '0.0', '0.0', '0.0', '46.0', '935.9', '9.61'], ['DataDigne.PS', '201 ... 
 ```
 
-6 Le tableau précédent ne contient pas de ligne d’entêtes. On va donc la rajouter  L’idée est de mettre une condition qui ne fonctionne qu’une seule fois pour la première ligne que l’on ajoutera à la liste puis la condition n’étant plus respectée on ajoute les autres lignes à la liste. 
+3 Le tableau précédent ne contient pas de ligne d’entêtes. On va donc la rajouter  L’idée est de mettre une condition qui ne fonctionne qu’une seule fois pour la première ligne que l’on ajoutera à la liste puis la condition n’étant plus respectée on ajoute les autres lignes à la liste. 
 
 7 Documenter la fonction 
 
