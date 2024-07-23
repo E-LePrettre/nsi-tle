@@ -155,7 +155,7 @@ Pour prédire la classe d’un nouvel élément, il faut:
 
 - Un **échantillon de données** 
 - Un **nouvel élément** dont on veut prédire le type 
-- La **valeur de k **
+- La **valeur de k**
 
 Une fois ces données modélisées, on peut formaliser l’algorithme de la façon suivante : 
 
