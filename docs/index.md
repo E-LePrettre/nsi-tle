@@ -1,6 +1,7 @@
-# NSI 1ère au lycée Jean Cassaigne
+# NSI Tle au lycée Jean Cassaigne
 ---
 
+EN CONSTRUCTION!!! a très bientôt!!
 
 1. A la découverte de Python
 2. Les bases de Python
