@@ -476,13 +476,66 @@ if __name__ == '__main__':
     assert hamming('010101', '010110') == 2
 ```
 
-**<H3 STYLE="COLOR:red;">Exercice n° 2 : k-NN et distance :**</H3> Ouvrir le fichier k-nn.py
+**<H3 STYLE="COLOR:red;">Exercice n° 2 : k-NN et distance :**</H3> 
+```python
+from math import *
+# from random import *
+import matplotlib.pyplot as plt
 
-1. Afficher le résultat de la fonction k\_plus\_proches\_voisins(table,cible,k). Quel est le type de la cible ? 
-1. Quelle est la valeur de k ? 
-1. Quelle distance a-t-on utilisée ? 
-1. Utiliser d'autres valeurs de k. Quel est l'effet sur le type de la cible ? 
-1. Changer la distance. Programmer la distance de Tchebychev. Quel est l'effet sur le type de la cible ? 
+# import numpy as np
+# from scipy.stats import linregress
+
+# Données de type 1
+liste_x_1 = [1, 3, 8, 13]
+liste_y_1 = [28, 27.2, 37.6, 40.7]
+
+# Données de type 2
+liste_x_2 = [2, 3, 10, 15]
+liste_y_2 = [30, 26, 39, 35.5]
+
+plt.axis([0, 15, 0, 50])  # Attention [x1,x2,y1,y2]
+plt.axis('equal')
+plt.xlabel('Caractéristique 1')
+plt.ylabel('Caractérstique 2')
+plt.title('Représentation des deux types')
+plt.grid()
+plt.scatter(liste_x_1, liste_y_1, label='type 1')
+plt.scatter(liste_x_2, liste_y_2, label='type 2')
+
+plt.scatter(7, 28.4, label='cible')
+plt.legend()
+plt.show()
+
+table = [['t1', 1, 28], ['t1', 3, 27.2], ['t1', 8, 37.6], ['t1', 13, 40.7], ['t2', 2, 30], ['t2', 3, 26],
+         ['t2', 10, 39], ['t2', 15, 35.5]]
+cible = [7, 28.4]
+k = 3
+
+
+def k_plus_proches_voisins(table, cible, k):
+    """Revoie la liste des k plus proches voisins de la cible"""
+
+    def distance_cible(donnee):
+        """ renvoie la distance entre la donnée et la cible, on choisit la distance de Manhattan"""
+
+        distance = abs(donnee[1] - cible[0]) + abs(donnee[2] - cible[1])
+        return distance
+
+    table_triee = sorted(table, key=distance_cible)
+    proches_voisins = []
+
+    for i in range(k):
+        proches_voisins.append(table_triee[i])
+    return proches_voisins
+
+print("La liste des ", k, " plus proches voisins de la cible : ", k_plus_proches_voisins(table, cible, k))
+```
+
+1 Afficher le résultat de la fonction k_plus_proches_voisins(table,cible,k). Quel est le type de la cible ? 
+2 Quelle est la valeur de k ? 
+3 Quelle distance a-t-on utilisée ? 
+4 Utiliser d'autres valeurs de k. Quel est l'effet sur le type de la cible ? 
+5 Changer la distance. Programmer la distance de Tchebychev. Quel est l'effet sur le type de la cible ? 
 
 **<H3 STYLE="COLOR:red;">Exercice n° 3 : algorithme k-NN**</H3> 
 
@@ -509,7 +562,7 @@ Sur le graphique ci-dessus, le carré dessiné :
 5 Peut-on savoir à coup sûr, en prenant une valeur de k inférieure au égale à 11, si le combattant dont on a trouvé un élément de squelette était un combattant de la Triple-Entente (France + Royaume-Uni + Russie) ou de la Triple-Alliance (Allemagne + Autriche-Hongrie + Italie) ? 
 
 ## <H2 STYLE="COLOR:BLUE;"> **3.  Problème : analyse de texte<a name="_page14_x40.00_y36.92"></a>** </H2>
-=> **CAPYTALE Le code vous sera donné par votre enseignant**
+=> **A faire avec Thonny**
 
 **Nous aurons besoin de quelques connaissances : Lecture et écriture dans un fichier** 
 
@@ -609,3 +662,4 @@ Fichier.close()
 ```
 
 ### <H3 STYLE="COLOR:GREEN;"> **3.3. Suivre les indications du fichier knn_analyse_texte_eleve.py**</H3>
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
