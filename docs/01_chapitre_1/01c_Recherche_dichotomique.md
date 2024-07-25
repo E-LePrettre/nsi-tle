@@ -108,11 +108,11 @@ Imaginons que la liste initiale possède 8 valeurs. Après une étape, il ne res
 | nombre d'étapes    | _ | _ | _ | 3 | _  | _  | _  | _   | _   |
 
 Pouvez-vous deviner le nombre d'étapes nécessaires pour une liste de 4096 termes ?
-Pour une liste de `2^n` termes, quel est le nombre d'étapes ?
+Pour une liste de $2^n$ termes, quel est le nombre d'étapes ?
 
 ### **<H3 STYLE="COLOR:MAGENTA;">Conclusion</H3>**
 
-C'est le nombre de puissances de 2 que contient le nombre `N` de termes de la liste qui est déterminant dans la complexité de l'algorithme. Ce nombre s'appelle le `logarithme de base 2` et se note `log2(N)`. On dit que l'algorithme de dichotomie a une `vitesse logarithmique`. On rencontrera parfois la notation `O(log2N)`.
+C'est le nombre de puissances de 2 que contient le nombre `N` de termes de la liste qui est déterminant dans la complexité de l'algorithme. Ce nombre s'appelle le `logarithme de base 2` et se note $log_2 (N)$. On dit que l'algorithme de dichotomie a une `vitesse logarithmique`. On rencontrera parfois la notation $log_2 (N)$.
 
 ## **<H2 STYLE="COLOR:BLUE;">Expériences et comparaison des vitesses d’exécution</H2>**
 
@@ -148,7 +148,7 @@ Mesurons le temps nécessaire pour trouver l'indice de la dernière valeur de la
 
 ### **<H3 STYLE="COLOR:GREEN;">Comparaison des deux méthodes</H3>**
 
-L'algorithme dichotomique est bien plus rapide que l'algorithme de balayage (la différence d'ordre de grandeur est de $10^3$ qui correspond bien à l'ordre de grandeur de nlog(n) lorsque n vaut $10^5$).
+L'algorithme dichotomique est bien plus rapide que l'algorithme de balayage (la différence d'ordre de grandeur est de $10^3$ qui correspond bien à l'ordre de grandeur de $/frac{n}{log(n)}$ lorsque n vaut $10^5$).
 
 ### **<H3 STYLE="COLOR:GREEN;">Avec une liste contenant 1 000 000 valeurs (soit 10 fois plus que la liste précédente)</H3>**
 
@@ -185,8 +185,8 @@ L'algorithme dichotomique est toujours bien plus rapide que l'algorithme de bala
 
 ### **<H3 STYLE="COLOR:GREEN;">Influence de la taille de la liste sur la vitesse de chaque méthode :</H3>**
 
-- **<H3 STYLE="COLOR:RED;">méthode 1 :</H3>** la recherche dans une liste 10 fois plus grande prend environ 10 fois plus de temps : la vitesse de l'algorithme est bien proportionnelle à la taille `n` de la liste. `10^6 / 10^5 = 10`
-- **<H3 STYLE="COLOR:RED;">méthode 2 :</H3>** la recherche dans une liste 10 fois plus grande prend environ 12 fois plus de temps : la vitesse de l'algorithme est bien proportionnelle au `logarithme` de la taille `n` de la liste. `log(1000000) / log(100000) ≈ 12`
+- **<H3 STYLE="COLOR:RED;">méthode 1 :</H3>** la recherche dans une liste 10 fois plus grande prend environ 10 fois plus de temps : la vitesse de l'algorithme est bien proportionnelle à la taille `n` de la liste. $frac{10^6}{10^5}$ = 10
+- **<H3 STYLE="COLOR:RED;">méthode 2 :</H3>** la recherche dans une liste 10 fois plus grande prend environ 12 fois plus de temps : la vitesse de l'algorithme est bien proportionnelle au `logarithme` de la taille `n` de la liste. $frac{log(1000000)}{log(100000)}$ ≈ 12
 
 ### **<H3 STYLE="COLOR:MAGENTA;">Remarque :</H3>**
 
