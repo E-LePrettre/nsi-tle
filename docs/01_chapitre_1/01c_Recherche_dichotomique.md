@@ -164,8 +164,6 @@ l = f.readlines()
 L2 = []
 for k in l:
     L2.append(int(k[:-1]))
-
-# attention commande à taper dans la console si vous avez installé ipython
 ```
 
 Mesurons le temps nécessaire pour trouver l'indice de la dernière valeur de la liste (qui est 2999306) avec la méthode de balayage (méthode 1) :
