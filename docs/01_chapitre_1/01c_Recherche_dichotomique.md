@@ -16,6 +16,8 @@ on ne garde que la bonne moitié de la liste qui nous intéresse et on recommenc
 
 ### **<H3 STYLE="COLOR:GREEN;">Illustration</H3>**
 
+![Illustration](33.png)
+
 Recherchons la valeur 14 dans notre liste L
 
 - **<H3 STYLE="COLOR:RED;">étape 1 :</H3>** toute la liste est à traiter. On se place sur l'élément central. Son indice est la partie entière de la moitié de la longueur de la liste. Ici il y a 9 éléments donc on se place sur le 4ème qui est 11.
@@ -24,11 +26,12 @@ Recherchons la valeur 14 dans notre liste L
 - **<H3 STYLE="COLOR:RED;">étape 4 :</H3>** on compare la valeur 18 à la valeur cherchée : 14. Elle est supérieure donc on garde ce qui est à gauche. Il n'y a plus qu'une valeur.
 - **<H3 STYLE="COLOR:RED;">étape 5 :</H3>** on se place sur la valeur 14 et on compare avec 14. La valeur est trouvée.
 
-![Illustration](illustration.png)
+
 
 ### **<H3 STYLE="COLOR:GREEN;">Script Python</H3>**
 
-Nous allons travailler avec deux variables `indice_debut` et `indice_fin` qui vont délimiter la liste à étudier. Ces indices sont représentés en bleu sur la figure ci-dessous. La valeur de l'indice_central (représenté en rouge) sera égale à `(indice_debut + indice_fin) // 2`.
+Nous allons travailler avec deux variables `indice_debut` et `indice_fin` qui vont délimiter la liste à étudier. Ces indices sont représentés en bleu sur la figure ci-dessous. La valeur de l'indice_central (représenté en rouge) sera égale à 
+`(indice_debut + indice_fin) // 2`.
 Le programme s'arrête lorsque la valeur cherchée a été trouvée ou lorsque `indice_fin` devient inférieur à `indice_debut`.
 
 ```python
@@ -66,11 +69,15 @@ None
     
 ### **<H3 STYLE="COLOR:GREEN;">Visualisation</H3>**
 
-Une visualisation de l'évolution des variables `indice_debut` et `indice_fin` est disponible sur le site pythontutor via [ce lien](https://pythontutor.com).
+Une visualisation de l'évolution des variables `indice_debut` et `indice_fin` est disponible sur le site pythontutor via [ce lien](http://pythontutor.com/visualize.html#code=L%20%3D%20%5B2,%203,%206,%207,%2011,%2014,%2018,%2019,%2024%5D%0A%0Adef%20trouve_dicho%28L,%20n%29%20%3A%0A%20%20%20%20indice_debut%20%3D%200%0A%20%20%20%20indice_fin%20%3D%20len%28L%29%20-%201%0A%20%20%20%20while%20indice_debut%20%3C%3D%20indice_fin%20%3A%0A%20%20%20%20%20%20%20%20indice_centre%20%3D%20%28indice_debut%20%2B%20indice_fin%29%20//%202%0A%20%20%20%20%20%20%20%20valeur_centrale%20%3D%20L%5Bindice_centre%5D%0A%20%20%20%20%20%20%20%20if%20valeur_centrale%20%3D%3D%20n%20%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20indice_centre%0A%20%20%20%20%20%20%20%20if%20valeur_centrale%20%3C%20n%20%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20indice_debut%20%3D%20indice_centre%20%2B%201%0A%20%20%20%20%20%20%20%20else%20%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20indice_fin%20%3D%20indice_centre%20-%201%0A%20%20%20%20return%20None%0A%0Aprint%28trouve_dicho%28L,14%29%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false).
+
+![](34.png)
 
 ## **<H2 STYLE="COLOR:BLUE;">Terminaison de l’algorithme</H2>**
 
 Est-on sûr que l'algorithme va se terminer ?
+![](35.png)
+
 La boucle `while` qui est utilisée doit nous inciter à la prudence. Il y a en effet le risque de rentrer dans une boucle infinie.
 Pourquoi n'est-ce pas le cas ?
 Aide : observer la position des deux flèches bleues lors de l'exécution de l'algorithme.
@@ -125,6 +132,7 @@ def recherche_lineaire(tableau, valeur):
 # cette ligne de code permet de transformer le contenu du fichier input_centmille.txt
 # en une liste L de 100 000 valeurs.
 L1 = open("input_centmille.txt", 'r').read().split('\n')
+
 # attention commande à taper dans la console si vous avez installé ipython
 >>> %timeit recherche_lineaire(L, 299474)
 4.43 ms ± 86.1 µs per loop (mean ± std. dev. of 7 runs 100 loops each)
@@ -133,13 +141,14 @@ L1 = open("input_centmille.txt", 'r').read().split('\n')
 Mesurons le temps nécessaire pour trouver l'indice de la dernière valeur de la liste (qui est 299474) avec la méthode par dichotomie (méthode 2) :
 
 ```python
+# attention commande à taper dans la console si vous avez installé ipython
 >>> %timeit trouve_dicho(L, 299474)
 3.21 µs ± 19.6 ns per loop (mean ± std. dev. of 7 runs 100000 loops each)
 ```
 
 ### **<H3 STYLE="COLOR:GREEN;">Comparaison des deux méthodes</H3>**
 
-L'algorithme dichotomique est bien plus rapide que l'algorithme de balayage (la différence d'ordre de grandeur est de 10^3 qui correspond bien à l'ordre de grandeur de nlogn lorsque n vaut 10^5).
+L'algorithme dichotomique est bien plus rapide que l'algorithme de balayage (la différence d'ordre de grandeur est de $10^3$ qui correspond bien à l'ordre de grandeur de nlog(n) lorsque n vaut $10^5$).
 
 ### **<H3 STYLE="COLOR:GREEN;">Avec une liste contenant 1 000 000 valeurs (soit 10 fois plus que la liste précédente)</H3>**
 
@@ -159,6 +168,7 @@ for k in l:
 Mesurons le temps nécessaire pour trouver l'indice de la dernière valeur de la liste (qui est 2999306) avec la méthode de balayage (méthode 1) :
 
 ```python
+# attention commande à taper dans la console si vous avez installé ipython
 >>> %timeit recherche_lineaire(L, 299474)
 46.9 ms ± 615 µs per loop (mean ± std. dev. of 7 runs 10 loops each)
 ```
@@ -166,13 +176,14 @@ Mesurons le temps nécessaire pour trouver l'indice de la dernière valeur de la
 Mesurons le temps nécessaire pour trouver l'indice de la dernière valeur de la liste (qui est 2999306) avec la méthode par dichotomie (méthode 2) :
 
 ```python
+# attention commande à taper dans la console si vous avez installé ipython
 >>> %timeit trouve_dicho(L, 299474)
 3.04 µs ± 39.4 ns per loop (mean ± std. dev. of 7 runs 100000 loops each)
 ```
 
 ### **<H3 STYLE="COLOR:GREEN;">Comparaison des deux méthodes</H3>**
 
-L'algorithme dichotomique est toujours bien plus rapide que l'algorithme de balayage (la différence d'ordre de grandeur est de 10^4 qui correspond bien à l'ordre de grandeur de nlogn lorsque n vaut 10^6).
+L'algorithme dichotomique est toujours bien plus rapide que l'algorithme de balayage (la différence d'ordre de grandeur est de $10^4$ qui correspond bien à l'ordre de grandeur de nlogn lorsque n vaut $10^6$).
 
 ### **<H3 STYLE="COLOR:GREEN;">Influence de la taille de la liste sur la vitesse de chaque méthode :</H3>**
 
@@ -182,9 +193,4 @@ L'algorithme dichotomique est toujours bien plus rapide que l'algorithme de bala
 ### **<H3 STYLE="COLOR:MAGENTA;">Remarque :</H3>**
 
 Il ne faut toutefois pas oublier que la méthode dichotomique, bien plus rapide, nécessite que la liste ait été auparavant triée. Ce qui rajoute du temps de calcul !
-
-
-???+ question "Tester ce qui est proposé"
-
-    {{ IDE() }}
 
