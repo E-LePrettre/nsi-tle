@@ -8,9 +8,11 @@ title: 01d Fiche méthode - Algorithme glouton
 
 On veut réaliser une fonction `renduMonnaie(somme, pieces)` qui détermine les pièces à rendre dans un monnayeur.
 
-### **<H3 STYLE="COLOR:GREEN;">Rendre la somme de 8€</H3>**
+Comment rendre la somme de 8€ ?
 
-**Solution**
+![](28.jpg)
+
+
 
 ## **<H2 STYLE="COLOR:BLUE;">L’algorithme</H2>**
 
