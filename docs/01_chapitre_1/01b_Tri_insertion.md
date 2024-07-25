@@ -5,7 +5,7 @@ title: 01a Fiche méthode - Tri par insertion
 
 
 
-## <H2 STYLE="COLOR:BLUE;">Le principe</H2>
+## <H2 STYLE="COLOR:BLUE;">**Le principe</H2>**
 
 Le travail se fait essentiellement sur les indices.
 On part de l'indice du premier élément, on considère que cet élément est l'élément minimum.
@@ -13,11 +13,11 @@ On parcourt les éléments suivants et si on repère un élément plus petit que
 Une fois le parcours fini, on échange l'élément de travail avec l'élément minimum qui a été trouvé.
 On avance d'un élément et on recommence jusqu'à l'avant-dernier.
 
-## <H2 STYLE="COLOR:BLUE;">L’algorithme</H2>
+## <H2 STYLE="COLOR:BLUE;">**L’algorithme</H2>**
 
 ![animation_insertion](animation_insertion.gif)
 
-### <H3 STYLE="COLOR:GREEN;">Script Python</H3>
+### <H3 STYLE="COLOR:GREEN;">**Script Python</H3>**
 
 ```python
 def tri_insertion(l):
@@ -31,7 +31,7 @@ def tri_insertion(l):
     return l
 ```
 
-### <H3 STYLE="COLOR:GREEN;">Vérification</H3>
+### <H3 STYLE="COLOR:GREEN;">**Vérification</H3>**
 
 ```
 >>> a = [7, 5, 2, 8, 1, 4]
@@ -45,9 +45,9 @@ def tri_insertion(l):
 
     {{ IDE() }}
 
-## <H2 STYLE="COLOR:BLUE;">Complexité de l’algorithme</H2>
+## <H2 STYLE="COLOR:BLUE;">**Complexité de l’algorithme</H2>**
 
-### <H3 STYLE="COLOR:GREEN;">Observation</H3>
+### <H3 STYLE="COLOR:GREEN;">**Observation</H3>**
 
 On va étudier une moyenne sur 5 valeurs de deux appels sur la fonction `tri_insertion()`. On se place dans le pire des cas : une liste triée dans l'ordre décroissant.
 
@@ -87,7 +87,7 @@ En local, on trouve :
 En comparant les temps de tri des listes a et b, que pouvez-vous supposer sur la complexité du tri par insertion ?
 Une liste à trier 10 fois plus longue prend 100 fois plus de temps : l'algorithme semble de complexité quadratique.
 
-### <H3 STYLE="COLOR:GREEN;">Démonstration</H3>
+### <H3 STYLE="COLOR:GREEN;">**Démonstration</H3>**
 
 Dénombrons le nombre d'opérations dans le pire des cas pour une liste de taille `n`.
 
@@ -98,15 +98,15 @@ $1 + 2 + 3 + \cdots + (n-1) = \frac{n \times (n-1)}{2}$
 
 Si la liste est déjà triée, on ne rentre jamais dans la boucle `while` : le nombre d'opérations est dans ce cas égal à `n-1` ce qui caractérise une complexité linéaire.
 
-### <H3 STYLE="COLOR:GREEN;">Résumé de la complexité</H3>
+### <H3 STYLE="COLOR:GREEN;">**Résumé de la complexité</H3>**
 
 - **<H3 STYLE="COLOR:RED;">Dans le meilleur des cas (liste déjà triée) : complexité linéaire</H3>**
 - **<H3 STYLE="COLOR:RED;">Dans le pire des cas (liste triée dans l'ordre décroissant) : complexité quadratique. C'est cette complexité que nous retiendrons : le tri par insertion est de complexité quadratique.</H3>**
 
-## <H2 STYLE="COLOR:BLUE;">Preuve de l’algorithme</H2>
+## <H2 STYLE="COLOR:BLUE;">**Preuve de l’algorithme</H2>**
 
-### <H3 STYLE="COLOR:GREEN;">Preuve de la terminaison</H3>
-
+### <H3 STYLE="COLOR:GREEN;">**Preuve de la terminaison</H3>
+**
 Est-on sûr que notre algorithme va s'arrêter ?
 Le programme est constitué d'une boucle `while` imbriquée dans une boucle `for`. Seule la boucle `while` peut provoquer une non-terminaison de l'algorithme. Observons donc ses conditions de sortie :
 
@@ -119,7 +119,7 @@ La condition `l[j - 1] > val` ne peut pas être rendue fausse avec certitude. Pa
 Nous avons donc prouvé la terminaison de l'algorithme.
 On appelle la valeur `j` un variant de boucle. C'est une notion théorique (ici illustrée de manière simple par `j` qui permet de prouver la bonne sortie d'une boucle et donc la terminaison d'un algorithme).
 
-### <H3 STYLE="COLOR:GREEN;">Preuve de la correction</H3>
+### <H3 STYLE="COLOR:GREEN;">**Preuve de la correction</H3>**
 
 Les preuves de correction sont des preuves théoriques. La preuve ici s'appuie sur le concept mathématique de récurrence.
 
