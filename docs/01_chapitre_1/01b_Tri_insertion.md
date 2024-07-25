@@ -1,6 +1,6 @@
 ---
 author: ELP
-title: 01a Fiche méthode - Tri par insertion
+title: 01b Fiche méthode - Tri par insertion
 ---
 
 
