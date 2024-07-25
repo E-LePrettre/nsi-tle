@@ -13,7 +13,7 @@ On avance d'un élément et on recommence jusqu'à l'avant-dernier.
 
 ## L’algorithme
 
-![Animation](animation.gif)
+![animation_selection](animation_selection.gif)
 
 ### Script Python
 
@@ -81,7 +81,7 @@ Dénombrons le nombre d'opérations dans le pire des cas pour une liste de taill
 - Boucle `for` : elle s'exécute `n-1` fois.
 - Deuxième boucle `for` imbriquée : elle exécute d'abord 1 opération puis 2 puis 3... jusqu'à `n-1`. Or
 
-\[ 1 + 2 + 3 + \cdots + (n-1) = \frac{n \times (n-1)}{2} \]
+$\[ 1 + 2 + 3 + \cdots + (n-1) = \frac{n \times (n-1)}{2} \]$
 
 Cela confirme que le tri par sélection est de complexité quadratique.
 
@@ -92,7 +92,7 @@ Cela confirme que le tri par sélection est de complexité quadratique.
 Est-on sûr que notre algorithme va s'arrêter ?
 À l'observation du programme constitué de deux boucles `for` imbriquées, il n'y a pas d'ambiguïté : on ne peut pas rentrer dans une boucle infinie. Le programme s'arrête forcément au bout d'un nombre fixe d'opérations. D'après nos calculs sur la complexité, ce nombre de tours de boucles est égal à
 
-\[ \frac{n \times (n-1)}{2} \]
+$\[ \frac{n \times (n-1)}{2} \]$
 
 Ceci prouve que l'algorithme se terminera.
 
