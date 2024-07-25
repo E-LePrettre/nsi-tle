@@ -31,7 +31,9 @@ Recherchons la valeur 14 dans notre liste L
 ### **<H3 STYLE="COLOR:GREEN;">Script Python</H3>**
 
 Nous allons travailler avec deux variables `indice_debut` et `indice_fin` qui vont délimiter la liste à étudier. Ces indices sont représentés en bleu sur la figure ci-dessous. La valeur de l'indice_central (représenté en rouge) sera égale à 
+
 `(indice_debut + indice_fin) // 2`.
+
 Le programme s'arrête lorsque la valeur cherchée a été trouvée ou lorsque `indice_fin` devient inférieur à `indice_debut`.
 
 ```python
@@ -76,10 +78,13 @@ Une visualisation de l'évolution des variables `indice_debut` et `indice_fin` e
 ## **<H2 STYLE="COLOR:BLUE;">Terminaison de l’algorithme</H2>**
 
 Est-on sûr que l'algorithme va se terminer ?
+
 ![](35.png)
 
 La boucle `while` qui est utilisée doit nous inciter à la prudence. Il y a en effet le risque de rentrer dans une boucle infinie.
+
 Pourquoi n'est-ce pas le cas ?
+
 Aide : observer la position des deux flèches bleues lors de l'exécution de l'algorithme.
 
 La condition de la boucle `while` est `indice_debut <= indice_fin` qui pourrait aussi s'écrire `indice_fin >= indice_debut`. Au démarrage de la boucle on a :
@@ -148,7 +153,7 @@ Mesurons le temps nécessaire pour trouver l'indice de la dernière valeur de la
 
 ### **<H3 STYLE="COLOR:GREEN;">Comparaison des deux méthodes</H3>**
 
-L'algorithme dichotomique est bien plus rapide que l'algorithme de balayage (la différence d'ordre de grandeur est de $10^3$ qui correspond bien à l'ordre de grandeur de $/frac{n}{log(n)}$ lorsque n vaut $10^5$).
+L'algorithme dichotomique est bien plus rapide que l'algorithme de balayage (la différence d'ordre de grandeur est de $10^3$ qui correspond bien à l'ordre de grandeur de $\frac{n}{log(n)}$ lorsque n vaut $10^5$).
 
 ### **<H3 STYLE="COLOR:GREEN;">Avec une liste contenant 1 000 000 valeurs (soit 10 fois plus que la liste précédente)</H3>**
 
@@ -181,12 +186,12 @@ Mesurons le temps nécessaire pour trouver l'indice de la dernière valeur de la
 
 ### **<H3 STYLE="COLOR:GREEN;">Comparaison des deux méthodes</H3>**
 
-L'algorithme dichotomique est toujours bien plus rapide que l'algorithme de balayage (la différence d'ordre de grandeur est de $10^4$ qui correspond bien à l'ordre de grandeur de nlogn lorsque n vaut $10^6$).
+L'algorithme dichotomique est toujours bien plus rapide que l'algorithme de balayage (la différence d'ordre de grandeur est de $10^4$ qui correspond bien à l'ordre de grandeur de $\frac{n}{log(n)}$ lorsque n vaut $10^6$).
 
 ### **<H3 STYLE="COLOR:GREEN;">Influence de la taille de la liste sur la vitesse de chaque méthode :</H3>**
 
-- **<H3 STYLE="COLOR:RED;">méthode 1 :</H3>** la recherche dans une liste 10 fois plus grande prend environ 10 fois plus de temps : la vitesse de l'algorithme est bien proportionnelle à la taille `n` de la liste. $frac{10^6}{10^5}$ = 10
-- **<H3 STYLE="COLOR:RED;">méthode 2 :</H3>** la recherche dans une liste 10 fois plus grande prend environ 12 fois plus de temps : la vitesse de l'algorithme est bien proportionnelle au `logarithme` de la taille `n` de la liste. $frac{log(1000000)}{log(100000)}$ ≈ 12
+- **<H3 STYLE="COLOR:RED;">méthode 1 :</H3>** la recherche dans une liste 10 fois plus grande prend environ 10 fois plus de temps : la vitesse de l'algorithme est bien proportionnelle à la taille `n` de la liste. $\frac{10^6}{10^5}$ = 10
+- **<H3 STYLE="COLOR:RED;">méthode 2 :</H3>** la recherche dans une liste 10 fois plus grande prend environ 12 fois plus de temps : la vitesse de l'algorithme est bien proportionnelle au `logarithme` de la taille `n` de la liste. $\frac{log(1000000)}{log(100000)}$ ≈ 12
 
 ### **<H3 STYLE="COLOR:MAGENTA;">Remarque :</H3>**
 
