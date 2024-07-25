@@ -15,7 +15,7 @@ On avance d'un élément et on recommence jusqu'à l'avant-dernier.
 
 ![animation_selection](animation_selection.gif)
 
-### <H2 STYLE="COLOR:BLUE;">**Script Python</h2>**
+### <H3 STYLE="COLOR:GREEN;">**Script Python</h3>**
 
 ```python
 def tri_selection(l):
@@ -38,7 +38,7 @@ def tri_selection(l):
 [1, 2, 4, 5, 7, 8]
 ```
 
-???+ question"Tester ce qui est proposé"
+???+ question "Tester ce qui est proposé"
 
     {{ IDE() }}
 
@@ -74,7 +74,8 @@ print("Temps d'exécution pour 10_000: %s secondes ---" % (moyenne))
 ???+ question "recopier le script du tri par sélection et tester ce qui est proposé ci-dessus"
 
     {{ IDE() }}
-    
+
+
 - Temps d'exécution pour 1_000: 0.03949418067932129 secondes ---
 - Temps d'exécution pour 10_000: 4.569394874572754 secondes ---
 
