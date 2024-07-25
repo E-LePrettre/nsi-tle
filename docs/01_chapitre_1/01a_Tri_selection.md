@@ -55,26 +55,27 @@ import time
 
 somme_des_durees = 0
 for i in range(5):
-    a = [k for k in range(1_0000 - 1)]
+    a = [k for k in range(100 - 1)]
     start_time = time.time()
     tri_selection(a)
     somme_des_durees = somme_des_durees + time.time() - start_time
 moyenne = somme_des_durees / 5
-print("Temps d'exécution pour 1_000: %s secondes ---" % (moyenne))
+print("Temps d'exécution pour 100: %s secondes ---" % (moyenne))
 
 somme_des_durees = 0
 for i in range(5):
-    b = [k for k in range(10_0000 - 1)]
+    b = [k for k in range(1_000 - 1)]
     start_time = time.time()
     tri_selection(b)
     somme_des_durees = somme_des_durees + time.time() - start_time
 moyenne = somme_des_durees / 5
-print("Temps d'exécution pour 10_000: %s secondes ---" % (moyenne))
+print("Temps d'exécution pour 1_000: %s secondes ---" % (moyenne))
 ```
-???+ question "recopier le script du tri par sélection et tester ce qui est proposé ci-dessus"
+???+ question "recopier le script du tri par sélection et tester ce qui est proposé ci-dessus. ATTENTION ce peut prendre du temps!!"
 
     {{ IDE() }}
 
+En local, on trouve :
 
 - Temps d'exécution pour 1_000: 0.03949418067932129 secondes ---
 - Temps d'exécution pour 10_000: 4.569394874572754 secondes ---
@@ -89,7 +90,7 @@ Dénombrons le nombre d'opérations dans le pire des cas pour une liste de taill
 - Boucle `for` : elle s'exécute `n-1` fois.
 - Deuxième boucle `for` imbriquée : elle exécute d'abord 1 opération puis 2 puis 3... jusqu'à `n-1`. Or
 
-$ 1 + 2 + 3 + \cdots + (n-1) = \frac{n \times (n-1)}{2} $
+$1 + 2 + 3 + \cdots + (n-1) = \frac{n \times (n-1)}{2}$
 
 Cela confirme que le tri par sélection est de complexité quadratique.
 
