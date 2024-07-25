@@ -3,7 +3,7 @@ author: ELP
 title: 01a Fiche méthode - Tri par sélection
 ---
 
-## Le principe
+## <H2 STYLE="COLOR:BLUE;">**Le principe</h2>**
 
 Le travail se fait essentiellement sur les indices.
 On part de l'indice du premier élément, on considère que cet élément est l'élément minimum.
@@ -11,11 +11,11 @@ On parcourt les éléments suivants et si on repère un élément plus petit que
 Une fois le parcours fini, on échange l'élément de travail avec l'élément minimum qui a été trouvé.
 On avance d'un élément et on recommence jusqu'à l'avant-dernier.
 
-## L’algorithme
+## <H2 STYLE="COLOR:BLUE;">**L’algorithme</h2>**
 
 ![animation_selection](animation_selection.gif)
 
-### Script Python
+### <H2 STYLE="COLOR:BLUE;">**Script Python</h2>**
 
 ```python
 def tri_selection(l):
@@ -29,7 +29,7 @@ def tri_selection(l):
     return l
 ```
 
-### Vérification
+### <H2 STYLE="COLOR:BLUE;">**Vérification
 
 ```python
 >>> a = [7, 5, 2, 8, 1, 4]
@@ -38,9 +38,9 @@ def tri_selection(l):
 [1, 2, 4, 5, 7, 8]
 ```
 
-## Complexité de l’algorithme
+## <H2 STYLE="COLOR:BLUE;">**Complexité de l’algorithme</h2>**
 
-### Observation
+### <H3 STYLE="COLOR:GREEN;">**Observation</h3>**
 
 On va étudier une moyenne sur 5 valeurs de deux appels sur la fonction `tri_selection()`. On se place dans le pire des cas : une liste triée dans l'ordre décroissant.
 
@@ -74,29 +74,29 @@ print("Temps d'exécution pour 10_000: %s secondes ---" % (moyenne))
 En comparant les temps de tri des listes a et b, que pouvez-vous supposer sur la complexité du tri par insertion ?
 Une liste à trier 10 fois plus longue prend 100 fois plus de temps : l'algorithme semble de complexité quadratique.
 
-### Démonstration
+### <H3 STYLE="COLOR:GREEN;">**Démonstration</h3>**
 
 Dénombrons le nombre d'opérations dans le pire des cas pour une liste de taille `n`.
 
 - Boucle `for` : elle s'exécute `n-1` fois.
 - Deuxième boucle `for` imbriquée : elle exécute d'abord 1 opération puis 2 puis 3... jusqu'à `n-1`. Or
 
-$\[ 1 + 2 + 3 + \cdots + (n-1) = \frac{n \times (n-1)}{2} \]$
+$ 1 + 2 + 3 + \cdots + (n-1) = \frac{n \times (n-1)}{2} $
 
 Cela confirme que le tri par sélection est de complexité quadratique.
 
-## Preuve de l’algorithme
+## <H2 STYLE="COLOR:BLUE;">**Preuve de l’algorithme</h2>**
 
-### Preuve de la terminaison
+### <H3 STYLE="COLOR:GREEN;">**Preuve de la terminaison</h3>**
 
 Est-on sûr que notre algorithme va s'arrêter ?
 À l'observation du programme constitué de deux boucles `for` imbriquées, il n'y a pas d'ambiguïté : on ne peut pas rentrer dans une boucle infinie. Le programme s'arrête forcément au bout d'un nombre fixe d'opérations. D'après nos calculs sur la complexité, ce nombre de tours de boucles est égal à
 
-$\[ \frac{n \times (n-1)}{2} \]$
+$\frac{n \times (n-1)}{2}$
 
 Ceci prouve que l'algorithme se terminera.
 
-### Preuve de la correction
+### <H3 STYLE="COLOR:GREEN;">**Preuve de la correction</h3>**
 
 Les preuves de correction sont des preuves théoriques. La preuve ici s'appuie sur le concept mathématique de récurrence. Principe du raisonnement par récurrence : une propriété `P(n)` est vraie si :
 
