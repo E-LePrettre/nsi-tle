@@ -153,9 +153,7 @@ L'algorithme dichotomique est bien plus rapide que l'algorithme de balayage (la 
 ### **<H3 STYLE="COLOR:GREEN;">Avec une liste contenant 1 000 000 valeurs (soit 10 fois plus que la liste précédente)</H3>**
 
 ```python
-# ce code permet
-
- de transformer le contenu du fichier million.txt en une liste L de 1 000 000 valeurs.
+# ce code permet de transformer le contenu du fichier million.txt en une liste L de 1 000 000 valeurs.
 f = open("input_million.txt", 'r')
 l = f.readlines()
 L2 = []
