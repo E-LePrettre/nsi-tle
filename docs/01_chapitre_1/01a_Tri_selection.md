@@ -29,7 +29,7 @@ def tri_selection(l):
     return l
 ```
 
-### <H2 STYLE="COLOR:BLUE;">**Vérification
+### <H3 STYLE="COLOR:GREEN;">**Vérification</h3>**
 
 ```python
 >>> a = [7, 5, 2, 8, 1, 4]
@@ -37,6 +37,10 @@ def tri_selection(l):
 >>> print(a)
 [1, 2, 4, 5, 7, 8]
 ```
+
+???+ question"Tester ce qui est proposé"
+
+    {{ IDE() }}
 
 ## <H2 STYLE="COLOR:BLUE;">**Complexité de l’algorithme</h2>**
 
@@ -67,7 +71,10 @@ for i in range(5):
 moyenne = somme_des_durees / 5
 print("Temps d'exécution pour 10_000: %s secondes ---" % (moyenne))
 ```
+???+ question "recopier le script du tri par sélection et tester ce qui est proposé ci-dessus"
 
+    {{ IDE() }}
+    
 - Temps d'exécution pour 1_000: 0.03949418067932129 secondes ---
 - Temps d'exécution pour 10_000: 4.569394874572754 secondes ---
 
