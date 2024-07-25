@@ -31,7 +31,7 @@ def tri_selection(l):
 
 ### <H3 STYLE="COLOR:GREEN;">**Vérification</h3>**
 
-```python
+```
 >>> a = [7, 5, 2, 8, 1, 4]
 >>> tri_selection(a)
 >>> print(a)
