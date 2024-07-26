@@ -213,7 +213,7 @@ print(multiply_r(105, 253))
 ```
 
 |<p></p><p>Calcul de 105 x 253 par la méthode du paysan russe, p = 0 (au départ)</p>|
-| :- | - |
+
 
 |*x impair*|V|F|F|V|F|V|V|
 | - | - | - | - | - | - | - | - |
@@ -221,8 +221,8 @@ print(multiply_r(105, 253))
 |x = x // 2|52|26|13|6|3|1|0|
 |y = y \* 2|506|1012|2024|4048|8096|16192|32384|
 
-||105 x 253 = 26565|
-| :- | - |
+105 x 253 = 26565
+
 
 On ramène ainsi le problème du calcul du produit de *x* par *y* à un **sous-problème**. 
 
