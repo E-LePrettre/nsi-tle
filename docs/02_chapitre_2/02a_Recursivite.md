@@ -5,31 +5,34 @@ title: 02a Récursivité
 
 
 
+**Compétences évaluables :**
 
-## **<H2 STYLE="COLOR:BLUE;">Compétences évaluables :</H2>**
+- <a name="_hlk38577387"></a>Ecrire un programme récursif
+- analyser le fonctionnement d'un programme récursif
+
+**Table des matières**
+
+[1.	Algorithmes récursifs](#_toc144385077)
+
+[2.	Les dangers de la récursivité](#_toc144385085)
+
+[3.	Exercices](#_toc144385086)
+
+[4.	Projet (démarche d’investigation)](#_toc144385087)
+
+
+
+## **<H3 STYLE="COLOR:RED;">Compétences évaluables :</H3>**
 
 - Écrire un programme récursif
 - Analyser le fonctionnement d'un programme récursif
 
-## **<H2 STYLE="COLOR:BLUE;">Table des matières</H2>**
 
-1. Algorithmes récursifs
-    1.1. Introduction
-    1.2. Comment écrire une fonction récursive ?
-    1.3. Application à la fonction puissance
-    1.4. Fonction récursive sans cas de base….
-    1.5. Application à la multiplication du paysan russe
-    1.6. Application au calcul de factorielle
-    1.7. Application aux tours de Hanoï
-2. Les dangers de la récursivité
-3. Exercices
-4. Projet (démarche d’investigation)
+## **<H2 STYLE="COLOR:BLUE;">1. Algorithmes récursifs<a name="#_toc144385077"></a></H2>**
 
-## **<H2 STYLE="COLOR:BLUE;">Algorithmes récursifs</H2>**
+### **<H3 STYLE="COLOR:GREEN;">1.1. Introduction</H3>**
 
-### **<H3 STYLE="COLOR:GREEN;">Introduction</H3>**
-
-**Activité n°1 :** Etudions ces deux algorithmes d’implémentation d’une fonction `decompte(n)`
+**<H3 STYLE="COLOR:RED;">Activité n°1 :</h3>** Etudions ces deux algorithmes d’implémentation d’une fonction `decompte(n)`
 
 #### Version itérative :
 
@@ -56,20 +59,20 @@ def decompte_r(n):
 print(decompte_r(5))
 ```
 
-**Activité n°2 :** Tester les deux fonctions sur [Python Tutor](http://pythontutor.com/visualize.html#mode=edit)
+**<H3 STYLE="COLOR:RED;">Activité n°2 :</h3>** Tester les deux fonctions sur [Python Tutor](http://pythontutor.com/visualize.html#mode=edit)
 
-Une fonction qui s’appelle elle-même est dite récursive.
+Une fonction qui s’appelle elle-même est dite **récursive**.
 
-La récursivité est une méthode de résolution de problèmes qui consiste à décomposer le problème en sous-problèmes identiques de plus en plus petits jusqu’à obtenir un problème suffisamment petit pour qu’il puisse être résolu de manière triviale.
+La récursivité est une méthode de résolution de problèmes qui consiste à décomposer le problème **en sous-problèmes identiques de plus en plus petits** jusqu’à obtenir un problème suffisamment petit pour qu’il puisse être résolu de manière triviale.
 
-## **<H2 STYLE="COLOR:BLUE;">Comment écrire une fonction récursive ?</H2>**
+### **<H3 STYLE="COLOR:green;">1.2. Comment écrire une fonction récursive ?</H3>**
 
 Pour écrire une fonction récursive :
 
 - **Un (ou plusieurs) cas de base :** Les valeurs d’entrées pour lesquelles on ne fait aucun appel récursif sont appelées les cas de base.
 - **Appels récursifs (cas récursif) :** Appels de la méthode courante. Chaque suite d’appels récursifs doit essentiellement se terminer sur un cas de base.
 
-```python
+```texte
 def fonction(arguments):
     if condition d’arrêt:
         return cas de base
@@ -77,17 +80,17 @@ def fonction(arguments):
         return fonction(nouveaux arguments)
 ```
 
-### **<H3 STYLE="COLOR:GREEN;">Application à la fonction puissance</H3>**
+### **<H3 STYLE="COLOR:GREEN;">1."; Application à la fonction puissance</H3>**
 
-Le but est d’écrire une fonction `puissance(x, n)` sans utiliser `**` de Python : On cherche à calculer l’opération de puissance n-ième d’un nombre `x` c’est-à-dire la multiplication répétée n fois de `x` avec lui-même : `x^n = x × ... × x` n fois sans utiliser `**`.
+Le but est d’écrire une fonction $puissance(x, n)$ sans utiliser `**` de Python : On cherche à calculer l’opération de puissance n-ième d’un nombre `x` c’est-à-dire la multiplication répétée n fois de `x` avec lui-même : $x^n = x × ... × x$ n fois sans utiliser `**`.
 
 **Cas de base :**
 On sait que la puissance de `x` pour `n = 0` vaut 1. 
 
 **Cas récursif :**
-On sait : `x^n = x × ... × x` n fois = `x × x^(n-1)` (appel précédent).
+On sait : $x^n = x × ...(n fois) × x$  = $x × x^(n-1)$ (appel précédent).
 
-**Activité n°3 :** Implémentation de la fonction en Python
+**<H3 STYLE="COLOR:RED;">Activité n°3 :</h3>** Implémentation de la fonction en Python
 
 ```python
 def puissance(x, n):
@@ -110,7 +113,7 @@ def puissance(x, n):
 print(puissance(2, 4))
 ```
 
-### **<H3 STYLE="COLOR:GREEN;">Correction</H3>**
+**Correction**
 
 #### Preuve de terminaison :
 À chaque appel, la valeur du paramètre (n) diminue strictement. L’appel récursif s’arrête dès que n sera égal à 0. L’algorithme s’arrête alors.
@@ -118,19 +121,19 @@ print(puissance(2, 4))
 #### Correction partielle :
 À chaque boucle on peut écrire :
 
-- `x × puissance(x, n-1)`
-- Puis `x × x × puissance(x, n-2)`
-- Puis `x × x × x × puissance(x, n-3)`
-- Et ainsi de suite jusqu’à `n = 0`
-- `x × ... × x` n fois `× 1`
+- $x × puissance(x, n-1)$
+- Puis $x × x × puissance(x, n-2)$
+- Puis $x × x × x × puissance(x, n-3)$
+- Et ainsi de suite jusqu’à $n = 0$
+- $x × ... × x$ n fois $× 1$
 
 On obtient bien la fonction souhaitée.
 
 **Remarque :** Le principe de programmation par récursivité est basé sur le fonctionnement de « l’empilement – dépilement » à l’aide d’une pile d’exécution stockant l’adresse mémoire de la prochaine instruction machine à exécuter et conservant une "trace" des valeurs des variables.
 
-## **<H2 STYLE="COLOR:BLUE;">Fonction récursive sans cas de base….</H2>**
+### **<H3 STYLE="COLOR:green;">1.4. Fonction récursive sans cas de base….</H3>**
 
-**Activité n°4 :** Fonction récursive sans condition d’arrêt :
+**<H3 STYLE="COLOR:RED;">Activité n°4 :</h3>** Fonction récursive sans condition d’arrêt :
 
 ```python
 def f(n):
@@ -155,7 +158,7 @@ import sys
 sys.setrecursionlimit(1500)
 ```
 
-### **<H3 STYLE="COLOR:GREEN;">Application à la multiplication du paysan russe</H3>**
+### **<H3 STYLE="COLOR:GREEN;">1.5. Application à la multiplication du paysan russe</H3>**
 
 La méthode du paysan russe est un très vieil algorithme de multiplication de deux nombres entiers. Il s’agissait de la principale méthode de calcul en Europe avant l’introduction des chiffres arabes et les premiers ordinateurs l’ont utilisée avant que la multiplication ne soit directement intégrée dans le processeur sous forme de circuit électronique.
 
@@ -174,7 +177,7 @@ def multiply(x, y):
 print(multiply(105, 253))
 ```
 
-**Activité n°5 :** On peut implémenter la version itérative et la version récursive en Python ainsi :
+**<H3 STYLE="COLOR:RED;">Activité n°5 :</h3>** On peut implémenter la version itérative et la version récursive en Python ainsi :
 
 #### Version itérative :
 
@@ -206,14 +209,14 @@ print(multiply_i(105, 253))
 print(multiply_r(105, 253))
 ```
 
-## **<H2 STYLE="COLOR:BLUE;">Application au calcul de factorielle</H2>**
+### **<H3 STYLE="COLOR:green;">1.6. Application au calcul de factorielle</H3>**
 
 La factorielle : qu’est-ce que c’est ?
-La fonction factorielle indique le nombre de permutations dans un ensemble comportant n éléments. Par exemple, il existe `3! = 6` façons d’arranger les 3 caractères ‘a’ ‘b’ ‘c’ : `‘abc’ ‘acb’ ‘bac’ ‘bca’ ‘cab’ et ‘cba’`.
+La fonction factorielle indique le nombre de permutations dans un ensemble comportant n éléments. Par exemple, il existe $3! = 6$ façons d’arranger les 3 caractères ‘a’ ‘b’ ‘c’ : `‘abc’ ‘acb’ ‘bac’ ‘bca’ ‘cab’ et ‘cba’`.
 
-`n! = n × (n-1) × ... × 2 × 1` pour `n` entier > 0. Cas particulier : `0! = 1`.
+$n! = n × (n-1) × ... × 2 × 1$ pour `n` entier > 0. Cas particulier : $0! = 1$.
 
-**Activité n°6 :** Tester les deux implémentations suivantes :
+**<H3 STYLE="COLOR:RED;">Activité n°6 :</h3>** Tester les deux implémentations suivantes :
 
 #### Version itérative :
 
@@ -240,7 +243,7 @@ print(factorielle_i(10))
 print(factorielle_r(10))
 ```
 
-### **<H3 STYLE="COLOR:GREEN;">Application aux tours de Hanoï</H3>**
+### **<H3 STYLE="COLOR:GREEN;">1.7. Application aux tours de Hanoï</H3>**
 
 Le casse-tête des tours de Hanoï est un jeu de réflexion consistant à déplacer des disques de diamètres différents d'une tour de « départ » à une tour d'« arrivée » en passant par une tour « intermédiaire » en un minimum de coups tout en respectant les règles suivantes :
 
@@ -253,7 +256,7 @@ Le casse-tête des tours de Hanoï est un jeu de réflexion consistant à dépla
 
 Pour résoudre le problème des tours de Hanoï, il faut raisonner récursivement. 
 
-**Activité n°7 :** Implémentation en Python
+**<H3 STYLE="COLOR:RED;">Activité n°7 :</h3>** Implémentation en Python
 
 ```python
 def hanoi(n, a="A", b="B", c="C"):
@@ -268,19 +271,19 @@ hanoi(4)
 
 Pour mieux comprendre : [Les tours de Hanoï](http://accromath.uqam.ca/2016/02/les-tours-de-hanoi-et-la-base-trois/)
 
-## **<H2 STYLE="COLOR:BLUE;">Les dangers de la récursivité</H2>**
+## **<H2 STYLE="COLOR:BLUE;">2. Les dangers de la récursivité<a name="#_toc144385085"></a></H2>**
 
 Utiliser une fonction récursive n’est pas toujours une bonne idée. Soit la suite de Fibonacci : 1 1 2 3 5 8 13 21 34…
 
 Par définition :
 
-- `F0 = 0`
-- `F1 = 1`
-- `Fn = Fn-2 + Fn-1` pour `n > 1`
+- $F_0 = 0$
+- $F_1 = 1$
+- $F_n = F_{n-2} + F_{n-1}$ pour $n > 1$
 
 On écrit deux fonctions (une récursive et une itérative) qui calculent le k-ième terme de cette suite puis on comparera les temps de calcul.
 
-**Activité n°8 :** Implémenter les deux algorithmes suivants :
+**<H3 STYLE="COLOR:RED;">Activité n°8 :</h3>** Implémenter les deux algorithmes suivants :
 
 #### Version itérative :
 
@@ -318,7 +321,7 @@ print(fibo_it(10))
 print(fibo_recur(10))
 ```
 
-**Activité n°9 :** On va comparer les temps de calcul pour chaque algorithme. Ajouter à la suite des deux algorithmes précédents :
+**<H3 STYLE="COLOR:RED;">Activité n°9 :</h3>** On va comparer les temps de calcul pour chaque algorithme. Ajouter à la suite des deux algorithmes précédents :
 
 ```python
 import time
@@ -354,7 +357,7 @@ Observons comment se passe le calcul récursif. Calculons `fib(5)` avec la méth
 ```
 fib(5)  -> fib(4) + fib(3)
         -> (fib(3) + fib(2)) + fib(3)
-        -> (fib(2) + fib(1)) + fib(2)) + fib(3)
+        -> ((fib(2) + fib(1)) + fib(2)) + fib(3)
         -> ((1 + fib(1)) + fib(2)) + fib(3)
         -> ((1 + 1) + fib(2)) + fib(3)
         -> (2 + fib(2)) + fib(3)
@@ -373,12 +376,12 @@ On voit que ce n’est pas efficace : par exemple `fib(3)` est appelé deux fois
 
 **"Marcher en itératif c’est mettre un pied devant l’autre et recommencer. Marcher en récursif c’est mettre un pied devant l’autre et marcher."**
 
-## **<H2 STYLE="COLOR:BLUE;">Exercices</H2>**
+## **<H2 STYLE="COLOR:BLUE;">3. Exercices<a name="#_toc144385086"></a></H2>**
 
 ### **<H3 STYLE="COLOR:GREEN;">Exercice n°1 : La fonction somme</H3>**
 
-Pour définir la somme des n premiers entiers, on a l’habitude d’écrire la formule suivante : `0 + 1 + 2 + ... + n`
-Écrire une fonction `somme(n)` en récursif.
+Pour définir la somme des n premiers entiers, on a l’habitude d’écrire la formule suivante : $0 + 1 + 2 + ... + n$
+Écrire une fonction $somme(n)$ en récursif.
 
 **Aide :**
 - Déterminer le(s) cas de base
@@ -390,7 +393,7 @@ On appelle palindrome un mot qui se lit dans les deux sens comme "selles" ou "ra
 La fonction ci-contre renvoie vrai si le mot passé en paramètre est un palindrome. Pour le mot "selles" composé de 6 lettres, on fait 3 comparaisons. Pour le mot "radar" composé de 5 lettres, on ne fait que 2 comparaisons (une unique lettre est forcément un palindrome).
 
 En version récursive, l’idée est : "selles" est un palindrome si "s" = "s" et "elle" est un palindrome => cas récursif.
-Écrire une version récursive de la fonction `est_palindrome(mot)`.
+Écrire une version récursive de la fonction $est_palindrome(mot)$.
 
 **Aide :**
 - Quel est les cas de base (cas d’arrêt) ?
@@ -404,7 +407,7 @@ Une association a remarqué que d’une année à l’autre :
 - Elle perd 5% de ses adhérents
 - Elle gagne 200 adhérents
 
-En admettant que le nombre d’adhérents de cette association était égal à 2000 au 1er janvier 2020, écrire en Python une fonction récursive nommée `nombre(n)` affichant le nombre théorique d’adhérents après n années.
+En admettant que le nombre d’adhérents de cette association était égal à 2000 au 1er janvier 2020, écrire en Python une fonction récursive nommée $nombre(n)$ affichant le nombre théorique d’adhérents après n années.
 
 **Aide :**
 - Déterminer le cas de base
@@ -420,15 +423,15 @@ Par exemple, à partir de 14 on construit la suite des nombres : 14, 7, 22, 11, 
 C’est ce qu’on appelle la suite de Syracuse du nombre 14. Une fois le nombre 1 atteint, la suite des valeurs (1, 4, 2, 1, 4, 2, ...) se répète indéfiniment en un cycle de longueur 3 (appelé cycle trivial).
 
 Elle est définie par :
-- `x1 = a ∈ N*`
+- $x1 = a ∈ N*$
 -
 
- `xn+1 = xn / 2` si `xn` est pair
-- `3xn + 1` si `xn` est impair
+ $xn+1 = xn / 2$ si $xn$ est pair
+- $3xn + 1$ si $xn$ est impair
 
-Vérifier par le calcul que pour `a = 14` et `n = 20` la suite est des nombres : 14, 7, 22, 11, 34, 17, 52, 26, 13, 40, 20, 10, 5, 16, 8, 4, 2, 1, 4, 2.
+Vérifier par le calcul que pour $a = 14$ et $n = 20$ la suite est des nombres : 14, 7, 22, 11, 34, 17, 52, 26, 13, 40, 20, 10, 5, 16, 8, 4, 2, 1, 4, 2.
 
-Écrire en Python une fonction itérative `syracuse_iter(a, n)` : donnant la suite de Syracuse lorsqu’on entre en paramètre la valeur de `a` et le rang `n`.
+Écrire en Python une fonction itérative $syracuse_iter(a, n)$ : donnant la suite de Syracuse lorsqu’on entre en paramètre la valeur de $a$ et le rang $n$.
 
 **Vérifier les tests suivants :**
 
@@ -438,7 +441,7 @@ assert syracuse_iter(14, 3) == 22
 assert syracuse_iter(14, 20) == 2
 ```
 
-Écrire une version récursive `syracuse_recur(a, n)`. 
+Écrire une version récursive $syracuse_recur(a, n)$. 
 
 **Vérifier les tests suivants :**
 
@@ -450,7 +453,7 @@ assert syracuse_recur(14, 20) == 2
 
 La conjecture de Syracuse (encore appelée conjecture de Collatz ou conjecture d’Ulam) est l’hypothèse mathématique selon laquelle la suite de Syracuse de n’importe quel entier strictement positif atteint 1.
 
-Écrire la fonction `syracuse` à un paramètre entier qui retourne la longueur de la suite de Syracuse de cet entier (le nombre de termes) pour obtenir 1.
+Écrire la fonction $syracuse$ à un paramètre entier qui retourne la longueur de la suite de Syracuse de cet entier (le nombre de termes) pour obtenir 1.
 
 ```python
 assert syracuse(14) == 18
@@ -480,7 +483,7 @@ pgcd(96, 36)
 12 = 0 x 0 + 12
 ```
 
-Écrire une fonction récursive `pgcd(a, b)` qui renvoie le PGCD de deux entiers `a` et `b`.
+Écrire une fonction récursive $pgcd(a, b)$ qui renvoie le PGCD de deux entiers `a` et `b`.
 
 **Exemple :**
 
@@ -491,7 +494,7 @@ pgcd(60, 32) == 4
 
 ### **<H3 STYLE="COLOR:GREEN;">Exercice n°6 : Nombre de chiffres</H3>**
 
-Écrire une fonction récursive `nombre_de_chiffres(n)` qui prend un entier positif ou nul `n` en argument et renvoie son nombre de chiffres.
+Écrire une fonction récursive $nombre_de_chiffres(n)$ qui prend un entier positif ou nul `n` en argument et renvoie son nombre de chiffres.
 
 **Exemple :**
 
@@ -501,7 +504,7 @@ nombre_de_chiffres(34126) == 5
 
 ### **<H3 STYLE="COLOR:GREEN;">Exercice n°7 : Appartient</H3>**
 
-Écrire une fonction récursive `appartient(v, t, i)` prenant en paramètres une valeur `v`, un tableau `t` et un entier `i` et renvoyant `True` si `v` apparaît dans `t` entre l’indice `i` (inclus) et `len(t)` (exclu) et `False` sinon.
+Écrire une fonction récursive $appartient(v, t, i)$ prenant en paramètres une valeur `v`, un tableau `t` et un entier `i` et renvoyant `True` si `v` apparaît dans `t` entre l’indice `i` (inclus) et `len(t)` (exclu) et `False` sinon.
 
 **Exemple :**
 
@@ -513,34 +516,34 @@ appartient(7, t, 3) == True
 
 ### **<H3 STYLE="COLOR:GREEN;">Exercice n°8 : Le triangle de Pascal</H3>**
 
-Le triangle arithmétique de Pascal est le triangle dont la ligne d'indice `n` (n = 0, 1, 2, ...) donne les coefficients binomiaux `C(n, p)` pour `p = 0, 1, 2, ... n`.
+Le triangle arithmétique de Pascal est le triangle dont la ligne d'indice `n` (n = 0, 1, 2, ...) donne les coefficients binomiaux $C(n, p)$ pour $p = 0, 1, 2, ... n$.
 
-Les coefficients du triangle de Pascal sont les coefficients du développement de `(a + b)^n`.
+Les coefficients du triangle de Pascal sont les coefficients du développement de $(a + b)^n$.
 
 **Exemple :**
 
-La ligne 0 est : 1, soit le coefficient de `(a + b)^0 = 1`.
+La ligne 0 est : 1, soit le coefficient de $(a + b)^0 = 1$.
 
-La ligne 1 est : 1 - 1, soit les coefficients de `(a + b)^1 = 1×a + 1×b`.
+La ligne 1 est : 1 - 1, soit les coefficients de $(a + b)^1 = 1×a + 1×b$.
 
-La ligne 2 est : 1 - 2 - 1, soit les coefficients de `(a + b)^2 = 1×a^2 + 2×ab + 1×b^2`.
+La ligne 2 est : 1 - 2 - 1, soit les coefficients de $(a + b)^2 = 1×a^2 + 2×ab + 1×b^2$.
 
-La ligne 3 est : 1 - 3 - 3 - 1, soit les coefficients de `(a + b)^3 = 1×a^3 + 3×a^2b + 3×ab^2 + 1×b^3`.
+La ligne 3 est : 1 - 3 - 3 - 1, soit les coefficients de $(a + b)^3 = 1×a^3 + 3×a^2b + 3×ab^2 + 1×b^3$.
 
-La ligne 4 est : 1 - 4 - 6 - 4 - 1, soit les coefficients de `(a + b)^4 = 1×a^4 + 4×a^3b + 6×a^2b^2 + 4×ab^3 + 1×b^4`.
+La ligne 4 est : 1 - 4 - 6 - 4 - 1, soit les coefficients de $(a + b)^4 = 1×a^4 + 4×a^3b + 6×a^2b^2 + 4×ab^3 + 1×b^4$.
 
-En analyse combinatoire, les nombres `C(n, p)` correspondent au nombre de façons de tirer `p` objets parmi `n`.
+En analyse combinatoire, les nombres $C(n, p)$ correspondent au nombre de façons de tirer `p` objets parmi `n`.
 
 **Exemple :**
 
 La ligne 5 est : 1 - 5 - 10 - 10 - 5 - 1, donc :
 
-- `C(5, 0) = 1` : Il y a 1 seule façon de tirer 0 objet parmi 5.
-- `C(5, 1) = 5` : Il y a 5 façons de tirer 1 objet parmi 5.
-- `C(5, 2) = 10` : Il y a 10 façons de tirer 2 objets parmi 5.
-- `C(5, 3) = 10` : Il y a 10 façons de tirer 3 objets parmi 5.
-- `C(5, 4) = 5` : Il y a 5 façons de tirer 4 objets parmi 5.
-- `C(5, 5) = 1` : Il y a 1 seule façon de tirer 5 objets parmi 5.
+- $C(5, 0) = 1$ : Il y a 1 seule façon de tirer 0 objet parmi 5.
+- $C(5, 1) = 5$ : Il y a 5 façons de tirer 1 objet parmi 5.
+- $C(5, 2) = 10$ : Il y a 10 façons de tirer 2 objets parmi 5.
+- $C(5, 3) = 10$ : Il y a 10 façons de tirer 3 objets parmi 5.
+- $C(5, 4) = 5$ : Il y a 5 façons de tirer 4 objets parmi 5.
+- $C(5, 5) = 1$ : Il y a 1 seule façon de tirer 5 objets parmi 5.
 
 Le triangle de Pascal est défini de manière récursive :
 
@@ -549,7 +552,7 @@ C(n, p) = 1 si p = 0 ou n = p
 C(n, p) = C(n - 1, p - 1) + C(n - 1, p) sinon.
 ```
 
-Écrire une fonction récursive `C(n, p)` qui renvoie la valeur de `C(n, p)`.
+Écrire une fonction récursive $C(n, p)$ qui renvoie la valeur de $C(n, p)$.
 
 **Exemple :**
 
@@ -559,23 +562,23 @@ C(10, 5) == 252
 
 ### **<H3 STYLE="COLOR:GREEN;">Exercice n°9 : Recherche dans une chaîne de caractères</H3>**
 
-Écrire une fonction récursive nommée `est_dans` qui, à partir d’un caractère `e` et d’une chaîne de caractères `c`, détermine si ce caractère appartient à la chaîne.
+Écrire une fonction récursive nommée $est_dans$ qui, à partir d’un caractère `e` et d’une chaîne de caractères `c`, détermine si ce caractère appartient à la chaîne.
 
 Tester cette fonction.
 
-**Remarque :** La fonction `est_dans` est un prédicat.
+**Remarque :** La fonction $est_dans$ est un prédicat.
 
 ### **<H3 STYLE="COLOR:GREEN;">Exercice n°10 : Travail sur les listes</H3>**
 
-Écrire une fonction nommée `longueur_liste` récursive qui, à partir d’une liste passée en argument, détermine sa longueur.
+Écrire une fonction nommée $longueur_liste$ récursive qui, à partir d’une liste passée en argument, détermine sa longueur.
 
-Écrire une fonction nommée `produit_elements` récursive qui, à partir d’une liste d’entiers passée en argument, calcule le produit de tous les nombres.
+Écrire une fonction nommée $produit_elements$ récursive qui, à partir d’une liste d’entiers passée en argument, calcule le produit de tous les nombres.
 
-Écrire une fonction nommée `plus_grand_element` récursive qui, à partir d’une liste d’entiers passée en argument, détermine quel est l’entier le plus grand.
+Écrire une fonction nommée $plus_grand_element$ récursive qui, à partir d’une liste d’entiers passée en argument, détermine quel est l’entier le plus grand.
 
-Écrire une fonction nommée `plus_petit_element` récursive qui, à partir d’une liste d’entiers passée en argument, détermine quel est l’entier le plus petit.
+Écrire une fonction nommée $plus_petit_element$ récursive qui, à partir d’une liste d’entiers passée en argument, détermine quel est l’entier le plus petit.
 
-Écrire une fonction nommée `somme_listes_imbriquees` récursive qui additionne tous les entiers des listes.
+Écrire une fonction nommée $somme_listes_imbriquees$ récursive qui additionne tous les entiers des listes.
 
 **Exemple de listes imbriquées :**
 
@@ -586,7 +589,7 @@ l2 = [1, [2, [3, [4, [5]]]]]
 
 **Remarque :** Cette question peut illustrer par exemple la recherche de l’occupation disque de tous les fichiers dans la structure arborescente d’un système de fichiers à partir d’un point de cette structure.
 
-Écrire une fonction nommée `duplique` récursive qui, à partir d’un élément `e` et d’un entier `n`, retourne une liste qui contient l’élément `e` un nombre de fois égal à `n`.
+Écrire une fonction nommée $duplique$ récursive qui, à partir d’un élément `e` et d’un entier `n`, retourne une liste qui contient l’élément `e` un nombre de fois égal à `n`.
 
 ```python
 assert duplique(5, 3) == [5, 5, 5]
@@ -594,15 +597,15 @@ assert duplique(5, 3) == [5, 5, 5]
 
 `
 
-Écrire une fonction nommée `extrait` récursive qui, à partir d’une liste `l` et d’un entier `n`, retourne une liste constituée par les `n` premiers éléments de `l`.
+Écrire une fonction nommée $extrait$ récursive qui, à partir d’une liste `l` et d’un entier `n`, retourne une liste constituée par les `n` premiers éléments de `l`.
 
 ```python
 assert extrait([5, 4, 3, 2, 1], 3) == [5, 4, 3]
 ```
 
-Écrire une fonction nommée `renverse` récursive qui, à partir d’une liste, retourne une liste dans laquelle les éléments sont renversés (les derniers apparaissent en premier).
+Écrire une fonction nommée $renverse$ récursive qui, à partir d’une liste, retourne une liste dans laquelle les éléments sont renversés (les derniers apparaissent en premier).
 
-## **<H2 STYLE="COLOR:BLUE;">Projet (démarche d’investigation)</H2>**
+## **<H2 STYLE="COLOR:BLUE;">4. Projet (démarche d’investigation)<a name="#_toc144385087"></a></H2>**
 
 ### **<H3 STYLE="COLOR:GREEN;">Projet 1 : Le flocon de Koch</H3>**
 
@@ -610,11 +613,11 @@ Le flocon de Koch est l’une des premières courbes fractales à avoir été d�
 
 **Méthode de construction :**
 
-1. On commence par un segment de longueur `a`.
+1. On commence par un segment de longueur $a$.
 2. On coupe ce segment en 3 parties égales.
-3. Le segment central est remplacé par un triangle équilatéral de côté `a/3`.
-4. Chaque segment de longueur `a/3` est lui-même découpé en trois parties égales (donc de longueur `a/9`).
-5. On remplace la partie centrale par un triangle équilatéral de côté `a/9`.
+3. Le segment central est remplacé par un triangle équilatéral de côté $a/3$.
+4. Chaque segment de longueur $a/3$ est lui-même découpé en trois parties égales (donc de longueur $a/9$).
+5. On remplace la partie centrale par un triangle équilatéral de côté $a/9$.
 6. Etc...
 
 On décide à l’avance quand on doit s’arrêter.
@@ -698,13 +701,13 @@ Selon la valeur du nombre du niveau, on aura une représentation plus ou moins �
 - Seuls les petits triangles sont coloriés => mauvaise idée de tout colorier puis de rajouter des triangles blancs.
 - Pour passer d’un triangle de niveau supérieur vers un triangle inférieur, il faut diviser par 2.
 
-La fonction à créer a pour prototypage : `sierpinski(n : int, L : int)` où `n` est le niveau souhaité (de 0 à l’infini) et `L` la longueur d’un des côtés du grand triangle.
+La fonction à créer a pour prototypage : $sierpinski(n : int, L : int)$ où $n$ est le niveau souhaité (de 0 à l’infini) et $L$ la longueur d’un des côtés du grand triangle.
 
-On pourra prendre `L = 600` et se déplacer au départ en `(-300, -300)` pour centrer le dessin si on choisit d’aller vers la gauche…
+On pourra prendre $L = 600$ et se déplacer au départ en $(-300, -300)$ pour centrer le dessin si on choisit d’aller vers la gauche…
 
-Pensez à `turtle.speed(0)` au début et `turtle.done()` à la fin.
+Pensez à $turtle.speed(0)$ au début et $turtle.done()$ à la fin.
 
-Au-dessus du 6ème niveau, il faut augmenter `L` pour pouvoir le voir.
+Au-dessus du 6ème niveau, il faut augmenter $L$ pour pouvoir le voir.
 
 ### **<H3 STYLE="COLOR:GREEN;">Projet 3 : Le tapis de Sierpinski</H3>**
 
@@ -721,27 +724,25 @@ Utiliser une fonction récursive pour réaliser les triangles de Sierpinski ci-d
 
 Proposer une tortue Python récursive réalisant :
 
-- Avec `p = 1` : Pythagore 1
-- Avec `p = 2` : Pythagore 2
-- Avec `p = 3` : Pythagore 3
-- Avec `p = 10` : Pythagore 10
+- Avec $p = 1$ : Pythagore 1
+- Avec $p = 2$ : Pythagore 2
+- Avec $p = 3$ : Pythagore 3
+- Avec $p = 10$ : Pythagore 10
 
 **Aide :**
 
-On pourra utiliser `turtle.colormode(255)` pour coder en RGB puis un `random.randint(0, 255)` sur les trois couleurs RGB.
+On pourra utiliser $turtle.colormode(255)$ pour coder en RGB puis un $random.randint(0, 255)$ sur les trois couleurs RGB.
 
 ### **<H3 STYLE="COLOR:GREEN;">Projet 5 : Arbre de la forêt</H3>**
 
 Long en exécution…
 
-Par exemple, pour construire un arbre, on part d’un segment et on applique la transformation présentée ci-dessus à chaque segment de la construction (on refait la transformation `n` fois pour obtenir un arbre d’ordre `n`).
+Par exemple, pour construire un arbre, on part d’un segment et on applique la transformation présentée ci-dessus à chaque segment de la construction (on refait la transformation $n$ fois pour obtenir un arbre d’ordre $n$).
 
 **Base de la construction d'un arbre :**
 
 Les portions dessinées en pointillées sont celles sur lesquelles on appliquera la transformation à l’ordre suivant (on les appelle les segments non-terminaux). Les portions dessinées en trait plein sont des segments qui ne seront pas transformés (on les appellera les segments terminaux).
 
-Pour transformer un segment non-terminal de longueur `l`, on trace un segment terminal de longueur `l/3` puis deux segments non-terminaux de longueur `2l/3` à un angle `θ` du premier segment.
-
-
+Pour transformer un segment non-terminal de longueur $l$, on trace un segment terminal de longueur $l/3$ puis deux segments non-terminaux de longueur $2l/3$ à un angle $θ$ du premier segment.
 
 
