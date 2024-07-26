@@ -4,7 +4,7 @@
 EN CONSTRUCTION!!! a très bientôt!!
 
 1. Révisions de 1re
-2. Les bases de Python
+2. Récursivité et méthode diviser pour régner
 3. Mise au point et exception
 4. Codage de l'information
 5. Les types construits
