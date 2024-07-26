@@ -620,9 +620,7 @@ l2 = [1, [2, [3, [4, [5]]]]]
 
 ```python
 assert duplique(5, 3) == [5, 5, 5]
-``
-
-`
+```
 
 Écrire une fonction nommée $extrait$ récursive qui, à partir d’une liste `l` et d’un entier `n`, retourne une liste constituée par les `n` premiers éléments de `l`.
 
