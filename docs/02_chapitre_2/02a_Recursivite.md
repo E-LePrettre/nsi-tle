@@ -5,10 +5,7 @@ title: 02a Récursivité
 
 
 
-**Compétences évaluables :**
 
-- <a name="_hlk38577387"></a>Ecrire un programme récursif
-- analyser le fonctionnement d'un programme récursif
 
 **Table des matières**
 
@@ -22,7 +19,7 @@ title: 02a Récursivité
 
 
 
-## **<H3 STYLE="COLOR:RED;">Compétences évaluables :</H3>**
+**Compétences évaluables :**
 
 - Écrire un programme récursif
 - Analyser le fonctionnement d'un programme récursif
@@ -80,7 +77,7 @@ def fonction(arguments):
         return fonction(nouveaux arguments)
 ```
 
-### **<H3 STYLE="COLOR:GREEN;">1."; Application à la fonction puissance</H3>**
+### **<H3 STYLE="COLOR:GREEN;">1.1. Application à la fonction puissance</H3>**
 
 Le but est d’écrire une fonction $puissance(x, n)$ sans utiliser `**` de Python : On cherche à calculer l’opération de puissance n-ième d’un nombre `x` c’est-à-dire la multiplication répétée n fois de `x` avec lui-même : $x^n = x × ... × x$ n fois sans utiliser `**`.
 
@@ -88,7 +85,7 @@ Le but est d’écrire une fonction $puissance(x, n)$ sans utiliser `**` de Pyth
 On sait que la puissance de `x` pour `n = 0` vaut 1. 
 
 **Cas récursif :**
-On sait : $x^n = x × ...(n fois) × x$  = $x × x^(n-1)$ (appel précédent).
+On sait : $x^n = x × ...(n fois) × x$  = $x × x^{n-1}$ (appel précédent).
 
 **<H3 STYLE="COLOR:RED;">Activité n°3 :</h3>** Implémentation de la fonction en Python
 
@@ -247,9 +244,8 @@ print(factorielle_r(10))
 
 Le casse-tête des tours de Hanoï est un jeu de réflexion consistant à déplacer des disques de diamètres différents d'une tour de « départ » à une tour d'« arrivée » en passant par une tour « intermédiaire » en un minimum de coups tout en respectant les règles suivantes :
 
-- On ne peut pas déplacer plus d
+- On ne peut pas déplacer plus d'un disque à la fois.
 
-'un disque à la fois.
 - On ne peut placer un disque que sur un autre disque plus grand que lui ou sur un emplacement vide.
 
 **Vidéo :** [Les tours de Hanoi](https://www.youtube.com/watch?v=U3nGNJTxYc4)
@@ -393,25 +389,34 @@ On appelle palindrome un mot qui se lit dans les deux sens comme "selles" ou "ra
 La fonction ci-contre renvoie vrai si le mot passé en paramètre est un palindrome. Pour le mot "selles" composé de 6 lettres, on fait 3 comparaisons. Pour le mot "radar" composé de 5 lettres, on ne fait que 2 comparaisons (une unique lettre est forcément un palindrome).
 
 En version récursive, l’idée est : "selles" est un palindrome si "s" = "s" et "elle" est un palindrome => cas récursif.
-Écrire une version récursive de la fonction $est_palindrome(mot)$.
+Écrire une version récursive de la fonction $est\_palindrome(mot)$.
 
 **Aide :**
+
 - Quel est les cas de base (cas d’arrêt) ?
+
     - Pour renvoyer True
+
     - Pour renvoyer False
+
 - Déterminer le cas récursif
 
 ### **<H3 STYLE="COLOR:GREEN;">Exercice n°3 : Nombre d’adhérents</H3>**
 
 Une association a remarqué que d’une année à l’autre :
+
 - Elle perd 5% de ses adhérents
+
 - Elle gagne 200 adhérents
 
 En admettant que le nombre d’adhérents de cette association était égal à 2000 au 1er janvier 2020, écrire en Python une fonction récursive nommée $nombre(n)$ affichant le nombre théorique d’adhérents après n années.
 
 **Aide :**
+
 - Déterminer le cas de base
+
 - Déterminer le nombre d’adhérents l’année suivante par rapport à l’année précédente
+
 - Dans ce même programme, afficher le nombre théorique d’adhérents au cours des 20 prochaines années.
 
 ### **<H3 STYLE="COLOR:GREEN;">Exercice n°4 : La suite de Syracuse</H3>**
@@ -423,15 +428,16 @@ Par exemple, à partir de 14 on construit la suite des nombres : 14, 7, 22, 11, 
 C’est ce qu’on appelle la suite de Syracuse du nombre 14. Une fois le nombre 1 atteint, la suite des valeurs (1, 4, 2, 1, 4, 2, ...) se répète indéfiniment en un cycle de longueur 3 (appelé cycle trivial).
 
 Elle est définie par :
-- $x1 = a ∈ N*$
--
 
- $xn+1 = xn / 2$ si $xn$ est pair
+- $x1 = a ∈ N*$
+
+- $xn+1 = xn / 2$ si $xn$ est pair
+
 - $3xn + 1$ si $xn$ est impair
 
 Vérifier par le calcul que pour $a = 14$ et $n = 20$ la suite est des nombres : 14, 7, 22, 11, 34, 17, 52, 26, 13, 40, 20, 10, 5, 16, 8, 4, 2, 1, 4, 2.
 
-Écrire en Python une fonction itérative $syracuse_iter(a, n)$ : donnant la suite de Syracuse lorsqu’on entre en paramètre la valeur de $a$ et le rang $n$.
+Écrire en Python une fonction itérative $syracuse\_iter(a, n)$ : donnant la suite de Syracuse lorsqu’on entre en paramètre la valeur de $a$ et le rang $n$.
 
 **Vérifier les tests suivants :**
 
@@ -494,7 +500,7 @@ pgcd(60, 32) == 4
 
 ### **<H3 STYLE="COLOR:GREEN;">Exercice n°6 : Nombre de chiffres</H3>**
 
-Écrire une fonction récursive $nombre_de_chiffres(n)$ qui prend un entier positif ou nul `n` en argument et renvoie son nombre de chiffres.
+Écrire une fonction récursive $nombre\_de\_chiffres(n)$ qui prend un entier positif ou nul `n` en argument et renvoie son nombre de chiffres.
 
 **Exemple :**
 
