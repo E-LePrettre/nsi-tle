@@ -254,14 +254,18 @@ Une valeur (entière ou décimale) minimale du tableau est retournée.
 
 ```python
 def minNote(Liste):
-    valeur = Liste[0]
-    for indice in range(1, len(Liste)):
-        if Liste[indice] < valeur:
-            valeur = Liste[indice]
-    return valeur
+    mini = Liste[0]
+    for i in range(1, len(Liste)):
+        if Liste[i] < mini:
+            mini = Liste[i]
+    return mini
 
 print(minNote([14, 18, 12, 10, 5, 10, 9, 16]))
 ```
+
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
 
 **Complexité de l’algorithme** : O(n) car il faut parcourir le tableau de dimension n.
 
@@ -269,7 +273,7 @@ print(minNote([14, 18, 12, 10, 5, 10, 9, 16]))
 
 Test effectué avec la liste : Liste = [14, 18, 12, 10, 5, 10, 9, 16]
 
-| Étape                        | Variable indice | Liste[indice] | Variable valeur |
+| Étape                        | Variable i | Liste[i] | Variable mini|
 |------------------------------|-----------------|---------------|-----------------|
 | Avant de rentrer dans la boucle |                 | 14            | 14              |
 | Dans la boucle (1ère itération)  | 1               | 18            | 14              |
@@ -325,24 +329,28 @@ def moyenneNote(Liste):
 print(moyenneNote([14, 18, 12, 10, 5, 10, 9, 16]))
 ```
 
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
+
 **Complexité de l’algorithme** : O(n) car il faut parcourir le tableau de dimension n.
 
 ### **<H3 STYLE="COLOR:GREEN;">Résultats du test :</H3>**
 
 Test effectué avec la liste : Liste = [14, 18, 12, 10, 5, 10, 9, 16]
 
-| Étape                        | Variable indice | Liste[indice] | Variable somme | Variable moyenne |
-|------------------------------|-----------------|---------------|----------------|------------------|
-| Avant de rentrer dans la boucle |                 |               | 0              | X                |
-| Dans la boucle (1ère itération)  | 0               | 14            | 14             | X                |
-| Dans la boucle (2ème itération)  |                 |               |                | X                |
-| Dans la boucle (3ème itération)  |                 |               |                | X                |
-| Dans la boucle (4ème itération)  |                 |               |                | X                |
-| Dans la boucle (5ème itération)  |                 |               |                | X                |
-| Dans la boucle (6ème itération)  |                 |               |                | X                |
-| Dans la boucle (7ème itération)  |                 |               |                | X                |
-| Dans la boucle (8ème itération)  |                 |               |                | X                |
-| En sortie de boucle              |                 |               |                |                  |
+| Étape                        | Variable elmt |  Variable somme | 
+|------------------------------|-----------------|----------------|
+| Avant de rentrer dans la boucle | x                | 0             | 
+| Dans la boucle (1ère itération)  | 14              | 14            | 
+| Dans la boucle (2ème itération)  |                 |               | 
+| Dans la boucle (3ème itération)  |                 |               |
+| Dans la boucle (4ème itération)  |                 |               |
+| Dans la boucle (5ème itération)  |                 |               |
+| Dans la boucle (6ème itération)  |                 |               |
+| Dans la boucle (7ème itération)  |                 |               |
+| Dans la boucle (8ème itération)  |                 |               |
+| En sortie de boucle              |                 |               |
 
 **Conclusion** : L’algorithme se termine en un temps fini et produit la sortie désirée (calcul de la valeur moyenne).
 
