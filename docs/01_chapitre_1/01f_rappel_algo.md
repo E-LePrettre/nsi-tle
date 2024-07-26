@@ -66,7 +66,7 @@ Une complexité quadratique apparaît par exemple lorsqu’on **parcourt un tabl
 
 Leur notation est de la forme $O(e^N)$ ou $O(N!)$. Ce sont les algorithmes les plus complexes.
 
-Le nombre de calculs augmente de façon exponentielle ou factorielle en fonction du nombre de données à traiter. Un algorithme de complexité exponentielle traitera dans le pire des cas un ensemble de 10 données en effectuant 22026 calculs ; un ensemble de 100 données en effectuant $2.688⋅10^43$ calculs !!! On dit généralement que les problèmes produisant ce type d’algorithmes sont « **non calculables** ».
+Le nombre de calculs augmente de façon exponentielle ou factorielle en fonction du nombre de données à traiter. Un algorithme de complexité exponentielle traitera dans le pire des cas un ensemble de 10 données en effectuant 22026 calculs ; un ensemble de 100 données en effectuant $2.688⋅10^{43}$ calculs !!! On dit généralement que les problèmes produisant ce type d’algorithmes sont « **non calculables** ».
 
 On rencontre les algorithmes de type exponentiels ou factoriels dans les problématiques liées à la programmation de fonctions humaines comme la vision, la reconnaissance des formes ou l’intelligence artificielle.
 
@@ -123,7 +123,7 @@ On appelle **invariant** d’une boucle une propriété qui, si elle est vraie a
 **Fonction : calculPuissanceDeux(n)**
 
 **Entrée :** entier naturel n  
-**Sortie :** entier naturel p dont la valeur est égale à 2^n
+**Sortie :** entier naturel p dont la valeur est égale à $2^n$
 
 ```texte
 Début
@@ -141,7 +141,7 @@ La propriété « À chaque tour de boucle p est une puissance de 2 » est un in
 - **Conservation** : On suppose l’invariant vérifié au tour i de la boucle : $p = 2^i$.
 
   Au tour i+1 : $p_{i+1} = p_i × 2 = 2^i × 2 = 2^{i+1}$.
-  
+
 - **Terminaison** : La boucle réalise n tours ; au dernier tour $p = 2^{n−1} × 2 = 2^n$.
 
 La proposition est donc bien un invariant de boucle et on peut conclure que l’algorithme est correct.
