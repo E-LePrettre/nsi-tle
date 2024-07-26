@@ -35,38 +35,47 @@ Les complexités des différents algorithmes varient beaucoup. On peut néanmoin
 ### **<H3 STYLE="COLOR:GREEN;">Complexité constante :</H3>**
 
 Leur notation est de la forme $O(1)$. Ces algorithmes sont indépendants du nombre de données à traiter.
-La complexité constante apparaît dans la recherche par index dans un tableau. La complexité constante est la plus « performante ».
+
+La complexité constante apparaît dans **la recherche par index dans un tableau**. La complexité constante est la plus « performante ».
 
 ### **<H3 STYLE="COLOR:GREEN;">Les algorithmes logarithmiques :</H3>**
 
 Leur notation est de la forme $O(log N)$. Ces algorithmes sont très performants en temps de traitement. Le nombre de calculs dépend du logarithme du nombre de données à traiter.
-La complexité logarithmique apparaît dans les problèmes dans lesquels l’ensemble des données peut être décomposé en deux parties égales qui sont elles-mêmes décomposées en 2 (recherche par dichotomie, recherche dans un arbre binaire, etc.). La complexité logarithmique est très « performante ».
+
+La complexité logarithmique apparaît dans les problèmes dans lesquels l’ensemble des données peut être décomposé en deux parties égales qui sont elles-mêmes décomposées en 2 (**recherche par dichotomie**, **recherche dans un arbre binaire**, etc.). La complexité logarithmique est très « performante ».
 
 ### **<H3 STYLE="COLOR:GREEN;">Les algorithmes linéaires :</H3>**
 
 Leur notation est de la forme $O(N)$. Ces algorithmes sont rapides. Le nombre de calculs dépend de manière linéaire du nombre de données initiales à traiter.
-La complexité linéaire apparaît dans les problèmes dans lesquels on parcourt séquentiellement l’ensemble des données pour réaliser une opération (recherche d’une valeur par exemple). La complexité linéaire est considérée comme « efficace ».
+
+La complexité linéaire apparaît dans les problèmes dans lesquels on parcourt séquentiellement l’ensemble des données pour réaliser une opération (**recherche d’une valeur** par exemple). La complexité linéaire est considérée comme « efficace ».
 
 ### **<H3 STYLE="COLOR:GREEN;">Les algorithmes linéaires et logarithmiques (quasi-linéaire) :</H3>**
 
 Leur notation est de la forme $O(N log N)$.
-La complexité linéaire et logarithmique apparaît dans des problèmes dans lesquels on découpe répétitivement les données en deux parties que l’on parcourt séquentiellement ensuite (tri Quicksort par exemple). La complexité quasi-linéaire est considérée comme « assez efficace ».
+
+La complexité linéaire et logarithmique apparaît dans des problèmes dans lesquels on découpe répétitivement les données en deux parties que l’on parcourt séquentiellement ensuite (**tri Quicksort** par exemple). La complexité quasi-linéaire est considérée comme « assez efficace ».
 
 ### **<H3 STYLE="COLOR:GREEN;">Les algorithmes de type polynomiale :</H3>**
 
 Leur notation est de la forme $O(N^k)$ où k est la puissance.
-Une complexité quadratique apparaît par exemple lorsqu’on parcourt un tableau à deux dimensions, lorsqu’on effectue un tri par comparaison, etc. La complexité polynomiale est considérée comme « moyennement efficace ».
+
+Une complexité quadratique apparaît par exemple lorsqu’on **parcourt un tableau à deux dimensions**, lorsqu’on effectue un tri par comparaison, etc. La complexité polynomiale est considérée comme « moyennement efficace ».
 
 ### **<H3 STYLE="COLOR:GREEN;">Les algorithmes exponentiels ou factoriels :</H3>**
 
 Leur notation est de la forme $O(e^N)$ ou $O(N!)$. Ce sont les algorithmes les plus complexes.
-Le nombre de calculs augmente de façon exponentielle ou factorielle en fonction du nombre de données à traiter. Un algorithme de complexité exponentielle traitera dans le pire des cas un ensemble de 10 données en effectuant 22026 calculs ; un ensemble de 100 données en effectuant $2.688⋅10^43$ calculs !!! On dit généralement que les problèmes produisant ce type d’algorithmes sont « non calculables ».
+
+Le nombre de calculs augmente de façon exponentielle ou factorielle en fonction du nombre de données à traiter. Un algorithme de complexité exponentielle traitera dans le pire des cas un ensemble de 10 données en effectuant 22026 calculs ; un ensemble de 100 données en effectuant $2.688⋅10^43$ calculs !!! On dit généralement que les problèmes produisant ce type d’algorithmes sont « **non calculables** ».
 
 On rencontre les algorithmes de type exponentiels ou factoriels dans les problématiques liées à la programmation de fonctions humaines comme la vision, la reconnaissance des formes ou l’intelligence artificielle.
 
 ![Ordres de grandeur](36.png)
+
 ![Zoom sur les complexité](37.png)
+
 ![Durées relatives](38.png)
+
 Ordres de grandeur des durées d’exécution d’un problème de taille $10^6$ sur un ordinateur à un milliard d’opérations par seconde (« Informatique pour tous en CPGE », éditions Eyrolles).
 
 ## **<H2 STYLE="COLOR:BLUE;">Terminaison d’un algorithme itératif : variant de boucle</H2>**
@@ -92,11 +101,16 @@ Fin
 ```
 
 La fonction f d’expression `f(p) = n − p` est-elle un variant de boucle ?
+
 - f(p) est un entier.
+
 - Tant que p < n, f(p) > 0.
+
 - f décroît sur l’ensemble des valeurs de p puisque  
-  $f(p_(i+1)) − f(p) = n − p_(i+1) − n + p_i = p_i − p_(i+1) = p_i − 2 * p_i = −p_i < 0$
-- Condition d’arrêt : $p_(max) >= n$ donc $f(p_(max)) <= 0$.
+
+  $f(p_{i+1}) − f(p) = n − p_{i+1} − n + p_i = p_i − p_{i+1} = p_i − 2 * p_i = −p_i < 0$
+
+- Condition d’arrêt : $p_{max} >= n$ donc $f(p_{max}) <= 0$.
 
 La fonction f est un variant de boucle et la boucle se termine donc bien.
 
@@ -123,9 +137,12 @@ Fin
 La propriété « À chaque tour de boucle p est une puissance de 2 » est un invariant de boucle. En effet :
 
 - **Initialisation** : Avant d’entrer dans la boucle : $p = 1 = 2^0$.
-- **Conservation** : On suppose l’invariant vérifié au tour i de la boucle : $p = 2^i$.  
-  Au tour i+1 : $p_(i+1) = p_i × 2 = 2^i × 2 = 2^(i+1)$.
-- **Terminaison** : La boucle réalise n tours ; au dernier tour $p = 2^(n−1) × 2 = 2^n$.
+
+- **Conservation** : On suppose l’invariant vérifié au tour i de la boucle : $p = 2^i$.
+
+  Au tour i+1 : $p_{i+1} = p_i × 2 = 2^i × 2 = 2^{i+1}$.
+  
+- **Terminaison** : La boucle réalise n tours ; au dernier tour $p = 2^{n−1} × 2 = 2^n$.
 
 La proposition est donc bien un invariant de boucle et on peut conclure que l’algorithme est correct.
 
