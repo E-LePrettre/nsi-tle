@@ -43,21 +43,25 @@ Un booléen vrai est retourné si la note est présente dans le tableau.
 
 ```python
 def rechercheNote(Liste, note):
-    for indice in range(len(Liste)):
-        if Liste[indice] == note:
+    for ii in range(len(Liste)):
+        if Liste[ie] == note:
             return True
     return False
 
 print(rechercheNote([5, 14, 18, 11, 10, 12, 10, 9, 16], 12))
 ```
 
-Complexité de l’algorithme : O(n) car il faut parcourir le tableau de dimension n.
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
+
+**Complexité de l’algorithme** : O(n) car il faut parcourir le tableau de dimension n.
 
 ### **<H3 STYLE="COLOR:GREEN;">Résultats du test :</H3>**
 
 Test effectué avec la liste : Liste = [5, 18, 10, 12, 10, 14, 18] et la note à rechercher 12.
 
-| Étape                        | Note à chercher | Variable indice | Liste[indice] | Variable trouve |
+| Étape                        | Note à chercher | Variable i | Liste[i] | Variable trouve |
 |------------------------------|-----------------|-----------------|---------------|-----------------|
 | Avant de rentrer dans la boucle | 12              |                 |               | Faux            |
 | Dans la boucle (1ère itération)  | 12              | 0               | 5             | Faux            |
@@ -109,23 +113,27 @@ Un booléen vrai est retourné si la note est présente dans le tableau.
 ```python
 def rechercheNote(Liste, note):
     trouve = False
-    indice = 0
-    while not trouve and indice < len(Liste):
-        if Liste[indice] == note:
+    i = 0
+    while not trouve and i < len(Liste):
+        if Liste[i] == note:
             trouve = True
-        indice += 1
+        i += 1
     return trouve
 
 print(rechercheNote([5, 14, 18, 11, 10, 12, 10, 9, 16], 12))
 ```
 
-Complexité de l’algorithme : O(n) car il faut parcourir le tableau de dimension n.
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
+
+**Complexité de l’algorithme** : O(n) car il faut parcourir le tableau de dimension n.
 
 ### **<H3 STYLE="COLOR:GREEN;">Résultats du test :</H3>**
 
 Test effectué avec la liste : Liste = [5, 14, 18, 12, 10, 10, 9, 16] et la note à rechercher 12.
 
-| Étape                        | Note à chercher | Variable indice | Liste[indice] | Variable trouve |
+| Étape                        | Note à chercher | Variable i | Liste[i] | Variable trouve |
 |------------------------------|-----------------|-----------------|---------------|-----------------|
 | Avant de rentrer dans la boucle | 12              | 0               |               | Faux            |
 | Dans la boucle (1ère itération)  | 12              | 0               | 5             | Faux            |
@@ -133,6 +141,7 @@ Test effectué avec la liste : Liste = [5, 14, 18, 12, 10, 10, 9, 16] et la note
 | Dans la boucle (3ème itération)  | 12              |                 |               |                 |
 | Dans la boucle (4ème itération)  | 12              |                 |               |                 |
 | En sortie de boucle              | 12              |                 |               |                 |
+
 
 Intérêt de la boucle « while » par rapport à la boucle « for » : Le parcours du tableau pour trouver la valeur peut se terminer plus rapidement en fonction de la position de la valeur dans le tableau.
 
@@ -174,24 +183,26 @@ Une valeur (entière ou décimale) maximale du tableau est retournée.
 
 ```python
 def maxNote(Liste):
-    valeur = Liste[0]
-    for indice in range(1, len(Liste)):
-        if Liste[indice] > valeur:
-            valeur = Liste[indice]
-    return valeur
+    maxi = Liste[0]
+    for i in range(1, len(Liste)):
+        if Liste[i] > maxi:
+            maxi = Liste[i]
+    return maxi
 
 print(maxNote([5, 14, 18, 12, 10, 10, 9, 16]))
 ```
 
-Complexité de l’algorithme :
+???+ question "Tester ce qui est proposé"
 
- O(n) car il faut parcourir le tableau de dimension n.
+    {{ IDE() }}
+
+**Complexité de l’algorithme** : O(n) car il faut parcourir le tableau de dimension n.
 
 ### **<H3 STYLE="COLOR:GREEN;">Résultats du test :</H3>**
 
 Test effectué avec la liste : Liste = [5, 14, 18, 12, 10, 10, 9, 16]
 
-| Étape                        | Variable indice | Liste[indice] | Variable valeur |
+| Étape                        | Variable i | Liste[i] | Variable maxi |
 |------------------------------|-----------------|---------------|-----------------|
 | Avant de rentrer dans la boucle |                 | 5             | 5               |
 | Dans la boucle (1ère itération)  | 1               | 14            | 14              |
@@ -334,9 +345,7 @@ Test effectué avec la liste : Liste = [14, 18, 12, 10, 5, 10, 9, 16]
 Conclusion : L’algorithme se termine en un temps fini et produit la sortie désirée (calcul de la valeur moyenne).
 
 
-???+ question "Tester ce qui est proposé"
 
-    {{ IDE() }}
 
 
 
