@@ -9,13 +9,13 @@ title: 02a Récursivité
 
 **Table des matières**
 
-[1.	Algorithmes récursifs](#_toc144385077)
+[1.	Algorithmes récursifs](#$toc144385077)
 
-[2.	Les dangers de la récursivité](#_toc144385085)
+[2.	Les dangers de la récursivité](#$toc144385085)
 
-[3.	Exercices](#_toc144385086)
+[3.	Exercices](#$toc144385086)
 
-[4.	Projet (démarche d’investigation)](#_toc144385087)
+[4.	Projet (démarche d’investigation)](#$toc144385087)
 
 
 
@@ -25,7 +25,7 @@ title: 02a Récursivité
 - Analyser le fonctionnement d'un programme récursif
 
 
-## **<H2 STYLE="COLOR:BLUE;">1. Algorithmes récursifs<a name="#_toc144385077"></a></H2>**
+## **<H2 STYLE="COLOR:BLUE;">1. Algorithmes récursifs<a name="#$toc144385077"></a></H2>**
 
 ### **<H3 STYLE="COLOR:GREEN;">1.1. Introduction</H3>**
 
@@ -34,26 +34,26 @@ title: 02a Récursivité
 #### Version itérative :
 
 ```python
-def decompte_i(n):
+def decompte$i(n):
     while n > 0:
         print(n)
         n -= 1
     print("fin")
 
-print(decompte_i(5))
+print(decompte$i(5))
 ```
 
 #### Version récursive :
 
 ```python
-def decompte_r(n):
+def decompte$r(n):
     if n == 0:
         print("fin")
     else:
         print(n)
-        decompte_r(n - 1)
+        decompte$r(n - 1)
 
-print(decompte_r(5))
+print(decompte$r(5))
 ```
 
 **<H3 STYLE="COLOR:RED;">Activité n°2 :</h3>** Tester les deux fonctions sur [Python Tutor](http://pythontutor.com/visualize.html#mode=edit)
@@ -179,7 +179,7 @@ print(multiply(105, 253))
 #### Version itérative :
 
 ```python
-def multiply_i(x, y):
+def multiply$i(x, y):
     p = 0
     while x > 0:
         if x % 2 != 0:
@@ -192,11 +192,11 @@ def multiply_i(x, y):
 #### Version récursive :
 
 ```python
-def multiply_r(x, y):
+def multiply$r(x, y):
     if x <= 0:  # cas de base
         return 0
     elif x % 2 == 0:
-        return multiply_r(x // 2, y * 2)
+        return multiply$r(x // 2, y * 2)
     else:
         return multiply_r(x // 2, y * 2) + y
 ```
@@ -568,23 +568,23 @@ C(10, 5) == 252
 
 ### **<H3 STYLE="COLOR:GREEN;">Exercice n°9 : Recherche dans une chaîne de caractères</H3>**
 
-Écrire une fonction récursive nommée $est_dans$ qui, à partir d’un caractère `e` et d’une chaîne de caractères `c`, détermine si ce caractère appartient à la chaîne.
+Écrire une fonction récursive nommée $est\_dans$ qui, à partir d’un caractère `e` et d’une chaîne de caractères `c`, détermine si ce caractère appartient à la chaîne.
 
 Tester cette fonction.
 
-**Remarque :** La fonction $est_dans$ est un prédicat.
+**Remarque :** La fonction $est\_dans$ est un prédicat.
 
 ### **<H3 STYLE="COLOR:GREEN;">Exercice n°10 : Travail sur les listes</H3>**
 
-Écrire une fonction nommée $longueur_liste$ récursive qui, à partir d’une liste passée en argument, détermine sa longueur.
+Écrire une fonction nommée $longueur\_liste$ récursive qui, à partir d’une liste passée en argument, détermine sa longueur.
 
-Écrire une fonction nommée $produit_elements$ récursive qui, à partir d’une liste d’entiers passée en argument, calcule le produit de tous les nombres.
+Écrire une fonction nommée $produit\_elements$ récursive qui, à partir d’une liste d’entiers passée en argument, calcule le produit de tous les nombres.
 
-Écrire une fonction nommée $plus_grand_element$ récursive qui, à partir d’une liste d’entiers passée en argument, détermine quel est l’entier le plus grand.
+Écrire une fonction nommée $plus\_grand\_element$ récursive qui, à partir d’une liste d’entiers passée en argument, détermine quel est l’entier le plus grand.
 
-Écrire une fonction nommée $plus_petit_element$ récursive qui, à partir d’une liste d’entiers passée en argument, détermine quel est l’entier le plus petit.
+Écrire une fonction nommée $plus\_petit\_element$ récursive qui, à partir d’une liste d’entiers passée en argument, détermine quel est l’entier le plus petit.
 
-Écrire une fonction nommée $somme_listes_imbriquees$ récursive qui additionne tous les entiers des listes.
+Écrire une fonction nommée $somme\_listes\_imbriquees$ récursive qui additionne tous les entiers des listes.
 
 **Exemple de listes imbriquées :**
 
@@ -611,7 +611,7 @@ assert extrait([5, 4, 3, 2, 1], 3) == [5, 4, 3]
 
 Écrire une fonction nommée $renverse$ récursive qui, à partir d’une liste, retourne une liste dans laquelle les éléments sont renversés (les derniers apparaissent en premier).
 
-## **<H2 STYLE="COLOR:BLUE;">4. Projet (démarche d’investigation)<a name="#_toc144385087"></a></H2>**
+## **<H2 STYLE="COLOR:BLUE;">4. Projet (démarche d’investigation)<a name="#$toc144385087"></a></H2>**
 
 ### **<H3 STYLE="COLOR:GREEN;">Projet 1 : Le flocon de Koch</H3>**
 
