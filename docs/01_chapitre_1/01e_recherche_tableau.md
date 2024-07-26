@@ -59,40 +59,22 @@ print(rechercheNote([5, 14, 18, 11, 10, 12, 10, 9, 16], 12))
 
 ### **<H3 STYLE="COLOR:GREEN;">Résultats du test :</H3>**
 
-???+ question "Test effectué avec la liste : Liste = [5, 18, 10, 12, 10, 14, 18] et la note à rechercher 12."
 
-    **Compléter le tableau suivant**   
-    | Étape                        | Note à chercher | Variable i | Liste[i] | Variable trouve |
-    |------------------------------|-----------------|-----------------|---------------|-----------------|
-    | Avant de rentrer dans la boucle | 12              |                 |               | Faux            |
-    | Dans la boucle (1ère itération)  | 12              | 0               | 5             | Faux            |
-    | Dans la boucle (2ème itération)  | 12              |                 |               |                 |
-    | Dans la boucle (3ème itération)  | 12              |                 |               |                 |
-    | Dans la boucle (4ème itération)  | 12              |                 |               |                 |
-    | Dans la boucle (5ème itération)  | 12              |                 |               |                 |
-    | Dans la boucle (6ème itération)  | 12              |                 |               |                 |
-    | Dans la boucle (7ème itération)  | 12              |                 |               |                 |
-    | En sortie de boucle              | 12              |                 |               |                 |
+Test effectué avec la liste : Liste = [5, 18, 10, 12, 10, 14, 18] et la note à rechercher 12.
 
+| Étape                        | Note à chercher | Variable i | Liste[i] | Variable trouve |
+|------------------------------|-----------------|-----------------|---------------|-----------------|
+| Avant de rentrer dans la boucle | 12              |                 |               | Faux            |
+| Dans la boucle (1ère itération)  | 12              | 0               | 5             | Faux            |
+| Dans la boucle (2ème itération)  | 12              |                 |               |                 |
+| Dans la boucle (3ème itération)  | 12              |                 |               |                 |
+| Dans la boucle (4ème itération)  | 12              |                 |               |                 |
+| Dans la boucle (5ème itération)  | 12              |                 |               |                 |
+| Dans la boucle (6ème itération)  | 12              |                 |               |                 |
+| Dans la boucle (7ème itération)  | 12              |                 |               |                 |
+| En sortie de boucle              | 12              |                 |               |                 |
 
-    ??? success "Solution"
-
-        La couleur du cheval blanc d'Henri IV est le blanc. En fait  la robe du cheval d'Henri IV était probablement grise.
-
-    **2.** Question 2.   
-    Quelle est la proportion de la terre recouverte par les océans ?
-
-    ??? success "Solution"
-
-        Environ 71 %.
-
-        Pour approfondir : [Lien wikipédia sur les océans](https://fr.wikipedia.org/wiki/Oc%C3%A9an){ .md-button target="_blank" rel="noopener" }
-
-
-
-
-
-Conclusion : L’algorithme se termine en un temps fini et produit la sortie désirée (présence ou non de la valeur recherchée).
+**Conclusion** : L’algorithme se termine en un temps fini et produit la sortie désirée (présence ou non de la valeur recherchée).
 
 ## **<H2 STYLE="COLOR:BLUE;">Rechercher une valeur dans un tableau (version 2)</H2>**
 
@@ -164,7 +146,7 @@ Test effectué avec la liste : Liste = [5, 14, 18, 12, 10, 10, 9, 16] et la note
 
 Intérêt de la boucle « while » par rapport à la boucle « for » : Le parcours du tableau pour trouver la valeur peut se terminer plus rapidement en fonction de la position de la valeur dans le tableau.
 
-Conclusion : On a une affectation supplémentaire et une condition supplémentaire...
+**Conclusion** : On a une affectation supplémentaire et une condition supplémentaire...
 
 ## **<H2 STYLE="COLOR:BLUE;">Rechercher une valeur maximale dans un tableau</H2>**
 
@@ -234,7 +216,7 @@ Test effectué avec la liste : Liste = [5, 14, 18, 12, 10, 10, 9, 16]
 | Dans la boucle (8ème itération)  |                 |               |                 |
 | En sortie de boucle              |                 |               |                 |
 
-Conclusion : L’algorithme se termine en un temps fini et produit la sortie désirée (valeur maximale du tableau trouvée).
+**Conclusion** : L’algorithme se termine en un temps fini et produit la sortie désirée (valeur maximale du tableau trouvée).
 
 ## **<H2 STYLE="COLOR:BLUE;">Rechercher une valeur minimale dans un tableau</H2>**
 
@@ -281,7 +263,7 @@ def minNote(Liste):
 print(minNote([14, 18, 12, 10, 5, 10, 9, 16]))
 ```
 
-Complexité de l’algorithme : O(n) car il faut parcourir le tableau de dimension n.
+**Complexité de l’algorithme** : O(n) car il faut parcourir le tableau de dimension n.
 
 ### **<H3 STYLE="COLOR:GREEN;">Résultats du test :</H3>**
 
@@ -299,7 +281,7 @@ Test effectué avec la liste : Liste = [14, 18, 12, 10, 5, 10, 9, 16]
 | Dans la boucle (7ème itération)  |                 |               |                 |
 | En sortie de boucle              |                 |               |                 |
 
-Conclusion : L’algorithme se termine en un temps fini et produit la sortie désirée (valeur minimale du tableau trouvée).
+**Conclusion** : L’algorithme se termine en un temps fini et produit la sortie désirée (valeur minimale du tableau trouvée).
 
 ## **<H2 STYLE="COLOR:BLUE;">Calculer la valeur moyenne d’un tableau</H2>**
 
@@ -335,14 +317,15 @@ La moyenne (décimale) des notes du tableau est retournée.
 
 ```python
 def moyenneNote(Liste):
-    somme = sum(Liste)
-    moyenne = somme / len(Liste)
-    return moyenne
+    somme = 0
+    for elmt in Liste:
+        somme += elmt
+    return somme / len(Liste)
 
 print(moyenneNote([14, 18, 12, 10, 5, 10, 9, 16]))
 ```
 
-Complexité de l’algorithme : O(n) car il faut parcourir le tableau de dimension n.
+**Complexité de l’algorithme** : O(n) car il faut parcourir le tableau de dimension n.
 
 ### **<H3 STYLE="COLOR:GREEN;">Résultats du test :</H3>**
 
@@ -361,7 +344,7 @@ Test effectué avec la liste : Liste = [14, 18, 12, 10, 5, 10, 9, 16]
 | Dans la boucle (8ème itération)  |                 |               |                | X                |
 | En sortie de boucle              |                 |               |                |                  |
 
-Conclusion : L’algorithme se termine en un temps fini et produit la sortie désirée (calcul de la valeur moyenne).
+**Conclusion** : L’algorithme se termine en un temps fini et produit la sortie désirée (calcul de la valeur moyenne).
 
 
 
