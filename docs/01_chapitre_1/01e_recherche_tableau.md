@@ -3,10 +3,8 @@ author: ELP
 title: 01e Fiche méthode - Recherche d'une valeur dans un tableau
 ---
 
-Voici le document converti en Markdown avec les balises de couleur et les titres en gras comme demandé.
 
-```markdown
-# **Fiche : Recherche d’une valeur dans un tableau**
+
 
 ## **<H2 STYLE="COLOR:BLUE;">Rechercher une valeur dans un tableau (version 1)</H2>**
 
@@ -334,9 +332,7 @@ Test effectué avec la liste : Liste = [14, 18, 12, 10, 5, 10, 9, 16]
 | En sortie de boucle              |                 |               |                |                  |
 
 Conclusion : L’algorithme se termine en un temps fini et produit la sortie désirée (calcul de la valeur moyenne).
-```
 
-Assurez-vous que les fichiers d'images nécessaires sont placés à la racine du dossier où ce fichier Markdown sera situé.
 
 ???+ question "Tester ce qui est proposé"
 
