@@ -43,8 +43,8 @@ Un booléen vrai est retourné si la note est présente dans le tableau.
 
 ```python
 def rechercheNote(Liste, note):
-    for ii in range(len(Liste)):
-        if Liste[ie] == note:
+    for i in range(len(Liste)):
+        if Liste[i] == note:
             return True
     return False
 
@@ -59,9 +59,10 @@ print(rechercheNote([5, 14, 18, 11, 10, 12, 10, 9, 16], 12))
 
 ### **<H3 STYLE="COLOR:GREEN;">Résultats du test :</H3>**
 
-Test effectué avec la liste : Liste = [5, 18, 10, 12, 10, 14, 18] et la note à rechercher 12.
+???+ question "Test effectué avec la liste : Liste = [5, 18, 10, 12, 10, 14, 18] et la note à rechercher 12."
 
-| Étape                        | Note à chercher | Variable i | Liste[i] | Variable trouve |
+    ** Compléter le tableau suivant   
+    | Étape                        | Note à chercher | Variable i | Liste[i] | Variable trouve |
 |------------------------------|-----------------|-----------------|---------------|-----------------|
 | Avant de rentrer dans la boucle | 12              |                 |               | Faux            |
 | Dans la boucle (1ère itération)  | 12              | 0               | 5             | Faux            |
@@ -72,6 +73,13 @@ Test effectué avec la liste : Liste = [5, 18, 10, 12, 10, 14, 18] et la note à
 | Dans la boucle (6ème itération)  | 12              |                 |               |                 |
 | Dans la boucle (7ème itération)  | 12              |                 |               |                 |
 | En sortie de boucle              | 12              |                 |               |                 |
+
+
+    ??? success "Solution"
+
+        La couleur du cheval blanc d'Henri IV est le blanc. En fait  la robe du cheval d'Henri IV était probablement grise.
+
+
 
 Conclusion : L’algorithme se termine en un temps fini et produit la sortie désirée (présence ou non de la valeur recherchée).
 
