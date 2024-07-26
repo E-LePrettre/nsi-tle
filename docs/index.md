@@ -3,7 +3,7 @@
 
 EN CONSTRUCTION!!! a très bientôt!!
 
-1. A la découverte de Python
+1. Révisions de 1re
 2. Les bases de Python
 3. Mise au point et exception
 4. Codage de l'information
