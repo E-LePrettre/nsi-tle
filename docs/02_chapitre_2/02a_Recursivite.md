@@ -128,6 +128,12 @@ On obtient bien la fonction souhaitée.
 
 **Remarque :** Le principe de programmation par récursivité est basé sur le fonctionnement de « l’empilement – dépilement » à l’aide d’une pile d’exécution stockant l’adresse mémoire de la prochaine instruction machine à exécuter et conservant une "trace" des valeurs des variables.
 
+Dans le cas de puissance(2,4) on obtiendra :
+
+![](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.003.png)
+
+La mise en œuvre des algorithmes récursifs nécessite le plus souvent une **pile d’exécution**. 
+
 ### **<H3 STYLE="COLOR:green;">1.4. Fonction récursive sans cas de base….</H3>**
 
 **<H3 STYLE="COLOR:RED;">Activité n°4 :</h3>** Fonction récursive sans condition d’arrêt :
@@ -205,6 +211,21 @@ def multiply$r(x, y):
 print(multiply_i(105, 253))
 print(multiply_r(105, 253))
 ```
+
+|<p></p><p>Calcul de 105 x 253 par la méthode du paysan russe, p = 0 (au départ)</p>|
+| :- | - |
+
+|*x impair*|V|F|F|V|F|V|V|
+| - | - | - | - | - | - | - | - |
+|`       `p = p + y|253|||2277||10373|26565|
+|x = x // 2|52|26|13|6|3|1|0|
+|y = y \* 2|506|1012|2024|4048|8096|16192|32384|
+
+||105 x 253 = 26565|
+| :- | - |
+
+On ramène ainsi le problème du calcul du produit de *x* par *y* à un **sous-problème**. 
+
 
 ### **<H3 STYLE="COLOR:green;">1.6. Application au calcul de factorielle</H3>**
 
