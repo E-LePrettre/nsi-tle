@@ -271,10 +271,12 @@ print(multiply_r(105, 253))
 
 ### **<H3 STYLE="COLOR:green;">1.6. Application au calcul de factorielle**</H3>
 
-La factorielle : qu’est-ce que c’est ?
+**La factorielle : qu’est-ce que c’est ?**
 La fonction factorielle indique le nombre de permutations dans un ensemble comportant n éléments. Par exemple, il existe $3! = 6$ façons d’arranger les 3 caractères ‘a’ ‘b’ ‘c’ : `‘abc’ ‘acb’ ‘bac’ ‘bca’ ‘cab’ et ‘cba’`.
 
-$n! = n × (n-1) × ... × 2 × 1$ pour `n` entier > 0. Cas particulier : $0! = 1$.
+$n! = n × (n-1) × ... × 2 × 1$ pour `n` entier > 0. 
+
+Cas particulier : $0! = 1$.
 
 **<H3 STYLE="COLOR:RED;">Activité n°6 :**</H3> Tester les deux implémentations suivantes :
 
@@ -287,7 +289,13 @@ def factorielle_i(n):
         result *= n
         n -= 1
     return result
+
+print(factorielle_i(10))
 ```
+
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
 
 #### Version récursive :
 
@@ -296,12 +304,13 @@ def factorielle_r(n):
     if n == 1 or n == 0:
         return 1
     return n * factorielle_r(n - 1)
-```
 
-```python
-print(factorielle_i(10))
 print(factorielle_r(10))
 ```
+
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
 
 ### **<H3 STYLE="COLOR:GREEN;">1.7. Application aux tours de Hanoï**</H3>
 
