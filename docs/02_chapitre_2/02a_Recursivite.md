@@ -312,6 +312,8 @@ print(factorielle_r(10))
 
     {{ IDE() }}
 
+![fonction récursive](factorielle.gif)
+
 ### **<H3 STYLE="COLOR:GREEN;">1.7. Application aux tours de Hanoï**</H3>
 
 Le casse-tête des tours de Hanoï est un jeu de réflexion consistant à déplacer des disques de diamètres différents d'une tour de « départ » à une tour d'« arrivée » en passant par une tour « intermédiaire » en un minimum de coups tout en respectant les règles suivantes :
