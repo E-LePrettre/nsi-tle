@@ -117,6 +117,10 @@ def puissance(x, n):
 print(puissance(2, 5))
 ```
 
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
+
 **Remarque :** Souvent on « oublie » de noter le `else` car si on ne fait pas le cas de base, le cas récursif doit se faire par défaut.
 
 ```python
@@ -127,6 +131,10 @@ def puissance(x, n):
 
 print(puissance(2, 4))
 ```
+
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
 
 **Correction**
 
@@ -242,11 +250,11 @@ print(multiply_i(105, 253))
 #### Version récursive :
 
 ```python
-def multiply$r(x, y):
+def multiply_r(x, y):
     if x <= 0:  # cas de base
         return 0
     elif x % 2 == 0:
-        return multiply$r(x // 2, y * 2)
+        return multiply_r(x // 2, y * 2)
     else:
         return multiply_r(x // 2, y * 2) + y
 
