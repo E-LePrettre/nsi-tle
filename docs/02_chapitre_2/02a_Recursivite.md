@@ -461,20 +461,30 @@ print(fibo_r(10))
 ```python
 import time
 
-for k in range(5):
-    print((k + 1) * 10)
+for k in range (1,5):
+    print(k*10)
+    a = time. perf_counter_ns()
+    fibo_i(k*10)
+    b = time. perf_counter_ns()
+    print("itératif :", b-a, "s")
     a = time.perf_counter_ns()
-    fibo_i((k + 1) * 10)
+    fibo_r(k*10)
     b = time.perf_counter_ns()
-    print("itératif :", b - a, "ns")
-    a = time.perf_counter_ns()
-    fibo_r((k + 1) * 10)
-    b = time.perf_counter_ns()
-    print("récursif :", b - a, "ns")
+    print("récursif :", b-a, "ns")
 ```
 on obtient:
 ```
-
+itératif : 2000 s
+récursif : 13900 ns
+20
+itératif : 2500 s
+récursif : 1568900 ns
+30
+itératif : 7400 s
+récursif : 212337100 ns
+40
+itératif : 5100 s
+récursif : 25683467600 ns
 ```
 
 **Table des résultats :**
@@ -487,7 +497,7 @@ on obtient:
 | 40  | 42 835 094 000      | 6 900                     |
 | 50  | 7 264 000 000       | 8 200                     |
 
-Pourquoi une telle différence ?
+**Pourquoi une telle différence ?**
 
 Observons comment se passe le calcul récursif. Calculons `fib(5)` avec la méthode récursive :
 
@@ -506,11 +516,13 @@ fib(5)  -> fib(4) + fib(3)
         -> 3 + 2
         -> 5
 ```
+
+On peut aussi représenter les appels de fonction dans un arbre (**arbre d’appels**).
+
 Rafraichir la page pour voir l'animation (F5)
 
 ![fonction récursive](fibonacci.gif)
 
-On peut aussi représenter les appels de fonction dans un arbre (arbre d’appels).
 
 On voit que ce n’est pas efficace : par exemple `fib(3)` est appelé deux fois, ce qui est une perte de temps. De plus, on imagine bien que l’arbre va devenir très vite gigantesque avec un très grand nombre d’appels inutiles.
 
@@ -521,18 +533,23 @@ On voit que ce n’est pas efficace : par exemple `fib(3)` est appelé deux fois
 ### **<H3 STYLE="COLOR:GREEN;">Exercice n°1 : La fonction somme**</H3>
 
 Pour définir la somme des n premiers entiers, on a l’habitude d’écrire la formule suivante : $0 + 1 + 2 + ... + n$
+
 Écrire une fonction $somme(n)$ en récursif.
 
 **Aide :**
+
 - Déterminer le(s) cas de base
+
 - Déterminer le cas récursif
 
 ### **<H3 STYLE="COLOR:GREEN;">Exercice n°2 : Le palindrome**</H3>
 
 On appelle palindrome un mot qui se lit dans les deux sens comme "selles" ou "radar".
+
 La fonction ci-contre renvoie vrai si le mot passé en paramètre est un palindrome. Pour le mot "selles" composé de 6 lettres, on fait 3 comparaisons. Pour le mot "radar" composé de 5 lettres, on ne fait que 2 comparaisons (une unique lettre est forcément un palindrome).
 
 En version récursive, l’idée est : "selles" est un palindrome si "s" = "s" et "elle" est un palindrome => cas récursif.
+
 Écrire une version récursive de la fonction $est\_palindrome(mot)$.
 
 **Aide :**
@@ -573,15 +590,15 @@ C’est ce qu’on appelle la suite de Syracuse du nombre 14. Une fois le nombre
 
 Elle est définie par :
 
-- $x1 = a ∈ N*$
+- $x_1 = a ∈ N*$
 
-- $xn+1 = xn / 2$ si $xn$ est pair
+- $x_{n+1} = x_n / 2$ si $x_n$ est pair
 
-- $3xn + 1$ si $xn$ est impair
+- $3x_n + 1$ si $x_n$ est impair
 
-Vérifier par le calcul que pour $a = 14$ et $n = 20$ la suite est des nombres : 14, 7, 22, 11, 34, 17, 52, 26, 13, 40, 20, 10, 5, 16, 8, 4, 2, 1, 4, 2.
+1 Vérifier par le calcul que pour $a = 14$ et $n = 20$ la suite est des nombres : 14, 7, 22, 11, 34, 17, 52, 26, 13, 40, 20, 10, 5, 16, 8, 4, 2, 1, 4, 2.
 
-Écrire en Python une fonction itérative $syracuse\_iter(a, n)$ : donnant la suite de Syracuse lorsqu’on entre en paramètre la valeur de $a$ et le rang $n$.
+2 Écrire en Python une fonction itérative $syracuse\_iter(a, n)$ : donnant la suite de Syracuse lorsqu’on entre en paramètre la valeur de $a$ et le rang $n$.
 
 **Vérifier les tests suivants :**
 
@@ -591,7 +608,7 @@ assert syracuse_iter(14, 3) == 22
 assert syracuse_iter(14, 20) == 2
 ```
 
-Écrire une version récursive $syracuse_recur(a, n)$. 
+3 crire une version récursive $syracuse\_recur(a, n)$. 
 
 **Vérifier les tests suivants :**
 
@@ -601,7 +618,7 @@ assert syracuse_recur(14, 3) == 22
 assert syracuse_recur(14, 20) == 2
 ```
 
-La conjecture de Syracuse (encore appelée conjecture de Collatz ou conjecture d’Ulam) est l’hypothèse mathématique selon laquelle la suite de Syracuse de n’importe quel entier strictement positif atteint 1.
+4 La conjecture de Syracuse (encore appelée conjecture de Collatz ou conjecture d’Ulam) est l’hypothèse mathématique selon laquelle la suite de Syracuse de n’importe quel entier strictement positif atteint 1.
 
 Écrire la fonction $syracuse$ à un paramètre entier qui retourne la longueur de la suite de Syracuse de cet entier (le nombre de termes) pour obtenir 1.
 
@@ -613,33 +630,37 @@ assert syracuse(2) == 2
 
 ### **<H3 STYLE="COLOR:GREEN;">Exercice n°5 : Le PGCD**</H3>
 
-Calculer le PGCD de deux entiers `a` et `b` :
+Écrire une fonction récursive $pgcd(a, b)$ qui renvoie le PGCD de deux entiers `a` et `b`. 
+
+![](42.png)
 
 **Exemple :**
 
-```python
+```
 pgcd(60, 32)
 60 = 32 x 1 + 28
 32 = 28 x 1 + 4
 28 = 4 x 7 + 0
 4 = 0 x 0 + 4
+=> 4
 ```
 
-```python
+```
 pgcd(96, 36)
 96 = 36 x 2 + 24
 36 = 24 x 1 + 12
 24 = 12 x 2 + 0
 12 = 0 x 0 + 12
+=> 12
 ```
 
-Écrire une fonction récursive $pgcd(a, b)$ qui renvoie le PGCD de deux entiers `a` et `b`.
+
 
 **Exemple :**
 
 ```python
-pgcd(96, 36) == 12
-pgcd(60, 32) == 4
+assert pgcd(96, 36) == 12
+assert pgcd(60, 32) == 4
 ```
 
 ### **<H3 STYLE="COLOR:GREEN;">Exercice n°6 : Nombre de chiffres**</H3>
@@ -649,7 +670,7 @@ pgcd(60, 32) == 4
 **Exemple :**
 
 ```python
-nombre_de_chiffres(34126) == 5
+assert nombre_de_chiffres(34126) == 5
 ```
 
 ### **<H3 STYLE="COLOR:GREEN;">Exercice n°7 : Appartient**</H3>
@@ -660,29 +681,33 @@ nombre_de_chiffres(34126) == 5
 
 ```python
 t = [1, 3, 5, 6, 7, 9, 10]
-appartient(7, t, 5) == False
-appartient(7, t, 3) == True
+assert appartient(7, t, 5) == False
+assert appartient(7, t, 3) == True
 ```
 
 ### **<H3 STYLE="COLOR:GREEN;">Exercice n°8 : Le triangle de Pascal**</H3>
 
 Le triangle arithmétique de Pascal est le triangle dont la ligne d'indice `n` (n = 0, 1, 2, ...) donne les coefficients binomiaux $C(n, p)$ pour $p = 0, 1, 2, ... n$.
 
-Les coefficients du triangle de Pascal sont les coefficients du développement de $(a + b)^n$.
+![](43.png)
+
+**Coefficients du développement de $(a + b)^n$** : Les coefficients du triangle de Pascal sont les coefficients du développement de $(a + b)^n$.
 
 **Exemple :**
 
-La ligne 0 est : 1, soit le coefficient de $(a + b)^0 = 1$.
+- La ligne 0 est : 1, soit le coefficient de $(a + b)^0 = 1$.
 
-La ligne 1 est : 1 - 1, soit les coefficients de $(a + b)^1 = 1×a + 1×b$.
+- La ligne 1 est : 1 - 1, soit les coefficients de $(a + b)^1 = 1×a + 1×b$.
 
-La ligne 2 est : 1 - 2 - 1, soit les coefficients de $(a + b)^2 = 1×a^2 + 2×ab + 1×b^2$.
+- La ligne 2 est : 1 - 2 - 1, soit les coefficients de $(a + b)^2 = 1×a^2 + 2×ab + 1×b^2$.
 
-La ligne 3 est : 1 - 3 - 3 - 1, soit les coefficients de $(a + b)^3 = 1×a^3 + 3×a^2b + 3×ab^2 + 1×b^3$.
+- La ligne 3 est : 1 - 3 - 3 - 1, soit les coefficients de $(a + b)^3 = 1×a^3 + 3×a^2b + 3×ab^2 + 1×b^3$.
 
-La ligne 4 est : 1 - 4 - 6 - 4 - 1, soit les coefficients de $(a + b)^4 = 1×a^4 + 4×a^3b + 6×a^2b^2 + 4×ab^3 + 1×b^4$.
+- La ligne 4 est : 1 - 4 - 6 - 4 - 1, soit les coefficients de $(a + b)^4 = 1×a^4 + 4×a^3b + 6×a^2b^2 + 4×ab^3 + 1×b^4$.
 
-En analyse combinatoire, les nombres $C(n, p)$ correspondent au nombre de façons de tirer `p` objets parmi `n`.
+![](44.png)
+
+**En analyse combinatoire**, les nombres $C(n, p)$ correspondent au nombre de façons de tirer `p` objets parmi `n`.
 
 **Exemple :**
 
@@ -695,9 +720,15 @@ La ligne 5 est : 1 - 5 - 10 - 10 - 5 - 1, donc :
 - $C(5, 4) = 5$ : Il y a 5 façons de tirer 4 objets parmi 5.
 - $C(5, 5) = 1$ : Il y a 1 seule façon de tirer 5 objets parmi 5.
 
-Le triangle de Pascal est défini de manière récursive :
+**Le triangle de Pascal Suite de Fibonacci**
 
-```markdown
+Remarquer que ...
+
+![](29.jpg)
+
+Le triangle de Pascal (nommé ainsi en l’honneur au mathématicien Blaise Pascal) est une présentation des coefficients binomiaux sous la forme d’un triangle défini ainsi de manière récursive :
+
+```
 C(n, p) = 1 si p = 0 ou n = p
 C(n, p) = C(n - 1, p - 1) + C(n - 1, p) sinon.
 ```
@@ -707,28 +738,28 @@ C(n, p) = C(n - 1, p - 1) + C(n - 1, p) sinon.
 **Exemple :**
 
 ```python
-C(10, 5) == 252
+assert C(10, 5) == 252
 ```
 
 ### **<H3 STYLE="COLOR:GREEN;">Exercice n°9 : Recherche dans une chaîne de caractères**</H3>
 
-Écrire une fonction récursive nommée $est\_dans$ qui, à partir d’un caractère `e` et d’une chaîne de caractères `c`, détermine si ce caractère appartient à la chaîne.
+crire une fonction récursive nommée $est\_dans$ qui, à partir d’un caractère `e` et d’une chaîne de caractères `c`, détermine si ce caractère appartient à la chaîne.
 
 Tester cette fonction.
 
-**Remarque :** La fonction $est\_dans$ est un prédicat.
+**Remarque :** La fonction $est\_dans$ est un **prédicat**.
 
 ### **<H3 STYLE="COLOR:GREEN;">Exercice n°10 : Travail sur les listes**</H3>
 
-Écrire une fonction nommée $longueur\_liste$ récursive qui, à partir d’une liste passée en argument, détermine sa longueur.
+1 Écrire une fonction nommée $longueur\_liste$ récursive qui, à partir d’une liste passée en argument, détermine sa longueur.
 
-Écrire une fonction nommée $produit\_elements$ récursive qui, à partir d’une liste d’entiers passée en argument, calcule le produit de tous les nombres.
+2 Écrire une fonction nommée $produit\_elements$ récursive qui, à partir d’une liste d’entiers passée en argument, calcule le produit de tous les nombres.
 
-Écrire une fonction nommée $plus\_grand\_element$ récursive qui, à partir d’une liste d’entiers passée en argument, détermine quel est l’entier le plus grand.
+3 Écrire une fonction nommée $plus\_grand\_element$ récursive qui, à partir d’une liste d’entiers passée en argument, détermine quel est l’entier le plus grand.
 
-Écrire une fonction nommée $plus\_petit\_element$ récursive qui, à partir d’une liste d’entiers passée en argument, détermine quel est l’entier le plus petit.
+4 Écrire une fonction nommée $plus\_petit\_element$ récursive qui, à partir d’une liste d’entiers passée en argument, détermine quel est l’entier le plus petit.
 
-Écrire une fonction nommée $somme\_listes\_imbriquees$ récursive qui additionne tous les entiers des listes.
+5 Écrire une fonction nommée $somme\_listes\_imbriquees$ récursive qui additionne tous les entiers des listes.
 
 **Exemple de listes imbriquées :**
 
@@ -739,19 +770,19 @@ l2 = [1, [2, [3, [4, [5]]]]]
 
 **Remarque :** Cette question peut illustrer par exemple la recherche de l’occupation disque de tous les fichiers dans la structure arborescente d’un système de fichiers à partir d’un point de cette structure.
 
-Écrire une fonction nommée $duplique$ récursive qui, à partir d’un élément `e` et d’un entier `n`, retourne une liste qui contient l’élément `e` un nombre de fois égal à `n`.
+6 Écrire une fonction nommée $duplique$ récursive qui, à partir d’un élément `e` et d’un entier `n`, retourne une liste qui contient l’élément `e` un nombre de fois égal à `n`.
 
 ```python
 assert duplique(5, 3) == [5, 5, 5]
 ```
 
-Écrire une fonction nommée $extrait$ récursive qui, à partir d’une liste `l` et d’un entier `n`, retourne une liste constituée par les `n` premiers éléments de `l`.
+7 Écrire une fonction nommée $extrait$ récursive qui, à partir d’une liste `l` et d’un entier `n`, retourne une liste constituée par les `n` premiers éléments de `l`.
 
 ```python
 assert extrait([5, 4, 3, 2, 1], 3) == [5, 4, 3]
 ```
 
-Écrire une fonction nommée $renverse$ récursive qui, à partir d’une liste, retourne une liste dans laquelle les éléments sont renversés (les derniers apparaissent en premier).
+8 Écrire une fonction nommée $renverse$ récursive qui, à partir d’une liste, retourne une liste dans laquelle les éléments sont renversés (les derniers apparaissent en premier).
 
 ## **<H2 STYLE="COLOR:BLUE;">4. Projet (démarche d’investigation)<a name="#$toc144385087"></a>**</H2>
 
@@ -759,7 +790,11 @@ assert extrait([5, 4, 3, 2, 1], 3) == [5, 4, 3]
 
 Le flocon de Koch est l’une des premières courbes fractales à avoir été décrite (bien avant l’invention du terme « fractal(e)»). Elle a été inventée en 1904 par le mathématicien suédois Helge von Koch.
 
+![](45.png)
+
 **Méthode de construction :**
+
+![](46.png)
 
 1. On commence par un segment de longueur $a$.
 2. On coupe ce segment en 3 parties égales.
@@ -768,9 +803,12 @@ Le flocon de Koch est l’une des premières courbes fractales à avoir été d�
 5. On remplace la partie centrale par un triangle équilatéral de côté $a/9$.
 6. Etc...
 
+
 On décide à l’avance quand on doit s’arrêter.
 
-**Analyser ce script et le faire fonctionner :**
+![](47.png)
+
+1 Analyser ce script et le faire fonctionner
 
 ```python
 import turtle
@@ -781,20 +819,19 @@ turtle.left(120)
 turtle.forward(100)
 ```
 
-**Une autre partie de script à analyser et à faire fonctionner :**
+2 Une autre partie de script à analyser et à faire fonctionner
 
 ```python
 import turtle as t
-
 # déplace la tortue aux coordonnées
 t.penup()
 t.goto(-100, 0)
 t.pendown()
-
-# orientation initiale de la tête : vers la droite de l’écran
+# orientation initiale de la tête :
+#vers la droite de l’écran
 t.setheading(0)
-t.hideturtle()  # on cache la tortue
-t.speed(0)  # on accélère la tortue
+t.hideturtle() # on cache la tortue
+t.speed(0) # on accélère la tortue
 t.color('blue')
 t.pensize(3)
 t.forward(100)
@@ -806,91 +843,121 @@ t.left(60)
 t.forward(100)
 ```
 
-**Compléter l’algorithme suivant :**
+3 Compléter l’algorithme suivant :
 
-```markdown
-fonction koch(longueur, n):
-    Si n = 0 alors
-        On trace le segment de longueur côté
-    Sinon
-        On appelle la fonction flocon avec les paramètres ???
-        On tourne de ???
-        ???
-        ???
-        ???
-        ???
-        ???
+```
+fonction koch(longueur,n): 
+Si n = 0 alors 
+    On trace le segment de longueur cote 
+Sinon 
+    On appelle la fonction flocon avec les paramètres ???
+    On tourne de ???
+    ???
+    ???
+    ???
+    ???
+    ???
 ```
 
-**Implémenter l’algorithme :**
+4 Implémenter l’algorithme
 
 ```python
 import turtle
 
-def koch(longueur, n):
-    if n == 0:
-        # à compléter
+def koch(*longueur*, *n*):
+    if *n* == 0:
+        # à completer
     else:
-        # à compléter
+        # à completer
 
-koch(200, 3)
+koch(200,3)
 ```
 
-**Cerise sur le gâteau :** Sauriez-vous faire afficher cette figure :
+5 Cerise sur le gateau : Sauriez vous faire afficher cette figure :
 
-### **<H3 STYLE="COLOR:GREEN;">Projet 2 : Le triangle de Sierpinski**</H3>
+![](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.032.png)
+
+**Projet 2 Le triangle de Sierpinski**
 
 Utiliser une fonction récursive pour réaliser les triangles de Sierpinski ci-dessous.
 
-Selon la valeur du nombre du niveau, on aura une représentation plus ou moins « dentelée ».
+![](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.034.png)![](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.036.png)![](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.033.png)![](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.035.png)
 
-**Aides :**
+![](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.041.png)![](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.042.png)![](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.043.png)
 
-- Seuls les petits triangles sont coloriés => mauvaise idée de tout colorier puis de rajouter des triangles blancs.
-- Pour passer d’un triangle de niveau supérieur vers un triangle inférieur, il faut diviser par 2.
 
-La fonction à créer a pour prototypage : $sierpinski(n : int, L : int)$ où $n$ est le niveau souhaité (de 0 à l’infini) et $L$ la longueur d’un des côtés du grand triangle.
+Selon la valeur du nombre du niveau on aura une représentation plus ou moins « dentelée »
 
-On pourra prendre $L = 600$ et se déplacer au départ en $(-300, -300)$ pour centrer le dessin si on choisit d’aller vers la gauche…
+**Aides** : 
 
-Pensez à $turtle.speed(0)$ au début et $turtle.done()$ à la fin.
+- seuls les petits triangles sont coloriés => mauvaise idée de tout coloriée puis de rajouter des triangles blancs
 
-Au-dessus du 6ème niveau, il faut augmenter $L$ pour pouvoir le voir.
+- pour passer d’un triangle de niveau supérieur vers un triangle inférieur il faut diviser par 2
 
-### **<H3 STYLE="COLOR:GREEN;">Projet 3 : Le tapis de Sierpinski**</H3>
+- La fonction à créer a pour prototypage : sierpinski(n : int, L : int) où n est le niveau souhaité (de 0 à l’infini) et L la longueur d’un des côtés du grand triangle 
 
-Utiliser une fonction récursive pour réaliser les triangles de Sierpinski ci-dessous. L’idée est d’arriver à un beau tapis de ce style (le dernier).
+- On **pourra** prendre L = 600 et se déplacer au départ en (-300, -300) pour center le dessin si on choisit d’aller vers la gauche…
 
-**Principe mathématique :**
+- Pensez à turtle.speed(0) au début et turtle.done() à la fin
 
-1. On part donc d’un carré vide que l’on s’empresse de découper en 9 cases identiques puis on remplit le carré central : Étape 1.
-2. Ensuite dans chaque carré vide, on fait la même chose que dans le carré initial : on le découpe en 9 cases identiques et on remplit le carré central : Étape 2.
-3. On recommence avec les nouveaux carrés vides : Étape 3.
-4. Et on fait cela à l’infini. Le résultat final donne le tapis de Sierpinski.
+- Au-dessus du 6<sup>ème</sup> niveau il faut augmenter L pour pouvoir le voir
 
-### **<H3 STYLE="COLOR:GREEN;">Projet 4 : Arbre de Pythagore**</H3>
+**Projet 3 Le tapis de Sierpinski**
 
-Proposer une tortue Python récursive réalisant :
+Utiliser une fonction récursive pour réaliser les triangles de Sierpinski ci-dessous. L’idée est d’arrivée à un beau tapis de ce style (le dernier)
 
-- Avec $p = 1$ : Pythagore 1
-- Avec $p = 2$ : Pythagore 2
-- Avec $p = 3$ : Pythagore 3
-- Avec $p = 10$ : Pythagore 10
+[](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.048.png)![](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.049.png)![](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.047.png)!![](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.050.png)
 
-**Aide :**
 
-On pourra utiliser $turtle.colormode(255)$ pour coder en RGB puis un $random.randint(0, 255)$ sur les trois couleurs RGB.
 
-### **<H3 STYLE="COLOR:GREEN;">Projet 5 : Arbre de la forêt**</H3>
+
+
+
+
+
+
+**Le principe mathématique**
+
+On part donc d’un carré vide, que l’on s’empresse de découper en 9 cases identiques, puis on remplit le carré central:
+
+![triangle de sierpinsky : étape 1](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.051.png)
+
+**Étape 1** Ensuite, dans chaque carré vide, on fait la même chose que dans le carré initial : on le découpe en 9 cases identiques et on remplit le carré central:
+
+![tapis de sierpinsky : étape 2](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.052.png)
+
+**Étape 2**On recommence avec les nouveaux carrés vides:
+
+![tapis de sierpinsky : étape 3](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.053.png)
+
+Et on fait cela à l’infini. Le résultat final donne le *tapis de Sierpinsky*.
+
+
+**Projet 4 Arbre de Pythagore**
+
+Proposer une tortue python récursive réalisant :
+
+- Avec p = 1 :  pythagore 1 ![ arbre 1](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.054.png)
+- Avec p = 2 :  pythagore 2 ![ arbre 2](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.055.png)
+- Avec p = 3 :  pythagore 3 ![ arbre 3](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.056.png)
+- Avec p = 10 :  pythagore 10 ![ Pythagore 10](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.057.png)
+
+Aide : 
+
+- On pourra utiliser turtle.colormode(255) => pour coder en rgb puis un random.randint(0,255) sur les trois couleur rgb 
+
+![](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.058.png)
+
+**Projet 5 Arbre de la forêt**
 
 Long en exécution…
 
-Par exemple, pour construire un arbre, on part d’un segment et on applique la transformation présentée ci-dessus à chaque segment de la construction (on refait la transformation $n$ fois pour obtenir un arbre d’ordre $n$).
+` `Par exemple, pour construire un arbre, on part d’un segment, et on applique la transformation présentée ci-dessus à chaque segment de la construction (on refait la transformation n fois pour obtenir un arbre d’ordre n) : 
 
-**Base de la construction d'un arbre :**
+![](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.059.png)
 
-Les portions dessinées en pointillées sont celles sur lesquelles on appliquera la transformation à l’ordre suivant (on les appelle les segments non-terminaux). Les portions dessinées en trait plein sont des segments qui ne seront pas transformés (on les appellera les segments terminaux).
+Base de la construction d'un arbre. 
 
-Pour transformer un segment non-terminal de longueur $l$, on trace un segment terminal de longueur $l/3$ puis deux segments non-terminaux de longueur $2l/3$ à un angle $θ$ du premier segment.
+Les portions dessinées en *pointillées sont celles sur lesquelles on appliquera la transformation à l’ordre suivant* (on les appelle les **segments non-terminaux**). Les portions dessinées en *trait plein sont des segments qui ne seront pas transformés* (on les appellera les **segments terminaux**).
 
-
+Pour transformer un segment non-terminal de longueur lll, on trace un segment terminal de longueur l/3, puis deux segments non-terminaux de longueur 2l/3 à un angle θ du premier segment.
