@@ -27,7 +27,7 @@ title: 02a Récursivité
 
 ## **<H2 STYLE="COLOR:BLUE;">1. Algorithmes récursifs<a name="#$toc144385077"></a></H2>**
 
-### **<H3 STYLE="COLOR:GREEN;">1.1. Introduction</H3>**
+### **<H3 STYLE="COLOR:GREEN;">1.1. Introduction**</H3>
 
 **<H3 STYLE="COLOR:RED;">Activité n°1 :</h3>** Etudions ces deux algorithmes d’implémentation d’une fonction `decompte(n)`
 
