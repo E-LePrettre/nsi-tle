@@ -286,9 +286,8 @@ Cas particulier : $0! = 1$.
 ```python
 def factorielle_i(n):
     result = 1
-    while n > 0:
-        result *= n
-        n -= 1
+    for i in range(1, n + 1):
+        result *= i
     return result
 
 print(factorielle_i(10))
@@ -349,8 +348,10 @@ On vient ainsi de réduire le problème : **pour pouvoir déplacer 4 disques de 
 - Autre remarque, le grand disque est le seul sur lequel on peut poser n’importe lequel des autres disques. Donc, **dans le cadre d’un déplacement des trois disques supérieurs, tout se passe comme s’il n’était pas là**. On peut traiter le problème du déplacement des trois disques exactement de la même manière que nous avons traité celui des quatre.
 
 
+
 - L’étape 3 pourrait être décomposée de la même façon.
 
+![](41.png)
 
 **En résumé**, déplacer n disques de A vers C en passant par B consiste à : 
 1.	déplacer (n-1) disques de A vers B (en passant par C); 
