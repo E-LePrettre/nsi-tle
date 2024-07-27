@@ -530,7 +530,7 @@ On voit que ce n’est pas efficace : par exemple `fib(3)` est appelé deux fois
 
 ## **<H2 STYLE="COLOR:BLUE;">3. Exercices<a name="#_toc144385086"></a>**</H2>
 
-### **<H3 STYLE="COLOR:GREEN;">Exercice n°1 : La fonction somme**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°1 : La fonction somme**</H3>
 
 Pour définir la somme des n premiers entiers, on a l’habitude d’écrire la formule suivante : $0 + 1 + 2 + ... + n$
 
@@ -542,7 +542,7 @@ Pour définir la somme des n premiers entiers, on a l’habitude d’écrire la 
 
 - Déterminer le cas récursif
 
-### **<H3 STYLE="COLOR:GREEN;">Exercice n°2 : Le palindrome**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°2 : Le palindrome**</H3>
 
 On appelle palindrome un mot qui se lit dans les deux sens comme "selles" ou "radar".
 
@@ -562,7 +562,7 @@ En version récursive, l’idée est : "selles" est un palindrome si "s" = "s" e
 
 - Déterminer le cas récursif
 
-### **<H3 STYLE="COLOR:GREEN;">Exercice n°3 : Nombre d’adhérents**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°3 : Nombre d’adhérents**</H3>
 
 Une association a remarqué que d’une année à l’autre :
 
@@ -580,7 +580,7 @@ En admettant que le nombre d’adhérents de cette association était égal à 2
 
 - Dans ce même programme, afficher le nombre théorique d’adhérents au cours des 20 prochaines années.
 
-### **<H3 STYLE="COLOR:GREEN;">Exercice n°4 : La suite de Syracuse**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°4 : La suite de Syracuse**</H3>
 
 On appelle suite de Syracuse une suite d’entiers naturels définie de la manière suivante : On part d’un nombre entier plus grand que zéro. S’il est pair, on le divise par 2 ; s’il est impair, on le multiplie par 3 et on ajoute 1. En répétant l’opération, on obtient une suite d’entiers positifs dont chacun ne dépend que de son prédécesseur.
 
@@ -628,7 +628,7 @@ assert syracuse(3) == 8
 assert syracuse(2) == 2
 ```
 
-### **<H3 STYLE="COLOR:GREEN;">Exercice n°5 : Le PGCD**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°5 : Le PGCD**</H3>
 
 Écrire une fonction récursive $pgcd(a, b)$ qui renvoie le PGCD de deux entiers `a` et `b`. 
 
@@ -663,7 +663,7 @@ assert pgcd(96, 36) == 12
 assert pgcd(60, 32) == 4
 ```
 
-### **<H3 STYLE="COLOR:GREEN;">Exercice n°6 : Nombre de chiffres**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°6 : Nombre de chiffres**</H3>
 
 Écrire une fonction récursive $nombre\_de\_chiffres(n)$ qui prend un entier positif ou nul `n` en argument et renvoie son nombre de chiffres.
 
@@ -673,7 +673,7 @@ assert pgcd(60, 32) == 4
 assert nombre_de_chiffres(34126) == 5
 ```
 
-### **<H3 STYLE="COLOR:GREEN;">Exercice n°7 : Appartient**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°7 : Appartient**</H3>
 
 Écrire une fonction récursive $appartient(v, t, i)$ prenant en paramètres une valeur `v`, un tableau `t` et un entier `i` et renvoyant `True` si `v` apparaît dans `t` entre l’indice `i` (inclus) et `len(t)` (exclu) et `False` sinon.
 
@@ -685,7 +685,7 @@ assert appartient(7, t, 5) == False
 assert appartient(7, t, 3) == True
 ```
 
-### **<H3 STYLE="COLOR:GREEN;">Exercice n°8 : Le triangle de Pascal**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°8 : Le triangle de Pascal**</H3>
 
 Le triangle arithmétique de Pascal est le triangle dont la ligne d'indice `n` (n = 0, 1, 2, ...) donne les coefficients binomiaux $C(n, p)$ pour $p = 0, 1, 2, ... n$.
 
@@ -741,7 +741,7 @@ C(n, p) = C(n - 1, p - 1) + C(n - 1, p) sinon.
 assert C(10, 5) == 252
 ```
 
-### **<H3 STYLE="COLOR:GREEN;">Exercice n°9 : Recherche dans une chaîne de caractères**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°9 : Recherche dans une chaîne de caractères**</H3>
 
 crire une fonction récursive nommée $est\_dans$ qui, à partir d’un caractère `e` et d’une chaîne de caractères `c`, détermine si ce caractère appartient à la chaîne.
 
@@ -749,7 +749,7 @@ Tester cette fonction.
 
 **Remarque :** La fonction $est\_dans$ est un **prédicat**.
 
-### **<H3 STYLE="COLOR:GREEN;">Exercice n°10 : Travail sur les listes**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°10 : Travail sur les listes**</H3>
 
 1 Écrire une fonction nommée $longueur\_liste$ récursive qui, à partir d’une liste passée en argument, détermine sa longueur.
 
@@ -786,7 +786,7 @@ assert extrait([5, 4, 3, 2, 1], 3) == [5, 4, 3]
 
 ## **<H2 STYLE="COLOR:BLUE;">4. Projet (démarche d’investigation)<a name="#$toc144385087"></a>**</H2>
 
-### **<H3 STYLE="COLOR:GREEN;">Projet 1 : Le flocon de Koch**</H3>
+**<H3 STYLE="COLOR:RED;">Projet 1 : Le flocon de Koch**</H3>
 
 Le flocon de Koch est l’une des premières courbes fractales à avoir été décrite (bien avant l’invention du terme « fractal(e)»). Elle a été inventée en 1904 par le mathématicien suédois Helge von Koch.
 
@@ -877,7 +877,7 @@ koch(200,3)
 
 ![](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.032.png)
 
-**Projet 2 Le triangle de Sierpinski**
+**<H3 STYLE="COLOR:RED;">Projet 2 Le triangle de Sierpinski**</h3>
 
 Utiliser une fonction récursive pour réaliser les triangles de Sierpinski ci-dessous.
 
@@ -902,7 +902,7 @@ Selon la valeur du nombre du niveau on aura une représentation plus ou moins «
 
 - Au-dessus du 6<sup>ème</sup> niveau il faut augmenter L pour pouvoir le voir
 
-**Projet 3 Le tapis de Sierpinski**
+**<H3 STYLE="COLOR:RED;">Projet 3 Le tapis de Sierpinski**</h3>
 
 Utiliser une fonction récursive pour réaliser les triangles de Sierpinski ci-dessous. L’idée est d’arrivée à un beau tapis de ce style (le dernier)
 
@@ -933,7 +933,7 @@ On part donc d’un carré vide, que l’on s’empresse de découper en 9 cases
 Et on fait cela à l’infini. Le résultat final donne le *tapis de Sierpinsky*.
 
 
-**Projet 4 Arbre de Pythagore**
+**<H3 STYLE="COLOR:RED;">Projet 4 Arbre de Pythagore**</h3>
 
 Proposer une tortue python récursive réalisant :
 
@@ -948,7 +948,7 @@ Aide :
 
 ![](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.058.png)
 
-**Projet 5 Arbre de la forêt**
+**<H3 STYLE="COLOR:RED;">Projet 5 Arbre de la forêt**
 
 Long en exécution…
 
