@@ -265,6 +265,7 @@ print(multiply_r(105, 253))
 
     {{ IDE() }}
 
+Rafraichir la page pour voir l'animation (F5)
 ![fonction récursive](multiply.gif)
 
 
@@ -312,6 +313,7 @@ print(factorielle_r(10))
 
     {{ IDE() }}
 
+Rafraichir la page pour voir l'animation (F5)
 ![fonction récursive](factorielle.gif)
 
 <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20factorielle_r%28n%29%3A%0A%20%20%20%20if%20n%20%3D%3D%201%20or%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20return%20n%20*%20factorielle_r%28n%20-%201%29%0A%0Aprint%28factorielle_r%2810%29%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=40&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
@@ -328,9 +330,48 @@ Le casse-tête des tours de Hanoï est un jeu de réflexion consistant à dépla
 
 - On ne peut placer un disque que sur un autre disque plus grand que lui ou sur un emplacement vide.
 
-**Vidéo :** [Les tours de Hanoi](https://www.youtube.com/watch?v=U3nGNJTxYc4)
+On suppose que cette dernière règle est également respectée dans la configuration de départ.
+
+**Vidéo :** [Les tours de Hanoi](https://ladigitale.dev/digiview/#/v/66a4e65ddc246)
 
 Pour résoudre le problème des tours de Hanoï, il faut raisonner récursivement. 
+
+**La situation de départ** : 
+
+![](39.png)
+
+- **Avec quatre disques**, le plus grand ne peut être posé sur aucun autre : il est donc le plus contraignant à déplacer. Il faudra **le déplacer de la pique A vers la pique C**, et cela ne pourra se faire que si aucun disque n’est présent sur C. Donc il faudra que le grand disque soit seul sur la pique A et les trois autres disques sur la pique B.
+
+On vient ainsi de réduire le problème : **pour pouvoir déplacer 4 disques de A vers C, il faut d’abord déplacer 3 disques de A vers B, puis déplacer le grand sur C et enfin déplacer les trois disques de B vers C.**
+
+![](40.png)
+
+- Autre remarque, le grand disque est le seul sur lequel on peut poser n’importe lequel des autres disques. Donc, **dans le cadre d’un déplacement des trois disques supérieurs, tout se passe comme s’il n’était pas là**. On peut traiter le problème du déplacement des trois disques exactement de la même manière que nous avons traité celui des quatre.
+
+
+- L’étape 3 pourrait être décomposée de la même façon.
+
+
+**En résumé**, déplacer n disques de A vers C en passant par B consiste à : 
+1.	déplacer (n-1) disques de A vers B (en passant par C); 
+2.	déplacer le plus grand disque de A vers C ; 
+3.	déplacer (n-1) disques de B vers C (en passant par A). 
+
+Les étapes 1 et 3 peuvent elles-mêmes se décomposer selon le même principe, sauf que les rôles des paquets sont intervertis. Par exemple, dans la première, on va de A vers B, donc forcément par l'intermédiaire de C. Voici la marche à suivre, donnée sur deux niveaux : 
+1.	déplacer (n-1) disques de A vers B (en passant par C) ; 
+1.1.	déplacer (n-2) disques de A vers C (en passant par B) ; 
+1.2.	déplacer un disque de A vers B ; 
+1.3.	déplacer (n-2) disques de C vers B (en passant par A). 
+2.	déplacer le plus grand disque de A vers C ; 
+3.	déplacer (n-1) disques de B vers C (en passant par A). 
+3.1.	déplacer (n-2) disques de B vers A (en passant par C) ; 
+3.2.	déplacer un disque de B vers C ; 
+3.3.	déplacer (n-2) disques de A vers C (en passant par B). 
+Et ainsi de suite... 
+
+**Remarque** : Un jeu à 64 disques requiert un minimum de 264 -1 déplacements. En admettant qu'il faille 1 seconde pour déplacer un disque, ce qui fait 86 400 déplacements par jour, la fin du jeu aurait lieu au bout d'environ 213 000 milliards de jours, ce qui équivaut à peu près à 584,5 milliards d'années, soit 43 fois l'âge estimé de l'univers (13,7 milliards d'années selon certaines sources)
+
+
 
 **<H3 STYLE="COLOR:RED;">Activité n°7 :**</H3> Implémentation en Python
 
@@ -342,8 +383,11 @@ def hanoi(n, a="A", b="B", c="C"):
     print(f"Déplacer le disque {n} de la pique {a} vers la pique {c}.")
     hanoi(n - 1, b, a, c)  # de B vers C en passant par A
 
-hanoi(4)
+print(hanoi(4))
 ```
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
 
 Pour mieux comprendre : [Les tours de Hanoï](http://accromath.uqam.ca/2016/02/les-tours-de-hanoi-et-la-base-trois/)
 
