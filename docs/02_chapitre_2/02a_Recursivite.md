@@ -34,26 +34,26 @@ title: 02a Récursivité
 #### Version itérative :
 
 ```python
-def decompte$i(n):
+def decompte_i(n):
     while n > 0:
         print(n)
         n -= 1
     print("fin")
 
-print(decompte$i(5))
+print(decompte_i(5))
 ```
 
 #### Version récursive :
 
 ```python
-def decompte$r(n):
+def decompte_r(n):
     if n == 0:
         print("fin")
     else:
         print(n)
-        decompte$r(n - 1)
+        decompte_r(n - 1)
 
-print(decompte$r(5))
+print(decompte_r(5))
 ```
 
 **<H3 STYLE="COLOR:RED;">Activité n°2 :</h3>** Tester les deux fonctions sur [Python Tutor](http://pythontutor.com/visualize.html#mode=edit)
