@@ -43,6 +43,10 @@ def decompte_i(n):
 print(decompte_i(5))
 ```
 
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
+
 #### Version récursive :
 
 ```python
@@ -56,7 +60,17 @@ def decompte_r(n):
 print(decompte_r(5))
 ```
 
-**<H3 STYLE="COLOR:RED;">Activité n°2 :</h3>** Tester les deux fonctions sur [Python Tutor](http://pythontutor.com/visualize.html#mode=edit)
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
+
+**<H3 STYLE="COLOR:RED;">Activité n°2 :</h3>** Tester les deux fonctions sur 
+
+- [Python Tutor : version itérative](https://pythontutor.com/render.html#code=def%20decompte_i%28n%29%3A%0A%20%20%20%20while%20n%20%3E%200%3A%0A%20%20%20%20%20%20%20%20print%28n%29%0A%20%20%20%20%20%20%20%20n%20-%3D%201%0A%20%20%20%20print%28%22fin%22%29%0A%0Aprint%28decompte_i%285%29%29&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false)
+
+<iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20decompte_i%28n%29%3A%0A%20%20%20%20while%20n%20%3E%200%3A%0A%20%20%20%20%20%20%20%20print%28n%29%0A%20%20%20%20%20%20%20%20n%20-%3D%201%0A%20%20%20%20print%28%22fin%22%29%0A%0Aprint%28decompte_i%285%29%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+
+- [Python Tutor : version récursive]
 
 Une fonction qui s’appelle elle-même est dite **récursive**.
 
