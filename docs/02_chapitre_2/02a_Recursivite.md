@@ -266,6 +266,7 @@ print(multiply_r(105, 253))
     {{ IDE() }}
 
 Rafraichir la page pour voir l'animation (F5)
+
 ![fonction récursive](multiply.gif)
 
 
@@ -313,6 +314,7 @@ print(factorielle_r(10))
     {{ IDE() }}
 
 Rafraichir la page pour voir l'animation (F5)
+
 ![fonction récursive](factorielle.gif)
 
 <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20factorielle_r%28n%29%3A%0A%20%20%20%20if%20n%20%3D%3D%201%20or%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20return%20n%20*%20factorielle_r%28n%20-%201%29%0A%0Aprint%28factorielle_r%2810%29%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=40&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
@@ -354,20 +356,33 @@ On vient ainsi de réduire le problème : **pour pouvoir déplacer 4 disques de 
 ![](41.png)
 
 **En résumé**, déplacer n disques de A vers C en passant par B consiste à : 
+
 1.	déplacer (n-1) disques de A vers B (en passant par C); 
+
 2.	déplacer le plus grand disque de A vers C ; 
+
 3.	déplacer (n-1) disques de B vers C (en passant par A). 
 
 Les étapes 1 et 3 peuvent elles-mêmes se décomposer selon le même principe, sauf que les rôles des paquets sont intervertis. Par exemple, dans la première, on va de A vers B, donc forcément par l'intermédiaire de C. Voici la marche à suivre, donnée sur deux niveaux : 
+
 1.	déplacer (n-1) disques de A vers B (en passant par C) ; 
+
 1.1.	déplacer (n-2) disques de A vers C (en passant par B) ; 
+
 1.2.	déplacer un disque de A vers B ; 
+
 1.3.	déplacer (n-2) disques de C vers B (en passant par A). 
+
 2.	déplacer le plus grand disque de A vers C ; 
+
 3.	déplacer (n-1) disques de B vers C (en passant par A). 
+
 3.1.	déplacer (n-2) disques de B vers A (en passant par C) ; 
+
 3.2.	déplacer un disque de B vers C ; 
+
 3.3.	déplacer (n-2) disques de A vers C (en passant par B). 
+
 Et ainsi de suite... 
 
 **Remarque** : Un jeu à 64 disques requiert un minimum de 264 -1 déplacements. En admettant qu'il faille 1 seconde pour déplacer un disque, ce qui fait 86 400 déplacements par jour, la fin du jeu aurait lieu au bout d'environ 213 000 milliards de jours, ce qui équivaut à peu près à 584,5 milliards d'années, soit 43 fois l'âge estimé de l'univers (13,7 milliards d'années selon certaines sources)
@@ -409,40 +424,39 @@ On écrit deux fonctions (une récursive et une itérative) qui calculent le k-i
 #### Version itérative :
 
 ```python
-def fibo_it(n):
-    fn_moins_2 = 0
-    fn_moins_1 = 1
-    i = 2
-    if n == 0:
-        return 0
-    elif n == 1 or n == 2:
-        return 1
-    else:
-        while i <= n:
-            fn = fn_moins_2 + fn_moins_1
-            fn_moins_2 = fn_moins_1
-            fn_moins_1 = fn
-            i += 1
-        return fn
+def fibo_i(n):
+    a, b = 0, 1
+    for i in range(n):
+        a, b = b, a + b
+    return a
+
+print(fibo_i(10))
 ```
+
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
 
 #### Version récursive :
 
 ```python
-def fibo_recur(n):
+def fibo_r(n):
     if n == 0:  # cas de base
         return 0
     elif n == 1 or n == 2:  # 2 autres cas
         return 1
-    return fibo_recur(n - 1) + fibo_recur(n - 2)
+    return fibo_r(n - 1) + fibo_r(n - 2)
+
+print(fibo_r(10))
 ```
 
-```python
-print(fibo_it(10))
-print(fibo_recur(10))
-```
+???+ question "Tester ce qui est proposé"
 
-**<H3 STYLE="COLOR:RED;">Activité n°9 :**</H3> On va comparer les temps de calcul pour chaque algorithme. Ajouter à la suite des deux algorithmes précédents :
+    {{ IDE() }}
+
+
+
+**<H3 STYLE="COLOR:RED;">A faire sur Thonny : Activité n°9 :**</H3> On va comparer les temps de calcul pour chaque algorithme. Ajouter à la suite des deux algorithmes précédents :
 
 ```python
 import time
@@ -450,18 +464,22 @@ import time
 for k in range(5):
     print((k + 1) * 10)
     a = time.perf_counter_ns()
-    fibo_it((k + 1) * 10)
+    fibo_i((k + 1) * 10)
     b = time.perf_counter_ns()
     print("itératif :", b - a, "ns")
     a = time.perf_counter_ns()
-    fibo_recur((k + 1) * 10)
+    fibo_r((k + 1) * 10)
     b = time.perf_counter_ns()
     print("récursif :", b - a, "ns")
+```
+on obtient:
+```
+
 ```
 
 **Table des résultats :**
 
-| Fonction récursive (fib1) | Fonction itérative (fib2) |
+| |Fonction récursive (fib1) | Fonction itérative (fib2) |
 |---------------------------|---------------------------|
 | k   | Temps en ns         | Temps en ns               |
 | --- | ------------------- | ------------------------- |
@@ -490,6 +508,9 @@ fib(5)  -> fib(4) + fib(3)
         -> 3 + 2
         -> 5
 ```
+Rafraichir la page pour voir l'animation (F5)
+
+![fonction récursive](fibonacci.gif)
 
 On peut aussi représenter les appels de fonction dans un arbre (arbre d’appels).
 
