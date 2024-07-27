@@ -479,10 +479,8 @@ on obtient:
 
 **Table des résultats :**
 
-| |Fonction récursive (fib1) | Fonction itérative (fib2) |
-|---------------------------|---------------------------|
+|     |Fonction récursive   | Fonction itérative        |
 | k   | Temps en ns         | Temps en ns               |
-| --- | ------------------- | ------------------------- |
 | 10  | 26 100              | 2 400                     |
 | 20  | 2 359 600           | 3 100                     |
 | 30  | 397 709 900         | 5 300                     |
