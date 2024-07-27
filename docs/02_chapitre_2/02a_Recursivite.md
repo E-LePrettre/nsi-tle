@@ -314,6 +314,12 @@ print(factorielle_r(10))
 
 ![fonction récursive](factorielle.gif)
 
+<iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20factorielle_r%28n%29%3A%0A%20%20%20%20if%20n%20%3D%3D%201%20or%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20return%20n%20*%20factorielle_r%28n%20-%201%29%0A%0Aprint%28factorielle_r%2810%29%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=40&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+
+Un appel de fonction est une opération **plus couteuse** en soi qu’une opération arithmétique ou un test. C’est pourquoi on préfère souvent la fonction itérative à la fonction récursive.
+
+Dans le cas de la fonction factorielle, on prendra plutôt la version itérative, mais il y a des cas où la fonction récursive est clairement préférable, par exemple pour parcourir des arbres (vu un peu plus tard) ou pour faire des tris (chapitre suivant).
+
 ### **<H3 STYLE="COLOR:GREEN;">1.7. Application aux tours de Hanoï**</H3>
 
 Le casse-tête des tours de Hanoï est un jeu de réflexion consistant à déplacer des disques de diamètres différents d'une tour de « départ » à une tour d'« arrivée » en passant par une tour « intermédiaire » en un minimum de coups tout en respectant les règles suivantes :
