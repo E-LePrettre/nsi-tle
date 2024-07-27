@@ -265,7 +265,7 @@ print(multiply_r(105, 253))
 
     {{ IDE() }}
 
-
+![fonction récursive](multiply.gif)
 
 
 
