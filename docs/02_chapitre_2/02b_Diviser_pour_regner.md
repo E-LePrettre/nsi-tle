@@ -4,57 +4,20 @@ title: 02b Méthode diviser pour régner
 ---
 
 
-**Table des matières** 
-
-1. [**Définir une fonction**](#_page0_x40.00_y467.92)
-2. [**Les conditions**](#_page1_x40.00_y240.92)
-3. [**Les boucles**](#_page7_x40.00_y36.92)
-4. [**Portée de variables : variables globales et locales**](#_page13_x40.00_y36.92)
-5. [**La fonction lambda**](#_page13_x40.00_y581.92)
-6. [**Fonctions avec des valeurs par défaut**](#_page14_x40.00_y36.92)
-7. [**Exercices**](#_page15_x40.00_y36.92)
-8. [**Problèmes**](#_page15_x40.00_y36.91)
-
-
-<a name="_hlk51702923"></a>**Chap 02 : Méthode diviser pour régner**
-
-<a name="_hlk38577387"></a>**Compétences évaluables :**
-
-- Ecrire un algorithme utilisant la méthode « diviser pour régner »
-
 **Table des matières**
 
-[1.	Introduction	1](#_toc144400464)
-
-[2.	L’exponentiation	2](#_toc144400465)
-
-[2.1.	Programme itératif	2](#_toc144400466)
-
-[2.2.	Programme récursif	3](#_toc144400467)
-
-[2.3.	Exponentiation rapide : application de la méthode Diviser pour régner	3](#_toc144400468)
-
-[3.	Tri fusion (MergeSort)	4](#_toc144400469)
-
-[3.1.	Le principe	4](#_toc144400470)
-
-[3.2.	Illustration graphique	5](#_toc144400471)
-
-[3.3.	Illustration en vidéo	9](#_toc144400472)
-
-[3.4.	Implémentation du tri fusion pour un tableau	10](#_toc144400473)
-
-[3.5.	Complexité	10](#_toc144400474)
-
-[4.	Comparaison des performances	11](#_toc144400475)
-
-[5.	Retour sur la recherche dichotomique	11](#_toc144400476)
-
-[6.	Exercices	13](#_toc144400477)
-
-[7.	Projet (démarche d’investigation)	17](#_toc144400478)
+1. [**Introduction**](#_toc144400464)
+2. [**L’exponentiation**](#_toc144400465)
+3. [**Tri fusion (MergeSort**)](#_toc144400469)
+4. [**Comparaison des performances**](#_toc144400475)
+5. [**Retour sur la recherche dichotomique**](#_toc144400476)
+6. [**Exercices**](#_toc144400477)
+7. [P**rojet (démarche d’investigation)**](#_toc144400478)
 
 
+**Compétences évaluables :**
+
+- Ecrire un algorithme utilisant la méthode « diviser pour régner »
 
 La méthode diviser pour régner *divide and conquer* se décompose en 3 étapes.
 
