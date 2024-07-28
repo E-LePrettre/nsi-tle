@@ -77,10 +77,22 @@ La méthode « diviser pour régner » va s’appliquer à des problèmes où 
 L’exponentiation consiste à trouver une méthode pour calculer a à la puissance n, **SANS utiliser l’opérateur *puissance*.** L’idée est de se rapprocher de l’algorithme utilisé par le processeur d’un ordinateur, qui n’utilise que les 3 opérateurs de base pour effectuer les calculs (+,-,\*).
 
 ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.003.png)
-1. ## <a name="_toc144400466"></a>**Programme itératif**
 
-|<p>**Activité n° AUTONUM  \* Arabic :** Etudions l’algorithme d’exponentiation en version itérative</p><p>def exp1(*n* : int ,*a*: float) -> float :<br>`    `*"""<br>`    `programme qui donne a^n en sortie<br>`    `"""*<br>`    `valeur=1<br>`    `for i in range(n):<br>`        `valeur\*=*a*<br>`    `return valeur</p>|
-| - |
+### <a name="_toc144400466"></a>**1.2. Programme itératif**
+
+**Activité n° 1:** 
+Etudions l’algorithme d’exponentiation en version itérative
+
+```python
+def exp1(n : int ,a: float) -> float :
+    """
+    programme qui donne a^n en sortie
+    """
+    valeur=1
+    for i in range(n):
+        valeur*=a
+    return valeur
+```
 
 **Complexité** :
 
@@ -89,15 +101,30 @@ La boucle for est exécutée n fois. Il y a, à chaque itération, une opératio
 Il y a donc au total : **2n + 1** opérations.
 
 La complexité est O(n).
-1. ## <a name="_toc144400467"></a>**Programme récursif**
 
-|<p>**Activité n° AUTONUM  \* Arabic :** Etudions l’algorithme d’exponentiation en version récursive</p><p>def exp2(*n* : int ,a: float) -> float :<br>`    `*"""<br>`    `programme qui donne a^n en sortie<br>`    `"""*<br>`    `if *n* == 0:<br>`        `return 1<br>`    `else:<br>`        `return *a*\* exp2(*n*-1,*a*)</p>|
-| - |
+### <a name="_toc144400467"></a>**1.2. Programme récursif**
+
+**Activité n° 2 :** 
+Etudions l’algorithme d’exponentiation en version récursive
+
+```python
+def exp2(n : int ,a: float) -> float :
+    """
+    programme qui donne a^n en sortie
+    """
+    if n == 0:
+        return 1
+    else:
+        return a* exp2(n-1,a)
+```
 
 **Complexité** :
 
 La complexité est aussi O(n).
-1. ## <a name="_toc144400468"></a>**Exponentiation rapide : application de la méthode Diviser pour régner**
+
+
+### <a name="_toc144400468"></a>**2.3. Exponentiation rapide : application de la méthode Diviser pour régner**
+
 Comme de nombreux algorithmes utilisant cette méthode, celui-ci fait des appels récursifs. Mais à la différence du précédent, **l’appel récursif se fait avec un paramètre que l’on divise par 2** (le paramètre n). C’est ce qui fait que le nombre d’appels récursifs est plus réduit. 
 
 Par exemple 49<sup>5</sup>
@@ -108,8 +135,22 @@ On retrouve l’étape 3 évoquée en introduction (la combinaison des sous prob
 
 ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.005.png)
 
-|<p>**Activité n° AUTONUM  \* Arabic :** Etudions l’algorithme d’exponentiation en version méthode Diviser pour régner</p><p>def exp3(*n* : int ,*a*: float) -> float :<br>`    `*"""<br>`    `programme qui donne a^n en sortie<br>`    `"""*<br>`    `if *n* == 0:<br>`        `return 1<br>`    `else:<br>`        `y = exp3(*n*//2,*a*) # on prend la valeur inférieure de n/2<br>`        `if *n*%2 == 0 :<br>`            `return y\*y<br>`        `else:<br>`            `return a\*y\*y</p>|
-| - |
+**Activité n° 3 :** Etudions l’algorithme d’exponentiation en version méthode Diviser pour régner
+
+```python
+def exp3(n : int ,a: float) -> float :
+    """
+    programme qui donne a^n en sortie
+    """
+    if n == 0:
+        return 1
+    else:
+        y = exp3(n//2,a) # on prend la valeur inférieure de n/2
+        if n%2 == 0 :
+            return y*y
+        else:
+            return a*y*y
+```
 
 **Complexité**
 
@@ -128,7 +169,7 @@ C'est comme si l'on **dupliquait** le résultat de chaque multiplication (voir
 
 Le nombre d'opérations est le nombre de divisions par 2 qu'il faut faire pour réduire n à 0. Ce nombre est justement égal à :
 
-log<sub>2</sub>(n)
+**log<sub>2</sub>(n)**
 
 ![exponentiation rapide: représentation en arbre](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.006.png)
 
@@ -139,8 +180,11 @@ représentation en arbre
 Comparaison des vitesses des différents algorithmes d’exponentiation
 
 ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.007.png)
-1. # <a name="_toc144400469"></a>**Tri fusion (MergeSort)**
-   1. ## <a name="_toc144400470"></a>**Le principe**
+
+
+## <a name="_toc144400469"></a>**3. Tri fusion (MergeSort)**
+### <a name="_toc144400470"></a>**3.1. Le principe**
+
 Dans cette partie, nous allons essayer de comprendre les principes sur lesquels s’appuie ce tri. 
 
 Le tri fusion s’appuie sur la méthode **Diviser pour régner** pour trier les n éléments d’une séquence S :
