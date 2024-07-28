@@ -46,7 +46,7 @@ Si on sait :
 
 alors on sait résoudre le problème A.
 
-<H3 STYLE="COLOR:red;">**Exemple Le téléphone en chaine**</H3>
+<H3 STYLE="COLOR:red;">**Exemple Le téléphone en chaine</H3>**
 
 Les 15 joueuses d’une équipe de volleyball ont la liste des joueuses de l’équipe avec leur numéro de téléphone. La capitaine reçoît l’information que le prochain match a été́ déplacé́. Il faut prévenir toutes les autres joueuses.
 
@@ -77,7 +77,7 @@ L’exponentiation consiste à trouver une méthode pour calculer a à la puissa
 
 ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.003.png)
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc144400466"></a>**1.2. Programme itératif**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc144400466"></a>**1.2. Programme itératif</H3>**
 
 <H3 STYLE="COLOR:red;">**Activité n° 1:</H3>**
 
@@ -100,12 +100,12 @@ La boucle for est exécutée n fois. Il y a, à chaque itération, une opératio
 
 Il y a donc au total : **2n + 1** opérations.
 
-La complexité est O(n).
+La complexité est **O(n)**.
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc144400467"></a>**1.2. Programme récursif**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc144400467"></a>**1.2. Programme récursif</H3>**
 
-<H3 STYLE="COLOR:red;">**Activité n° 2 :**</H3>
-**Etudions l’algorithme d’exponentiation en version récursive**
+<H3 STYLE="COLOR:red;">**Activité n° 2 :</H3>**
+Etudions l’algorithme d’exponentiation en version récursive
 
 ```python
 def exp2(n : int ,a: float) -> float :
@@ -123,7 +123,7 @@ def exp2(n : int ,a: float) -> float :
 La complexité est aussi O(n).
 
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc144400468"></a>**2.3. Exponentiation rapide : application de la méthode Diviser pour régner**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc144400468"></a>**2.3. Exponentiation rapide : application de la méthode Diviser pour régner</H3>**
 
 Comme de nombreux algorithmes utilisant cette méthode, celui-ci fait des appels récursifs. Mais à la différence du précédent, **l’appel récursif se fait avec un paramètre que l’on divise par 2** (le paramètre n). C’est ce qui fait que le nombre d’appels récursifs est plus réduit. 
 
@@ -135,8 +135,8 @@ On retrouve l’étape 3 évoquée en introduction (la combinaison des sous prob
 
 ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.005.png)
 
-<H3 STYLE="COLOR:red;">**Activité n° 3 :**</H3>
-**Etudions l’algorithme d’exponentiation en version méthode Diviser pour régner**
+<H3 STYLE="COLOR:red;">**Activité n° 3 :</H3>**
+Etudions l’algorithme d’exponentiation en version méthode Diviser pour régner
 
 ```python
 def exp3(n : int ,a: float) -> float :
@@ -163,8 +163,6 @@ Dans la phase de remontée: Une seule opération est réalisée à chaque appel 
 C'est comme si l'on **dupliquait** le résultat de chaque multiplication (voir représentation en arbre plus bas)
 
 - exp3(0,a) retourne 1
-
-
 - exp3(1,a) retourne a \* 1 \* 1
 - exp3(2,a) retourne a \* a
 - exp3(4,a) retourne a<sup>2</sup> \* a<sup>2</sup>
@@ -185,7 +183,7 @@ Comparaison des vitesses des différents algorithmes d’exponentiation
 ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.007.png)
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc144400469"></a>**3. Tri fusion (MergeSort)**</H2>
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc144400470"></a>**3.1. Le principe**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc144400470"></a>**3.1. Le principe</H3>**
 
 Dans cette partie, nous allons essayer de comprendre les principes sur lesquels s’appuie ce tri. 
 
@@ -211,7 +209,7 @@ Le tri fusion s’appuie sur la méthode **Diviser pour régner** pour trier les
 - ![](48.png) donne les 5 premiers éléments 
 - ![](49.png) donne les 5+1 derniers éléments
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc144400471"></a>**3.2. Illustration graphique**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc144400471"></a>**3.2. Illustration graphique</H3>**
 
 Pour bien comprendre la méthode employée, le plus simple est de construire un arbre binaire dans lequel chaque nœud est le résultat d’un appel récursif.
 
@@ -261,9 +259,9 @@ Pour bien comprendre la méthode employée, le plus simple est de construire un 
 
 ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.023.png)
 
-![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.024.png>
+![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.024.png)
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc144400472"></a>**3.3. Illustration en vidéo**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc144400472"></a>**3.3. Illustration en vidéo</H3>**
 
 Vidéo en dance : <https://ladigitale.dev/digiview/#/v/66a6a018f33ef> 
 
@@ -273,9 +271,9 @@ Visualisation du tri <http://lwh.free.fr/pages/algo/tri/tri_fusion.html>
 
 
 
-### <H3 STYLE="COLOR:GREEN;"> **<a name="_toc144400473"></a>3.4. Implémentation du tri fusion pour un tableau**</H3>
+### <H3 STYLE="COLOR:GREEN;"> **<a name="_toc144400473"></a>3.4. Implémentation du tri fusion pour un tableau</H3>**
 
-<H3 STYLE="COLOR:red;">**Activité n° 4 :**</H3>
+<H3 STYLE="COLOR:red;">**Activité n° 4 :</H3>**
 **Étudier le code suivant et remplacer les … pour chaque numéro.**
 
 ```python
@@ -302,7 +300,7 @@ def tri_fusion(S: List[int]) -> None:
     fusion(S1, S2, S)  # ... (9)
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 5 :**</H3>
+<H3 STYLE="COLOR:red;">**Activité n° 5 :</H3>**
 **Étudier le code suivant et expliquer comment s’effectue la fusion.**
 
 ```python
@@ -327,7 +325,7 @@ def fusion(S1: List[int], S2: List[int], S: List[int]) -> None:
             j = j + 1
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 6 :**</H3>
+<H3 STYLE="COLOR:red;">**Activité n° 6 :</H3>**
 **Étudier le comportement du programme complet à l’aide de pythontutor.
 Construire la liste à l’aide de l’instruction :**
 ```python
@@ -335,10 +333,10 @@ liste = [randint(1, 400) for i in range(5)]
 ```
 **Ne pas oublier d’importer random**
 
-<H3 STYLE="COLOR:red;">**Activité n° 7 :**</H3>
+<H3 STYLE="COLOR:red;">**Activité n° 7 :</H3>**
 **Quelle est la complexité de la fonction fusion ? Essayer d’évaluer la complexité de l’algorithme sans faire de calcul.**
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc144400474"></a>**3.5. Complexité**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc144400474"></a>**3.5. Complexité</H3>**
 Pour déterminer la formule de récurrence qui nous donnera la complexité de l’algorithme, étudions les trois étapes de cet algorithme
 
 - **Diviser** : cette étape se réduit au calcul du milieu de l’intervalle [début, fin]
@@ -396,7 +394,7 @@ Nous avons déjà rencontré la recherche dichotomique. On rappelle qu’il s’
 
 Pour cela on utilisera la technique de la dichotomie. Il s’agira de délimiter une portion du tableau dans laquelle la valeur peut se trouver avec deux indices g et d. On peut illustrer la situation à chaque étape :
 
-<H3 STYLE="COLOR:red;">**Activité n° 9 :**</H3>
+<H3 STYLE="COLOR:red;">**Activité n° 9 :</H3>**
 **Écrire une fonction récursive en Python qui**
 
 - **prend en paramètres une liste tab d’entiers triés par ordre croissant, un entier à rechercher val.**
@@ -413,7 +411,7 @@ L’efficacité d’un algorithme qui s’appuie sur le paradigme « Diviser pou
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc144400477"></a>**6. Exercices**</H2> 
 
-<H3 STYLE="COLOR:red;">**Exercice n°1 :**</H3> **Connaitre le cours**
+<H3 STYLE="COLOR:red;">**Exercice n°1 :</H3>** **Connaitre le cours**
 
 1. **En quoi consiste la méthode diviser pour régner ?**
 
@@ -421,7 +419,7 @@ L’efficacité d’un algorithme qui s’appuie sur le paradigme « Diviser pou
 
 3 **Donner la séquence des appels de la fonction recherche basée sur la dichotomie vue dans la leçon lors de l’appel recherche\_dichotomique([1,3,15,16,23,35,38,40,42,45],42) puis lors de l’appel de recherche\_dichotomique([1,3,15,16,23,35,38,40,42,45],17)**
 
-<H3 STYLE="COLOR:red;">**Exercice n°2 :**</H3> **Raisonner avec la méthode “diviser pour régner”**
+<H3 STYLE="COLOR:red;">**Exercice n°2 :</H3>** **Raisonner avec la méthode “diviser pour régner”**
 
 
 
@@ -436,7 +434,7 @@ L’efficacité d’un algorithme qui s’appuie sur le paradigme « Diviser pou
 
 3 **Montrer comment la méthode diviser pour régner permet de résoudre le problème précédent**
 
-<H3 STYLE="COLOR:red;">**Exercice n°3 :**</H3> **Dichotomie à l’envers**
+<H3 STYLE="COLOR:red;">**Exercice n°3 :</H3>** **Dichotomie à l’envers**
 
 **Écrire une fonction recherche\_dichotomique\_envers récursive en Python basée sur le principe de dichotomie qui :**
 
@@ -444,7 +442,7 @@ L’efficacité d’un algorithme qui s’appuie sur le paradigme « Diviser pou
 
 - **Renvoie i un indice où la valeur val apparait dans tab et None si la val n’est pas dans tab. La valeur i est recherchée dans tab[g..d]. Ajoutez quelques tests pour vérifier le bon fonctionnement de votre fonction**
 
-<H3 STYLE="COLOR:red;">**Exercice n°4 :**</H3> **Tri rapide**
+<H3 STYLE="COLOR:red;">**Exercice n°4 :</H3>** **Tri rapide**
 
 **Le Quicksort est une méthode de tri inventée par Sir Charles Antony Richard Hoare en 1961 et fondée sur la méthode de conception « diviser pour régner ». Il peut être implémenté sur un tableau ou sur des listes ; son utilisation la plus répandue concerne tout de même les tableaux.**
 
@@ -484,14 +482,14 @@ L’efficacité d’un algorithme qui s’appuie sur le paradigme « Diviser pou
 
 **Aide** : **utiliser la fonction partition précédente**
 
-<H3 STYLE="COLOR:red;">**Exercice n°5 :** Sommes des n nombres d’un tableau**</H3> 
+<H3 STYLE="COLOR:red;">**Exercice n°5 :** Sommes des n nombres d’un tableau</H3>** 
 
 1. **Écrire le code de fonction somme1 qui permet de déterminer la somme des n nombres (entiers) d’un tableau en récursif**
 2 **Réfléchir à un algorithme utilisant le principe « Diviser pour régner » qui résout le même problème.**
 
    **Écrire le code de la fonction somme2 qui implémente cet algorithme.**
 
-<H3 STYLE="COLOR:red;">**Exercice n°6 :** Recherche des plus grand et petit éléments dans un tableau**</H3> 
+<H3 STYLE="COLOR:red;">**Exercice n°6 :** Recherche des plus grand et petit éléments dans un tableau</H3>** 
 
 1. **Générer une liste contenant un million de termes choisis aléatoirement entre un et mille milliards.**
 1. **Utiliser les fonctions min et max fournies par le langage Python afin d’afficher les maximum et minimum dans la liste.**
@@ -513,7 +511,7 @@ L’efficacité d’un algorithme qui s’appuie sur le paradigme « Diviser pou
 
 11 **La fonction maxmin2 est-elle, théoriquement, plus efficace que la fonction maxmin1 ? Dans la pratique ? Comment expliquer ce comportement ?**
 
-<H3 STYLE="COLOR:red;">**Exercice n°7 :**</H3> **Problème de la sous-séquence de somme maximale**
+<H3 STYLE="COLOR:red;">**Exercice n°7 :</H3>** **Problème de la sous-séquence de somme maximale**
 
 **Étant donné un tableau tab[1..n] d’entiers (positifs et négatifs), déterminer la valeur maximale du sous-tableau tab[g..h] donnant la plus grande somme de tous les sous-tableaux contigus de tab. Pour plus de commodité, la sous-séquence de somme maximale est 0 si tous les entiers sont négatifs.**
 
@@ -541,7 +539,7 @@ L’efficacité d’un algorithme qui s’appuie sur le paradigme « Diviser pou
    **max\_sous\_tab(tab: List[float], milieu: int) -> float**
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc144400478"></a>**7. Projet (démarche d’investigation)**</H2>
-<H3 STYLE="COLOR:red;">**Projet 1** : **Rotation d’une** **image numérique**</H3>
+<H3 STYLE="COLOR:red;">**Projet 1** : **Rotation d’une** **image numérique</H3>**
 
 1. **Petits rappels de SNT**
 
@@ -588,7 +586,7 @@ img.save("nouveau_nom.jpg")
 1.4. **Remplacer la couleur des pixels se situant dans un carré de dimension 100 pixels au centre de la photo par la couleur en RGB (25,153,89). Utiliser la méthode putpixel((x,y),p)**
 1.5. **Redimensionner l'image pour qu'elle soit deux fois plus petite. On pourra aller voir les fonctionnalités du module PIL.**
 
-<H3 STYLE="COLOR:red;">**Rotation**</H3> 
+<H3 STYLE="COLOR:red;">**Rotation</H3>** 
 
 **Rotation d'un quart de tour.** **Un pixel de coordonnées (x;y) dans une image de taille n×n a pour coordonnées **avant** rotation d'un quart de tour en sens horaire (y;n−1−x)**
 
@@ -672,7 +670,7 @@ def echange_quadrant(image, x0, y0, x1, y1, n):
 
 3.4 **Même question pour échanger les blocs A et C.**
 
-<H3 STYLE="COLOR:red;">**Diviser pour régner**</H3>
+<H3 STYLE="COLOR:red;">**Diviser pour régner</H3>**
 
 **La méthode de "Diviser pour régner" en algorithmique se décompose en trois étapes :**
 
