@@ -489,13 +489,15 @@ récursif : 25683467600 ns
 
 **Table des résultats :**
 
-|     |Fonction récursive   | Fonction itérative        |
-| k   | Temps en ns         | Temps en ns               |
-| 10  | 26 100              | 2 400                     |
-| 20  | 2 359 600           | 3 100                     |
-| 30  | 397 709 900         | 5 300                     |
-| 40  | 42 835 094 000      | 6 900                     |
-| 50  | 7 264 000 000       | 8 200                     |
+
+|  k      | Fonction récursive - Temps en ns | Fonction itérative - Temps en ns |
+|---------|----------------------------------|----------------------------------|
+| 10      | 26 100                           | 2 400                            |
+| 20      | 2 359 600                        | 3 100                            |
+| 30      | 397 709 900                      | 5 300                            |
+| 40      | 42 835 094 000 = 42,835 s        | 6 900                            |
+| 50      | 7 264 000 000 = 7 264 s          | 8 200                            |
+
 
 **Pourquoi une telle différence ?**
 
