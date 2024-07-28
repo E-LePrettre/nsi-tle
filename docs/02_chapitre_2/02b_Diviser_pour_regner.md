@@ -241,32 +241,32 @@ Pour bien comprendre la méthode employée, le plus simple est de construire un 
 
 ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.015.png)
 
-![ref7]
+![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.016.png)
 
-![ref8]
+![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.017.png)
 
-![ref9]
+![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.018.png)
 
-![ref10]
+![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.019.png)
 
-![ref11]
+![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.020.png)
 
-![ref12]
+![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.021.png)
 
-![ref13]
+![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.022.png)
 
 … et après quelques appels supplémentaires…
 
-![ref14]
+![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.023.png)
 
 ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.024.png)
 
 
-1. ## <a name="_toc144400472"></a>**Illustration en vidéo**
+### <a name="_toc144400472"></a>**3.3. Illustration en vidéo**
 
-|<p>Vidéo en dance : <https://youtu.be/XaqR3G_NVoo> </p><p>Vidéo explicative : <https://youtu.be/OEmlVnH3aUg></p>|<p>Visualisation du tri </p><p><http://lwh.free.fr/pages/algo/tri/tri_fusion.html></p><p></p>|
-| - | - |
-
+Vidéo en dance : <https://youtu.be/XaqR3G_NVoo> 
+Vidéo explicative : <https://youtu.be/OEmlVnH3aUg>
+Visualisation du tri </p><p><http://lwh.free.fr/pages/algo/tri/tri_fusion.html>
 
 
 
