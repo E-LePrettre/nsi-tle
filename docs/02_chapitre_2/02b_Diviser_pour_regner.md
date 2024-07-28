@@ -420,35 +420,37 @@ L’efficacité d’un algorithme qui s’appuie sur le paradigme « Diviser pou
 2 Donner la séquence des appels de la fonction tri\_fusion vue dans la leçon lors de l’appel tri\_fusion([23,35,78,15,65,5,99]). La réponse peut être un arbre des appels.
 3 Donner la séquence des appels de la fonction recherche basée sur la dichotomie vue dans la leçon lors de l’appel recherche\_dichotomique([1,3,15,16,23,35,38,40,42,45],42) puis lors de l’appel de recherche\_dichotomique([1,3,15,16,23,35,38,40,42,45],17)
 
-<a name="_hlk50480956"></a><a name="_hlk50481223"></a>**Exercice n°2 : <a name="_hlk50481206"></a>Raisonner avec la méthode “diviser pour régner”**
-|||
-| :- | :- |
-|||
+**Exercice n°2 : Raisonner avec la méthode “diviser pour régner”**
 
 
-1. Est-il possible de paver, avec une pièce comme ci-contre   un échiquier des dimensions suivantes : 
+
+1 Est-il possible de paver, avec une pièce comme ci-contre ![](50.png)  un échiquier des dimensions suivantes : 
 - 3<sup>n</sup> × 3<sup>n</sup>
 - 4<sup>n</sup> × 4<sup>n</sup>
 - 6<sup>n</sup> × 6<sup>n</sup>
 
 Si oui, expliquez comment réaliser ce pavage
 
-1. Trouver une méthode pour paver, avec des pièces comme dans la question précédente, un échiquier de taille 2<sup>n</sup> × 2<sup>n</sup> qui contient un trou (1 seul trou qui ne doit pas être couvert par une pièce)
-1. Montrer comment la méthode diviser pour régner permet de résoudre le problème précédent
+2 Trouver une méthode pour paver, avec des pièces comme dans la question précédente, un échiquier de taille 2<sup>n</sup> × 2<sup>n</sup> qui contient un trou (1 seul trou qui ne doit pas être couvert par une pièce)
+
+3 Montrer comment la méthode diviser pour régner permet de résoudre le problème précédent
 
 **Exercice n°3 : Dichotomie à l’envers**
 
 Écrire une fonction recherche\_dichotomique\_envers récursive en Python basée sur le principe de dichotomie qui :
 
 - prend en paramètres une liste tab d’entiers triés par ordre décroissants, un entier à rechercher val, des entiers g et d qui représentent les bornes de recherche dans la liste
+
 - Renvoie i un indice où la valeur val apparait dans tab et None si la val n’est pas dans tab. La valeur i est recherchée dans tab[g..d]. Ajoutez quelques tests pour vérifier le bon fonctionnement de votre fonction
 
-**Exercice n°4 : Tri rapide![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.027.png)**
+**Exercice n°4 : Tri rapide**
 
-<a name="_toc53987477"></a>Le Quicksort est une méthode de tri inventée par Sir Charles Antony Richard Hoare en 1961 et fondée sur la méthode de conception « diviser pour régner ». Il peut être implémenté sur un tableau ou sur des listes ; son utilisation la plus répandue concerne tout de même les tableaux. 
+Le Quicksort est une méthode de tri inventée par Sir Charles Antony Richard Hoare en 1961 et fondée sur la méthode de conception « diviser pour régner ». Il peut être implémenté sur un tableau ou sur des listes ; son utilisation la plus répandue concerne tout de même les tableaux. 
 
 - **Diviser** : on partage le tableau en deux parties. Ce partage se fait autour d’une valeur du tableau choisie au hasard, c’est le pivot. Du coup, le pivot est à sa place ! il ne reste plus qu’à placer les autres !
+
 - **Régner** : On trie les tableaux récursivement (on repartage donc) ou on ne fait rien si la taille est 1 (puisqu’un seul élément est forcément ordonné)
+
 - **Combiner** : rien à faire
 
 La méthode consiste à placer un élément du tableau (appelé **pivot**) à sa place définitive, en permutant tous les éléments de telle sorte que tous ceux qui lui sont inférieurs soient à sa gauche et que tous ceux qui lui sont supérieurs soient à sa droite. Cette opération s'appelle le **partitionnement.**
@@ -457,29 +459,32 @@ Pour chacun des sous-tableaux, on définit un **nouveau pivot** et on répète l
 
 La complexité moyenne est en O(nlogn) mais O(n²) dans le pire des cas.
 
-1. Ecrire une fonction tri\_rapide\_gauche qui permet d’illustrer le schéma suivant :
+1 Ecrire une fonction tri\_rapide\_gauche qui permet d’illustrer le schéma suivant :
 
 ![Tri rapide (pivot en tête)](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.028.png)
 
-1. 💣 💣 Ecrire une fonction tri\_rapide\_milieu qui permet d’illustrer le schéma suivant :
+2 💣 💣 Ecrire une fonction tri\_rapide\_milieu qui permet d’illustrer le schéma suivant :
 
 ![Tri rapide (pivot au centre)](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.029.png)
 
 **Aide :** il faut créer une fonction partition(T, indice\_gauche, indice\_droite, indice\_pivot) qui trie les éléments plus petit que le pivot vont à gauche et les élément plus grand que le pivot à droite. Concrètement, pour partitionner un sous-tableau :
 
 - le pivot est placé à la fin (arbitrairement), en l'échangeant avec le dernier élément du sous-tableau ;
+
 - tous les éléments inférieurs au pivot sont placés en début du sous-tableau ;
+
 - le pivot est déplacé à la fin des éléments déplacés.
-1. Ecrire une fonction tri\_rapide\_aléatoire qui permet d’illustrer le schéma suivant :
+
+3 Ecrire une fonction tri\_rapide\_aléatoire qui permet d’illustrer le schéma suivant :
 
 ![Tri rapide (pivot aléatoire)](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.030.png)
 
-`	`**Aide** : utiliser la fonction partition précédente
+**Aide** : utiliser la fonction partition précédente
 
 **Exercice n°5 : Sommes des n nombres d’un tableau** 
 
 1. Écrire le code de fonction somme1 qui permet de déterminer la somme des n nombres (entiers) d’un tableau en récursif
-1. Réfléchir à un algorithme utilisant le principe « Diviser pour régner » qui résout le même problème.
+2 Réfléchir à un algorithme utilisant le principe « Diviser pour régner » qui résout le même problème.
 
    Écrire le code de la fonction somme2 qui implémente cet algorithme.
 
@@ -522,14 +527,15 @@ Le tableau initial est scindé en deux parties de tailles à peu près égales (
 
 La procédure est récursive. Pour « sortir » des appels récursifs, il est nécessaire de ren- contrer un « couple de données-paramètres » (transmis à l’appel) dont la solution est triviale. C’est le cas si le tableau est composé d’au plus un élément.
 
-1. Écrire le code de la fonction somme\_max dont la spécification est : 
+3 Écrire le code de la fonction somme\_max dont la spécification est : 
 
    somme\_max(tab: List[int]) -> int
 
-1. Écrire le code de la fonction max\_sous\_tab dont la spécification est :
+4 Écrire le code de la fonction max\_sous\_tab dont la spécification est :
 
    max\_sous\_tab(tab: List[float], milieu: int) -> float
-1. # <a name="_toc144400478"></a>**Projet (démarche d’investigation)**
+
+## <a name="_toc144400478"></a>**7. Projet (démarche d’investigation)**
 **Projet 1** : **Rotation d’une** **image numérique**
 
 1. **Petits rappels de SNT**
@@ -550,39 +556,46 @@ Nous allons travailler sur cette image :
 
 ![la photo du prof](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.033.jpeg)
 
-1. Tester et commenter le code ci-dessous :
+1.1. Tester et commenter le code ci-dessous :
 
+```python
 from PIL import Image
 img=Image.open("image.png")
 largeur, hauteur=im.size
 img.show()
+```
 
-1. Donner les dimensions de l'image
-1. Donner la couleur du pixel de coordonnées (100;100). (utiliser la methode getpixel())
+1.2. Donner les dimensions de l'image
+1.3. Donner la couleur du pixel de coordonnées (100;100). (utiliser la methode getpixel())
 
 Souvent, il faudra parcourir l’image pixel par pixel, sur toute la largeur et toute la hauteur. Cela est possible avec deux boucles imbriquées, à condition de connaitre ses dimensions largeur, hauteur:
 
+```python
 for x in range(largeur): # x varie de 0 à largeur - 1
-`    `for y in range(hauteur): # y varie de 0 à hauteur - 1
-`      `# traitement pixel (x,y)
+    for y in range(hauteur): # y varie de 0 à hauteur - 1
+      # traitement pixel (x,y)
 
-img.save("nouveau\_nom.jpg")
+img.save("nouveau_nom.jpg")
+```
+1.4. Remplacer la couleur des pixels se situant dans un carré de dimension 100 pixels au centre de la photo par la couleur en RGB (25,153,89). Utiliser la méthode putpixel((x,y),p)
+1.5. Redimensionner l'image pour qu'elle soit deux fois plus petite. On pourra aller voir les fonctionnalités du module PIL.
 
-1. Remplacer la couleur des pixels se situant dans un carré de dimension 100 pixels au centre de la photo par la couleur en RGB (25,153,89). Utiliser la méthode putpixel((x,y),p)
-1. Redimensionner l'image pour qu'elle soit deux fois plus petite. On pourra aller voir les fonctionnalités du module PIL.
 
-
-1. **Rotation** 
+2 **Rotation** 
 
 **Rotation d'un quart de tour.** Un pixel de coordonnées (x;y) dans une image de taille n×n a pour coordonnées **avant** rotation d'un quart de tour en sens horaire (y;n−1−x)
 
 ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.034.png)
 
-![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.035.png)Ecrire la procédure rotation(image) qui reçoit pour paramètres une chaîne de caractères correspondant au nom de l'image carrée et un entier n correspondant à la taille de l'image et qui affiche l'image retournée de 90° dans le sens des aiguilles d'une montre. (Evidemment sans utiliser rotate() !)
+![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.035.png)
+
+Ecrire la procédure rotation(image) qui reçoit pour paramètres une chaîne de caractères correspondant au nom de l'image carrée et un entier n correspondant à la taille de l'image et qui affiche l'image retournée de 90° dans le sens des aiguilles d'une montre. (Evidemment sans utiliser rotate() !)
 
 Avant la boucle de parcours des pixels, ajouter :
 
+```python
 planPixels=Image.new("RGB",(largeur,hauteur))
+```
 
 <https://www.geeksforgeeks.org/python-pil-image-new-method/> 
 
@@ -590,60 +603,67 @@ On prendra l’image du crabe
 
 ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.036.jpeg)
 
-1. **Rotation récursive**
+3 **Rotation récursive**
 
 On cherche maintenant à effectuer cette transformation, SANS utiliser de nouvelle image planPixels comme précédemment. Ce sera une méthode dite en O(1) du point de vue de la complexité spatiale.
 
 On utilisera l’image suivante (carrée) pour cette méthode : **woody.jpg**
 
-1. Compléter la procédure echange\_pix suivante
+3.1. Compléter la procédure echange\_pix suivante
 
-def echange\_pix(image, x0, y0, x1, y1):
-`    `"""procedure qui echange les pixels d'une image entre une position 
-`    `de depart start et d'arrivée end
-`    `Params:
-`    `
-`    `image : objet de la classe Image
-`    `x0,y0: int, int: coordonnées du pixel de depart
-`    `x1,y1: int, int: coordonnées du pixel d'arrivée
+```python
+def echange_pix(image, x0, y0, x1, y1):
+    """procedure qui echange les pixels d'une image entre une position 
+    de depart start et d'arrivée end
+    Params:
+    ------
+    image : objet de la classe Image
+    x0,y0: int, int: coordonnées du pixel de depart
+    x1,y1: int, int: coordonnées du pixel d'arrivée
 
-`    `Example: echange du pixel (0,0) avec celui (120,120)
-`    `
-`    `>>> echange\_pix(image,0,0,120,120)
-`    `"""
-`    `start = image.getpixel((x0, y0))
-`    `end = image.getpixel((x1, y1))
-`    `# à compléter
+    Example: echange du pixel (0,0) avec celui (120,120)
+    --------
+    >>> echange_pix(image,0,0,120,120)
+    """
+    start = image.getpixel((x0, y0))
+    end = image.getpixel((x1, y1))
+    # à compléter
 
-1. Compléter la procédure echange\_quadrant suivante
+```
+
+3.2. Compléter la procédure echange\_quadrant suivante
 
 Cette procédure permet d’échanger les pixels de 2 zones carrées de mêmes dimensions.
 
 ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.037.png)
 
-def echange\_quadrant(image, x0, y0, x1, y1, n):
-`    `"""procedure qui echange tous les pixels du bloc de pixels A
-`    `avec ceux du bloc B, de même dimension n\*n.
-`    `L'image doit être carrée, de largeur et hauteur égaux à n
-`    `A et B occupent une position quelconque parmi les 4 quarts de l'image
-`    `Params:
-`    `
-`    `image : objet de la classe Image
-`    `x0,y0: int, int: coordonnées du pixel du coin superieur gauche de A
-`    `x1,y1: int, int: coordonnées du pixel du coin superieur gauche de B
-`    `n : int : largeur ou hauteur de l'image, en nombre de pixels
-`    `Example: echange du quart d'image en haut à gauche (A) avec celui 
-`    ` en haut à droite (B) sur une image de largeur 420
+```python
+def echange_quadrant(image, x0, y0, x1, y1, n):
+    """procedure qui echange tous les pixels du bloc de pixels A
+    avec ceux du bloc B, de même dimension n*n.
+    L'image doit être carrée, de largeur et hauteur égaux à n
+    A et B occupent une position quelconque parmi les 4 quarts de l'image
+    Params:
+    -------
+    image : objet de la classe Image
+    x0,y0: int, int: coordonnées du pixel du coin superieur gauche de A
+    x1,y1: int, int: coordonnées du pixel du coin superieur gauche de B
+    n : int : largeur ou hauteur de l'image, en nombre de pixels
+    Example: echange du quart d'image en haut à gauche (A) avec celui 
+    ------------ en haut à droite (B) sur une image de largeur 420
 
 
-`    `>>> echange\_quadrant(image,0,0,120,0,120)
-`    `"""
-`    `for i in range(n):
-`        `for j in range(n):
-`            `echange\_pix(image, # à compléter
+    >>> echange_quadrant(image,0,0,120,0,120)
+    """
+    for i in range(n):
+        for j in range(n):
+            echange_pix(image, # à compléter
 
-1. On veut échanger les blocs A et D, qui font chacun 120\*120 pixels. Quelle instruction faut-il écrire, utilisant la procédure echange\_quadrant.
-1. Même question pour échanger les blocs A et C.
+```
+
+3.3 On veut échanger les blocs A et D, qui font chacun 120\*120 pixels. Quelle instruction faut-il écrire, utilisant la procédure echange\_quadrant.
+
+3.4 Même question pour échanger les blocs A et C.
 
 **Diviser pour régner**
 
@@ -667,55 +687,43 @@ Puis de 3 permutations successives, selon le schéma suivant.
 
 ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.040.png)
 
-trois permutations réalisées sur les subdivisions de l'image
+
 
 Ils sont alors recombinés pour reformer l’image, tout en suivant les mêmes permutations, mais avec des blocs de pixels plus gros (**fusion**).
 
-1. Si on appelle m la dimension du carré, quelle est la procédure qui permet de réaliser l'échange ci-dessous ?
-1. Compléter la procédure rotate, de telle sorte que la permutation circulaire se fasse :
+3.5. Si on appelle m la dimension du carré, quelle est la procédure qui permet de réaliser l'échange ci-dessous ?
 
+3.6. Compléter la procédure rotate, de telle sorte que la permutation circulaire se fasse :
+
+```python
 def rotate(image,x0,y0,n):
-`    `"""procedure recursive qui tourne d'un quart de tour un carré
-`    `de l'image de dimension n.
-`    `à chaque appel recursif, la taille de l'image est divisée par 2.
-`    `Si l'image fait plus d'un seul pixel, la rotation se fait par
-`    `permutation des (zones de) pixels A<=>B, B<=>D, D<=>C
-`    `Params:
-`    `
-`    `image
-`    `x0,y0: int, int: coordonnées du pixel du coin superieur gauche du carré
-`    `n: dimension du carré
-`    `Example:
-`    `
-`    `rotate(image,0,0,420)
-`    `"""
-`    `if n>=2:
-`        `m = n//2
-`        `rotate(image,x0,y0,m)
-`        `rotate(image,x0,y0+m,m)
-`        `rotate(image,x0+m,y0,m)
-`        `rotate(image,x0+m,y0+m,m)
+    """procedure recursive qui tourne d'un quart de tour un carré
+    de l'image de dimension n.
+    à chaque appel recursif, la taille de l'image est divisée par 2.
+    Si l'image fait plus d'un seul pixel, la rotation se fait par
+    permutation des (zones de) pixels A<=>B, B<=>D, D<=>C
+    Params:
+    -------
+    image
+    x0,y0: int, int: coordonnées du pixel du coin superieur gauche du carré
+    n: dimension du carré
+    Example:
+    --------
+    rotate(image,0,0,420)
+    """
+    if n>=2:
+        m = n//2
+        rotate(image,x0,y0,m)
+        rotate(image,x0,y0+m,m)
+        rotate(image,x0+m,y0,m)
+        rotate(image,x0+m,y0+m,m)
+	# à compléter
 
-`	`# à compléter
+```
 
-1. *Analysez la procédure :* A l’aide de l’image suivante, que vous découperez, montrer pas à pas ce qui est réalisé par la fonction rotate
+3.7. *Analysez la procédure :* A l’aide de l’image suivante, que vous découperez, montrer pas à pas ce qui est réalisé par la fonction rotate
 
-   ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.041.png)
+![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.041.png)
 
-1. Ecrire la procédure quart\_tour(image) qui réalise la rotation de image de taille n d'un quart de tour.
-Terminale NSI 	Chap 02 : Méthode diviser pour régner	Page 21/21
+3.8. Ecrire la procédure quart\_tour(image) qui réalise la rotation de image de taille n d'un quart de tour.
 
-[ref1]: Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.010.png
-[ref2]: Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.011.png
-[ref3]: Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.012.png
-[ref4]: Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.013.png
-[ref5]: Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.014.png
-[ref6]: Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.015.png
-[ref7]: Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.016.png
-[ref8]: Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.017.png
-[ref9]: Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.018.png
-[ref10]: Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.019.png
-[ref11]: Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.020.png
-[ref12]: Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.021.png
-[ref13]: Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.022.png
-[ref14]: Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.023.png
