@@ -26,7 +26,9 @@ La méthode diviser pour régner *divide and conquer* se décompose en 3 étapes
 - **Combiner** : à partir des solutions trouvées au sous problème, former la réponse finale. Si la récursivité a été employée dans la résolution, elle le sera aussi ici
 
 **Remarque**: 
+
 - Si les sous-problèmes sont indépendants les uns des autres : « **Diviser pour régner** ».
+
 - Si les sous-problèmes dépendent les uns des autres : « **Programmation dynamique** ».
 
 
@@ -268,7 +270,7 @@ Vidéo en dance : <https://ladigitale.dev/digiview/#/v/66a6a018f33ef>
 
 Vidéo explicative : <https://ladigitale.dev/digiview/#/v/66a6a06310c1c>
 
-Visualisation du tri </p><p><http://lwh.free.fr/pages/algo/tri/tri_fusion.html>
+Visualisation du tri <http://lwh.free.fr/pages/algo/tri/tri_fusion.html>
 
 
 
@@ -417,7 +419,9 @@ L’efficacité d’un algorithme qui s’appuie sur le paradigme « Diviser pou
 **Exercice n°1 : Connaitre le cours**
 
 1. En quoi consiste la méthode diviser pour régner ?
+
 2 Donner la séquence des appels de la fonction tri\_fusion vue dans la leçon lors de l’appel tri\_fusion([23,35,78,15,65,5,99]). La réponse peut être un arbre des appels.
+
 3 Donner la séquence des appels de la fonction recherche basée sur la dichotomie vue dans la leçon lors de l’appel recherche\_dichotomique([1,3,15,16,23,35,38,40,42,45],42) puis lors de l’appel de recherche\_dichotomique([1,3,15,16,23,35,38,40,42,45],17)
 
 **Exercice n°2 : Raisonner avec la méthode “diviser pour régner”**
@@ -500,13 +504,15 @@ La complexité moyenne est en O(nlogn) mais O(n²) dans le pire des cas.
 
    Dans un premier temps, écrire une fonction qui se contente de déterminer le maximum dans la liste passée en argument. Compléter ensuite le code de façon à ce que le maximum et le minimum soient retournés. La spécification de la fonction est : maxmin2(tab: List[float]) -> float
 
-1. Vérifier le bon fonctionnement de la fonction à la suite des précédentes vérifications.
-1. Modifier la fonction maxmin2 afin qu’elle retourne les maximum et minimum dans la liste. La spécification de la fonction est : maxmin2(tab: List[float]) -> Tuple[float, float]
+8 Vérifier le bon fonctionnement de la fonction à la suite des précédentes vérifications.
+
+9 Modifier la fonction maxmin2 afin qu’elle retourne les maximum et minimum dans la liste. La spécification de la fonction est : maxmin2(tab: List[float]) -> Tuple[float, float]
 
    La complexité de cette fonction est en O(n).
 
-1. Vérifier le bon fonctionnement de la fonction à la suite des précédentes vérifications.
-1. La fonction maxmin2 est-elle, théoriquement, plus efficace que la fonction maxmin1 ? Dans la pratique ? Comment expliquer ce comportement ?
+10 Vérifier le bon fonctionnement de la fonction à la suite des précédentes vérifications.
+
+11 La fonction maxmin2 est-elle, théoriquement, plus efficace que la fonction maxmin1 ? Dans la pratique ? Comment expliquer ce comportement ?
 
 **Exercice n°7 :** **Problème de la sous-séquence de somme maximale**
 
