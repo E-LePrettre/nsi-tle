@@ -44,7 +44,7 @@ Si on sait :
 
 alors on sait résoudre le problème A.
 
-*Exemple Le téléphone en chaine*
+***Exemple Le téléphone en chaine***
 
 Les 15 joueuses d’une équipe de volleyball ont la liste des joueuses de l’équipe avec leur numéro de téléphone. La capitaine reçoît l’information que le prochain match a été́ déplacé́. Il faut prévenir toutes les autres joueuses.
 
@@ -465,13 +465,13 @@ def echange\_pix(image, x0, y0, x1, y1):
 `    `"""procedure qui echange les pixels d'une image entre une position 
 `    `de depart start et d'arrivée end
 `    `Params:
-`    `------
+`    `
 `    `image : objet de la classe Image
 `    `x0,y0: int, int: coordonnées du pixel de depart
 `    `x1,y1: int, int: coordonnées du pixel d'arrivée
 
 `    `Example: echange du pixel (0,0) avec celui (120,120)
-`    `--------
+`    `
 `    `>>> echange\_pix(image,0,0,120,120)
 `    `"""
 `    `start = image.getpixel((x0, y0))
@@ -490,13 +490,13 @@ def echange\_quadrant(image, x0, y0, x1, y1, n):
 `    `L'image doit être carrée, de largeur et hauteur égaux à n
 `    `A et B occupent une position quelconque parmi les 4 quarts de l'image
 `    `Params:
-`    `-------
+`    `
 `    `image : objet de la classe Image
 `    `x0,y0: int, int: coordonnées du pixel du coin superieur gauche de A
 `    `x1,y1: int, int: coordonnées du pixel du coin superieur gauche de B
 `    `n : int : largeur ou hauteur de l'image, en nombre de pixels
 `    `Example: echange du quart d'image en haut à gauche (A) avec celui 
-`    `------------ en haut à droite (B) sur une image de largeur 420
+`    ` en haut à droite (B) sur une image de largeur 420
 
 
 `    `>>> echange\_quadrant(image,0,0,120,0,120)
@@ -544,12 +544,12 @@ def rotate(image,x0,y0,n):
 `    `Si l'image fait plus d'un seul pixel, la rotation se fait par
 `    `permutation des (zones de) pixels A<=>B, B<=>D, D<=>C
 `    `Params:
-`    `-------
+`    `
 `    `image
 `    `x0,y0: int, int: coordonnées du pixel du coin superieur gauche du carré
 `    `n: dimension du carré
 `    `Example:
-`    `--------
+`    `
 `    `rotate(image,0,0,420)
 `    `"""
 `    `if n>=2:
