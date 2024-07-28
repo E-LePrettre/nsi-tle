@@ -193,8 +193,9 @@ Le tri fusion s’appuie sur la méthode **Diviser pour régner** pour trier les
 
    Si la séquence S est composée de plus de deux éléments, la **diviser en deux sous-séquences** S1**​ et** S2**​** contenant chacune environ la moitié des éléments de S ; 
 
-- S1​ est formée des n2  premiers éléments de S
-- S2**​**  contient les n2 derniers éléments de S.
+- S1​ est formée des $\frac{n}/{2}$  premiers éléments de S
+- S2**​**  contient les $\frac{n}/{2}$ derniers éléments de S.
+
 1. **Régner :** **Trier récursivement** S1 **et** S2
 1. **Combiner :** **Reformer la séquence** S en combinant, dans l’ordre, les éléments des séquences triées S1 et S2
 
