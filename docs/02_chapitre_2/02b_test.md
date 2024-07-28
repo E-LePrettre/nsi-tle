@@ -536,34 +536,5 @@ Ils sont alors recombinés pour reformer l’image, tout en suivant les mêmes p
 1. Si on appelle m la dimension du carré, quelle est la procédure qui permet de réaliser l'échange ci-dessous ?
 1. Compléter la procédure rotate, de telle sorte que la permutation circulaire se fasse :
 
-def rotate(image,x0,y0,n):
-`    `"""procedure recursive qui tourne d'un quart de tour un carré
-`    `de l'image de dimension n.
-`    `à chaque appel recursif, la taille de l'image est divisée par 2.
-`    `Si l'image fait plus d'un seul pixel, la rotation se fait par
-`    `permutation des (zones de) pixels A<=>B, B<=>D, D<=>C
-`    `Params:
-`    `
-`    `image
-`    `x0,y0: int, int: coordonnées du pixel du coin superieur gauche du carré
-`    `n: dimension du carré
-`    `Example:
-`    `
-`    `rotate(image,0,0,420)
-`    `"""
-`    `if n>=2:
-`        `m = n//2
-`        `rotate(image,x0,y0,m)
-`        `rotate(image,x0,y0+m,m)
-`        `rotate(image,x0+m,y0,m)
-`        `rotate(image,x0+m,y0+m,m)
 
-`	`# à compléter
-
-1. *Analysez la procédure :* A l’aide de l’image suivante, que vous découperez, montrer pas à pas ce qui est réalisé par la fonction rotate
-
-![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.041.png)
-
-1. Ecrire la procédure quart\_tour(image) qui réalise la rotation de image de taille n d'un quart de tour.
-Terminale NSI 	Chap 02 : Méthode diviser pour régner	Page 21/21
 

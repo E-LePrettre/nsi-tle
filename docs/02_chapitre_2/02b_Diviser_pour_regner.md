@@ -347,10 +347,44 @@ Donc la complexité de l’algorithme du tri fusion pour trier un tableur de ta
 
 La complexité des tris par insertion et sélection est en O(n²), celle du tri par fusion est en **O(n.log(n))**
 
-|<p>**Activité n° AUTONUM  \* Arabic : Comparaison des performances des différents tris**. Créer un fichier contenant le script suivant dans le même dossier que les trois tris.</p><p>import datetime<br>import random<br>from tri\_insertion import tri\_insertion<br>from tri\_selection import tri\_selection<br>from tri\_fusion import tri\_fusion<br><br>n = 1000<br>t=[random.randint(1,1000) for i in range(n)]<br><br># tri insertion<br>t1=t[:] #recopie<br>start = datetime.datetime.now()<br>t2=tri\_insertion(t1)<br>end = datetime.datetime.now()<br>print("tri insertion : ",(end-start).total\_seconds())<br><br><br># tri selection<br>t1=t[:] #recopie<br>start = datetime.datetime.now()<br>t3=tri\_selection(t1)<br>end = datetime.datetime.now()<br>print("tri selection : ",(end-start).total\_seconds())<br><br><br># tri fusion<br>t1=t[:] #recopie<br>start = datetime.datetime.now()<br>t4=tri\_fusion(t1)<br>end = datetime.datetime.now()<br>print("tri fusion : ",(end-start).total\_seconds())</p>|
-| - |
+**Activité n° 8 : Comparaison des performances des différents tris**. 
 
-1. # <a name="_toc144400476"></a>**Retour sur la recherche dichotomique**
+```python
+import datetime
+import random
+from tri_insertion import tri_insertion
+from tri_selection import tri_selection
+from tri_fusion import tri_fusion
+
+n = 1000
+t=[random.randint(1,1000) for i in range(n)]
+
+# tri insertion
+t1=t[:] #recopie
+start = datetime.datetime.now()
+t2=tri_insertion(t1)
+end = datetime.datetime.now()
+print("tri insertion : ",(end-start).total_seconds())
+
+
+# tri selection
+t1=t[:] #recopie
+start = datetime.datetime.now()
+t3=tri_selection(t1)
+end = datetime.datetime.now()
+print("tri selection : ",(end-start).total_seconds())
+
+
+# tri fusion
+t1=t[:] #recopie
+start = datetime.datetime.now()
+t4=tri_fusion(t1)
+end = datetime.datetime.now()
+print("tri fusion : ",(end-start).total_seconds())
+
+```
+
+## <a name="_toc144400476"></a>**5. Retour sur la recherche dichotomique**
 Nous avons déjà rencontré la recherche dichotomique. On rappelle qu’il s’agit de déterminer si un entier val apparait dans une liste tab qui est triée par ordre croissant. Plus précisément on cherche à écrire une fonction qui :
 
 - prend en paramètres : val la valeur recherchée, table tableau trié par ordre croissant;
@@ -358,12 +392,16 @@ Nous avons déjà rencontré la recherche dichotomique. On rappelle qu’il s’
 
 Pour cela on utilisera la technique de la dichotomie. Il s’agira de délimiter une portion du tableau dans laquelle la valeur peut se trouver avec deux indices g et d. On peut illustrer la situation à chaque étape :
 
-**
+**Activité n° 9 :** Écrire une fonction récursive en Python qui
 
-|<p>**Activité n° AUTONUM  \* Arabic :** Écrire une fonction récursive en Python qui</p><p>- prend en paramètres une liste tab d’entiers triés par ordre croissant, un entier à rechercher val.</p><p>- renvoie i un indice où la valeur val apparait dans tab (ou True selon comment est codé l’algorithme) et False si la val n’est pas dans tab.  La valeur i est recherchée dans tab[g..d]</p><p>On peut passer les slices des listes de python ou utiliser des indices entrés avec une valeur par défaut</p>|
-| - |
+- prend en paramètres une liste tab d’entiers triés par ordre croissant, un entier à rechercher val.
 
-![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.026.jpeg)
+- renvoie i un indice où la valeur val apparait dans tab (ou True selon comment est codé l’algorithme) et False si la val n’est pas dans tab.  La valeur i est recherchée dans tab[g..d]
+
+On peut passer les slices des listes de python ou utiliser des indices entrés avec une valeur par défaut
+
+
+
 
 La méthode « Diviser pour régner » est le paradigme naturel de la récursivité.
 
@@ -374,12 +412,13 @@ L’efficacité d’un algorithme qui s’appuie sur le paradigme « Diviser pou
 
 
 
-1. # <a name="_toc144400477"></a>**Exercices** 
+## <a name="_toc144400477"></a>**6. Exercices** 
+
 **Exercice n°1 : Connaitre le cours**
 
 1. En quoi consiste la méthode diviser pour régner ?
-1. Donner la séquence des appels de la fonction tri\_fusion vue dans la leçon lors de l’appel tri\_fusion([23,35,78,15,65,5,99]). La réponse peut être un arbre des appels.
-1. Donner la séquence des appels de la fonction recherche basée sur la dichotomie vue dans la leçon lors de l’appel recherche\_dichotomique([1,3,15,16,23,35,38,40,42,45],42) puis lors de l’appel de recherche\_dichotomique([1,3,15,16,23,35,38,40,42,45],17)
+2 Donner la séquence des appels de la fonction tri\_fusion vue dans la leçon lors de l’appel tri\_fusion([23,35,78,15,65,5,99]). La réponse peut être un arbre des appels.
+3 Donner la séquence des appels de la fonction recherche basée sur la dichotomie vue dans la leçon lors de l’appel recherche\_dichotomique([1,3,15,16,23,35,38,40,42,45],42) puis lors de l’appel de recherche\_dichotomique([1,3,15,16,23,35,38,40,42,45],17)
 
 <a name="_hlk50480956"></a><a name="_hlk50481223"></a>**Exercice n°2 : <a name="_hlk50481206"></a>Raisonner avec la méthode “diviser pour régner”**
 |||
