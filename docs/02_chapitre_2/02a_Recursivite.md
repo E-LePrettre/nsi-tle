@@ -950,7 +950,7 @@ Aide :
 
 ![](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.058.png)
 
-**<H3 STYLE="COLOR:RED;">Projet 5 Arbre de la forêt**
+**<H3 STYLE="COLOR:RED;">Projet 5 Arbre de la forêt**</h3>
 
 Long en exécution…
 
