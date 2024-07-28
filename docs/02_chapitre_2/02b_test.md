@@ -567,17 +567,3 @@ def rotate(image,x0,y0,n):
 1. Ecrire la procédure quart\_tour(image) qui réalise la rotation de image de taille n d'un quart de tour.
 Terminale NSI 	Chap 02 : Méthode diviser pour régner	Page 21/21
 
-[ref1]: Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.010.png
-[ref2]: Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.011.png
-[ref3]: Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.012.png
-[ref4]: Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.013.png
-[ref5]: Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.014.png
-[ref6]: Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.015.png
-[ref7]: Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.016.png
-[ref8]: Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.017.png
-[ref9]: Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.018.png
-[ref10]: Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.019.png
-[ref11]: Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.020.png
-[ref12]: Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.021.png
-[ref13]: Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.022.png
-[ref14]: Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.023.png
