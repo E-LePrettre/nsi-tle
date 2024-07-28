@@ -193,22 +193,24 @@ Le tri fusion s’appuie sur la méthode **Diviser pour régner** pour trier les
 
    Si la séquence S est composée de plus de deux éléments, la **diviser en deux sous-séquences** S1**​ et** S2**​** contenant chacune environ la moitié des éléments de S ; 
 
-- S1​ est formée des $\frac{n}/{2}$  premiers éléments de S
-- S2**​**  contient les $\frac{n}/{2}$ derniers éléments de S.
+- S1​ est formée des ![](48.png)  premiers éléments de S
+- S2**​**  contient les ![](49.png) derniers éléments de S.
 
-1. **Régner :** **Trier récursivement** S1 **et** S2
-1. **Combiner :** **Reformer la séquence** S en combinant, dans l’ordre, les éléments des séquences triées S1 et S2
+2 **Régner :** **Trier récursivement** S1 **et** S2
+3 **Combiner :** **Reformer la séquence** S en combinant, dans l’ordre, les éléments des séquences triées S1 et S2
 
 **Remarques** :
 
-- n2  est la notation mathématique pour l’opération en Python n // 2, c’est à dire *le plus grand entier inférieur au résultat de la division de* *n par 2*.
-- n2  est la notation mathématique pour l’opération en Python n // 2 + 1, c’est à dire pour *le plus petit entier supérieur au résultat de la division de* *n par 2*.
+- ![](48.png)  est la notation mathématique pour l’opération en Python n // 2, c’est à dire *le plus grand entier inférieur au résultat de la division de* *n par 2*.
+- ![](49.png)  est la notation mathématique pour l’opération en Python n // 2 + 1, c’est à dire pour *le plus petit entier supérieur au résultat de la division de* *n par 2*.
 
 **Exemple** : Pour n = 11
 
-- n2 donne les 5 premiers éléments 
-- n2 donne les 5+1 derniers éléments
-  1. ## <a name="_toc144400471"></a>**Illustration graphique**
+- ![](48.png) donne les 5 premiers éléments 
+- ![](49.png) donne les 5+1 derniers éléments
+
+### <a name="_toc144400471"></a>**3.2. Illustration graphique**
+
 Pour bien comprendre la méthode employée, le plus simple est de construire un arbre binaire dans lequel chaque nœud est le résultat d’un appel récursif.
 
 ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.008.png)
@@ -227,17 +229,17 @@ Pour bien comprendre la méthode employée, le plus simple est de construire un 
 - **Nœud vide avec une bordure :** *partie déjà traitée* ;
 - **Nœud en partie vide (contenant tout de même des valeurs) :** *appels récursifs en attente*.
 
-![ref1]
+![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.010.png)
 
-![ref2]
+![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.011.png)
 
-![ref3]
+![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.012.png)
 
-![ref4]
+![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.013.png)
 
-![ref5]
+![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.014.png)
 
-![ref6]
+![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.015.png)
 
 ![ref7]
 
