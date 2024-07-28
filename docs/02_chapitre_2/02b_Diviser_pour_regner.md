@@ -265,7 +265,9 @@ Pour bien comprendre la méthode employée, le plus simple est de construire un 
 ### <a name="_toc144400472"></a>**3.3. Illustration en vidéo**
 
 Vidéo en dance : <https://ladigitale.dev/digiview/#/v/66a6a018f33ef> 
+
 Vidéo explicative : <https://ladigitale.dev/digiview/#/v/66a6a06310c1c>
+
 Visualisation du tri </p><p><http://lwh.free.fr/pages/algo/tri/tri_fusion.html>
 
 
