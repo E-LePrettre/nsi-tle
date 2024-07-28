@@ -264,25 +264,73 @@ Pour bien comprendre la méthode employée, le plus simple est de construire un 
 
 ### <a name="_toc144400472"></a>**3.3. Illustration en vidéo**
 
-Vidéo en dance : <https://youtu.be/XaqR3G_NVoo> 
-Vidéo explicative : <https://youtu.be/OEmlVnH3aUg>
+Vidéo en dance : <https://ladigitale.dev/digiview/#/v/66a6a018f33ef> 
+Vidéo explicative : <https://ladigitale.dev/digiview/#/v/66a6a06310c1c>
 Visualisation du tri </p><p><http://lwh.free.fr/pages/algo/tri/tri_fusion.html>
 
 
 
-1. ## ` `**<a name="_toc144400473"></a>Implémentation du tri fusion pour un tableau**
+### **<a name="_toc144400473"></a>3.4. Implémentation du tri fusion pour un tableau**
 
-|<p>**Activité n° AUTONUM  \* Arabic :** Étudier le code suivant et remplacer les … pour chaque numéro.</p><p>from typing import List</p><p></p><p>def tri\_fusion(S: List[int]) -> None:<br>`    `"""<br>`    `Implémentation du tri fusion. La liste S est modifiée en place.<br>`    `"""<br>`    `n = len(S)  # ... (0)<br>`    `if n < 2:<br>`        `return None  # ... (1)<br><br>`    `# Diviser, Régner, Combiner ? ... (2)<br>`    `milieu = n // 2<br>`    `S1 = S[:milieu]  # .... (3)<br>`    `S2 = S[milieu:]  # .... (4)<br><br>`    `# Diviser, Régner, Combiner ? ... (5)<br>`    `tri\_fusion(S1)  # ... (6)<br>`    `tri\_fusion(S2)  # ... (7)<br><br>`    `# Diviser, Régner, Combiner ? ... (8)<br>`    `fusion(S1, S2, S)  # ... (9)</p>|
-| - |
-|<p>**Activité n° AUTONUM  \* Arabic :** Étudier le code suivant et expliquer comment s’effectue la fusion.</p><p>def fusion(S1: List[int], S2: List[int], S: List[int]) -> None:<br>`    `"""<br>`    `Combine les éléments des deux listes S1 et S2 dans la liste S (en place).<br>`    `i est le nombre d'élément(s) de S1 copié(s) dans S1. <br>`    `j est le nombre d'élément(s) de S2 copié(s) dans S2. <br>`    `On doit donc avoir i + j <= len(S).<br>`    `"""<br>`    `i = 0<br>`    `j = 0<br><br>`    `while i + j < len(S):<br>`        `if j == len(S2) or (i < len(S1) and S1[i] < S2[j]):<br>`            `S[i + j] = S1[i]<br>`            `i = i + 1<br>`        `else:<br>`            `S[i + j] = S2[j]<br>`            `j = j + 1</p>|
+**Activité n° 4 :** Étudier le code suivant et remplacer les … pour chaque numéro.
 
-|<p>**Activité n° AUTONUM  \* Arabic :** Étudier le comportement du programme complet à l’aide de pythontutor.</p><p>Construire la liste à l’aide de l’instruction :</p><p>liste **=** **[**randint**(1,** **400)** **for** i **in** range**(5)]**</p><p>Ne pas oublier d’importer random</p>|
-| - |
+```python
+from typing import List
 
-|**Activité n° AUTONUM  \* Arabic :** Quelle est la complexité de la fonction fusion ? Essayer d’évaluer la complexité de l’algorithme sans faire de calcul.|
-| - |
+def tri_fusion(S: List[int]) -> None:
+    """
+    Implémentation du tri fusion. La liste S est modifiée en place.
+    """
+    n = len(S)  # ... (0)
+    if n < 2:
+        return None  # ... (1)
 
-1. ## <a name="_toc144400474"></a>**Complexité**
+    # Diviser, Régner, Combiner ? ... (2)
+    milieu = n // 2
+    S1 = S[:milieu]  # .... (3)
+    S2 = S[milieu:]  # .... (4)
+
+    # Diviser, Régner, Combiner ? ... (5)
+    tri_fusion(S1)  # ... (6)
+    tri_fusion(S2)  # ... (7)
+
+    # Diviser, Régner, Combiner ? ... (8)
+    fusion(S1, S2, S)  # ... (9)
+```
+
+**Activité n° 5 :** Étudier le code suivant et expliquer comment s’effectue la fusion.
+
+```python
+def fusion(S1: List[int], S2: List[int], S: List[int]) -> None:
+    """
+    Combine les éléments des deux listes S1 et S2 dans la liste S (en place).
+    i est le nombre d'élément(s) de S1 copié(s) dans S1. 
+    j est le nombre d'élément(s) de S2 copié(s) dans S2. 
+    On doit donc avoir i + j <= len(S).
+    """
+    i = 0
+    j = 0
+
+    while i + j < len(S):
+        if j == len(S2) or (i < len(S1) and S1[i] < S2[j]):
+            S[i + j] = S1[i]
+            i = i + 1
+        else:
+            S[i + j] = S2[j]
+            j = j + 1
+```
+
+**Activité n° 6 :** Étudier le comportement du programme complet à l’aide de pythontutor.
+Construire la liste à l’aide de l’instruction :
+```python
+liste = [randint(1, 400) for i in range(5)]
+```
+Ne pas oublier d’importer random
+
+
+**Activité n° 7 :** Quelle est la complexité de la fonction fusion ? Essayer d’évaluer la complexité de l’algorithme sans faire de calcul.
+
+### <a name="_toc144400474"></a>**3.5. Complexité**
 Pour déterminer la formule de récurrence qui nous donnera la complexité de l’algorithme, étudions les trois étapes de cet algorithme
 
 - **Diviser** : cette étape se réduit au calcul du milieu de l’intervalle [début, fin]
@@ -291,9 +339,10 @@ Pour déterminer la formule de récurrence qui nous donnera la complexité de l�
 
 Donc la complexité de l’algorithme du tri fusion pour trier un tableur de taille n est <b><i>O(n) =</i></b> O(n<b><i>.log<sub>2</sub>(n))</i></b>
 
-![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.025.png)
 
-1. # <a name="_toc144400475"></a>**Comparaison des performances**
+
+## <a name="_toc144400475"></a>**4. Comparaison des performances**
+
 La complexité des tris par insertion et sélection est en O(n²), celle du tri par fusion est en **O(n.log(n))**
 
 |<p>**Activité n° AUTONUM  \* Arabic : Comparaison des performances des différents tris**. Créer un fichier contenant le script suivant dans le même dossier que les trois tris.</p><p>import datetime<br>import random<br>from tri\_insertion import tri\_insertion<br>from tri\_selection import tri\_selection<br>from tri\_fusion import tri\_fusion<br><br>n = 1000<br>t=[random.randint(1,1000) for i in range(n)]<br><br># tri insertion<br>t1=t[:] #recopie<br>start = datetime.datetime.now()<br>t2=tri\_insertion(t1)<br>end = datetime.datetime.now()<br>print("tri insertion : ",(end-start).total\_seconds())<br><br><br># tri selection<br>t1=t[:] #recopie<br>start = datetime.datetime.now()<br>t3=tri\_selection(t1)<br>end = datetime.datetime.now()<br>print("tri selection : ",(end-start).total\_seconds())<br><br><br># tri fusion<br>t1=t[:] #recopie<br>start = datetime.datetime.now()<br>t4=tri\_fusion(t1)<br>end = datetime.datetime.now()<br>print("tri fusion : ",(end-start).total\_seconds())</p>|
