@@ -562,7 +562,7 @@ def rotate(image,x0,y0,n):
 
 1. *Analysez la procédure :* A l’aide de l’image suivante, que vous découperez, montrer pas à pas ce qui est réalisé par la fonction rotate
 
-   ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.041.png)
+![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.041.png)
 
 1. Ecrire la procédure quart\_tour(image) qui réalise la rotation de image de taille n d'un quart de tour.
 Terminale NSI 	Chap 02 : Méthode diviser pour régner	Page 21/21
