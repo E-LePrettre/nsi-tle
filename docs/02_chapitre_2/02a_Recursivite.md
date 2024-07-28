@@ -948,13 +948,15 @@ Aide :
 
 - On pourra utiliser turtle.colormode(255) => pour coder en rgb puis un random.randint(0,255) sur les trois couleur rgb 
 
-![](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.058.png)
+
 
 **<H3 STYLE="COLOR:RED;">Projet 5 Arbre de la forêt**</h3>
 
+![](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.058.png)
+
 Long en exécution…
 
-` `Par exemple, pour construire un arbre, on part d’un segment, et on applique la transformation présentée ci-dessus à chaque segment de la construction (on refait la transformation n fois pour obtenir un arbre d’ordre n) : 
+Par exemple, pour construire un arbre, on part d’un segment, et on applique la transformation présentée ci-dessus à chaque segment de la construction (on refait la transformation n fois pour obtenir un arbre d’ordre n) : 
 
 ![](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.059.png)
 
