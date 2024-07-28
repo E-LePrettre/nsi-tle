@@ -819,6 +819,7 @@ turtle.left(120)
 turtle.forward(100)
 turtle.left(120)
 turtle.forward(100)
+turtle.done()
 ```
 
 2 Une autre partie de script à analyser et à faire fonctionner
@@ -843,6 +844,7 @@ t.right(120)
 t.forward(100)
 t.left(60)
 t.forward(100)
+t.done()
 ```
 
 3 Compléter l’algorithme suivant :
@@ -873,6 +875,7 @@ def koch(*longueur*, *n*):
         # à completer
 
 koch(200,3)
+turtle.done()
 ```
 
 5 Cerise sur le gateau : Sauriez vous faire afficher cette figure :
