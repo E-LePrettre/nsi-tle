@@ -274,7 +274,7 @@ Visualisation du tri <http://lwh.free.fr/pages/algo/tri/tri_fusion.html>
 ### <H3 STYLE="COLOR:GREEN;"> **<a name="_toc144400473"></a>3.4. Implémentation du tri fusion pour un tableau</H3>**
 
 <H3 STYLE="COLOR:red;">**Activité n° 4 :</H3>**
-**Étudier le code suivant et remplacer les … pour chaque numéro.**
+Étudier le code suivant et remplacer les … pour chaque numéro.
 
 ```python
 from typing import List
@@ -301,7 +301,7 @@ def tri_fusion(S: List[int]) -> None:
 ```
 
 <H3 STYLE="COLOR:red;">**Activité n° 5 :</H3>**
-**Étudier le code suivant et expliquer comment s’effectue la fusion.**
+Étudier le code suivant et expliquer comment s’effectue la fusion.
 
 ```python
 def fusion(S1: List[int], S2: List[int], S: List[int]) -> None:
@@ -326,15 +326,15 @@ def fusion(S1: List[int], S2: List[int], S: List[int]) -> None:
 ```
 
 <H3 STYLE="COLOR:red;">**Activité n° 6 :</H3>**
-**Étudier le comportement du programme complet à l’aide de pythontutor.
-Construire la liste à l’aide de l’instruction :**
+Étudier le comportement du programme complet à l’aide de pythontutor.
+Construire la liste à l’aide de l’instruction :
 ```python
 liste = [randint(1, 400) for i in range(5)]
 ```
 **Ne pas oublier d’importer random**
 
 <H3 STYLE="COLOR:red;">**Activité n° 7 :</H3>**
-**Quelle est la complexité de la fonction fusion ? Essayer d’évaluer la complexité de l’algorithme sans faire de calcul.**
+Quelle est la complexité de la fonction fusion ? Essayer d’évaluer la complexité de l’algorithme sans faire de calcul.
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc144400474"></a>**3.5. Complexité</H3>**
 Pour déterminer la formule de récurrence qui nous donnera la complexité de l’algorithme, étudions les trois étapes de cet algorithme
@@ -395,13 +395,13 @@ Nous avons déjà rencontré la recherche dichotomique. On rappelle qu’il s’
 Pour cela on utilisera la technique de la dichotomie. Il s’agira de délimiter une portion du tableau dans laquelle la valeur peut se trouver avec deux indices g et d. On peut illustrer la situation à chaque étape :
 
 <H3 STYLE="COLOR:red;">**Activité n° 9 :</H3>**
-**Écrire une fonction récursive en Python qui**
+Écrire une fonction récursive en Python qui
 
-- **prend en paramètres une liste tab d’entiers triés par ordre croissant, un entier à rechercher val.**
+- prend en paramètres une liste tab d’entiers triés par ordre croissant, un entier à rechercher val.
 
-- **renvoie i un indice où la valeur val apparait dans tab (ou True selon comment est codé l’algorithme) et False si la val n’est pas dans tab.  La valeur i est recherchée dans tab[g..d]**
+- renvoie i un indice où la valeur val apparait dans tab (ou True selon comment est codé l’algorithme) et False si la val n’est pas dans tab.  La valeur i est recherchée dans tab[g..d]
 
-**On peut passer les slices des listes de python ou utiliser des indices entrés avec une valeur par défaut**
+On peut passer les slices des listes de python ou utiliser des indices entrés avec une valeur par défaut
 
 La méthode « Diviser pour régner » est le paradigme naturel de la récursivité.
 
@@ -413,155 +413,151 @@ L’efficacité d’un algorithme qui s’appuie sur le paradigme « Diviser pou
 
 <H3 STYLE="COLOR:red;">**Exercice n°1 :</H3>** **Connaitre le cours**
 
-1. **En quoi consiste la méthode diviser pour régner ?**
+1. En quoi consiste la méthode diviser pour régner ?
 
-2 **Donner la séquence des appels de la fonction tri\_fusion vue dans la leçon lors de l’appel tri\_fusion([23,35,78,15,65,5,99]). La réponse peut être un arbre des appels.**
+2 Donner la séquence des appels de la fonction tri\_fusion vue dans la leçon lors de l’appel tri\_fusion([23,35,78,15,65,5,99]). La réponse peut être un arbre des appels.
 
-3 **Donner la séquence des appels de la fonction recherche basée sur la dichotomie vue dans la leçon lors de l’appel recherche\_dichotomique([1,3,15,16,23,35,38,40,42,45],42) puis lors de l’appel de recherche\_dichotomique([1,3,15,16,23,35,38,40,42,45],17)**
+3 Donner la séquence des appels de la fonction recherche basée sur la dichotomie vue dans la leçon lors de l’appel recherche\_dichotomique([1,3,15,16,23,35,38,40,42,45],42) puis lors de l’appel de recherche\_dichotomique([1,3,15,16,23,35,38,40,42,45],17)
 
 <H3 STYLE="COLOR:red;">**Exercice n°2 :</H3>** **Raisonner avec la méthode “diviser pour régner”**
 
+1 Est-il possible de paver, avec une pièce comme ci-contre ![](50.png)  un échiquier des dimensions suivantes : 
+- 3<sup>n</sup> × 3<sup>n</sup>
+- 4<sup>n</sup> × 4<sup>n</sup>
+- 6<sup>n</sup> × 6<sup>n</sup>
 
+Si oui, expliquez comment réaliser ce pavage
 
-1 **Est-il possible de paver, avec une pièce comme ci-contre ![](50.png)  un échiquier des dimensions suivantes :** 
-- **3<sup>n</sup> × 3<sup>n</sup>**
-- **4<sup>n</sup> × 4<sup>n</sup>**
-- **6<sup>n</sup> × 6<sup>n</sup>**
+2 Trouver une méthode pour paver, avec des pièces comme dans la question précédente, un échiquier de taille 2<sup>n</sup> × 2<sup>n</sup> qui contient un trou (1 seul trou qui ne doit pas être couvert par une pièce)
 
-**Si oui, expliquez comment réaliser ce pavage**
-
-2 **Trouver une méthode pour paver, avec des pièces comme dans la question précédente, un échiquier de taille 2<sup>n</sup> × 2<sup>n</sup> qui contient un trou (1 seul trou qui ne doit pas être couvert par une pièce)**
-
-3 **Montrer comment la méthode diviser pour régner permet de résoudre le problème précédent**
+3 Montrer comment la méthode diviser pour régner permet de résoudre le problème précédent
 
 <H3 STYLE="COLOR:red;">**Exercice n°3 :</H3>** **Dichotomie à l’envers**
 
-**Écrire une fonction recherche\_dichotomique\_envers récursive en Python basée sur le principe de dichotomie qui :**
+Écrire une fonction recherche\_dichotomique\_envers récursive en Python basée sur le principe de dichotomie qui :
 
-- **prend en paramètres une liste tab d’entiers triés par ordre décroissants, un entier à rechercher val, des entiers g et d qui représentent les bornes de recherche dans la liste**
+- prend en paramètres une liste tab d’entiers triés par ordre décroissants, un entier à rechercher val, des entiers g et d qui représentent les bornes de recherche dans la liste
 
-- **Renvoie i un indice où la valeur val apparait dans tab et None si la val n’est pas dans tab. La valeur i est recherchée dans tab[g..d]. Ajoutez quelques tests pour vérifier le bon fonctionnement de votre fonction**
+- Renvoie i un indice où la valeur val apparait dans tab et None si la val n’est pas dans tab. La valeur i est recherchée dans tab[g..d]. Ajoutez quelques tests pour vérifier le bon fonctionnement de votre fonction
 
 <H3 STYLE="COLOR:red;">**Exercice n°4 :</H3>** **Tri rapide**
 
-**Le Quicksort est une méthode de tri inventée par Sir Charles Antony Richard Hoare en 1961 et fondée sur la méthode de conception « diviser pour régner ». Il peut être implémenté sur un tableau ou sur des listes ; son utilisation la plus répandue concerne tout de même les tableaux.**
+Le Quicksort est une méthode de tri inventée par Sir Charles Antony Richard Hoare en 1961 et fondée sur la méthode de conception « diviser pour régner ». Il peut être implémenté sur un tableau ou sur des listes ; son utilisation la plus répandue concerne tout de même les tableaux. 
 
-- **Diviser** : **on partage le tableau en deux parties. Ce partage se fait autour d’une valeur du tableau choisie au hasard, c’est le pivot. Du coup, le pivot est à sa place ! il ne reste plus qu’à placer les autres !**
+- **Diviser** : on partage le tableau en deux parties. Ce partage se fait autour d’une valeur du tableau choisie au hasard, c’est le pivot. Du coup, le pivot est à sa place ! il ne reste plus qu’à placer les autres !
 
-- **Régner** : **On trie les tableaux récursivement (on repartage donc) ou on ne fait rien si la taille est 1 (puisqu’un seul élément est forcément ordonné)**
+- **Régner** : On trie les tableaux récursivement (on repartage donc) ou on ne fait rien si la taille est 1 (puisqu’un seul élément est forcément ordonné)
 
-- **Combiner** : **rien à faire**
+- **Combiner** : rien à faire
 
-**La méthode consiste à placer un élément du tableau (appelé **pivot**) à sa place définitive, en permutant tous les éléments de telle sorte que tous ceux qui
+La méthode consiste à placer un élément du tableau (appelé **pivot**) à sa place définitive, en permutant tous les éléments de telle sorte que tous ceux qui lui sont inférieurs soient à sa gauche et que tous ceux qui lui sont supérieurs soient à sa droite. Cette opération s'appelle le **partitionnement.**
 
- lui sont inférieurs soient à sa gauche et que tous ceux qui lui sont supérieurs soient à sa droite. Cette opération s'appelle le **partitionnement.**
+Pour chacun des sous-tableaux, on définit un **nouveau pivot** et on répète l'opération de partitionnement. Ce processus est répété **récursivement**, jusqu'à ce que l'ensemble des éléments soit trié.
 
-**Pour chacun des sous-tableaux, on définit un **nouveau pivot** et on répète l'opération de partitionnement. Ce processus est répété **récursivement**, jusqu'à ce que l'ensemble des éléments soit trié.**
+La complexité moyenne est en O(nlogn) mais O(n²) dans le pire des cas.
 
-**La complexité moyenne est en O(nlogn) mais O(n²) dans le pire des cas.**
-
-1 **Ecrire une fonction tri\_rapide\_gauche qui permet d’illustrer le schéma suivant :**
+1 Ecrire une fonction tri\_rapide\_gauche qui permet d’illustrer le schéma suivant :
 
 ![Tri rapide (pivot en tête)](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.028.png)
 
-2 **💣 💣 Ecrire une fonction tri\_rapide\_milieu qui permet d’illustrer le schéma suivant :**
+2 💣 💣 Ecrire une fonction tri\_rapide\_milieu qui permet d’illustrer le schéma suivant :
 
 ![Tri rapide (pivot au centre)](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.029.png)
 
-**Aide :** **il faut créer une fonction partition(T, indice\_gauche, indice\_droite, indice\_pivot) qui trie les éléments plus petit que le pivot vont à gauche et les élément plus grand que le pivot à droite. Concrètement, pour partitionner un sous-tableau :**
+**Aide :** il faut créer une fonction partition(T, indice\_gauche, indice\_droite, indice\_pivot) qui trie les éléments plus petit que le pivot vont à gauche et les élément plus grand que le pivot à droite. Concrètement, pour partitionner un sous-tableau :
 
-- **le pivot est placé à la fin (arbitrairement), en l'échangeant avec le dernier élément du sous-tableau ;**
+- le pivot est placé à la fin (arbitrairement), en l'échangeant avec le dernier élément du sous-tableau ;
 
-- **tous les éléments inférieurs au pivot sont placés en début du sous-tableau ;**
+- tous les éléments inférieurs au pivot sont placés en début du sous-tableau ;
 
-- **le pivot est déplacé à la fin des éléments déplacés.**
+- le pivot est déplacé à la fin des éléments déplacés.
 
-3 **Ecrire une fonction tri\_rapide\_aléatoire qui permet d’illustrer le schéma suivant :**
+3 Ecrire une fonction tri\_rapide\_aléatoire qui permet d’illustrer le schéma suivant :
 
 ![Tri rapide (pivot aléatoire)](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.030.png)
 
-**Aide** : **utiliser la fonction partition précédente**
+**Aide** : utiliser la fonction partition précédente
 
 <H3 STYLE="COLOR:red;">**Exercice n°5 :** Sommes des n nombres d’un tableau</H3>** 
 
-1. **Écrire le code de fonction somme1 qui permet de déterminer la somme des n nombres (entiers) d’un tableau en récursif**
-2 **Réfléchir à un algorithme utilisant le principe « Diviser pour régner » qui résout le même problème.**
+1. Écrire le code de fonction somme1 qui permet de déterminer la somme des n nombres (entiers) d’un tableau en récursif
+2 Réfléchir à un algorithme utilisant le principe « Diviser pour régner » qui résout le même problème.
 
-   **Écrire le code de la fonction somme2 qui implémente cet algorithme.**
+   Écrire le code de la fonction somme2 qui implémente cet algorithme.
+
 
 <H3 STYLE="COLOR:red;">**Exercice n°6 :** Recherche des plus grand et petit éléments dans un tableau</H3>** 
 
-1. **Générer une liste contenant un million de termes choisis aléatoirement entre un et mille milliards.**
-1. **Utiliser les fonctions min et max fournies par le langage Python afin d’afficher les maximum et minimum dans la liste.**
-1. **Écrire le code de la fonction maxmin1 qui, à partir d’un algorithme de « brute force », détermine les maximum et minimum dans la liste passée en argument. La spécification de la fonction est : maxmin1(tab: List[float]) -> Tuple[float, float]**
-1. **Vérifier le bon fonctionnement de la fonction maxmin1 en affichant les maximum et minimum dans la liste, à la suite de ceux déterminés à l’aide des fonctions fournies par Python.**
-1. **Quelle est la complexité de la fonction maxmin1 ?**
-1. **Comparer l’efficacité de la fonction maxmin1 à celle des fonctions fournies par Python en mesurant les durées d’exécution à l’aide de la fonction time du module time.**
-1. **Écrire et implémenter la fonction maxmin2 qui implémente le raisonnement «Diviser pour régner » pour résoudre ce problème.**
+1. Générer une liste contenant un million de termes choisis aléatoirement entre un et mille milliards.
+1. Utiliser les fonctions min et max fournies par le langage Python afin d’afficher les maximum et minimum dans la liste.
+1. Écrire le code de la fonction maxmin1 qui, à partir d’un algorithme de « brute force », détermine les maximum et minimum dans la liste passée en argument. La spécification de la fonction est : maxmin1(tab: List[float]) -> Tuple[float, float]
+1. Vérifier le bon fonctionnement de la fonction maxmin1 en affichant les maximum et minimum dans la liste, à la suite de ceux déterminés à l’aide des fonctions fournies par Python.
+1. Quelle est la complexité de la fonction maxmin1 ?
+1. Comparer l’efficacité de la fonction maxmin1 à celle des fonctions fournies par Python en mesurant les durées d’exécution à l’aide de la fonction time du module time.
+1. Écrire et implémenter la fonction maxmin2 qui implémente le raisonnement «Diviser pour régner » pour résoudre ce problème.
 
-   **Dans un premier temps, écrire une fonction qui se contente de déterminer le maximum dans la liste passée en argument. Compléter ensuite le code de façon à ce que le maximum et le minimum soient retournés. La spécification de la fonction est : maxmin2(tab: List[float]) -> float**
+   Dans un premier temps, écrire une fonction qui se contente de déterminer le maximum dans la liste passée en argument. Compléter ensuite le code de façon à ce que le maximum et le minimum soient retournés. La spécification de la fonction est : maxmin2(tab: List[float]) -> float
 
-8 **Vérifier le bon fonctionnement de la fonction à la suite des précédentes vérifications.**
+8 Vérifier le bon fonctionnement de la fonction à la suite des précédentes vérifications.
 
-9 **Modifier la fonction maxmin2 afin qu’elle retourne les maximum et minimum dans la liste. La spécification de la fonction est : maxmin2(tab: List[float]) -> Tuple[float, float]**
+9 Modifier la fonction maxmin2 afin qu’elle retourne les maximum et minimum dans la liste. La spécification de la fonction est : maxmin2(tab: List[float]) -> Tuple[float, float]
 
-   **La complexité de cette fonction est en O(n).**
+   La complexité de cette fonction est en O(n).
 
-10 **Vérifier le bon fonctionnement de la fonction à la suite des précédentes vérifications.**
+10 Vérifier le bon fonctionnement de la fonction à la suite des précédentes vérifications.
 
-11 **La fonction maxmin2 est-elle, théoriquement, plus efficace que la fonction maxmin1 ? Dans la pratique ? Comment expliquer ce comportement ?**
+11 La fonction maxmin2 est-elle, théoriquement, plus efficace que la fonction maxmin1 ? Dans la pratique ? Comment expliquer ce comportement ?
+
 
 <H3 STYLE="COLOR:red;">**Exercice n°7 :</H3>** **Problème de la sous-séquence de somme maximale**
 
-**Étant donné un tableau tab[1..n] d’entiers (positifs et négatifs), déterminer la valeur maximale du sous-tableau tab[g..h] donnant la plus grande somme de tous les sous-tableaux contigus de tab. Pour plus de commodité, la sous-séquence de somme maximale est 0 si tous les entiers sont négatifs.**
+Étant donné un tableau tab[1..n] d’entiers (positifs et négatifs), déterminer la valeur maximale du sous-tableau tab[g..h] donnant la plus grande somme de tous les sous-tableaux contigus de tab. Pour plus de commodité, la sous-séquence de somme maximale est 0 si tous les entiers sont négatifs.
 
-**Exemples**
+Exemples
 
-- **Pour le tableau tab = [-2, -5, 6, -2, -3, 1, 5, -6], la sous séquence de somme maximale est [6, -2, -3, 1, 5] et sa somme est 7.**
-- **Pour le tableau tab = [0, 1, 2, -2, 3, 2], la sous séquence de somme maximale est [1, 2, -2, 3, 2] et sa somme est 6.**
-- **Pour le tableau tab = [1, -2, 3, 10, -4, 7, 2, -5], la sous séquence de somme maximale est [3, 10, -4, 7, 2] et sa somme est 18.**
+- Pour le tableau tab = [-2, -5, 6, -2, -3, 1, 5, -6], la sous séquence de somme maximale est [6, -2, -3, 1, 5] et sa somme est 7.
+- Pour le tableau tab = [0, 1, 2, -2, 3, 2], la sous séquence de somme maximale est [1, 2, -2, 3, 2] et sa somme est 6.
+- Pour le tableau tab = [1, -2, 3, 10, -4, 7, 2, -5], la sous séquence de somme maximale est [3, 10, -4, 7, 2] et sa somme est 18.
 
-1. **On envisage dans un premier temps un algorithme basé sur le paradigme « Brute force » : on évalue la somme de chaque sous-tableau (parmi les n(n+1)/2 sous-tableaux possibles) et à chaque évaluation on mémorise la somme maximale. Écrire le code de la fonction sous\_tab\_max dont la spécification est : sous\_tab\_max(tab: List[int]) -> int**
-1. **Quelle est la complexité de cette fonction ?**
+1. On envisage dans un premier temps un algorithme basé sur le paradigme « Brute force » : on évalue la somme de chaque sous-tableau (parmi les n(n+1)/2 sous-tableaux possibles) et à chaque évaluation on mémorise la somme maximale. Écrire le code de la fonction sous\_tab\_max dont la spécification est : sous\_tab\_max(tab: List[int]) -> int
+1. Quelle est la complexité de cette fonction ?
 
-**Le tableau initial est scindé en deux parties de tailles à peu près égales (selon que n est pair ou impair) : la plus grande somme se trouve soit dans le sous-tableau B de droite, soit dans le sous-tableau A de gauche, soit à cheval sur les deux sous-parties. Dans ce dernier cas elle est constituée d’une plus grande somme de la partie gauche se terminant à la fin de la partie gauche (c.-à-d. en m), et d’une plus grande somme de la partie droite commençant au début de la partie droite (c’est à dire en m+1).**
+Le tableau initial est scindé en deux parties de tailles à peu près égales (selon que n est pair ou impair) : la plus grande somme se trouve soit dans le sous-tableau B de droite, soit dans le sous-tableau A de gauche, soit à cheval sur les deux sous-parties. Dans ce dernier cas elle est constituée d’une plus grande somme de la partie gauche se terminant à la fin de la partie gauche (c.-à-d. en m), et d’une plus grande somme de la partie droite commençant au début de la partie droite (c’est à dire en m+1).
 
 ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.031.png)
 
-**La procédure est récursive. Pour « sortir » des appels récursifs, il est nécessaire de ren- contrer un « couple de données-paramètres » (transmis à l’appel) dont la solution est triviale. C’est le cas si le tableau est composé d’au plus un élément.**
+La procédure est récursive. Pour « sortir » des appels récursifs, il est nécessaire de ren- contrer un « couple de données-paramètres » (transmis à l’appel) dont la solution est triviale. C’est le cas si le tableau est composé d’au plus un élément.
 
-3 **Écrire le code de la fonction somme\_max dont la spécification est :** 
+3 Écrire le code de la fonction somme\_max dont la spécification est : 
 
-   **somme\_max(tab: List[int]) -> int**
+   ```somme_max(tab: List[int]) -> int```
 
-4 **Écrire le code de la fonction max\_sous\_tab dont la spécification est :**
+4 Écrire le code de la fonction max\_sous\_tab dont la spécification est :
 
-   **max\_sous\_tab(tab: List[float], milieu: int) -> float**
+   ```max_sous_tab(tab: List[float], milieu: int) -> float```
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc144400478"></a>**7. Projet (démarche d’investigation)**</H2>
 <H3 STYLE="COLOR:red;">**Projet 1** : **Rotation d’une** **image numérique</H3>**
 
 1. **Petits rappels de SNT**
 
-**Une image est un tableau de pixels.**
+Une image est un tableau de pixels.
 
-**Une image en 1024x720 se compose de 1024x720 pixels.**
+Une image en 1024x720 se compose de 1024x720 pixels.
 
-**Chaque pixel a une couleur. La couleur est définie à partir de ses trois composantes : rouge, vert et bleu.**
+Chaque pixel a une couleur. La couleur est définie à partir de ses trois composantes : rouge, vert et bleu.
 
-**On définit un repère en prenant comme origine le coin en haut à gauche de l'image.**
+On définit un repère en prenant comme origine le coin en haut à gauche de l'image.
 
 ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.032.png)
 
-**A l'aide la library PIL de Python nous allons manipuler des images**
+A l'aide la library PIL de Python nous allons manipuler des images 
 
-**Nous allons travailler sur cette image :**
+Nous allons travailler sur cette image :
 
 ![la photo du prof](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.033.jpeg)
 
-1.1. **Tester et commenter le code ci-dessous :
-
-**
+1.1. Tester et commenter le code ci-dessous :
 
 ```python
 from PIL import Image
@@ -570,11 +566,11 @@ largeur, hauteur=im.size
 img.show()
 ```
 
-1.2. **Donner les dimensions de l'image**
+1.2. Donner les dimensions de l'image
 
-1.3. **Donner la couleur du pixel de coordonnées (100;100). (utiliser la methode getpixel())**
+1.3. Donner la couleur du pixel de coordonnées (100;100). (utiliser la methode getpixel())
 
-**Souvent, il faudra parcourir l’image pixel par pixel, sur toute la largeur et toute la hauteur. Cela est possible avec deux boucles imbriquées, à condition de connaitre ses dimensions largeur, hauteur:**
+Souvent, il faudra parcourir l’image pixel par pixel, sur toute la largeur et toute la hauteur. Cela est possible avec deux boucles imbriquées, à condition de connaitre ses dimensions largeur, hauteur:
 
 ```python
 for x in range(largeur): # x varie de 0 à largeur - 1
@@ -583,20 +579,23 @@ for x in range(largeur): # x varie de 0 à largeur - 1
 
 img.save("nouveau_nom.jpg")
 ```
-1.4. **Remplacer la couleur des pixels se situant dans un carré de dimension 100 pixels au centre de la photo par la couleur en RGB (25,153,89). Utiliser la méthode putpixel((x,y),p)**
-1.5. **Redimensionner l'image pour qu'elle soit deux fois plus petite. On pourra aller voir les fonctionnalités du module PIL.**
 
-<H3 STYLE="COLOR:red;">**Rotation</H3>** 
+1.4. Remplacer la couleur des pixels se situant dans un carré de dimension 100 pixels au centre de la photo par la couleur en RGB (25,153,89). Utiliser la méthode putpixel((x,y),p)
 
-**Rotation d'un quart de tour.** **Un pixel de coordonnées (x;y) dans une image de taille n×n a pour coordonnées **avant** rotation d'un quart de tour en sens horaire (y;n−1−x)**
+1.5. Redimensionner l'image pour qu'elle soit deux fois plus petite. On pourra aller voir les fonctionnalités du module PIL.
+
+
+2 **Rotation** 
+
+**Rotation d'un quart de tour.** Un pixel de coordonnées (x;y) dans une image de taille n×n a pour coordonnées **avant** rotation d'un quart de tour en sens horaire (y;n−1−x)
 
 ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.034.png)
 
 ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.035.png)
 
-**Ecrire la procédure rotation(image) qui reçoit pour paramètres une chaîne de caractères correspondant au nom de l'image carrée et un entier n correspondant à la taille de l'image et qui affiche l'image retournée de 90° dans le sens des aiguilles d'une montre. (Evidemment sans utiliser rotate() !)**
+Ecrire la procédure rotation(image) qui reçoit pour paramètres une chaîne de caractères correspondant au nom de l'image carrée et un entier n correspondant à la taille de l'image et qui affiche l'image retournée de 90° dans le sens des aiguilles d'une montre. (Evidemment sans utiliser rotate() !)
 
-**Avant la boucle de parcours des pixels, ajouter :**
+Avant la boucle de parcours des pixels, ajouter :
 
 ```python
 planPixels=Image.new("RGB",(largeur,hauteur))
@@ -604,17 +603,17 @@ planPixels=Image.new("RGB",(largeur,hauteur))
 
 <https://www.geeksforgeeks.org/python-pil-image-new-method/> 
 
-**On prendra l’image du crabe** 
+On prendra l’image du crabe 
 
 ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.036.jpeg)
 
 3 **Rotation récursive**
 
-**On cherche maintenant à effectuer cette transformation, SANS utiliser de nouvelle image planPixels comme précédemment. Ce sera une méthode dite en O(1) du point de vue de la complexité spatiale.**
+On cherche maintenant à effectuer cette transformation, SANS utiliser de nouvelle image planPixels comme précédemment. Ce sera une méthode dite en O(1) du point de vue de la complexité spatiale.
 
-**On utilisera l’image suivante (carrée) pour cette méthode : **woody.jpg**
+On utilisera l’image suivante (carrée) pour cette méthode : **woody.jpg**
 
-3.1. **Compléter la procédure echange\_pix suivante**
+3.1. Compléter la procédure echange\_pix suivante
 
 ```python
 def echange_pix(image, x0, y0, x1, y1):
@@ -633,12 +632,11 @@ def echange_pix(image, x0, y0, x1, y1):
     start = image.getpixel((x0, y0))
     end = image.getpixel((x1, y1))
     # à compléter
-
 ```
 
-3.2. **Compléter la procédure echange\_quadrant suivante**
+3.2. Compléter la procédure echange\_quadrant suivante
 
-**Cette procédure permet d’échanger les pixels de 2 zones carrées de mêmes dimensions.**
+Cette procédure permet d’échanger les pixels de 2 zones carrées de mêmes dimensions.
 
 ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.037.png)
 
@@ -663,38 +661,41 @@ def echange_quadrant(image, x0, y0, x1, y1, n):
     for i in range(n):
         for j in range(n):
             echange_pix(image, # à compléter
-
 ```
 
-3.3 **On veut échanger les blocs A et D, qui font chacun 120\*120 pixels. Quelle instruction faut-il écrire, utilisant la procédure echange\_quadrant.**
+3.3 On veut échanger les blocs A et D, qui font chacun 120\*120 pixels. Quelle instruction faut-il écrire, utilisant la procédure echange\_quadrant.
 
-3.4 **Même question pour échanger les blocs A et C.**
+3.4 Même question pour échanger les blocs A et C.
 
-<H3 STYLE="COLOR:red;">**Diviser pour régner</H3>**
+**Diviser pour régner**
 
-**La méthode de "Diviser pour régner" en algorithmique se décompose en trois étapes :**
+La méthode de "Diviser pour régner" en algorithmique se décompose en trois étapes :
 
-- **Diviser : on découpe l'image en images de taille 2x2**
-- **Régner : on effectue la rotation de chaque image de taille 2x2**
-- **Fusion : la fusion est réalisée en échangeant les quadrants lors des appels récursifs.**
+- Diviser : on découpe l'image en images de taille 2x2
+- Régner : on effectue la rotation de chaque image de taille 2x2
+- Fusion : la fusion est réalisée en échangeant les quadrants lors des appels récursifs.
 
-**La procédure permet de faire tourner l’image d’un quart de tour par une méthode de type *diviser pour régner*.**
+La procédure permet de faire tourner l’image d’un quart de tour par une méthode de type *diviser pour régner*.
 
-**Une fois la partie **divisée** exécutée (appels récursifs), lorsque les subdivisions de l’image sont constituées d’un seul pixel, les pixels sont déplacés (**règne**) à l’aide d’une rotation** 
+Une fois la partie **divisée** exécutée (appels récursifs), lorsque les subdivisions de l’image sont constituées d’un seul pixel, les pixels sont déplacés (**règne**) à l’aide d’une rotation 
 
 ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.038.png)
 
-**Puis de 3 permutations successives, selon le schéma suivant.**
+Puis de 3 permutations successives, selon le schéma suivant.
 
-![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.039.png)On **numérote les cases :**
+![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.039.png)On numérote les cases :
+
+
 
 ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.040.png)
 
-**Ils sont alors recombinés pour reformer l’image, tout en suivant les mêmes permutations, mais avec des blocs de pixels plus gros (**fusion**).**
 
-3.5. **Si on appelle m la dimension du carré, quelle est la procédure qui permet de réaliser l'échange ci-dessous ?**
 
-3.6. **Compléter la procédure rotate, de telle sorte que la permutation circulaire se fasse :**
+Ils sont alors recombinés pour reformer l’image, tout en suivant les mêmes permutations, mais avec des blocs de pixels plus gros (**fusion**).
+
+3.5. Si on appelle m la dimension du carré, quelle est la procédure qui permet de réaliser l'échange ci-dessous ?
+
+3.6. Compléter la procédure rotate, de telle sorte que la permutation circulaire se fasse :
 
 ```python
 def rotate(image,x0,y0,n):
@@ -719,12 +720,12 @@ def rotate(image,x0,y0,n):
         rotate(image,x0+m,y0,m)
         rotate(image,x0+m,y0+m,m)
 	# à compléter
-
 ```
 
-3.7. **Analysez la procédure :* A l’aide de l’image suivante, que vous découperez, montrer pas à pas ce qui est réalisé par la fonction rotate**
+3.7. *Analysez la procédure :* A l’aide de l’image suivante, que vous découperez, montrer pas à pas ce qui est réalisé par la fonction rotate
 
 ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.041.png)
 
-3.8. **Ecrire la procédure quart\_tour(image) qui réalise la rotation de image de taille n d'un quart de tour.**
+3.8. Ecrire la procédure quart\_tour(image) qui réalise la rotation de image de taille n d'un quart de tour.
+
 
