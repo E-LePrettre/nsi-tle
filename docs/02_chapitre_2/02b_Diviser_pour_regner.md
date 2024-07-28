@@ -572,6 +572,7 @@ img.show()
 ```
 
 1.2. Donner les dimensions de l'image
+
 1.3. Donner la couleur du pixel de coordonnées (100;100). (utiliser la methode getpixel())
 
 Souvent, il faudra parcourir l’image pixel par pixel, sur toute la largeur et toute la hauteur. Cela est possible avec deux boucles imbriquées, à condition de connaitre ses dimensions largeur, hauteur:
