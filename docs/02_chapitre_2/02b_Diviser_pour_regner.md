@@ -12,7 +12,7 @@ title: 02b Méthode diviser pour régner
 4. [**Comparaison des performances**](#_toc144400475)
 5. [**Retour sur la recherche dichotomique**](#_toc144400476)
 6. [**Exercices**](#_toc144400477)
-7. [P**rojet (démarche d’investigation)**](#_toc144400478)
+7. [**Projet (démarche d’investigation)**](#_toc144400478)
 
 
 **Compétences évaluables :**
@@ -25,11 +25,13 @@ La méthode diviser pour régner *divide and conquer* se décompose en 3 étapes
 - **Régner** : résoudre les sous problèmes soit directement soit récursivement si la division nous place dans le même problème de départ mais en plus petit
 - **Combiner** : à partir des solutions trouvées au sous problème, former la réponse finale. Si la récursivité a été employée dans la résolution, elle le sera aussi ici
 
-![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.001.png)
 
 - Si les sous-problèmes sont indépendants les uns des autres : « **Diviser pour régner** ».
 - Si les sous-problèmes dépendent les uns des autres : « **Programmation dynamique** ».
-1. # <a name="_toc144400464"></a>**Introduction**
+
+
+## <a name="_toc144400464"></a>**1. Introduction**
+
 L’idée de base est de trouver une **méthodologie** pour résoudre des problèmes. Par exemple : On veut résoudre le problème A. 
 
 Si on sait : 
@@ -56,7 +58,7 @@ Représentons l’arbre des appels pour la liste de 15 joueuses numérotées de 
 
 ![arbre binaire des appels](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.002.png)
 
-arbre binaire des appels
+
 
 **Question à propos de la solution 2**: Si on suppose qu’un appel téléphonique dure 5 min. En combien de temps (noté t2) l’ensemble de l’équipe est informé ? En déduire la complexité́ de cette solution en fonction de n (taille de l’équipe)
 
@@ -69,7 +71,9 @@ La méthode « diviser pour régner » va s’appliquer à des problèmes où 
 2\. Régner pour résoudre effectivement les sous-problèmes ; 
 
 3\. Combiner pour obtenir une solution du problème initial.
-1. # <a name="_toc144400465"></a>**L’exponentiation**
+
+
+## <a name="_toc144400465"></a>**2. L’exponentiation**
 L’exponentiation consiste à trouver une méthode pour calculer a à la puissance n, **SANS utiliser l’opérateur *puissance*.** L’idée est de se rapprocher de l’algorithme utilisé par le processeur d’un ordinateur, qui n’utilise que les 3 opérateurs de base pour effectuer les calculs (+,-,\*).
 
 ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.003.png)
