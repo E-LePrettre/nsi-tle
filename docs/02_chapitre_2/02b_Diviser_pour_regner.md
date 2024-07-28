@@ -25,7 +25,7 @@ La méthode diviser pour régner *divide and conquer* se décompose en 3 étapes
 - **Régner** : résoudre les sous problèmes soit directement soit récursivement si la division nous place dans le même problème de départ mais en plus petit
 - **Combiner** : à partir des solutions trouvées au sous problème, former la réponse finale. Si la récursivité a été employée dans la résolution, elle le sera aussi ici
 
-
+**Remarque**: 
 - Si les sous-problèmes sont indépendants les uns des autres : « **Diviser pour régner** ».
 - Si les sous-problèmes dépendent les uns des autres : « **Programmation dynamique** ».
 
