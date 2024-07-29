@@ -79,7 +79,7 @@ L’exponentiation consiste à trouver une méthode pour calculer a à la puissa
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc144400466"></a>**1.2. Programme itératif</H3>**
 
-<H3 STYLE="COLOR:red;">**Activité n° 1:</H3>**
+**<H3 STYLE="COLOR:red;">Activité n° 1:</H3>**
 
 Etudions l’algorithme d’exponentiation en version itérative
 
@@ -104,7 +104,7 @@ La complexité est **O(n)**.
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc144400467"></a>**1.2. Programme récursif</H3>**
 
-<H3 STYLE="COLOR:red;">**Activité n° 2 :</H3>**
+**<H3 STYLE="COLOR:red;">Activité n° 2 :</H3>**
 Etudions l’algorithme d’exponentiation en version récursive
 
 ```python
@@ -135,7 +135,7 @@ On retrouve l’étape 3 évoquée en introduction (la combinaison des sous prob
 
 ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.005.png)
 
-<H3 STYLE="COLOR:red;">**Activité n° 3 :</H3>**
+**<H3 STYLE="COLOR:red;">Activité n° 3 :</H3>**
 Etudions l’algorithme d’exponentiation en version méthode Diviser pour régner
 
 ```python
@@ -273,7 +273,7 @@ Visualisation du tri <http://lwh.free.fr/pages/algo/tri/tri_fusion.html>
 
 ### <H3 STYLE="COLOR:GREEN;"> **<a name="_toc144400473"></a>3.4. Implémentation du tri fusion pour un tableau</H3>**
 
-<H3 STYLE="COLOR:red;">**Activité n° 4 :</H3>**
+**<H3 STYLE="COLOR:red;">Activité n° 4 :</H3>**
 Étudier le code suivant et remplacer les … pour chaque numéro.
 
 ```python
@@ -300,7 +300,7 @@ def tri_fusion(S: List[int]) -> None:
     fusion(S1, S2, S)  # ... (9)
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 5 :</H3>**
+**<H3 STYLE="COLOR:red;">Activité n° 5 :</H3>**
 Étudier le code suivant et expliquer comment s’effectue la fusion.
 
 ```python
@@ -325,7 +325,7 @@ def fusion(S1: List[int], S2: List[int], S: List[int]) -> None:
             j = j + 1
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 6 :</H3>**
+**<H3 STYLE="COLOR:red;">Activité n° 6 :</H3>**
 Étudier le comportement du programme complet à l’aide de pythontutor.
 Construire la liste à l’aide de l’instruction :
 ```python
@@ -333,7 +333,7 @@ liste = [randint(1, 400) for i in range(5)]
 ```
 **Ne pas oublier d’importer random**
 
-<H3 STYLE="COLOR:red;">**Activité n° 7 :</H3>**
+**<H3 STYLE="COLOR:red;">Activité n° 7 :</H3>**
 Quelle est la complexité de la fonction fusion ? Essayer d’évaluer la complexité de l’algorithme sans faire de calcul.
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc144400474"></a>**3.5. Complexité</H3>**
@@ -349,7 +349,7 @@ Donc la complexité de l’algorithme du tri fusion pour trier un tableur de ta
 
 La complexité des tris par insertion et sélection est en O(n²), celle du tri par fusion est en **O(n.log(n))**
 
-<H3 STYLE="COLOR:red;">**Activité n° 8 :** Comparaison des performances des différents tris**.</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 8 :** Comparaison des performances des différents tris**.</H3>
 
 ```python
 import datetime
@@ -394,7 +394,7 @@ Nous avons déjà rencontré la recherche dichotomique. On rappelle qu’il s’
 
 Pour cela on utilisera la technique de la dichotomie. Il s’agira de délimiter une portion du tableau dans laquelle la valeur peut se trouver avec deux indices g et d. On peut illustrer la situation à chaque étape :
 
-<H3 STYLE="COLOR:red;">**Activité n° 9 :</H3>**
+**<H3 STYLE="COLOR:red;">Activité n° 9 :</H3>**
 Écrire une fonction récursive en Python qui
 
 - prend en paramètres une liste tab d’entiers triés par ordre croissant, un entier à rechercher val.
@@ -537,7 +537,7 @@ La procédure est récursive. Pour « sortir » des appels récursifs, il est n�
    ```max_sous_tab(tab: List[float], milieu: int) -> float```
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc144400478"></a>**7. Projet (démarche d’investigation)**</H2>
-<H3 STYLE="COLOR:red;">**Projet 1** : **Rotation d’une** **image numérique</H3>**
+**<H3 STYLE="COLOR:red;">Projet 1 : Rotation d’une image numérique</H3>**
 
 1. **Petits rappels de SNT**
 
@@ -720,7 +720,7 @@ def rotate(image,x0,y0,n):
         rotate(image,x0+m,y0,m)
         rotate(image,x0+m,y0+m,m)
 	# à compléter
-```
+```**Activité
 
 3.7. *Analysez la procédure :* A l’aide de l’image suivante, que vous découperez, montrer pas à pas ce qui est réalisé par la fonction rotate
 
