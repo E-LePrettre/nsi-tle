@@ -197,6 +197,7 @@ Le tri fusion s’appuie sur la méthode **Diviser pour régner** pour trier les
 - S2**​**  contient les ![](49.png) derniers éléments de S.
 
 2 **Régner :** **Trier récursivement** S1 **et** S2
+
 3 **Combiner :** **Reformer la séquence** S en combinant, dans l’ordre, les éléments des séquences triées S1 et S2
 
 **Remarques** :
