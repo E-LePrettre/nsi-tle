@@ -478,7 +478,7 @@ La complexité moyenne est en O(nlogn) mais O(n²) dans le pire des cas.
 
 **Aide** : utiliser la fonction partition précédente
 
-**<H3 STYLE="COLOR:red;">Exercice n°5 :** Sommes des n nombres d’un tableau</H3>** 
+**<H3 STYLE="COLOR:red;">Exercice n°5 : Sommes des n nombres d’un tableau</H3>** 
 
 1. Écrire le code de fonction somme1 qui permet de déterminer la somme des n nombres (entiers) d’un tableau en récursif
 2 Réfléchir à un algorithme utilisant le principe « Diviser pour régner » qui résout le même problème.
@@ -486,7 +486,7 @@ La complexité moyenne est en O(nlogn) mais O(n²) dans le pire des cas.
    Écrire le code de la fonction somme2 qui implémente cet algorithme.
 
 
-**<H3 STYLE="COLOR:red;">Exercice n°6 :** Recherche des plus grand et petit éléments dans un tableau</H3>** 
+**<H3 STYLE="COLOR:red;">Exercice n°6 : Recherche des plus grand et petit éléments dans un tableau</H3>** 
 
 1. Générer une liste contenant un million de termes choisis aléatoirement entre un et mille milliards.
 1. Utiliser les fonctions min et max fournies par le langage Python afin d’afficher les maximum et minimum dans la liste.
