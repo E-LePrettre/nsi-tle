@@ -46,7 +46,7 @@ Si on sait :
 
 alors on sait résoudre le problème A.
 
-<H3 STYLE="COLOR:red;">**Exemple Le téléphone en chaine</H3>**
+**<H3 STYLE="COLOR:red;">Exemple Le téléphone en chaine</H3>**
 
 Les 15 joueuses d’une équipe de volleyball ont la liste des joueuses de l’équipe avec leur numéro de téléphone. La capitaine reçoît l’information que le prochain match a été́ déplacé́. Il faut prévenir toutes les autres joueuses.
 
@@ -411,7 +411,7 @@ L’efficacité d’un algorithme qui s’appuie sur le paradigme « Diviser pou
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc144400477"></a>**6. Exercices**</H2> 
 
-<H3 STYLE="COLOR:red;">**Exercice n°1 :</H3>** **Connaitre le cours**
+**<H3 STYLE="COLOR:red;">Exercice n°1 :</H3>** **Connaitre le cours**
 
 1. En quoi consiste la méthode diviser pour régner ?
 
@@ -419,7 +419,7 @@ L’efficacité d’un algorithme qui s’appuie sur le paradigme « Diviser pou
 
 3 Donner la séquence des appels de la fonction recherche basée sur la dichotomie vue dans la leçon lors de l’appel recherche\_dichotomique([1,3,15,16,23,35,38,40,42,45],42) puis lors de l’appel de recherche\_dichotomique([1,3,15,16,23,35,38,40,42,45],17)
 
-<H3 STYLE="COLOR:red;">**Exercice n°2 :</H3>** **Raisonner avec la méthode “diviser pour régner”**
+**<H3 STYLE="COLOR:red;">Exercice n°2 :</H3>** **Raisonner avec la méthode “diviser pour régner”**
 
 1 Est-il possible de paver, avec une pièce comme ci-contre ![](50.png)  un échiquier des dimensions suivantes : 
 - 3<sup>n</sup> × 3<sup>n</sup>
@@ -432,7 +432,7 @@ Si oui, expliquez comment réaliser ce pavage
 
 3 Montrer comment la méthode diviser pour régner permet de résoudre le problème précédent
 
-<H3 STYLE="COLOR:red;">**Exercice n°3 :</H3>** **Dichotomie à l’envers**
+**<H3 STYLE="COLOR:red;">Exercice n°3 :</H3>** **Dichotomie à l’envers**
 
 Écrire une fonction recherche\_dichotomique\_envers récursive en Python basée sur le principe de dichotomie qui :
 
@@ -440,7 +440,7 @@ Si oui, expliquez comment réaliser ce pavage
 
 - Renvoie i un indice où la valeur val apparait dans tab et None si la val n’est pas dans tab. La valeur i est recherchée dans tab[g..d]. Ajoutez quelques tests pour vérifier le bon fonctionnement de votre fonction
 
-<H3 STYLE="COLOR:red;">**Exercice n°4 :</H3>** **Tri rapide**
+**<H3 STYLE="COLOR:red;">Exercice n°4 :</H3>** **Tri rapide**
 
 Le Quicksort est une méthode de tri inventée par Sir Charles Antony Richard Hoare en 1961 et fondée sur la méthode de conception « diviser pour régner ». Il peut être implémenté sur un tableau ou sur des listes ; son utilisation la plus répandue concerne tout de même les tableaux. 
 
@@ -478,7 +478,7 @@ La complexité moyenne est en O(nlogn) mais O(n²) dans le pire des cas.
 
 **Aide** : utiliser la fonction partition précédente
 
-<H3 STYLE="COLOR:red;">**Exercice n°5 :** Sommes des n nombres d’un tableau</H3>** 
+**<H3 STYLE="COLOR:red;">Exercice n°5 :** Sommes des n nombres d’un tableau</H3>** 
 
 1. Écrire le code de fonction somme1 qui permet de déterminer la somme des n nombres (entiers) d’un tableau en récursif
 2 Réfléchir à un algorithme utilisant le principe « Diviser pour régner » qui résout le même problème.
@@ -486,7 +486,7 @@ La complexité moyenne est en O(nlogn) mais O(n²) dans le pire des cas.
    Écrire le code de la fonction somme2 qui implémente cet algorithme.
 
 
-<H3 STYLE="COLOR:red;">**Exercice n°6 :** Recherche des plus grand et petit éléments dans un tableau</H3>** 
+**<H3 STYLE="COLOR:red;">Exercice n°6 :** Recherche des plus grand et petit éléments dans un tableau</H3>** 
 
 1. Générer une liste contenant un million de termes choisis aléatoirement entre un et mille milliards.
 1. Utiliser les fonctions min et max fournies par le langage Python afin d’afficher les maximum et minimum dans la liste.
@@ -509,7 +509,7 @@ La complexité moyenne est en O(nlogn) mais O(n²) dans le pire des cas.
 11 La fonction maxmin2 est-elle, théoriquement, plus efficace que la fonction maxmin1 ? Dans la pratique ? Comment expliquer ce comportement ?
 
 
-<H3 STYLE="COLOR:red;">**Exercice n°7 :</H3>** **Problème de la sous-séquence de somme maximale**
+**<H3 STYLE="COLOR:red;">Exercice n°7 :</H3>** **Problème de la sous-séquence de somme maximale**
 
 Étant donné un tableau tab[1..n] d’entiers (positifs et négatifs), déterminer la valeur maximale du sous-tableau tab[g..h] donnant la plus grande somme de tous les sous-tableaux contigus de tab. Pour plus de commodité, la sous-séquence de somme maximale est 0 si tous les entiers sont négatifs.
 
