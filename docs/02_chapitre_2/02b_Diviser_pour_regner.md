@@ -92,7 +92,13 @@ def exp1(n : int ,a: float) -> float :
     for i in range(n):
         valeur*=a
     return valeur
+
+print(exp1(5,49))
 ```
+
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
 
 **Complexité** :
 
@@ -116,11 +122,15 @@ def exp2(n : int ,a: float) -> float :
         return 1
     else:
         return a* exp2(n-1,a)
+
+print(exp2(5,49))
 ```
 
-**Complexité** :
+???+ question "Tester ce qui est proposé"
 
-La complexité est aussi O(n).
+    {{ IDE() }}
+
+**Complexité** :La complexité est aussi O(n).
 
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc144400468"></a>**2.3. Exponentiation rapide : application de la méthode Diviser pour régner</H3>**
@@ -151,7 +161,12 @@ def exp3(n : int ,a: float) -> float :
             return y*y
         else:
             return a*y*y
+
+print(exp3(5,49))
 ```
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
 
 **Complexité**
 
@@ -328,9 +343,13 @@ def fusion(S1: List[int], S2: List[int], S: List[int]) -> None:
 Étudier le comportement du programme complet à l’aide de pythontutor.
 Construire la liste à l’aide de l’instruction :
 ```python
+from random import randint
 liste = [randint(1, 400) for i in range(5)]
 ```
-**Ne pas oublier d’importer random**
+
+???+ question "Tester l'algorithme de tri fusion qui est proposé avec la liste ci-dessus"
+
+    {{ IDE() }}
 
 **<H3 STYLE="COLOR:red;">Activité n° 7 :</H3>**
 Quelle est la complexité de la fonction fusion ? Essayer d’évaluer la complexité de l’algorithme sans faire de calcul.
@@ -353,9 +372,15 @@ La complexité des tris par insertion et sélection est en O(n²), celle du tri 
 ```python
 import datetime
 import random
-from tri_insertion import tri_insertion
-from tri_selection import tri_selection
-from tri_fusion import tri_fusion
+
+def tri_insertion(tab):
+    # à compléter
+
+def tri_selection(tab):
+    # à compléter
+    
+def tri_fusion(tab):
+    # à compléter
 
 n = 1000
 t=[random.randint(1,1000) for i in range(n)]
@@ -400,6 +425,10 @@ Pour cela on utilisera la technique de la dichotomie. Il s’agira de délimiter
 
 - renvoie i un indice où la valeur val apparait dans tab (ou True selon comment est codé l’algorithme) et False si la val n’est pas dans tab.  La valeur i est recherchée dans tab[g..d]
 
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
+    
 On peut passer les slices des listes de python ou utiliser des indices entrés avec une valeur par défaut
 
 La méthode « Diviser pour régner » est le paradigme naturel de la récursivité.
