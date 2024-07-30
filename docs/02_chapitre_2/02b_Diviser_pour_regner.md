@@ -410,6 +410,10 @@ print("tri fusion : ",(end-start).total_seconds())
 
 ```
 
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
+
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc144400476"></a>**5. Retour sur la recherche dichotomique**</H2>
 Nous avons déjà rencontré la recherche dichotomique. On rappelle qu’il s’agit de déterminer si un entier val apparait dans une liste tab qui est triée par ordre croissant. Plus précisément on cherche à écrire une fonction qui :
 
@@ -428,7 +432,7 @@ Pour cela on utilisera la technique de la dichotomie. Il s’agira de délimiter
 ???+ question "Tester ce qui est proposé"
 
     {{ IDE() }}
-    
+
 On peut passer les slices des listes de python ou utiliser des indices entrés avec une valeur par défaut
 
 La méthode « Diviser pour régner » est le paradigme naturel de la récursivité.
@@ -439,34 +443,67 @@ L’efficacité d’un algorithme qui s’appuie sur le paradigme « Diviser pou
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc144400477"></a>**6. Exercices**</H2> 
 
-**<H3 STYLE="COLOR:red;">Exercice n°1 :</H3>** **Connaitre le cours**
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
 
-1. En quoi consiste la méthode diviser pour régner ?
+**<H3 STYLE="COLOR:red;">Exercice n°1 : Sommes des n nombres d’un tableau</H3>** 
 
-2 Donner la séquence des appels de la fonction tri\_fusion vue dans la leçon lors de l’appel tri\_fusion([23,35,78,15,65,5,99]). La réponse peut être un arbre des appels.
+1 Écrire le code de fonction somme1 qui permet de déterminer la somme des n nombres (entiers) d’un tableau en récursif
 
-3 Donner la séquence des appels de la fonction recherche basée sur la dichotomie vue dans la leçon lors de l’appel recherche\_dichotomique([1,3,15,16,23,35,38,40,42,45],42) puis lors de l’appel de recherche\_dichotomique([1,3,15,16,23,35,38,40,42,45],17)
+2 Réfléchir à un algorithme utilisant le principe « Diviser pour régner » qui résout le même problème.
 
-**<H3 STYLE="COLOR:red;">Exercice n°2 :</H3>** **Raisonner avec la méthode “diviser pour régner”**
+   Écrire le code de la fonction somme2 qui implémente cet algorithme.
 
-1 Est-il possible de paver, avec une pièce comme ci-contre ![](50.png)  un échiquier des dimensions suivantes : 
-- 3<sup>n</sup> × 3<sup>n</sup>
-- 4<sup>n</sup> × 4<sup>n</sup>
-- 6<sup>n</sup> × 6<sup>n</sup>
 
-Si oui, expliquez comment réaliser ce pavage
+**<H3 STYLE="COLOR:red;">Exercice n°2 : Recherche des plus grand et petit éléments dans un tableau</H3>** 
 
-2 Trouver une méthode pour paver, avec des pièces comme dans la question précédente, un échiquier de taille 2<sup>n</sup> × 2<sup>n</sup> qui contient un trou (1 seul trou qui ne doit pas être couvert par une pièce)
+1. Générer une liste contenant un million de termes choisis aléatoirement entre un et mille milliards.
+1. Utiliser les fonctions min et max fournies par le langage Python afin d’afficher les maximum et minimum dans la liste.
+1. Écrire le code de la fonction maxmin1 qui, à partir d’un algorithme de « brute force », détermine les maximum et minimum dans la liste passée en argument. La spécification de la fonction est : maxmin1(tab: List[float]) -> Tuple[float, float]
+1. Vérifier le bon fonctionnement de la fonction maxmin1 en affichant les maximum et minimum dans la liste, à la suite de ceux déterminés à l’aide des fonctions fournies par Python.
+1. Quelle est la complexité de la fonction maxmin1 ?
+1. Comparer l’efficacité de la fonction maxmin1 à celle des fonctions fournies par Python en mesurant les durées d’exécution à l’aide de la fonction time du module time.
+1. Écrire et implémenter la fonction maxmin2 qui implémente le raisonnement «Diviser pour régner » pour résoudre ce problème.
 
-3 Montrer comment la méthode diviser pour régner permet de résoudre le problème précédent
+   Dans un premier temps, écrire une fonction qui se contente de déterminer le maximum dans la liste passée en argument. Compléter ensuite le code de façon à ce que le maximum et le minimum soient retournés. La spécification de la fonction est : maxmin2(tab: List[float]) -> float
 
-**<H3 STYLE="COLOR:red;">Exercice n°3 :</H3>** **Dichotomie à l’envers**
+8 Vérifier le bon fonctionnement de la fonction à la suite des précédentes vérifications.
 
-Écrire une fonction recherche\_dichotomique\_envers récursive en Python basée sur le principe de dichotomie qui :
+9 Modifier la fonction maxmin2 afin qu’elle retourne les maximum et minimum dans la liste. La spécification de la fonction est : maxmin2(tab: List[float]) -> Tuple[float, float]
 
-- prend en paramètres une liste tab d’entiers triés par ordre décroissants, un entier à rechercher val, des entiers g et d qui représentent les bornes de recherche dans la liste
+   La complexité de cette fonction est en O(n).
 
-- Renvoie i un indice où la valeur val apparait dans tab et None si la val n’est pas dans tab. La valeur i est recherchée dans tab[g..d]. Ajoutez quelques tests pour vérifier le bon fonctionnement de votre fonction
+10 Vérifier le bon fonctionnement de la fonction à la suite des précédentes vérifications.
+
+11 La fonction maxmin2 est-elle, théoriquement, plus efficace que la fonction maxmin1 ? Dans la pratique ? Comment expliquer ce comportement ?
+
+
+**<H3 STYLE="COLOR:red;">Exercice n°3 :</H3>** **Problème de la sous-séquence de somme maximale**
+
+Étant donné un tableau tab[1..n] d’entiers (positifs et négatifs), déterminer la valeur maximale du sous-tableau tab[g..h] donnant la plus grande somme de tous les sous-tableaux contigus de tab. Pour plus de commodité, la sous-séquence de somme maximale est 0 si tous les entiers sont négatifs.
+
+Exemples
+
+- Pour le tableau tab = [-2, -5, 6, -2, -3, 1, 5, -6], la sous séquence de somme maximale est [6, -2, -3, 1, 5] et sa somme est 7.
+- Pour le tableau tab = [0, 1, 2, -2, 3, 2], la sous séquence de somme maximale est [1, 2, -2, 3, 2] et sa somme est 6.
+- Pour le tableau tab = [1, -2, 3, 10, -4, 7, 2, -5], la sous séquence de somme maximale est [3, 10, -4, 7, 2] et sa somme est 18.
+
+1 On envisage dans un premier temps un algorithme basé sur le paradigme « Brute force » : on évalue la somme de chaque sous-tableau (parmi les n(n+1)/2 sous-tableaux possibles) et à chaque évaluation on mémorise la somme maximale. Écrire le code de la fonction sous\_tab\_max dont la spécification est : sous\_tab\_max(tab: List[int]) -> int
+
+2 Quelle est la complexité de cette fonction ?
+
+Le tableau initial est scindé en deux parties de tailles à peu près égales (selon que n est pair ou impair) : la plus grande somme se trouve soit dans le sous-tableau B de droite, soit dans le sous-tableau A de gauche, soit à cheval sur les deux sous-parties. Dans ce dernier cas elle est constituée d’une plus grande somme de la partie gauche se terminant à la fin de la partie gauche (c.-à-d. en m), et d’une plus grande somme de la partie droite commençant au début de la partie droite (c’est à dire en m+1).
+
+![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.031.png)
+
+La procédure est récursive. Pour « sortir » des appels récursifs, il est nécessaire de ren- contrer un « couple de données-paramètres » (transmis à l’appel) dont la solution est triviale. C’est le cas si le tableau est composé d’au plus un élément.
+
+3 Écrire le code de la fonction somme\_max dont la spécification est : 
+
+   ```somme_max(tab: List[int]) -> int```
+
+4 Écrire le code de la fonction max\_sous\_tab dont la spécification est :
+
+   ```max_sous_tab(tab: List[float], milieu: int) -> float```
 
 **<H3 STYLE="COLOR:red;">Exercice n°4 :</H3>** **Tri rapide**
 
@@ -506,65 +543,6 @@ La complexité moyenne est en O(nlogn) mais O(n²) dans le pire des cas.
 
 **Aide** : utiliser la fonction partition précédente
 
-**<H3 STYLE="COLOR:red;">Exercice n°5 : Sommes des n nombres d’un tableau</H3>** 
-
-1. Écrire le code de fonction somme1 qui permet de déterminer la somme des n nombres (entiers) d’un tableau en récursif
-
-2 Réfléchir à un algorithme utilisant le principe « Diviser pour régner » qui résout le même problème.
-
-   Écrire le code de la fonction somme2 qui implémente cet algorithme.
-
-
-**<H3 STYLE="COLOR:red;">Exercice n°6 : Recherche des plus grand et petit éléments dans un tableau</H3>** 
-
-1. Générer une liste contenant un million de termes choisis aléatoirement entre un et mille milliards.
-1. Utiliser les fonctions min et max fournies par le langage Python afin d’afficher les maximum et minimum dans la liste.
-1. Écrire le code de la fonction maxmin1 qui, à partir d’un algorithme de « brute force », détermine les maximum et minimum dans la liste passée en argument. La spécification de la fonction est : maxmin1(tab: List[float]) -> Tuple[float, float]
-1. Vérifier le bon fonctionnement de la fonction maxmin1 en affichant les maximum et minimum dans la liste, à la suite de ceux déterminés à l’aide des fonctions fournies par Python.
-1. Quelle est la complexité de la fonction maxmin1 ?
-1. Comparer l’efficacité de la fonction maxmin1 à celle des fonctions fournies par Python en mesurant les durées d’exécution à l’aide de la fonction time du module time.
-1. Écrire et implémenter la fonction maxmin2 qui implémente le raisonnement «Diviser pour régner » pour résoudre ce problème.
-
-   Dans un premier temps, écrire une fonction qui se contente de déterminer le maximum dans la liste passée en argument. Compléter ensuite le code de façon à ce que le maximum et le minimum soient retournés. La spécification de la fonction est : maxmin2(tab: List[float]) -> float
-
-8 Vérifier le bon fonctionnement de la fonction à la suite des précédentes vérifications.
-
-9 Modifier la fonction maxmin2 afin qu’elle retourne les maximum et minimum dans la liste. La spécification de la fonction est : maxmin2(tab: List[float]) -> Tuple[float, float]
-
-   La complexité de cette fonction est en O(n).
-
-10 Vérifier le bon fonctionnement de la fonction à la suite des précédentes vérifications.
-
-11 La fonction maxmin2 est-elle, théoriquement, plus efficace que la fonction maxmin1 ? Dans la pratique ? Comment expliquer ce comportement ?
-
-
-**<H3 STYLE="COLOR:red;">Exercice n°7 :</H3>** **Problème de la sous-séquence de somme maximale**
-
-Étant donné un tableau tab[1..n] d’entiers (positifs et négatifs), déterminer la valeur maximale du sous-tableau tab[g..h] donnant la plus grande somme de tous les sous-tableaux contigus de tab. Pour plus de commodité, la sous-séquence de somme maximale est 0 si tous les entiers sont négatifs.
-
-Exemples
-
-- Pour le tableau tab = [-2, -5, 6, -2, -3, 1, 5, -6], la sous séquence de somme maximale est [6, -2, -3, 1, 5] et sa somme est 7.
-- Pour le tableau tab = [0, 1, 2, -2, 3, 2], la sous séquence de somme maximale est [1, 2, -2, 3, 2] et sa somme est 6.
-- Pour le tableau tab = [1, -2, 3, 10, -4, 7, 2, -5], la sous séquence de somme maximale est [3, 10, -4, 7, 2] et sa somme est 18.
-
-1 On envisage dans un premier temps un algorithme basé sur le paradigme « Brute force » : on évalue la somme de chaque sous-tableau (parmi les n(n+1)/2 sous-tableaux possibles) et à chaque évaluation on mémorise la somme maximale. Écrire le code de la fonction sous\_tab\_max dont la spécification est : sous\_tab\_max(tab: List[int]) -> int
-
-2 Quelle est la complexité de cette fonction ?
-
-Le tableau initial est scindé en deux parties de tailles à peu près égales (selon que n est pair ou impair) : la plus grande somme se trouve soit dans le sous-tableau B de droite, soit dans le sous-tableau A de gauche, soit à cheval sur les deux sous-parties. Dans ce dernier cas elle est constituée d’une plus grande somme de la partie gauche se terminant à la fin de la partie gauche (c.-à-d. en m), et d’une plus grande somme de la partie droite commençant au début de la partie droite (c’est à dire en m+1).
-
-![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.031.png)
-
-La procédure est récursive. Pour « sortir » des appels récursifs, il est nécessaire de ren- contrer un « couple de données-paramètres » (transmis à l’appel) dont la solution est triviale. C’est le cas si le tableau est composé d’au plus un élément.
-
-3 Écrire le code de la fonction somme\_max dont la spécification est : 
-
-   ```somme_max(tab: List[int]) -> int```
-
-4 Écrire le code de la fonction max\_sous\_tab dont la spécification est :
-
-   ```max_sous_tab(tab: List[float], milieu: int) -> float```
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc144400478"></a>**7. Projet (démarche d’investigation)**</H2>
 **<H3 STYLE="COLOR:red;">Projet 1 : Rotation d’une image numérique</H3>**

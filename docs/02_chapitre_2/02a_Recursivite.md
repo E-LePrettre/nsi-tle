@@ -532,6 +532,8 @@ On voit que ce n’est pas efficace : par exemple `fib(3)` est appelé deux fois
 
 ## **<H2 STYLE="COLOR:BLUE;">3. Exercices<a name="_page0_x40.00_y375.03"></a>**</H2>
 
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
+
 **<H3 STYLE="COLOR:red;">Exercice n°1 : La fonction somme**</H3>
 
 Pour définir la somme des n premiers entiers, on a l’habitude d’écrire la formule suivante : $0 + 1 + 2 + ... + n$
@@ -610,7 +612,7 @@ assert syracuse_iter(14, 3) == 22
 assert syracuse_iter(14, 20) == 2
 ```
 
-3 crire une version récursive $syracuse\_recur(a, n)$. 
+3 Ecrire une version récursive $syracuse\_recur(a, n)$. 
 
 **Vérifier les tests suivants :**
 
