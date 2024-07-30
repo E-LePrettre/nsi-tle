@@ -11,11 +11,11 @@ title: 02a Récursivité
 
 [1.	Algorithmes récursifs](#_page0_x40.00_y375.04)
 
-[2.	Les dangers de la récursivité](#$toc144385085)
+[2.	Les dangers de la récursivité](#_page0_x40.00_y375.02)
 
-[3.	Exercices](#$toc144385086)
+[3.	Exercices](#_page0_x40.00_y375.03)
 
-[4.	Projet (démarche d’investigation)](#$toc144385087)
+[4.	Projet (démarche d’investigation)](#_page0_x40.00_y375.044)
 
 
 
@@ -407,7 +407,7 @@ print(hanoi(4))
 
 Pour mieux comprendre : [Les tours de Hanoï](http://accromath.uqam.ca/2016/02/les-tours-de-hanoi-et-la-base-trois/)
 
-## **<H2 STYLE="COLOR:BLUE;">2. Les dangers de la récursivité<a name="#_toc144385085"></a>**</H2>
+## **<H2 STYLE="COLOR:BLUE;">2. Les dangers de la récursivité<a name="_page0_x40.00_y375.02"></a>**</H2>
 
 Utiliser une fonction récursive n’est pas toujours une bonne idée. Soit la suite de Fibonacci : 1 1 2 3 5 8 13 21 34…
 
@@ -530,7 +530,7 @@ On voit que ce n’est pas efficace : par exemple `fib(3)` est appelé deux fois
 
 **"Marcher en itératif c’est mettre un pied devant l’autre et recommencer. Marcher en récursif c’est mettre un pied devant l’autre et marcher."**
 
-## **<H2 STYLE="COLOR:BLUE;">3. Exercices<a name="#_toc144385086"></a>**</H2>
+## **<H2 STYLE="COLOR:BLUE;">3. Exercices<a name="_page0_x40.00_y375.03"></a>**</H2>
 
 **<H3 STYLE="COLOR:red;">Exercice n°1 : La fonction somme**</H3>
 
@@ -786,7 +786,7 @@ assert extrait([5, 4, 3, 2, 1], 3) == [5, 4, 3]
 
 8 Écrire une fonction nommée $renverse$ récursive qui, à partir d’une liste, retourne une liste dans laquelle les éléments sont renversés (les derniers apparaissent en premier).
 
-## **<H2 STYLE="COLOR:BLUE;">4. Projet (démarche d’investigation)<a name="#$toc144385087"></a>**</H2>
+## **<H2 STYLE="COLOR:BLUE;">4. Projet (démarche d’investigation)<a name="_page0_x40.00_y375.044"></a></a>**</H2>
 
 **<H3 STYLE="COLOR:RED;">Projet 1 : Le flocon de Koch**</H3>
 
