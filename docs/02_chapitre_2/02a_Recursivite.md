@@ -9,7 +9,7 @@ title: 02a Récursivité
 
 **Table des matières**
 
-[1.	Algorithmes récursifs](#$toc144385077)
+[1.	Algorithmes récursifs](#_page0_x40.00_y375.04)
 
 [2.	Les dangers de la récursivité](#$toc144385085)
 
@@ -25,7 +25,7 @@ title: 02a Récursivité
 - Analyser le fonctionnement d'un programme récursif
 
 
-## **<H2 STYLE="COLOR:BLUE;">1. Algorithmes récursifs<a name="#$toc144385077"></a>**</H2>
+## **<H2 STYLE="COLOR:BLUE;">1. Algorithmes récursifs<a name="_page0_x40.00_y375.04"></a>**</H2>
 
 ### **<H3 STYLE="COLOR:GREEN;">1.1. Introduction**</H3>
 
