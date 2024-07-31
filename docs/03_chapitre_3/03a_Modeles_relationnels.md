@@ -213,9 +213,10 @@ Il y aurait un problème d’intégrité de la base de données si une valeur de
 #### <a name="_toc144547418"></a>**2.3.6. Contraintes d’intégrité**
 Voici une liste des contraintes que le SGBD (Système de Gestion de la Base de Donnée) doit vérifier. On les appelle des **contraintes d’intégrité,** elles permettent de garantir le bon fonctionnement de la base de donnée (suite à des modifications, suppressions ...)
 
-- **Contrainte de domaine** : le type de donnée de chaque attribut doit être vérifié.
-- **Contrainte de relation** : chaque enregistrement d’une relation doit pouvoir être identifié par une **clé primaire unique** et non nulle.
-- **Contrainte de référence**  : lorsque des relations sont liées, il est indispensable que 3 règles soient vérifiées :
+1. **Contrainte de domaine** : le type de donnée de chaque attribut doit être vérifié.
+2. **Contrainte de relation** : chaque enregistrement d’une relation doit pouvoir être identifié par une **clé primaire unique** et non nulle.
+3. **Contrainte de référence**  : lorsque des relations sont liées, il est indispensable que 3 règles soient vérifiées :
+
   - **Une clé étrangère** est forcément la clé primaire de la relation qui est liée à la table
   - Un enregistrement de la table primaire ne peut être effacé si il possède des enregistrements liés
   - **La clé primaire** ne peut être changée dans la table primaire si cet enregistrement possède des enregistrements liés.
