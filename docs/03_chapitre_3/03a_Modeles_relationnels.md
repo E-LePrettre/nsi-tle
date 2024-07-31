@@ -155,10 +155,9 @@ Par exemple le domaine de
 - l’attribut genre correspond à l’ensemble des genres possibles. 
 
 On voit bien ici que le domaine sera fini.
-1. ### <a name="_toc144547415"></a>**La clé primaire** 
+#### <a name="_toc144547415"></a>**2.3.3. La clé primaire** 
 Une table ne peut pas contenir **deux t-uplets identiques**. Afin de respecter cette contrainte, on définit la notion de **clé primaire : primary key**. Une clé primaire est un attribut (colonne) ou une combinaison d’attributs dont la valeur permet d’identifier de **manière unique** un t-uplet de la relation. 
 
-![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.008.png)
 
 Par exemple, l’attribut realisateur ne peut pas jouer le rôle de clé primaire, l’attribut titre ne peut pas jouer le rôle de clé primaire (il existe des remakes). 
 
@@ -166,7 +165,7 @@ Donc ici on sera obligé d’ajouter un attribut id\_film qui sera un entier cor
 
 Pour optimiser la structure d’une base de données : Utiliser une clé primaire de type numérique avec une auto-incrémentation (AUTO\_INCREMENT)
 
-![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.009.png)
+
 
 **Ajouter un attribut id** pour qu’il puisse jouer le rôle de clé primaire est une pratique courante qu’il faut généraliser aux futures activités sur les bases de données relationnelles. 
 
