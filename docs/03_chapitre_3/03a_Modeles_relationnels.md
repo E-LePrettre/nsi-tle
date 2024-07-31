@@ -1,16 +1,16 @@
 ﻿---
 author: ELP
-title: 03 Modèles relationnels
+title: 03a Modèles relationnels
 ---
 
 
 **Table des matières**
 
-[1.	Qu’est ce qu’une base de données ?	1](#_toc144547406)
+[1.	Qu’est ce qu’une base de données ?](#_toc144547406)
 
-[2.	Présentation du modèle relationnel	2](#_toc144547409)
+[2.	Présentation du modèle relationnel](#_toc144547409)
 
-[3.	Exercices	10](#_toc144547422)
+[3.	Exercices](#_toc144547422)
 
 **Compétences évaluables :**
 
@@ -20,7 +20,8 @@ title: 03 Modèles relationnels
 
 Les bases de données relationnelles sont essentielles dans l’informatique d’aujourd’hui.
 
-Vidéo introductive : <https://youtu.be/iu8z5QtDQhY> 
+Vidéo introductive : <https://www.dailymotion.com/video/x71hy5c> 
+
 1. # <a name="_toc144547406"></a>**Qu’est ce qu’une base de données ?**
    1. ## <a name="_toc144547407"></a>**Notion de base de données**
 Le développement du traitement informatique nécessite la **manipulation de données de plus en plus nombreuses**.
