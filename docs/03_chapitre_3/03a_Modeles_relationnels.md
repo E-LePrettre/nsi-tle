@@ -122,7 +122,7 @@ Une vue peut ensuite être réutilisée exactement comme s’il s’agissait d�
         La réponse à cette requête est une vue :
         ![](51.png){ width=25%}
 
-### <H4 STYLE="COLOR:MAGENTA;">**2.3. Vocabulaire**</H4>
+### <H3 STYLE="COLOR:GREEN;">**2.3. Vocabulaire**</H3>
 #### <H4 STYLE="COLOR:MAGENTA;">**2.3.1. Attributs**</H4>
 La notion de **relation** est au cœur des bases de données relationnelles. Une relation, aussi appelée **table**, peut être vue comme un **tableau à deux dimensions** composé d’un nombre fini de données, d’un **entête** qui contient des **attributs** et d’un **corps** qui contient des **données**.
 
@@ -346,13 +346,13 @@ Un fleuriste tient une base de données des clients et commandes passées sur so
 - La table Bouquets comporte-t-elle un attribut qui est une clé primaire ? Un attribut qui est une clé étrangère ?
 - Répondre aux mêmes questions pour la table Clients puis la table Commandes.
 
-**<H3 STYLE="COLOR:red;">Exercice n°5 :</H3> : annuaire**
+**<H3 STYLE="COLOR:red;">Exercice n°5 :</H3> annuaire**
 
 On souhaite modéliser un annuaire téléphonique simple dans lequel chaque personne (identifiée par son nom et son prénom) est associée à son numéro de téléphone.
 
 Proposer une modélisation relationnelle de cet annuaire.
 
-**<H3 STYLE="COLOR:red;">Exercice n°6 :</H3> : vocabulaire**
+**<H3 STYLE="COLOR:red;">Exercice n°6 :</H3> vocabulaire**
 
 Regrouper ensemble les termes synonymes : colonne, entité, domaine, attribut, ligne, schéma, base de données, type, column, row.
 
