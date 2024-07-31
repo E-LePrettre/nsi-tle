@@ -84,29 +84,25 @@ Par exemple, un employé possède un nom, un prénom, un matricule, travaille da
 *Relation Séance*
 ???+ question "Activité"
 
-    **1.** Question 1.   
-    Quelle est la cardinalité de la relation Film ?
+    **1.** Quelle est la cardinalité de la relation Film ?
 
     ??? success "Solution"
 
         La cardinalité d’une relation est le nombre de tuples (ou de lignes) qu’elle renferme. Ici la cardinalité est égale à 4.
 
-    **2.** Question 2.   
-    Quel est le degré de la relation Séance ?
+    **2.** Quel est le degré de la relation Séance ?
 
     ??? success "Solution"
 
         Le degré d’une relation est le nombre de champs qui la définissent. Ici, c’est 3.
 
-    **3.** Question 3.   
-    Quels sont les attributs (champs) de la relation Film ?
+    **3.** Quels sont les attributs (champs) de la relation Film ?
 
     ??? success "Solution"
 
         Les attributs de la relation Film sont : Titre, Directeur, Acteur.
 
-    **4.** Question 4.   
-    Indiquer un tuple de la relation Séance.
+    **4.** Indiquer un tuple de la relation Séance.
 
     ??? success "Solution"
 
@@ -122,16 +118,15 @@ Une vue peut ensuite être réutilisée exactement comme s’il s’agissait d�
 
 ???+ question "Activité"
 
-    **5.** Question 5.   
-    Quelles sont les films, les salles et les horaires des séances dans lesquels on peut trouver l’acteur Humphrey Bogart ?
+    **5.** Quelles sont les films, les salles et les horaires des séances dans lesquels on peut trouver l’acteur Humphrey Bogart ?
 
     ??? success "Solution"
 
         La réponse à cette requête est une vue :
-      ||||
-      | :- | :-: | :-: |
-      |Casablanca|Lucernaire|19:00|
-      |Casablanca|Studio|20:00|
+        ||||
+        | :- | :-: | :-: |
+        |Casablanca|Lucernaire|19:00|
+        |Casablanca|Studio|20:00|
 
 
 
