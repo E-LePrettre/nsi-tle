@@ -286,16 +286,43 @@ On voit qu’il s’affiche les films sortis entre 2010 et 2020 avec les champs 
  
 ### <a name="_toc173365568"></a>**4.2. Affichage et tri ascendant**
 
- **Activité n° AUTONUM  \* Arabic : Affichage par intervalle de nombres trié avec un critère :**  Faire afficher l’id, le titre, l’année et la nationalité de films avec des intervalles d’années et triés par année : Exécuter SELECT id\_film, titre\_film, annee\_film, nationalite\_filmFROM filmWHERE annee\_film > 2010 AND annee\_film < 2020ORDER BY annee\_film;On voit qu’il s’affiche les films sortis entre 2010 et 2020 avec les champs demandés triés par année croissante.On peut rajouter si nécessaire ASC.
+**Activité n° 16 : Affichage par intervalle de nombres trié avec un critère :**  Faire afficher l’id, le titre, l’année et la nationalité de films avec des intervalles d’années et triés par année : Exécuter 
+```sql
+SELECT id_film, titre_film, annee_film, nationalite_film
+FROM film
+WHERE annee_film > 2010 AND annee_film < 2020
+ORDER BY annee_film;
+```
+On voit qu’il s’affiche les films sortis entre 2010 et 2020 avec les champs demandés triés par année croissante.On peut rajouter si nécessaire ASC.
  
   
- **Activité n° AUTONUM  \* Arabic : Affichage par intervalle de nombres trié avec plusieurs critères :**  Faire afficher l’id, le titre, l’année et la nationalité de films avec des intervalles d’années et triés par année PUIS par ordre alphabétique de titre :** Exécuter SELECT id\_film, titre\_film, annee\_film, nationalite\_filmFROM filmWHERE annee\_film > 2010 AND annee\_film < 2020ORDER BY annee\_film, titre\_film;On voit qu’il s’affiche les films sortis entre 2010 et 2020 avec les champs demandés triés par année croissante. Pour les films de 2017, ils sont ensuite triés par ordre alphabétique de titre.
-### <a name="_toc173365569"></a>**3.3. Affichage avec partie d’une chaine de caractère**
+**Activité n° 17 : Affichage par intervalle de nombres trié avec plusieurs critères :**  Faire afficher l’id, le titre, l’année et la nationalité de films avec des intervalles d’années et triés par année PUIS par ordre alphabétique de titre :** Exécuter 
+```sql
+SELECT id_film, titre_film, annee_film, nationalite_film
+FROM film
+WHERE annee_film > 2010 AND annee_film < 2020
+ORDER BY annee_film, titre_film;
+```
+On voit qu’il s’affiche les films sortis entre 2010 et 2020 avec les champs demandés triés par année croissante. Pour les films de 2017, ils sont ensuite triés par ordre alphabétique de titre.
 
- **Activité n° AUTONUM  \* Arabic : Affichage par chaine de caractères :**  Faire afficher l’id, le titre, l’année et la nationalité de films avec un titre en particulier :** Exécuter SELECT id\_film, titre\_film, annee\_film, nationalite\_filmFROM filmWHERE titre\_film = 'WarGames';On voit qu’il s’affiche le film wargames. Par contre, il faut indiquer le titre exact.
+### <a name="_toc173365569"></a>**4.3. Affichage avec partie d’une chaine de caractère**
+
+**Activité n° 18 : Affichage par chaine de caractères :**  Faire afficher l’id, le titre, l’année et la nationalité de films avec un titre en particulier :** Exécuter 
+```sql
+SELECT id_film, titre_film, annee_film, nationalite_film
+FROM film
+WHERE titre_film = 'WarGames';
+```
+On voit qu’il s’affiche le film wargames. Par contre, il faut indiquer le titre exact.
  
 
- **Activité n° AUTONUM  \* Arabic : Affichage par morceau de chaine de caractères :**  Faire afficher l’id, le titre, l’année et la nationalité de films avec un titre comportant des mots en particulier :** Exécuter SELECT id\_film, titre\_film, annee\_film, nationalite\_filmFROM filmWHERE titre\_film LIKE 'Star Wars%';On voit qu’il s’affiche tous les films Star Wars. Le % permet d’indiquer où se trouve les caractères manquants. Ici on cherche tous les titres commençant exactement par Star Wars. On aurait pu noter %War% on aurait eu tous les films ayant dans leur nom les lettre War, donc les Star Wars et WarGames.On peut les triés par année de sortie en rajoutant ORDER BY annee\_film
+**Activité n° 19 : Affichage par morceau de chaine de caractères :**  Faire afficher l’id, le titre, l’année et la nationalité de films avec un titre comportant des mots en particulier :** Exécuter 
+```sql
+SELECT id_film, titre_film, annee_film, nationalite_film
+FROM film
+WHERE titre_film LIKE 'Star Wars%';
+```
+On voit qu’il s’affiche tous les films Star Wars. Le % permet d’indiquer où se trouve les caractères manquants. Ici on cherche tous les titres commençant exactement par Star Wars. On aurait pu noter %War% on aurait eu tous les films ayant dans leur nom les lettre War, donc les Star Wars et WarGames.On peut les triés par année de sortie en rajoutant ORDER BY annee\_film
  
 
 ### <a name="_toc173365570"></a>**3.4. Affichage avec une condition OU une autre**
