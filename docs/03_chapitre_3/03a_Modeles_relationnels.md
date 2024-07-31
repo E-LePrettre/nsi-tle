@@ -264,6 +264,8 @@ Exemple : soit 145, Evariste, Aubenas un nouvel étudiant. On ne peut l’insér
 
 ## <H2 STYLE="COLOR:BLUE;">**3. Exercices**</H2>
 
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
+
 **<H3 STYLE="COLOR:red;">Exercice n°1 :</H3>**
 
 Un laboratoire souhaite gérer les médicaments qu'il conçoit.
