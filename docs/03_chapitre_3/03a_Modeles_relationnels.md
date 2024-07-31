@@ -196,7 +196,7 @@ L’attribut id\_realisateur de la relation film permet de créer un **lien** av
 
 ![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.014.png){ width=50%; : .center }
 
-1. ### <a name="_toc144547417"></a>**La clé étrangère**
+#### <a name="_toc144547417"></a>**2.3.5. La clé étrangère**
 L’introduction de cette mise en place de lien permet **d’éviter la redondance d’informations**. 
 
 L’id\_realisateur est la **clé primaire** pour realisateur et cette clé primaire va être utiliser dans la table film comme une valeur faisant référence à la table realisateur. 
@@ -204,15 +204,13 @@ L’id\_realisateur est la **clé primaire** pour realisateur et cette clé prim
 Pour la table film id\_realisateur est appelée **clé étrangère.**
 
 Une **clé étrangère (foreign key ou FK)** pour une table correspond à une clé primaire d’une autre table.
-![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.015.png)
 
 Pour optimiser la structure d’une base de données : Si une donnée est récurrente il est préférable de la stocker dans une nouvelle table, et **la lier avec une jointure** (clé étrangère).
 
-![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.016.png)
 
 Il y aurait un problème d’intégrité de la base de données si une valeur de l’attribut **id\_realisateur** de la relation film ne correspondait à aucune valeur de la clé primaire de la relation **realisateur**. 
 
-1. ### <a name="_toc144547418"></a>**Contraintes d’intégrité**
+#### <a name="_toc144547418"></a>**2.3.6. Contraintes d’intégrité**
 Voici une liste des contraintes que le SGBD (Système de Gestion de la Base de Donnée) doit vérifier. On les appelle des **contraintes d’intégrité,** elles permettent de garantir le bon fonctionnement de la base de donnée (suite à des modifications, suppressions ...)
 
 - **Contrainte de domaine** : le type de donnée de chaque attribut doit être vérifié.
@@ -222,9 +220,9 @@ Voici une liste des contraintes que le SGBD (Système de Gestion de la Base de D
   - Un enregistrement de la table primaire ne peut être effacé si il possède des enregistrements liés
   - **La clé primaire** ne peut être changée dans la table primaire si cet enregistrement possède des enregistrements liés.
 
-![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.017.png)
 
-1. ### <a name="_toc144547419"></a>**Schéma relationnel**
+
+#### <a name="_toc144547419"></a>**2.3.7. Schéma relationnel**
 Un schéma relationnel permet de présenter l’ensemble des relations d’une base de données. Il comporte les informations suivantes :
 
 - Le nom des différentes **tables** 
