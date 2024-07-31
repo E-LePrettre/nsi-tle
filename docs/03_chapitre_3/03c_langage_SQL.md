@@ -229,25 +229,62 @@ VALUES
 
 ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.015.png)
  
-### <a name="_toc173365565"></a>**2.2. Suppression**
+### <a name="_toc173365565"></a>**3.2. Suppression**
 
- **Activité n° AUTONUM  \* Arabic : Ajout et suppression d’une donnée** : Exécuter la requête suivanteINSERT INTO film(titre\_film, annee\_film, id\_realisateur\_film, nationalite\_film, genre\_film)VALUES('Star Wars, épisode XXI : L''Espoir Ultime', 2040, 7, 'Etats-Unis', 'Science fiction')Pour supprimer cet enregistrement qui sera au numéro 26 on va préciser la condition avec le mot-clé WHERE :<a name="_hlk52902479"></a>DELETE FROM film WHERE id\_film  = 26 ;Vérifier ensuite que le film a bien été supprimé
- 
-## <a name="_toc173365566"></a>**3. Interrogation de la base de données**
-### <a name="_toc173365567"></a>**3.1. Affichage simple**
+**Activité n° 11 : Ajout et suppression d’une donnée** : Exécuter la requête suivante
+```sql
+INSERT INTO film
+(titre_film, annee_film, id_realisateur_film, nationalite_film, genre_film)
+VALUES
+('Star Wars, épisode XXI : L''Espoir Ultime', 2040, 7, 'Etats-Unis', 'Science fiction')
+```
 
- **Activité n° AUTONUM  \* Arabic : Affichage par numéro :** Faire afficher le titre, l’année et la nationalité d’un film en particulier connaissant son id :** Exécuter SELECT titre\_film, annee\_film, nationalite\_filmFROM filmWHERE id\_film = 14;On voit qu’il s’affiche le film 14 avec les champs demandés
+Pour supprimer cet enregistrement qui sera au numéro 26 on va préciser la condition avec le mot-clé WHERE :
+```sql
+DELETE FROM film 
+WHERE id_film  = 26 ;
+```
+Vérifier ensuite que le film a bien été supprimé
+ 
+## <a name="_toc173365566"></a>**4. Interrogation de la base de données**
+### <a name="_toc173365567"></a>**4.1. Affichage simple**
+
+**Activité n° 12 : Affichage par numéro :** Faire afficher le titre, l’année et la nationalité d’un film en particulier connaissant son id :** Exécuter 
+```sql
+SELECT titre_film, annee_film, nationalite_film
+FROM film
+WHERE id_film = 14;
+```
+On voit qu’il s’affiche le film 14 avec les champs demandés
  
 
- **Activité n° AUTONUM  \* Arabic : Affichage par intervalle de nombres:** Faire afficher l’id, le titre, l’année et la nationalité de plusieurs films en particulier **:** Exécuter SELECT id\_film, titre\_film, annee\_film, nationalite\_filmFROM filmWHERE id\_film > 14;On voit qu’il s’affiche les films dont l’id est supérieur 14 avec les champs demandés
+**Activité n° 13 : Affichage par intervalle de nombres:** Faire afficher l’id, le titre, l’année et la nationalité de plusieurs films en particulier **:** Exécuter 
+```sql
+SELECT id_film, titre_film, annee_film, nationalite_film
+FROM film
+WHERE id_film > 14;
+```
+On voit qu’il s’affiche les films dont l’id est supérieur 14 avec les champs demandés
  
 
- **Activité n° AUTONUM  \* Arabic : Affichage par numéro :**  Faire afficher l’id, le titre, l’année et la nationalité d’un film en particulier connaissant son année **:** Exécuter SELECT id\_film, titre\_film, annee\_film, nationalite\_filmFROM filmWHERE annee\_film = 2019;On voit qu’il s’affiche le film sorti en 2019 avec les champs demandés
+**Activité n° 14 : Affichage par numéro :**  Faire afficher l’id, le titre, l’année et la nationalité d’un film en particulier connaissant son année **:** Exécuter 
+```sql
+SELECT id_film, titre_film, annee_film, nationalite_film
+FROM film
+WHERE annee_film = 2019;
+```
+On voit qu’il s’affiche le film sorti en 2019 avec les champs demandés
  
 
- **Activité n° AUTONUM  \* Arabic : Affichage par intervalle de nombres :**  Faire afficher l’id, le titre, l’année et la nationalité de films avec des intervalles d’années :** Exécuter SELECT id\_film, titre\_film, annee\_film, nationalite\_filmFROM filmWHERE annee\_film > 2010 AND annee\_film < 2020;On voit qu’il s’affiche les films sortis entre 2010 et 2020 avec les champs demandés
+**Activité n° 15 : Affichage par intervalle de nombres :**  Faire afficher l’id, le titre, l’année et la nationalité de films avec des intervalles d’années :** Exécuter 
+```sql
+SELECT id_film, titre_film, annee_film, nationalite_film
+FROM film
+WHERE annee_film > 2010 AND annee_film < 2020;
+```
+On voit qu’il s’affiche les films sortis entre 2010 et 2020 avec les champs demandés
  
-### <a name="_toc173365568"></a>**3.2. Affichage et tri ascendant**
+### <a name="_toc173365568"></a>**4.2. Affichage et tri ascendant**
 
  **Activité n° AUTONUM  \* Arabic : Affichage par intervalle de nombres trié avec un critère :**  Faire afficher l’id, le titre, l’année et la nationalité de films avec des intervalles d’années et triés par année : Exécuter SELECT id\_film, titre\_film, annee\_film, nationalite\_filmFROM filmWHERE annee\_film > 2010 AND annee\_film < 2020ORDER BY annee\_film;On voit qu’il s’affiche les films sortis entre 2010 et 2020 avec les champs demandés triés par année croissante.On peut rajouter si nécessaire ASC.
  
