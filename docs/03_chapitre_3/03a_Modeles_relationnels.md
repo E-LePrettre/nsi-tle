@@ -174,11 +174,11 @@ En toute rigueur une clé primaire peut aussi être constitué de **plusieurs at
 #### <a name="_toc144547416"></a>**2.3.4. Comment s’affranchir des doublons de données ?**
 Pour rajouter des informations supplémentaires aux réalisateurs comme leur prénom, leur date de naissance, leur nationalité,…
 
-![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.010.png)
+![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.010.png){ width=50%; : .center }
 
 Il y a beaucoup **d’informations dupliquées.**
 
-![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.011.png)
+![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.011.png){ width=50%; : .center }
 
 Dans une table, ces duplications sont **à proscrire**, car si l’on doit corriger une valeur, il faut apporter autant de fois la correction qu’il y a d’enregistrements.
 
@@ -186,15 +186,15 @@ Il faut donc utiliser **deux tables** au lieu d’une seule et créer un **lien*
 
 Dans l’exemple, on créer une table film et on modifie l’attribut realisateur en id\_realisateur avec un simple entier.
 
-![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.012.png)
+![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.012.png){ width=50%; : .center }
 
 L’attribut id\_realisateur de la relation film permet de créer un **lien** avec la relation realisateur 
 
-![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.013.png)
+![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.013.png){ width=50%; : .center }
 
 
 
-![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.014.png)
+![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.014.png){ width=50%; : .center }
 
 1. ### <a name="_toc144547417"></a>**La clé étrangère**
 L’introduction de cette mise en place de lien permet **d’éviter la redondance d’informations**. 
