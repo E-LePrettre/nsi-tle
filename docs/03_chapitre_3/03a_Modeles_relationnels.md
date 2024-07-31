@@ -337,10 +337,11 @@ Voici une représentation de la table COMMANDES :
 | :-: | :- | :- | :- |
 |**numero**|**id\_client**|**id\_article**|**quantite**|
 |||||
-4. Quelles doivent être les clés étrangères de la tables COMMANDES ?
 
-1. Donner la représentation sous forme de tables des relations CLIENTS, ARTICLES et COMMANDES en inventant au moins 3 clients, deux commandes et 4 articles.
-1. Réaliser un schéma pour représenter cette base de données relationnelle.
+4 Quelles doivent être les clés étrangères de la tables COMMANDES ?
+
+5 Donner la représentation sous forme de tables des relations CLIENTS, ARTICLES et COMMANDES en inventant au moins 3 clients, deux commandes et 4 articles.
+6 Réaliser un schéma pour représenter cette base de données relationnelle.
 
 
 **Exercice n°3 :**
