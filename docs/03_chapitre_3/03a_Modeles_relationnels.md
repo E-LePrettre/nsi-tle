@@ -22,15 +22,15 @@ Les bases de données relationnelles sont essentielles dans l’informatique d�
 
 Vidéo introductive : <https://www.dailymotion.com/video/x71hy5c> 
 
-1. # <a name="_toc144547406"></a>**Qu’est ce qu’une base de données ?**
-   1. ## <a name="_toc144547407"></a>**Notion de base de données**
+## <a name="_toc144547406"></a>**1. Qu’est ce qu’une base de données ?**
+### <a name="_toc144547407"></a>**1.1. Notion de base de données**
 Le développement du traitement informatique nécessite la **manipulation de données de plus en plus nombreuses**.
 
 Il existe des données structurées au format **csv** que l’on lire à l’aide d’algorithme simple en python. Cette méthode de stockage de l’information peut s’avérer **pratique** dans certains cas précis mais atteint rapidement **ses limites** lorsque les **données sont très nombreuses**.
 
 Une **base de données** stocke des informations en rapport avec une activité. Ces informations peuvent être de natures très hétérogènes.
 
-![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.001.png)
+
 
 L’utilisation d’un fichier de type csv pose de nombreux problèmes :
 
@@ -42,17 +42,17 @@ Pour manipuler une base de données, on utilise donc généralement un logiciel 
 
 On appelle **SGBD (Système de Gestion de Bases de Données)** un logiciel complexe, de haut niveau, qui permet de manipuler les informations stockées dans une base de données.
 
-![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.002.png)
 
 
-1. ## <a name="_toc144547408"></a>**Modèles de données**
+### <a name="_toc144547408"></a>**1.2. Modèles de données**
 Les modèles de données correspondent à la manière de **structurer l’information** dans une base de données.
 
 On étudiera le **modèle relationnel** : ce modèle a été proposé en 1970 par E. F. Codd.
 
 Le modèle « relationnel » permet de modéliser les informations contenues dans les bases de données en utilisant des **relations**, c’est à dire un ensemble **d’attributs.**
-1. # <a name="_toc144547409"></a>**Présentation du modèle relationnel**
-   1. ## <a name="_toc144547410"></a>**Qu’est ce qu’une relation ?**
+
+## <a name="_toc144547409"></a>**2. Présentation du modèle relationnel**
+### <a name="_toc144547410"></a>**é.1. Qu’est ce qu’une relation ?**
 On appelle **relation** un objet de la vie réelle auquel on attache **un ensemble d’attributs.**
 
 Par exemple, un employé possède un nom, un prénom, un matricule, travaille dans un service et a été embauché à une certaine date.
@@ -63,7 +63,7 @@ Par exemple, un employé possède un nom, un prénom, un matricule, travaille da
 - L’ordre des tuples dans la relation n’est pas significatif.
 - Le nombre de champs de la relation s’appelle le **degré** de la relation tandis que le nombre de tuples dans la relation s’appelle la **cardinalité** de la relation.
 
-Exemple : Base de données formée par deux relations
+**Activité °1** : Base de données formée par deux relations
 
 |**Titre**|**Directeur**|**Acteur**|
 | :-: | :-: | :-: |
@@ -82,38 +82,60 @@ Exemple : Base de données formée par deux relations
 |Star Wars|Sel|22:15|
 
 *Relation Séance*
+???+ question "Activité"
 
-1. Quelle est la cardinalité de la relation Film ?
+    **1.** Question 1.   
+    Quelle est la cardinalité de la relation Film ?
 
-La cardinalité d’une relation est le nombre de tuples (ou de lignes) qu’elle renferme. Ici la cardinalité est égale à 4.
+    ??? success "Solution"
 
-1. Quel est le degré de la relation Séance ?
+        La cardinalité d’une relation est le nombre de tuples (ou de lignes) qu’elle renferme. Ici la cardinalité est égale à 4.
 
-Le degré d’une relation est le nombre de champs qui la définissent. Ici, c’est 3.
+    **2.** Question 2.   
+    Quel est le degré de la relation Séance ?
 
-1. Quels sont les attributs (champs) de la relation Film ?
+    ??? success "Solution"
 
-Les attributs de la relation Film sont : Titre, Directeur, Acteur.
+        Le degré d’une relation est le nombre de champs qui la définissent. Ici, c’est 3.
 
-1. Indiquer un tuple de la relation Séance.
+    **3.** Question 3.   
+    Quels sont les attributs (champs) de la relation Film ?
 
-La cardinalité de la relation étant égale à 4, on a le choix entre 4 réponses. (Casablanca, Lucernaire, 19:00) fait partie de ces réponses possibles.
+    ??? success "Solution"
 
-1. ## <a name="_toc144547411"></a>**Qu’est ce qu’une vue ?**
+        Les attributs de la relation Film sont : Titre, Directeur, Acteur.
+
+    **4.** Question 4.   
+    Indiquer un tuple de la relation Séance.
+
+    ??? success "Solution"
+
+        La cardinalité de la relation étant égale à 4, on a le choix entre 4 réponses. (Casablanca, Lucernaire, 19:00) fait partie de ces réponses possibles.
+
+
+### <a name="_toc144547411"></a>**2.2. Qu’est ce qu’une vue ?**
 Une **vue** est une relation, qui au lieu d’être stockée dans la base de données, est le résultat d’une requête.
 
 Une vue peut ensuite être réutilisée exactement comme s’il s’agissait d’une relation stockée dans la base de données.
 
-Par exemple : 
+**Activité °2** : Base de données formée par deux relations
 
-1. Quelles sont les films, les salles et les horaires des séances dans lesquels on peut trouver l’acteur Humphrey Bogart ?
+???+ question "Activité"
 
-La réponse à cette requête est une vue :
+    **5.** Question 5.   
+    Quelles sont les films, les salles et les horaires des séances dans lesquels on peut trouver l’acteur Humphrey Bogart ?
 
-||||
-| :- | :-: | :-: |
-|Casablanca|Lucernaire|19:00|
-|Casablanca|Studio|20:00|
+    ??? success "Solution"
+
+        La réponse à cette requête est une vue :
+        ||||
+        | :- | :-: | :-: |
+        |Casablanca|Lucernaire|19:00|
+        |Casablanca|Studio|20:00|
+
+
+
+
 
 
 1. ## <a name="_toc144547412"></a>**Vocabulaire**
