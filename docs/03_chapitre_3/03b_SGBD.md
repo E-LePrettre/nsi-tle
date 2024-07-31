@@ -19,16 +19,15 @@ title: 03b SGBD
 - Identifier les services rendus par un système de gestion de bases de données relationnelles : persistance des données, gestion des accès concurrents, efficacité de traitement des requêtes, sécurisation des accès
 
 
-
-## <a name="_toc144548611"></a>**1. Les grands principes**
+## <H2 STYLE="COLOR:BLUE;"><a name="_toc144548611"></a>**1. Les grands principes**</H2>
 Les SGBD (**système de gestion de base de données** ) permettent la **lecture**, **l’écriture** ou la **modification** des informations mais aussi de **gérer les autorisations d’accès** à une base de données. Ce groupe de quatre opérations étant souvent appelé "CRUD", pour Create, Read, Update, Delete.
 
 Les fichiers de bases de données sont stockés dans des disques durs de serveurs qui peuvent subir des pannes. Elles sont donc dupliquées et ce sont aussi les SGBD qui assurent la **maintenance des différentes copies** de la base de données.
 
 Plusieurs personnes peuvent avoir besoin d’accéder aux informations contenues dans une base de données en même temps cela peut parfois poser un problème surtout si les deux utilisateurs désirent modifiés la même donnée au même moment : on parle alors d’**accès concurrents**. Ces problèmes d’accès concurrents sont aussi gérés par les SGBD.
 
-## <a name="_toc144548612"></a>**2. Les principaux SGBD**
-### <a name="_toc144548613"></a>**2.1. Introduction**
+## <H2 STYLE="COLOR:BLUE;"><a name="_toc144548612"></a>**2. Les principaux SGBD**</H2>
+### <H3 STYLE="COLOR:GREEN;"><a name="_toc144548613"></a>**2.1. Introduction**</H3>
 Comme il existe différents types de bases de données, il existe **différents types de systèmes de gestion de bases de données**. 
 
 Parmi les plus connus, on peut citer Oracle, Postgressql, Mysql, MariaDB, Cassandra, SQL Server, Firebird,…
@@ -38,14 +37,15 @@ Parmi les plus connus, on peut citer Oracle, Postgressql, Mysql, MariaDB, Cassan
 Il existe des **sgbd libre** comme PostgreSQL, MySQL ou MariaDB. Les gratuites mais avec un code fermé et une **licence propriétaire** sont SQLite ou Redis. Les payantes et propriétaires sont Oracle, SQL Server, SyBase.
 
 Toutes les sgbd ont leurs caractéristiques, leurs **avantages** et leurs **inconvénients**. Par exemple Oracle bien que payant peut gérer d’énormes bases de données. PostgreSQL, gratuit, permet de gérer des bases de données assez importantes avec une qualité professionnelle. 
-### <a name="_toc144548614"></a>**2.2. SGBDR**
+
+### <H3 STYLE="COLOR:GREEN;"><a name="_toc144548614"></a>**2.2. SGBDR**</H3>
 Les **sgbd relationnels** ou SGBDR sont de loin le type de système le plus couramment utilisé dans le monde lorsqu’on parle de base de données.
 
 Pour interagir avec un SGBDR on utilise un **langage appelé SQL** (**structured query language**). Ce langage permet **d’ajouter**, **modifier** ou **supprimer** des données mais aussi **d’interroger** la base de données selon certains critères et faire des recoupements d’informations en suivant les relations entre les tables.
 
 Elles ont été mises au point en 1970 par **Edgar Codd** basé sur la théorie des ensembles. **Tous les SGBDR utilise le langage SQL**. Bien que le langage soit normalisé, presque tous les SGBD **ont des syntaxes légèrement différentes**.
 
-## <a name="_toc144548615"></a>**3. Architecture**
+## <H2 STYLE="COLOR:BLUE;"><a name="_toc144548615"></a>**3. Architecture**</H2>
 
 ![](Aspose.Words.10238efa-453b-4349-9c41-3b829de74025.002.png){ width=50%; : .center }
 
@@ -67,7 +67,7 @@ Ce modèle d'architecture présente plusieurs avantages :
 - amélioration de la **sécurité des données** en supprimant le lien entre le client et les données ;
 - meilleure **répartition des tâches** entre les différentes couches logicielles.
 
-## <a name="_toc144548616"></a>**4. Utilisation de DB Browser SQLite : création d’une base**
+## <H2 STYLE="COLOR:BLUE;"><a name="_toc144548616"></a>**4. Utilisation de DB Browser SQLite : création d’une base**</H2>
 ![](Aspose.Words.10238efa-453b-4349-9c41-3b829de74025.004.png){ width=50%; : .center }
 
 Créer une nouvelle base de données appelée Base\_Film  dans Documents\BD
@@ -107,5 +107,3 @@ On va enregistrer dans la table film:
 - Genre\_film : policier 
 
 Pour chaque attribut d’une relation, il est nécessaire de définir un **domaine**. Le domaine d’un attribut donné correspond à un ensemble de données finie ou infinies de **données admissibles.** 
-
-
