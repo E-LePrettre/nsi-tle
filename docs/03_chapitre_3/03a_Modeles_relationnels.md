@@ -229,15 +229,6 @@ Un schéma relationnel permet de présenter l’ensemble des relations d’une b
 - Le nom des différentes **tables** 
 - Pour chaque table, la liste des **attributs**, les **champs** avec leur type et leurs **domaines** respectifs
 - Les liens : **clés primaires** et **clés étrangères**
-![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.018.png)
-
-
-
-
-
-
-
-
 
 Exemple 
 
@@ -249,7 +240,7 @@ On peut également présenter les schéma sous forme de tableau : schéma pour 
 
 ![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.020.png)
 
-1. ### <a name="_toc144547420"></a>**Diagramme relationnel**
+#### <a name="_toc144547420"></a>**2.3.8. Diagramme relationnel**
 Fréquemment, on présentera l'ensemble des renseignements d'un modèle relationnel sous forme d'un diagramme qui synthétise la composition des différentes tables et les relations entre elles.
 
 ![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.021.png)
@@ -260,7 +251,7 @@ Fréquemment, on présentera l'ensemble des renseignements d'un modèle relation
 - [https](https://www.looping-mcd.fr/)[://www.looping-mcd.fr/](https://www.looping-mcd.fr/) (de l’université de Toulouse – à installer)
 - [http](http://mocodo.wingi.net/)[://mocodo.wingi.net](http://mocodo.wingi.net/)[/](http://mocodo.wingi.net/) (en ligne)
 
-1. ### <a name="_toc144547421"></a>**Les anomalies**
+#### <a name="_toc144547421"></a>**2.3.9. Les anomalies**
 Exemple de base de données
 
 ![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.022.png)
@@ -277,16 +268,12 @@ Quels sont les problèmes de cette modélisation ?
 
 Une modification sur une ligne peut nécessiter des modifications sur d’autres lignes.
 
-![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.024.png)
-
 Exemple : on souhaite modifier l’adresse de Paul : deux lignes sont impactées.
 
 
 **Anomalie de suppression**
 
 Certaines informations dépendent de l’existence d’autres informations
-
-![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.025.png)
 
 Exemple : le cours CS24 dépend de l’inscription de Paul
 
@@ -296,10 +283,10 @@ Exemple : le cours CS24 dépend de l’inscription de Paul
 
 La possibilité d’enregistrer un tuple implique la connaissance de toutes les informations qui lui son liées : problème de valeurs manquantes.
 
-![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.027.png)
+
 
 Exemple : soit 145, Evariste, Aubenas un nouvel étudiant. On ne peut l’insérer que si l’on connait un de ses cours et sa note dans ce cours, à moins de permettre les valeurs nulles.
-1. # <a name="_toc144547422"></a>**Exercices**
+## <a name="_toc144547422"></a>**3. Exercices**
 **Exercice n°1 :**
 
 Un laboratoire souhaite gérer les médicaments qu'il conçoit.
@@ -332,15 +319,15 @@ Une contre-indication est toujours associée à un et un seul médicament.
 1. Donner la représentation sous forme de tables des relations 'MEDICAMENT' et 'CONTRE\_INDICATION'
 1. Écrire le schéma relationnel permettant de représenter une base de données pour ce laboratoire.
 
-   **Exercice n°2 :**
+**Exercice n°2 :**
 
-   On veut créer une base de données permettant de gérer les clients d'un site web proposant des articles à vendre.
+On veut créer une base de données permettant de gérer les clients d'un site web proposant des articles à vendre.
 
-   On utilisera 3 relations CLIENTS, COMMANDES et ARTICLES.
+On utilisera 3 relations CLIENTS, COMMANDES et ARTICLES.
 
-   La table CLIENTS devra contenir les noms, prénoms, n° de téléphone et l'adresse des clients
+La table CLIENTS devra contenir les noms, prénoms, n° de téléphone et l'adresse des clients
 
-   La table ARTICLES devra contenir les codes des articles, leurs noms, une description et le prix des articles
+La table ARTICLES devra contenir les codes des articles, leurs noms, une description et le prix des articles
 
 1. Que doit contenir la table COMMANDES ?
 1. Quel doit être la clé primaire de la relation CLIENTS
@@ -369,9 +356,9 @@ On propose un tableau qui donne les occurrences d'une relation joueur définie p
 
 Repérez les anomalies dans ces occurrences. 
 
-**Exercice n°4 :**
+**Exercice n°4 :**<a name="_hlk70109606"></a>
 
-<a name="_hlk70109606"></a>Un fleuriste tient une base de données des client et commandes passées sur son site internet. Les tables bouquets, Clients et Commandes comportent ces informations
+Un fleuriste tient une base de données des client et commandes passées sur son site internet. Les tables bouquets, Clients et Commandes comportent ces informations
 
 ![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.028.png)
 
@@ -390,13 +377,13 @@ Repérez les anomalies dans ces occurrences. 
 - La table Bouquets comporte-t-elle un attribut qui est une clé primaire ? Un attribut qui est une clé étrangère ?
 - Répondre aux mêmes questions pour la table Clients puis la table Commandes. 
 
-<a name="_hlk71985841"></a>**Exercice n°5 : annuaire**
+**<a name="_hlk71985841"></a>Exercice n°5** : annuaire
 
 On souhaite modéliser un annuaire téléphonique simple dans lequel chaque personne (identifiée par son nom et son prénom) est associée à son numéro de téléphone. 
 
 Proposer une modélisation relationnelle de cet annuaire. 
 
-<a name="_hlk71987446"></a>**Exercice n°6 : vocabulaire**
+**<a name="_hlk71987446"></a>Exercice n°6** : vocabulaire
 
 Regrouper ensemble les termes synonymes : colonne, entité, domaine, attribut, ligne, schéma, base de données, type, column, row.
 
