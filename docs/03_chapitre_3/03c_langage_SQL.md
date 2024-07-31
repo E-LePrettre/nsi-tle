@@ -6,19 +6,21 @@ title: 03c Langage SQL
 
 **Table des matières**
 
-[1.	Création d’une base de données	2](#_toc173365560)
+[1.	Introduction](#_toc173365561)
 
-[2.	Insertion de données	3](#_toc173365563)
+[2.	Création d’une base de données](#_toc173365560)
 
-[3.	Interrogation de la base de données	5](#_toc173365566)
+[3.	Insertion de données](#_toc173365563)
 
-[4.	Requête de mise à jour	8](#_toc173365577)
+[4.	Interrogation de la base de données	](#_toc173365566)
 
-[5.	Jointures de tables	10](#_toc173365583)
+[5.	Requête de mise à jour	](#_toc173365577)
 
-[6.	Exercices	14](#_toc173365587)
+[6.	Jointures de tables	](#_toc173365583)
 
-[7.	Projet (démarche d’investigation)	15](#_toc173365588)
+[7.	Exercices	](#_toc173365587)
+
+[8.	Projet (démarche d’investigation)	](#_toc173365588)
 
 
 **Compétences évaluables :**
@@ -30,58 +32,104 @@ title: 03c Langage SQL
 
 
 
-
+## <a name="_toc173365561"></a>**1. Introduction**
 
 Pour réaliser des requêtes il faut apprendre le **SQL (Structured Query Language)**. SQL est propre aux bases de données relationnelle. Les autres types de bases de données utilisent d’autres langages pour effectuer des requêtes.
 
 Le langage SQL permet de gérer la **création**, la **destruction**, la **modification** de structure d’une relation, **d’insérer**, de **supprimer**, de **modifier** les t-uplets contenus dans une table, **d’interroger** la base, de **lister** les t-uplets en fonction de critère conditionnelle.
 
 
-` `![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.001.png)
-## <a name="_toc173365560"></a>**1. Création d’une base de données**
-### <a name="_toc173365561"></a>**1.1. Création**
 Dans le logiciel utiliser précédemment, lorsqu’on crée une base de données on voit que le logiciel code en bas de la fenêtre une inscription correspondant en fait à la même information en langage SQL. 
 
-- ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.002.png)<a name="_hlk52901318"></a>Pour **créer une table** 
+- Pour **créer une table** ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.002.png)
 
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.003.png)
+- Pour **insérer des données dans une table** ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.003.png)
 
-- Pour **insérer des données dans une table**
+- Pour **supprimer une table** ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.004.png)
 
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.004.png)
+- Pour **modifier des colonnes pour en ajouter** ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.005.png)
 
-- ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.005.png)Pour **supprimer une table**
 
-- Pour **modifier des colonnes pour en ajouter**
-
-**Activité n° AUTONUM  \* Arabic : Création de la base** Créer la base de données film.db que l’on enregistre dans votre dossier DOCUMENTS
+## <a name="_toc173365560"></a>**2. Création d’une base de données**
+### <a name="_toc173365561"></a>**2.1. Création**
+**Activité n° 1 : Création de la base** Créer la base de données film.db que l’on enregistre dans votre dossier DOCUMENTS
 
 
 Dans l’onglet exécuter le SQL :
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.006.png)
+
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.006.png){ width=50%; : .center }
+
 On peut alors taper le code.
 
-**Activité n° AUTONUM  \* Arabic : Création d’une table** 
+**Activité n° 2 : Création d’une table** 
+```sql
 CREATE TABLE realisateur
-
+```
 
 On met la liste des champs en langage SQL entre parenthèses et on met **un point-virgule** à la fin pour pouvoir enchainer les requêtes éventuellement.
 
-[ref1]**Activité n° AUTONUM  \* Arabic : Création des différents champs**
-CREATE TABLE "realisateur" (![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.008.png)"id\_realisateur"	INT NOT NULL UNIQUE,"nom\_realisateur"	VARCHAR(255) NOT NULL,"prenom\_realisateur"	VARCHAR(255) NOT NULL,"date\_naissance\_realisateur"	date,"nationalite\_realisateur" VARCHAR(255),PRIMARY KEY("id\_realisateur" AUTOINCREMENT));On peut exécuter la requête avec l’icône exécuter![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.009.png)Vérifier que la table a bien été créée dans l’onglet structure de la base de données
- 
-### <a name="_toc173365562"></a>**1.2. Suppression**
+**Activité n° 3 : Création des différents champs**
+```sql
+CREATE TABLE "realisateur" (
+"id_realisateur"	INT NOT NULL UNIQUE,
+"nom_realisateur"	VARCHAR(255) NOT NULL,
+"prenom_realisateur"	VARCHAR(255) NOT NULL,
+"date_naissance_realisateur"	date,
+"nationalite_realisateur" VARCHAR(255),
+PRIMARY KEY("id_realisateur" AUTOINCREMENT)
+);
+```
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.007.png){ width=30%; : .center }
 
- ![ref1]**Activité n° AUTONUM  \* Arabic : Création de table :** Création de la table filmCREATE TABLE film (![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.010.png)id\_film INT NOT NULL,titre\_film VARCHAR(255) NOT NULL);On note que les **guillemets sont optionnels**. Vérifier que la table a bien été créée.
+On peut exécuter la requête avec l’icône exécuter
+
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.009.png){ width=50%; : .center }
+
+Vérifier que la table a bien été créée dans l’onglet structure de la base de données
  
 
- **Activité n° AUTONUM  \* Arabic : Supprimer une table.** Pour supprimer cette table, dans une nouvelle fenêtre SQL, on lance la requête :DROP TABLE film ;Vérifier que la table film a bien disparu.
+
+### <a name="_toc173365562"></a>**2.2. Suppression**
+
+**Activité n° 4 : Création de table :** Création de la table film
+```sql
+CREATE TABLE film (
+id_film INT NOT NULL,
+titre_film VARCHAR(255) NOT NULL
+);
+```
+
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.007.png){ width=30%; : .center }
+
+On note que les **guillemets sont optionnels**. Vérifier que la table a bien été créée.
  
 
- ![ref1]**Activité n° AUTONUM  \* Arabic : Création de table :** Création de la véritable table filmCREATE TABLE film(![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.011.png)id\_film INT NOT NULL,titre\_film VARCHAR(255) NOT NULL,annee\_film date,id\_realisateur\_film INT NOT NULL,nationalite\_film VARCHAR(255) NOT NULL,genre\_film VARCHAR(255) NOT NULL,PRIMARY KEY (id\_film AUTOINCREMENT),<a name="_hlk52902174"></a>FOREIGN KEY (id\_realisateur\_film)REFERENCES realisateur (id\_realisateur));
+**Activité n° 5 : Supprimer une table.** Pour supprimer cette table, dans une nouvelle fenêtre SQL, on lance la requête :
+```sql
+DROP TABLE film ;
+```
+Vérifier que la table film a bien disparu.
  
-## ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.012.png)<a name="_toc173365563"></a>**2. Insertion de données**
-### <a name="_toc173365564"></a>**2.1. Insertion**
+
+**Activité n° 6 : Création de table :** Création de la véritable table film
+```sql
+CREATE TABLE film
+(
+id_film INT NOT NULL,
+titre_film VARCHAR(255) NOT NULL,
+annee_film date,
+id_realisateur_film INT NOT NULL,
+nationalite_film VARCHAR(255) NOT NULL,
+genre_film VARCHAR(255) NOT NULL,
+PRIMARY KEY (id_film AUTOINCREMENT),
+FOREIGN KEY (id_realisateur_film)
+REFERENCES realisateur (id_realisateur)
+);
+```
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.007.png){ width=30%; : .center } 
+
+## <a name="_toc173365563"></a>**3. Insertion de données**
+### <a name="_toc173365564"></a>**3.1. Insertion**
 Pour interroger la base de données pour récupérer des informations correspondant à des critères prédéfinis 
 
 - il faut utiliser le mot clé **SELECT** en précisant le nom prdes champs que l’on souhaite affiché,
