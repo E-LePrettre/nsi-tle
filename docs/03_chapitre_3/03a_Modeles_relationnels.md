@@ -52,7 +52,7 @@ On étudiera le **modèle relationnel** : ce modèle a été proposé en 1970 p
 Le modèle « relationnel » permet de modéliser les informations contenues dans les bases de données en utilisant des **relations**, c’est à dire un ensemble **d’attributs.**
 
 ## <a name="_toc144547409"></a>**2. Présentation du modèle relationnel**
-### <a name="_toc144547410"></a>**é.1. Qu’est ce qu’une relation ?**
+### <a name="_toc144547410"></a>**2.1. Qu’est ce qu’une relation ?**
 On appelle **relation** un objet de la vie réelle auquel on attache **un ensemble d’attributs.**
 
 Par exemple, un employé possède un nom, un prénom, un matricule, travaille dans un service et a été embauché à une certaine date.
@@ -128,10 +128,10 @@ Une vue peut ensuite être réutilisée exactement comme s’il s’agissait d�
     ??? success "Solution"
 
         La réponse à cette requête est une vue :
-        ||||
-        | :- | :-: | :-: |
-        |Casablanca|Lucernaire|19:00|
-        |Casablanca|Studio|20:00|
+      ||||
+      | :- | :-: | :-: |
+      |Casablanca|Lucernaire|19:00|
+      |Casablanca|Studio|20:00|
 
 
 
