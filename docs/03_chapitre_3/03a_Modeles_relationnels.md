@@ -138,13 +138,13 @@ Une vue peut ensuite être réutilisée exactement comme s’il s’agissait d�
 
 
 
-1. ## <a name="_toc144547412"></a>**Vocabulaire**
-   1. ### <a name="_toc136542376"></a><a name="_toc144547413"></a>**Attributs**
+### <a name="_toc144547412"></a>**2.3. Vocabulaire**
+#### <a name="_toc136542376"></a><a name="_toc144547413"></a>**2.3.1. Attributs**
 La notion de **relation** est au cœur des bases de données relationnelles. Une relation, aussi appelé **table**, peut être vu comme un **tableau à deux dimensions** composées d’un nombre fini de données d’un **entête** qui contient des **attributs** et d’un **corps** qui contient des **données**.
 
-![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.003.png)
 
-![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.004.png)
+
+![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.004.png){ width=50%; : .center }
 
 Le corps de la table est découpé en lignes appelé **t-uplets** (ou n-uplets) ou **tuple** ou **enregistrement** ou **entrée**. Chaque colonne correspond à un **attribut**.
 ![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.005.png)
