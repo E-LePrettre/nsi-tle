@@ -123,10 +123,7 @@ Une vue peut ensuite être réutilisée exactement comme s’il s’agissait d�
     ??? success "Solution"
 
         La réponse à cette requête est une vue :
-        ||||
-        | :- | :-: | :-: |
-        |Casablanca|Lucernaire|19:00|
-        |Casablanca|Studio|20:00|
+        ![](51.png){ width=25%}
 
 
 
@@ -142,15 +139,14 @@ La notion de **relation** est au cœur des bases de données relationnelles. Une
 ![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.004.png){ width=50%; : .center }
 
 Le corps de la table est découpé en lignes appelé **t-uplets** (ou n-uplets) ou **tuple** ou **enregistrement** ou **entrée**. Chaque colonne correspond à un **attribut**.
-![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.005.png)
 
-![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.006.png)
+![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.006.png){ width=50%; : .center }
 
 Dans l’exemple, la relation film (ou table film) contient l’attribut titre qui est composé du nom des films présents dans la table.
-1. ### <a name="_toc144547414"></a>**Le domaine d’un attribut** 
+
+#### <a name="_toc144547414"></a>**2.3.2. Le domaine d’un attribut** 
 Pour chaque attribut d’une relation, il est nécessaire de définir un **domaine**. Le domaine d’un attribut donné correspond à un ensemble de données de **données admissibles.** 
 
-![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.007.png)
 
 Par exemple le domaine de 
 
