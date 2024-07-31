@@ -171,7 +171,7 @@ Pour optimiser la structure d’une base de données : Utiliser une clé primai
 
 En toute rigueur une clé primaire peut aussi être constitué de **plusieurs attributs**. (limite programme ?). Par exemple le couple realisateur titre pourrait jouer le rôle de clé primaire.
 
-1. ### <a name="_toc144547416"></a>**Comment s’affranchir des doublons de données ?**
+#### <a name="_toc144547416"></a>**2.3.4. Comment s’affranchir des doublons de données ?**
 Pour rajouter des informations supplémentaires aux réalisateurs comme leur prénom, leur date de naissance, leur nationalité,…
 
 ![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.010.png)
