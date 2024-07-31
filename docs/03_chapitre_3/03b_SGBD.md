@@ -33,7 +33,7 @@ Comme il existe différents types de bases de données, il existe **différents 
 
 Parmi les plus connus, on peut citer Oracle, Postgressql, Mysql, MariaDB, Cassandra, SQL Server, Firebird,…
 
-![](Aspose.Words.10238efa-453b-4349-9c41-3b829de74025.001.png)
+![](Aspose.Words.10238efa-453b-4349-9c41-3b829de74025.001.png){ width=50%; : .center }
 
 Il existe des **sgbd libre** comme PostgreSQL, MySQL ou MariaDB. Les gratuites mais avec un code fermé et une **licence propriétaire** sont SQLite ou Redis. Les payantes et propriétaires sont Oracle, SQL Server, SyBase.
 
@@ -47,13 +47,17 @@ Elles ont été mises au point en 1970 par **Edgar Codd** basé sur la théorie
 
 ## <a name="_toc144548615"></a>**3. Architecture**
 
-![](Aspose.Words.10238efa-453b-4349-9c41-3b829de74025.002.png)Sur un réseau informatique, des informations sont en permanence échangées entre deux machines, un logiciel assurant le traitement des informations sur chacune d'entre elles.
+![](Aspose.Words.10238efa-453b-4349-9c41-3b829de74025.002.png){ width=50%; : .center }
+
+Sur un réseau informatique, des informations sont en permanence échangées entre deux machines, un logiciel assurant le traitement des informations sur chacune d'entre elles.
 
 On distingue le **logiciel client** installé sur la machine qui **envoie des requêtes** et le **logiciel serveur** installé sur la machine qui **traite les requêtes**.
 
 Ce mode de communication est appelé **architecture à deux niveaux**. C'est l'une des architectures client-serveur possibles.
 
-![](Aspose.Words.10238efa-453b-4349-9c41-3b829de74025.003.png)**L'architecture trois-tiers** est une architecture client-serveur qui ajoute un **niveau supplémentaire** dans l'environnement précédemment décrit.
+![](Aspose.Words.10238efa-453b-4349-9c41-3b829de74025.003.png){ width=50%; : .center }
+
+**L'architecture trois-tiers** est une architecture client-serveur qui ajoute un **niveau supplémentaire** dans l'environnement précédemment décrit.
 
 Un serveur de données **transmet les informations à un serveur d'application** qui, à son tour, transmet les informations traitées vers un client.
 
@@ -64,19 +68,19 @@ Ce modèle d'architecture présente plusieurs avantages :
 - meilleure **répartition des tâches** entre les différentes couches logicielles.
 
 ## <a name="_toc144548616"></a>**4. Utilisation de DB Browser SQLite : création d’une base**
-![](Aspose.Words.10238efa-453b-4349-9c41-3b829de74025.004.png)
+![](Aspose.Words.10238efa-453b-4349-9c41-3b829de74025.004.png){ width=50%; : .center }
 
 Créer une nouvelle base de données appelée Base\_Film  dans Documents\BD
 
 La première table sera realisateur
 
-![](Aspose.Words.10238efa-453b-4349-9c41-3b829de74025.005.png)
+![](Aspose.Words.10238efa-453b-4349-9c41-3b829de74025.005.png){ width=50%; : .center }
 
 Ajouter les champs : 
 
 - id\_realisateur de type entier, non nul (NN), ce sera une clé primaire (CP), incrémentation automatique (IA), unique (U)
 
-![](Aspose.Words.10238efa-453b-4349-9c41-3b829de74025.006.png)
+![](Aspose.Words.10238efa-453b-4349-9c41-3b829de74025.006.png){ width=50%; : .center }
 
 - nom\_realisateur en TEXT , NN 
 
@@ -90,7 +94,7 @@ Créer une deuxième table film
 
 Cliquer sur l’onglet parcourir les données pour voir le contenu des tables une fois remplies avec l’icône nouvel enregistrement
 
-![](Aspose.Words.10238efa-453b-4349-9c41-3b829de74025.007.png)
+![](Aspose.Words.10238efa-453b-4349-9c41-3b829de74025.007.png){ width=50%; : .center }
 
 On va enregistrer en 1 Lurnet dans la table realisateur
 
@@ -104,7 +108,4 @@ On va enregistrer dans la table film:
 
 Pour chaque attribut d’une relation, il est nécessaire de définir un **domaine**. Le domaine d’un attribut donné correspond à un ensemble de données finie ou infinies de **données admissibles.** 
 
-![](Aspose.Words.10238efa-453b-4349-9c41-3b829de74025.008.png)
-
-![](Aspose.Words.10238efa-453b-4349-9c41-3b829de74025.009.jpeg)
 
