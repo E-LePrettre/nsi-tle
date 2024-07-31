@@ -130,6 +130,9 @@ REFERENCES realisateur (id_realisateur)
 
 ## <a name="_toc173365563"></a>**3. Insertion de données**
 ### <a name="_toc173365564"></a>**3.1. Insertion**
+
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.012.png){ width=50%; : .center }
+
 Pour interroger la base de données pour récupérer des informations correspondant à des critères prédéfinis 
 
 - il faut utiliser le mot clé **SELECT** en précisant le nom prdes champs que l’on souhaite affiché,
@@ -137,19 +140,94 @@ Pour interroger la base de données pour récupérer des informations correspond
 - puis préciser les conditions avec lesquelles nous souhaitons récupérer ses champs ce sont des conditions booléennes, 
 - enfin il existe quelques options pour trier ces données ou afficher un nombre de conditions prédéterminées
 
- Cliquer sur ouvrir un onglet![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.013.png)**Activité n° AUTONUM  \* Arabic : Insertion de données** On utilise le mot clé INSERT INTO le nom de la table, puis entre parenthèses le nom des champs. On note ensuite les valeurs entre parenthèses après le mot clé VALUES.INSERT INTO realisateur(nom\_realisateur, prenom\_realisateur, date\_naissance\_realisateur, nationalite\_realisateur)VALUES('Abrams', 'Jeffrey Jacob', 1966-06-27, 'Etats-Unis'),('Badham', 'John', 1939-08-25, 'Royaume-Uni'),('Besson', 'Luc', 1959-03-18, 'France'),('Branagh', 'Kenneth', 1960-12-10, 'Royaume-Uni'),('Johnson', 'Rian', 1973-12-17, 'Etats-Unis'),('Kershner', 'Irvin', 1923-04-29, 'Etats-Unis'),('Lucas', 'George', 1944-05-14, 'Etats-Unis'),('Marquand', 'Richard', 1937-09-22, 'Royaume-Uni'),('Spielberg', 'Steven', 1946-12-18, 'Etats-Unis'),('Tarantino', 'Quentin', 1963-03-27, 'Etats-Unis'),('Lumet', 'Sydney', 1924-06-25, 'Etats-Unis');Exécuter la requête et vérifier dans parcourir les données que l’enregistrement c’est bien fait![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.014.png)
+Cliquer sur ouvrir un onglet
+
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.013.png)
+
+**Activité n° 7 : Insertion de données** On utilise le mot clé INSERT INTO le nom de la table, puis entre parenthèses le nom des champs. On note ensuite les valeurs entre parenthèses après le mot clé VALUES.
+```sql
+INSERT INTO realisateur
+(nom_realisateur, prenom_realisateur, date_naissance_realisateur, nationalite_realisateur)
+VALUES
+('Abrams', 'Jeffrey Jacob', 1966-06-27, 'Etats-Unis'),
+('Badham', 'John', 1939-08-25, 'Royaume-Uni'),
+('Besson', 'Luc', 1959-03-18, 'France'),
+('Branagh', 'Kenneth', 1960-12-10, 'Royaume-Uni'),
+('Johnson', 'Rian', 1973-12-17, 'Etats-Unis'),
+('Kershner', 'Irvin', 1923-04-29, 'Etats-Unis'),
+('Lucas', 'George', 1944-05-14, 'Etats-Unis'),
+('Marquand', 'Richard', 1937-09-22, 'Royaume-Uni'),
+('Spielberg', 'Steven', 1946-12-18, 'Etats-Unis'),
+('Tarantino', 'Quentin', 1963-03-27, 'Etats-Unis'),
+('Lumet', 'Sydney', 1924-06-25, 'Etats-Unis')
+;
+```
+
+Exécuter la requête et vérifier dans parcourir les données que l’enregistrement c’est bien fait
+
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.014.png)
  
   
 
- **Activité n° AUTONUM  \* Arabic : Insertion de données :** Insertion dans la table film, on écrit la requête suivante et on l’exécute :INSERT INTO film(titre\_film, nationalite\_film, genre\_film)VALUES('StarWares', 'Etats-Unis', 'Science fiction');La requête échoue car id\_realisateur\_film ne peut pas être nul. Donc on complète et on exécute :INSERT INTO film(titre\_film, id\_realisateur\_film, nationalite\_film, genre\_film)VALUES('StarWars',44, 'Etats-Unis', 'Science fiction');La requête échoue de nouveau maintenant c’est la clé étrangère id\_realisateur qui n’a pas été trouvé dans la table réalisateur. En effet, id\_realisateur 44 n’existe pas dans cette table
+**Activité n° 8 : Insertion de données :** Insertion dans la table film, on écrit la requête suivante et on l’exécute :
+```sql
+INSERT INTO film
+(titre_film, nationalite_film, genre_film)
+VALUES
+('StarWares', 'Etats-Unis', 'Science fiction');
+```
+
+
+La requête échoue car id\_realisateur\_film ne peut pas être nul. Donc on complète et on exécute :
+```sql
+INSERT INTO film
+(titre_film, id_realisateur_film, nationalite_film, genre_film)
+VALUES
+('StarWars',44, 'Etats-Unis', 'Science fiction');
+```
+
+La requête échoue de nouveau maintenant c’est la clé étrangère id\_realisateur qui n’a pas été trouvé dans la table réalisateur. En effet, id\_realisateur 44 n’existe pas dans cette table
  
 
- **Activité n° AUTONUM  \* Arabic : Insertion de données :** Insertion générale de la table film, insérer et exécuter :INSERT INTO film(titre\_film, annee\_film, id\_realisateur\_film, nationalite\_film, genre\_film)VALUES('Star Wars, épisode IV : Un nouvel espoir', 1977, 7, 'Etats-Unis', 'Science fiction'),('Star Wars, épisode V : L''Empire contre\_attaque', 1980, 6, 'Etats-Unis', 'Science fiction'),('Star Wars, épisode VI : Le retour du Jedi', 1983, 8, 'Etats-Unis', 'Science fiction'),('Star Wars, épisode I : La menace fantôme', 1999, 7, 'Etats-Unis', 'Science fiction'),('Star Wars, épisode II : L''attaque des clones', 2002, 7, 'Etats-Unis', 'Science fiction'),('Star Wars, épisode III : La Revanche des Sith', 2005, 7, 'Etats-Unis', 'Science fiction'),('Star Wars, épisode VII : Le Réveil de la Force', 2015, 1, 'Etats-Unis', 'Science fiction'),('Star Wars, épisode VIII : Les Derniers Jedi', 2017, 5, 'Etats-Unis', 'Science fiction'),('Star Wars, épisode IX : L''ascension de Skywalker', 2018, 1, 'Etats-Unis', 'Science fiction'),('Indiana Jones et les Aventuriers de l''arche perdue', 1981, 9, 'Etats-Unis', 'Aventure'),('Indiana Jones et le Temple maudit', 1984, 9, 'Etats-Unis', 'Aventure'),('WarGames', 1983, 2, 'Etats-Unis', 'Science fiction'),('Le Cinquième Elément', 1997, 3, 'France', 'Science fiction'),('Valérian et la cité des mille planètes', 2017, 3, 'France', 'Science fiction'),('Léon', 1994, 3, 'France', 'Drame'),('Anna', 2019, 3, 'France', 'Thriller'),('Once Upon a Time in Hollywood', 2019, 10, 'Etats-Unis', 'Comédie dramatique'),('Django Unchained', 2012, 10, 'Etats-Unis', 'Western'),('Pulp Fiction', 1994, 10, 'Etats-Unis', 'Policier'),('Mort sur le Nil', 2020, 4, 'Etats-Unis', 'Policier'),('Le Crime de l''Orient-Express', 2017, 4, 'Royaume-Uni', 'Policier'),('Thor', 2011, 4, 'Etats-Unis', 'Super-Heros'),('Henry V', 1989, 4, 'Royaume-Uni', 'Film historique'),('Le Crime de l''Orient-Express', 1974, 11, 'Royaume-Uni', 'Policier'),('American Graffiti', 1973, 7, 'Etats-Unis', 'Comédie');
+**Activité n° 9 : Insertion de données :** Insertion générale de la table film, insérer et exécuter :
+```sql
+INSERT INTO film
+(titre_film, annee_film, id_realisateur_film, nationalite_film, genre_film)
+VALUES
+('Star Wars, épisode IV : Un nouvel espoir', 1977, 7, 'Etats-Unis', 'Science fiction'),
+('Star Wars, épisode V : L''Empire contre_attaque', 1980, 6, 'Etats-Unis', 'Science fiction'),
+('Star Wars, épisode VI : Le retour du Jedi', 1983, 8, 'Etats-Unis', 'Science fiction'),
+('Star Wars, épisode I : La menace fantôme', 1999, 7, 'Etats-Unis', 'Science fiction'),
+('Star Wars, épisode II : L''attaque des clones', 2002, 7, 'Etats-Unis', 'Science fiction'),
+('Star Wars, épisode III : La Revanche des Sith', 2005, 7, 'Etats-Unis', 'Science fiction'),
+('Star Wars, épisode VII : Le Réveil de la Force', 2015, 1, 'Etats-Unis', 'Science fiction'),
+('Star Wars, épisode VIII : Les Derniers Jedi', 2017, 5, 'Etats-Unis', 'Science fiction'),
+('Star Wars, épisode IX : L''ascension de Skywalker', 2018, 1, 'Etats-Unis', 'Science fiction'),
+('Indiana Jones et les Aventuriers de l''arche perdue', 1981, 9, 'Etats-Unis', 'Aventure'),
+('Indiana Jones et le Temple maudit', 1984, 9, 'Etats-Unis', 'Aventure'),
+('WarGames', 1983, 2, 'Etats-Unis', 'Science fiction'),
+('Le Cinquième Elément', 1997, 3, 'France', 'Science fiction'),
+('Valérian et la cité des mille planètes', 2017, 3, 'France', 'Science fiction'),
+('Léon', 1994, 3, 'France', 'Drame'),
+('Anna', 2019, 3, 'France', 'Thriller'),
+('Once Upon a Time in Hollywood', 2019, 10, 'Etats-Unis', 'Comédie dramatique'),
+('Django Unchained', 2012, 10, 'Etats-Unis', 'Western'),
+('Pulp Fiction', 1994, 10, 'Etats-Unis', 'Policier'),
+('Mort sur le Nil', 2020, 4, 'Etats-Unis', 'Policier'),
+('Le Crime de l''Orient-Express', 2017, 4, 'Royaume-Uni', 'Policier'),
+('Thor', 2011, 4, 'Etats-Unis', 'Super-Heros'),
+('Henry V', 1989, 4, 'Royaume-Uni', 'Film historique'),
+('Le Crime de l''Orient-Express', 1974, 11, 'Royaume-Uni', 'Policier'),
+('American Graffiti', 1973, 7, 'Etats-Unis', 'Comédie')
+;
+```
  
 
 **Remarque** : La double quote pour les apostrophes
 
- **Activité n° AUTONUM  \* Arabic :** Enregistrer dans vos DOCUMENTS ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.015.png)
+**Activité n° 10 :** Enregistrer dans vos DOCUMENTS 
+
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.015.png)
  
 ### <a name="_toc173365565"></a>**2.2. Suppression**
 
