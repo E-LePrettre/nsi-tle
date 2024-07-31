@@ -303,21 +303,20 @@ Une contre-indication est toujours associée à un et un seul médicament.
 
 **Exemple de données** : Voici deux exemples de données :
 
-- Le **Chourix** a pour description courte "« Médicament contre la chute des choux »" et pour description longue "« Vivamus fermentum semper porta. Nunc diam velit, adipiscing ut tristique vitae, sagittis vel odio. Maecenas convallis ullamcorper ultricies. Curabitur ornare. »". Il est conditionné en boîte de 13.
+Le **Chourix** a pour description courte "« Médicament contre la chute des choux »" et pour description longue "« Vivamus fermentum semper porta. Nunc diam velit, adipiscing ut tristique vitae, sagittis vel odio. Maecenas convallis ullamcorper ultricies. Curabitur ornare. »". Il est conditionné en boîte de 13.
 
   Ses contre-indications sont :
 
 - CI1 : Ne jamais prendre après minuit.
 - CI2 : Ne jamais mettre en contact avec de l'eau.
 
-- Le **Tropas** a pour description courte "« Médicament contre les dysfonctionnements intellectuels »" et pour description longue "« Suspendisse lectus leo, consectetur in tempor sit amet, placerat quis neque. Etiam luctus porttitor lorem, sed suscipit est rutrum non. »". Il est conditionné en boîte de 42.
+Le **Tropas** a pour description courte "« Médicament contre les dysfonctionnements intellectuels »" et pour description longue "« Suspendisse lectus leo, consectetur in tempor sit amet, placerat quis neque. Etiam luctus porttitor lorem, sed suscipit est rutrum non. »". Il est conditionné en boîte de 42.
 
-  Ses contre-indications sont :
-
+Ses contre-indications sont :
 - CI3 : Garder à l'abri de la lumière du soleil.
 
 1. Donner la représentation sous forme de tables des relations 'MEDICAMENT' et 'CONTRE\_INDICATION'
-1. Écrire le schéma relationnel permettant de représenter une base de données pour ce laboratoire.
+2. Écrire le schéma relationnel permettant de représenter une base de données pour ce laboratoire.
 
 **Exercice n°2 :**
 
@@ -332,13 +331,13 @@ La table ARTICLES devra contenir les codes des articles, leurs noms, une descrip
 1. Que doit contenir la table COMMANDES ?
 1. Quel doit être la clé primaire de la relation CLIENTS
 1. Quel doit être la clé primaire de la relation ARTICLES ?
-1. Voici une représentation de la table COMMANDES :
+Voici une représentation de la table COMMANDES :
 
 |*COMMANDES*||||
 | :-: | :- | :- | :- |
 |**numero**|**id\_client**|**id\_article**|**quantite**|
 |||||
-Quelles doivent être les clés étrangères de la tables COMMANDES ?
+4. Quelles doivent être les clés étrangères de la tables COMMANDES ?
 
 1. Donner la représentation sous forme de tables des relations CLIENTS, ARTICLES et COMMANDES en inventant au moins 3 clients, deux commandes et 4 articles.
 1. Réaliser un schéma pour représenter cette base de données relationnelle.
