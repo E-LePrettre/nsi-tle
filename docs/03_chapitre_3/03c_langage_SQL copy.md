@@ -1,0 +1,997 @@
+﻿---
+author: ELP
+title: 03c Langage SQL
+---
+
+
+**Table des matières**
+
+[1.	Introduction](#_toc173365561)
+
+[2.	Création d’une base de données](#_toc173365560)
+
+[3.	Insertion de données](#_toc173365563)
+
+[4.	Interrogation de la base de données	](#_toc173365566)
+
+[5.	Requête de mise à jour	](#_toc173365577)
+
+[6.	Jointures de tables	](#_toc173365583)
+
+[7.	Exercices	](#_toc173365587)
+
+[8.	Projet (démarche d’investigation)	](#_toc173365588)
+
+
+**Compétences évaluables :**
+
+- Identifier les composants d’une requête
+- Construire des requêtes d’interrogation à l’aide des clauses du langages SQL : SELECT, FROM, WHERE, JOIN.
+- Construire des requêtes d’insertion et de mise à jour à l’aide de : UPDATE, INSERT, DELETE.
+
+
+
+
+## <a name="_toc173365561"></a>**1. Introduction**
+
+Pour réaliser des requêtes il faut apprendre le **SQL (Structured Query Language)**. SQL est propre aux bases de données relationnelle. Les autres types de bases de données utilisent d’autres langages pour effectuer des requêtes.
+
+Le langage SQL permet de gérer la **création**, la **destruction**, la **modification** de structure d’une relation, **d’insérer**, de **supprimer**, de **modifier** les t-uplets contenus dans une table, **d’interroger** la base, de **lister** les t-uplets en fonction de critère conditionnelle.
+
+
+Dans le logiciel utiliser précédemment, lorsqu’on crée une base de données on voit que le logiciel code en bas de la fenêtre une inscription correspondant en fait à la même information en langage SQL. 
+
+- Pour **créer une table** ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.002.png)
+
+- Pour **insérer des données dans une table** ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.003.png)
+
+- Pour **supprimer une table** ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.004.png)
+
+- Pour **modifier des colonnes pour en ajouter** ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.005.png)
+
+
+## <a name="_toc173365560"></a>**2. Création d’une base de données**
+### <a name="_toc173365561"></a>**2.1. Création**
+**Activité n° 1 : Création de la base** Créer la base de données film.db que l’on enregistre dans votre dossier DOCUMENTS
+
+
+Dans l’onglet exécuter le SQL :
+
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.006.png){ width=50%; : .center }
+
+On peut alors taper le code.
+
+**Activité n° 2 : Création d’une table** 
+```sql
+CREATE TABLE realisateur
+```
+
+On met la liste des champs en langage SQL entre parenthèses et on met **un point-virgule** à la fin pour pouvoir enchainer les requêtes éventuellement.
+
+**Activité n° 3 : Création des différents champs**
+```sql
+CREATE TABLE "realisateur" (
+"id_realisateur"	INT NOT NULL UNIQUE,
+"nom_realisateur"	VARCHAR(255) NOT NULL,
+"prenom_realisateur"	VARCHAR(255) NOT NULL,
+"date_naissance_realisateur"	date,
+"nationalite_realisateur" VARCHAR(255),
+PRIMARY KEY("id_realisateur" AUTOINCREMENT)
+);
+```
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.007.png){ width=30%; : .center }
+
+On peut exécuter la requête avec l’icône exécuter
+
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.009.png){ width=50%; : .center }
+
+Vérifier que la table a bien été créée dans l’onglet structure de la base de données
+ 
+
+
+### <a name="_toc173365562"></a>**2.2. Suppression**
+
+**Activité n° 4 : Création de table :** Création de la table film
+```sql
+CREATE TABLE film (
+id_film INT NOT NULL,
+titre_film VARCHAR(255) NOT NULL
+);
+```
+
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.007.png){ width=30%; : .center }
+
+On note que les **guillemets sont optionnels**. Vérifier que la table a bien été créée.
+ 
+
+**Activité n° 5 : Supprimer une table.** Pour supprimer cette table, dans une nouvelle fenêtre SQL, on lance la requête :
+```sql
+DROP TABLE film ;
+```
+Vérifier que la table film a bien disparu.
+ 
+
+**Activité n° 6 : Création de table :** Création de la véritable table film
+```sql
+CREATE TABLE film
+(
+id_film INT NOT NULL,
+titre_film VARCHAR(255) NOT NULL,
+annee_film date,
+id_realisateur_film INT NOT NULL,
+nationalite_film VARCHAR(255) NOT NULL,
+genre_film VARCHAR(255) NOT NULL,
+PRIMARY KEY (id_film AUTOINCREMENT),
+FOREIGN KEY (id_realisateur_film)
+REFERENCES realisateur (id_realisateur)
+);
+```
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.007.png){ width=30%; : .center } 
+
+## <a name="_toc173365563"></a>**3. Insertion de données**
+### <a name="_toc173365564"></a>**3.1. Insertion**
+
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.012.png){ width=50%; : .center }
+
+Pour interroger la base de données pour récupérer des informations correspondant à des critères prédéfinis 
+
+- il faut utiliser le mot clé **SELECT** en précisant le nom prdes champs que l’on souhaite affiché,
+- il faut préciser sur quelle table on va faire cette interrogation avec le mot clé **FROM**, 
+- puis préciser les conditions avec lesquelles nous souhaitons récupérer ses champs ce sont des conditions booléennes, 
+- enfin il existe quelques options pour trier ces données ou afficher un nombre de conditions prédéterminées
+
+Cliquer sur ouvrir un onglet
+
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.013.png){ width=50%; : .center }
+
+**Activité n° 7 : Insertion de données** On utilise le mot clé INSERT INTO le nom de la table, puis entre parenthèses le nom des champs. On note ensuite les valeurs entre parenthèses après le mot clé VALUES.
+```sql
+INSERT INTO realisateur
+(nom_realisateur, prenom_realisateur, date_naissance_realisateur, nationalite_realisateur)
+VALUES
+('Abrams', 'Jeffrey Jacob', 1966-06-27, 'Etats-Unis'),
+('Badham', 'John', 1939-08-25, 'Royaume-Uni'),
+('Besson', 'Luc', 1959-03-18, 'France'),
+('Branagh', 'Kenneth', 1960-12-10, 'Royaume-Uni'),
+('Johnson', 'Rian', 1973-12-17, 'Etats-Unis'),
+('Kershner', 'Irvin', 1923-04-29, 'Etats-Unis'),
+('Lucas', 'George', 1944-05-14, 'Etats-Unis'),
+('Marquand', 'Richard', 1937-09-22, 'Royaume-Uni'),
+('Spielberg', 'Steven', 1946-12-18, 'Etats-Unis'),
+('Tarantino', 'Quentin', 1963-03-27, 'Etats-Unis'),
+('Lumet', 'Sydney', 1924-06-25, 'Etats-Unis')
+;
+```
+
+Exécuter la requête et vérifier dans parcourir les données que l’enregistrement c’est bien fait
+
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.014.png){ width=50%; : .center }
+ 
+  
+
+**Activité n° 8 : Insertion de données :** Insertion dans la table film, on écrit la requête suivante et on l’exécute :
+```sql
+INSERT INTO film
+(titre_film, nationalite_film, genre_film)
+VALUES
+('StarWares', 'Etats-Unis', 'Science fiction');
+```
+
+
+La requête échoue car id\_realisateur\_film ne peut pas être nul. Donc on complète et on exécute :
+```sql
+INSERT INTO film
+(titre_film, id_realisateur_film, nationalite_film, genre_film)
+VALUES
+('StarWars',44, 'Etats-Unis', 'Science fiction');
+```
+
+La requête échoue de nouveau maintenant c’est la clé étrangère id\_realisateur qui n’a pas été trouvé dans la table réalisateur. En effet, id\_realisateur 44 n’existe pas dans cette table
+ 
+
+**Activité n° 9 : Insertion de données :** Insertion générale de la table film, insérer et exécuter :
+```sql
+INSERT INTO film
+(titre_film, annee_film, id_realisateur_film, nationalite_film, genre_film)
+VALUES
+('Star Wars, épisode IV : Un nouvel espoir', 1977, 7, 'Etats-Unis', 'Science fiction'),
+('Star Wars, épisode V : L''Empire contre_attaque', 1980, 6, 'Etats-Unis', 'Science fiction'),
+('Star Wars, épisode VI : Le retour du Jedi', 1983, 8, 'Etats-Unis', 'Science fiction'),
+('Star Wars, épisode I : La menace fantôme', 1999, 7, 'Etats-Unis', 'Science fiction'),
+('Star Wars, épisode II : L''attaque des clones', 2002, 7, 'Etats-Unis', 'Science fiction'),
+('Star Wars, épisode III : La Revanche des Sith', 2005, 7, 'Etats-Unis', 'Science fiction'),
+('Star Wars, épisode VII : Le Réveil de la Force', 2015, 1, 'Etats-Unis', 'Science fiction'),
+('Star Wars, épisode VIII : Les Derniers Jedi', 2017, 5, 'Etats-Unis', 'Science fiction'),
+('Star Wars, épisode IX : L''ascension de Skywalker', 2018, 1, 'Etats-Unis', 'Science fiction'),
+('Indiana Jones et les Aventuriers de l''arche perdue', 1981, 9, 'Etats-Unis', 'Aventure'),
+('Indiana Jones et le Temple maudit', 1984, 9, 'Etats-Unis', 'Aventure'),
+('WarGames', 1983, 2, 'Etats-Unis', 'Science fiction'),
+('Le Cinquième Elément', 1997, 3, 'France', 'Science fiction'),
+('Valérian et la cité des mille planètes', 2017, 3, 'France', 'Science fiction'),
+('Léon', 1994, 3, 'France', 'Drame'),
+('Anna', 2019, 3, 'France', 'Thriller'),
+('Once Upon a Time in Hollywood', 2019, 10, 'Etats-Unis', 'Comédie dramatique'),
+('Django Unchained', 2012, 10, 'Etats-Unis', 'Western'),
+('Pulp Fiction', 1994, 10, 'Etats-Unis', 'Policier'),
+('Mort sur le Nil', 2020, 4, 'Etats-Unis', 'Policier'),
+('Le Crime de l''Orient-Express', 2017, 4, 'Royaume-Uni', 'Policier'),
+('Thor', 2011, 4, 'Etats-Unis', 'Super-Heros'),
+('Henry V', 1989, 4, 'Royaume-Uni', 'Film historique'),
+('Le Crime de l''Orient-Express', 1974, 11, 'Royaume-Uni', 'Policier'),
+('American Graffiti', 1973, 7, 'Etats-Unis', 'Comédie')
+;
+```
+ 
+
+**Remarque** : La double quote pour les apostrophes
+
+**Activité n° 10 :** Enregistrer dans vos DOCUMENTS 
+
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.015.png){ width=50%; : .center }
+ 
+### <a name="_toc173365565"></a>**3.2. Suppression**
+
+**Activité n° 11 : Ajout et suppression d’une donnée** : Exécuter la requête suivante
+```sql
+INSERT INTO film
+(titre_film, annee_film, id_realisateur_film, nationalite_film, genre_film)
+VALUES
+('Star Wars, épisode XXI : L''Espoir Ultime', 2040, 7, 'Etats-Unis', 'Science fiction')
+```
+
+Pour supprimer cet enregistrement qui sera au numéro 26 on va préciser la condition avec le mot-clé WHERE :
+```sql
+DELETE FROM film 
+WHERE id_film  = 26 ;
+```
+Vérifier ensuite que le film a bien été supprimé
+ 
+## <a name="_toc173365566"></a>**4. Interrogation de la base de données**
+### <a name="_toc173365567"></a>**4.1. Affichage simple**
+
+**Activité n° 12 : Affichage par numéro :** Faire afficher le titre, l’année et la nationalité d’un film en particulier connaissant son id :** Exécuter 
+```sql
+SELECT titre_film, annee_film, nationalite_film
+FROM film
+WHERE id_film = 14;
+```
+On voit qu’il s’affiche le film 14 avec les champs demandés
+ 
+
+**Activité n° 13 : Affichage par intervalle de nombres:** Faire afficher l’id, le titre, l’année et la nationalité de plusieurs films en particulier **:** Exécuter 
+```sql
+SELECT id_film, titre_film, annee_film, nationalite_film
+FROM film
+WHERE id_film > 14;
+```
+On voit qu’il s’affiche les films dont l’id est supérieur 14 avec les champs demandés
+ 
+
+**Activité n° 14 : Affichage par numéro :**  Faire afficher l’id, le titre, l’année et la nationalité d’un film en particulier connaissant son année **:** Exécuter 
+```sql
+SELECT id_film, titre_film, annee_film, nationalite_film
+FROM film
+WHERE annee_film = 2019;
+```
+On voit qu’il s’affiche le film sorti en 2019 avec les champs demandés
+ 
+
+**Activité n° 15 : Affichage par intervalle de nombres :**  Faire afficher l’id, le titre, l’année et la nationalité de films avec des intervalles d’années :** Exécuter 
+```sql
+SELECT id_film, titre_film, annee_film, nationalite_film
+FROM film
+WHERE annee_film > 2010 AND annee_film < 2020;
+```
+On voit qu’il s’affiche les films sortis entre 2010 et 2020 avec les champs demandés
+ 
+### <a name="_toc173365568"></a>**4.2. Affichage et tri ascendant**
+
+**Activité n° 16 : Affichage par intervalle de nombres trié avec un critère :**  Faire afficher l’id, le titre, l’année et la nationalité de films avec des intervalles d’années et triés par année : Exécuter 
+```sql
+SELECT id_film, titre_film, annee_film, nationalite_film
+FROM film
+WHERE annee_film > 2010 AND annee_film < 2020
+ORDER BY annee_film;
+```
+On voit qu’il s’affiche les films sortis entre 2010 et 2020 avec les champs demandés triés par année croissante.On peut rajouter si nécessaire ASC.
+ 
+  
+**Activité n° 17 : Affichage par intervalle de nombres trié avec plusieurs critères :**  Faire afficher l’id, le titre, l’année et la nationalité de films avec des intervalles d’années et triés par année PUIS par ordre alphabétique de titre :** Exécuter 
+```sql
+SELECT id_film, titre_film, annee_film, nationalite_film
+FROM film
+WHERE annee_film > 2010 AND annee_film < 2020
+ORDER BY annee_film, titre_film;
+```
+On voit qu’il s’affiche les films sortis entre 2010 et 2020 avec les champs demandés triés par année croissante. Pour les films de 2017, ils sont ensuite triés par ordre alphabétique de titre.
+
+### <a name="_toc173365569"></a>**4.3. Affichage avec partie d’une chaine de caractère**
+
+**Activité n° 18 : Affichage par chaine de caractères :**  Faire afficher l’id, le titre, l’année et la nationalité de films avec un titre en particulier :** Exécuter 
+```sql
+SELECT id_film, titre_film, annee_film, nationalite_film
+FROM film
+WHERE titre_film = 'WarGames';
+```
+On voit qu’il s’affiche le film wargames. Par contre, il faut indiquer le titre exact.
+ 
+
+**Activité n° 19 : Affichage par morceau de chaine de caractères :**  Faire afficher l’id, le titre, l’année et la nationalité de films avec un titre comportant des mots en particulier :** Exécuter 
+```sql
+SELECT id_film, titre_film, annee_film, nationalite_film
+FROM film
+WHERE titre_film LIKE 'Star Wars%';
+```
+On voit qu’il s’affiche tous les films Star Wars. Le % permet d’indiquer où se trouve les caractères manquants. Ici on cherche tous les titres commençant exactement par Star Wars. On aurait pu noter %War% on aurait eu tous les films ayant dans leur nom les lettre War, donc les Star Wars et WarGames.On peut les triés par année de sortie en rajoutant ORDER BY annee\_film
+ 
+
+### <a name="_toc173365570"></a>**4.4. Affichage avec une condition OU une autre**
+
+**Activité n° 20 : Affichage par deux conditions :**  Faire afficher l’id, le titre, l’année et la nationalité de films avec une année en particulier OU un genre :** Exécuter 
+```sql
+SELECT id_film, titre_film, annee_film, nationalite_film
+FROM film
+WHERE annee_film = 2017 OR genre_film = 'Science fiction';
+```
+On voit qu’il s’affiche le film wargames. Par contre, il faut indiquer le titre exact. On peut évidement trier par exemple par id\_realisateur.
+ 
+
+### <a name="_toc173365571"></a>**4.5. Affichage avec critère dans une liste**
+
+**Activité n° 21 : Affichage par plusieurs conditions :**  Faire afficher l’id, le titre, l’année et la nationalité de films avec plusieurs genres différents :** Exécuter 
+```sql
+SELECT id_film, titre_film, annee_film, nationalite_film
+FROM film
+WHERE genre_film IN ('Science fiction', 'Policier');
+```
+On voit qu’il s’affiche l’ensemble des films de science-fiction et les policiers
+ 
+
+**Activité n° 22 : Affichage sans plusieurs conditions :**  Faire afficher l’id, le titre, l’année et la nationalité de films SANS plusieurs genres différents :** Exécuter 
+```sql
+SELECT id_film, titre_film, annee_film, nationalite_film
+FROM film
+WHERE genre_film NOT IN ('Science fiction', 'Policier');
+```
+On voit qu’il s’affiche l’ensemble des films sauf ceux de science-fiction et les policiers
+ 
+
+**Activité n° 23 : Affichage sans plusieurs conditions avec un limite en nombre de sorties :**  Si le nombre de ligne est très important pour ne pas surcharger la mémoire de l’ordinateur : Executer
+```sql
+SELECT id_film, titre_film, annee_film, nationalite_film
+FROM film
+WHERE genre_film NOT IN ('Science fiction', 'Policier') 
+LIMIT 5;
+```
+On voit qu’il s’affiche la même liste que la précédente mais seulement les 5 premiers
+ 
+### <a name="_toc173365572"></a>**4.6. Affichage et tri descendant**
+
+**Activité n° 24 : Affichage sans plusieurs conditions trié descendant :**  Pour trier la liste précédente par année de la plus proche à la plus lointaine : Exécuter
+```sql
+SELECT id_film, titre_film, annee_film, nationalite_film
+FROM film
+WHERE genre_film NOT IN ('Science fiction', 'Policier') 
+ORDER BY annee_film DESC;
+```
+On voit qu’il s’affiche la liste de tous les films sauf ceux de science fichier et les policiers mais cette fois ci ils sont classés par année décroissante
+ 
+### <a name="_toc173365573"></a>**4.7. Affichage avec concaténation de deux chaines de caractères**
+
+**Activité n° 25 : Affichage avec concaténation et nommage d’attribut:**  Afficher le prénom et le nom des réalisateur : Exécuter
+```sql
+SELECT prenom_realisateur || ' ' || nom_realisateur AS Prenom_Nom
+FROM realisateur;
+```
+On utilise les tubes :   . Le mot clé AS permet de donner un nom à la chaine concaténée : Prenom\_Nom
+On obtient tous les réalisateurs avec leur prénom et leur nom mais dans la même colonne 
+ 
+### <a name="_toc173365574"></a>**4.8. Affichage avec deux requêtes**
+
+**Activité n° 26 : Affichage de morceau de chaine de caractères sur deux tables :**  Afficher la nationalité du réalisateur dont le nom commence par L ET la nationalité du (des) film commence par S : Exécuter
+```sql
+SELECT nationalite_realisateur AS nationalite
+FROM realisateur
+WHERE nom_realisateur LIKE 'L%'
+UNION
+SELECT nationalite_film AS nationalite_film
+FROM film
+WHERE titre_film LIKE 'S%';
+```
+Il s’agit de Lucas George qui est des états unis et les Star Wars sont des Etats-Unis d’où une seule ligne. Si on avec choisit les noms des réalisateurs qui commence par B on aurait eu en plus France et Royaume-Uni.
+ 
+
+### <a name="_toc173365575"></a>**4.9. Affichage et comptage**
+
+**Activité n° 27 : Afficher et compter :**  Compter le nombre de réalisateurs : Exécuter
+```sql
+SELECT COUNT(id_realisateur)
+FROM realisateur;
+```
+Il y a bien 11 réalisateurs dans la table.
+ 
+
+**Activité n° 28 : Afficher et compter :**  Compter le nombre de réalisateurs dont le nom commence par la lettre L : Exécuter
+
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.016.png){ width=30%; : .center }
+
+```sql
+SELECT COUNT(id_realisateur)
+FROM realisateur
+WHERE nom_realisateur LIKE 'L%' ;
+```
+Il y en a 2 : Lumet et Lucas.
+ 
+
+**Activité n° 29 : Afficher, sommer :  Supposons que l’on ait une colonne** avec le nombre de films de chaque réalisateur avec un attribut … si on veut faire la somme : 
+```sql
+/* on ne pourra pas le faire ici */
+SELECT SUM(….)
+FROM realisateur;
+```
+On peut évidemment rajouter une condition avec le mot clé WHERE.
+ 
+**Activité n° 30 : Afficher, moyenne :**  De la même manière on peut vouloir faire la moyenne 
+```sql
+/* on ne pourra pas le faire ici */
+SELECT AVG(…)
+FROM realisateur;
+```
+
+On peut aussi chercher le maximum ou le minimum avec les fonctions **MAX** et **MIN**.
+
+### <a name="_toc173365576"></a>**4.10. Afficher tous les champs**
+
+**Activité n° 31 : Afficher tous les champs :**  
+Exécuter :
+```sql
+SELECT *
+FROM film;
+```
+ 
+## <a name="_toc173365577"></a>**5. Requête de mise à jour**
+### <a name="_toc173365578"></a>**5.1. La syntaxe de la requête de mise à jour**
+
+**UPDATE** avec le nom de la table sur lequel sera fait la mise à jour
+
+**SET** pour préciser le ou les champs avec leur valeur
+
+**WHERE** pour les conditions
+
+### <a name="_toc173365579"></a>**5.2. Requête pour ajouter un attribut** 
+
+**Activité n° 32 : Ajouter un attribut à une table existante :**  Ajouter l’attribut nbfilms\_realisateur à la table realisateur. Exécuter
+```sql
+ALTER TABLE realisateur
+ADD COLUMN nbfilms_realisateur INTEGER;
+```
+**ALTER TABLE** permet d’indiquer avec quelle table on va travailler.
+
+**ADD COLUMN** pour ajouter une colonne
+
+Vérifier dans la table realisateur qu’il y a une colonne de plus. Par contre, la colonne est complètement nulle 
+ 
+
+**Activité n° 33 : Modifier une donnée d’une table :**  Transformer le nom de la nationalité de Lumet en Royaume-Uni. Exécuter
+```sql
+UPDATE realisateur
+SET nationalite_realisateur = 'Royaume-Uni'
+WHERE nom_realisateur = 'Lumet';
+```
+
+**UPDATE** pour dire sur quelle table la mise à jour sera faite
+
+**SET** permet de donner le champ et la valeur que l’on veut attribuer.
+
+Vérifier que la nationalité de Lumet a bien été modifié.On remodifie la nationalité :
+```sql
+UPDATE realisateur
+SET nationalite_realisateur = 'Etats-Unis'
+WHERE nom_realisateur = 'Lumet';
+```
+
+**Activité n° 34 : Ajouter des données d’une table :**  Ajouter le nombre de films à chaque réalisateur. Exécuter
+```sql
+UPDATE realisateur
+SET nbfilms_realisateur = 1
+WHERE nationalite_realisateur = 'Etats-Unis';
+```
+
+Tous les réalisateurs dont la nationalité est Etats-Unis ont un nombre de films égal à 1. Vérifier.
+ 
+### <a name="_toc173365580"></a>**5.3. Requête de modification**
+
+**Activité n° 35 : Modifier plusieurs champs en même temps :**  Modifier le nombre de film et la nationalité du réalisateur. Exécuter
+```sql
+UPDATE realisateur
+SET nbfilms_realisateur = 2, nationalite_realisateur = 'USA'
+WHERE nationalite_realisateur = 'Etats-Unis';
+```
+
+Les réalisateurs qui avaient pour nationalité Etats-Unis ont eu le nombre de films modifié et la nationalité aussi.Vérifier.
+ 
+**Activité n° 36 : Création de table :** Création de la table nationalité
+```sql
+CREATE TABLE nationalite (
+id_nationalite INT NOT NULL,
+nom_nationalite VARCHAR(255) NOT NUL,
+PRIMARY KEY ("id_nationalite" AUTOINCREMENT)
+);
+```
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.007.png){ width=30%; : .center } 
+
+Vérifier que la table est créée.
+ 
+### <a name="_toc173365581"></a>**5.4. Mise en place d’un id**
+
+**Activité n° 37 : Afficher :**  Afficher la nationalité des films : Exécuter
+```sql
+SELECT nationalite_film
+FROM film;
+```
+Il y a beaucoup de doublons !! Il faut les éliminer
+ 
+
+**Activité n° 38 : Afficher seulement ceux qui sont différents :**  Afficher les différentes nationalités des films : 
+```sql
+SELECT DISTINCT nationalite_film
+FROM film;
+```
+**DISTINCT** permet de n’afficher que les valeurs différentes. 
+ 
+
+**Activité n° 39 : Insertion de données extraites d’une table dans une autre** : Exécuter la requête suivante
+```sql
+INSERT INTO nationalite
+(nom_nationalite)
+SELECT DISTINCT nationalite_film
+FROM film ;
+```
+On met à jour la table nationalite avec les nationalités de la table film afin de pourvoir éliminer les doublons de la table film. Vérifier qu’il y a bien les trois nationalités dans la table nationalite.
+ 
+
+**Activité n° 40 : Ajouter un attribut à une table existante :**  Ajouter l’attribut id\_nationalite\_film à la table film. 
+```sql
+ALTER TABLE film
+ADD COLUMN id_nationalite_film INTEGER;
+```
+
+**Activité n° 41 : Alimenter un attribut d’une table grace à une autre :**  Ajouter l’attribut id\_nationalite\_film à la table film. Exécuter
+```sql
+UPDATE film
+SET id_nationalite_film = (
+SELECT id_nationalite 
+FROM nationalite 
+WHERE film.nationalite_film = nationalite.nom_nationalite
+);
+```
+On met à jour le champ id\_nationalite\_film de la table film avec la table nationalite. Après le SET id\_nationalite\_film il faut ensuite aller chercher le id\_nationalite de la table nationaliteLe SELECT permet d’aller chercher le id\_nationalite dans la table nationalite pour le mettre dans la table film. La condition sera de telle sorte que le nom de la nationalité correspond à la nationalité du film. Pour cela, on note film.\_\_\_  pour dire que l’on va chercher le champ dans la table film. Cette nationalité dans la table film doit être égale à la nationalité dans la table nationalité d’où le nationalite.\_\_\_\_Vérifier que l’id\_nationalite\_film de la table film est bien rempli.
+ 
+**Activité n° 42 : Supprimer un attribut :**  Il suffit à présent de supprimer l’attribut en trop. 
+```sql
+ALTER TABLE film
+DROP COLUMN nationalite_film;
+```
+ 
+### <a name="_toc173365582"></a>**5.5. Mise en majuscule d’un attribut**
+
+**Activité n° 43 : Mise en majuscule d’un attribut :**  Modifier le nom du réalisateur en le passant en majuscule. 
+```sql
+UPDATE realisateur
+SET nom_realisateur = UPPER(nom_realisateur)
+WHERE nationalite_realisateur = 'USA';
+```
+
+**UPPER** permet de mettre en majuscule le nom du champ. Donc on prend le nom\_realisateur on le met en majuscule et on le réaffecte à nom\_realisateur. On rajoute une condition sur la nationalité.
+
+On peut aussi seulement afficher un attribut en le mettant en majuscule, on écrira alors SELECT UPPER(champ) FROM nom\_table
+ 
+
+**Activité n° 44 : Mise en majuscule/minuscule d’un attribut :**  Modifier le nom du réalisateur en le passant première lettre en majuscule et le reste en minuscule. Exécuter
+```sql
+UPDATE realisateur
+SET nom_realisateur = UPPER(SUBSTR(nom_realisateur, 1, 1)) || LOWER(SUBSTR(nom_realisateur,2));
+```
+
+**SUBSTR** prend une partie de chaine. On prend le champ sur lequel on veut prendre une partie de chaine de caractère donc ici nom\_realisateur ; puis une virgule et le premier caractère concerné, le nombre de caractères concernés à partir du premier.
+
+Puis la concaténation des chaines avec les deux tubes permettra de passer le reste de la chaine en minuscule avec le mot clé LOWER et de nouveau SUBSTR pour prendre qu’une partie de la chaine de caractère c’est-à-dire à partir du deuxième caractère. Vérifier
+ 
+## <a name="_toc173365583"></a>**6. Jointures de tables**
+Les requêtes avec les jointures tiennent compte des liens qui unissent les tables via le schéma relationnel.
+### <a name="_toc173365584"></a>**6.1. La syntaxe**
+
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.018.png){width=30%; : .center }
+
+(INNER) JOIN va préciser les tables que l’on veut relier entre elles. Pour relier une table il faut préciser à partir de quel champ on va utiliser le lien : il s’agit essentiellement des clés primaires et des clés étrangères qui va faire le lien entre la table de départ et la table fille qui contient la clé étrangère.
+
+(INNER) **n’est pas obligatoire**
+
+
+
+### <a name="_toc173365585"></a>**6.2. Les grands principes**
+Schéma relationnel : **Modèle physique de données (MPD)**
+
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.020.png){width=80%; : .center }
+
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.019.png){width=30%; : .center }
+
+La table film est relié à trois autres tables via des clés étrangères. Lors d’une requête, on veut parfois afficher le nom du film et le nom du réalisateur ou le genre du film : il faut donc afficher des informations issues de une, deux, trois ou plusieurs tables qui sont liées entre elles. Il faut effectuer une jointure et préciser à l’aide des mots clés INNER JOIN ou JOIN à quelle table la table film doit être reliée.
+
+**Activité n° 45 : Mise à jour de la table pour correspondre au schéma relationnel :** On va créer la nouvelle table genre et la clé id\_genre\_film de la table film et la clé id\_nationalite\_realisateur de la table realisateur
+```sql
+/* modification de la table realisateur de nouveau */
+UPDATE realisateur
+SET nbfilms_realisateur = 2, nationalite_realisateur = 'Etats-Unis'
+WHERE nationalite_realisateur = 'USA';
+
+/* création de la nouvelle table */
+CREATE TABLE genre (
+id_genre INT NOT NULL,
+nom_genre VARCHAR(255) NOT NULL,
+PRIMARY KEY ("id_GENRE" AUTOINCREMENT));
+
+/* insertion des différents genres dans la table genre */
+INSERT INTO genre 
+(nom_genre)
+SELECT DISTINCT genre_film
+FROM film;
+
+/* Ajout de l'attribut id_genre_film à film */
+ALTER TABLE film 
+ADD COLUMN id_genre_film INT;
+
+/* compléter l'attribut id_genre_film avec les id de la table genre */
+UPDATE film
+SET id_genre_film = (
+SELECT id_genre 
+FROM genre 
+WHERE film.genre_film = genre.nom_genre);
+
+/* 'effacer' l'attribut genre_film de la table film */
+ALTER TABLE film
+DROP COLUMN genre_film; 
+
+/* Ajout de l'attribut id_nationalite_realisateur à realisateur */
+ALTER TABLE realisateur 
+ADD COLUMN id_nationalite_realisateur INT;
+
+/* compléter l'attribut id_nationalite_realisateur avec les id de la table nationalite */
+UPDATE realisateur
+SET id_nationalite_realisateur = (
+SELECT id_nationalite 
+FROM nationalite 
+WHERE realisateur.nationalite_realisateur = nationalite.nom_nationalite);
+
+/* 'effacer' l'attribut nationalite_realisateur de la table realisateur */
+ALTER TABLE realisateur
+DROP COLUMN nationalite_realisateur;
+
+/* 'effacer' l'attribut nbfilms_realisateur de la table realisateur */
+ALTER TABLE realisateur
+DROP COLUMN nbfilms_realisateur;
+```
+
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.007.png){ width=30%; : .center } 
+
+Vérifier qu’il y a bien trois clés étrangères dans la clé film : id\_realisateur\_film, id\_nationalite\_film et id\_genre\_film. 
+
+Vérifier que la table genre est bien remplie.
+ 
+### <a name="_toc173365586"></a>**6.3. Requêtes de sélection avec jointures**
+
+**Activité n° 46 : Faire afficher le titre du film avec son genre provenant de deux tables :**  Exécuter
+```sql
+SELECT titre_film, 
+nom_genre AS genre_film
+FROM film
+JOIN genre
+ON genre.id_genre = film.id_genre_film
+WHERE genre.nom_genre = 'Science fiction';
+```
+On sélectionne le titre du film qui provient de la table film et nom\_genre de la table genre mais que l’on renomme en genre\_film. Le nom\_genre provient de la table genre mais il est lié à la table film donc on va préciser le lien avec JOIN … ON… où on indique que la clé id\_genre de la table genre correspond à id\_genre\_film de la table film.La condition de cette requête est que le nom\_genre de la table genre correspond au film de science fiction
+
+On obtient bien le nom des films avec leur genre qui proviennent de deux tables différentes.
+
+On peut évidemment trié l’affichage avec ORDER BY …
+ 
+
+**Activité n° 47 : Faire afficher le titre du film avec son genre et la nationalité du film provenant de trois tables :**
+```sql
+SELECT titre_film, 
+nom_genre AS genre_film, 
+nom_nationalite as nationalite_film
+FROM film
+JOIN genre
+ON genre.id_genre = film.id_genre_film
+JOIN nationalite
+ON nationalite.id_nationalite = film.id_nationalite_film
+WHERE genre.nom_genre = 'Science fiction' 
+ORDER BY nationalite_film;
+```
+On rajoute la nationalité du film qui provient de la table nationalité et que l’on renomme. Il faut ajouter un nouveau lien.
+ 
+
+**Activité n° 48 : Faire afficher le titre du film avec son genre, la nationalité du film et le réalisateur provenant de quatre tables :** Exécuter
+```sql
+SELECT titre_film, 
+nom_genre AS genre_film, 
+nom_nationalite as nationalite_film, 
+nom_realisateur as realisateur_film
+FROM film
+JOIN genre
+ON genre.id_genre = film.id_genre_film
+JOIN nationalite
+ON nationalite.id_nationalite = film.id_nationalite_film
+JOIN realisateur
+ON realisateur.id_realisateur = film.id_realisateur_film
+WHERE genre.nom_genre = 'Science fiction' 
+ORDER BY nationalite_film;
+```
+On rajoute le réalisateur qui provient de la table realisateur et que l’on renomme. Il faut ajouter un nouveau lien.
+ 
+
+**Activité n° 49 : Faire afficher le titre du film avec son genre, la nationalité du film, le réalisateur et sa nationalité provenant de quatre tables en utilisant un alias :** Exécuter
+```sql
+SELECT titre_film, 
+nom_genre AS genre_film, 
+nationalite.nom_nationalite as nationalite_film, 
+nom_realisateur as realisateur_film, 
+nat_real.nom_nationalite as natio_real 
+FROM film
+JOIN genre
+ON genre.id_genre = film.id_genre_film
+JOIN nationalite
+ON nationalite.id_nationalite = film.id_nationalite_film
+JOIN realisateur
+ON realisateur.id_realisateur = film.id_realisateur_film
+JOIN nationalite AS nat_real
+ON nat_real.id_nationalite = realisateur.id_nationalite_realisateur
+WHERE genre.nom_genre = 'Science fiction' 
+ORDER BY nationalite_film;
+```
+On rajoute la nationalité du réalisateur qui provient de la table realisateur et que l’on renomme. Il faut ajouter un nouveau lien, mais comme on va noter JOIN nationalite une nouvelle fois, pour pouvoir éviter de confondre les tables on la renomme en nat\_real puis on utilise se nom comme s’il était un **alias** de la table nationalite.
+
+Pour afficher la nationalité du réalisateur dans le retour de requête, à partir de la table nat\_real en précisant point nom du réalisateur il faut aussi préciser que le nom de la nationalité précédemment utilisé provient de la table nationalité seul qui correspond-elle à la nationalité du film. Il faut que la base comprenne ce qu’on veut afficher.Vérifier que les attributs nationalite\_film et natio\_real sont bien différents.
+ 
+  
+**Activité n° 50 : Faire afficher le titre du film avec son genre, la nationalité du film, le réalisateur et sa nationalité provenant de quatre tables en utilisant un alias : Modification pour afficher les films qui ont des nationalités différentes de ceux de leur réalisateur** Exécuter
+```sql
+SELECT titre_film, 
+nom_genre AS genre_film, 
+nationalite.nom_nationalite as nationalite_film, 
+nom_realisateur as realisateur_film, 
+nat_real.nom_nationalite as natio_real 
+FROM film
+INNER JOIN genre
+ON genre.id_genre = film.id_genre_film
+JOIN nationalite
+ON nationalite.id_nationalite = film.id_nationalite_film
+JOIN realisateur
+ON realisateur.id_realisateur = film.id_realisateur_film
+JOIN nationalite AS nat_real
+ON nat_real.id_nationalite = realisateur.id_nationalite_realisateur
+WHERE nat_real.id_nationalite <> nationalite.id_nationalite
+ORDER BY nationalite_film;
+```
+La condition se fait entre id\_nationalite de la table nat\_real et le id\_nationalite de la table nationalite.On obtient 5 films.
+
+**Activité n° 51 : Faire afficher le titre du film et le réalisateur avec deux conditions :** Exécuter
+```sql
+SELECT titre_film, nom_realisateur
+FROM realisateur
+JOIN film
+ON film.id_realisateur_film = realisateur.id_realisateur
+WHERE nom_realisateur = 'Lucas' AND titre_film LIKE 'S%'
+ORDER BY nom_realisateur, prenom_realisateur;
+```
+On rajoute la condition sur le nom du réalisateur et sur le titre : il doit commencer par S
+ 
+
+
+## <a name="_toc173365587"></a>**7. Exercices** 
+**Exercice n°01 : Copains de classe**
+
+On veut créer une petite base de données permettant de garder le contact avec nos copains de classe. On supposera qu'ils sont tous domiciliés en France, qu'ils n'ont qu'un numéro de téléphone, mais éventuellement plusieurs adresses. On veut stocker les renseignements suivants : nom, prénom, sexe, date de naissance, numéro de téléphone, rue, numéro postal, ville, département et région
+
+- copains(id, nom, prenom, sexe, date\_naissance, no\_tel)
+- habite(#id\_copain, #no\_postal)
+- ville(no\_postal, nom\_ville, département, rue, région)
+
+1 Créer la base de données database.db et les tables décrites ci-dessus (# étant pour les clés étrangères).
+
+Entrer dans la base de données les informations ci-dessous :
+
+|**Nom**|**Prénom**|**sexe**|**Date naissance**|**téléphone**|**rue**|**dept**|**ville**|**région**|
+| - | - | - | - | - | - | - | - | - |
+|Ochon|Paul|H|1995-08-08|0324661155|Place des Peupliers 3|13210|Porrentruy|PACA|
+|Ochon|Eric|H|1995-08-09|0324661155|Place des Peupliers 3|13210|Porrentruy|PACA|
+|Gross|Jean|H|1995-03-24|0324668341|La condemène 78|04110|Courgenay|PACA|
+|Fonfec|Sophie|F|1994-12-14|0324711230|Rue du Général-Comman 26|04110|Courgenay|PACA|
+|Camé|Léon|H|1995-01-02|0273956619|Rue de la Scierie 1|12120|Savièse|MIDI-PY|
+|Darc|Jeanne|F|1995-01-31|0273224614|Rue de Condémines 22|81500|Sion|MIDI-PY|
+|Sapin|Noëlle|F|1996-03-14|0219635678|Promenade des Pêcheurs 6|38400|Montreux|RHONE-ALPES|
+|Fonfec|Sophie|F|1992-12-14|0324123456|Av. Alsace Lorraine 20|38000|Grenoble|RHONE-ALPES|
+|Sud|Paul|F|1995-01-18|0324666391|Vieille Rue 2|05110|Tallard|PACA|
+|Maillard|Colin|H|1994-12-31|0324669912|Route de Varandin 9|05110|Lettret|PACA|
+|Nord|Paul|H|1996-01-21|0324661762|Route de Montancy 332|32200|Villars-sur-Fontenais|MIDI-PY|
+
+
+**Astuce** : utiliser un tableur pour travailler sur les colonnes.  Le no\_postal est un id. 
+
+**Aide** : on se mettra en auto-incrément sur les clés primaires et les dates de naissance sont entre guillemets. ATTENTION pas de doublons dans la table !!
+
+2 Avec des commandes SQL faire les requêtes suivantes :
+
+- les noms de famille de tous les Paul ;
+
+- le numéro de téléphone de Sophie Fonfec ;
+
+- les noms et prénoms de tous ceux nés avant 1995 ;
+
+- les noms et prénoms de tous ceux qui sont nés en janvier 1995 ;
+
+- les noms et prénoms de tous ceux qui habitent Porrentruy ;
+
+- le nombre de non-midi pyrénéens ;
+
+- les noms et prénoms de toutes les Rhone-Alpins.
+
+
+## <a name="_toc173365588"></a>**8. Projet (démarche d’investigation)**
+**Exercice n°01 : Le coin du cinéphile**
+
+Vous allez interroger une base de données relationnelles dont le schéma est le suivant :
+
+- individu(Num\_Ind, Nom, Prenom)
+- jouer(#Num\_Ind, #Num\_Film, Role)
+- film(Num\_Film, #Num\_Ind, Titre, Genre, Annee)
+- projection(#Num\_Cine, #Num\_Film, Dates)
+- cinema(Num\_Cine, Nom, Adresse)
+
+Et voici le contenu de la base :
+
+|**film**|**genre**|**cinéma**|**projection**|**réalisateur**|
+| - | - | - | - | - |
+|Alamo|Western|Espace Ciné|2002-08-01|Wayne|
+|Alamo|Western|Espace Ciné|1960-11-09|Wayne|
+|Alamo|Western|Gaumont Wilson|1990-12-02|Wayne|
+|Alamo|Western|Le Renoir|1980-07-05|Wayne|
+|Breaking the waves|Drame|Le Fontenelle|1996-09-02|von Trier|
+|Breaking the waves|Drame|Le Fontenelle|1996-12-02|von Trier|
+|Breaking the waves|Drame|Le Renoir|1996-08-02|von Trier|
+|Crash|Drame|Le Renoir|1996-05-07|Cronenberg|
+|Dangereusement vôtre|Espionnage|Le Fontenelle|1985-08-19|Glen|
+|Dangereusement vôtre|Espionnage|Le Fontenelle|1985-05-09|Glen|
+|Dogville|Drame|Le Fontenelle|2002-05-02|von Trier|
+|Dogville|Drame|Le Fontenelle|2002-05-03|von Trier|
+|Dogville|Drame|Le Fontenelle|2002-05-01|von Trier|
+|Faux-Semblants|Epouvante|Le Fontenelle|1990-09-25|Cronenberg|
+|Faux-Semblants|Epouvante|Le Renoir|1988-03-12|Cronenberg|
+|Pulp Fiction|Policier|Espace Ciné|1994-04-08|Tarantino|
+|Pulp Fiction|Policier|Espace Ciné|1994-11-06|Tarantino|
+|Pulp Fiction|Policier|Gaumont Wilson|1994-11-05|Tarantino|
+
+
+Base cinema :
+```sql
+(1, 'Le Renoir', '13100 Aix-en-Provence'),
+(2, 'Le Fontenelle', '78160 Marly-Le-Roi'),
+(3, 'Gaumont Wilson', '31000 Toulouse'),
+(4, 'Espace Ciné', '93800 Epinay-sur-Seine');
+```
+
+Base Individu :
+```sql
+(1, 'Kidman', 'Nicole'),
+(2, 'Bettany', 'Paul'),
+(3, 'Watson', 'Emily'),
+(4, 'Skarsgard', 'Stellan'),
+(5, 'Travolta', 'John'),
+(6, 'L.Jackson', 'Samuel'),
+(7, 'Willis', 'Bruce'),
+(8, 'Irons', 'Jeremy'),
+(9, 'Spader', 'James'),
+(10, 'Hunter', 'Holly'),
+(11, 'Arquette', 'Rosanna'),
+(12, 'Wayne', 'John'),
+(13, 'von Trier', 'Lars'),
+(14, 'Tarantino', 'Quentin'),
+(15, 'Cronenberg', 'David'),
+(16, 'Mazursky', 'Paul'),
+(17, 'Jones', 'Grace'),
+(18, 'Glen', 'John');
+```
+
+Base film
+```sql
+(1, 15, 'Crash', 'Drame', 1996),
+(2, 15, 'Faux-Semblants', 'Epouvante', 1988),
+(3, 14, 'Pulp Fiction', 'Policier', 1994),
+(4, 13, 'Breaking the waves', 'Drame', 1996),
+(5, 13, 'Dogville', 'Drame', 2002),
+(6, 12, 'Alamo', 'Western', 1960),
+(7, 18, 'Dangereusement vôtre', 'Espionnage', 1985);
+```
+
+Base jouer
+```sql
+(1, 5, 'Grace'),
+(2, 5, 'Tom Edison'),
+(3, 4, 'Bess'),
+(4, 4, 'Jan'),
+(5, 3, 'Vincent Vega'),
+(6, 3, 'Jules Winnfield'),
+(7, 3, 'Butch Coolidge'),
+(8, 2, 'Beverly & Elliot Mantle'),
+(9, 1, 'James Ballard'),
+(10, 1, 'Helen Remington'),
+(11, 1, 'Gabrielle'),
+(4, 5, 'Chuck'),
+(16, 7, 'May Day'),
+(12, 7, 'agent007');
+```
+
+Base projection
+```sql
+(1, 1, '1996-05-07'),
+(1, 2, '1988-03-12'),
+(1, 4, '1996-08-02'),
+(1, 6, '1980-07-05'),
+(2, 2, '1990-09-25'),
+(2, 4, '1996-09-02'),
+(2, 4, '1996-12-02'),
+(2, 5, '2002-05-01'),
+(2, 5, '2002-05-02'),
+(2, 5, '2002-05-03'),
+(2, 7, '1985-05-09'),
+(2, 7, '1985-08-19'),
+(3, 3, '1994-11-05'),
+(3, 6, '1990-12-02'),
+(4, 3, '1994-04-08'),
+(4, 3, '1994-11-06'),
+(4, 6, '1960-11-09'),
+(4, 6, '2002-08-01');
+```
+
+
+Avec des commandes SQL faire les requêtes suivantes :
+
+1. reconstituez la base de données (faire apparaitre le tableau ci-dessus) ci-dessus que l’on appellera database.sql.
+1. Quels sont les titres des films dont le genre est Drame ?
+1. Quels films sont projetés au cinéma Le Fontenelle ?
+1. Quels sont les noms et prénoms des réalisateurs ?
+
+**Aide** : ils se trouvent dans la base individu mais ils ont réalisé des films : dans la base film
+
+5 Quels sont les noms et prénoms des acteurs ?
+
+**Aide** : ils se trouvent dans la base individu mais ils sont dans la base jouer
+
+6 Quels sont les noms et prénoms des acteurs qui sont également réalisateurs ?
+7 Quels films (titres) ont été projetés en 2002 ?
+8 Donnez le titre des films réalisés par von Trier.
+9 Quels sont les réalisateurs qui ont réalisé des films d’épouvante et des films dramatiques ?
+10 Quels sont les titres des films où Nicole Kidman a joué un rôle et qui ont été projetés au cinéma Le Fontenelle ?
+
+**Aide** : le #Num\_Ind de la base film correspond aux réalisateurs, les conditions doivent être mise dans une seule ligne
+
+11 Quels sont les individus qui n’ont pas joué dans des films dramatiques ?
+12 Quels sont les noms et prénoms des individus dont le prénom est à la fois celui d’un acteur et celui d’un réalisateur sans qu’il s’agisse de la même personne ?
+
+**Aide** : utiliser AS ; différent : <>
+
+13 Quels acteurs a-t-on pu voir au cinéma Le Fontenelle depuis l’an 2000 ?
+14 Quels sont les films qui ont encore été à l’affiche 5 années après leur sortie ?
+
+**Exercice n° 02 : La société canine Botoutou**
+
+La société canine BOTOUTOU répertorie les chiens de race et leurs classements aux divers concours auxquels ils ont participé. Il y a une dizaine de concours chaque année auxquels participent plusieurs centaines de chiens. La société gère ainsi plusieurs milliers de chiens d’une centaine de races différentes. Les adhérents de BOTOUTOU sont les propriétaires des chiens répertoriés. Au début de chaque année, la société envoie à ces adhérents les documents suivants :
+
+1. Répertoire des **chiens** avec leurs **nom**, **âge**, **sexe** et **race**.
+1. Liste des différentes **races** représentées dans la société avec un **libellé** et un court **descriptif** pour chacune d’elles.
+1. Annuaire des **propriétaires** avec leurs **nom**, **adresse**, le **nom** de leurs chiens (une personne peut posséder un ou plusieurs chiens), ainsi que la **date** depuis laquelle ils les ont en leur possession (on ne considère que le dernier propriétaire d’un chien).
+1. Liste des **concours** de l’année écoulée avec la **ville d’accueil**, la **date**, le **nombre de chiens primés** et le **nombre total de candidats** (tous **n’étant pas forcément répertoriés** chez BOTOUTOU).
+1. Palmarès de chaque chien comportant la liste des concours auxquels il a **participé**, le **classement** obtenu et son **âge** au moment du concours ; le palmarès d’un chien **n’est envoyé qu’au propriétaire** du chien en question.
+
+
