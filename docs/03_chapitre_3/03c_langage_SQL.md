@@ -174,9 +174,7 @@ VALUES
 ('StarWars',44, 'Etats-Unis', 'Science fiction');
 ```
 
-La requête échoue de nouveau maintenant c’est la clé étrangère id\_re
-
-alisateur qui n’a pas été trouvé dans la table réalisateur. En effet, id\_realisateur 44 n’existe pas dans cette table.
+La requête échoue de nouveau maintenant c’est la clé étrangère id\_realisateur qui n’a pas été trouvé dans la table réalisateur. En effet, id\_realisateur 44 n’existe pas dans cette table.
 
 **<H3 STYLE="COLOR:red;">Activité n° 9 : Insertion générale de la table film**</H3> insérer et exécuter :
 ```sql
@@ -449,9 +447,7 @@ ADD COLUMN nbfilms_realisateur INTEGER;
 
 Vérifier dans la table realisateur qu’il y a une colonne de plus. Par contre, la colonne est complètement nulle.
 
-**<H3 STYLE="COLOR:red;">Activité n° 33 : Modifier une donnée d’une table**</H3> Transformer le nom de la national
-
-ité de Lumet en Royaume-Uni. Exécuter
+**<H3 STYLE="COLOR:red;">Activité n° 33 : Modifier une donnée d’une table**</H3> Transformer le nom de la nationalité de Lumet en Royaume-Uni. Exécuter
 ```sql
 UPDATE realisateur
 SET nationalite_realisateur = 'Royaume-Uni'
@@ -888,9 +884,7 @@ Base jouer
 (6, 3, 'Jules Winnfield'),
 (7, 3, 'Butch Coolidge'),
 (8, 2, 'Beverly & Elliot Mantle'),
-(
-
-9, 1, 'James Ballard'),
+(9, 1, 'James Ballard'),
 (10, 1, 'Helen Remington'),
 (11, 1, 'Gabrielle'),
 (4, 5, 'Chuck'),
@@ -929,25 +923,25 @@ Avec des commandes SQL faire les requêtes suivantes :
 
 **Aide** : ils se trouvent dans la base individu mais ils ont réalisé des films : dans la base film
 
-5. Quels sont les noms et prénoms des acteurs ?
+5 Quels sont les noms et prénoms des acteurs ?
 
 **Aide** : ils se trouvent dans la base individu mais ils sont dans la base jouer
 
-6. Quels sont les noms et prénoms des acteurs qui sont également réalisateurs ?
-7. Quels films (titres) ont été projetés en 2002 ?
-8. Donnez le titre des films réalisés par von Trier.
-9. Quels sont les réalisateurs qui ont réalisé des films d’épouvante et des films dramatiques ?
-10. Quels sont les titres des films où Nicole Kidman a joué un rôle et qui ont été projetés au cinéma Le Fontenelle ?
+6 Quels sont les noms et prénoms des acteurs qui sont également réalisateurs ?
+7 Quels films (titres) ont été projetés en 2002 ?
+8 Donnez le titre des films réalisés par von Trier.
+9 Quels sont les réalisateurs qui ont réalisé des films d’épouvante et des films dramatiques ?
+10 Quels sont les titres des films où Nicole Kidman a joué un rôle et qui ont été projetés au cinéma Le Fontenelle ?
 
 **Aide** : le #Num\_Ind de la base film correspond aux réalisateurs, les conditions doivent être mises dans une seule ligne
 
-11. Quels sont les individus qui n’ont pas joué dans des films dramatiques ?
-12. Quels sont les noms et prénoms des individus dont le prénom est à la fois celui d’un acteur et celui d’un réalisateur sans qu’il s’agisse de la même personne ?
+11 Quels sont les individus qui n’ont pas joué dans des films dramatiques ?
+12 Quels sont les noms et prénoms des individus dont le prénom est à la fois celui d’un acteur et celui d’un réalisateur sans qu’il s’agisse de la même personne ?
 
 **Aide** : utiliser AS ; différent : <>
 
-13. Quels acteurs a-t-on pu voir au cinéma Le Fontenelle depuis l’an 2000 ?
-14. Quels sont les films qui ont encore été à l’affiche 5 années après leur sortie ?
+13 Quels acteurs a-t-on pu voir au cinéma Le Fontenelle depuis l’an 2000 ?
+14 Quels sont les films qui ont encore été à l’affiche 5 années après leur sortie ?
 
 **<H3 STYLE="COLOR:red;">Exercice n°02 : La société canine Botoutou**</H3>
 
@@ -976,11 +970,11 @@ La société canine BOTOUTOU répertorie les chiens de race et leurs classements
 - CHIEN = (idChien, #idProprio, #idRace, nom, date naissance, sexe, date acquis)
 - PARTICIPATION = (#idChien, #idConcours, classement)
 
-1. Donner le MPD (modèle physique de données)  
+1 Donner le MPD (modèle physique de données)  
 
 **Aide** : vous pouvez vous aider de <https://dbdiagram.io/>  
 
-2. Créez la base de données database.db et les tables décrites ci-dessus.
+2 Créez la base de données database.db et les tables décrites ci-dessus.
 
 **Aide** : si vous créez la base de données à partir de l’import de ce qui a été fait sur <https://dbdiagram.io/>, la création de clés étrangères de fonctionne pas sur sqlite avec la même syntaxe que dans mysql. Il faudra donc créer les clés étrangères en modifiant chacune des tables dans l’onglet structure de la base de données. 
 
@@ -1066,20 +1060,20 @@ Contenu la base de données :
 
 Avec des commandes SQL :
 
-3. Reconstituer la base de données (faire apparaitre le tableau ci-dessus)
-4. Rechercher les nombres de chiens 
+3 Reconstituer la base de données (faire apparaitre le tableau ci-dessus)
+4 Rechercher les nombres de chiens 
 
 Pour aller plus loin on peut trouver le nombre de chien par race en rajoutant la commande : group by CHIEN.idRace en ayant fait une jointure avec la table RACE.
 
-5. Rechercher les nombres de femelles 
+5 Rechercher les nombres de femelles 
 
 De même on peut le regrouper par race.
 
-6. Rechercher les chiens mâles âgés de plus de 1 an ; nous considérons que nous sommes le 15 septembre 2020.
-7. Rechercher les propriétaires des chiens de race husky.
-8. Rechercher les propriétaires et le nom des chiens qui ont été primés à un concours (classement différent de zéro).
-9. Rechercher les propriétaires et le nom des chiens qui ont terminés 1er à un concours.
-10. Rechercher les chiens qui n’ont jamais participé à un concours (utiliser not in).
+6 Rechercher les chiens mâles âgés de plus de 1 an ; nous considérons que nous sommes le 15 septembre 2020.
+7 Rechercher les propriétaires des chiens de race husky.
+8 Rechercher les propriétaires et le nom des chiens qui ont été primés à un concours (classement différent de zéro).
+9 Rechercher les propriétaires et le nom des chiens qui ont terminés 1er à un concours.
+10 Rechercher les chiens qui n’ont jamais participé à un concours (utiliser not in).
 
 **<H3 STYLE="COLOR:red;">Exercice n°03 : Le cycle de colloques**</H3>
 
@@ -1159,9 +1153,7 @@ Base inscriptions (lien entre participant et exposes)
 ```sql
 INSERT INTO `inscriptions` VALUES
 (1, 1),(10, 2),(2, 7),(8, 10),(5, 3),(6, 8),(9, 4),(1, 2),(7, 10),(6, 4),(4, 9),(10, 5),(3, 6),(2, 3),
-(7, 1),(5, 4),(9, 7),(10, 10),(6, 9),(7, 8),(1, 4),(4, 6),(9, 5
-
-),(10, 3),(7, 9),(1, 5),(8, 5),(6, 10),
+(7, 1),(5, 4),(9, 7),(10, 10),(6, 9),(7, 8),(1, 4),(4, 6),(9, 5),(10, 3),(7, 9),(1, 5),(8, 5),(6, 10),
 (9, 2);
 ```
 
@@ -1171,18 +1163,18 @@ INSERT INTO `presentations` VALUES
 (1, 1),(2, 1),(3, 2),(4, 2),(5, 3),(6, 3),(7, 4),(8, 4),(9, 5),(10, 5);
 ```
 
-1. Donner le MPD (modèle physique de données)  
+1 Donner le MPD (modèle physique de données)  
 
 **Aide** : vous pouvez vous aider de <https://dbdiagram.io/>  
 
 Avec des commandes SQL :
 
-2. Reconstituer la base de données database.db (faire apparaitre le tableau ci-dessus)
-3. Qui (nom et prénom) organise le colloque Nourrir l'Humanité ?
-4. Quels sont les titres des exposés du colloque Nourrir l'Humanité ?
-5. Combien d'exposés sont présentés par Jeanne Darc ?
-6. Combien de personnes sont inscrites au(x) colloque(s) de l'Université Joseph Fourier ?
-7. Qui est à la fois organisateur et speaker ?
+2 Reconstituer la base de données database.db (faire apparaitre le tableau ci-dessus)
+3 Qui (nom et prénom) organise le colloque Nourrir l'Humanité ?
+4 Quels sont les titres des exposés du colloque Nourrir l'Humanité ?
+5 Combien d'exposés sont présentés par Jeanne Darc ?
+6 Combien de personnes sont inscrites au(x) colloque(s) de l'Université Joseph Fourier ?
+7 Qui est à la fois organisateur et speaker ?
 
 **<H3 STYLE="COLOR:red;">Exercice n°04 : PHP et SQL**</H3>
 
