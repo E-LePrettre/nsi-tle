@@ -997,6 +997,7 @@ La société canine BOTOUTOU répertorie les chiens de race et leurs classements
 
 **Modèle conceptuel de données (MCD)**
 ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.024.png)
+
 1,n : 
 
 - 1 propriétaire peut avoir n chiens
@@ -1141,96 +1142,68 @@ La liste des conférences est indiquée ci-dessous :
 
 
 Base participant :
-
+```sql
 INSERT INTO `participant` VALUES
-
 (NULL, 'Ochon', 'Paul', "dictum@ornareFuscemollis.ca"),
-
 (NULL, 'Chaud', 'Arti', "Curabitur.egestas.nunc@luctusetultrices.ca"),
-
 (NULL, 'Gross', 'Jean', "blandit.Nam@ipsumCurabiturconsequat.com"),
-
 (NULL, 'Fonfec', 'Sophie', "lorem@posuere.net"),
-
 (NULL, 'Camé', 'Léon', "odio@ligula.co.uk"),
-
 (NULL, 'Darc', 'Jeanne', "nec.enim.Nunc@tellusAenean.com"),
-
 (NULL, 'Sapin', 'Noëlle', "dui.Fusce.diam@Fuscefermentumfermentum.org"),
-
 (NULL, 'Sud', 'Paul', "nunc.nulla.vulputate@ideratEtiam.com"),
-
 (NULL, 'Maillard', 'Colin', "feugiat.metus@quis.net"),
-
 (NULL, 'Nord', 'Paul', "non.leo.Vivamus@tortor.co.uk");
+```
 
 Base colloques :
-
+```sql
 INSERT INTO `colloques` VALUES
-
-(NULL, 2, "SVT : former le citoyen du XXIème siècle", "Université Marie Curie", "2019\_01-31"),
-
+(NULL, 2, "SVT : former le citoyen du XXIème siècle", "Université Marie Curie", "2019_01-31"),
 (NULL, 1, "Microbes et interactions", "Université Joseph Fourier", "2018-12-05"),
-
 (NULL, 2, "La génomique, 15 ans après le séquençage du génome", "Université de Lausanne", "2017-11-06"),
-
 (NULL, 5, "Les végétaux revisités", "Université Paris-Dauphine", "2019-03-20"),
-
 (NULL, 2, "Nourrir l'Humanité", "ESPCI", "2018-06-11");
+```
 
 Base exposes :
-
+```sql
 INSERT INTO `exposes` VALUES
-
 (NULL, 2, "Le microbe rampant", "blablabla..."),
-
 (NULL, 3, "Les formes de vie évoluées", "blablabla..."),
-
 (NULL, 2, "Vie et mort d'un virus", "blablabla..."),
-
 (NULL, 1, "Ebola forever", "blablabla..."),
-
 (NULL, 4, "Les labos P4", "blablabla..."),
-
 (NULL, 1, "Les extrèmophiles", "blablabla..."),
-
 (NULL, 1, "La vie sous les océans", "blablabla..."),
-
 (NULL, 6, "Les êtres symbiotiques", "blablabla..."),
-
 (NULL, 5, "Champignons et microbes", "blablabla..."),
-
 (NULL, 8, "La vie sur Mars", "blablabla...");
+```
 
 Base organisations (lien entre colloque et participant)
-
+```sql
 INSERT INTO `organisations` VALUES
-
 (1, 2),
-
 (2, 1),
-
 (3, 2),
-
 (4, 5),
-
 (5, 2);
+```
 
 Base inscriptions (lien entre participant et exposes)
-
+```sql
 INSERT INTO `inscriptions` VALUES
-
 (1, 1),(10, 2),(2, 7),(8, 10),(5, 3),(6, 8),(9, 4),(1, 2),(7, 10),(6, 4),(4, 9),(10, 5),(3, 6),(2, 3),
-
 (7, 1),(5, 4),(9, 7),(10, 10),(6, 9),(7, 8),(1, 4),(4, 6),(9, 5),(10, 3),(7, 9),(1, 5),(8, 5),(6, 10),
-
 (9, 2);
+```
 
 Base presentations (lien entre exposes et colloques)
-
+```sql
 INSERT INTO `presentations` VALUES
-
 (1, 1),(2, 1),(3, 2),(4, 2),(5, 3),(6, 3),(7, 4),(8, 4),(9, 5),(10, 5);
+```
 
 1. Donner le MPD (modèle physique de données)  
 
@@ -1238,12 +1211,12 @@ INSERT INTO `presentations` VALUES
 
 Avec des commandes SQL :
 
-1. Reconstituer la base de données database.db (faire apparaitre le tableau ci-dessus)
-1. Qui (nom et prénom) organise le colloque Nourrir l'Humanité ?
-1. Quels sont les titres des exposés du colloque Nourrir l'Humanité ?
-1. Combien d'exposés sont présentés par Jeanne Darc ?
-1. Combien de personnes sont inscrites au(x) colloque(s) de l'Université Joseph Fourier ?
-1. Qui est à la fois organisateur et speaker ?
+2 Reconstituer la base de données database.db (faire apparaitre le tableau ci-dessus)
+3 Qui (nom et prénom) organise le colloque Nourrir l'Humanité ?
+4 Quels sont les titres des exposés du colloque Nourrir l'Humanité ?
+5 Combien d'exposés sont présentés par Jeanne Darc ?
+6 Combien de personnes sont inscrites au(x) colloque(s) de l'Université Joseph Fourier ?
+7 Qui est à la fois organisateur et speaker ?
 
 
 
@@ -1251,39 +1224,17 @@ Avec des commandes SQL :
 
 **Étape 1 :** Installer un serveur en local et portable 
 
-Nous utiliserons : UwAmp\_2.0  pour ce TP
+Nous utiliserons : UwAmp  pour ce TP
 
-- Le télécharger [ici ](https://www.uwamp.com/fr/?page=download)ou bien [là ](https://drive.google.com/file/d/1k3eTVx6RV2a_zejtqTUT-cXLwmB2UZkc/view?usp=sharing).
+- Le télécharger [ici ](https://www.uwamp.com/fr/?page=download).
 - Le décompresser sur une clé USB (ou dans vos documents de votre session)
 - Le lancer
 
 
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.025.png){ width=80%; : .center }
 
 
-
-
-
-
-
-
-
-
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.025.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-![ref2]![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.027.png)
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.027.png){ width=80%; : .center }
 
 
 **Étape 2 : Création d’une base de données**
@@ -1298,20 +1249,11 @@ Donc nous allons créer cette table avec 7 colonnes, dans cette base de données
 
 **Faites le : En donnant à la table le nom BD et exécuter**
 
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.028.png)
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.028.png){ width=80%; : .center }
 
 **Ajouter**
 
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.029.png)
-
-
-
-
-
-
-
-
-
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.029.png){ width=80%; : .center }
 
 
 **Réaliser quelques autres enregistrements1**
@@ -1325,51 +1267,53 @@ Il faut télécharger le dossier PHP - BDD.zip (dans le dossier Ressources) et l
 
 Il contient : 3 fichiers
 
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.030.png)
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.030.png){ width=80%; : .center }
 
 **Ouvrez ce dossier avec VisualStudio**
 
 **Le fichier fonctions.php** (il n’y a rien à modifier dans ce script sauf si votre base a un autre nom…)
 
-![ref3]![ref4]![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.033.png)
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.033.png){ width=80%; : .center }
 
 Contient le script de connexion à la base ``MaBase``
 
 
+**Le fichier form.php**
 
-![ref3]![ref4]**Le fichier form.php**
-
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.034.png)
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.034.png){ width=80%; : .center }
 
 Pour l’instant c’est une page web classique, avec au début l’inclusion du fichier fonctions.php qui permet de se connecter à la base
 
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.035.jpeg)**Le fichier style.css**
+**Le fichier style.css**
+
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.035.jpeg){ width=80%; : .center }
 
 Une feuille de style classique
 
-- ![ref5]Cliquez droit sur l’icône de UwWamp et cliquez sur Navigateur www
+- Cliquez droit sur l’icône de UwWamp et cliquez sur Navigateur www
 - Dans Virtual Host, cliquez sur le dossier PHP - BDD
 
 
-  ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.037.png)
+  ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.037.png){ width=80%; : .center }
 
   Si maintenant vous cliquez sur form.php vous verrez s’afficher une page web (très basique)
 
+**Étape 4 : Nous allons maintenant fabriquer un formulaire qui permettra via une requête d’alimenter notre base avec de nouveaux enregistrements.** 
 
-  **Étape 4 : Nous allons maintenant fabriquer un formulaire qui permettra via une requête d’alimenter notre base avec de nouveaux enregistrements.** 
+Complétez le fichier form.php comme suit (avec VisualStudio) 
 
-  ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.038.png)![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.039.png)Complétez le fichier form.php comme suit (avec VisualStudio) ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.040.png)
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.040.png){ width=80%; : .center }
 
-  Vérifiez que le formulaire s’affiche bien :
+Vérifiez que le formulaire s’affiche bien :
 
 
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.041.png)
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.041.png){ width=80%; : .center }
 
 Nous allons écrire le script php qui permet d’enregistrer la fiche dans la base de données. 
 
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.042.png)![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.043.png)Compléter la suite **du fichier form.php** comme suit
+Compléter la suite **du fichier form.php** comme suit
 
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.044.png)
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.044.png){ width=80%; : .center }
 
 Quelques remarques :
 
@@ -1387,95 +1331,62 @@ Pour cette requête il faut bien respecter l’ordre des champs de votre base de
 
 Dans Visualstudio dans le dossier PHP - BDD, créer un nouveau fichier sous le **nom de infos.php**
 
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.045.png)![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.046.png)
 
 Copiez coller ce qu’il faut depuis form.php pour obtenir :
 
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.047.png)
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.047.png){ width=80%; : .center }
 
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.048.png)![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.049.png)Voilà dans le script à insérer au bon endroit :
+Voilà dans le script à insérer au bon endroit :
 
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.050.png)
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.050.png){ width=80%; : .center }
 
 Lancez la page infos.php depuis Navigateur www, vos enregistrements apparaissent…
 
 **Étape 6 :** Nous allons faire afficher tout ce qui concerne un auteur…
 
 Créer un nouveau fichier sous le nom de selection.php Copiez et Collez le code ci-dessous **dans selection.php**
-
-<?php include("fonctions.php");
-
+```html
+<?php include("fonctions.php");
 ?>
-
 <html>
+    <head>
+        <meta charset="utf-8">
+        <title>Informations </title>
+        <link href="style.css" rel="stylesheet" media="all" type="text/css">
+    </head>
+    <body>
+        <h1 text-align=center>PHP et base de données</h1><br>
+        <section>
+            <?php
+            $db = new SQLite3('MaBase.db');
+     
+            // On prépare la requête qui va mettre dans un tableau tout ce qui concerne l’auteur Jando
+            $req = $db->query('SELECT * FROM BD WHERE auteur="Jando"');
 
-`    `<head>
+            //on organise $req en tableau associatif $data['champ']
+            //en scannant chaque enregistrement récupéré
+            //on en profite pour gérer l'affichage
+            //titre de la section avant la boucle echo'<h2>Fiche de : Jando </h2>';
 
-`        `<meta charset="utf-8">
+            //boucle
+            while ($data = $req->fetchArray()) {
+            // on affiche les résultats
+            echo 'Titre :<strong>'.$data['titre'].'</strong><br/>';
+            echo 'Référencé sous le n° : <strong>'.$data['id'].'</strong><br/>'; 
+            echo 'Genre :'.$data['genre'].'<br/>';
+            echo 'Année :'.$data['annee'].'<br/>';
+            echo 'Nombre de tome :'.$data['nombre_tome'].'<br/>';
+            echo 'Commentaire :'.$data['commentaire'].'<br/><br/><br/>';
+            }
 
-`        `<title>Informations </title>
-
-`        `<link href="style.css" rel="stylesheet" media="all" type="text/css">
-
-`    `</head>
-
-`    `<body>
-
-`        `<h1 text-align=center>PHP et base de données</h1><br>
-
-`        `<section>
-
-`            `<?php
-
-`            `$db = new SQLite3('MaBase.db');
-
-
-
-`            `// On prépare la requête qui va mettre dans un tableau tout ce qui concerne l’auteur Jando
-
-`            `$req = $db->query('SELECT \* FROM BD WHERE auteur="Jando"');
-
-`            `//on organise $req en tableau associatif $data['champ']
-
-`            `//en scannant chaque enregistrement récupéré
-
-`            `//on en profite pour gérer l'affichage
-
-`            `//titre de la section avant la boucle echo'<h2>Fiche de : Jando </h2>';
-
-`            `//boucle
-
-`            `while ($data = $req->fetchArray()) {
-
-`            `// on affiche les résultats
-
-`            `echo 'Titre :<strong>'.$data['titre'].'</strong><br/>';
-
-`            `echo 'Référencé sous le n° : <strong>'.$data['id'].'</strong><br/>'; 
-
-`            `echo 'Genre :'.$data['genre'].'<br/>';
-
-`            `echo 'Année :'.$data['annee'].'<br/>';
-
-`            `echo 'Nombre de tome :'.$data['nombre\_tome'].'<br/>';
-
-`            `echo 'Commentaire :'.$data['commentaire'].'<br/><br/><br/>';
-
-`            `}
-
-`            `?>
-
-`        `</section>
-
-`    `</body>
-
+            ?>
+        </section>
+    </body>
 </html>
+```
 
 
-
-
-
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.051.png)![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.052.png)**Étape 7 :** Dans une nouvelle page nous allons faire afficher des 
+**Étape 7 :** Dans une nouvelle page nous allons faire afficher des 
 
 enregistrements suivant des critères
 
@@ -1485,127 +1396,85 @@ Créer un nouveau fichier sous le **nom recherche.php** et copiez-collez
 ce qu’il faut pour…
 
 
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.053.png)
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.053.png){ width=80%; : .center }
+
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.051.png){ width=40%; : .center }
 
 Je vous donne le code à copier et coller entre les balises <section> ..</section>
 
-<h2>Choisissez le champ qui vous intéresse et entrez manuellement un critère</h2>
-
-<h4>Une absence de critères vous montre toutes les données du champ</h4>
+```html
+<h2>Choisissez le champ qui vous intéresse et entrez manuellement un critère</h2>
+<h4>Une absence de critères vous montre toutes les données du champ</h4>
 
 <!--
-
-Commentaires HTML
-
-On construit une liste déroulante ( un select et plusieurs options)
-
-Chaque option sera remplie par une donnée SQL récupérée par notre requête PHP
-
+Commentaires HTML
+On construit une liste déroulante ( un select et plusieurs options)
+Chaque option sera remplie par une donnée SQL récupérée par notre requête PHP
 -->
 
-<form method="post" action="recherche.php">
-
-<select name="champ">
+<form method="post" action="recherche.php">
+<select name="champ">
 
 <?php
 
-//On se connecte à la base
+//On se connecte à la base
+$db = new SQLite3('MaBase.db');
 
-$db = new SQLite3('MaBase.db');
+//On lance la requête SQL qui récupère les noms des colonnes (champs)
+$res = $db->query("PRAGMA table_info(BD)");
 
-//On lance la requête SQL qui récupère les noms des colonnes (champs)
-
-$res = $db->query("PRAGMA table\_info(BD)");
-
-//On scanne le résultat et on construit chaque option avec while
-
-while ($row = $res->fetchArray(SQLITE3\_NUM)) {
-
-`    `echo '<option value ='.$row[1].'>'.$row[1].'</option>' ;
-
+//On scanne le résultat et on construit chaque option avec while
+while ($row = $res->fetchArray(SQLITE3_NUM)) {
+    echo '<option value ='.$row[1].'>'.$row[1].'</option>' ;
 }
 
-//On ferme le select
-
+//On ferme le select
 ?>
-
 </select>
-
-Entrez votre critère de sélection sur ce champ : 
-
-<input type="text" name="critere"/>
-
-<input type="submit" name="Valider" value="OK"/>
-
+Entrez votre critère de sélection sur ce champ : 
+<input type="text" name="critere"/>
+<input type="submit" name="Valider" value="OK"/>
 </form>
 
 <!--
-
-On ferme le formulaire
-
+On ferme le formulaire
 -->
 
 <?php
+//On traite le formulaire 
+if(isset($_POST['Valider'])){
+    $champ=$_POST['champ'];
+    $critere=$_POST['critere'];
 
-//On traite le formulaire 
+    // On prépare la requête
+    //requête différente selon qu'on veut tout le champ
+    //ou un champ avec une condition 
+    if(($critere=='')||($critere==NULL)){
+        $sql = $db->query("SELECT * FROM BD");
+    }
+    else{
+        $sql = $db->query("SELECT * FROM BD WHERE $champ = '$critere'");
+        
+    }
+    
+    //Affichage du résultat 
+    echo'<h2>Résultat</h2>';
+    
 
-if(isset($\_POST['Valider'])){
-
-`    `$champ=$\_POST['champ'];
-
-`    `$critere=$\_POST['critere'];
-
-`    `// On prépare la requête
-
-`    `//requête différente selon qu'on veut tout le champ
-
-`    `//ou un champ avec une condition 
-
-`    `if(($critere=='')  ($critere==NULL)){
-
-`        `$sql = $db->query("SELECT \* FROM BD");
-
-`    `}
-
-`    `else{
-
-`        `$sql = $db->query("SELECT \* FROM BD WHERE $champ = '$critere'");
-
-
-
-`    `}
-
-
-
-`    `//Affichage du résultat 
-
-`    `echo'<h2>Résultat</h2>';
-
-
-
-`    `while ($data = $sql->fetchArray()) {
-
-`    `// on affiche les résultats
-
-`    `echo 'Titre :<strong>'.$data['titre'].'</strong><br/>';
-
-`    `echo 'Référencé sous le n° : <strong>'.$data['id'].'</strong><br/>'; 
-
-`    `echo 'Genre :'.$data['genre'].'<br/>';
-
-`    `echo 'Année :'.$data['annee'].'<br/>';
-
-`    `echo 'Nombre de tome :'.$data['nombre\_tome'].'<br/>';
-
-`    `echo 'Commentaire :'.$data['commentaire'].'<br/><br/><br/>';
-
-`    `}
-
-} 
+    while ($data = $sql->fetchArray()) {
+    // on affiche les résultats
+    echo 'Titre :<strong>'.$data['titre'].'</strong><br/>';
+    echo 'Référencé sous le n° : <strong>'.$data['id'].'</strong><br/>'; 
+    echo 'Genre :'.$data['genre'].'<br/>';
+    echo 'Année :'.$data['annee'].'<br/>';
+    echo 'Nombre de tome :'.$data['nombre_tome'].'<br/>';
+    echo 'Commentaire :'.$data['commentaire'].'<br/><br/><br/>';
+    }
+} 
 
 $db->close();
-
 ?>
+```
 
 Testez cette page…
 
@@ -1619,13 +1488,7 @@ Il existe sur internet beaucoup de tutoriel sur ce sujet plus ou moins abordable
 
 Je me suis moi-même inspiré des tutoriels sur : **https://php.developpez.com/cours/**
 
-**Un projet possible de fin d’année :** Modifier ce travail en créant plusieurs tables pour pouvoir utiliser des jointures…
 
 
 
 
-[ref1]: Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.007.png
-[ref2]: Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.026.png
-[ref3]: Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.031.png
-[ref4]: Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.032.png
-[ref5]: Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.036.png
