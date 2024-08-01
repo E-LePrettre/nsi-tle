@@ -1006,13 +1006,13 @@ La société canine BOTOUTOU répertorie les chiens de race et leurs classements
 
 
 **Modèle logique de données (MLD)**
-
+```
 - PROPRIO = {idProprio, Nom, Adresse}
 - RACE = {idRace, intitule, description}
 - CONCOURS = {idConcours, ville, dates, nbPrimes, nbParticipants}
 - CHIEN = {idChien, #idProprio, #idRace, nom, date naissance, sexe, date acquis}
 - PARTICIPATION = {#idChien, #idConcours, classement}
-
+```
 1 Donner le MPD (modèle physique de données)  
 
 **Aide** : vous pouvez vous aider de <https://dbdiagram.io/>  
