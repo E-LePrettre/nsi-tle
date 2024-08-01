@@ -759,6 +759,9 @@ On rajoute la condition sur le nom du réalisateur et sur le titre : il doit co
 
 
 ## <H2 STYLE="COLOR:BLUE;"><a name="_toc173365587"></a>**7. Exercices**</H2>
+
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
+
 **<H3 STYLE="COLOR:red;">Exercice n°01 : Copains de classe**</H3>
 
 On veut créer une petite base de données permettant de garder le contact avec nos copains de classe. On supposera qu'ils sont tous domiciliés en France, qu'ils n'ont qu'un numéro de téléphone, mais éventuellement plusieurs adresses. On veut stocker les renseignements suivants : nom, prénom, sexe, date de naissance, numéro de téléphone, rue, numéro postal, ville, département et région.
@@ -800,6 +803,10 @@ Entrer dans la base de données les informations ci-dessous :
 - les noms et prénoms de toutes les Rhone-Alpins.
 
 ## <H2 STYLE="COLOR:BLUE;"><a name="_toc173365588"></a>**8. Projet (démarche d’investigation)**</H2>
+
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
+
+
 **<H3 STYLE="COLOR:red;">Exercice n°01 : Le coin du cinéphile**</H3>
 
 Vous allez interroger une base de données relationnelles dont le schéma est le suivant :
