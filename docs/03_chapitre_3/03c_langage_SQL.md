@@ -1286,7 +1286,7 @@ Pour l’instant c’est une page web classique, avec au début l’inclusion du
 
 **Le fichier style.css**
 
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.035.jpeg){ width=80%; : .center }
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.035.jpeg){ width=50%; : .center }
 
 Une feuille de style classique
 
@@ -1294,7 +1294,7 @@ Une feuille de style classique
 - Dans Virtual Host, cliquez sur le dossier PHP - BDD
 
 
-  ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.037.png){ width=80%; : .center }
+  ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.037.png){ width=40%; : .center }
 
   Si maintenant vous cliquez sur form.php vous verrez s’afficher une page web (très basique)
 
