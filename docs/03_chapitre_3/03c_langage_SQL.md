@@ -1062,34 +1062,25 @@ INSERT INTO `chiens` VALUES
 ```
 
 Base Concours :
-
+```sql
 INSERT INTO `concours` VALUES
-
 (1,"Paris","2019-01-30",20,3),
-
 (2,"Brest","2019-02-12",32,5),
-
 (3,"Le Mans","2019-02-17",19,2),
-
 (4,"Poitiers","2019-03-12",55,6),
-
 (5,"Paris","2019-04-23",88,5),
-
 (6,"Grenoble","2019-05-22",28,2),
-
 (7,"Lyon","2019-06-16",44,5),
-
 (8,"Nantes","2019-06-16",39,4);
+```
 
 Base PARTICIPATION :
-
+```sql
 INSERT INTO `inscriptions` VALUES
-
 (1,1, 0),(1,2, 2),(1,4, 0),(1,5, 1),(2,1, 3),(2,3, 1),(2,5, 2),(3,1, 0),(3,6, 3),(3,2, 0),(3,8, 2),
-
 (3,7, 0),(4,7, 0),(4,8, 2),(4,6, 0),(4,5, 3),(8,3, 0),(6,1, 0),(6,3, 0),(6,4, 3),(6,6, 0),(6,8, 2),
-
 (10,2, 2),(10,4, 3);
+```
 
 Contenu la base de données :
 
@@ -1109,20 +1100,20 @@ Contenu la base de données :
 
 Avec des commandes SQL :
 
-1. Reconstituer la base de données (faire apparaitre le tableau ci-dessus)
-1. Rechercher les nombres de chiens 
+3 Reconstituer la base de données (faire apparaitre le tableau ci-dessus)
+4 Rechercher les nombres de chiens 
 
 Pour aller plus loin on peut trouver le nombre de chien par race en rajoutant la commande : group by CHIEN.idRace en ayant fait une jointure avec la table RACE
 
-1. Rechercher les nombres de femelles 
+5 Rechercher les nombres de femelles 
 
 De même on peut le regrouper par race
 
-1. Rechercher les chiens mâles âgés de plus de 1 an ; nous considérons que nous sommes le 15 septembre 2020
-1. Rechercher les propriétaires des chiens de race husky
-1. Rechercher les propriétaires et le nom des chiens qui ont été primés à un concours (classement différent de zéro)
-1. Rechercher les propriétaires et le nom des chiens qui ont terminés 1er à un concours
-1. Rechercher les chiens qui n’ont jamais participé à un concours (utiliser not in)
+6 Rechercher les chiens mâles âgés de plus de 1 an ; nous considérons que nous sommes le 15 septembre 2020
+7 Rechercher les propriétaires des chiens de race husky
+8 Rechercher les propriétaires et le nom des chiens qui ont été primés à un concours (classement différent de zéro)
+9 Rechercher les propriétaires et le nom des chiens qui ont terminés 1er à un concours
+10 Rechercher les chiens qui n’ont jamais participé à un concours (utiliser not in)
 
 **Exercice n°03 : Le cycle de colloques** 
 
