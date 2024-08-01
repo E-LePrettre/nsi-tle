@@ -325,62 +325,154 @@ WHERE titre_film LIKE 'Star Wars%';
 On voit qu’il s’affiche tous les films Star Wars. Le % permet d’indiquer où se trouve les caractères manquants. Ici on cherche tous les titres commençant exactement par Star Wars. On aurait pu noter %War% on aurait eu tous les films ayant dans leur nom les lettre War, donc les Star Wars et WarGames.On peut les triés par année de sortie en rajoutant ORDER BY annee\_film
  
 
-### <a name="_toc173365570"></a>**3.4. Affichage avec une condition OU une autre**
+### <a name="_toc173365570"></a>**4.4. Affichage avec une condition OU une autre**
 
- **Activité n° AUTONUM  \* Arabic : Affichage par deux conditions :**  Faire afficher l’id, le titre, l’année et la nationalité de films avec une année en particulier OU un genre :** Exécuter SELECT id\_film, titre\_film, annee\_film, nationalite\_filmFROM filmWHERE annee\_film = 2017 OR genre\_film = 'Science fiction';On voit qu’il s’affiche le film wargames. Par contre, il faut indiquer le titre exact. On peut évidement trier par exemple par id\_realisateur.
+**Activité n° 20 : Affichage par deux conditions :**  Faire afficher l’id, le titre, l’année et la nationalité de films avec une année en particulier OU un genre :** Exécuter 
+```sql
+SELECT id_film, titre_film, annee_film, nationalite_film
+FROM film
+WHERE annee_film = 2017 OR genre_film = 'Science fiction';
+```
+On voit qu’il s’affiche le film wargames. Par contre, il faut indiquer le titre exact. On peut évidement trier par exemple par id\_realisateur.
  
 
-### <a name="_toc173365571"></a>**3.5. Affichage avec critère dans une liste**
+### <a name="_toc173365571"></a>**4.5. Affichage avec critère dans une liste**
 
- **Activité n° AUTONUM  \* Arabic : Affichage par plusieurs conditions :**  Faire afficher l’id, le titre, l’année et la nationalité de films avec plusieurs genres différents :** Exécuter SELECT id\_film, titre\_film, annee\_film, nationalite\_filmFROM filmWHERE genre\_film IN ('Science fiction', 'Policier');On voit qu’il s’affiche l’ensemble des films de science-fiction et les policiers
+**Activité n° 21 : Affichage par plusieurs conditions :**  Faire afficher l’id, le titre, l’année et la nationalité de films avec plusieurs genres différents :** Exécuter 
+```sql
+SELECT id_film, titre_film, annee_film, nationalite_film
+FROM film
+WHERE genre_film IN ('Science fiction', 'Policier');
+```
+On voit qu’il s’affiche l’ensemble des films de science-fiction et les policiers
  
 
- **Activité n° AUTONUM  \* Arabic : Affichage sans plusieurs conditions :**  Faire afficher l’id, le titre, l’année et la nationalité de films SANS plusieurs genres différents :** Exécuter SELECT id\_film, titre\_film, annee\_film, nationalite\_filmFROM filmWHERE genre\_film NOT IN ('Science fiction', 'Policier');On voit qu’il s’affiche l’ensemble des films sauf ceux de science-fiction et les policiers
+**Activité n° 22 : Affichage sans plusieurs conditions :**  Faire afficher l’id, le titre, l’année et la nationalité de films SANS plusieurs genres différents :** Exécuter 
+```sql
+SELECT id_film, titre_film, annee_film, nationalite_film
+FROM film
+WHERE genre_film NOT IN ('Science fiction', 'Policier');
+```
+On voit qu’il s’affiche l’ensemble des films sauf ceux de science-fiction et les policiers
  
 
- **Activité n° AUTONUM  \* Arabic : Affichage sans plusieurs conditions avec un limite en nombre de sorties :**  Si le nombre de ligne est très important pour ne pas surcharger la mémoire de l’ordinateur : ExecuterSELECT id\_film, titre\_film, annee\_film, nationalite\_filmFROM filmWHERE genre\_film NOT IN ('Science fiction', 'Policier') LIMIT 5;On voit qu’il s’affiche la même liste que la précédente mais seulement les 5 premiers
+**Activité n° 23 : Affichage sans plusieurs conditions avec un limite en nombre de sorties :**  Si le nombre de ligne est très important pour ne pas surcharger la mémoire de l’ordinateur : Executer
+```sql
+SELECT id_film, titre_film, annee_film, nationalite_film
+FROM film
+WHERE genre_film NOT IN ('Science fiction', 'Policier') 
+LIMIT 5;
+```
+On voit qu’il s’affiche la même liste que la précédente mais seulement les 5 premiers
  
-### <a name="_toc173365572"></a>**3.6. Affichage et tri descendant**
+### <a name="_toc173365572"></a>**4.6. Affichage et tri descendant**
 
- **Activité n° AUTONUM  \* Arabic : Affichage sans plusieurs conditions trié descendant :**  Pour trier la liste précédente par année de la plus proche à la plus lointaine : ExécuterSELECT id\_film, titre\_film, annee\_film, nationalite\_filmFROM filmWHERE genre\_film NOT IN ('Science fiction', 'Policier') ORDER BY annee\_film DESC;On voit qu’il s’affiche la liste de tous les films sauf ceux de science fichier et les policiers mais cette fois ci ils sont classés par année décroissante
+**Activité n° 24 : Affichage sans plusieurs conditions trié descendant :**  Pour trier la liste précédente par année de la plus proche à la plus lointaine : Exécuter
+```sql
+SELECT id_film, titre_film, annee_film, nationalite_film
+FROM film
+WHERE genre_film NOT IN ('Science fiction', 'Policier') 
+ORDER BY annee_film DESC;
+```
+On voit qu’il s’affiche la liste de tous les films sauf ceux de science fichier et les policiers mais cette fois ci ils sont classés par année décroissante
  
-### <a name="_toc173365573"></a>**3.7. Affichage avec concaténation de deux chaines de caractères**
+### <a name="_toc173365573"></a>**4.7. Affichage avec concaténation de deux chaines de caractères**
 
- **Activité n° AUTONUM  \* Arabic : Affichage avec concaténation et nommage d’attribut:**  Afficher le prénom et le nom des réalisateur : Exécuter<a name="_hlk52903251"></a>SELECT prenom\_realisateur    ' '    nom\_realisateur AS Prenom\_NomFROM realisateur;On utilise les tubes :   . Le mot clé AS permet de donner un nom à la chaine concaténée : Prenom\_NomOn obtient tous les réalisateurs avec leur prénom et leur nom mais dans la même colonne 
+**Activité n° 25 : Affichage avec concaténation et nommage d’attribut:**  Afficher le prénom et le nom des réalisateur : Exécuter
+```sql
+SELECT prenom_realisateur || ' ' || nom_realisateur AS Prenom_Nom
+FROM realisateur;
+```
+On utilise les tubes :   . Le mot clé AS permet de donner un nom à la chaine concaténée : Prenom\_Nom
+On obtient tous les réalisateurs avec leur prénom et leur nom mais dans la même colonne 
  
-### <a name="_toc173365574"></a>**3.8. Affichage avec deux requêtes**
+### <a name="_toc173365574"></a>**4.8. Affichage avec deux requêtes**
 
- **Activité n° AUTONUM  \* Arabic : Affichage de morceau de chaine de caractères sur deux tables :**  Afficher la nationalité du réalisateur dont le nom commence par L ET la nationalité du (des) film commence par S : Exécuter<a name="_hlk52903623"></a>SELECT nationalite\_realisateur AS nationaliteFROM realisateurWHERE nom\_realisateur LIKE 'L%'UNIONSELECT nationalite\_film AS nationalite\_filmFROM filmWHERE titre\_film LIKE 'S%';Il s’agit de Lucas George qui est des états unis et les Star Wars sont des Etats-Unis d’où une seule ligne. Si on avec choisit les noms des réalisateurs qui commence par B on aurait eu en plus France et Royaume-Uni.
- 
-
-### <a name="_toc173365575"></a>**3.9. Affichage et comptage**
-
- **Activité n° AUTONUM  \* Arabic : Afficher et compter :**  Compter le nombre de réalisateurs : Exécuter<a name="_hlk52903830"></a>SELECT COUNT(id\_realisateur)FROM realisateur;Il y a bien 11 réalisateurs dans la table.
- 
-
- [](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.016.png)**Activité n° AUTONUM  \* Arabic : Afficher et compter :**  Compter le nombre de réalisateurs dont le nom commence par la lettre L : ExécuterSELECT COUNT(id\_realisateur)FROM realisateurWHERE nom\_realisateur LIKE ‘L%’ ;Il y en a 2 : Lumet et Lucas.
- 
-
- **Activité n° AUTONUM  \* Arabic : Afficher, sommer :  Supposons que l’on ait une colonne** avec le nombre de films de chaque réalisateur avec un attribut …) si on veut faire la somme : SELECT SUM(….)FROM realisateur;On peut évidemment rajouter une condition avec le mot clé WHERE.
- 
- **Activité n° AUTONUM  \* Arabic : Afficher, moyenne :**  De la même manière on peut vouloir faire la moyenne SELECT AVG(…)FROM realisateur;On peut aussi chercher le maximum ou le minimum avec les fonctions MAX et MIN.
-### <a name="_toc173365576"></a>**3.10. Afficher tous les champs**
-
- **Activité n° AUTONUM  \* Arabic : Afficher tous les champs :**  Exécuter :SELECT \*FROM film;
- 
-## <a name="_toc173365577"></a>**4. Requête de mise à jour**
-### <a name="_toc173365578"></a>**4.1. La syntaxe de la requête de mise à jour**
-UPDATE avec le nom de la table sur lequel sera fait la mise à jour
-
-SET pour préciser le ou les champs avec leur valeur
-
-WHERE pour les conditions
-### <a name="_toc173365579"></a>**4.2. Requête pour ajouter un attribut** 
-
- **Activité n° AUTONUM  \* Arabic : Ajouter un attribut à une table existante :**  Ajouter l’attribut nbfilms\_realisateur à la table realisateur. Exécuter<a name="_hlk52904091"></a>ALTER TABLE realisateurADD COLUMN nbfilms\_realisateur INTEGER;ALTER TABLE permet d’indiquer avec quelle table on va travailler.ADD COLUMN pour ajouter une colonneVérifier dans la table realisateur qu’il y a une colonne de plus. Par contre, la colonne est complètement nulle 
+**Activité n° 26 : Affichage de morceau de chaine de caractères sur deux tables :**  Afficher la nationalité du réalisateur dont le nom commence par L ET la nationalité du (des) film commence par S : Exécuter
+```sql
+SELECT nationalite_realisateur AS nationalite
+FROM realisateur
+WHERE nom_realisateur LIKE 'L%'
+UNION
+SELECT nationalite_film AS nationalite_film
+FROM film
+WHERE titre_film LIKE 'S%';
+```
+Il s’agit de Lucas George qui est des états unis et les Star Wars sont des Etats-Unis d’où une seule ligne. Si on avec choisit les noms des réalisateurs qui commence par B on aurait eu en plus France et Royaume-Uni.
  
 
- **Activité n° AUTONUM  \* Arabic : Modifier une donnée d’une table :**  Transformer le nom de la nationalité de Lumet en Royaume-Uni. Exécuter<a name="_hlk52904175"></a>UPDATE realisateurSET nationalite\_realisateur = 'Royaume-Uni'WHERE nom\_realisateur = 'Lumet';UPDATE pour dire sur quelle table la mise à jour sera faiteSET permet de donner le champ et la valeur que l’on veut attribuer.Vérifier que la nationalité de Lumet a bien été modifié.On remodifie la nationalité :UPDATE realisateurSET nationalite\_realisateur = 'Etats-Unis'WHERE nom\_realisateur = 'Lumet';
+### <a name="_toc173365575"></a>**4.9. Affichage et comptage**
+
+**Activité n° 27 : Afficher et compter :**  Compter le nombre de réalisateurs : Exécuter
+```sql
+SELECT COUNT(id_realisateur)
+FROM realisateur;
+```
+Il y a bien 11 réalisateurs dans la table.
+ 
+
+**Activité n° 28 : Afficher et compter :**  Compter le nombre de réalisateurs dont le nom commence par la lettre L : Exécuter
+
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.016.png)
+
+```sql
+SELECT COUNT(id_realisateur)
+FROM realisateur
+WHERE nom_realisateur LIKE 'L%' ;
+```
+Il y en a 2 : Lumet et Lucas.
+ 
+
+**Activité n° 29 : Afficher, sommer :  Supposons que l’on ait une colonne** avec le nombre de films de chaque réalisateur avec un attribut … si on veut faire la somme : 
+```sql
+/* on ne pourra pas le faire ici */
+SELECT SUM(….)
+FROM realisateur;
+```
+On peut évidemment rajouter une condition avec le mot clé WHERE.
+ 
+**Activité n° 30 : Afficher, moyenne :**  De la même manière on peut vouloir faire la moyenne 
+```sql
+/* on ne pourra pas le faire ici */
+SELECT AVG(…)
+FROM realisateur;
+```
+
+On peut aussi chercher le maximum ou le minimum avec les fonctions **MAX** et **MIN**.
+
+### <a name="_toc173365576"></a>**4.10. Afficher tous les champs**
+
+**Activité n° 31 : Afficher tous les champs :**  
+Exécuter :
+```sql
+SELECT *
+FROM film;
+```
+ 
+## <a name="_toc173365577"></a>**5. Requête de mise à jour**
+### <a name="_toc173365578"></a>**5.1. La syntaxe de la requête de mise à jour**
+
+**UPDATE** avec le nom de la table sur lequel sera fait la mise à jour
+
+**SET** pour préciser le ou les champs avec leur valeur
+
+**WHERE** pour les conditions
+
+### <a name="_toc173365579"></a>**5.2. Requête pour ajouter un attribut** 
+
+**Activité n° 32 : Ajouter un attribut à une table existante :**  Ajouter l’attribut nbfilms\_realisateur à la table realisateur. Exécuter
+```sql
+ALTER TABLE realisateur
+ADD COLUMN nbfilms_realisateur INTEGER;
+```
+**ALTER TABLE** permet d’indiquer avec quelle table on va travailler.
+
+**ADD COLUMN** pour ajouter une colonne
+
+Vérifier dans la table realisateur qu’il y a une colonne de plus. Par contre, la colonne est complètement nulle 
+ 
+
+**Activité n° AUTONUM  \* Arabic : Modifier une donnée d’une table :**  Transformer le nom de la nationalité de Lumet en Royaume-Uni. Exécuter<a name="_hlk52904175"></a>UPDATE realisateurSET nationalite\_realisateur = 'Royaume-Uni'WHERE nom\_realisateur = 'Lumet';UPDATE pour dire sur quelle table la mise à jour sera faiteSET permet de donner le champ et la valeur que l’on veut attribuer.Vérifier que la nationalité de Lumet a bien été modifié.On remodifie la nationalité :UPDATE realisateurSET nationalite\_realisateur = 'Etats-Unis'WHERE nom\_realisateur = 'Lumet';
  
 
  **Activité n° AUTONUM  \* Arabic : Ajouter des données d’une table :**  Ajouter le nombre de films à chaque réalisateur. ExécuterUPDATE realisateurSET nbfilms\_realisateur = 1WHERE nationalite\_realisateur = 'Etats-Unis';Tous les réalisateurs dont la nationalité est Etats-Unis ont un nombre de films égal à 1. Vérifier.
