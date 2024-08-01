@@ -4,9 +4,9 @@
 EN CONSTRUCTION!!! a très bientôt!!
 
 1. Révisions de 1re
-2. Récursivité et méthode diviser pour régner
-3. Mise au point et exception
-4. Codage de l'information
+2. Récursivité et Méthode diviser pour régner
+3. Base de données
+4. La P.O.O.
 5. Les types construits
 6. L'algorithmique
 7. Le web
