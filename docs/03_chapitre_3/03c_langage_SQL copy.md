@@ -996,9 +996,29 @@ La société canine BOTOUTOU répertorie les chiens de race et leurs classements
 
 
 **Modèle conceptuel de données (MCD)**
+
 ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.024.png)
 
 1,n : 
 
 - 1 propriétaire peut avoir n chiens
 - 1 race peut avoir n chiens
+
+
+**Modèle logique de données (MLD)**
+
+- PROPRIO = {idProprio, Nom, Adresse}
+- RACE = {idRace, intitule, description}
+- CONCOURS = {idConcours, ville, dates, nbPrimes, nbParticipants}
+- CHIEN = {idChien, #idProprio, #idRace, nom, date naissance, sexe, date acquis}
+- PARTICIPATION = {#idChien, #idConcours, classement}
+
+1 Donner le MPD (modèle physique de données)  
+
+**Aide** : vous pouvez vous aider de <https://dbdiagram.io/>  
+
+2 Créez la base de données database.db et les tables décrites ci-dessus.
+
+**Aide** : si vous créer la base de données à partir de l’import de ce qui a été fait sur <https://dbdiagram.io/>  , la création de clés étrangères de fonctionne pas sur sqlite avec la même syntaxe que dans mysql. Il faudra donc créer les clés étrangères en modifiant chacune des tables dans l’onglet structure de la base de données. 
+
+Les tables contiennent les données suivantes :
