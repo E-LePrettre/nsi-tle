@@ -142,7 +142,7 @@ Pour interroger la base de données pour récupérer des informations correspond
 
 Cliquer sur ouvrir un onglet
 
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.013.png)
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.013.png){ width=50%; : .center }
 
 **Activité n° 7 : Insertion de données** On utilise le mot clé INSERT INTO le nom de la table, puis entre parenthèses le nom des champs. On note ensuite les valeurs entre parenthèses après le mot clé VALUES.
 ```sql
@@ -165,7 +165,7 @@ VALUES
 
 Exécuter la requête et vérifier dans parcourir les données que l’enregistrement c’est bien fait
 
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.014.png)
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.014.png){ width=50%; : .center }
  
   
 
@@ -227,7 +227,7 @@ VALUES
 
 **Activité n° 10 :** Enregistrer dans vos DOCUMENTS 
 
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.015.png)
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.015.png){ width=50%; : .center }
  
 ### <a name="_toc173365565"></a>**3.2. Suppression**
 
@@ -472,17 +472,47 @@ ADD COLUMN nbfilms_realisateur INTEGER;
 Vérifier dans la table realisateur qu’il y a une colonne de plus. Par contre, la colonne est complètement nulle 
  
 
-**Activité n° AUTONUM  \* Arabic : Modifier une donnée d’une table :**  Transformer le nom de la nationalité de Lumet en Royaume-Uni. Exécuter<a name="_hlk52904175"></a>UPDATE realisateurSET nationalite\_realisateur = 'Royaume-Uni'WHERE nom\_realisateur = 'Lumet';UPDATE pour dire sur quelle table la mise à jour sera faiteSET permet de donner le champ et la valeur que l’on veut attribuer.Vérifier que la nationalité de Lumet a bien été modifié.On remodifie la nationalité :UPDATE realisateurSET nationalite\_realisateur = 'Etats-Unis'WHERE nom\_realisateur = 'Lumet';
- 
+**Activité n° 33 : Modifier une donnée d’une table :**  Transformer le nom de la nationalité de Lumet en Royaume-Uni. Exécuter
+```sql
+UPDATE realisateur
+SET nationalite_realisateur = 'Royaume-Uni'
+WHERE nom_realisateur = 'Lumet';
+```
 
- **Activité n° AUTONUM  \* Arabic : Ajouter des données d’une table :**  Ajouter le nombre de films à chaque réalisateur. ExécuterUPDATE realisateurSET nbfilms\_realisateur = 1WHERE nationalite\_realisateur = 'Etats-Unis';Tous les réalisateurs dont la nationalité est Etats-Unis ont un nombre de films égal à 1. Vérifier.
- 
-### <a name="_toc173365580"></a>**4.3. Requête de modification**
+**UPDATE** pour dire sur quelle table la mise à jour sera faite
 
- **Activité n° AUTONUM  \* Arabic : Modifier plusieurs champs en même temps :**  Modifier le nombre de film et la nationalité du réalisateur. ExécuterUPDATE realisateurSET nbfilms\_realisateur = 2, nationalite\_realisateur = 'USA'WHERE nationalite\_realisateur = 'Etats-Unis';Les réalisateurs qui avaient pour nationalité Etats-Unis ont eu le nombre de films modifié et la nationalité aussi.Vérifier.
- 
+**SET** permet de donner le champ et la valeur que l’on veut attribuer.
 
- ![ref1]**Activité n° AUTONUM  \* Arabic : Création de table :** Création de la table nationalitéCREATE TABLE nationalite (![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.017.png)id\_nationalite INT NOT NULL,nom\_nationalite VARCHAR(255) NOT NUL,PRIMARY KEY ("id\_nationalite" AUTOINCREMENT));Vérifier que la table est créée.
+Vérifier que la nationalité de Lumet a bien été modifié.On remodifie la nationalité :
+```sql
+UPDATE realisateur
+SET nationalite_realisateur = 'Etats-Unis'
+WHERE nom_realisateur = 'Lumet';
+```
+
+**Activité n° 34 : Ajouter des données d’une table :**  Ajouter le nombre de films à chaque réalisateur. Exécuter
+```sql
+UPDATE realisateur
+SET nbfilms_realisateur = 1
+WHERE nationalite_realisateur = 'Etats-Unis';
+```
+
+Tous les réalisateurs dont la nationalité est Etats-Unis ont un nombre de films égal à 1. Vérifier.
+ 
+### <a name="_toc173365580"></a>**5.3. Requête de modification**
+
+**Activité n° 35 : Modifier plusieurs champs en même temps :**  Modifier le nombre de film et la nationalité du réalisateur. Exécuter
+```sql
+UPDATE realisateur
+SET nbfilms_realisateur = 2, nationalite_realisateur = 'USA'
+WHERE nationalite_realisateur = 'Etats-Unis';
+```
+
+Les réalisateurs qui avaient pour nationalité Etats-Unis ont eu le nombre de films modifié et la nationalité aussi.Vérifier.
+ 
+**Activité n° 36 : Création de table :** Création de la table nationalitéCREATE TABLE nationalite (![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.017.png)id\_nationalite INT NOT NULL,nom\_nationalite VARCHAR(255) NOT NUL,PRIMARY KEY ("id\_nationalite" AUTOINCREMENT));
+
+Vérifier que la table est créée.
  
 ### <a name="_toc173365581"></a>**4.4. Mise en place d’un id**
 
