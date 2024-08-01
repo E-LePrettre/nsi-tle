@@ -995,3 +995,10 @@ La société canine BOTOUTOU répertorie les chiens de race et leurs classements
 1. Palmarès de chaque chien comportant la liste des concours auxquels il a **participé**, le **classement** obtenu et son **âge** au moment du concours ; le palmarès d’un chien **n’est envoyé qu’au propriétaire** du chien en question.
 
 
+**Modèle conceptuel de données (MCD)**
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.024.png)
+
+1,n : 
+
+- 1 propriétaire peut avoir n chiens
+- 1 race peut avoir n chiens
