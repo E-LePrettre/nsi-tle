@@ -1253,7 +1253,7 @@ Donc nous allons créer cette table avec 7 colonnes, dans cette base de données
 
 **Ajouter**
 
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.029.png){ width=80%; : .center }
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.029.png){ width=50%; : .center }
 
 
 **Réaliser quelques autres enregistrements1**
