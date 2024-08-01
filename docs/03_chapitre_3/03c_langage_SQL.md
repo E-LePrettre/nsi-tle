@@ -797,7 +797,8 @@ On veut créer une petite base de données permettant de garder le contact avec 
 - copains(id, nom, prenom, sexe, date\_naissance, no\_tel)
 - habite(#id\_copain, #no\_postal)
 - ville(no\_postal, nom\_ville, département, rue, région)
-1. Créer la base de données database.db et les tables décrites ci-dessus (# étant pour les clés étrangères).
+
+1 Créer la base de données database.db et les tables décrites ci-dessus (# étant pour les clés étrangères).
 
 Entrer dans la base de données les informations ci-dessous :
 
@@ -820,24 +821,24 @@ Entrer dans la base de données les informations ci-dessous :
 
 **Aide** : on se mettra en auto-incrément sur les clés primaires et les dates de naissance sont entre guillemets. ATTENTION pas de doublons dans la table !!
 
-Avec des commandes SQL faire les requêtes suivantes :
+2 Avec des commandes SQL faire les requêtes suivantes :
 
-les noms de famille de tous les Paul ;
+- les noms de famille de tous les Paul ;
 
-le numéro de téléphone de Sophie Fonfec ;
+- le numéro de téléphone de Sophie Fonfec ;
 
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.023.jpeg)les noms et prénoms de tous ceux nés avant 1995 ;
+- les noms et prénoms de tous ceux nés avant 1995 ;
 
-les noms et prénoms de tous ceux qui sont nés en janvier 1995 ;
+- les noms et prénoms de tous ceux qui sont nés en janvier 1995 ;
 
-les noms et prénoms de tous ceux qui habitent Porrentruy ;
+- les noms et prénoms de tous ceux qui habitent Porrentruy ;
 
-le nombre de non-midi pyrénéens ;
+- le nombre de non-midi pyrénéens ;
 
-les noms et prénoms de toutes les Rhone-Alpins.
+- les noms et prénoms de toutes les Rhone-Alpins.
 
 
-1. # <a name="_toc173365588"></a>**Projet (démarche d’investigation)**
+## <a name="_toc173365588"></a>**8. Projet (démarche d’investigation)**
 **Exercice n°01 : Le coin du cinéphile**
 
 Vous allez interroger une base de données relationnelles dont le schéma est le suivant :
@@ -873,136 +874,86 @@ Et voici le contenu de la base :
 
 
 Base cinema :
-
+```sql
 (1, 'Le Renoir', '13100 Aix-en-Provence'),
-
 (2, 'Le Fontenelle', '78160 Marly-Le-Roi'),
-
 (3, 'Gaumont Wilson', '31000 Toulouse'),
-
 (4, 'Espace Ciné', '93800 Epinay-sur-Seine');
+```
 
 Base Individu :
-
+```sql
 (1, 'Kidman', 'Nicole'),
-
 (2, 'Bettany', 'Paul'),
-
 (3, 'Watson', 'Emily'),
-
 (4, 'Skarsgard', 'Stellan'),
-
 (5, 'Travolta', 'John'),
-
 (6, 'L.Jackson', 'Samuel'),
-
 (7, 'Willis', 'Bruce'),
-
 (8, 'Irons', 'Jeremy'),
-
 (9, 'Spader', 'James'),
-
 (10, 'Hunter', 'Holly'),
-
 (11, 'Arquette', 'Rosanna'),
-
 (12, 'Wayne', 'John'),
-
 (13, 'von Trier', 'Lars'),
-
 (14, 'Tarantino', 'Quentin'),
-
 (15, 'Cronenberg', 'David'),
-
 (16, 'Mazursky', 'Paul'),
-
 (17, 'Jones', 'Grace'),
-
 (18, 'Glen', 'John');
+```
 
 Base film
-
+```sql
 (1, 15, 'Crash', 'Drame', 1996),
-
 (2, 15, 'Faux-Semblants', 'Epouvante', 1988),
-
 (3, 14, 'Pulp Fiction', 'Policier', 1994),
-
 (4, 13, 'Breaking the waves', 'Drame', 1996),
-
 (5, 13, 'Dogville', 'Drame', 2002),
-
 (6, 12, 'Alamo', 'Western', 1960),
-
 (7, 18, 'Dangereusement vôtre', 'Espionnage', 1985);
+```
 
 Base jouer
-
+```sql
 (1, 5, 'Grace'),
-
 (2, 5, 'Tom Edison'),
-
 (3, 4, 'Bess'),
-
 (4, 4, 'Jan'),
-
 (5, 3, 'Vincent Vega'),
-
 (6, 3, 'Jules Winnfield'),
-
 (7, 3, 'Butch Coolidge'),
-
 (8, 2, 'Beverly & Elliot Mantle'),
-
 (9, 1, 'James Ballard'),
-
 (10, 1, 'Helen Remington'),
-
 (11, 1, 'Gabrielle'),
-
 (4, 5, 'Chuck'),
-
 (16, 7, 'May Day'),
-
 (12, 7, 'agent007');
+```
 
 Base projection
-
+```sql
 (1, 1, '1996-05-07'),
-
 (1, 2, '1988-03-12'),
-
 (1, 4, '1996-08-02'),
-
 (1, 6, '1980-07-05'),
-
 (2, 2, '1990-09-25'),
-
 (2, 4, '1996-09-02'),
-
 (2, 4, '1996-12-02'),
-
 (2, 5, '2002-05-01'),
-
 (2, 5, '2002-05-02'),
-
 (2, 5, '2002-05-03'),
-
 (2, 7, '1985-05-09'),
-
 (2, 7, '1985-08-19'),
-
 (3, 3, '1994-11-05'),
-
 (3, 6, '1990-12-02'),
-
 (4, 3, '1994-04-08'),
-
 (4, 3, '1994-11-06'),
-
 (4, 6, '1960-11-09'),
-
 (4, 6, '2002-08-01');
+```
+
 
 Avec des commandes SQL faire les requêtes suivantes :
 
@@ -1013,25 +964,25 @@ Avec des commandes SQL faire les requêtes suivantes :
 
 **Aide** : ils se trouvent dans la base individu mais ils ont réalisé des films : dans la base film
 
-1. Quels sont les noms et prénoms des acteurs ?
+5 Quels sont les noms et prénoms des acteurs ?
 
 **Aide** : ils se trouvent dans la base individu mais ils sont dans la base jouer
 
-1. Quels sont les noms et prénoms des acteurs qui sont également réalisateurs ?
-1. Quels films (titres) ont été projetés en 2002 ?
-1. Donnez le titre des films réalisés par von Trier.
-1. Quels sont les réalisateurs qui ont réalisé des films d’épouvante et des films dramatiques ?
-1. Quels sont les titres des films où Nicole Kidman a joué un rôle et qui ont été projetés au cinéma Le Fontenelle ?
+6 Quels sont les noms et prénoms des acteurs qui sont également réalisateurs ?
+7 Quels films (titres) ont été projetés en 2002 ?
+8 Donnez le titre des films réalisés par von Trier.
+9 Quels sont les réalisateurs qui ont réalisé des films d’épouvante et des films dramatiques ?
+10 Quels sont les titres des films où Nicole Kidman a joué un rôle et qui ont été projetés au cinéma Le Fontenelle ?
 
 **Aide** : le #Num\_Ind de la base film correspond aux réalisateurs, les conditions doivent être mise dans une seule ligne
 
-1. Quels sont les individus qui n’ont pas joué dans des films dramatiques ?
-1. Quels sont les noms et prénoms des individus dont le prénom est à la fois celui d’un acteur et celui d’un réalisateur sans qu’il s’agisse de la même personne ?
+11 Quels sont les individus qui n’ont pas joué dans des films dramatiques ?
+12 Quels sont les noms et prénoms des individus dont le prénom est à la fois celui d’un acteur et celui d’un réalisateur sans qu’il s’agisse de la même personne ?
 
 **Aide** : utiliser AS ; différent : <>
 
-1. Quels acteurs a-t-on pu voir au cinéma Le Fontenelle depuis l’an 2000 ?
-1. Quels sont les films qui ont encore été à l’affiche 5 années après leur sortie ?
+13 Quels acteurs a-t-on pu voir au cinéma Le Fontenelle depuis l’an 2000 ?
+14 Quels sont les films qui ont encore été à l’affiche 5 années après leur sortie ?
 
 **Exercice n° 02 : La société canine Botoutou**
 
@@ -1041,11 +992,11 @@ La société canine BOTOUTOU répertorie les chiens de race et leurs classements
 1. Liste des différentes **races** représentées dans la société avec un **libellé** et un court **descriptif** pour chacune d’elles.
 1. Annuaire des **propriétaires** avec leurs **nom**, **adresse**, le **nom** de leurs chiens (une personne peut posséder un ou plusieurs chiens), ainsi que la **date** depuis laquelle ils les ont en leur possession (on ne considère que le dernier propriétaire d’un chien).
 1. Liste des **concours** de l’année écoulée avec la **ville d’accueil**, la **date**, le **nombre de chiens primés** et le **nombre total de candidats** (tous **n’étant pas forcément répertoriés** chez BOTOUTOU).
-1. ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.024.png)Palmarès de chaque chien comportant la liste des concours auxquels il a **participé**, le **classement** obtenu et son **âge** au moment du concours ; le palmarès d’un chien **n’est envoyé qu’au propriétaire** du chien en question.
+1. Palmarès de chaque chien comportant la liste des concours auxquels il a **participé**, le **classement** obtenu et son **âge** au moment du concours ; le palmarès d’un chien **n’est envoyé qu’au propriétaire** du chien en question.
 
 
 **Modèle conceptuel de données (MCD)**
-
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.024.png)
 1,n : 
 
 - 1 propriétaire peut avoir n chiens
@@ -1059,77 +1010,56 @@ La société canine BOTOUTOU répertorie les chiens de race et leurs classements
 - CONCOURS = {idConcours, ville, dates, nbPrimes, nbParticipants}
 - CHIEN = {idChien, #idProprio, #idRace, nom, date naissance, sexe, date acquis}
 - PARTICIPATION = {#idChien, #idConcours, classement}
-1. Donner le MPD (modèle physique de données)  
+
+1 Donner le MPD (modèle physique de données)  
 
 **Aide** : vous pouvez vous aider de <https://dbdiagram.io/>  
 
-1. Créez la base de données database.db et les tables décrites ci-dessus.
+2 Créez la base de données database.db et les tables décrites ci-dessus.
 
 **Aide** : si vous créer la base de données à partir de l’import de ce qui a été fait sur <https://dbdiagram.io/>  , la création de clés étrangères de fonctionne pas sur sqlite avec la même syntaxe que dans mysql. Il faudra donc créer les clés étrangères en modifiant chacune des tables dans l’onglet structure de la base de données. 
 
 Les tables contiennent les données suivantes :
 
 - Base RACE :
-
+```sql
 INSERT INTO `RACE` VALUES
-
 (1,"labrador", "blablabla"),
-
 (2,"carlin", "blablabla"),
-
 (3,"husky", "blablabla"),
-
 (4,"beagle", "blablabla"),
-
 (5,"bulldog", "blablabla");
+```
 
 Base PROPRIO :
-
+```sql
 INSERT INTO `PROPRIO` VALUES
-
 (1,"Nathan Barber", 'Place des Peupliers 3'),
-
 (2,"Scott Villarreal",'La condemène 78'),
-
 (3,"John Harris",'Rue du Général-Comman 26'),
-
 (4,"Oscar Paul",'Rue de la Scierie 1'),
-
 (5,"Merritt Garcia",'Rue de Condémines 22'),
-
 (6,"Marshall Mccoy",'Promenade des Pêcheurs 6'),
-
 (7,"Marsden Todd",'Av. Alsace Lorraine 20'),
-
 (8,"Alfonso Fuentes",'Vieille Rue 2'),
-
 (9,"Fritz Dennis",'Route de Varandin 9'),
-
 (10,"Tucker Patton", 'Route de Montancy 332');
+```
 
 Base CHIEN :
-
+```sql
 INSERT INTO `chiens` VALUES
-
 (1,1,3,"Brianna","2019-01-30","F","2019-06-26"),
-
 (2,3,1,"Hoyt","2019-02-12","M","2019-07-11"),
-
 (3,2,3,"Wendy","2019-02-17","F","2019-07-13"),
-
 (4,4,2,"Kelsie","2019-03-12","F","2019-07-13"),
-
 (5,4,4,"Jonas","2019-04-23","M","2019-08-10"),
-
 (6,10,2,"Yuri","2019-05-22","M","2019-08-18"),
-
 (7,5,1,"Indigo","2019-06-16","M","2019-08-19"),
-
 (8,8,5,"Kimberley","2019-06-16","F","2019-08-28"),
-
 (9,7,3,"Avye","2019-06-16","F","2017-01-30"),
-
 (10,1,5,"Bianca","2019-06-26","F","2018-01-30");
+```
 
 Base Concours :
 
