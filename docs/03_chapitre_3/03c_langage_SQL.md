@@ -47,7 +47,7 @@ Dans le logiciel utiliser précédemment, lorsqu’on crée une base de données
 
 ## <H2 STYLE="COLOR:BLUE;"><a name="_toc173365560"></a>**2. Création d’une base de données**</H2>
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365561"></a>**2.1. Création**</H3>
-<H3 STYLE="COLOR:red;">**Activité n° 1 : Création de la base**</H3> Créer la base de données film.db que l’on enregistre dans votre dossier DOCUMENTS
+**<H3 STYLE="COLOR:red;">Activité n° 1 : Création de la base**</H3> Créer la base de données film.db que l’on enregistre dans votre dossier DOCUMENTS
 
 Dans l’onglet exécuter le SQL :
 
@@ -55,14 +55,14 @@ Dans l’onglet exécuter le SQL :
 
 On peut alors taper le code.
 
-<H3 STYLE="COLOR:red;">**Activité n° 2 : Création d’une table**</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 2 : Création d’une table**</H3>
 ```sql
 CREATE TABLE realisateur
 ```
 
 On met la liste des champs en langage SQL entre parenthèses et on met **un point-virgule** à la fin pour pouvoir enchainer les requêtes éventuellement.
 
-<H3 STYLE="COLOR:red;">**Activité n° 3 : Création des différents champs**</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 3 : Création des différents champs**</H3>
 ```sql
 CREATE TABLE "realisateur" (
 "id_realisateur"	INT NOT NULL UNIQUE,
@@ -83,7 +83,7 @@ Vérifier que la table a bien été créée dans l’onglet structure de la base
 
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365562"></a>**2.2. Suppression**</H3>
 
-<H3 STYLE="COLOR:red;">**Activité n° 4 : Création de table**</H3> Création de la table film
+**<H3 STYLE="COLOR:red;">Activité n° 4 : Création de table**</H3> Création de la table film
 ```sql
 CREATE TABLE film (
 id_film INT NOT NULL,
@@ -95,13 +95,13 @@ titre_film VARCHAR(255) NOT NULL
 
 On note que les **guillemets sont optionnels**. Vérifier que la table a bien été créée.
 
-<H3 STYLE="COLOR:red;">**Activité n° 5 : Supprimer une table**</H3> Pour supprimer cette table, dans une nouvelle fenêtre SQL, on lance la requête :
+**<H3 STYLE="COLOR:red;">Activité n° 5 : Supprimer une table**</H3> Pour supprimer cette table, dans une nouvelle fenêtre SQL, on lance la requête :
 ```sql
 DROP TABLE film ;
 ```
 Vérifier que la table film a bien disparu.
 
-<H3 STYLE="COLOR:red;">**Activité n° 6 : Création de table**</H3> Création de la véritable table film
+**<H3 STYLE="COLOR:red;">Activité n° 6 : Création de table**</H3> Création de la véritable table film
 ```sql
 CREATE TABLE film
 (
@@ -134,7 +134,7 @@ Cliquer sur ouvrir un onglet
 
 ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.013.png){ width=50%; : .center }
 
-<H3 STYLE="COLOR:red;">**Activité n° 7 : Insertion de données**</H3> On utilise le mot clé INSERT INTO le nom de la table, puis entre parenthèses le nom des champs. On note ensuite les valeurs entre parenthèses après le mot clé VALUES.
+**<H3 STYLE="COLOR:red;">Activité n° 7 : Insertion de données**</H3> On utilise le mot clé INSERT INTO le nom de la table, puis entre parenthèses le nom des champs. On note ensuite les valeurs entre parenthèses après le mot clé VALUES.
 ```sql
 INSERT INTO realisateur
 (nom_realisateur, prenom_realisateur, date_naissance_realisateur, nationalite_realisateur)
@@ -157,7 +157,7 @@ Exécuter la requête et vérifier dans parcourir les données que l’enregistr
 
 ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.014.png){ width=50%; : .center }
 
-<H3 STYLE="COLOR:red;">**Activité n° 8 : Insertion de données**</H3> Insertion dans la table film, on écrit la requête suivante et on l’exécute :
+**<H3 STYLE="COLOR:red;">Activité n° 8 : Insertion de données**</H3> Insertion dans la table film, on écrit la requête suivante et on l’exécute :
 ```sql
 INSERT INTO film
 (titre_film, nationalite_film, genre_film)
@@ -177,7 +177,7 @@ La requête échoue de nouveau
 
  maintenant c’est la clé étrangère id\_realisateur qui n’a pas été trouvé dans la table réalisateur. En effet, id\_realisateur 44 n’existe pas dans cette table
 
-<H3 STYLE="COLOR:red;">**Activité n° 9 : Insertion générale de la table film**</H3> insérer et exécuter :
+**<H3 STYLE="COLOR:red;">Activité n° 9 : Insertion générale de la table film**</H3> insérer et exécuter :
 ```sql
 INSERT INTO film
 (titre_film, annee_film, id_realisateur_film, nationalite_film, genre_film)
@@ -212,13 +212,13 @@ VALUES
 
 **Remarque** : La double quote pour les apostrophes
 
-<H3 STYLE="COLOR:red;">**Activité n° 10 :** Enregistrer dans vos DOCUMENTS</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 10 :** Enregistrer dans vos DOCUMENTS</H3>
 
 ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.015.png){ width=50%; : .center }
 
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365565"></a>**3.2. Suppression**</H3>
 
-<H3 STYLE="COLOR:red;">**Activité n° 11 : Ajout et suppression d’une donnée**</H3> Exécuter la requête suivante
+**<H3 STYLE="COLOR:red;">Activité n° 11 : Ajout et suppression d’une donnée**</H3> Exécuter la requête suivante
 ```sql
 INSERT INTO film
 (titre_film, annee_film, id_realisateur_film, nationalite_film, genre_film)
@@ -236,7 +236,7 @@ Vérifier ensuite que le film a bien été supprimé
 ## <H2 STYLE="COLOR:BLUE;"><a name="_toc173365566"></a>**4. Interrogation de la base de données**</H2>
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365567"></a>**4.1. Affichage simple**</H3>
 
-<H3 STYLE="COLOR:red;">**Activité n° 12 : Affichage par numéro**</H3> Faire afficher le titre, l’année et la nationalité d’un film en particulier connaissant son id : Exécuter 
+**<H3 STYLE="COLOR:red;">Activité n° 12 : Affichage par numéro**</H3> Faire afficher le titre, l’année et la nationalité d’un film en particulier connaissant son id : Exécuter 
 ```sql
 SELECT titre_film, annee_film, nationalite_film
 FROM film
@@ -244,7 +244,7 @@ WHERE id_film = 14;
 ```
 On voit qu’il s’affiche le film 14 avec les champs demandés
 
-<H3 STYLE="COLOR:red;">**Activité n° 13 : Affichage par intervalle de nombres**</H3> Faire afficher l’id, le titre, l’année et la nationalité de plusieurs films en particulier : Exécuter 
+**<H3 STYLE="COLOR:red;">Activité n° 13 : Affichage par intervalle de nombres**</H3> Faire afficher l’id, le titre, l’année et la nationalité de plusieurs films en particulier : Exécuter 
 ```sql
 SELECT id_film, titre_film, annee_film, nationalite_film
 FROM film
@@ -252,7 +252,7 @@ WHERE id_film > 14;
 ```
 On voit qu’il s’affiche les films dont l’id est supérieur 14 avec les champs demandés
 
-<H3 STYLE="COLOR:red;">**Activité n° 14 : Affichage par numéro**</H3> Faire afficher l’id, le titre, l’année et la nationalité d’un film en particulier connaissant son année : Exécuter 
+**<H3 STYLE="COLOR:red;">Activité n° 14 : Affichage par numéro**</H3> Faire afficher l’id, le titre, l’année et la nationalité d’un film en particulier connaissant son année : Exécuter 
 ```sql
 SELECT id_film, titre_film, annee_film, nationalite_film
 FROM film
@@ -260,7 +260,7 @@ WHERE annee_film = 2019;
 ```
 On voit qu’il s’affiche le film sorti en 2019 avec les champs demandés
 
-<H3 STYLE="COLOR:red;">**Activité n° 15 : Affichage par intervalle de nombres**</H3> Faire afficher l’id, le titre, l’année et la nationalité de films avec des intervalles d’années : Exécuter 
+**<H3 STYLE="COLOR:red;">Activité n° 15 : Affichage par intervalle de nombres**</H3> Faire afficher l’id, le titre, l’année et la nationalité de films avec des intervalles d’années : Exécuter 
 ```sql
 SELECT id_film, titre_film, annee_film, nationalite_film
 FROM film
@@ -270,7 +270,7 @@ On voit qu’il s’affiche les films sortis entre 2010 et 2020 avec les champs 
 
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365568"></a>**4.2. Affichage et tri ascendant**</H3>
 
-<H3 STYLE="COLOR:red;">**Activité n° 16 : Affichage par intervalle de nombres trié avec un critère**</H3> Faire afficher l’id, le titre, l’année et la nationalité de films avec des intervalles d’années et triés par année : Exécuter 
+**<H3 STYLE="COLOR:red;">Activité n° 16 : Affichage par intervalle de nombres trié avec un critère**</H3> Faire afficher l’id, le titre, l’année et la nationalité de films avec des intervalles d’années et triés par année : Exécuter 
 ```sql
 SELECT id_film, titre_film, annee_film, nationalite_film
 FROM film
@@ -279,7 +279,7 @@ ORDER BY annee_film;
 ```
 On voit qu’il s’affiche les films sortis entre 2010 et 2020 avec les champs demandés triés par année croissante.On peut rajouter si nécessaire ASC.
 
-<H3 STYLE="COLOR:red;">**Activité n° 17 : Affichage par intervalle de nombres trié avec plusieurs critères**</H3> Faire afficher l’id, le titre, l’année et la nationalité de films avec des intervalles d’années et triés par année PUIS par ordre alphabétique de titre : Exécuter 
+**<H3 STYLE="COLOR:red;">Activité n° 17 : Affichage par intervalle de nombres trié avec plusieurs critères**</H3> Faire afficher l’id, le titre, l’année et la nationalité de films avec des intervalles d’années et triés par année PUIS par ordre alphabétique de titre : Exécuter 
 ```sql
 SELECT id_film, titre_film, annee_film, nationalite_film
 FROM film
@@ -290,7 +290,7 @@ On voit qu’il s’affiche les films sortis entre 2010 et 2020 avec les champs 
 
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365569"></a>**4.3. Affichage avec partie d’une chaine de caractère**</H3>
 
-<H3 STYLE="COLOR:red;">**Activité n° 18 : Affichage par chaine de caractères**</H3> Faire afficher l’id, le titre, l’année et la nationalité de films avec un titre en particulier : Exécuter 
+**<H3 STYLE="COLOR:red;">Activité n° 18 : Affichage par chaine de caractères**</H3> Faire afficher l’id, le titre, l’année et la nationalité de films avec un titre en particulier : Exécuter 
 ```sql
 SELECT id_film, titre_film, annee_film, nationalite_film
 FROM film
@@ -300,7 +300,7 @@ On voit qu’il s’affiche le film wargames.
 
  Par contre, il faut indiquer le titre exact.
 
-<H3 STYLE="COLOR:red;">**Activité n° 19 : Affichage par morceau de chaine de caractères**</H3> Faire afficher l’id, le titre, l’année et la nationalité de films avec un titre comportant des mots en particulier : Exécuter 
+**<H3 STYLE="COLOR:red;">Activité n° 19 : Affichage par morceau de chaine de caractères**</H3> Faire afficher l’id, le titre, l’année et la nationalité de films avec un titre comportant des mots en particulier : Exécuter 
 ```sql
 SELECT id_film, titre_film, annee_film, nationalite_film
 FROM film
@@ -328,7 +328,7 @@ Dans le logiciel utiliser précédemment, lorsqu’on crée une base de données
 
 ## <H2 STYLE="COLOR:BLUE;"><a name="_toc173365560"></a>**2. Création d’une base de données**</H2>
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365561"></a>**2.1. Création**</H3>
-<H3 STYLE="COLOR:red;">**Activité n° 1 : Création de la base**</H3> Créer la base de données film.db que l’on enregistre dans votre dossier DOCUMENTS
+**<H3 STYLE="COLOR:red;">Activité n° 1 : Création de la base**</H3> Créer la base de données film.db que l’on enregistre dans votre dossier DOCUMENTS
 
 Dans l’onglet exécuter le SQL :
 
@@ -336,14 +336,14 @@ Dans l’onglet exécuter le SQL :
 
 On peut alors taper le code.
 
-<H3 STYLE="COLOR:red;">**Activité n° 2 : Création d’une table**</H3> 
+**<H3 STYLE="COLOR:red;">Activité n° 2 : Création d’une table**</H3> 
 ```sql
 CREATE TABLE realisateur
 ```
 
 On met la liste des champs en langage SQL entre parenthèses et on met **un point-virgule** à la fin pour pouvoir enchainer les requêtes éventuellement.
 
-<H3 STYLE="COLOR:red;">**Activité n° 3 : Création des différents champs**</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 3 : Création des différents champs**</H3>
 ```sql
 CREATE TABLE "realisateur" (
 "id_realisateur"	INT NOT NULL UNIQUE,
@@ -364,7 +364,7 @@ Vérifier que la table a bien été créée dans l’onglet structure de la base
 
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365562"></a>**2.2. Suppression**</H3>
 
-<H3 STYLE="COLOR:red;">**Activité n° 4 : Création de table**</H3> Création de la table film
+**<H3 STYLE="COLOR:red;">Activité n° 4 : Création de table**</H3> Création de la table film
 ```sql
 CREATE TABLE film (
 id_film INT NOT NULL,
@@ -376,13 +376,13 @@ titre_film VARCHAR(255) NOT NULL
 
 On note que les **guillemets sont optionnels**. Vérifier que la table a bien été créée.
 
-<H3 STYLE="COLOR:red;">**Activité n° 5 : Supprimer une table**</H3> Pour supprimer cette table, dans une nouvelle fenêtre SQL, on lance la requête :
+**<H3 STYLE="COLOR:red;">Activité n° 5 : Supprimer une table**</H3> Pour supprimer cette table, dans une nouvelle fenêtre SQL, on lance la requête :
 ```sql
 DROP TABLE film ;
 ```
 Vérifier que la table film a bien disparu.
 
-<H3 STYLE="COLOR:red;">**Activité n° 6 : Création de table**</H3> Création de la véritable table film
+**<H3 STYLE="COLOR:red;">Activité n° 6 : Création de table**</H3> Création de la véritable table film
 ```sql
 CREATE TABLE film
 (
@@ -415,7 +415,7 @@ Cliquer sur ouvrir un onglet
 
 ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.013.png){ width=50%; : .center }
 
-<H3 STYLE="COLOR:red;">**Activité n° 7 : Insertion de données**</H3> On utilise le mot clé INSERT INTO le nom de la table, puis entre parenthèses le nom des champs. On note ensuite les valeurs entre parenthèses après le mot clé VALUES.
+**<H3 STYLE="COLOR:red;">Activité n° 7 : Insertion de données**</H3> On utilise le mot clé INSERT INTO le nom de la table, puis entre parenthèses le nom des champs. On note ensuite les valeurs entre parenthèses après le mot clé VALUES.
 ```sql
 INSERT INTO realisateur
 (nom_realisateur, prenom_realisateur, date_naissance_realisateur, nationalite_realisateur)
@@ -438,7 +438,7 @@ Exécuter la requête et vérifier dans parcourir les données que l’enregistr
 
 ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.014.png){ width=50%; : .center }
 
-<H3 STYLE="COLOR:red;">**Activité n° 8 : Insertion de données**</H3> Insertion dans la table film, on écrit la requête suivante et on l’exécute :
+**<H3 STYLE="COLOR:red;">Activité n° 8 : Insertion de données**</H3> Insertion dans la table film, on écrit la requête suivante et on l’exécute :
 ```sql
 INSERT INTO film
 (titre_film, nationalite_film, genre_film)
@@ -458,7 +458,7 @@ La requête échoue de nouveau maintenant c’est la clé étrangère id\_re
 
 alisateur qui n’a pas été trouvé dans la table réalisateur. En effet, id\_realisateur 44 n’existe pas dans cette table.
 
-<H3 STYLE="COLOR:red;">**Activité n° 9 : Insertion générale de la table film**</H3> insérer et exécuter :
+**<H3 STYLE="COLOR:red;">Activité n° 9 : Insertion générale de la table film**</H3> insérer et exécuter :
 ```sql
 INSERT INTO film
 (titre_film, annee_film, id_realisateur_film, nationalite_film, genre_film)
@@ -493,13 +493,13 @@ VALUES
 
 **Remarque** : La double quote pour les apostrophes
 
-<H3 STYLE="COLOR:red;">**Activité n° 10**</H3> Enregistrer dans vos DOCUMENTS
+**<H3 STYLE="COLOR:red;">Activité n° 10**</H3> Enregistrer dans vos DOCUMENTS
 
 ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.015.png){ width=50%; : .center }
 
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365565"></a>**3.2. Suppression**</H3>
 
-<H3 STYLE="COLOR:red;">**Activité n° 11 : Ajout et suppression d’une donnée**</H3> Exécuter la requête suivante
+**<H3 STYLE="COLOR:red;">Activité n° 11 : Ajout et suppression d’une donnée**</H3> Exécuter la requête suivante
 ```sql
 INSERT INTO film
 (titre_film, annee_film, id_realisateur_film, nationalite_film, genre_film)
@@ -517,7 +517,7 @@ Vérifier ensuite que le film a bien été supprimé.
 ## <H2 STYLE="COLOR:BLUE;"><a name="_toc173365566"></a>**4. Interrogation de la base de données**</H2>
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365567"></a>**4.1. Affichage simple**</H3>
 
-<H3 STYLE="COLOR:red;">**Activité n° 12 : Affichage par numéro**</H3> Faire afficher le titre, l’année et la nationalité d’un film en particulier connaissant son id : Exécuter 
+**<H3 STYLE="COLOR:red;">Activité n° 12 : Affichage par numéro**</H3> Faire afficher le titre, l’année et la nationalité d’un film en particulier connaissant son id : Exécuter 
 ```sql
 SELECT titre_film, annee_film, nationalite_film
 FROM film
@@ -525,7 +525,7 @@ WHERE id_film = 14;
 ```
 On voit qu’il s’affiche le film 14 avec les champs demandés.
 
-<H3 STYLE="COLOR:red;">**Activité n° 13 : Affichage par intervalle de nombres**</H3> Faire afficher l’id, le titre, l’année et la nationalité de plusieurs films en particulier : Exécuter 
+**<H3 STYLE="COLOR:red;">Activité n° 13 : Affichage par intervalle de nombres**</H3> Faire afficher l’id, le titre, l’année et la nationalité de plusieurs films en particulier : Exécuter 
 ```sql
 SELECT id_film, titre_film, annee_film, nationalite_film
 FROM film
@@ -533,7 +533,7 @@ WHERE id_film > 14;
 ```
 On voit qu’il s’affiche les films dont l’id est supérieur 14 avec les champs demandés.
 
-<H3 STYLE="COLOR:red;">**Activité n° 14 : Affichage par numéro**</H3> Faire afficher l’id, le titre, l’année et la nationalité d’un film en particulier connaissant son année : Exécuter 
+**<H3 STYLE="COLOR:red;">Activité n° 14 : Affichage par numéro**</H3> Faire afficher l’id, le titre, l’année et la nationalité d’un film en particulier connaissant son année : Exécuter 
 ```sql
 SELECT id_film, titre_film, annee_film, nationalite_film
 FROM film
@@ -541,7 +541,7 @@ WHERE annee_film = 2019;
 ```
 On voit qu’il s’affiche le film sorti en 2019 avec les champs demandés.
 
-<H3 STYLE="COLOR:red;">**Activité n° 15 : Affichage par intervalle de nombres**</H3> Faire afficher l’id, le titre, l’année et la nationalité de films avec des intervalles d’années : Exécuter 
+**<H3 STYLE="COLOR:red;">Activité n° 15 : Affichage par intervalle de nombres**</H3> Faire afficher l’id, le titre, l’année et la nationalité de films avec des intervalles d’années : Exécuter 
 ```sql
 SELECT id_film, titre_film, annee_film, nationalite_film
 FROM film
@@ -551,7 +551,7 @@ On voit qu’il s’affiche les films sortis entre 2010 et 2020 avec les champs 
 
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365568"></a>**4.2. Affichage et tri ascendant**</H3>
 
-<H3 STYLE="COLOR:red;">**Activité n° 16 : Affichage par intervalle de nombres trié avec un critère**</H3> Faire afficher l’id, le titre, l’année et la nationalité de films avec des intervalles d’années et triés par année : Exécuter 
+**<H3 STYLE="COLOR:red;">Activité n° 16 : Affichage par intervalle de nombres trié avec un critère**</H3> Faire afficher l’id, le titre, l’année et la nationalité de films avec des intervalles d’années et triés par année : Exécuter 
 ```sql
 SELECT id_film, titre_film, annee_film, nationalite_film
 FROM film
@@ -560,7 +560,7 @@ ORDER BY annee_film;
 ```
 On voit qu’il s’affiche les films sortis entre 2010 et 2020 avec les champs demandés triés par année croissante.On peut rajouter si nécessaire ASC.
 
-<H3 STYLE="COLOR:red;">**Activité n° 17 : Affichage par intervalle de nombres trié avec plusieurs critères**</H3> Faire afficher l’id, le titre, l’année et la nationalité de films avec des intervalles d’années et triés par année PUIS par ordre alphabétique de titre : Exécuter 
+**<H3 STYLE="COLOR:red;">Activité n° 17 : Affichage par intervalle de nombres trié avec plusieurs critères**</H3> Faire afficher l’id, le titre, l’année et la nationalité de films avec des intervalles d’années et triés par année PUIS par ordre alphabétique de titre : Exécuter 
 ```sql
 SELECT id_film, titre_film, annee_film, nationalite_film
 FROM film
@@ -571,7 +571,7 @@ On voit qu’il s’affiche les films sortis entre 2010 et 2020 avec les champs 
 
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365569"></a>**4.3. Affichage avec partie d’une chaine de caractère**</H3>
 
-<H3 STYLE="COLOR:red;">**Activité n° 18 : Affichage par chaine de caractères**</H3> Faire afficher l’id, le titre, l’année et la nationalité de films avec un titre en particulier : Exécuter 
+**<H3 STYLE="COLOR:red;">Activité n° 18 : Affichage par chaine de caractères**</H3> Faire afficher l’id, le titre, l’année et la nationalité de films avec un titre en particulier : Exécuter 
 ```sql
 SELECT id_film, titre_film, annee_film, nationalite_film
 FROM film
@@ -581,7 +581,7 @@ On voit qu’il s’affiche le film wargames. Par contre, il faut indiquer le ti
 
 
 
-<H3 STYLE="COLOR:red;">**Activité n° 19 : Affichage par morceau de chaine de caractères**</H3> Faire afficher l’id, le titre, l’année et la nationalité de films avec un titre comportant des mots en particulier : Exécuter 
+**<H3 STYLE="COLOR:red;">Activité n° 19 : Affichage par morceau de chaine de caractères**</H3> Faire afficher l’id, le titre, l’année et la nationalité de films avec un titre comportant des mots en particulier : Exécuter 
 ```sql
 SELECT id_film, titre_film, annee_film, nationalite_film
 FROM film
@@ -591,7 +591,7 @@ On voit qu’il s’affiche tous les films Star Wars. Le % permet d’indiquer o
 
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365570"></a>**4.4. Affichage avec une condition OU une autre**</H3>
 
-<H3 STYLE="COLOR:red;">**Activité n° 20 : Affichage par deux conditions**</H3> Faire afficher l’id, le titre, l’année et la nationalité de films avec une année en particulier OU un genre : Exécuter 
+**<H3 STYLE="COLOR:red;">Activité n° 20 : Affichage par deux conditions**</H3> Faire afficher l’id, le titre, l’année et la nationalité de films avec une année en particulier OU un genre : Exécuter 
 ```sql
 SELECT id_film, titre_film, annee_film, nationalite_film
 FROM film
@@ -601,7 +601,7 @@ On voit qu’il s’affiche le film wargames. Par contre, il faut indiquer le ti
 
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365571"></a>**4.5. Affichage avec critère dans une liste**</H3>
 
-<H3 STYLE="COLOR:red;">**Activité n° 21 : Affichage par plusieurs conditions**</H3> Faire afficher l’id, le titre, l’année et la nationalité de films avec plusieurs genres différents : Exécuter 
+**<H3 STYLE="COLOR:red;">Activité n° 21 : Affichage par plusieurs conditions**</H3> Faire afficher l’id, le titre, l’année et la nationalité de films avec plusieurs genres différents : Exécuter 
 ```sql
 SELECT id_film, titre_film, annee_film, nationalite_film
 FROM film
@@ -609,7 +609,7 @@ WHERE genre_film IN ('Science fiction', 'Policier');
 ```
 On voit qu’il s’affiche l’ensemble des films de science-fiction et les policiers
 
-<H3 STYLE="COLOR:red;">**Activité n° 22 : Affichage sans plusieurs conditions**</H3> Faire afficher l’id, le titre, l’année et la nationalité de films SANS plusieurs genres différents : Exécuter 
+**<H3 STYLE="COLOR:red;">Activité n° 22 : Affichage sans plusieurs conditions**</H3> Faire afficher l’id, le titre, l’année et la nationalité de films SANS plusieurs genres différents : Exécuter 
 ```sql
 SELECT id_film, titre_film, annee_film, nationalite_film
 FROM film
@@ -617,7 +617,7 @@ WHERE genre_film NOT IN ('Science fiction', 'Policier');
 ```
 On voit qu’il s’affiche l’ensemble des films sauf ceux de science-fiction et les policiers
 
-<H3 STYLE="COLOR:red;">**Activité n° 23 : Affichage sans plusieurs conditions avec un limite en nombre de sorties**</H3> Si le nombre de ligne est très important pour ne pas surcharger la mémoire de l’ordinateur : Executer
+**<H3 STYLE="COLOR:red;">Activité n° 23 : Affichage sans plusieurs conditions avec un limite en nombre de sorties**</H3> Si le nombre de ligne est très important pour ne pas surcharger la mémoire de l’ordinateur : Executer
 ```sql
 SELECT id_film, titre_film, annee_film, nationalite_film
 FROM film
@@ -628,7 +628,7 @@ On voit qu’il s’affiche la même liste que la précédente mais seulement le
 
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365572"></a>**4.6. Affichage et tri descendant**</H3>
 
-<H3 STYLE="COLOR:red;">**Activité n° 24 : Affichage sans plusieurs conditions trié descendant**</H3> Pour trier la liste précédente par année de la plus proche à la plus lointaine : Exécuter
+**<H3 STYLE="COLOR:red;">Activité n° 24 : Affichage sans plusieurs conditions trié descendant**</H3> Pour trier la liste précédente par année de la plus proche à la plus lointaine : Exécuter
 ```sql
 SELECT id_film, titre_film, annee_film, nationalite_film
 FROM film
@@ -639,7 +639,7 @@ On voit qu’il s’affiche la liste de tous les films sauf ceux de science fict
 
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365573"></a>**4.7. Affichage avec concaténation de deux chaines de caractères**</H3>
 
-<H3 STYLE="COLOR:red;">**Activité n° 25 : Affichage avec concaténation et nommage d’attribut**</H3> Afficher le prénom et le nom des réalisateur : Exécuter
+**<H3 STYLE="COLOR:red;">Activité n° 25 : Affichage avec concaténation et nommage d’attribut**</H3> Afficher le prénom et le nom des réalisateur : Exécuter
 ```sql
 SELECT prenom_realisateur || ' ' || nom_realisateur AS Prenom_Nom
 FROM realisateur;
@@ -649,7 +649,7 @@ On obtient tous les réalisateurs avec leur prénom et leur nom mais dans la mê
 
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365574"></a>**4.8. Affichage avec deux requêtes**</H3>
 
-<H3 STYLE="COLOR:red;">**Activité n° 26 : Affichage de morceau de chaine de caractères sur deux tables**</H3> Afficher la nationalité du réalisateur dont le nom commence par L ET la nationalité du (des) film commence par S : Exécuter
+**<H3 STYLE="COLOR:red;">Activité n° 26 : Affichage de morceau de chaine de caractères sur deux tables**</H3> Afficher la nationalité du réalisateur dont le nom commence par L ET la nationalité du (des) film commence par S : Exécuter
 ```sql
 SELECT nationalite_realisateur AS nationalite
 FROM realisateur
@@ -663,14 +663,14 @@ Il s’agit de Lucas George qui est des états unis et les Star Wars sont des Et
 
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365575"></a>**4.9. Affichage et comptage**</H3>
 
-<H3 STYLE="COLOR:red;">**Activité n° 27 : Afficher et compter**</H3> Compter le nombre de réalisateurs : Exécuter
+**<H3 STYLE="COLOR:red;">Activité n° 27 : Afficher et compter**</H3> Compter le nombre de réalisateurs : Exécuter
 ```sql
 SELECT COUNT(id_realisateur)
 FROM realisateur;
 ```
 Il y a bien 11 réalisateurs dans la table.
 
-<H3 STYLE="COLOR:red;">**Activité n° 28 : Afficher et compter**</H3> Compter le nombre de réalisateurs dont le nom commence par la lettre L : Exécuter
+**<H3 STYLE="COLOR:red;">Activité n° 28 : Afficher et compter**</H3> Compter le nombre de réalisateurs dont le nom commence par la lettre L : Exécuter
 
 ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.016.png){ width=30%; : .center }
 
@@ -681,7 +681,7 @@ WHERE nom_realisateur LIKE 'L%' ;
 ```
 Il y en a 2 : Lumet et Lucas.
 
-<H3 STYLE="COLOR:red;">**Activité n° 29 : Afficher, sommer**</H3> Supposons que l’on ait une colonne avec le nombre de films de chaque réalisateur avec un attribut … si on veut faire la somme :
+**<H3 STYLE="COLOR:red;">Activité n° 29 : Afficher, sommer**</H3> Supposons que l’on ait une colonne avec le nombre de films de chaque réalisateur avec un attribut … si on veut faire la somme :
 ```sql
 /* on ne pourra pas le faire ici */
 SELECT SUM(….)
@@ -689,7 +689,7 @@ FROM realisateur;
 ```
 On peut évidemment rajouter une condition avec le mot clé WHERE.
 
-<H3 STYLE="COLOR:red;">**Activité n° 30 : Afficher, moyenne**</H3> De la même manière on peut vouloir faire la moyenne
+**<H3 STYLE="COLOR:red;">Activité n° 30 : Afficher, moyenne**</H3> De la même manière on peut vouloir faire la moyenne
 ```sql
 /* on ne pourra pas le faire ici */
 SELECT AVG(…)
@@ -700,7 +700,7 @@ On peut aussi chercher le maximum ou le minimum avec les fonctions **MAX** et **
 
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365576"></a>**4.10. Afficher tous les champs**</H3>
 
-<H3 STYLE="COLOR:red;">**Activité n° 31 : Afficher tous les champs**</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 31 : Afficher tous les champs**</H3>
 Exécuter :
 ```sql
 SELECT *
@@ -718,7 +718,7 @@ FROM film;
 
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365579"></a>**5.2. Requête pour ajouter un attribut**</H3>
 
-<H3 STYLE="COLOR:red;">**Activité n° 32 : Ajouter un attribut à une table existante**</H3> Ajouter l’attribut nbfilms\_realisateur à la table realisateur. Exécuter
+**<H3 STYLE="COLOR:red;">Activité n° 32 : Ajouter un attribut à une table existante**</H3> Ajouter l’attribut nbfilms\_realisateur à la table realisateur. Exécuter
 ```sql
 ALTER TABLE realisateur
 ADD COLUMN nbfilms_realisateur INTEGER;
@@ -729,7 +729,7 @@ ADD COLUMN nbfilms_realisateur INTEGER;
 
 Vérifier dans la table realisateur qu’il y a une colonne de plus. Par contre, la colonne est complètement nulle.
 
-<H3 STYLE="COLOR:red;">**Activité n° 33 : Modifier une donnée d’une table**</H3> Transformer le nom de la national
+**<H3 STYLE="COLOR:red;">Activité n° 33 : Modifier une donnée d’une table**</H3> Transformer le nom de la national
 
 ité de Lumet en Royaume-Uni. Exécuter
 ```sql
@@ -749,7 +749,7 @@ SET nationalite_realisateur = 'Etats-Unis'
 WHERE nom_realisateur = 'Lumet';
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 34 : Ajouter des données d’une table**</H3> Ajouter le nombre de films à chaque réalisateur. Exécuter
+**<H3 STYLE="COLOR:red;">Activité n° 34 : Ajouter des données d’une table**</H3> Ajouter le nombre de films à chaque réalisateur. Exécuter
 ```sql
 UPDATE realisateur
 SET nbfilms_realisateur = 1
@@ -761,7 +761,7 @@ Tous les réalisateurs dont la nationalité est Etats-Unis ont un nombre de film
  
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365580"></a>**5.3. Requête de modification**</H3>
 
-<H3 STYLE="COLOR:red;">**Activité n° 35 : Modifier plusieurs champs en même temps**</H3> Modifier le nombre de film et la nationalité du réalisateur. Exécuter
+**<H3 STYLE="COLOR:red;">Activité n° 35 : Modifier plusieurs champs en même temps**</H3> Modifier le nombre de film et la nationalité du réalisateur. Exécuter
 ```sql
 UPDATE realisateur
 SET nbfilms_realisateur = 2, nationalite_realisateur = 'USA'
@@ -770,7 +770,7 @@ WHERE nationalite_realisateur = 'Etats-Unis';
 
 Les réalisateurs qui avaient pour nationalité Etats-Unis ont eu le nombre de films modifié et la nationalité aussi. Vérifier.
  
-<H3 STYLE="COLOR:red;">**Activité n° 36 : Création de table**</H3> Création de la table nationalité
+**<H3 STYLE="COLOR:red;">Activité n° 36 : Création de table**</H3> Création de la table nationalité
 ```sql
 CREATE TABLE nationalite (
 id_nationalite INT NOT NULL,
@@ -784,21 +784,21 @@ Vérifier que la table est créée.
  
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365581"></a>**5.4. Mise en place d’un id**</H3>
 
-<H3 STYLE="COLOR:red;">**Activité n° 37 : Afficher**</H3> Afficher la nationalité des films : Exécuter
+**<H3 STYLE="COLOR:red;">Activité n° 37 : Afficher**</H3> Afficher la nationalité des films : Exécuter
 ```sql
 SELECT nationalite_film
 FROM film;
 ```
 Il y a beaucoup de doublons !! Il faut les éliminer.
 
-<H3 STYLE="COLOR:red;">**Activité n° 38 : Afficher seulement ceux qui sont différents**</H3> Afficher les différentes nationalités des films : 
+**<H3 STYLE="COLOR:red;">Activité n° 38 : Afficher seulement ceux qui sont différents**</H3> Afficher les différentes nationalités des films : 
 ```sql
 SELECT DISTINCT nationalite_film
 FROM film;
 ```
 **DISTINCT** permet de n’afficher que les valeurs différentes.
 
-<H3 STYLE="COLOR:red;">**Activité n° 39 : Insertion de données extraites d’une table dans une autre**</H3> Exécuter la requête suivante
+**<H3 STYLE="COLOR:red;">Activité n° 39 : Insertion de données extraites d’une table dans une autre**</H3> Exécuter la requête suivante
 ```sql
 INSERT INTO nationalite
 (nom_nationalite)
@@ -807,13 +807,13 @@ FROM film ;
 ```
 On met à jour la table nationalite avec les nationalités de la table film afin de pourvoir éliminer les doublons de la table film. Vérifier qu’il y a bien les trois nationalités dans la table nationalite.
 
-<H3 STYLE="COLOR:red;">**Activité n° 40 : Ajouter un attribut à une table existante**</H3> Ajouter l’attribut id\_nationalite\_film à la table film. 
+**<H3 STYLE="COLOR:red;">Activité n° 40 : Ajouter un attribut à une table existante**</H3> Ajouter l’attribut id\_nationalite\_film à la table film. 
 ```sql
 ALTER TABLE film
 ADD COLUMN id_nationalite_film INTEGER;
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 41 : Alimenter un attribut d’une table grace à une autre**</H3> Ajouter l’attribut id\_nationalite\_film à la table film. Exécuter
+**<H3 STYLE="COLOR:red;">Activité n° 41 : Alimenter un attribut d’une table grace à une autre**</H3> Ajouter l’attribut id\_nationalite\_film à la table film. Exécuter
 ```sql
 UPDATE film
 SET id_nationalite_film = (
@@ -824,7 +824,7 @@ WHERE film.nationalite_film = nationalite.nom_nationalite
 ```
 On met à jour le champ id\_nationalite\_film de la table film avec la table nationalite. Après le SET id\_nationalite\_film il faut ensuite aller chercher le id\_nationalite de la table nationalite. Le SELECT permet d’aller chercher le id\_nationalite dans la table nationalite pour le mettre dans la table film. La condition sera de telle sorte que le nom de la nationalité correspond à la nationalité du film. Pour cela, on note film.\_\_\_ pour dire que l’on va chercher le champ dans la table film. Cette nationalité dans la table film doit être égale à la nationalité dans la table nationalite d’où le nationalite.\_\_\_. Vérifier que l’id\_nationalite\_film de la table film est bien rempli.
 
-<H3 STYLE="COLOR:red;">**Activité n° 42 : Supprimer un attribut**</H3> Il suffit à présent de supprimer l’attribut en trop. 
+**<H3 STYLE="COLOR:red;">Activité n° 42 : Supprimer un attribut**</H3> Il suffit à présent de supprimer l’attribut en trop. 
 ```sql
 ALTER TABLE film
 DROP COLUMN nationalite_film;
@@ -832,7 +832,7 @@ DROP COLUMN nationalite_film;
  
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365582"></a>**5.5. Mise en majuscule d’un attribut**</H3>
 
-<H3 STYLE="COLOR:red;">**Activité n° 43 : Mise en majuscule d’un attribut**</H3> Modifier le nom du réalisateur en le passant en majuscule. 
+**<H3 STYLE="COLOR:red;">Activité n° 43 : Mise en majuscule d’un attribut**</H3> Modifier le nom du réalisateur en le passant en majuscule. 
 ```sql
 UPDATE realisateur
 SET nom_realisateur = UPPER(nom_realisateur)
@@ -843,7 +843,7 @@ WHERE nationalite_realisateur = 'USA';
 
 On peut aussi seulement afficher un attribut en le mettant en majuscule, on écrira alors SELECT UPPER(champ) FROM nom\_table.
 
-<H3 STYLE="COLOR:red;">**Activité n° 44 : Mise en majuscule/minuscule d’un attribut**</H3> Modifier le nom du réalisateur en le passant première lettre en majuscule et le reste en minuscule. Exécuter
+**<H3 STYLE="COLOR:red;">Activité n° 44 : Mise en majuscule/minuscule d’un attribut**</H3> Modifier le nom du réalisateur en le passant première lettre en majuscule et le reste en minuscule. Exécuter
 ```sql
 UPDATE realisateur
 SET nom_realisateur = UPPER(SUBSTR(nom_realisateur, 1, 1)) || LOWER(SUBSTR(nom_realisateur,2));
@@ -873,7 +873,7 @@ Schéma relationnel : **Modèle physique de données (MPD)**
 
 La table film est reliée à trois autres tables via des clés étrangères. Lors d’une requête, on veut parfois afficher le nom du film et le nom du réalisateur ou le genre du film : il faut donc afficher des informations issues de une, deux, trois ou plusieurs tables qui sont liées entre elles. Il faut effectuer une jointure et préciser à l’aide des mots clés INNER JOIN ou JOIN à quelle table la table film doit être reliée.
 
-<H3 STYLE="COLOR:red;">**Activité n° 45 : Mise à jour de la table pour correspondre au schéma relationnel**</H3> On va créer la nouvelle table genre et la clé id\_genre\_film de la table film et la clé id\_nationalite\_realisateur de la table realisateur
+**<H3 STYLE="COLOR:red;">Activité n° 45 : Mise à jour de la table pour correspondre au schéma relationnel**</H3> On va créer la nouvelle table genre et la clé id\_genre\_film de la table film et la clé id\_nationalite\_realisateur de la table realisateur
 ```sql
 /* modification de la table realisateur de nouveau */
 UPDATE realisateur
@@ -937,7 +937,7 @@ Vérifier que la table genre est bien remplie.
  
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365586"></a>**6.3. Requêtes de sélection avec jointures**</H3>
 
-<H3 STYLE="COLOR:red;">**Activité n° 46 : Faire afficher le titre du film avec son genre provenant de deux tables**</H3> Exécuter
+**<H3 STYLE="COLOR:red;">Activité n° 46 : Faire afficher le titre du film avec son genre provenant de deux tables**</H3> Exécuter
 ```sql
 SELECT titre_film, 
 nom_genre AS genre_film
@@ -952,7 +952,7 @@ On obtient bien le nom des films avec leur genre qui proviennent de deux tables 
 
 On peut évidemment trier l’affichage avec ORDER BY …
 
-<H3 STYLE="COLOR:red;">**Activité n° 47 : Faire afficher le titre du film avec son genre et la nationalité du film provenant de trois tables**</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 47 : Faire afficher le titre du film avec son genre et la nationalité du film provenant de trois tables**</H3>
 ```sql
 SELECT titre_film, 
 nom_genre AS genre_film, 
@@ -967,7 +967,7 @@ ORDER BY nationalite_film;
 ```
 On rajoute la nationalité du film qui provient de la table nationalité et que l’on renomme. Il faut ajouter un nouveau lien.
 
-<H3 STYLE="COLOR:red;">**Activité n° 48 : Faire afficher le titre du film avec son genre, la nationalité du film et le réalisateur provenant de quatre tables**</H3> Exécuter
+**<H3 STYLE="COLOR:red;">Activité n° 48 : Faire afficher le titre du film avec son genre, la nationalité du film et le réalisateur provenant de quatre tables**</H3> Exécuter
 ```sql
 SELECT titre_film, 
 nom_genre AS genre_film, 
@@ -985,7 +985,7 @@ ORDER BY nationalite_film;
 ```
 On rajoute le réalisateur qui provient de la table realisateur et que l’on renomme. Il faut ajouter un nouveau lien.
 
-<H3 STYLE="COLOR:red;">**Activité n° 49 : Faire afficher le titre du film avec son genre, la nationalité du film, le réalisateur et sa nationalité provenant de quatre tables en utilisant un alias**</H3> Exécuter
+**<H3 STYLE="COLOR:red;">Activité n° 49 : Faire afficher le titre du film avec son genre, la nationalité du film, le réalisateur et sa nationalité provenant de quatre tables en utilisant un alias**</H3> Exécuter
 ```sql
 SELECT titre_film, 
 nom_genre AS genre_film, 
@@ -1008,7 +1008,7 @@ On rajoute la nationalité du réalisateur qui provient de la table realisateur 
 
 Pour afficher la nationalité du réalisateur dans le retour de requête, à partir de la table nat\_real en précisant point nom du réalisateur il faut aussi préciser que le nom de la nationalité précédemment utilisé provient de la table nationalité seule qui correspond-elle à la nationalité du film. Il faut que la base comprenne ce qu’on veut afficher. Vérifier que les attributs nationalite\_film et natio\_real sont bien différents.
  
-<H3 STYLE="COLOR:red;">**Activité n° 50 : Faire afficher le titre du film avec son genre, la nationalité du film, le réalisateur et sa nationalité provenant de quatre tables en utilisant un alias : Modification pour afficher les films qui ont des nationalités différentes de ceux de leur réalisateur**</H3> Exécuter
+**<H3 STYLE="COLOR:red;">Activité n° 50 : Faire afficher le titre du film avec son genre, la nationalité du film, le réalisateur et sa nationalité provenant de quatre tables en utilisant un alias : Modification pour afficher les films qui ont des nationalités différentes de ceux de leur réalisateur**</H3> Exécuter
 ```sql
 SELECT titre_film, 
 nom_genre AS genre_film, 
@@ -1029,7 +1029,7 @@ ORDER BY nationalite_film;
 ```
 La condition se fait entre id\_nationalite de la table nat\_real et le id\_nationalite de la table nationalite. On obtient 5 films.
 
-<H3 STYLE="COLOR:red;">**Activité n° 51 : Faire afficher le titre du film et le réalisateur avec deux conditions**</H3> Exécuter
+**<H3 STYLE="COLOR:red;">Activité n° 51 : Faire afficher le titre du film et le réalisateur avec deux conditions**</H3> Exécuter
 ```sql
 SELECT titre_film, nom_realisateur
 FROM realisateur
@@ -1043,7 +1043,7 @@ On rajoute la condition sur le nom du réalisateur et sur le titre : il doit co
 
 
 ## <H2 STYLE="COLOR:BLUE;"><a name="_toc173365587"></a>**7. Exercices**</H2>
-<H3 STYLE="COLOR:red;">**Exercice n°01 : Copains de classe**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°01 : Copains de classe**</H3>
 
 On veut créer une petite base de données permettant de garder le contact avec nos copains de classe. On supposera qu'ils sont tous domiciliés en France, qu'ils n'ont qu'un numéro de téléphone, mais éventuellement plusieurs adresses. On veut stocker les renseignements suivants : nom, prénom, sexe, date de naissance, numéro de téléphone, rue, numéro postal, ville, département et région.
 
@@ -1084,7 +1084,7 @@ Entrer dans la base de données les informations ci-dessous :
 - les noms et prénoms de toutes les Rhone-Alpins.
 
 ## <H2 STYLE="COLOR:BLUE;"><a name="_toc173365588"></a>**8. Projet (démarche d’investigation)**</H2>
-<H3 STYLE="COLOR:red;">**Exercice n°01 : Le coin du cinéphile**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°01 : Le coin du cinéphile**</H3>
 
 Vous allez interroger une base de données relationnelles dont le schéma est le suivant :
 
@@ -1229,7 +1229,7 @@ Avec des commandes SQL faire les requêtes suivantes :
 13. Quels acteurs a-t-on pu voir au cinéma Le Fontenelle depuis l’an 2000 ?
 14. Quels sont les films qui ont encore été à l’affiche 5 années après leur sortie ?
 
-<H3 STYLE="COLOR:red;">**Exercice n°02 : La société canine Botoutou**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°02 : La société canine Botoutou**</H3>
 
 La société canine BOTOUTOU répertorie les chiens de race et leurs classements aux divers concours auxquels ils ont participé. Il y a une dizaine de concours chaque année auxquels participent plusieurs centaines de chiens. La société gère ainsi plusieurs milliers de chiens d’une centaine de races différentes. Les adhérents de BOTOUTOU sont les propriétaires des chiens répertoriés. Au début de chaque année, la société envoie à ces adhérents les documents suivants :
 
@@ -1361,7 +1361,7 @@ De même on peut le regrouper par race.
 9. Rechercher les propriétaires et le nom des chiens qui ont terminés 1er à un concours.
 10. Rechercher les chiens qui n’ont jamais participé à un concours (utiliser not in).
 
-<H3 STYLE="COLOR:red;">**Exercice n°03 : Le cycle de colloques**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°03 : Le cycle de colloques**</H3>
 
 On désire informatiser l'organisation d'un cycle de colloques universitaires.
 
@@ -1464,7 +1464,7 @@ Avec des commandes SQL :
 6. Combien de personnes sont inscrites au(x) colloque(s) de l'Université Joseph Fourier ?
 7. Qui est à la fois organisateur et speaker ?
 
-<H3 STYLE="COLOR:red;">**Exercice n°04 : PHP et SQL**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°04 : PHP et SQL**</H3>
 
 
 **Étape 1 :** Installer un serveur en local et portable 
