@@ -996,6 +996,7 @@ La société canine BOTOUTOU répertorie les chiens de race et leurs classements
 
 
 **Modèle conceptuel de données (MCD)**
+
 ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.024.png)
 
 1,n : 
