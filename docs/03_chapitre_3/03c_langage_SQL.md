@@ -1006,7 +1006,7 @@ La société canine BOTOUTOU répertorie les chiens de race et leurs classements
 
 
 **Modèle logique de données (MLD)**
-```
+```txt
 - PROPRIO = {idProprio, Nom, Adresse}
 - RACE = {idRace, intitule, description}
 - CONCOURS = {idConcours, ville, dates, nbPrimes, nbParticipants}
