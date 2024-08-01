@@ -1286,7 +1286,7 @@ Pour l’instant c’est une page web classique, avec au début l’inclusion du
 
 **Le fichier style.css**
 
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.035.jpeg){ width=50%; : .center }
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.035.jpeg){ width=30%; : .center }
 
 Une feuille de style classique
 
