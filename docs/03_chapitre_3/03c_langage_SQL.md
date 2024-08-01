@@ -413,7 +413,7 @@ Il y a bien 11 réalisateurs dans la table.
 
 **Activité n° 28 : Afficher et compter :**  Compter le nombre de réalisateurs dont le nom commence par la lettre L : Exécuter
 
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.016.png)
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.016.png){ width=30%; : .center }
 
 ```sql
 SELECT COUNT(id_realisateur)
@@ -510,76 +510,286 @@ WHERE nationalite_realisateur = 'Etats-Unis';
 
 Les réalisateurs qui avaient pour nationalité Etats-Unis ont eu le nombre de films modifié et la nationalité aussi.Vérifier.
  
-**Activité n° 36 : Création de table :** Création de la table nationalitéCREATE TABLE nationalite (![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.017.png)id\_nationalite INT NOT NULL,nom\_nationalite VARCHAR(255) NOT NUL,PRIMARY KEY ("id\_nationalite" AUTOINCREMENT));
+**Activité n° 36 : Création de table :** Création de la table nationalité
+```sql
+CREATE TABLE nationalite (
+id_nationalite INT NOT NULL,
+nom_nationalite VARCHAR(255) NOT NUL,
+PRIMARY KEY ("id_nationalite" AUTOINCREMENT)
+);
+```
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.007.png){ width=30%; : .center } 
 
 Vérifier que la table est créée.
  
-### <a name="_toc173365581"></a>**4.4. Mise en place d’un id**
+### <a name="_toc173365581"></a>**5.4. Mise en place d’un id**
 
- **Activité n° AUTONUM  \* Arabic : Afficher :**  Afficher la nationalité des films : ExécuterSELECT nationalite\_filmFROM film;Il y a beaucoup de doublons !! Il faut les éliminer
+**Activité n° 37 : Afficher :**  Afficher la nationalité des films : Exécuter
+```sql
+SELECT nationalite_film
+FROM film;
+```
+Il y a beaucoup de doublons !! Il faut les éliminer
  
 
- **Activité n° AUTONUM  \* Arabic : Afficher seulement ceux qui sont différents :**  Afficher les différentes nationalités des films : <a name="_hlk52904421"></a>SELECT DISTINCT nationalite\_filmFROM film;DISTINCT permet de n’afficher que les valeurs différentes. 
+**Activité n° 38 : Afficher seulement ceux qui sont différents :**  Afficher les différentes nationalités des films : 
+```sql
+SELECT DISTINCT nationalite_film
+FROM film;
+```
+**DISTINCT** permet de n’afficher que les valeurs différentes. 
  
 
- **Activité n° AUTONUM  \* Arabic : Insertion de données extraites d’une table dans une autre** : Exécuter la requête suivante<a name="_hlk52904500"></a>INSERT INTO nationalite(nom\_nationalite)SELECT DISTINCT nationalite\_filmFROM film ;On met à jour la table nationalite avec les nationalités de la table film afin de pourvoir éliminer les doublons de la table film. Vérifier qu’il y a bien les trois nationalités dans la table nationalite.
+**Activité n° 39 : Insertion de données extraites d’une table dans une autre** : Exécuter la requête suivante
+```sql
+INSERT INTO nationalite
+(nom_nationalite)
+SELECT DISTINCT nationalite_film
+FROM film ;
+```
+On met à jour la table nationalite avec les nationalités de la table film afin de pourvoir éliminer les doublons de la table film. Vérifier qu’il y a bien les trois nationalités dans la table nationalite.
  
 
- **Activité n° AUTONUM  \* Arabic : Ajouter un attribut à une table existante :**  Ajouter l’attribut id\_nationalite\_film à la table film. ALTER TABLE filmADD COLUMN id\_nationalite\_film INTEGER;
+**Activité n° 40 : Ajouter un attribut à une table existante :**  Ajouter l’attribut id\_nationalite\_film à la table film. 
+```sql
+ALTER TABLE film
+ADD COLUMN id_nationalite_film INTEGER;
+```
+
+**Activité n° 41 : Alimenter un attribut d’une table grace à une autre :**  Ajouter l’attribut id\_nationalite\_film à la table film. Exécuter
+```sql
+UPDATE film
+SET id_nationalite_film = (
+SELECT id_nationalite 
+FROM nationalite 
+WHERE film.nationalite_film = nationalite.nom_nationalite
+);
+```
+On met à jour le champ id\_nationalite\_film de la table film avec la table nationalite. Après le SET id\_nationalite\_film il faut ensuite aller chercher le id\_nationalite de la table nationaliteLe SELECT permet d’aller chercher le id\_nationalite dans la table nationalite pour le mettre dans la table film. La condition sera de telle sorte que le nom de la nationalité correspond à la nationalité du film. Pour cela, on note film.\_\_\_  pour dire que l’on va chercher le champ dans la table film. Cette nationalité dans la table film doit être égale à la nationalité dans la table nationalité d’où le nationalite.\_\_\_\_Vérifier que l’id\_nationalite\_film de la table film est bien rempli.
+ 
+**Activité n° 42 : Supprimer un attribut :**  Il suffit à présent de supprimer l’attribut en trop. 
+```sql
+ALTER TABLE film
+DROP COLUMN nationalite_film;
+```
+ 
+### <a name="_toc173365582"></a>**5.5. Mise en majuscule d’un attribut**
+
+**Activité n° 43 : Mise en majuscule d’un attribut :**  Modifier le nom du réalisateur en le passant en majuscule. 
+```sql
+UPDATE realisateur
+SET nom_realisateur = UPPER(nom_realisateur)
+WHERE nationalite_realisateur = 'USA';
+```
+
+**UPPER** permet de mettre en majuscule le nom du champ. Donc on prend le nom\_realisateur on le met en majuscule et on le réaffecte à nom\_realisateur. On rajoute une condition sur la nationalité.
+
+On peut aussi seulement afficher un attribut en le mettant en majuscule, on écrira alors SELECT UPPER(champ) FROM nom\_table
  
 
+**Activité n° 44 : Mise en majuscule/minuscule d’un attribut :**  Modifier le nom du réalisateur en le passant première lettre en majuscule et le reste en minuscule. Exécuter
+```sql
+UPDATE realisateur
+SET nom_realisateur = UPPER(SUBSTR(nom_realisateur, 1, 1)) || LOWER(SUBSTR(nom_realisateur,2));
+```
 
- **Activité n° AUTONUM  \* Arabic : Alimenter un attribut d’une table grace à une autre :**  Ajouter l’attribut id\_nationalite\_film à la table film. Exécuter<a name="_hlk52904639"></a>UPDATE filmSET id\_nationalite\_film = (SELECT id\_nationalite FROM nationalite WHERE film.nationalite\_film = nationalite.nom\_nationalite);On met à jour le champ id\_nationalite\_film de la table film avec la table nationalite. Après le SET id\_nationalite\_film il faut ensuite aller chercher le id\_nationalite de la table nationaliteLe SELECT permet d’aller chercher le id\_nationalite dans la table nationalite pour le mettre dans la table film. La condition sera de telle sorte que le nom de la nationalité correspond à la nationalité du film. Pour cela, on note film.\_\_\_  pour dire que l’on va chercher le champ dans la table film. Cette nationalité dans la table film doit être égale à la nationalité dans la table nationalité d’où le nationalite.\_\_\_\_Vérifier que l’id\_nationalite\_film de la table film est bien rempli.
- 
+**SUBSTR** prend une partie de chaine. On prend le champ sur lequel on veut prendre une partie de chaine de caractère donc ici nom\_realisateur ; puis une virgule et le premier caractère concerné, le nombre de caractères concernés à partir du premier.
 
- **Activité n° AUTONUM  \* Arabic : Supprimer un attribut :**  Il suffit à présent de supprimer l’attribut en trop. <a name="_hlk52904766"></a>ALTER TABLE filmDROP COLUMN nationalite\_film;
+Puis la concaténation des chaines avec les deux tubes permettra de passer le reste de la chaine en minuscule avec le mot clé LOWER et de nouveau SUBSTR pour prendre qu’une partie de la chaine de caractère c’est-à-dire à partir du deuxième caractère. Vérifier
  
-### <a name="_toc173365582"></a>**4.5. Mise en majuscule d’un attribut**
-
- **Activité n° AUTONUM  \* Arabic : Mise en majuscule d’un attribut :**  Modifier le nom du réalisateur en le passant en majuscule. <a name="_hlk52904885"></a>UPDATE realisateurSET nom\_realisateur = UPPER(nom\_realisateur)WHERE nationalite\_realisateur = 'USA';UPPER permet de mettre en majuscule le nom du champ. Donc on prend le nom\_realisateur on le met en majuscule et on le réaffecte à nom\_realisateur. On rajoute une condition sur la nationalité.On peut aussi seulement afficher un attribut en le mettant en majuscule, on écrira alors SELECT UPPER(champ) FROM nom\_table
- 
-
- **Activité n° AUTONUM  \* Arabic : Mise en majuscule/minuscule d’un attribut :**  Modifier le nom du réalisateur en le passant première lettre en majuscule et le reste en minuscule. ExécuterUPDATE realisateurSET nom\_realisateur = UPPER(SUBSTR(nom\_realisateur, 1, 1))    LOWER(SUBSTR(nom\_realisateur,2));SUBSTR prend une partie de chaine. On prend le champ sur lequel on veut prendre une partie de chaine de caractère donc ici nom\_realisateur ; puis une virgule et le premier caractère concerné, le nombre de caractères concernés à partir du premier.Puis la concaténation des chaines avec les deux tubes permettra de passer le reste de la chaine en minuscule avec le mot clé LOWER et de nouveau SUBSTR pour prendre qu’une partie de la chaine de caractère c’est-à-dire à partir du deuxième caractère. Vérifier
- 
-## <a name="_toc173365583"></a>**5. Jointures de tables**
+## <a name="_toc173365583"></a>**6. Jointures de tables**
 Les requêtes avec les jointures tiennent compte des liens qui unissent les tables via le schéma relationnel.
-### ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.018.png)<a name="_toc173365584"></a>**5.1. La syntaxe**
+### <a name="_toc173365584"></a>**6.1. La syntaxe**
+
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.018.png){width=30%; : .center }
+
 (INNER) JOIN va préciser les tables que l’on veut relier entre elles. Pour relier une table il faut préciser à partir de quel champ on va utiliser le lien : il s’agit essentiellement des clés primaires et des clés étrangères qui va faire le lien entre la table de départ et la table fille qui contient la clé étrangère.
 
 (INNER) **n’est pas obligatoire**
 
-### <a name="_toc173365585"></a>**5.2. Les grands principes**
+
+
+### <a name="_toc173365585"></a>**6.2. Les grands principes**
 Schéma relationnel : **Modèle physique de données (MPD)**
 
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.020.png){width=80%; : .center }
 
-
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.019.png)![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.020.png)
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.019.png){width=30%; : .center }
 
 La table film est relié à trois autres tables via des clés étrangères. Lors d’une requête, on veut parfois afficher le nom du film et le nom du réalisateur ou le genre du film : il faut donc afficher des informations issues de une, deux, trois ou plusieurs tables qui sont liées entre elles. Il faut effectuer une jointure et préciser à l’aide des mots clés INNER JOIN ou JOIN à quelle table la table film doit être reliée.
 
- **Activité n° AUTONUM  \* Arabic : Mise à jour de la table pour correspondre au schéma relationnel :** On va créer la nouvelle table genre et la clé id\_genre\_film de la table film et la clé id\_nationalite\_realisateur de la table realisateur/\* modification de la table realisateur de nouveau \*/UPDATE realisateurSET nbfilms\_realisateur = 2, nationalite\_realisateur = 'Etats-Unis'WHERE nationalite\_realisateur = 'USA';![ref1]/\* création de la nouvelle table \*/CREATE TABLE genre (![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.021.png)id\_genre INT NOT NULL,nom\_genre VARCHAR(255) NOT NULL,PRIMARY KEY ("id\_GENRE" AUTOINCREMENT));/\* insertion des différents genres dans la table genre \*/INSERT INTO genre (nom\_genre)SELECT DISTINCT genre\_filmFROM film;/\* Ajout de l'attribut id\_genre\_film à film \*/ALTER TABLE film ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.022.png)ADD COLUMN id\_genre\_film INT;/\* compléter l'attribut id\_genre\_film avec les id de la table genre \*/UPDATE filmSET id\_genre\_film = (SELECT id\_genre FROM genre WHERE film.genre\_film = genre.nom\_genre);/\* 'effacer' l'attribut genre\_film de la table film \*/ALTER TABLE filmDROP COLUMN genre\_film; /\* Ajout de l'attribut id\_nationalite\_realisateur à realisateur \*/ALTER TABLE realisateur ADD COLUMN id\_nationalite\_realisateur INT;/\* compléter l'attribut id\_nationalite\_realisateur avec les id de la table nationalite \*/UPDATE realisateurSET id\_nationalite\_realisateur = (SELECT id\_nationalite FROM nationalite WHERE realisateur.nationalite\_realisateur = nationalite.nom\_nationalite);/\* 'effacer' l'attribut nationalite\_realisateur de la table realisateur \*/ALTER TABLE realisateurDROP COLUMN nationalite\_realisateur;/\* 'effacer' l'attribut nbfilms\_realisateur de la table realisateur \*/ALTER TABLE realisateurDROP COLUMN nbfilms\_realisateur;Vérifier qu’il y a bien trois clés étrangères dans la clé film : id\_realisateur\_film, id\_nationalite\_film et id\_genre\_film. Vérifier que la table genre est bien remplie.
- 
-### <a name="_toc173365586"></a>**5.3. Requêtes de sélection avec jointures**
+**Activité n° 45 : Mise à jour de la table pour correspondre au schéma relationnel :** On va créer la nouvelle table genre et la clé id\_genre\_film de la table film et la clé id\_nationalite\_realisateur de la table realisateur
+```sql
+/* modification de la table realisateur de nouveau */
+UPDATE realisateur
+SET nbfilms_realisateur = 2, nationalite_realisateur = 'Etats-Unis'
+WHERE nationalite_realisateur = 'USA';
 
- **Activité n° AUTONUM  \* Arabic : Faire afficher le titre du film avec son genre provenant de deux tables :**  ExécuterSELECT titre\_film, nom\_genre AS genre\_filmFROM filmJOIN genreON genre.id\_genre = film.id\_genre\_filmWHERE genre.nom\_genre = 'Science fiction';On sélectionne le titre du film qui provient de la table film et nom\_genre de la table genre mais que l’on renomme en genre\_film. Le nom\_genre provient de la table genre mais il est lié à la table film donc on va préciser le lien avec JOIN … ON… où on indique que la clé id\_genre de la table genre correspond à id\_genre\_film de la table film.La condition de cette requête est que le nom\_genre de la table genre correspond au film de science fictionOn obtient bien le nom des films avec leur genre qui proviennent de deux tables différentes.On peut évidemment trié l’affichage avec ORDER BY …
+/* création de la nouvelle table */
+CREATE TABLE genre (
+id_genre INT NOT NULL,
+nom_genre VARCHAR(255) NOT NULL,
+PRIMARY KEY ("id_GENRE" AUTOINCREMENT));
+
+/* insertion des différents genres dans la table genre */
+INSERT INTO genre 
+(nom_genre)
+SELECT DISTINCT genre_film
+FROM film;
+
+/* Ajout de l'attribut id_genre_film à film */
+ALTER TABLE film 
+ADD COLUMN id_genre_film INT;
+
+/* compléter l'attribut id_genre_film avec les id de la table genre */
+UPDATE film
+SET id_genre_film = (
+SELECT id_genre 
+FROM genre 
+WHERE film.genre_film = genre.nom_genre);
+
+/* 'effacer' l'attribut genre_film de la table film */
+ALTER TABLE film
+DROP COLUMN genre_film; 
+
+/* Ajout de l'attribut id_nationalite_realisateur à realisateur */
+ALTER TABLE realisateur 
+ADD COLUMN id_nationalite_realisateur INT;
+
+/* compléter l'attribut id_nationalite_realisateur avec les id de la table nationalite */
+UPDATE realisateur
+SET id_nationalite_realisateur = (
+SELECT id_nationalite 
+FROM nationalite 
+WHERE realisateur.nationalite_realisateur = nationalite.nom_nationalite);
+
+/* 'effacer' l'attribut nationalite_realisateur de la table realisateur */
+ALTER TABLE realisateur
+DROP COLUMN nationalite_realisateur;
+
+/* 'effacer' l'attribut nbfilms_realisateur de la table realisateur */
+ALTER TABLE realisateur
+DROP COLUMN nbfilms_realisateur;
+```
+
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.007.png){ width=30%; : .center } 
+
+Vérifier qu’il y a bien trois clés étrangères dans la clé film : id\_realisateur\_film, id\_nationalite\_film et id\_genre\_film. 
+
+Vérifier que la table genre est bien remplie.
+ 
+### <a name="_toc173365586"></a>**6.3. Requêtes de sélection avec jointures**
+
+**Activité n° 46 : Faire afficher le titre du film avec son genre provenant de deux tables :**  Exécuter
+```sql
+SELECT titre_film, 
+nom_genre AS genre_film
+FROM film
+JOIN genre
+ON genre.id_genre = film.id_genre_film
+WHERE genre.nom_genre = 'Science fiction';
+```
+On sélectionne le titre du film qui provient de la table film et nom\_genre de la table genre mais que l’on renomme en genre\_film. Le nom\_genre provient de la table genre mais il est lié à la table film donc on va préciser le lien avec JOIN … ON… où on indique que la clé id\_genre de la table genre correspond à id\_genre\_film de la table film.La condition de cette requête est que le nom\_genre de la table genre correspond au film de science fiction
+
+On obtient bien le nom des films avec leur genre qui proviennent de deux tables différentes.
+
+On peut évidemment trié l’affichage avec ORDER BY …
  
 
- **Activité n° AUTONUM  \* Arabic : Faire afficher le titre du film avec son genre et la nationalité du film provenant de trois tables :**SELECT titre\_film, nom\_genre AS genre\_film, nom\_nationalite as nationalite\_filmFROM filmJOIN genreON genre.id\_genre = film.id\_genre\_filmJOIN nationaliteON nationalite.id\_nationalite = film.id\_nationalite\_filmWHERE genre.nom\_genre = 'Science fiction' ORDER BY nationalite\_film;On rajoute la nationalité du film qui provient de la table nationalité et que l’on renomme. Il faut ajouter un nouveau lien.
+**Activité n° 47 : Faire afficher le titre du film avec son genre et la nationalité du film provenant de trois tables :**
+```sql
+SELECT titre_film, 
+nom_genre AS genre_film, 
+nom_nationalite as nationalite_film
+FROM film
+JOIN genre
+ON genre.id_genre = film.id_genre_film
+JOIN nationalite
+ON nationalite.id_nationalite = film.id_nationalite_film
+WHERE genre.nom_genre = 'Science fiction' 
+ORDER BY nationalite_film;
+```
+On rajoute la nationalité du film qui provient de la table nationalité et que l’on renomme. Il faut ajouter un nouveau lien.
  
 
- **Activité n° AUTONUM  \* Arabic : Faire afficher le titre du film avec son genre, la nationalité du film et le réalisateur provenant de quatre tables :** ExécuterSELECT titre\_film, nom\_genre AS genre\_film, nom\_nationalite as nationalite\_film, nom\_realisateur as realisateur\_filmFROM filmJOIN genreON genre.id\_genre = film.id\_genre\_filmJOIN nationaliteON nationalite.id\_nationalite = film.id\_nationalite\_filmJOIN realisateurON realisateur.id\_realisateur = film.id\_realisateur\_filmWHERE genre.nom\_genre = 'Science fiction' ORDER BY nationalite\_film;On rajoute le réalisateur qui provient de la table realisateur et que l’on renomme. Il faut ajouter un nouveau lien.
+**Activité n° 48 : Faire afficher le titre du film avec son genre, la nationalité du film et le réalisateur provenant de quatre tables :** Exécuter
+```sql
+SELECT titre_film, 
+nom_genre AS genre_film, 
+nom_nationalite as nationalite_film, 
+nom_realisateur as realisateur_film
+FROM film
+JOIN genre
+ON genre.id_genre = film.id_genre_film
+JOIN nationalite
+ON nationalite.id_nationalite = film.id_nationalite_film
+JOIN realisateur
+ON realisateur.id_realisateur = film.id_realisateur_film
+WHERE genre.nom_genre = 'Science fiction' 
+ORDER BY nationalite_film;
+```
+On rajoute le réalisateur qui provient de la table realisateur et que l’on renomme. Il faut ajouter un nouveau lien.
  
 
- **Activité n° AUTONUM  \* Arabic : Faire afficher le titre du film avec son genre, la nationalité du film, le réalisateur et sa nationalité provenant de quatre tables en utilisant un alias :** ExécuterSELECT titre\_film, nom\_genre AS genre\_film, nationalite.nom\_nationalite as nationalite\_film, nom\_realisateur as realisateur\_film, nat\_real.nom\_nationalite as natio\_real FROM filmJOIN genreON genre.id\_genre = film.id\_genre\_filmJOIN nationaliteON nationalite.id\_nationalite = film.id\_nationalite\_filmJOIN realisateurON realisateur.id\_realisateur = film.id\_realisateur\_filmJOIN nationalite AS nat\_realON nat\_real.id\_nationalite = realisateur.id\_nationalite\_realisateurWHERE genre.nom\_genre = 'Science fiction' ORDER BY nationalite\_film;On rajoute la nationalité du réalisateur qui provient de la table realisateur et que l’on renomme. Il faut ajouter un nouveau lien, mais comme on va noter JOIN nationalite une nouvelle fois, pour pouvoir éviter de confondre les tables on la renomme en nat\_real puis on utilise se nom comme s’il était un **alias** de la table nationalite.Pour afficher la nationalité du réalisateur dans le retour de requête, à partir de la table nat\_real en précisant point nom du réalisateur il faut aussi préciser que le nom de la nationalité précédemment utilisé provient de la table nationalité seul qui correspond-elle à la nationalité du film. Il faut que la base comprenne ce qu’on veut afficher.Vérifier que les attributs nationalite\_film et natio\_real sont bien différents.
+**Activité n° 49 : Faire afficher le titre du film avec son genre, la nationalité du film, le réalisateur et sa nationalité provenant de quatre tables en utilisant un alias :** Exécuter
+```sql
+SELECT titre_film, 
+nom_genre AS genre_film, 
+nationalite.nom_nationalite as nationalite_film, 
+nom_realisateur as realisateur_film, 
+nat_real.nom_nationalite as natio_real 
+FROM film
+JOIN genre
+ON genre.id_genre = film.id_genre_film
+JOIN nationalite
+ON nationalite.id_nationalite = film.id_nationalite_film
+JOIN realisateur
+ON realisateur.id_realisateur = film.id_realisateur_film
+JOIN nationalite AS nat_real
+ON nat_real.id_nationalite = realisateur.id_nationalite_realisateur
+WHERE genre.nom_genre = 'Science fiction' 
+ORDER BY nationalite_film;
+```
+On rajoute la nationalité du réalisateur qui provient de la table realisateur et que l’on renomme. Il faut ajouter un nouveau lien, mais comme on va noter JOIN nationalite une nouvelle fois, pour pouvoir éviter de confondre les tables on la renomme en nat\_real puis on utilise se nom comme s’il était un **alias** de la table nationalite.
+
+Pour afficher la nationalité du réalisateur dans le retour de requête, à partir de la table nat\_real en précisant point nom du réalisateur il faut aussi préciser que le nom de la nationalité précédemment utilisé provient de la table nationalité seul qui correspond-elle à la nationalité du film. Il faut que la base comprenne ce qu’on veut afficher.Vérifier que les attributs nationalite\_film et natio\_real sont bien différents.
  
   
- **Activité n° AUTONUM  \* Arabic : Faire afficher le titre du film avec son genre, la nationalité du film, le réalisateur et sa nationalité provenant de quatre tables en utilisant un alias : Modification pour afficher les films qui ont des nationalités différentes de ceux de leur réalisateur** ExécuterSELECT titre\_film, nom\_genre AS genre\_film, nationalite.nom\_nationalite as nationalite\_film, nom\_realisateur as realisateur\_film, nat\_real.nom\_nationalite as natio\_real FROM filmINNER JOIN genreON genre.id\_genre = film.id\_genre\_filmJOIN nationaliteON nationalite.id\_nationalite = film.id\_nationalite\_filmJOIN realisateurON realisateur.id\_realisateur = film.id\_realisateur\_filmJOIN nationalite AS nat\_realON nat\_real.id\_nationalite = realisateur.id\_nationalite\_realisateurWHERE nat\_real.id\_nationalite <> nationalite.id\_nationaliteORDER BY nationalite\_film;La condition se fait entre id\_nationalite de la table nat\_real et le id\_nationalite de la table nationalite.On obtient 5 films.
+**Activité n° 50 : Faire afficher le titre du film avec son genre, la nationalité du film, le réalisateur et sa nationalité provenant de quatre tables en utilisant un alias : Modification pour afficher les films qui ont des nationalités différentes de ceux de leur réalisateur** Exécuter
+```sql
+SELECT titre_film, 
+nom_genre AS genre_film, 
+nationalite.nom_nationalite as nationalite_film, 
+nom_realisateur as realisateur_film, 
+nat_real.nom_nationalite as natio_real 
+FROM film
+INNER JOIN genre
+ON genre.id_genre = film.id_genre_film
+JOIN nationalite
+ON nationalite.id_nationalite = film.id_nationalite_film
+JOIN realisateur
+ON realisateur.id_realisateur = film.id_realisateur_film
+JOIN nationalite AS nat_real
+ON nat_real.id_nationalite = realisateur.id_nationalite_realisateur
+WHERE nat_real.id_nationalite <> nationalite.id_nationalite
+ORDER BY nationalite_film;
+```
+La condition se fait entre id\_nationalite de la table nat\_real et le id\_nationalite de la table nationalite.On obtient 5 films.
 
- **Activité n° AUTONUM  \* Arabic : Faire afficher le titre du film et le réalisateur avec deux conditions :** ExécuterSELECT titre\_film, nom\_realisateurFROM realisateurJOIN filmON film.id\_realisateur\_film = realisateur.id\_realisateurWHERE nom\_realisateur = 'Lucas' AND titre\_film LIKE 'S%'ORDER BY nom\_realisateur, prenom\_realisateur;On rajoute la condition sur le nom du réalisateur et sur le titre : il doit commencer par S
+**Activité n° 51 : Faire afficher le titre du film et le réalisateur avec deux conditions :** Exécuter
+```sql
+SELECT titre_film, nom_realisateur
+FROM realisateur
+JOIN film
+ON film.id_realisateur_film = realisateur.id_realisateur
+WHERE nom_realisateur = 'Lucas' AND titre_film LIKE 'S%'
+ORDER BY nom_realisateur, prenom_realisateur;
+```
+On rajoute la condition sur le nom du réalisateur et sur le titre : il doit commencer par S
  
 
 
-## <a name="_toc173365587"></a>**6. Exercices** 
+## <a name="_toc173365587"></a>**7. Exercices** 
 **Exercice n°01 : Copains de classe**
 
 On veut créer une petite base de données permettant de garder le contact avec nos copains de classe. On supposera qu'ils sont tous domiciliés en France, qu'ils n'ont qu'un numéro de téléphone, mais éventuellement plusieurs adresses. On veut stocker les renseignements suivants : nom, prénom, sexe, date de naissance, numéro de téléphone, rue, numéro postal, ville, département et région
