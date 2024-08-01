@@ -1398,7 +1398,11 @@ ce qu’il faut pour…
 
 ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.053.png){ width=80%; : .center }
 
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.051.png){ width=40%; : .center }
+|Faites la même chose pour un autre auteur. Si il y a plusieurs entrées pour le même auteur, il faut bien entendu que son nom soit écrit de la même manière, pour que les titres apparaissent…
+
+Faites des essais en enregistrant plusieurs titres d’un même auteur.|
+
+
 
 Je vous donne le code à copier et coller entre les balises <section> ..</section>
 
