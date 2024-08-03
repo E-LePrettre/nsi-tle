@@ -91,7 +91,7 @@ Afin d’en découvrir davantage sur Julien, taper et exécuter l’instruction 
 print(Julien)
 ```
 On obtient
-```python
+```txt
 <__main__.Personne object at 0x0000021C7CE97A10>
 ```
 Julien appartient à l’espace de nom global et référence un objet de type Personne situé à l’adresse 0x0000021C7CE97A10
@@ -106,7 +106,7 @@ Par exemple : manger, marcher, parler, dormir sont des méthodes de la classe P
 #### <a name="_toc88030955"></a>**2.3.2. Les constructeurs ou initialiseur**
 Parmi les différents types de méthode, il existe un type particulier : les **constructeurs** ou **initialiseur**.
 
-Les constructeurs sont des **méthodes** qui construisent l'objet désigné par la classe au moment **d’instanciation** de la classe, c’est-à-dire ils permettent d’initialiser l’objet : ses attributs sont automatiquement créés, des valeurs par défaut peuvent même leur être affectées. Un constructeur porte le nom __init__.
+Les constructeurs sont des **méthodes** qui construisent l'objet désigné par la classe au moment **d’instanciation** de la classe, c’est-à-dire ils permettent d’initialiser l’objet : ses attributs sont automatiquement créés, des valeurs par défaut peuvent même leur être affectées. Un constructeur porte le nom ```__init__```.
 
 **Activité n° 1 : Classe et constructeur**
 ```python
@@ -138,7 +138,7 @@ Lors de la création de l’instance gollum, Python va automatiquement remplacer
 - gollum.prenom qui aura pour valeur le prénom passé en paramètre (Jean),
 - gollum.age qui aura pour valeur de départ la valeur donnée à self.age
 
-La définition du constructeur consiste en une définition « classique » d'une fonction. Elle a pour nom __init__. En Python, **tous les constructeurs s'appellent ainsi**. Les noms de méthodes entourés de part et d'autre de deux signes soulignés (__nommethode__) sont des **méthodes spéciales**. Dans la définition de méthode, on passe un premier paramètre nommé self**.**
+La définition du constructeur consiste en une définition « classique » d'une fonction. Elle a pour nom ```__init__```. En Python, **tous les constructeurs s'appellent ainsi**. Les noms de méthodes entourés de part et d'autre de deux signes soulignés (```__nommethode__```) sont des **méthodes spéciales**. Dans la définition de méthode, on passe un premier paramètre nommé self**.**
 
 self (c’est une convention) correspond simplement à l’objet sur lequel on applique la méthode (il représente l’objet en train de se créer).
 
@@ -148,7 +148,7 @@ Exemple : nom, prénom, age
 
 #### <a name="_toc88030956"></a>**2.3.3. Les destructeurs**
 
-Le **destructeur** d'une classe est une méthode spéciale lancée lors de la destruction d'un objet afin de récupérer les ressources (principalement la mémoire vive) réservée dynamiquement lors de l'instanciation de l'objet. Un constructeur porte le nom __del__.
+Le **destructeur** d'une classe est une méthode spéciale lancée lors de la destruction d'un objet afin de récupérer les ressources (principalement la mémoire vive) réservée dynamiquement lors de l'instanciation de l'objet. Un constructeur porte le nom ```__del__```.
 
 Le destructeur est appelé implicitement à la sortie du programme, ou explicitement à travers l’instruction del.
 
@@ -217,10 +217,40 @@ J'habite Paris.
 Pour appeler une méthode de l’instance Personne, il suffit donc d’écrire instance.méthode().
 #### <a name="_toc88030958"></a>**2.3.5. Les méthodes pour représenter un objet**
 
-|<p>**Activité n° AUTONUM  \* Arabic : Surcharge de méthode :** La méthode spéciale \_\_repr\_\_ retourne la chaine de caractère qu’il faut afficher lorsque l’on tape directement le nom de l’objet</p><p>class Personne:<br>`    `*"""Classe représentant une personne"""*<br>`    `def \_\_init\_\_(self, nom : str, prenom : str):<br>`        `self.\_\_nom    = nom<br>`        `self.\_\_prenom = prenom<br><br>`    `def \_\_repr\_\_(self):<br>`        `return self.\_\_nom + " " + self.\_\_prenom</p><p></p><p>>>> toi = Personne('Durant', 'Jean')</p><p>>>> toi</p><p>Durant Jean</p>|
-| - |
+**Activité n° 4 : Surcharge de méthode :** 
+La méthode spéciale ```__repr__``` retourne la chaine de caractère qu’il faut afficher lorsque l’on tape directement le nom de l’objet
+```python
+class Personne:
+    """Classe représentant une personne"""
+    def __init__(self, nom : str, prenom : str):
+        self.__nom    = nom
+        self.__prenom = prenom
 
-|<p>**Activité n° AUTONUM  \* Arabic : Surcharge de méthode :** La méthode spéciale \_\_str\_\_ retourne la chaine de caractère qu’il faut afficher lorsque l’on appelle la fonction print sur l’objet</p><p>class Personne:<br>`    `*"""Classe représentant une personne"""*<br>`    `def \_\_init\_\_(self, nom : str, prenom : str):<br>`        `self.\_\_nom    = nom<br>`        `self.\_\_prenom = prenom<br><br>`    `def \_\_str\_\_(self):<br>`        `return self.\_\_prenom + " " + self.\_\_nom<br>toi = Personne('Durant', 'Jean')<br>print(toi)</p><p></p><p>Jean Durant</p>|
+    def __repr__(self):
+        return self.__nom + " " + self.__prenom
+```
+```txt
+Je suis Jean Dupont, j'ai 33 ans.
+J'habite Paris.
+```
+**Activité n° 5 : Surcharge de méthode :** 
+La méthode spéciale ```__str__``` retourne la chaine de caractère qu’il faut afficher lorsque l’on appelle la fonction print sur l’objet
+```python
+class Personne:
+    """Classe représentant une personne"""
+    def __init__(self, nom : str, prenom : str):
+        self.__nom    = nom
+        self.__prenom = prenom
+
+    def __str__(self):
+        return self.__prenom + " " + self.__nom
+toi = Personne('Durant', 'Jean')
+print(toi)
+```
+
+```
+```
+class Personne:<br>`    `*"""Classe représentant une personne"""*<br>`    `def \_\_init\_\_(self, nom : str, prenom : str):<br>`        `self.\_\_nom    = nom<br>`        `self.\_\_prenom = prenom<br><br>`    `def \_\_str\_\_(self):<br>`        `return self.\_\_prenom + " " + self.\_\_nom<br>toi = Personne('Durant', 'Jean')<br>print(toi)</p><p></p><p>Jean Durant</p>|
 | - |
 ### <a name="_toc88030959"></a>**2.4. Attributs de classe**
 Jusqu’à présent, les attributs sont contenus dans l’objet. Ils sont propres à l’objet : si on crée plusieurs objets, les attributs nom, prénom,… de chacun ne seront pas forcément identiques d’un objet à l’autre. Mais on peut aussi définir des **attributs dans la classe**.
