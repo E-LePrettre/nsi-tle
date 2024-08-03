@@ -1170,7 +1170,7 @@ Ces deux méthodes doivent vérifier que l’indice i est bien valide et, dans 
 
 Pour construire un jeu de cartes, on va commencer par construire une classe Carte :
 
-1. sur Thonny : Créer un fichier python carte.py.
+1 sur Thonny : Créer un fichier python carte.py.
 
 2 Écrire une classe Carte à partir du diagramme de classe ci-contre.
 
