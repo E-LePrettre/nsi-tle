@@ -1237,7 +1237,7 @@ Et que pour un jeu de 54 cartes de 2 à 14 (pour l’as)
 
 7 Tester la classe comme suit :
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.017.png){: .center }
+![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.017.png)
 ```python
 ma_carte = Carte(11, "Trèfle")
 print(ma_carte.GetFigure())
