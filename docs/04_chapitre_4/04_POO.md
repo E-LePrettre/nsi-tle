@@ -922,13 +922,14 @@ Expliquer en détail ce qu’il permet d’afficher.
 
 3. Créer des exemples.
 
-**<H3 STYLE="COLOR:red;">Exercice n°4 :**</H3> Définir une classe **Fraction** pour représenter un nombre rationnel.
+**<H3 STYLE="COLOR:red;">Exercice n°4 :**</H3> 
+Définir une classe **Fraction** pour représenter un nombre rationnel.
 
 Cette classe possède deux **attributs num** et **denom**, qui sont des entiers et désignent respectivement le numérateur et le dénominateur.
 
 De plus, on demande que le dénominateur soit particulièrement un entier strictement positif.
 
-4 Écrire un constructeur de cette classe.
+1 Écrire un constructeur de cette classe.
 
    Le constructeur doit lever une **ValueError** si le dénominateur fourni n’est pas strictement positif.
 
@@ -936,17 +937,17 @@ De plus, on demande que le dénominateur soit particulièrement un entier strict
 
 ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.014.png){: .center }
 
-5 Ajouter une méthode **\_\_str\_\_** qui renvoie une chaîne de caractère de la forme "12 / 13", ou simplement de la forme "12" lorsque le dénominateur vaut 1. ( \_\_str\_\_(self) est une méthode de Python : renvoie une chaîne de caractères)
+2 Ajouter une méthode **\_\_str\_\_** qui renvoie une chaîne de caractère de la forme "12 / 13", ou simplement de la forme "12" lorsque le dénominateur vaut 1. ( \_\_str\_\_(self) est une méthode de Python : renvoie une chaîne de caractères)
 
-6 Ajouter des méthodes **\_\_eq\_\_** et **\_\_lt\_\_** qui reçoivent une deuxième fraction en argument et renvoient True si la première fraction représente respectivement un nombre égal ou un nombre strictement inférieur à la fraction. 
+3 Ajouter des méthodes **\_\_eq\_\_** et **\_\_lt\_\_** qui reçoivent une deuxième fraction en argument et renvoient True si la première fraction représente respectivement un nombre égal ou un nombre strictement inférieur à la fraction. 
 
    ( \_\_lt\_\_(self, other) est une méthode de Python : Pour self = t, elle renvoie True si t est strictement plus petit que other ) ( \_\_eq\_\_(self, other) est une méthode de Python : Pour self = t, elle renvoie True si t est égal à other )
 
-7 Ajouter des méthodes **\_\_add\_\_** et **\_\_mul\_\_** qui reçoivent une deuxième fraction en argument et renvoient une nouvelle fraction représentant respectivement la somme et le produit des deux fractions.
+4 Ajouter des méthodes **\_\_add\_\_** et **\_\_mul\_\_** qui reçoivent une deuxième fraction en argument et renvoient une nouvelle fraction représentant respectivement la somme et le produit des deux fractions.
 
-8 Tester ces opérations.
+5 Tester ces opérations.
 
-9 **Question bonus** : S’assurer que les fractions sont toujours sous forme réduite.
+6 **Question bonus** : S’assurer que les fractions sont toujours sous forme réduite.
 
 **<H3 STYLE="COLOR:red;">Exercice n°5 : La classe « Complexe »**</H3>
 
@@ -1205,7 +1206,9 @@ On supposera que les valeurs du jeu de 32 cartes vont de 7 à 14 (pour l’as) e
 - SetCouleur : retourne vrai si la couleur de la carte a été changée par coul et faux sinon ; la couleur de la carte doit être : Trèfle, Pique, Carreau, Cœur.
 
 7 Tester la classe comme suit :
+
 ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.017.png)
+
 ```python
 ma_carte = Carte(11, "Trèfle")
 print(ma_carte.GetFigure())
