@@ -885,13 +885,13 @@ appel de la fonction 4
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc88030973"></a>**5. Exercices**</H2>
 **<H3 STYLE="COLOR:red;">Exercice n°1 :**</H3> On considère une classe **Personnage** représentant un personnage de Jeu. Le plateau de jeu est représenté par un repère **orthonormé à trois axes**. La position du joueur dans le plateau est repérée par **ses attributs x, y, z**.
 
-1. Écrire un constructeur initialisant les mesures.
+1 Écrire un constructeur initialisant les mesures.
 
-2. Écrire les méthodes **avance, droite** et **saute** permettant respectivement de faire avancer, aller à droite et sauter le personnage, c’est-à-dire d’augmenter de 1 respectivement x, y et z.
+2 Écrire les méthodes **avance, droite** et **saute** permettant respectivement de faire avancer, aller à droite et sauter le personnage, c’est-à-dire d’augmenter de 1 respectivement x, y et z.
 
-3. Implémenter une autre méthode **coord** renvoyant les coordonnées sous forme d’un triplet.
+3 Implémenter une autre méthode **coord** renvoyant les coordonnées sous forme d’un triplet.
 
-4. Essayer avec : Laura = Personnage(0, 0, 0)
+4 Essayer avec : Laura = Personnage(0, 0, 0)
 
 **<H3 STYLE="COLOR:red;">Exercice n°2 :**</H3> Voici un programme en Python :
 ```python
@@ -912,13 +912,15 @@ Expliquer en détail ce qu’il permet d’afficher.
 
 **<H3 STYLE="COLOR:red;">Exercice n°3 :**</H3> On considère une classe **Carre** admettant la mesure des côtés d’un carré en attribut.
 
-1. Écrire un constructeur initialisant les mesures.
+1 Écrire un constructeur initialisant les mesures.
 
-2. Écrire les méthodes :
+2 Écrire les méthodes :
+
    - **perimetre**, permettant de retourner le périmètre du carré.
+
    - **aire** permettant de retourner son aire.
 
-3. Créer des exemples.
+3 Créer des exemples.
 
 **<H3 STYLE="COLOR:red;">Exercice n°4 :**</H3> 
 Définir une classe **Fraction** pour représenter un nombre rationnel.
