@@ -1,85 +1,31 @@
 ﻿---
 author: ELP
-title: 04 Codage de l'information
+title: 04 la P.O.O.
 ---
 
 
-**Table des matières** 
 
-1. [Vocabulaire ](#_page0_x40.00_y610.92)
-2. [Les bases courantes](#_page1_x40.00_y467.92)
-3. [Le codage des nombres entiers signés en binaire](#_page5_x40.00_y574.92)
-4. [Exercices](#_page9_x40.00_y36.92)
-5. [Représentation des nombres réels](#_page12_x40.00_y36.92)
-6. [Exercices](#_page15_x40.00_y36.92)
-7. [Codage des caractères](#_page16_x40.00_y36.92)
-8. [Représentation des images](#_page17_x40.00_y448.92)
-9. [Exercices](#_page18_x40.00_y36.92)
+**Table des matières**
 
+[1.	Introduction](#_toc88030949)
 
-**Chap 04 : La programmation orientée objet (POO)**
+[2.	Définitions](#_toc88030950)
 
-<a name="_hlk38577387"></a>**Compétences évaluables :**
+[3.	Les trois fondamentaux](#_toc88030960)
+
+[4.	Décorateurs (pour aller plus loin)](#_toc88030972)
+
+[5.	Exercices](#_toc88030973)
+
+[6.	Projet (démarche d’investigation)](#_toc88030974)
+
+**Compétences évaluables :**
 
 - Ecrire la définition d’une classe
 - Accéder aux attributs et méthodes d’une classe
 
-**Table des matières**
 
-[1.	Introduction	1](#_toc88030949)
-
-[2.	Définitions	2](#_toc88030950)
-
-[2.1.	Classe	2](#_toc88030951)
-
-[2.2.	Objet ou instance	2](#_toc88030952)
-
-[2.3.	Les méthodes	3](#_toc88030953)
-
-[2.3.1.	Définition	3](#_toc88030954)
-
-[2.3.2.	Les constructeurs ou initialiseur	3](#_toc88030955)
-
-[2.3.3.	Les destructeurs	4](#_toc88030956)
-
-[2.3.4.	Les autres méthodes	4](#_toc88030957)
-
-[2.3.5.	Les méthodes pour représenter un objet	5](#_toc88030958)
-
-[2.4.	Attributs de classe	6](#_toc88030959)
-
-[3.	Les trois fondamentaux	7](#_toc88030960)
-
-[3.1.	Encapsulation	7](#_toc88030961)
-
-[3.1.1.	Attributs et méthode publics	7](#_toc88030962)
-
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.001.png)[3.1.2.	Attributs et méthodes privés	8](#_toc88030963)
-
-[3.1.3.	Propriétés (Hors programme)	10](#_toc88030964)
-
-[3.2.	Héritage (pour aller plus loin)	13](#_toc88030965)
-
-[3.2.1.	Héritage simple	13](#_toc88030966)
-
-[3.2.2.	Héritage multiple	13](#_toc88030967)
-
-[3.2.3.	Ordre de recherche de méthodes	13](#_toc88030968)
-
-[3.3.	Polymorphisme (pour aller plus loin)	14](#_toc88030969)
-
-[3.3.1.	Polymorphisme statique : surcharge de méthodes	14](#_toc88030970)
-
-[3.3.2.	Polymorphisme statique : surcharge d’opérateurs	14](#_toc88030971)
-
-[4.	Décorateurs (pour aller plus loin)	16](#_toc88030972)
-
-[5.	Exercices	18](#_toc88030973)
-
-[6.	Projet (démarche d’investigation)	23](#_toc88030974)
-
-
-1. # <a name="_toc88030949"></a>**Introduction**
+## <a name="_toc88030949"></a>**1. Introduction**
 La programmation orientée objet repose, comme son nom l'indique, sur le concept **d'objet**.
 
 Chaque objet se décrit par un ensemble **d’attributs** (caractéristiques de l’objet) et un ensemble de **méthodes** portant sur des attributs (fonctionnalité de l’objet).
@@ -102,19 +48,19 @@ La **sous-classe** hérite des attributs, des méthodes et du type de la super-c
 - **le polymorphisme** : c’est la faculté pour une méthode portant le **même nom** mais appartenant à des classes distinctes héritées d’effectuer un **travail différent.** Cette propriété est acquise par la technique de la surcharge.
 
 En terminal seules les deux premières notions sont au programme de NSI
-1. # <a name="_toc88030950"></a>**Définitions**
-   1. ## <a name="_toc88030951"></a>**Classe** 
+## <a name="_toc88030950"></a>**2. Définitions**
+### <a name="_toc88030951"></a>**2.1. Classe** 
 Exemple : 
 
 class Personne:
 
-`   `"""
+   """
 
-`   `Classe des personnes
+   Classe des personnes
 
-`   `"""
+   """
 
-`   `pass
+   pass
 
 - Un nom de classe commence toujours (c’est une convention) par une **lettre capitale** ;
 - pass est l’instruction Python qui indique de ne rien faire.
@@ -124,7 +70,7 @@ class Personne:
 
 La classe est une espèce de moule, à partir de ce moule nous allons créer des **objets** (plus exactement nous parlerons **d'instances**).
 
-1. ## <a name="_toc88030952"></a>**Objet ou instance**
+### <a name="_toc88030952"></a>**2.2. Objet ou instance**
 Exemple : 
 
 Julien = Personne() # c'est la personne numéro 1 
@@ -146,15 +92,15 @@ On obtient
 
 Julien appartient à l’espace de nom global et référence un objet de type Personne situé à l’adresse 0x0000021C7CE97A10
 
-1. ## <a name="_toc88030953"></a>**Les méthodes**
-   1. ### <a name="_toc88030954"></a>**Définition**
+### <a name="_toc88030953"></a>**2.3. Les méthodes**
+#### <a name="_toc88030954"></a>**2.3.1. Définition**
 
 |Une méthode est une « **fonction** » définie dans une classe. Elle est **locale** à la classe. Elle correspond à une **action** agissant sur l'objet.|
 | - |
 
 Par exemple : manger, marcher, parler, dormir sont des méthodes de la classe Personne. Tous les objets d’une même classe partagent les mêmes méthodes
 
-1. ### <a name="_toc88030955"></a>**Les constructeurs ou initialiseur**
+#### <a name="_toc88030955"></a>**2.3.2. Les constructeurs ou initialiseur**
 Parmi les différents types de méthode, il existe un type particulier : les **constructeurs** ou **initialiseur**.
 
 |Les constructeurs sont des **méthodes** qui construisent l'objet désigné par la classe au moment **d’instanciation** de la classe, c’est-à-dire ils permettent d’initialiser l’objet : ses attributs sont automatiquement créés, des valeurs par défaut peuvent même leur être affectées. Un constructeur porte le nom \_\_init\_\_.|
@@ -179,7 +125,7 @@ La définition du constructeur consiste en une définition « classique » d'une
 
 Exemple : nom, prénom, age
 
-1. ### <a name="_toc88030956"></a>**Les destructeurs**
+#### <a name="_toc88030956"></a>**2.3.3. Les destructeurs**
 
 Le **destructeur** d'une classe est une méthode spéciale lancée lors de la destruction d'un objet afin de récupérer les ressources (principalement la mémoire vive) réservée dynamiquement lors de l'instanciation de l'objet. Un constructeur porte le nom \_\_del\_\_.
 
@@ -188,7 +134,7 @@ Le destructeur est appelé implicitement à la sortie du programme, ou explicite
 |<p>**Activité n° AUTONUM  \* Arabic : Classe et destructeur**</p><p>class Personne:<br>`   `*"""Classe définissant une personne caractérisée par :<br>`   `- son nom<br>`   `- son prénom<br>`   `- son âge"""*<br><br>`   `def \_\_init\_\_(self, nom : str, prenom : str):   # le constructeur<br>`      `self.nom   = nom<br>`      `self.prenom    = prenom<br>`      `self.age   = 33<br>`      `print("Voici {0} {1}" . format(self.prenom, self.nom))</p><p><br>`   `def \_\_del\_\_(self): # le destructeur<br>`      `print("décédé(e) à {0} ans". format(self.age))<br><br>moi = Personne('Dupont', 'Jean')<br>del moi</p><p></p><p>Voici Jean Dupont</p><p>décédé(e) à 33 ans</p><p></p>|
 | - |
 
-1. ### <a name="_toc88030957"></a>**Les autres méthodes**
+#### <a name="_toc88030957"></a>**2.3.4. Les autres méthodes**
 
 Créer une **méthode d'instance**, revient à **créer une fonction** ayant comme premier paramètre le mot clef self.
 ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.002.png)
@@ -198,14 +144,14 @@ Créer une **méthode d'instance**, revient à **créer une fonction** ayant com
 | - |
 
 Pour appeler une méthode de l’instance Personne, il suffit donc d’écrire instance.méthode().
-1. ### <a name="_toc88030958"></a>**Les méthodes pour représenter un objet**
+#### <a name="_toc88030958"></a>**2.3.5. Les méthodes pour représenter un objet**
 
 |<p>**Activité n° AUTONUM  \* Arabic : Surcharge de méthode :** La méthode spéciale \_\_repr\_\_ retourne la chaine de caractère qu’il faut afficher lorsque l’on tape directement le nom de l’objet</p><p>class Personne:<br>`    `*"""Classe représentant une personne"""*<br>`    `def \_\_init\_\_(self, nom : str, prenom : str):<br>`        `self.\_\_nom    = nom<br>`        `self.\_\_prenom = prenom<br><br>`    `def \_\_repr\_\_(self):<br>`        `return self.\_\_nom + " " + self.\_\_prenom</p><p></p><p>>>> toi = Personne('Durant', 'Jean')</p><p>>>> toi</p><p>Durant Jean</p>|
 | - |
 
 |<p>**Activité n° AUTONUM  \* Arabic : Surcharge de méthode :** La méthode spéciale \_\_str\_\_ retourne la chaine de caractère qu’il faut afficher lorsque l’on appelle la fonction print sur l’objet</p><p>class Personne:<br>`    `*"""Classe représentant une personne"""*<br>`    `def \_\_init\_\_(self, nom : str, prenom : str):<br>`        `self.\_\_nom    = nom<br>`        `self.\_\_prenom = prenom<br><br>`    `def \_\_str\_\_(self):<br>`        `return self.\_\_prenom + " " + self.\_\_nom<br>toi = Personne('Durant', 'Jean')<br>print(toi)</p><p></p><p>Jean Durant</p>|
 | - |
-1. ## <a name="_toc88030959"></a>**Attributs de classe**
+### <a name="_toc88030959"></a>**2.4. Attributs de classe**
 Jusqu’à présent, les attributs sont contenus dans l’objet. Ils sont propres à l’objet : si on crée plusieurs objets, les attributs nom, prénom,… de chacun ne seront pas forcément identiques d’un objet à l’autre. Mais on peut aussi définir des **attributs dans la classe**.
 
 |<p>**Activité n° AUTONUM  \* Arabic : Classe et attributs de classe**</p><p>class Personne:<br>`   `*"""Classe définissant une personne caractérisée par :<br>`   `- son nom<br>`   `- son prénom"""*<br>`   `population = 0<br><br>`   `def \_\_init\_\_(self, nom : str, prenom : str):<br>`      `self.nom   = nom<br>`      `self.prenom    = prenom<br>`      `Personne.population += 1<br><br>moi = Personne('Dupont', 'Jean')<br>toi = Personne('Durant', 'Jean')<br>print(Personne.population)</p><p></p><p>2</p>|
@@ -218,9 +164,9 @@ Et on y accède également en dehors de la classe.
 A chaque fois que l’on crée un objet de type Personne, l’attribut de classe population s’incrémente de 1. Cela peut être utile d’avoir des attributs de classe, quand tous nos objets doivent avoir **certaines données identiques.**
 
 
-1. # <a name="_toc88030960"></a>**Les trois fondamentaux**
+## <a name="_toc88030960"></a>**3. Les trois fondamentaux**
 - La POO est dirigée par trois fondamentaux qu'il convient de toujours garder à l'esprit : **encapsulation**, **héritage** et **polymorphisme**. Les deux derniers sont hors programmes.
-1. ## <a name="_toc88030961"></a>**Encapsulation**
+### <a name="_toc88030961"></a>**3.1. Encapsulation**
 L’encapsulation introduit une nouvelle manière de gérer les données. On cherche aussi à **masque**r aux yeux d’un programmeur extérieur tous les rouages d’un objet et donc l’ensemble des procédures et fonctions destinées à la **gestion interne de l’objet**, auxquelles le programmeur final n’aura pas à avoir accès.
 
 L’encapsulation permet donc de **masquer un certain nombre d’attributs et méthodes** tout en laissant visibles d’autres attributs et méthodes.
@@ -232,7 +178,7 @@ On va définir des méthodes appelées des **accesseurs** et **mutateurs** (ou g
 
 
 ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.003.png)
-1. ### <a name="_toc88030962"></a>**Attributs et méthode publics**
+#### <a name="_toc88030962"></a>**3.1.1. Attributs et méthode publics**
 Comme leur nom l'indique, les attributs et méthodes dits publics sont **accessibles** depuis tous les descendants et dans tous les modules. On peut considérer que les éléments publics n'ont pas de restriction particulière.
 
 |<p>**Activité n° AUTONUM  \* Arabic : attributs publics**</p><p>class Personne:<br>`   `*"""Classe définissant une personne caractérisée par :<br>`   `- son nom<br>`   `- son prénom<br>`   `- son âge"""*<br><br>`   `def \_\_init\_\_(self, nom : str, prenom : str, age=33):<br>`      `self.nom   = nom<br>`      `self.prenom    = prenom<br>`      `self.age   = age<br><br><br><br>### Programme principal ###<br>qui = Personne('Dupont', 'Jean')<br><br>print(qui.nom)       # donne le nom<br>qui.nom = 'Durant'    # modifie l'attribut => INTERDIT<br>print(qui.nom)          # donne le nouveau nom</p><p></p><p>Dupont</p><p>Durant</p>|
@@ -243,7 +189,7 @@ Un **attribut** ne devrait être **public** que si sa modification n'entraîne *
 ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.004.png)
 
 Modifier un attribut "manuellement" et ensuite appeler une méthode pour informer de cette modification est une **violation du principe d'encapsulation.**
-1. ### <a name="_toc88030963"></a>**Attributs et méthodes privés**
+#### <a name="_toc88030963"></a>**3.1.2. Attributs et méthodes privés**
 Python permet (plus ou moins) de protéger les attributs en leur donnant un nom qui commence par le double souligné **\_\_.** C’est une convention !!
 ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.005.png)
 
@@ -260,7 +206,7 @@ Le mutateur récupère l’argument fournit dans le paramètre (nom) et place la
 
 
 
-1. ![ref1]<a name="_toc88030964"></a>Propriétés (Hors programme)
+#### <a name="_toc88030964"></a>**3.1.3. Propriétés (Hors programme)**
 
    Les propriétés sont un moyen transparent de **manipuler des attributs d’objet**. Elles permettent de dire à Python : « Quand un utilisateur souhaite modifier cet attribut, fais cela ». De cette façon, on peut rendre certains attributs tout à fait **inaccessibles depuis l’extérieur de la classe**, ou dire qu’un attribut ne **sera visible qu’en lecture et non modifiable**. Ou encore, on peut faire en sorte que, si on modifie un attribut, Python recalcule la valeur d’un autre attribut de l’objet.
 
@@ -297,20 +243,20 @@ Un constructeur porte le nom property. Elle attend quatre paramètres, tous opti
 
 
 
-1. ![ref1]<a name="_toc88030965"></a>**Héritage (pour aller plus loin)**
+### <a name="_toc88030965"></a>**3.2. Héritage (pour aller plus loin)**
 
 L’héritage est l’un des fondements de la programmation objet qui permet une **réutilisation** d’éléments déjà programmés dans un cadre général. L’héritage est une fonctionnalité objet qui permet de déclarer que telle classe sera elle-même modelée sur une autre classe, qu’on appelle la classe parente, ou la classe **mère**. 
 
 Si une classe B hérite de la classe A, les objets créés sur le modèle de la classe B auront accès aux méthodes et attributs de la classe A. On dit que la classe B est la **fille** de la classe A qui est le **parent** (ou la superclasse).
 
-1. <a name="_toc88030966"></a>Héritage simple
+#### <a name="_toc88030966"></a>**3.2.1. Héritage simple**
 
    |<p>**Activité n° AUTONUM  \* Arabic  Héritage simple:** On définit une première classe Personne et une seconde classe AgentSpecial qui hérite de Personne.</p><p>class Personne:<br>`    `*"""Classe représentant une personne"""*<br>`    `def \_\_init\_\_(self, nom : str, prenom : str):<br>`        `self.\_\_nom    = nom<br>`        `self.\_\_prenom = prenom<br>`    `def get\_identity(self):<br>`        `return self.\_\_prenom + " " + self.\_\_nom<br><br>class AgentSpecial(Personne):<br>`    `*"""Classe définissant un agent spécial.<br>`    `Elle hérite de la classe Personne"""*<br>`    `def \_\_init\_\_(self, nom : str, prenom : str, matricule : str):<br>`        `*"""Un agent se définit par son nom et son matricule"""*<br>`        `Personne.\_\_init\_\_(self, nom, prenom)   # appel explicite au constructeur<br>`        `self.\_\_matricule = matricule<br>`    `def get\_matricule(self):<br>`        `return self.\_\_matricule<br><br>### Programme principal ###<br>qui = AgentSpecial('Dupont', 'Jean', '007')<br>print("{0} : {1}".format(qui.get\_identity(), qui.get\_matricule()))</p><p></p><p>Jean Dupont : 007</p>|
    | - |
 
    On n’a pas besoin de redéfinir les attribut nom et prenom de la classe AgentSpecial puisqu’elle hérite de Personne.
 
-1. <a name="_toc88030967"></a>Héritage multiple
+#### <a name="_toc88030967"></a>**3.2.2. Héritage multiple**
 
    Python inclut un mécanisme permettant l’héritage multiple. L’idée est en substance très simple : au lieu d’hériter d’une seule classe, on peut hériter de plusieurs. Assez souvent, on utilisera l’héritage multiple pour des classes qui ont besoin de certaines fonctionnalités définies dans une classe mère.
 
@@ -318,7 +264,7 @@ Si une classe B hérite de la classe A, les objets créés sur le modèle de la 
 
    class SuperHero(Personne, Pouvoirs):
 
-1. <a name="_toc88030968"></a>Ordre de recherche de méthodes
+#### <a name="_toc88030968"></a>**3.2.3. Ordre de recherche de méthodes**
 
    La recherche des méthodes se fait dans l’ordre de la définition de la classe. Dans l’exemple ci-dessus, si on appelle une méthode d’un objet issu de SuperHero, on va d’abord chercher dans la classe SuperHero. Si la méthode n’est pas trouvée, on cherche dans toutes les classes mère de la classe Personne. Si on ne trouve pas la méthode, on la recherche dans Pouvoirs et ses classes mères successivement.
 
@@ -326,7 +272,7 @@ Si une classe B hérite de la classe A, les objets créés sur le modèle de la 
 
 
 
-1. ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.011.png)<a name="_toc88030969"></a>**Polymorphisme (pour aller plus loin)**
+### <a name="_toc88030969"></a>**3.3. Polymorphisme (pour aller plus loin)**
 
 Un objet va hériter des attributs et méthodes de ces ancêtres. Mais un objet garde toujours la capacité de pouvoir redéfinir une méthode afin de la réécrire ou de la compléter. 
 
@@ -334,7 +280,7 @@ Le polymorphisme permet à un objet de modifier son comportement propre et celui
 
 ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.012.png)
 
-1. <a name="_toc88030970"></a>Polymorphisme statique : surcharge de méthodes
+#### <a name="_toc88030970"></a>**3.3.1. Polymorphisme statique : surcharge de méthodes**
 
    Lorsqu’on surcharge une méthode, le but n’est pas d’écraser l’ancienne, mais de la compléter de façon à apporter de nouvelles fonctionnalités. 
 
@@ -342,7 +288,7 @@ Le polymorphisme permet à un objet de modifier son comportement propre et celui
 
    |<p>**Activité n° AUTONUM  \* Arabic  surcharge de méthodes :**  on ajoute get\_identity aux deux classes</p><p>class Personne:<br>`    `*"""Classe représentant une personne"""*<br>`    `def \_\_init\_\_(self, nom : str, prenom : str):<br>`        `self.\_\_nom    = nom<br>`        `self.\_\_prenom = prenom</p><p><br>`    `def get\_identity(self):<br>`        `return self.\_\_prenom + " " + self.\_\_nom<br><br>class AgentSpecial(Personne):<br>`    `*"""Classe définissant un agent spécial.<br>`    `Elle hérite de la classe Personne"""*<br>`    `def \_\_init\_\_(self, nom : str, prenom : str, matricule : str):<br>`        `*"""Un agent se définit par son nom et son matricule"""*<br>`        `Personne.\_\_init\_\_(self, nom, prenom)   # appel explicite au constructeur pour nom et prénom<br>`        `self.\_\_matricule = matricule            # on ajoute l'attribut matricule</p><p><br>`    `def get\_identity(self):                     # pour accéder au matricule<br>`        `return self.\_\_matricule<br><br>### Programme principal ###<br>moi = AgentSpecial('Dupont', 'Jean', '007')<br>print("identité : {0}".format(moi.get\_identity()))<br><br>toi = Personne('Durant', 'Jean')<br>print("identité : {0}".format(toi.get\_identity()))</p><p></p><p>identité : 007</p><p>identité : Jean Durant</p><p></p>|
    | - |
-1. <a name="_toc88030971"></a>Polymorphisme statique : surcharge d’opérateurs
+#### <a name="_toc88030971"></a>**3.3.2. Polymorphisme statique : surcharge d’opérateurs**
 
    La surcharge d’opérateur permet d’avoir une signification spécifique quand ils sont appliqués à des types spécifiques. Surcharger les opérateurs standards permet de tirer parti de l’intuition des utilisateurs de la classe.
 
@@ -411,7 +357,8 @@ d2 = d1 + .54  # ajoute 54 secondes
 print(d2)
 print(d1 == d2)
 print(d2 > d1)
-1. # ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.013.png)<a name="_toc88030972"></a>**Décorateurs (pour aller plus loin)**
+
+## <a name="_toc88030972"></a>**4. Décorateurs (pour aller plus loin)**
 Les décorateurs sont des fonctions de Python dont le rôle est de **modifier le comportement** par défaut d’autres fonctions ou classes. Une fonction modifiée par un décorateur ne s’exécutera pas elle-même mais appellera le décorateur. C’est au décorateur de décider s’il veut exécuter la fonction et dans quelles conditions. 
 
 La syntaxe et la suivante :
@@ -450,7 +397,7 @@ On peut ainsi poursuivre le débogage et tracer les appels récursifs de la fonc
 
 
 
-1. # <a name="_toc88030973"></a>**Exercices** 
+## <a name="_toc88030973"></a>**5. Exercices** 
 <a name="_hlk70249033"></a>**Exercice n°1 :** On considère une classe **Personnage** représentant un personnage de Jeu. Le plateau de jeu est représenté par un repère **orthonormé à trois axes**. La position du joueur dans le plateau est repérée par **ses attributs x, y, z**. 
 
 1. Ecrire un constructeur initialisant les mesures. 
@@ -728,7 +675,7 @@ Ces deux méthodes doivent vérifier que l’indice i est bien valide et, dans 
 - Enfin, écrire une méthode \_\_str\_\_(self) qui renvoie une chaîne de caractères décrivant le contenu du tableau.
 
 **
-1. # ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.015.png)<a name="_toc88030974"></a>**Projet (démarche d’investigation)**
+## <a name="_toc88030974"></a>**6. Projet (démarche d’investigation)**
 **Exercice n°1 : Jeu de cartes**
 
 Pour construire un jeu de cartes, on va commencer par construire une classe Carte :
