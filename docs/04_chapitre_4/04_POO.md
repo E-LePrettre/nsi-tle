@@ -51,7 +51,7 @@ En terminal seules les deux premières notions sont au programme de NSI
 ## <a name="_toc88030950"></a>**2. Définitions**
 ### <a name="_toc88030951"></a>**2.1. Classe** 
 Exemple : 
-
+```python
 class Personne:
 
    """
@@ -61,53 +61,76 @@ class Personne:
    """
 
    pass
-
+```
 - Un nom de classe commence toujours (c’est une convention) par une **lettre capitale** ;
 - pass est l’instruction Python qui indique de ne rien faire.
 
-|<p>Quelles actions a déclenché le code précédent ?</p><p>- Création d’un objet Classe Personne ;</p><p>- Création d’une variable Personne dans l’espace de nom global. Cette variable référence l’objet Classe Personne</p>|
-| - |
+Quelles actions a déclenché le code précédent ?
+- Création d’un objet Classe Personne ;
+- Création d’une variable Personne dans l’espace de nom global. Cette variable référence l’objet Classe Personne
 
 La classe est une espèce de moule, à partir de ce moule nous allons créer des **objets** (plus exactement nous parlerons **d'instances**).
 
 ### <a name="_toc88030952"></a>**2.2. Objet ou instance**
 Exemple : 
-
+```python
 Julien = Personne() # c'est la personne numéro 1 
 
 Mathilde = Personne() # c'est la personne numéro 2 
+```
 
-|<p>Quelles actions a déclenché le code précédent ?</p><p>- Création d’un **objet (ou instance)** de la classe Personne ;</p><p>- Création d’une variable Julien ou Mathilde dans l’espace de nom global. Chaque variable référence l’objet.</p>|
-| - |
+Quelles actions a déclenché le code précédent ?
+- Création d’un **objet (ou instance)** de la classe Personne ;
+- Création d’une variable Julien ou Mathilde dans l’espace de nom global. Chaque variable référence l’objet.
+
 
 Julien et Mathilde sont des objets (des instances) de la classe Personne
 
 Afin d’en découvrir davantage sur Julien, taper et exécuter l’instruction suivante :
-
+```python
 print(Julien)
-
+```
 On obtient
-
-<\_\_main\_\_.Personne object at 0x0000021C7CE97A10>
-
+```python
+<__main__.Personne object at 0x0000021C7CE97A10>
+```
 Julien appartient à l’espace de nom global et référence un objet de type Personne situé à l’adresse 0x0000021C7CE97A10
 
 ### <a name="_toc88030953"></a>**2.3. Les méthodes**
 #### <a name="_toc88030954"></a>**2.3.1. Définition**
 
-|Une méthode est une « **fonction** » définie dans une classe. Elle est **locale** à la classe. Elle correspond à une **action** agissant sur l'objet.|
-| - |
+Une méthode est une « **fonction** » définie dans une classe. Elle est **locale** à la classe. Elle correspond à une **action** agissant sur l'objet.
 
 Par exemple : manger, marcher, parler, dormir sont des méthodes de la classe Personne. Tous les objets d’une même classe partagent les mêmes méthodes
 
 #### <a name="_toc88030955"></a>**2.3.2. Les constructeurs ou initialiseur**
 Parmi les différents types de méthode, il existe un type particulier : les **constructeurs** ou **initialiseur**.
 
-|Les constructeurs sont des **méthodes** qui construisent l'objet désigné par la classe au moment **d’instanciation** de la classe, c’est-à-dire ils permettent d’initialiser l’objet : ses attributs sont automatiquement créés, des valeurs par défaut peuvent même leur être affectées. Un constructeur porte le nom \_\_init\_\_.|
-| - |
+Les constructeurs sont des **méthodes** qui construisent l'objet désigné par la classe au moment **d’instanciation** de la classe, c’est-à-dire ils permettent d’initialiser l’objet : ses attributs sont automatiquement créés, des valeurs par défaut peuvent même leur être affectées. Un constructeur porte le nom __init__.
 
-|<p><a name="_hlk44685233"></a>**Activité n° AUTONUM  \* Arabic : Classe et constructeur**</p><p>class Personne:<br>`   `*"""Classe définissant une personne caractérisée par :<br>`   `- son nom<br>`   `- son prénom<br>`   `- son âge"""*<br><br>`   `def \_\_init\_\_(self, nom : str, prenom : str):   # le constructeur<br>`      `""" Pour l'instant, on ne va définir que 3 attributs """</p><p>`      `# Dans le constructeur, on crée des variables self.nom, self.prenom et self.age que </p><p>`      `l’on initialise avec les paramètres passés au constructeur lors de l’instanciation.<br>`      `self.nom   = nom<br>`      `self.prenom    = prenom<br>`      `self.age   = 33<br><br>gollum = Personne('Dupont', 'Jean')<br>print("Je suis {0} {1}, j'ai {2} ans." . format(gollum.prenom, gollum.nom, gollum.age))</p><p></p><p>Je suis Jean Dupont, j'ai 33 ans.</p>|
-| - |
+**Activité n° 1 : Classe et constructeur**
+```python
+class Personne:
+   """Classe définissant une personne caractérisée par :
+   - son nom
+   - son prénom
+   - son âge"""
+
+   def __init__(self, nom : str, prenom : str):   # le constructeur
+      """ Pour l'instant, on ne va définir que 3 attributs """
+      # Dans le constructeur, on crée des variables self.nom, self.prenom et self.age que 
+      l’on initialise avec les paramètres passés au constructeur lors de l’instanciation.
+      self.nom   = nom
+      self.prenom    = prenom
+      self.age   = 33
+
+gollum = Personne('Dupont', 'Jean')
+print("Je suis {0} {1}, j'ai {2} ans." . format(gollum.prenom, gollum.nom, gollum.age))
+```
+
+```txt
+Je suis Jean Dupont, j'ai 33 ans.
+```
 
 Lors de la création de l’instance gollum, Python va automatiquement remplacer self par gollum et ainsi créer trois attributs :
 
@@ -115,32 +138,54 @@ Lors de la création de l’instance gollum, Python va automatiquement remplacer
 - gollum.prenom qui aura pour valeur le prénom passé en paramètre (Jean),
 - gollum.age qui aura pour valeur de départ la valeur donnée à self.age
 
-La définition du constructeur consiste en une définition « classique » d'une fonction. Elle a pour nom \_\_init\_\_. En Python, **tous les constructeurs s'appellent ainsi**. Les noms de méthodes entourés de part et d'autre de deux signes soulignés (\_\_nommethode\_\_) sont des **méthodes spéciales**. Dans la définition de méthode, on passe un premier paramètre nommé self**.**
+La définition du constructeur consiste en une définition « classique » d'une fonction. Elle a pour nom __init__. En Python, **tous les constructeurs s'appellent ainsi**. Les noms de méthodes entourés de part et d'autre de deux signes soulignés (__nommethode__) sont des **méthodes spéciales**. Dans la définition de méthode, on passe un premier paramètre nommé self**.**
 
-|self (c’est une convention) correspond simplement à l’objet sur lequel on applique la méthode (il représente l’objet en train de se créer).|
-| - |
+self (c’est une convention) correspond simplement à l’objet sur lequel on applique la méthode (il représente l’objet en train de se créer).
 
-|Un **attribut** est une variable de classe propre à l’objet et sert à le caractériser|
-| - |
+Un **attribut** est une variable de classe propre à l’objet et sert à le caractériser
 
 Exemple : nom, prénom, age
 
 #### <a name="_toc88030956"></a>**2.3.3. Les destructeurs**
 
-Le **destructeur** d'une classe est une méthode spéciale lancée lors de la destruction d'un objet afin de récupérer les ressources (principalement la mémoire vive) réservée dynamiquement lors de l'instanciation de l'objet. Un constructeur porte le nom \_\_del\_\_.
+Le **destructeur** d'une classe est une méthode spéciale lancée lors de la destruction d'un objet afin de récupérer les ressources (principalement la mémoire vive) réservée dynamiquement lors de l'instanciation de l'objet. Un constructeur porte le nom __del__.
 
 Le destructeur est appelé implicitement à la sortie du programme, ou explicitement à travers l’instruction del.
 
-|<p>**Activité n° AUTONUM  \* Arabic : Classe et destructeur**</p><p>class Personne:<br>`   `*"""Classe définissant une personne caractérisée par :<br>`   `- son nom<br>`   `- son prénom<br>`   `- son âge"""*<br><br>`   `def \_\_init\_\_(self, nom : str, prenom : str):   # le constructeur<br>`      `self.nom   = nom<br>`      `self.prenom    = prenom<br>`      `self.age   = 33<br>`      `print("Voici {0} {1}" . format(self.prenom, self.nom))</p><p><br>`   `def \_\_del\_\_(self): # le destructeur<br>`      `print("décédé(e) à {0} ans". format(self.age))<br><br>moi = Personne('Dupont', 'Jean')<br>del moi</p><p></p><p>Voici Jean Dupont</p><p>décédé(e) à 33 ans</p><p></p>|
-| - |
+**Activité n° 2 : Classe et destructeur**
+```python
+class Personne:
+   """Classe définissant une personne caractérisée par :
+   - son nom
+   - son prénom
+   - son âge"""
+
+   def __init__(self, nom : str, prenom : str):   # le constructeur
+      self.nom   = nom
+      self.prenom    = prenom
+      self.age   = 33
+      print("Voici {0} {1}" . format(self.prenom, self.nom))
+
+   def __del__(self): # le destructeur
+      print("décédé(e) à {0} ans". format(self.age))
+
+moi = Personne('Dupont', 'Jean')
+del moi
+```
+
+```txt
+Voici Jean Dupont
+décédé(e) à 33 ans
+```
+
 
 #### <a name="_toc88030957"></a>**2.3.4. Les autres méthodes**
 
 Créer une **méthode d'instance**, revient à **créer une fonction** ayant comme premier paramètre le mot clef self.
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.002.png)
 
 
-|<p>**Activité n° AUTONUM  \* Arabic : Classe et méthode**</p><p>class Personne:<br>`   `*"""Classe définissant une personne caractérisée par :<br>`   `- son nom<br>`   `- son prénom<br>`   `- son âge<br>`   `- son lieu de résidence"""*<br>`   `def \_\_init\_\_(self, nom : str, prenom : str):   # le constructeur<br>`      `""" on ajoute un attribut lieu de résidence... """<br>`      `self.nom      = nom<br>`      `self.prenom       = prenom<br>`      `self.age      = 33<br>`      `self.residence = "Paris"<br><br>`   `def ma\_residence(self):<br>`      `*""" ...et la méthode associée au lieu de résidence """*<br>`      `return "J'habite {0}." . format(self.residence)<br><br>qui = Personne('Dupont', 'Jean')<br>print("Je suis {0} {1}, j'ai {2} ans." . format(qui.prenom, qui.nom, qui.age))<br>print(qui.ma\_residence())</p><p></p><p>Je suis Jean Dupont, j'ai 33 ans.</p><p>J'habite Paris.</p><p></p>|
+
+**Activité n° AUTONUM  \* Arabic : Classe et méthode**</p><p>class Personne:<br>`   `*"""Classe définissant une personne caractérisée par :<br>`   `- son nom<br>`   `- son prénom<br>`   `- son âge<br>`   `- son lieu de résidence"""*<br>`   `def \_\_init\_\_(self, nom : str, prenom : str):   # le constructeur<br>`      `""" on ajoute un attribut lieu de résidence... """<br>`      `self.nom      = nom<br>`      `self.prenom       = prenom<br>`      `self.age      = 33<br>`      `self.residence = "Paris"<br><br>`   `def ma\_residence(self):<br>`      `*""" ...et la méthode associée au lieu de résidence """*<br>`      `return "J'habite {0}." . format(self.residence)<br><br>qui = Personne('Dupont', 'Jean')<br>print("Je suis {0} {1}, j'ai {2} ans." . format(qui.prenom, qui.nom, qui.age))<br>print(qui.ma\_residence())</p><p></p><p>Je suis Jean Dupont, j'ai 33 ans.</p><p>J'habite Paris.</p><p></p>|
 | - |
 
 Pour appeler une méthode de l’instance Personne, il suffit donc d’écrire instance.méthode().
