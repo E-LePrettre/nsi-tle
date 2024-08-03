@@ -1312,7 +1312,7 @@ Elles sont composées, comme leur nom l'indique, d'une matrice (tableau) de poin
 
 Les formats d'images matricielles les plus courants sont jpeg, gif, png, tiff, bmp.
 
-Définition et résolution
+**Définition et résolution**
 
 La définition d'une image matricielle est donnée par le nombre de points la composant. En image numérique, cela correspond au nombre de pixels qui composent l'image en hauteur (axe vertical) et en largeur (axe horizontal) : 200 pixels x 450 pixels par exemple.
 
@@ -1327,62 +1327,66 @@ On utilise Pillow pour s’affranchir de la question des formats de fichiers.
 **Ouverture et enregistrement de fichiers d’image avec Pillow**
 
 Le bout de code suivant convertit le fichier tigre.jpg (au format JPEG) en tigre.png (au format PNG) :
-
+```python
 import PIL.Image as Image
 img = Image.open(r'tigre.jpg')
 img.save(r'tigre.png')
+```
 
 **Informations sur une image**
 
-1. Dans un interpréteur Python, créer un fichier Python filtre.py et essayer :
-
+2 Sur Thonny, créer un fichier Python filtre.py 
+Essayer :
+```python
 import PIL.Image as Image
 img = Image.open(r'tigre.jpg')
-
+```
 Déterminer la taille de l’image.
 
 **Représentation d’une image en mémoire**
 
-1. Si img est une image chargée avec PIL.Image.open, on accède à ses pixels via la méthode img.load() qui renvoie un tableau indexé par des couples d’entiers (et non pas une matrice au sens python du terme). Rajouter :
-
+3 Si img est une image chargée avec PIL.Image.open, on accède à ses pixels via la méthode img.load() qui renvoie un tableau indexé par des couples d’entiers (et non pas une matrice au sens python du terme). Rajouter :
+```python
 pixels = img.load()
 print(pixels[0,0])
-
+```
 on obtient la valeur du pixel en haut à gauche de l’image.
 
-1. Afficher tous les pixels de l’image en couleurs.
+4 Afficher tous les pixels de l’image en couleurs.
 
 **Aide** : Faire une boucle sur la taille de l’image
 
-1. Afficher tous les pixels de l’image en noir et blanc. Conclure.
+5 Afficher tous les pixels de l’image en noir et blanc. Conclure.
 
-Modifier une image
+**Modifier une image**
 
-1. Pour modifier un pixel, on change sa valeur dans le tableau des pixels :
-
+6 Pour modifier un pixel, on change sa valeur dans le tableau des pixels :
+```python
 pixels[0,0] = 0
-img.save(r'tigre\_mod.png')
-
+img.save(r'tigre_mod.png')
+```
 Est-ce que ça fonctionne avec l’image en noir et blanc ? Avec celle en couleurs ? Conclure.
 
 **Aide** : utiliser paint.net qui permet de zoomer facilement
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.024.png)**Premiers filtres**
+**Premiers filtres**
+
+![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.024.png)
 
 Vous êtes parés pour écrire votre premier filtre. 
 
-1. Créer un fichier python premier\_filtre.py.
-1. Écrire une classe filtre à partir du diagramme de classe ci-contre.
+7 Créer un fichier python premier\_filtre.py.
+8 Écrire une classe filtre à partir du diagramme de classe ci-contre.
 
    **Aide** : le corps des méthodes ne sera pas développé immédiatement ; on utilisera l’instruction Python pass en attendant.
 
-1. Compléter le constructeur de classe avec les attributs en haut.
+9 Compléter le constructeur de classe avec les attributs en haut.
 
 **Aide** :
 
 - \_\_img permet l’ouverture de l’image
 - \_\_pix permet d’accéder à un pixel de l’image que l’on a ouvert avec \_\_img
-1. Compléter les méthodes suivantes :
+10 Compléter les méthodes suivantes :
 - size()
 
 retourne la taille en pixels d'une image sous forme de tuple largeur, hauteur
@@ -1415,7 +1419,7 @@ retourne la taille en pixels d'une image sous forme de tuple largeur, hauteur
 
 Cela donnera self.\_\_pix[col, row] qui permet d’accéder à la valeur du pixel.
 
-1. Tester chaque méthode avec filtre.png. On choisira le pixel (0, 0) pour obtenir sa couleur.
+11 Tester chaque méthode avec filtre.png. On choisira le pixel (0, 0) pour obtenir sa couleur.
 
 Retoucher une image revient à modifier les valeurs de certains pixels. On peut le faire localement (à un endroit bien précis de l'image) ou globalement. Dans ce dernier cas, on utilise un outil appelé « courbe tonale », qui ressemble au dessin ci-contre.
 
@@ -1423,97 +1427,135 @@ Sur l'abscisse, on lit les valeurs originales des pixels et sur l'ordonnée les 
 
 En fait, il y a trois courbes tonales : une pour le rouge, une pour le vert et une pour le bleu. On les modifie souvent simultanément de la même façon, mais on peut aussi les modifier séparément.
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.025.png)Négatif
-
-1. Écrire une méthode reverse() qui remplace tous les pixels de l’image par leur valeur en négatif. Obtenir le négatif d'une image est très simple : toutes les composantes x de tous les pixels de l'image sont remplacées par 255 – x.
+**Négatif**
+![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.025.png)
+12 Écrire une méthode reverse() qui remplace tous les pixels de l’image par leur valeur en négatif. Obtenir le négatif d'une image est très simple : toutes les composantes x de tous les pixels de l'image sont remplacées par 255 – x.
 
 **Aide** : 
 
 - Pour chaque pixel, utiliser la méthode get\_pix sur l’objet lui-même pour récupérer la valeur du rouge, du vert et du bleu. Les couleurs sont obtenues dans cet ordre.
 - Convertir chaque couleur en négatif et stocker (remplacer) les valeurs dans le pixel
 - Sauver l’image avec la méthode save(file) à appliquer sur la méthode ouvrant l’image…
-1. Tester la méthode avec filtre.png. Sauvegarder l’image sous filtre\_negatif.png. 
+13 Tester la méthode avec filtre.png. Sauvegarder l’image sous filtre\_negatif.png. 
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.026.png)**Rouge**
+**Rouge**
+
+![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.026.png)
 
 Chaque pixel de l'image est une combinaison de rouge, de vert et de bleu. En assignant la valeur 0 aux composantes verte et bleue, on obtient une image à dominante rouge.
 
-1. Écrire une méthode red() qui réalise cette opération.
-1. ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.027.png)Tester la méthode avec filtre.png. Sauvegarder l’image sous filtre\_rouge.png.  
+14 Écrire une méthode red() qui réalise cette opération.
+15 Tester la méthode avec filtre.png. Sauvegarder l’image sous filtre\_rouge.png.  
 
 **Niveaux de gris**
+
+![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.027.png)
 
 Dans une image en niveaux de gris, chaque pixel est noir, blanc, ou a un niveau de gris entre les deux. Cela signifie que les trois composantes ont la même valeur.
 
 L'œil est plus sensible à certaines couleurs qu'à d'autres. Le vert (pur), par exemple, paraît plus clair que le bleu (pur). Pour tenir compte de cette sensibilité dans la transformation d'une image couleur en une image en niveaux de gris, on ne prend généralement **pas la** **moyenne arithmétique** des intensités de couleurs fondamentales, mais une moyenne pondérée. **Pour simplifier** les choses, nous prendrons ici **la moyenne « classique ».**
 
-1. Écrire une méthode color2grey() qui transforme une image en couleurs vers une image en niveaux de gris. On souhaite ne pas écrire trois fois la même valeur à chaque couleur de chaque pixel. De ce fait, on sauvegardera l’image en filtre\_gris.png. 
+16 Écrire une méthode color2grey() qui transforme une image en couleurs vers une image en niveaux de gris. On souhaite ne pas écrire trois fois la même valeur à chaque couleur de chaque pixel. De ce fait, on sauvegardera l’image en filtre\_gris.png. 
 
 **Aide** :
 
 - L’intensité de chaque couleur de pixel doit être un entier
 - Pour créer la nouvelle image, on utilise Image.new en niveaux de gris (mode "L"). Voir help(Image.new) dans l’interpréteur.
 - Il faut donc enregistrer dans une variable Image.new("L", self.size()) puis, ouvrir cette variable (c’est l’ouverture d’une image) et l’affecter à une variable que l’on appellera pix pour rester proche du code écrit précédemment (self.\_\_pix). L’attribution de la nouvelle couleur ne prend donc plus qu’un argument et non 3.
-1. Tester la méthode avec filtre.png. Sauvegarder l’image sous filtre\_gris.png.  
+17 Tester la méthode avec filtre.png. Sauvegarder l’image sous filtre\_gris.png.  
 
 **Seuillage**
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.028.png)Le seuillage d'image est la méthode la plus simple de segmentation d'image.
+![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.028.png)
+
+Le seuillage d'image est la méthode la plus simple de segmentation d'image.
 
 À partir d'une image en niveau de gris, le seuillage d'image peut être utilisé pour créer une image comportant uniquement deux valeurs, noir ou blanc (monochrome). On remplace un à un les pixels d'une image par rapport à une valeur seuil fixée (par exemple 50). Ainsi, si un pixel à une valeur supérieure au seuil, il prendra la valeur 255 (blanc), et si sa valeur est inférieure, il prendra la valeur 0 (noir).
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.029.png)Avec une image en couleur, on fera de même avec les trois composantes rouge, vert et bleu. Il y aura ainsi huit couleurs possibles pour chaque pixel : blanc, noir, rouge, vert, bleu, magenta, jaune et cyan.
+![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.029.png)
 
-1. Écrire la méthode threshold() qui réalisent un seuillage pour un seuil donné en paramètre.
+Avec une image en couleur, on fera de même avec les trois composantes rouge, vert et bleu. Il y aura ainsi huit couleurs possibles pour chaque pixel : blanc, noir, rouge, vert, bleu, magenta, jaune et cyan.
+
+18 Écrire la méthode threshold() qui réalisent un seuillage pour un seuil donné en paramètre.
 
    **Aide** : Pour le seuillage noir et blanc, on part de l’image en négatif donc il n’y a qu’une valeur pour chaque pixel.
 
-1. Tester avec filtre\_gris.png et une valeur limite à 100. Sauvegarder l’image sous filtre\_seuillageNB.png.
-1. Ecrire la méthode et threshold\_color() qui réalise un seuillage pour un seuil donné en paramètre
+19 Tester avec filtre\_gris.png et une valeur limite à 100. Sauvegarder l’image sous filtre\_seuillageNB.png.
+20 Ecrire la méthode et threshold\_color() qui réalise un seuillage pour un seuil donné en paramètre
 
    **Aide** : traiter chaque couleur au niveau de la limite qui sera un tuple composé d’une valeur pour chaque couleur. Pour simplifier l’écriture on peut écrire l’instruction sur la même ligne que la condition (après les deux points) 
 
-1. Tester la méthode avec filtre.png et des valeurs limites (100,100,100). Sauvegarder l’image sous filtre\_seuillageColor.png.  
+21 Tester la méthode avec filtre.png et des valeurs limites (100,100,100). Sauvegarder l’image sous filtre\_seuillageColor.png.  
 
-|<p>**Luminosité**</p><p>Pour augmenter la luminosité, il suffit d'ajouter une valeur fixe à tous les niveaux.</p><p>Pour une valeur de + 96, tous les points de l'espace V' seront blancs.</p><p>- Première conséquence : les points les plus noirs auront une valeur égale à 96 et il n'existera plus aucun point entre 0 et 96.</p><p>- Deuxième conséquence : les points ayant une valeur supérieure à 160 deviendront des points parfaitement blancs, puisque la valeur maximale possible est 255. Il y a donc perte d'informations.</p><p></p>|![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.030.png)|
-| - | -: |
-|<p>![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.031.png)</p><p>Pour éviter ces pertes d'informations, il faut que la courbe tonale rejoigne les axes tangentiellement, comme dans l'exemple ci-contre. Ainsi, aucun point de débordera des valeurs limites minimale (0) ou maximale (255). Il sera en particulier possible de revenir en arrière.</p>|![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.032.png)|
-|<p>Pour diminuer la luminosité il faudra au contraire soustraire une valeur fixe à tous les niveaux.</p><p>Pour une valeur de -100, tous les points de l'espace V" seront noirs.</p><p>- Première conséquence : les points les plus blancs auront une valeur égale à 156 et il n'existera plus aucun point entre 156 et 255.</p><p>- Deuxième conséquence : les points ayant une valeur comprise entre 0 et 100 deviendront noirs, puisque la valeur minimale est 0. Il y aura donc là aussi perte d'informations.</p><p>22. Écrire une méthode brighten() qui réalisent un éclaircissement de l’image pour une valeur donnée en paramètre.</p>|![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.033.png)|
+**Luminosité**
+
+![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.030.png)
+
+Pour augmenter la luminosité, il suffit d'ajouter une valeur fixe à tous les niveaux.
+Pour une valeur de + 96, tous les points de l'espace V' seront blancs.
+- Première conséquence : les points les plus noirs auront une valeur égale à 96 et il n'existera plus aucun point entre 0 et 96.
+- Deuxième conséquence : les points ayant une valeur supérieure à 160 deviendront des points parfaitement blancs, puisque la valeur maximale possible est 255. Il y a donc perte d'informations.
+
+
+Pour éviter ces pertes d'informations, il faut que la courbe tonale rejoigne les axes tangentiellement, comme dans l'exemple ci-contre. Ainsi, aucun point de débordera des valeurs limites minimale (0) ou maximale (255). Il sera en particulier possible de revenir en arrière.
+
+![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.032.png)
+
+Pour diminuer la luminosité il faudra au contraire soustraire une valeur fixe à tous les niveaux.
+Pour une valeur de -100, tous les points de l'espace V" seront noirs.
+- Première conséquence : les points les plus blancs auront une valeur égale à 156 et il n'existera plus aucun point entre 156 et 255.
+- Deuxième conséquence : les points ayant une valeur comprise entre 0 et 100 deviendront noirs, puisque la valeur minimale est 0. Il y aura donc là aussi perte d'informations.
+
+![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.033.png)
+
+22 Écrire une méthode brighten() qui réalisent un éclaircissement de l’image pour une valeur donnée en paramètre.
 
 **Aide** : traiter chaque couleur de chaque pixel indifféremment des autres et utiliser les fonctions min() et max().
 
-1. Tester la méthode avec filtre.png et la valeur 20. Sauvegarder l’image sous filtre\_luminositeP20.png.  Recommencer avec filtre.png et la valeur -50. Sauvegarder l’image sous filtre\_luminositeM50.png.  
+23 Tester la méthode avec filtre.png et la valeur 20. Sauvegarder l’image sous filtre\_luminositeP20.png.  Recommencer avec filtre.png et la valeur -50. Sauvegarder l’image sous filtre\_luminositeM50.png.  
 
-|<p></p><p></p><p>**Contraste**</p><p></p><p>Pour rendre une image plus contrastée, il faut assombrir les points foncés et éclaircir les points clairs, par exemple comme dans la figure ci-contre.</p><p>Les points de l'espace V" seront noirs et ceux de l'espace V' blancs. </p><p></p>|![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.034.png)|
-| - | -: |
-|<p>Pour les mêmes raisons que précédemment, cette manière de faire va causer des pertes d'informations. Aussi faut-il adoucir la courbe. </p><p>![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.035.png)</p>|![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.036.png)|
 
-1. Écrire une méthode contrast() qui effectue un contraste de l’image en fonction d’une valeur donnée en paramètre.
+**Contraste**
+
+![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.034.png)
+
+Pour rendre une image plus contrastée, il faut assombrir les points foncés et éclaircir les points clairs, par exemple comme dans la figure ci-contre.Les points de l'espace V" seront noirs et ceux de l'espace V' blancs. 
+
+Pour les mêmes raisons que précédemment, cette manière de faire va causer des pertes d'informations. Aussi faut-il adoucir la courbe. 
+
+![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.035.png)
+
+![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.036.png)
+
+24 Écrire une méthode contrast() qui effectue un contraste de l’image en fonction d’une valeur donnée en paramètre.
 
 **Aide** : Exemple de calcul de contraste :
 
 - Si la valeur est plus petite que 30, assignez la valeur 0.
 - Si la valeur est plus grande que 225, assignez la valeur 255.
 - Les valeurs c comprises entre 30 et 225 seront recalculées avec la formule : int(round((255.0 / 195.0) \* (c - 30) + 0.5))
-1. ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.037.png)Tester la méthode avec filtre.png et la valeur 30. Sauvegarder l’image sous filtre\_contraste30.png.  
+
+25 Tester la méthode avec filtre.png et la valeur 30. Sauvegarder l’image sous filtre\_contraste30.png.  
 
 
 **Bruit**
 
+![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.037.png)
+
 Le « bruit » consiste à remplacer **aléatoirement** un certain nombre de pixels par des pixels blancs.
 
-1. Écrire une méthode noise() qui prend en paramètres la couleur du bruit en niveau de gris (valeur de 0 à 255) et un plafond d’apparition (0 à 10) appelé noise. 
+26 Écrire une méthode noise() qui prend en paramètres la couleur du bruit en niveau de gris (valeur de 0 à 255) et un plafond d’apparition (0 à 10) appelé noise. 
 
    **Aide** : le choix aléatoire du pixel qui sera affecté par du bruit en dessous de la valeur noise fixée.
 
-1. Tester la méthode avec filtre.png, 255 et la valeur 4. Sauvegarder l’image sous filtre\_bruit.png.  
+27 Tester la méthode avec filtre.png, 255 et la valeur 4. Sauvegarder l’image sous filtre\_bruit.png.  
 
 **Symétrie axiale d'axe horizontal**
 
 La symétrie axiale horizontale consiste à échanger les pixels du haut de l’image avec ceux du bas. Ainsi, chaque pixel de la rangée 0 sera échangé avec celui en dessous de lui à la rangée filtre.height() - 1 ; ceux de la rangée 1 avec ceux de la rangée filtre.height() - 2, etc.
 
-1. Ecrire une méthode flip() qui fait la symétrie axiale.
-1. Tester la méthode avec filtre.png. Sauvegarder l’image sous filtre\_sym\_axiale.png.
+28 Ecrire une méthode flip() qui fait la symétrie axiale.
+29 Tester la méthode avec filtre.png. Sauvegarder l’image sous filtre\_sym\_axiale.png.
 
 **Exercice n°3 : Blackjack**
 
@@ -1541,93 +1583,88 @@ Ensuite, il joue pour lui selon une règle simple et codifiée « la banque tire
 
 Et une classe Game pour la boucle de jeu
 
-1. Créer un fichier python blackjack.py
-1. ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.038.png)Faire une importation du module random
+1 Sur Thonny : Créer un fichier python blackjack.py
+2 Faire une importation du module random
 
 **La classe Card :**
 
-1. Ecrire la classe Card à partir des diagrammes de classes ci-contre, les attributs sont en haut :
+![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.038.png)
+
+3 Ecrire la classe Card à partir des diagrammes de classes ci-contre, les attributs sont en haut :
 
 **Aide** : 
 
 - Chaque carte contiendra une couleur (suit) et une valeur (value)
 - La fonction \_\_repr\_\_() renverra la valeur (roi, reine, valet,…) et la couleur. On obtiendra ainsi la combinaison par exemple : roi de trèfle. Pour se faire utiliser la méthode join() (<https://www.w3schools.com/python/ref_string_join.asp>) avec un tuple constitué de la couleur et le la valeur.
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.039.png)**La classe Deck :**
+**La classe Deck :**
+
+![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.039.png)
 
 Cette classe doit contenir les 52 cartes et doit être capable de les mélanger. Il faut également que la pile diminue au fur et à mesure que les cartes seront retirées.
 
-1. Ecrire la classe Deck à partir des diagrammes de classes ci-contre, l’attribut est en haut :
+4 Ecrire la classe Deck à partir des diagrammes de classes ci-contre, l’attribut est en haut :
 
 **Aide** :
 
 - Lors de la création d’une instance de Deck, il faut disposer d’une collection de toutes les cartes possibles. Pour cela il faut utiliser une compréhension de liste contenant des listes de chaque couleur et valeur. Il faut transmettre chaque combinaison à l’initialisation de la classe Card pour créer les 52 instances card uniques, comme suit : Card(suit, value). On s’aidera de la liste des couleurs ["Pique ♠", "Trèfle ♣", "Coeur ♥", "Carreau ♦"] et la liste de valeur ["As", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Valet", "Reine", "Roi"]
 - Implémentez une méthode \_\_str\_\_ : vous devriez obtenir quelque chose comme ceci :
-
-\>>> piles\_cartes = Deck()
-
-\>>> print(piles\_cartes)
-
+```txt
+>>> piles_cartes = Deck()
+>>> print(piles\_cartes)
 [As de Pique ♠, 2 de Pique ♠, 3 de Pique ♠, 4 de Pique ♠, 5 de Pique ♠, 6 de Pique ♠, 7 de Pique ♠, 8 de Pique ♠, 9 de Pique ♠, 10 de Pique ♠, Valet de Pique ♠, Reine de Pique ♠, Roi de Pique ♠, As de Trèfle ♣, 2 de Trèfle ♣, 3 de Trèfle ♣, 4 de Trèfle ♣, 5 de Trèfle ♣, 6 de Trèfle ♣, 7 de Trèfle ♣, 8 de Trèfle ♣, 9 de Trèfle ♣, 10 de Trèfle ♣, Valet de Trèfle ♣, Reine de Trèfle ♣, Roi de Trèfle ♣, As de Coeur ♥, 2 de Coeur ♥, 3 de Coeur ♥, 4 de Coeur ♥, 5 de Coeur ♥, 6 de Coeur ♥, 7 de Coeur ♥, 8 de Coeur ♥, 9 de Coeur ♥, 10 de Coeur ♥, Valet de Coeur ♥, Reine de Coeur ♥, Roi de Coeur ♥, As de Carreau ♦, 2 de Carreau ♦, 3 de Carreau ♦, 4 de Carreau ♦, 5 de Carreau ♦, 6 de Carreau ♦, 7 de Carreau ♦, 8 de Carreau ♦, 9 de Carreau ♦, 10 de Carreau ♦, Valet de Carreau ♦, Reine de Carreau ♦, Roi de Carreau ♦]
+```
 
 - La méthode shuffle : <https://www.w3schools.com/python/ref_random_shuffle.asp>. On ne peut mélanger les cartes que si la pile en contient plus d’une carte.
-
-\# à ajouter
-
-\>>> pile\_cartes.shuffle()
-
-\>>> print(pile\_cartes)
-
+```txt
+# à ajouter
+>>> pile_cartes.shuffle()
+>>> print(pile_cartes)
 [9 de Coeur ♥, 6 de Pique ♠, 9 de Pique ♠, 10 de Trèfle ♣, 4 de Coeur ♥, 7 de Trèfle ♣, Valet de Pique ♠, As de Pique ♠, 7 de Pique ♠, 4 de Carreau ♦, 10 de Carreau ♦, 2 de Coeur ♥, Valet de Carreau ♦, 10 de Coeur ♥, 4 de Trèfle ♣, Reine de Trèfle ♣, Valet de Coeur ♥, As de Coeur ♥, 5 de Pique ♠, 6 de Coeur ♥, 10 de Pique ♠, 3 de Trèfle ♣, 7 de Carreau ♦, 3 de Coeur ♥, Roi de Coeur ♥, Roi de Pique ♠, 5 de Trèfle ♣, Reine de Carreau ♦, 3 de Pique ♠, 2 de Carreau ♦, 5 de Carreau ♦, 8 de Trèfle ♣, Reine de Coeur ♥, Reine de Pique ♠, 8 de Coeur ♥, Roi de Carreau ♦, Valet de Trèfle ♣, 5 de Coeur ♥, 8 de Pique ♠, 9 de Trèfle ♣, 3 de Carreau ♦, As de Carreau ♦, 2 de Pique ♠, Roi de Trèfle ♣, 4 de Pique ♠, As de Trèfle ♣, 2 de Trèfle ♣, 9 de Carreau ♦, 6 de Carreau ♦, 6 de Trèfle ♣, 7 de Coeur ♥, 8 de Carreau ♦]
+```
 
 - La méthode deal permet de retirer du jeu la carte du dessus. Pour cela on utilisera la méthode pop() : <https://www.w3schools.com/python/ref_list_pop.asp>. Elle retournera la pile de carte sans la carte du dessus.
-
-\# à ajouter
-
-\>>> pile\_cartes.deal()
-
+```txt
+# à ajouter
+>>> pile_cartes.deal()
 9 de Coeur ♥
+```
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.040.png)**La classe Hand** :
+**La classe Hand** :
+
+![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.040.png)
 
 Cette classe contient des cartes. Il vaut également attribuer une valeur par les règles du jeu en fonction des cartes qu’il contient.
 
 La main du croupier ne doit afficher qu’une seule carte, il faudra également suivre cette règle.
 
-1. Ecrire la classe Deck à partir des diagrammes de classes ci-contre :
+5 Ecrire la classe Deck à partir des diagrammes de classes ci-contre :
 
    **Aide** : le corps des méthodes ne sera pas développé immédiatement ; on utilisera l’instruction Python pass en attendant.
 
-1. Compléter le constructeur de classe avec les attributs en haut.
+6 Compléter le constructeur de classe avec les attributs en haut.
 
 **Aide** : l’attribut cards est une liste vide et l’attribut value commence à 0.
 
-1. La méthode add\_card permet d’ajouter simplement l’instance card à la liste cards
+7 La méthode add\_card permet d’ajouter simplement l’instance card à la liste cards
 
 **Aide** : 
 
 - on utilisera la méthode append
 - Implémentez une méthode \_\_str\_\_ : vous devriez obtenir quelque chose comme ceci :
-
-\# à ajouter
-
-\>>> pile\_cartes.shuffle()
-
-\>>> carte\_tiree = pile\_cartes.deal()
-
-\>>> print(carte\_tiree)
-
+```txt
+# à ajouter
+>>> pile_cartes.shuffle()
+>>> carte_tiree = pile_cartes.deal()
+>>> print(carte_tiree)
 6 de Carreau ♦
-
-\>>> ma\_main = Hand()
-
-\>>> ma\_main.add\_card(carte\_tiree)
-
-\>>> print(ma\_main)
-
+>>> ma_main = Hand()
+>>> ma_main.add_card(carte_tiree)
+>>> print(ma_main)
 [6 de Carreau ♦]
+```
 
-1. La méthode calculate\_value permet de calculer la valeur de cards. La valeur value est initialisée à 0 et on suppose que le joueur n’a pas d’as (puisque c’est un cas particulier) : has\_ace = False. Il s’agit de parcourir les instances card de cards et d’ajouter leur valeur sous forme de nombre (entier) au total du joueur en utilisant les règles suivantes :
+8 La méthode calculate\_value permet de calculer la valeur de cards. La valeur value est initialisée à 0 et on suppose que le joueur n’a pas d’as (puisque c’est un cas particulier) : has\_ace = False. Il s’agit de parcourir les instances card de cards et d’ajouter leur valeur sous forme de nombre (entier) au total du joueur en utilisant les règles suivantes :
 - Si la valeur de la carte est numérique, on ajoute sa valeur à la valeur de cette main (self.value)
 
 **Aide** : on pourra utiliser la méthode isnumeric()
@@ -1637,66 +1674,49 @@ La main du croupier ne doit afficher qu’une seule carte, il faudra également 
 
 Une fois que cela est fait, on vérifie s’il y avait un as. Si c’est le cas, l’as ayant pour valeur 0 ou 11 au choix, il faut vérifier aussi que le total est supérieur à 21. Si c’est le cas il faut soustraire 10 pour que l’as ne vaille que 1.
 
-1. La méthode get\_value permet de récupérer la valeur value et de la retourner.
+9 La méthode get\_value permet de récupérer la valeur value et de la retourner.
 
 Vous devriez obtenir quelque chose comme ceci :
-
-\# à ajouter
-
-\>>> ma\_main.add\_card(pile\_cartes.deal())
-
-\>>> print("ma main : ", ma\_main)
-
+```txt
+# à ajouter
+>>> ma_main.add_card(pile_cartes.deal())
+>>> print("ma main : ", ma_main)
 ma main :  [Valet de Carreau ♦, 5 de Pique ♠]
-
-\>>> ma\_main.get\_value()
-
+>>> ma_main.get_value()
 15
-
-\>>> ma\_main.add\_card(pile\_cartes.deal())
-
-\>>> print("ma main : ", ma\_main)
-
+>>> ma_main.add_card(pile_cartes.deal())
+>>> print("ma main : ", ma_main)
 ma main :  [Valet de Carreau ♦, 5 de Pique ♠, 7 de Coeur ♥]
-
-\>>> ma\_main.get\_value()
-
+>>> ma_main.get_value()
 22
+```
 
-1. La méthode display permet d’afficher les cartes de chaque main ainsi que la valeur de la main. La première carte du croupier (dealer) est face cachée : il faut imprimer « caché » à la place.
-
-\# à ajouter
-
-\>>> ma\_main.display()
-
+10 La méthode display permet d’afficher les cartes de chaque main ainsi que la valeur de la main. La première carte du croupier (dealer) est face cachée : il faut imprimer « caché » à la place.
+```txt
+# à ajouter
+>>> ma_main.display()
 Valet de Carreau ♦
-
 5 de Pique ♠
-
 7 de Coeur ♥
-
 Valeur : 22
-
-\>>> main\_dealer = Hand(True)
-
-\>>> main\_dealer.add\_card(pile\_cartes.deal())
-
-\>>> main\_dealer.add\_card(pile\_cartes.deal())
-
-\>>> main\_dealer.display()
-
+>>> main_dealer = Hand(True)
+>>> main_dealer.add_card(pile_cartes.deal())
+>>> main_dealer.add_card(pile_cartes.deal())
+>>> main_dealer.display()
 caché
-
 8 de Trèfle ♣
+```
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.041.png)**La classe Game :**
+**La classe Game :**
 
-1. Ecrire la classe Game à partir des diagrammes de classes ci-contre :
+![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.041.png)
+
+11 Ecrire la classe Game à partir des diagrammes de classes ci-contre :
 
    **Aide** : le corps des méthodes ne sera pas développé immédiatement ; on utilisera l’instruction Python pass en attendant.
 
-1. Le constructeur sera laissé avec pass
-1. ★ ★ ★ ★ ★ La méthode play (1ere partie)
+12 Le constructeur sera laissé avec pass
+13 ★ ★ ★ ★ ★ La méthode play (1ere partie)
 
 **Aide** : 
 
@@ -1710,84 +1730,53 @@ Cela marque la fin du code qui doit s’exécuter au début de chaque nouveau je
 On entre dans une boucle qui fonctionnera jusqu’à ce qu’un gagnant soit décidé. Il faut le contrôler avec un nouveau booléen (game\_over), par exemple while not game\_over.
 
 Dans la boucle, il faut vérifier le blackjack du joueur et du croupier, avec la méthode check\_for\_blackjack()
-
-\# la méthode play() complète
-
-\>>> game = Game()
-
-\>>> game.play()
-
+```txt
+# la méthode play() complète
+>>> game = Game()
+>>> game.play()
 Main du joueur :
-
 Roi de Coeur ♥
-
 6 de Pique ♠
-
 Valeur : 16
-
 Main du croupier :
-
 caché
-
 4 de Trèfle ♣
-
 Choisir : [Carte / Rester] 
-
 \>? c
-
 Roi de Coeur ♥
-
 6 de Pique ♠
-
 Reine de Trèfle ♣
-
 Valeur : 26
-
 Le joueur perd!
-
 Une autre partie ? [O/N]
-
 \>? o
-
 Main du joueur :
-
 4 de Carreau ♦
-
 Valet de Coeur ♥
-
 Valeur : 14
-
 Main du croupier :
-
 caché
-
 10 de Coeur ♥
-
 Choisir : [Carte / Rester]
-
 \>? r
-
 Résultat final
-
 Main du joueur: 14
-
 Main du croupier: 13
-
 Le joueur gagne!
-
 Une autre partie ? [O/N]
+```
 
-1. La méthode player\_is\_over permet de tester si la main du joueur est supérieure à 21. Cette méthode vérifie si la valeur de la main du joueur est terminée et renvoie les informations sous la forme d’un booléen
+14 La méthode player\_is\_over permet de tester si la main du joueur est supérieure à 21. Cette méthode vérifie si la valeur de la main du joueur est terminée et renvoie les informations sous la forme d’un booléen
 
 **Aide** : Le score sera obtenue avec la méthode get\_value()
 
-1. La méthode check\_for\_blackjack permet de vérifier s’il y a blackjack. Si l’un des joueurs a reçu un as et une carte illustrée, sa main sera de 21, donc il gagne automatiquement. Il faut garder une trace de quel joueur peut avoir un blackjack, donc on gardera un booléen pour le joueur (player) et le croupier (dealer). Si l’un des booléens est True alors il y a un gagnant.
-1. La méthode play (2<sup>ème</sup> partie)
+15 La méthode check\_for\_blackjack permet de vérifier s’il y a blackjack. Si l’un des joueurs a reçu un as et une carte illustrée, sa main sera de 21, donc il gagne automatiquement. Il faut garder une trace de quel joueur peut avoir un blackjack, donc on gardera un booléen pour le joueur (player) et le croupier (dealer). Si l’un des booléens est True alors il y a un gagnant.
+16 La méthode play (2<sup>ème</sup> partie)
 
 Revenir à la boucle while not game\_over, il faut à présent vérifier le cas où le joueur ou le croupier a fait blackjack (méthode précédente). Si l’un des booléens est True alors il y a un gagnant et continue permettra de sortir de la boucle jeu. On appellera la méthode show\_blackjack\_results qui prend deux arguments.
 
-1. La méthode show\_blackjack\_results permet l’affichage du ou des gagnant(s) qui a(ont) fait blackjack.
-1. La méthode play (3<sup>ème</sup> partie)
+17 La méthode show\_blackjack\_results permet l’affichage du ou des gagnant(s) qui a(ont) fait blackjack.
+18 La méthode play (3<sup>ème</sup> partie)
 
 Si aucun des joueurs n’avait de blackjack, la boucle de jeu se poursuivra
 
@@ -1795,12 +1784,12 @@ Le joueur peut maintenant faire un choix : ajouter ou non plus de cartes à sa 
 
 Dans la boucle while, Il faut donc demander au joueur ce qu’il veut faire : carte / rester. Astuce : utiliser la méthode lower() pour toutes les combinaisons majuscules/minuscules.
 
-1. Si le joueur ne répond pas la bonne lettre, il faut continuer simplement à demander à nouveau.
-1. Si le joueur choisit carte, il faut ajouter une carte supplémentaire à sa main. Cela se fait de la même manière qu’auparavant avec les méthodes deal() et add\_card().
-1. Dans la condition précédente, si la main du joueur a une valeur supérieure à 21 il a perdu donc la boucle du jeu doit se rompre et le croupier gagne
-1. Si à présent le joueur choisit de rester avec sa main, il faut comparer son score avec celui du croupier. Il faut afficher la valeur de la main du joueur et du croupier, comparer les valeurs de chaque main et afficher qui gagne. Si les deux mains ont même valeur alors il y a match nul.
-1. On peut ajouter une petite boucle pour que le joueur est le choix de rejouer ou non. Astuce utiliser les booléens de la méthode play et game\_over
-1. Pour lancer le jeu il faut créer une instance de la classe Game et on appelle la méthode play. 
+19 Si le joueur ne répond pas la bonne lettre, il faut continuer simplement à demander à nouveau.
+20 Si le joueur choisit carte, il faut ajouter une carte supplémentaire à sa main. Cela se fait de la même manière qu’auparavant avec les méthodes deal() et add\_card().
+21 Dans la condition précédente, si la main du joueur a une valeur supérieure à 21 il a perdu donc la boucle du jeu doit se rompre et le croupier gagne
+22 Si à présent le joueur choisit de rester avec sa main, il faut comparer son score avec celui du croupier. Il faut afficher la valeur de la main du joueur et du croupier, comparer les valeurs de chaque main et afficher qui gagne. Si les deux mains ont même valeur alors il y a match nul.
+23 On peut ajouter une petite boucle pour que le joueur est le choix de rejouer ou non. Astuce utiliser les booléens de la méthode play et game\_over
+24 Pour lancer le jeu il faut créer une instance de la classe Game et on appelle la méthode play. 
 
    **Aide** : mettre les lignes de code précédentes dans if \_\_name\_\_ == "\_\_main\_\_": qui ne lancera le jeu que dans le cas où on utilise le fichier blackjack et non un import depuis un autre fichier.
 
@@ -1814,254 +1803,258 @@ L’objectif est de simuler (sommairement bien sûr) le fonctionnement d’une b
 - La création de comptes bancaires ;
 - La création de personnes propriétaires de ces comptes bancaires.
 
-1. Dans un module nommé personne, créer la classe Personne  et les méthodes :
-
+1 Dans un module nommé personne, créer la classe Personne  et les méthodes :
+```python
 class Personne():
-`    `*"""
-`    `Modélisation d'une personne.
+    """
+    Modélisation d'une personne.
 
-`    `Attributs
-`    `---------
-`    `- nom : str
-`        `Renseigné à la création de l'objet
-`    `- Prenom : str
-`        `Renseigné à la création de l'objet
-`    `- email : str
-`        `Email. Initialisé à ""
-`    `- telephone : str
-`        `Numéro de téléphone. Initialisé à ""
-`    `- date\_naissance : str
-`        `Chaîne de caractères au format jour/mois/année (4 chiffres). Initialisé à ""
-`    `- jour\_naissance : int
-`        `Déterminé à partir de la date de naissance. Initialisée à -1
-`    `- mois\_naissance : int
-`        `Déterminé à partir de la date de naissance. Initialisée à -1
-`    `- annee\_naissance : int
-`        `Déterminé à partir de la date de naissance. Initialisée à -1
-`    `"""*
+    Attributs
+    ---------
+    - nom : str
+        Renseigné à la création de l'objet
+    - Prenom : str
+        Renseigné à la création de l'objet
+    - email : str
+        Email. Initialisé à ""
+    - telephone : str
+        Numéro de téléphone. Initialisé à ""
+    - date_naissance : str
+        Chaîne de caractères au format jour/mois/année (4 chiffres). Initialisé à ""
+    - jour_naissance : int
+        Déterminé à partir de la date de naissance. Initialisée à -1
+    - mois_naissance : int
+        Déterminé à partir de la date de naissance. Initialisée à -1
+    - annee_naissance : int
+        Déterminé à partir de la date de naissance. Initialisée à -1
+    """
 
-`    `def \_\_init\_\_(self, nom: str, prenom: str) -> None:
-`        `*"""
-`        `Initialisation des attributs.
-`        `"""*
-`        `pass
+    def __init__(self, nom: str, prenom: str) -> None:
+        """
+        Initialisation des attributs.
+        """
+        pass
 
-`    `def modifier\_nom(self, nom: str) -> None:
-`        `*"""
-`        `Permet de modifier le nom de la personne.
-`        `"""*
-`        `pass
+    def modifier_nom(self, nom: str) -> None:
+        """
+        Permet de modifier le nom de la personne.
+        """
+        pass
 
-`    `def obtenir\_nom(self) -> str:
-`        `*"""
-`        `Retourne le nom de la personne.
-`        `"""*
-`        `pass
+    def obtenir_nom(self) -> str:
+        """
+        Retourne le nom de la personne.
+        """
+        pass
 
-`    `def modifier\_prenom(self, prenom: str) -> None:
-`        `*"""
-`        `Permet de modifier le prénom de la personne.
-`        `"""*
-`        `pass
+    def modifier_prenom(self, prenom: str) -> None:
+        """
+        Permet de modifier le prénom de la personne.
+        """
+        pass
 
-`    `def obtenir\_prenom(self) -> str:
-`        `*"""
-`        `Retourne le prénom de la personne.
-`        `"""*
-`        `pass
+    def obtenir_prenom(self) -> str:
+        """
+        Retourne le prénom de la personne.
+        """
+        pass
 
-`    `def obtenir\_email(self) -> str:
-`        `*"""
-`        `Retourne l'email de la personne.
-`        `"""*
-`        `pass
+    def obtenir_email(self) -> str:
+        """
+        Retourne l'email de la personne.
+        """
+        pass
 
-`    `def renseigner\_email(self, email: str) -> None:
-`        `*"""
-`        `Renseigne l'attribut email de la personne.
-`        `"""*
-`        `pass
+    def renseigner_email(self, email: str) -> None:
+        """
+        Renseigne l'attribut email de la personne.
+        """
+        pass
 
-`    `def obtenir\_telephone(self) -> str:
-`        `*"""
-`        `Retourne le numéro de téléphone de la personne.
-`        `"""*
-`        `pass
+    def obtenir_telephone(self) -> str:
+        """
+        Retourne le numéro de téléphone de la personne.
+        """
+        pass
 
-`    `def renseigner\_telephone(self, telephone: str) -> None:
-`        `*"""
-`        `Renseigne l'attribut telephone de la personne.
-`        `"""*
-`        `pass
+    def renseigner_telephone(self, telephone: str) -> None:
+        """
+        Renseigne l'attribut telephone de la personne.
+        """
+        pass
 
-`    `def renseigner\_date\_naissance(self, date: str) -> None:
-`        `*"""
-`        `Récupère la date de naissance sous la forme jour/mois/année.
-`        `Renseigne l'attribut date\_naissance et, après un traitement, les attributs
-`        `jour\_naissance, mois\_naissance, annee\_naissance.
+    def renseigner_date_naissance(self, date: str) -> None:
+        """
+        Récupère la date de naissance sous la forme jour/mois/année.
+        Renseigne l'attribut date_naissance et, après un traitement, les attributs
+        jour_naissance, mois_naissance, annee_naissance.
 
-`        `Lève une exception de type ValueError si l'année ne possède pas le bon format.
-`        `"""*
-`        `pass
+        Lève une exception de type ValueError si l'année ne possède pas le bon format.
+        """
+        pass
 
-`    `def obtenir\_date\_naissance(self) -> str:
-`        `*"""
-`        `Retourne la date de naissance.
-`        `"""*
-`        `pass
+    def obtenir_date_naissance(self) -> str:
+        """
+        Retourne la date de naissance.
+        """
+        pass
 
-`    `def obtenir\_age(self, annee\_en\_cours: int) -> int:
-`        `*"""
-`        `Retourne l'age de la personne à partir de l'année en cours.
+    def obtenir_age(self, annee_en_cours: int) -> int:
+        """
+        Retourne l'age de la personne à partir de l'année en cours.
 
-`        `Lève une exception de type Exception si la date de naissance n'a pas été renseignée au préalable.
-`        `"""*
-`        `pass
+        Lève une exception de type Exception si la date de naissance n'a pas été renseignée au préalable.
+        """
+        pass
 
-`    `def infos(self) -> str:
-`        `*"""
-`        `Retourne toutes les informations relatives à la personne.
-`        `"""*
-`        `chaine = """
-`        `Prénom : {}
-`        `Nom : {}
-`        `Date de naissance : {}
-`        `Email : {}
-`        `Téléphone : {}
-`        `""".format(self.obtenir\_prenom(), self.obtenir\_nom(),
-`                   `self.obtenir\_date\_naissance(), self.obtenir\_email(),
-`                   `self.obtenir\_telephone())
+    def infos(self) -> str:
+        """
+        Retourne toutes les informations relatives à la personne.
+        """
+        chaine = """
+        Prénom : {}
+        Nom : {}
+        Date de naissance : {}
+        Email : {}
+        Téléphone : {}
+        """.format(self.obtenir_prenom(), self.obtenir_nom(),
+                   self.obtenir_date_naissance(), self.obtenir_email(),
+                   self.obtenir_telephone())
 
-`        `return chaine
+        return chaine
+```
 
 Tester la classe en instanciant au moins un objet de type Personne et en utilisant toutes les méthodes.
 
-1. Dans un module nommé compte\_bancaire créer la classe Compte\_bancaire et les méthodes :
+2 Dans un module nommé compte\_bancaire créer la classe Compte\_bancaire et les méthodes :
 
 Ne pas oublier d’importer la classe Personne du module personne au début du fichier.
+```python
+class Compte_bancaire():
+    """
+    Définition d'un compte bancaire.
 
-class Compte\_bancaire():
-`    `*"""
-`    `Définition d'un compte bancaire.
+    Attributs
+    ---------
+    - proprietaire : Personne
+        Personne propriétaire du compte. Initialisé à la création de l'objet.
+    - identifiant : int
+        Identifiant unique du compte. Initialisé à la création de l'objet par un calcul réalisé par une méthode statique.
+    - solde : float
+        Solde du compte. Initialisé à la création de l'objet.
+    """
 
-`    `Attributs
-`    `---------
-`    `- proprietaire : Personne
-`        `Personne propriétaire du compte. Initialisé à la création de l'objet.
-`    `- identifiant : int
-`        `Identifiant unique du compte. Initialisé à la création de l'objet par un calcul réalisé par une méthode statique.
-`    `- solde : float
-`        `Solde du compte. Initialisé à la création de l'objet.
-`    `"""*
+    def __init__(self, proprietaire: Personne, montant_initial: float) -> None:
+        """
+        Initialisation des attributs.
+        """
+        pass
 
-`    `def \_\_init\_\_(self, proprietaire: Personne, montant\_initial: float) -> None:
-`        `*"""
-`        `Initialisation des attributs.
-`        `"""*
-`        `pass
+    @staticmethod
+    def determine_id(proprietaire: Personne) -> int:
+        """
+        Détermine l'identifiant du compte aléatoirement à partir du
+        nom et du prénom du propriétaire.
 
-`    `@staticmethod
-`    `def determine\_id(proprietaire: Personne) -> int:
-`        `*"""
-`        `Détermine l'identifiant du compte aléatoirement à partir du
-`        `nom et du prénom du propriétaire.
+        Méthode statique
+        """
+        pass
 
-`        `Méthode statique
-`        `"""*
-`        `pass
+    def obtenir_solde(self) -> float:
+        """
+        Retourne le solde du compte.
+        """
+        pass
 
-`    `def obtenir\_solde(self) -> float:
-`        `*"""
-`        `Retourne le solde du compte.
-`        `"""*
-`        `pass
+    def depot(self, montant: float) -> None:
+        """
+        Ajoute montant au solde
+        """
+        pass
 
-`    `def depot(self, montant: float) -> None:
-`        `*"""
-`        `Ajoute montant au solde
-`        `"""*
-`        `pass
+    def retrait(self, montant: float) -> None:
+        """
+        Retire le montant montant du solde à la condition qu'il y ait suffisamment d'argent.
+        Une exception de type ValueError est levée si le montant est trop important
+        """
+        pass
 
-`    `def retrait(self, montant: float) -> None:
-`        `*"""
-`        `Retire le montant montant du solde à la condition qu'il y ait suffisamment d'argent.
-`        `Une exception de type ValueError est levée si le montant est trop important
-`        `"""*
-`        `pass
+    def infos(self) -> str:
+        """
+        Informations sur le compte.
+        """
+        chaine = """
+        Compte numéro : {}
+        Solde : {}
+        """.format(self.identifiant, self.solde)
 
-`    `def infos(self) -> str:
-`        `*"""
-`        `Informations sur le compte.
-`        `"""*
-`        `chaine = """
-`        `Compte numéro : {}
-`        `Solde : {}
-`        `""".format(self.identifiant, self.solde)
+        chaine = chaine + self.proprietaire.infos()
 
-`        `chaine = chaine + self.proprietaire.infos()
+        return chaine
+```
 
-`        `return chaine
 
 Tester la classe en instanciant au moins un objet de type Compte\_bancaire et en utilisant toutes les méthodes.
 
-1. Dans un module nommé banque, créer la classe Banque et les méthodes : 
+3 Dans un module nommé banque, créer la classe Banque et les méthodes : 
 
 Ne pas oublier d’importer la classe Personne du module personne au début du fichier.
 
 Ne pas oublier d’importer la classe Compte\_bancaire du module compte\_bancaire au début du fichier.
-
+```python
 class Banque():
-`    `*"""
-`    `Modélisation d'une banque.
+    """
+    Modélisation d'une banque.
 
-`    `Attributs
-`    `---------
-`    `- nom : str
-`        `Nom de la banque. Initialisé lors de la création de l'objet.
-`    `- comptes : Liste[Compte\_bancaire]
-`        `Liste des comptes bancaires au sein de la banque.
-`    `"""*
+    Attributs
+    ---------
+    - nom : str
+        Nom de la banque. Initialisé lors de la création de l'objet.
+    - comptes : Liste[Compte_bancaire]
+        Liste des comptes bancaires au sein de la banque.
+    """
 
-`    `def \_\_init\_\_(self, nom: str) -> None:
-`        `*"""
-`        `Initialisation de l'objet
-`        `"""*
-`        `pass
+    def __init__(self, nom: str) -> None:
+        """
+        Initialisation de l'objet
+        """
+        pass
 
-`    `def creation\_compte(self) -> None:
-`        `*"""
-`        `Prend en charge l'ouverture d'un compte au sein de la banque.
-`        `"""*
-`        `print("Procédure de création du compte :")
-`        `print("---------------------------------")
+    def creation_compte(self) -> None:
+        """
+        Prend en charge l'ouverture d'un compte au sein de la banque.
+        """
+        print("Procédure de création du compte :")
+        print("---------------------------------")
 
-`        `nom = input("Nom du propriétaire du compte : ")
-`        `prenom = input("Prenom du propriétaire du compte : ")
-`        `montant\_initial = float(input("Montant du dépôt initial : "))
+        nom = input("Nom du propriétaire du compte : ")
+        prenom = input("Prenom du propriétaire du compte : ")
+        montant_initial = float(input("Montant du dépôt initial : "))
 
-`        `p = Personne(nom, prenom)
-`        `c = Compte\_bancaire(p, montant\_initial)
+        p = Personne(nom, prenom)
+        c = Compte_bancaire(p, montant_initial)
 
-`        `self.comptes.append(c)
+        self.comptes.append(c)
 
-`    `def infos(self) -> str:
-`        `*"""
-`        `Informations sur la banque
-`        `"""*
-`        `chaine = """
-`        `-----------
-`        `"""
+    def infos(self) -> str:
+        """
+        Informations sur la banque
+        """
+        chaine = """
+        -----------
+        """
 
-`        `for compte in self.comptes:
-`            `chaine = chaine + compte.infos()
-`            `chaine = """
-`            `-----------
+        for compte in self.comptes:
+            chaine = chaine + compte.infos()
+            chaine = """
+            -----------
 
-`            `"""
+            """
 
-`        `return chaine
+        return chaine
+```
 
-1. Dans le fichier nommé main, instancier un objet de type Banque et créer quelques comptes bancaires.
+4 Dans le fichier nommé main, instancier un objet de type Banque et créer quelques comptes bancaires.
 
 **Exercice n°5 : Jeu de la vie**
 
@@ -2080,28 +2073,27 @@ La notion de « voisinage » dans le jeu de la vie est celle des 8 cases qui peu
 
 Pour implémenter la simulation, on va tout d’abord rechercher une modélisation objet du problème, puis procéder à son implémentation.
 
-1. Quelles classes peut-on envisager au premier abord pour implémenter ce problème ?
------
+1 Quelles classes peut-on envisager au premier abord pour implémenter ce problème ?
+
 **Réponse** Les classes Grille et Cellule viennent facilement à l’esprit, on peut penser à une classe Etat représentant l’état d’une cellule si l’on veut pousser la modélisation un peu plus loin.
 
------
-1. Quelles méthodes pourrait-on imaginer pour chaque classe ?
------
+
+2 Quelles méthodes pourrait-on imaginer pour chaque classe ?
+
 **Réponse** Nous retrouverons ces méthodes dans l’implémentation, mais il faut au moins songer ici aux méthodes qui permettent de récupérer l’état interne des attributs et de les modifier. Il faut aussi penser à la représentation du voisinage d’une cellule et aux méthodes permettant de le modifier ou de le récupérer.
 
------
-1. Dans quelle classe pouvons-nous représenter simplement la notion de voisinage d’une cellule ? Et le calculer ?
------
+
+3 Dans quelle classe pouvons-nous représenter simplement la notion de voisinage d’une cellule ? Et le calculer ?
+
 **Réponse** Il peut être commode qu’une Cellule connaisse ses voisins, mais une Grille est plus à même de calculer les voisinages. On peut donc définir une méthode de calcul de voisinage dans la Grille et des méthodes pour affecter ou lire la liste des voisins dans la Cellule, ce qui lui permettra de calculer son état futur selon les règles du jeu de la vie.
 
------
-1. Une cellule est au bord si x=0, x=L−1, y=0 ou y=H−1. Combien de voisins possède une cellule qui n’est pas au bord ? Combien de voisins possède une cellule qui est au bord ?
------
+4 Une cellule est au bord si x=0, x=L−1, y=0 ou y=H−1. Combien de voisins possède une cellule qui n’est pas au bord ? Combien de voisins possède une cellule qui est au bord ?
+
 **Réponse** Une cellule qui n’est pas au bord possède 8 voisins. Une cellule qui est en bordure en possède 3 dans les angles ou 5 ailleurs sur les bords.
 
------
-1. Que pourrions-nous aussi considérer comme voisin de droite de la case en haut et à droite de la grille ? Et comme voisin du haut ?
------
+
+5 Que pourrions-nous aussi considérer comme voisin de droite de la case en haut et à droite de la grille ? Et comme voisin du haut ?
+
 **Réponse** Nous pourrions considérer que le voisin de la cellule en haut et à droite de la grille est la cellule en haut et à gauche. De même le voisin du haut de la case en haut à droite pourrait être la cellule en bas à droite de la grille (grille torique).
 
 **Implémentation du jeu**
@@ -2110,220 +2102,240 @@ Pour implémenter la simulation, on va tout d’abord rechercher une modélisati
 
 **La classe Cellule**
 
-1. Implémenter tout d’abord une classe Cellule avec comme attributs : 
-   1. un booléen actuel initialisé à False ;
-   1. un booléen futur initialisé à False ;
-   1. une liste voisins initialisée à None.
+1 Implémenter tout d’abord une classe Cellule avec comme attributs :
+
+- un booléen actuel initialisé à False ;
+
+- un booléen futur initialisé à False ;
+
+- une liste voisins initialisée à None.
 
 **Remarque.** La valeur False signifie que la cellule est morte et True qu’elle est vivante.
 
-2. Ajouter les méthodes suivantes :
-   1. est\_vivant qui renvoie l’état actuel (vrai ou faux) ;
-   1. set\_voisins qui permet d’affecter comme voisins la liste passée en paramètre ;
-   1. get\_voisins qui renvoie la liste des voisins de la cellule ;
-   1. naitre qui met l’état futur de la cellule à True ;
-   1. mourir qui permet l’opération inverse ;
-   1. basculer qui fait passer l’état futur de la cellule dans l’état actuel.
-2. Ajouter à la classe Cellule une méthode \_\_str\_\_ qui retourne le caractère "X" si la cellule est vivante et un tiret "-" sinon.
+2 Ajouter les méthodes suivantes :
+
+- est\_vivant qui renvoie l’état actuel (vrai ou faux) ;
+
+- set\_voisins qui permet d’affecter comme voisins la liste passée en paramètre ;
+
+-  get\_voisins qui renvoie la liste des voisins de la cellule ;
+
+- naitre qui met l’état futur de la cellule à True ;
+
+- mourir qui permet l’opération inverse ;
+
+- basculer qui fait passer l’état futur de la cellule dans l’état actuel.
+
+3 Ajouter à la classe Cellule une méthode \_\_str\_\_ qui retourne le caractère "X" si la cellule est vivante et un tiret "-" sinon.
    Expliquer brièvement l’utilité d’une telle méthode \_\_str\_\_ en Python.
-2. Ajouter une méthode calcule\_etat\_futur dans la classe Cellule qui permet d’implémenter les règles d’évolution du jeu de la vie en préparant l’état futur à sa nouvelle valeur.
+4 Ajouter une méthode calcule\_etat\_futur dans la classe Cellule qui permet d’implémenter les règles d’évolution du jeu de la vie en préparant l’état futur à sa nouvelle valeur.
 
 **La classe Grille**
 
-5. Créer la classe Grille et y définir les attributs suivants : 
-   1. largeur (passé en argument) ;
-   1. hauteur (passé en argument) ;
-   1. matrix : un tableau de cellules à 2 dimensions implémenté en Python par une liste de listes.
+5 Créer la classe Grille et y définir les attributs suivants : 
+
+- largeur (passé en argument) ;
+
+- hauteur (passé en argument) ;
+
+- matrix : un tableau de cellules à 2 dimensions implémenté en Python par une liste de listes.
 
 **Remarque :** Définir la méthode set\_matrix pour construire le tableau. **Remarque :** Une nouvelle Cellule sera créée par l’appel Cellule().
 
-6. Ajouter les méthodes :
-   1. dans\_grille qui indique si un point de coordonnées iii et jjj est bien dans la grille ;
-   1. set\_cell\_xy qui permet d’affecter une nouvelle cellule à la case (i,j)(i,j)(i,j) de la grille, si (i,j)(i,j)(i,j) est bien dans la grille ;
-   1. get\_cell\_xy qui permet de récupérer la cellule située dans la case (i,j)(i,j)(i,j) de la grille, si (i,j)(i,j)(i,j) est bien dans la grille ;
-   1. get\_largeur qui permet de récupérer la largeur de la grille ;
-   1. get\_hauteur qui permet de récupérer la hauteur de la grille ;
-   1. est\_voisin une *méthode statique* qui vérifie si les cases (i,j)(i,j)(i,j) et (x,y)(x,y)(x,y) sont voisines dans la grille.
-6. Ajouter une méthode get\_voisins qui renvoie la liste des voisins d’une cellule.
-6. Fournir une méthode set\_voisins qui affecte à chaque cellule de la grille la liste de ses voisins.
-6. Donner une méthode \_\_str\_\_ qui permet d’afficher la grille sur un terminal.
-6. On veut remplir aléatoirement la Grille avec un certain taux de Cellule vivantes. Définir une méthode remplir\_alea avec le taux (en pourcentage) en argument.
+6 Ajouter les méthodes :
+
+- dans\_grille qui indique si un point de coordonnées iii et jjj est bien dans la grille ;
+
+- set\_cell\_xy qui permet d’affecter une nouvelle cellule à la case (i,j)(i,j)(i,j) de la grille, si (i,j)(i,j)(i,j) est bien dans la grille ;
+
+- get\_cell\_xy qui permet de récupérer la cellule située dans la case (i,j)(i,j)(i,j) de la grille, si (i,j)(i,j)(i,j) est bien dans la grille ;
+
+- get\_largeur qui permet de récupérer la largeur de la grille ;
+
+- get\_hauteur qui permet de récupérer la hauteur de la grille ;
+
+- est\_voisin une *méthode statique* qui vérifie si les cases (i,j)(i,j)(i,j) et (x,y)(x,y)(x,y) sont voisines dans la grille.
+
+7 Ajouter une méthode get\_voisins qui renvoie la liste des voisins d’une cellule.
+8 Fournir une méthode set\_voisins qui affecte à chaque cellule de la grille la liste de ses voisins.
+9 Donner une méthode \_\_str\_\_ qui permet d’afficher la grille sur un terminal.
+10 On veut remplir aléatoirement la Grille avec un certain taux de Cellule vivantes. Définir une méthode remplir\_alea avec le taux (en pourcentage) en argument.
 
 **Le jeu**
 
-11. Définir une méthode jeu permettant de passer en revue toutes les Cellules de la Grille, de calculer leur état futur, puis une méthode actualise qui bascule toutes les cellules de la Grille dans leur état futur.
-11. Dans le fichier principal, entrer le code suivant afin de lancer le jeu :
-
+11 Définir une méthode jeu permettant de passer en revue toutes les Cellules de la Grille, de calculer leur état futur, puis une méthode actualise qui bascule toutes les cellules de la Grille dans leur état futur.
+12 Dans le fichier principal, entrer le code suivant afin de lancer le jeu :
+```python
 from grille import Grille
 import time
 
 
-def effacer\_ecran():
-`    `print("\u001B[H\u001B[J")
+def effacer_ecran():
+    print("\u001B[H\u001B[J")
 
 
 def main():
-`    `plateau = Grille(20, 30)
-`    `plateau.remplir\_alea(55)
-`    `plateau.set\_voisins()
-`    `while True:
-`        `effacer\_ecran()
-`        `print(plateau)
-`        `print("\n")
-`        `time.sleep(0.5)
-`        `plateau.jeu()
-`        `plateau.actualise()
+    plateau = Grille(20, 30)
+    plateau.remplir_alea(55)
+    plateau.set_voisins()
+    while True:
+        effacer_ecran()
+        print(plateau)
+        print("\n")
+        time.sleep(0.5)
+        plateau.jeu()
+        plateau.actualise()
 
 
 main()
+```
+
 
 **spécifications**
 
 **Classe Cellule**
+```python
+def __init__(self: Cellule) -> None:
+    """
+    Initialisation des attributs.
+    """
+    pass
 
-def \_\_init\_\_(self: Cellule) -> None:
-`    `*"""
-`    `Initialisation des attributs.
-`    `"""*
-`    `pass
+def est_vivant(self: Cellule) -> bool:
+    """
+    Retourne l'état actuel de la cellule.
+    """
+    pass
 
-def est\_vivant(self: Cellule) -> bool:
-`    `*"""
-`    `Retourne l'état actuel de la cellule.
-`    `"""*
-`    `pass
+def set_voisins(self: Cellule, voisins: List[Cellule]) -> None:
+    """
+    Affecte comme voisins la liste passée en paramètre.
+    """
+    pass
 
-def set\_voisins(self: Cellule, voisins: List[Cellule]) -> None:
-`    `*"""
-`    `Affecte comme voisins la liste passée en paramètre.
-`    `"""*
-`    `pass
-
-def get\_voisins(self: Cellule) -> List[Cellule]:
-`    `*"""
-`    `Renvoie la liste des voisins de la cellule
-`    `"""*
-`    `pass
+def get_voisins(self: Cellule) -> List[Cellule]:
+    """
+    Renvoie la liste des voisins de la cellule
+    """
+    pass
 
 def naitre(self: Cellule) -> None:
-`    `*"""
-`    `Met l’état futur de la cellule à `True`
-`    `"""*
-`    `pass
+    """
+    Met l’état futur de la cellule à `True`
+    """
+    pass
 
 def mourir(self: Cellule) -> None:
-`    `*"""
-`    `Met l’état futur de la cellule à `False`
-`    `"""*
-`    `pass
+    """
+    Met l’état futur de la cellule à `False`
+    """
+    pass
 
 def basculer(self: Cellule) -> None:
-`    `*"""
-`    `Fait passer l’état futur de la cellule dans l’état actuel
-`    `"""*
-`    `pass
+    """
+    Fait passer l’état futur de la cellule dans l’état actuel
+    """
+    pass
 
-def \_\_str\_\_(self: Cellule) -> str:
-`    `*"""
-`    `Représentation de l'objet sous forme d'une chaîne de caractères
-`    `"""*
-`    `pass
+def __str__(self: Cellule) -> str:
+    """
+    Représentation de l'objet sous forme d'une chaîne de caractères
+    """
+    pass
 
-def calcule\_etat\_futur(self: Cellule) -> None:
-`    `*"""
-`    `Implémente les règles d’évolution du jeu de la vie en préparant l’état futur à sa nouvelle valeur
-`    `"""*
-`    `pass
+def calcule_etat_futur(self: Cellule) -> None:
+    """
+    Implémente les règles d’évolution du jeu de la vie en préparant l’état futur à sa nouvelle valeur
+    """
+    pass
+```
 
 
 **Classe Grille**
+```python
+def __init__(self: Grille, largeur: int, hauteur: int) -> None:
+    """
+    Initialisations des attributs
+    """
+    pass
 
-def \_\_init\_\_(self: Grille, largeur: int, hauteur: int) -> None:
-`    `*"""
-`    `Initialisations des attributs
-`    `"""*
-`    `pass
+def set_matrix(self: Grille) -> List[List[Cellule]]:
+    """
+    Construction de la grille de cellules
+    """
+    pass
 
-def set\_matrix(self: Grille) -> List[List[Cellule]]:
-`    `*"""
-`    `Construction de la grille de cellules
-`    `"""*
-`    `pass
+def dans_grille(self: Grille, i: int, j: int) -> bool:
+    """
+    Vérifie que le point de coordonnées (i,j) est dans la grille
+    """
+    pass
 
-def dans\_grille(self: Grille, i: int, j: int) -> bool:
-`    `*"""
-`    `Vérifie que le point de coordonnées (i,j) est dans la grille
-`    `"""*
-`    `pass
+def set_cell_xy(self: Grille, i: int, j: int, cellule: Cellule) -> None:
+    """
+    Affecte une nouvelle cellule à la case (i,j) de la grille
+    """
+    pass
 
-def set\_cell\_xy(self: Grille, i: int, j: int, cellule: Cellule) -> None:
-`    `*"""
-`    `Affecte une nouvelle cellule à la case (i,j) de la grille
-`    `"""*
-`    `pass
+def get_cell_xy(self: Grille, i: int, j: int) -> Cellule:
+    """
+    Récupère la cellule située dans la case (i,j) de la grille
+    """
+    pass
 
-def get\_cell\_xy(self: Grille, i: int, j: int) -> Cellule:
-`    `*"""
-`    `Récupère la cellule située dans la case (i,j) de la grille
-`    `"""*
-`    `pass
+def get_largeur(self: Grille) -> int:
+    """
+    Récupère la largeur de la grille
+    """
+    pass
 
-def get\_largeur(self: Grille) -> int:
-`    `*"""
-`    `Récupère la largeur de la grille
-`    `"""*
-`    `pass
-
-def get\_hauteur(self: Grille) -> int:
-`    `*"""
-`    `Récupère la hauteur de la grille
-`    `"""*
-`    `pass
+def get_hauteur(self: Grille) -> int:
+    """
+    Récupère la hauteur de la grille
+    """
+    pass
 
 @staticmethod
-def est\_voisin(i: int, j: int, x: int, y: int) -> bool:
-`    `*"""
-`    `Vérifie si les cases (i,j) et (x,y) sont voisines dans la grille
-`    `"""*
-`    `pass
+def est_voisin(i: int, j: int, x: int, y: int) -> bool:
+    """
+    Vérifie si les cases (i,j) et (x,y) sont voisines dans la grille
+    """
+    pass
 
-def get\_voisins(self: Grille, x: int, y: int) -> List[Cellule]:
-`    `*"""
-`    `Renvoie la liste des voisins d’une cellule
-`    `"""*
-`    `pass
+def get_voisins(self: Grille, x: int, y: int) -> List[Cellule]:
+    """
+    Renvoie la liste des voisins d’une cellule
+    """
+    pass
 
-def set\_voisins(self: Grille):
-`    `*"""
-`    `Affecte à chaque cellule de la grille la liste de ses voisins
-`    `"""*
-`    `pass
+def set_voisins(self: Grille):
+    """
+    Affecte à chaque cellule de la grille la liste de ses voisins
+    """
+    pass
 
-def \_\_str\_\_(self: Grille) -> str:
-`    `*"""
-`    `Représentation de l'objet
-`    `"""*
-`    `pass
+def __str__(self: Grille) -> str:
+    """
+    Représentation de l'objet
+    """
+    pass
 
-def remplir\_alea(self, taux: int) -> None:
-`    `*"""
-`    `Remplir aléatoirement la Grille avec un certain taux de Cellules vivantes
-`    `"""*
-`    `pass
+def remplir_alea(self, taux: int) -> None:
+    """
+    Remplir aléatoirement la Grille avec un certain taux de Cellules vivantes
+    """
+    pass
 
 def jeu(self: Grille) -> None:
-`    `*"""
-`    `Passe en revue toutes les Cellules de la Grille, calcule leur état futur
-`    `"""*
-`    `pass
+    """
+    Passe en revue toutes les Cellules de la Grille, calcule leur état futur
+    """
+    pass
 
 def actualise(self: Grille) -> None:
-`    `*"""
-`    `Bascule toutes les cellules de la Grille dans leur état futur
-`    `"""*
-`    `pass
+    """
+    Bascule toutes les cellules de la Grille dans leur état futur
+    """
+    pass
 
-
-Terminale NSI 	Chap 04 : La programmation orientée objet (POO)	Page 44/44
-
-[ref1]: Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.006.png
+```
