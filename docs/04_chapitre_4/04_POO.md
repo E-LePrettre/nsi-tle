@@ -1,6 +1,6 @@
 ﻿---
 author: ELP
-title: 04 la P.O.O.
+title: 04 La P.O.O.
 ---
 
 
