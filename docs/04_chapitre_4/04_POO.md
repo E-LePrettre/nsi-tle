@@ -25,7 +25,7 @@ title: 04 La P.O.O.
 - Accéder aux attributs et méthodes d’une classe
 
 
-<H2 STYLE="COLOR:BLUE;">## <a name="_toc88030949"></a>**1. Introduction**</H2>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc88030949"></a>**1. Introduction**</H2>
 La programmation orientée objet repose, comme son nom l'indique, sur le concept **d'objet**.
 
 Chaque objet se décrit par un ensemble **d’attributs** (caractéristiques de l’objet) et un ensemble de **méthodes** portant sur des attributs (fonctionnalité de l’objet).
@@ -49,8 +49,8 @@ La **sous-classe** hérite des attributs, des méthodes et du type de la super-c
 
 En terminal seules les deux premières notions sont au programme de NSI
 
-<H2 STYLE="COLOR:BLUE;">## <a name="_toc88030950"></a>**2. Définitions**</H2>
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc88030951"></a>**2.1. Classe**</H3> 
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc88030950"></a>**2. Définitions**</H2>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc88030951"></a>**2.1. Classe**</H3> 
 Exemple :
 ```python
 class Personne:
@@ -72,7 +72,7 @@ Quelles actions a déclenché le code précédent ?
 
 La classe est une espèce de moule, à partir de ce moule nous allons créer des **objets** (plus exactement nous parlerons **d'instances**).
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc88030952"></a>**2.2. Objet ou instance**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc88030952"></a>**2.2. Objet ou instance**</H3>
 Exemple :
 ```python
 Julien = Personne() # c'est la personne numéro 1
@@ -96,19 +96,19 @@ On obtient
 ```
 Julien appartient à l’espace de nom global et référence un objet de type Personne situé à l’adresse 0x0000021C7CE97A10.
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc88030953"></a>**2.3. Les méthodes**</H3>
-<H4 STYLE="COLOR:MAGENTA;">#### <a name="_toc88030954"></a>**2.3.1. Définition**</H4>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc88030953"></a>**2.3. Les méthodes**</H3>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030954"></a>**2.3.1. Définition**</H4>
 
 Une méthode est une « **fonction** » définie dans une classe. Elle est **locale** à la classe. Elle correspond à une **action** agissant sur l'objet.
 
 Par exemple : manger, marcher, parler, dormir sont des méthodes de la classe Personne. Tous les objets d’une même classe partagent les mêmes méthodes.
 
-<H4 STYLE="COLOR:MAGENTA;">#### <a name="_toc88030955"></a>**2.3.2. Les constructeurs ou initialiseur**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030955"></a>**2.3.2. Les constructeurs ou initialiseur**</H4>
 Parmi les différents types de méthode, il existe un type particulier : les **constructeurs** ou **initialiseur**.
 
 Les constructeurs sont des **méthodes** qui construisent l'objet désigné par la classe au moment **d’instanciation** de la classe, c’est-à-dire ils permettent d’initialiser l’objet : ses attributs sont automatiquement créés, des valeurs par défaut peuvent même leur être affectées. Un constructeur porte le nom ```__init__```.
 
-<H3 STYLE="COLOR:red;">**Activité n° 1 : Classe et constructeur**</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 1 : Classe et constructeur**</H3>
 ```python
 class Personne:
    """Classe définissant une personne caractérisée par :
@@ -146,13 +146,13 @@ Un **attribut** est une variable de classe propre à l’objet et sert à le car
 
 Exemple : nom, prénom, age.
 
-<H4 STYLE="COLOR:MAGENTA;">#### <a name="_toc88030956"></a>**2.3.3. Les destructeurs**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030956"></a>**2.3.3. Les destructeurs**</H4>
 
 Le **destructeur** d'une classe est une méthode spéciale lancée lors de la destruction d'un objet afin de récupérer les ressources (principalement la mémoire vive) réservée dynamiquement lors de l'instanciation de l'objet. Un constructeur porte le nom ```__del__```.
 
 Le destructeur est appelé implicitement à la sortie du programme, ou explicitement à travers l’instruction del.
 
-<H3 STYLE="COLOR:red;">**Activité n° 2 : Classe et destructeur**</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 2 : Classe et destructeur**</H3>
 ```python
 class Personne:
    """Classe définissant une personne caractérisée par :
@@ -178,11 +178,11 @@ Voici Jean Dupont
 décédé(e) à 33 ans
 ```
 
-<H4 STYLE="COLOR:MAGENTA;">#### <a name="_toc88030957"></a>**2.3.4. Les autres méthodes**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030957"></a>**2.3.4. Les autres méthodes**</H4>
 
 Créer une **méthode d'instance**, revient à **créer une fonction** ayant comme premier paramètre le mot clef self.
 
-<H3 STYLE="COLOR:red;">**Activité n° 3 : Classe et méthode**</H
+**<H3 STYLE="COLOR:red;">Activité n° 3 : Classe et méthode**</H
 
 3>
 ```python
@@ -215,9 +215,9 @@ J'habite Paris.
 
 Pour appeler une méthode de l’instance Personne, il suffit donc d’écrire instance.méthode().
 
-<H4 STYLE="COLOR:MAGENTA;">#### <a name="_toc88030958"></a>**2.3.5. Les méthodes pour représenter un objet**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030958"></a>**2.3.5. Les méthodes pour représenter un objet**</H4>
 
-<H3 STYLE="COLOR:red;">**Activité n° 4 : Surcharge de méthode :**</H3> 
+**<H3 STYLE="COLOR:red;">Activité n° 4 : Surcharge de méthode :**</H3> 
 La méthode spéciale ```__repr__``` retourne la chaine de caractère qu’il faut afficher lorsque l’on tape directement le nom de l’objet
 ```python
 class Personne:
@@ -233,7 +233,7 @@ class Personne:
 Je suis Jean Dupont, j'ai 33 ans.
 J'habite Paris.
 ```
-<H3 STYLE="COLOR:red;">**Activité n° 5 : Surcharge de méthode :**</H3> 
+**<H3 STYLE="COLOR:red;">Activité n° 5 : Surcharge de méthode :**</H3> 
 La méthode spéciale ```__str__``` retourne la chaine de caractère qu’il faut afficher lorsque l’on appelle la fonction print sur l’objet
 ```python
 class Personne:
@@ -251,10 +251,10 @@ print(toi)
 Jean Durant
 ```
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc88030959"></a>**2.4. Attributs de classe**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc88030959"></a>**2.4. Attributs de classe**</H3>
 Jusqu’à présent, les attributs sont contenus dans l’objet. Ils sont propres à l’objet : si on crée plusieurs objets, les attributs nom, prénom,… de chacun ne seront pas forcément identiques d’un objet à l’autre. Mais on peut aussi définir des **attributs dans la classe**.
 
-<H3 STYLE="COLOR:red;">**Activité n° 6 : Classe et attributs de classe**</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 6 : Classe et attributs de classe**</H3>
 ```python
 class Personne:
    """Classe définissant une personne caractérisée par :
@@ -281,11 +281,11 @@ Et on y accède également en dehors de la classe.
 
 A chaque fois que l’on crée un objet de type Personne, l’attribut de classe population s’incrémente de 1. Cela peut être utile d’avoir des attributs de classe, quand tous nos objets doivent avoir **certaines données identiques.**
 
-<H2 STYLE="COLOR:BLUE;">## <a name="_toc88030960"></a>**3. Les trois fondamentaux**</H2>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc88030960"></a>**3. Les trois fondamentaux**</H2>
 
 La POO est dirigée par trois fondamentaux qu'il convient de toujours garder à l'esprit : **encapsulation**, **héritage** et **polymorphisme**. Les deux derniers sont hors programmes.
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc88030961"></a>**3.1. Encapsulation**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc88030961"></a>**3.1. Encapsulation**</H3>
 L’encapsulation introduit une nouvelle manière de gérer les données. On cherche aussi à **masquer** aux yeux d’un programmeur extérieur tous les rouages d’un objet et donc l’ensemble des procédures et fonctions destinées à la **gestion interne de l’objet**, auxquelles le programmeur final n’aura pas à avoir accès.
 
 L’encapsulation permet donc de **masquer un certain nombre d’attributs et méthodes** tout en laissant visibles d’autres attributs et méthodes.
@@ -297,10 +297,10 @@ On va définir des méthodes appelées des **accesseurs** et **mutateurs** (ou g
 
 ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.003.png){: .center }
 
-<H4 STYLE="COLOR:MAGENTA;">#### <a name="_toc88030962"></a>**3.1.1. Attributs et méthode publics**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030962"></a>**3.1.1. Attributs et méthode publics**</H4>
 Comme leur nom l'indique, les attributs et méthodes dits publics sont **accessibles** depuis tous les descendants et dans tous les modules. On peut considérer que les éléments publics n'ont pas de restriction particulière.
 
-<H3 STYLE="COLOR:red;">**Activité n° 7 : attributs publics**</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 7 : attributs publics**</H3>
 ```python
 class Personne:
    """Classe définissant une personne caractérisée par :
@@ -330,7 +330,7 @@ Un **attribut** ne devrait être **public** que si sa modification n'entraîne *
 
 Modifier un attribut "manuellement" et ensuite appeler une méthode pour informer de cette modification est une **violation du principe d'encapsulation.**
 
-<H4 STYLE="COLOR:MAGENTA;">#### <a name="_toc88030963"></a>**3.1.2. Attributs et méthodes privés**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030963"></a>**3.1.2. Attributs et méthodes privés**</H4>
 
 Python permet (plus ou moins) de protéger les attributs en leur donnant un nom qui commence par le double souligné **```__```** C’est une convention !!
 
@@ -338,7 +338,7 @@ Lorsqu’on crée un attribut (ou une méthode) dont le nom commence par ```__``
 
 Très souvent, les **accesseurs** en **lecture** verront leur nom commencer par get quand leurs homologues, les **mutateurs**, en **écriture** verront le leur commencer par set. Ainsi si on veut créer une méthode qui renvoie le nom, on pourrait la nommer ```get_name```.
 
-<H3 STYLE="COLOR:red;">**Activité n° 8 : attributs privés et accesseur**</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 8 : attributs privés et accesseur**</H3>
 ```python
 class Personne:
     """Classe définissant une personne caractérisée par :
@@ -389,7 +389,7 @@ Dupont
 Dupont
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 9 : attributs privés et mutateur**</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 9 : attributs privés et mutateur**</H3>
 ```python
 class Personne:
     """Classe définissant une personne caractérisée par :
@@ -424,7 +424,7 @@ Durant
 
 Le mutateur récupère l’argument fournit dans le paramètre (nom) et place la chaine dans ```self.__nom```.
 
-<H4 STYLE="COLOR:MAGENTA;">#### <a name="_toc88030964"></a>**3.1.3. Propriétés (Hors programme)**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030964"></a>**3.1.3. (Hors programme) Propriétés**</H4>
 
 Les propriétés sont un moyen transparent de **manipuler des attributs d’objet**. Elles permettent de dire à Python : « Quand un utilisateur souhaite modifier cet attribut, fais cela ». De cette façon, on peut rendre certains attributs tout à fait **inaccessibles depuis l’extérieur de la classe**, ou dire qu’un attribut ne **sera visible qu’en lecture et non modifiable**. Ou encore, on peut faire en sorte que, si on modifie un attribut, Python recalcule la valeur d’un autre attribut de l’objet.
 
@@ -439,7 +439,7 @@ Un constructeur porte le nom property. Elle attend quatre paramètres, tous opti
 
 En pratique, on utilise surtout les deux premiers paramètres : ceux définissant les méthodes d’accès et de modification, autrement dit les **accesseur** et **mutateur** d’objet.
 
-<H3 STYLE="COLOR:red;">**Activité n° 10 : Encapsulation de l’attribut**</H3>
+**<H3 STYLE="COLOR:red;">(Hors programme) Activité n° 10 : Encapsulation de l’attribut**</H3>
 ```python
 class Personne:
     """Classe définissant une personne caractérisée par :
@@ -474,9 +474,7 @@ Dupont
 Durant
 ```
 
-<H3 STYLE="COLOR:red;">**HP Activité n° 11 : Encapsulation de l’attribut
-
-**</H3>
+**<H3 STYLE="COLOR:red;">(Hors programme) Activité n° 11 : Encapsulation de l’attribut**</H3>
 contrôle de l’accès à l’attribut
 ```python
 class Personne:
@@ -511,7 +509,7 @@ La **méthode spéciale** ```__getattr__``` permet de définir une méthode d’
 
 ```__getattr__``` est utilisé uniquement si l'attribut auquel on tente d'avoir accès n'existe pas dans l'objet.
 
-<H3 STYLE="COLOR:red;">**Activité n° 12 : méthode spéciale ```__getattr__```**</H3>
+**<H3 STYLE="COLOR:red;">(Hors programme)Activité n° 12 : méthode spéciale ```__getattr__```**</H3>
 ```python
 class Personne:
     """ Classe représentant une personne """
@@ -570,7 +568,7 @@ Attribut introuvable
 Attribut introuvable
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 13 : Ce qu’il ne faut pas faire !!**</H3>
+**<H3 STYLE="COLOR:red;">(Hors programme)Activité n° 13 : Ce qu’il ne faut pas faire !!**</H3>
 ```python
 class Personne:
     """ Classe représentant une personne """
@@ -600,15 +598,15 @@ Albert 18
 33
 ```
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc88030965"></a>**3.2. Héritage (pour aller plus loin)**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc88030965"></a>**3.2. (Hors programme) Héritage**</H3>
 
 L’héritage est l’un des fondements de la programmation objet qui permet une **réutilisation** d’éléments déjà programmés dans un cadre général. L’héritage est une fonctionnalité objet qui permet de déclarer que telle classe sera elle-même modelée sur une autre classe, qu’on appelle la classe parente, ou la classe **mère**. 
 
 Si une classe B hérite de la classe A, les objets créés sur le modèle de la classe B auront accès aux méthodes et attributs de la classe A. On dit que la classe B est la **fille** de la classe A qui est le **parent** (ou la superclasse).
 
-<H4 STYLE="COLOR:MAGENTA;">#### <a name="_toc88030966"></a>**3.2.1. Héritage simple**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030966"></a>**3.2.1. (Hors programme) Héritage simple**</H4>
 
-<H3 STYLE="COLOR:red;">**Activité n° 14  Héritage simple:**</H3> 
+**<H3 STYLE="COLOR:red;">(Hors programme) Activité n° 14  Héritage simple:**</H3> 
 On définit une première classe Personne et une seconde classe AgentSpecial qui hérite de Personne.
 ```python
 class Personne:
@@ -640,7 +638,7 @@ Jean Dupont : 007
 
 On n’a pas besoin de redéfinir les attribut nom et prenom de la classe AgentSpecial puisqu’elle hérite de Personne.
 
-<H4 STYLE="COLOR:MAGENTA;">#### <a name="_toc88030967"></a>**3.2.2. Héritage multiple**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030967"></a>**3.2.2. (Hors programme) Héritage multiple**</H4>
 
 Python inclut un mécanisme permettant l’héritage multiple. L’idée est en substance très simple : au lieu d’hériter d’une seule classe, on peut hériter de plusieurs. Assez souvent, on utilisera l’héritage multiple pour des classes qui ont besoin de certaines fonctionnalités définies dans une classe mère.
 
@@ -649,25 +647,25 @@ On précise plusieurs classes mères séparée par des virgules :
 class SuperHero(Personne, Pouvoirs):
 ```
 
-<H4 STYLE="COLOR:MAGENTA;">#### <a name="_toc88030968"></a>**3.2.3. Ordre de recherche de méthodes**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030968"></a>**3.2.3. (Hors programme) Ordre de recherche de méthodes**</H4>
 
 La recherche des méthodes se fait dans l’ordre de la définition de la classe. Dans l’exemple ci-dessus, si on appelle une méthode d’un objet issu de SuperHero, on va d’abord chercher dans la classe SuperHero. Si la méthode n’est pas trouvée, on cherche dans toutes les classes mère de la classe Personne. Si on ne trouve pas la méthode, on la recherche dans Pouvoirs et ses classes mères successivement.
 
 L’ordre de définition des classes mères est important.
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc88030969"></a>**3.3. Polymorphisme (pour aller plus loin)**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc88030969"></a>**3.3. (Hors programme) Polymorphisme**</H3>
 
 Un objet va hériter des attributs et méthodes de ces ancêtres. Mais un objet garde toujours la capacité de pouvoir redéfinir une méthode afin de la réécrire ou de la compléter.
 
 Le polymorphisme permet à un objet de modifier son comportement propre et celui de ses descendants.
 
-<H4 STYLE="COLOR:MAGENTA;">#### <a name="_toc88030970"></a>**3.3.1. Polymorphisme statique : surcharge de méthodes**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030970"></a>**3.3.1. (Hors programme) Polymorphisme statique : surcharge de méthodes**</H4>
 
 Lorsqu’on surcharge une méthode, le but n’est pas d’écraser l’ancienne, mais de la compléter de façon à apporter de nouvelles fonctionnalités.
 
 De fait, il n’est pas nécessaire pour un objet de réécrire une méthode ou un constructeur si ceux de son ancêtre suffisent.
 
-<H3 STYLE="COLOR:red;">**Activité n° 15 surcharge de méthodes :**</H3> 
+**<H3 STYLE="COLOR:red;">(Hors programme) Activité n° 15 surcharge de méthodes :**</H3> 
 On ajoute ```get_identity``` aux deux classes.
 ```python
 class Personne:
@@ -703,7 +701,7 @@ identité : 007
 identité : Jean Durant
 ```
 
-<H4 STYLE="COLOR:MAGENTA;">#### <a name="_toc88030971"></a>**3.3.2. Polymorphisme statique : surcharge d’opérateurs**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030971"></a>**3.3.2. (Hors programme) Polymorphisme statique : surcharge d’opérateurs**</H4>
 
 La surcharge d’opérateur permet d’avoir une signification spécifique quand ils sont appliqués à des types spécifiques. Surcharger les opérateurs standards permet de tirer parti de l’intuition des utilisateurs de la classe.
 
@@ -768,7 +766,7 @@ print(d1 == d2)
 print(d2 > d1)
 ```
 
-<H2 STYLE="COLOR:BLUE;">## <a name="_toc88030972"></a>**4. Décorateurs (pour aller plus loin)**</H2>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc88030972"></a>**4. (Hors programme) Décorateurs**</H2>
 Les décorateurs sont des fonctions de Python dont le rôle est de **modifier le comportement** par défaut d’autres fonctions ou classes. Une fonction modifiée par un décorateur ne s’exécutera pas elle-même mais appellera le décorateur. C’est au décorateur de décider s’il veut exécuter la fonction et dans quelles conditions.
 
 La syntaxe et la suivante :
@@ -793,7 +791,7 @@ def fonction():
 fonction = decorateur(fonction)
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 16 décorateur debug avec les fonctions :**</H3> 
+**<H3 STYLE="COLOR:red;">(Hors programme) Activité n° 16 décorateur debug avec les fonctions :**</H3> 
 ```python 
 def debug(fonction : callable):
     print("appel de la fonction {0}".format(fonction))
@@ -816,7 +814,7 @@ appel de la fonction <function factoriel at 0x000001CF559CD040>
 
 On peut ainsi poursuivre le débogage et tracer les appels récursifs de la fonction factoriel()
 
-<H3 STYLE="COLOR:red;">**Activité n° 17 décorateur debug avec les fonctions :**</H3> 
+**<H3 STYLE="COLOR:red;">(Hors programme) Activité n° 17 décorateur debug avec les fonctions :**</H3> 
 plus en détail
 ```python
 def debug(fonction : callable):
@@ -848,7 +846,7 @@ appel de la fonction 1
 
 Il est important de noter que les décorateurs peuvent s’utiliser avec des méthodes de classes.
 
-<H3 STYLE="COLOR:red;">**Activité n° 18 décorateur debug avec la POO :**</H3>
+**<H3 STYLE="COLOR:red;">(Hors programme) Activité n° 18 décorateur debug avec la POO :**</H3>
 Il faut obligatoirement définir la méthode \_\_call\_\_() pour pouvoir rendre cette instance callable.
 ```python
 class Debug:
@@ -882,8 +880,8 @@ appel de la fonction 4
 
 
 
-<H2 STYLE="COLOR:BLUE;">## <a name="_toc88030973"></a>**5. Exercices**</H2>
-<H3 STYLE="COLOR:red;">**Exercice n°1 :**</H3> On considère une classe **Personnage** représentant un personnage de Jeu. Le plateau de jeu est représenté par un repère **orthonormé à trois axes**. La position du joueur dans le plateau est repérée par **ses attributs x, y, z**.
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc88030973"></a>**5. Exercices**</H2>
+**<H3 STYLE="COLOR:red;">Exercice n°1 :**</H3> On considère une classe **Personnage** représentant un personnage de Jeu. Le plateau de jeu est représenté par un repère **orthonormé à trois axes**. La position du joueur dans le plateau est repérée par **ses attributs x, y, z**.
 
 1. Écrire un constructeur initialisant les mesures.
 
@@ -893,7 +891,7 @@ appel de la fonction 4
 
 4. Essayer avec : Laura = Personnage(0, 0, 0)
 
-<H3 STYLE="COLOR:red;">**Exercice n°2 :**</H3> Voici un programme en Python :
+**<H3 STYLE="COLOR:red;">Exercice n°2 :**</H3> Voici un programme en Python :
 ```python
 import random 
 class Piece : 
@@ -910,7 +908,7 @@ print(p.moyenne(100))
 
 Expliquer en détail ce qu’il permet d’afficher.
 
-<H3 STYLE="COLOR:red;">**Exercice n°3 :**</H3> On considère une classe **Carre** admettant la mesure des côtés d’un carré en attribut.
+**<H3 STYLE="COLOR:red;">Exercice n°3 :**</H3> On considère une classe **Carre** admettant la mesure des côtés d’un carré en attribut.
 
 1. Écrire un constructeur initialisant les mesures.
 
@@ -920,13 +918,13 @@ Expliquer en détail ce qu’il permet d’afficher.
 
 3. Créer des exemples.
 
-<H3 STYLE="COLOR:red;">**Exercice n°4 :**</H3> Définir une classe **Fraction** pour représenter un nombre rationnel.
+**<H3 STYLE="COLOR:red;">Exercice n°4 :**</H3> Définir une classe **Fraction** pour représenter un nombre rationnel.
 
 Cette classe possède deux **attributs num** et **denom**, qui sont des entiers et désignent respectivement le numérateur et le dénominateur.
 
 De plus, on demande que le dénominateur soit particulièrement un entier strictement positif.
 
-1. Écrire un constructeur de cette classe.
+4 Écrire un constructeur de cette classe.
 
    Le constructeur doit lever une **ValueError** si le dénominateur fourni n’est pas strictement positif.
 
@@ -934,19 +932,19 @@ De plus, on demande que le dénominateur soit particulièrement un entier strict
 
 ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.014.png){: .center }
 
-2. Ajouter une méthode **\_\_str\_\_** qui renvoie une chaîne de caractère de la forme "12 / 13", ou simplement de la forme "12" lorsque le dénominateur vaut 1. ( \_\_str\_\_(self) est une méthode de Python : renvoie une chaîne de caractères)
+5 Ajouter une méthode **\_\_str\_\_** qui renvoie une chaîne de caractère de la forme "12 / 13", ou simplement de la forme "12" lorsque le dénominateur vaut 1. ( \_\_str\_\_(self) est une méthode de Python : renvoie une chaîne de caractères)
 
-3. Ajouter des méthodes **\_\_eq\_\_** et **\_\_lt\_\_** qui reçoivent une deuxième fraction en argument et renvoient True si la première fraction représente respectivement un nombre égal ou un nombre strictement inférieur à la fraction. 
+6 Ajouter des méthodes **\_\_eq\_\_** et **\_\_lt\_\_** qui reçoivent une deuxième fraction en argument et renvoient True si la première fraction représente respectivement un nombre égal ou un nombre strictement inférieur à la fraction. 
 
    ( \_\_lt\_\_(self, other) est une méthode de Python : Pour self = t, elle renvoie True si t est strictement plus petit que other ) ( \_\_eq\_\_(self, other) est une méthode de Python : Pour self = t, elle renvoie True si t est égal à other )
 
-4. Ajouter des méthodes **\_\_add\_\_** et **\_\_mul\_\_** qui reçoivent une deuxième fraction en argument et renvoient une nouvelle fraction représentant respectivement la somme et le produit des deux fractions.
+7 Ajouter des méthodes **\_\_add\_\_** et **\_\_mul\_\_** qui reçoivent une deuxième fraction en argument et renvoient une nouvelle fraction représentant respectivement la somme et le produit des deux fractions.
 
-5. Tester ces opérations.
+8 Tester ces opérations.
 
-6. **Question bonus** : S’assurer que les fractions sont toujours sous forme réduite.
+9 **Question bonus** : S’assurer que les fractions sont toujours sous forme réduite.
 
-<H3 STYLE="COLOR:red;">**Exercice n°5 : La classe « Complexe »**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°5 : La classe « Complexe »**</H3>
 
 En mathématiques, dans un plan rapporté à un repère orthonormé ( O;u,v), tout point M de coordonnées (x; y) peut être représenté par ce que l'on nomme un nombre complexe, qui peut s'écrire sous la forme:
 
@@ -995,7 +993,7 @@ Out[4]: (4, 6)
 ```
 Etc…
 
-<H3 STYLE="COLOR:red;">**Exercice n°6 : La classe « Temps »**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°6 : La classe « Temps »**</H3>
 
 En Python, écrire une classe Temps qui permet de définir un horaire au format hh : mm : ss et qui admet les méthodes suivantes :
 
@@ -1003,7 +1001,7 @@ En Python, écrire une classe Temps qui permet de définir un horaire au format 
 - \_\_add\_\_ , qui ajoute deux horaires de la classe Temps;
 - \_\_sub\_\_ , qui calcule la différence entre deux horaires de la classe Temps.
 
-<H3 STYLE="COLOR:red;">**Exercice n°7 : La classe « Mot» et « Phrase »**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°7 : La classe « Mot» et « Phrase »**</H3>
 
 On considère la classe Mot définie ainsi :
 ```python
@@ -1022,7 +1020,7 @@ class Mot:
         return self.m
 ```
 
-1. Indiquer ce que fait la fonction fctA() définie par :
+1 Indiquer ce que fait la fonction fctA() définie par :
 ```python
 def fctA():
     m=Mot("Socrate")
@@ -1030,7 +1028,7 @@ def fctA():
     print(m.value())
 ```
 
-2. Indiquer ce que fait la fonction fctB() définie par :
+2 Indiquer ce que fait la fonction fctB() définie par :
 ```python
 def fctB():
     m=Mot("Socrate")
@@ -1040,9 +1038,9 @@ def fctB():
 
 On souhaite écrire une classe Phrase. Toutes les questions suivantes porteront sur cette classe.
 
-3. Écrire un constructeur qui définit une liste self.mots remplie de tous les mots de la phrase passée en paramètre, chacun des mots devant être de classe Mot.
+3 Écrire un constructeur qui définit une liste self.mots remplie de tous les mots de la phrase passée en paramètre, chacun des mots devant être de classe Mot.
 
-4. Écrire deux méthodes doReverse et value telles que la fonction fctC() suivante :
+4 Écrire deux méthodes doReverse et value telles que la fonction fctC() suivante :
 ```python
 def fctC():
     p = Phrase("Tous les hommes sont mortels")
@@ -1052,7 +1050,7 @@ def fctC():
 
 Affiche : « mortels sont hommes les Tous ».
 
-5. Écrire une méthode doShuffle afin que la fonction suivante :
+5 Écrire une méthode doShuffle afin que la fonction suivante :
 ```python
 def fctD():
     p = Phrase('Tous les hommes sont mortels')
@@ -1062,7 +1060,7 @@ def fctD():
 
 Affiche les mots de la phrase « Tous les hommes sont mortels » dans un ordre aléatoire.
 
-6. On définit la méthode motAt de la manière suivante:
+6 On définit la méthode motAt de la manière suivante:
 ```python
 def motAt(self, pos):
     return self.mots[pos]
@@ -1079,7 +1077,7 @@ ctE():
     print(p.value())
 ```
 
-7. On définit la méthode insert de la manière suivante :
+7 On définit la méthode insert de la manière suivante :
 ```python
 def insert(self, pos, chaine):
     self.mots.insert(pos, Mot(chaine))
@@ -1093,7 +1091,7 @@ def fctF():
     print(p.value())
 ```
 
-8. On définit la méthode remove de la manière suivante :
+8 On définit la méthode remove de la manière suivante :
 ```python
 def remove(self, pos):
     self.mots.pop(pos)
@@ -1110,7 +1108,7 @@ def fctG():
     print(p.value())
 ```
 
-<H3 STYLE="COLOR:red;">**Exercice n°8 : La classe Intervalle**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°8 : La classe Intervalle**</H3>
 
 Définir une classe Intervalle représentant des intervalles de nombres. Cette classe possède deux attributs a et b représentant respectivement l’extrémité inférieure et l'extrémité supérieure de l’intervalle.
 
@@ -1126,7 +1124,7 @@ Attention : toutes les représentations de l'intervalle vide doivent être cons
 
 - Ajouter des méthodes intersection et union calculant respectivement l'intersection de deux intervalles et le plus petit intervalle contenant l’union de deux intervalles (l'intersection est bien toujours un intervalle, alors que l’union ne l’est pas forcément). Ces deux fonctions doivent renvoyer un nouvel intervalle sans modifier leurs paramètres.
 
-<H3 STYLE="COLOR:red;">**Exercice n°9 : La classe Date**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°9 : La classe Date**</H3>
 
 Définir une classe Date pour représenter une date, avec trois attributs jour, mois et annee.
 
@@ -1138,7 +1136,7 @@ Tester en construisant des objets de la classe Date puis en les affichant avec�
 
 - Ajouter une méthode \_\_lt\_\_ qui permet de déterminer si une date d1 est antérieure à une date d2 en écrivant d1 < d2. La tester.
 
-<H3 STYLE="COLOR:red;">**Exercice n°10 : La classe Tableau**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°10 : La classe Tableau**</H3>
 
 Dans certains langages de programmation, comme Pascal ou Ada, les tableaux ne sont pas nécessairement indexés à partir de 0. C’est le programmeur qui choisit sa plage d’indices.
 
@@ -1161,15 +1159,15 @@ Ces deux méthodes doivent vérifier que l’indice i est bien valide et, dans 
 
 - Enfin, écrire une méthode \_\_str\_\_(self) qui renvoie une chaîne de caractères décrivant le contenu du tableau.
 
-<H2 STYLE="COLOR:BLUE;">## <a name="_toc88030974"></a>**6. Projet (démarche d’investigation)**</H2>
-<H3 STYLE="COLOR:red;">**Exercice n°1 : Jeu de cartes**</H3>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc88030974"></a>**6. Projet (démarche d’investigation)**</H2>
+**<H3 STYLE="COLOR:red;">Exercice n°1 : Jeu de cartes**</H3>
 ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.016.png){: .center }
 
 Pour construire un jeu de cartes, on va commencer par construire une classe Carte :
 
 1. sur Thonny : Créer un fichier python carte.py.
 
-2. Écrire une classe Carte à partir du diagramme de classe ci-contre.
+2 Écrire une classe Carte à partir du diagramme de classe ci-contre.
 
 **Aide** :
 
@@ -1180,11 +1178,11 @@ Pour construire un jeu de cartes, on va commencer par construire une classe Cart
   * sa couleur,
   * sa figure.
 
-3. Compléter le constructeur de classe avec les attributs en haut.
+3 Compléter le constructeur de classe avec les attributs en haut.
 
    **Aide** : l’attribut \_\_figure permet de donner la figure correspondant à la valeur, 11 -> valet,  12 -> dame, 13 -> roi. Si la valeur est différente de 11, de 12 ou de 13, alors ce n’est pas une figure.
 
-4. Tester la classe en instanciant la classe comme suit, dans la console :
+4 Tester la classe en instanciant la classe comme suit, dans la console :
 ```python
 ma_carte = Carte(11, "Trèfle")
 print(ma_carte)
@@ -1194,15 +1192,15 @@ print(ma_carte.__init__.__doc__)
 
 On supposera que les valeurs du jeu de 32 cartes vont de 7 à 14 (pour l’as) et que pour un jeu de 54 cartes de 2 à 14 (pour l’as).
 
-5. Compléter les trois accesseurs (ou getter) pour retourner (obtenir) la valeur, la couleur et la figure d’une carte. On accède ainsi de manière publique aux trois attributs privés.
+5 Compléter les trois accesseurs (ou getter) pour retourner (obtenir) la valeur, la couleur et la figure d’une carte. On accède ainsi de manière publique aux trois attributs privés.
 
-6. Compléter les trois mutateurs (ou setter) pour modifier la valeur d’un attribut. On veut rendre publique la modification de la valeur et de la couleur. Par contre, on souhaite garder la main sur la façon d’attribuer une figure à notre carte pour des questions de cohérence. On ne veut pas laisser la liberté à l’utilisateur de créer une carte incohérente entre sa valeur et sa figure, par exemple un roi de valeur 4. Donc le mutateur correspondant à l’attribut figure sera en accès privé.
+6 Compléter les trois mutateurs (ou setter) pour modifier la valeur d’un attribut. On veut rendre publique la modification de la valeur et de la couleur. Par contre, on souhaite garder la main sur la façon d’attribuer une figure à notre carte pour des questions de cohérence. On ne veut pas laisser la liberté à l’utilisateur de créer une carte incohérente entre sa valeur et sa figure, par exemple un roi de valeur 4. Donc le mutateur correspondant à l’attribut figure sera en accès privé.
 
 - \_\_SetFigure : changer la figure en fonction de la nouvelle valeur.
 - SetValeur : retourne vrai si la valeur de la carte a été changée par val et faux sinon ; la valeur de la carte doit être comprise entre 2 et 14.
 - SetCouleur : retourne vrai si la couleur de la carte a été changée par coul et faux sinon ; la couleur de la carte doit être : Trèfle, Pique, Carreau, Cœur.
 
-7. Tester la classe comme suit :
+7 Tester la classe comme suit :
 ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.017.png)
 ```python
 ma_carte = Carte(11, "Trèfle")
@@ -1213,9 +1211,9 @@ if ma_carte.SetValeur(13):
 
 On va construire la classe JeuDeCartes.
 
-8. Sur Python : Créer un fichier python jeudecartes.py.
+8 Sur Python : Créer un fichier python jeudecartes.py.
 
-9. Écrire une classe JeuDeCartes à partir du diagramme de classe ci-contre.
+9 Écrire une classe JeuDeCartes à partir du diagramme de classe ci-contre.
 
 **Aide** :
 
@@ -1223,22 +1221,22 @@ On va construire la classe JeuDeCartes.
 - Importer le module carte.
 - JeuDeCartes définit un jeu de cartes caractérisé par son nombre de cartes et son paquet de cartes.
 
-10. Compléter le constructeur de classe avec les attributs en haut.
+10 Compléter le constructeur de classe avec les attributs en haut.
 
 **Aide** : \_\_PaquetdeCarte sera un attribut qui appellera
 
  la méthode \_\_CreerPaquet().
 
-11. La méthode \_\_CreerPaquet crée le paquet de cartes classé par valeur et couleur donc non mélangé. Si le nombre de cartes est 32, le jeu commence à la carte 7, sinon au 2. Compléter la méthode.
+11 La méthode \_\_CreerPaquet crée le paquet de cartes classé par valeur et couleur donc non mélangé. Si le nombre de cartes est 32, le jeu commence à la carte 7, sinon au 2. Compléter la méthode.
 
-12. Compléter les deux accesseurs (getter).
+12 Compléter les deux accesseurs (getter).
 
 - GetNbCarte retourne le nombre de cartes du jeu de cartes.
 - GetPaquet retourne le paquet de cartes.
 
-13. Compléter la méthode MelangerPaquet en utilisant la méthode shuffle du module random : <https://www.w3schools.com/python/ref_random_shuffle.asp>.
+13 Compléter la méthode MelangerPaquet en utilisant la méthode shuffle du module random : <https://www.w3schools.com/python/ref_random_shuffle.asp>.
 
-14. Tester le jeu de cartes (de 32 cartes).
+14 Tester le jeu de cartes (de 32 cartes).
 ```python
 mon_jeu = JeuDeCartes(32)
 lepaquet = mon_jeu.GetPaquet()
@@ -1254,7 +1252,7 @@ for i in range(len(lepaquet)):
 ```
 
 
-**Exercice n°2** : **Filtres d’image**
+**<H3 STYLE="COLOR:red;">Exercice n°2 : Filtres d’image**</h3>
 
 Ce TP utilise la bibliothèque Pillow.
 
@@ -1575,7 +1573,7 @@ La symétrie axiale horizontale consiste à échanger les pixels du haut de l’
 
 29 Tester la méthode avec filtre.png. Sauvegarder l’image sous filtre\_sym\_axiale.png.
 
-**Exercice n°3 : Blackjack**
+**<H3 STYLE="COLOR:red;">Exercice n°3 : Blackjack**</h3>
 
 **Règle du jeu :** d’après Wikipédia :Le blackjack est un jeu de carte. La partie oppose tous les joueurs contre le croupier (pour simplifier, il n'y aura ici qu'un seul joueur). Le but est de faire **plus de points** que le croupier **sans dépasser 21**. Dès qu'un joueur fait plus que 21, on dit qu'il « **saute** » et il perd sa mise initiale. La valeur des cartes est établie comme suit : 
 
@@ -1834,7 +1832,7 @@ Dans la boucle while, Il faut donc demander au joueur ce qu’il veut faire : c
 
 
 
-**Exercice n°4 : Banque**
+**<H3 STYLE="COLOR:red;">Exercice n°4 : Banque**</h3>
 
 L’objectif est de simuler (sommairement bien sûr) le fonctionnement d’une banque. Le programme doit permettre :
 
@@ -2097,7 +2095,7 @@ class Banque():
 
 4 Dans le fichier nommé main, instancier un objet de type Banque et créer quelques comptes bancaires.
 
-**Exercice n°5 : Jeu de la vie**
+**<H3 STYLE="COLOR:red;">Exercice n°5 : Jeu de la vie**</h3>
 
 Le but de ce sujet est de réaliser en Python une implémentation du jeu de la vie en utilisant la programmation objet.
 
