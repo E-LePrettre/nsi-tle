@@ -185,8 +185,34 @@ Créer une **méthode d'instance**, revient à **créer une fonction** ayant com
 
 
 
-**Activité n° AUTONUM  \* Arabic : Classe et méthode**</p><p>class Personne:<br>`   `*"""Classe définissant une personne caractérisée par :<br>`   `- son nom<br>`   `- son prénom<br>`   `- son âge<br>`   `- son lieu de résidence"""*<br>`   `def \_\_init\_\_(self, nom : str, prenom : str):   # le constructeur<br>`      `""" on ajoute un attribut lieu de résidence... """<br>`      `self.nom      = nom<br>`      `self.prenom       = prenom<br>`      `self.age      = 33<br>`      `self.residence = "Paris"<br><br>`   `def ma\_residence(self):<br>`      `*""" ...et la méthode associée au lieu de résidence """*<br>`      `return "J'habite {0}." . format(self.residence)<br><br>qui = Personne('Dupont', 'Jean')<br>print("Je suis {0} {1}, j'ai {2} ans." . format(qui.prenom, qui.nom, qui.age))<br>print(qui.ma\_residence())</p><p></p><p>Je suis Jean Dupont, j'ai 33 ans.</p><p>J'habite Paris.</p><p></p>|
-| - |
+**Activité n° 3 : Classe et méthode**
+```python
+class Personne:
+   """Classe définissant une personne caractérisée par :
+   - son nom
+   - son prénom
+   - son âge
+   - son lieu de résidence"""
+   def __init__(self, nom : str, prenom : str):   # le constructeur
+      """ on ajoute un attribut lieu de résidence... """
+      self.nom      = nom
+      self.prenom       = prenom
+      self.age      = 33
+      self.residence = "Paris"
+
+   def ma_residence(self):
+      """ ...et la méthode associée au lieu de résidence """
+      return "J'habite {0}." . format(self.residence)
+
+qui = Personne('Dupont', 'Jean')
+print("Je suis {0} {1}, j'ai {2} ans." . format(qui.prenom, qui.nom, qui.age))
+print(qui.ma_residence())
+```
+
+```txt
+Je suis Jean Dupont, j'ai 33 ans.
+J'habite Paris.
+```
 
 Pour appeler une méthode de l’instance Personne, il suffit donc d’écrire instance.méthode().
 #### <a name="_toc88030958"></a>**2.3.5. Les méthodes pour représenter un objet**
