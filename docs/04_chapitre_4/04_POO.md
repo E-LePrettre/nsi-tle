@@ -34,17 +34,15 @@ L’un des objectifs principaux de la notion d’objet est d’organiser des pro
 
 - **l'encapsulation** des attributs empêche toute modification externe accidentelle (l’utilisateur va utiliser l’objet sans savoir ce qu’il contient. Par exemple, un conducteur de voiture). Le principe de l’encapsulation est **de regrouper dans le même objet**, les **données (attributs**) et les **traitements (méthodes**) qui lui sont spécifiques. Ainsi un objet est défini par ses attributs et ses méthodes.
 - **l’abstraction** : L’intérêt de la POO est qu’elle permet de créer des objets possédant un certain degré d’abstraction. Ce processus d’abstraction consiste à identifier des caractéristiques et des mécanismes communs pour un ensemble d’éléments.
-
-* **Attributs** : Ce sont les données de l’objets, ses caractéristiques.
-
-* **Méthodes** : Ce sont les comportements de l’objet.
-
+```
+* Attributs : Ce sont les données de l’objets, ses caractéristiques.
+* Méthodes : Ce sont les comportements de l’objet.
+```
 - **l'héritage** qui permet la ré utilisabilité du code, une classe Fille hérite d’une classe Mère (ex : classe Mère : animal, classe Fille : Panda)
-
-* La **super-classe** (classe mère) déclare des méthodes et des attributs communs.
-
-* La **sous-classe** hérite des attributs, des méthodes et du type de la super-classe et peut les redéfinir (cf. polymorphisme).
-
+```
+* La super-classe (classe mère) déclare des méthodes et des attributs communs.
+* La sous-classe hérite des attributs, des méthodes et du type de la super-classe et peut les redéfinir (cf. polymorphisme).
+```
 - **le polymorphisme** : c’est la faculté pour une méthode portant le **même nom** mais appartenant à des classes distinctes héritées d’effectuer un **travail différent.** Cette propriété est acquise par la technique de la surcharge.
 
 En terminal seules les deux premières notions sont au programme de NSI
@@ -1179,10 +1177,11 @@ Pour construire un jeu de cartes, on va commencer par construire une classe Cart
 - le corps des méthodes ne sera pas développé immédiatement ; on utilisera l’instruction Python pass en attendant.
 
 - Carte définit une carte caractérisée par:
-
+```
   * sa valeur,
   * sa couleur,
   * sa figure.
+```
 
 3 Compléter le constructeur de classe avec les attributs en haut.
 
