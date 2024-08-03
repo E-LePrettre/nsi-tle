@@ -247,16 +247,34 @@ class Personne:
 toi = Personne('Durant', 'Jean')
 print(toi)
 ```
+```txt
+Jean Durant
+```
 
-```
-```
-class Personne:<br>`    `*"""Classe représentant une personne"""*<br>`    `def \_\_init\_\_(self, nom : str, prenom : str):<br>`        `self.\_\_nom    = nom<br>`        `self.\_\_prenom = prenom<br><br>`    `def \_\_str\_\_(self):<br>`        `return self.\_\_prenom + " " + self.\_\_nom<br>toi = Personne('Durant', 'Jean')<br>print(toi)</p><p></p><p>Jean Durant</p>|
-| - |
 ### <a name="_toc88030959"></a>**2.4. Attributs de classe**
 Jusqu’à présent, les attributs sont contenus dans l’objet. Ils sont propres à l’objet : si on crée plusieurs objets, les attributs nom, prénom,… de chacun ne seront pas forcément identiques d’un objet à l’autre. Mais on peut aussi définir des **attributs dans la classe**.
 
-|<p>**Activité n° AUTONUM  \* Arabic : Classe et attributs de classe**</p><p>class Personne:<br>`   `*"""Classe définissant une personne caractérisée par :<br>`   `- son nom<br>`   `- son prénom"""*<br>`   `population = 0<br><br>`   `def \_\_init\_\_(self, nom : str, prenom : str):<br>`      `self.nom   = nom<br>`      `self.prenom    = prenom<br>`      `Personne.population += 1<br><br>moi = Personne('Dupont', 'Jean')<br>toi = Personne('Durant', 'Jean')<br>print(Personne.population)</p><p></p><p>2</p>|
-| - |
+**Activité n° 6 : Classe et attributs de classe**
+```python
+class Personne:
+   """Classe définissant une personne caractérisée par :
+   - son nom
+   - son prénom"""
+   population = 0
+
+   def __init__(self, nom : str, prenom : str):
+      self.nom   = nom
+      self.prenom    = prenom
+      Personne.population += 1
+
+moi = Personne('Dupont', 'Jean')
+toi = Personne('Durant', 'Jean')
+print(Personne.population)
+```
+```txt
+2
+```
+
 
 On définit l’attribut de classe directement dans le corps de la classe **avant** la définition du constructeur. Lorsqu’on veut l’appeler dans le constructeur, on **préfixe le nom de l’attribut de classe** par le **nom de la classe :** Personne.population
 
@@ -266,7 +284,9 @@ A chaque fois que l’on crée un objet de type Personne, l’attribut de classe
 
 
 ## <a name="_toc88030960"></a>**3. Les trois fondamentaux**
-- La POO est dirigée par trois fondamentaux qu'il convient de toujours garder à l'esprit : **encapsulation**, **héritage** et **polymorphisme**. Les deux derniers sont hors programmes.
+
+La POO est dirigée par trois fondamentaux qu'il convient de toujours garder à l'esprit : **encapsulation**, **héritage** et **polymorphisme**. Les deux derniers sont hors programmes.
+
 ### <a name="_toc88030961"></a>**3.1. Encapsulation**
 L’encapsulation introduit une nouvelle manière de gérer les données. On cherche aussi à **masque**r aux yeux d’un programmeur extérieur tous les rouages d’un objet et donc l’ensemble des procédures et fonctions destinées à la **gestion interne de l’objet**, auxquelles le programmeur final n’aura pas à avoir accès.
 
@@ -274,36 +294,143 @@ L’encapsulation permet donc de **masquer un certain nombre d’attributs et m�
 
 On va définir des méthodes appelées des **accesseurs** et **mutateurs** (ou getter et setter en anglais). Les accesseurs donnent accès à l’attribut. Les mutateurs permettent de le modifier. 
 
-- Pour accéder à un attribut, au lieu d’écrire mon\_objet.mon\_attribut, il faut écrire mon\_objet.get\_mon\_attribut(). 
-- Pour modifier l’attribut ce sera mon\_objet.set\_mon\_attribut(valeur) et non pas mon\_objet.mon\_attribut = valeur.
+- Pour accéder à un attribut, au lieu d’écrire ```mon_objet.mon_attribut```, il faut écrire ```mon_objet.get_mon_attribut()```. 
+- Pour modifier l’attribut ce sera ```mon_objet.set_mon_attribut(valeur)``` et non pas ```mon_objet.mon_attribut = valeur```.
 
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.003.png)
+![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.003.png){: .center }
 #### <a name="_toc88030962"></a>**3.1.1. Attributs et méthode publics**
 Comme leur nom l'indique, les attributs et méthodes dits publics sont **accessibles** depuis tous les descendants et dans tous les modules. On peut considérer que les éléments publics n'ont pas de restriction particulière.
 
-|<p>**Activité n° AUTONUM  \* Arabic : attributs publics**</p><p>class Personne:<br>`   `*"""Classe définissant une personne caractérisée par :<br>`   `- son nom<br>`   `- son prénom<br>`   `- son âge"""*<br><br>`   `def \_\_init\_\_(self, nom : str, prenom : str, age=33):<br>`      `self.nom   = nom<br>`      `self.prenom    = prenom<br>`      `self.age   = age<br><br><br><br>### Programme principal ###<br>qui = Personne('Dupont', 'Jean')<br><br>print(qui.nom)       # donne le nom<br>qui.nom = 'Durant'    # modifie l'attribut => INTERDIT<br>print(qui.nom)          # donne le nouveau nom</p><p></p><p>Dupont</p><p>Durant</p>|
-| - |
+**Activité n° 7 : attributs publics**
+```python 
+class Personne:
+   """Classe définissant une personne caractérisée par :
+   - son nom
+   - son prénom
+   - son âge"""
+
+   def __init__(self, nom : str, prenom : str, age=33):
+      self.nom   = nom
+      self.prenom    = prenom
+      self.age   = age
+
+
+
+### Programme principal ###
+qui = Personne('Dupont', 'Jean')
+
+print(qui.nom)       # donne le nom
+qui.nom = 'Durant'    # modifie l'attribut => INTERDIT
+print(qui.nom)          # donne le nouveau nom
+```
+
+```txt
+Dupont
+Durant
+```
+
 
 Un **attribut** ne devrait être **public** que si sa modification n'entraîne **pas de changement dans le comportement de l'objet.** Dans le cas contraire, il faut **passer par une méthode**.
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.004.png)
 
 Modifier un attribut "manuellement" et ensuite appeler une méthode pour informer de cette modification est une **violation du principe d'encapsulation.**
+
 #### <a name="_toc88030963"></a>**3.1.2. Attributs et méthodes privés**
-Python permet (plus ou moins) de protéger les attributs en leur donnant un nom qui commence par le double souligné **\_\_.** C’est une convention !!
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.005.png)
 
-Lorsqu’on crée un attribut (ou une méthode) dont le nom commence par \_\_ il n’est plus accessible directement. L’utilisateur ne pourra pas lire ni modifier directement les variables internes : il doit utiliser une méthode créée par les codeurs !! Ce sont les getter (accesseur) et setter (mutateur) .
-
-Très souvent, les **accesseurs** en **lecture** verront leur nom commencer par get quand leurs homologues, les **mutateurs**, en **écriture** verront le leur commencer par set. Ainsi si on veut créer une méthode qui renvoie le nom, on pourrait la nommer get\_name.
-
-|<p>**Activité n° AUTONUM  \* Arabic : attributs privés et accesseur**</p><p>class Personne:<br>`    `*"""Classe définissant une personne caractérisée par :<br>`    `- son nom<br>`    `- son prénom<br>`    `- son âge"""*<br><br>`    `def \_\_init\_\_(self, nom : str, prenom : str, age=33):<br>`        `self.\_\_nom   = nom        #attribut privé<br>`        `self.prenom    = prenom<br>`        `self.age   = age<br>`    `def get\_name(self):<br>`        `return self.\_\_nom<br><br><br>### Programme principal ###<br>qui = Personne('Dupont', 'Jean')<br><br>print(qui.get\_name())     # donne le nom<br>print(qui.\_\_nom)         # lève l’exception AttibuteError car l’attribut n’est plus accessible !!<br>qui.\_\_nom = 'Durant'      # ne modifie pas l’attribut<br>print(qui.get\_name())</p><p>On met en commentaire la ligne levant l’exception</p><p>class Personne:<br>`    `*"""Classe définissant une personne caractérisée par :<br>`    `- son nom<br>`    `- son prénom<br>`    `- son âge"""*<br><br>`    `def \_\_init\_\_(self, nom : str, prenom : str, age=33):<br>`        `self.\_\_nom   = nom        #attribut privé<br>`        `self.prenom    = prenom<br>`        `self.age   = age<br>`    `def get\_name(self):<br>`        `return self.\_\_nom<br><br>### Programme principal ###<br>qui = Personne('Dupont', 'Jean')<br><br>print(qui.get\_name())     # donne le nom<br># print(qui.\_\_nom)       # lève l’exception AttibuteError<br>qui.\_\_nom = 'Durant'      # ne modifie pas l’attribut<br>print(qui.get\_name())</p><p></p><p>Dupont</p><p>Dupont</p>|
-| - |
-|<p></p><p>**Activité n° AUTONUM  \* Arabic : attributs privés et mutateur**</p><p>class Personne:<br>`    `*"""Classe définissant une personne caractérisée par :<br>`    `- son nom<br>`    `- son prénom<br>`    `- son âge"""*<br><br>`    `def \_\_init\_\_(self, nom : str, prenom : str, age=33):<br>`        `self.\_\_nom   = nom        #attribut privé<br>`        `self.prenom    = prenom<br>`        `self.age   = age</p><p><br>`    `def get\_name(self):<br>`        `return self.\_\_nom</p><p><br>`    `def set\_name(self, nom : str):<br>`        `nom = str(nom)        # il faut que le nom fourni soit un string<br>`        `self.\_\_nom = nom<br><br><br>### Programme principal ###<br>qui = Personne('Dupont', 'Jean')<br><br>print(qui.get\_name())<br>qui.set\_name('Durant')     # modifie le nom<br>print(qui.get\_name())</p><p></p><p>Dupont</p><p>Durant</p>|
+Python permet (plus ou moins) de protéger les attributs en leur donnant un nom qui commence par le double souligné **```__```** C’est une convention !!
 
 
-Le mutateur récupère l’argument fournit dans le paramètre (nom) et place la chaine dans self.\_\_nom
+Lorsqu’on crée un attribut (ou une méthode) dont le nom commence par ```__``` il n’est plus accessible directement. L’utilisateur ne pourra pas lire ni modifier directement les variables internes : il doit utiliser une méthode créée par les codeurs !! Ce sont les getter (accesseur) et setter (mutateur) .
+
+Très souvent, les **accesseurs** en **lecture** verront leur nom commencer par get quand leurs homologues, les **mutateurs**, en **écriture** verront le leur commencer par set. Ainsi si on veut créer une méthode qui renvoie le nom, on pourrait la nommer ```get_name```.
+
+**Activité n° 8 : attributs privés et accesseur**
+```python
+class Personne:
+    """Classe définissant une personne caractérisée par :
+    - son nom
+    - son prénom
+    - son âge"""
+
+    def __init__(self, nom : str, prenom : str, age=33):
+        self.__nom   = nom        #attribut privé
+        self.prenom    = prenom
+        self.age   = age
+    def get_name(self):
+        return self.__nom
+
+
+### Programme principal ###
+qui = Personne('Dupont', 'Jean')
+
+print(qui.get_name())     # donne le nom
+print(qui.__nom)         # lève l’exception AttibuteError car l’attribut n’est plus accessible !!
+qui.__nom = 'Durant'      # ne modifie pas l’attribut
+print(qui.get_name())
+```
+On met en commentaire la ligne levant l’exception
+```python
+class Personne:
+    """Classe définissant une personne caractérisée par :
+    - son nom
+    - son prénom
+    - son âge"""
+
+    def __init__(self, nom : str, prenom : str, age=33):
+        self.__nom   = nom        #attribut privé
+        self.prenom    = prenom
+        self.age   = age
+    def get_name(self):
+        return self.__nom
+
+### Programme principal ###
+qui = Personne('Dupont', 'Jean')
+
+print(qui.get_name())     # donne le nom
+# print(qui.__nom)       # lève l’exception AttibuteError
+qui.__nom = 'Durant'      # ne modifie pas l’attribut
+print(qui.get_name())
+```
+```txt
+Dupont
+Dupont
+```
+**Activité n° 9 : attributs privés et mutateur**
+```python
+class Personne:
+    """Classe définissant une personne caractérisée par :
+    - son nom
+    - son prénom
+    - son âge"""
+
+    def __init__(self, nom : str, prenom : str, age=33):
+        self.__nom   = nom        #attribut privé
+        self.prenom    = prenom
+        self.age   = age
+
+    def get_name(self):
+        return self.__nom
+
+    def set_name(self, nom : str):
+        nom = str(nom)        # il faut que le nom fourni soit un string
+        self.__nom = nom
+
+
+### Programme principal ###
+qui = Personne('Dupont', 'Jean')
+
+print(qui.get_name())
+qui.set_name('Durant')     # modifie le nom
+print(qui.get_name())
+```
+
+```txt
+Dupont
+Durant
+```
+
+Le mutateur récupère l’argument fournit dans le paramètre (nom) et place la chaine dans ```self.__nom```
 
 
 
@@ -319,28 +446,168 @@ Un constructeur porte le nom property. Elle attend quatre paramètres, tous opti
 - La méthode modifiant l’attribut ;
 - La méthode appelée quand on souhaite supprimer l’attribut ;
 - La méthode appelée quand on demande de l’aide sur l’attribut
-   ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.007.png)
 
    En pratique, on utilise surtout les deux premiers paramètres : ceux définissant les méthodes d’accès et de modification, autrement dit les **accesseur** et **mutateur** d’objet.
 
-   |<p>**Activité n° AUTONUM  \* Arabic : Encapsulation de l’attribut**</p><p>class Personne:<br>`    `*"""Classe définissant une personne caractérisée par :<br>`    `- son nom<br>`    `- son prénom<br>`    `- son âge"""*<br><br>`    `def \_\_init\_\_(self, nom : str, prenom : str, age=33):<br>`        `self.\_\_nom   = nom        #attribut privé<br>`        `self.prenom    = prenom<br>`        `self.age   = age</p><p><br>`    `def \_\_get\_name(self): # méthode donnant accès à l'attribut ne pas oublier les underscores devant<br>`        `return self.\_\_nom</p><p><br>`    `def \_\_set\_name(self, nom : str): # méthode modifiant l'attribut<br>`        `self.\_\_nom = nom<br><br>`    `nom = property(\_\_get\_name, \_\_set\_name) # l'attribut nom est accessible et modifiable</p><p><br>### Programme principal ###<br>qui = Personne('Dupont', 'Jean')<br><br># pour l'utilisateur l'attribut nom parait public<br>print(qui.nom)    # donne le nom<br>qui.nom = 'Durant'<br>print(qui.nom)</p><p></p><p>Dupont</p><p>Durant</p><p></p>|
-   | - |
+**Activité n° 10 : Encapsulation de l’attribut**
+```python
+class Personne:
+    """Classe définissant une personne caractérisée par :
+    - son nom
+    - son prénom
+    - son âge"""
 
-   |<p></p><p>**HPActivité n° AUTONUM  \* Arabic : Encapsulation de l’attribut**  contrôle de l’accès à l’attribut</p><p>class Personne:<br>`    `*""" Classe représentant une personne """*<br>`    `def \_\_init\_\_(self, nom : str, prenom : str, age=33):<br>`        `self.nom    = nom<br>`        `self.prenom = prenom<br>`        `self.\_\_age    = age</p><p><br>`    `def \_\_get\_age(self):<br>`        `return self.\_\_age</p><p><br>`    `def \_\_set\_age(self, age : int):<br>`        `if age > 18:<br>`            `self.\_\_age = age<br><br>`    `age = property(\_\_get\_age, \_\_set\_age)<br><br>### Programme principal ###<br>qui = Personne('Dupont', 'Jean')<br>print(qui.age)<br>qui.age = 10      # ne modifie pas l’attribut<br>print(qui.age)</p><p></p><p>33</p><p>33</p>|
-   | - |
+    def __init__(self, nom : str, prenom : str, age=33):
+        self.__nom   = nom        #attribut privé
+        self.prenom    = prenom
+        self.age   = age
 
-   ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.008.png)La **méthode spéciale** \_\_getattr\_\_ permet de définir une méthode d’accès aux attributs plus large que celle que Python propose par défaut. En fait, cette méthode est appelée quand on tape objet.attribut (non pas pour modifier l’attribut mais simplement pour y accéder). Python recherche l’attribut et, s’il ne le trouve pas dans l’objet et si une méthode \_\_getattr\_\_ existe, il va l’appeler en lui passant en paramètre le nom de l’attribut recherché, sous la forme d’une **chaine de caractères**.
+    def __get_name(self): # méthode donnant accès à l'attribut ne pas oublier les underscores devant
+        return self.__nom
 
-\_\_gettattr\_\_ est utilisé uniquement si l'attribut auquel on tente d'avoir accès n'existe pas dans l'objet
-   ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.009.png)
+    def __set_name(self, nom : str): # méthode modifiant l'attribut
+        self.__nom = nom
 
-   |<p>**Activité n° AUTONUM  \* Arabic : méthode spéciale \_\_getattr\_\_**</p><p>class Personne:<br>`    `*""" Classe représentant une personne """*<br>`    `def \_\_init\_\_(self, nom : str, prenom : str, age=33):<br>`        `self.\_\_nom    = nom<br>`        `self.\_\_prenom = prenom<br>`        `self.\_\_age    = age<br>`    `def \_\_get\_age(self):<br>`        `return self.\_\_age<br>`    `def \_\_set\_age(self, age : int):<br>`        `if age > 17:<br>`            `self.\_\_age = age<br><br>`    `age = property(\_\_get\_age, \_\_set\_age)<br><br>### Programme principal ###<br>qui = Personne('Dupont', 'Jean')<br>print(qui.age)<br>qui.age = 10      # ne modifie pas l’attribut car < 17<br>print(qui.age)<br>print(qui.nom) 	 # lever d’exception car nom est un attribut privé (n’existe pas)</p><p>Lever d’exception</p><p>**HP**</p><p>class Personne:<br>`    `*""" Classe représentant une personne """*<br>`    `def \_\_init\_\_(self, nom : str, prenom : str, age=33):<br>`        `self.\_\_nom    = nom<br>`        `self.\_\_prenom = prenom<br>`        `self.\_\_age    = age<br>`    `def \_\_getattr\_\_(self, name : str):<br>`        `return 'Attribut introuvable'<br>`    `def \_\_get\_age(self):<br>`        `return self.\_\_age<br>`    `def \_\_set\_age(self, age : int):<br>`        `if age > 17:<br>`            `self.\_\_age = age<br><br>`    `age = property(\_\_get\_age, \_\_set\_age)<br><br>### Programme principal ###<br>qui = Personne('Dupont', 'Jean')<br>print(qui.age)<br>qui.age = 10      # ne modifie pas l’attribut car < 17<br>print(qui.age)<br>print(qui.nom)<br>print(qui.tartempion)</p><p></p><p>33</p><p>33</p><p>Attribut introuvable</p><p>Attribut introuvable</p>|
-   | - |
+    nom = property(__get_name, __set_name) # l'attribut nom est accessible et modifiable
 
-   ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.010.png)
 
-   |<p>**Activité n° AUTONUM  \* Arabic : Ce qu’il ne faut pas faire !!**</p><p>class Personne:<br>`    `*""" Classe représentant une personne """*<br>`    `def \_\_init\_\_(self, nom : str, prenom : str, age=33):<br>`        `self.\_\_nom    = nom<br>`        `self.\_\_prenom = prenom<br>`        `self.\_\_age    = age<br>`    `def \_\_get\_age(self):<br>`        `return self.\_\_age<br>`    `def \_\_set\_age(self, age : int):<br>`        `if age > 17:<br>`            `self.\_\_age = age<br><br>`    `age = property(\_\_get\_age, \_\_set\_age)<br><br>### Programme principal ###<br>qui = Personne('Dupont', 'Jean')<br>print(qui.age)<br>qui.\_\_name, qui.\_\_age = 'Albert', 18      # à proscrire !! c'est INTERDIT en terminale il faut utiliser une méthode pour cela !!<br>print(qui.\_\_name, qui.\_\_age)<br>print(qui.age)    # résultat très étonnant...</p><p></p><p>33</p><p>Albert 18</p><p>33</p>|
-   | - |
+### Programme principal ###
+qui = Personne('Dupont', 'Jean')
+
+# pour l'utilisateur l'attribut nom parait public
+print(qui.nom)    # donne le nom
+qui.nom = 'Durant'
+print(qui.nom)
+```
+
+```txt
+Dupont
+Durant
+```
+
+**HP Activité n° 11 : Encapsulation de l’attribut**
+contrôle de l’accès à l’attribut
+```python
+class Personne:
+    """ Classe représentant une personne """
+    def __init__(self, nom : str, prenom : str, age=33):
+        self.nom    = nom
+        self.prenom = prenom
+        self.__age    = age
+
+    def __get_age(self):
+        return self.__age
+
+    def __set_age(self, age : int):
+        if age > 18:
+            self.__age = age
+
+    age = property(__get_age, __set_age)
+
+### Programme principal ###
+qui = Personne('Dupont', 'Jean')
+print(qui.age)
+qui.age = 10      # ne modifie pas l’attribut
+print(qui.age)
+```
+
+```txt
+33
+33
+```
+
+La **méthode spéciale** ```__getattr__``` permet de définir une méthode d’accès aux attributs plus large que celle que Python propose par défaut. En fait, cette méthode est appelée quand on tape objet.attribut (non pas pour modifier l’attribut mais simplement pour y accéder). Python recherche l’attribut et, s’il ne le trouve pas dans l’objet et si une méthode ``````__getattr__ existe, il va l’appeler en lui passant en paramètre le nom de l’attribut recherché, sous la forme d’une **chaine de caractères**.
+
+```__gettattr__``` est utilisé uniquement si l'attribut auquel on tente d'avoir accès n'existe pas dans l'objet
+
+**Activité n° 12 : méthode spéciale _```__getattr__```**
+```python
+class Personne:
+    """ Classe représentant une personne """
+    def __init__(self, nom : str, prenom : str, age=33):
+        self.__nom    = nom
+        self.__prenom = prenom
+        self.__age    = age
+    def __get_age(self):
+        return self.__age
+    def __set_age(self, age : int):
+        if age > 17:
+            self.__age = age
+
+    age = property(__get_age, __set_age)
+
+### Programme principal ###
+qui = Personne('Dupont', 'Jean')
+print(qui.age)
+qui.age = 10      # ne modifie pas l’attribut car < 17
+print(qui.age)
+print(qui.nom) 	 # lever d’exception car nom est un attribut privé (n’existe pas)
+```
+
+Lever d'exception
+
+```python
+class Personne:
+    """ Classe représentant une personne """
+    def __init__(self, nom : str, prenom : str, age=33):
+        self.__nom    = nom
+        self.__prenom = prenom
+        self.__age    = age
+    def __getattr__(self, name : str):
+        return 'Attribut introuvable'
+    def __get_age(self):
+        return self.__age
+    def __set_age(self, age : int):
+        if age > 17:
+            self.__age = age
+
+    age = property(__get_age, __set_age)
+
+### Programme principal ###
+qui = Personne('Dupont', 'Jean')
+print(qui.age)
+qui.age = 10      # ne modifie pas l’attribut car < 17
+print(qui.age)
+print(qui.nom)
+print(qui.tartempion)
+```
+
+```txt
+33
+33
+Attribut introuvable
+Attribut introuvable
+```
+
+**Activité n° 13 : Ce qu’il ne faut pas faire !!**
+```python
+class Personne:
+    """ Classe représentant une personne """
+    def __init__(self, nom : str, prenom : str, age=33):
+        self.__nom    = nom
+        self.__prenom = prenom
+        self.__age    = age
+    def __get_age(self):
+        return self.__age
+    def __set_age(self, age : int):
+        if age > 17:
+            self.__age = age
+
+    age = property(__get_age, __set_age)
+
+### Programme principal ###
+qui = Personne('Dupont', 'Jean')
+print(qui.age)
+qui.__name, qui.__age = 'Albert', 18      # à proscrire !! c'est INTERDIT en terminale il faut utiliser une méthode pour cela !!
+print(qui.__name, qui.__age)
+print(qui.age)    # résultat très étonnant...
+```
+
+```txt
+33
+Albert 18
+33
+```
 
 
 
@@ -352,18 +619,47 @@ Si une classe B hérite de la classe A, les objets créés sur le modèle de la 
 
 #### <a name="_toc88030966"></a>**3.2.1. Héritage simple**
 
-   |<p>**Activité n° AUTONUM  \* Arabic  Héritage simple:** On définit une première classe Personne et une seconde classe AgentSpecial qui hérite de Personne.</p><p>class Personne:<br>`    `*"""Classe représentant une personne"""*<br>`    `def \_\_init\_\_(self, nom : str, prenom : str):<br>`        `self.\_\_nom    = nom<br>`        `self.\_\_prenom = prenom<br>`    `def get\_identity(self):<br>`        `return self.\_\_prenom + " " + self.\_\_nom<br><br>class AgentSpecial(Personne):<br>`    `*"""Classe définissant un agent spécial.<br>`    `Elle hérite de la classe Personne"""*<br>`    `def \_\_init\_\_(self, nom : str, prenom : str, matricule : str):<br>`        `*"""Un agent se définit par son nom et son matricule"""*<br>`        `Personne.\_\_init\_\_(self, nom, prenom)   # appel explicite au constructeur<br>`        `self.\_\_matricule = matricule<br>`    `def get\_matricule(self):<br>`        `return self.\_\_matricule<br><br>### Programme principal ###<br>qui = AgentSpecial('Dupont', 'Jean', '007')<br>print("{0} : {1}".format(qui.get\_identity(), qui.get\_matricule()))</p><p></p><p>Jean Dupont : 007</p>|
-   | - |
+**Activité n° 14  Héritage simple:** 
+On définit une première classe Personne et une seconde classe AgentSpecial qui hérite de Personne.
+```python
+class Personne:
+    """Classe représentant une personne"""
+    def __init__(self, nom : str, prenom : str):
+        self.__nom    = nom
+        self.__prenom = prenom
+    def get_identity(self):
+        return self.__prenom + " " + self.__nom
 
-   On n’a pas besoin de redéfinir les attribut nom et prenom de la classe AgentSpecial puisqu’elle hérite de Personne.
+class AgentSpecial(Personne):
+    """Classe définissant un agent spécial.
+    Elle hérite de la classe Personne"""
+    def __init__(self, nom : str, prenom : str, matricule : str):
+        """Un agent se définit par son nom et son matricule"""
+        Personne.__init__(self, nom, prenom)   # appel explicite au constructeur
+        self.__matricule = matricule
+    def get_matricule(self):
+        return self.__matricule
+
+### Programme principal ###
+qui = AgentSpecial('Dupont', 'Jean', '007')
+print("{0} : {1}".format(qui.get_identity(), qui.get_matricule()))
+```
+
+```txt 
+Jean Dupont : 007
+```
+
+
+On n’a pas besoin de redéfinir les attribut nom et prenom de la classe AgentSpecial puisqu’elle hérite de Personne.
 
 #### <a name="_toc88030967"></a>**3.2.2. Héritage multiple**
 
-   Python inclut un mécanisme permettant l’héritage multiple. L’idée est en substance très simple : au lieu d’hériter d’une seule classe, on peut hériter de plusieurs. Assez souvent, on utilisera l’héritage multiple pour des classes qui ont besoin de certaines fonctionnalités définies dans une classe mère.
+Python inclut un mécanisme permettant l’héritage multiple. L’idée est en substance très simple : au lieu d’hériter d’une seule classe, on peut hériter de plusieurs. Assez souvent, on utilisera l’héritage multiple pour des classes qui ont besoin de certaines fonctionnalités définies dans une classe mère.
 
-   On précise plusieurs classes mères séparée par des virgules :
-
-   class SuperHero(Personne, Pouvoirs):
+On précise plusieurs classes mères séparée par des virgules :
+```txt
+class SuperHero(Personne, Pouvoirs):
+```
 
 #### <a name="_toc88030968"></a>**3.2.3. Ordre de recherche de méthodes**
 
@@ -379,7 +675,7 @@ Un objet va hériter des attributs et méthodes de ces ancêtres. Mais un objet 
 
 Le polymorphisme permet à un objet de modifier son comportement propre et celui de ses descendants.
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.012.png)
+
 
 #### <a name="_toc88030970"></a>**3.3.1. Polymorphisme statique : surcharge de méthodes**
 
@@ -387,8 +683,42 @@ Le polymorphisme permet à un objet de modifier son comportement propre et celui
 
    De fait, il n’est pas nécessaire pour un objet de réécrire une méthode ou un constructeur si ceux de son ancêtre suffisent.
 
-   |<p>**Activité n° AUTONUM  \* Arabic  surcharge de méthodes :**  on ajoute get\_identity aux deux classes</p><p>class Personne:<br>`    `*"""Classe représentant une personne"""*<br>`    `def \_\_init\_\_(self, nom : str, prenom : str):<br>`        `self.\_\_nom    = nom<br>`        `self.\_\_prenom = prenom</p><p><br>`    `def get\_identity(self):<br>`        `return self.\_\_prenom + " " + self.\_\_nom<br><br>class AgentSpecial(Personne):<br>`    `*"""Classe définissant un agent spécial.<br>`    `Elle hérite de la classe Personne"""*<br>`    `def \_\_init\_\_(self, nom : str, prenom : str, matricule : str):<br>`        `*"""Un agent se définit par son nom et son matricule"""*<br>`        `Personne.\_\_init\_\_(self, nom, prenom)   # appel explicite au constructeur pour nom et prénom<br>`        `self.\_\_matricule = matricule            # on ajoute l'attribut matricule</p><p><br>`    `def get\_identity(self):                     # pour accéder au matricule<br>`        `return self.\_\_matricule<br><br>### Programme principal ###<br>moi = AgentSpecial('Dupont', 'Jean', '007')<br>print("identité : {0}".format(moi.get\_identity()))<br><br>toi = Personne('Durant', 'Jean')<br>print("identité : {0}".format(toi.get\_identity()))</p><p></p><p>identité : 007</p><p>identité : Jean Durant</p><p></p>|
-   | - |
+**Activité n° 15  surcharge de méthodes :**  
+on ajoute ```get_identity``` aux deux classes
+```python
+class Personne:
+    """Classe représentant une personne"""
+    def __init__(self, nom : str, prenom : str):
+        self.__nom    = nom
+        self.__prenom = prenom
+
+    def get_identity(self):
+        return self.__prenom + " " + self.__nom
+
+class AgentSpecial(Personne):
+    """Classe définissant un agent spécial.
+    Elle hérite de la classe Personne"""
+    def __init__(self, nom : str, prenom : str, matricule : str):
+        """Un agent se définit par son nom et son matricule"""
+        Personne.__init__(self, nom, prenom)   # appel explicite au constructeur pour nom et prénom
+        self.__matricule = matricule            # on ajoute l'attribut matricule
+
+    def get_identity(self):                     # pour accéder au matricule
+        return self.__matricule
+
+### Programme principal ###
+moi = AgentSpecial('Dupont', 'Jean', '007')
+print("identité : {0}".format(moi.get_identity()))
+
+toi = Personne('Durant', 'Jean')
+print("identité : {0}".format(toi.get_identity()))
+```
+
+```txt
+identité : 007
+identité : Jean Durant
+```
+
 #### <a name="_toc88030971"></a>**3.3.2. Polymorphisme statique : surcharge d’opérateurs**
 
    La surcharge d’opérateur permet d’avoir une signification spécifique quand ils sont appliqués à des types spécifiques. Surcharger les opérateurs standards permet de tirer parti de l’intuition des utilisateurs de la classe.
@@ -396,17 +726,15 @@ Le polymorphisme permet à un objet de modifier son comportement propre et celui
    Pour surcharger l’addition, la méthode spéciale à redéfinir est \_\_add\_\_. Elle prend en paramètre l’objet que l’on souhaite ajouter. Il existe d’autres méthodes :
 
 - \_\_sub\_\_ : surcharge de l'opérateur –
-- <a name="r-2233216"></a><a name="r-2233215"></a>\_\_mul\_\_ : surcharge de l'opérateur \*
-- <a name="r-2233218"></a><a name="r-2233217"></a>\_\_truediv\_\_ : surcharge de l'opérateur /
-- <a name="r-2233220"></a><a name="r-2233219"></a>\_\_floordiv\_\_ : surcharge de l'opérateur // (division entière)
-- <a name="r-2233222"></a><a name="r-2233221"></a>\_\_mod\_\_ : surcharge de l'opérateur % (modulo)
-- <a name="r-2233224"></a><a name="r-2233223"></a>\_\_pow\_\_ : surcharge de l'opérateur \*\* (puissance) 
+- \_\_mul\_\_ : surcharge de l'opérateur \*
+- \_\_truediv\_\_ : surcharge de l'opérateur /
+- \_\_floordiv\_\_ : surcharge de l'opérateur // (division entière)
+- \_\_mod\_\_ : surcharge de l'opérateur % (modulo)
+- \_\_pow\_\_ : surcharge de l'opérateur \*\* (puissance) 
 
-<a name="r-2233226"></a><a name="r-2233225"></a>à consulter sur [le site web de Python](https://www.python.org/).
+à consulter sur [le site web de Python](https://www.python.org/).
 
-![ref1]
 
-**HS**
 
 Méthode de comparaison qui prend en paramètre l’objet à comparer à self et renvoie un booléen.
 
@@ -418,82 +746,157 @@ Méthode de comparaison qui prend en paramètre l’objet à comparer à self e
 - \_\_le\_\_ : surcharge l’opérateur <=
 
 Exemple de comparaison de durée :
-
+```python
 class Duree:
-`    `*"""Classe contenant des durées sous la forme d'un nombre de minutes
-`    `et de secondes"""*
-`    `def \_\_init\_\_(self, duree = 0.0):
-`        `min, sec = str(duree).split('.')
-`        `self.\_\_min, self.\_\_sec = int(min), int(sec)
+    """Classe contenant des durées sous la forme d'un nombre de minutes
+    et de secondes"""
+    def __init__(self, duree = 0.0):
+        min, sec = str(duree).split('.')
+        self.__min, self.__sec = int(min), int(sec)
 
+    def __str__(self):
+        return "{0:02}:{1:02}".format(self.__min, self.__sec)
 
-`    `def \_\_str\_\_(self):
-`        `return "{0:02}:{1:02}".format(self.\_\_min, self.\_\_sec)
+    def __add__(self, duree : float):
+        """L'objet à ajouter est un entier, le nombre de secondes"""
+        nouvelle_duree = Duree()
+        min, sec = str(duree).split('.')
+        nouvelle_duree.__min  = self.__min + int(min)
+        nouvelle_duree.__sec  = self.__sec + int(sec)
+        if nouvelle_duree.__sec >= 60:
+            nouvelle_duree.__min += nouvelle_duree.__sec // 60
+            nouvelle_duree.__sec  = nouvelle_duree.__sec % 60
+        return nouvelle_duree
 
+    def __eq__(self, autre_duree):
+        """Test si self et autre_duree sont égales"""
+        return self.__sec == autre_duree.__sec and self.__min == autre_duree.__min
 
-`    `def \_\_add\_\_(self, duree : float):
-`        `*"""L'objet à ajouter est un entier, le nombre de secondes"""*
-`        `nouvelle\_duree = Duree()
-`        `min, sec = str(duree).split('.')
-`        `nouvelle\_duree.\_\_min  = self.\_\_min + int(min)
-`        `nouvelle\_duree.\_\_sec  = self.\_\_sec + int(sec)
-`        `if nouvelle\_duree.\_\_sec >= 60:
-`            `nouvelle\_duree.\_\_min += nouvelle\_duree.\_\_sec // 60
-`            `nouvelle\_duree.\_\_sec  = nouvelle\_duree.\_\_sec % 60
-`        `return nouvelle\_duree
-
-`    `def \_\_eq\_\_(self, autre\_duree):
-`        `*"""Test si self et autre\_duree sont égales"""*
-`        `return self.\_\_sec == autre\_duree.\_\_sec and self.\_\_min == autre\_duree.\_\_min
-
-`    `def \_\_gt\_\_(self, autre\_duree):
-`        `*"""Test si self > autre\_duree"""*
-`        `nb\_sec1 = self.\_\_sec + self.\_\_min \* 60
-`        `nb\_sec2 = autre\_duree.\_\_sec + autre\_duree.\_\_min \* 60
-`        `return nb\_sec1 > nb\_sec2
+    def __gt__(self, autre_duree):
+        """Test si self > autre_duree"""
+        nb_sec1 = self.__sec + self.__min * 60
+        nb_sec2 = autre_duree.__sec + autre_duree.__min * 60
+        return nb_sec1 > nb_sec2
 
 d1 = Duree(12.8)
 print(d1)
 d2 = d1 + .54  # ajoute 54 secondes
 print(d2)
 print(d1 == d2)
-print(d2 > d1)
+print(d2 > d1) 
+```
+
 
 ## <a name="_toc88030972"></a>**4. Décorateurs (pour aller plus loin)**
 Les décorateurs sont des fonctions de Python dont le rôle est de **modifier le comportement** par défaut d’autres fonctions ou classes. Une fonction modifiée par un décorateur ne s’exécutera pas elle-même mais appellera le décorateur. C’est au décorateur de décider s’il veut exécuter la fonction et dans quelles conditions. 
 
 La syntaxe et la suivante :
-
+```txt
 @nom\_du\_decorateur
 
 def ma\_fonction(...)
-
+```
 Le décorateur s’exécute au moment de la définition et non lors de l’appel. Il prend en paramètre une fonction (celle qu’il modifie) et renvoie une fonction (qui peut être la même).
-
-**def** fonction**():**
-
-`    `**pass**
+```txt
+def fonction():
+   pass
+```
 
 Le code précédent a le même comportement que le code suivant:
+```txt
+def fonction():
+   pass
 
-**def fonction**():
+fonction = decorateur(fonction)
+```
 
-`    `**pass**
+**Activité n° 16  décorateur debug avec les fonction :**  
+```python 
+def debug(fonction : callable):
+    print("appel de la fonction {0}".format(fonction))
+    return fonction
 
-**fonction = decorateur**(**fonction**)
+@debug
+def factoriel(n : int) -> int:
+    """ calcul de n! """
+    if n < 2:
+        return 1
+    return n * factoriel(n-1)
 
-|<p>**Activité n° AUTONUM  \* Arabic  décorateur debug avec les fonction :**  </p><p>def debug(fonction : callable):<br>`    `print("appel de la fonction {0}".format(fonction))<br>`    `return fonction<br><br>@debug<br>def factoriel(n : int) -> int:<br>`    `*""" calcul de n! """*<br>`    `if n < 2:<br>`        `return 1<br>`    `return n \* factoriel(n-1)<br><br>print(factoriel(4))</p><p></p><p>appel de la fonction <function factoriel at 0x000001CF559CD040></p><p>24</p>|
-| - |
+print(factoriel(4))
+```
+
+```txt
+appel de la fonction <function factoriel at 0x000001CF559CD040>
+24
+```
+
 
 On peut ainsi poursuivre le débogage et tracer les appels récursifs de la fonction factoriel()
 
-|<p>**Activité n° AUTONUM  \* Arabic  décorateur débug avec les fonction :**  plus en détail</p><p>def debug(fonction : callable):<br>`    `print("appel de la fonction {0}".format(fonction))<br><br>`    `def pile\_appels(n : int):<br>`        `print("appel de la fonction", n)<br>`        `return fonction(n)<br>`    `return pile\_appels<br><br>@debug<br>def factoriel(n : int) -> int:<br>`    `*""" calcul de n! """*<br>`    `if n < 2:<br>`        `return 1<br>`    `return n \* factoriel(n-1)<br><br>print(factoriel(4))</p><p></p><p>appel de la fonction <function factoriel at 0x00000268913B14C0></p><p>appel de la fonction 4</p><p>appel de la fonction 3</p><p>appel de la fonction 2</p><p>appel de la fonction 1</p><p>24</p>|
-| - |
+**Activité 17  décorateur débug avec les fonction :**  
+plus en détail
+```python
+def debug(fonction : callable):
+    print("appel de la fonction {0}".format(fonction))
 
-![ref1]Il est important de noter que les décorateurs peuvent s’utiliser avec des méthodes de classes.
+    def pile_appels(n : int):
+        print("appel de la fonction", n)
+        return fonction(n)
+    return pile_appels
 
-|<p>**Activité n° AUTONUM  \* Arabic  décorateur débug avec la POO:**  Il faut obligatoirement définir la méthode \_\_call\_\_() pour pouvoir rendre cette instance callable.</p><p>class Debug:<br>`    `def \_\_init\_\_(self, fonction):<br>`        `self.call = 0<br>`        `self.fonction = fonction<br>`    `def \_\_call\_\_(self, \*args, \*\*kwargs):<br>`        `self.call +=1<br>`        `print("appel de la fonction {0}".format(self.call))<br>`        `return self.fonction(\*args, \*\*kwargs)<br><br>@Debug<br>def factoriel(n : int) -> int:<br>`    `*""" calcul de n! """*<br>`    `if n < 2:<br>`        `return 1<br>`    `return n \* factoriel(n-1)<br><br>print(factoriel(4))</p><p></p><p>appel de la fonction 1</p><p>appel de la fonction 2</p><p>appel de la fonction 3</p><p>appel de la fonction 4</p><p>24</p>|
-| - |
+@debug
+def factoriel(n : int) -> int:
+    """ calcul de n! """
+    if n < 2:
+        return 1
+    return n * factoriel(n-1)
+
+print(factoriel(4))
+```
+
+```txt
+appel de la fonction <function factoriel at 0x00000268913B14C0>
+appel de la fonction 4
+appel de la fonction 3
+appel de la fonction 2
+appel de la fonction 1
+24
+```
+
+
+Il est important de noter que les décorateurs peuvent s’utiliser avec des méthodes de classes.
+
+**Activité n° 18  décorateur débug avec la POO:**  
+Il faut obligatoirement définir la méthode \_\_call\_\_() pour pouvoir rendre cette instance callable.
+```python
+class Debug:
+    def __init__(self, fonction):
+        self.call = 0
+        self.fonction = fonction
+    def __call__(self, *args, **kwargs):
+        self.call +=1
+        print("appel de la fonction {0}".format(self.call))
+        return self.fonction(*args, **kwargs)
+
+@Debug
+def factoriel(n : int) -> int:
+    """ calcul de n! """
+    if n < 2:
+        return 1
+    return n * factoriel(n-1)
+
+print(factoriel(4))
+```
+
+```txt
+appel de la fonction 1
+appel de la fonction 2
+appel de la fonction 3
+appel de la fonction 4
+24
+```
+
 
 
 
@@ -501,34 +904,25 @@ On peut ainsi poursuivre le débogage et tracer les appels récursifs de la fonc
 ## <a name="_toc88030973"></a>**5. Exercices** 
 <a name="_hlk70249033"></a>**Exercice n°1 :** On considère une classe **Personnage** représentant un personnage de Jeu. Le plateau de jeu est représenté par un repère **orthonormé à trois axes**. La position du joueur dans le plateau est repérée par **ses attributs x, y, z**. 
 
-1. Ecrire un constructeur initialisant les mesures. 
-1. Ecrire les méthodes **avance, droite** et **saute** permettant respectivement de faire avancer, aller à droite et sauter le personnage, c’est-à-dire d’augmenter de 1 respectivement x, y et z. 
-1. Implémenter une autre méthode **coord** renvoyant les coordonnées sous forme d’un triplet. 
-1. Essayer avec : Laura = Personnage(0, 0, 0)
+1 Ecrire un constructeur initialisant les mesures. 
+2 Ecrire les méthodes **avance, droite** et **saute** permettant respectivement de faire avancer, aller à droite et sauter le personnage, c’est-à-dire d’augmenter de 1 respectivement x, y et z. 
+3 Implémenter une autre méthode **coord** renvoyant les coordonnées sous forme d’un triplet. 
+4 Essayer avec : Laura = Personnage(0, 0, 0)
 
 **Exercice n°2 :** Voici un programme en Python : 
-
+```python
 import random 
-
 class Piece : 
-
 def alea(self) : 
-
-` 	`return random.randint(0,1) 
-
+ 	return random.randint(0,1) 
 def moyenne(self, n): 
-
-` 	`tirage = [ ] 
-
-` 	`for i in range (n) : 
-
-` 		`tirage.append( self.alea() ) 
-
-` 	`return sum(tirage) / n 
-
+ 	tirage = [ ] 
+ 	for i in range (n) : 
+ 		tirage.append( self.alea() ) 
+ 	return sum(tirage) / n 
 p = Piece() 
-
 print( p.moyenne(100) ) 
+```
 
 Expliquer en détail ce qu’il permet d’afficher
 
@@ -536,11 +930,11 @@ Expliquer en détail ce qu’il permet d’afficher
 
 On considère une classe **Carre** admettant la mesure des côtés d’un carré en attribut. 
 
-1. Ecrire un constructeur initialisant les mesures. 
-1. Ecrire les méthodes : 
+1 Ecrire un constructeur initialisant les mesures. 
+2 Ecrire les méthodes : 
    - **perimetre** , permettant de retourner le périmètre du carré. 
-   - ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.014.png)**aire** permettant de retourner son aire. 
-1. Créer des exemples
+   - **aire** permettant de retourner son aire. 
+3 Créer des exemples
 
 **Exercice n°4 :**  Définir une classe **Fraction** pour représenter un nombre rationnel. 
 
@@ -548,7 +942,7 @@ Cette classe possède deux **attributs num** et **denom**, qui sont des entiers 
 
 De plus, on demande que le dénominateur soit particulièrement un entier strictement positif. 
 
-1. Ecrire un constructeur de cette classe. 
+1 Ecrire un constructeur de cette classe. 
 
    Le constructeur doit lever une **ValueError** si le dénominateur fourni n’est pas strictement positif. 
 
@@ -556,14 +950,15 @@ De plus, on demande que le dénominateur soit particulièrement un entier strict
 
    <https://www.w3schools.com/python/ref_keyword_raise.asp#:~:text=The%20raise%20keyword%20is%20used,to%20print%20to%20the%20user>.
 
-1. Ajouter une methode **\_\_str\_\_** qui renvoie une chaîne de caractère de la forme "12 / 13", ou simplement de la forme "12" lorsque le dénominateur vaut 1. ( \_\_str\_\_(self) est une méthode de Python : renvoie une chaîne de caractères)
-1. Ajouter des méthodes **\_\_eq\_\_** et **\_\_lt\_\_** qui reçoivent une deuxième fraction en argument et renvoie True si la première fraction représente respectivement un nombre égal ou un nombre strictement inférieur à la fraction. 
+![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.014.png){: .center }
+2 Ajouter une methode **\_\_str\_\_** qui renvoie une chaîne de caractère de la forme "12 / 13", ou simplement de la forme "12" lorsque le dénominateur vaut 1. ( \_\_str\_\_(self) est une méthode de Python : renvoie une chaîne de caractères)
+3 Ajouter des méthodes **\_\_eq\_\_** et **\_\_lt\_\_** qui reçoivent une deuxième fraction en argument et renvoie True si la première fraction représente respectivement un nombre égal ou un nombre strictement inférieur à la fraction. 
 
    ( \_\_lt\_\_(self, other) est une méthode de Python : Pour self = t, elle renvoie True si t est strictement plus petit que other ) ( \_\_eq\_\_(self, other) est une méthode de Python : Pour self = t, elle renvoie True si t est égal à other ) 
 
-1. Ajouter des méthodes **\_\_add\_\_** et **\_\_mul\_\_** qui reçoivent une deuxième fraction en argument et renvoie une nouvelle fraction représentant respectivement la somme et le produit des deux fractions. 
-1. Tester ces opérations 
-1. **Question bonus** : S’assurer que les fractions sont toujours sous forme réduite.
+4 Ajouter des méthodes **\_\_add\_\_** et **\_\_mul\_\_** qui reçoivent une deuxième fraction en argument et renvoie une nouvelle fraction représentant respectivement la somme et le produit des deux fractions. 
+5 Tester ces opérations 
+6 **Question bonus** : S’assurer que les fractions sont toujours sous forme réduite.
 
 **Exercice n°5 : La classe « Complexe »**
 
@@ -581,10 +976,10 @@ En posant z = x + iy et z' = x' + iy, on définit alors les opérations suivante
 
 De plus, on dit que z = z' si x = x' et y = y'. Écrire en Python une classe complexe :
 
-- qui définit un nombre complexe (le constructeur devra initialiser un tuple de deux nombres : la partie réelle et la partie imaginaire;
+- qui définit un nombre complexe (le constructeur devra initialiser un tuple de deux nombres : la partie réelle et la partie imaginaire);
 - ayant une méthode permettant d'afficher le nombre complexe sous forme d'un tuple de deux éléments;
 - permettant d'ajouter, soustraire, multiplier et comparer (en terme d'égalité) deux nombres complexes ;
-- permettant de donner la distance de l'origine du repère au point représenté par le nombre complexe ( on appelle cette distance le module, qui est égal à x2+y2
+- permettant de donner la distance de l'origine du repère au point représenté par le nombre complexe ( on appelle cette distance le module, qui est égal à $\sqrt{x^2+y^2}$)
 
 **Aide :** Les méthodes à mettre sont des méthodes spéciales qui existent déjà (dans l'ordre de l'exercice) :
 
@@ -594,28 +989,25 @@ De plus, on dit que z = z' si x = x' et y = y'. Écrire en Python une classe com
 - \_\_eq\_\_
 
 De ce fait on aura : 
+```python
+def __add__(self, other):
+    return Complexe(self.x+other.x, self.y+other.y)
+```
 
-*def \_\_add\_\_*(*self*, *other*):
-`    `*return* Complexe(*self*.x+*other*.x, *self*.y+*other*.y)
 
 où other représente l’autre objet.
 
 Tester cette classe avec les nombres : *z=3 + 5i* et *z’=7 + i*
 
 Ce qui donne si on appelle afficher\_tuple() la méthode permettant d’afficher le tuple :
-
-z = Complexe(-3,5)
-
-zprime = Complexe(7,1)
-
-z.afficher\_tuple()
-
+```txt
+>>> z = Complexe(-3,5)
+>>> zprime = Complexe(7,1)
+>>> z.afficher_tuple()
 Out[3]: (-3, 5)
-
-(z+zprime).afficher\_tuple()
-
+>>> (z+zprime).afficher_tuple()
 Out[4]: (4, 6)
-
+```
 Etc…
 
 **Exercice n°6 : La classe « Temps»**
@@ -629,99 +1021,111 @@ En Python, écrire une classe Temps qui permet de définir un horaire au format 
 **Exercice n°7 : La classe « Mot» et « Phrase »**
 
 On considère la classe Mot définie ainsi
+```python
+from random import shuffle
 
-*from* random *import* shuffle
+class Mot:
+    def __init__(self, m):
+        self.m = m
+    def doReverse(self):
+        self.m = self.m[::-1]    
+    def doShuffle(self):
+        L = list(self.m)
+        shuffle(L)
+        self.m = ''.join(L)   
+    def value(self):
+        return self.m
+```
 
-*class* Mot:
-`    `*def \_\_init\_\_*(*self*, *m*):
-`        `*self*.m = *m
-`    `def* doReverse(*self*):
-`        `*self*.m = *self*.m[::-1]    
-`    `*def* doShuffle(*self*):
-`        `L = *list*(*self*.m)
-`        `shuffle(L)
-`        `*self*.m = ''.join(L)   
-`    `*def* value(*self*):
-`        `*return <a name="_hlk55422070"></a>self*.m
 
-1. ` `Indiquer ce que fait la fonction fctA() définie par :
+1 Indiquer ce que fait la fonction fctA() définie par :
+```python
+def fctA():
+    m=Mot("Socrate")
+    m.doReverse()
+    print(m.value())
+```
 
-*def* fctA():
-`    `<a name="_hlk55421933"></a>m=Mot("Socrate")
-`    `<a name="_hlk55422009"></a>m.doReverse()
-`    `<a name="_hlk55422039"></a>*print*(m.value())
-
-1. Indiquer ce que fait la fonction fctB() définie par :
-
-*def* fctB():
-`    `m=Mot("Socrate")
-`    `m.doShuffle()
-`    `*print*(m.value())
+2 Indiquer ce que fait la fonction fctB() définie par :
+```python
+def fctB():
+    m=Mot("Socrate")
+    m.doShuffle()
+    print(m.value())
+```
 
 On souhaite écrire une classe Phrase. Toutes les questions suivantes porteront sur cette classe. 
 
-1. Écrire un constructeur qui définit une liste self.mots remplie de tous les mots de la phrase passée en paramètre, chacun des mots devant être de classe Mot.
+3 Écrire un constructeur qui définit une liste self.mots remplie de tous les mots de la phrase passée en paramètre, chacun des mots devant être de classe Mot.
 
-1. Écrire deux méthodes doReverse et value telles que la fonction fctB=C() suivante :
-
-*def* fctC():
-`    `p = Phrase("Tous les hommes sont mortels")
-`    `p.doReverse()
-`    `*print*(p.value())
+4 Écrire deux méthodes doReverse et value telles que la fonction fctB=C() suivante :
+```python
+def fctC():
+    p = Phrase("Tous les hommes sont mortels")
+    p.doReverse()
+    print(p.value())
+```
 
 Affiche : « mortels sont hommes les Tous » 
 
-1. Écrire une méthode doShuffle afin que la fonction suivante :
-
-*def* fctD():
-`    `p = Phrase('Tous les hommes sont mortels')
-`    `p.doShuffle()
-`    `*print*(p.value())
+5 Écrire une méthode doShuffle afin que la fonction suivante :
+```python
+def fctD():
+    p = Phrase('Tous les hommes sont mortels')
+    p.doShuffle()
+    print(p.value())
+```
 
 affiche les mots de la phrase « Tous les hommes sont mortels » dans un ordre aléatoire.
 
-1. On définit la méthode motAt de la manière suivante:
-
-*def* motAt(*self*, *pos*):
-`    `*return self*.mots[*pos*]
+6 On définit la méthode motAt de la manière suivante:
+```python
+def motAt(self, pos):
+    return self.mots[pos]
+```
 
 Que fait la fonction fctE() suivante?
+```python
+def fctE():
+    p = Phrase('Tous les hommes sont mortels')
+    m = p.motAt(3)
+    m.doReverse()
+    print(p.value())
+```
 
-*def* fctE():
-`    `p = Phrase('Tous les hommes sont mortels')
-`    `m = p.motAt(3)
-`    `m.doReverse()
-`    `*print*(p.value())
 
-1. On définit la méthode insert de la manière suivante :
-
-*def* insert(*self*, *pos*, *chaine*):
-`    `*self*.mots.insert(*pos*, Mot(*chaine*))
-
+7 On définit la méthode insert de la manière suivante :
+```python
+def insert(self, pos, chaine):
+    self.mots.insert(pos, Mot(chaine))
+```
 Que fait la fonction fctF() suivante?
 
-*def* fctF():
-`    `p = Phrase('Tous les hommes sont mortels')
-`    `p.insert(3,"ne")
-`    `p.insert(5, "pas")
-`    `*print*(p.value())
+```python
+def fctF():
+    p = Phrase('Tous les hommes sont mortels')
+    p.insert(3,"ne")
+    p.insert(5, "pas")
+    print(p.value())
+```
 
-1. On définit la méthode remove de la manière suivante :
-
-*def* remove(*self*, *pos*):
-`    `*self*.mots.pop(*pos*)
+8 On définit la méthode remove de la manière suivante :
+```python
+def remove(self, pos):
+    self.mots.pop(pos)
+```
 
 Que fait la fonction fctG() suivante?
-
-*def* fctG():
-`    `p = Phrase('Tous les hommes sont mortels')
-`    `m = p.motAt(4)
-`    `m.doShuffle()
-`    `p.remove(2)
-`    `p.insert(2, m.value())
-`    `*print*(p.value())
-
-<a name="_hlk72084742"></a>**Exercice n°8 : La classe Intervalle**
+```python
+def fctG():
+    p = Phrase('Tous les hommes sont mortels')
+    m = p.motAt(4)
+    m.doShuffle()
+    p.remove(2)
+    p.insert(2, m.value())
+    print(p.value())
+```
+**Exercice n°8 : La classe Intervalle**
 
 Définir une classe Intervalle représentant des intervalles de nombres. Cette classe possède deux attributs a et b représentant respectivement l’extrémité inférieure et l'extrémité supérieure de l’intervalle. 
 
@@ -739,7 +1143,7 @@ Attention : toutes les représentations de l'intervalle vide doivent être cons
 
 - Ajouter des méthodes intersection et union calculant respectivement l'intersection de deux intervalles et le plus petit intervalle contenant l’union de deux intervalles (l'intersection est bien toujours un intervalle, alors que l’union ne l’est pas forcément). Ces deux fonctions doivent renvoyer un nouvel intervalle sans modifier leurs paramètres.
 
-<a name="_hlk72085098"></a>**Exercice n°9 : La classe Date :**
+**Exercice n°9 : La classe Date :**
 
 Définir une classe Date pour représenter une date, avec trois attributs jour, mois et annee.
 
@@ -752,7 +1156,7 @@ Tester en construisant des objets de la classe Date puis en les affichant avec�
 - Ajouter une méthode \_\_lt\_\_ qui permet de déterminer si une date d1 est antérieure à une date d2 en écrivant d1 < d2. La tester.
 
 
-<a name="_hlk72098203"></a>**Exercice n°10 : La classe Tableau :**
+**Exercice n°10 : La classe Tableau :**
 
 Dans certains langages de programmation, comme Pascal ou Ada, les tableaux ne sont pas nécessairement indexés à partir de 0. C’est le programmeur qui choisit sa plage d’indices. 
 
@@ -775,128 +1179,136 @@ Ces deux méthodes doivent vérifier que l’indice i est bien valide et, dans 
 
 - Enfin, écrire une méthode \_\_str\_\_(self) qui renvoie une chaîne de caractères décrivant le contenu du tableau.
 
-**
+
 ## <a name="_toc88030974"></a>**6. Projet (démarche d’investigation)**
 **Exercice n°1 : Jeu de cartes**
-
+![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.016.png){: .center }
 Pour construire un jeu de cartes, on va commencer par construire une classe Carte :
 
-1. Créer un fichier python carte.py.
-1. Écrire une classe Carte à partir du diagramme de classe ci-contre.
+1 sur Thonny : Créer un fichier python carte.py.
+2 Écrire une classe Carte à partir du diagramme de classe ci-contre.
 
 **Aide** : 
 
 - le corps des méthodes ne sera pas développé immédiatement ; on utilisera l’instruction Python pass en attendant.
 - Carte définit une carte caractérisée par:  - sa valeur, - sa couleur,   - sa figure
-1. Compléter le constructeur de classe avec les attributs en haut.
+3 Compléter le constructeur de classe avec les attributs en haut.
 
    **Aide** : l’attribut \_\_figure permet de donner la figure correspondant à la valeur, 11 -> valet,  12 -> dame, 13 -> roi. Si la valeur est différente de 11, de 12 ou de 13, alors ce n’est pas une figure.
 
 
+4 Tester la classe en instanciant la classe comme suit, dans la console :
+```python
+ma_carte = Carte(11, "Trèfle")
+print(ma_carte)
+print(ma_carte.__doc__)    
+print(ma_carte.__init__.__doc__)
+```
 
+On supposera que les valeurs du jeu de 32 cartes vont de 7 à 14 (pour l’as)
+Et que pour un jeu de 54 cartes de 2 à 14 (pour l’as)
 
-
-1. ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.016.png)Tester la classe en instanciant la classe comme suit, dans la console :
-
-ma\_carte = Carte(11, "Trèfle")
-
-print(ma\_carte)
-
-print(ma\_carte.\_\_doc\_\_)    
-
-print(ma\_carte.\_\_init\_\_.\_\_doc\_\_)
-
-1. Compléter les trois accesseurs (ou getter) pour retourner (obtenir) la valeur, la couleur et la figure d’une carte. On accède ainsi de manière publique aux trois attributs privés
-1. Compléter les trois mutateurs (ou setter) pour modifier la valeur d’un attribut. On veut rendre publique la modification de la valeur et de la couleur. Par contre, on souhaite garder la main sur la façon d’attribuer une figure à notre carte pour des questions de cohérence. On ne veut pas laisser la liberté à l’utilisateur de créer une carte incohérente entre sa valeur et sa figure, par exemple un roi de valeur 4. Donc le mutateur correspondant à l’attribut figure sera en accès privé.
+5 Compléter les trois accesseurs (ou getter) pour retourner (obtenir) la valeur, la couleur et la figure d’une carte. On accède ainsi de manière publique aux trois attributs privés
+6 Compléter les trois mutateurs (ou setter) pour modifier la valeur d’un attribut. On veut rendre publique la modification de la valeur et de la couleur. Par contre, on souhaite garder la main sur la façon d’attribuer une figure à notre carte pour des questions de cohérence. On ne veut pas laisser la liberté à l’utilisateur de créer une carte incohérente entre sa valeur et sa figure, par exemple un roi de valeur 4. Donc le mutateur correspondant à l’attribut figure sera en accès privé.
 - \_\_SetFigure : changer la figure en fonction de la nouvelle valeur
 - SetValeur : retourne vrai si la valeur de la carte a été changé par val et faux sinon ; la valeur de la carte doit être comprise entre 2 et 14.
 - SetCouleur : retourne vrai si la couleur de la carte a été changé par coul et faux sinon ; la couleur de la carte doit être : Trèfle, Pique, Carreau, Cœur
-1. ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.017.png)Tester la classe comme suit :
+7 Tester la classe comme suit :
 
-ma\_carte = Carte(11, "Trèfle")
-
-print(ma\_carte.GetFigure())
-
-if ma\_carte.SetValeur(13) :
-
-`	`print(ma\_carte.GetFigure())
+![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.017.png){: .center }
+```python
+ma_carte = Carte(11, "Trèfle")
+print(ma_carte.GetFigure())
+if ma_carte.SetValeur(13) :
+	print(ma_carte.GetFigure())
+```
 
 On va construire la classe JeuDeCartes
 
-1. Créer un fichier python jeudecartes.py
-1. Écrire une classe JeuDeCartes à partir du diagramme de classe ci-contre.
+8 Créer un fichier python jeudecartes.py
+9 Écrire une classe JeuDeCartes à partir du diagramme de classe ci-contre.
 
 **Aide** : 
 
 - le corps des méthodes ne sera pas développé immédiatement ; on utilisera l’instruction Python pass en attendant.
 - Importer le module carte
 - JeuDeCartes définit un jeu de cartes caractérisée par son nombre de cartes et son paquet de carte.
-1. Compléter le constructeur de classe avec les attributs en haut.
+10 Compléter le constructeur de classe avec les attributs en haut.
 
 **Aide** : \_\_PaquetdeCarte  sera un attribut qui appellera la méthode \_\_CreerPaquet()
 
-1. La méthode \_\_CreerPaquet crée le paquet de carton classé par valeur et couleur donc non mélangé. Si le nombre de cartes est 32 le jeu commence à la carte 7 sinon au 2. Compléter la méthode.
-1. Compléter les deux accesseurs (getter)
+11 La méthode \_\_CreerPaquet crée le paquet de carton classé par valeur et couleur donc non mélangé. Si le nombre de cartes est 32 le jeu commence à la carte 7 sinon au 2. Compléter la méthode.
+12 Compléter les deux accesseurs (getter)
 - GetNbCarte retourne le nombre de cartes du jeu de cartes
 - GetPaquet retourne le paquet de cartes
-1. Compléter la méthode MelangerPaquet en utilisant la méthode shuffle du module random : <https://www.w3schools.com/python/ref_random_shuffle.asp>.
-1. Tester le jeu de cartes (de 32 cartes)
+13 Compléter la méthode MelangerPaquet en utilisant la méthode shuffle du module random : <https://www.w3schools.com/python/ref_random_shuffle.asp>.
+14 Tester le jeu de cartes (de 32 cartes)
 
-mon\_jeu = JeuDeCartes(32)
-
-lepaquet = mon\_jeu.GetPaquet()
-
+```python
+mon_jeu = JeuDeCartes(32)
+lepaquet = mon_jeu.GetPaquet()
 for i in range(len(lepaquet)):
-
-`    `print(lepaquet[i].GetValeur(),lepaquet[i].GetCouleur(), lepaquet[i].GetFigure())
+    print(lepaquet[i].GetValeur(),lepaquet[i].GetCouleur(), lepaquet[i].GetFigure())
+```
 
 puis
 
-mon\_jeu.MelangerPaquet()
-
+```python
+mon_jeu.MelangerPaquet()
 for i in range(len(lepaquet)):
+    print(lepaquet[i].GetValeur(),lepaquet[i].GetCouleur(), lepaquet[i].GetFigure())
+```
 
-`    `print(lepaquet[i].GetValeur(),lepaquet[i].GetCouleur(), lepaquet[i].GetFigure())**
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.018.png)**Exercice n°2** : **Filtres d’image**
+**Exercice n°2** : **Filtres d’image**
 
 Ce TP utilise la bibliothèque Pillow.
 
 Nous allons travailler à partir de deux photos mises à disposition par Hans Stieglitz sur les Wikimedia commons, et soumise à la licence CC-BY-SA 3.0 :
 
-- [tigre.jpg](C:\Users\elisa.000\AppData\Roaming\Microsoft\Word\image\tigre.jpg)
-- [tigrenb.png ](C:\Users\elisa.000\AppData\Roaming\Microsoft\Word\image\tigrenb.png)
-1. Mettre les deux fichiers dans un dossier images
+- [tigre.jpg](https://upload.wikimedia.org/wikipedia/commons/4/41/Tiger-2.jpg)
+- tigrenb.png dans le dossier ressources
+1 Sur Thonny : Mettre les deux fichiers dans un dossier images
 
 **Codage des couleurs**
 
 Il existe plusieurs façons de coder les couleurs d’une image. Nous en présentons ici deux : le système RVB et le système CMJN. Le système CMJN est utilisé pour l'impression, tandis que le système RVB est utilisé pour la lumière (écran, projecteurs, ...).
 
-Le système RVB :
+**Le système RVB :**
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.019.png)Il existe plusieurs façons de décrire les couleurs en informatique. Nous présentons ici une des plus utilisées : le codage RVB, qui est utilisé notamment dans les formats d'image JPEG et TIFF. Rouge vert bleu, abrégé RVB (ou RGB de l'anglais red, green, blue), est un format de codage des couleurs. Ces trois couleurs sont les couleurs primaires en synthèse additive. Elles correspondent en fait à peu près aux trois longueurs d'ondes auxquelles répondent les trois types de cônes de l'œil humain (voir trichromie). L'addition des trois donne du blanc pour l'œil humain. Elles sont utilisées en éclairage afin d'obtenir toutes les couleurs visibles par l'homme. Elles sont aujourd'hui utilisées en vidéo, pour l'affichage sur les écrans, et dans les logiciels d'imagerie.
+![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.019.png){: .center }
+
+Il existe plusieurs façons de décrire les couleurs en informatique. Nous présentons ici une des plus utilisées : le codage RVB, qui est utilisé notamment dans les formats d'image JPEG et TIFF. Rouge vert bleu, abrégé RVB (ou RGB de l'anglais red, green, blue), est un format de codage des couleurs. Ces trois couleurs sont les couleurs primaires en synthèse additive. Elles correspondent en fait à peu près aux trois longueurs d'ondes auxquelles répondent les trois types de cônes de l'œil humain (voir trichromie). L'addition des trois donne du blanc pour l'œil humain. Elles sont utilisées en éclairage afin d'obtenir toutes les couleurs visibles par l'homme. Elles sont aujourd'hui utilisées en vidéo, pour l'affichage sur les écrans, et dans les logiciels d'imagerie.
 
 C'est sur ce principe que fonctionnent les téléviseurs couleur. Si vous regardez un écran de télévision couleur avec une loupe, vous allez voir apparaître des groupes de trois points lumineux : un rouge, un vert et un bleu. La combinaison de ces trois points donne un point lumineux (un pixel) d'une certaine couleur.
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.020.png)Le système RVB est une des façons de décrire une couleur en informatique. Ainsi le triplet {255, 255, 255} donnera du blanc, {255, 0, 0} un rouge pur, {100, 100, 100} un gris, etc. Le premier nombre donne la composante rouge, le deuxième la composante verte et le dernier la composante bleue.
 
-Le cube des couleurs :
+
+Le système RVB est une des façons de décrire une couleur en informatique. Ainsi le triplet {255, 255, 255} donnera du blanc, {255, 0, 0} un rouge pur, {100, 100, 100} un gris, etc. Le premier nombre donne la composante rouge, le deuxième la composante verte et le dernier la composante bleue.
+
+**Le cube des couleurs :**
+
+![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.020.png){: .center }
 
 On peut représenter chacune de ces couleurs comme un point d'un cube de l'espace de dimension trois en considérant un repère orthonormé dont les trois axes r, g, b représentent les intensités de rouge, de vert et de bleu. L'origine représente ainsi le noir (r=g=b=0) et le point opposé (r=g=b=255) le blanc. Les trois sommets (255,0,0), (0,255,0) et (0,0,255) représentent les trois couleurs de base (rouge, vert, bleu) et les trois sommets opposés, (0,255,255), (255,0,255) et (255,255,0), le cyan, le magenta et le jaune. La grande diagonale de ce cube joignant le noir et le blanc est l'axe achromatique, i.e. l'axe des niveaux de gris.
 
-Le système CMJN :
+**Le système CMJN :**
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.021.png)La quadrichromie ou CMJN (cyan, magenta, jaune, noir ; en anglais CMYK, cyan, magenta, yellow, key) est un procédé d'imprimerie permettant de reproduire un large spectre colorimétrique à partir des trois teintes de base (le cyan, le magenta et le jaune ou yellow en anglais) auxquelles on ajoute le noir (key en anglais). L'absence de ces trois composantes donne du blanc tandis que la somme des trois donne du noir. Toutefois, le noir obtenu par l'ajout des trois couleurs Cyan, Magenta et Jaune n'étant que partiellement noir en pratique (et coûtant cher), les imprimeurs rajoutent une composante d'encre noire.
+![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.021.png){: .center }
+
+La quadrichromie ou CMJN (cyan, magenta, jaune, noir ; en anglais CMYK, cyan, magenta, yellow, key) est un procédé d'imprimerie permettant de reproduire un large spectre colorimétrique à partir des trois teintes de base (le cyan, le magenta et le jaune ou yellow en anglais) auxquelles on ajoute le noir (key en anglais). L'absence de ces trois composantes donne du blanc tandis que la somme des trois donne du noir. Toutefois, le noir obtenu par l'ajout des trois couleurs Cyan, Magenta et Jaune n'étant que partiellement noir en pratique (et coûtant cher), les imprimeurs rajoutent une composante d'encre noire.
 
 **Formats d’images**
 
 On désigne sous le terme d'image numérique toute image acquise, créée, traitée ou stockée sous forme binaire (suite de 0 et de 1).
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.022.png)Images matricielles (ou images bitmap)
+**Images matricielles (ou images bitmap)**
+
+![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.022.png){: .center }
 
 Elles sont composées, comme leur nom l'indique, d'une matrice (tableau) de points colorés. Dans le cas des images à deux dimensions (le plus courant), les points sont appelés pixels. Ce type d'image s'adapte bien à l'affichage sur écran informatique ; il est en revanche peu adapté pour l'impression, car la résolution des écrans informatiques, généralement de 72 à 96 ppp (« points par pouce », en anglais dots per inch ou dpi) est bien inférieure à celle atteinte par les imprimantes, au moins 600 ppp aujourd'hui. L'image imprimée, si elle n'a pas une haute résolution, sera donc plus ou moins floue ou laissera apparaître des pixels carrés visibles.
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.023.png)
+![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.023.png){: .center }
 
 Les formats d'images matricielles les plus courants sont jpeg, gif, png, tiff, bmp.
 
