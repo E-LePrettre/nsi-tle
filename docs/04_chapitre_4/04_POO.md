@@ -1226,10 +1226,15 @@ On supposera que les valeurs du jeu de 32 cartes vont de 7 à 14 (pour l’as)
 Et que pour un jeu de 54 cartes de 2 à 14 (pour l’as)
 
 5 Compléter les trois accesseurs (ou getter) pour retourner (obtenir) la valeur, la couleur et la figure d’une carte. On accède ainsi de manière publique aux trois attributs privés
+
 6 Compléter les trois mutateurs (ou setter) pour modifier la valeur d’un attribut. On veut rendre publique la modification de la valeur et de la couleur. Par contre, on souhaite garder la main sur la façon d’attribuer une figure à notre carte pour des questions de cohérence. On ne veut pas laisser la liberté à l’utilisateur de créer une carte incohérente entre sa valeur et sa figure, par exemple un roi de valeur 4. Donc le mutateur correspondant à l’attribut figure sera en accès privé.
+
 - \_\_SetFigure : changer la figure en fonction de la nouvelle valeur
+
 - SetValeur : retourne vrai si la valeur de la carte a été changé par val et faux sinon ; la valeur de la carte doit être comprise entre 2 et 14.
+
 - SetCouleur : retourne vrai si la couleur de la carte a été changé par coul et faux sinon ; la couleur de la carte doit être : Trèfle, Pique, Carreau, Cœur
+
 7 Tester la classe comme suit :
 
 ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.017.png){: .center }
@@ -1242,23 +1247,31 @@ if ma_carte.SetValeur(13) :
 
 On va construire la classe JeuDeCartes
 
-8 Créer un fichier python jeudecartes.py
+8 Sur Python : Créer un fichier python jeudecartes.py
+
 9 Écrire une classe JeuDeCartes à partir du diagramme de classe ci-contre.
 
 **Aide** : 
 
 - le corps des méthodes ne sera pas développé immédiatement ; on utilisera l’instruction Python pass en attendant.
+
 - Importer le module carte
+
 - JeuDeCartes définit un jeu de cartes caractérisée par son nombre de cartes et son paquet de carte.
 10 Compléter le constructeur de classe avec les attributs en haut.
 
 **Aide** : \_\_PaquetdeCarte  sera un attribut qui appellera la méthode \_\_CreerPaquet()
 
 11 La méthode \_\_CreerPaquet crée le paquet de carton classé par valeur et couleur donc non mélangé. Si le nombre de cartes est 32 le jeu commence à la carte 7 sinon au 2. Compléter la méthode.
+
 12 Compléter les deux accesseurs (getter)
+
 - GetNbCarte retourne le nombre de cartes du jeu de cartes
+
 - GetPaquet retourne le paquet de cartes
+
 13 Compléter la méthode MelangerPaquet en utilisant la méthode shuffle du module random : <https://www.w3schools.com/python/ref_random_shuffle.asp>.
+
 14 Tester le jeu de cartes (de 32 cartes)
 
 ```python
@@ -1284,7 +1297,9 @@ Ce TP utilise la bibliothèque Pillow.
 Nous allons travailler à partir de deux photos mises à disposition par Hans Stieglitz sur les Wikimedia commons, et soumise à la licence CC-BY-SA 3.0 :
 
 - [tigre.jpg](https://upload.wikimedia.org/wikipedia/commons/4/41/Tiger-2.jpg)
+
 - tigrenb.png dans le dossier ressources
+
 1 Sur Thonny : Mettre les deux fichiers dans un dossier images
 
 **Codage des couleurs**
@@ -1353,6 +1368,7 @@ img.save(r'tigre.png')
 **Informations sur une image**
 
 2 Sur Thonny, créer un fichier Python filtre.py 
+
 Essayer :
 ```python
 import PIL.Image as Image
@@ -1363,6 +1379,7 @@ Déterminer la taille de l’image.
 **Représentation d’une image en mémoire**
 
 3 Si img est une image chargée avec PIL.Image.open, on accède à ses pixels via la méthode img.load() qui renvoie un tableau indexé par des couples d’entiers (et non pas une matrice au sens python du terme). Rajouter :
+
 ```python
 pixels = img.load()
 print(pixels[0,0])
@@ -1393,6 +1410,7 @@ Est-ce que ça fonctionne avec l’image en noir et blanc ? Avec celle en couleu
 Vous êtes parés pour écrire votre premier filtre. 
 
 7 Créer un fichier python premier\_filtre.py.
+
 8 Écrire une classe filtre à partir du diagramme de classe ci-contre.
 
    **Aide** : le corps des méthodes ne sera pas développé immédiatement ; on utilisera l’instruction Python pass en attendant.
@@ -1403,7 +1421,9 @@ Vous êtes parés pour écrire votre premier filtre.
 
 - \_\_img permet l’ouverture de l’image
 - \_\_pix permet d’accéder à un pixel de l’image que l’on a ouvert avec \_\_img
+
 10 Compléter les méthodes suivantes :
+
 - size()
 
 retourne la taille en pixels d'une image sous forme de tuple largeur, hauteur
@@ -1445,14 +1465,19 @@ Sur l'abscisse, on lit les valeurs originales des pixels et sur l'ordonnée les 
 En fait, il y a trois courbes tonales : une pour le rouge, une pour le vert et une pour le bleu. On les modifie souvent simultanément de la même façon, mais on peut aussi les modifier séparément.
 
 **Négatif**
+
 ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.025.png)
+
 12 Écrire une méthode reverse() qui remplace tous les pixels de l’image par leur valeur en négatif. Obtenir le négatif d'une image est très simple : toutes les composantes x de tous les pixels de l'image sont remplacées par 255 – x.
 
 **Aide** : 
 
 - Pour chaque pixel, utiliser la méthode get\_pix sur l’objet lui-même pour récupérer la valeur du rouge, du vert et du bleu. Les couleurs sont obtenues dans cet ordre.
+
 - Convertir chaque couleur en négatif et stocker (remplacer) les valeurs dans le pixel
+
 - Sauver l’image avec la méthode save(file) à appliquer sur la méthode ouvrant l’image…
+
 13 Tester la méthode avec filtre.png. Sauvegarder l’image sous filtre\_negatif.png. 
 
 **Rouge**
@@ -1462,6 +1487,7 @@ En fait, il y a trois courbes tonales : une pour le rouge, une pour le vert et u
 Chaque pixel de l'image est une combinaison de rouge, de vert et de bleu. En assignant la valeur 0 aux composantes verte et bleue, on obtient une image à dominante rouge.
 
 14 Écrire une méthode red() qui réalise cette opération.
+
 15 Tester la méthode avec filtre.png. Sauvegarder l’image sous filtre\_rouge.png.  
 
 **Niveaux de gris**
@@ -1477,8 +1503,11 @@ L'œil est plus sensible à certaines couleurs qu'à d'autres. Le vert (pur), pa
 **Aide** :
 
 - L’intensité de chaque couleur de pixel doit être un entier
+
 - Pour créer la nouvelle image, on utilise Image.new en niveaux de gris (mode "L"). Voir help(Image.new) dans l’interpréteur.
+
 - Il faut donc enregistrer dans une variable Image.new("L", self.size()) puis, ouvrir cette variable (c’est l’ouverture d’une image) et l’affecter à une variable que l’on appellera pix pour rester proche du code écrit précédemment (self.\_\_pix). L’attribution de la nouvelle couleur ne prend donc plus qu’un argument et non 3.
+
 17 Tester la méthode avec filtre.png. Sauvegarder l’image sous filtre\_gris.png.  
 
 **Seuillage**
@@ -1498,6 +1527,7 @@ Avec une image en couleur, on fera de même avec les trois composantes rouge, ve
    **Aide** : Pour le seuillage noir et blanc, on part de l’image en négatif donc il n’y a qu’une valeur pour chaque pixel.
 
 19 Tester avec filtre\_gris.png et une valeur limite à 100. Sauvegarder l’image sous filtre\_seuillageNB.png.
+
 20 Ecrire la méthode et threshold\_color() qui réalise un seuillage pour un seuil donné en paramètre
 
    **Aide** : traiter chaque couleur au niveau de la limite qui sera un tuple composé d’une valeur pour chaque couleur. Pour simplifier l’écriture on peut écrire l’instruction sur la même ligne que la condition (après les deux points) 
@@ -1510,7 +1540,9 @@ Avec une image en couleur, on fera de même avec les trois composantes rouge, ve
 
 Pour augmenter la luminosité, il suffit d'ajouter une valeur fixe à tous les niveaux.
 Pour une valeur de + 96, tous les points de l'espace V' seront blancs.
+
 - Première conséquence : les points les plus noirs auront une valeur égale à 96 et il n'existera plus aucun point entre 0 et 96.
+
 - Deuxième conséquence : les points ayant une valeur supérieure à 160 deviendront des points parfaitement blancs, puisque la valeur maximale possible est 255. Il y a donc perte d'informations.
 
 
@@ -1520,7 +1552,9 @@ Pour éviter ces pertes d'informations, il faut que la courbe tonale rejoigne le
 
 Pour diminuer la luminosité il faudra au contraire soustraire une valeur fixe à tous les niveaux.
 Pour une valeur de -100, tous les points de l'espace V" seront noirs.
+
 - Première conséquence : les points les plus blancs auront une valeur égale à 156 et il n'existera plus aucun point entre 156 et 255.
+
 - Deuxième conséquence : les points ayant une valeur comprise entre 0 et 100 deviendront noirs, puisque la valeur minimale est 0. Il y aura donc là aussi perte d'informations.
 
 ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.033.png)
@@ -1549,7 +1583,9 @@ Pour les mêmes raisons que précédemment, cette manière de faire va causer de
 **Aide** : Exemple de calcul de contraste :
 
 - Si la valeur est plus petite que 30, assignez la valeur 0.
+
 - Si la valeur est plus grande que 225, assignez la valeur 255.
+
 - Les valeurs c comprises entre 30 et 225 seront recalculées avec la formule : int(round((255.0 / 195.0) \* (c - 30) + 0.5))
 
 25 Tester la méthode avec filtre.png et la valeur 30. Sauvegarder l’image sous filtre\_contraste30.png.  
@@ -1572,6 +1608,7 @@ Le « bruit » consiste à remplacer **aléatoirement** un certain nombre de p
 La symétrie axiale horizontale consiste à échanger les pixels du haut de l’image avec ceux du bas. Ainsi, chaque pixel de la rangée 0 sera échangé avec celui en dessous de lui à la rangée filtre.height() - 1 ; ceux de la rangée 1 avec ceux de la rangée filtre.height() - 2, etc.
 
 28 Ecrire une méthode flip() qui fait la symétrie axiale.
+
 29 Tester la méthode avec filtre.png. Sauvegarder l’image sous filtre\_sym\_axiale.png.
 
 **Exercice n°3 : Blackjack**
@@ -1579,7 +1616,9 @@ La symétrie axiale horizontale consiste à échanger les pixels du haut de l’
 **Règle du jeu :** d’après Wikipédia :Le blackjack est un jeu de carte. La partie oppose tous les joueurs contre le croupier (pour simplifier, il n'y aura ici qu'un seul joueur). Le but est de faire **plus de points** que le croupier **sans dépasser 21**. Dès qu'un joueur fait plus que 21, on dit qu'il « **saute** » et il perd sa mise initiale. La valeur des cartes est établie comme suit : 
 
 - de 2 à 10 → valeur nominale de la carte
+
 - une figure → 10 points
+
 - un as → 1 ou 11 (au choix) 
 
 Un blackjack est composé d'un as et d'une « bûche » (carte ayant pour valeur 10, donc 10, valet, dame ou roi). Cependant, si le joueur atteint **le point 21 en 3 cartes ou plus** on compte **le point 21** et non pas blackjack. 
@@ -1595,12 +1634,15 @@ Ensuite, il joue pour lui selon une règle simple et codifiée « la banque tire
 **Définition des trois classes**
 
 - Card : correspond à la carte à jouer. Chaque carte appartient à une couleur (coeur ♥, carreau ♦, piques ♠ ou trèfle ♣) et vaut une certaine valeur
+
 - Deck : correspond à la pile de cartes. La pile diminue au fur et à mesure que les cartes sont tirées. La pile contient 52 cartes au départ
+
 - Hand : correspond aux cartes attribuées à chaque joueur. Une main est ce qui définit le score de chaque joueur et donc qui gagne
 
 Et une classe Game pour la boucle de jeu
 
 1 Sur Thonny : Créer un fichier python blackjack.py
+
 2 Faire une importation du module random
 
 **La classe Card :**
@@ -1612,6 +1654,7 @@ Et une classe Game pour la boucle de jeu
 **Aide** : 
 
 - Chaque carte contiendra une couleur (suit) et une valeur (value)
+
 - La fonction \_\_repr\_\_() renverra la valeur (roi, reine, valet,…) et la couleur. On obtiendra ainsi la combinaison par exemple : roi de trèfle. Pour se faire utiliser la méthode join() (<https://www.w3schools.com/python/ref_string_join.asp>) avec un tuple constitué de la couleur et le la valeur.
 
 **La classe Deck :**
@@ -1625,6 +1668,7 @@ Cette classe doit contenir les 52 cartes et doit être capable de les mélanger.
 **Aide** :
 
 - Lors de la création d’une instance de Deck, il faut disposer d’une collection de toutes les cartes possibles. Pour cela il faut utiliser une compréhension de liste contenant des listes de chaque couleur et valeur. Il faut transmettre chaque combinaison à l’initialisation de la classe Card pour créer les 52 instances card uniques, comme suit : Card(suit, value). On s’aidera de la liste des couleurs ["Pique ♠", "Trèfle ♣", "Coeur ♥", "Carreau ♦"] et la liste de valeur ["As", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Valet", "Reine", "Roi"]
+
 - Implémentez une méthode \_\_str\_\_ : vous devriez obtenir quelque chose comme ceci :
 ```txt
 >>> piles_cartes = Deck()
@@ -1668,6 +1712,7 @@ La main du croupier ne doit afficher qu’une seule carte, il faudra également 
 **Aide** : 
 
 - on utilisera la méthode append
+
 - Implémentez une méthode \_\_str\_\_ : vous devriez obtenir quelque chose comme ceci :
 ```txt
 # à ajouter
@@ -1682,11 +1727,13 @@ La main du croupier ne doit afficher qu’une seule carte, il faudra également 
 ```
 
 8 La méthode calculate\_value permet de calculer la valeur de cards. La valeur value est initialisée à 0 et on suppose que le joueur n’a pas d’as (puisque c’est un cas particulier) : has\_ace = False. Il s’agit de parcourir les instances card de cards et d’ajouter leur valeur sous forme de nombre (entier) au total du joueur en utilisant les règles suivantes :
+
 - Si la valeur de la carte est numérique, on ajoute sa valeur à la valeur de cette main (self.value)
 
 **Aide** : on pourra utiliser la méthode isnumeric()
 
 - Si ce n’est pas numérique, il faut vérifier si la carte est un as. Si c’est le cas, nous ajoutons 11 à la valeur de la main et définissons le drapeau has\_ace = True.
+
 - Si ce n’est pas un as, on ajoute simplement 10 à la valeur de la main.
 
 Une fois que cela est fait, on vérifie s’il y avait un as. Si c’est le cas, l’as ayant pour valeur 0 ou 11 au choix, il faut vérifier aussi que le total est supérieur à 21. Si c’est le cas il faut soustraire 10 pour que l’as ne vaille que 1.
@@ -1733,13 +1780,17 @@ caché
    **Aide** : le corps des méthodes ne sera pas développé immédiatement ; on utilisera l’instruction Python pass en attendant.
 
 12 Le constructeur sera laissé avec pass
+
 13 ★ ★ ★ ★ ★ La méthode play (1ere partie)
 
 **Aide** : 
 
 - Il faudra prévoir un booléen pour savoir si le joueur joue encore ou non au jeu.
+
 - Tant que le joueur continue à jouer il faut récupérer la pile de cartes, la mélanger, donner une main au joueur, donner une main au croupier (ne pas oublier de passer dealer à True) 
+
 - Il faut ensuite ajouter deux cartes à la main du joueur (player\_Hand) et à la main du croupier (dealer\_Hand) avec la méthode add\_card
+
 - Il faut faire afficher les cartes de la main du joueur et la main du croupier avec la méthode display.
 
 Cela marque la fin du code qui doit s’exécuter au début de chaque nouveau jeu
@@ -1788,11 +1839,13 @@ Une autre partie ? [O/N]
 **Aide** : Le score sera obtenue avec la méthode get\_value()
 
 15 La méthode check\_for\_blackjack permet de vérifier s’il y a blackjack. Si l’un des joueurs a reçu un as et une carte illustrée, sa main sera de 21, donc il gagne automatiquement. Il faut garder une trace de quel joueur peut avoir un blackjack, donc on gardera un booléen pour le joueur (player) et le croupier (dealer). Si l’un des booléens est True alors il y a un gagnant.
+
 16 La méthode play (2<sup>ème</sup> partie)
 
 Revenir à la boucle while not game\_over, il faut à présent vérifier le cas où le joueur ou le croupier a fait blackjack (méthode précédente). Si l’un des booléens est True alors il y a un gagnant et continue permettra de sortir de la boucle jeu. On appellera la méthode show\_blackjack\_results qui prend deux arguments.
 
 17 La méthode show\_blackjack\_results permet l’affichage du ou des gagnant(s) qui a(ont) fait blackjack.
+
 18 La méthode play (3<sup>ème</sup> partie)
 
 Si aucun des joueurs n’avait de blackjack, la boucle de jeu se poursuivra
@@ -1802,10 +1855,15 @@ Le joueur peut maintenant faire un choix : ajouter ou non plus de cartes à sa 
 Dans la boucle while, Il faut donc demander au joueur ce qu’il veut faire : carte / rester. Astuce : utiliser la méthode lower() pour toutes les combinaisons majuscules/minuscules.
 
 19 Si le joueur ne répond pas la bonne lettre, il faut continuer simplement à demander à nouveau.
+
 20 Si le joueur choisit carte, il faut ajouter une carte supplémentaire à sa main. Cela se fait de la même manière qu’auparavant avec les méthodes deal() et add\_card().
+
 21 Dans la condition précédente, si la main du joueur a une valeur supérieure à 21 il a perdu donc la boucle du jeu doit se rompre et le croupier gagne
+
 22 Si à présent le joueur choisit de rester avec sa main, il faut comparer son score avec celui du croupier. Il faut afficher la valeur de la main du joueur et du croupier, comparer les valeurs de chaque main et afficher qui gagne. Si les deux mains ont même valeur alors il y a match nul.
+
 23 On peut ajouter une petite boucle pour que le joueur est le choix de rejouer ou non. Astuce utiliser les booléens de la méthode play et game\_over
+
 24 Pour lancer le jeu il faut créer une instance de la classe Game et on appelle la méthode play. 
 
    **Aide** : mettre les lignes de code précédentes dans if \_\_name\_\_ == "\_\_main\_\_": qui ne lancera le jeu que dans le cas où on utilise le fichier blackjack et non un import depuis un autre fichier.
@@ -1817,7 +1875,9 @@ Dans la boucle while, Il faut donc demander au joueur ce qu’il veut faire : c
 L’objectif est de simuler (sommairement bien sûr) le fonctionnement d’une banque. Le programme doit permettre :
 
 - La création d’une banque ;
+
 - La création de comptes bancaires ;
+
 - La création de personnes propriétaires de ces comptes bancaires.
 
 1 Dans un module nommé personne, créer la classe Personne  et les méthodes :
