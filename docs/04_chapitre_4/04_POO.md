@@ -85,7 +85,9 @@ Mathilde = Personne() # c'est la personne numéro 2
 ```
 
 Quelles actions a déclenché le code précédent ?
+
 - Création d’un **objet (ou instance)** de la classe Personne ;
+
 - Création d’une variable Julien ou Mathilde dans l’espace de nom global. Chaque variable référence l’objet.
 
 Julien et Mathilde sont des objets (des instances) de la classe Personne.
@@ -142,9 +144,9 @@ Lors de la création de l’instance gollum, Python va automatiquement remplacer
 - gollum.prenom qui aura pour valeur le prénom passé en paramètre (Jean),
 - gollum.age qui aura pour valeur de départ la valeur donnée à self.age.
 
-La définition du constructeur consiste en une définition « classique » d'une fonction. Elle a pour nom ```__init__```. En Python, **tous les constructeurs s'appellent ainsi**. Les noms de méthodes entourés de part et d'autre de deux signes soulignés (```__nommethode__```) sont des **méthodes spéciales**. Dans la définition de méthode, on passe un premier paramètre nommé self**.
+La définition du constructeur consiste en une définition « classique » d'une fonction. Elle a pour nom ```__init__```. En Python, **tous les constructeurs s'appellent ainsi**. Les noms de méthodes entourés de part et d'autre de deux signes soulignés (```__nommethode__```) sont des **méthodes spéciales**. Dans la définition de méthode, on passe un premier paramètre nommé **self**.
 
-self (c’est une convention) correspond simplement à l’objet sur lequel on applique la méthode (il représente l’objet en train de se créer).
+**self** (c’est une convention) correspond simplement à l’objet sur lequel on applique la méthode (il représente l’objet en train de se créer).
 
 Un **attribut** est une variable de classe propre à l’objet et sert à le caractériser.
 
@@ -186,9 +188,7 @@ décédé(e) à 33 ans
 
 Créer une **méthode d'instance**, revient à **créer une fonction** ayant comme premier paramètre le mot clef self.
 
-**<H3 STYLE="COLOR:red;">Activité n° 3 : Classe et méthode**</H
-
-3>
+**<H3 STYLE="COLOR:red;">Activité n° 3 : Classe et méthode**</H3>
 ```python
 class Personne:
    """Classe définissant une personne caractérisée par :
