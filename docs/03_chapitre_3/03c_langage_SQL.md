@@ -390,7 +390,7 @@ Il y a bien 11 réalisateurs dans la table.
 
 **<H3 STYLE="COLOR:red;">Activité n° 28 : Afficher et compter**</H3> Compter le nombre de réalisateurs dont le nom commence par la lettre L : Exécuter
 
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.016.png){ width=30%; : .center }
+
 
 ```sql
 SELECT COUNT(id_realisateur)
@@ -427,6 +427,8 @@ FROM film;
 
 ## <H2 STYLE="COLOR:BLUE;"><a name="_toc173365577"></a>**5. Requête de mise à jour**</H2>
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365578"></a>**5.1. La syntaxe de la requête de mise à jour**</H3>
+
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.016.png){ width=30%; : .center }
 
 **UPDATE** avec le nom de la table sur lequel sera fait la mise à jour
 
