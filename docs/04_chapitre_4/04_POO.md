@@ -1179,6 +1179,7 @@ Pour construire un jeu de cartes, on va commencer par construire une classe Cart
 - le corps des méthodes ne sera pas développé immédiatement ; on utilisera l’instruction Python pass en attendant.
 
 - Carte définit une carte caractérisée par:
+
   * sa valeur,
   * sa couleur,
   * sa figure.
