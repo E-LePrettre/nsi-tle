@@ -934,9 +934,11 @@ Expliquer en détail ce qu’il permet d’afficher
 On considère une classe **Carre** admettant la mesure des côtés d’un carré en attribut. 
 
 1 Ecrire un constructeur initialisant les mesures. 
+
 2 Ecrire les méthodes : 
    - **perimetre** , permettant de retourner le périmètre du carré. 
    - **aire** permettant de retourner son aire. 
+
 3 Créer des exemples
 
 **Exercice n°4 :**  Définir une classe **Fraction** pour représenter un nombre rationnel. 
@@ -954,13 +956,18 @@ De plus, on demande que le dénominateur soit particulièrement un entier strict
    <https://www.w3schools.com/python/ref_keyword_raise.asp#:~:text=The%20raise%20keyword%20is%20used,to%20print%20to%20the%20user>.
 
 ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.014.png){: .center }
+
+
 2 Ajouter une methode **\_\_str\_\_** qui renvoie une chaîne de caractère de la forme "12 / 13", ou simplement de la forme "12" lorsque le dénominateur vaut 1. ( \_\_str\_\_(self) est une méthode de Python : renvoie une chaîne de caractères)
+
 3 Ajouter des méthodes **\_\_eq\_\_** et **\_\_lt\_\_** qui reçoivent une deuxième fraction en argument et renvoie True si la première fraction représente respectivement un nombre égal ou un nombre strictement inférieur à la fraction. 
 
    ( \_\_lt\_\_(self, other) est une méthode de Python : Pour self = t, elle renvoie True si t est strictement plus petit que other ) ( \_\_eq\_\_(self, other) est une méthode de Python : Pour self = t, elle renvoie True si t est égal à other ) 
 
 4 Ajouter des méthodes **\_\_add\_\_** et **\_\_mul\_\_** qui reçoivent une deuxième fraction en argument et renvoie une nouvelle fraction représentant respectivement la somme et le produit des deux fractions. 
+
 5 Tester ces opérations 
+
 6 **Question bonus** : S’assurer que les fractions sont toujours sous forme réduite.
 
 **Exercice n°5 : La classe « Complexe »**
@@ -1186,15 +1193,22 @@ Ces deux méthodes doivent vérifier que l’indice i est bien valide et, dans 
 ## <a name="_toc88030974"></a>**6. Projet (démarche d’investigation)**
 **Exercice n°1 : Jeu de cartes**
 ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.016.png){: .center }
+
 Pour construire un jeu de cartes, on va commencer par construire une classe Carte :
 
 1 sur Thonny : Créer un fichier python carte.py.
+
 2 Écrire une classe Carte à partir du diagramme de classe ci-contre.
 
 **Aide** : 
 
 - le corps des méthodes ne sera pas développé immédiatement ; on utilisera l’instruction Python pass en attendant.
-- Carte définit une carte caractérisée par:  - sa valeur, - sa couleur,   - sa figure
+
+- Carte définit une carte caractérisée par:  
+* sa valeur, 
+* sa couleur,   
+* sa figure
+
 3 Compléter le constructeur de classe avec les attributs en haut.
 
    **Aide** : l’attribut \_\_figure permet de donner la figure correspondant à la valeur, 11 -> valet,  12 -> dame, 13 -> roi. Si la valeur est différente de 11, de 12 ou de 13, alors ce n’est pas une figure.
