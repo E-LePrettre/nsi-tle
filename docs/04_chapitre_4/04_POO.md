@@ -905,8 +905,11 @@ appel de la fonction 4
 <a name="_hlk70249033"></a>**Exercice n°1 :** On considère une classe **Personnage** représentant un personnage de Jeu. Le plateau de jeu est représenté par un repère **orthonormé à trois axes**. La position du joueur dans le plateau est repérée par **ses attributs x, y, z**. 
 
 1 Ecrire un constructeur initialisant les mesures. 
+
 2 Ecrire les méthodes **avance, droite** et **saute** permettant respectivement de faire avancer, aller à droite et sauter le personnage, c’est-à-dire d’augmenter de 1 respectivement x, y et z. 
+
 3 Implémenter une autre méthode **coord** renvoyant les coordonnées sous forme d’un triplet. 
+
 4 Essayer avec : Laura = Personnage(0, 0, 0)
 
 **Exercice n°2 :** Voici un programme en Python : 
