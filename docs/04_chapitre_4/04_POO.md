@@ -63,11 +63,15 @@ class Personne:
 
    pass
 ```
+
 - Un nom de classe commence toujours (c’est une convention) par une **lettre capitale** ;
+
 - pass est l’instruction Python qui indique de ne rien faire.
 
 Quelles actions a déclenché le code précédent ?
+
 - Création d’un objet Classe Personne ;
+
 - Création d’une variable Personne dans l’espace de nom global. Cette variable référence l’objet Classe Personne
 
 La classe est une espèce de moule, à partir de ce moule nous allons créer des **objets** (plus exactement nous parlerons **d'instances**).
