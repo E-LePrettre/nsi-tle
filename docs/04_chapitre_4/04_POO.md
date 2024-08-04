@@ -1070,6 +1070,8 @@ Pour construire un jeu de cartes, on va commencer par construire une classe Cart
 
 2 Écrire une classe Carte à partir du diagramme de classe ci-contre.
 
+![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.015.png){: .center }
+
 ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.016.png){: .center }
 
 **Aide** :
