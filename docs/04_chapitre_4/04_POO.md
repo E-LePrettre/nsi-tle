@@ -1073,9 +1073,7 @@ def motAt(self, pos):
 
 Que fait la fonction fctE() suivante?
 ```python
-def f
-
-ctE():
+def fctE():
     p = Phrase('Tous les hommes sont mortels')
     m = p.motAt(3)
     m.doReverse()
@@ -1166,13 +1164,15 @@ Ces deux méthodes doivent vérifier que l’indice i est bien valide et, dans 
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc88030974"></a>**6. Projet (démarche d’investigation)**</H2>
 **<H3 STYLE="COLOR:red;">Exercice n°1 : Jeu de cartes**</H3>
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.016.png){: .center }
+
 
 Pour construire un jeu de cartes, on va commencer par construire une classe Carte :
 
 1 sur Thonny : Créer un fichier python carte.py.
 
 2 Écrire une classe Carte à partir du diagramme de classe ci-contre.
+
+![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.016.png){: .center }
 
 **Aide** :
 
@@ -1209,8 +1209,6 @@ On supposera que les valeurs du jeu de 32 cartes vont de 7 à 14 (pour l’as) e
 
 7 Tester la classe comme suit :
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.017.png)
-
 ```python
 ma_carte = Carte(11, "Trèfle")
 print(ma_carte.GetFigure())
@@ -1223,6 +1221,8 @@ On va construire la classe JeuDeCartes.
 8 Sur Python : Créer un fichier python jeudecartes.py.
 
 9 Écrire une classe JeuDeCartes à partir du diagramme de classe ci-contre.
+
+![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.017.png){: .center }
 
 **Aide** :
 
