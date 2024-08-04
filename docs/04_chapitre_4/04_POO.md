@@ -1006,112 +1006,10 @@ En Python, écrire une classe Temps qui permet de définir un horaire au format 
 - \_\_add\_\_ , qui ajoute deux horaires de la classe Temps;
 - \_\_sub\_\_ , qui calcule la différence entre deux horaires de la classe Temps.
 
-**<H3 STYLE="COLOR:red;">Exercice n°7 : La classe « Mot» et « Phrase »**</H3>
 
-On considère la classe Mot définie ainsi :
-```python
-from random import shuffle
 
-class Mot:
-    def __init__(self, m):
-        self.m = m
-    def doReverse(self):
-        self.m = self.m[::-1]    
-    def doShuffle(self):
-        L = list(self.m)
-        shuffle(L)
-        self.m = ''.join(L)   
-    def value(self):
-        return self.m
-```
 
-1 Indiquer ce que fait la fonction fctA() définie par :
-```python
-def fctA():
-    m=Mot("Socrate")
-    m.doReverse()
-    print(m.value())
-```
-
-2 Indiquer ce que fait la fonction fctB() définie par :
-```python
-def fctB():
-    m=Mot("Socrate")
-    m.doShuffle()
-    print(m.value())
-```
-
-On souhaite écrire une classe Phrase. Toutes les questions suivantes porteront sur cette classe.
-
-3 Écrire un constructeur qui définit une liste self.mots remplie de tous les mots de la phrase passée en paramètre, chacun des mots devant être de classe Mot.
-
-4 Écrire deux méthodes doReverse et value telles que la fonction fctC() suivante :
-```python
-def fctC():
-    p = Phrase("Tous les hommes sont mortels")
-    p.doReverse()
-    print(p.value())
-```
-
-Affiche : « mortels sont hommes les Tous ».
-
-5 Écrire une méthode doShuffle afin que la fonction suivante :
-```python
-def fctD():
-    p = Phrase('Tous les hommes sont mortels')
-    p.doShuffle()
-    print(p.value())
-```
-
-Affiche les mots de la phrase « Tous les hommes sont mortels » dans un ordre aléatoire.
-
-6 On définit la méthode motAt de la manière suivante:
-```python
-def motAt(self, pos):
-    return self.mots[pos]
-```
-
-Que fait la fonction fctE() suivante?
-```python
-def fctE():
-    p = Phrase('Tous les hommes sont mortels')
-    m = p.motAt(3)
-    m.doReverse()
-    print(p.value())
-```
-
-7 On définit la méthode insert de la manière suivante :
-```python
-def insert(self, pos, chaine):
-    self.mots.insert(pos, Mot(chaine))
-```
-Que fait la fonction fctF() suivante?
-```python
-def fctF():
-    p = Phrase('Tous les hommes sont mortels')
-    p.insert(3,"ne")
-    p.insert(5, "pas")
-    print(p.value())
-```
-
-8 On définit la méthode remove de la manière suivante :
-```python
-def remove(self, pos):
-    self.mots.pop(pos)
-```
-
-Que fait la fonction fctG() suivante?
-```python
-def fctG():
-    p = Phrase('Tous les hommes sont mortels')
-    m = p.motAt(4)
-    m.doShuffle()
-    p.remove(2)
-    p.insert(2, m.value())
-    print(p.value())
-```
-
-**<H3 STYLE="COLOR:red;">Exercice n°8 : La classe Intervalle**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°7 : La classe Intervalle**</H3>
 
 Définir une classe Intervalle représentant des intervalles de nombres. Cette classe possède deux attributs a et b représentant respectivement l’extrémité inférieure et l'extrémité supérieure de l’intervalle.
 
@@ -1127,7 +1025,7 @@ Attention : toutes les représentations de l'intervalle vide doivent être cons
 
 - Ajouter des méthodes intersection et union calculant respectivement l'intersection de deux intervalles et le plus petit intervalle contenant l’union de deux intervalles (l'intersection est bien toujours un intervalle, alors que l’union ne l’est pas forcément). Ces deux fonctions doivent renvoyer un nouvel intervalle sans modifier leurs paramètres.
 
-**<H3 STYLE="COLOR:red;">Exercice n°9 : La classe Date**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°8 : La classe Date**</H3>
 
 Définir une classe Date pour représenter une date, avec trois attributs jour, mois et annee.
 
@@ -1139,7 +1037,7 @@ Tester en construisant des objets de la classe Date puis en les affichant avec�
 
 - Ajouter une méthode \_\_lt\_\_ qui permet de déterminer si une date d1 est antérieure à une date d2 en écrivant d1 < d2. La tester.
 
-**<H3 STYLE="COLOR:red;">Exercice n°10 : La classe Tableau**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°9 : La classe Tableau**</H3>
 
 Dans certains langages de programmation, comme Pascal ou Ada, les tableaux ne sont pas nécessairement indexés à partir de 0. C’est le programmeur qui choisit sa plage d’indices.
 
