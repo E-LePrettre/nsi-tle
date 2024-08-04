@@ -7,14 +7,15 @@ EN CONSTRUCTION!!! a très bientôt!!
 2. Récursivité et Méthode diviser pour régner
 3. Base de données
 4. La P.O.O.
-5. Les types construits
-6. L'algorithmique
-7. Le web
-8. Les réseaux
-9. Algorithme glouton
-10. Système d'exploitation
-11. Architecture d'un ordinateur
-12. Traitement des données en tables
-13. Algorithme knn
+5. Liste Pile File Dictionnaire
+6. 
+7. 
+8. 
+9. 
+10. 
+11. 
+12. 
+13. 
+14. 
 
 *Elisabeth Le Prettre*
