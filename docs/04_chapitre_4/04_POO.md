@@ -1280,7 +1280,7 @@ Est-ce que ça fonctionne avec l’image en noir et blanc ? Avec celle en couleu
 
 Vous êtes parés pour écrire votre premier filtre. 
 
-7 Créer un fichier python premier\_filtre.py.
+7 sur Thonny : Créer un fichier python premier\_filtre.py.
 
 8 Écrire une classe filtre à partir du diagramme de classe ci-contre.
 
@@ -1570,7 +1570,7 @@ Cette classe contient des cartes. Il vaut également attribuer une valeur par le
 
 La main du croupier ne doit afficher qu’une seule carte, il faudra également suivre cette règle.
 
-5 Ecrire la classe Deck à partir des diagrammes de classes ci-contre :
+5 Ecrire la classe Hand à partir des diagrammes de classes ci-contre :
 
    **Aide** : le corps des méthodes ne sera pas développé immédiatement ; on utilisera l’instruction Python pass en attendant.
 
