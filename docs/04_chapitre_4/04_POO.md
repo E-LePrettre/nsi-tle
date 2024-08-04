@@ -883,6 +883,9 @@ appel de la fonction 4
 
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc88030973"></a>**5. Exercices**</H2>
+
+**=> CAPYTALE Le code vous sera donné par votre enseignant**
+
 **<H3 STYLE="COLOR:red;">Exercice n°1 :**</H3> On considère une classe **Personnage** représentant un personnage de Jeu. Le plateau de jeu est représenté par un repère **orthonormé à trois axes**. La position du joueur dans le plateau est repérée par **ses attributs x, y, z**.
 
 1 Écrire un constructeur initialisant les mesures.
@@ -1063,6 +1066,8 @@ Ces deux méthodes doivent vérifier que l’indice i est bien valide et, dans 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc88030974"></a>**6. Projet (démarche d’investigation)**</H2>
 **<H3 STYLE="COLOR:red;">Exercice n°1 : Jeu de cartes**</H3>
 
+**=> CAPYTALE Le code vous sera donné par votre enseignant**
+
 
 Pour construire un jeu de cartes, on va commencer par construire une classe Carte :
 
@@ -1162,6 +1167,8 @@ for i in range(len(lepaquet)):
 
 
 **<H3 STYLE="COLOR:red;">Exercice n°2 : Filtres d’image**</h3>
+
+**=> CAPYTALE Le code vous sera donné par votre enseignant**
 
 Ce TP utilise la bibliothèque Pillow.
 
@@ -1484,6 +1491,8 @@ La symétrie axiale horizontale consiste à échanger les pixels du haut de l’
 
 **<H3 STYLE="COLOR:red;">Exercice n°3 : Blackjack**</h3>
 
+**=> CAPYTALE Le code vous sera donné par votre enseignant**
+
 **Règle du jeu :** d’après Wikipédia :Le blackjack est un jeu de carte. La partie oppose tous les joueurs contre le croupier (pour simplifier, il n'y aura ici qu'un seul joueur). Le but est de faire **plus de points** que le croupier **sans dépasser 21**. Dès qu'un joueur fait plus que 21, on dit qu'il « **saute** » et il perd sa mise initiale. La valeur des cartes est établie comme suit : 
 
 - de 2 à 10 → valeur nominale de la carte
@@ -1742,6 +1751,8 @@ Dans la boucle while, Il faut donc demander au joueur ce qu’il veut faire : c
 
 
 **<H3 STYLE="COLOR:red;">Exercice n°4 : Banque**</h3>
+
+**=> CAPYTALE Le code vous sera donné par votre enseignant**
 
 L’objectif est de simuler (sommairement bien sûr) le fonctionnement d’une banque. Le programme doit permettre :
 
@@ -2006,6 +2017,8 @@ class Banque():
 
 **<H3 STYLE="COLOR:red;">Exercice n°5 : Jeu de la vie**</h3>
 
+**=> CAPYTALE Le code vous sera donné par votre enseignant**
+
 Le but de ce sujet est de réaliser en Python une implémentation du jeu de la vie en utilisant la programmation objet.
 
 Un **automate cellulaire** consiste en une grille régulière de « cellules » contenant chacune un « état » choisi parmi un ensemble fini et qui peut évoluer au cours du temps. L’état d’une cellule au temps t+1t+1t+1 est fonction de l’état au temps ttt d’un nombre fini de cellules appelé son « voisinage ». À chaque nouvelle unité de temps, les mêmes règles sont appliquées simultanément à toutes les cellules de la grille, produisant une nouvelle « génération » de cellules dépendant entièrement de la génération précédente.
@@ -2143,147 +2156,149 @@ main()
 
 **Classe Cellule**
 ```python
-def __init__(self: Cellule) -> None:
-    """
-    Initialisation des attributs.
-    """
-    pass
+class Cellule :
+   def __init__(self: Cellule) -> None:
+      """
+      Initialisation des attributs.
+      """
+      pass
 
-def est_vivant(self: Cellule) -> bool:
-    """
-    Retourne l'état actuel de la cellule.
-    """
-    pass
+   def est_vivant(self: Cellule) -> bool:
+      """
+      Retourne l'état actuel de la cellule.
+      """
+      pass
 
-def set_voisins(self: Cellule, voisins: List[Cellule]) -> None:
-    """
-    Affecte comme voisins la liste passée en paramètre.
-    """
-    pass
+   def set_voisins(self: Cellule, voisins: List[Cellule]) -> None:
+      """
+      Affecte comme voisins la liste passée en paramètre.
+      """
+      pass
 
-def get_voisins(self: Cellule) -> List[Cellule]:
-    """
-    Renvoie la liste des voisins de la cellule
-    """
-    pass
+   def get_voisins(self: Cellule) -> List[Cellule]:
+      """
+      Renvoie la liste des voisins de la cellule
+      """
+      pass
 
-def naitre(self: Cellule) -> None:
-    """
-    Met l’état futur de la cellule à `True`
-    """
-    pass
+   def naitre(self: Cellule) -> None:
+      """
+      Met l’état futur de la cellule à `True`
+      """
+      pass
 
-def mourir(self: Cellule) -> None:
-    """
-    Met l’état futur de la cellule à `False`
-    """
-    pass
+   def mourir(self: Cellule) -> None:
+      """
+      Met l’état futur de la cellule à `False`
+      """
+      pass
 
-def basculer(self: Cellule) -> None:
-    """
-    Fait passer l’état futur de la cellule dans l’état actuel
-    """
-    pass
+   def basculer(self: Cellule) -> None:
+      """
+      Fait passer l’état futur de la cellule dans l’état actuel
+      """
+      pass
 
-def __str__(self: Cellule) -> str:
-    """
-    Représentation de l'objet sous forme d'une chaîne de caractères
-    """
-    pass
+   def __str__(self: Cellule) -> str:
+      """
+      Représentation de l'objet sous forme d'une chaîne de caractères
+      """
+      pass
 
-def calcule_etat_futur(self: Cellule) -> None:
-    """
-    Implémente les règles d’évolution du jeu de la vie en préparant l’état futur à sa nouvelle valeur
-    """
-    pass
+   def calcule_etat_futur(self: Cellule) -> None:
+      """
+      Implémente les règles d’évolution du jeu de la vie en préparant l’état futur à sa nouvelle valeur
+      """
+      pass
 ```
 
 
 **Classe Grille**
 ```python
-def __init__(self: Grille, largeur: int, hauteur: int) -> None:
-    """
-    Initialisations des attributs
-    """
-    pass
+class Grille:
+   def __init__(self: Grille, largeur: int, hauteur: int) -> None:
+      """
+      Initialisations des attributs
+      """
+      pass
 
-def set_matrix(self: Grille) -> List[List[Cellule]]:
-    """
-    Construction de la grille de cellules
-    """
-    pass
+   def set_matrix(self: Grille) -> List[List[Cellule]]:
+      """
+      Construction de la grille de cellules
+      """
+      pass
 
-def dans_grille(self: Grille, i: int, j: int) -> bool:
-    """
-    Vérifie que le point de coordonnées (i,j) est dans la grille
-    """
-    pass
+   def dans_grille(self: Grille, i: int, j: int) -> bool:
+      """
+      Vérifie que le point de coordonnées (i,j) est dans la grille
+      """
+      pass
 
-def set_cell_xy(self: Grille, i: int, j: int, cellule: Cellule) -> None:
-    """
-    Affecte une nouvelle cellule à la case (i,j) de la grille
-    """
-    pass
+   def set_cell_xy(self: Grille, i: int, j: int, cellule: Cellule) -> None:
+      """
+      Affecte une nouvelle cellule à la case (i,j) de la grille
+      """
+      pass
 
-def get_cell_xy(self: Grille, i: int, j: int) -> Cellule:
-    """
-    Récupère la cellule située dans la case (i,j) de la grille
-    """
-    pass
+   def get_cell_xy(self: Grille, i: int, j: int) -> Cellule:
+      """
+      Récupère la cellule située dans la case (i,j) de la grille
+      """
+      pass
 
-def get_largeur(self: Grille) -> int:
-    """
-    Récupère la largeur de la grille
-    """
-    pass
+   def get_largeur(self: Grille) -> int:
+      """
+      Récupère la largeur de la grille
+      """
+      pass
 
-def get_hauteur(self: Grille) -> int:
-    """
-    Récupère la hauteur de la grille
-    """
-    pass
+   def get_hauteur(self: Grille) -> int:
+      """
+      Récupère la hauteur de la grille
+      """
+      pass
 
-@staticmethod
-def est_voisin(i: int, j: int, x: int, y: int) -> bool:
-    """
-    Vérifie si les cases (i,j) et (x,y) sont voisines dans la grille
-    """
-    pass
+   @staticmethod
+   def est_voisin(i: int, j: int, x: int, y: int) -> bool:
+      """
+      Vérifie si les cases (i,j) et (x,y) sont voisines dans la grille
+      """
+      pass
 
-def get_voisins(self: Grille, x: int, y: int) -> List[Cellule]:
-    """
-    Renvoie la liste des voisins d’une cellule
-    """
-    pass
+   def get_voisins(self: Grille, x: int, y: int) -> List[Cellule]:
+      """
+      Renvoie la liste des voisins d’une cellule
+      """
+      pass
 
-def set_voisins(self: Grille):
-    """
-    Affecte à chaque cellule de la grille la liste de ses voisins
-    """
-    pass
+   def set_voisins(self: Grille):
+      """
+      Affecte à chaque cellule de la grille la liste de ses voisins
+      """
+      pass
 
-def __str__(self: Grille) -> str:
-    """
-    Représentation de l'objet
-    """
-    pass
+   def __str__(self: Grille) -> str:
+      """
+      Représentation de l'objet
+      """
+      pass
 
-def remplir_alea(self, taux: int) -> None:
-    """
-    Remplir aléatoirement la Grille avec un certain taux de Cellules vivantes
-    """
-    pass
+   def remplir_alea(self, taux: int) -> None:
+      """
+      Remplir aléatoirement la Grille avec un certain taux de Cellules vivantes
+      """
+      pass
 
-def jeu(self: Grille) -> None:
-    """
-    Passe en revue toutes les Cellules de la Grille, calcule leur état futur
-    """
-    pass
+   def jeu(self: Grille) -> None:
+      """
+      Passe en revue toutes les Cellules de la Grille, calcule leur état futur
+      """
+      pass
 
-def actualise(self: Grille) -> None:
-    """
-    Bascule toutes les cellules de la Grille dans leur état futur
-    """
-    pass
+   def actualise(self: Grille) -> None:
+      """
+      Bascule toutes les cellules de la Grille dans leur état futur
+      """
+      pass
 
 ```
