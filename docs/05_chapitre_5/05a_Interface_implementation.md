@@ -6,7 +6,9 @@ title: 05a Interface et implémentation
 **Table des matières** 
 
 [1.	Rappels : modules, fonctions	](#_toc145779687)
+
 [2.	Interface d’une structure de données abstraites	](#_toc145779688)
+
 [3.	Implémentation	](#_toc145779693)
 
 
@@ -59,7 +61,7 @@ On pourra représenter une pile de la manière suivante :
 
 P = (hautDeLaPile, resteDeLaPile)
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.003.jpeg){: .center }
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.003.jpeg){width=10%; : .center }
 
 
 
@@ -106,7 +108,7 @@ Le haut de la pile est Anakin et le reste est 
 
 ```(BobaFett,(DarkVador,(HanSolo,(Yoda,vide()))))```
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.006.jpeg){: .center }
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.006.jpeg){width=10%; : .center }
 
 
 **Activité n° 1 :**
@@ -121,7 +123,7 @@ Soit *P* une pile, la pile obtenue en empilant un élément *a* en haut de *P* e
 
 On notera cet opérateur ```empiler(a, P)```
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.008.jpeg){: .center }
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.008.jpeg){width=10%; : .center }
 
 
 
@@ -130,7 +132,7 @@ On notera cet opérateur ```empiler(a, P)```
 
 **Exemple** : En reprenant l’exemple précédent où
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.009.jpeg){: .center }
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.009.jpeg){width=10%; : .center }
 
 ```P=(Anakin,(Boba Fett,(Dark Vador,(Han Solo,(Yoda,vide())))))```
 
@@ -149,14 +151,14 @@ Soit *P1, P2* deux pile et *a* en haut de la pile *P1,* la pile obtenue en dépi
 
 On notera cet opérateur ```depiler(P1)```, elle transforme la pile initiale et renvoie l’élément dépiler.
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.011.jpeg){: .center }
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.011.jpeg){width=10%; : .center }
 
 
 
 
 **Exemple :** En reprenant l’exemple précédent où
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.012.jpeg){: .center }
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.012.jpeg){width=10%; : .center }
 
 ```P=(Anakin,(Boba Fett,(Dark Vador,(Han Solo,(Yoda,vide())))))```
 
@@ -207,20 +209,20 @@ On pourra représenter une file de la manière suivante :
 
 ```F = (teteDeLaFile, queueDeFile, coeurDeFile)```
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.015.jpeg){: .center }
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.015.jpeg){width=10%; : .center }
 
 
 
 
 **Exemple :** On aimerait ranger un groupe d’individu dans un objet de type file
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.016.png)
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.016.png){width=10%; : .center }
 
 Anakin, Boba Fett, Dark Vador, Han Solo, Yoda
 
 Une représentation de la file correspondante est 
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.017.png)
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.017.png){width=10%; : .center }
 
 Une File à un élément a pour :
 
@@ -252,7 +254,7 @@ La nouvelle file obtenue à l’enfilement de *a* sur *F* est la file :
 Cet opérateur est récursif.
 
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.020.png)
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.020.png){width=10%; : .center }
 
 
 
@@ -291,7 +293,7 @@ Cet opérateur transforme *F* et renvoie la tête de *F.*
 
 **Exemple :**  En reprenant l’exemple précédent où 
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.022.png)
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.022.png){width=10%; : .center }
 
 ```F=(Anakin,Yoda,(BobaFett,DarkVador,HanSolo))) ```
 
@@ -334,9 +336,8 @@ Pour accéder à une valeur indexé *i* dans un tableau T. On écrira T[i].
 
 On peut réaffecter une valeur du tableau par une autre à partir de son index.
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.026.png)
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.027.png)**Exemple :** 
+**Exemple :** 
 
 Ce tableau a une longueur maximale de 7.
 
@@ -344,9 +345,9 @@ T[1] = 15.
 
 T[5] est vide.
 
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.027.png){width=10%; : .center }
 
-
-1. ## <a name="_toc145779695"></a>**Implémentation des piles avec des tableaux**
+### <a name="_toc145779695"></a>**3.2. Implémentation des piles avec des tableaux**
 Soit *P* une pile.
 
 On dispose d’un tableau nommé *T* avec *n* emplacements.
@@ -357,11 +358,13 @@ Le tableau possède un attribut *sommet(P)* qui indexe l’élément le plus ré
 
 La donnée de la pile se constitue donc de la donnée de *T* et de la valeur de *sommet(P)*
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.028.png)
+
 
 **Exemple :** On considère la pile (9,(2,(6,(15,*vide()*)))). Son implémentation se compose de la donnée du tableau T : 
 
 et de *sommet(P)* = 4
+
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.027.png){width=10%; : .center }
 
 **Attention :**  *sommet(P)* est un index du tableau, pas un élément de la pile.
 
