@@ -222,7 +222,7 @@ Anakin, Boba Fett, Dark Vador, Han Solo, Yoda
 
 Une représentation de la file correspondante est 
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.017.png){width=25%; : .center }
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.017.png){width=50%; : .center }
 
 Une File à un élément a pour :
 
@@ -345,7 +345,7 @@ T[1] = 15.
 
 T[5] est vide.
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.027.png){width=25%; : .center }
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.027.png){width=50%; : .center }
 
 ### <a name="_toc145779695"></a>**3.2. Implémentation des piles avec des tableaux**
 Soit *P* une pile.
@@ -364,7 +364,7 @@ La donnée de la pile se constitue donc de la donnée de *T* et de la valeur de 
 
 et de *sommet(P)* = 4
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.027.png){width=25%; : .center }
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.027.png){width=50%; : .center }
 
 **Attention :**  *sommet(P)* est un index du tableau, pas un élément de la pile.
 
@@ -393,7 +393,7 @@ si sommet(P) = n	// signifie que le tableau est complet
 
 **Exemple :** Si on lance ```empiler(17,P)``` puis ```empiler(3,P)``` on obtient alors cette représentation :
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.031.png){width=25%; : .center }
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.031.png){width=50%; : .center }
 
 **Propriété 12 : Implémentation de la fonction depiler(P) :**
 ```
@@ -416,16 +416,20 @@ On observe que la procédure empiler ne renvoie rien alors que la fonction dépi
 
 Observer que T[6] a encore un sens pour le tableau mais plus pour la pile.
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.033.png){width=25%; : .center }
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.033.png){width=50%; : .center }
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.034.png){width=25%; : .center }
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.034.png){width=50%; : .center }
 
 
 
-|<p>**Activité n° AUTONUM  \* Arabic :** On considère la pile dont la représentation en tableau est :</p><p></p><p>Pour chaque question, on repartira du tableau de départ.</p><p>1. Qu'obtient-on si on lance successivement depiler(P), depiler(P), depiler(P) et depiler(P).</p><p>2. Qu'obtient-on si on lance successivement depiler(P), depiler(P), depiler(P), depiler(P) et depiler(P).</p><p>3. Qu'obtient-on si on lance successivement empiler(3,P), empiler(5,P) et depiler(P)</p>|
-| - |
+**Activité n° 8 :** On considère la pile dont la représentation en tableau est :
+Pour chaque question, on repartira du tableau de départ.
+1. Qu'obtient-on si on lance successivement depiler(P), depiler(P), depiler(P) et depiler(P).
+2. Qu'obtient-on si on lance successivement depiler(P), depiler(P), depiler(P), depiler(P) et depiler(P).
+3. Qu'obtient-on si on lance successivement empiler(3,P), empiler(5,P) et depiler(P)
 
-1. ## <a name="_toc145779696"></a>**Implémentation des files avec des tableaux**
+### <a name="_toc145779696"></a>**3.3. Implémentation des files avec des tableaux**
+
 On dispose d’un tableau nommé *T* avec *n* emplacements.
 
 Il est possible d’implémenter d’une file *F* d’au plus *n* éléments avec le tableau *T*.
@@ -442,18 +446,19 @@ Dans cette implémentation la queue est vide.
 
 **Définition :** La donnée de la file se constitue de la donnée d’un tableau T, de la valeur de *tete(F)* et de *queue(F).*
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.035.png)
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.036.png)
+
+
 
 **Exemple :** Une représentation de l’implémentation avec un tableau T de la file F = (15, 4, (6, 9, 8)) est :
 
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.036.png){width=50%; : .center }
 
 **Propriété 13** : 
 
 - Quand *tete(F) = queue(F)*, la file est vide
 - Quand *tete(F) = queue(F)* + 1, la file est pleine
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.037.png)
+
 
 En effet, *queue(F)* est vide au sens de la file. Si *tete(F) = queue(F)* alors la tête est vide, c’est que la file est vide.
 
