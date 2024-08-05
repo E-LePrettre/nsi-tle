@@ -61,7 +61,7 @@ On pourra représenter une pile de la manière suivante :
 
 P = (hautDeLaPile, resteDeLaPile)
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.003.jpeg){width=10%; : .center }
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.003.jpeg){width=25%; : .center }
 
 
 
@@ -108,7 +108,7 @@ Le haut de la pile est Anakin et le reste est 
 
 ```(BobaFett,(DarkVador,(HanSolo,(Yoda,vide()))))```
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.006.jpeg){width=10%; : .center }
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.006.jpeg){width=25%; : .center }
 
 
 **Activité n° 1 :**
@@ -123,7 +123,7 @@ Soit *P* une pile, la pile obtenue en empilant un élément *a* en haut de *P* e
 
 On notera cet opérateur ```empiler(a, P)```
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.008.jpeg){width=10%; : .center }
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.008.jpeg){width=25%; : .center }
 
 
 
@@ -132,7 +132,7 @@ On notera cet opérateur ```empiler(a, P)```
 
 **Exemple** : En reprenant l’exemple précédent où
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.009.jpeg){width=10%; : .center }
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.009.jpeg){width=25%; : .center }
 
 ```P=(Anakin,(Boba Fett,(Dark Vador,(Han Solo,(Yoda,vide())))))```
 
@@ -151,14 +151,14 @@ Soit *P1, P2* deux pile et *a* en haut de la pile *P1,* la pile obtenue en dépi
 
 On notera cet opérateur ```depiler(P1)```, elle transforme la pile initiale et renvoie l’élément dépiler.
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.011.jpeg){width=10%; : .center }
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.011.jpeg){width=25%; : .center }
 
 
 
 
 **Exemple :** En reprenant l’exemple précédent où
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.012.jpeg){width=10%; : .center }
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.012.jpeg){width=25%; : .center }
 
 ```P=(Anakin,(Boba Fett,(Dark Vador,(Han Solo,(Yoda,vide())))))```
 
@@ -209,20 +209,20 @@ On pourra représenter une file de la manière suivante :
 
 ```F = (teteDeLaFile, queueDeFile, coeurDeFile)```
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.015.jpeg){width=10%; : .center }
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.015.jpeg){width=25%; : .center }
 
 
 
 
 **Exemple :** On aimerait ranger un groupe d’individu dans un objet de type file
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.016.png){width=10%; : .center }
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.016.png){width=25%; : .center }
 
 Anakin, Boba Fett, Dark Vador, Han Solo, Yoda
 
 Une représentation de la file correspondante est 
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.017.png){width=10%; : .center }
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.017.png){width=25%; : .center }
 
 Une File à un élément a pour :
 
@@ -254,7 +254,7 @@ La nouvelle file obtenue à l’enfilement de *a* sur *F* est la file :
 Cet opérateur est récursif.
 
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.020.png){width=10%; : .center }
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.020.png){width=25%; : .center }
 
 
 
@@ -293,7 +293,7 @@ Cet opérateur transforme *F* et renvoie la tête de *F.*
 
 **Exemple :**  En reprenant l’exemple précédent où 
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.022.png){width=10%; : .center }
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.022.png){width=25%; : .center }
 
 ```F=(Anakin,Yoda,(BobaFett,DarkVador,HanSolo))) ```
 
@@ -345,7 +345,7 @@ T[1] = 15.
 
 T[5] est vide.
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.027.png){width=10%; : .center }
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.027.png){width=25%; : .center }
 
 ### <a name="_toc145779695"></a>**3.2. Implémentation des piles avec des tableaux**
 Soit *P* une pile.
@@ -364,7 +364,7 @@ La donnée de la pile se constitue donc de la donnée de *T* et de la valeur de 
 
 et de *sommet(P)* = 4
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.027.png){width=10%; : .center }
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.027.png){width=25%; : .center }
 
 **Attention :**  *sommet(P)* est un index du tableau, pas un élément de la pile.
 
@@ -393,7 +393,7 @@ si sommet(P) = n	// signifie que le tableau est complet
 
 **Exemple :** Si on lance ```empiler(17,P)``` puis ```empiler(3,P)``` on obtient alors cette représentation :
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.031.png){width=10%; : .center }
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.031.png){width=25%; : .center }
 
 **Propriété 12 : Implémentation de la fonction depiler(P) :**
 ```
@@ -416,9 +416,9 @@ On observe que la procédure empiler ne renvoie rien alors que la fonction dépi
 
 Observer que T[6] a encore un sens pour le tableau mais plus pour la pile.
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.033.png){width=10%; : .center }
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.033.png){width=25%; : .center }
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.034.png){width=10%; : .center }
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.034.png){width=25%; : .center }
 
 
 
