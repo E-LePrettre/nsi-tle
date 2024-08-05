@@ -369,66 +369,56 @@ et de *sommet(P)* = 4
 **Attention :**  *sommet(P)* est un index du tableau, pas un élément de la pile.
 
 **Propriété 10 : Implémentation de la fonction estVide(P) :**
-
-estVide(paramètre : P)
-
+```
+estVide(paramètre : P)
 si sommet(P) = 0	// signifie que le tableau est vide
+ 		alors retourner VRAI
+ 	sinon retourner FAUX
+```
 
-` 		`alors retourner VRAI
-
-` 	`sinon retourner FAUX
-
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.029.png)
 
 **Propriété 11 : Implémentation de la fonction empiler(a, P) :**
-
-empiler(paramètres : a,P)
-
+```
+empiler(paramètres : a,P)
 si sommet(P) = n	// signifie que le tableau est complet
-
-` 		`alors afficher "espace insuffisant"
-
-` 	`sinon 
-
-` 		`sommet(P) := sommet(P)+1
-
-` 		`T[sommet(P)] := a
+ 		alors afficher "espace insuffisant"
+ 	sinon 
+ 		sommet(P) := sommet(P)+1
+ 		T[sommet(P)] := a
+```
 
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.030.png)
-
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.031.png)
 
 
-**Exemple :** Si on lance empiler(17,P) puis empiler(3,P) on obtient alors cette représentation : 
+
+**Exemple :** Si on lance ```empiler(17,P)``` puis ```empiler(3,P)``` on obtient alors cette représentation :
+
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.031.png){width=10%; : .center }
 
 **Propriété 12 : Implémentation de la fonction depiler(P) :**
-
-depiler(paramètre : P)
-
+```
+depiler(paramètre : P)
 si sommet(P) = 0	
+ 		alors afficher "pile vide"
+ 	sinon 
+ 		sommet(P) := sommet(P)-1
+ 		retourner T[sommet(P)+1]
+```
 
-` 		`alors afficher "pile vide"
 
-` 	`sinon 
-
-` 		`sommet(P) := sommet(P)-1
-
-` 		`retourner T[sommet(P)+1]
-
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.032.png)
 
 On observe que la procédure empiler ne renvoie rien alors que la fonction dépiler renvoie un élément de la pile.
 
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.033.png)
+
 
 **Exemple :**  Si on lance depiler(P) on obtient :
 
 Observer que T[6] a encore un sens pour le tableau mais plus pour la pile.
 
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.033.png){width=10%; : .center }
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.034.png)
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.034.png){width=10%; : .center }
 
 
 
