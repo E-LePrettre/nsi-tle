@@ -113,7 +113,9 @@ Le haut de la pile est Anakin et le reste est 
 
 
 **<H3 STYLE="COLOR:RED;">Activité n° 1 :**</H3>
+
 1. Donner une représentation en pile de cet ensemble de couleurs : rouge, bleu, vert. On nommera cette pile ```Pcouleur```
+
 2. Donner une représentation en pile de cet ensemble de nombres : 12, 5, 3, 6, 1. On nommera cette pile ```Pentier```.
 
 - Comment manipuler un objet de ce type ?
