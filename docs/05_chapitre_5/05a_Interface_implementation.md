@@ -649,11 +649,13 @@ On observe que la procédure empiler ne renvoie rien alors que la fonction dépi
 Observer que T[6] a encore un sens pour le tableau mais plus pour la pile.
 
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.034.png){width=50%; : .center }
+
 
 
 
 **<H3 STYLE="COLOR:RED;">Activité n° 8 :**</H3> On considère la pile dont la représentation en tableau est :
+
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.034.png){width=50%; : .center }
 
 Pour chaque question, on repartira du tableau de départ.
 1. Qu'obtient-on si on lance successivement depiler(P), depiler(P), depiler(P) et depiler(P).
