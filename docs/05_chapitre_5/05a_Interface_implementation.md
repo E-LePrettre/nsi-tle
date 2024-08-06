@@ -464,92 +464,75 @@ En effet, *queue(F)* est vide au sens de la file. Si *tete(F) = queue(F)* alors 
 
 L’emplacement *queue(F)* doit toujours être vide au sens de la file. Si *tete(F) = queue(F)* + 1, le prochain enfilage sera que *tete(F) = queue(F).*
 
-**Propriété 14** : **Implémentation de la fonction** estVide(F) **:**
-
+**Propriété 14** : **Implémentation de la fonction** ```estVide(F)``` **:**
+```
 estVide(F)
-
 si queue(F) = tete(F)
-
 alors retourner VRAI
-
 sinon retourner FAUX
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.038.png)
+```
 
-**Propriété 15** : **Implémentation de la fonction** enfiler(a,F) **:**
 
+
+**Propriété 15** : **Implémentation de la fonction** ```enfiler(a,F)``` **:**
+```
 enfiler(a,F)
-
-T(queue(F)) := a
-
+T(queue(F)) := a
 si queue(F) = n
-
-alors queue(F) := 1
-
+alors queue(F) := 1
 sinon queue(F) += 1
+```
 
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.039.png)
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.040.png)
+
+
+
 
 
 
 **Exemple** : on dispose d’une file dont la représentation de l’implémentation en tableau est :
 
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.036.png){width=50%; : .center }
 
-![ref1]
 
 
-Si on lance enfiler(17,F) puis enfiler(3,F) et enfin enfiler(5,F), on obtient cette représentation :
+Si on lance ```enfiler(17,F)``` puis ```enfiler(3,F)``` et enfin ```enfiler(5,F)```, on obtient cette représentation :
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.041.png){width=50%; : .center }
 
-**Propriété 16** : **Implémentation de la fonction** defiler(F) **:**
-
+**Propriété 16** : **Implémentation de la fonction** ```defiler(F)``` **:**
+```
 enfiler(F)
-
-x := T[tete(F)]
-
+x := T[tete(F)]
 si tete(F) = n
-
-alors tete(F) := 1
-
+alors tete(F) := 1
 sinon tete(F) += 1
-
 retourner x
+```
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.042.png)
 
-![ref2]
 
 **Exemple** : On dispose de la file de l'exemple précédent :
 
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.042.png)
 
 
 
-
+Si on lance ```defiler(F)```, on obtient :
 
 ![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.044.png)
 
-Si on lance defiler(F), on obtient :
-
-
-
 Observer que T[7] a encore un sens pour le tableau mais plus pour la file.
 
-|<p>**Activité n° AUTONUM  \* Arabic :** On considère la file dont la représentation de l'implémentation en tableau est :</p><p>![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.045.png)</p><p></p><p>1. Qu'obtient-on si on lance successivement defiler(F), defiler(F), defiler(F) et defiler(F).</p><p>2. Qu'obtient-on si on lance successivement defiler(F), defiler(F), defiler(F), defiler(F) et defiler(F).</p><p>3. Qu'obtient-on si on lance successivement enfiler(3,F), enfiler(5,F) et defiler(F)</p>|
-| - |
+**Activité n° 9 :** 
+On considère la file dont la représentation de l'implémentation en tableau est :
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.046.jpeg)
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.036.png)
 
+1. Qu'obtient-on si on lance successivement ```defiler(F), defiler(F), defiler(F)``` et ```defiler(F)```.
 
+2. Qu'obtient-on si on lance successivement ```defiler(F), defiler(F), defiler(F), defiler(F)``` et ```defiler(F)```.
 
-
-
-
-
-
+3. Qu'obtient-on si on lance successivement ```enfiler(3,F), enfiler(5,F)``` et ```defiler(F)```
 
 
-
-
-[ref1]: Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.041.png
-[ref2]: Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.043.png
