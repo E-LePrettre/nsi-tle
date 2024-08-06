@@ -644,9 +644,10 @@ On observe que la procédure empiler ne renvoie rien alors que la fonction dépi
 
 **Exemple :**  Si on lance depiler(P) on obtient :
 
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.033.png){width=50%; : .center }
+
 Observer que T[6] a encore un sens pour le tableau mais plus pour la pile.
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.033.png){width=50%; : .center }
 
 ![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.034.png){width=50%; : .center }
 
