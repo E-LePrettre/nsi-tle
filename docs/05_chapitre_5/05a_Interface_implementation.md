@@ -371,7 +371,7 @@ et de *sommet(P)* = 4
 **Propriété 10 : Implémentation de la fonction estVide(P) :**
 ```
 estVide(paramètre : P)
-si sommet(P) = 0	// signifie que le tableau est vide
+	si sommet(P) = 0	// signifie que le tableau est vide
  		alors retourner VRAI
  	sinon retourner FAUX
 ```
@@ -380,7 +380,7 @@ si sommet(P) = 0	// signifie que le tableau est vide
 **Propriété 11 : Implémentation de la fonction empiler(a, P) :**
 ```
 empiler(paramètres : a,P)
-si sommet(P) = n	// signifie que le tableau est complet
+	si sommet(P) = n	// signifie que le tableau est complet
  		alors afficher "espace insuffisant"
  	sinon 
  		sommet(P) := sommet(P)+1
@@ -398,7 +398,7 @@ si sommet(P) = n	// signifie que le tableau est complet
 **Propriété 12 : Implémentation de la fonction depiler(P) :**
 ```
 depiler(paramètre : P)
-si sommet(P) = 0	
+	si sommet(P) = 0	
  		alors afficher "pile vide"
  	sinon 
  		sommet(P) := sommet(P)-1
@@ -467,9 +467,9 @@ L’emplacement *queue(F)* doit toujours être vide au sens de la file. Si *tete
 **Propriété 14** : **Implémentation de la fonction** ```estVide(F)``` **:**
 ```
 estVide(F)
-si queue(F) = tete(F)
-alors retourner VRAI
-sinon retourner FAUX
+	si queue(F) = tete(F)
+		alors retourner VRAI
+	sinon retourner FAUX
 ```
 
 
@@ -477,10 +477,10 @@ sinon retourner FAUX
 **Propriété 15** : **Implémentation de la fonction** ```enfiler(a,F)``` **:**
 ```
 enfiler(a,F)
-T(queue(F)) := a
-si queue(F) = n
-alors queue(F) := 1
-sinon queue(F) += 1
+	T(queue(F)) := a
+	si queue(F) = n
+		alors queue(F) := 1
+	sinon queue(F) += 1
 ```
 
 
@@ -502,12 +502,12 @@ Si on lance ```enfiler(17,F)``` puis ```enfiler(3,F)``` et enfin ```enfiler(5,
 
 **Propriété 16** : **Implémentation de la fonction** ```defiler(F)``` **:**
 ```
-enfiler(F)
-x := T[tete(F)]
-si tete(F) = n
-alors tete(F) := 1
-sinon tete(F) += 1
-retourner x
+défiler(F)
+	x := T[tete(F)]
+	si tete(F) = n
+		alors tete(F) := 1
+	sinon tete(F) += 1
+	retourner x
 ```
 
 
