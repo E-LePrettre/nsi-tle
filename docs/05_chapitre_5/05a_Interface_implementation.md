@@ -193,9 +193,7 @@ L’**interface d’une structure de données abstraite** est l’ensemble des o
 On peut ajouter d’autres éléments à l’interface mais l’objectif et d’avoir une interface minimale qui permet de manipuler cette structure.
 
 **<H3 STYLE="COLOR:RED;">Activité n° 4 :**</H3> 
-Ecrire un script en pseudo code qui permet de connaitre le nombre d’élément
-
- dans une pile P. On garde la pile P intacte à la fin.
+Ecrire un script en pseudo code qui permet de connaitre le nombre d’élément dans une pile P. On garde la pile P intacte à la fin.
 
 
 **<H3 STYLE="COLOR:RED;">Activité n° 5 :**</H3> 
@@ -421,17 +419,18 @@ On observe que la procédure empiler ne renvoie rien alors que la fonction dépi
 
 Observer que T[6] a encore un sens pour le tableau mais plus pour la pile.
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.033.png){
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.033.png){width=50%; : .center }
 
-width=50%; : .center }
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.034.png){width=50%; : .center }
 
 
 
 **<H3 STYLE="COLOR:RED;">Activité n° 8 :**</H3> On considère la pile dont la représentation en tableau est :
 
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.034.png){width=50%; : .center }
+
 Pour chaque question, on repartira du tableau de départ.
+
 1. Qu'obtient-on si on lance successivement depiler(P), depiler(P), depiler(P) et depiler(P).
 
 2. Qu'obtient-on si on lance successivement depiler(P), depiler(P), depiler(P), depiler(P) et depiler(P).
@@ -600,9 +599,7 @@ et de *sommet(P)* = 4
 ```
 estVide(paramètre : P)
 	si sommet(P) = 0	// signifie que le tableau est vide
- 		alors retourner V
-
-RAI
+ 		alors retourner VRAI
  	sinon retourner FAUX
 ```
 
