@@ -430,9 +430,12 @@ width=50%; : .center }
 
 
 **<H3 STYLE="COLOR:RED;">Activité n° 8 :**</H3> On considère la pile dont la représentation en tableau est :
+
 Pour chaque question, on repartira du tableau de départ.
 1. Qu'obtient-on si on lance successivement depiler(P), depiler(P), depiler(P) et depiler(P).
+
 2. Qu'obtient-on si on lance successivement depiler(P), depiler(P), depiler(P), depiler(P) et depiler(P).
+
 3. Qu'obtient-on si on lance successivement empiler(3,P), empiler(5,P) et depiler(P)
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc145779696"></a>**3.3. Implémentation des files avec des tableaux**</H3>
@@ -521,20 +524,20 @@ défiler(F)
 
 **Exemple** : On dispose de la file de l'exemple précédent :
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.042.png)
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.042.png){width=50%; : .center }
 
 
 
 Si on lance ```defiler(F)```, on obtient :
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.044.png)
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.044.png){width=50%; : .center }
 
 Observer que T[7] a encore un sens pour le tableau mais plus pour la file.
 
 **<H3 STYLE="COLOR:RED;">Activité n° 9 :**</H3> 
 On considère la file dont la représentation de l'implémentation en tableau est :
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.036.png)
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.036.png){width=50%; : .center }
 
 1. Qu'obtient-on si on lance successivement ```defiler(F), defiler(F), defiler(F)``` et ```defiler(F)```.
 
@@ -741,20 +744,20 @@ défiler(F)
 
 **Exemple** : On dispose de la file de l'exemple précédent :
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.042.png)
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.042.png){width=50%; : .center }
 
 
 
 Si on lance ```defiler(F)```, on obtient :
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.044.png)
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.044.png){width=50%; : .center }
 
 Observer que T[7] a encore un sens pour le tableau mais plus pour la file.
 
 **<H3 STYLE="COLOR:RED;">Activité n° 9 :**</H3> 
 On considère la file dont la représentation de l'implémentation en tableau est :
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.036.png)
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.036.png){width=50%; : .center }
 
 1. Qu'obtient-on si on lance successivement ```defiler(F), defiler(F), defiler(F)``` et ```defiler(F)```.
 
