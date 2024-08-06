@@ -653,9 +653,12 @@ Observer que T[6] a encore un sens pour le tableau mais plus pour la pile.
 
 
 **<H3 STYLE="COLOR:RED;">Activité n° 8 :**</H3> On considère la pile dont la représentation en tableau est :
+
 Pour chaque question, on repartira du tableau de départ.
 1. Qu'obtient-on si on lance successivement depiler(P), depiler(P), depiler(P) et depiler(P).
+
 2. Qu'obtient-on si on lance successivement depiler(P), depiler(P), depiler(P), depiler(P) et depiler(P).
+
 3. Qu'obtient-on si on lance successivement empiler(3,P), empiler(5,P) et depiler(P)
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc145779696"></a>**3.3. Implémentation des files avec des tableaux**</H3>
