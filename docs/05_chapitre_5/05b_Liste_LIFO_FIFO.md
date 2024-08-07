@@ -161,7 +161,7 @@ On peut les lire à l'aide des boucles for.
 Les tuples sont **non-mutables** : on ne peut pas modifier leurs contenus après création.
 
 
-**Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé liste\_tuples.py**
+**Sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé liste\_tuples.py**
 
 #### **3.3.1. Implémentation simple avec les tuples**
 
@@ -370,55 +370,135 @@ D : Elle est exponentielle
 
 **Activité n° 8 :**  **structure liste avec des tuples fonction** ```insererElement``` **:**Observer la fonction insererElement.
 ```insererElement(x:Elt, L:Liste, position:int) -> Liste``` : on **renvoie** une nouvelle liste où l'élément fourni x est maintenant l'élément de la liste situé en position **position**. On prendra ici un système de position lié à un index commençant à 0.
+```
+listeA = (12, 15, 18, 4)
+listeB = inserer(5, listeA, 2)
+```
+**listeB** contient alors (12, 15, **5**, 18, 4).
+```python
+def insererElement(x, L, position):
+    '''Renvoie une représentation de la Liste sous forme d'une séquence commençant par la tête '''
+    pass 
+```
 
-listeA = (12, 15, 18, 4)<br>listeB = inserer(5, listeA, 2)<br>**listeB** contient alors (12, 15, **5**, 18, 4).</p><p>def insererElement(x, L, position):<br>`    `'''Renvoie une représentation de la Liste sous forme d'une séquence commençant par la tête '''<br>`    `pass </p><p>Exemple d'utilisation :</p><p>>>> a = insererTete(20, (15, (5, nouvelleListe())))</p><p>>>> afficherListe(a)</p><p>'(20, 15, 5)'</p><p> </p><p>>>> a = insererElement(12, a, 1)</p><p>>>> afficherListe(a)</p><p>'(20, 12, 15, 5)'</p><p> </p><p>>>> a = insererElement(20, a, 2)</p><p>>>> afficherListe(a)</p><p>'(20, 12, 20, 15, 5)'</p><p>**Question** : Que vaut le coût de l'insertion dans le pire des cas pour notre implémentation (lorsque l'élément à rajouter est à placer en fin de liste) :</p><p>A : Elle est logarithmique</p><p>B : Elle est linéaire</p><p>C : Elle est quadratique</p><p>D : Elle est exponentielle</p>|
-| - |
+Exemple d'utilisation :
+```
+>>> a = insererTete(20, (15, (5, nouvelleListe())))
+>>> afficherListe(a)
+'(20, 15, 5)'
+ 
+>>> a = insererElement(12, a, 1)
+>>> afficherListe(a)
+'(20, 12, 15, 5)'
+ 
+>>> a = insererElement(20, a, 2)
+>>> afficherListe(a)
+'(20, 12, 20, 15, 5)'
+```
+**Question** : Que vaut le coût de l'insertion dans le pire des cas pour notre implémentation (lorsque l'élément à rajouter est à placer en fin de liste) :
+
+A : Elle est logarithmique
+
+B : Elle est linéaire
+
+C : Elle est quadratique
+
+D : Elle est exponentielle
 
 Coût de l'implémentation en tuple (tête, queue) : On notera donc que dans le pire des cas :
 
 - La **lecture** est à **coût linéaire** (**Θ(n)**)
 - **L'insertion** et la **suppression** est à **coût linéaire** (**Θ(n)**)
 
-![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.013.png)
 
 Un coût (dans le pire des cas) linéaire en lecture et en insertion. Pas terrible. Regardons si on peut faire mieux.
 
 
-1. ## <a name="_toc151667924"></a>**❤️2<sup>ème</sup> implémentation de la structure liste (chainée) avec les lists de Python❤️**
+### <a name="_toc151667924"></a>**3.4. ❤️2<sup>ème</sup> implémentation de la structure liste (chainée) avec les lists de Python❤️**
 Si le type natif list se nomme ainsi, c'est bien qu'il permet l'implémentation de Liste. Par contre, en interne, il s'agit d'une tableau dynamique qui possède plus de fonctions d'interface que celle du type abstrait **TABLEAU DYNAMIQUE**. La structure de données nommée list est donc un savant mélange de fonctionnalités des tableaux et des listes.
 
-**Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé liste\_list.py**
+**sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé liste\_list.py**
 
-|<p>**Activité n° AUTONUM  \* Arabic :**  **structure liste avec des lists fonction** nouvelleListe**,** estVide **et** lireElement **:** Ces fonctions restent les mêmes en utilisant les lists plustot que les tableaux :</p><p>'''Implémentation 3 de type abstrait Liste en utilisant le type natif liste de Python<br><br>Liste désigne la structure de données que nous utilisons pour gérer les listes.<br>Elt désigne la structure de données pouvant être un élément de nos listes.<br><br>Description rapide de l'interface :<br>-----------------------------------</p><p><br>1 ::: nouvelleListe() -> Liste<br>2 ::: estVide(liste:Liste) -> bool<br>3 ::: lireElement(liste:Liste, index:int) -> Elt <br>4 ::: insererElement(x:Elt, liste:Liste, position:int) -> Liste<br>5 ::: supprimerPosition(liste:Liste, position:int)  -> Liste<br>6 ::: afficherListe(liste:Liste) -> str</p><p>'''<br><br>def nouvelleListe():<br>`    `'''Renvoie une liste vide '''<br>`    `pass<br><br>def estVide(L):<br>`    `'''Renvoie True si la liste est vide '''<br>`    `pass<br><br>def lireElement(L, index=-1):<br>`    `'''Renvoie la valeur stockée à l'index voulu '''<br>`    `pass</p>|
-| - |
+**Activité n° 9 :**  **structure liste avec des lists fonction** ```nouvelleListe```**,** ```estVide``` **et** ```lireElement``` **:** Ces fonctions restent les mêmes en utilisant les lists plustot que les tableaux :
+```python
+'''Implémentation 3 de type abstrait Liste en utilisant le type natif liste de Python
 
-|<p>**Activité n° AUTONUM  \* Arabic :**  **structure liste avec des lists fonction** insererElement**:** On connait déja la méthode append qui permet de rajouter un nouvel élément à la fin de nos objets de type natif list-Python.</p><p>Attention, append modifie la variable sur laquelle on agit MAIS elle ne renvoie rien : il faudra donc l'utiliser sur une copie du tableau et renvoyer cette copie ensuite.</p><p></p><p>La fonction devra toujours renvoyer la copie modifiée.</p><p></p><p>def insererElement(*x*, *L*, *position*):<br>`    `*'''Renvoie une Liste en insérant x à la position position. '''*<br>`    `pass</p>|
-| - |
+Liste désigne la structure de données que nous utilisons pour gérer les listes.
+Elt désigne la structure de données pouvant être un élément de nos listes.
+
+Description rapide de l'interface :
+-----------------------------------
+
+1 ::: nouvelleListe() -> Liste
+2 ::: estVide(liste:Liste) -> bool
+3 ::: lireElement(liste:Liste, index:int) -> Elt 
+4 ::: insererElement(x:Elt, liste:Liste, position:int) -> Liste
+5 ::: supprimerPosition(liste:Liste, position:int)  -> Liste
+6 ::: afficherListe(liste:Liste) -> str
+'''
+
+def nouvelleListe():
+    '''Renvoie une liste vide '''
+    pass
+
+def estVide(L):
+    '''Renvoie True si la liste est vide '''
+    pass
+
+def lireElement(L, index=-1):
+    '''Renvoie la valeur stockée à l'index voulu '''
+    pass
+```
+
+
+**Activité n° 10 :**  **structure liste avec des lists fonction** ```insererElement```**:** On connait déja la méthode append qui permet de rajouter un nouvel élément à la fin de nos objets de type natif list-Python.
+
+Attention, append modifie la variable sur laquelle on agit MAIS elle ne renvoie rien : il faudra donc l'utiliser sur une copie du tableau et renvoyer cette copie ensuite. 
+
+La fonction devra toujours renvoyer la copie modifiée.
+```python
+def insererElement(x, L, position):
+    '''Renvoie une Liste en insérant x à la position position. '''
+    pass
+```
+
 
 **Remarque** il existe également une méthode nommée insert qui permet de faire la même chose en choisissant la position de l'insertion.
 
 **Erreur courante :** Ne faites donc jamais ceci : insert étant une fonction-procédure, comme append, vous allez renvoyer ... None.
-
+```python
 reponse = [element for element in L]
 return reponse.insert(position, x)
+```
 
-|<p>**Activité n° AUTONUM  \* Arabic :**  **structure liste avec des lists fonction** pop**:** De la même façon, il existe une méthode nommée pop qui permet d'extraire un élément (la méthode renvoie l'élément) et modifie le tableau en place.</p><p>On peut donc l'utiliser pour juste modifier le tableau, sans mémoriser la valeur extraite.</p><p>def supprimerPosition(L, position):<br>`    `'''Renvoie une nouvelle liste où on a supprimé l'élément situé à la position fournie'''<br>`    `pass</p>|
-| - |
+**Activité n° 11 :**  **structure liste avec des lists fonction** ```pop```**:** De la même façon, il existe une méthode nommée pop qui permet d'extraire un élément (la méthode renvoie l'élément) et modifie le tableau en place.
+
+On peut donc l'utiliser pour juste modifier le tableau, sans mémoriser la valeur extraite.
+```python
+def supprimerPosition(L, position):
+    '''Renvoie une nouvelle liste où on a supprimé l'élément situé à la position fournie'''
+    pass
+```
+
 
 **Erreur courante :** Il ne faut pas faire ceci :
-
+```python 
 reponse = [element for element in L]
 return reponse.pop(position)
-
+```
 Avec ce code, vous allez renvoyer l'élément supprimé et pas le nouveau tableau
 
-|<p>**Activité n° AUTONUM  \* Arabic :**  **structure liste avec des lists fonction** afficherListe **:**  on rajoute la fonction d’affichage globale de la liste. C’est une fonction optionnel pour notre interface :</p><p>def afficherListe(L):<br>`    `'''Renvoie une représentation de la Liste sous forme d'une séquence commençant par la tête'''<br>`    `return str(tuple(L))</p>|
-| - |
+**Activité n° 12 :**  **structure liste avec des lists fonction** ```afficherListe``` **:**  on rajoute la fonction d’affichage globale de la liste. C’est une fonction optionnel pour notre interface :
+```python
+def afficherListe(L):
+    '''Renvoie une représentation de la Liste sous forme d'une séquence commençant par la tête'''
+    return str(tuple(L))
+```
 
 On va obtenir le même effet pour l'utilisateur, si ce n'est que le code utilise les fonctionnalités de Python et que nous ne connaissons pas les coûts de ces fonctions.
 
 
-1. ## <a name="_toc151667925"></a>**❤️ 3<sup>ème</sup> implémentation de la structure liste (chainée) avec POO ❤️**
+### <a name="_toc151667925"></a>**3.5. ❤️ 3<sup>ème</sup> implémentation de la structure liste (chainée) avec POO ❤️**
 Une liste chaînée est une liste composée **de cellules ou de mailles**, comme une chaîne en métal. Chaque maillon (ou cellule) est associé à au moins deux informations :
 
 - Le **contenu** de la cellule
