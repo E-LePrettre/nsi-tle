@@ -789,18 +789,21 @@ Par exemple, pour insérer une Cellule en position 2, il faudra :
 
 Avant d'insérer la nouvelle Cellule en position2, il faut mémoriser les identifiants des cellules contenant B (**predecesseur**, "index" 1) et C (**successeur**, "index" 2).
 
-![Principe de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.020.png)
+![Principe de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.020.png){width=60%; : .center }
 
 
 Après modification,
 
-![Principe de la liste chaînée][ref1]
+![Principe de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.021.png){width=60%; : .center }
 
 Quelques précisions :
 
 - Pour insérer en position 1 : **predecesseur** est l'élément en position 0, soit ... la tête de la liste.
+
 - Pour insérer en position 2 : **predecesseur** sera l'élément en position 1. Il faut donc faire un bond en avant depuis la tête.
+
 - Pour insérer en position 3 : **predecesseur** sera l'élément en position 2. Il faut donc faire un bond en avant depuis la tête.
+
 - Si je veux insérer en position **position** : **predecesseur** sera la Cellule en position **position** - 1. Il faut donc faire un bond en avant depuis la tête.
 
 |<p>**Activité n° AUTONUM  \* Arabic :**  **structure liste avec de la POO, Création de la structure méthode** insertPosition: Voici une méthode d'interface insertPosition.</p><p>insertPosition(self, newData:Elt, position:int) -> None : on modifie sur place la liste : l'élément fourni newData est maintenant l'élément de la liste situé en position position. On prendra ici un système de position lié à un index commençant à 0.</p><p></p><p>Lorsqu'on veut insérer ailleurs qu'à la tête, cette méthode va</p><p>1. partir de la tête, effectuer position -1 saut vers la cellule suivante, et mémoriser l'identifiant de cette cellule dans **predecesseur**</p><p>2. mémoriser dans **successeur** la référence de la cellule actuellement à la suite de **predecesseur**.</p><p>3. créer la **nouvelle Cellule**, et la faire pointer vers **successeur**</p><p>4. modifier **predecesseur** pour qu'elle pointe vers **nouvelle**.</p><p>![Principe de la liste chaînée]</p><p></p><p>Ajouter la méthode suivante à la classe Liste</p><p>def insertPosition(self, newData, position):<br>`    `pass</p><p></p><p>**Question** : analyser le code pour parvenir à identifier les lignes où sont effectuées précisément les actions 1 à 4 précédentes.</p><p>Tester</p><p>>>> list1.insertPosition('Tuesday', 1)</p><p>>>> list1.head.v</p><p>'Lundi'</p><p>>>> list1.head.n.v</p><p>'Tuesday'</p><p>>>> list1.head.n.n.v</p><p>'Mardi'</p>|
