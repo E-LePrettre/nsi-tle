@@ -135,6 +135,9 @@ print("Je suis {0} {1}, j'ai {2} ans." . format(gollum.prenom, gollum.nom, gollu
 ```txt
 Je suis Jean Dupont, j'ai 33 ans.
 ```
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
 
 Lors de la création de l’instance gollum, Python va automatiquement remplacer self par gollum et ainsi créer trois attributs :
 
@@ -181,6 +184,9 @@ del moi
 Voici Jean Dupont
 décédé(e) à 33 ans
 ```
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
 
 #### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030957"></a>**2.3.4. Les autres méthodes**</H4>
 
@@ -214,6 +220,9 @@ print(qui.ma_residence())
 Je suis Jean Dupont, j'ai 33 ans.
 J'habite Paris.
 ```
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
 
 Pour appeler une méthode de l’instance Personne, il suffit donc d’écrire instance.méthode().
 
@@ -235,6 +244,10 @@ class Personne:
 Je suis Jean Dupont, j'ai 33 ans.
 J'habite Paris.
 ```
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
+
 **<H3 STYLE="COLOR:red;">Activité n° 5 : Surcharge de méthode :**</H3> 
 La méthode spéciale ```__str__``` retourne la chaine de caractère qu’il faut afficher lorsque l’on appelle la fonction print sur l’objet
 ```python
@@ -252,6 +265,9 @@ print(toi)
 ```txt
 Jean Durant
 ```
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc88030959"></a>**2.4. Attributs de classe**</H3>
 Jusqu’à présent, les attributs sont contenus dans l’objet. Ils sont propres à l’objet : si on crée plusieurs objets, les attributs nom, prénom,… de chacun ne seront pas forcément identiques d’un objet à l’autre. Mais on peut aussi définir des **attributs dans la classe**.
@@ -276,6 +292,9 @@ print(Personne.population)
 ```txt
 2
 ```
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
 
 On définit l’attribut de classe directement dans le corps de la classe **avant** la définition du constructeur. Lorsqu’on veut l’appeler dans le constructeur, on **préfixe le nom de l’attribut de classe** par le **nom de la classe :** Personne.population.
 
@@ -327,6 +346,9 @@ print(qui.nom)          # donne le nouveau nom
 Dupont
 Durant
 ```
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
 
 Un **attribut** ne devrait être **public** que si sa modification n'entraîne **pas de changement dans le comportement de l'objet.** Dans le cas contraire, il faut **passer par une méthode**.
 
@@ -363,7 +385,11 @@ print(qui.__nom)         # lève l’exception AttibuteError car l’attribut n�
 qui.__nom = 'Durant'      # ne modifie pas l’attribut
 print(qui.get_name())
 ```
-On met en commentaire la ligne levant l’exception
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
+
+Sur Thonny : On met en commentaire la ligne levant l’exception
 ```python
 class Personne:
     """Classe définissant une personne caractérisée par :
@@ -390,6 +416,9 @@ print(qui.get_name())
 Dupont
 Dupont
 ```
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
 
 **<H3 STYLE="COLOR:red;">Activité n° 9 : attributs privés et mutateur**</H3>
 ```python
@@ -423,6 +452,9 @@ print(qui.get_name())
 Dupont
 Durant
 ```
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
 
 Le mutateur récupère l’argument fournit dans le paramètre (nom) et place la chaine dans ```self.__nom```.
 
@@ -475,6 +507,9 @@ print(qui.nom)
 Dupont
 Durant
 ```
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
 
 **<H3 STYLE="COLOR:red;">(Hors programme) Activité n° 11 : Encapsulation de l’attribut**</H3>
 contrôle de l’accès à l’attribut
@@ -506,6 +541,9 @@ print(qui.age)
 33
 33
 ```
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
 
 La **méthode spéciale** ```__getattr__``` permet de définir une méthode d’accès aux attributs plus large que celle que Python propose par défaut. En fait, cette méthode est appelée quand on tape objet.attribut (non pas pour modifier l’attribut mais simplement pour y accéder). Python recherche l’attribut et, s’il ne le trouve pas dans l’objet et si une méthode ```__getattr__``` existe, il va l’appeler en lui passant en paramètre le nom de l’attribut recherché, sous la forme d’une **chaine de caractères**.
 
@@ -534,6 +572,9 @@ qui.age = 10      # ne modifie pas l’attribut car < 17
 print(qui.age)
 print(qui.nom)   # lever d’exception car nom est un attribut privé (n’existe pas)
 ```
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
 
 Lever d'exception
 
@@ -570,6 +611,10 @@ Attribut introuvable
 Attribut introuvable
 ```
 
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
+
 **<H3 STYLE="COLOR:red;">(Hors programme)Activité n° 13 : Ce qu’il ne faut pas faire !!**</H3>
 ```python
 class Personne:
@@ -599,6 +644,9 @@ print(qui.age)    # résultat très étonnant...
 Albert 18
 33
 ```
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc88030965"></a>**3.2. (Hors programme) Héritage**</H3>
 
@@ -637,6 +685,10 @@ print("{0} : {1}".format(qui.get_identity(), qui.get_matricule()))
 ```txt 
 Jean Dupont : 007
 ```
+
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
 
 On n’a pas besoin de redéfinir les attribut nom et prenom de la classe AgentSpecial puisqu’elle hérite de Personne.
 
@@ -702,6 +754,10 @@ print("identité : {0}".format(toi.get_identity()))
 identité : 007
 identité : Jean Durant
 ```
+
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
 
 #### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030971"></a>**3.3.2. (Hors programme) Polymorphisme statique : surcharge d’opérateurs**</H4>
 
@@ -813,6 +869,9 @@ print(factoriel(4))
 appel de la fonction <function factoriel at 0x000001CF559CD040>
 24
 ```
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
 
 On peut ainsi poursuivre le débogage et tracer les appels récursifs de la fonction factoriel()
 
@@ -845,6 +904,9 @@ appel de la fonction 2
 appel de la fonction 1
 24
 ```
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
 
 Il est important de noter que les décorateurs peuvent s’utiliser avec des méthodes de classes.
 
@@ -878,7 +940,9 @@ appel de la fonction 4
 24
 ```
 
+???+ question "Tester ce qui est proposé"
 
+    {{ IDE() }}
 
 
 
