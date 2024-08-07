@@ -731,19 +731,60 @@ reponse = readPosition(listeA, 1)
 reponse peut alors être représentée par 15.
 ```
 
-|<p>**Activité n° AUTONUM  \* Arabic :**  **structure liste avec de la POO, Création de la structure méthode** isEmpty : Créer la méthode d'interface isEmpty. Votre méthode devra bien entendu travailler avec la classe Liste. On ira lire directement son attribut head, sans respect aucun pour l'encapsulation de l'objet. Ajouter la méthode à la classe Liste :</p><p>def isEmpty(self):<br>`    `pass</p><p>Tester :</p><p>>>> list1.isEmpty()<br>False</p><p>>>> list2 = Liste()</p><p>>>> list2.isEmpty()</p><p>True</p>|
-| - |
+**Activité n° 19 :**  **structure liste avec de la POO, Création de la structure méthode** ```isEmpty``` : Créer la méthode d'interface ```isEmpty```. Votre méthode devra bien entendu travailler avec la classe Liste. On ira lire directement son attribut head, sans respect aucun pour l'encapsulation de l'objet. Ajouter la méthode à la classe Liste :
+```python 
+def isEmpty(self):
+   pass
+```
+Tester
+```
+>>> list1.isEmpty()
+False
+>>> list2 = Liste()
+>>> list2.isEmpty()
+True
+```
 
-|<p>**Activité n° AUTONUM  \* Arabic :**  **structure liste avec de la POO, Création de la structure méthode** insertHead: Créer une méthode d’interface insertHead. La solution est : </p><p>- de mémoriser l’ancienne entête dans variable temporaire temporary, </p><p>- Créer une instance de Node dont la valeur stockée est newData et qui pointe en sortie vers l’ancienne tête</p><p>- Modifier l’attribut head de la Liste pour qu’il corresponde bien à la nouvelle instance de Node</p><p>Ajouter la méthode à la classe Liste :</p><p>def insertHead(self, newData): <br>`    `pass</p><p>Tester</p><p>>>> list1.insertHead('sunday')</p><p>>>> list1.insertHead('saturday')</p><p>>>> list1.head.v</p><p>'saturday'</p><p>>>> list1.head.n.v</p><p>'sunday'</p><p>>>> list1.head.n.n.v</p><p>'Lundi'</p><p>>>> list1.head.n.n.n.v</p><p>'Mardi'</p>|
-| - |
+
+
+**Activité n° 20 :**  **structure liste avec de la POO, Création de la structure méthode** ```insertHead```: Créer une méthode d’interface ```insertHead```. La solution est : 
+
+- de mémoriser l’ancienne entête dans variable temporaire temporary, 
+
+- Créer une instance de Node dont la valeur stockée est newData et qui pointe en sortie vers l’ancienne tête
+
+- Modifier l’attribut head de la Liste pour qu’il corresponde bien à la nouvelle instance de Node
+
+Ajouter la méthode à la classe Liste :
+```python
+def insertHead(self, newData): 
+    pass
+```
+Tester :
+```
+>>> list1.insertHead('sunday')
+>>> list1.insertHead('saturday')
+>>> list1.head.v
+'saturday'
+>>> list1.head.n.v
+'sunday'
+>>> list1.head.n.n.v
+'Lundi'
+>>> list1.head.n.n.n.v
+'Mardi'
+```
+
 
 Pour réaliser la méthode insertPosition :
 
 Par exemple, pour insérer une Cellule en position 2, il faudra :
 
 - Mémoriser l'adresse nommée **predecesseur** de l'élément en position 1 (celle de contenu B ici)
+
 - Mémoriser l'adresse nommée **successeur** de l'élément en position 2 actuellement (celle de contenu C ici).
+
 - Créer une nouvelle cellule **nouvelle** (celle de contenu Z ici) et la faire pointer vers **successeur**.
+
 - Faire pointer **predecesseur** sur notre **nouvelle** cellule.
 
 Avant d'insérer la nouvelle Cellule en position2, il faut mémoriser les identifiants des cellules contenant B (**predecesseur**, "index" 1) et C (**successeur**, "index" 2).
