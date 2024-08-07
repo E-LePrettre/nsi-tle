@@ -806,7 +806,19 @@ Quelques précisions :
 
 - Si je veux insérer en position **position** : **predecesseur** sera la Cellule en position **position** - 1. Il faut donc faire un bond en avant depuis la tête.
 
-|<p>**Activité n° AUTONUM  \* Arabic :**  **structure liste avec de la POO, Création de la structure méthode** insertPosition: Voici une méthode d'interface insertPosition.</p><p>insertPosition(self, newData:Elt, position:int) -> None : on modifie sur place la liste : l'élément fourni newData est maintenant l'élément de la liste situé en position position. On prendra ici un système de position lié à un index commençant à 0.</p><p></p><p>Lorsqu'on veut insérer ailleurs qu'à la tête, cette méthode va</p><p>1. partir de la tête, effectuer position -1 saut vers la cellule suivante, et mémoriser l'identifiant de cette cellule dans **predecesseur**</p><p>2. mémoriser dans **successeur** la référence de la cellule actuellement à la suite de **predecesseur**.</p><p>3. créer la **nouvelle Cellule**, et la faire pointer vers **successeur**</p><p>4. modifier **predecesseur** pour qu'elle pointe vers **nouvelle**.</p><p>![Principe de la liste chaînée]</p><p></p><p>Ajouter la méthode suivante à la classe Liste</p><p>def insertPosition(self, newData, position):<br>`    `pass</p><p></p><p>**Question** : analyser le code pour parvenir à identifier les lignes où sont effectuées précisément les actions 1 à 4 précédentes.</p><p>Tester</p><p>>>> list1.insertPosition('Tuesday', 1)</p><p>>>> list1.head.v</p><p>'Lundi'</p><p>>>> list1.head.n.v</p><p>'Tuesday'</p><p>>>> list1.head.n.n.v</p><p>'Mardi'</p>|
+**Activité 21 :**  **structure liste avec de la POO, Création de la structure méthode** ```insertPosition```: Voici une méthode d'interface ```insertPosition```.
+
+```insertPosition(self, newData:Elt, position:int) -> None``` : on modifie sur place la liste : l'élément fourni newData est maintenant l'élément de la liste situé en position position. On prendra ici un système de position lié à un index commençant à 0.
+
+Lorsqu'on veut insérer ailleurs qu'à la tête, cette méthode va
+
+1. partir de la tête, effectuer position -1 saut vers la cellule suivante, et mémoriser l'identifiant de cette cellule dans **predecesseur**
+
+2. mémoriser dans **successeur** la référence de la cellule actuellement à la suite de **predecesseur**.
+
+3. créer la **nouvelle Cellule**, et la faire pointer vers **successeur**
+
+4. modifier **predecesseur** pour qu'elle pointe vers **nouvelle**.</p><p>![Principe de la liste chaînée]</p><p></p><p>Ajouter la méthode suivante à la classe Liste</p><p>def insertPosition(self, newData, position):<br>`    `pass</p><p></p><p>**Question** : analyser le code pour parvenir à identifier les lignes où sont effectuées précisément les actions 1 à 4 précédentes.</p><p>Tester</p><p>>>> list1.insertPosition('Tuesday', 1)</p><p>>>> list1.head.v</p><p>'Lundi'</p><p>>>> list1.head.n.v</p><p>'Tuesday'</p><p>>>> list1.head.n.n.v</p><p>'Mardi'</p>|
 | - |
 
 |<p>**Activité n° AUTONUM  \* Arabic :**  **structure liste avec de la POO, Création de la structure :** L'insertion pure ne concerne que les lignes suivantes</p><p>`        `# nextNode = previousNode.n  # on mémorise la cellule qu'il faudra "déplacer"<br>`        `# newNode = Node(newData, nextNode)<br>`        `# previousNode.n = newNode<br>`        `# qui se résume par<br>`        `self.head = Node(newData, self.head)</p><p>Ici le coût est bien constant. Par contre, que peut-on dire du coût de la recherche de la Cellule **predecesseur** dans le pire des cas ?</p><p>`        `previousNode = self.head<br>`        `for etape in range(1,position): #On avance jusqu’à(position-1) pour trouver previous<br>`            `previousNode = previousNode.n</p><p>Au total, que peut-on alors dire du coût de l'insertion ?</p>|
