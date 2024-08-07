@@ -575,28 +575,126 @@ Pour pouvoir lire la séquence de cellules, on va créer une méthode returnFina
 
 Si on part ici de la tête qui contient le string "Lundi", on devrait lire la séquence des jours et renvoyer la référence de la dernière cellule, celle qui contient "Dimanche".
 
-|<p>**Activité n° AUTONUM  \* Arabic :**  **structure liste avec de la POO, Création de la classe Cellule méthode returnFinalNode**</p><p>**Prototype :** returnFinalNode(cellule:Cellule) -> Cellule :</p><p>C'est une méthode **récursive**. Le principe est le suivant :</p><p>- Si l'attribut n de cette cellule est vide : renvoyer node (la Cellule en cours d'étude). En effet, s'il n'y a pas de suite, c'est bien que node est la dernière.</p><p>- Sinon : renvoyer returnFinalNode(node.n)</p><p>**Questions**</p><p>1. Quelle est la condition d'arrêt ?</p><p>2. Quel est le cas de base ?</p><p>3. Comment parvient-on à avancer dans les Cellules ? Que fait l'appel récursif ?</p><p></p><p>Mettre à jour la classe Node que vous avez créé avec le code suivant et compléter la méthode returnFinalNode</p><p>class Node:<br>`    `'''Classe permettant de créer des cellules-maillons basiques'''<br>`    `def \_\_init\_\_(self, value, next=None):<br>`        `# ce qui a été fait précédemment<br><br>`    `def returnFinalNode(self):<br>`        `pass</p><p></p><p># Programme principal<br>if \_\_name\_\_ == '\_\_main\_\_':<br>`    `di = Node("Dimanche")<br>`    `sa = Node("Samedi", di)<br>`    `ve = Node("Vendredi", sa)<br>`    `je = Node("Jeudi", ve)<br>`    `me = Node("Mercredi", je)<br>`    `ma = Node("Mardi", me)<br>`    `lu = Node("Lundi", ma)</p>|
-| - |
+**Activité n° 16 :**  **structure liste avec de la POO, Création de la classe Cellule méthode returnFinalNode**
+**Prototype :** ```returnFinalNode(cellule:Cellule) -> Cellule``` :
 
-|<p>**Activité n° AUTONUM  \* Arabic :**  **structure liste avec de la POO, Création de la classe Cellule méthode** \_\_str\_\_: On peut ajouter une méthode pour l’affichage de la Cellule (Node)</p><p>`    `def \_\_str\_\_(self): # on peut mettre \_\_repr\_\_ à la place pour éviter de taper print</p><p>`        `if self.v:<br>`            `return str(self.v) + "-" + str(self.n)<br>`        `else:<br>`            `return str(self.v)</p><p>Tester l’affichage avec </p><p>>>> print(lu) # avec ou non print selon si \_\_str\_\_ ou \_\_repr\_\_</p><p>>>> print(je)</p><p>>>> print(je.returnFinalNode())</p><p>>>> print(ma.returnFinalNode())</p>|
-| - |
+C'est une méthode **récursive**. Le principe est le suivant :
+- Si l'attribut n de cette cellule est vide : renvoyer node (la Cellule en cours d'étude). En effet, s'il n'y a pas de suite, c'est bien que node est la dernière.
 
-1. ### **Création de la Liste Chainée Liste**
+- Sinon : renvoyer returnFinalNode(node.n)
 
-|<p>**Activité n° AUTONUM  \* Arabic :**  **structure liste avec de la POO, Création de la classe Liste chainée :** La première Cellule constitue l**’entête** (head). Initialement son **pointeur sera de type None**.</p><p>Puis son pointeur sera **chainé à la deuxième Cellule** et ainsi de suite jusqu’à la dernière qui aura un **pointeur de type None** qui constituera la fin de la liste.</p><p>**Code à compléter :** Mettre à jour et  compléter le constructeur</p><p>class Node:<br>`    `'''Classe permettant de créer des cellules-maillons basiques'''<br>`    `def \_\_init\_\_(self, value, next=None):<br>`        `# ce qui a été fait précédemment<br><br>`    `def returnFinalNode(self):<br>`        `# ce qui a été fait précédemment<br><br>`    `def \_\_str\_\_(self): # on peut mettre \_\_repr\_\_ à la place pour éviter de taper print<br>`        `if self.v:<br>`            `return str(self.v) + "-" + str(self.n)<br>`        `else:<br>`            `return str(self.v)</p><p><br>class Liste:<br>`    `'''Classe implémenter une Liste sous forme Liste chaînée '''<br>`    `def \_\_init\_\_(self, head = None):<br>`        `assert type(head) == Node or head == None<br>`        `pass</p><p><br># Programme principal<br>if \_\_name\_\_ == '\_\_main\_\_':<br>`    `di = Node("Dimanche")<br>`    `sa = Node("Samedi", di)<br>`    `ve = Node("Vendredi", sa)<br>`    `je = Node("Jeudi", ve)<br>`    `me = Node("Mercredi", je)<br>`    `ma = Node("Mardi", me)<br>`    `lu = Node("Lundi", ma)<br>`    `list1 = Liste(lu)</p><p></p><p>**Questions :**</p><p>1. Comment obtenir dans la console le contenu de la tête en utilisant l'objet list1 ?</p><p>2. Comment obtenir le contenu de l'élément suivant en utilisant l'objet list1 ?</p><p>3. Comment obtenir le contenu de l'élément encore derrière en utilisant l'objet list1 ?</p>|
-| - |
+**Questions**
+
+1. Quelle est la condition d'arrêt ?
+
+2. Quel est le cas de base ?
+
+3. Comment parvient-on à avancer dans les Cellules ? Que fait l'appel récursif ?<
+
+Mettre à jour la classe Node que vous avez créé avec le code suivant et compléter la méthode ```returnFinalNode```
+```python
+class Node:
+    '''Classe permettant de créer des cellules-maillons basiques'''
+    def __init__(self, value, next=None):
+        # ce qui a été fait précédemment
+
+    def returnFinalNode(self):
+        pass
+
+# Programme principal
+if __name__ == '__main__':
+    di = Node("Dimanche")
+    sa = Node("Samedi", di)
+    ve = Node("Vendredi", sa)
+    je = Node("Jeudi", ve)
+    me = Node("Mercredi", je)
+    ma = Node("Mardi", me)
+    lu = Node("Lundi", ma)
+```
+
+
+**Activité n° 17 :**  **structure liste avec de la POO, Création de la classe Cellule méthode** \_\_str\_\_: On peut ajouter une méthode pour l’affichage de la Cellule (Node)
+```python
+    def __str__(self): # on peut mettre __repr__ à la place pour éviter de taper print
+        if self.v:
+            return str(self.v) + "-" + str(self.n)
+        else:
+            return str(self.v)
+```
+
+
+Tester l’affichage avec 
+```
+>>> print(lu) # avec ou non print selon si __str__ ou __repr__
+>>> print(je)
+>>> print(je.returnFinalNode())
+>>> print(ma.returnFinalNode())
+```
+
+
+
+#### **3.5.2. Création de la Liste Chainée Liste**
+
+**Activité n° 18 :**  **structure liste avec de la POO, Création de la classe Liste chainée :** La première Cellule constitue l**’entête** (head). Initialement son **pointeur sera de type None**.
+Puis son pointeur sera **chainé à la deuxième Cellule** et ainsi de suite jusqu’à la dernière qui aura un **pointeur de type None** qui constituera la fin de la liste.
+
+**Code à compléter :** Mettre à jour et  compléter le constructeur
+```python
+class Node:
+    '''Classe permettant de créer des cellules-maillons basiques'''
+    def __init__(self, value, next=None):
+        # ce qui a été fait précédemment
+
+    def returnFinalNode(self):
+        # ce qui a été fait précédemment
+
+    def __str__(self): # on peut mettre __repr__ à la place pour éviter de taper print
+        if self.v:
+            return str(self.v) + "-" + str(self.n)
+        else:
+            return str(self.v)
+
+class Liste:
+    '''Classe implémenter une Liste sous forme Liste chaînée '''
+    def __init__(self, head = None):
+        assert type(head) == Node or head == None
+        pass
+
+# Programme principal
+if __name__ == '__main__':
+    di = Node("Dimanche")
+    sa = Node("Samedi", di)
+    ve = Node("Vendredi", sa)
+    je = Node("Jeudi", ve)
+    me = Node("Mercredi", je)
+    ma = Node("Mardi", me)
+    lu = Node("Lundi", ma)
+    list1 = Liste(lu)
+```
+
+
+**Questions :**
+
+1. Comment obtenir dans la console le contenu de la tête en utilisant l'objet list1 ?
+
+2. Comment obtenir le contenu de l'élément suivant en utilisant l'objet list1 ?
+
+3. Comment obtenir le contenu de l'élément encore derrière en utilisant l'objet list1 ?
 
 Le constructeur de la classe Liste utilise type plutôt que isinstance (classe Node) pour vérifier que l'objet reçu est bien une instance. C'est juste pour vous montrer qu'on peut tester cela de deux façons
-1. ### **Création de l’interface : Liste « souple », version mutable**
-![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.019.png)
 
-1. nouvelleList() -> Liste : on crée une nouvelle liste vide. Cette méthode correspond au constructeur de classe Liste
-1. isEmpty(L:Liste) -> bool : renvoie un booléen qui vaut True si la liste L transmise est une liste vide.
+#### **3.5.3. Création de l’interface : Liste « souple », version mutable**
 
+![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.019.png){width=25%; : .center }
+
+1. ```nouvelleList() -> Liste``` : on crée une nouvelle liste vide. Cette méthode correspond au constructeur de classe Liste
+
+1. ```isEmpty(L:Liste) -> bool``` : renvoie un booléen qui vaut True si la liste L transmise est une liste vide.
+```
 listeA = Liste()
 isEmpty(listeA) va donc renvoyer l'équivalent de True.
-
-1. insertPosition(x:Elt, L:Liste, position:int) -> None : on **modifie sur place** la liste : l'élément fourni x est maintenant l'élément de la liste situé en position position. On prendra ici un système de position lié à un index commençant à 0.
+```
+1. ```insertPosition(x:Elt, L:Liste, position:int) -> None``` : on **modifie sur place** la liste : l'élément fourni x est maintenant l'élément de la liste situé en position position. On prendra ici un système de position lié à un index commençant à 0.
 
 listeA peut être représentée par (12, 15, 18, 4)
 
