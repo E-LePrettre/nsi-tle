@@ -93,7 +93,7 @@ Les **listes chaînées** constituent une structure de données :
 ### <a name="_toc151667921"></a>**3.1. Obtenir une définition** 
 Lorsque l'implémentation de la liste fait apparaître une chaîne de valeurs, chacune pointant vers la suivante, on dit que la liste est une liste **chaînée**.
 
-![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.004.png)
+![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.004.png){width=30%; : .center }
 
 Une **liste chaînée** permet de représenter une liste ; *chaque élément de cette liste est une **cellule*** contenant :
 
@@ -165,9 +165,9 @@ Les tuples sont **non-mutables** : on ne peut pas modifier leurs contenus après
 
 #### **3.3.1. Implémentation simple avec les tuples**
 
-![Principe de l'interface LISP entre l'utilisateur et les données](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.010.png)
+![Principe de l'interface entre l'utilisateur et les données](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.010.png){width=25%; : .center }
 
-![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.011.png)
+![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.011.png){width=30%; : .center }
 
 En utilisant des tuples pour implémenter la structure de liste.
 
@@ -320,7 +320,7 @@ Utiliser les instructions suivantes :
 #### **3.3.2. Implémentation plus souple avec les tuples** 
 Nous voudrions par exemple parvenir à lire n'importe quelle valeur de notre liste, pas seulement la tête.
 
-![Principe de l'interface d'une liste plus souple](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.012.png)
+![Principe de l'interface d'une liste plus souple](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.012.png){width=25%; : .center }
 
 L'avantage de notre implémentation par rapport au type abstrait : on colle au plus près à la structure (tête, queue).
 
@@ -508,7 +508,7 @@ Et **c'est tout.**
 
 Du coup, la représentation de la liste donnerait cette fois quelque chose comme ceci :
 
-![Principe de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.014.png)
+![Principe de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.014.png){width=30%; : .center }
 
 Les maillons (ou cellules) sont placés les uns derrière les autres, mais rien ne nous y oblige.
 
@@ -516,43 +516,62 @@ Pour insérer un nouvel élément, il suffit de **rediriger la lecture vers le n
 
 **Exemple** ci-dessous : 
 
-![ref1]
+![Principe de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.015.png){width=30%; : .center }
 
 Du coup, il n'y a toujours **que 2 étapes pour insérer un nouvel élément**, quel que soit la longueur de la liste. On doit donc obtenir sur nos implémentations futures, un coût d'insertion constant.
 
 Pour une grosse liste :
 
-![Principe de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.016.png)
+![Principe de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.016.png){width=30%; : .center }
 
 Le changement de tête ne nécessite que **deux opérations** avec une liste chaînée (alors qu'avec un tableau, il fallait déplacer toutes les cases avant de placer l'index 0) :
 
-![Principe de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.017.png)
+![Principe de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.017.png){width=30%; : .center }
 
 Le **désavantage** lors de l'implémentation va être la **lecture** : pour lire le contenu de la 5e cellule, il faut passer par la lecture des précédentes : on commence par aller à la tête qui va nous dire où aller ensuite, etc...
 
 L'avantage du tableau par contre, c'est qu'on trouve très rapidement le contenu associé à un index. Là, c'est à coût constant.
 
-**Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé liste\_POO.py**
+**Sur Thonny Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé liste\_POO.py**
 
 Une liste chainée sera donc composée d’une Cellule (Node) constituée d’une tête contenant la valeur (Value) et d’une queue (Next) qui servira de pointeur vers la Cellule suivante.
-1. ### **Création de la Cellule Node**
+#### **3.5.1. Création de la Cellule Node**
 
-|<p>**Activité n° AUTONUM  \* Arabic :**  **structure liste avec de la POO, Création de la classe Cellule :** Chaque Cellule est constituée d’une **tete** et d’un **pointeur**. Il faut donc **initialiser l’attribut value et l’attribut next**. </p><p></p><p>Créer une classe Node qui peut recevoir deux paramètres lors de l'appel du constructeur : un paramètre value et un paramètre next. Les deux valeurs transmises devront être stockées dans deux attributs nommés v et n.</p><p>class Node:<br>`    `'''Classe permettant de créer des cellules-maillons basiques'''<br>`    `def \_\_init\_\_(self, value, next=None):<br>`        `assert isinstance(next, Node) or next == None<br>`        `pass</p><p></p><p>Tester le constructeur avec quelques créations :</p><p>>>> c1 = Node(5, None)</p><p>>>> c2 = Node(15, c1)</p><p>>>> c3 = Node(25, c2)</p><p>>>> c4 = Node(35, c3)</p>|
-| - |
+**Activité 13 :**  **structure liste avec de la POO, Création de la classe Cellule :** Chaque Cellule est constituée d’une **tete** et d’un **pointeur**. Il faut donc **initialiser l’attribut value et l’attribut next**. 
+Créer une classe Node qui peut recevoir deux paramètres lors de l'appel du constructeur : un paramètre value et un paramètre next. Les deux valeurs transmises devront être stockées dans deux attributs nommés v et n.
+```python
+class Node:
+    '''Classe permettant de créer des cellules-maillons basiques'''
+    def __init__(self, value, next=None):
+        assert isinstance(next, Node) or next == None
+        pass
+```
 
-|**Activité n° AUTONUM  \* Arabic :**  **structure liste avec de la POO, Création de la classe Cellule :** Représenter sur feuille la structure séquentielle linéaire (schéma des cellules) créée par les instructions précédentes.|
-| - |
+Tester le constructeur avec quelques créations :
+```
+>>> c1 = Node(5, None)
+>>> c2 = Node(15, c1)
+>>> c3 = Node(25, c2)
+>>> c4 = Node(35, c3)
+```
+
+**Activité n° 14 :**  **structure liste avec de la POO, Création de la classe Cellule :** Représenter sur feuille la structure séquentielle linéaire (schéma des cellules) créée par les instructions précédentes.
 
 Notre cellule possède encore un léger problème : on pourrait lui transmettre n'importe quoi sur le paramètre next, pas nécessairement quelque chose de compatible avec l'attribut n qui doit contenir un objet Node ou None. On pourrait donc **imposer** en programmation défensive que ce paramètre soit bien l'instance d'une cellule ou None. Ce sont en effet les deux possibilités.
 
-|<p>**Activité n° AUTONUM  \* Arabic :**  **structure liste avec de la POO, Création de la classe Cellule :** tester les instructions suivantes</p><p>>>> a = Node('Marie-Antoinette', None)</p><p>>>> b = Node('Louis XVI', a)</p><p>>>> c = Node('Louis XV', 'Louis XVI')</p><p>Expliquer ce qui provoque l'erreur ?</p>|
-| - |
+**Activité n° 15 :**  **structure liste avec de la POO, Création de la classe Cellule :** tester les instructions suivantes
+```
+>>> a = Node('Marie-Antoinette', None)
+>>> b = Node('Louis XVI', a)
+>>> c = Node('Louis XV', 'Louis XVI')
+```
+
 
 **Attention** : **n n'est pas la queue mais un élément de la queue**. Ce qu'on nomme queue est bien l'ensemble des valeurs derrière la tête, pas juste la première.
 
 Pour pouvoir lire la séquence de cellules, on va créer une méthode returnFinalNode récursive qui aura la charge d'afficher progressivement les valeurs des cellules et de renvoyer au final la référence de la dernière cellule de la séquence, celle qui ne possède pas d'attribut n.
 
-![Principe de la lecture de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.018.png)
+![Principe de la lecture de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.018.png){width=30%; : .center }
 
 Si on part ici de la tête qui contient le string "Lundi", on devrait lire la séquence des jours et renvoyer la référence de la dernière cellule, celle qui contient "Dimanche".
 
