@@ -206,8 +206,11 @@ Vérifier le bon fonctionnement de cette implémentation en exécutant ces instr
 Quelle est la seule proposition qui respecte l'interface imposée par le créateur de cette implémentation ?
 
 **Activité n° 3 :**  **structure liste avec des tuples fonction** ```insererTete``` : Créer maintenant la fonction d'interface suivante : 
+
 ```insererTete(x:Elt, L:Liste) -> Liste``` : on **renvoie** une nouvelle liste où la tête est maintenant l'élément x et la queue la liste précédente L.
+
 **AIDE** : il suffit de renvoyer un nouveau tuple dont la tête est notre x et la queue l'ancien tuple !
+
 Voici un exemple d'utilisation :	
 ```python
 # constructeur
@@ -226,15 +229,22 @@ def insererTete(x,L) :
 (2, (5, ()))
 ```
 
-**Activité n° 4 :**  **structure liste avec des tuples fonction** ```supprimerTete``` : Dernière fonction d'interface, supprimer la tête :<
+**Activité n° 4 :**  **structure liste avec des tuples fonction** ```supprimerTete``` : Dernière fonction d'interface, supprimer la tête :
+
 ```supprimerTete(L:Liste) -> Liste``` : on **renvoie** une nouvelle liste où la tête est maintenant le deuxième élément (la tête de la queue précédente !). Techniquement, cela revient bien à supprimer l'ancienne tête si on enregistre cette nouvelle version dans une variable. Notez bien qu'on aurait pu nommer cette fonction ```recupererQueue``` puisque c'est ce qu'elle fait.
+
 **Précondition** : L est une liste (ici () ou (tete,queue)), queue étant une liste.
 
 Imaginons la liste suivante :
+
 **5** → **8** → **2** → **3**
+
 Votre fonction doit renvoyer ceci :
+
 **8** → **2** → **3**
+
 **AIDE** : la tête est l'index 0 de la liste et la queue est son index 1.
+
 **AIDE 2** : pensez à gérer
 
 - le cas particulier de la liste vide () : pas de nouvelle tête puisque pas de queue. Il faudra renvoyer une liste vide.
@@ -271,6 +281,7 @@ def supprimerTete(L):
 ```
 
 **Activité n° 5 :**  **structure liste avec des tuples fonction** ```lireTete``` : Réaliser la fonction d'interface permettant de lire la tête :
+
 ```lireTete(L:Liste) -> Elt``` : on renvoie la tête de la liste L.
 
 **Précondition** : L est une liste (ici () ou (tete,queue)), queue étant une liste.
@@ -320,7 +331,7 @@ Utiliser les instructions suivantes :
 #### **3.3.2. Implémentation plus souple avec les tuples** 
 Nous voudrions par exemple parvenir à lire n'importe quelle valeur de notre liste, pas seulement la tête.
 
-![Principe de l'interface d'une liste plus souple](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.012.png){width=25%; : .center }
+![Principe de l'interface d'une liste plus souple](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.012.png){width=(50%; : .center }
 
 L'avantage de notre implémentation par rapport au type abstrait : on colle au plus près à la structure (tête, queue).
 
