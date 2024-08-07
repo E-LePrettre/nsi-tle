@@ -296,12 +296,28 @@ def lireTete(L):
 >>> 
 ```
 
+**Activité n° 6 :**  **structure liste avec des tuples fonction** ```afficherListe```: Il nous manque encore une chose qui pourrait être pratique mais qui ne fait pas partie de l'interface obligatoire : de quoi représenter la liste sans montrer son implémentation mémoire réelle.
+
+Nous aimerions afficher (20, 15, 5) plutôt que (20, (15, (5, ()))). On lit, puis on supprime chaque valeur de la tête que l’on ajoute à une liste vide. On renvoie un string
+```python
+def afficherListe(L):
+    '''Renvoie une représentation de la Liste sous forme d'une séquence commençant par la tête    '''
+    reponse = []
+    # à compléter
+    return str(tuple(reponse))
+```
+Elle renvoie un string représentant le contenu interne de la Liste **de façon totalement arbitraire** : le contenu affiché n'a rien à voir avec le contenu réel (des tuples dans des tuples).
+
+Utiliser les instructions suivantes :
+```
+>>> a = insererTete(20, (15, (5, nouvelleListe())))
+>>> afficherListe(a)
+'(20, 15, 5)'
+```
+**Question** : Un utilisateur peut-il avoir une idée de l'implémentation interne de notre Liste en utilisant nos fonctions d'interface ?
 
 
-|<p>` `**Activité n° AUTONUM  \* Arabic :**  **structure liste avec des tuples fonction** afficherListe: Il nous manque encore une chose qui pourrait être pratique mais qui ne fait pas partie de l'interface obligatoire : de quoi représenter la liste sans montrer son implémentation mémoire réelle.</p><p>Nous aimerions afficher (20, 15, 5) plutôt que (20, (15, (5, ()))). On lit, puis on supprime chaque valeur de la tête que l’on ajoute à une liste vide. On renvoie un string</p><p>def afficherListe(L):<br>`    `'''Renvoie une représentation de la Liste sous forme d'une séquence commençant par la tête    '''<br>`    `reponse = []<br>`    `# à compléter<br>`    `return str(tuple(reponse))</p><p>Elle renvoie un string représentant le contenu interne de la Liste **de façon totalement arbitraire** : le contenu affiché n'a rien à voir avec le contenu réel (des tuples dans des tuples).</p><p></p><p>Utiliser les instructions suivantes :</p><p>>>> a = insererTete(20, (15, (5, nouvelleListe())))</p><p>>>> afficherListe(a)</p><p>'(20, 15, 5)'</p><p>**Question** : Un utilisateur peut-il avoir une idée de l'implémentation interne de notre Liste en utilisant nos fonctions d'interface ?</p>|
-| - |
-
-1. ### **Implémentation plus souple avec les tuples** 
+#### **3.3.2. Implémentation plus souple avec les tuples** 
 Nous voudrions par exemple parvenir à lire n'importe quelle valeur de notre liste, pas seulement la tête.
 
 ![Principe de l'interface d'une liste plus souple](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.012.png)
@@ -310,10 +326,52 @@ L'avantage de notre implémentation par rapport au type abstrait : on colle au 
 
 Voyons maintenant les désavantages.
 
-|<p>**Activité n° AUTONUM  \* Arabic :**  **structure liste avec des tuples fonction** lireElement : Créer la fonction d'interface lireElement en utilisant les fonctions d'interface que nous avons déjà créé : il faudra utiliser supprimerTete jusqu'à arriver à la bonne.</p><p>Combien de fois doit-on utiliser supprimerTete pour atteindre l'élément d'index **position** ?</p><p>Que doit-on faire une fois qu'on a récupéré la bonne liste ?</p><p>lireElement(L:Liste, position:int) -> Elt : on **renvoie** l'élément stocké en position **position**.</p><p>listeA = (12, 15, 18, 4)<br>reponse = lireElement(listeA, 1)<br>**reponse** contient alors 15.</p><p>**Précondition** : L est une liste et **position** un index valide.</p><p>Exemple d'utilisation :</p><p>def lireElement(L, position):<br>`    `'''Renvoie une représentation de la Liste sous forme d'une séquence commençant par la tête'''<br>`    `pass</p><p>>>> a = insererTete(20, (15, (5, nouvelleListe())))</p><p>>>> lireElement(a, 1)</p><p>15</p><p> </p><p>>>> lireElement(a, 0)</p><p>20</p><p> </p><p>>>> lireElement(a, 2)</p><p>5</p><p>Le pire des cas pour la lecture est ici le fait de vouloir lire la dernière valeur de la liste.</p><p>**Question** : Que vaut le coût de la lecture d'éléments pour notre implémentation :</p><p>A : Elle est logarithmique</p><p>B : Elle est linéaire</p><p>C : Elle est quadratique</p><p>D : Elle est exponentielle</p>|
-| - |
+**Activité n° 7 :**  **structure liste avec des tuples fonction** ```lireElement``` : Créer la fonction d'interface lireElement en utilisant les fonctions d'interface que nous avons déjà créé : il faudra utiliser supprimerTete jusqu'à arriver à la bonne.
 
-|<p>**Activité n° AUTONUM  \* Arabic :**  **structure liste avec des tuples fonction** insererElement **:**Observer la fonction insererElement.</p><p>insererElement(x:Elt, L:Liste, position:int) -> Liste : on **renvoie** une nouvelle liste où l'élément fourni x est maintenant l'élément de la liste situé en position **position**. On prendra ici un système de position lié à un index commençant à 0.</p><p>listeA = (12, 15, 18, 4)<br>listeB = inserer(5, listeA, 2)<br>**listeB** contient alors (12, 15, **5**, 18, 4).</p><p>def insererElement(x, L, position):<br>`    `'''Renvoie une représentation de la Liste sous forme d'une séquence commençant par la tête '''<br>`    `pass </p><p>Exemple d'utilisation :</p><p>>>> a = insererTete(20, (15, (5, nouvelleListe())))</p><p>>>> afficherListe(a)</p><p>'(20, 15, 5)'</p><p> </p><p>>>> a = insererElement(12, a, 1)</p><p>>>> afficherListe(a)</p><p>'(20, 12, 15, 5)'</p><p> </p><p>>>> a = insererElement(20, a, 2)</p><p>>>> afficherListe(a)</p><p>'(20, 12, 20, 15, 5)'</p><p>**Question** : Que vaut le coût de l'insertion dans le pire des cas pour notre implémentation (lorsque l'élément à rajouter est à placer en fin de liste) :</p><p>A : Elle est logarithmique</p><p>B : Elle est linéaire</p><p>C : Elle est quadratique</p><p>D : Elle est exponentielle</p>|
+Combien de fois doit-on utiliser supprimerTete pour atteindre l'élément d'index **position** ?
+
+Que doit-on faire une fois qu'on a récupéré la bonne liste ?
+```lireElement(L:Liste, position:int) -> Elt``` : on **renvoie** l'élément stocké en position **position**.
+```
+listeA = (12, 15, 18, 4)
+reponse = lireElement(listeA, 1)
+```
+reponse contient alors 15.
+
+**Précondition** : L est une liste et **position** un index valide.
+
+Exemple d'utilisation :
+```python
+def lireElement(L, position):
+    '''Renvoie une représentation de la Liste sous forme d'une séquence commençant par la tête'''
+    pass
+```
+```
+>>> a = insererTete(20, (15, (5, nouvelleListe())))
+>>> lireElement(a, 1)
+15
+ 
+>>> lireElement(a, 0)
+20
+ 
+>>> lireElement(a, 2)
+5
+```
+Le pire des cas pour la lecture est ici le fait de vouloir lire la dernière valeur de la liste.
+**Question** : Que vaut le coût de la lecture d'éléments pour notre implémentation :
+
+A : Elle est logarithmique
+
+B : Elle est linéaire
+
+C : Elle est quadratique
+
+D : Elle est exponentielle
+
+**Activité n° 8 :**  **structure liste avec des tuples fonction** ```insererElement``` **:**Observer la fonction insererElement.
+```insererElement(x:Elt, L:Liste, position:int) -> Liste``` : on **renvoie** une nouvelle liste où l'élément fourni x est maintenant l'élément de la liste situé en position **position**. On prendra ici un système de position lié à un index commençant à 0.
+
+listeA = (12, 15, 18, 4)<br>listeB = inserer(5, listeA, 2)<br>**listeB** contient alors (12, 15, **5**, 18, 4).</p><p>def insererElement(x, L, position):<br>`    `'''Renvoie une représentation de la Liste sous forme d'une séquence commençant par la tête '''<br>`    `pass </p><p>Exemple d'utilisation :</p><p>>>> a = insererTete(20, (15, (5, nouvelleListe())))</p><p>>>> afficherListe(a)</p><p>'(20, 15, 5)'</p><p> </p><p>>>> a = insererElement(12, a, 1)</p><p>>>> afficherListe(a)</p><p>'(20, 12, 15, 5)'</p><p> </p><p>>>> a = insererElement(20, a, 2)</p><p>>>> afficherListe(a)</p><p>'(20, 12, 20, 15, 5)'</p><p>**Question** : Que vaut le coût de l'insertion dans le pire des cas pour notre implémentation (lorsque l'élément à rajouter est à placer en fin de liste) :</p><p>A : Elle est logarithmique</p><p>B : Elle est linéaire</p><p>C : Elle est quadratique</p><p>D : Elle est exponentielle</p>|
 | - |
 
 Coût de l'implémentation en tuple (tête, queue) : On notera donc que dans le pire des cas :
