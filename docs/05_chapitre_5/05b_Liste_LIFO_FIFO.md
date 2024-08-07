@@ -165,7 +165,7 @@ Les tuples sont **non-mutables** : on ne peut pas modifier leurs contenus après
 
 #### **3.3.1. Implémentation simple avec les tuples**
 
-![Principe de l'interface entre l'utilisateur et les données](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.010.png){width=25%; : .center }
+![Principe de l'interface entre l'utilisateur et les données](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.010.png){width=50%; : .center }
 
 ![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.011.png){width=60%; : .center }
 
@@ -331,7 +331,7 @@ Utiliser les instructions suivantes :
 #### **3.3.2. Implémentation plus souple avec les tuples** 
 Nous voudrions par exemple parvenir à lire n'importe quelle valeur de notre liste, pas seulement la tête.
 
-![Principe de l'interface d'une liste plus souple](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.012.png){width=(50%; : .center }
+![Principe de l'interface d'une liste plus souple](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.012.png){width=50%; : .center }
 
 L'avantage de notre implémentation par rapport au type abstrait : on colle au plus près à la structure (tête, queue).
 
