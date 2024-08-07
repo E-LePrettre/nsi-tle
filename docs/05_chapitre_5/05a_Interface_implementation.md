@@ -111,6 +111,7 @@ Le haut de la pile est Anakin et le reste est 
 
 ![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.006.jpeg){width=25%; : .center }
 
+**=> CAPYTALE Le code vous sera donné par votre enseignant**
 
 **<H3 STYLE="COLOR:RED;">Activité n° 1 :**</H3>
 
