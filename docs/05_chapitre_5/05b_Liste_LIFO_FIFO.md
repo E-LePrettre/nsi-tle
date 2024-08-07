@@ -380,6 +380,7 @@ C : Elle est quadratique
 D : Elle est exponentielle
 
 **Activité n° 8 :**  **structure liste avec des tuples fonction** ```insererElement``` **:**Observer la fonction insererElement.
+
 ```insererElement(x:Elt, L:Liste, position:int) -> Liste``` : on **renvoie** une nouvelle liste où l'élément fourni x est maintenant l'élément de la liste situé en position **position**. On prendra ici un système de position lié à un index commençant à 0.
 ```
 listeA = (12, 15, 18, 4)
