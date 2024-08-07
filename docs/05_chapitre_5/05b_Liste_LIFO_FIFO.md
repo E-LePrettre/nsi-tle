@@ -167,7 +167,7 @@ Les tuples sont **non-mutables** : on ne peut pas modifier leurs contenus après
 
 ![Principe de l'interface entre l'utilisateur et les données](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.010.png){width=25%; : .center }
 
-![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.011.png){width=30%; : .center }
+![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.011.png){width=60%; : .center }
 
 En utilisant des tuples pour implémenter la structure de liste.
 
