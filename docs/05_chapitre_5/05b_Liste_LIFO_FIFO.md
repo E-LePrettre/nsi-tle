@@ -93,7 +93,7 @@ Les **listes chaînées** constituent une structure de données :
 ### <a name="_toc151667921"></a>**3.1. Obtenir une définition** 
 Lorsque l'implémentation de la liste fait apparaître une chaîne de valeurs, chacune pointant vers la suivante, on dit que la liste est une liste **chaînée**.
 
-![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.004.png){width=30%; : .center }
+![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.004.png){width=60%; : .center }
 
 Une **liste chaînée** permet de représenter une liste ; *chaque élément de cette liste est une **cellule*** contenant :
 
