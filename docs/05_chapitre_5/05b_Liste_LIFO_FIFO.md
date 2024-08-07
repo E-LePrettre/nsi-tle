@@ -520,7 +520,7 @@ Et **c'est tout.**
 
 Du coup, la représentation de la liste donnerait cette fois quelque chose comme ceci :
 
-![Principe de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.014.png){width=30%; : .center }
+![Principe de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.014.png){width=50%; : .center }
 
 Les maillons (ou cellules) sont placés les uns derrière les autres, mais rien ne nous y oblige.
 
@@ -528,17 +528,17 @@ Pour insérer un nouvel élément, il suffit de **rediriger la lecture vers le n
 
 **Exemple** ci-dessous : 
 
-![Principe de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.015.png){width=30%; : .center }
+![Principe de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.015.png){width=50%; : .center }
 
 Du coup, il n'y a toujours **que 2 étapes pour insérer un nouvel élément**, quel que soit la longueur de la liste. On doit donc obtenir sur nos implémentations futures, un coût d'insertion constant.
 
 Pour une grosse liste :
 
-![Principe de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.016.png){width=30%; : .center }
+![Principe de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.016.png){width=50%; : .center }
 
 Le changement de tête ne nécessite que **deux opérations** avec une liste chaînée (alors qu'avec un tableau, il fallait déplacer toutes les cases avant de placer l'index 0) :
 
-![Principe de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.017.png){width=30%; : .center }
+![Principe de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.017.png){width=50%; : .center }
 
 Le **désavantage** lors de l'implémentation va être la **lecture** : pour lire le contenu de la 5e cellule, il faut passer par la lecture des précédentes : on commence par aller à la tête qui va nous dire où aller ensuite, etc...
 
@@ -550,6 +550,7 @@ Une liste chainée sera donc composée d’une Cellule (Node) constituée d’un
 #### **3.5.1. Création de la Cellule Node**
 
 **Activité 13 :**  **structure liste avec de la POO, Création de la classe Cellule :** Chaque Cellule est constituée d’une **tete** et d’un **pointeur**. Il faut donc **initialiser l’attribut value et l’attribut next**. 
+
 Créer une classe Node qui peut recevoir deux paramètres lors de l'appel du constructeur : un paramètre value et un paramètre next. Les deux valeurs transmises devront être stockées dans deux attributs nommés v et n.
 ```python
 class Node:
@@ -583,7 +584,7 @@ Notre cellule possède encore un léger problème : on pourrait lui transmettre 
 
 Pour pouvoir lire la séquence de cellules, on va créer une méthode returnFinalNode récursive qui aura la charge d'afficher progressivement les valeurs des cellules et de renvoyer au final la référence de la dernière cellule de la séquence, celle qui ne possède pas d'attribut n.
 
-![Principe de la lecture de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.018.png){width=30%; : .center }
+![Principe de la lecture de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.018.png){width=50%; : .center }
 
 Si on part ici de la tête qui contient le string "Lundi", on devrait lire la séquence des jours et renvoyer la référence de la dernière cellule, celle qui contient "Dimanche".
 
@@ -591,6 +592,7 @@ Si on part ici de la tête qui contient le string "Lundi", on devrait lire la s
 **Prototype :** ```returnFinalNode(cellule:Cellule) -> Cellule``` :
 
 C'est une méthode **récursive**. Le principe est le suivant :
+
 - Si l'attribut n de cette cellule est vide : renvoyer node (la Cellule en cours d'étude). En effet, s'il n'y a pas de suite, c'est bien que node est la dernière.
 
 - Sinon : renvoyer returnFinalNode(node.n)
@@ -648,6 +650,7 @@ Tester l’affichage avec
 #### **3.5.2. Création de la Liste Chainée Liste**
 
 **Activité n° 18 :**  **structure liste avec de la POO, Création de la classe Liste chainée :** La première Cellule constitue l**’entête** (head). Initialement son **pointeur sera de type None**.
+
 Puis son pointeur sera **chainé à la deuxième Cellule** et ainsi de suite jusqu’à la dernière qui aura un **pointeur de type None** qui constituera la fin de la liste.
 
 **Code à compléter :** Mettre à jour et  compléter le constructeur
@@ -697,7 +700,7 @@ Le constructeur de la classe Liste utilise type plutôt que isinstance (classe N
 
 #### **3.5.3. Création de l’interface : Liste « souple », version mutable**
 
-![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.019.png){width=25%; : .center }
+![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.019.png){width=50%; : .center }
 
 1. ```nouvelleList() -> Liste``` : on crée une nouvelle liste vide. Cette méthode correspond au constructeur de classe Liste
 
@@ -707,25 +710,26 @@ listeA = Liste()
 isEmpty(listeA) va donc renvoyer l'équivalent de True.
 ```
 1. ```insertPosition(x:Elt, L:Liste, position:int) -> None``` : on **modifie sur place** la liste : l'élément fourni x est maintenant l'élément de la liste situé en position position. On prendra ici un système de position lié à un index commençant à 0.
-
+```
 listeA peut être représentée par (12, 15, 18, 4)
 
 insertPosition(5, listeA, 2)
 listeA peut alors être représentée par (12, 15, 5, 18, 4).
-
-1. delPosition(L:Liste, position:int) -> None : on **modifie sur place** la liste : l'élément en position position est supprimé, rendant la liste moins longue.
-
+```
+1. ```delPosition(L:Liste, position:int) -> None``` : on **modifie sur place** la liste : l'élément en position position est supprimé, rendant la liste moins longue.
+```
 listeA peut être représentée par (12, 15, 18, 4)
 
 delPosition(listeA, 1)
 listeA peut alors être représentée par (12, 18, 4).
-
-1. readPosition(L:Liste, position:int) -> Elt : on **renvoie** l'élément stocké en position position
-
+```
+1. ```readPosition(L:Liste, position:int) -> Elt``` : on **renvoie** l'élément stocké en position position
+```
 listeA peut être représentée par (12, 15, 18, 4)
 
 reponse = readPosition(listeA, 1)
 reponse peut alors être représentée par 15.
+```
 
 |<p>**Activité n° AUTONUM  \* Arabic :**  **structure liste avec de la POO, Création de la structure méthode** isEmpty : Créer la méthode d'interface isEmpty. Votre méthode devra bien entendu travailler avec la classe Liste. On ira lire directement son attribut head, sans respect aucun pour l'encapsulation de l'objet. Ajouter la méthode à la classe Liste :</p><p>def isEmpty(self):<br>`    `pass</p><p>Tester :</p><p>>>> list1.isEmpty()<br>False</p><p>>>> list2 = Liste()</p><p>>>> list2.isEmpty()</p><p>True</p>|
 | - |
