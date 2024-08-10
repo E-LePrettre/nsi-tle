@@ -823,12 +823,43 @@ Lorsqu'on veut insérer ailleurs qu'à la tête, cette méthode va
 ![Principe de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.022.png){width=60%; : .center }
 
 
-##########################=> 
-Ajouter la méthode suivante à la classe Liste</p><p>def insertPosition(self, newData, position):<br>`    `pass</p><p></p><p>**Question** : analyser le code pour parvenir à identifier les lignes où sont effectuées précisément les actions 1 à 4 précédentes.</p><p>Tester</p><p>>>> list1.insertPosition('Tuesday', 1)</p><p>>>> list1.head.v</p><p>'Lundi'</p><p>>>> list1.head.n.v</p><p>'Tuesday'</p><p>>>> list1.head.n.n.v</p><p>'Mardi'</p>|
-| - |
 
-|<p>**Activité n° AUTONUM  \* Arabic :**  **structure liste avec de la POO, Création de la structure :** L'insertion pure ne concerne que les lignes suivantes</p><p>`        `# nextNode = previousNode.n  # on mémorise la cellule qu'il faudra "déplacer"<br>`        `# newNode = Node(newData, nextNode)<br>`        `# previousNode.n = newNode<br>`        `# qui se résume par<br>`        `self.head = Node(newData, self.head)</p><p>Ici le coût est bien constant. Par contre, que peut-on dire du coût de la recherche de la Cellule **predecesseur** dans le pire des cas ?</p><p>`        `previousNode = self.head<br>`        `for etape in range(1,position): #On avance jusqu’à(position-1) pour trouver previous<br>`            `previousNode = previousNode.n</p><p>Au total, que peut-on alors dire du coût de l'insertion ?</p>|
-| - |
+Ajouter la méthode suivante à la classe Liste
+```python
+def insertPosition(self, newData, position):
+    pass
+```
+
+**Question** : analyser le code pour parvenir à identifier les lignes où sont effectuées précisément les actions 1 à 4 précédentes.
+
+Tester
+```
+>>> list1.insertPosition('Tuesday', 1)
+>>> list1.head.v
+'Lundi'
+>>> list1.head.n.v
+'Tuesday'
+>>> list1.head.n.n.v
+'Mardi'
+```
+
+
+**Activité n° 22 :**  **structure liste avec de la POO, Création de la structure :** L'insertion pure ne concerne que les lignes suivantes
+```python
+        # nextNode = previousNode.n  # on mémorise la cellule qu'il faudra "déplacer"
+        # newNode = Node(newData, nextNode)
+        # previousNode.n = newNode
+        # qui se résume par
+        self.head = Node(newData, self.head)
+```
+Ici le coût est bien constant. Par contre, que peut-on dire du coût de la recherche de la Cellule **predecesseur** dans le pire des cas ?
+```python
+        previousNode = self.head
+        for etape in range(1,position): #On avance jusqu’à(position-1) pour trouver previous
+            previousNode = previousNode.n
+```
+Au total, que peut-on alors dire du coût de l'insertion ?
+
 
 C'est un peu décevant du coup...
 
@@ -840,21 +871,21 @@ Imaginons qu'on dispose des deux listes. L'une de 20 000 éléments et l'autre d
 
 D'abord, il faut réserver une nouvelle place mémoire de 40 000 places :
 
-![Création d'un nouveau tableau](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.022.png)
+![Création d'un nouveau tableau](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.022.png){width=60%; : .center }
 
 Ensuite, il faut déplacer un par un les 20 000 éléments du premier tableau.
 
-![Déplacement des éléments de A](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.023.png)
+![Déplacement des éléments de A](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.023.png){width=60%; : .center }
 
 Puis on déplace les 20 000 éléments du deuxième tableau.
 
-![Déplacement des éléments de B](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.024.png)
+![Déplacement des éléments de B](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.024.png){width=60%; : .center }
 
 Il suffit alors de connaître **la dernière Cellule de la première liste** (au pire, 20 000 lectures, c'est toujours mieux que 40 000 déplacements avec les tableaux) et **de la faire pointer vers la tête de la deuxième ligne**.
 
 On pourra donc écrire des choses comme cela : lst1 + lst2. Cela veut juste dire de faire pointer la Cellule de fin de la première liste vers la tête de la deuxième liste.
 
-![Changement de référence](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.025.png)
+![Changement de référence](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.025.png){width=60%; : .center }
 
 En conclusion, le type abstrait LISTE peut s'implémenter de plusieurs façons différentes.
 
@@ -862,24 +893,73 @@ Les deux grandes implémentations sont sous forme d'une **structure de données 
 
 En fonction de besoin de votre algorithme, on prendra donc l'un ou l'autre.
 
-![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.026.png)
 
-|<p>**Activité n° AUTONUM  \* Arabic :**  **structure liste avec de la POO, Création de la structure FONCTION** afficherListe et recupererValeur : en utilisant l'interface, l'utilisateur peut-il se douter que les données sont stockées sous forme d'une liste chaînée composée d'objets ?</p><p>Ajouter les 2 fonctions :</p><p>def afficherListe(L):<br>`    `tableau = recupererValeur(L.head)<br>`    `return str(tuple(tableau))<br><br>def recupererValeur(cellule):<br>`    `if cellule.n == None:<br>`        `return [cellule.v]<br>`    `else:<br>`        `return [cellule.v] + recupererValeur(cellule.n)</p><p></p><p># Programme principal<br>if \_\_name\_\_ == '\_\_main\_\_':<br>`    `di = Node("Dimanche")<br>`    `sa = Node("Samedi", di)<br>`    `ve = Node("Vendredi", sa)<br>`    `je = Node("Jeudi", ve)<br>`    `me = Node("Mercredi", je)<br>`    `ma = Node("Mardi", me)<br>`    `lu = Node("Lundi", ma)<br>`    `list1 = Liste(lu)<br>`    `print(afficherListe(list1))</p>|
-| - |
+**Activité n° 23 :**  **structure liste avec de la POO, Création de la structure FONCTION** ```afficherListe``` et ```recupererValeur``` : en utilisant l'interface, l'utilisateur peut-il se douter que les données sont stockées sous forme d'une liste chaînée composée d'objets ?
 
-|<p>**Activité n° AUTONUM  \* Arabic :**  **structure liste avec de la POO, Création de la structure méthode** delPosition : Compléter la méthode.</p><p>def delPosition(self, position):<br>`    `pass</p><p>Tester</p><p>>>> afficherListe(list1)</p><p>"('Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche')"</p><p>>>> list1.delPosition(3)</p><p>>>> afficherListe(list1)</p><p>"('Mardi', 'Mercredi', 'Jeudi', 'Samedi', 'Dimanche')" </p>|
-| - |
+Ajouter les 2 fonctions :
+```python
+def afficherListe(L):
+    tableau = recupererValeur(L.head)
+    return str(tuple(tableau))
 
-|<p>**Activité n° AUTONUM  \* Arabic :**  **structure liste avec de la POO, Création de la structure autres méthodes** : Réaliser maintenant la méthode d'interface de lecture des valeurs. Voici le prototype.</p><p>readPosition(self:Liste, position:int) -> Elt : on renvoie l'élément stocké en position position.</p><p>def readPosition(self, position):<br>`    `pass</p><p>Tester</p><p>>>> list1.readPosition(2)</p><p>'Jeudi'</p>|
-| - |
+def recupererValeur(cellule):
+    if cellule.n == None:
+        return [cellule.v]
+    else:
+        return [cellule.v] + recupererValeur(cellule.n)
+
+# Programme principal
+if __name__ == '__main__':
+    di = Node("Dimanche")
+    sa = Node("Samedi", di)
+    ve = Node("Vendredi", sa)
+    je = Node("Jeudi", ve)
+    me = Node("Mercredi", je)
+    ma = Node("Mardi", me)
+    lu = Node("Lundi", ma)
+    list1 = Liste(lu)
+    print(afficherListe(list1))
+```
 
 
-1. # <a name="_toc151667926"></a>**Les piles**
-   1. ## <a name="_toc151667927"></a>**Généralités**
+**Activité n° 24 :**  **structure liste avec de la POO, Création de la structure méthode** ```delPosition``` : Compléter la méthode.
+```python
+def delPosition(self, position):
+    pass
+```
+Tester
+```
+>>> afficherListe(list1)
+"('Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche')"
+>>> list1.delPosition(3)
+>>> afficherListe(list1)
+"('Mardi', 'Mercredi', 'Jeudi', 'Samedi', 'Dimanche')" 
+```
+
+
+**Activité n° 25 :**  **structure liste avec de la POO, Création de la structure autres méthodes** : Réaliser maintenant la méthode d'interface de lecture des valeurs. Voici le prototype.
+
+```readPosition(self:Liste, position:int) -> Elt``` : on renvoie l'élément stocké en position position.
+```python
+def readPosition(self, position):
+    pass
+```
+Tester
+```
+>>> list1.readPosition(2)
+'Jeudi'
+```
+
+
+## <a name="_toc151667926"></a>**4. Les piles**
+### <a name="_toc151667927"></a>**4.1. Généralités**
 En informatique, une **pile** (en anglais **stack**) est une structure de données fondée sur le principe « dernier arrivé, premier sorti » (ou **LIFO pour Last In, First Out**), ce qui veut dire que les derniers éléments ajoutés à la pile seront les premiers à être récupérés.
-![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.027.png)
 
-![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.028.png)Le fonctionnement est donc celui d’une pile d’assiettes : on ajoute des assiettes sur la pile, et on les récupère dans l’ordre inverse, en commençant par la dernière ajoutée.
+
+![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.028.png){width=60%; : .center }
+
+
+Le fonctionnement est donc celui d’une pile d’assiettes : on ajoute des assiettes sur la pile, et on les récupère dans l’ordre inverse, en commençant par la dernière ajoutée.
 
 Voici quelques exemples d’usage courant d’une pile: 
 
