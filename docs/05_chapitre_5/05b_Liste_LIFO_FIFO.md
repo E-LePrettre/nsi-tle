@@ -1000,48 +1000,265 @@ Nous utiliserons une simple liste pour représenter la pile. Il se trouve que le
 
 **Activité n° 26 : Structure pile avec les listes :** Compléter la **structure de base** suivante :
 
-**Remarque** : La fonction empiler ne renvoie rien.</p><p>'''Implémentation de type abstrait Pile en utilisant les listes de Python<br>'''<br><br>def pileVide() :<br>`    `pass<br><br>def estVide(pile) :<br>`    `pass<br><br>def empiler(pile, element) :<br>`    `pass<br><br>def depiler(pile)<br>`    `pass</p><p></p><p># Programme principal</p><p>if \_\_name\_\_ == '\_\_main\_\_':<br>`    `ma\_pile = pileVide()<br>`    `assert estVide(ma\_pile) == True<br>`    `empiler(ma\_pile, 'Lundi')<br>`    `empiler(ma\_pile, 'Mardi')<br>`    `empiler(ma\_pile, 'Mercredi')<br>`    `assert estVide(ma\_pile) == False<br>`    `assert depiler(ma\_pile) == 'Mercredi'<br>`    `assert depiler(ma\_pile) == 'Mardi'<br>`    `assert depiler(ma\_pile) == 'Lundi'<br>`    `assert depiler(ma\_pile) == 'Pile vide'</p>|
-| - |
+**Remarque** : La fonction empiler ne renvoie rien.
+```python
+'''Implémentation de type abstrait Pile en utilisant les listes de Python'''
 
-|<p>**Activité n° AUTONUM  \* Arabic : Structure pile avec les listes :** On va rajouter à la structure de base précédente deux fonctions : taille et sommet qui permettent respectivement de retourner la taille de la pile (sans utiliser la fonction de python len !!) et le sommet de la pile (sans utiliser les indices !!). On ne pourra utiliser seulement les fonctions primitives précédentes et en devra récupérer la pile originelle telle qu’elle était.</p><p>On pourra s’aider d’une  pile auxiliaire.</p><p>def taille(pile):<br>`    `pass<br>def sommet(pile):<br>`    `pass<br><br># Programme principal<br>if \_\_name\_\_ == '\_\_main\_\_':<br>`    `ma\_pile = pileVide()<br>`    `empiler(ma\_pile, 'Lundi')<br>`    `empiler(ma\_pile, 'Mardi')<br>`    `empiler(ma\_pile, 'Mercredi')<br>`    `assert taille(ma\_pile) == 3<br>`    `assert sommet(ma\_pile) == 'Mercredi'</p>|
-| - |
+def pileVide() :
+    pass
 
-1. ## <a name="_toc151667929"></a>**❤️2<sup>ème</sup> implémentation de la structure pile avec la POO et les lists de Python❤️**
-**Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé pile\_POO\_list.py**
+def estVide(pile) :
+    pass
 
-|<p>**Activité n° AUTONUM  \* Arabic : Structure pile avec la POO et les lists de Python :** Créer une classe Pile qui construit une liste vide, puis compléter les autres méthodes de la classe  :</p><p>'''Implémentation 3 de type abstrait Liste en utilisant la POO et les listes de Python'''<br><br>class Pile:<br>`    `'''Classe permettant de créer des piles'''<br>`    `def \_\_init\_\_(self):<br>`        `pass<br><br>`    `def estVide(self) :<br>`        `pass<br><br>`    `def empiler(self, element) :<br>`        `pass<br><br>`    `def depiler(self):<br>`        `pass</p><p></p><p>if \_\_name\_\_ == '\_\_main\_\_':<br>`    `p = Pile()<br>`    `for i in range(4):<br>`        `p.empiler(2 \* i)</p><p>Tester :</p><p>>>> p.estVide() </p><p>>>> p.depiler()</p><p>>>> p.depiler()</p><p>>>> p.depiler()</p><p>>>> p.depiler()</p><p>>>> p.depiler()</p>|
-| - |
+def empiler(pile, element) :
+    pass
 
-|<p>**Activité n° AUTONUM  \* Arabic : Structure pile avec la POO et les lists de Python:** On va rajouter à la structure de base précédente deux méthodes de la classe Pile : taille et sommet qui permettent respectivement de retourner la taille de la pile (sans utiliser la fonction de python len !!) et le sommet de la pile (sans utiliser les indices !!). On ne pourra utiliser seulement les fonctions primitives précédentes et en devra récupérer la pile originelle telle qu’elle était.</p><p>On pourra s’aider d’une  pile auxiliaire.</p><p>`    `def taille(self):<br>`        `pass<br><br>`    `def sommet(self):<br>`        `pass <br><br>if \_\_name\_\_ == '\_\_main\_\_':<br>`    `p = Pile()<br>`    `for i in range(4):<br>`        `p.empiler(2 \* i)</p><p>Tester :</p><p>>>> p.taille()</p><p>>>> p.sommet()</p>|
-| - |
+def depiler(pile)
+    pass
+
+# Programme principal
+if __name__ == '__main__':
+    ma_pile = pileVide()
+    assert estVide(ma_pile) == True
+    empiler(ma_pile, 'Lundi')
+    empiler(ma_pile, 'Mardi')
+    empiler(ma_pile, 'Mercredi')
+    assert estVide(ma_pile) == False
+    assert depiler(ma_pile) == 'Mercredi'
+    assert depiler(ma_pile) == 'Mardi'
+    assert depiler(ma_pile) == 'Lundi'
+    assert depiler(ma_pile) == 'Pile vide'
+```
+
+**Activité n° 27 : Structure pile avec les listes :** On va rajouter à la structure de base précédente deux fonctions : ```taille``` et ```sommet``` qui permettent respectivement de retourner la taille de la pile (sans utiliser la fonction de python len !!) et le sommet de la pile (sans utiliser les indices !!). On ne pourra utiliser seulement les fonctions primitives précédentes et en devra récupérer la pile originelle telle qu’elle était.
+
+On pourra s’aider d’une  pile auxiliaire.
+```python
+def taille(pile):
+    pass
+def sommet(pile):
+    pass
+
+# Programme principal
+if __name__ == '__main__':
+    ma_pile = pileVide()
+    empiler(ma_pile, 'Lundi')
+    empiler(ma_pile, 'Mardi')
+    empiler(ma_pile, 'Mercredi')
+    assert taille(ma_pile) == 3
+    assert sommet(ma_pile) == 'Mercredi'
+```
+
+
+### <a name="_toc151667929"></a>**4.3. ❤️2<sup>ème</sup> implémentation de la structure pile avec la POO et les lists de Python❤️**
+**Sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé pile\_POO\_list.py**
+
+**Activité n° 28 : Structure pile avec la POO et les lists de Python :** Créer une classe Pile qui construit une liste vide, puis compléter les autres méthodes de la classe  :
+```python
+'''Implémentation 3 de type abstrait Liste en utilisant la POO et les listes de Python'''
+
+class Pile:
+    '''Classe permettant de créer des piles'''
+    def __init__(self):
+        pass
+
+    def estVide(self) :
+        pass
+
+    def empiler(self, element) :
+        pass
+
+    def depiler(self):
+        pass
+
+if __name__ == '__main__':
+    p = Pile()
+    for i in range(4):
+        p.empiler(2 * i)
+```
+Tester :
+```
+>>> p.estVide() 
+>>> p.depiler()
+>>> p.depiler()
+>>> p.depiler()
+>>> p.depiler()
+>>> p.depiler()
+```
+
+**Activité n° 29 : Structure pile avec la POO et les lists de Python:** On va rajouter à la structure de base précédente deux méthodes de la classe Pile : ```taille``` et ```sommet``` qui permettent respectivement de retourner la taille de la pile (sans utiliser la fonction de python len !!) et le sommet de la pile (sans utiliser les indices !!). On ne pourra utiliser seulement les fonctions primitives précédentes et en devra récupérer la pile originelle telle qu’elle était.
+
+On pourra s’aider d’une  pile auxiliaire.
+```python
+    def taille(self):
+        pass
+
+    def sommet(self):
+        pass 
+
+if __name__ == '__main__':
+    p = Pile()
+    for i in range(4):
+        p.empiler(2 * i)
+```
+Tester
+```
+>>> p.taille()
+>>> p.sommet()
+```
 
 Ici, **tous les coûts d’exécution sont unitaires.**
 
-|<p>**Activité n° AUTONUM  \* Arabic : Structure pile avec la POO et les lists de Python:** On va rajouter à la structure une méthode de la classe Pile : afficher qui permet d’afficher (retourner) la pile sous forme de liste .</p><p>`    `def afficher(self):<br>`        `pass</p><p>Tester :</p><p>>>> p.afficher()</p><p>[0, 2, 4, 6, 8]</p>|
-| - |
+**Activité n° 30 : Structure pile avec la POO et les lists de Python:** On va rajouter à la structure une méthode de la classe Pile : afficher qui permet d’afficher (retourner) la pile sous forme de liste .
+```python
+    def afficher(self):
+        pass
+```
+Tester :
+```
+>>> p.afficher()
+[0, 2, 4, 6, 8]
+```
 
-
-1. ## <a name="_toc151667930"></a>**❤️3<sup>ème</sup> implémentation de la structure pile avec la POO et les listes chainée❤️**
+### <a name="_toc151667930"></a>**4.4. ❤️3<sup>ème</sup> implémentation de la structure pile avec la POO et les listes chainée❤️**
 La version à une classe est plus simple, elle peut être suffisante, mais les puristes préfèrent la version à deux classes qui colle davantage au modèle théorique proche des listes dans lequel une pile est soit une cellule, soit une pile vide.
 
-|<p>**Activité n° AUTONUM  \* Arabic : Structure pile avec la POO et les listes chainée version 1 classe :** Créer une classe Pile qui peut recevoir deux paramètres lors de l'appel du constructeur : un paramètre value et un paramètre next. Les deux valeurs transmises devront être stockées dans deux attributs nommés v et n.</p><p></p><p>**Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé pile\_POO\_v1.py**</p><p></p><p>Et compléter la structure suivante :</p><p>'''Implémentation 3 de type abstrait Liste en utilisant la POO et les listes chainées version 1 classe'''<br><br>class Pile:<br>`    `def \_\_init\_\_(self, value=None, next=None):<br>`        `pass<br><br>`    `def estVide(self) :<br>`        `pass<br><br>`    `def empiler(self, element) :<br>`        `pass<br><br>`    `def depiler(self):<br>`        `pass</p><p>Que faut il écrire dans la console pour :</p><p>1. Créer une pile p ?</p><p>2. Tester si p est vide ?</p><p>3. Empiler dans p : Lundi, Mardi, Mercredi</p><p>4. Tester si p est vide ?</p><p>5. Dépiler toute la pile p</p><p>**Remarque** on pourra afficher les piles construites en ajoutant la méthode \_\_str\_\_</p><p>`    `def \_\_str\_\_(self): # on peut mettre \_\_repr\_\_ à la place pour éviter de taper print<br>`        `pass</p><p>Ajouter les deux méthodes taille et sommet</p><p>`    `def taille(self) :<br>`        `pass<br><br>`    `def sommet(self) :<br>`        `pass</p><p></p><p>if \_\_name\_\_ == '\_\_main\_\_':<br>`    `p = Pile()<br>`    `p.empiler('Lundi')<br>`    `p.empiler('Mardi')<br>`    `p.empiler('Mercredi')<br>`    `print(p.taille())<br>`    `print(p.sommet())</p>|
-| - |
+**Activité n° 31 : Structure pile avec la POO et les listes chainée version 1 classe :** Créer une classe Pile qui peut recevoir deux paramètres lors de l'appel du constructeur : un paramètre value et un paramètre next. Les deux valeurs transmises devront être stockées dans deux attributs nommés v et n.
 
-|<p>**Activité n° AUTONUM  \* Arabic : Structure pile avec la POO et les listes chainée version 2 classes :** Créer une classe Node qui peut recevoir deux paramètres lors de l'appel du constructeur : un paramètre value et un paramètre next. Les deux valeurs transmises devront être stockées dans deux attributs nommés v et n.</p><p></p><p>**Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé pile\_POO\_v2.py**</p><p></p><p>Et compléter la structure suivante :</p><p>'''Implémentation 3 de type abstrait Liste en utilisant la POO et les listes chainées version 2 classes'''<br><br>class Node:<br>`    `def \_\_init\_\_(self, value=None, next=None):<br>`        `pass<br><br>class Pile:<br>`    `def \_\_init\_\_(self, c=None):<br>`        `pass<br><br>`    `def estVide(self) :<br>`        `pass</p><p><br>`    `def empiler(self, element) :<br>`        `pass<br><br>`    `def depiler(self):<br>`        `pass</p><p>Que faut-il écrire dans la console pour :</p><p>1. Créer une pile p ?</p><p>2. Tester si p est vide ?</p><p>3. Empiler dans p : Lundi, Mardi, Mercredi</p><p>4. Tester si p est vide ?</p><p>5. Dépiler toute la pile p</p><p>**Remarque** On pourra afficher les piles construites avec les fonctions afficherListe et recupererValeur  des Listes chainées</p><p>def afficherListe(L):<br>`    `tableau = recupererValeur(L.cellule)<br>`    `return str(tuple(tableau))<br><br>def recupererValeur(cellule):<br>`    `if cellule.n == None:<br>`        `return [cellule.v]<br>`    `else:<br>`        `return [cellule.v] + recupererValeur(cellule.n)</p>|
-| - |
+**Sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé pile\_POO\_v1.py**
 
-|<p>**Activité n° AUTONUM  \* Arabic : Structure pile avec la POO et les listes chainée version 2 classes :** rajouter aux structures précédentes deux fonctions taille et sommet qui permettent le retourner la taille et de retourner le sommet de la pile </p><p>`    `def taille(self) :<br>`        `pass<br><br>`    `def sommet(self) :<br>`        `pass</p><p></p><p>if \_\_name\_\_ == '\_\_main\_\_':<br>`    `p = Pile()<br>`    `p.empiler('Lundi')<br>`    `p.empiler('Mardi')<br>`    `p.empiler('Mercredi')<br>`    `print(p.taille())<br>`    `print(p.sommet())</p>|
-| - |
+Et compléter la structure suivante :
+```python
+'''Implémentation 3 de type abstrait Liste en utilisant la POO et les listes chainées version 1 classe'''
+
+class Pile:
+    def __init__(self, value=None, next=None):
+        pass
+
+    def estVide(self) :
+        pass
+
+    def empiler(self, element) :
+        pass
+
+    def depiler(self):
+        pass
+```
+
+Que faut il écrire dans la console pour :
+
+1. Créer une pile p ?
+
+2. Tester si p est vide ?
+
+3. Empiler dans p : Lundi, Mardi, Mercredi
+
+4. Tester si p est vide ?
+
+5. Dépiler toute la pile p
+
+**Remarque** on pourra afficher les piles construites en ajoutant la méthode \_\_str\_\_
+```python
+    def __str__(self): # on peut mettre __repr__ à la place pour éviter de taper print
+        pass
+```
+Ajouter les deux méthodes ```taille``` et ```sommet```
+```python
+    def taille(self) :
+        pass
+
+    def sommet(self) :
+        pass
+
+if __name__ == '__main__':
+    p = Pile()
+    p.empiler('Lundi')
+    p.empiler('Mardi')
+    p.empiler('Mercredi')
+    print(p.taille())
+    print(p.sommet())
+```
+
+**Activité n° 32 : Structure pile avec la POO et les listes chainée version 2 classes :** Créer une classe Node qui peut recevoir deux paramètres lors de l'appel du constructeur : un paramètre ```value``` et un paramètre ```next```. Les deux valeurs transmises devront être stockées dans deux attributs nommés ```v``` et ```n```.
+
+**Sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé pile\_POO\_v2.py**
+
+Et compléter la structure suivante :
+```python
+'''Implémentation 3 de type abstrait Liste en utilisant la POO et les listes chainées version 2 classes'''
+
+class Node:
+    def __init__(self, value=None, next=None):
+        pass
+
+class Pile:
+    def __init__(self, c=None):
+        pass
+
+    def estVide(self) :
+        pass
+
+    def empiler(self, element) :
+        pass
+
+    def depiler(self):
+        pass
+```
+Que faut-il écrire dans la console pour :
+
+1. Créer une pile p ?
+
+2. Tester si p est vide ?
+
+3. Empiler dans p : Lundi, Mardi, Mercredi
+
+4. Tester si p est vide ?<
+
+5. Dépiler toute la pile p
+
+**Remarque** On pourra afficher les piles construites avec les fonctions ```afficherListe``` et ```recupererValeur```  des Listes chainées
+```python
+def afficherListe(L):
+    tableau = recupererValeur(L.cellule)
+    return str(tuple(tableau))
+
+def recupererValeur(cellule):
+    if cellule.n == None:
+        return [cellule.v]
+    else:
+        return [cellule.v] + recupererValeur(cellule.n)
+```
+
+**Activité n° 33 : Structure pile avec la POO et les listes chainée version 2 classes :** rajouter aux structures précédentes deux fonctions ```taille``` et ```sommet``` qui permettent le retourner la taille et de retourner le sommet de la pile 
+```python
+    def taille(self) :
+        pass
+
+    def sommet(self) :
+        pass
+
+if __name__ == '__main__':
+    p = Pile()
+    p.empiler('Lundi')
+    p.empiler('Mardi')
+    p.empiler('Mercredi')
+    print(p.taille())
+    print(p.sommet())
+```
 
 - **Pour plus de fonctions…. => EXERCICE**
 
-**Dossier ressources : vidéo le crépier psychorigide**
-1. # <a name="_toc151667931"></a>**Les files**
-   1. ## <a name="_toc151667932"></a>**Généralités**
-En informatique, une **file** (queue en anglais) est une structure de données basée sur le principe « Premier entré, premier sorti », en anglais **FIFO (First In, First Out)**, ce qui veut dire que les premiers éléments ajoutés à la file seront les premiers à être récupérés.
-![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.032.png)
+**[vidéo le crépier psychorigide](https://ladigitale.dev/digiview/#/v/66b7280a8b3b5)**
 
-![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.033.png)Voici quelques exemples d’usage courant d’une file :
+
+## <a name="_toc151667931"></a>**5. Les files**
+### <a name="_toc151667932"></a>**5.1. Généralités**
+En informatique, une **file** (queue en anglais) est une structure de données basée sur le principe « Premier entré, premier sorti », en anglais **FIFO (First In, First Out)**, ce qui veut dire que les premiers éléments ajoutés à la file seront les premiers à être récupérés.
+
+
+![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.033.png){width=30%; : .center }
+
+Voici quelques exemples d’usage courant d’une file :
 
 - En général, on utilise des **files pour mémoriser temporairement** des transactions qui doivent attendre pour être traitées
 - Les **serveurs d’impression**, qui doivent traiter les requêtes dans l’ordre dans lequel elles arrivent, et les insèrent dans une file d’attente (ou une queue).
@@ -1056,11 +1273,11 @@ Les primitives communément utilisées pour manipuler des files :
 - **défiler** : renvoie le prochaine élément de la file, et le retire de la file (en anglais : « **dequeue** »)
 - **estVide** : renvoie True si la file est vide, False sinon
 
-![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.035.png)
+![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.035.png){width=60%; : .center }
 
 
 
-![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.034.png)
+
 
 **Exemple :** Exemples : Soit une file F composée des éléments suivants : 12, 14, 8, 7, 19 et 22 (le premier élément rentré dans la file est 22 ; le dernier élément rentré dans la file est 12). Pour chaque exemple ci-dessous on repart de la file d'origine : 
 
