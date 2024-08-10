@@ -956,7 +956,7 @@ Tester
 En informatique, une **pile** (en anglais **stack**) est une structure de données fondée sur le principe « dernier arrivé, premier sorti » (ou **LIFO pour Last In, First Out**), ce qui veut dire que les derniers éléments ajoutés à la pile seront les premiers à être récupérés.
 
 
-![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.028.png){width=60%; : .center }
+![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.028.png){ : .center }
 
 
 Le fonctionnement est donc celui d’une pile d’assiettes : on ajoute des assiettes sur la pile, et on les récupère dans l’ordre inverse, en commençant par la dernière ajoutée.
@@ -976,9 +976,9 @@ Une pile est une structure de donnée munie des fonctions primitives suivantes :
 - **empiler(pile, element)** : rajoute un élément à la pile (**push** en anglais)
 - **depiler(pile)** : enlève un élément à la pile et le renvoie (**pop**)
 
-![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.030.png)
+![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.030.png){width=60%; : .center }
 
-![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.029.png)
+
 
 **Exemple :**
 
@@ -991,13 +991,16 @@ Soit une pile P composée des éléments suivants : 12, 14, 8, 7, 19 et 22 (le s
 - Après avoir appliqué pop(P) une fois, **taille(P)** renvoie 5
 
 **Remarque** : Pour lire le sommet de la pile sans modifier la pile, on doit le dépiler et le rempiler.
-1. ## <a name="_toc151667928"></a>**❤️1<sup>ère</sup> implémentation de la structure pile avec les listes de Python❤️**
-**Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé pile\_list.py**
+
+### <a name="_toc151667928"></a>**4.2. ❤️1<sup>ère</sup> implémentation de la structure pile avec les listes de Python❤️**
+**Sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé pile\_list.py**
 
 Nous utiliserons une simple liste pour représenter la pile. Il se trouve que les méthodes append et pop sur les listes jouent déjà le rôle de **push (empile)** et **pop (depile)** sur les piles.
-![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.031.png)
 
-|<p>**Activité n° AUTONUM  \* Arabic : Structure pile avec les listes :** Compléter la **structure de base** suivante :</p><p>**Remarque** : La fonction empiler ne renvoie rien.</p><p>'''Implémentation de type abstrait Pile en utilisant les listes de Python<br>'''<br><br>def pileVide() :<br>`    `pass<br><br>def estVide(pile) :<br>`    `pass<br><br>def empiler(pile, element) :<br>`    `pass<br><br>def depiler(pile)<br>`    `pass</p><p></p><p># Programme principal</p><p>if \_\_name\_\_ == '\_\_main\_\_':<br>`    `ma\_pile = pileVide()<br>`    `assert estVide(ma\_pile) == True<br>`    `empiler(ma\_pile, 'Lundi')<br>`    `empiler(ma\_pile, 'Mardi')<br>`    `empiler(ma\_pile, 'Mercredi')<br>`    `assert estVide(ma\_pile) == False<br>`    `assert depiler(ma\_pile) == 'Mercredi'<br>`    `assert depiler(ma\_pile) == 'Mardi'<br>`    `assert depiler(ma\_pile) == 'Lundi'<br>`    `assert depiler(ma\_pile) == 'Pile vide'</p>|
+
+**Activité n° 26 : Structure pile avec les listes :** Compléter la **structure de base** suivante :
+
+**Remarque** : La fonction empiler ne renvoie rien.</p><p>'''Implémentation de type abstrait Pile en utilisant les listes de Python<br>'''<br><br>def pileVide() :<br>`    `pass<br><br>def estVide(pile) :<br>`    `pass<br><br>def empiler(pile, element) :<br>`    `pass<br><br>def depiler(pile)<br>`    `pass</p><p></p><p># Programme principal</p><p>if \_\_name\_\_ == '\_\_main\_\_':<br>`    `ma\_pile = pileVide()<br>`    `assert estVide(ma\_pile) == True<br>`    `empiler(ma\_pile, 'Lundi')<br>`    `empiler(ma\_pile, 'Mardi')<br>`    `empiler(ma\_pile, 'Mercredi')<br>`    `assert estVide(ma\_pile) == False<br>`    `assert depiler(ma\_pile) == 'Mercredi'<br>`    `assert depiler(ma\_pile) == 'Mardi'<br>`    `assert depiler(ma\_pile) == 'Lundi'<br>`    `assert depiler(ma\_pile) == 'Pile vide'</p>|
 | - |
 
 |<p>**Activité n° AUTONUM  \* Arabic : Structure pile avec les listes :** On va rajouter à la structure de base précédente deux fonctions : taille et sommet qui permettent respectivement de retourner la taille de la pile (sans utiliser la fonction de python len !!) et le sommet de la pile (sans utiliser les indices !!). On ne pourra utiliser seulement les fonctions primitives précédentes et en devra récupérer la pile originelle telle qu’elle était.</p><p>On pourra s’aider d’une  pile auxiliaire.</p><p>def taille(pile):<br>`    `pass<br>def sommet(pile):<br>`    `pass<br><br># Programme principal<br>if \_\_name\_\_ == '\_\_main\_\_':<br>`    `ma\_pile = pileVide()<br>`    `empiler(ma\_pile, 'Lundi')<br>`    `empiler(ma\_pile, 'Mardi')<br>`    `empiler(ma\_pile, 'Mercredi')<br>`    `assert taille(ma\_pile) == 3<br>`    `assert sommet(ma\_pile) == 'Mercredi'</p>|
