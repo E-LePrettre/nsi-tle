@@ -1284,45 +1284,197 @@ Les primitives communément utilisées pour manipuler des files :
 - **enfiler(F,42)** la file F est maintenant composée des éléments suivants : 42, 12, 14, 8, 7, 19 et 22 (le premier élément rentré dans la file est 22 ; le dernier élément rentré dans la file est 42) 
 - **defiler(F)** la file F est maintenant composée des éléments suivants : 12, 14, 8, 7, et 19 (le premier élément rentré dans la file est 19 ; le dernier élément rentré dans la file est 12) 
 - si on applique **defiler(F) 6 fois de suite,** estVide(F) **renvoie vrai** 
-  1. ## <a name="_toc151667933"></a>**❤️1<sup>ère</sup> implémentation de la structure file avec les listes de Python❤️**
-**Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé file\_list.py**
 
-On peut utiliser une implémentation similaire à celle des piles, mais si defiler renvoie l’élément de tête, enfiler doit placer le nouvel élément à la queue de la file. Pour cela, on doit remonter toute la file. L’opération enfiler est alors en **temps linéaire**.
+### <a name="_toc151667933"></a>**5.2. ❤️1<sup>ère</sup> implémentation de la structure file avec les listes de Python❤️**
+
+**Sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé file\_list.py**
+
+On peut utiliser une implémentation similaire à celle des piles, mais si ```defiler``` renvoie l’élément de tête, ```enfiler``` doit placer le nouvel élément à la queue de la file. Pour cela, on doit remonter toute la file. L’opération ```enfiler``` est alors en **temps linéaire**.
 
 Nous utiliserons une simple liste pour représenter la pile. Là encore nous utiliserons append(x) et pop(0) pour réaliser les méthode enfiler et defiler.
 
-|<p>**Activité n° AUTONUM  \* Arabic : Structure file avec les listes :** Compléter la **structure de base** suivante :</p><p>**Remarque** : La fonction enfiler ne renvoie rien.</p><p>'''Implémentation de type abstrait File en utilisant les listes de Python<br>'''<br><br>def fileVide() :<br>`    `pass<br><br>def estVide(file) :<br>`    `pass<br><br>def enfiler(file, element) :<br>`    `pass<br><br>def defiler(file)<br>`    `pass</p><p></p><p># Programme principal<br>if \_\_name\_\_ == '\_\_main\_\_':<br>`    `ma\_file = fileVide()<br>`    `assert estVide(ma\_file) == True<br>`    `enfiler(ma\_file, 'Lundi')<br>`    `enfiler(ma\_file, 'Mardi')<br>`    `enfiler(ma\_file, 'Mercredi')<br>`    `assert estVide(ma\_file) == False<br>`    `assert defiler(ma\_file) == 'Lundi'<br>`    `assert defiler(ma\_file) == 'Mardi'<br>`    `assert defiler(ma\_file) == 'Mercredi'<br>`    `assert defiler(ma\_file) == 'File vide'</p>|
-| - |
+**Activité n° 34 : Structure file avec les listes :** Compléter la **structure de base** suivante :
 
-|<p>**Activité n° AUTONUM  \* Arabic : Structure file avec les listes :** On va rajouter à la structure de base précédente deux fonctions : taille et sommet qui permettent respectivement de retourner la taille de la file (sans utiliser la fonction de python len !!) et le sommet de la file (sans utiliser les indices !!). On ne pourra utiliser seulement les fonctions primitives précédentes et en devra récupérer la file originelle telle qu’elle était.</p><p></p><p>def taille(file):<br>`    `pass<br>def sommet(file):<br>`    `pass<br><br># Programme principal<br>if \_\_name\_\_ == '\_\_main\_\_':<br>`    `ma\_file = fileVide()<br>   <br>`    `enfiler(ma\_file, 'Lundi')<br>`    `enfiler(ma\_file, 'Mardi')<br>`    `enfiler(ma\_file, 'Mercredi')<br>`    `assert taille(ma\_file) == 3<br>`    `assert sommet(ma\_file) == 'Lundi'</p>|
-| - |
-1. ## <a name="_toc151667934"></a>**❤️2<sup>ème</sup> implémentation de la structure file avec la POO et les lists de Python❤️**
-**Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé file\_POO\_list.py**
+**Remarque** : La fonction enfiler ne renvoie rien.
+```python
+'''Implémentation de type abstrait File en utilisant les listes de Python'''
 
-|<p>**Activité n° AUTONUM  \* Arabic : Structure File avec la POO et les lists de Python :** Créer une classe File qui construit une liste vide, puis compléter les autres méthodes de la classe  :</p><p>'''Implémentation 3 de type abstrait Liste en utilisant la POO et les listes de Python'''<br><br>class File:<br>`    `'''Classe permettant de créer des files'''<br>`    `def \_\_init\_\_(self):<br>`        `pass<br><br>`    `def estVide(self) :<br>`        `pass<br><br>`    `def enfiler(self, element) :<br>`        `pass<br><br>`    `def defiler(self):<br>`        `pass</p><p></p><p># Programme principal<br>if \_\_name\_\_ == '\_\_main\_\_':<br>`    `ma\_file = File()<br>`    `assert ma\_file.estVide() == True<br>`    `ma\_file.enfiler('Lundi')<br>`    `ma\_file.enfiler('Mardi')<br>`    `ma\_file.enfiler('Mercredi')<br>`    `assert ma\_file.estVide() == False<br>`    `assert ma\_file.defiler() == 'Lundi'<br>`    `assert ma\_file.defiler() == 'Mardi'<br>`    `assert ma\_file.defiler() == 'Mercredi'<br>`    `assert ma\_file.defiler() == 'File vide'</p>|
-| - |
+def fileVide() :
+    pass
 
-|<p>**Activité n° AUTONUM  \* Arabic : Structure file avec la POO et les lists de Python:** On va rajouter à la structure de base précédente deux méthodes de la classe File : taille et sommet qui permettent respectivement de retourner la taille de la pile (sans utiliser la fonction de python len !!) et le sommet de la pile (sans utiliser les indices !!). On ne pourra utiliser seulement les fonctions primitives précédentes et en devra récupérer la pile originelle telle qu’elle était.</p><p>On pourra s’aider d’une file auxiliaire.</p><p>`    `def taille(self) :<br>`        `pass<br><br>`    `def sommet(self):<br>`        `pass</p><p># Programme principal<br>if \_\_name\_\_ == '\_\_main\_\_':<br>`    `ma\_file = File()<br>`    `ma\_file.enfiler('Lundi')<br>`    `ma\_file.enfiler('Mardi')<br>`    `ma\_file.enfiler('Mercredi')<br>`    `assert ma\_file.taille() == 3<br>`    `assert ma\_file.sommet() == 'Lundi'</p>|
-| - |
+def estVide(file) :
+    pass
 
-<a name="_hlk70510906"></a>Ici, **tous les coûts d’exécution sont unitaires.**
+def enfiler(file, element) :
+    pass
 
-|<p>**Activité n° AUTONUM  \* Arabic : Structure pile avec la POO et les lists de Python:** On va rajouter à la structure une méthode de la classe Pile : afficher qui permet d’afficher (retourner) la pile sous forme de liste .</p><p>`    `def afficher(self) :<br>`        `pass</p><p>Rajouter au programme principal</p><p>`    `assert ma\_file.afficher() == ['Mardi', 'Mercredi', 'Lundi']</p>|
-| - |
+def defiler(file)
+    pass
+
+# Programme principal
+if __name__ == '__main__':
+    ma_file = fileVide()
+    assert estVide(ma_file) == True
+    enfiler(ma_file, 'Lundi')
+    enfiler(ma_file, 'Mardi')
+    enfiler(ma_file, 'Mercredi')
+    assert estVide(ma_file) == False
+    assert defiler(ma_file) == 'Lundi'
+    assert defiler(ma_file) == 'Mardi'
+    assert defiler(ma_file) == 'Mercredi'
+    assert defiler(ma_file) == 'File vide'
+```
+
+
+**Activité n° 35 : Structure file avec les listes :** On va rajouter à la structure de base précédente deux fonctions : ```taille``` et ```sommet``` qui permettent respectivement de retourner la taille de la file (sans utiliser la fonction de python len !!) et le sommet de la file (sans utiliser les indices !!). On ne pourra utiliser seulement les fonctions primitives précédentes et en devra récupérer la file originelle telle qu’elle était.
+```python
+def taille(file):
+    pass
+def sommet(file):
+    pass
+
+# Programme principal
+if __name__ == '__main__':
+    ma_file = fileVide()
+   
+    enfiler(ma_file, 'Lundi')
+    enfiler(ma_file, 'Mardi')
+    enfiler(ma_file, 'Mercredi')
+    assert taille(ma_file) == 3
+    assert sommet(ma_file) == 'Lundi'
+```
+
+### <a name="_toc151667934"></a>**5.3. ❤️2<sup>ème</sup> implémentation de la structure file avec la POO et les lists de Python❤️**
+
+**Sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé file\_POO\_list.py**
+
+**Activité n° 36 : Structure File avec la POO et les lists de Python :** Créer une classe File qui construit une liste vide, puis compléter les autres méthodes de la classe  :
+```python
+'''Implémentation 3 de type abstrait Liste en utilisant la POO et les listes de Python'''
+
+class File:
+    '''Classe permettant de créer des files'''
+    def __init__(self):
+        pass
+
+    def estVide(self) :
+        pass
+
+    def enfiler(self, element) :
+        pass
+
+    def defiler(self):
+        pass
+
+# Programme principal
+if __name__ == '__main__':
+    ma_file = File()
+    assert ma_file.estVide() == True
+    ma_file.enfiler('Lundi')
+    ma_file.enfiler('Mardi')
+    ma_file.enfiler('Mercredi')
+    assert ma_file.estVide() == False
+    assert ma_file.defiler() == 'Lundi'
+    assert ma_file.defiler() == 'Mardi'
+    assert ma_file.defiler() == 'Mercredi'
+    assert ma_file.defiler() == 'File vide'
+```
+
+
+**Activité n° 37 : Structure file avec la POO et les lists de Python:** On va rajouter à la structure de base précédente deux méthodes de la classe File : ```taille``` et ```sommet``` qui permettent respectivement de retourner la taille de la pile (sans utiliser la fonction de python len !!) et le sommet de la pile (sans utiliser les indices !!). On ne pourra utiliser seulement les fonctions primitives précédentes et en devra récupérer la pile originelle telle qu’elle était.
+
+On pourra s’aider d’une file auxiliaire.
+```python
+    def taille(self) :
+        pass
+
+    def sommet(self):
+        pass
+# Programme principal
+if __name__ == '__main__':
+    ma_file = File()
+    ma_file.enfiler('Lundi')
+    ma_file.enfiler('Mardi')
+    ma_file.enfiler('Mercredi')
+    assert ma_file.taille() == 3
+    assert ma_file.sommet() == 'Lundi'
+```
+
+Ici, **tous les coûts d’exécution sont unitaires.**
+
+**Activité n° 38 : Structure pile avec la POO et les lists de Python:** On va rajouter à la structure une méthode de la classe Pile : afficher qui permet d’afficher (retourner) la pile sous forme de liste .
+```python
+    def afficher(self) :
+        pass
+```
+Rajouter au programme principal :
+```python
+    assert ma_file.afficher() == ['Mardi', 'Mercredi', 'Lundi']
+```
+
 
 Cette implémentation est très **peu efficace** 
-1. ## <a name="_toc151667935"></a>**❤️3<sup>ème</sup> implémentation de la structure file avec la POO et une liste chainée❤️**
-**Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé file\_POO\_v1.py**
+
+### <a name="_toc151667935"></a>**5.4. ❤️3<sup>ème</sup> implémentation de la structure file avec la POO et une liste chainée❤️**
+
+**Sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé file\_POO\_v1.py**
 
 
-|<p>**Activité n° AUTONUM  \* Arabic : Structure pile avec la POO et les listes chainées :** Tester cette implémentation **sur python tutor**</p><p></p><p>'''Implémentation de type abstrait File avec la POO <br>et les listes chainées et deux classes<br>'''<br><br>class Node:<br>`    `def \_\_init\_\_(self, value = None, next = None):<br>`        `self.v = value<br>`        `self.n = next<br><br>class File:<br>`    `def \_\_init\_\_(self, c=None):<br>`        `self.cellule = c<br><br>`    `def estVide(self):<br>`        `return self.cellule is None<br><br>`    `def enfiler(self, element):<br>`        `if self.estVide():<br>`            `self.cellule = Node(element)<br>`        `else:<br>`            `tmp = self.cellule<br>`            `while tmp.n != None :<br>`                `tmp = tmp.n<br>`            `tmp.n = Node(element)<br><br>`    `def defiler(self):<br>`        `try:<br>`            `val = self.cellule.v<br>`            `self.cellule = self.cellule.n<br>`            `return val<br>`        `except:<br>`            `return 'File vide'</p><p><br><br># Programme principal<br>if \_\_name\_\_ == '\_\_main\_\_':<br>`    `ma\_file = File()<br>`    `assert ma\_file.estVide() == True<br>`    `ma\_file.enfiler('Lundi')<br>`    `ma\_file.enfiler('Mardi')<br>`    `ma\_file.enfiler('Mercredi')<br>`    `assert ma\_file.estVide() == False<br>`    `assert ma\_file.defiler() == 'Lundi'<br>`    `assert ma\_file.defiler() == 'Mardi'<br>`    `assert ma\_file.defiler() == 'Mercredi'<br>`    `assert ma\_file.defiler() == 'File vide'</p>|
-| - |
-||
-||
+**Activité n° 39 : Structure pile avec la POO et les listes chainées :** Tester cette implémentation **sur python tutor**
+```python
+Activité n°1.: Structure pile avec la POO et les listes chainées : Tester cette implémentation sur python tutor
+
+'''Implémentation de type abstrait File avec la POO 
+et les listes chainées et deux classes'''
+
+class Node:
+    def __init__(self, value = None, next = None):
+        self.v = value
+        self.n = next
+
+class File:
+    def __init__(self, c=None):
+        self.cellule = c
+
+    def estVide(self):
+        return self.cellule is None
+
+    def enfiler(self, element):
+        if self.estVide():
+            self.cellule = Node(element)
+        else:
+            tmp = self.cellule
+            while tmp.n != None :
+                tmp = tmp.n
+            tmp.n = Node(element)
+
+    def defiler(self):
+        try:
+            val = self.cellule.v
+            self.cellule = self.cellule.n
+            return val
+        except:
+            return 'File vide'
 
 
-1. ## <a name="_toc151667936"></a>**Autre implémentation des files avec les bibliothèques de Python**
-Le type deque à importer de la bibliothèque collections fournit une structure de file avec enfiler et defiler en temps constant. 
+# Programme principal
+if __name__ == '__main__':
+    ma_file = File()
+    assert ma_file.estVide() == True
+    ma_file.enfiler('Lundi')
+    ma_file.enfiler('Mardi')
+    ma_file.enfiler('Mercredi')
+    assert ma_file.estVide() == False
+    assert ma_file.defiler() == 'Lundi'
+    assert ma_file.defiler() == 'Mardi'
+    assert ma_file.defiler() == 'Mercredi'
+    assert ma_file.defiler() == 'File vide'
+```
+
+
+
+### <a name="_toc151667936"></a>**5.5. Autre implémentation des files avec les bibliothèques de Python**
+Le type ```deque``` à importer de la bibliothèque collections fournit une structure de file avec ```enfiler``` et defiler en temps constant. 
 
 from collections import deque 
 
