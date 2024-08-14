@@ -1720,13 +1720,6 @@ L'idée est la suivante : on crée une pile d'entrée et une pile de sortie.
 
 ![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.040.png){width=50%; : .center }
 
-\# il est impératif de comprendre qu'on peut choisir l'implémentation
-\# de la classe Pile qu'on préfère parmi les deux traitées plus haut.
-\# Comme elles ont la MÊME INTERFACE et qu'on ne va se servir que
-\# de cette interface, leur mécanisme interne n'a aucune influence
-\# sur le code de la classe File que nous ferons ensuite.
-
-\# Par exemple, on choisit celle avec la liste chaînée :
 
 ```python
 # il est impératif de comprendre qu'on peut choisir l'implémentation
