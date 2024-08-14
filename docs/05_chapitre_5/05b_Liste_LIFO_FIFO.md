@@ -328,9 +328,7 @@ Voyons maintenant les désavantages.
 Combien de fois doit-on utiliser supprimerTete pour atteindre l'élément d'index **position** ?
 
 Que doit-on faire une fois qu'on a récupéré la bonne liste ?
-```lireElement(L:Liste, position:int) -> 
-
-Elt``` : on **renvoie** l'élément stocké en position **position**.
+```lireElement(L:Liste, position:int) -> Elt``` : on **renvoie** l'élément stocké en position **position**.
 ```
 listeA = (12, 15, 18, 4)
 reponse = lireElement(listeA, 1)
@@ -1107,9 +1105,7 @@ Tester :
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667930"></a>**4.4. ❤️3<sup>ème</sup> implémentation de la structure pile avec la POO et les listes chainée❤️**</H3>
 
-**=> CAP
-
-YTALE Le code vous sera donné par votre enseignant**
+**=> CAPYTALE Le code vous sera donné par votre enseignant**
 
 La version à une classe est plus simple, elle peut être suffisante, mais les puristes préfèrent la version à deux classes qui colle davantage au modèle théorique proche des listes dans lequel une pile est soit une cellule, soit une pile vide.
 
@@ -1533,9 +1529,7 @@ Les piles et les files sont des structures de données fondamentales qui peuvent
 |**Pile**|**File**|
 | :-: | :-: |
 |Les objets sont insérés et supprimés à 1 seule extrémité|Les objets sont insérés et retirés aux 2 extrémités.|
-|Dans les piles, un seul pointeur est utilisé. Il pointe vers le haut de la pile. |Dans les files,
-
- deux pointeurs différents sont utilisés pour les extrémités; le tète et la fin.|
+|Dans les piles, un seul pointeur est utilisé. Il pointe vers le haut de la pile. |Dans les files, deux pointeurs différents sont utilisés pour les extrémités; le tète et la fin.|
 |Dans les piles, le dernier objet inséré est le premier à sortir. |Dans les files, l’objet inséré en premier est le premier qui sera supprimé. |
 |Les piles suivent l’ordre Last In First Out (LIFO) |Les files suivent l’ordre First In First Out (FIFO)|
 |Les opérations de pile s’appellent « Empiler » et « Dépiler ». |Les opérations de file sont appelées « Enfiler » et « Défiler ».|
