@@ -174,6 +174,7 @@ On considère que le contenu est juste un string portant le nom du nœud. Ainsi 
 On ne compte pas les arbres-vides : l'arbre-vide ne possède pas de nœud.
 
 **Activité n° 6 :**  **Taille des arbres :**  Déterminer la taille de l’arbre 
+
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.017.png)
 
 **Profondeur d’un noeud** : Il s'agit du nombre de nœuds entre le nœud considéré et la racine.
