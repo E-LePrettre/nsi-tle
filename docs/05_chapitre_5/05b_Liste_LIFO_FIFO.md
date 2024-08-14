@@ -1773,7 +1773,6 @@ class File:
         pass
 ```
 
-`        `pass
 
 **Exercice n°2 : Structure de données** 
 
@@ -1798,6 +1797,8 @@ On écrit et on exécute les opérations dans le sens des priorités vues en cou
 - L'addition entre 3 et 2 ( 3 2 + )
 - La multiplication entre le précédent résultat et 13 ( 13 \*)
 - On a ainsi le résultat.
+
+
 1. Donner la File correspondante à la saisie NPI de l'exemple. Faire de même avec la Pile.
 1. Quelle est la structure adaptée à la résolution de l'expression ?
 
