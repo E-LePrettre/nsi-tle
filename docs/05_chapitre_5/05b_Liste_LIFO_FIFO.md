@@ -1702,7 +1702,8 @@ Le dictionnaire est donc une **structure de données optimisée** pour la recher
 
 
 ### <a name="_toc151667944"></a>**6.6. La complexité**
-![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.039.png)
+
+![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.039.png){width=50%; : .center }
 
 Dans les deux cas ce n’est pas très efficace : on voudrait une **complexité logarithmique de toutes ces opérations**. On peut faire cela en utilisant des structures de données : **les arbres binaires**
 
@@ -1717,7 +1718,7 @@ L'idée est la suivante : on crée une pile d'entrée et une pile de sortie.
 - quand on veut défiler, on dépile sur la pile de sortie.
 - si celle-ci est vide, on dépile entièrement la pile d'entrée dans la pile de sortie.
 
-![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.040.png)
+![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.040.png){width=60%; : .center }
 
 \# il est impératif de comprendre qu'on peut choisir l'implémentation
 \# de la classe Pile qu'on préfère parmi les deux traitées plus haut.
@@ -1727,46 +1728,58 @@ L'idée est la suivante : on crée une pile d'entrée et une pile de sortie.
 
 \# Par exemple, on choisit celle avec la liste chaînée :
 
+```python
+# il est impératif de comprendre qu'on peut choisir l'implémentation
+# de la classe Pile qu'on préfère parmi les deux traitées plus haut.
+# Comme elles ont la MÊME INTERFACE et qu'on ne va se servir que
+# de cette interface, leur mécanisme interne n'a aucune influence
+# sur le code de la classe File que nous ferons ensuite.
+
+# Par exemple, on choisit celle avec la liste chaînée :
+
 class Cellule :
-`    `def \_\_init\_\_(self, contenu, suivante):
-`        `pass
+    def __init__(self, contenu, suivante):
+        pass
 
 class Pile:
-`    `def \_\_init\_\_(self):
-`        `pass
+    def __init__(self):
+        pass
 
-`    `def est\_vide(self):
-`        `pass
+    def est_vide(self):
+        pass
 
-`    `def empile(self, x):
-`        `pass
+    def empile(self, x):
+        pass
 
-`    `def depile(self):
-`        `pass
+    def depile(self):
+        pass
 
-`    `def \_\_str\_\_(self):
-`        `s = "|"
-`        `c = self.data
-`        `while c != None :
-`            `s += str(c.contenu)+"|"
-`            `c = c.suivante
-`        `return s
+    def __str__(self):
+        s = "|"
+        c = self.data
+        while c != None :
+            s += str(c.contenu)+"|"
+            c = c.suivante
+        return s
 
-\# -------------------------------------------------------    
-\# Implémentation d'une file à l'aide de deux piles 
+# -------------------------------------------------------    
+# Implémentation d'une file à l'aide de deux piles 
 
 class File:
-`    `def \_\_init\_\_(self):
-`        `self.entree = Pile()
-`        `self.sortie = Pile()
+    def __init__(self):
+        self.entree = Pile()
+        self.sortie = Pile()
 
-`    `def est\_vide(self):
-`        `pass
+    def est_vide(self):
+        pass
 
-`    `def enfile(self,x):
-`        `pass
+    def enfile(self,x):
+        pass
 
-`    `def defile(self):
+    def defile(self):
+        pass
+```
+
 `        `pass
 
 **Exercice n°2 : Structure de données** 
@@ -1777,7 +1790,7 @@ Quelle structure de données choisir pour chacune de ces tâches ?
 1. Stocker l'historique des actions effectuées dans un logiciel et disposer d'une commande Annuler (ou Undo).
 1. Envoyer des fichiers au serveur d'impression
 
-<a name="_hlk52887304"></a>**Exercice n°3 : La calculatrice HP**
+**Exercice n°3 : La calculatrice HP**
 
 La Notation Polonaise Inversée (NPI) permet d'écrire des opérations arithmétiques, sans utiliser de parenthèses. Ici, nous nous limiterons à des nombres entiers naturels et aux opérations+, -, \* et/ sur eux. Dans cette notation, les opérateurs sont écrits après les opérandes (nombres entiers naturels). Par exemple l'expression classique : 
 
@@ -1801,7 +1814,7 @@ Note : On remarquera qu'on doit toujours avoir 2 opérandes pour un opérateur. 
 
 Note : On supposera également que la syntaxe en NPI est correcte.
 
-<a name="_hlk54185651"></a>**Exercice n°4 : Types abstraits**
+**Exercice n°4 : Types abstraits**
 
 1\. Quelle opération ne fait pas partie de l'interface d'une pile ?
 
