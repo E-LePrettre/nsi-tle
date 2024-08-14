@@ -1884,27 +1884,31 @@ class Pile:
 ```
 
 
-1. Implémentez la méthode est\_vide(self) qui retourne True si la Pile est vide et False sinon.
-1. Implémentez la méthode empiler(self,v) qui ajoute la valeur v au sommet de la pile (et donc en fin de la liste)
-1. Implémentez la méthode depiler(self) qui :
+1 Implémentez la méthode est\_vide(self) qui retourne True si la Pile est vide et False sinon.
+
+2 Implémentez la méthode empiler(self,v) qui ajoute la valeur v au sommet de la pile (et donc en fin de la liste)
+
+3 Implémentez la méthode depiler(self) qui :
+
    1. lève une exception *IndexError* si la liste est vide ;
    1. sinon, retire l’élément au sommet de la pile et le retourne.
-1. **Bonus :** Vous pouvez implémenter la méthode spéciale str (self)
+
+4 **Bonus :** Vous pouvez implémenter la méthode spéciale str (self)
 
 **Exercice n°8 : File en deux piles**
 
-![ref2]Supposons que nous ayons deux piles et aucune autre variable temporaire. Est-il possible de "construire" une structure de données en file d’attente en utilisant uniquement les deux piles ? Nous supposerons que nous avons implémenté  les  méthodes  est\_vide,  empiler  et depiler.
+Supposons que nous ayons deux piles et aucune autre variable temporaire. Est-il possible de "construire" une structure de données en file d’attente en utilisant uniquement les deux piles ? Nous supposerons que nous avons implémenté  les  méthodes  est\_vide,  empiler  et depiler.
 
-1. Imaginer comment réaliser une file à l’aide de deux piles nommées entree et sortie.
-1. En utilisant la classe Pile de l’exercice précédent, réaliser la classe File avec les méthodes :
-   1. est\_vide(self) qui renvoie True si la file est vide ;
-   1. ajouter(self,v) qui stocke la valeur v dans la file ;
-   1. retirer(self) qui retire et retourne la valeur du début de file (la première en attente). Cette méthode  soulève une exception IndexError si on l’applique sur une file vide.
+1 Imaginer comment réaliser une file à l’aide de deux piles nommées entree et sortie.
+2 En utilisant la classe Pile de l’exercice précédent, réaliser la classe File avec les méthodes :
+   - ```est_vide(self)``` qui renvoie True si la file est vide ;
+   - ```ajouter(self,v)``` qui stocke la valeur v dans la file ;
+   - ```retirer(self)``` qui retire et retourne la valeur du début de file (la première en attente). Cette méthode  soulève une exception IndexError si on l’applique sur une file vide.
 
 
 **Exercice n°9 : pile ou file et parenthèse**
 
-![ref2]On dit qu’une chaîne de caractères comprenant, entre autre choses, des parenthèses ( et ) est bien parenthésée lorsque chaque parenthèse ouvrante est associée à une unique parenthèse fermante, et réciproquement.
+On dit qu’une chaîne de caractères comprenant, entre autre choses, des parenthèses ( et ) est bien parenthésée lorsque chaque parenthèse ouvrante est associée à une unique parenthèse fermante, et réciproquement.
 
 Ecrire une fonction prenant en paramètres :
 
@@ -1915,9 +1919,9 @@ et qui retourne l’indice de la parenthèse ouvrante associée.
 
 **Exercice n°10 : file et copie**
 
-![ref2]Vous allez améliorer la classe file en lui ajoutant quelques fonctionnalités. Vous pouvez utiliser, comme base de travail, l’implémentation des files avec les doubles piles ou celle avec les listes chaînées  
+Vous allez améliorer la classe file en lui ajoutant quelques fonctionnalités. Vous pouvez utiliser, comme base de travail, l’implémentation des files avec les doubles piles ou celle avec les listes chaînées  
 
-1. Ajouter la méthode spéciale len (self) qui revoie la longueur d’une file.
+1. Ajouter la méthode spéciale len (self) qui renvoie la longueur d’une file.
 1. Ecrire une fonction copie\_file(f) recevant une file (f) comme argument et renvoyant une copie f2 de f. Attention, la file f doit (bien sûr) être conservée !
 
 
@@ -1930,7 +1934,7 @@ Durant cet exercice nous implémenterons un programme qui simulera une version g
 
 Dans l'exemple ci-dessous, nous commençons avec 8 soldats, et nous tuons à chaque tour le troisième soldat sur la gauche (remarquez que lorsqu'il reste au plus trois personnes vivantes, le soldat tuant se compte lui-même dans cette distance de trois soldats):
 
-![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.043.png)
+![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.043.png){width=80%; : .center }
 
 Le programme que vous devez développer devra prendre comme entrées les nombres n et m, respectivement le nombre de soldats et la distance (dans l'exemple nous avons n=8 et m=3), et produire comme sortie l'ordre dans lequel les soldats seront tués, le dernier "tué" étant finalement le survivant :
 
