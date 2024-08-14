@@ -1417,7 +1417,7 @@ Cette implémentation est très **peu efficace**
 
 ### <a name="_toc151667935"></a>**5.4. ❤️3<sup>ème</sup> implémentation de la structure file avec la POO et une liste chainée❤️**
 
-**Sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé file\_POO\_v1.py**
+**Sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé file\_POO.py**
 
 
 **Activité n° 39 : Structure pile avec la POO et les listes chainées :** Tester cette implémentation **sur python tutor**
@@ -1943,20 +1943,24 @@ Le programme que vous devez développer devra prendre comme entrées les nombres
 c'est-à-dire que le soldat à la position 4 est le premier à être tué, et 8 est la place sûre recherchée par Josephus.
 
 La fonction josephus qui fait appel à la TAD file est donnée ci-dessous
+```python
+def josephus(liste, module):
+    f = File()
+    for personne in liste :
+        f.enfiler(personne)
+    while not(f.estVide()):
+        p = f.enfiler()
+    return p
+```
 
-def **josephus**(liste, module):
-`    `f = File()
-`    `for personne in liste :
-`        `f.enfiler(personne)
-`    `while not(f.estVide()):
-`        `p = f.enfiler()
-`    `return p
 
 Implémenter la file avec une liste chainée pour que la fonction josephus([1, 2, 3, 4, 5, 6, 7, 8], 3) renvoie 8
 
 Pour simplifier on peut d’abord sortir : 3 6 1 5 2 8 4 7 the last one is 7
 
-**Exercice n°12 : Le jeu de cartes : bataille** Compléter le programme ci-dessous du jeu de la bataille. On l’appelera bataille.py
+**Exercice n°12 : Le jeu de cartes : bataille** 
+
+Compléter le programme ci-dessous du jeu de la bataille. Sur **Thonny** : On l’appelera bataille.py
 
 Vous aurez à  gérer d'une part la valeur des cartes et d'autre part les cas d'égalités.
 
@@ -1964,64 +1968,68 @@ Vous aurez à  gérer d'une part la valeur des cartes et d'autre part les cas d'
 
 Le programme partiel du jeu de bataille :
 
-from file\_POO\_v2 import File
+**Créer et importer une File**
+
+```python
 import random
 
-paquet\_alice = File()
-paquet\_basile = File()
+paquet_alice = File()
+paquet_basile = File()
 
-\# crée le jeu de 52 cartes
+# crée le jeu de 52 cartes
 cartes = [i for i in range(0, 52)]
-\# melange les cartes
+# melange les cartes
 random.shuffle(cartes)
-\# distribue les cartes aux 2 joueurs
+# distribue les cartes aux 2 joueurs
 for i in range(len(cartes) // 2):
-`    `paquet\_alice.enfiler(cartes.pop())
-`    `paquet\_basile.enfiler(cartes.pop())
+    paquet_alice.enfiler(cartes.pop())
+    paquet_basile.enfiler(cartes.pop())
 
 
-\# Gestion d'un tour de jeu
+# Gestion d'un tour de jeu
 def tour():
-`    `global en\_cours
-`    `if paquet\_alice.estVide():
-`        `print("Alice perd")
-`        `en\_cours = False
-`    `elif paquet\_basile.estVide():
-`        `print("Basile perd")
-`        `en\_cours = False
-`    `else:
-`        `tirer()
+    global en_cours
+    if paquet_alice.estVide():
+        print("Alice perd")
+        en_cours = False
+    elif paquet_basile.estVide():
+        print("Basile perd")
+        en_cours = False
+    else:
+        tirer()
 
 
-\# Si la partie n'est pas terminée, tirage d'une carte
+# Si la partie n'est pas terminée, tirage d'une carte
 def tirer():
-`    `a = paquet\_alice.defiler()
-`    `b = paquet\_basile.defiler()
+    a = paquet_alice.defiler()
+    b = paquet_basile.defiler()
 
-`    `valeura = a % 13
-`    `valeurb = b % 13
-`    `print("Alice", valeura, valeurb, "Basile")
-`    `# le programme ne gere pas l'égalité
-`    `if valeura > valeurb:
-`        `paquet\_alice.enfiler(a)
-`        `paquet\_alice.enfiler(b)
-`    `elif valeura < valeurb:
-`        `paquet\_basile.enfiler(b)
-`        `paquet\_basile.enfiler(a)
+    valeura = a % 13
+    valeurb = b % 13
+    print("Alice", valeura, valeurb, "Basile")
+    # le programme ne gere pas l'égalité
+    if valeura > valeurb:
+        paquet_alice.enfiler(a)
+        paquet_alice.enfiler(b)
+    elif valeura < valeurb:
+        paquet_basile.enfiler(b)
+        paquet_basile.enfiler(a)
 
 
-\# démarrage du jeu
-en\_cours = True
-nb\_tours = 0
-while en\_cours:  # not paquet\_alice.est\_vide() and not paquet\_basile.est\_vide()  :
-`    `tour()
-`    `nb\_tours += 1
-print("Partie en ", nb\_tours, " tours")
+# démarrage du jeu
+en_cours = True
+nb_tours = 0
+while en_cours:  # not paquet_alice.est_vide() and not paquet_basile.est_vide()  :
+    tour()
+    nb_tours += 1
+print("Partie en ", nb_tours, " tours")
+```
 
 Ne pas oublier de mettre le bon fichier file au même endroit que celui-ci
 
 Une fois terminé les modifications, vous transformerez le programme bataille en classe Bataille avec toutes les fonctions encapsulé dans cette-ci.
-1. # <a name="_toc151667946"></a>**Projets**
+
+## <a name="_toc151667946"></a>**8. Projets**
 **Exercice n°01 : Pile et contrôle du parenthésage d’une expression**
 
 Il s’agit d’écrire une fonction qui contrôle si une expression mathématique, donnée sous forme d’une chaine de caractères, est bien parenthésée, c’est-à-dire s’il y a autant de parenthèses ouvrantes que de fermantes, et qu’elles sont bien placées. Par exemple :
@@ -2071,8 +2079,10 @@ Il faut faire attention à distinguer les mots de longueur paire et impaire. Si 
 1. Implémenter la méthode publique is\_empty() qui renvoie True si la pile stockée dans le container est vide et False sinon. Le prototype est : is\_empty(self) -> bool
 1. Implémenter la méthode publique push(item) qui ajoute à la fin de la liste. On empile !!
 1. Implémenter la méthode publique pop() qui :
+
 - Retourne None si la pile est vide.
 - Retourne et enlève l’élément au sommet de la pile, si la pile n’est pas vide.
+
 1. Valider les tests unitaires (avec des assert) suivants à partir d’une pile p qui contient les éléments respectivement empilés 1 et 2 :
 - p.is\_empty() == False
 - p.get\_container() == [1,2]
