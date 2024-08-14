@@ -199,25 +199,40 @@ On vous **indiquera le cas à respecter le jour du BAC**. On vous dites claireme
 
 **Profondeur d’un arbre ou hauteur d’un arbre** : Il s'agit de la profondeur maximale qu'on trouve dans l'arbre, la "distance" entre la racine et la plus profonde des racines.
 
-|<p></p><p></p><p>- **Convention 1** : Si la racine a une profondeur de 1, c'est pratique car un arbre-vide aurait une hauteur de 0. C'est "propre".</p><p>&emsp;</p><p>&emsp;Sur cet exemple, la hauteur de l'arbre est donc de 3</p>|![Racine à une profondeur de 1]|
-| - | - |
-|<p></p><p>- **Convention 2** : Si la profondeur de la racine est de 0, il suffit de considérer qu'un arbre-vide n'a pas de hauteur puisqu'il n'a pas de nœud et que la profondeur se mesure sur les nouds. C'est "propre" aussi.</p><p>&emsp;</p><p>&emsp;Sur cet exemple, la hauteur de l'arbre est donc de 2.</p>|![Racine à une profondeur de 0]|
+- **Convention 1** : Si la racine a une profondeur de 1, c'est pratique car un arbre-vide aurait une hauteur de 0. C'est "propre".
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.022.png)
+Sur cet exemple, la hauteur de l'arbre est donc de 3
 
-|<p>![Arbre question 16](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.023.png)</p><p></p><p></p><p>**Activité n° AUTONUM  \* Arabic :**  **Arbres binaires et vocabulaire :**  Fournir la taille, la hauteur et le nombre d'arêtes de cet arbre. Fournir également la profondeur du nœud C.</p><p></p>|
-| :- |
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.019.png)
+
+- **Convention 2** : Si la profondeur de la racine est de 0, il suffit de considérer qu'un arbre-vide n'a pas de hauteur puisqu'il n'a pas de nœud et que la profondeur se mesure sur les nouds. C'est "propre" aussi.
+
+Sur cet exemple, la hauteur de l'arbre est donc de 2.
+
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.020.png)
+
+
+**Activité n° 7 :**  **Arbres binaires et vocabulaire :**  Fournir la taille, la hauteur et le nombre d'arêtes de cet arbre. Fournir également la profondeur du nœud C.
+
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.023.png)
+
 On dit que cet arbre est **complet** car la plus grande profondeur est intégralement composée de feuilles.
 
-|<p>![Arbre question 17](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.024.png)</p><p></p><p></p><p></p><p></p><p></p><p></p><p>**Activité n° AUTONUM  \* Arabic :**  **Arbres binaires et vocabulaire :**  Fournir la taille, la hauteur et le nombre d'arêtes de cet arbre. Fournir également la profondeur du nœud C.</p><p></p>|
-| :- |
+**Activité n° 8 :**  **Arbres binaires et vocabulaire :**  Fournir la taille, la hauteur et le nombre d'arêtes de cet arbre. Fournir également la profondeur du nœud C.
+
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.024.png)
+
 On parle **d'arbre filiforme** ou **d'arbre dégénéré**.
 
-|<p>![Arbre question 18](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.025.png)</p><p></p><p></p><p></p><p></p><p>**Activité n° AUTONUM  \* Arabic :**  **Arbres binaires et vocabulaire :**  Fournir la taille, la hauteur et le nombre d'arêtes de cet arbre. Fournir également la profondeur du nœud C.</p><p></p>|
-| :- |
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.026.png)
+**Activité n° 9 :**  **Arbres binaires et vocabulaire :**  Fournir la taille, la hauteur et le nombre d'arêtes de cet arbre. Fournir également la profondeur du nœud C.
+
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.025.png)
+
+
 
 L’arbre binaire a une hauteur de 1 (convention 0 pour la racine)
+
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.026.png)
 
 Au niveau 0 :  il possède 1=20 nœud.
 
@@ -225,11 +240,13 @@ Au niveau 1 :  il possède 2=21 nœuds.
 
 Soit 3=20+21 en tout.
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.027.png)
+
 
 
 
 L’arbre binaire ci-contre a une hauteur 2
+
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.027.png)
 
 Au niveau 0 :  il possède 1=20 nœud.
 
@@ -239,9 +256,11 @@ Au niveau 2 :  il possède 4=22 nœuds.
 
 Soit 7=20+21+22 en tout.
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.028.png)
+
 
 L’arbre binaire ci-contre a une hauteur 3.
+
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.028.png)
 
 Cet arbre est complet (tous les nœuds internes ont deux fils).
 
@@ -258,10 +277,27 @@ Soit 15=20+21+22+23 en tout.
 
 L’arbre précédent une hauteur h = 3. Donc la taille du tableau sera de : 23+1-1=24-1=15
 
-|<p>**Activité n° AUTONUM  \* Arabic :**  **Arbres binaires et vocabulaire :**  Calculer la taille d'un Arbre Complet dont on vous donne la hauteur:</p><p></p><p>**Si on considère une profondeur de 1 pour la racine :**</p><p>- Hauteur h = 1 : Taille n = 1</p><p>- Hauteur h = 2 : Taille : n = 1 + 2 = 3</p><p>- Hauteur h = 3 : La taille : n = 1 + 2 + ...</p><p>- Hauteur h = 4 : La taille : n =</p><p>- Hauteur h = 5 : La taille: n =</p><p>Quelle fonction mathématique permettrait de trouver la hauteur h connaissant la taille n de l'arbre complet ?</p><p></p><p>**Si on considère une profondeur de 0 pour la racine :**</p><p>- Hauteur h = 0 : Taille n = 1</p><p>- Hauteur h = 1 : Taille : n = 1 + 2 = 3</p><p>- Hauteur h = 2 : La taille : n = 1 + 2 + ...</p><p>- Hauteur h = 3 : La taille : n =</p><p>- Hauteur h = 4 : La taille: n =</p><p>Quelle fonction mathématique permettrait de trouver la hauteur h connaissant la taille n de l'arbre complet ?</p>|
-| :- |
+**Activité n° 10 :**  **Arbres binaires et vocabulaire :**  Calculer la taille d'un Arbre Complet dont on vous donne la hauteur:
 
-##### **Encadrements de la hauteur d'un Arbre Binaire**
+**Si on considère une profondeur de 1 pour la racine :**
+- Hauteur h = 1 : Taille n = 1
+- Hauteur h = 2 : Taille : n = 1 + 2 = 3
+- Hauteur h = 3 : La taille : n = 1 + 2 + ...
+- Hauteur h = 4 : La taille : n =
+- Hauteur h = 5 : La taille: n =
+
+Quelle fonction mathématique permettrait de trouver la hauteur h connaissant la taille n de l'arbre complet ?
+
+**Si on considère une profondeur de 0 pour la racine :**
+- Hauteur h = 0 : Taille n = 1
+- Hauteur h = 1 : Taille : n = 1 + 2 = 3
+- Hauteur h = 2 : La taille : n = 1 + 2 + ...
+- Hauteur h = 3 : La taille : n =
+- Hauteur h = 4 : La taille: n =
+
+Quelle fonction mathématique permettrait de trouver la hauteur h connaissant la taille n de l'arbre complet ?
+
+**Encadrements de la hauteur d'un Arbre Binaire**
 Les deux cas extrêmes étant :
 
 - Arbre binaire filiforme
@@ -280,30 +316,25 @@ On notera que les signes ⌈ ⌉ indiquent simplement un arrondi à l'entier sup
 ⌊<b>log<sub>2</sub>(n)</b>⌋ <b>≤ h ≤ n - 1</b>
 
 Cette fois, les signes ⌊ ⌋ veulent dire d'arrondir à l'inférieur.
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.029.png)
+
 
 **Exemple** : un arbre binaire complet de 15 noeuds possède une hauteur de 4 si la racine a une profondeur de 1.
 
 Si on tape ceci dans Python,
-
-\>>> import math
-
-\>>> math.log2(15+1)
-
-4\.0
-
-
-
-\>>> math.log2(16+1)
-
-4\.087462841250339
-
+```
+>>> import math
+>>> math.log2(15+1)
+4.0
+>>> math.log2(16+1)
+4.087462841250339
+```
 On voit alors qu'un arbre de 15 nœuds à une hauteur comprise dans [4; 15].
 
-Par contre, avec 16 nœuds, on obtient une hauteur comprise dans [5;16].
+Par contre, avec 16 nœuds, on obtient une hauteur comprise dans [5; 16].
 
 C'est normal : avec 15 nœuds, l'arbre serait complet dans le meilleur des cas. Si on en rajoute un, il faut nécessairement rajouter un étage...
-##### **Encadrements de la  taille d'un Arbre Binaire**
+
+**Encadrements de la  taille d'un Arbre Binaire**
 **Encadrement avec une profondeur 1 pour la racine** :
 
 <b>h ≤ n ≤ 2<sup>h</sup> - 1</b>
@@ -312,10 +343,8 @@ C'est normal : avec 15 nœuds, l'arbre serait complet dans le meilleur des cas. 
 
 <b>h + 1 ≤ n ≤ 2<sup>h+1</sup> - 1</b>
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.030.png)
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.031.png)
-1. ## <a name="_toc149141393"></a>**Implémentation simple à partir de liste**
+### <a name="_toc149141393"></a>**3.4. Implémentation simple à partir de liste**
 De manière plus surprenante, il existe une méthode pour implémenter un arbre binaire (qui est une structure hiérarchique) avec une liste (qui est une structure linéaire). Ceci peut se faire par le biais d'une astuce sur les indices :
 
 **Les fils du nœud d'indice i sont placés aux indice 2i+1 et 2i+2**.
@@ -330,10 +359,10 @@ Pour comprendre facilement la numérotation, il suffit de s'imaginer l'arbre com
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.033.png)
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.034.png)
 
-|<p>**Activité n° AUTONUM  \* Arabic :**  **Arbres binaires et liste :**  Si on note Δ le sous-arbre vide, dessiner l'arbre représenté par la liste :</p><p>a = [3, 4, Δ, 7, 5]</p>|
-| - |
+**Activité n° 11 :**  **Arbres binaires et liste :**  Si on note Δ le sous-arbre vide, dessiner l'arbre représenté par la liste :
+
+a = [3, 4, Δ, 7, 5]
 
 
 
@@ -341,206 +370,327 @@ Pour comprendre facilement la numérotation, il suffit de s'imaginer l'arbre com
 **Remarque :** parfois (comme dans le sujet 0...) la racine de l'arbre est placée à l'indice 1. Dans ce cas, les fils du nœud d'indice i sont placés aux indice 2i et 2i+1.
 
 
-1. ## <a name="_toc149141394"></a>**❤️1<sup>ère</sup> implémentation de la structure ARBRE BINAIRE sous forme de tuple❤️**
-**Toutes les fonctions de cette implémentation doivent être dans le même fichier python arbre\_binaire\_tuple.py**
+### <a name="_toc149141394"></a>**3.5. ❤️1<sup>ère</sup> implémentation de la structure ARBRE BINAIRE sous forme de tuple❤️**
 
-|<p>**Activité n° AUTONUM  \* Arabic :**  **Arbres binaires et les fonctions :** implémenter cette structure </p><p>def arbreVide():<br>`    `pass<br><br>def noeud(e, g=None, d=None):<br>`    `# retourne la valeur du noeud, son fils gauche et son fils droit s'ils existent<br>`    `pass<br><br>def etiquette(arbre):<br>`    `#retourne la valeur de la racine<br>`    `pass<br><br>def gauche(arbre):<br>`    `# retourne le sous arbre gauche<br>`    `pass<br><br>def droit(arbre):<br>`    `#retourne le sous arbre droit<br>`    `pass</p><p></p><p>def estVide(arbre):<br>`    `pass</p>|
-| - |
+**Sur Thonny : Toutes les fonctions de cette implémentation doivent être dans le même fichier python arbre\_binaire\_tuple.py**
 
-|<p>![ref1]**Activité n° AUTONUM  \* Arabic :**  **Arbres binaires et les fonctions:** Soit l'arbre binaire suivant :</p><p></p><p>On veut construire cet arbre à l'aide de l’implémentation précédente</p><p>Ecrire les commandes permettant de faire cette construction</p><p></p>|
-| :- |
+**Activité n° 12 :**  **Arbres binaires et les fonctions :** implémenter cette structure 
+
+```python
+def arbreVide():
+    pass
+
+def noeud(e, g=None, d=None):
+    # retourne la valeur du noeud, son fils gauche et son fils droit s'ils existent
+    pass
+
+def etiquette(arbre):
+    #retourne la valeur de la racine
+    pass
+
+def gauche(arbre):
+    # retourne le sous arbre gauche
+    pass
+
+def droit(arbre):
+    #retourne le sous arbre droit
+    pass
+
+def estVide(arbre):
+    pass
+```
+
+**Activité n° 13 :**  **Arbres binaires et les fonctions:** Soit l'arbre binaire suivant :
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.035.png)
+On veut construire cet arbre à l'aide de l’implémentation précédente
+
+Ecrire les commandes permettant de faire cette construction
+
 Voici l’algorithme correspondant à la fonction hauteur : (convention 1 pour la racine)
 
+```
 HAUTEUR(T) :
-
-`  `si T est vide :
-
-`    `renvoyer 0
-
-`  `sinon :
-
-`    `renvoyer 1 + max(HAUTEUR(sous-arbre gauche), HAUTEUR(sous-arbre droit))
-
-`  `fin si		
+  si T est vide :
+    renvoyer 0
+  sinon :
+    renvoyer 1 + max(HAUTEUR(sous-arbre gauche), HAUTEUR(sous-arbre droit))
+  fin si
+```
 
 La fonction max renvoie la plus grande valeur des 2 valeurs passées en paramètre (exemple : max(5,6) renvoie 6)
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.036.png)
 
-|**Activité n° AUTONUM  \* Arabic :**  **Arbres binaires et les fonctions : fonction** hauteur**:** Implémenter l’algorithme de la fonction hauteur et tester le sur l’arbre précédent|
-| :- |
+
+**Activité n° 14 :**  **Arbres binaires et les fonctions : fonction** hauteur**:** Implémenter l’algorithme de la fonction hauteur et tester le sur l’arbre précédent
+
 
 Voici l’algorithme correspondant à la fonction taille : 
-
+```
 TAILLE(T) :
+  si T = NIL :
+    renvoyer 0
+  sinon :
+    renvoyer 1 + TAILLE(sous-arbre gauche)+ TAILLE(sous-arbre droit)
+  fin si
+```
 
-`  `si T = NIL :
-
-`    `renvoyer 0
-
-`  `sinon :
-
-`    `renvoyer 1 + TAILLE(sous-arbre gauche)+ TAILLE(sous-arbre droit)
-
-`  `fin si
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.037.png)
 
-|**Activité n° AUTONUM  \* Arabic :**  **Arbres binaires et les fonctions : fonction** taille**:** Implémenter l’algorithme de la fonction taille et tester le sur l’arbre précédent|
-| :- |
+**Activité n° 15 :**  **Arbres binaires et les fonctions : fonction** taille**:** Implémenter l’algorithme de la fonction taille et tester le sur l’arbre précédent
 
 
-1. ## <a name="_toc149141395"></a>**❤️2<sup>ème</sup> implémentation de la structure ARBRE BINAIRE avec la POO et une classe❤️**
-**Toutes les fonctions de cette implémentation doivent être dans le même fichier python arbre\_binaire\_POO\_v1.py**
+### <a name="_toc149141395"></a>**3.6. ❤️2<sup>ème</sup> implémentation de la structure ARBRE BINAIRE avec la POO et une classe❤️**
 
-|<p>**Activité n° AUTONUM  \* Arabic :**  **Arbres binaires et POO : Méthode de Huffman simplifiée**  **:** Implémenter la structure ARBRE avec une seule classe :</p><p>class Noeud:<br>`    `def \_\_init\_\_(self, valeur = None, g = None, d = None):<br>`        `pass<br><br>`    `def estVide(self):<br>`        `pass</p><p></p><p>**Question** : expliquer le rôle de chaque méthode de la classe Noeud</p>|
-| - |
+**Sur Thonny : Toutes les fonctions de cette implémentation doivent être dans le même fichier python arbre\_binaire\_POO\_v1.py**
 
-|<p>![ref2]**Activité n° AUTONUM  \* Arabic :**  **Arbres binaires et POO :** Soit l'arbre binaire suivant : </p><p>On veut construire cet arbre à l'aide de la classe Nœud précédente</p><p></p><p></p><p>Le début des commandes permettant de faire cette construction :</p><p>E = Noeud('E')<br>D = Noeud('D')<br>` `???<br>arbre = Noeud('A', B, C)</p><p></p><p></p><p></p><p></p><p></p><p>![ref3]On implantera aussi l’arbre T </p><p>T = Noeud('A')<br>T.g = Noeud('B') </p><p>???</p><p></p>|
-| :- |
+**Activité n° 16 :**  **Arbres binaires et POO : Méthode de Huffman simplifiée**  **:** Implémenter la structure ARBRE avec une seule classe :
+```python
+class Noeud:
+    def __init__(self, valeur = None, g = None, d = None):
+        pass
 
-|<p>**Activité n° AUTONUM  \* Arabic :**  **Arbres binaires et POO :** Il est possible d'afficher un arbre binaire dans la console Python, pour cela, nous allons utiliser **la fonction** affiche</p><p>def affiche(arbre):<br>`   `if arbre != None:<br>`      `return (arbre.valeur,affiche(arbre.g),affiche(arbre.d))</p><p></p><p>Cette fonction renvoie une série de tuples de la forme (valeur,arbre\_gauche, arbre\_droite), comme "arbre\_gauche" et "arbre\_droite" seront eux-mêmes affichés sous forme de tuples, on aura donc un affichage qui ressemblera à : (valeur,(valeur\_gauche,arbre\_gauche\_gauche,arbre\_gauche\_droite),(valeur\_droite,arbre\_droite\_gauche,arbre\_droite\_droite)), mais comme "arbre\_gauche\_gauche" sera lui-même représenté par un tuple...</p><p></p><p>Ajouter :</p><p>print(affiche(arbre))<br>print(affiche(T))</p><p></p><p></p><p>**Remarque** : en implémentant la méthode affiche cela donnerait :</p><p>def affiche2(self):<br>`    `if self.g and self.d:<br>`        `return self.valeur, self.g.affiche2(), self.d.affiche2()<br>`    `elif self.g:<br>`        `return self.valeur,self.g.affiche2(),None<br>`    `elif self.d:<br>`        `return self.valeur,None, self.d.affiche2()<br>`    `else:<br>`        `return self.valeur, None, None</p><p>Ajouter :</p><p>print(arbre.affiche2())</p><p>print(T.affiche2())</p>|
-| :- |
+    def estVide(self):
+        pass
+```
+
+**Question** : expliquer le rôle de chaque méthode de la classe Noeud
+
+**Activité n° 17 :**  **Arbres binaires et POO :** Soit l'arbre binaire suivant : 
+
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.038.png)
+
+On veut construire cet arbre à l'aide de la classe Nœud précédente
+
+Le début des commandes permettant de faire cette construction :
+```python
+E = Noeud('E')
+D = Noeud('D')
+ ???
+arbre = Noeud('A', B, C)
+```
+
+On implantera aussi l’arbre T 
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.039.png)
+```python
+T = Noeud('A')
+T.g = Noeud('B') 
+???
+```
+
+**Activité n° 18 :**  **Arbres binaires et POO :** Il est possible d'afficher un arbre binaire dans la console Python, pour cela, nous allons utiliser **la fonction** affiche
+```python
+def affiche(arbre):
+   if arbre != None:
+      return (arbre.valeur,affiche(arbre.g),affiche(arbre.d))
+```
+Cette fonction renvoie une série de tuples de la forme (valeur,arbre\_gauche, arbre\_droite), comme "arbre\_gauche" et "arbre\_droite" seront eux-mêmes affichés sous forme de tuples, on aura donc un affichage qui ressemblera à : (valeur,(valeur\_gauche,arbre\_gauche\_gauche,arbre\_gauche\_droite),(valeur\_droite,arbre\_droite\_gauche,arbre\_droite\_droite)), mais comme "arbre\_gauche\_gauche" sera lui-même représenté par un tuple...
+
+Ajouter :
+```python
+print(affiche(arbre))
+print(affiche(T))
+```
+**Remarque** : en implémentant la méthode affiche cela donnerait :
+```python
+def affiche2(self):
+    if self.g and self.d:
+        return self.valeur, self.g.affiche2(), self.d.affiche2()
+    elif self.g:
+        return self.valeur,self.g.affiche2(),None
+    elif self.d:
+        return self.valeur,None, self.d.affiche2()
+    else:
+        return self.valeur, None, None
+```
+Ajouter :
+```python
+print(arbre.affiche2())
+print(T.affiche2())
+```
 
 Voici l’algorithme correspondant à la fonction hauteur : (convention 1 pour la racine)
-
+```
 HAUTEUR(T) :
-
-`  `si T est vide :
-
-`    `renvoyer 0
-
-`  `sinon :
-
-`    `renvoyer 1 + max(HAUTEUR(T du sous-arbre gauche), HAUTEUR(T du sous-arbre droit))
-
-`  `fin si	
+  si T est vide :
+    renvoyer 0
+  sinon :
+    renvoyer 1 + max(HAUTEUR(T du sous-arbre gauche), HAUTEUR(T du sous-arbre droit))
+  fin si	
+```
+	
 
 La fonction max renvoie la plus grande valeur des 2 valeurs passées en paramètre (exemple : max(5,6) renvoie 6)
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.040.png)
+**Activité n° 19 :**  **Arbres binaires et POO fonction** hauteur**:** Implémenter l’algorithme de la **fonction** hauteur et tester l’arbre précédent
 
-|**Activité n° AUTONUM  \* Arabic :**  **Arbres binaires et POO fonction** hauteur**:** Implémenter l’algorithme de la **fonction** hauteur et tester l’arbre précédent|
-| :- |
+**Activité n° 20 :**  **Arbres binaires et POO méthode** hauteur**:** Implémenter l’algorithme de la **méthode** hauteur2 et tester l’arbre précédent.
 
-|<p>**Activité n° AUTONUM  \* Arabic :**  **Arbres binaires et POO méthode** hauteur**:** Implémenter l’algorithme de la **méthode** hauteur2 et tester l’arbre précédent</p><p>Tester avec l’arbre T qui devrait avoir une hauteur de 5 </p>|
-| :- |
+Tester avec l’arbre T qui devrait avoir une hauteur de 5 
 
 Voici l’algorithme correspondant à la fonction taille : 
-
+```
 TAILLE(T) :
+  si T est vide:
+    renvoyer 0
+  sinon :
+    renvoyer 1 + TAILLE(T du sous-arbre gauche)+TAILLE(T du sous-arbre droit)
+  fin si
+```
 
-`  `si T est vide:
+**Activité n° 21 :**  **Arbres binaires et POO fonction** taille**:** Implémenter l’algorithme de la **fonction** taille et tester l’arbre précédent
 
-`    `renvoyer 0
-
-`  `sinon :
-
-`    `renvoyer 1 + TAILLE(T du sous-arbre gauche)+TAILLE(T du sous-arbre droit)
-
-`  `fin si
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.041.png)
-
-|**Activité n° AUTONUM  \* Arabic :**  **Arbres binaires et POO fonction** taille**:** Implémenter l’algorithme de la **fonction** taille et tester l’arbre précédent|
-| :- |
-
-|**Activité n° AUTONUM  \* Arabic :**  **Arbres binaires et POO méthode** taille**:** Implémenter l’algorithme de la **méthode** taille2 et tester l’arbre précédent|
-| :- |
+**Activité n° 22 :**  **Arbres binaires et POO méthode** taille**:** Implémenter l’algorithme de la **méthode** taille2 et tester l’arbre précédent
 
 
-1. ## <a name="_toc149141396"></a>**❤️ 3<sup>ème</sup> implémentation de la structure ARBRE BINAIRE avec la POO avec 2 classes❤️**
-**Toutes les fonctions de cette implémentation doivent être dans le même fichier python arbre\_binaire\_POO\_v2.py**
+### <a name="_toc149141396"></a>**3.7. ❤️ 3<sup>ème</sup> implémentation de la structure ARBRE BINAIRE avec la POO avec 2 classes❤️**
 
-|<p>**Activité n° AUTONUM  \* Arabic :**  **Arbres binaires et POO : Méthode de Huffman simplifiée**  **:** Implémenter la structure ARBRE avec deux classes :</p><p></p><p>class Noeud:<br>`    `def \_\_init\_\_(self, valeur , g = None, d = None):<br>`        `pass<br><br>class Arbre:<br>`    `def \_\_init\_\_(self, noeud=None):<br>`        `pass<br><br>`    `def estVide(self):<br>`        `pass<br><br>`    `def get\_valeur(self):<br>`        `pass<br><br>`    `def get\_gauche(self):<br>`        `pass<br><br>`    `def get\_droit(self):<br>`        `pass</p>|
-| - |
+**Sur Thonny : Toutes les fonctions de cette implémentation doivent être dans le même fichier python arbre\_binaire\_POO\_v2.py**
+
+**Activité n° 23 :**  **Arbres binaires et POO : Méthode de Huffman simplifiée**  **:** Implémenter la structure ARBRE avec deux classes :
+```python
+class Noeud:
+    def __init__(self, valeur , g = None, d = None):
+        pass
+
+class Arbre:
+    def __init__(self, noeud=None):
+        pass
+
+    def estVide(self):
+        pass
+
+    def get_valeur(self):
+        pass
+
+    def get_gauche(self):
+        pass
+
+    def get_droit(self):
+        pass
+```
+
 
 On peut noter que pour faire l’appel d’un attribut d’une autre classe, par exemple valeur, il faut remonter au constructeur de la classe Arbre. Ainsi on notera self.noeud.valeur dans la classe Arbre
 
-|<p>**Activité n° AUTONUM  \* Arabic :**  **Arbres binaires et POO :** Soit l'arbre binaire suivant :</p><p>![ref2]</p><p>On veut construire cet arbre à l'aide de la classe Arbre</p><p></p><p>Le problème est que les attributs g et d ne font plus partie de cette classe et on ne peut plus y accéder. Il faut donc rajouter une méthode qui sera un mutateur (setter)</p><p></p><p>Ajouter la méthode de la classe Arbre suivante :</p><p>def greffeGD(value, left = None, right = None):<br>`    `pass</p><p>![ref3]</p><p>E = Arbre.greffeGD('E')<br>D = Arbre.greffeGD('D')<br>C = Arbre.greffeGD('C')<br>B = Arbre.greffeGD('B', D, E)<br>arbre = Arbre.greffeGD('A', B, C)</p><p></p><p>On pourra aussi tester avec l’arbre T</p>|
-| :- |
+**Activité n° 24 :**  **Arbres binaires et POO :** Soit l'arbre binaire suivant :
+
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.038.png)
+
+On veut construire cet arbre à l'aide de la classe Arbre
+Le problème est que les attributs g et d ne font plus partie de cette classe et on ne peut plus y accéder. Il faut donc rajouter une méthode qui sera un mutateur (setter)
+
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.039.png)
+
+Ajouter la méthode de la classe Arbre suivante :
+```python
+def greffeGD(value, left = None, right = None):
+    pass
+
+E = Arbre.greffeGD('E')
+D = Arbre.greffeGD('D')
+C = Arbre.greffeGD('C')
+B = Arbre.greffeGD('B', D, E)
+arbre = Arbre.greffeGD('A', B, C)
+```
+On pourra aussi tester avec l’arbre T
 
 On note que les **constructeurs de la classe Nœud sont protégés** et que pour pouvoir y accéder on utilise un setter.
 
-|<p>**Activité n° AUTONUM  \* Arabic :**  **Arbres binaires et POO :** Il est possible d'afficher un arbre binaire dans la console Python, pour cela, nous allons utiliser deux méthodes. </p><p>Ajouter la **méthode** suivante à la classe Nœud :</p><p>def \_\_repr\_\_(self):<br>`    `return self.valeur+str(self.g).replace('None','.')+str(self.d).replace('None','.')</p><p></p><p>Ajouter la **méthode** suivante à la classe Arbre : </p><p>def \_\_str\_\_(self): # ou \_\_repr\_\_ pour éviter le print...<br>`    `return self.noeud.\_\_str\_\_()</p><p></p><p>Tester sur les arbres binaires précédents</p>|
-| :- |
+**Activité n° 25 :**  **Arbres binaires et POO :** Il est possible d'afficher un arbre binaire dans la console Python, pour cela, nous allons utiliser deux méthodes. 
+
+Ajouter la **méthode** suivante à la classe Nœud :
+```python
+def __repr__(self):
+    return self.valeur+str(self.g).replace('None','.')+str(self.d).replace('None','.')
+```
+
+Ajouter la **méthode** suivante à la classe Arbre : 
+```python
+def __str__(self): # ou __repr__ pour éviter le print...
+    return self.noeud.__str__()
+```
+
+Tester sur les arbres binaires précédents
+
 
 Voici l’algorithme correspondant à la fonction hauteur : (convention 1 pour la racine)
-
+```
 HAUTEUR(T) :
-
-`  `si T est vide :
-
-`    `renvoyer 0
-
-`  `sinon :
-
-`    `renvoyer 1 + max(HAUTEUR(T du sous-arbre gauche), HAUTEUR(T du sous-arbre droit))
-
-`  `fin si			
+  si T est vide :
+    renvoyer 0
+  sinon :
+    renvoyer 1 + max(HAUTEUR(T du sous-arbre gauche), HAUTEUR(T du sous-arbre droit))
+  fin si
+```
+			
 
 La fonction max renvoie la plus grande valeur des 2 valeurs passées en paramètre (exemple : max(5,6) renvoie 6)
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.042.png)
 
-|**Activité n° AUTONUM  \* Arabic :**  **Arbres binaires et POO fonction** hauteur**:** Implémenter l’algorithme de la **fonction** hauteur et tester l’arbre précédent|
-| :- |
 
-|**Activité n° AUTONUM  \* Arabic :**  **Arbres binaires et POO méthode** hauteur**:** Implémenter l’algorithme de la **méthode** hauteur2 et tester l’arbre précédent|
-| :- |
+**Activité n° 26 :**  **Arbres binaires et POO fonction** hauteur**:** Implémenter l’algorithme de la **fonction** hauteur et tester l’arbre précédent
+
+**Activité n° 27 :**  **Arbres binaires et POO méthode** hauteur**:** Implémenter l’algorithme de la **méthode** hauteur2 et tester l’arbre précédent
 
 Voici l’algorithme correspondant à la fonction taille : 
-
+```
 TAILLE(T) :
+  si T est vide:
+    renvoyer 0
+  sinon :
+    renvoyer 1 + TAILLE(T.gauche)+TAILLE(T.droit)
+  fin si
+```
 
-`  `si T est vide:
+**Activité n° 28 :**  **Arbres binaires et POO fonction** taille**:** Implémenter l’algorithme de la **fonction** taille et tester l’arbre précédent
 
-`    `renvoyer 0
+**Activité n° 29 :**  **Arbres binaires et POO méthode** taille**:** Implémenter l’algorithme de la **méthode** taille2 et tester l’arbre précédent
 
-`  `sinon :
 
-`    `renvoyer 1 + TAILLE(T.gauche)+TAILLE(T.droit)
-
-`  `fin si
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.043.png)
-
-|**Activité n° AUTONUM  \* Arabic :**  **Arbres binaires et POO fonction** taille**:** Implémenter l’algorithme de la **fonction** taille et tester l’arbre précédent|
-| :- |
-
-|**Activité n° AUTONUM  \* Arabic :**  **Arbres binaires et POO méthode** taille**:** Implémenter l’algorithme de la **méthode** taille2 et tester l’arbre précédent|
-| :- |
-##
-
-1. ## <a name="_toc149141397"></a>**Un autre code de représentation**
+### <a name="_toc149141397"></a>**3.8. Un autre code de représentation**
 On change de structure de représentation d'un arbre. On va utiliser un dictionnaire.
 
 On codera par exemple comme suit :
-
-**A = { 'r' : ['a','b'], 'a' : ['c','d'], 'b' : ['e','f'],\**
-
-`	 `**'c' : ['','h'], 'd' : ['i', 'j'], 'e' : ['k',''], 'f' : ['',''], \**
-
-`  `**'h' : ['',''], 'i': ['',''], 'j' : ['m',''], 'k' : ['',''], 'm' : ['','']}**
+```python
+A = { 'r' : ['a','b'], 'a' : ['c','d'], 'b' : ['e','f'],\
+	 'c' : ['','h'], 'd' : ['i', 'j'], 'e' : ['k',''], 'f' : ['',''], \
+  'h' : ['',''], 'i': ['',''], 'j' : ['m',''], 'k' : ['',''], 'm' : ['','']}
+```
 
 l'arbre déjà utilisé :
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.044.png)
-![arbre](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.045.png)
 
 
-1. # <a name="_toc149141398"></a>**Le parcours en profondeur des arbres binaires**
-   1. ## <a name="_toc149141399"></a>**Les algorithmes**
-      1. ### <a name="_toc149141400"></a>**Le parcours préfixe**
 
-|<p></p><p></p><p>**Ordre préfixe**</p><p>1. **Visite du nœud**</p><p>2. Parcours branche gauche</p><p>3. Parcours branche droite </p><p></p>|![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.046.png)|
-| :- | :- |
-1. ### <a name="_toc149141401"></a>**Le parcours infixe**
+## <a name="_toc149141398"></a>**4. Le parcours en profondeur des arbres binaires**
+### <a name="_toc149141399"></a>**4.1. Les algorithmes**
+#### <a name="_toc149141400"></a>**4.1.1. Le parcours préfixe**
 
-|<p></p><p></p><p>**Ordre infixe**</p><p>1. Parcours branche gauche </p><p>2. **Visite du nœud**</p><p>3. Parcours branche droite </p><p></p>|![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.047.png)|
-| :- | :- |
+**Ordre préfixe**
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.046.png)
+1. **Visite du nœud**
+2. Parcours branche gauche
+3. Parcours branche droite 
 
-1. ### <a name="_toc149141402"></a>**Le parcours suffixe ou postfixe**
 
-|<p></p><p></p><p>**Ordre suffixe**</p><p>1. Parcours branche gauche</p><p>2. Parcours branche droite </p><p>3. **Visite du nœud**</p><p>&emsp;</p><p></p>|![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.048.png)|
-| :- | :- |
+#### <a name="_toc149141401"></a>**4.1.2. Le parcours infixe**
 
+**Ordre infixe**
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.047.png)|
+1. Parcours branche gauche 
+2. **Visite du nœud**
+3. Parcours branche droite 
+
+#### <a name="_toc149141402"></a>**Le parcours suffixe ou postfixe**
+
+**Ordre suffixe**
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.048.png)
+1. Parcours branche gauche
+2. Parcours branche droite 
+3. **Visite du nœud**
+
+
+#####################=>
 |<p>**Activité n° AUTONUM  \* Arabic : Arbre binaire et parcours en profondeur :** Donner les trois parcours des sommets de l’arbre</p><p>` `![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.049.png)</p>|
 | :- |
 
