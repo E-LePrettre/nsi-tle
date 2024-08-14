@@ -1296,9 +1296,7 @@ def defiler(file)
 
 # Programme principal
 if __name__ == '__main__':
-    ma_file =
-
- fileVide()
+    ma_file = fileVide()
     assert estVide(ma_file) == True
     enfiler(ma_file, 'Lundi')
     enfiler(ma_file, 'Mardi')
