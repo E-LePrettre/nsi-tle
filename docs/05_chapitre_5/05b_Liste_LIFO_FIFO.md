@@ -2071,25 +2071,35 @@ S’il y a toujours égalité, c’est un palindrome.
 
 Il faut faire attention à distinguer les mots de longueur paire et impaire. Si le mot est pair, de longueur 2n, on lit n lettres en empilant, puis n lettres en dépilant. Si le mot est impair, de longueur 2n+1, on lit n lettres en empilant, on lit la lettre du milieu sans rien faire, puis on lit n lettres en dépilant.
 
-1. Créer un fichier python pile.py
-1. Créer une classe Pile avec :
-1. Un constructeur \_\_init\_\_() initialisant l’attribut **privé** que l’on appellera container à [] (liste vide Python)
-1. Implémenter la méthode publique get\_container dont le prototype est : get\_container(self) -> list et qui renvoie le contenu de la pile.
-1. Implémenter la méthode publique size() dont le prototypage est le suivant : size(self) -> int et qui renvoie la taille de la liste
-1. Implémenter la méthode publique is\_empty() qui renvoie True si la pile stockée dans le container est vide et False sinon. Le prototype est : is\_empty(self) -> bool
-1. Implémenter la méthode publique push(item) qui ajoute à la fin de la liste. On empile !!
-1. Implémenter la méthode publique pop() qui :
+1 sur **Thonny** : Créer un fichier python pile.py
+
+2 Créer une classe Pile avec Un constructeur \_\_init\_\_() initialisant l’attribut **privé** que l’on appellera container à [] (liste vide Python)
+
+3 Implémenter la méthode publique get\_container dont le prototype est : get\_container(self) -> list et qui renvoie le contenu de la pile.
+
+4 Implémenter la méthode publique size() dont le prototypage est le suivant : size(self) -> int et qui renvoie la taille de la liste
+
+5 Implémenter la méthode publique is\_empty() qui renvoie True si la pile stockée dans le container est vide et False sinon. Le prototype est : is\_empty(self) -> bool
+
+6 Implémenter la méthode publique push(item) qui ajoute à la fin de la liste. On empile !!
+
+7 Implémenter la méthode publique pop() qui :
 
 - Retourne None si la pile est vide.
 - Retourne et enlève l’élément au sommet de la pile, si la pile n’est pas vide.
 
-1. Valider les tests unitaires (avec des assert) suivants à partir d’une pile p qui contient les éléments respectivement empilés 1 et 2 :
+8 Valider les tests unitaires (avec des assert) suivants à partir d’une pile p qui contient les éléments respectivement empilés 1 et 2 :
+
 - p.is\_empty() == False
 - p.get\_container() == [1,2]
 - p.pop() == 2
-1. Créer un fichier python palindrome.py
-1. Implémenter à l’aide d’une pile une fonction palindrome() qui prend en entrée un mot et renvoie True si c’est un palindrome et False sinon. On donne le prototype de la fonction palindrome(word : str) -> bool.
-1. Tester votre programme avec les tests suivants :
+
+9 Sur **Thonny** : Créer un fichier python palindrome.py
+
+10 Implémenter à l’aide d’une pile une fonction palindrome() qui prend en entrée un mot et renvoie True si c’est un palindrome et False sinon. On donne le prototype de la fonction palindrome(word : str) -> bool.
+
+11 Tester votre programme avec les tests suivants :
+
 - palindrome("kayak")
 - palindrome("trust")
 
@@ -2101,221 +2111,179 @@ L’ordonnanceur va répartir le temps de calcul entre les programmes, afin que 
 
 La plupart des ordonnanceurs modernes utilisent des files pour garder en mémoire de façon optimale les programmes à exécuter. En effet, tout comme la pile était une structure naturelle pour gérer les palindromes à l’exercice précédent, la file est parfaitement adaptée à l’ordonnancement : les programmes qui demandent du temps de calcul sont insérés en bout de file, et ceux qui seront défilés pour obtenir effectivement du temps processeur sont ceux qui attendent depuis le plus longtemps.
 
-1. Créer un fichier python file.py
-1. Créer une classe File avec :
+1 Sur **Thonny** : Créer un fichier python file.py
 
-1. Un constructeur \_\_init\_\_() initialisant l’attribut **privé** que l’on appellera container à [] (liste vide Python)
+2 Créer une classe File avec Un constructeur \_\_init\_\_() initialisant l’attribut **privé** que l’on appellera container à [] (liste vide Python)
 
-1. Implémenter la méthode publique get\_container dont le prototype est : get\_container(self) -> list et qui renvoie le contenu de la file.
-1. Implémenter la méthode publique size() dont le prototypage est le suivant : size(self) -> int et qui renvoie la taille de la liste
-1. Implémenter la méthode publique is\_empty() qui renvoie True si la file stockée dans le container est vide et False sinon. Le prototype est : is\_empty(self) -> bool
-1. Implémenter la méthode publique queue(item) qui ajoute à la fin de la liste. On enfile !!
-1. Implémenter la méthode publique enqueue() qui :
+3 Implémenter la méthode publique get\_container dont le prototype est : get\_container(self) -> list et qui renvoie le contenu de la file.
+
+4 Implémenter la méthode publique size() dont le prototypage est le suivant : size(self) -> int et qui renvoie la taille de la liste
+
+5 Implémenter la méthode publique is\_empty() qui renvoie True si la file stockée dans le container est vide et False sinon. Le prototype est : is\_empty(self) -> bool
+
+6 Implémenter la méthode publique queue(item) qui ajoute à la fin de la liste. On enfile !!
+
+7 Implémenter la méthode publique enqueue() qui :
+
 - Retourne None si la file est vide.
 - Retourne et enlève l’élément au début de la file, si la file n’est pas vide.
 
-1. Valider les tests unitaires (avec des assert) suivants à partir d’une file f qui contient les éléments respectivement enfilés 1 et 2 :
+8 Valider les tests unitaires (avec des assert) suivants à partir d’une file f qui contient les éléments respectivement enfilés 1 et 2 :
+
 - f.is\_empty() == False
 - f.get\_container() == [1, 2]
 - f.enqueue() == 1
 
-1. Créer un fichier python scheduler.py
-1. Créer une classe Activite pour modéliser des activités avec :
+9 Sur **Thonny** : Créer un fichier python scheduler.py
 
-1. Un constructeur \_\_init\_\_() initialisant ayant trois attributs privés : name, time et priority. Le prototype est le suivant : \_\_init\_\_(self, name : str, time : int, priority : int)
+10 Créer une classe Activite pour modéliser des activités avec Un constructeur \_\_init\_\_() initialisant ayant trois attributs privés : name, time et priority. Le prototype est le suivant : \_\_init\_\_(self, name : str, time : int, priority : int)
 
-1. Un accesseur (getter) get\_time() qui renvoie la valeur de l’attribut time.
-1. Un accesseur (getter) get\_priority() qui renvoie la valeur de l’attribut priority.
-1. Une méthode publique execute() qui décrémente l’attribut time d’une valeur passée en paramètre appelée time à la méthode et qui renvoie un booléen indiquant si time est nul (True) ou non (False).
+11 Un accesseur (getter) get\_time() qui renvoie la valeur de l’attribut time.
+
+12 Un accesseur (getter) get\_priority() qui renvoie la valeur de l’attribut priority.
+
+13 Une méthode publique execute() qui décrémente l’attribut time d’une valeur passée en paramètre appelée time à la méthode et qui renvoie un booléen indiquant si time est nul (True) ou non (False).
 
 **Aide** : time ne peut en aucun cas être < 0.
 
-1. Une méthode spéciale \_\_repr\_\_(self) renvoyant une chaîne représentant l’activité selon le format : <nom activité>: <temps>s [<priorité>]. 
+14 Une méthode spéciale \_\_repr\_\_(self) renvoyant une chaîne représentant l’activité selon le format : ```<nom activité>: <temps>s [<priorité>]```. 
 
 **Aide** : on utilisera la méthode format() <https://python.sdv.univ-paris-diderot.fr/03_affichage/>
 
-1. Créer une classe Ordonnanceur sur le patron suivant :
-
+15 Créer une classe Ordonnanceur sur le patron suivant :
+```python
 import file as fl
 
 class Ordonnanceur:
+	def __init__(self, quota=0):
+		self.__file  = fl.File()
+        self.__quota = int(quota)
 
-`	`def \_\_init\_\_(self, quota=0):
+	def set_quota(self, quota : int) -> int:
+		# à compléter
 
-`		`self.\_\_file  = fl.File()
+	def add_activity(self, activity : object):
+		# à compléter
 
-`        `self.\_\_quota = int(quota)
+	def step(self):
+		# à compléter
 
-`	`def set\_quota(self, quota : int) -> int:
+	def run(self):
+		# à compléter
+```
 
-`		`# à compléter
+16 Compléter la méthode add\_activity() qui ajoute une activité passée en paramètre à la file de processus de l’ordonnanceur.
 
-`	`def add\_activity(self, activity : object):
+17 Compléter le mutateur (setter) set\_quota()
 
-`		`# à compléter
+18 **★★** Modifier la méthode step() qui effectue un “tour” d’ordonnancement comme suit :
 
-`	`def step(self):
-
-`		`# à compléter
-
-`	`def run(self):
-
-`		`# à compléter
-
-1. Compléter la méthode add\_activity() qui ajoute une activité passée en paramètre à la file de processus de l’ordonnanceur.
-1. Compléter le mutateur (setter) set\_quota()
-
-1. **★★** Modifier la méthode step() qui effectue un “tour” d’ordonnancement comme suit :
 - si la file est vide, on ne fait rien : on attend.
 - s’il y a au moins une activité dans la file, on exécute l’activité en affichant son nom et sa durée. Puis, on décrémente son temps d’une unité et si son quota arrive à 0, on enfile l’activité.
-1. **★★** Modifier la méthode run() qui itère step jusqu’à obtenir une file de processus vides.
-1. **★★** Créer une liste de 10 activités de durée et de priorité aléatoires (durée entre 1 et 10 et priorité entre 0 et 2).
-1. ![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.044.png)**★★** A l’aide d’une boucle, mettre toutes les activités dans la file de l’ordonnanceur puis exécuter l’ordonnanceur.
+
+19 **★★** Modifier la méthode run() qui itère step jusqu’à obtenir une file de processus vides.
+
+20 **★★** Créer une liste de 10 activités de durée et de priorité aléatoires (durée entre 1 et 10 et priorité entre 0 et 2).
+
+21 **★★** A l’aide d’une boucle, mettre toutes les activités dans la file de l’ordonnanceur puis exécuter l’ordonnanceur.
 
 
 
-
-
-
-
-
-
-
-
-**
 
 **Exercice n°05 : Implémentation du type abstrait tableau dynamique en Python**
 
 **Interface du type abstrait Tableau\_dynamique**
 
 L’interface de la classe est la suivante :
+```python
+Help on class TableauDynamique in module __main__:
 
-Help on **class** **TableauDynamique** in module \_\_main\_\_:
+class TableauDynamique(builtins.object)
+ |  TableauDynamique() -> 'None'
+ |  
+ |  Classe implémentant le type « tableau dynamqie »,
+ |  version très simplifiée du type « liste » de Python.
+ |  
+ |  Methods defined here:
+ |  
+ |  __getitem__(self: 'TableauDynamique', i: 'int') -> 'object'
+ |      Retourne l'élément d'indice i.
+ |  
+ |  __init__(self: 'TableauDynamique') -> 'None'
+ |      Création d'un tableau vide à l'initialisation.
+ |  
+ |  __len__(self: 'TableauDynamique') -> 'int'
+ |      Retourne le nombre d'éléments dans le tableau.
+ |  
+ |  append(self: 'TableauDynamique', obj: 'object') -> 'None'
+ |      Ajoute l'élément obj en dernière position dans le tableau.
+```
 
-**class** **TableauDynamique**(builtins.object)
-
-` `|  TableauDynamique() -> 'None'
-
-` `|  
-
-` `|  Classe implémentant le type « tableau dynamqie »,
-
-` `|  version très simplifiée du type « liste » de Python.
-
-` `|  
-
-` `|  Methods defined here:
-
-` `|  
-
-` `|  \_\_getitem\_\_(self: 'TableauDynamique', i: 'int') -> 'object'
-
-` `|      Retourne l'élément d'indice i.
-
-` `|  
-
-` `|  \_\_init\_\_(self: 'TableauDynamique') -> 'None'
-
-` `|      Création d'un tableau vide à l'initialisation.
-
-` `|  
-
-` `|  \_\_len\_\_(self: 'TableauDynamique') -> 'int'
-
-` `|      Retourne le nombre d'éléments dans le tableau.
-
-` `|  
-
-` `|  append(self: 'TableauDynamique', obj: 'object') -> 'None'
-
-` `|      Ajoute l'élément obj en dernière position dans le tableau.
 
 **Implémentation**
 
-1. Créer la classe **TableauDynamique**.
-1. Dans la méthode **\_\_init\_\_**, initialiser trois attributs privés **\_nbre**, **\_capacite** et **\_tab** tels que **\_nbre** donne le nombre d’éléments dans le tableau (initialement égal à 0), **\_capacite** donne le nombre maximal possible d’éléments dans le tableau (initialement égal à 1) et **\_tab** référence un tableau créé à l’aide de la fonction **py\_object** du module **ctypes**.
+1 Créer la classe **TableauDynamique**.
+
+2 Dans la méthode **\_\_init\_\_**, initialiser trois attributs privés **\_nbre**, **\_capacite** et **\_tab** tels que **\_nbre** donne le nombre d’éléments dans le tableau (initialement égal à 0), **\_capacite** donne le nombre maximal possible d’éléments dans le tableau (initialement égal à 1) et **\_tab** référence un tableau créé à l’aide de la fonction **py\_object** du module **ctypes**.
 
 **Remarque :** le code de création du tableau est le suivant :
+```python
+def _construit_tableau(self: TableauDynamique, capacite: int):
+    """
+    Construction d'un tableau de capacité donnée.
+    """
+    return (capacite * ctypes.py_object)()
+```
 
-**def** \_construit\_tableau(self: TableauDynamique, capacite: int):
+3 Définir la méthode **\_\_len\_\_** dont la spécification est :
+```python
+def __len__(self: TableauDynamique) -> int:
+    """
+    Retourne le nombre d'éléments dans le tableau.
+    """
+```
 
-`    `"""
+4 Définir la méthode **\_\_getitem\_\_** dont la spécification est :
+```python
+def __getitem__(self: TableauDynamique, i: int) -> object:
+    """
+    Retourne l'élément d'indice i.
 
-`    `Construction d'un tableau de capacité donnée.
+    Une exception est levée si l'indice n'appartient
+    pas au bon intervalle.
+    """
+```
 
-`    `"""
+5 Définir la méthode privée **\_augmente\_taille** dont la spécification est :
+```python
+def _augmente_taille(self: TableauDynamique, capacite: int) -> None:
+    """
+    Crée un nouveau tableau de dimension capacite puis copie tous les
+    éléments de l'ancien tableau dans ce dernier.
+    Fait en sorte que le nouveau tableau soit le tableau désormais
+    utilisé.
+    Met à jour l'attribut capacite.
+    """
+```
 
-`    `**return** (capacite \* ctypes.py\_object)()
-
-1. Définir la méthode **\_\_len\_\_** dont la spécification est :
-
-**def** \_\_len\_\_(self: TableauDynamique) -> int:
-
-`    `"""
-
-`    `Retourne le nombre d'éléments dans le tableau.
-
-`    `"""
-
-1. Définir la méthode **\_\_getitem\_\_** dont la spécification est :
-
-**def** \_\_getitem\_\_(self: TableauDynamique, i: int) -> object:
-
-`    `"""
-
-`    `Retourne l'élément d'indice i.
-
-`    `Une exception est levée si l'indice n'appartient
-
-`    `pas au bon intervalle.
-
-`    `"""
-
-1. Définir la méthode privée **\_augmente\_taille** dont la spécification est :
-
-**def** \_augmente\_taille(self: TableauDynamique, capacite: int) -> **None**:
-
-`    `"""
-
-`    `Crée un nouveau tableau de dimension capacite puis copie tous les
-
-`    `éléments de l'ancien tableau dans ce dernier.
-
-`    `Fait en sorte que le nouveau tableau soit le tableau désormais
-
-`    `utilisé.
-
-`    `Met à jour l'attribut capacite.
-
-`    `"""
-
-1. Définir la méthode **append** dont la spécification est :
-
-**def** append(self: TableauDynamique, obj: object) -> **None**:
-
-`    `"""
-
-`    `Ajoute l'élément obj en dernière position dans le tableau.
-
-`    `"""
+6 Définir la méthode **append** dont la spécification est :
+```python
+def append(self: TableauDynamique, obj: object) -> None:
+    """
+    Ajoute l'élément obj en dernière position dans le tableau.
+    """
+```
 
 **Remarque :** La méthode **append** doit appeler la méthode **\_augmente\_taille**.
 
-1. Définir la méthode **\_\_repr\_\_** dont la spécification est :
-
-**def** \_\_repr\_\_(self: TableauDynamique) -> str:
-
-`    `"""
-
-`    `Retourne la chaîne de caractères représentant le tableau.
-
-`    `"""
-
-1. Tester le bon fonctionnement de la classe.
+7 Définir la méthode **\_\_repr\_\_** dont la spécification est :
+```python
+def __repr__(self: TableauDynamique) -> str:
+    """
+    Retourne la chaîne de caractères représentant le tableau.
+    """
+```
 
 
-Terminale NSI 	Chap 05 : Structure de données : Listes, piles, files et dictionnaires	Page 44/44
+8 Tester le bon fonctionnement de la classe.
 
-[ref1]: Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.015.png
-[Principe de la liste chaînée]: Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.021.png
-[ref2]: Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.042.jpeg
