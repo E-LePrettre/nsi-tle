@@ -119,7 +119,7 @@ Le haut de la pile est Anakin et le reste est 
 
 2. Donner une représentation en pile de cet ensemble de nombres : 12, 5, 3, 6, 1. On nommera cette pile ```Pentier```.
 
-- Comment manipuler un objet de ce type ?
+3. Comment manipuler un objet de ce type ?
 
 **Propriété 3 : Empiler un élément en haut de la pile :**
 

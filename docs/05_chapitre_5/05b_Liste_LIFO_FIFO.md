@@ -1708,6 +1708,9 @@ Le dictionnaire est donc une **structure de données optimisée** pour la recher
 Dans les deux cas ce n’est pas très efficace : on voudrait une **complexité logarithmique de toutes ces opérations**. On peut faire cela en utilisant des structures de données : **les arbres binaires**
 
 ## <a name="_toc151667945"></a>**7. Exercices** 
+
+**=> CAPYTALE Le code vous sera donné par votre enseignant**
+
 **Exercice n°1: Implémentation d’une file avec deux piles avec les listes chainées**
 
 Comment créer une file avec 2 piles ?
@@ -2032,6 +2035,8 @@ Une fois terminé les modifications, vous transformerez le programme bataille en
 ## <a name="_toc151667946"></a>**8. Projets**
 **Exercice n°01 : Pile et contrôle du parenthésage d’une expression**
 
+**=> CAPYTALE Le code vous sera donné par votre enseignant**
+
 Il s’agit d’écrire une fonction qui contrôle si une expression mathématique, donnée sous forme d’une chaine de caractères, est bien parenthésée, c’est-à-dire s’il y a autant de parenthèses ouvrantes que de fermantes, et qu’elles sont bien placées. Par exemple :
 
 - (()) est bien parenthésée
@@ -2053,6 +2058,8 @@ Ecrire une fonction verification(expression) qui prend en paramètre une chaine 
 
 **Exercice n°02 : implémentation d’une liste chainée**
 
+**=> CAPYTALE Le code vous sera donné par votre enseignant**
+
 A partir de ce qui a été vu sur les liste chainée, implémenter :
 
 1. La méthode lenListe(self) qui retourne la longueur de la liste
@@ -2062,6 +2069,8 @@ A partir de ce qui a été vu sur les liste chainée, implémenter :
 1. la méthode delete\_next(self, x) qui supprime la cellule située après la cellule de valeur x et le renvoie
 
 **Exercice n°03 : Pile et palindromes**
+
+**=> CAPYTALE Le code vous sera donné par votre enseignant**
 
 Un palindrome est un mot qui se lit de la même façon de gauche à droite et de droite à gauche. Par exemple, abababa et un palindrome, ainsi que kayac et coloc.
 
@@ -2104,6 +2113,8 @@ Il faut faire attention à distinguer les mots de longueur paire et impaire. Si 
 - palindrome("trust")
 
 **Exercice n°04 : File et ordonnancement**
+
+**=> CAPYTALE Le code vous sera donné par votre enseignant**
 
 L’ordonnancement consiste, pour le système d’exploitation, à optimiser l’utilisation du processeur en lui affectant tour à tour différentes tâches à exécuter. On appelle processus un programme en cours d’exécution. Il peut y en avoir des centaines à la fois sur une machine, alors qu’il n’y a que quelques processeurs (souvent 4).
 
@@ -2191,6 +2202,8 @@ class Ordonnanceur:
 
 
 **Exercice n°05 : Implémentation du type abstrait tableau dynamique en Python**
+
+**=> CAPYTALE Le code vous sera donné par votre enseignant**
 
 **Interface du type abstrait Tableau\_dynamique**
 
