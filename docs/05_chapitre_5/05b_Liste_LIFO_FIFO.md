@@ -1663,14 +1663,14 @@ assert plus_grand_nombre(zoo_LaFleche) == 'girafe'
 assert plus_grand_nombre(zoo_Beauval) == 'écureuil'
 ```
 
-1. Quel type de boucle peut-on envisager pour le code de cette fonction ?
+1 Quel type de boucle peut-on envisager pour le code de cette fonction ?
 ```python
 for cle in dico.keys()
 for valeur in dico.values()
 for (cle, valeur) in dico.items()
 Aucune boucle.
 ```
-2. Écrire le corps de cette fonction.
+2 Écrire le corps de cette fonction.
 
 On souhaite se doter d’une fonction **nombre\_total** qui prend un zoo en paramètre ainsi que le nom d’un continent, et qui renvoie le nombre d’animaux originaires de ce continent dans le zoo. 
 
@@ -1680,14 +1680,14 @@ assert nombre_total(zoo_LaFleche, 'Afrique') == 14
 assert nombre_total(zoo_Beauval, 'Asie') == 24
 ```
 
-3. Quel type de boucle peut-on envisager pour le code de cette fonction ?
+3 Quel type de boucle peut-on envisager pour le code de cette fonction ?
 ```python
 for cle in dico.keys()
 for valeur in dico.values()
 for (cle,valeur) in dico.items()
 Aucune boucle.
 ```
-4. Écrire le code de cette fonction.
+4 Écrire le code de cette fonction.
 
 On souhaite se doter d’une fonction **nombre** qui prend un zoo en paramètre ainsi que le nom d’un animal, et qui renvoie le nombre de représentants de cet animal dans le zoo. 
 
@@ -1697,14 +1697,14 @@ assert nombre(zoo_LaFleche, 'panda') == 0
 assert nombre(zoo_Beauval, 'panda') == 2
 ```
 
-5. Quel type de boucle peut-on envisager pour le code de cette fonction ?
+5 Quel type de boucle peut-on envisager pour le code de cette fonction ?
 ```python
 for cle in dico.keys()
 for valeur in dico.values()
 for (cle,valeur) in dico.items()
 Aucune boucle.
 ```
-6. Écrire le code de cette fonction.
+6 Écrire le code de cette fonction.
 
 Le temps de recherche dans le dictionnaire est **pratiquement indépendant du nombre d'entrées** dans un dictionnaire (en multipliant le nombre de contacts par 100, le temps est resté pratiquement identique alors que dans le cas de la recherche dans un tableau, celui-ci est proportionnel à la longueur du tableau).
 
