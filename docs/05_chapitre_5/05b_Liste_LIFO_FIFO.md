@@ -1646,9 +1646,12 @@ Dans un tableau ou une liste chaînée au contraire, la recherche d'un élément
 
 Dans un dictionnaire, les clés sont stockées dans une table de hachage, ce qui explique le fait que le dictionnaire est optimisé pour la recherche sur les clés.
 ### <a name="_toc151667943"></a>**6.5. Rappel : Utilisation des dictionnaires en Python**
+
 Vous pouvez à présent regarder la vidéo suivante afin de vous reviser la manipulation des dictionnaires en python.
 
 Les dictionnaires : <https://ladigitale.dev/digiview/#/v/66bcbd45219a3> 
+
+**=> CAPYTALE Le code vous sera donné par votre enseignant**
 
 **Activité n° 42 : Itérer sur les éléments d’un dictionnaire :** </p><p>Au zoo de Beauval, il y a 5 éléphants d’Asie, 17 écureuils d’Asie, 2 pandas d’Asie, etc. On représente cet inventaire à l’aide d’un dictionnaire, de façon suivante :
 ```python
