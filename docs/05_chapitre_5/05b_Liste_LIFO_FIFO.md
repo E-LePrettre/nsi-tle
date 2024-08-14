@@ -1693,7 +1693,7 @@ for valeur in dico.values()
 for (cle,valeur) in dico.items()
 Aucune boucle.
 ```
-6. Écrire le code de cette fonction.</p>|
+6. Écrire le code de cette fonction.
 
 
 Le temps de recherche dans le dictionnaire est **pratiquement indépendant du nombre d'entrées** dans un dictionnaire (en multipliant le nombre de contacts par 100, le temps est resté pratiquement identique alors que dans le cas de la recherche dans un tableau, celui-ci est proportionnel à la longueur du tableau).
@@ -1718,7 +1718,7 @@ L'idée est la suivante : on crée une pile d'entrée et une pile de sortie.
 - quand on veut défiler, on dépile sur la pile de sortie.
 - si celle-ci est vide, on dépile entièrement la pile d'entrée dans la pile de sortie.
 
-![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.040.png){width=60%; : .center }
+![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.040.png){width=50%; : .center }
 
 \# il est impératif de comprendre qu'on peut choisir l'implémentation
 \# de la classe Pile qu'on préfère parmi les deux traitées plus haut.
