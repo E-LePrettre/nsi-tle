@@ -1474,21 +1474,63 @@ if __name__ == '__main__':
 
 
 ### <a name="_toc151667936"></a>**5.5. Autre implémentation des files avec les bibliothèques de Python**
-Le type ```deque``` à importer de la bibliothèque collections fournit une structure de file avec ```enfiler``` et defiler en temps constant. 
+**Activité n°40.: Utilisation de deque pour Implémenter une Pile : Tester cette implémentation**
+```python
+from collections import deque
 
-from collections import deque 
+# Création de la pile
+pile = deque()
 
-file = deque([]) : créer une file vide 
+# Empiler des éléments
+pile.append(10)
+pile.append(20)
+pile.append(30)
 
-file.append(s) : enfiler s 
+# Afficher la pile
+print("Pile après empilage:", pile)
 
-file.popleft() : défiler 
+# Dépiler un élément
+element = pile.pop()
+print("Élément dépilé:", element)
 
-Après if ou while, une file vide est interprétée comme False, une file non vide comme True. 
+# Regarder l'élément au sommet sans le dépiler
+sommet = pile[-1]
+print("Élément au sommet:", sommet)
 
-Ainsi, une boucle « while not file: » va s’exécuter **tant que la file n’est pas vide**. 
+# Vérifier si la pile est vide
+est_vide = len(pile) == 0
+print("La pile est vide ?", est_vide)
+```
+**Activité n°41.: Utilisation de deque pour Implémenter une File : Tester cette implémentation**
+```python
+from collections import deque
 
-Il existe aussi les méthodes appendleft() et pop() pour ajouter à gauche et supprimer à droite.
+# Création de la file
+file = deque()
+
+# Enfiler des éléments
+file.append(10)
+file.append(20)
+file.append(30)
+
+# Afficher la file
+print("File après enfilage:", file)
+
+# Défiler un élément
+element = file.popleft()
+print("Élément défilé:", element)
+
+# Regarder l'élément au début sans le défiler
+debut = file[0]
+print("Élément au début:", debut)
+
+# Vérifier si la file est vide
+est_vide = len(file) == 0
+print("La file est vide ?", est_vide)
+```
+Les piles et les files sont des structures de données fondamentales qui peuvent être implémentées de manière efficace en Python à l'aide de listes ou de la classe deque de la bibliothèque collections. L'utilisation de deque est souvent préférée pour des raisons de performance, notamment pour les files.
+
+
 
 1. ## <a name="_toc151667937"></a>**Piles vs Files :**
 
