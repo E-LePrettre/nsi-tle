@@ -516,6 +516,9 @@ On va obtenir le même effet pour l'utilisateur, si ce n'est que le code utilise
 
 
 ### <a name="_toc151667925"></a>**3.5. ❤️ 3<sup>ème</sup> implémentation de la structure liste (chainée) avec POO ❤️**
+
+**=> CAPYTALE Le code vous sera donné par votre enseignant**
+
 Une liste chaînée est une liste composée **de cellules ou de mailles**, comme une chaîne en métal. Chaque maillon (ou cellule) est associé à au moins deux informations :
 
 - Le **contenu** de la cellule
@@ -998,6 +1001,9 @@ Soit une pile P composée des éléments suivants : 12, 14, 8, 7, 19 et 22 (le s
 **Remarque** : Pour lire le sommet de la pile sans modifier la pile, on doit le dépiler et le rempiler.
 
 ### <a name="_toc151667928"></a>**4.2. ❤️1<sup>ère</sup> implémentation de la structure pile avec les listes de Python❤️**
+
+**=> CAPYTALE Le code vous sera donné par votre enseignant**
+
 **Sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé pile\_list.py**
 
 Nous utiliserons une simple liste pour représenter la pile. Il se trouve que les méthodes append et pop sur les listes jouent déjà le rôle de **push (empile)** et **pop (depile)** sur les piles.
@@ -1056,6 +1062,9 @@ if __name__ == '__main__':
 
 
 ### <a name="_toc151667929"></a>**4.3. ❤️2<sup>ème</sup> implémentation de la structure pile avec la POO et les lists de Python❤️**
+
+**=> CAPYTALE Le code vous sera donné par votre enseignant**
+
 **Sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé pile\_POO\_list.py**
 
 **Activité n° 28 : Structure pile avec la POO et les lists de Python :** Créer une classe Pile qui construit une liste vide, puis compléter les autres méthodes de la classe  :
@@ -1126,6 +1135,9 @@ Tester :
 ```
 
 ### <a name="_toc151667930"></a>**4.4. ❤️3<sup>ème</sup> implémentation de la structure pile avec la POO et les listes chainée❤️**
+
+**=> CAPYTALE Le code vous sera donné par votre enseignant**
+
 La version à une classe est plus simple, elle peut être suffisante, mais les puristes préfèrent la version à deux classes qui colle davantage au modèle théorique proche des listes dans lequel une pile est soit une cellule, soit une pile vide.
 
 **Activité n° 31 : Structure pile avec la POO et les listes chainée version 1 classe :** Créer une classe Pile qui peut recevoir deux paramètres lors de l'appel du constructeur : un paramètre value et un paramètre next. Les deux valeurs transmises devront être stockées dans deux attributs nommés v et n.
