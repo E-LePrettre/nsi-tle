@@ -1532,7 +1532,7 @@ Les piles et les files sont des structures de données fondamentales qui peuvent
 
 
 
-1. ## <a name="_toc151667937"></a>**Piles vs Files :**
+### <a name="_toc151667937"></a>**5.6. Piles vs Files :**
 
 |**Pile**|**File**|
 | :-: | :-: |
@@ -1544,48 +1544,43 @@ Les piles et les files sont des structures de données fondamentales qui peuvent
 |Les piles sont visualisées sous forme de collections verticales. |Les files sont visualisées sous forme de collections horizontales.|
 
 
-1. # <a name="_toc151667938"></a>**Les dictionnaires**
-   1. ## <a name="_toc60173193"></a><a name="_toc151667939"></a>**Définition**
+## <a name="_toc151667938"></a>**6. Les dictionnaires**
+### <a name="_toc60173193"></a><a name="_toc151667939"></a>**6.1. Définition**
 Les dictionnaires ont déjà été étudiés en classe de première. 
 
 Pour rappel, ce type de données, aussi appelé **tableau associatif**, permet de stocker des **valeurs** et d'y accéder au moyen d'une **clé**, contrairement au tableau qui permet d'accéder à une donnée au moyen d'un indice.
 
-![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.036.png)
+
 
 **Exemple** : un dictionnaire (le livre) de langues
 
 On suppose que toutes les clés sont distinctes et dans la suite on va se concentrer sur les clés et non pas sur les données associées.
-1. ## <a name="_toc60173194"></a><a name="_toc151667940"></a>**Les opérations de bases dans un dictionnaire**
+### <a name="_toc60173194"></a><a name="_toc151667940"></a>**6.2. Les opérations de bases dans un dictionnaire**
 Les opérations classiques que l'on peut effectuer sur un dictionnaire sont :
 
 - **Ajouter** une nouvelle entrée au dictionnaire en créant une nouvelle clé
 - **Modifier** la valeur associée à une clé existante
 - **Supprimer** une entrée dans un dictionnaire (méthode .pop())
 - **Rechercher** la présence d'une clé dans un dictionnaire
-![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.037.png)
+
 
 **Attention** : Le dictionnaire de Python permet d’avoir ce comportement mais est une version spécifique à Python de cette donnée plus générale. Ce qui nous intéresse ici c’est d’avoir une structure de données que l’on va interroger et que l’on peut modifier. Le but est de trouver des méthodes pour faire cela efficacement.
-1. ## <a name="_toc60173197"></a><a name="_toc151667941"></a>**Les clés**
+### <a name="_toc60173197"></a><a name="_toc151667941"></a>**6.3. Les clés**
 Une clé peut être d'un autre type que chaîne de caractère, du moment que c'est un **objet non mutable**, c'est à dire qui ne peut pas être modifié. Une clé ne **peut pas être une liste** par exemple car une liste est un objet mutable que l'on peut modifier, par exemple au travers de la méthode .append().
 
 Regardons ce qui se passe si on essaye de définir une clé de type **list** pour un dictionnaire :
-
-\>>> dico[[2,1]] = "..."
-
-\---------------------------------------------------------------------------
-
+```
+>>> dico[[2,1]] = "..."
+---------------------------------------------------------------------------
 TypeError                                 Traceback (most recent call last)
-
 <ipython-input-4-d463baccae6e> in <module>()
-
 ----> 1 dico[[2,1]]
-
 TypeError: unhashable type: 'list'
-
+```
 Le type **list** n'est pas pas *hashable*. Mais qu'est-ce que le hachage ?
-1. ## <a name="_toc151667942"></a>**Hachage**
+### <a name="_toc151667942"></a>**6.4. Hachage**
 La notion de *Hachage* est omiprésente en informatique et est au coeur du fonctionnement des dictionnaires. Le hachage est un mécanisme permettant de transformer la clé en un nombre unique permettant l'accès à la donnée, un peu à la manière d'un indice dans un tableau.
-1. ### **Définition d’une fonction de hachage**
+#### **6.4.1. Définition d’une fonction de hachage**
 Une fonction de hachage est une fonction qui va calculer une empreinte unique à partir de la donnée fournie en entrée. Elle doit respecter les règles suivantes :
 
 - La longueur de l'empreinte (valeur retournée par la fonction de hachage) doit être toujours la même, indépendamment de la donnée fournie en entrée.
@@ -1593,23 +1588,18 @@ Une fonction de hachage est une fonction qui va calculer une empreinte unique à
 - des données différentes doivent donner *dans la mesure du possible* des empreintes différentes.
 - des données identiques doivent donner des empreintes identiques.
 
-  1. ### **Quelques utilisations du hachage**
+#### **6.4.2. Quelques utilisations du hachage**
 L'utilisation la plus courante est le stockage des mots de passe dans un système informatique un peu sécurisé. En effet, lorsqu'on crée un compte sur un service en ligne, le mot de passe ne **doit pas être stocké en clair**, une empreinte est générée afin que si le service est piraté et que les comptes sont dérobés, il ne soit pas possible de reconstituer le mot de passe à partir de l'empreinte. Voici un exemple de fonctionnement d'une fonction de hachage.
 
 Nous utiliserons le hachage accessible sous *Python* au travers de la fonction hash() :
-
-**>>>** hash**(**"Aldébaran"**)**
-
-**7932194494807972993**
-
-**>>>** hash**(**"Aldebaran"**)**
-
-**-2778791670536604289**
-
-**>>>** hash**(**"Andjekel Aldébaran"**)**
-
-**-8861304277632426640**
-
+```
+>>> hash("Aldébaran")
+7932194494807972993
+>>> hash("Aldebaran")
+-2778791670536604289
+>>> hash("Andjekel Aldébaran")
+-8861304277632426640
+```
 
 On constate bien sur cet exemple que :
 
@@ -1620,10 +1610,10 @@ Une autre utilisation du hachage est la détection de la modification d'un fichi
 
 Ainsi la fonction de hachage peut mettre en évidence des différences qui seraient invisibles à l'oeil nu.
 
-1. ### **Table de Hachage**
+#### **6.4.3. Table de Hachage**
 Regardez la vidéo ci-dessous sur les tables de hachage.
 
-Tables de hash : <https://www.youtube.com/watch?v=IhJo8sXLfVw&feature=emb_imp_woyt>
+Tables de hash : <https://ladigitale.dev/digiview/#/v/66bcbaf4e545d>
 
 Ce qui est important à retenir c'est que la recherche dans une table de hachage **est indépendante du nombre d'éléments dans cette table.**
 
