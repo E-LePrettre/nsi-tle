@@ -637,9 +637,7 @@ Tester l’affichage avec
 
 Puis son pointeur sera **chainé à la deuxième Cellule** et ainsi de suite jusqu’à la dernière qui aura un **pointeur de type None** qui constituera la fin de la liste.
 
-**Code à compléter
-
- :** Mettre à jour et  compléter le constructeur
+**Code à compléter:** Mettre à jour et  compléter le constructeur
 ```python
 class Node:
     '''Classe permettant de créer des cellules-maillons basiques'''
