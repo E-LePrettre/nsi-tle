@@ -1799,12 +1799,12 @@ On écrit et on exécute les opérations dans le sens des priorités vues en cou
 - On a ainsi le résultat.
 
 
-1. Donner la File correspondante à la saisie NPI de l'exemple. Faire de même avec la Pile.
-1. Quelle est la structure adaptée à la résolution de l'expression ?
+1 Donner la File correspondante à la saisie NPI de l'exemple. Faire de même avec la Pile.
+2 Quelle est la structure adaptée à la résolution de l'expression ?
 
 Note : On remarquera qu'on doit toujours avoir 2 opérandes pour un opérateur. li faut stocker le résultat intermédiaire dans la structure pour effectuer la suite des calculs.
 
-1. En utilisant les opérations du type abstrait Pile, proposer une fonction permettant d'afficher le résultat d'une expression en NPI.
+3 En utilisant les opérations du type abstrait Pile, proposer une fonction permettant d'afficher le résultat d'une expression en NPI.
 
 Note : On supposera également que la syntaxe en NPI est correcte.
 
@@ -1836,7 +1836,7 @@ Pour stocker des numéros de téléphone à l'aide d'un tableau associatif, quel
 1. La clé est le nom et la valeur la collection des numéros de téléphone correspondants 
 1. La clé est un simple numéro unique et la valeur le couple nom/téléphone
 
-<a name="_hlk54186104"></a>**Exercice n°5 : Type list en Python**
+**Exercice n°5 : Type list en Python**
 
 1\. Le type list utilisé dans Python correspond le mieux :
 
@@ -1857,7 +1857,7 @@ Pour stocker des numéros de téléphone à l'aide d'un tableau associatif, quel
 1. ajouter un élément au début (en position 0)
 1. ajouter un élément à la fin
 
-<a name="_hlk54186412"></a>**Exercice n°6 : Structures de donnés Python**
+**Exercice n°6 : Structures de donnés Python**
 
 1\. Pour implémenter une pile avec Python, on peut se servir d'un type de données disponible dans le langage :
 
@@ -1874,13 +1874,15 @@ Pour stocker des numéros de téléphone à l'aide d'un tableau associatif, quel
 
 **Exercice n°7 : Pile classique**
 
-![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.041.png)Nous allons réaliser une classe Pile en utilisant une liste Python. Voici le contructeur de la classe
+Nous allons réaliser une classe Pile en utilisant une liste Python. Voici le contructeur de la classe
 
+```python
 class Pile:
+   """Structure  de  pile"""
+   def init (self): 
+      self.contenu = []
+```
 
-*"""Structure  de  pile"""*
-
-def init (self): self.contenu = []
 
 1. Implémentez la méthode est\_vide(self) qui retourne True si la Pile est vide et False sinon.
 1. Implémentez la méthode empiler(self,v) qui ajoute la valeur v au sommet de la pile (et donc en fin de la liste)
