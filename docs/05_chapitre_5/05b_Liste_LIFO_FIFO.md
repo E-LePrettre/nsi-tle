@@ -1620,24 +1620,93 @@ Ce qui est important à retenir c'est que la recherche dans une table de hachage
 Dans un tableau ou une liste chaînée au contraire, la recherche d'un élément prend un temps **proportionnel** au nombre d'éléments dans la structure.
 
 Dans un dictionnaire, les clés sont stockées dans une table de hachage, ce qui explique le fait que le dictionnaire est optimisé pour la recherche sur les clés.
-1. ## <a name="_toc151667943"></a>**Rappel : Utilisation des dictionnaires en Python**
+### <a name="_toc151667943"></a>**6.5. Rappel : Utilisation des dictionnaires en Python**
 Vous pouvez à présent regarder la vidéo suivante afin de vous reviser la manipulation des dictionnaires en python.
 
 Les dictionnaires : <https://ladigitale.dev/digiview/#/v/66bcbd45219a3> 
 
-|<p>**Activité n° AUTONUM  \* Arabic : Itérer sur les éléments d’un dictionnaire :** </p><p>Au zoo de Beauval, il y a 5 éléphants d’Asie, 17 écureuils d’Asie, 2 pandas d’Asie, etc. On représente cet inventaire à l’aide d’un dictionnaire, de façon suivante :</p><p>if \_\_name\_\_ == "\_\_main\_\_":<br>`    `zoo\_Beauval = {<br>`        `'éléphant': ('Asie', 5),<br>`        `'écureuil': ('Asie', 17),<br>`        `'panda': ('Asie', 2),<br>`        `'hippopotame': ('Afrique', 7),<br>`        `'girafe': ('Afrique', 4),<br>`        `'lion': ('Afrique', 17)<br>`    `}</p><p></p><p>On représente de la même façon le zoo de La Flèche :</p><p>`    `zoo\_LaFleche = {<br>`        `'ours': ('Europe', 4),<br>`        `'tigre': ('Asie', 7),<br>`        `'girafe': ('Afrique', 11),<br>`        `'hippopotame': ('Afrique', 3)<br>`    `}</p><p></p><p>On souhaite se doter d’une fonction **plus\_grand\_nombre()** qui prend un zoo en paramètre et qui renvoie le nom de l’animal le plus représenté dans ce zoo.</p><p>Par exemple</p><p>**assert** plus\_grand\_nombre(zoo\_LaFleche) == 'girafe'</p><p>**assert** plus\_grand\_nombre(zoo\_Beauval) == 'écureuil'</p><p></p><p>1. Quel type de boucle peut-on envisager pour le code de cette fonction ?</p><p><h3>- **for cle in dico.keys()**</h3></p><p><h3>- **for valeur in dico.values()**</h3></p><p><h3>- **for (cle, valeur) in dico.items()**</h3></p><p><h3>- **Aucune boucle.**</h3></p><p>2. Écrire le corps de cette fonction.</p><p>On souhaite se doter d’une fonction **nombre\_total** qui prend un zoo en paramètre ainsi que le nom d’un continent, et qui renvoie le nombre d’animaux originaires de ce continent dans le zoo. Par exemple :</p><p>**assert** nombre\_total(zoo\_LaFleche, 'Afrique') == 14</p><p>**assert** nombre\_total(zoo\_Beauval, 'Asie') == 24</p><p>3. Quel type de boucle peut-on envisager pour le code de cette fonction ?</p><p><h3>- **for cle in dico.keys()**</h3></p><p><h3>- **for valeur in dico.values()**</h3></p><p><h3>- **for (cle,valeur) in dico.items()**</h3></p><p><h3>- **Aucune boucle.**</h3></p><p>4. Écrire le code de cette fonction.</p><p>On souhaite se doter d’une fonction nombre qui prend un zoo en paramètre ainsi que le nom d’un animal, et qui renvoie le nombre de représentants de cet animal dans le zoo. Par exemple :</p><p>**assert** nombre(zoo\_LaFleche, 'panda') == 0</p><p>**assert** nombre(zoo\_Beauval, 'panda') == 2</p><p>5. Quel type de boucle peut-on envisager pour le code de cette fonction ?</p><p><h3>- **for cle in dico.keys()**</h3></p><p><h3>- **for valeur in dico.values()**</h3></p><p><h3>- **for (cle,valeur) in dico.items()**</h3></p><p><h3>- **Aucune boucle.**</h3></p><p>6. Écrire le code de cette fonction.</p>|
-| - |
+**Activité n° 42 : Itérer sur les éléments d’un dictionnaire :** </p><p>Au zoo de Beauval, il y a 5 éléphants d’Asie, 17 écureuils d’Asie, 2 pandas d’Asie, etc. On représente cet inventaire à l’aide d’un dictionnaire, de façon suivante :
+```python
+if __name__ == "__main__":
+    zoo_Beauval = {
+        'éléphant': ('Asie', 5),
+        'écureuil': ('Asie', 17),
+        'panda': ('Asie', 2),
+        'hippopotame': ('Afrique', 7),
+        'girafe': ('Afrique', 4),
+        'lion': ('Afrique', 17)
+    }
+```
+On représente de la même façon le zoo de La Flèche :
+```python
+    zoo_LaFleche = {
+        'ours': ('Europe', 4),
+        'tigre': ('Asie', 7),
+        'girafe': ('Afrique', 11),
+        'hippopotame': ('Afrique', 3)
+    }
+```
+On souhaite se doter d’une fonction **plus\_grand\_nombre()** qui prend un zoo en paramètre et qui renvoie le nom de l’animal le plus représenté dans ce zoo.
+
+Par exemple
+```python
+assert plus_grand_nombre(zoo_LaFleche) == 'girafe'
+assert plus_grand_nombre(zoo_Beauval) == 'écureuil'
+```
+
+1. Quel type de boucle peut-on envisager pour le code de cette fonction ?
+```python
+for cle in dico.keys()
+for valeur in dico.values()
+for (cle, valeur) in dico.items()
+Aucune boucle.
+```
+2. Écrire le corps de cette fonction.
+
+On souhaite se doter d’une fonction **nombre\_total** qui prend un zoo en paramètre ainsi que le nom d’un continent, et qui renvoie le nombre d’animaux originaires de ce continent dans le zoo. 
+
+Par exemple :
+```python
+assert nombre_total(zoo_LaFleche, 'Afrique') == 14
+assert nombre_total(zoo_Beauval, 'Asie') == 24
+```
+3. Quel type de boucle peut-on envisager pour le code de cette fonction ?
+```python
+for cle in dico.keys()
+for valeur in dico.values()
+for (cle,valeur) in dico.items()
+Aucune boucle.
+```
+4. Écrire le code de cette fonction.
+
+On souhaite se doter d’une fonction nombre qui prend un zoo en paramètre ainsi que le nom d’un animal, et qui renvoie le nombre de représentants de cet animal dans le zoo. 
+
+Par exemple :
+```python
+assert nombre(zoo_LaFleche, 'panda') == 0
+assert nombre(zoo_Beauval, 'panda') == 2
+```
+5. Quel type de boucle peut-on envisager pour le code de cette fonction ?
+```python
+for cle in dico.keys()
+for valeur in dico.values()
+for (cle,valeur) in dico.items()
+Aucune boucle.
+```
+6. Écrire le code de cette fonction.</p>|
+
 
 Le temps de recherche dans le dictionnaire est **pratiquement indépendant du nombre d'entrées** dans un dictionnaire (en multipliant le nombre de contacts par 100, le temps est resté pratiquement identique alors que dans le cas de la recherche dans un tableau, celui-ci est proportionnel à la longueur du tableau).
 
 Le dictionnaire est donc une **structure de données optimisée** pour la recherche sur les clés.
 
-![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.038.png)
-1. ## <a name="_toc151667944"></a>**La complexité**
+
+### <a name="_toc151667944"></a>**6.6. La complexité**
 ![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.039.png)
 
 Dans les deux cas ce n’est pas très efficace : on voudrait une **complexité logarithmique de toutes ces opérations**. On peut faire cela en utilisant des structures de données : **les arbres binaires**
-1. # <a name="_toc151667945"></a>**Exercices** 
+
+## <a name="_toc151667945"></a>**7. Exercices** 
 **Exercice n°1: Implémentation d’une file avec deux piles avec les listes chainées**
 
 Comment créer une file avec 2 piles ?
