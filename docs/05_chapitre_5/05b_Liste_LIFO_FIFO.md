@@ -29,15 +29,15 @@ title: 05b Liste - Pile - File - Dictionnaire
 - Distinguer la recherche d’une valeur dans une liste et dans un dictionnaire.
 
 
-<H2 STYLE="COLOR:BLUE;">## <a name="_toc151667915"></a>**1. Principaux types abstraits fournis avec le langage Python**</H2>
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc151667916"></a>**1.1. Liste :** list</H3>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc151667915"></a>**1. Principaux types abstraits fournis avec le langage Python**</H2>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667916"></a>**1.1. Liste :** list</H3>
 Le type **list** de Python est implémenté à l’aide **de tableaux dynamiques**. 
 
 Les **listes** (attention : C’est différent des listes en Python, qui sont des tableaux dynamiques (array dans d’autres langages)), les piles (stack en anglais) et les files (queue en anglais) sont des **structures abstraites de données** fondamentales en informatique. 
 
 Elles diffèrent par les conditions d’ajout et d’accès aux éléments qui les constituent
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc151667917"></a>**1.2. Tableau associatif :** dict</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667917"></a>**1.2. Tableau associatif :** dict</H3>
 Le type dict de Python est une implémentation du type abstrait **tableau associatif**. L’implémentation correspond à une **table de hachage**, ce qui signifie que la valeur est stockée dans un tableau et que **la position dans ce tableau dépend du résultat d’une fonction de hachage appliquée à la clé**. 
 
 En **un temps indépendant du nombre de valeurs stockées** dans le dictionnaire, Python peut retrouver la valeur associée à n’importe quelle clé : pour cela il **calcule un indice à partir de la valeur de la clé** (qui doit donc être hachable, c’est-à-dire non mutable) et récupère la valeur stockée à cet indice dans un tableau.
@@ -47,13 +47,13 @@ Une caractéristique essentielle des dictionnaires est que la **récupération 
 De même, savoir **si une clé fait partie du dictionnaire** prend un **temps constant** (alors que vérifier si un élément est dans une liste prend un temps proportionnel à la taille de la liste).
 
 L’étude plus précise des dictionnaires est en fin de chapitre
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc151667918"></a>**1.3. Ensemble :** set</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667918"></a>**1.3. Ensemble :** set</H3>
 Un ensemble Python (**set**) est équivalent à **un dictionnaire ne contenant que des clés**. Par construction, chaque élément est donc **unique**. De plus, avec le type set on dispose déjà des opérations ensemblistes habituelles, implémentées de manière très efficace : union, intersection, différence, etc.
 
 Par exemple :
 
 myset = {"apple", "banana", "cherry"}
-<H2 STYLE="COLOR:BLUE;">## <a name="_toc151667919"></a>**2. Les tableaux**</H2>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc151667919"></a>**2. Les tableaux**</H2>
 Un **tableau** est une structure de données dans laquelle les éléments, de **même type**, occupent des **positions contiguës** en mémoire.
 
 Le **nombre d’éléments** qu’un tableau peut contenir est déterminé à la **création du tableau.**
@@ -78,14 +78,14 @@ Si on introduit, en position 1, la valeur 7. Le tableau est alors :
 |**7**|**1**|**1**|**2**|**3**|**4**|**5**|**vide**|**vide**|
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
 
-<H2 STYLE="COLOR:BLUE;">## <a name="_toc151667920"></a>**3. Les listes (chainées)**</H2>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc151667920"></a>**3. Les listes (chainées)**</H2>
 Les **listes chaînées** constituent une structure de données :
 
 - de ***longueur modifiable*** ;
 - ***plus efficace que les tableaux** lorsqu’il s’agit d’ajouter ou de retirer un élément* (il n’est pas nécessaire de faire de la place en déplaçant les éléments) ;
 - qui servira de **brique** à l’élaboration **d’autres structures** de données.
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc151667921"></a>**3.1. Obtenir une définition**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667921"></a>**3.1. Obtenir une définition**</H3>
 Lorsque l'implémentation de la liste fait apparaître une chaîne de valeurs, chacune pointant vers la suivante, on dit que la liste est une liste **chaînée**.
 
 ![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.004.png){width=60%; : .center }
@@ -100,7 +100,7 @@ Une liste chaînée est :
 - *soit **la liste vide*** (objet None) ;
 - *soit constituée de son premier élément* (objet de type Cellule) et *du reste des éléments qui forment aussi une liste*. Une liste chaînée est donc une **structure récursive**.
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc151667922"></a>**3.2. Primitive sur les listes**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667922"></a>**3.2. Primitive sur les listes**</H3>
 Voici les **opérations minimales** (appelées aussi **primitives**) qui permettent de définir la structure et de lui donner les méthodes attendues :
 
 - Le **constructeur :** produit soit une liste vide ou une liste** à partir d’un couple tête (élément) et reste (liste)
@@ -130,9 +130,7 @@ Il est possible « d’enchaîner » les cons et d’obtenir ce genre de struc
 - L1 = vide() 
 - L2 = cons(8, cons(5, cons(3, L1))) => La tête de L2 correspond à 8 et la queue contient les éléments 3 et 5
 
-<H3 STYLE="COLOR:red;">**Activité n° 1 :**  Voici une série d'instructions (les instructions
-
- ci-dessous s'enchaînent), expliquez ce qui se passe à chacune des étapes :</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 1 :**</H3>  Voici une série d'instructions (les instructions ci-dessous s'enchaînent), expliquez ce qui se passe à chacune des étapes :
 ```
 L = vide() 
 ajoutEnTete(10,L) 
@@ -142,7 +140,7 @@ L1 = vide()
 L2 = cons(5, cons(4, cons(3, cons (2, cons(1, cons(0,L1))))))
 ```
 
-<H3 STYLE="COLOR:MAGENTA;">### <a name="_toc151667923"></a>**3.3. ❤️1<sup>ère</sup> implémentation de la structure liste (chainée) avec des tuples❤️**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667923"></a>**3.3. ❤️1<sup>ère</sup> implémentation de la structure liste (chainée) avec des tuples❤️**</H3>
 Les tuples sont déclarés en utilisant **les parenthèses**.
 
 On peut les lire à l'aide des boucles for.
@@ -151,7 +149,7 @@ Les tuples sont **non-mutables** : on ne peut pas modifier leurs contenus après
 
 **Sur Thonny : Toutes les fonctions de cette implémentation doivent être dans le même fichier python appelé liste\_tuples.py**
 
-<H4 STYLE="COLOR:MAGENTA;">#### **3.3.1. Implémentation simple avec les tuples**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> **3.3.1. Implémentation simple avec les tuples**</H4>
 
 ![Principe de l'interface entre l'utilisateur et les données](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.010.png){width=50%; : .center }
 
@@ -159,7 +157,7 @@ En utilisant des tuples pour implémenter la structure de liste.
 
 ![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.011.png){width=60%; : .center }
 
-<H3 STYLE="COLOR:red;">**Activité n° 2 :**  **structure liste avec des tuples fonction** ```nouvelleListe()``` **et** ```estVide()``` : Voici une première implémentation de la structure liste avec des tuples</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 2 :**  **structure liste avec des tuples fonction** ```nouvelleListe()``` **et** ```estVide()``` :</H3> Voici une première implémentation de la structure liste avec des tuples
 ```python
 '''Implémentation de type abstrait Liste en utilisant des tuples (tete, queue)'''
 
@@ -193,7 +191,7 @@ Vérifier le bon fonctionnement de cette implémentation en exécutant ces instr
 ```
 Quelle est la seule proposition qui respecte l'interface imposée par le créateur de cette implémentation ?
 
-<H3 STYLE="COLOR:red;">**Activité n° 3 :**  **structure liste avec des tuples fonction** ```insererTete``` : Créer maintenant la fonction d'interface suivante :</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 3 :** **structure liste avec des tuples fonction** ```insererTete``` :</H3> Créer maintenant la fonction d'interface suivante :
 
 ```insererTete(x:Elt, L:Liste) -> Liste``` : on **renvoie** une nouvelle liste où la tête est maintenant l'élément x et la queue la liste précédente L.
 
@@ -217,7 +215,7 @@ def insererTete(x,L) :
 (2, (5, ()))
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 4 :**  **structure liste avec des tuples fonction** ```supprimerTete``` : Dernière fonction d'interface, supprimer la tête :</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 4 :**  **structure liste avec des tuples fonction** ```supprimerTete``` :</H3> Dernière fonction d'interface, supprimer la tête :
 
 ```supprimerTete(L:Liste) -> Liste``` : on **renvoie** une nouvelle liste où la tête est maintenant le deuxième élément (la tête de la queue précédente !). Techniquement, cela revient bien à supprimer l'ancienne tête si on enregistre cette nouvelle version dans une variable. Notez bien qu'on aurait pu nommer cette fonction ```recupererQueue``` puisque c'est ce qu'elle fait.
 
@@ -268,7 +266,7 @@ def supprimerTete(L):
 (5, ())
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 5 :**  **structure liste avec des tuples fonction** ```lireTete``` : Réaliser la fonction d'interface permettant de lire la tête :</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 5 :**  **structure liste avec des tuples fonction** ```lireTete``` : Réaliser la fonction d'interface permettant de lire la tête :</H3>
 
 ```lireTete(L:Liste) -> Elt``` : on renvoie la tête de la liste L.
 
@@ -295,7 +293,7 @@ def lireTete(L):
 >>> 
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 6 :**  **structure liste avec des tuples fonction** ```afficherListe``` :</H3> Il nous manque encore une chose qui pourrait être pratique mais qui ne fait pas partie de l'interface obligatoire : de quoi représenter la liste sans montrer son implémentation mémoire réelle.
+**<H3 STYLE="COLOR:red;">Activité n° 6 :**  **structure liste avec des tuples fonction** ```afficherListe``` :</H3> Il nous manque encore une chose qui pourrait être pratique mais qui ne fait pas partie de l'interface obligatoire : de quoi représenter la liste sans montrer son implémentation mémoire réelle.
 
 Nous aimerions afficher (20, 15, 5) plutôt que (20, (15, (5, ()))). On lit, puis on supprime chaque valeur de la tête que l’on ajoute à une liste vide. On renvoie un string
 ```python
@@ -316,7 +314,7 @@ Utiliser les instructions suivantes :
 **Question** : Un utilisateur peut-il avoir une idée de l'implémentation interne de notre Liste en utilisant nos fonctions d'interface ?
 
 
-<H4 STYLE="COLOR:MAGENTA;">#### **3.3.2. Implémentation plus souple avec les tuples**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> **3.3.2. Implémentation plus souple avec les tuples**</H4>
 Nous voudrions par exemple parvenir à lire n'importe quelle valeur de notre liste, pas seulement la tête.
 
 ![Principe de l'interface d'une liste plus souple](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.012.png){width=50%; : .center }
@@ -325,7 +323,7 @@ L'avantage de notre implémentation par rapport au type abstrait : on colle au 
 
 Voyons maintenant les désavantages.
 
-<H3 STYLE="COLOR:red;">**Activité n° 7 :**  **structure liste avec des tuples fonction** ```lireElement``` :</H3> Créer la fonction d'interface lireElement en utilisant les fonctions d'interface que nous avons déjà créé : il faudra utiliser supprimerTete jusqu'à arriver à la bonne.
+**<H3 STYLE="COLOR:red;">Activité n° 7 :**  **structure liste avec des tuples fonction** ```lireElement``` :</H3> Créer la fonction d'interface lireElement en utilisant les fonctions d'interface que nous avons déjà créé : il faudra utiliser supprimerTete jusqu'à arriver à la bonne.
 
 Combien de fois doit-on utiliser supprimerTete pour atteindre l'élément d'index **position** ?
 
@@ -369,7 +367,7 @@ C : Elle est quadratique
 
 D : Elle est exponentielle
 
-<H3 STYLE="COLOR:red;">**Activité n° 8 :**  **structure liste avec des tuples fonction** ```insererElement``` :</H3> Observer la fonction insererElement.
+**<H3 STYLE="COLOR:red;">Activité n° 8 :**  **structure liste avec des tuples fonction** ```insererElement``` :</H3> Observer la fonction insererElement.
 
 ```insererElement(x:Elt, L:Liste, position:int) -> Liste``` : on **renvoie** une nouvelle liste où l'élément fourni x est maintenant l'élément de la liste situé en position **position**. On prendra ici un système de position lié à un index commençant à 0.
 ```
@@ -414,7 +412,7 @@ Coût de l'implémentation en tuple (tête, queue) : On notera donc que dans le
 
 Un coût (dans le pire des cas) linéaire en lecture et en insertion. Pas terrible. Regardons si on peut faire mieux.
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc151667924"></a>**3.4. ❤️2<sup>ème</sup> implémentation de la structure liste (chainée) avec les lists de Python❤️**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667924"></a>**3.4. ❤️2<sup>ème</sup> implémentation de la structure liste (chainée) avec les lists de Python❤️**</H3>
 
 **=> CAPYTALE Le code vous sera donné par votre enseignant**
 
@@ -422,7 +420,7 @@ Si le type natif list se nomme ainsi, c'est bien qu'il permet l'implémentation 
 
 **sur Thonny : Toutes les fonctions de cette implémentation doivent être dans le même fichier python appelé liste\_list.py**
 
-<H3 STYLE="COLOR:red;">**Activité n° 9 :**  **structure liste avec des lists fonction** ```nouvelleListe```**,** ```estVide``` **et** ```lireElement``` :</H3> Ces fonctions restent les mêmes en utilisant les lists plustot que les tableaux :
+**<H3 STYLE="COLOR:red;">Activité n° 9 :**  **structure liste avec des lists fonction** ```nouvelleListe```**,** ```estVide``` **et** ```lireElement``` :</H3> Ces fonctions restent les mêmes en utilisant les lists plustot que les tableaux :
 ```python
 '''Implémentation 3 de type abstrait Liste en utilisant le type natif liste de Python
 
@@ -453,7 +451,7 @@ def lireElement(L, index=-1):
     pass
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 10 :**  **structure liste avec des lists fonction** ```insererElement``` :</H3> On connait déjà la méthode append qui permet de rajouter un nouvel élément à la fin de nos objets de type natif list-Python.
+**<H3 STYLE="COLOR:red;">Activité n° 10 :**  **structure liste avec des lists fonction** ```insererElement``` :</H3> On connait déjà la méthode append qui permet de rajouter un nouvel élément à la fin de nos objets de type natif list-Python.
 
 Attention, append modifie la variable sur laquelle on agit MAIS elle ne renvoie rien : il faudra donc l'utiliser sur une copie du tableau et renvoyer cette copie ensuite. 
 
@@ -472,7 +470,7 @@ reponse = [element for element in L]
 return reponse.insert(position, x)
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 11 :**  **structure liste avec des lists fonction** ```pop``` :</H3> De la même façon, il existe une méthode nommée pop qui permet d'extraire un élément (la méthode renvoie l'élément) et modifie le tableau en place.
+**<H3 STYLE="COLOR:red;">Activité n° 11 :**  **structure liste avec des lists fonction** ```pop``` :</H3> De la même façon, il existe une méthode nommée pop qui permet d'extraire un élément (la méthode renvoie l'élément) et modifie le tableau en place.
 
 On peut donc l'utiliser pour juste modifier le tableau, sans mémoriser la valeur extraite.
 ```python
@@ -488,7 +486,7 @@ return reponse.pop(position)
 ```
 Avec ce code, vous allez renvoyer l'élément supprimé et pas le nouveau tableau
 
-<H3 STYLE="COLOR:red;">**Activité n° 12 :**  **structure liste avec des lists fonction** ```afficherListe``` :</H3> on rajoute la fonction d’affichage globale de la liste. C’est une fonction optionnel pour notre interface :
+**<H3 STYLE="COLOR:red;">Activité n° 12 :**  **structure liste avec des lists fonction** ```afficherListe``` :</H3> on rajoute la fonction d’affichage globale de la liste. C’est une fonction optionnel pour notre interface :
 ```python
 def afficherListe(L):
     '''Renvoie une représentation de la Liste sous forme d'une séquence commençant par la tête'''
@@ -498,7 +496,7 @@ def afficherListe(L):
 On va obtenir le même effet pour l'utilisateur, si ce n'est que le code utilise les fonctionnalités de Python et que nous ne connaissons pas les coûts de ces fonctions.
 
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc151667925"></a>**3.5. ❤️ 3<sup>ème</sup> implémentation de la structure liste (chainée) avec POO ❤️**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667925"></a>**3.5. ❤️ 3<sup>ème</sup> implémentation de la structure liste (chainée) avec POO ❤️**</H3>
 
 **=> CAPYTALE Le code vous sera donné par votre enseignant**
 
@@ -539,9 +537,9 @@ L'avantage du tableau par contre, c'est qu'on trouve très rapidement le contenu
 
 Une liste chainée sera donc composée d’une Cellule (Node) constituée d’une tête contenant la valeur (Value) et d’une queue (Next) qui servira de pointeur vers la Cellule suivante.
 
-<H4 STYLE="COLOR:MAGENTA;">#### **3.5.1. Création de la Cellule Node**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> **3.5.1. Création de la Cellule Node**</H4>
 
-<H3 STYLE="COLOR:red;">**Activité 13 :**  **structure liste avec de la POO, Création de la classe Cellule :** Chaque Cellule est constituée d’une **tete** et d’un **pointeur**. Il faut donc **initialiser l’attribut value et l’attribut next**.</H3>
+**<H3 STYLE="COLOR:red;">Activité 13 :**  **structure liste avec de la POO, Création de la classe Cellule :**</H3> Chaque Cellule est constituée d’une **tete** et d’un **pointeur**. Il faut donc **initialiser l’attribut value et l’attribut next**.
 
 Créer une classe Node qui peut recevoir deux paramètres lors de l'appel du constructeur : un paramètre value et un paramètre next. Les deux valeurs transmises devront être stockées dans deux attributs nommés v et n.
 ```python
@@ -560,11 +558,11 @@ Tester le constructeur avec quelques créations :
 >>> c4 = Node(35, c3)
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 14 :**  **structure liste avec de la POO, Création de la classe Cellule :** Représenter sur feuille la structure séquentielle linéaire (schéma des cellules) créée par les instructions précédentes.</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 14 :**  **structure liste avec de la POO, Création de la classe Cellule :**</H3> Représenter sur feuille la structure séquentielle linéaire (schéma des cellules) créée par les instructions précédentes.
 
 Notre cellule possède encore un léger problème : on pourrait lui transmettre n'importe quoi sur le paramètre next, pas nécessairement quelque chose de compatible avec l'attribut n qui doit contenir un objet Node ou None. On pourrait donc **imposer** en programmation défensive que ce paramètre soit bien l'instance d'une cellule ou None. Ce sont en effet les deux possibilités.
 
-<H3 STYLE="COLOR:red;">**Activité n° 15 :**  **structure liste avec de la POO, Création de la classe Cellule :** tester les instructions suivantes</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 15 :**  **structure liste avec de la POO, Création de la classe Cellule :**</H3> tester les instructions suivantes
 ```
 >>> a = Node('Marie-Antoinette', None)
 >>> b = Node('Louis XVI', a)
@@ -579,7 +577,7 @@ Pour pouvoir lire la séquence de cellules, on va créer une méthode returnFina
 
 Si on part ici de la tête qui contient le string "Lundi", on devrait lire la séquence des jours et renvoyer la référence de la dernière cellule, celle qui contient "Dimanche".
 
-<H3 STYLE="COLOR:red;">**Activité n° 16 :**  **structure liste avec de la POO, Création de la classe Cellule méthode returnFinalNode**</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 16 :**  **structure liste avec de la POO, Création de la classe Cellule méthode returnFinalNode**</H3>
 
 **Prototype :** ```returnFinalNode(cellule:Cellule) -> Cellule``` :
 
@@ -618,7 +616,7 @@ if __name__ == '__main__':
     lu = Node("Lundi", ma)
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 17 :**  **structure liste avec de la POO, Création de la classe Cellule méthode** \_\_str\_\_: On peut ajouter une méthode pour l’affichage de la Cellule (Node)</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 17 :**  **structure liste avec de la POO, Création de la classe Cellule méthode** ```__str__```:</H3> On peut ajouter une méthode pour l’affichage de la Cellule (Node)
 ```python
     def __str__(self): # on peut mettre __repr__ à la place pour éviter de taper print
         if self.v:
@@ -635,9 +633,9 @@ Tester l’affichage avec
 >>> print(ma.returnFinalNode())
 ```
 
-<H4 STYLE="COLOR:MAGENTA;">#### **3.5.2. Création de la Liste Chainée Liste**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> **3.5.2. Création de la Liste Chainée Liste**</H4>
 
-<H3 STYLE="COLOR:red;">**Activité n° 18 :**  **structure liste avec de la POO, Création de la classe Liste chainée :** La première Cellule constitue l**’entête** (head). Initialement son **pointeur sera de type None**.</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 18 :**  **structure liste avec de la POO, Création de la classe Liste chainée :**</H3> La première Cellule constitue l**’entête** (head). Initialement son **pointeur sera de type None**.
 
 Puis son pointeur sera **chainé à la deuxième Cellule** et ainsi de suite jusqu’à la dernière qui aura un **pointeur de type None** qui constituera la fin de la liste.
 
@@ -687,7 +685,7 @@ if __name__ == '__main__':
 
 Le constructeur de la classe Liste utilise type plutôt que isinstance (classe Node) pour vérifier que l'objet reçu est bien une instance. C'est juste pour vous montrer qu'on peut tester cela de deux façons
 
-<H4 STYLE="COLOR:MAGENTA;">#### **3.5.3. Création de l’interface : Liste « souple », version mutable**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> **3.5.3. Création de l’interface : Liste « souple », version mutable**</H4>
 
 ![Principe de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.019.png){width=50%; : .center }
 
@@ -720,7 +718,7 @@ reponse = readPosition(listeA, 1)
 reponse peut alors être représentée par 15.
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 19 :**  **structure liste avec de la POO, Création de la structure méthode** ```isEmpty``` : Créer la méthode d'interface ```isEmpty```. Votre méthode devra bien entendu travailler avec la classe Liste. On ira lire directement son attribut head, sans respect aucun pour l'encapsulation de l'objet. Ajouter la méthode à la classe Liste :</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 19 :**  **structure liste avec de la POO, Création de la structure méthode** ```isEmpty``` :</H3> Créer la méthode d'interface ```isEmpty```. Votre méthode devra bien entendu travailler avec la classe Liste. On ira lire directement son attribut head, sans respect aucun pour l'encapsulation de l'objet. Ajouter la méthode à la classe Liste :
 ```python 
 def isEmpty(self):
    pass
@@ -734,7 +732,7 @@ False
 True
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 20 :**  **structure liste avec de la POO, Création de la structure méthode** ```insertHead```: Créer une méthode d’interface ```insertHead```. La solution est : </H3>
+**<H3 STYLE="COLOR:red;">Activité n° 20 :**  **structure liste avec de la POO, Création de la structure méthode** ```insertHead```:</H3> Créer une méthode d’interface ```insertHead```. La solution est : 
 
 - de mémoriser l’ancienne entête dans variable temporaire temporary, 
 
@@ -792,7 +790,7 @@ Quelques précisions :
 
 - Si je veux insérer en position **position** : **predecesseur** sera la Cellule en position **position** - 1. Il faut donc faire un bond en avant depuis la tête.
 
-<H3 STYLE="COLOR:red;">**Activité 21 :**  **structure liste avec de la POO, Création de la structure méthode** ```insertPosition``` :</H3> Voici une méthode d'interface ```insertPosition```.
+**<H3 STYLE="COLOR:red;">Activité 21 :**  **structure liste avec de la POO, Création de la structure méthode** ```insertPosition``` :</H3> Voici une méthode d'interface ```insertPosition```.
 
 ```insertPosition(self, newData:Elt, position:int) -> None``` : on modifie sur place la liste : l'élément fourni newData est maintenant l'élément de la liste situé en position position. On prendra ici un système de position lié à un index commençant à 0.
 
@@ -831,7 +829,7 @@ Tester
 'Mardi'
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 22 :**  **structure liste avec de la POO, Création de la structure**</H3> L'insertion pure ne concerne que les lignes suivantes
+**<H3 STYLE="COLOR:red;">Activité n° 22 :**  **structure liste avec de la POO, Création de la structure**</H3> L'insertion pure ne concerne que les lignes suivantes
 ```python
         # nextNode = previousNode.n  # on mémorise la cellule qu'il faudra "déplacer"
         # newNode = Node(newData, nextNode)
@@ -880,7 +878,7 @@ Les deux grandes implémentations sont sous forme d'une **structure de données 
 
 En fonction de besoin de votre algorithme, on prendra donc l'un ou l'autre.
 
-<H3 STYLE="COLOR:red;">**Activité n° 23 :**  **structure liste avec de la POO, Création de la structure FONCTION** ```afficherListe``` et ```recupererValeur``` : en utilisant l'interface, l'utilisateur peut-il se douter que les données sont stockées sous forme d'une liste chaînée composée d'objets ?</H3> Ajouter les 2 fonctions :
+**<H3 STYLE="COLOR:red;">Activité n° 23 :**  **structure liste avec de la POO, Création de la structure FONCTION** ```afficherListe``` et ```recupererValeur``` :</H3> en utilisant l'interface, l'utilisateur peut-il se douter que les données sont stockées sous forme d'une liste chaînée composée d'objets ? Ajouter les 2 fonctions :
 ```python
 def afficherListe(L):
     tableau = recupererValeur(L.head)
@@ -905,7 +903,7 @@ if __name__ == '__main__':
     print(afficherListe(list1))
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 24 :**  **structure liste avec de la POO, Création de la structure méthode** ```delPosition``` : Compléter la méthode.</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 24 :**  **structure liste avec de la POO, Création de la structure méthode** ```delPosition``` :</H3> Compléter la méthode.
 ```python
 def delPosition(self, position):
     pass
@@ -919,7 +917,7 @@ Tester
 "('Mardi', 'Mercredi', 'Jeudi', 'Samedi', 'Dimanche')" 
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 25 :**  **structure liste avec de la POO, Création de la structure autres méthodes** : Réaliser maintenant la méthode d'interface de lecture des valeurs. Voici le prototype.</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 25 :**  **structure liste avec de la POO, Création de la structure autres méthodes** :</H3> Réaliser maintenant la méthode d'interface de lecture des valeurs. Voici le prototype.
 
 ```readPosition(self:Liste, position:int) -> Elt``` : on renvoie l'élément stocké en position position.
 ```python
@@ -934,9 +932,9 @@ Tester
 
 
 
-<H2 STYLE="COLOR:BLUE;">## <a name="_toc151667926"></a>**4. Les piles**</H2>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc151667926"></a>**4. Les piles**</H2>
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc151667927"></a>**4.1. Généralités**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667927"></a>**4.1. Généralités**</H3>
 
 En informatique, une **pile** (en anglais **stack**) est une structure de données fondée sur le principe « dernier arrivé, premier sorti » (ou **LIFO pour Last In, First Out**), ce qui veut dire que les derniers éléments ajoutés à la pile seront les premiers à être récupérés.
 
@@ -973,7 +971,7 @@ Soit une pile P composée des éléments suivants : 12, 14, 8, 7, 19 et 22 (le s
 
 **Remarque** : Pour lire le sommet de la pile sans modifier la pile, on doit le dépiler et le rempiler.
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc151667928"></a>**4.2. ❤️1<sup>ère</sup> implémentation de la structure pile avec les listes de Python❤️**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667928"></a>**4.2. ❤️1<sup>ère</sup> implémentation de la structure pile avec les listes de Python❤️**</H3>
 
 **=> CAPYTALE Le code vous sera donné par votre enseignant**
 
@@ -981,7 +979,7 @@ Soit une pile P composée des éléments suivants : 12, 14, 8, 7, 19 et 22 (le s
 
 Nous utiliserons une simple liste pour représenter la pile. Il se trouve que les méthodes append et pop sur les listes jouent déjà le rôle de **push (empile)** et **pop (depile)** sur les piles.
 
-<H3 STYLE="COLOR:red;">**Activité n° 26 : Structure pile avec les listes :** Compléter la **structure de base** suivante :</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 26 : Structure pile avec les listes :**</H3> Compléter la **structure de base** suivante :
 
 **Remarque** : La fonction empiler ne renvoie rien.
 ```python
@@ -1013,7 +1011,7 @@ if __name__ == '__main__':
     assert depiler(ma_pile) == 'Pile vide'
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 27 : Structure pile avec les listes :** On va rajouter à la structure de base précédente deux fonctions : ```taille``` et ```sommet``` qui permettent respectivement de retourner la taille de la pile (sans utiliser la fonction de python len !!) et le sommet de la pile (sans utiliser les indices !!). On ne pourra utiliser seulement les fonctions primitives précédentes et en devra récupérer la pile originelle telle qu’elle était.</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 27 : Structure pile avec les listes :**</H3> On va rajouter à la structure de base précédente deux fonctions : ```taille``` et ```sommet``` qui permettent respectivement de retourner la taille de la pile (sans utiliser la fonction de python len !!) et le sommet de la pile (sans utiliser les indices !!). On ne pourra utiliser seulement les fonctions primitives précédentes et en devra récupérer la pile originelle telle qu’elle était.
 
 On pourra s’aider d’une  pile auxiliaire.
 ```python
@@ -1032,13 +1030,13 @@ if __name__ == '__main__':
     assert sommet(ma_pile) == 'Mercredi'
 ```
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc151667929"></a>**4.3. ❤️2<sup>ème</sup> implémentation de la structure pile avec la POO et les lists de Python❤️**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667929"></a>**4.3. ❤️2<sup>ème</sup> implémentation de la structure pile avec la POO et les lists de Python❤️**</H3>
 
 **=> CAPYTALE Le code vous sera donné par votre enseignant**
 
 **Sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé pile\_POO\_list.py**
 
-<H3 STYLE="COLOR:red;">**Activité n° 28 : Structure pile avec la POO et les lists de Python :** Créer une classe Pile qui construit une liste vide, puis compléter les autres méthodes de la classe  :</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 28 : Structure pile avec la POO et les lists de Python :**</H3> Créer une classe Pile qui construit une liste vide, puis compléter les autres méthodes de la classe  :
 
 ```python
 '''Implémentation 3 de type abstrait Liste en utilisant la POO et les listes de Python'''
@@ -1072,7 +1070,7 @@ Tester :
 >>> p.depiler()
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 29 : Structure pile avec la POO et les lists de Python:** On va rajouter à la structure de base précédente deux méthodes de la classe Pile : ```taille``` et ```sommet``` qui permettent respectivement de retourner la taille de la pile (sans utiliser la fonction de python len !!) et le sommet de la pile (sans utiliser les indices !!). On ne pourra utiliser seulement les fonctions primitives précédentes et en devra récupérer la pile originelle telle qu’elle était.</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 29 : Structure pile avec la POO et les lists de Python:**</H3> On va rajouter à la structure de base précédente deux méthodes de la classe Pile : ```taille``` et ```sommet``` qui permettent respectivement de retourner la taille de la pile (sans utiliser la fonction de python len !!) et le sommet de la pile (sans utiliser les indices !!). On ne pourra utiliser seulement les fonctions primitives précédentes et en devra récupérer la pile originelle telle qu’elle était.
 
 On pourra s’aider d’une  pile auxiliaire.
 ```python
@@ -1095,7 +1093,7 @@ Tester
 
 Ici, **tous les coûts d’exécution sont unitaires.**
 
-<H3 STYLE="COLOR:red;">**Activité n° 30 : Structure pile avec la POO et les lists de Python:** On va rajouter à la structure une méthode de la classe Pile : afficher qui permet d’afficher (retourner) la pile sous forme de liste .</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 30 : Structure pile avec la POO et les lists de Python:**</H3> On va rajouter à la structure une méthode de la classe Pile : afficher qui permet d’afficher (retourner) la pile sous forme de liste .
 
 ```python
     def afficher(self):
@@ -1107,7 +1105,7 @@ Tester :
 [0, 2, 4, 6, 8]
 ```
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc151667930"></a>**4.4. ❤️3<sup>ème</sup> implémentation de la structure pile avec la POO et les listes chainée❤️**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667930"></a>**4.4. ❤️3<sup>ème</sup> implémentation de la structure pile avec la POO et les listes chainée❤️**</H3>
 
 **=> CAP
 
@@ -1115,7 +1113,7 @@ YTALE Le code vous sera donné par votre enseignant**
 
 La version à une classe est plus simple, elle peut être suffisante, mais les puristes préfèrent la version à deux classes qui colle davantage au modèle théorique proche des listes dans lequel une pile est soit une cellule, soit une pile vide.
 
-<H3 STYLE="COLOR:red;">**Activité n° 31 : Structure pile avec la POO et les listes chainée version 1 classe :** Créer une classe Pile qui peut recevoir deux paramètres lors de l'appel du constructeur : un paramètre value et un paramètre next. Les deux valeurs transmises devront être stockées dans deux attributs nommés v et n.</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 31 : Structure pile avec la POO et les listes chainée version 1 classe :**</H3> Créer une classe Pile qui peut recevoir deux paramètres lors de l'appel du constructeur : un paramètre value et un paramètre next. Les deux valeurs transmises devront être stockées dans deux attributs nommés v et n.
 
 **Sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé pile\_POO\_v1.py**
 
@@ -1171,7 +1169,7 @@ if __name__ == '__main__':
     print(p.sommet())
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 32 : Structure pile avec la POO et les listes chainée version 2 classes :** Créer une classe Node qui peut recevoir deux paramètres lors de l'appel du constructeur : un paramètre ```value``` et un paramètre ```next```. Les deux valeurs transmises devront être stockées dans deux attributs nommés ```v``` et ```n```.</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 32 : Structure pile avec la POO et les listes chainée version 2 classes :**</H3> Créer une classe Node qui peut recevoir deux paramètres lors de l'appel du constructeur : un paramètre ```value``` et un paramètre ```next```. Les deux valeurs transmises devront être stockées dans deux attributs nommés ```v``` et ```n```.
 
 **Sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé pile\_POO\_v2.py**
 
@@ -1221,7 +1219,7 @@ def recupererValeur(cellule):
         return [cellule.v] + recupererValeur(cellule.n)
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 33 : Structure pile avec la POO et les listes chainée version 2 classes :** rajouter aux structures précédentes deux fonctions ```taille``` et ```sommet``` qui permettent le retourner la taille et de retourner le sommet de la pile</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 33 : Structure pile avec la POO et les listes chainée version 2 classes :**</H3> rajouter aux structures précédentes deux fonctions ```taille``` et ```sommet``` qui permettent le retourner la taille et de retourner le sommet de la pile
 
 ```python
     def taille(self) :
@@ -1243,9 +1241,9 @@ if __name__ == '__main__':
 
 **[vidéo le crépier psychorigide](https://ladigitale.dev/digiview/#/v/66b7280a8b3b5)**
 
-<H2 STYLE="COLOR:BLUE;">## <a name="_toc151667931"></a>**5. Les files**</H2>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc151667931"></a>**5. Les files**</H2>
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc151667932"></a>**5.1. Généralités**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667932"></a>**5.1. Généralités**
 
 En informatique, une **file** (queue en anglais) est une structure de données basée sur le principe « Premier entré, premier sorti », en anglais **FIFO (First In, First Out)**, ce qui veut dire que les premiers éléments ajoutés à la file seront les premiers à être récupérés.
 
@@ -1274,7 +1272,7 @@ Les primitives communément utilisées pour manipuler des files :
 - **defiler(F)** la file F est maintenant composée des éléments suivants : 12, 14, 8, 7, et 19 (le premier élément rentré dans la file est 19 ; le dernier élément rentré dans la file est 12) 
 - si on applique **defiler(F) 6 fois de suite,** estVide(F) **renvoie vrai** 
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc151667933"></a>**5.2. ❤️1<sup>ère</sup> implémentation de la structure file avec les listes de Python❤️**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667933"></a>**5.2. ❤️1<sup>ère</sup> implémentation de la structure file avec les listes de Python❤️**
 
 **=> CAPYTALE Le code vous sera donné par votre enseignant**
 
@@ -1284,7 +1282,7 @@ On peut utiliser une implémentation similaire à celle des piles, mais si ```de
 
 Nous utiliserons une simple liste pour représenter la pile. Là encore nous utiliserons append(x) et pop(0) pour réaliser les méthode enfiler et defiler.
 
-<H3 STYLE="COLOR:red;">**Activité n° 34 : Structure file avec les listes :** Compléter la **structure de base** suivante :</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 34 : Structure file avec les listes :**</H3> Compléter la **structure de base** suivante :
 
 **Remarque** : La fonction enfiler ne renvoie rien.
 ```python
@@ -1318,7 +1316,7 @@ if __name__ == '__main__':
     assert defiler(ma_file) == 'File vide'
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 35 : Structure file avec les listes :** On va rajouter à la structure de base précédente deux fonctions : ```taille``` et ```sommet``` qui permettent respectivement de retourner la taille de la file (sans utiliser la fonction de python len !!) et le sommet de la file (sans utiliser les indices !!). On ne pourra utiliser seulement les fonctions primitives précédentes et en devra récupérer la file originelle telle qu’elle était.</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 35 : Structure file avec les listes :**</H3> On va rajouter à la structure de base précédente deux fonctions : ```taille``` et ```sommet``` qui permettent respectivement de retourner la taille de la file (sans utiliser la fonction de python len !!) et le sommet de la file (sans utiliser les indices !!). On ne pourra utiliser seulement les fonctions primitives précédentes et en devra récupérer la file originelle telle qu’elle était.
 
 ```python
 def taille(file):
@@ -1337,13 +1335,13 @@ if __name__ == '__main__':
     assert sommet(ma_file) == 'Lundi'
 ```
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc151667934"></a>**5.3. ❤️2<sup>ème</sup> implémentation de la structure file avec la POO et les lists de Python❤️**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667934"></a>**5.3. ❤️2<sup>ème</sup> implémentation de la structure file avec la POO et les lists de Python❤️**</H3>
 
 **=> CAPYTALE Le code vous sera donné par votre enseignant**
 
 **Sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé file\_POO\_list.py**
 
-<H3 STYLE="COLOR:red;">**Activité n° 36 : Structure File avec la POO et les lists de Python :** Créer une classe File qui construit une liste vide, puis compléter les autres méthodes de la classe  :</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 36 : Structure File avec la POO et les lists de Python :**</H3> Créer une classe File qui construit une liste vide, puis compléter les autres méthodes de la classe  :
 
 ```python
 '''Implémentation 3 de type abstrait Liste en utilisant la POO et les listes de Python'''
@@ -1376,7 +1374,7 @@ if __name__ == '__main__':
     assert ma_file.defiler() == 'File vide'
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 37 : Structure file avec la POO et les lists de Python:** On va rajouter à la structure de base précédente deux méthodes de la classe File : ```taille``` et ```sommet``` qui permettent respectivement de retourner la taille de la pile (sans utiliser la fonction de python len !!) et le sommet de la pile (sans utiliser les indices !!). On ne pourra utiliser seulement les fonctions primitives précédentes et en devra récupérer la pile originelle telle qu’elle était.</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 37 : Structure file avec la POO et les lists de Python:**</H3> On va rajouter à la structure de base précédente deux méthodes de la classe File : ```taille``` et ```sommet``` qui permettent respectivement de retourner la taille de la pile (sans utiliser la fonction de python len !!) et le sommet de la pile (sans utiliser les indices !!). On ne pourra utiliser seulement les fonctions primitives précédentes et en devra récupérer la pile originelle telle qu’elle était.
 
 On pourra s’aider d’une file auxiliaire.
 ```python
@@ -1397,7 +1395,7 @@ if __name__ == '__main__':
 
 Ici, **tous les coûts d’exécution sont unitaires.**
 
-<H3 STYLE="COLOR:red;">**Activité n° 38 : Structure pile avec la POO et les lists de Python:** On va rajouter à la structure une méthode de la classe Pile : afficher qui permet d’afficher (retourner) la pile sous forme de liste .</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 38 : Structure pile avec la POO et les lists de Python:**</H3> On va rajouter à la structure une méthode de la classe Pile : afficher qui permet d’afficher (retourner) la pile sous forme de liste .
 
 ```python
     def afficher(self) :
@@ -1410,13 +1408,13 @@ Rajouter au programme principal :
 
 Cette implémentation est très **peu efficace** 
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc151667935"></a>**5.4. ❤️3<sup>ème</sup> implémentation de la structure file avec la POO et une liste chainée❤️**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667935"></a>**5.4. ❤️3<sup>ème</sup> implémentation de la structure file avec la POO et une liste chainée❤️**</H3>
 
 **=> CAPYTALE Le code vous sera donné par votre enseignant**
 
 **Sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé file\_POO.py**
 
-<H3 STYLE="COLOR:red;">**Activité n° 39 : Structure pile avec la POO et les listes chainées :** Tester cette implémentation **sur python tutor**</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 39 : Structure pile avec la POO et les listes chainées :**</H3> Tester cette implémentation **sur python tutor**
 
 ```python
 '''Implémentation de type abstrait File avec la POO 
@@ -1466,11 +1464,11 @@ if __name__ == '__main__':
     assert ma_file.defiler() == 'File vide'
 ```
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc151667936"></a>**5.5. Autre implémentation des files avec les bibliothèques de Python**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667936"></a>**5.5. Autre implémentation des files avec les bibliothèques de Python**</H3>
 
 **=> CAPYTALE Le code vous sera donné par votre enseignant**
 
-<H3 STYLE="COLOR:red;">**Activité n°40.: Utilisation de deque pour Implémenter une Pile : Tester cette implémentation** **sur python tutor**</H3>
+**<H3 STYLE="COLOR:red;">Activité n°40.: Utilisation de deque pour Implémenter une Pile :</H3> Tester cette implémentation** **sur python tutor**
 
 ```python
 from collections import deque
@@ -1499,7 +1497,7 @@ est_vide = len(pile) == 0
 print("La pile est vide ?", est_vide)
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n°41.: Utilisation de deque pour Implémenter une File : Tester cette implémentation** **sur python tutor**</H3>
+**<H3 STYLE="COLOR:red;">Activité n°41.: Utilisation de deque pour Implémenter une File :</H3> Tester cette implémentation** **sur python tutor**
 
 ```python
 from collections import deque
@@ -1530,7 +1528,7 @@ print("La file est vide ?", est_vide)
 
 Les piles et les files sont des structures de données fondamentales qui peuvent être implémentées de manière efficace en Python à l'aide de listes ou de la classe deque de la bibliothèque collections. L'utilisation de deque est souvent préférée pour des raisons de performance, notamment pour les files.
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc151667937"></a>**5.6. Piles vs Files :**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667937"></a>**5.6. Piles vs Files :**</H3>
 
 |**Pile**|**File**|
 | :-: | :-: |
@@ -1543,9 +1541,9 @@ Les piles et les files sont des structures de données fondamentales qui peuvent
 |Les opérations de pile s’appellent « Empiler » et « Dépiler ». |Les opérations de file sont appelées « Enfiler » et « Défiler ».|
 |Les piles sont visualisées sous forme de collections verticales. |Les files sont visualisées sous forme de collections horizontales.|
 
-<H2 STYLE="COLOR:BLUE;">## <a name="_toc151667938"></a>**6. Les dictionnaires**</H2>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc151667938"></a>**6. Les dictionnaires**</H2>
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc60173193"></a><a name="_toc151667939"></a>**6.1. Définition**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc60173193"></a><a name="_toc151667939"></a>**6.1. Définition**</H3>
 
 Les dictionnaires ont déjà été étudiés en classe de première. 
 
@@ -1555,7 +1553,7 @@ Pour rappel, ce type de données, aussi appelé **tableau associatif**, permet d
 
 On suppose que toutes les clés sont distinctes et dans la suite on va se concentrer sur les clés et non pas sur les données associées.
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc60173194"></a><a name="_toc151667940"></a>**6.2. Les opérations de bases dans un dictionnaire**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc60173194"></a><a name="_toc151667940"></a>**6.2. Les opérations de bases dans un dictionnaire**</H3>
 
 Les opérations classiques que l'on peut effectuer sur un dictionnaire sont :
 
@@ -1566,7 +1564,7 @@ Les opérations classiques que l'on peut effectuer sur un dictionnaire sont :
 
 **Attention** : Le dictionnaire de Python permet d’avoir ce comportement mais est une version spécifique à Python de cette donnée plus générale. Ce qui nous intéresse ici c’est d’avoir une structure de données que l’on va interroger et que l’on peut modifier. Le but est de trouver des méthodes pour faire cela efficacement.
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc60173197"></a><a name="_toc151667941"></a>**6.3. Les clés**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc60173197"></a><a name="_toc151667941"></a>**6.3. Les clés**</H3>
 
 Une clé peut être d'un autre type que chaîne de caractère, du moment que c'est un **objet non mutable**, c'est à dire qui ne peut pas être modifié. Une clé ne **peut pas être une liste** par exemple car une liste est un objet mutable que l'on peut modifier, par exemple au travers de la méthode .append().
 
@@ -1581,11 +1579,11 @@ TypeError: unhashable type: 'list'
 ```
 Le type **list** n'est pas pas *hashable*. Mais qu'est-ce que le hachage ?
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc151667942"></a>**6.4. Hachage**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667942"></a>**6.4. Hachage**</H3>
 
 La notion de *Hachage* est omiprésente en informatique et est au coeur du fonctionnement des dictionnaires. Le hachage est un mécanisme permettant de transformer la clé en un nombre unique permettant l'accès à la donnée, un peu à la manière d'un indice dans un tableau.
 
-<H4 STYLE="COLOR:MAGENTA;">#### **6.4.1. Définition d’une fonction de hachage**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> **6.4.1. Définition d’une fonction de hachage**</H4>
 
 Une fonction de hachage est une fonction qui va calculer une empreinte unique à partir de la donnée fournie en entrée. Elle doit respecter les règles suivantes :
 
@@ -1594,7 +1592,7 @@ Une fonction de hachage est une fonction qui va calculer une empreinte unique à
 - des données différentes doivent donner *dans la mesure du possible* des empreintes différentes.
 - des données identiques doivent donner des empreintes identiques.
 
-<H4 STYLE="COLOR:MAGENTA;">#### **6.4.2. Quelques utilisations du hachage**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> **6.4.2. Quelques utilisations du hachage**</H4>
 
 L'utilisation la plus courante est le stockage des mots de passe dans un système informatique un peu sécurisé. En effet, lorsqu'on crée un compte sur un service en ligne, le mot de passe ne **doit pas être stocké en clair**, une empreinte est générée afin que si le service est piraté et que les comptes sont dérobés, il ne soit pas possible de reconstituer le mot de passe à partir de l'empreinte. Voici un exemple de fonctionnement d'une fonction de hachage.
 
@@ -1617,7 +1615,7 @@ Une autre utilisation du hachage est la détection de la modification d'un fichi
 
 Ainsi la fonction de hachage peut mettre en évidence des différences qui seraient invisibles à l'oeil nu.
 
-<H4 STYLE="COLOR:MAGENTA;">#### **6.4.3. Table de Hachage**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> **6.4.3. Table de Hachage**</H4>
 
 Regardez la vidéo ci-dessous sur les tables de hachage.
 
@@ -1629,7 +1627,7 @@ Dans un tableau ou une liste chaînée au contraire, la recherche d'un élément
 
 Dans un dictionnaire, les clés sont stockées dans une table de hachage, ce qui explique le fait que le dictionnaire est optimisé pour la recherche sur les clés.
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc151667943"></a>**6.5. Rappel : Utilisation des dictionnaires en Python**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667943"></a>**6.5. Rappel : Utilisation des dictionnaires en Python**</H3>
 
 Vous pouvez à présent regarder la vidéo suivante afin de vous reviser la manipulation des dictionnaires en python.
 
@@ -1637,8 +1635,8 @@ Les dictionnaires : <https://ladigitale.dev/digiview/#/v/66bcbd45219a3>
 
 **=> CAPYTALE Le code vous sera donné par votre enseignant**
 
-<H3 STYLE="COLOR:red;">**Activité n° 42 : Itérer sur les éléments d’un dictionnaire :**</H3> 
-<p>Au zoo de Beauval, il y a 5 éléphants d’Asie, 17 écureuils d’Asie, 2 pandas d’Asie, etc. On représente cet inventaire à l’aide d’un dictionnaire, de façon suivante :</p>
+**<H3 STYLE="COLOR:red;">Activité n° 42 : Itérer sur les éléments d’un dictionnaire :**</H3> 
+Au zoo de Beauval, il y a 5 éléphants d’Asie, 17 écureuils d’Asie, 2 pandas d’Asie, etc. On représente cet inventaire à l’aide d’un dictionnaire, de façon suivante :
 
 ```python
 if __name__ == "__main__":
@@ -1718,17 +1716,17 @@ Le temps de recherche dans le dictionnaire est **pratiquement indépendant du no
 
 Le dictionnaire est donc une **structure de données optimisée** pour la recherche sur les clés.
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc151667944"></a>**6.6. La complexité**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667944"></a>**6.6. La complexité**</H3>
 
 ![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.039.png){width=50%; : .center }
 
 Dans les deux cas ce n’est pas très efficace : on voudrait une **complexité logarithmique de toutes ces opérations**. On peut faire cela en utilisant des structures de données : **les arbres binaires**
 
-<H2 STYLE="COLOR:BLUE;">## <a name="_toc151667945"></a>**7. Exercices**</H2>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc151667945"></a>**7. Exercices**</H2>
 
 **=> CAPYTALE Le code vous sera donné par votre enseignant**
 
-<H3 STYLE="COLOR:red;">**Exercice n°1: Implémentation d’une file avec deux piles avec les listes chainées**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°1: Implémentation d’une file avec deux piles avec les listes chainées**</H3>
 
 Comment créer une file avec 2 piles ?
 
@@ -1792,7 +1790,7 @@ class File:
         pass
 ```
 
-<H3 STYLE="COLOR:red;">**Exercice n°2 : Structure de données**</H3> 
+**<H3 STYLE="COLOR:red;">Exercice n°2 : Structure de données**</H3> 
 
 Quelle structure de données choisir pour chacune de ces tâches ? 
 
@@ -1800,7 +1798,7 @@ Quelle structure de données choisir pour chacune de ces tâches ?
 1. Stocker l'historique des actions effectuées dans un logiciel et disposer d'une commande Annuler (ou Undo).
 1. Envoyer des fichiers au serveur d'impression
 
-<H3 STYLE="COLOR:red;">**Exercice n°3 : La calculatrice HP**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°3 : La calculatrice HP**</H3>
 
 La Notation Polonaise Inversée (NPI) permet d'écrire des opérations arithmétiques, sans utiliser de parenthèses. Ici, nous nous limiterons à des nombres entiers naturels et aux opérations+, -, \* et/ sur eux. Dans cette notation, les opérateurs sont écrits après les opérandes (nombres entiers naturels). Par exemple l'expression classique : 
 
@@ -1827,7 +1825,7 @@ ateur. li faut stocker le résultat intermédiaire dans la structure pour effect
 
 Note : On supposera également que la syntaxe en NPI est correcte.
 
-<H3 STYLE="COLOR:red;">**Exercice n°4 : Types abstraits**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°4 : Types abstraits**</H3>
 
 1\. Quelle opération ne fait pas partie de l'interface d'une pile ?
 
@@ -1855,7 +1853,7 @@ Pour stocker des numéros de téléphone à l'aide d'un tableau associatif, quel
 1. La clé est le nom et la valeur la collection des numéros de téléphone correspondants 
 1. La clé est un simple numéro unique et la valeur le couple nom/téléphone
 
-<H3 STYLE="COLOR:red;">**Exercice n°5 : Type list en Python**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°5 : Type list en Python**</H3>
 
 1\. Le type list utilisé dans Python correspond le mieux :
 
@@ -1876,7 +1874,7 @@ Pour stocker des numéros de téléphone à l'aide d'un tableau associatif, quel
 1. ajouter un élément au début (en position 0)
 1. ajouter un élément à la fin
 
-<H3 STYLE="COLOR:red;">**Exercice n°6 : Structures de donnés Python**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°6 : Structures de donnés Python**</H3>
 
 1\. Pour implémenter une pile avec Python, on peut se servir d'un type de données disponible dans le langage :
 
@@ -1890,7 +1888,7 @@ Pour stocker des numéros de téléphone à l'aide d'un tableau associatif, quel
 1. en un temps proportionnel à la taille du dictionnaire 
 1. en un temps constant 
 
-<H3 STYLE="COLOR:red;">**Exercice n°7 : Pile classique**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°7 : Pile classique**</H3>
 
 Nous allons réaliser une classe Pile en utilisant une liste Python. Voici le contructeur de la classe
 
@@ -1912,7 +1910,7 @@ class Pile:
 
 4 **Bonus :** Vous pouvez implémenter la méthode spéciale str (self)
 
-<H3 STYLE="COLOR:red;">**Exercice n°8 : File en deux piles**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°8 : File en deux piles**</H3>
 
 Supposons que nous ayons deux piles et aucune autre variable temporaire. Est-il possible de "construire" une structure de données en file d’attente en utilisant uniquement les deux piles ? Nous supposerons que nous avons implémenté  les  méthodes  est\_vide,  empiler  et depiler.
 
@@ -1922,7 +1920,7 @@ Supposons que nous ayons deux piles et aucune autre variable temporaire. Est-il 
    - ```ajouter(self,v)``` qui stocke la valeur v dans la file ;
    - ```retirer(self)``` qui retire et retourne la valeur du début de file (la première en attente). Cette méthode  soulève une exception IndexError si on l’applique sur une file vide.
 
-<H3 STYLE="COLOR:red;">**Exercice n°9 : pile ou file et parenthèse**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°9 : pile ou file et parenthèse**</H3>
 
 On dit qu’une chaîne de caractères comprenant, entre autre choses, des parenthèses ( et ) est bien parenthésée lorsque chaque parenthèse ouvrante est associée à une unique parenthèse fermante, et réciproquement.
 
@@ -1933,14 +1931,14 @@ Ecrire une fonction prenant en paramètres :
 
 et qui retourne l’indice de la parenthèse ouvrante associée.
 
-<H3 STYLE="COLOR:red;">**Exercice n°10 : file et copie**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°10 : file et copie**</H3>
 
 Vous allez améliorer la classe file en lui ajoutant quelques fonctionnalités. Vous pouvez utiliser, comme base de travail, l’implémentation des files avec les doubles piles ou celle avec les listes chaînées  
 
 1. Ajouter la méthode spéciale len (self) qui renvoie la longueur d’une file.
 1. Ecrire une fonction copie\_file(f) recevant une file (f) comme argument et renvoyant une copie f2 de f. Attention, la file f doit (bien sûr) être conservée !
 
-<H3 STYLE="COLOR:red;">**Exercice n°11 : Le problème de Josephus**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°11 : Le problème de Josephus**</H3>
 
 Josephus Flavius était un célèbre historien du premier siècle. Durant une guerre il fut pris au piège dans une cave avec son groupe de 40 soldats, entouré par les troupes ennemies. La légende raconte que le groupe encerclé préféra se suicider plutôt que d'être capturé. Ainsi Josephus et ses soldats formèrent un cercle et décidèrent de se tuer mutuellement et successivement, de manière à ce qu'une personne tue la troisième personne sur sa gauche, que la personne à droite du mort tue à son tour la troisième personne sur sa gauche, ainsi de suite jusqu'à ce qu'il ne reste qu'un seul survivant. Restant seul, ce dernier est censé se suicider lui-même. Josephus, qui ne souhaitait pas mourir, trouva rapidement la place sûre, c'est-à-dire la place de la dernière personne debout, sans que quiconque ne reste pour le tuer. Ainsi il resta en vie et put par la suite raconter cette légende. Trouver cette place sûre est maintenant appelé le problème de Josephus.
 
@@ -1972,9 +1970,7 @@ Implémenter la file avec une liste chainée pour que la fonction josephus([1, 2
 
 Pour simplifier on peut d’abord sortir : 3 6 1 5 2 8 4 7 the last one is 7
 
-<H3 STYLE="COLOR:red;">**Exercice n°12 :
-
- Le jeu de cartes : bataille**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°12 : Le jeu de cartes : bataille**</H3>
 
 Compléter le programme ci-dessous du jeu de la bataille. Sur **Thonny** : On l’appelera bataille.py
 
@@ -2042,9 +2038,9 @@ Ne pas oublier de mettre le bon fichier file au même endroit que celui-ci
 
 Une fois terminé les modifications, vous transformerez le programme bataille en classe Bataille avec toutes les fonctions encapsulées dans celle-ci.
 
-<H2 STYLE="COLOR:BLUE;">## <a name="_toc151667946"></a>**8. Projets**</H2>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc151667946"></a>**8. Projets**</H2>
 
-<H3 STYLE="COLOR:red;">**Exercice n°01 : Pile et contrôle du parenthésage d’une expression**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°01 : Pile et contrôle du parenthésage d’une expression**</H3>
 
 **=> CAPYTALE Le code vous sera donné par votre enseignant**
 
@@ -2067,7 +2063,7 @@ A la fin la pile doit être vide…
 
 Ecrire une fonction verification(expression) qui prend en paramètre une chaine de caractère qui retourne OK si l’expression est bien parenthésée et NON sinon.
 
-<H3 STYLE="COLOR:red;">**Exercice n°02 : implémentation d’une liste chainée**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°02 : implémentation d’une liste chainée**</H3>
 
 **=> CAPYTALE Le code vous sera donné par votre enseignant**
 
@@ -2079,7 +2075,7 @@ A partir de ce qui a été vu sur les listes chaînées, implémenter :
 1. La méthode delete\_head(self) qui supprime la première cellule de la liste. Déterminer sa complexité
 1. la méthode delete\_next(self, x) qui supprime la cellule située après la cellule de valeur x et le renvoie
 
-<H3 STYLE="COLOR:red;">**Exercice n°03 : Pile et palindromes**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°03 : Pile et palindromes**</H3>
 
 **=> CAPYTALE Le code vous sera donné par votre enseignant**
 
@@ -2123,7 +2119,7 @@ Il faut faire attention à distinguer les mots de longueur paire et impaire. Si 
 - palindrome("kayak")
 - palindrome("trust")
 
-<H3 STYLE="COLOR:red;">**Exercice n°04 : File et ordonnancement**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°04 : File et ordonnancement**</H3>
 
 **=> CAPYTALE Le code vous sera donné par votre enseignant**
 
@@ -2211,7 +2207,7 @@ class Ordonnanceur:
 
 21 **★★** A l’aide d’une boucle, mettre toutes les activités dans la file de l’ordonnanceur puis exécuter l’ordonnanceur.
 
-<H3 STYLE="COLOR:red;">**Exercice n°05 : Implémentation du type abstrait tableau dynamique en Python**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°05 : Implémentation du type abstrait tableau dynamique en Python**</H3>
 
 **=> CAPYTALE Le code vous sera donné par votre enseignant**
 
