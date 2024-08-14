@@ -429,6 +429,9 @@ Un coût (dans le pire des cas) linéaire en lecture et en insertion. Pas terrib
 
 
 ### <a name="_toc151667924"></a>**3.4. ❤️2<sup>ème</sup> implémentation de la structure liste (chainée) avec les lists de Python❤️**
+
+**=> CAPYTALE Le code vous sera donné par votre enseignant**
+
 Si le type natif list se nomme ainsi, c'est bien qu'il permet l'implémentation de Liste. Par contre, en interne, il s'agit d'une tableau dynamique qui possède plus de fonctions d'interface que celle du type abstrait **TABLEAU DYNAMIQUE**. La structure de données nommée list est donc un savant mélange de fonctionnalités des tableaux et des listes.
 
 **sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé liste\_list.py**
