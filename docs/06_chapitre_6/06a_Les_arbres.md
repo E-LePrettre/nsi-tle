@@ -347,6 +347,7 @@ Par contre, avec 16 nœuds, on obtient une hauteur comprise dans [5; 16].
 C'est normal : avec 15 nœuds, l'arbre serait complet dans le meilleur des cas. Si on en rajoute un, il faut nécessairement rajouter un étage...
 
 **Encadrements de la  taille d'un Arbre Binaire**
+
 **Encadrement avec une profondeur 1 pour la racine** :
 
 <b>h ≤ n ≤ 2<sup>h</sup> - 1</b>
@@ -413,7 +414,9 @@ def estVide(arbre):
 ```
 
 **Activité n° 13 :**  **Arbres binaires et les fonctions:** Soit l'arbre binaire suivant :
+
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.035.png)
+
 On veut construire cet arbre à l'aide de l’implémentation précédente
 
 Ecrire les commandes permettant de faire cette construction
@@ -679,26 +682,38 @@ l'arbre déjà utilisé :
 #### <a name="_toc149141400"></a>**4.1.1. Le parcours préfixe**
 
 **Ordre préfixe**
+
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.046.png)
+
 1. **Visite du nœud**
+
 2. Parcours branche gauche
+
 3. Parcours branche droite 
 
 
 #### <a name="_toc149141401"></a>**4.1.2. Le parcours infixe**
 
 **Ordre infixe**
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.047.png)|
+
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.047.png)
+
 1. Parcours branche gauche 
+
 2. **Visite du nœud**
+
 3. Parcours branche droite 
 
 #### <a name="_toc149141402"></a>**Le parcours suffixe ou postfixe**
 
 **Ordre suffixe**
+
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.048.png)
+
 1. Parcours branche gauche
+
 2. Parcours branche droite 
+
 3. **Visite du nœud**
 
 
