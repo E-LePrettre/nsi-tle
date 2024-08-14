@@ -1304,6 +1304,8 @@ Les primitives communément utilisées pour manipuler des files :
 
 ### <a name="_toc151667933"></a>**5.2. ❤️1<sup>ère</sup> implémentation de la structure file avec les listes de Python❤️**
 
+**=> CAPYTALE Le code vous sera donné par votre enseignant**
+
 **Sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé file\_list.py**
 
 On peut utiliser une implémentation similaire à celle des piles, mais si ```defiler``` renvoie l’élément de tête, ```enfiler``` doit placer le nouvel élément à la queue de la file. Pour cela, on doit remonter toute la file. L’opération ```enfiler``` est alors en **temps linéaire**.
@@ -1362,6 +1364,8 @@ if __name__ == '__main__':
 ```
 
 ### <a name="_toc151667934"></a>**5.3. ❤️2<sup>ème</sup> implémentation de la structure file avec la POO et les lists de Python❤️**
+
+**=> CAPYTALE Le code vous sera donné par votre enseignant**
 
 **Sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé file\_POO\_list.py**
 
@@ -1434,13 +1438,13 @@ Cette implémentation est très **peu efficace**
 
 ### <a name="_toc151667935"></a>**5.4. ❤️3<sup>ème</sup> implémentation de la structure file avec la POO et une liste chainée❤️**
 
+**=> CAPYTALE Le code vous sera donné par votre enseignant**
+
 **Sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé file\_POO.py**
 
 
 **Activité n° 39 : Structure pile avec la POO et les listes chainées :** Tester cette implémentation **sur python tutor**
 ```python
-Activité n°1.: Structure pile avec la POO et les listes chainées : Tester cette implémentation sur python tutor
-
 '''Implémentation de type abstrait File avec la POO 
 et les listes chainées et deux classes'''
 
@@ -1491,7 +1495,11 @@ if __name__ == '__main__':
 
 
 ### <a name="_toc151667936"></a>**5.5. Autre implémentation des files avec les bibliothèques de Python**
-**Activité n°40.: Utilisation de deque pour Implémenter une Pile : Tester cette implémentation**
+
+**=> CAPYTALE Le code vous sera donné par votre enseignant**
+
+
+**Activité n°40.: Utilisation de deque pour Implémenter une Pile : Tester cette implémentation** **sur python tutor**
 ```python
 from collections import deque
 
@@ -1518,7 +1526,7 @@ print("Élément au sommet:", sommet)
 est_vide = len(pile) == 0
 print("La pile est vide ?", est_vide)
 ```
-**Activité n°41.: Utilisation de deque pour Implémenter une File : Tester cette implémentation**
+**Activité n°41.: Utilisation de deque pour Implémenter une File : Tester cette implémentation** **sur python tutor**
 ```python
 from collections import deque
 
