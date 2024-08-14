@@ -167,9 +167,11 @@ Les tuples sont **non-mutables** : on ne peut pas modifier leurs contenus après
 
 ![Principe de l'interface entre l'utilisateur et les données](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.010.png){width=50%; : .center }
 
+En utilisant des tuples pour implémenter la structure de liste.
+
 ![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.011.png){width=60%; : .center }
 
-En utilisant des tuples pour implémenter la structure de liste.
+
 
 **Activité n° 2 :**  **structure liste avec des tuples fonction** ```nouvelleListe()``` **et** ```estVide()``` : Voici une première implémentation de la structure liste avec des tuples
 ```python
