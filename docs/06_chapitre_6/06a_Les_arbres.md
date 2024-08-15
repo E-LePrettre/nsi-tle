@@ -155,7 +155,9 @@ VOCABULAIRE A MAITRISER : on notera
     ??? success "Solution"
 
         Dans un arbre binaire, si on considère que les nœuds de l'arbre sont indexés de manière séquentielle dans un tableau, en commençant par la racine à l'indice 1 (ou 0 si l'on commence à compter à partir de 0), les indices des fils gauche et droit d'un nœud parent donné (à l'indice \(i\)) obéissent aux propriétés suivantes :
+
         1. **Fils gauche :** L'indice du fils gauche d'un nœud situé à l'indice \(i\) est \(2i\) (si l'indexation commence à 1) ou \(2i + 1\) (si l'indexation commence à 0).
+        
         2. **Fils droit :** L'indice du fils droit d'un nœud situé à l'indice \(i\) est \(2i + 1\) (si l'indexation commence à 1) ou \(2i + 2\) (si l'indexation commence à 0).
         
         ### Exemple avec une indexation commençant à 1 :
