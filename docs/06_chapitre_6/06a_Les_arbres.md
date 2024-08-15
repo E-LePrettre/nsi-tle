@@ -679,9 +679,7 @@ T.g = Noeud('B')
 ```python
 def affiche(arbre):
    if arbre != None:
-      return (arbre.valeur,affiche(arbre.g),affiche(arbre
-
-.d))
+      return (arbre.valeur,affiche(arbre.g),affiche(arbre.d))
 ```
 Cette fonction renvoie une série de tuples de la forme (valeur,arbre_gauche, arbre_droite), comme "arbre_gauche" et "arbre_droite" seront eux-mêmes affichés sous forme de tuples, on aura donc un affichage qui ressemblera à : 
 
@@ -743,6 +741,8 @@ TAILLE(T) :
 **<H3 STYLE="COLOR:red;">Activité n° 21 :**  **Arbres binaires et POO : fonction** taille** :</H3>** Implémenter l’algorithme de la **fonction** taille et tester l’arbre précédent.
 
 **<H3 STYLE="COLOR:red;">Activité n° 22 :**  **Arbres binaires et POO : méthode** taille** :</H3>** Implémenter l’algorithme de la **méthode** taille2 et tester l’arbre précédent.
+
+################=> 
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141396"></a>**3.7. ❤️ 3<sup>ème</sup> implémentation de la structure ARBRE BINAIRE avec la POO avec 2 classes❤️**</H3>
 
