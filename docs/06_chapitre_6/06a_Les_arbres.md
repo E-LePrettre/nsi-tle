@@ -108,7 +108,7 @@ Parmi la forêt d’arbres possibles, on s’intéressera essentiellement aux **
 
 L’arbre qui représente l’expression a×b+c-d+ⅇ est un arbre binaire
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.009.png) {width=30%; : .center }
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.009.png){width=30%; : .center }
 
 Les **arbres binaires** forment une structure de données qui peut se définir de façon récursive. Un arbre binaire est :
 
@@ -137,7 +137,7 @@ VOCABULAIRE A MAITRISER : on notera
 
 **Activité n° 2 :**  Entourer en rouge le sous-arbre gauche de l'arbre précédent. Entourer en bleu le sous-arbre droit. Entourer en vert le sous-arbre droit du sous-arbre gauche.
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.014.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.014.png){width=30%; : .center }
 
 **Activité n° 3 :**  **Arbres binaires :**  Quelle propriété ont les indices des fils gauches et droits ?
 
@@ -152,18 +152,18 @@ Le dessiner. Que peut-il représenter ?
 ### <a name="_toc149141391"></a>**3.2. TAD d’un ARBRE BINAIRE : son interface**
 **Description de l'interface minimale du type abstrait Arbre :** Ici, il est décrit sous forme d'un type immutable, mais on pourrait faire la même chose en non-mutable.
 
-1. nvNd(x:Elt) -> Noeud : on crée un nouveau nœud et son élément attaché. Ce n'est pas une fonction d'interface de l'arbre mais on a besoin au moins de pouvoir créer un Noeud (les nœuds sont en même un type abstrait en réalité...)
-1. contenu(noeud:Noeud) -> Elt : renvoie l'élément (la valeur) contenue dans le nœud.
-1. nvAv() -> Arbre : on le note ainsi pour dire nvArbreBinaireVide : on crée un nouvel ARBRE BINAIRE vide.
-1. nvAB(noeud:Noeud, g:Arbre, d:Arbre) -> Arbre : on crée un nouvel ARBRE BINAIRE dont la racine est noeud et dont les sous-arbres sont g et d fournis.
-1. estArbreVide(arbre:Arbre) -> bool : True si l'arbre est un arbre vide.
-1. racine(arbre:Arbre) -> Noeud : renvoie le nœud jouant le rôle de la racine pour cet arbre.
-1. gauche(arbre:Arbre) -> Arbre : renvoie le sous-arbre gauche de arbre. On obtient bien un Arbre. Si vous voulez le noeud gauche, il faudra appliquer en plus la fonction racine.
-1. droite(arbre:Arbre) -> Arbre : renvoie le sous-arbre droit de arbre.
+1. ```nvNd(x:Elt) -> Noeud``` : on crée un nouveau nœud et son élément attaché. Ce n'est pas une fonction d'interface de l'arbre mais on a besoin au moins de pouvoir créer un Noeud (les nœuds sont en même un type abstrait en réalité...)
+1. ```contenu(noeud:Noeud) -> Elt``` : renvoie l'élément (la valeur) contenue dans le nœud.
+1. ```nvAv() -> Arbre``` : on le note ainsi pour dire nvArbreBinaireVide : on crée un nouvel ARBRE BINAIRE vide.
+1. ```nvAB(noeud:Noeud, g:Arbre, d:Arbre) -> Arbre``` : on crée un nouvel ARBRE BINAIRE dont la racine est noeud et dont les sous-arbres sont g et d fournis.
+1. ```estArbreVide(arbre:Arbre) -> bool``` : True si l'arbre est un arbre vide.
+1. ```racine(arbre:Arbre) -> Noeud``` : renvoie le nœud jouant le rôle de la racine pour cet arbre.
+1. ```gauche(arbre:Arbre) -> Arbre``` : renvoie le sous-arbre gauche de arbre. On obtient bien un Arbre. Si vous voulez le noeud gauche, il faudra appliquer en plus la fonction racine.
+1. ```droite(arbre:Arbre) -> Arbre``` : renvoie le sous-arbre droit de arbre.
 
 **Activité n° 5 :**  **Arbres binaires et TAD :**  Créer l'arbre à l'aide de ces fonctions d'interface.
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.015.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.015.png){width=30%; : .center }
 
 On considère que le contenu est juste un string portant le nom du nœud. Ainsi le nœud A porte l'information "A".
 
@@ -173,7 +173,7 @@ On ne compte pas les arbres-vides : l'arbre-vide ne possède pas de nœud.
 
 **Activité n° 6 :**  **Taille des arbres :**  Déterminer la taille de l’arbre 
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.017.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.017.png){width=30%; : .center }
 
 **Profondeur d’un noeud** : Il s'agit du nombre de nœuds entre le nœud considéré et la racine.
 
