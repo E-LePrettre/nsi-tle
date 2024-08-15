@@ -515,6 +515,11 @@ Si on tape ceci dans Python,
 >>> math.log2(16+1)
 4.087462841250339
 ```
+
+???+ question "Tester ce qui est proposé ci-dessus"
+
+    {{ IDE() }}
+
 On voit alors qu'un arbre de 15 nœuds à une hauteur comprise dans [4; 15].
 
 Par contre, avec 16 nœuds, on obtient une hauteur comprise dans [5; 16].
@@ -547,9 +552,16 @@ Pour comprendre facilement la numérotation, il suffit de s'imaginer l'arbre com
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.033.png){width=40%; : .center }
 
-**<H3 STYLE="COLOR:red;">Activité n° 11 :**  **Arbres binaires et liste :**</H3>  Si on note Δ le sous-arbre vide, dessiner l'arbre représenté par la liste :
 
-a = [3, 4, Δ, 7, 5]
+
+???+ question "Activité n° 11 : Arbres binaires et liste :"
+
+    Si on note Δ le sous-arbre vide, dessiner l'arbre représenté par la liste :
+    a = [3, 4, Δ, 7, 5]
+
+    ??? success "Solution"
+
+        ![](ABSanstitre.png){width=40%; : .center }
 
 **Remarque :** parfois (comme dans le sujet 0...) la racine de l'arbre est placée à l'indice 1. Dans ce cas, les fils du nœud d'indice i sont placés aux indices 2i et 2i+1.
 
