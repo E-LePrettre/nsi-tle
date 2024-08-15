@@ -139,9 +139,7 @@ Le dessiner. Que peut-il représenter ?
 
 1. ```nvNd(x:Elt) -> Noeud``` : on crée un nouveau nœud et son élément attaché. Ce n'est pas une fonction d'interface de l'arbre mais on a besoin au moins de pouvoir créer un Noeud (les nœuds sont en même un type abstrait en réalité...)
 1. ```contenu(noeud:Noeud) -> Elt``` : renvoie l'élément (la valeur) contenue dans le nœud.
-1. ```nvAv() -> Arbre``` : on le note ainsi pour dire nvArbreBinaireVide : on
-
- crée un nouvel ARBRE BINAIRE vide.
+1. ```nvAv() -> Arbre``` : on le note ainsi pour dire nvArbreBinaireVide : on crée un nouvel ARBRE BINAIRE vide.
 1. ```nvAB(noeud:Noeud, g:Arbre, d:Arbre) -> Arbre``` : on crée un nouvel ARBRE BINAIRE dont la racine est noeud et dont les sous-arbres sont g et d fournis.
 1. ```estArbreVide(arbre:Arbre) -> bool``` : True si l'arbre est un arbre vide.
 1. ```racine(arbre:Arbre) -> Noeud``` : renvoie le nœud jouant le rôle de la racine pour cet arbre.
