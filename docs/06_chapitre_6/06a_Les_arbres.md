@@ -1173,6 +1173,7 @@ Voici l’arbre qui permet d’implémenter l’expression arithmétique : (5+4
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.069.png){: .center }
 
 4\. Créer l’arbre qui implémentera l’expression arithmétique (5+4)×(3−(2+1))
+
 5\. Vérifier que l’on obtient bien ['5', '4', '+', '3', '2', '1', '+', '-', 'x']
 
 Les calculatrices Hewlett-Packard proposaient à leurs utilisateurs d’entrer les expressions arithmétiques à calculer à l’aide de la notation polonaise inversée. 
