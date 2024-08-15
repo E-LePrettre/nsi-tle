@@ -345,9 +345,28 @@ On dit que cet arbre est **complet** car la plus grande profondeur est intégral
 
 On parle **d'arbre filiforme** ou **d'arbre dégénéré**.
 
-**<H3 STYLE="COLOR:red;">Activité n° 9 :**  **Arbres binaires et vocabulaire :**</H3>  Fournir la taille, la hauteur et le nombre d'arêtes de cet arbre. Fournir également la profondeur du nœud C.
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.025.png){width=30%; : .center }
+???+ question "Activité n° 9 : Arbres binaires et vocabulaire :"
+
+    Fournir la taille, la hauteur et le nombre d'arêtes de cet arbre. Fournir également la profondeur du nœud C.
+    ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.025.png){width=30%; : .center }
+
+    ??? success "Solution"
+
+        1. Taille de l'arbre
+        Dans cet arbre, les nœuds sont : A, B, C, D, E, F, et G.
+        Il y a donc 7 nœuds dans cet arbre.
+
+        2. Hauteur de l'arbre
+        La racine A est au niveau 0.
+        Les nœuds E et G sont au niveau 4.
+        La hauteur de cet arbre est donc 4.
+
+        3. Nombre d'arêtes
+        Avec 7 nœuds, le nombre d'arêtes est donc 6.
+
+        4. Profondeur du nœud C
+        La profondeur du nœud C est donc 2.
 
 L’arbre binaire a une hauteur de 1 (convention 0 pour la racine).
 
