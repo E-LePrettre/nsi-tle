@@ -957,7 +957,7 @@ Tester l’implémentation précédente avec [1, 2, '+', 3, 4, 5, 2, '\*\*', '/'
 
 On considère l’arbre suivant :
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.060.png){width=60%; : .center }
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.060.png){width=40%; : .center }
 
 On parcourt cet arbre en profondeur avec un ordre préfixe.
 
@@ -967,13 +967,15 @@ On parcourt cet arbre en profondeur avec un ordre préfixe.
 
    Et l’**algorithme du parcours en profondeur est** : 
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.061.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.061.png){: .center }
 
-![Les arbres.](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.062.jpeg)
+
 
 **Exercice n°2 : autre définition de hauteur**
 
 On considère **l’arbre binaire complet** suivant :
+
+![Les arbres.](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.062.jpeg){: .center }
 
 Dans cet exercice, on utilisera la convention suivante : la hauteur d’un arbre binaire ne comportant qu’un nœud est 1.
 
@@ -993,9 +995,11 @@ c.	(3, (6, Δ, (2, Δ, Δ)), (1, (5, Δ, Δ), (4, Δ, Δ)))
 
 d.	(4, (3, (6, ∆, ∆), (1, ∆, ∆)), (5, (7, ∆, ∆), (2, ∆, ∆)))
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.063.png)**Exercice n°4 : méthode d’Eytzinger**
+**Exercice n°4 : méthode d’Eytzinger**
 
 La méthode d’Eytzinger consiste à stocker un arbre dans une liste unique dans laquelle le fils gauche d’un nœud i est rangé dans la case 2i+1 et son fils droit dans la case 2i+2.
+
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.063.png){: .center }
 
 1\.	Représenter l’arbre défini par la liste [5, 2, 6, 1, 4, Δ, 7].
 
@@ -1042,14 +1046,16 @@ Construire cinq arbres différents de taille 3, dont les nœuds contiennent les 
 
 On utilise des arbres pour représenter des expressions arithmétiques, par exemple pour programmer un solveur du jeu « le compte est bon ».
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.065.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.065.png){: .center }
 
 Donner l’affichage produit par chacun des trois parcours en profondeur. 
 
 Quel parcours renvoie un affichage de l’expression sous sa forme habituelle, en rajoutant si besoin des parenthèses ?  
 
 Les deux autres affichages correspondent à la notation polonaise et à la notation polonaise inversée. Ces notations permettent de représenter des expressions arithmétiques sans parenthèses.
-1. # <a name="_toc149141409"></a>**Projets**
+
+
+## <a name="_toc149141409"></a>**8. Projets**
 **Exercice n°01 : arbre binaire :**
 
 Commençons par étudier les arbres binaires, en utilisant une définition récursive : un arbre binaire est
@@ -1059,76 +1065,79 @@ Commençons par étudier les arbres binaires, en utilisant une définition récu
 
 On choisit d’implémenter de tels arbres binaires à l’aide de la classe suivante, où on utilise des valeurs par défaut dans le constructeur pour les deux enfants :
 
-**class** BinaryTree:
+```python
+class BinaryTree:
+    def __init__(self, label : str, left_child=None, right_child=None):
+        self.__label = str(label)
+        self.__left  = left_child		# None ou un arbre de la classe BinaryTree
+        self.__right = right_child	# None ou un arbre de la classe BinaryTree
+```
 
-`    `**def** \_\_init\_\_(self, label : str, left\_child=None, right\_child=None):
+1\. Sur Thonny : Créer un fichier Python binaryTree.py.
 
-`        `self.\_\_label = str(label)
-
-`        `self.\_\_left  = left\_child		# None ou un arbre de la classe BinaryTree
-
-`        `self.\_\_right = right\_child	# None ou un arbre de la classe BinaryTree
-
-1. Créer un fichier Python binaryTree.py.
-1. Utiliser cette classe pour stocker les arbres t1, t2 et t3 suivants :
+2\. Utiliser cette classe pour stocker les arbres t1, t2 et t3 suivants :
 
 |t1|t2|t3|
 | :-: | :-: | :-: |
 |![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.066.png)|![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.067.png)|![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.068.png)|
 
-1. Ajouter une méthode publique is\_leaf() testant si l’arbre est une feuille dont le prototype est is\_leaf(self) -> bool
-1. La question du parcours de l’ensemble des nœuds d’un arbre est cruciale, en particulier pour l’affichage. Rajouter la méthode \_\_repr\_\_ d’affichage de l’ensemble des informations stockées dans l’arbre qui associe par exemple à l’arbre t3 ci-dessus la chaîne : <3,<4,<>,<2>>,<7,<6>,<5,<1>,<0>>>>.
+3\. Ajouter une méthode publique is\_leaf() testant si l’arbre est une feuille dont le prototype est is\_leaf(self) -> bool
 
-*def* is\_leaf(*self*):
-`    `*""" fonction testant si l'arbre est une feuille"""
-`    `return not self*.\_\_left *and not self*.\_\_right
+4\. La question du parcours de l’ensemble des nœuds d’un arbre est cruciale, en particulier pour l’affichage. Rajouter la méthode \_\_repr\_\_ d’affichage de l’ensemble des informations stockées dans l’arbre qui associe par exemple à l’arbre t3 ci-dessus la chaîne : <3,<4,<>,<2>>,<7,<6>,<5,<1>,<0>>>>.
+```python
+def is_leaf(self):
+    """ fonction testant si l'arbre est une feuille"""
+    return not self.__left and not self.__right
 
-*def \_\_repr\_\_*(*self*):
-`    `*if self*.is\_leaf():
-`        `*return* "<" + *str*(*self*.\_\_label) + ">"
+def __repr__(self):
+    if self.is_leaf():
+        return "<" + str(self.__label) + ">"
 
-`    `left  = "<>" *if self*.\_\_left *is None else self*.\_\_left.*\_\_repr\_\_*()
-`    `right = "<>" *if self*.\_\_right *is None else self*.\_\_right.*\_\_repr\_\_*()
-`    `*return* "<{0},{1},{2}>".format(*self*.\_\_label, left, right)
+    left  = "<>" if self.__left is None else self.__left.__repr__()
+    right = "<>" if self.__right is None else self.__right.__repr__()
+    return "<{0},{1},{2}>".format(self.__label, left, right)
+```
 
 Tester la méthode précédente avec l’arbre t3
 
-1. Valider les tests unitaires suivants, pour les arbres t1 et t3 donnés respectivement ci-dessus :
-
+5\. Valider les tests unitaires suivants, pour les arbres t1 et t3 donnés respectivement ci-dessus :
+```python
 str(t1) == "<3,<4>,<7>>"
-
 str(t3) == "<3,<4,<>,<2>>,<7,<6>,<5,<1>,<0>>>>"
+```
+6\. Ajouter une méthode publique height() renvoyant la hauteur de l’arbre.
 
-1. Ajouter une méthode publique height() renvoyant la hauteur de l’arbre.
-1. Valider les tests unitaires suivants, pour les arbres t1, t2 et t3 donnés respectivement ci-dessus.
-
+7\. Valider les tests unitaires suivants, pour les arbres t1, t2 et t3 donnés respectivement ci-dessus.
+```python
 t1.height() == 1
-
 t2.height() == 2
-
 t3.height() == 3
+```
+8\. Ajouter une méthode publique prefix\_traversal() qui renvoie un parcours en profondeur préfixé de l’arbre.
 
-1. Ajouter une méthode publique prefix\_traversal() qui renvoie un parcours en profondeur préfixé de l’arbre.
-1. Valider le test unitaire suivant, pour l’arbre t3.
-
+9\. Valider le test unitaire suivant, pour l’arbre t3.
+```python
 t3.prefix\_traversal()  == ['3', '4', '2', '7', '6', '5', '1', '0']
+```
+10\. Ajouter une méthode publique infix\_traversal() qui renvoie un parcours en profondeur infixé de l’arbre.
 
-1. Ajouter une méthode publique infix\_traversal() qui renvoie un parcours en profondeur infixé de l’arbre.
-1. Valider le test unitaire suivant, pour l’arbre t3.
-
+11\. Valider le test unitaire suivant, pour l’arbre t3.
+```python
 t3.infix\_traversal()   == ['4', '2', '3', '6', '7', '1', '5', '0']
+```
+12\. Ajouter une méthode publique postfix\_traversal() qui renvoie un parcours en profondeur postfixé de l’arbre.
 
-1. Ajouter une méthode publique postfix\_traversal() qui renvoie un parcours en profondeur postfixé de l’arbre.
-1. Valider le test unitaire suivant, pour l’arbre t3.
-
+13\. Valider le test unitaire suivant, pour l’arbre t3.
+```python
 t3.postfix\_traversal() == ['2', '4', '6', '1', '0', '5', '7', '3']
+```
+14\. Ajouter méthode publique width\_traversal() qui renvoie un parcours en largeur de l’arbre.
 
-1. Ajouter méthode publique width\_traversal() qui renvoie un parcours en largeur de l’arbre.
-1. Valider le test unitaire suivant, pour l’arbre t3.
-
+15\. Valider le test unitaire suivant, pour l’arbre t3.
+```python
 t3.width\_traversal()   == ['3', '4', '7', '2', '6', '5', '1', '0']
+```
 
-**
 
 **Exercice n°02 : Notation RPN :**
 
