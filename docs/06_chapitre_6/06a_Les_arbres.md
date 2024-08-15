@@ -57,11 +57,21 @@ Voici un **arbre syntaxique** : un arbre syntaxique représente l’analyse d’
 
 On peut également représenter les **expressions arithmétiques** par des arbres étiquetés par des opérateurs, des constantes et des variables. La structure de l’arbre rend compte de la priorité des opérateurs et rend inutile tout parenthésage.
 
-Pour l’expression : y2-t75+z
+Pour l’expression : `(y/2-t)*(75+z)`
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.004.png){width=30%; : .center }
 
 **<H3 STYLE="COLOR:red;">Activité n° 1 :**</H3> Représenter l’expression : 3+73-13
+
+???+ question "Activité n° 1 :"
+
+    Représenter l’expression : 3+73-13
+
+    ??? success "Solution"
+
+        Ici se trouve la solution rédigée de la question 1.
+        Le texte doit être indenté dans cette nouvelle admonition
+
 
 **DOM (Document Object Model) d’une page web**
 
