@@ -605,7 +605,7 @@ TAILLE(T) :
 
 **<H3 STYLE="COLOR:red;">Activité n° 28 :**  **Arbres binaires et POO fonction taille :</H3>** Implémenter l’algorithme de la **fonction** taille et tester l’arbre précédent.
 
-**<H3 STYLE="COLOR:red;">Activité n° 29 :**  **Arbres binaires et POO méthode taille :</H3>** Implémenter l’algorithme de la **méthode** taille2 et tester l’arbre précédent.
+**<H4 STYLE="COLOR:red;">Activité n° 29 :**  **Arbres binaires et POO méthode taille :</H3>** Implémenter l’algorithme de la **méthode** taille2 et tester l’arbre précédent.
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141397"></a>**3.8. Un autre code de représentation**</H3>
 
@@ -759,7 +759,7 @@ Vérifier que l’on obtient bien les parcours de l’activité précédente.
 
 Sur Thonny : Créer un fichier python dans le même dossier que arbre\_binaire\_POO et le nommer **arbre\_binaire\_POO\_v2\_parcours.py**.
 
-Importer le module arbre\_binaire\_POO\_v2  sous forme **import arbre\_binaire\_POO\_v2 as AB**.
+Sur Thonny : Importer le module arbre\_binaire\_POO\_v2  sous forme **import arbre\_binaire\_POO\_v2 as AB**.
 
 **Implémenter les trois parcours sous forme de fonctions**.
 
@@ -1056,9 +1056,7 @@ str(t3) == "<3,<4,<>,<2>>,<7,<6>,<5,<1>,<0>>>>"
 ```
 6\. Ajouter une méthode publique height() renvoyant la hauteur de l’arbre.
 
-7\. Val
-
-ider les tests unitaires suivants, pour les arbres t1, t2 et t3 donnés respectivement ci-dessus.
+7\. Valider les tests unitaires suivants, pour les arbres t1, t2 et t3 donnés respectivement ci-dessus.
 ```python
 t1.height() == 1
 t2.height() == 2
