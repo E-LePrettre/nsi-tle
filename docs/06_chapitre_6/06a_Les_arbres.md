@@ -186,9 +186,7 @@ On vous **indiquera le cas à respecter le jour du BAC**. On vous dites claireme
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.019.png){width=30%; : .center }
 
-- **Convention 2** : Si la profondeur de la racine est de 0, il suffit de considérer qu'un arbre-vide n'a pas de hauteur puisqu'il n'a pas de nœud et que la profondeur se mesure sur les nœuds. C'est "propre" aussi.
-
-Sur cet exemple, la hauteur de l'arbre est donc de 2.
+- **Convention 2** : Si la profondeur de la racine est de 0, il suffit de considérer qu'un arbre-vide n'a pas de hauteur puisqu'il n'a pas de nœud et que la profondeur se mesure sur les nœuds. C'est "propre" aussi. Sur cet exemple, la hauteur de l'arbre est donc de 2.
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.020.png){width=30%; : .center }
 
