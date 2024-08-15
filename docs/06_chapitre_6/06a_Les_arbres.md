@@ -182,9 +182,7 @@ On vous **indiquera le cas à respecter le jour du BAC**. On vous dites claireme
 
 **Profondeur d’un arbre ou hauteur d’un arbre** : Il s'agit de la profondeur maximale qu'on trouve dans l'arbre, la "distance" entre la racine et la plus profonde des racines.
 
-- **Convention 1** : Si la racine a une profondeur de 1, c'est pratique car un arbre-vide aurait une hauteur de 0. C'est "propre".
-
-Sur cet exemple, la hauteur de l'arbre est donc de 3.
+- **Convention 1** : Si la racine a une profondeur de 1, c'est pratique car un arbre-vide aurait une hauteur de 0. C'est "propre". Sur cet exemple, la hauteur de l'arbre est donc de 3.
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.019.png){width=30%; : .center }
 
