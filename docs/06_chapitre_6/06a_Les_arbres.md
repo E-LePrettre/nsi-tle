@@ -826,9 +826,7 @@ if __name__ == '__main__':
     arbre = AB.Arbre.greffeGD('r', a, b)
     ######fin de la construction de l'arbre binaire###########
 ```
-Vérifier que l’on obtient bien les parcours de l’activité précédente</p>|
-
-
+Vérifier que l’on obtient bien les parcours de l’activité précédente
 
 ## <a name="_toc149141406"></a>**5. Parcours en largeur d’un arbre binaire**
 
@@ -839,10 +837,15 @@ Le parcours d’un arbre en largeur consiste à partir de la racine, on visite e
 L’idée est la suivante : On utilise une File
 
 \- On met l’arbre dans la file
+
 \- Puis tant que la file n’est pas vide :
+
   - On défile la file
+
   - On récupère la racine
+
   - On enfile **son fils gauche** s’il existe
+  
   - On enfile **son fils droit** s’il existe
 
 
@@ -856,28 +859,44 @@ Voici **l’algorithme parcours en largeur**
 **Activité n° 35 : Arbre binaire et parcours en largeur :** Utiliser l’algorithme précédent pour vérifier que l’on obtient bien rabcdefhijkm
 
 
-|<p>**Activité n° AUTONUM  \* Arabic : Arbre binaire et parcours en largeur :** Ajouter dans le fichier **arbre\_binaire\_tuple\_parcours.py**, l’implémentation de ce parcours sous **forme de fonction.**</p><p>On implémentera la file par une liste</p><p></p><p>Vérifier que l’on obtient bien le résultat escompté</p>|
-| - |
+**Activité n° 36 : Arbre binaire et parcours en largeur :** 
 
-|<p>**Activité n° AUTONUM  \* Arabic : Arbre binaire et parcours en largeur :** Ajouter dans le fichier **arbre\_binaire\_POO\_v1\_parcours.py**, l’implémentation de ce parcours sous **forme de fonction**.</p><p>On implémentera la file par une liste</p><p></p><p>Vérifier que l’on obtient bien le résultat escompté</p>|
-| - |
+Ajouter (sur Thonny : dans le fichier **arbre\_binaire\_tuple\_parcours.py**,) l’implémentation de ce parcours sous **forme de fonction.**
 
-|<p>**Activité n° AUTONUM  \* Arabic : Arbre binaire et parcours en largeur :** Ajouter dans le fichier **arbre\_binaire\_POO\_v2\_parcours.py**, l’implémentation de ce parcours sous **forme de fonction.**</p><p>On implémentera la file par une liste</p><p></p><p>Vérifier que l’on obtient bien le résultat escompté</p>|
-| - |
+On implémentera la file par une liste
+
+Vérifier que l’on obtient bien le résultat escompté
+
+**Activité n° 37 : Arbre binaire et parcours en largeur :** 
+
+Ajouter (sur Thonny dans le fichier **arbre\_binaire\_POO\_v1\_parcours.py**,) l’implémentation de ce parcours sous **forme de fonction**.
+
+On implémentera la file par une liste
+
+Vérifier que l’on obtient bien le résultat escompté
+
+**Activité n° 38 : Arbre binaire et parcours en largeur :** 
+
+Ajouter (sur Thonny dans le fichier **arbre\_binaire\_POO\_v2\_parcours.py**) l’implémentation de ce parcours sous **forme de fonction.**
+
+On implémentera la file par une liste
+
+Vérifier que l’on obtient bien le résultat escompté
 
 
-1. # <a name="_toc149141407"></a>**Une application de l’arbre binaire : notation polonaise inversée**
+## <a name="_toc149141407"></a>**6. Une application de l’arbre binaire : notation polonaise inversée**
+
 L’usage d’une pile est naturel lors de l’évaluation post-fixée d’une expression algébrique. Le principe est le suivant : une expression algébrique, par exemple (1 + 2) × ( 3−4/( 5²)) peut être représentée avec un arbre dont les **nœuds sont les opérations** et **les feuilles les nombres**. 
 
 Ici, il s’agit d’un produit entre une somme et la différence entre un nombre et le quotient d’un nombre avec le carré d’un nombre. Cela donne l’arbre :
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.055.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.055.png){width=70%; : .center }
 
 Le principe du parcours postfixe (ou suffixe) d’un arbre consiste à lire d’abord le sous-arbre (appelé fils) gauche, puis le fils droit, puis effectuer l’opération (qui se trouve au nœud).
 
 Ici, cela donne : 
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.056.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.056.png){width=60%; : .center }
 
 L’idée est donc, pour évaluer cette expression, d’utiliser un tableau 
 
@@ -891,21 +910,54 @@ Traditionnellement, les calculatrices HP utilis(ai ?)ent cette notation appelée
 
 La calculatrice affiche (et gère) en permanence une pile (le sommet est affiché en bas de l’écran), et pour calculer l’expression précédente,
 
-![ref4]
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.057.png){width=90%; : .center }
 
-![ref5]![ref6]
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.058.png){width=90%; : .center }
+
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.059.png){width=90%; : .center }
 
 Comme les calculatrices HP, nous allons utiliser une pile pour faire les calculs correspondant à la notation polonaise inversée à partir d’entrées stockées initialement dans un tableau.
 
 
-|<p>**Activité n° AUTONUM  \* Arabic : Implémentation de la RPN en Python**</p><p>Voici une implémentation possible de la RPN en python</p><p>def opere\_bin(op, a, b):<br>`    `"""renvoie le résultat de l'opérateur binaire op entre a et b"""<br>`    `if op == '+': return a + b<br>`    `if op == '-': return a - b<br>`    `if op == '\*': return a \* b<br>`    `if op == '/': return a / b<br>`    `if op == '\*\*': return a \*\* b<br><br>def evalue\_rpn(expr):<br>`    `"""évaluation postfixe de l'expression expr sous forme d'un tableau"""<br>`    `pile = []<br>`    `operateurs = ['+', '-', '\*', '/', '\*\*']<br>`    `for elem in expr:<br>`        `if elem not in operateurs:<br>`            `pile.append(elem)<br>`        `else:<br>`            `assert pile != [], "expression mal formée"<br>`            `b = pile.pop()<br>`            `assert pile != [], "expression mal formée"<br>`            `a = pile.pop()<br>`            `pile.append( opere\_bin(elem, a, b) )<br>`    `resultat = pile.pop()<br>`    `assert pile == [], "expression mal formée"<br>`    `return resultat</p><p></p><p>Tester l’implémentation précédente avec [1, 2, '+', 3, 4, 5, 2, '\*\*', '/', '-', '\*']</p>|
-| :- |
+**Activité n° 39 : Implémentation de la RPN en Python**
+
+Voici une implémentation possible de la RPN en python
+```python
+def opere_bin(op, a, b):
+    """renvoie le résultat de l'opérateur binaire op entre a et b"""
+    if op == '+': return a + b
+    if op == '-': return a - b
+    if op == '*': return a * b
+    if op == '/': return a / b
+    if op == '**': return a ** b
+
+def evalue_rpn(expr):
+    """évaluation postfixe de l'expression expr sous forme d'un tableau"""
+    pile = []
+    operateurs = ['+', '-', '*', '/', '**']
+    for elem in expr:
+        if elem not in operateurs:
+            pile.append(elem)
+        else:
+            assert pile != [], "expression mal formée"
+            b = pile.pop()
+            assert pile != [], "expression mal formée"
+            a = pile.pop()
+            pile.append( opere_bin(elem, a, b) )
+    resultat = pile.pop()
+    assert pile == [], "expression mal formée"
+    return resultat
+```
+
+Tester l’implémentation précédente avec [1, 2, '+', 3, 4, 5, 2, '\*\*', '/', '-', '\*']
 
 
-1. # <a name="_toc149141408"></a>**Exercices**
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.060.png)<a name="_hlk51874478"></a>**Exercice n°1 : <a name="_hlk52886978"></a>Ordre préfixe**
+## <a name="_toc149141408"></a>**7. Exercices**
+**Exercice n°1 : <a name="_hlk52886978"></a>Ordre préfixe**
 
 On considère l’arbre suivant :
+
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.060.png){width=60%; : .center }
 
 On parcourt cet arbre en profondeur avec un ordre préfixe.
 
