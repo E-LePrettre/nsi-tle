@@ -460,11 +460,11 @@ L’arbre précédent une hauteur h = 3. Donc la taille du tableau sera de : 23+
 
         **Formule générale :**  
         Pour une hauteur `h`, la taille d'un arbre binaire complet est donnée par la somme des puissances de 2 :
-        $\[ n = 2^0 + 2^1 + 2^2 + \dots + 2^{h-1} = 2^h - 1 \]$
+        $n = 2^0 + 2^1 + 2^2 + \dots + 2^{h-1} = 2^h - 1$
 
         **Pour trouver la hauteur `h` connaissant la taille `n` :**  
         On peut inverser la formule pour obtenir :
-        $\[ h = \log_2(n + 1) \]$
+        $h = \log_2(n + 1)$
 
         #### 2. Profondeur de 0 pour la racine
 
@@ -478,11 +478,11 @@ L’arbre précédent une hauteur h = 3. Donc la taille du tableau sera de : 23+
 
         **Formule générale :**  
         Pour une hauteur `h`, la taille d'un arbre binaire complet est donnée par :
-        $\[ n = 2^0 + 2^1 + 2^2 + \dots + 2^h = 2^{h+1} - 1 \]$
+        $n = 2^0 + 2^1 + 2^2 + \dots + 2^h = 2^{h+1} - 1$
 
         **Pour trouver la hauteur `h` connaissant la taille `n` :**  
         On peut inverser la formule pour obtenir :
-        $\[ h = \log_2(n + 1) - 1 \]$
+        $h = \log_2(n + 1) - 1$
 
 
 **Encadrements de la hauteur d'un Arbre Binaire**
