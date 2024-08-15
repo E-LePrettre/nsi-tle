@@ -95,7 +95,7 @@ Pour l’expression : y2-t75+z
 
   - si un arbre est **vide**, sa hauteur est **0**.
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.007.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.007.png){width=30%; : .center }
 
 
 La taille ici est 8. La profondeur de G est 3 (G-K-C), la profondeur de B est 2 (B-C), la profondeur de Z est 4 (Z-F-B-C), la profondeur de C est 1. La hauteur de l'arbre est 4.
@@ -106,11 +106,9 @@ La taille ici est 8. La profondeur de G est 3 (G-K-C), la profondeur de B est 2 
 Parmi la forêt d’arbres possibles, on s’intéressera essentiellement aux **arbres dit binaires**.
 ### <a name="_toc149141390"></a>**3.1. Définition** 
 
-L’arbre qui représente l’expression 
+L’arbre qui représente l’expression a×b+c-d+ⅇ est un arbre binaire
 
-a×b+c-d+ⅇ est un arbre binaire
-
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.009.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.009.png) {width=30%; : .center }
 
 Les **arbres binaires** forment une structure de données qui peut se définir de façon récursive. Un arbre binaire est :
 
@@ -123,7 +121,7 @@ Les **arbres binaires** forment une structure de données qui peut se définir d
 
 On symbolise parfois l'arbre vide par un symbole particulier sur les arbres binaires : cela évite d'oublier un fils. Même si l'un des fils est un arbre-vide, il apparaît sur l'arbre.
 
-![Arbre binaire](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.011.png)![Arbre binaire](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.012.png)
+![Arbre binaire](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.011.png){width=30%; : .center }![Arbre binaire](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.012.png){width=30%; : .center }
 
 L'arbre binaire n'est pas identique car on identifie les fils gauche et droite.
 
