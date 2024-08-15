@@ -336,6 +336,8 @@ a = [3, 4, Δ, 7, 5]
 
 **Sur Thonny : Toutes les fonctions de cette implémentation doivent être dans le même fichier python arbre_binaire_tuple.py**
 
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
+
 **<H3 STYLE="COLOR:red;">Activité n° 12 :**  **Arbres binaires et les fonctions :**</H3> implémenter cette structure
 
 ```python
@@ -400,6 +402,8 @@ TAILLE(T) :
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141395"></a>**3.6. ❤️2<sup>ème</sup> implémentation de la structure ARBRE BINAIRE avec la POO et une classe❤️**</H3>
 
 **Sur Thonny : Toutes les fonctions de cette implémentation doivent être dans le même fichier python arbre_binaire_POO_v1.py**
+
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
 
 **<H3 STYLE="COLOR:red;">Activité n° 16 :**  **Arbres binaires et POO : Méthode de Huffman simplifiée :**</H3> Implémenter la structure ARBRE avec une seule classe :
 
@@ -510,6 +514,8 @@ TAILLE(T) :
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141396"></a>**3.7. ❤️ 3<sup>ème</sup> implémentation de la structure ARBRE BINAIRE avec la POO avec 2 classes❤️**</H3>
 
 **Sur Thonny : Toutes les fonctions de cette implémentation doivent être dans le même fichier python arbre\_binaire\_POO\_v2.py**
+
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
 
 **<H3 STYLE="COLOR:red;">Activité n° 23 :**  **Arbres binaires et POO : Méthode de Huffman simplifiée :</H3>** Implémenter la structure ARBRE avec deux classes :
 
@@ -681,6 +687,8 @@ l'arbre déjà utilisé :
 
 Sur Thonny : Créer un fichier python  **arbre\_binaire\_tuple\_parcours.py**.
 
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
+
 Ajouter le programme principal suivant :
 ```python
 def noeud(e, g=None, d=None):
@@ -717,6 +725,8 @@ Implémenter le parcours infixe sous forme de fonction de telle sorte que l’on
 **<H3 STYLE="COLOR:red;">Activité n° 33 : Arbre binaire et parcours en profondeur :**</H3>
 
 Sur Thonny : Créer un fichier python **arbre\_binaire\_POO\_v1\_parcours.py**.
+
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
 
 Ajouter le programme principal suivant :
 ```python
@@ -758,6 +768,8 @@ Vérifier que l’on obtient bien les parcours de l’activité précédente.
 **<H3 STYLE="COLOR:red;">Activité n° 34 : Arbre binaire et parcours en profondeur :**</H3>
 
 Sur Thonny : Créer un fichier python dans le même dossier que arbre\_binaire\_POO et le nommer **arbre\_binaire\_POO\_v2\_parcours.py**.
+
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
 
 Sur Thonny : Importer le module arbre\_binaire\_POO\_v2  sous forme **import arbre\_binaire\_POO\_v2 as AB**.
 
