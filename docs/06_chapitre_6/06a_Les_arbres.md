@@ -145,7 +145,7 @@ VOCABULAIRE A MAITRISER : on notera
 
     ??? success "Solution"
 
-        ![](ASanstitre.png)
+        ![](ASanstitre.png){width=30%; : .center }
 
 
 ???+ question "Activité n° 3 : Arbres binaires"
@@ -168,12 +168,33 @@ VOCABULAIRE A MAITRISER : on notera
         - Le fils gauche est à l'indice \(2 \times 2 + 1 = 5\).
         - Le fils droit est à l'indice \(2 \times 2 + 2 = 6\).
 
-Ces relations permettent de naviguer efficacement dans un arbre binaire lorsque celui-ci est représenté sous forme de tableau ou de liste.
-**<H3 STYLE="COLOR:red;">Activité n° 4 :**  **Arbres binaires :**</H3>  Voici un tableau représentant un arbre binaire :
+        Ces relations permettent de naviguer efficacement dans un arbre binaire lorsque celui-ci est représenté sous forme de tableau ou de liste.
 
-[’\*’,’-’,5,2,6,None,None,None,None,None,None,None,None,None,None] 
 
-Le dessiner. Que peut-il représenter ?
+
+
+???+ question "Activité n° 4 : Arbres binaires"
+
+    Voici un tableau représentant un arbre binaire :
+    [’\*’,’-’,5,2,6,None,None,None,None,None,None,None,None,None,None] 
+    Le dessiner. Que peut-il représenter ?
+
+    ??? success "Solution"
+
+        Voici l'arbre correspondant :
+        ```
+            *
+           / \
+          -   5
+         / \
+        2   6
+        ```
+        Interprétation de l'arbre binaire :
+        Cet arbre peut représenter une expression mathématique où :
+        \* indique une multiplication,
+        \- indique une soustraction.
+        Ainsi, l'expression représentée par cet arbre serait : 
+        (2−6)∗5
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141391"></a>**3.2. TAD d’un ARBRE BINAIRE : son interface**</H3>
 
