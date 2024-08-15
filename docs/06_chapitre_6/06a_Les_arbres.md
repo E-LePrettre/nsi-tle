@@ -69,8 +69,14 @@ Pour l’expression : `(y/2-t)*(75+z)`
 
     ??? success "Solution"
 
-        Ici se trouve la solution rédigée de la question 1.
-        Le texte doit être indenté dans cette nouvelle admonition
+        Représentation de l'arbre :
+        ```
+             -
+           /  \
+          +   13
+         / \
+        3   73
+        ```
 
 
 **DOM (Document Object Model) d’une page web**
