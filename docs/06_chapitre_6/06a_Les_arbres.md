@@ -213,19 +213,57 @@ VOCABULAIRE A MAITRISER : on notera
 1. ```gauche(arbre:Arbre) -> Arbre``` : renvoie le sous-arbre gauche de arbre. On obtient bien un Arbre. Si vous voulez le noeud gauche, il faudra appliquer en plus la fonction racine.
 1. ```droite(arbre:Arbre) -> Arbre``` : renvoie le sous-arbre droit de arbre.
 
-**<H3 STYLE="COLOR:red;">Activité n° 5 :**  **Arbres binaires et TAD :**</H3>  Créer l'arbre à l'aide de ces fonctions d'interface.
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.015.png){width=30%; : .center }
 
-On considère que le contenu est juste un string portant le nom du nœud. Ainsi le nœud A porte l'information "A".
+???+ question "Activité n° 5 : Arbres binaires et TAD"
+
+    Créer l'arbre à l'aide de ces fonctions d'interface.
+    ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.015.png){width=30%; : .center }
+    On considère que le contenu est juste un string portant le nom du nœud. Ainsi le nœud A porte l'information "A".
+
+    ??? success "Solution"
+
+        Pour créer l'arbre représenté sur l'image à l'aide des fonctions d'interface minimales du type abstrait Arbre (TAD), voici comment procéder. On va utiliser des chaînes de caractères pour représenter le contenu des nœuds.
+
+        ### Étapes pour créer l'arbre :
+
+        1. **Créer les nœuds individuels :**
+          Créez un nœud pour chaque élément de l'arbre :
+            ```python
+            noeud_A = nvNd("A")
+            noeud_C = nvNd("C")
+            noeud_E = nvNd("E")
+            noeud_G = nvNd("G")
+            noeud_B = nvNd("B")
+            noeud_F = nvNd("F")
+            ```
+        2. **Créer les sous-arbres :**
+          Créez les sous-arbres pour les nœuds `C` et `E` :
+            ```python
+            sous_arbre_gauche_C = nvAB(noeud_C, nvAB(noeud_G, nvAv(), nvAv()), nvAB(noeud_B, nvAv(), nvAv()))
+            sous_arbre_droit_E = nvAB(noeud_E, nvAv(), nvAB(noeud_F, nvAv(), nvAv()))
+            ```
+        3. **Créer l'arbre complet :**
+          Combinez les sous-arbres pour former l'arbre complet avec `A` comme racine :
+            ```python
+            arbre_complet = nvAB(noeud_A, sous_arbre_gauche_C, sous_arbre_droit_E)
+            ```
+
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141392"></a>**3.3. Caractéristiques**</H3>
 
 **Taille d’un arbre** : la taille d’un arbre est égale au nombre de nœuds de l’arbre. On ne compte pas les arbres-vides : l'arbre-vide ne possède pas de nœud.
 
-**<H3 STYLE="COLOR:red;">Activité n° 6 :**  **Taille des arbres :**</H3>  Déterminer la taille de l’arbre.
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.017.png){width=30%; : .center }
+???+ question "Activité n° 6 : Taille des arbres"
+
+    Déterminer la taille de l’arbre.
+    ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.017.png){width=30%; : .center }
+
+    ??? success "Solution"
+
+        L'arbre contient les nœuds A, C, E, G, B, et F. En tout, il y a 6 nœuds dans cet arbre.
+        La taille de l'arbre est donc de 6.
 
 **Profondeur d’un noeud** : Il s'agit du nombre de nœuds entre le nœud considéré et la racine.
 
@@ -257,11 +295,31 @@ On vous **indiquera le cas à respecter le jour du BAC**. On vous dites claireme
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.020.png){width=30%; : .center }
 
-**<H3 STYLE="COLOR:red;">Activité n° 7 :**  **Arbres binaires et vocabulaire :**</H3>  Fournir la taille, la hauteur et le nombre d'arêtes de cet arbre. Fournir également la profondeur du nœud C.
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.023.png){width=30%; : .center }
+???+ question "Activité n° 7 : Arbres binaires et vocabulaire :"
+
+    Fournir la taille, la hauteur et le nombre d'arêtes de cet arbre. Fournir également la profondeur du nœud C.
+    ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.023.png){width=30%; : .center }
+
+    ??? success "Solution"
+
+        1. Taille de l'arbre
+        Dans cet arbre, les nœuds sont : A, B, C, D, E, F, et G.
+        Il y a donc 7 nœuds dans cet arbre.
+
+        2. Hauteur de l'arbre
+        La racine A est au niveau 0.
+        Les nœuds D, E, F, et G sont au niveau 2.
+        La hauteur de cet arbre est donc 2.
+
+        3. Nombre d'arêtes
+        Avec 7 nœuds, le nombre d'arêtes est donc 6.
+
+        4. Profondeur du nœud C
+        La profondeur du nœud C est donc 1.
 
 On dit que cet arbre est **complet** car la plus grande profondeur est intégralement composée de feuilles.
+
 
 **<H3 STYLE="COLOR:red;">Activité n° 8 :**  **Arbres binaires et vocabulaire :**</H3>  Fournir la taille, la hauteur et le nombre d'arêtes de cet arbre. Fournir également la profondeur du nœud C.
 
