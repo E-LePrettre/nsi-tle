@@ -121,14 +121,14 @@ Les **arbres binaires** forment une structure de données qui peut se définir d
 
 On symbolise parfois l'arbre vide par un symbole particulier sur les arbres binaires : cela évite d'oublier un fils. Même si l'un des fils est un arbre-vide, il apparaît sur l'arbre.
 
-![Arbre binaire](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.011.png){width=30%; : .center }![Arbre binaire](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.012.png){width=30%; : .center }
+![Arbre binaire](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.011.png)![Arbre binaire](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.012.png)
 
 L'arbre binaire n'est pas identique car on identifie les fils gauche et droite.
 
 VOCABULAIRE A MAITRISER : on notera
 
-- qu'un **nœud d'arbre binaire** possède un **fils gauche** et un **fils droit** mais
-- qu'un **arbre binaire** possède **un sous-arbre gauche** et un **sous-arbre droit** :
+\- qu'un **nœud d'arbre binaire** possède un **fils gauche** et un **fils droit** mais
+\- qu'un **arbre binaire** possède **un sous-arbre gauche** et un **sous-arbre droit** :
 
   - Le fils gauche est donc la racine du sous-arbre gauche
 
