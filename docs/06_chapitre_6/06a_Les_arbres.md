@@ -691,7 +691,7 @@ l'arbre déjà utilisé :
 
 3. Parcours branche droite 
 
-#### <a name="_toc149141402"></a>**Le parcours suffixe ou postfixe**
+#### <a name="_toc149141402"></a>**4.1.3. Le parcours suffixe ou postfixe**
 
 **Ordre suffixe**
 
@@ -719,24 +719,122 @@ l'arbre déjà utilisé :
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.052.png){: .center }
 
 
-1. ## <a name="_toc149141403"></a>**Implémentation des parcours en profondeur avec les tuples**
+### <a name="_toc149141403"></a>**4.2. Implémentation des parcours en profondeur avec les tuples**
 
-|<p>**Activité n° AUTONUM  \* Arabic : Arbre binaire et parcours en profondeur :** Créer un fichier python  **arbre\_binaire\_tuple\_parcours.py**</p><p>Ajouter le programme principal suivant :</p><p>def noeud(e, g=None, d=None):<br>`    `return e, g, d<br><br>def parcours\_infixe(T):<br>`    `pass</p><p></p><p>if \_\_name\_\_ == '\_\_main\_\_':<br>`    `######début de la construction de l'arbre binaire###########<br>`    `h = noeud('h')<br>`    `c = noeud('c', None, h)<br>`    `l = noeud('l')<br>`    `i = noeud('i')<br>`    `j = noeud('j', l)<br>`    `d = noeud('d', i, j)<br>`    `a = noeud('a', c, d)<br>`    `k = noeud('k')<br>`    `e = noeud('e', k)<br>`    `f = noeud('f')<br>`    `b = noeud('b', e, f)<br>`    `arbre = noeud('r', a, b)<br>`    `######fin de la construction de l'arbre binaire###########</p><p>Implémenter le parcours infixe sous forme de fonction de telle sorte que l’on obtienne :</p><p>>>> parcours\_infixe(arbre)</p><p>['c', 'h', 'a', 'i', 'd', 'l', 'j', 'r', 'k', 'e', 'b', 'f']</p><p></p><p>**Implémenter les autres parcours en profondeur**</p>|
-| - |
-1. ## <a name="_toc149141404"></a>**Implémentation des parcours en profondeur par les méthodes**
+**Activité n° 32 : Arbre binaire et parcours en profondeur :** 
 
-|<p>**Activité n° AUTONUM  \* Arabic : Arbre binaire et parcours en profondeur :** Créer un fichier python **arbre\_binaire\_POO\_v1\_parcours.py**</p><p></p><p>Ajouter le programme principal suivant :</p><p>class Noeud:<br>`    `def \_\_init\_\_(self, valeur = None, g = None, d = None):<br>`        `self.valeur = valeur<br>`        `self.g = g<br>`        `self.d= d<br><br>`    `def estVide(self):<br>`        `return self.valeur is None<br>    <br>`    `def parcours\_infixe(self):<br>`        `pass</p><p></p><p>if \_\_name\_\_ == '\_\_main\_\_':<br>`    `######début de la construction de l'arbre binaire###########<br>`    `h = Noeud('h')<br>`    `c = Noeud('c', None, h)<br>`    `l = Noeud('l')<br>`    `i = Noeud('i')<br>`    `j = Noeud('j', l)<br>`    `d = Noeud('d', i, j)<br>`    `a = Noeud('a', c, d)<br>`    `k = Noeud('k')<br>`    `e = Noeud('e', k)<br>`    `f = Noeud('f')<br>`    `b = Noeud('b', e, f)<br>`    `arbre = Noeud('r', a, b)<br>`    `######fin de la construction de l'arbre binaire###########</p><p></p><p>Implémenter le parcours infixe sous forme de méthode, puis les autres parcours</p><p>Vérifier que l’on obtient bien les parcours de l’activité précédente</p>|
-| - |
-1. ## <a name="_toc149141405"></a>**Implémentation des parcours en profondeur par une fonction**
+Sur Thonny : Créer un fichier python  **arbre\_binaire\_tuple\_parcours.py**
 
-|<p>**Activité n° AUTONUM  \* Arabic : Arbre binaire et parcours en profondeur :** Créer un fichier python dans le même dossier que arbre\_binaire\_POO et le nommer **arbre\_binaire\_POO\_v2\_parcours.py**</p><p>Importer le module arbre\_binaire\_POO\_v2  sous forme **import arbre\_binaire\_POO\_v2 as AB**</p><p></p><p>**Implémenter les trois parcours sous forme de fonctions** </p><p></p><p>Ajouter le programme principal suivant :</p><p>if \_\_name\_\_ == '\_\_main\_\_':<br>`    `######début de la construction de l'arbre binaire###########<br>`    `h = AB.Arbre.greffeGD('h')<br>`    `c = AB.Arbre.greffeGD('c', None, h)<br>`    `l = AB.Arbre.greffeGD('l')<br>`    `i = AB.Arbre.greffeGD('i')<br>`    `j = AB.Arbre.greffeGD('j', l)<br>`    `d = AB.Arbre.greffeGD('d', i, j)<br>`    `a = AB.Arbre.greffeGD('a', c, d)<br>`    `k = AB.Arbre.greffeGD('k')<br>`    `e = AB.Arbre.greffeGD('e', k)<br>`    `f = AB.Arbre.greffeGD('f')<br>`    `b = AB.Arbre.greffeGD('b', e, f)<br>`    `arbre = AB.Arbre.greffeGD('r', a, b)<br>`    `######fin de la construction de l'arbre binaire###########</p><p></p><p>Vérifier que l’on obtient bien les parcours de l’activité précédente</p>|
-| - |
+Ajouter le programme principal suivant :
+```python
+def noeud(e, g=None, d=None):
+    return e, g, d
+
+def parcours_infixe(T):
+    pass
+
+if __name__ == '__main__':
+    ######début de la construction de l'arbre binaire###########
+    h = noeud('h')
+    c = noeud('c', None, h)
+    l = noeud('l')
+    i = noeud('i')
+    j = noeud('j', l)
+    d = noeud('d', i, j)
+    a = noeud('a', c, d)
+    k = noeud('k')
+    e = noeud('e', k)
+    f = noeud('f')
+    b = noeud('b', e, f)
+    arbre = noeud('r', a, b)
+    ######fin de la construction de l'arbre binaire###########
+```
+Implémenter le parcours infixe sous forme de fonction de telle sorte que l’on obtienne :
+```
+>>> parcours_infixe(arbre)
+['c', 'h', 'a', 'i', 'd', 'l', 'j', 'r', 'k', 'e', 'b', 'f']
+```
+**Implémenter les autres parcours en profondeur**
 
 
-1. # <a name="_toc149141406"></a>**Parcours en largeur d’un arbre binaire**
+### <a name="_toc149141404"></a>**4.3. Implémentation des parcours en profondeur par les méthodes**
+
+**Activité n° 33 : Arbre binaire et parcours en profondeur :** 
+
+Sur Thonny : Créer un fichier python **arbre\_binaire\_POO\_v1\_parcours.py**
+
+Ajouter le programme principal suivant :
+```python
+class Noeud:
+    def __init__(self, valeur = None, g = None, d = None):
+        self.valeur = valeur
+        self.g = g
+        self.d= d
+
+    def estVide(self):
+        return self.valeur is None
+    
+    def parcours_infixe(self):
+        pass
+
+if __name__ == '__main__':
+    ######début de la construction de l'arbre binaire###########
+    h = Noeud('h')
+    c = Noeud('c', None, h)
+    l = Noeud('l')
+    i = Noeud('i')
+    j = Noeud('j', l)
+    d = Noeud('d', i, j)
+    a = Noeud('a', c, d)
+    k = Noeud('k')
+    e = Noeud('e', k)
+    f = Noeud('f')
+    b = Noeud('b', e, f)
+    arbre = Noeud('r', a, b)
+    ######fin de la construction de l'arbre binaire###########
+```
+
+Implémenter le parcours infixe sous forme de méthode, puis les autres parcours
+
+Vérifier que l’on obtient bien les parcours de l’activité précédente
+
+### <a name="_toc149141405"></a>**4.4. Implémentation des parcours en profondeur par une fonction**
+
+**Activité n° 34 : Arbre binaire et parcours en profondeur :** 
+
+Sur Thonny : Créer un fichier python dans le même dossier que arbre\_binaire\_POO et le nommer **arbre\_binaire\_POO\_v2\_parcours.py**
+
+Importer le module arbre\_binaire\_POO\_v2  sous forme **import arbre\_binaire\_POO\_v2 as AB**
+
+**Implémenter les trois parcours sous forme de fonctions** 
+
+Ajouter le programme principal suivant :
+```python
+if __name__ == '__main__':
+    ######début de la construction de l'arbre binaire###########
+    h = AB.Arbre.greffeGD('h')
+    c = AB.Arbre.greffeGD('c', None, h)
+    l = AB.Arbre.greffeGD('l')
+    i = AB.Arbre.greffeGD('i')
+    j = AB.Arbre.greffeGD('j', l)
+    d = AB.Arbre.greffeGD('d', i, j)
+    a = AB.Arbre.greffeGD('a', c, d)
+    k = AB.Arbre.greffeGD('k')
+    e = AB.Arbre.greffeGD('e', k)
+    f = AB.Arbre.greffeGD('f')
+    b = AB.Arbre.greffeGD('b', e, f)
+    arbre = AB.Arbre.greffeGD('r', a, b)
+    ######fin de la construction de l'arbre binaire###########
+```
+Vérifier que l’on obtient bien les parcours de l’activité précédente</p>|
+
+
+
+## <a name="_toc149141406"></a>**5. Parcours en largeur d’un arbre binaire**
+
 Le parcours d’un arbre en largeur consiste à partir de la racine, on visite ensuite son fils gauche puis son fils droit, puis le fils gauche du fils gauche etc… Comme le montre le schéma ci-dessous :
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.053.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.053.png){width=80%; : .center }
 
 L’idée est la suivante : On utilise une File
 
