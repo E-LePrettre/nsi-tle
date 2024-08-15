@@ -1145,44 +1145,37 @@ Le parcours en profondeur infixe permet de modéliser des expressions arithméti
 
 On peut cependant se passer de parenthèse, en changeant l’ordre d’apparition des éléments de l’expression arithmétique. On parle alors de notation polonaise inversée, qui correspond en fait à un parcours postfixe (ou suffixe) de l’arbre binaire : on imprime l’étiquette du nœud après avoir imprimé l’enfant gauche puis l’enfant droit.
 
-1. Créer un fichier Python rpn.py.
-1. On importera le fichier binaryTree de l’exercice précédent
+1\. Sur Thonny : Créer un fichier Python rpn.py.
+2\. Sur Thonny : On importera le fichier binaryTree de l’exercice précédent
 
-Aide : 
-
-` `import sys
-
+Aide si le fichier est sur le bureau: 
+```python
+import sys
 sys.path.append("C:\\Documents and Settings\\Administrateur\\Bureau")
+from mon_module_qui_est_sur_le_bureau import * 
+# ou import mon_module_qui_est_sur_le_bureau
+```
 
-from mon\_module\_qui\_est\_sur\_le\_bureau import \* 
 
-\# ou import mon\_module\_qui\_est\_sur\_le\_bureau
 
-1. Créer une classe RPN avec :
+ou en recopira le code du fichier de l'exercice précédent
+
+3\. Créer une classe RPN avec :
+
 - un constructeur \_\_init\_\_() initialisant **l’attribut privé pile** qui est initialisée avec la chaîne du parcours **postfixe de l’arbre binaire passée en paramètre** au constructeur. Le prototype de la méthode est \_\_init\_\_(self, expression : object)
+
 - une méthode spéciale \_\_repr\_\_() qui affiche les étiquettes séparées par des espaces pour améliorer la lisibilité : par exemple, l’expression arithmétique (5+4)×(3−(2+1)) s’affichera sous la forme “5 4 + 3 2 1 + - ×”.
 
   **Astuce** : on pourra utiliser la méthode strip()
 
 Voici l’arbre qui permet d’implémenter l’expression arithmétique : (5+4)×(3−(2+1))
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.069.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.069.png){: .center }
 
-1. Créer l’arbre qui implémentera l’expression arithmétique (5+4)×(3−(2+1))
-1. Vérifier que l’on obtient bien ['5', '4', '+', '3', '2', '1', '+', '-', 'x']
+4\. Créer l’arbre qui implémentera l’expression arithmétique (5+4)×(3−(2+1))
+5\. Vérifier que l’on obtient bien ['5', '4', '+', '3', '2', '1', '+', '-', 'x']
 
 Les calculatrices Hewlett-Packard proposaient à leurs utilisateurs d’entrer les expressions arithmétiques à calculer à l’aide de la notation polonaise inversée. 
 
-Terminale NSI 	Chap 06 : Les arbres	Page 27/27
 
-[Arbre question 10]: Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.014.png
-[Arbre question 10]: Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.015.png
-[Arbre question 10]: Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.017.png
-[Racine à une profondeur de 1]: Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.019.png
-[Racine à une profondeur de 0]: Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.020.png
-[ref1]: Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.035.png
-[ref2]: Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.038.png
-[ref3]: Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.039.png
-[ref4]: Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.057.png
-[ref5]: Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.058.png
-[ref6]: Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.059.png
+
