@@ -670,7 +670,7 @@ l'arbre déjà utilisé :
 
 **Ordre préfixe**
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.046.png){width=20%; : .center }
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.046.png)
 
 1. **Visite du nœud**
 
@@ -683,7 +683,7 @@ l'arbre déjà utilisé :
 
 **Ordre infixe**
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.047.png){width=20%; : .center }
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.047.png)
 
 1. Parcours branche gauche 
 
@@ -695,7 +695,7 @@ l'arbre déjà utilisé :
 
 **Ordre suffixe**
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.048.png){width=20%; : .center }
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.048.png)
 
 1. Parcours branche gauche
 
@@ -704,7 +704,7 @@ l'arbre déjà utilisé :
 3. **Visite du nœud**
 
 
-#####################=>
+
 **Activité n° 30 : Arbre binaire et parcours en profondeur :** Donner les trois parcours des sommets de l’arbre
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.049.png){width=80%; : .center }
@@ -838,9 +838,9 @@ Le parcours d’un arbre en largeur consiste à partir de la racine, on visite e
 
 L’idée est la suivante : On utilise une File
 
-- On met l’arbre dans la file
-- Puis tant que la file n’est pas vide :
-  - ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.054.png)On défile la file
+\- On met l’arbre dans la file
+\- Puis tant que la file n’est pas vide :
+  - On défile la file
   - On récupère la racine
   - On enfile **son fils gauche** s’il existe
   - On enfile **son fils droit** s’il existe
@@ -848,6 +848,8 @@ L’idée est la suivante : On utilise une File
 
 
 Voici **l’algorithme parcours en largeur**
+
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.054.png){: .center }
 
 **Remarque** : au lieu d’afficher tmp on peut l’ajouter à une liste vide et retourner la liste à la fin du script
 
