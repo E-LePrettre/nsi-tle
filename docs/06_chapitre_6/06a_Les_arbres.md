@@ -561,7 +561,7 @@ Pour comprendre facilement la numérotation, il suffit de s'imaginer l'arbre com
 
     ??? success "Solution"
 
-        ![](ABSanstitre.png){width=40%; : .center }
+        ![](ABSanstitre.png){width=30%; : .center }
 
 **Remarque :** parfois (comme dans le sujet 0...) la racine de l'arbre est placée à l'indice 1. Dans ce cas, les fils du nœud d'indice i sont placés aux indices 2i et 2i+1.
 
