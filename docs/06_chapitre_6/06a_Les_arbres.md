@@ -845,7 +845,7 @@ L’idée est la suivante : On utilise une File
   - On récupère la racine
 
   - On enfile **son fils gauche** s’il existe
-  
+
   - On enfile **son fils droit** s’il existe
 
 
@@ -890,13 +890,13 @@ L’usage d’une pile est naturel lors de l’évaluation post-fixée d’une e
 
 Ici, il s’agit d’un produit entre une somme et la différence entre un nombre et le quotient d’un nombre avec le carré d’un nombre. Cela donne l’arbre :
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.055.png){width=70%; : .center }
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.055.png){width=60%; : .center }
 
 Le principe du parcours postfixe (ou suffixe) d’un arbre consiste à lire d’abord le sous-arbre (appelé fils) gauche, puis le fils droit, puis effectuer l’opération (qui se trouve au nœud).
 
 Ici, cela donne : 
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.056.png){width=60%; : .center }
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.056.png){width=40%; : .center }
 
 L’idée est donc, pour évaluer cette expression, d’utiliser un tableau 
 
@@ -910,11 +910,11 @@ Traditionnellement, les calculatrices HP utilis(ai ?)ent cette notation appelée
 
 La calculatrice affiche (et gère) en permanence une pile (le sommet est affiché en bas de l’écran), et pour calculer l’expression précédente,
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.057.png){width=90%; : .center }
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.057.png){width=80%; : .center }
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.058.png){width=90%; : .center }
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.058.png){width=80%; : .center }
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.059.png){width=90%; : .center }
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.059.png){width=80%; : .center }
 
 Comme les calculatrices HP, nous allons utiliser une pile pour faire les calculs correspondant à la notation polonaise inversée à partir d’entrées stockées initialement dans un tableau.
 
