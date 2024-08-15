@@ -208,7 +208,7 @@ On parle **d'arbre filiforme** ou **d'arbre dégénéré**.
 
 L’arbre binaire a une hauteur de 1 (convention 0 pour la racine).
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.026.png){width=30%; : .center }
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.026.png){width=20%; : .center }
 
 Au niveau 0 : il possède 1=20 nœud.
 
@@ -230,7 +230,7 @@ Soit 7=20+21+22 en tout.
 
 L’arbre binaire ci-contre a une hauteur 3.
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.028.png){width=30%; : .center }
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.028.png){width=40%; : .center }
 
 Cet arbre est complet (tous les nœuds internes ont deux fils).
 
