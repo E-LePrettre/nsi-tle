@@ -61,7 +61,7 @@ Pour l’expression : `(y/2-t)*(75+z)`
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.004.png){width=30%; : .center }
 
-**<H3 STYLE="COLOR:red;">Activité n° 1 :**</H3> Représenter l’expression : 3+73-13
+
 
 ???+ question "Activité n° 1 :"
 
@@ -140,6 +140,15 @@ VOCABULAIRE A MAITRISER : on notera
 **<H3 STYLE="COLOR:red;">Activité n° 2 :**</H3>  Entourer en rouge le sous-arbre gauche de l'arbre précédent. Entourer en bleu le sous-arbre droit. Entourer en vert le sous-arbre droit du sous-arbre gauche.
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.014.png){width=30%; : .center }
+
+???+ question "Activité n° 2 :"
+
+    Entourer en rouge le sous-arbre gauche de l'arbre précédent. Entourer en bleu le sous-arbre droit. Entourer en vert le sous-arbre droit du sous-arbre gauche.
+    ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.014.png){width=30%; : .center }
+
+    ??? success "Solution"
+
+        ![](ASanstitre.png)
 
 **<H3 STYLE="COLOR:red;">Activité n° 3 :**  **Arbres binaires :**</H3>  Quelle propriété ont les indices des fils gauches et droits ?
 
