@@ -603,7 +603,7 @@ TAILLE(T) :
   fin si
 ```
 
-**<H3 STYLE="COLOR:red;">Activité n° 28 :**  **Arbres binaires et POO fonction taille :** Implémenter l’algorithme de la **fonction** taille et tester l’arbre précédent.</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 28 :**  **Arbres binaires et POO fonction taille :</H3>** Implémenter l’algorithme de la **fonction** taille et tester l’arbre précédent.
 
 **<H3 STYLE="COLOR:red;">Activité n° 29 :**  **Arbres binaires et POO méthode taille :</H3>** Implémenter l’algorithme de la **méthode** taille2 et tester l’arbre précédent.
 
