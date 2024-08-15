@@ -670,7 +670,7 @@ l'arbre déjà utilisé :
 
 **Ordre préfixe**
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.046.png){width=30%; : .center }
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.046.png){width=20%; : .center }
 
 1. **Visite du nœud**
 
@@ -683,7 +683,7 @@ l'arbre déjà utilisé :
 
 **Ordre infixe**
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.047.png){width=30%; : .center }
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.047.png){width=20%; : .center }
 
 1. Parcours branche gauche 
 
@@ -695,7 +695,7 @@ l'arbre déjà utilisé :
 
 **Ordre suffixe**
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.048.png){width=30%; : .center }
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.048.png){width=20%; : .center }
 
 1. Parcours branche gauche
 
