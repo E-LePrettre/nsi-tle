@@ -283,16 +283,12 @@ L’arbre précédent une hauteur h = 3. Donc la taille du tableau sera de : 23
 |- Hauteur h = 1 : Taille n = 1|
 |- Hauteur h = 2 : Taille : n = 1 + 2 = 3|
 |- Hauteur h = 3 : La taille : n = 1 + 2 + ...|
-
-- Hauteur h = 4 : La taille : n =
-
-- Hauteur h = 5 : La taille: n =
-
-Quelle fonction mathématique permettrait de trouver la hauteur h connaissant la taille n de l'arbre complet ?
-
-**Si on considère une profondeur de 0 pour la racine :**
-
-- Hauteur h = 0 : Taille n = 1
+|- Hauteur h = 4 : La taille : n =|
+|- Hauteur h = 5 : La taille: n =|
+|Quelle fonction mathématique permettrait de trouver la hauteur h connaissant la taille n de l'arbre complet ?|
+|-|
+|**Si on considère une profondeur de 0 pour la racine :**|
+|- Hauteur h = 0 : Taille n = 1|
 
 - Hauteur h = 1 : Taille : n = 1 + 2 = 3
 
