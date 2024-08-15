@@ -195,7 +195,7 @@ On vous **indiquera le cas à respecter le jour du BAC**. On vous dites claireme
 
 **Propriété** : si deux nœuds ont la même profondeur, c'est qu'ils sont à la même distance de la racine.
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.021.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.021.png){width=30%; : .center }
 
 **Profondeur d’un arbre ou hauteur d’un arbre** : Il s'agit de la profondeur maximale qu'on trouve dans l'arbre, la "distance" entre la racine et la plus profonde des racines.
 
@@ -203,36 +203,36 @@ On vous **indiquera le cas à respecter le jour du BAC**. On vous dites claireme
 
 Sur cet exemple, la hauteur de l'arbre est donc de 3
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.019.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.019.png){width=30%; : .center }
 
 - **Convention 2** : Si la profondeur de la racine est de 0, il suffit de considérer qu'un arbre-vide n'a pas de hauteur puisqu'il n'a pas de nœud et que la profondeur se mesure sur les nouds. C'est "propre" aussi.
 
 Sur cet exemple, la hauteur de l'arbre est donc de 2.
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.020.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.020.png){width=30%; : .center }
 
 
 **Activité n° 7 :**  **Arbres binaires et vocabulaire :**  Fournir la taille, la hauteur et le nombre d'arêtes de cet arbre. Fournir également la profondeur du nœud C.
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.023.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.023.png){width=30%; : .center }
 
 On dit que cet arbre est **complet** car la plus grande profondeur est intégralement composée de feuilles.
 
 **Activité n° 8 :**  **Arbres binaires et vocabulaire :**  Fournir la taille, la hauteur et le nombre d'arêtes de cet arbre. Fournir également la profondeur du nœud C.
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.024.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.024.png){width=30%; : .center }
 
 On parle **d'arbre filiforme** ou **d'arbre dégénéré**.
 
 **Activité n° 9 :**  **Arbres binaires et vocabulaire :**  Fournir la taille, la hauteur et le nombre d'arêtes de cet arbre. Fournir également la profondeur du nœud C.
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.025.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.025.png){width=30%; : .center }
 
 
 
 L’arbre binaire a une hauteur de 1 (convention 0 pour la racine)
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.026.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.026.png){width=30%; : .center }
 
 Au niveau 0 :  il possède 1=20 nœud.
 
@@ -246,7 +246,7 @@ Soit 3=20+21 en tout.
 
 L’arbre binaire ci-contre a une hauteur 2
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.027.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.027.png){width=30%; : .center }
 
 Au niveau 0 :  il possède 1=20 nœud.
 
@@ -260,7 +260,7 @@ Soit 7=20+21+22 en tout.
 
 L’arbre binaire ci-contre a une hauteur 3.
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.028.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.028.png){width=30%; : .center }
 
 Cet arbre est complet (tous les nœuds internes ont deux fils).
 
@@ -277,11 +277,11 @@ Soit 15=20+21+22+23 en tout.
 
 L’arbre précédent une hauteur h = 3. Donc la taille du tableau sera de : 23+1-1=24-1=15
 
-**Activité n° 10 :**  **Arbres binaires et vocabulaire :**  Calculer la taille d'un Arbre Complet dont on vous donne la hauteur:
-
-**Si on considère une profondeur de 1 pour la racine :**
-
-- Hauteur h = 1 : Taille n = 1
+|**Activité n° 10 :**  **Arbres binaires et vocabulaire :**  Calculer la taille d'un Arbre Complet dont on vous donne la hauteur:|
+|-|
+|**Si on considère une profondeur de 1 pour la racine :**|
+||
+|- Hauteur h = 1 : Taille n = 1|
 
 - Hauteur h = 2 : Taille : n = 1 + 2 = 3
 
