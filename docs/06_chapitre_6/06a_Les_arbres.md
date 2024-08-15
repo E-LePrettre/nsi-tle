@@ -137,9 +137,6 @@ VOCABULAIRE A MAITRISER : on notera
 
   - Le fils droit est donc la racine du sous-arbre droit.
 
-**<H3 STYLE="COLOR:red;">Activité n° 2 :**</H3>  Entourer en rouge le sous-arbre gauche de l'arbre précédent. Entourer en bleu le sous-arbre droit. Entourer en vert le sous-arbre droit du sous-arbre gauche.
-
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.014.png){width=30%; : .center }
 
 ???+ question "Activité n° 2 :"
 
@@ -150,8 +147,28 @@ VOCABULAIRE A MAITRISER : on notera
 
         ![](ASanstitre.png)
 
-**<H3 STYLE="COLOR:red;">Activité n° 3 :**  **Arbres binaires :**</H3>  Quelle propriété ont les indices des fils gauches et droits ?
 
+???+ question "Activité n° 3 : Arbres binaires"
+
+    Quelle propriété ont les indices des fils gauches et droits ?
+
+    ??? success "Solution"
+
+        Dans un arbre binaire, si on considère que les nœuds de l'arbre sont indexés de manière séquentielle dans un tableau, en commençant par la racine à l'indice 1 (ou 0 si l'on commence à compter à partir de 0), les indices des fils gauche et droit d'un nœud parent donné (à l'indice \(i\)) obéissent aux propriétés suivantes :
+        1. **Fils gauche :** L'indice du fils gauche d'un nœud situé à l'indice \(i\) est \(2i\) (si l'indexation commence à 1) ou \(2i + 1\) (si l'indexation commence à 0).
+        2. **Fils droit :** L'indice du fils droit d'un nœud situé à l'indice \(i\) est \(2i + 1\) (si l'indexation commence à 1) ou \(2i + 2\) (si l'indexation commence à 0).
+        
+        ### Exemple avec une indexation commençant à 1 :
+        - Si un nœud parent est à l'indice 3 :
+        - Le fils gauche est à l'indice \(2 \times 3 = 6\).
+        - Le fils droit est à l'indice \(2 \times 3 + 1 = 7\).
+        
+        ### Exemple avec une indexation commençant à 0 :
+        - Si un nœud parent est à l'indice 2 :
+        - Le fils gauche est à l'indice \(2 \times 2 + 1 = 5\).
+        - Le fils droit est à l'indice \(2 \times 2 + 2 = 6\).
+
+Ces relations permettent de naviguer efficacement dans un arbre binaire lorsque celui-ci est représenté sous forme de tableau ou de liste.
 **<H3 STYLE="COLOR:red;">Activité n° 4 :**  **Arbres binaires :**</H3>  Voici un tableau représentant un arbre binaire :
 
 [’\*’,’-’,5,2,6,None,None,None,None,None,None,None,None,None,None] 
