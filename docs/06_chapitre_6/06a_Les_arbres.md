@@ -280,12 +280,9 @@ L’arbre précédent une hauteur h = 3. Donc la taille du tableau sera de : 23
 |**Activité n° 10 :**  **Arbres binaires et vocabulaire :**  Calculer la taille d'un Arbre Complet dont on vous donne la hauteur:|
 |-|
 |**Si on considère une profondeur de 1 pour la racine :**|
-||
 |- Hauteur h = 1 : Taille n = 1|
-
-- Hauteur h = 2 : Taille : n = 1 + 2 = 3
-
-- Hauteur h = 3 : La taille : n = 1 + 2 + ...
+|- Hauteur h = 2 : Taille : n = 1 + 2 = 3|
+|- Hauteur h = 3 : La taille : n = 1 + 2 + ...|
 
 - Hauteur h = 4 : La taille : n =
 
