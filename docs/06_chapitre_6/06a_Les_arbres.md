@@ -321,9 +321,27 @@ On vous **indiquera le cas à respecter le jour du BAC**. On vous dites claireme
 On dit que cet arbre est **complet** car la plus grande profondeur est intégralement composée de feuilles.
 
 
-**<H3 STYLE="COLOR:red;">Activité n° 8 :**  **Arbres binaires et vocabulaire :**</H3>  Fournir la taille, la hauteur et le nombre d'arêtes de cet arbre. Fournir également la profondeur du nœud C.
+???+ question "Activité n° 8 : Arbres binaires et vocabulaire :"
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.024.png){width=30%; : .center }
+    Fournir la taille, la hauteur et le nombre d'arêtes de cet arbre. Fournir également la profondeur du nœud C.
+    ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.024.png){width=30%; : .center }
+
+    ??? success "Solution"
+
+        1. Taille de l'arbre
+        Dans cet arbre, les nœuds sont : A, B, C, D, E, F, et G.
+        Il y a donc 7 nœuds dans cet arbre.
+
+        2. Hauteur de l'arbre
+        La racine A est au niveau 0.
+        Le nœud G sont au niveau 6.
+        La hauteur de cet arbre est donc 6.
+
+        3. Nombre d'arêtes
+        Avec 7 nœuds, le nombre d'arêtes est donc 6.
+
+        4. Profondeur du nœud C
+        La profondeur du nœud C est donc 2.
 
 On parle **d'arbre filiforme** ou **d'arbre dégénéré**.
 
