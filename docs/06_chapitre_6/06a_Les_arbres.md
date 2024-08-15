@@ -853,8 +853,8 @@ Voici **l’algorithme parcours en largeur**
 
 **Remarque** : au lieu d’afficher tmp on peut l’ajouter à une liste vide et retourner la liste à la fin du script
 
-|**Activité n° AUTONUM  \* Arabic : Arbre binaire et parcours en largeur :** Utiliser l’algorithme précédent pour vérifier que l’on obtient bien rabcdefhijkm|
-| :- |
+**Activité n° 35 : Arbre binaire et parcours en largeur :** Utiliser l’algorithme précédent pour vérifier que l’on obtient bien rabcdefhijkm
+
 
 |<p>**Activité n° AUTONUM  \* Arabic : Arbre binaire et parcours en largeur :** Ajouter dans le fichier **arbre\_binaire\_tuple\_parcours.py**, l’implémentation de ce parcours sous **forme de fonction.**</p><p>On implémentera la file par une liste</p><p></p><p>Vérifier que l’on obtient bien le résultat escompté</p>|
 | - |
