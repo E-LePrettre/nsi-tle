@@ -705,12 +705,20 @@ l'arbre déjà utilisé :
 
 
 #####################=>
-|<p>**Activité n° AUTONUM  \* Arabic : Arbre binaire et parcours en profondeur :** Donner les trois parcours des sommets de l’arbre</p><p>` `![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.049.png)</p>|
-| :- |
+**Activité n° 30 : Arbre binaire et parcours en profondeur :** Donner les trois parcours des sommets de l’arbre
+
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.049.png){width=80%; : .center }
 
 
-|<p>**Activité n° AUTONUM  \* Arabic : Arbre binaire et parcours en profondeur :** Voici 3 algorithmes récursifs, dire pour chacun d’entre eux à quel parcours il correspond.</p><p>![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.050.png)</p><p>![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.051.png)</p><p>![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.052.png)</p>|
-| - |
+
+**Activité n° 31 : Arbre binaire et parcours en profondeur :** Voici 3 algorithmes récursifs, dire pour chacun d’entre eux à quel parcours il correspond.
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.050.png){: .center }
+
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.051.png){: .center }
+
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.052.png){: .center }
+
+
 1. ## <a name="_toc149141403"></a>**Implémentation des parcours en profondeur avec les tuples**
 
 |<p>**Activité n° AUTONUM  \* Arabic : Arbre binaire et parcours en profondeur :** Créer un fichier python  **arbre\_binaire\_tuple\_parcours.py**</p><p>Ajouter le programme principal suivant :</p><p>def noeud(e, g=None, d=None):<br>`    `return e, g, d<br><br>def parcours\_infixe(T):<br>`    `pass</p><p></p><p>if \_\_name\_\_ == '\_\_main\_\_':<br>`    `######début de la construction de l'arbre binaire###########<br>`    `h = noeud('h')<br>`    `c = noeud('c', None, h)<br>`    `l = noeud('l')<br>`    `i = noeud('i')<br>`    `j = noeud('j', l)<br>`    `d = noeud('d', i, j)<br>`    `a = noeud('a', c, d)<br>`    `k = noeud('k')<br>`    `e = noeud('e', k)<br>`    `f = noeud('f')<br>`    `b = noeud('b', e, f)<br>`    `arbre = noeud('r', a, b)<br>`    `######fin de la construction de l'arbre binaire###########</p><p>Implémenter le parcours infixe sous forme de fonction de telle sorte que l’on obtienne :</p><p>>>> parcours\_infixe(arbre)</p><p>['c', 'h', 'a', 'i', 'd', 'l', 'j', 'r', 'k', 'e', 'b', 'f']</p><p></p><p>**Implémenter les autres parcours en profondeur**</p>|
