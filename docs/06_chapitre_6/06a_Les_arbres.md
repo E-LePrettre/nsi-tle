@@ -5,21 +5,21 @@ title: 06a Les arbres
 
 **Table des matières**
 
-[1.	Terminologie	1](#_toc149141385)
+[1.	Terminologie](#_toc149141385)
 
-[2.	Notions générales sur les arbres	3](#_toc149141388)
+[2.	Notions générales sur les arbres](#_toc149141388)
 
-[3.	Les arbres binaires	3](#_toc149141389)
+[3.	Les arbres binaires](#_toc149141389)
 
-[4.	Le parcours en profondeur des arbres binaires	16](#_toc149141398)
+[4.	Le parcours en profondeur des arbres binaires](#_toc149141398)
 
-[5.	Parcours en largeur d’un arbre binaire	19](#_toc149141406)
+[5.	Parcours en largeur d’un arbre binaire](#_toc149141406)
 
-[6.	Une application de l’arbre binaire : notation polonaise inversée	20](#_toc149141407)
+[6.	Une application de l’arbre binaire : notation polonaise inversée](#_toc149141407)
 
-[7.	Exercices	22](#_toc149141408)
+[7.	Exercices](#_toc149141408)
 
-[8.	Projets	24](#_toc149141409)
+[8.	Projets](#_toc149141409)
 
 **Compétences évaluables :**
 
@@ -34,7 +34,7 @@ title: 06a Les arbres
 ## <a name="_toc149141385"></a>**1. Terminologie**
 ### <a name="_toc149141386"></a>**1.1. Vocabulaire**
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.001.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.001.png){width=30%; : .center }
 
 Un arbre est une **structure hiérarchique de données**, composée de **nœuds**. Si on adopte le vocabulaire des graphes que l’on verra plus tard, un arbre est un **graphe non orienté, connexe, sans cycle**, et dans lequel un nœud joue le rôle de **racine**.
 
@@ -52,13 +52,13 @@ Un **arbre** est un **type abstrait de données** ayant les propriétés sui
 
 L’ **arbre généalogique**
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.002.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.002.png){width=30%; : .center }
 
 
 
 Voici un **arbre syntaxique** : un arbre syntaxique représente l’analyse d’une phrase à partir de règle (la grammaire)
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.003.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.003.png){width=30%; : .center }
 
 
 
@@ -67,7 +67,7 @@ On peut également représenter les **expressions arithmétiques** par des arbre
 
 Pour l’expression : y2-t75+z
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.004.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.004.png){width=30%; : .center }
 
 **Activité n° 1 :** Représenter l’expression : 3+73-13
 
@@ -76,13 +76,13 @@ Pour l’expression : y2-t75+z
 
 **DOM (Document Object Model) d’une page web** 
 
-![Chapter 7: Markup Languages | The Missing Link: An Introduction to Web ...](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.005.png)
+![Chapter 7: Markup Languages | The Missing Link: An Introduction to Web ...](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.005.png){width=40%; : .center }
 
 
 
 **L'arborescence d'un disque dur :** Les systèmes Unix (MacOS ou GNU/Linux) organisent leur disque dur suivant l'arborescence :
 
-![image](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.006.gif)
+![image](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.006.gif){width=40%; : .center }
 
 
 ## <a name="_toc149141388"></a>**2. Notions générales sur les arbres**
