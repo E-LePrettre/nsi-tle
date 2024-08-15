@@ -128,6 +128,7 @@ L'arbre binaire n'est pas identique car on identifie les fils gauche et droite.
 VOCABULAIRE A MAITRISER : on notera
 
 \- qu'un **nœud d'arbre binaire** possède un **fils gauche** et un **fils droit** mais
+
 \- qu'un **arbre binaire** possède **un sous-arbre gauche** et un **sous-arbre droit** :
 
   - Le fils gauche est donc la racine du sous-arbre gauche
@@ -181,11 +182,11 @@ Il existe ici deux écoles :
 
 - **Convention 1** : Soit on considère que la profondeur de la racine est de 1 : la racine est le premier étage de l'arbre.
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.019.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.019.png){width=30%; : .center }
 
 - **Convention 2** : Soit on considère que la profondeur de la racine est de 0 : la racine est le rez-de-chaussée, le niveau 0.
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.020.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.020.png){width=30%; : .center }
 
 
 On vous **indiquera le cas à respecter le jour du BAC**. On vous dites clairement sur la copie la convention qui vous utilisez.
