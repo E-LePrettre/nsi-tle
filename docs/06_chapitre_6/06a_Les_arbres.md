@@ -30,8 +30,8 @@ title: 06a Les arbres
 
 
 
-<H2 STYLE="COLOR:BLUE;">## <a name="_toc149141385"></a>**1. Terminologie**</H2>
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc149141386"></a>**1.1. Vocabulaire**</H3>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc149141385"></a>**1. Terminologie**</H2>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141386"></a>**1.1. Vocabulaire**</H3>
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.001.png){width=30%; : .center }
 
@@ -45,7 +45,7 @@ Un **arbre** est un **type abstrait de données** ayant les propriétés suivant
 - Les nœuds qui ne sont pas des feuilles sont des **nœuds internes**.
 - Le nom de chaque nœud est appelé son **étiquette**.
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc149141387"></a>**1.2. Exemples d’arbres**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141387"></a>**1.2. Exemples d’arbres**</H3>
 
 L’ **arbre généalogique**
 
@@ -61,7 +61,7 @@ Pour l’expression : y2-t75+z
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.004.png){width=30%; : .center }
 
-<H3 STYLE="COLOR:red;">**Activité n° 1 :** Représenter l’expression : 3+73-13</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 1 :**</H3> Représenter l’expression : 3+73-13
 
 **DOM (Document Object Model) d’une page web**
 
@@ -71,7 +71,7 @@ Pour l’expression : y2-t75+z
 
 ![image](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.006.gif){width=40%; : .center }
 
-<H2 STYLE="COLOR:BLUE;">## <a name="_toc149141388"></a>**2. Notions générales sur les arbres**</H2>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc149141388"></a>**2. Notions générales sur les arbres**</H2>
 
 - la **taille** d'un arbre est son nombre total de nœuds. 
 - la **profondeur** d'un nœud est le nombre de nœuds de son chemin le plus court vers la racine.
@@ -88,11 +88,11 @@ La taille ici est 8. La profondeur de G est 3 (G-K-C), la profondeur de B est 2 
 
 ***Attention, dans certains ouvrages, l'arbre vide a pour hauteur -1, et donc l'arbre réduit à un seul nœud a pour hauteur 0, donc notre arbre aurait avec cette convention une hauteur 3.***
 
-<H2 STYLE="COLOR:BLUE;">## <a name="_toc149141389"></a>**3. Les arbres binaires**</H2>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc149141389"></a>**3. Les arbres binaires**</H2>
 
 Parmi la forêt d’arbres possibles, on s’intéressera essentiellement aux **arbres dit binaires**.
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc149141390"></a>**3.1. Définition**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141390"></a>**3.1. Définition**</H3>
 
 L’arbre qui représente l’expression a×b+c-d+ⅇ est un arbre binaire
 
@@ -121,19 +121,19 @@ VOCABULAIRE A MAITRISER : on notera
 
   - Le fils droit est donc la racine du sous-arbre droit.
 
-<H3 STYLE="COLOR:red;">**Activité n° 2 :**  Entourer en rouge le sous-arbre gauche de l'arbre précédent. Entourer en bleu le sous-arbre droit. Entourer en vert le sous-arbre droit du sous-arbre gauche.</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 2 :**</H3>  Entourer en rouge le sous-arbre gauche de l'arbre précédent. Entourer en bleu le sous-arbre droit. Entourer en vert le sous-arbre droit du sous-arbre gauche.
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.014.png){width=30%; : .center }
 
-<H3 STYLE="COLOR:red;">**Activité n° 3 :**  **Arbres binaires :**  Quelle propriété ont les indices des fils gauches et droits ?</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 3 :**  **Arbres binaires :**</H3>  Quelle propriété ont les indices des fils gauches et droits ?
 
-<H3 STYLE="COLOR:red;">**Activité n° 4 :**  **Arbres binaires :**  Voici un tableau représentant un arbre binaire :</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 4 :**  **Arbres binaires :**</H3>  Voici un tableau représentant un arbre binaire :
 
 [’\*’,’-’,5,2,6,None,None,None,None,None,None,None,None,None,None] 
 
 Le dessiner. Que peut-il représenter ?
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc149141391"></a>**3.2. TAD d’un ARBRE BINAIRE : son interface**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141391"></a>**3.2. TAD d’un ARBRE BINAIRE : son interface**</H3>
 
 **Description de l'interface minimale du type abstrait Arbre :** Ici, il est décrit sous forme d'un type immutable, mais on pourrait faire la même chose en non-mutable.
 
@@ -148,17 +148,17 @@ Le dessiner. Que peut-il représenter ?
 1. ```gauche(arbre:Arbre) -> Arbre``` : renvoie le sous-arbre gauche de arbre. On obtient bien un Arbre. Si vous voulez le noeud gauche, il faudra appliquer en plus la fonction racine.
 1. ```droite(arbre:Arbre) -> Arbre``` : renvoie le sous-arbre droit de arbre.
 
-<H3 STYLE="COLOR:red;">**Activité n° 5 :**  **Arbres binaires et TAD :**  Créer l'arbre à l'aide de ces fonctions d'interface.</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 5 :**  **Arbres binaires et TAD :**</H3>  Créer l'arbre à l'aide de ces fonctions d'interface.
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.015.png){width=30%; : .center }
 
 On considère que le contenu est juste un string portant le nom du nœud. Ainsi le nœud A porte l'information "A".
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc149141392"></a>**3.3. Caractéristiques**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141392"></a>**3.3. Caractéristiques**</H3>
 
 **Taille d’un arbre** : la taille d’un arbre est égale au nombre de nœuds de l’arbre. On ne compte pas les arbres-vides : l'arbre-vide ne possède pas de nœud.
 
-<H3 STYLE="COLOR:red;">**Activité n° 6 :**  **Taille des arbres :**  Déterminer la taille de l’arbre.</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 6 :**  **Taille des arbres :**</H3>  Déterminer la taille de l’arbre.
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.017.png){width=30%; : .center }
 
@@ -196,19 +196,19 @@ Sur cet exemple, la hauteur de l'arbre est donc de 2.
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.020.png){width=30%; : .center }
 
-<H3 STYLE="COLOR:red;">**Activité n° 7 :**  **Arbres binaires et vocabulaire :**  Fournir la taille, la hauteur et le nombre d'arêtes de cet arbre. Fournir également la profondeur du nœud C.</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 7 :**  **Arbres binaires et vocabulaire :**</H3>  Fournir la taille, la hauteur et le nombre d'arêtes de cet arbre. Fournir également la profondeur du nœud C.
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.023.png){width=30%; : .center }
 
 On dit que cet arbre est **complet** car la plus grande profondeur est intégralement composée de feuilles.
 
-<H3 STYLE="COLOR:red;">**Activité n° 8 :**  **Arbres binaires et vocabulaire :**  Fournir la taille, la hauteur et le nombre d'arêtes de cet arbre. Fournir également la profondeur du nœud C.</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 8 :**  **Arbres binaires et vocabulaire :**</H3>  Fournir la taille, la hauteur et le nombre d'arêtes de cet arbre. Fournir également la profondeur du nœud C.
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.024.png){width=30%; : .center }
 
 On parle **d'arbre filiforme** ou **d'arbre dégénéré**.
 
-<H3 STYLE="COLOR:red;">**Activité n° 9 :**  **Arbres binaires et vocabulaire :**  Fournir la taille, la hauteur et le nombre d'arêtes de cet arbre. Fournir également la profondeur du nœud C.</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 9 :**  **Arbres binaires et vocabulaire :**</H3>  Fournir la taille, la hauteur et le nombre d'arêtes de cet arbre. Fournir également la profondeur du nœud C.
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.025.png){width=30%; : .center }
 
@@ -318,7 +318,7 @@ C'est normal : avec 15 nœuds, l'arbre serait complet dans le meilleur des cas. 
 
 <b>h + 1 ≤ n ≤ 2<sup>h+1</sup> - 1</b>
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc149141393"></a>**3.4. Implémentation simple à partir de liste**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141393"></a>**3.4. Implémentation simple à partir de liste**</H3>
 
 De manière plus surprenante, il existe une méthode pour implémenter un arbre binaire (qui est une structure hiérarchique) avec une liste (qui est une structure linéaire). Ceci peut se faire par le biais d'une astuce sur les indices :
 
@@ -334,17 +334,17 @@ Pour comprendre facilement la numérotation, il suffit de s'imaginer l'arbre com
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.033.png){width=40%; : .center }
 
-<H3 STYLE="COLOR:red;">**Activité n° 11 :**  **Arbres binaires et liste :**  Si on note Δ le sous-arbre vide, dessiner l'arbre représenté par la liste :</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 11 :**  **Arbres binaires et liste :**</H3>  Si on note Δ le sous-arbre vide, dessiner l'arbre représenté par la liste :
 
 a = [3, 4, Δ, 7, 5]
 
 **Remarque :** parfois (comme dans le sujet 0...) la racine de l'arbre est placée à l'indice 1. Dans ce cas, les fils du nœud d'indice i sont placés aux indices 2i et 2i+1.
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc149141394"></a>**3.5. ❤️1<sup>ère</sup> implémentation de la structure ARBRE BINAIRE sous forme de tuple❤️**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141394"></a>**3.5. ❤️1<sup>ère</sup> implémentation de la structure ARBRE BINAIRE sous forme de tuple❤️**</H3>
 
 **Sur Thonny : Toutes les fonctions de cette implémentation doivent être dans le même fichier python arbre_binaire_tuple.py**
 
-<H3 STYLE="COLOR:red;">**Activité n° 12 :**  **Arbres binaires et les fonctions :** implémenter cette structure</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 12 :**  **Arbres binaires et les fonctions :**</H3> implémenter cette structure
 
 ```python
 def arbreVide():
@@ -370,7 +370,7 @@ def estVide(arbre):
     pass
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 13 :**  **Arbres binaires et les fonctions:** Soit l'arbre binaire suivant :</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 13 :**  **Arbres binaires et les fonctions:**</H3> Soit l'arbre binaire suivant :
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.035.png){width=25%; : .center }
 
@@ -391,7 +391,7 @@ HAUTEUR(T) :
 
 La fonction max renvoie la plus grande valeur des 2 valeurs passées en paramètre (exemple : max(5,6) renvoie 6).
 
-<H3 STYLE="COLOR:red;">**Activité n° 14 :**  **Arbres binaires et les fonctions : fonction** hauteur** :** Implémenter l’algorithme de la fonction hauteur et tester le sur l’arbre précédent.</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 14 :**  **Arbres binaires et les fonctions : fonction** hauteur** :</H3>** Implémenter l’algorithme de la fonction hauteur et tester le sur l’arbre précédent.
 
 Voici l’algorithme correspondant à la fonction taille :
 ```
@@ -403,13 +403,13 @@ TAILLE(T) :
   fin si
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 15 :**  **Arbres binaires et les fonctions : fonction** taille** :** Implémenter l’algorithme de la fonction taille et tester le sur l’arbre précédent.</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 15 :**  **Arbres binaires et les fonctions : fonction** taille** :</H3>** Implémenter l’algorithme de la fonction taille et tester le sur l’arbre précédent.
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc149141395"></a>**3.6. ❤️2<sup>ème</sup> implémentation de la structure ARBRE BINAIRE avec la POO et une classe❤️**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141395"></a>**3.6. ❤️2<sup>ème</sup> implémentation de la structure ARBRE BINAIRE avec la POO et une classe❤️**</H3>
 
 **Sur Thonny : Toutes les fonctions de cette implémentation doivent être dans le même fichier python arbre_binaire_POO_v1.py**
 
-<H3 STYLE="COLOR:red;">**Activité n° 16 :**  **Arbres binaires et POO : Méthode de Huffman simplifiée :** Implémenter la structure ARBRE avec une seule classe :</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 16 :**  **Arbres binaires et POO : Méthode de Huffman simplifiée :**</H3> Implémenter la structure ARBRE avec une seule classe :
 
 ```python
 class Noeud:
@@ -422,7 +422,7 @@ class Noeud:
 
 **Question** : expliquer le rôle de chaque méthode de la classe Noeud.
 
-<H3 STYLE="COLOR:red;">**Activité n° 17 :**  **Arbres binaires et POO :** Soit l'arbre binaire suivant :</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 17 :**  **Arbres binaires et POO :**</H3> Soit l'arbre binaire suivant :
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.038.png){width=30%; : .center }
 
@@ -445,7 +445,7 @@ T.g = Noeud('B')
 ???
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 18 :**  **Arbres binaires et POO :** Il est possible d'afficher un arbre binaire dans la console Python, pour cela, nous allons utiliser **la fonction** affiche :</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 18 :**  **Arbres binaires et POO :**</H3> Il est possible d'afficher un arbre binaire dans la console Python, pour cela, nous allons utiliser **la fonction** affiche :
 
 ```python
 def affiche(arbre):
@@ -491,9 +491,9 @@ HAUTEUR(T) :
 
 La fonction max renvoie la plus grande valeur des 2 valeurs passées en paramètre (exemple : max(5,6) renvoie 6).
 
-<H3 STYLE="COLOR:red;">**Activité n° 19 :**  **Arbres binaires et POO : fonction** hauteur** :** Implémenter l’algorithme de la **fonction** hauteur et tester l’arbre précédent.</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 19 :**  **Arbres binaires et POO : fonction** hauteur** :</H3>** Implémenter l’algorithme de la **fonction** hauteur et tester l’arbre précédent.
 
-<H3 STYLE="COLOR:red;">**Activité n° 20 :**  **Arbres binaires et POO : méthode** hauteur** :** Implémenter l’algorithme de la **méthode** hauteur2 et tester l’arbre précédent.</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 20 :**  **Arbres binaires et POO : méthode** hauteur** :</H3>** Implémenter l’algorithme de la **méthode** hauteur2 et tester l’arbre précédent.
 
 Tester avec l’arbre T qui devrait avoir une hauteur de 5.
 
@@ -507,15 +507,15 @@ TAILLE(T) :
   fin si
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 21 :**  **Arbres binaires et POO : fonction** taille** :** Implémenter l’algorithme de la **fonction** taille et tester l’arbre précédent.</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 21 :**  **Arbres binaires et POO : fonction** taille** :</H3>** Implémenter l’algorithme de la **fonction** taille et tester l’arbre précédent.
 
-<H3 STYLE="COLOR:red;">**Activité n° 22 :**  **Arbres binaires et POO : méthode** taille** :** Implémenter l’algorithme de la **méthode** taille2 et tester l’arbre précédent.</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 22 :**  **Arbres binaires et POO : méthode** taille** :</H3>** Implémenter l’algorithme de la **méthode** taille2 et tester l’arbre précédent.
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc149141396"></a>**3.7. ❤️ 3<sup>ème</sup> implémentation de la structure ARBRE BINAIRE avec la POO avec 2 classes❤️**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141396"></a>**3.7. ❤️ 3<sup>ème</sup> implémentation de la structure ARBRE BINAIRE avec la POO avec 2 classes❤️**</H3>
 
 **Sur Thonny : Toutes les fonctions de cette implémentation doivent être dans le même fichier python arbre\_binaire\_POO\_v2.py**
 
-<H3 STYLE="COLOR:red;">**Activité n° 23 :**  **Arbres binaires et POO : Méthode de Huffman simplifiée :** Implémenter la structure ARBRE avec deux classes :</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 23 :**  **Arbres binaires et POO : Méthode de Huffman simplifiée :</H3>** Implémenter la structure ARBRE avec deux classes :
 
 ```python
 class Noeud:
@@ -541,7 +541,7 @@ class Arbre:
 
 On peut noter que pour faire l’appel d’un attribut d’une autre classe, par exemple valeur, il faut remonter au constructeur de la classe Arbre. Ainsi on notera self.noeud.valeur dans la classe Arbre.
 
-<H3 STYLE="COLOR:red;">**Activité n° 24 :**  **Arbres binaires et POO :** Soit l'arbre binaire suivant :</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 24 :**  **Arbres binaires et POO :</H3>** Soit l'arbre binaire suivant :
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.038.png){width=30%; : .center }
 
@@ -564,7 +564,7 @@ On pourra aussi tester avec l’arbre T.
 
 On note que les **constructeurs de la classe Nœud sont protégés** et que pour pouvoir y accéder on utilise un setter.
 
-<H3 STYLE="COLOR:red;">**Activité n° 25 :**  **Arbres binaires et POO :** Il est possible d'afficher un arbre binaire dans la console Python, pour cela, nous allons utiliser deux méthodes.</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 25 :**  **Arbres binaires et POO :</H3>** Il est possible d'afficher un arbre binaire dans la console Python, pour cela, nous allons utiliser deux méthodes.
 
 Ajouter la **méthode** suivante à la classe Nœud :
 ```python
@@ -593,9 +593,9 @@ HAUTEUR(T) :
 
 La fonction max renvoie la plus grande valeur des 2 valeurs passées en paramètre (exemple : max(5,6) renvoie 6).
 
-<H3 STYLE="COLOR:red;">**Activité n° 26 :**  **Arbres binaires et POO fonction hauteur :** Implémenter l’algorithme de la **fonction** hauteur et tester l’arbre précédent.</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 26 :**  **Arbres binaires et POO fonction hauteur :</H3>** Implémenter l’algorithme de la **fonction** hauteur et tester l’arbre précédent.
 
-<H3 STYLE="COLOR:red;">**Activité n° 27 :**  **Arbres binaires et POO méthode hauteur :** Implémenter l’algorithme de la **méthode** hauteur2 et tester l’arbre précédent.</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 27 :**  **Arbres binaires et POO méthode hauteur :</H3>** Implémenter l’algorithme de la **méthode** hauteur2 et tester l’arbre précédent.
 
 Voici l’algorithme correspondant à la fonction taille : 
 ```
@@ -607,11 +607,11 @@ TAILLE(T) :
   fin si
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 28 :**  **Arbres binaires et POO fonction taille :** Implémenter l’algorithme de la **fonction** taille et tester l’arbre précédent.</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 28 :**  **Arbres binaires et POO fonction taille :** Implémenter l’algorithme de la **fonction** taille et tester l’arbre précédent.</H3>
 
-<H3 STYLE="COLOR:red;">**Activité n° 29 :**  **Arbres binaires et POO méthode taille :** Implémenter l’algorithme de la **méthode** taille2 et tester l’arbre précédent.</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 29 :**  **Arbres binaires et POO méthode taille :</H3>** Implémenter l’algorithme de la **méthode** taille2 et tester l’arbre précédent.
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc149141397"></a>**3.8. Un autre code de représentation**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141397"></a>**3.8. Un autre code de représentation**</H3>
 
 On change de structure de représentation d'un arbre. On va utiliser un dictionnaire.
 
@@ -626,11 +626,11 @@ l'arbre déjà utilisé :
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.044.png){width=60%; : .center }
 
-<H2 STYLE="COLOR:BLUE;">## <a name="_toc149141398"></a>**4. Le parcours en profondeur des arbres binaires**</H2>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc149141398"></a>**4. Le parcours en profondeur des arbres binaires**</H2>
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc149141399"></a>**4.1. Les algorithmes**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141399"></a>**4.1. Les algorithmes**</H3>
 
-<H4 STYLE="COLOR:MAGENTA;">#### <a name="_toc149141400"></a>**4.1.1. Le parcours préfixe**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc149141400"></a>**4.1.1. Le parcours préfixe**</H4>
 
 **Ordre préfixe**
 
@@ -643,7 +643,7 @@ l'arbre déjà utilisé :
 3. Parcours branche droite 
 
 
-<H4 STYLE="COLOR:MAGENTA;">#### <a name="_toc149141401"></a>**4.1.2. Le parcours infixe**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc149141401"></a>**4.1.2. Le parcours infixe**</H4>
 
 **Ordre infixe**
 
@@ -655,7 +655,7 @@ l'arbre déjà utilisé :
 
 3. Parcours branche droite 
 
-<H4 STYLE="COLOR:MAGENTA;">#### <a name="_toc149141402"></a>**4.1.3. Le parcours suffixe ou postfixe**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc149141402"></a>**4.1.3. Le parcours suffixe ou postfixe**</H4>
 
 **Ordre suffixe**
 
@@ -667,11 +667,11 @@ l'arbre déjà utilisé :
 
 3. **Visite du nœud**
 
-<H3 STYLE="COLOR:red;">**Activité n° 30 : Arbre binaire et parcours en profondeur :** Donner les trois parcours des sommets de l’arbre.</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 30 : Arbre binaire et parcours en profondeur :</H3>** Donner les trois parcours des sommets de l’arbre.
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.049.png){width=80%; : .center }
 
-<H3 STYLE="COLOR:red;">**Activité n° 31 : Arbre binaire et parcours en profondeur :** Voici 3 algorithmes récursifs, dire pour chacun d’entre eux à quel parcours il correspond.</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 31 : Arbre binaire et parcours en profondeur :</H3>** Voici 3 algorithmes récursifs, dire pour chacun d’entre eux à quel parcours il correspond.
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.050.png){: .center }
 
@@ -679,11 +679,9 @@ l'arbre déjà utilisé :
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.052.png){: .center }
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc149141403"></a>**4.2. Implémentation des parcours en profondeur avec les tuples**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141403"></a>**4.2. Implémentation des parcours en profondeur avec les tuples**</H3>
 
-<H3 STYLE="COLOR:red;">**Activité n° 32 : Arbre
-
- binaire et parcours en profondeur :**</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 32 : Arbre binaire et parcours en profondeur :**</H3>
 
 Sur Thonny : Créer un fichier python  **arbre\_binaire\_tuple\_parcours.py**.
 
@@ -718,9 +716,9 @@ Implémenter le parcours infixe sous forme de fonction de telle sorte que l’on
 ```
 **Implémenter les autres parcours en profondeur**.
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc149141404"></a>**4.3. Implémentation des parcours en profondeur par les méthodes**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141404"></a>**4.3. Implémentation des parcours en profondeur par les méthodes**</H3>
 
-<H3 STYLE="COLOR:red;">**Activité n° 33 : Arbre binaire et parcours en profondeur :**</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 33 : Arbre binaire et parcours en profondeur :**</H3>
 
 Sur Thonny : Créer un fichier python **arbre\_binaire\_POO\_v1\_parcours.py**.
 
@@ -759,9 +757,9 @@ Implémenter le parcours infixe sous forme de méthode, puis les autres parcours
 
 Vérifier que l’on obtient bien les parcours de l’activité précédente.
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc149141405"></a>**4.4. Implémentation des parcours en profondeur par une fonction**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141405"></a>**4.4. Implémentation des parcours en profondeur par une fonction**</H3>
 
-<H3 STYLE="COLOR:red;">**Activité n° 34 : Arbre binaire et parcours en profondeur :**</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 34 : Arbre binaire et parcours en profondeur :**</H3>
 
 Sur Thonny : Créer un fichier python dans le même dossier que arbre\_binaire\_POO et le nommer **arbre\_binaire\_POO\_v2\_parcours.py**.
 
@@ -789,7 +787,7 @@ if __name__ == '__main__':
 ```
 Vérifier que l’on obtient bien les parcours de l’activité précédente.
 
-<H2 STYLE="COLOR:BLUE;">## <a name="_toc149141406"></a>**5. Parcours en largeur d’un arbre binaire**</H2>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc149141406"></a>**5. Parcours en largeur d’un arbre binaire**</H2>
 
 Le parcours d’un arbre en largeur consiste à partir de la racine, on visite ensuite son fils gauche puis son fils droit, puis le fils gauche du fils gauche etc… Comme le montre le schéma ci-dessous :
 
@@ -815,9 +813,9 @@ Voici **l’algorithme parcours en largeur**.
 
 **Remarque** : au lieu d’afficher tmp on peut l’ajouter à une liste vide et retourner la liste à la fin du script.
 
-<H3 STYLE="COLOR:red;">**Activité n° 35 : Arbre binaire et parcours en largeur :** Utiliser l’algorithme précédent pour vérifier que l’on obtient bien rabcdefhijkm.</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 35 : Arbre binaire et parcours en largeur :</H3>** Utiliser l’algorithme précédent pour vérifier que l’on obtient bien rabcdefhijkm.
 
-<H3 STYLE="COLOR:red;">**Activité n° 36 : Arbre binaire et parcours en largeur :**</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 36 : Arbre binaire et parcours en largeur :**</H3>
 
 Ajouter (sur Thonny : dans le fichier **arbre\_binaire\_tuple\_parcours.py**,), l’implémentation de ce parcours sous **forme de fonction.**
 
@@ -825,7 +823,7 @@ On implémentera la file par une liste.
 
 Vérifier que l’on obtient bien le résultat escompté.
 
-<H3 STYLE="COLOR:red;">**Activité n° 37 : Arbre binaire et parcours en largeur :**</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 37 : Arbre binaire et parcours en largeur :**</H3>
 
 Ajouter (sur Thonny dans le fichier **arbre\_binaire\_POO\_v1\_parcours.py**,), l’implémentation de ce parcours sous **forme de fonction**.
 
@@ -833,7 +831,7 @@ On implémentera la file par une liste.
 
 Vérifier que l’on obtient bien le résultat escompté.
 
-<H3 STYLE="COLOR:red;">**Activité n° 38 : Arbre binaire et parcours en largeur :**</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 38 : Arbre binaire et parcours en largeur :**</H3>
 
 Ajouter (sur Thonny dans le fichier **arbre\_binaire\_POO\_v2\_parcours.py**), l’implémentation de ce parcours sous **forme de fonction.**
 
@@ -841,7 +839,7 @@ On implémentera la file par une liste.
 
 Vérifier que l’on obtient bien le résultat escompté.
 
-<H2 STYLE="COLOR:BLUE;">## <a name="_toc149141407"></a>**6. Une application de l’arbre binaire : notation polonaise inversée**</H2>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc149141407"></a>**6. Une application de l’arbre binaire : notation polonaise inversée**</H2>
 
 L’usage d’une pile est naturel lors de l’évaluation post-fixée d’une expression algébrique. Le principe est le suivant : une expression algébrique, par exemple (1 + 2) × ( 3−4/( 5²)) peut être représentée avec un arbre dont les **nœuds sont les opérations** et **les feuilles les nombres**. 
 
@@ -877,7 +875,7 @@ La calculatrice affiche (et gère) en permanence une pile (le sommet est affich�
 
 Comme les calculatrices HP, nous allons utiliser une pile pour faire les calculs correspondant à la notation polonaise inversée à partir d’entrées stockées initialement dans un tableau.
 
-<H3 STYLE="COLOR:red;">**Activité n° 39 : Implémentation de la RPN en Python**</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 39 : Implémentation de la RPN en Python**</H3>
 
 Voici une implémentation possible de la RPN en python :
 ```python
@@ -909,10 +907,10 @@ def evalue_rpn(expr):
 
 Tester l’implémentation précédente avec [1, 2, '+', 3, 4, 5, 2, '\*\*', '/', '-', '\*'].
 
-<H2 STYLE="COLOR:BLUE;">## <a name="_toc149141408"></a>**7. Exercices**</H2>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc149141408"></a>**7. Exercices**</H2>
 
 
-<H3 STYLE="COLOR:red;">**Exercice n°1 : <a name="_hlk52886978"></a>Ordre préfixe**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°1 : <a name="_hlk52886978"></a>Ordre préfixe**</H3>
 
 On considère l’arbre suivant :
 
@@ -928,7 +926,7 @@ On parcourt cet arbre en profondeur avec un ordre préfixe.
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.061.png){: .center }
 
-<H3 STYLE="COLOR:red;">**Exercice n°2 : autre définition de hauteur**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°2 : autre définition de hauteur**</H3>
 
 On considère **l’arbre binaire complet** suivant :
 
@@ -940,7 +938,7 @@ Quel serait le tableau (liste de Python) associé à cet arbre et quelle en sera
 
 **Attention** : pas tableau de tableaux… !!
 
-<H3 STYLE="COLOR:red;">**Exercice n°3 : Dessiner des arbres**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°3 : Dessiner des arbres**</H3>
 
 Dessinez chacun des arbres ci-dessous. Donner pour chaque arbre, sa taille, sa hauteur et son nombre de feuilles. Δ représente l’arbre vide. On rappelle que la hauteur d’un arbre est définie comme la profondeur maximale des nœuds de l’arbre.
 
@@ -952,7 +950,7 @@ c.	(3, (6, Δ, (2, Δ, Δ)), (1, (5, Δ, Δ), (4, Δ, Δ)))
 
 d.	(4, (3, (6, ∆, ∆), (1, ∆, ∆)), (5, (7, ∆, ∆), (2, ∆, ∆)))
 
-<H3 STYLE="COLOR:red;">**Exercice n°4 : méthode d’Eytzinger**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°4 : méthode d’Eytzinger**</H3>
 
 La méthode d’Eytzinger consiste à stocker un arbre dans une liste unique dans laquelle le fils gauche d’un nœud i est rangé dans la case 2i+1 et son fils droit dans la case 2i+2.
 
@@ -962,7 +960,7 @@ La méthode d’Eytzinger consiste à stocker un arbre dans une liste unique dan
 
 2\.	Quelle liste représente cet arbre ?
 
-<H3 STYLE="COLOR:red;">**Exercice n°5 : encadrements**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°5 : encadrements**</H3>
 
 1\.	La hauteur d’un arbre binaire est égale à 4.
 
@@ -974,7 +972,7 @@ b.	Encadrer sa taille.
 
 3\.	Quelle peut être la hauteur d’un arbre binaire de taille 10 ? de taille 100 ? de taille t ?
 
-<H3 STYLE="COLOR:red;">**Exercice n°6 : parcours**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°6 : parcours**</H3>
 
 On affiche les sommets de l’arbre de l’exercice 5 en suivant un parcours en profondeur. Dans quel ordre vont-ils s’afficher :
 
@@ -984,11 +982,11 @@ b.	Avec un parcours préfixe ?
 
 c.	Avec un parcours suffixe ?
 
-<H3 STYLE="COLOR:red;">**Exercice n°7 : parcours infixe**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°7 : parcours infixe**</H3>
 
 Construire cinq arbres différents de taille 3, dont les nœuds contiennent les valeurs a, b, c pour lesquels le parcours infixe affiche à chaque fois a – b – c dans cet ordre.
 
-<H3 STYLE="COLOR:red;">**Exercice n°8 : compléter des arbres**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°8 : compléter des arbres**</H3>
 
 1. Recopier et compléter l’arbre ci-dessous pour que son parcours suffixe affiche dans l’ordre les lettres 
 
@@ -999,7 +997,7 @@ Construire cinq arbres différents de taille 3, dont les nœuds contiennent les 
 1. Construire de même un arbre dont le parcours infixe affiche G A U F F R E.
 1. Construire un arbre dont le parcours préfixe affiche É P E R V I E R.
 
-<H3 STYLE="COLOR:red;">**Exercice n°9 : le compte est bon**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°9 : le compte est bon**</H3>
 
 On utilise des arbres pour représenter des expressions arithmétiques, par exemple pour programmer un solveur du jeu « le compte est bon ».
 
@@ -1011,7 +1009,7 @@ Quel parcours renvoie un affichage de l’expression sous sa forme habituelle, e
 
 Les deux autres affichages correspondent à la notation polonaise et à la notation polonaise inversée. Ces notations permettent de représenter des expressions arithmétiques sans parenthèses.
 
-<H3 STYLE="COLOR:red;">**Exercice n°10 : arbre binaire :**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°10 : arbre binaire :**</H3>
 
 Commençons par étudier les arbres binaires, en utilisant une définition récursive : un arbre binaire est
 
@@ -1095,7 +1093,7 @@ t3.postfix\_traversal() == ['2', '4', '6', '1', '0', '5', '7', '3']
 t3.width\_traversal()   == ['3', '4', '7', '2', '6', '5', '1', '0']
 ```
 
-<H3 STYLE="COLOR:red;">**Exercice n°11 : Notation RPN :**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°11 : Notation RPN :**</H3>
 
 Le parcours en profondeur infixe permet de modéliser des expressions arithmétiques au prix de l’absence de parenthèses (voir cours).
 
