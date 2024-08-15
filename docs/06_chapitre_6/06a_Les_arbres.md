@@ -353,11 +353,11 @@ Cette méthode est connue sous le nom de «méthode d'Eytzinger», et utilisée 
 
 **Exemple :**
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.032.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.032.png){width=40%; : .center }
 
 Pour comprendre facilement la numérotation, il suffit de s'imaginer l'arbre complet (en rajoutant les fils vides) et de faire une numérotation en largeur, niveau par niveau :
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.033.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.033.png){width=40%; : .center }
 
 
 **Activité n° 11 :**  **Arbres binaires et liste :**  Si on note Δ le sous-arbre vide, dessiner l'arbre représenté par la liste :
@@ -402,7 +402,7 @@ def estVide(arbre):
 
 **Activité n° 13 :**  **Arbres binaires et les fonctions:** Soit l'arbre binaire suivant :
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.035.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.035.png){width=25%; : .center }
 
 On veut construire cet arbre à l'aide de l’implémentation précédente
 
@@ -436,7 +436,6 @@ TAILLE(T) :
 ```
 
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.037.png)
 
 **Activité n° 15 :**  **Arbres binaires et les fonctions : fonction** taille**:** Implémenter l’algorithme de la fonction taille et tester le sur l’arbre précédent
 
@@ -459,7 +458,7 @@ class Noeud:
 
 **Activité n° 17 :**  **Arbres binaires et POO :** Soit l'arbre binaire suivant : 
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.038.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.038.png){width=30%; : .center }
 
 On veut construire cet arbre à l'aide de la classe Nœud précédente
 
@@ -472,7 +471,8 @@ arbre = Noeud('A', B, C)
 ```
 
 On implantera aussi l’arbre T 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.039.png)
+
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.039.png){width=30%; : .center }
 ```python
 T = Noeud('A')
 T.g = Noeud('B') 
@@ -576,12 +576,12 @@ On peut noter que pour faire l’appel d’un attribut d’une autre classe, par
 
 **Activité n° 24 :**  **Arbres binaires et POO :** Soit l'arbre binaire suivant :
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.038.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.038.png){width=30%; : .center }
 
 On veut construire cet arbre à l'aide de la classe Arbre
 Le problème est que les attributs g et d ne font plus partie de cette classe et on ne peut plus y accéder. Il faut donc rajouter une méthode qui sera un mutateur (setter)
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.039.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.039.png){width=30%; : .center }
 
 Ajouter la méthode de la classe Arbre suivante :
 ```python
@@ -660,7 +660,7 @@ A = { 'r' : ['a','b'], 'a' : ['c','d'], 'b' : ['e','f'],\
 
 l'arbre déjà utilisé :
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.044.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.044.png){width=60%; : .center }
 
 
 
@@ -670,7 +670,7 @@ l'arbre déjà utilisé :
 
 **Ordre préfixe**
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.046.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.046.png){width=30%; : .center }
 
 1. **Visite du nœud**
 
@@ -683,7 +683,7 @@ l'arbre déjà utilisé :
 
 **Ordre infixe**
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.047.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.047.png){width=30%; : .center }
 
 1. Parcours branche gauche 
 
@@ -695,7 +695,7 @@ l'arbre déjà utilisé :
 
 **Ordre suffixe**
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.048.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.048.png){width=30%; : .center }
 
 1. Parcours branche gauche
 
