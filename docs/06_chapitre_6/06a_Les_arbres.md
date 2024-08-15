@@ -426,6 +426,65 @@ L’arbre précédent une hauteur h = 3. Donc la taille du tableau sera de : 23+
 |- Hauteur h = 4 : La taille: n =|
 |Quelle fonction mathématique permettrait de trouver la hauteur h connaissant la taille n de l'arbre complet ?|
 
+???+ question "Activité n° 10 : Arbres binaires et vocabulaire :"
+
+    |Calculer la taille d'un Arbre Complet dont on vous donne la hauteur:|
+    |-|
+    |**Si on considère une profondeur de 1 pour la racine :**|
+    |- Hauteur h = 1 : Taille n = 1|
+    |- Hauteur h = 2 : Taille : n = 1 + 2 = 3|
+    |- Hauteur h = 3 : La taille : n = 1 + 2 + ...|
+    |- Hauteur h = 4 : La taille : n =|
+    |- Hauteur h = 5 : La taille: n =|
+    |Quelle fonction mathématique permettrait de trouver la hauteur h connaissant la taille n de l'arbre complet ?|
+    ||
+    |**Si on considère une profondeur de 0 pour la racine :**|
+    |- Hauteur h = 0 : Taille n = 1|
+    |- Hauteur h = 1 : Taille : n = 1 + 2 = 3|
+    |- Hauteur h = 2 : La taille : n = 1 + 2 + ...|
+    |- Hauteur h = 3 : La taille : n =|
+    |- Hauteur h = 4 : La taille: n =|
+    |Quelle fonction mathématique permettrait de trouver la hauteur h connaissant la taille n de l'arbre complet ?|
+
+
+    ??? success "Solution"
+
+        #### 1. Profondeur de 1 pour la racine
+        Si on considère que la racine est à une profondeur de 1, alors la taille `n` d'un arbre binaire complet de hauteur `h` peut être calculée de la manière suivante :
+
+        - **Hauteur h = 1 :** Taille `n = 1`
+        - **Hauteur h = 2 :** Taille `n = 1 + 2 = 3`
+        - **Hauteur h = 3 :** Taille `n = 1 + 2 + 4 = 7`
+        - **Hauteur h = 4 :** Taille `n = 1 + 2 + 4 + 8 = 15`
+        - **Hauteur h = 5 :** Taille `n = 1 + 2 + 4 + 8 + 16 = 31`
+
+        **Formule générale :**  
+        Pour une hauteur `h`, la taille d'un arbre binaire complet est donnée par la somme des puissances de 2 :
+        $\[ n = 2^0 + 2^1 + 2^2 + \dots + 2^{h-1} = 2^h - 1 \]$
+
+        **Pour trouver la hauteur `h` connaissant la taille `n` :**  
+        On peut inverser la formule pour obtenir :
+        $\[ h = \log_2(n + 1) \]$
+
+        #### 2. Profondeur de 0 pour la racine
+
+        Si on considère que la racine est à une profondeur de 0, alors la taille `n` d'un arbre binaire complet de hauteur `h` peut être calculée de la manière suivante :
+
+        - **Hauteur h = 0 :** Taille `n = 1`
+        - **Hauteur h = 1 :** Taille `n = 1 + 2 = 3`
+        - **Hauteur h = 2 :** Taille `n = 1 + 2 + 4 = 7`
+        - **Hauteur h = 3 :** Taille `n = 1 + 2 + 4 + 8 = 15`
+        - **Hauteur h = 4 :** Taille `n = 1 + 2 + 4 + 8 + 16 = 31`
+
+        **Formule générale :**  
+        Pour une hauteur `h`, la taille d'un arbre binaire complet est donnée par :
+        $\[ n = 2^0 + 2^1 + 2^2 + \dots + 2^h = 2^{h+1} - 1 \]$
+
+        **Pour trouver la hauteur `h` connaissant la taille `n` :**  
+        On peut inverser la formule pour obtenir :
+        $\[ h = \log_2(n + 1) - 1 \]$
+
+
 **Encadrements de la hauteur d'un Arbre Binaire**
 Les deux cas extrêmes étant :
 
