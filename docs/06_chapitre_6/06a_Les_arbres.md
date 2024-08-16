@@ -1166,6 +1166,10 @@ def evalue_rpn(expr):
 
 Tester l’implémentation précédente avec [1, 2, '+', 3, 4, 5, 2, '\*\*', '/', '-', '\*'].
 
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
+
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc149141408"></a>**7. Exercices**</H2>
 
 
