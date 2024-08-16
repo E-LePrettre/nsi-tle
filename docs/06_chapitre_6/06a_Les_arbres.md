@@ -742,7 +742,6 @@ TAILLE(T) :
 
 **<H3 STYLE="COLOR:red;">Activité n° 22 :**  **Arbres binaires et POO : méthode** taille** :</H3>** Implémenter l’algorithme de la **méthode** taille2 et tester l’arbre précédent.
 
-################=> 
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141396"></a>**3.7. ❤️ 3<sup>ème</sup> implémentation de la structure ARBRE BINAIRE avec la POO avec 2 classes❤️**</H3>
 
@@ -902,17 +901,36 @@ l'arbre déjà utilisé :
 
 3. **Visite du nœud**
 
-**<H3 STYLE="COLOR:red;">Activité n° 30 : Arbre binaire et parcours en profondeur :</H3>** Donner les trois parcours des sommets de l’arbre.
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.049.png){width=80%; : .center }
 
-**<H3 STYLE="COLOR:red;">Activité n° 31 : Arbre binaire et parcours en profondeur :</H3>** Voici 3 algorithmes récursifs, dire pour chacun d’entre eux à quel parcours il correspond.
+???+ question "Activité n° 30 :Arbre binaire et parcours en profondeur"
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.050.png){: .center }
+    Donner les trois parcours des sommets de l’arbre.
+    ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.049.png){width=80%; : .center }
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.051.png){: .center }
+    ??? success "Solution"
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.052.png){: .center }
+        1. Parcours en préfixe (préordre)
+        Ordre de visite : r, a, c, h, d, i, j, l, b, e, k, f
+        2. Parcours en infixe (in-ordre)
+        Ordre de visite : h, c, a, i, d, l, j, r, k, e, b, f
+        3. Parcours en suffixe (postordre)
+        Ordre de visite : h, c, i, l, j, d, a, k, e, f, b, r
+
+
+
+???+ question "Activité n° 31 :Arbre binaire et parcours en profondeur"
+
+    Voici 3 algorithmes récursifs, dire pour chacun d’entre eux à quel parcours il correspond.
+    ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.050.png){: .center }
+    ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.051.png){: .center }
+    ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.052.png){: .center }
+
+    ??? success "Solution"
+
+        Premier algorithme : Parcours en suffixe (postordre)
+        Deuxième algorithme : Parcours en préfixe (préordre)
+        Troisième algorithme : Parcours en infixe (in-ordre)
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141403"></a>**4.2. Implémentation des parcours en profondeur avec les tuples**</H3>
 
