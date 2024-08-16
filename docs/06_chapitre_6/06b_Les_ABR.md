@@ -1,561 +1,812 @@
 ﻿---
 author: ELP
-title: 06b Algorithmes de tri
+title: 06b Arbre binaire de recherche
 ---
 
 
-**Table des matières** 
+**Table des matières**
 
-1. [Créer une liste de données aléatoire](#_page0_x40.00_y438.92)
-2. [Le tri par sélection](#_page1_x40.00_y54.92)
-3. [Tri par insertion](#_page4_x40.00_y702.92)
-4. [Autres algorithmes de tris : le tri à bulles (Bubble sort) ](#_page8_x40.00_y36.92)
-5. [Exercices ](#_page9_x40.00_y511.92)
+[1.	Introduction	](#_toc149153662)
 
-<H2 STYLE="COLOR:BLUE;">Introduction : Qu’est-ce que trier ? Pourquoi trier ? </h2>
+[2.	Définition	](#_toc149153663)
 
-## <H2 STYLE="COLOR:BLUE;">1. Créer<a name="_page0_x40.00_y438.92"></a> une liste de données aléatoire</H2>
+[3.	Est-ce performant ?	](#_toc149153664)
 
-**Ce premier script sera nécessaire dans tous les algorithmes de tri.**
+[4.	Exemples	](#_toc149153665)
 
-**<H3 STYLE="COLOR:red;">Activité n°1.:** Commencer par créer des données de façon aléatoire grâce au module random afin de pouvoir les classer.</H3>
+[5.	Les algorithmes et les implémentations en Python	](#_toc149153666)
 
-```python
-import random
-def genere_liste_aleatoire(N, n):
-    """Génére une liste aléatoire de N éléments compris entre 0 et n"""
-    return [random.randrange(n) for i in range(N)]
+[6.	Exercices	](#_toc149153671)
 
-# Création d'une liste de 50 valeurs comprises entre 0 et 100
-liste_aleatoire = genere_liste_aleatoire(50, 100)
-print(liste_aleatoire)
-```
-???+ question "Faire ce qui est proposé"
+[7.	Projet	](#_toc149153672)
 
-    {{ IDE() }}
 
-## <H2 STYLE="COLOR:BLUE;">2. Le<a name="_page1_x40.00_y54.92"></a> tri par sélection :</H2>
-### <H3 STYLE="COLOR:GREEN;">2.1. Le<a name="_page1_x40.00_y76.92"></a> principe</H3>
+**Compétences évaluables :**
 
-Sur un tableau de N éléments (numérotés de 0 à N), le principe du tri par sélection est le suivant : 
+- Rechercher une clé dans un arbre de recherche, insérer une clé
 
-- **Rechercher le plus petit élément** du tableau, et l'échanger avec l'élément d'indice 0 ; 
-- **Rechercher le second plus petit élément** du tableau, et l'échanger avec l'élément d'indice 1 ; 
-- Continuer de cette façon jusqu'à ce que le tableau soit entièrement trié.
+1. # <a name="_toc149153662"></a>**Introduction**
+Le parcours infixe des arbres suivants :
 
-### <H3 STYLE="COLOR:GREEN;">2.2. Illustration<a name="_page1_x40.00_y201.92"></a> graphique</H3>
+![](Aspose.Words.6e55a686-622e-41c3-8254-4f896d64da0f.001.png)
 
-![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.010.png)
+Le premier donne des valeurs non ordonnées alors que le selon donne des valeurs ordonnées. Or c’est bien plus pratique d’avoir des données ordonnées car on aura des **algorithmes plus performants.** 
 
-Exemple : Soit la suite de nombres suivante : 6, 1, 9, 3. Trions cette suite avec l’algorithme du tri par  sélection dans l’ordre croissant :  
+C’est précisément ce type d’arbre que l’on va appeler un **arbre binaire de recherche**
+1. # <a name="_toc149153663"></a>**Définition**
+Un arbre binaire de recherche (ABR) (en anglais, Binary Search Tree ou BST) est une structure de donnée composée de nœuds. Chaque nœud a au plus 2 enfants ordonnés d’une manière particulière : 
 
-*1er tour* : 6, **1**, 9, 3 -> le plus petit élément du tableau est 1, on le place donc sur la première case (en  l'échangeant avec le 6).  
+- les enfants à gauche d’un nœud ont **des valeurs inférieures** à lui.
+- les enfants à droite d’un nœud ont **des valeurs supérieures** à lui. Et cela doit être vrai pour chaque nœud de l’arbre.
+![](Aspose.Words.6e55a686-622e-41c3-8254-4f896d64da0f.002.png)
 
-*2ème tour* : 1, 6, 9, **3** -> le deuxième plus petit élément est 3, on le place sur la deuxième case et on  l’échange avec le 6.  
+Le **premier élément** inséré dans l'arbre devient **la racine**. Ensuite, il suffit de mettre **à gauche les éléments plus petits** et **à droite les éléments plus grands**. 
+1. # <a name="_toc149153664"></a>**Est-ce performant ?**
+On va le voir cela permet très efficacement d’avoir les opérations désirées pour manipuler un dictionnaire
 
-*3ème tour* : 1, 3, 9, **6** -> le troisième plus petit élément est 6, on l’échange avec 9 pour le placer sur la  troisième case.  
+La fonction principale est **la fonction de recherche** : on veut savoir si la clé 9 est dans l’ABR
 
-*4ème tour* : 1, 3, 6, **9** -> le quatrième plus petit élément du tableau est 9, il est déjà en quatrième  position on ne fait rien.  
+![](Aspose.Words.6e55a686-622e-41c3-8254-4f896d64da0f.003.png)		![](Aspose.Words.6e55a686-622e-41c3-8254-4f896d64da0f.004.png)
 
-Ce tri se décompose réellement en deux étapes distinctes : À chaque tour, on cherche le minimum dans  l'espace non trié du tableau (le minimum est représenté en bleu, et la partie non triée en blanc), ensuite on déplace cet élément à sa place définitive (représentée en vert). En faisant cela pour chaque élément du tableau, ce dernier se retrouve trié au bout de N tours maximum (N étant la taille du tableau). 
+On a trouvé
 
-### <H3 STYLE="COLOR:GREEN;">2.3. Illustration<a name="_page1_x40.00_y434.92"></a> en vidéo</H3>
+Si on recherche la clé 3
 
-Vidéo :[ https://ladigitale.dev/digiview/#/v/668aea84a26ef ](https://ladigitale.dev/digiview/#/v/668aea84a26ef) 
+![](Aspose.Words.6e55a686-622e-41c3-8254-4f896d64da0f.005.png)                          ![](Aspose.Words.6e55a686-622e-41c3-8254-4f896d64da0f.006.png)
 
-Attention : les danseurs s’échangent (si nécessaire) à chaque fois alors que le vrai algorithme ne procède à l’échange qu’à la fin de chaque tour  
+Et là il n’y a rien donc 3 n’est pas présent dans l’ABR
 
-### <H3 STYLE="COLOR:GREEN;">2.4. Pseudo-code<a name="_page1_x40.00_y485.92"></a></H3>
+C'est cette particularité qui rend les BST intéressants : la plupart des opérations réalisées sur les arbres binaires de recherche ont une complexité temporelle logarithmique **O(log n)** dans le cas moyen.
+![](Aspose.Words.6e55a686-622e-41c3-8254-4f896d64da0f.007.png)
 
-```
-ALGORITHME tri_selection
-    PROCEDURE echange (T, i, j)      # on échange la valeur de T[i] avec celle de T[j]
-        tmp <- T[i]                 # variable temporaire pour stocker
-        T[i] <- T[j]
-        T[j] <- tmp
+Cela est dû au fait que, grâce à la relation d'ordre liant les valeurs, on peut naviguer dans l'arbre **avec** **une logique rappelant une recherche dichotomique**, ce qui est **plus performant** que les listes, par exemple, que l'on doit parcourir élément par élément.
 
-    PROCEDURE tri_sélection (T)
-        POUR i ALLANT DE 1 A N [SAUT DE 1] FAIRE    # parcours 
-            mini <- i                                # on stocke l'indice du premier terme
-            POUR j ALLANT DE i+1 A N [SAUT DE 1]    # parcours
-                SI T[j] < T[mini] ALORS         	# si la valeur stockée n'est pas la plus petite
-                    mini <- j                       
-                FIN SI
-                j <- j + 1
-            FIN POUR
-            SI mini =! i ALORS        		  	# condition non nécessaire!
-                echange(T, i, mini)            	# on appelle la procédure d'échange
-            FIN SI
-            i <- i + 1
-        FIN POUR    
-```
+1. # <a name="_toc149153665"></a>**Exemples**
+**Exemple** : Ainsi la séquence {8 3 10 1 6 14 4 7 13} peut-être traduite sous la forme de l’arbre binaire de recherche suivant :
 
-### <H3 STYLE="COLOR:GREEN;">2.5. Complexité<a name="_page2_x40.00_y36.92"></a></H3>
+![](Aspose.Words.6e55a686-622e-41c3-8254-4f896d64da0f.008.png)
 
-Le tri par sélection a une complexité en O(N²) : Calculons le nombre d’itérations 
+|<p>**Activité n° AUTONUM  \* Arabic :**  **Séquence dans un arbre binaire de recherche :** Quelle est la séquence associée à l’arbre binaire de recherche ci-dessous ?</p><p>![](Aspose.Words.6e55a686-622e-41c3-8254-4f896d64da0f.009.png)</p>|
+| - |
 
-```
-                            PROCEDURE echange (T, i, j)
-1                               tmp <- T[i]                                 	
-1                               T[i] <- T[j]				
-1                               T[j] <- tmp	
-			
-                            PROCEDURE tri_sélection (T)
-N fois                          POUR i ALLANT DE 1 A N [SAUT DE 1] FAIRE  
-    1                               mini <- i                                		
-    N-1 fois                        POUR j ALLANT DE i+1 A N [SAUT DE 1]                         
-        1                               SI T[j] < T[mini] ALORS              			
-        1 (pire cas)                        mini <- j     					               
-                                        FIN SI
-        1+1 pour le calcul              j <- j + 1				
-                                    FIN POUR
-    N-1 (pire cas)                  SI mini =! i FAIRE                       		
-                                        echange(T, i, mini)           
-                                    FIN SI
-    1+1 pour le calcul              i <- i + 1					
-                                FIN POUR    
-```
+|<p>**Activité n° AUTONUM  \* Arabic :**  **Reconnaitre un arbre binaire de recherche** </p><p>![](Aspose.Words.6e55a686-622e-41c3-8254-4f896d64da0f.010.png)</p>|
+| - |
 
-Procédure d’échange 3 opérations pour chaque échange 
+|**Activité n° AUTONUM  \* Arabic :**  **Construire un arbre binaire de recherche** Un vétérinaire voudrait stocker les fiches médicales de ses patients, et, plutôt que d'utiliser un tableau ou une liste, on se propose d'utiliser un arbre binaire. La fiche contiendra différentes informations sur l'animal ; on utilisera son nom comme clé (c'est-à-dire comme critère pour la relation d'ordre), que l'on triera selon l'ordre alphabétique croissant. Le vétérinaire reçoit sa première patiente, qui répond au nom de Gaufrette. Comme sa fiche sera le premier nœud de notre arbre, elle en devient automatiquement la racine. Puis le vétérinaire reçoit les animaux dans l’ordre suivant afin de les soigner : Charlie, Médor, Flipper, Bubulle et Augustin|
+| :- |
 
-Procédure tri\_sélection : 
+|**Activité n° AUTONUM  \* Arabic :**  **Construire un arbre binaire de recherche** Imaginons que la séquence soit maintenant la suivante : {Gaufrette, Charlie, Médor, Flipper, Augustin, Bubulle}, c’est-à-dire que Augustin soit arrivé au rendez-vous médical avant Bubulle. L’arbre binaire de recherche est-il encore le même ? Quelle conclusion peut-on en tirer ?|
+| - |
 
-- Boucle « POUR j ALLANT DE i+1 A N» : (N-1) x 4 
-- Si min =! i FAIRE echange (T, T[i], T[min]) : (N-1) x 3       
-- Boucle « POUR i ALLANT DE 1 A N» : N x (1 + (N-1) x 4 + (N-1) x 3 +2)  
+La valeur la plus à **gauche** correspond au **minimum** de l’ABR. Et la valeur la plus à **droite** correspond au **maximum** de l’ABR.
 
-Donc le nombre d’itérations dans le pire des cas : N x (3+4N-4+3N-3) = N x (7N – 4) = 7 N² -4 N 
+![](Aspose.Words.6e55a686-622e-41c3-8254-4f896d64da0f.011.png)
+1. # <a name="_toc149153666"></a>**Les algorithmes et les implémentations en Python**
+   1. <a name="_toc149153667"></a>**Créer un ABR** 
 
-*Pour aller plus loin : De la même manière en ne s’intéressant qu’aux boucle, dans le pire des cas, chaque élément est inséré au début de la partie trié. Dans ce cas, tous les éléments de la partie triée doivent être déplacés à chaque itération. La ième itération génère (i-1) comparaisons et échanges de valeurs :* 
+Un ABR est composé de **nœuds.** Chaque nœud contient obligatoirement une **valeur et optionnellement un parent et 2 enfants (un à droite et un à gauche)** :
 
-![](Aimg7.png)
+|<p>**Activité n° AUTONUM  \* Arabic : Création d’un ABR** : Implémenter ce script dans un fichier que l’on nommera ABR</p><p>class Node:<br><br>`    `def \_\_init\_\_(self, value, left=None, right=None):<br>`        `pass<br><br>`    `def \_\_str\_\_(self):<br>`        `pass</p><p><br>`    `def estFeuille(self):<br>`        `pass</p>|
+| :- |
 
-**Conclusion** : Le **tri par sélection** est donc un algorithme assez simple, mais peu efficace à cause de sa complexité en **O(N²) dans le meilleur des cas ou dans le pire des cas.**  
+1. <a name="_toc149153668"></a>**❤️Insérer dans un ABR ❤️**
 
-On parle aussi de **complexité quadratique.** 
+**Algorithme :**
 
-Le tri par sélection sert de base à d'autres algorithmes plus efficaces que nous étudierons plus tard. C’est un tri instable et en place (travail sur la structure et non sur une copie).
+- Si l'arbre est vide, on renvoie un nouvel objet Arbre contenant la clé.
+- Sinon, on compare la clé à la valeur du nœud sur lequel on est positionné :
+- Si la clé est inférieure à cette valeur, on va modifier le sous-arbre gauche en le faisant pointer vers ce même sous-arbre une fois que la clé y aura été injecté, par un appel récursif.
+- Si la clé est supérieure, on fait la même chose avec l'arbre de droite.
+- on renvoie le nouvel arbre ainsi créé.
 
-### <H3 STYLE="COLOR:GREEN;">2.6. Stabilité<a name="_page2_x40.00_y632.92"></a> d’un algorithme</H3>
 
-On dit qu'un algorithme de tri est **stable** s'il ne modifie pas l'ordre initial des clés identiques. 
+![](Aspose.Words.6e55a686-622e-41c3-8254-4f896d64da0f.012.png)
 
-Par exemple, imaginez que vous vouliez trier la collection de bouteilles ci-dessous par ordre de volume (le volume est indiqué sous la bouteille) : 
+|**Activité n° AUTONUM  \* Arabic : Insertion dans un ABR** Créer la **fonction** inserer(T, data)qui répond à l’algorithme précédent|
+| :- |
 
-![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.016.png)
+|**Activité n° AUTONUM  \* Arabic : Insertion dans un ABR** Créer la **méthode** insert(self, data) à la classe Node |
+| :- |
 
+La fonction inserer et la méthode insert sont équivalent car elles permettent de construire l’ABR.
 
-Si vous obtenez ceci, alors votre tri n'était **pas stable** : 
+|<p>**Activité n° AUTONUM  \* Arabic : Représentation graphique de l’arbre** importer le fichier graphicarbre.py au script précédent pour visualiser l’arbre binaire de recherche </p><p>from graphicarbre import \*</p>|
+| - |
 
-![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.017.png)
+|<p>**Activité n° AUTONUM  \* Arabic : Représentation graphique de l’arbre** Tester le programme précédent avec </p><p>if \_\_name\_\_ == '\_\_main\_\_':<br>`    `# avec la méthode<br>`    `abr = Node(6)<br>`    `abr.insert(8)<br>`    `abr.insert(3)<br>`    `abr.insert(1)<br>`    `abr.insert(4)<br>`    `abr.insert(9)<br>`    `abr.insert(2)<br>`    `abr.insert(7)<br>`    `abr.insert(5)<br>`    `graphicarbre(abr)<br><br>`    `# avec la fonction<br>`    `T = Node(6)<br>`    `inserer(T, 8)<br>`    `inserer(T, 3)<br>`    `inserer(T, 1)<br>`    `inserer(T, 4)<br>`    `inserer(T, 9)<br>`    `inserer(T, 2)<br>`    `inserer(T, 7)<br>`    `inserer(T, 5)<br>`    `graphicarbre(T)</p>|
+| - |
 
-En effet, la bouteille noire de volume *1* se trouve maintenant avant la bouteille bleue de même volume alors qu'elle devrait être après. Il en est de même pour les deux bouteilles de volume *4* qui sont inversées par rapport à l'ordre initial. 
+**Remarque** : on peut faire une boucle sur une liste pour éviter de recopier le code
 
-Avec un **tri stable**, on aurait obtenu : 
+1. <a name="_toc149153669"></a>**❤️Recherche d’une clé dans un ABR❤️**
+- Pour rechercher une clé donnée dans l’arbre binaire de recherche, nous la comparons d’abord avec la racine, si la clé est présente à racine nous retournons racine. 
+- Si la clé est **supérieu**re à la clé de la racine, on recommence pour le **sous-arbre droit du nœud racine.** 
+- **Sinon le sous-arbre gauche**
 
-![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.018.png)
+![](Aspose.Words.6e55a686-622e-41c3-8254-4f896d64da0f.013.png)
 
-L'intérêt d'un tri stable est **qu'on peut appliquer ce tri successivement, avec des critères différents.**  
+|<p>**Activité n° AUTONUM  \* Arabic : Recherche dans un ABR** : Créer une **fonction** rechercher(T, cle) qui répond à l’algorithme précédent mettre la représentation graphique en commentaire</p><p>Tester la avec la valeur 7 et la valeur 188.</p>|
+| :- |
 
-### <H3 STYLE="COLOR:GREEN;">2.7. Preuve<a name="_page3_x40.00_y297.92"></a> de correction</H3>
+|<p>**Activité n° AUTONUM  \* Arabic : Recherche dans un ABR** : Créer une **méthode** search à la classe Node mettre la représentation graphique en commentaire</p><p>Tester la avec la valeur 7 et la valeur 188.</p>|
+| - |
 
-#### <H4 STYLE="COLOR:MAGENTA;">2.7.1.	Correction</H4>
-Pour prouver la correction de cet algorithme, nous définissons un **invariant de boucle** qui doit être vrai avant et après chaque itération de la boucle externe for. L’invariant est le suivant :
+1. <a name="_toc149153670"></a>**Parcours infixe**
 
-Invariant de boucle : À chaque début de l’itération de l’indice i de la boucle externe, les éléments T[0] à T[i-1] sont triés et sont les i plus petits éléments du tableau original.
+|<p>**Activité n° AUTONUM  \* Arabic**** : parcours infixe : Créer une fonction parcours\_infixe(T) </p><p>Tester la sur les 2 arbres. Que remarquez vous ?</p>|
+| - |
 
-1 **Initialisation** : Avant la première itération de la boucle externe (i = 0), il n’y a pas d’éléments dans la partie triée, donc l’invariant est trivialement vrai.
 
-2 **Maintien** : Supposons que l’invariant est vrai au début de l’itération pour un certain i. Nous devons montrer qu’il reste vrai après la fin de cette itération.
+1. # <a name="_toc149153671"></a>**Exercices**
+**Exercice n° 01 : Implémentation de quelques méthodes dans un ABR**
 
-- Pendant l’itération, l’algorithme trouve l’index du plus petit élément dans la sous-liste T[i] à T[n-1] et le place en T[i] par un échange, avec n = len(T)
+Utiliser la classe Node du cours pour implémenter les méthodes suivantes.
 
-- Après cet échange, T[i] est le i-ème plus petit élément du tableau original, et les éléments T[0] à T[i] sont triés et sont les i+1 plus petits éléments du tableau original.
+1. Créer un fichier ABR\_complet
+1. Recopier ou importer le fichier ABR
+1. D’après les propriétés de l’arbre, le nœud ayant la plus petite valeur se trouve forcément le plus à gauche. Implémenter une méthode qui donnera le min de l’ABR
+1. Pour rechercher le maximum, c’est la logique inverse de la recherche du minimum, on descend le plus à droite possible. Implémenter une méthode qui donnera le maximum de l’ABR
+1. Implémenter la méthode ou la fonction donnant la hauteur de l’ABR (convention 1 pour la racine)
+1. Implémenter la méthode ou la fonction donnant le parcours en largeur de l’ABR
+1. Implémenter la méthode ou la fonction donnant la taille de l’ABR
 
-- Ainsi, à la fin de l’itération, les éléments T[0] à T[i] sont triés et sont les i+1 plus petits éléments du tableau original, ce qui montre que l’invariant est maintenu.
+**Exercice n° 02 : Trier une liste en utilisant un ABR**
 
-3 **Terminaison** : La boucle se termine lorsque i atteint n. À ce moment-là, i = n, donc tous les éléments T[0] à T[n-1] sont triés. L’invariant garantit que ces éléments sont les plus petits éléments du tableau original et qu’ils sont triés.
+1. Créer un fichier tri\_liste\_ABR
+1. Créer une liste de 10 entiers aléatoires distincts, puis générer un ABR dont les clés sont ces entiers. 
+1. Utiliser le fichier graphicarbre pour l’afficher. 
+1. Quel parcours permet d’afficher ces nombres dans l’ordre croissant ? 
+1. Écrire une fonction nom\_du\_parcours(abr, lst\_triee) prenant en argument un ABR et une liste vide, et ajoutant les clés de l’ABR à la liste dans l’ordre. 
+1. Écrire la fonction <a name="_hlk70628405"></a>tri\_abr(lst) renvoyant une copie triée de la liste lst en utilisant un ABR.
 
-En utilisant cet invariant de boucle, nous avons prouvé que l’algorithme de tri par sélection est **correct**. L’invariant de boucle nous permet de démontrer que l’algorithme maintient la partie triée du tableau correctement à chaque itération et qu’il termine avec l’ensemble du tableau trié.
+![](Aspose.Words.6e55a686-622e-41c3-8254-4f896d64da0f.014.jpeg)
+1. # <a name="_toc149153672"></a>**Projet** 
+![](Aspose.Words.6e55a686-622e-41c3-8254-4f896d64da0f.015.png)**Exercice n° 01 : arbre binaire de recherche ABR**
 
-#### <H4 STYLE="COLOR:MAGENTA;">2.7.2.	Terminaison</H4>
-Pour prouver la terminaison de l'algorithme de tri par sélection, nous devons utiliser un **variant de boucle** pour montrer que la boucle externe et la boucle interne de l'algorithme se terminent après un nombre fini d'itérations.
+1. **Insertion**
 
-- Variant de Boucle pour la Boucle Externe : Pour la boucle externe for de l'algorithme de tri par sélection, le variant de boucle est simplement l'indice i qui va de 0 à n-1. La boucle externe se termine lorsque i atteint n. À ce moment-là, n - i = 0, donc la boucle externe se termine.
+L'insertion d'un nœud commence par une recherche : on cherche la clé du nœud à insérer ; lorsqu'on arrive à une feuille, on ajoute le nœud comme fils de la feuille en comparant sa clé à celle de la feuille : si elle est inférieure, le nouveau nœud sera à gauche ; sinon il sera à droite.
 
-- Variant de Boucle pour la Boucle Interne : Pour la boucle interne for de l'algorithme de tri par sélection, le variant de boucle est l'indice j qui va de i + 1 à n-1. La boucle interne se termine lorsque j atteint n. À ce moment-là, n - j = 0, donc la boucle interne se termine.
+On choisit d’implémenter de tels arbres binaires à l’aide de la classe suivante, où on utilise des valeurs par défaut dans le constructeur pour les deux enfants :
 
-Puisque les deux boucles terminent après un nombre fini d'itérations, nous avons prouvé que l'algorithme de tri par sélection **termine toujours**.
+**class** BinarySearchTree:
 
-### <H3 STYLE="COLOR:GREEN;">2.8. Implémentation<a name="_page3_x40.00_y497.92"></a> en Python</H3>
+`    `**def** \_\_init\_\_(self, key : int, left\_child=None, right\_child=None):
 
-=> CAPYTALE Le code vous sera donné par votre enseignant
+`        `self.\_\_key   = int(key)
 
-**<H3 STYLE="COLOR:red;">Activité n°2.:** Création de la liste aléatoire **avec l’activité 1**</H3>
+`        `self.\_\_left  = left\_child	*# None ou un arbre de la classe BinarySearchTree*
 
-```python
-import random
-def genere_liste_aleatoire(N, n):
-    """Génére une liste aléatoire de N éléments compris entre 0 et n"""
-    return [random.randrange(n) for i in range(N)]
+`        `self.\_\_right = right\_child	*# None ou un arbre de la classe BinarySearchTree*
 
-# Création d'une liste de 5 valeurs comprises entre 0 et 20 à trier
-data = genere_liste_aleatoire(5, 20)
-print("Liste initiale: ", data)
-```
+1. Créer un fichier Python binarySearchTree.py.
+1. Implémenter une méthode \_\_repr\_\_()
 
-**<H3 STYLE="COLOR:red;">Activité n°3.:** implémentation classique :</H3> AJOUTER à l’activité 2 les deux fonctions suivantes à compléter avec l'algorithme précédent :
+*def* is\_leaf(*self*):
+`    `*""" fonction testant si l'arbre est une feuille"""
+`    `return not self*.\_\_left *and not self*.\_\_right
 
-```python
-def swap(T : list, i : int, j : int) -> list:
-    """ fonction permutation (à garder elle sert beaucoup!!)  """
-    # à compléter
+*def \_\_repr\_\_*(*self*):
+`    `*if self*.is\_leaf():
+`        `*return* "<" + *str*(*self*.\_\_key) + ">"
+`    `left  = "<>" *if self*.\_\_left *is None else self*.\_\_left.*\_\_repr\_\_*()
+`    `right = "<>" *if self*.\_\_right *is None else self*.\_\_right.*\_\_repr\_\_*()
+`    `*return* "<{0},{1},{2}>".format(*self*.\_\_key, left, right)
 
-def selection_sort(T : list) -> list:
-    """ fonction tri par sélection recherche de la valeur minimum dans une liste
-    puis permutation avec indice précédent """
-    # à compléter
+1. Ajouter une méthode publique insert() qui ajoute un nœud à l’arbre.
+1. Créer un ABR correspondant au schéma ci-dessus.
+1. Valider le test unitaire suivant :
 
-print("Liste triée   : ", selection_sort(data))
-```
+str(abr) == "<15,<12,<8,<>,<10>>,<14,<13>,<>>>,<20,<16,<>,<18,<17>,<19>>>,<21>>>"
 
-**<H3 STYLE="COLOR:red;">Activité n°4.:** Tri par sélection et temps d’exécution :</H3> AJOUTER ce script aux fonctions de l’activité précédente en mettant en commentaire les deux print précédents :
+1. Implémenter une méthode publique infix\_traversal() de parcours en profondeur infixé de l’arbre.
+1. Valider le test unitaire suivant :
 
-```python
-import time
+abr.infix\_traversal() == [8, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
 
-# on fait une moyenne sur plusieurs tris de tableau de même longueur
-somme_des_durees = 0
-for i in range(5):
-    liste = genere_liste_aleatoire(1_000, 1_000_000)
-    start_time=time.time()
-    selection_sort(liste)
-    somme_des_durees = somme_des_durees + time.time() - start_time
-moyenne = somme_des_durees/5
-print("Temps d execution pour 1_000: %s secondes ---" % (moyenne))
+1. Insérer un nœud de clef = 15 et revalider les tests unitaires précédents.
+1. **Recherche**
 
+La recherche dans un ABR d'un nœud ayant une clé particulière est un procédé récursif. On commence par examiner la racine. Si sa clé est la clé recherchée, l'algorithme se termine et renvoie la racine. Si elle est strictement inférieure, alors elle est dans le sous-arbre gauche, sur lequel on effectue alors récursivement la recherche. De même si la clé recherchée est strictement supérieure à la clé de la racine, la recherche continue dans le sous-arbre droit. Si on atteint une feuille dont la clé n'est pas celle recherchée, on sait alors que la clé recherchée n'appartient à aucun nœud.
 
-somme_des_durees = 0
-for i in range(5):
-    liste = genere_liste_aleatoire(2_000, 1_000_000)
-    start_time=time.time()
-    selection_sort(liste)
-    somme_des_durees = somme_des_durees + time.time() - start_time
-moyenne = somme_des_durees/5
-print("Temps d execution pour 2_000: %s secondes ---" % (moyenne))
+1. Ajouter une méthode publique search() qui recherche une clef dans l’arbre et retourne True si la clef est trouvée, False sinon.
+1. Valider les tests unitaires suivants :
 
+abr.search(16) == True
 
-somme_des_durees = 0
-for i in range(5):
-    liste = genere_liste_aleatoire(10_000, 1_000_000)
-    start_time=time.time()
-    selection_sort(liste)
-    somme_des_durees = somme_des_durees + time.time() - start_time
-moyenne = somme_des_durees/5
-print("Temps d execution pour 10_000: %s secondes ---" % (moyenne))
-```
-On mesure la durée moyenne (sur 5 tableaux) d’exécution du tri sur des tableaux dont le nombre d’éléments est de plus en plus grand.
+abr.search(9) == False
 
-On voit bien que multiplier par 10 le nombre d’éléments du tableau à trier revient à multiplier le temps par 10². 
+On peut comparer l'exploration d'un ABR avec la recherche par dichotomie qui procède à peu près de la même manière sauf qu'elle accède directement à chaque élément d'un tableau au lieu de suivre des liens. La différence entre les deux algorithmes est que, dans la recherche dichotomique, on suppose avoir un critère de découpage de l'espace en deux parties que l'on n'a pas dans la recherche dans un ABR.
 
-**Animation :[http://lwh.free.fr/pages/algo/tri/tri_selection.html ](http://lwh.free.fr/pages/algo/tri/tri_selection.html)**
+**Exercice n° 02 : arbre binaire de recherche des Pokemons**
 
-## <H2 STYLE="COLOR:BLUE;">3. Tri<a name="_page4_x40.00_y702.92"></a> par insertion</H2>
-### <H3 STYLE="COLOR:GREEN;">3.1. Le<a name="_page4_x40.00_y724.92"></a> principe</H3>
+On aura besoin d’un module d’affichage pip install binarytree
 
-Le tri par insertion est un algorithme de **tri stable** et le plus rapide en pratique sur une entrée de petite taille. ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.006.png)
+Ici on utilisera : les fonctions d’interface (primitives) suivantes :
 
-**Principe de l’algorithme :** Le principe du tri par insertion est de trier les éléments du tableau comme avec des cartes:
+Les fonctions liées aux Noeuds :
 
-- On prend nos cartes mélangées dans notre main. 
-- On crée deux ensembles de carte, l’un correspond à l’ensemble de carte triée, l’autre contient l’ensemble des cartes restantes (non triées). 
-- On
+1. nvND(cle:Cle, data:Data) -> Noeud : on crée un nouveau noeud et son élément attaché. Ce n'est pas une fonction d'interface de l'arbre mais on a besoin au moins de pouvoir créer un Noeud.
+1. cle(noeud:Noeud) -> Cle : renvoie la clé ou l'étiquette du noeud.
+1. data(noeud:Noeud) -> Data : renvoie les données associées au noeud.
 
- prend au fur et à mesure, une carte dans l’ensemble non trié et on l’insère à sa bonne place dans l’ensemble de carte triée. 
-- On répète cette opération tant qu’il y a des cartes dans l’ensemble non trié. 
+Les fonctions liées à l'Arbre Binaire lui-même :
 
-Dans l'algorithme, on parcourt le tableau à trier du début à la fin. Au moment où on considère le i-ème élément, les éléments qui le précèdent sont déjà triés.  ![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.036.png)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.037.png)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.038.png)
+1. nvAV() -> Arbre : on le note ainsi pour dire nouvelArbreVide : on crée un nouvel ARBRE BINAIRE vide.
+1. nvAB(r:Noeud, g:Arbre, d:Arbre) -> Arbre : on crée un nouvel ARBRE BINAIRE dont la racine est r et dont les sous-arbres sont g et d fournis.
+1. estArbreVide(arbre:Arbre) -> bool : True si l'arbre est un arbre vide.
+1. racine(arbre:Arbre) -> Noeud : renvoie le noeud jouant le rôle de la racine pour cet arbre.
+1. gauche(arbre:Arbre) -> Arbre : renvoie le sous-arbre gauche de arbre. On obtient bien un Arbre. Si vous voulez le noeud gauche, il faudra appliquer en plus la fonction racine.
+1. droite(arbre:Arbre) -> Arbre : renvoie le sous-arbre droit de arbre.
+   1. ![Arbre de Pokémons](Aspose.Words.6e55a686-622e-41c3-8254-4f896d64da0f.016.jpeg)**Collection des Pokemon**
 
-L'objectif d'une étape est donc d'insérer le i-ème élément à sa place parmi ceux qui précèdent. Il faut pour cela : 
+Nous allons récupérer un fichier CSV contenant les données de 800 Pokémons. Pour rappel, il s'agit d'un simple fichier texte :
 
-- **trouver où l'élément** doit être inséré en le comparant aux autres,  
-- puis **décaler les éléments** afin de pouvoir effectuer l'insertion.  
+- Un enregistrement (ici un pokemon) par ligne : le passage à la ligne est donc le caractère séparateur pour les enregistrements.
+- Sur chaque enregistrement, les différents attributs ou champs sont séparés par une virgule (ou un point-virgule ou autre)
 
-En pratique, ces deux actions sont fréquemment effectuées en une passe, qui consiste à faire « remonter » l'élément au fur et à mesure jusqu'à rencontrer un élément plus petit. 
+Si on rajoute les éléments importants en rouge (dont le passage à la ligne (invisible à l'affichage)**↲**):
 
-### <H3 STYLE="COLOR:GREEN;">3.2. Illustration<a name="_page5_x40.00_y290.92"></a> graphique</H3>
+|<p>1</p><p>2</p><p>3</p><p>4</p>|<p>#**,**Name**,**Type 1**,**Type 2**,**Total**,**HP**,**Attack**,**Defense**,**Sp. Atk**,**Sp. Def**,**Speed**,**Generation**,**Legendary**↲**</p><p>1**,**Bulbasaur**,**Grass**,**Poison**,**318**,**45**,**49**,**49**,**65**,**65**,**45**,**1**,**False**↲**</p><p>2**,**Ivysaur**,**Grass**,**Poison**,**405**,**60**,**62**,**63**,**80**,**80**,**60**,**1**,**False**↲**</p><p>3**,**Venusaur**,**Grass**,**Poison**,**525**,**80**,**82**,**83**,**100**,**100**,**80**,**1**,**False**↲**</p>|
+| :- | :- |
 
-![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.039.png)
+Le but ici est d'utiliser les enregistrements pour construire l'ABR.
 
-Exemple : 9, 2, 7, 1 à trier en ordre croissant avec l’algorithme du tri par insertion :  
+Au final, vous aurez donc une variable nommée pokemons qui est simple tableau qui contiendra les enregistrements (sous forme de dictionnaires).
 
-*1er tour* : 9 | **2**, 7, 1 -> à gauche la partie triée du tableau (le premier élément est considéré comme trié  puisqu'il est seul dans cette partie), à droite la partie non triée. On prend le premier élément de la partie  non triée, 2, et on l'insère à sa place dans la partie triée, c'est-à-dire à gauche de 9.  
+Voici le début du contenu du tableau pokemons :
 
-*2ème tour* : 2, 9 | **7**, 1 -> on prend 7, et on le place entre 2 et 9 dans la partie triée.  
+**pokemons** = **[**
 
-*3ème tour* : 2, 7, 9 | **1** -> on continue avec 1 que l’on place au début de la première partie.  
+`    `**{**
 
-Pour insérer un élément dans la partie triée, on parcourt de droite à gauche tant que l'élément est plus  grand que celui que l'on souhaite insérer. Pour résumer l'idée de l'algorithme : La partie verte du tableau  est la partie triée, l'élément en bleu est le prochain élément non trié à placer et la partie blanche est la  partie non triée. 
+`        `'#': '1',
 
-### <H3 STYLE="COLOR:GREEN;">3.3. Illustration<a name="_page5_x40.00_y491.92"></a> vidéo</H3>
+`        `'Name': 'Bulbasaur',
 
-Vidéo :[ https://ladigitale.dev/digiview/#/v/668aed171ea50 ](https://ladigitale.dev/digiview/#/v/668aed171ea50)
+`        `'Type 1': 'Grass',
 
-### <H3 STYLE="COLOR:GREEN;">3.4. Pseudo-code<a name="_page5_x40.00_y542.92"></a></H3>
+`        `'Type 2': 'Poison',
 
-```
-ALGORITHME tri_insertion
-    PROCEDURE insere(T, i)            # insère tmp dans le tableau[0...i[ trié
-        tmp = T[i]          			# valeur à inserer
-        j <- i-1		    		# indice en cours                                                        
-        TANT QUE j >= 0 et T[j] > tmp ALORS        
-            T[j+1] <- T [j]         
-	     # l'élément qui précède on le décale vers la droite jusqu'à laisser la place libre à tmp           
-            j <- j - 1              	# on décale l'indice
-        FIN TANT QUE
-        T[j+1] <- tmp   			# on insère tmp
+`        `'Total': '318',
 
-    PROCEDURE tri_insertion(T)     
-        POUR i ALLANT DE 1 A n [SAUT DE 1] FAIRE         
-            insere (T, i)             
-            i <- i + 1                                     
-        FIN POUR
-```
+`        `'HP': '45',
 
-### <H3 STYLE="COLOR:GREEN;">3.5. Complexité<a name="_page6_x40.00_y36.92"></a></H3>
+`        `'Attack': '49',
 
-L’algorithme du tri par insertion a une complexité de O(N²). Calculons le nombre d’instructions : 
+`        `'Defense': '49',
 
-```
-                        PROCEDURE insere(T, i)                     
-1                           tmp = T[i]
-1                           j <- i                                                          
-N-1 fois                    TANT QUE j >= 0 et T[j] > tmp ALORS        
-    1                           T[j+1] <- T [j]                         
-    1                           j <- j - 1                              
-                            FIN TANT QUE
-1                           T[j+1] <- tmp                                   
-                        PROCEDURE tri_insertion(T)                                                         
-N fois                      POUR i ALLANT DE 1 A n [SAUT DE 1] FAIRE         
-    insere                      insere (T, i)             
-    1                           i <- i + 1                                     
-                            FIN POUR
-```
+`        `'Sp. Atk': '65',
 
-- Procédure insere : 2 + (N – 1) x 2 + 1 = 3 + (N – 1) x 2 = 2 N + 2
-- Procédure tri\_insertion : N x (2N + 2) = 2 N² + 2 N 
+`        `'Sp. Def': '65',
 
-Pour simplifier les calculs de complexité, on s’intéresse seulement aux nombres de itérations des boucles, puisque c’est elles qui vont donner le comportement asymptotique (quand N très grand). 
+`        `'Speed': '45',
 
-*Pour aller plus loin : Exemple t = [ 4, 3, 2, 1]* 
+`        `'Generation': '1',
 
-*Le 2ème élément : le « 3 » est décalé d’un cran vers la gauche [ 3, 4, 2, 1]* 
+`        `'Legendary': 'False'
 
-*Le 3ème élément : le « 2 » est décalé de deux crans vers la gauche [ 2, 3, 4, 1]* 
+`    `**},**
 
-*Le 4ème élément : le « 1 » est décalé de trois crans vers la gauche [ 1, 2, 3, 4]* 
+`    `**{**'#': '2', 'Name': 'Ivysaur', 'Type 1': 'Grass', 'Type 2': 'Poison', 'Total': '405', 'HP': '60', 'Attack': '62', 'Defense': '63', 'Sp. Atk': '80', 'Sp. Def': '80', 'Speed': '60', 'Generation': '1', 'Legendary': 'False'**},**
 
-*Pour trouver le plus petit élément, (n-1) itérations sont nécessaires, pour le 2ème plus petit élément, (n-2) itérations sont effectuées, .… Pour trouver le dernier plus petit élément, 0 itération sont effectuées.* 
+`    `**{**'#': '3', 'Name': 'Venusaur', 'Type 1': 'Grass', 'Type 2': 'Poison', 'Total': '525', 'HP': '80', 'Attack': '82', 'Defense': '83', 'Sp. Atk': '100', 'Sp. Def': '100', 'Speed': '80', 'Generation': '1', 'Legendary': 'False'**},**
 
-*Le nombre de itérations des deux boucles est 1 + 2 + 3 = 6 c’est-à-dire* ![](Aimg8.png)
+`    `**{**'#': '3', 'Name': 'VenusaurMega Venusaur', 'Type 1': 'Grass', 'Type 2': 'Poison', 'Total': '625', 'HP': '80', 'Attack': '100', 'Defense': '123', 'Sp. Atk': '122', 'Sp. Def': '120', 'Speed': '80', 'Generation': '1', 'Legendary': 'False'**},**
 
-*Donc le pire des cas, le tableau est trié à l’envers, pour chaque valeur i on compte N - 1 passages dans la boucle for :* 
+...
 
-![](Aimg7.png)
+**]**
 
-**Conclusion** : le **tri par insertion** a une complexité en temps de **O(N²) dans le pire des cas O(N) dans le meilleur des cas (tableau déjà trié).**  
+1. <a name="_hlk72961789"></a>Comment obtenir l'enregistrement d'index 0 contenus dans pokemons ?
+1. <a name="_hlk72961882"></a>Comment obtenir l'ensemble des clés disponibles sur cet enregistrement ? Comment afficher une par une les clés ?
+1. <a name="_hlk72961935"></a>Comment afficher un par un les couples (clé, valeur) sur cet enregistrement ?
+1. <a name="_hlk72961996"></a>Comment afficher un par un les couples (c, v) sous la forme "La clé {c} est associée à la valeur {v}" ?
+1. <a name="_hlk72962054"></a>Comment obtenir la valeur associée à la clé "Attack" pour l'enregistrement d'index 0 contenus dans pokemons ?
+1. <a name="_hlk72962104"></a>Comment faire la même chose mais en récupérant un entier ?
 
-Cependant des améliorations et des variantes permettent de le rendre plus rapide comme le tri shell. C’est un algorithme stable et en place (travail sur la structure et non sur la copie).
+1. **Récupération des données**
 
-### <H3 STYLE="COLOR:GREEN;">3.6. Preuve<a name="_page6_x40.00_y637.92"></a> de correction</H3>
+Nous allons maintenant télécharger 
 
-#### <H4 STYLE="COLOR:MAGENTA;">3.6.1.	Correction</H4>
-Pour prouver la correction de cet algorithme, nous définissons un **invariant de boucle** qui doit être vrai avant et après chaque itération de la boucle externe for. L’invariant est le suivant :
+- le fichier CSV 
+- Un module creation\_collect.py permettant de créer la collection sous forme d'un tableau de dictionnaire
+- Un module abr.py permettant de gérer les ABR
 
-Invariant de boucle : À chaque début de l’itération de l’indice i de la boucle externe, les éléments T[0] à T[i-1] sont triés.
+Voici la description des 3 fonctions d'interface qui vont nous être utiles au début :
 
-1 **Initialisation** : Avant la première itération de la boucle externe (i = 1), il n’y a qu’un seul élément dans la partie considérée du tableau (T[0]), qui est trivialement trié. Donc l’invariant est vrai.
+def nvND(cle: Cle, data: Data = None) -> Noeud:
+`    `'''Renvoie la référence d'un nouveau Noeud ayant cle comme clé et data comme données annexes'''
 
-2 **Maintien** : Supposons que l’invariant est vrai au début de l’itération pour un certain i. Nous devons montrer qu’il reste vrai après la fin de cette itération.
 
-- Pendant l’itération, l’algorithme sélectionne tmp = T[i] et cherche sa place correcte dans la sous-liste triée T[0] à T[i-1].
+def nvABR(racine: Noeud, g: Arbre = nvAV(), d: Arbre = nvAV()) -> ABR:
+`    `'''Renvoie la référence d'un nouvel Arbre dont le noeud-racine est racine et les sous-arbre g et d'''
 
-- La boucle while déplace les éléments plus grands que tmp d’une position vers la droite pour faire de la place pour tmp.
 
-- Après avoir trouvé la place correcte pour tmp, l’algorithme insère tmp à cette position.
+def inserer\_noeud\_dans\_ABR(arbre: ABR, nd: Noeud) -> None:
+`    `'''Insére le noeud dans l'ABR'''
 
-- À la fin de cette itération, les éléments T[0] à T[i] sont triés.
-Ainsi, l’invariant est maintenu, car après chaque itération, les éléments T[0] à T[i] sont triés.
+La dernière fonction insère le Noeud en respectant l'algorithme vu pour les ABR.
 
-3 **Terminaison** : La boucle se termine lorsque i atteint n. À ce moment-là, i = n, donc tous les éléments T[0] à T[n-1] sont triés. L’invariant garantit que ces éléments sont triés.
+7. <a name="_hlk72963168"></a>Ouvrir le fichier nommé arbre\_pokemons.py et lancer le. Mettre le programme en mémoire puis lancer les commandes suivantes pour vérifier que la documentation est bien présente :
 
-En utilisant cet invariant de boucle, nous avons prouvé que l’algorithme de tri par insertion est **correct**. L’invariant de boucle nous permet de démontrer que l’algorithme maintient la partie triée du tableau correctement à chaque itération et qu’il termine avec l’ensemble du tableau trié.
+**>>> help(inserer\_noeud\_dans\_ABR)**
+**
 
-#### <H4 STYLE="COLOR:MAGENTA;">3.6.2.	Terminaison</H4>
-Pour prouver la terminaison de l'algorithme de tri par insertion, nous devons utiliser un **variant de boucle**. Un variant de boucle est une fonction numérique qui décroît à chaque itération de la boucle et qui est bornée inférieurement.
 
-- Variant de Boucle pour la Boucle Externe : Pour la boucle externe for de l'algorithme de tri par insertion, le variant de boucle est simplement l'indice i qui va de 1 à n-1. La boucle externe se termine lorsque i atteint n. À ce moment-là, n - i = 0, donc la boucle externe se termine.
+**>>> help(nvABR)**
+**
 
-- Variant de Boucle pour la Boucle Interne : Pour la boucle interne while de l'algorithme de tri par insertion, le variant de boucle est l'indice j qui est initialisé à i - 1 et qui décroît jusqu'à ce que la condition j >= 0 ou T[j] > tmp ne soit plus satisfaite. La boucle interne se termine lorsque j devient négatif ou lorsque T[j] <= tmp. Dans les deux cas, la condition de la boucle while n'est plus satisfaite et la boucle se termine.
 
-Puisque les deux boucles terminent après un nombre fini d'itérations, nous avons prouvé que l'algorithme de tri par insertion **termine toujours**.
+**>>> help(nvND)**
 
-### <H3 STYLE="COLOR:GREEN;">3.7. Implémentation<a name="_page7_x40.00_y36.92"></a> en Python</H3>
+Peut-on voir que certains paramètres ont une valeur par défaut ?
 
-=> CAPYTALE Le code vous sera donné par votre enseignant
+Peut-on voir qu'en réalité les objets ABR, Noeud... sont issus du module abr.py ?
 
-**<H3 STYLE="COLOR:red;">Activité n°5.:** Création de la liste aléatoire **avec l’activité 1** :</H3> reprendre l’activité 1 et 2
+7. <a name="_hlk72963397"></a>Dessiner sur papier l'arbre créer en utilisant la fonction de test de création suivante
 
-**<H3 STYLE="COLOR:red;">Activité n°6.:** implémentation classique :</H3> ajouter à l’activité précédente les deux fonctions suivantes :
+def creation\_test():
+`    `'''Renvoie un ABR de test'''
+`    `arbre = nvABR(nvND(20))
+`    `inserer\_noeud\_dans\_ABR(arbre, nvND(25))
+`    `inserer\_noeud\_dans\_ABR(arbre, nvND(15))
+`    `inserer\_noeud\_dans\_ABR(arbre, nvND(17))
+`    `inserer\_noeud\_dans\_ABR(arbre, nvND(10))
+`    `return arbre
 
-```python
-def insert(T, i):
-    """ fonction qui insère la valeur T[i] à la bonne place dans le tableau"""
-    # à compléter
+Vérifier ensuite votre réponse en tapant simplement ceci :
 
-def insertion_sort(T):
-    """ fonction tri par insertion parcours du vecteur avec décalage ascendant des éléments """
-    # à compléter
+**>>> arbre = creation\_test()**
 
-print("Liste triée   : ", insertion_sort(data))
-```
+**>>> print(arbre)**
 
-**Remarque : on aurait pu également faire une seule fonction**  
+7. <a name="_hlk72963533"></a>Rajoutons un noeud dont la clé est 21. Vérifier qu'il se positionne bien en affichant l'arbre.
 
-**<H3 STYLE="COLOR:red;">Activité n°7.:** Tri par insertion et temps d’exécution :</H3> ajouter ce script aux fonctions de l’activité précédente en mettant en commentaire les deux print précédent :
+**>>> inserer\_noeud\_dans\_ABR(arbre, nvND(21))**
 
-```python
-import time
+7. Nous allons utiliser l'une des fonctions pour importer le fichier CSV et placer ces données dans une Collection de dictionnaires.
 
-# on fait une moyenne sur plusieurs tris de tableau de même longueur
-somme_des_durees = 0
-for i in range(5):
-    liste = genere_liste_aleatoire(1_000, 1_000_000)
-    start_time=time.time()
-    insertion_sort(liste)
-    somme_des_durees = somme_des_durees + time.time() - start_time
-moyenne = somme_des_durees/5
-print("Temps d execution pour 1_000: %s secondes ---" % (moyenne))
+def creation\_cp():
+`    `'''Renvoie une collection-tableau de dictionnaires des pokemons'''
+`    `return creer\_collection('pokemon.csv')
 
-somme_des_durees = 0
-for i in range(5):
-    liste = genere_liste_aleatoire(2_000, 1_000_000)
-    start_time=time.time()
-    insertion_sort(liste)
-    somme_des_durees = somme_des_durees + time.time() - start_time
-moyenne = somme_des_durees/5
-print("Temps d execution pour 2_000: %s secondes ---" % (moyenne))
+<a name="_hlk72963905"></a>En regardant les importations, expliquer :
 
-somme_des_durees = 0
-for i in range(5):
-    liste = genere_liste_aleatoire(10_000, 1_000_000)
-    start_time=time.time()
-    insertion_sort(liste)
-    somme_des_durees = somme_des_durees + time.time() - start_time
-moyenne = somme_des_durees/5
-print("Temps d execution pour 10_000: %s secondes ---" % (moyenne))
-```
-On mesure la durée moyenne (sur 5 tableaux) d’exécution du tri sur des tableaux dont le nombre d’éléments est de plus en plus grand.
+- dans quel module se trouve la fonction creer\_collection
+- pourquoi on a le droit de l'utilisation en notant simplement creer\_collection et pas nom\_du\_module.creer\_collection
 
-**Animation :[ http://lwh.free.fr/pages/algo/tri/tri_insertion.html ](http://lwh.free.fr/pages/algo/tri/tri_insertion.html)![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.006.png)**
+  7. <a name="_hlk72964033"></a>Utiliser le jeu de commandes suivants pour comprendre de le principe :
 
-## <H2 STYLE="COLOR:BLUE;">4. Autres<a name="_page8_x40.00_y36.92"></a> algorithmes de tris : le tri à bulles (Bubble sort)</H2>
+\>>> collect = creation\_cp()
 
-Le tri à bulles est un algorithme de tri qui consiste à faire  **remonter  progressivement les plus petits éléments d'une liste**, comme les bulles  d'air remontent à la surface d'un liquide. 
+\>>> len(collect)
 
-![](Aspose.Words.44e8a127-fa79-459d-b056-b00fa0212d54.055.png)
+800
 
-L'algorithme  parcourt  la  liste,  et  **compare  les  couples  d'éléments  successifs**.   
 
-Lorsque deux éléments successifs ne sont pas dans l'ordre croissant, **ils  sont échangés**.   
 
-Après chaque parcours complet de la liste, l'algorithme **recommence l'opération**. Lorsque aucun échange n'a lieu pendant un parcours, cela signifie que la liste est triée : l'algorithme peut s'arrêter. 
+\>>> collect[0]
 
-On optimise l’algorithme en se basant sur la propriété que le dernier élément permuté se trouve nécessairement bien trié. Il n’est alors pas besoin de parcourir la liste jusqu’à la fin : combsort (tri à peignes) 
+{'#': '1', 'Name': 'Bulbasaur', 'Type 1': 'Grass', 'Type 2': 'Poison', 'Total': '318', 'HP': '45', 'Attack': '49', 'Defense': '49', 'Sp. Atk': '65', 'Sp. Def': '65', 'Speed': '45', 'Generation': '1', 'Legendary': 'False'}
 
-**Conclusion** : Le tri à bulles présente une complexité en **O(N²)** dans le pire des cas (où N est la longueur de la liste), et en O(N) dans le cas où le tableau est déjà trié, ce qui le classe parmi les mauvais algorithmes de tri. Il n'est donc quasiment pas utilisé en pratique. 
 
-Comme le tri par insertion, le tri à bulle est un tri stable. 
 
-Illustration vidéo :[ https://ladigitale.dev/digiview/#/v/668aed8c3bab4 ](https://ladigitale.dev/digiview/#/v/668aed8c3bab4) 
+\>>> collect[1]
 
-=> CAPYTALE Le code vous sera donné par votre enseignant
+{'#': '2', 'Name': 'Ivysaur', 'Type 1': 'Grass', 'Type 2': 'Poison', 'Total': '405', 'HP': '60', 'Attack': '62', 'Defense': '63', 'Sp. Atk': '80', 'Sp. Def': '80', 'Speed': '60', 'Generation': '1', 'Legendary': 'False'}
 
-**<H3 STYLE="COLOR:red;">Activité n°8.:** Création de la liste aléatoire **avec l’activité 1** :</H3> reprendre l’activité 1 et 2
 
-**<H3 STYLE="COLOR:red;">Activité n°9.:** implémentation classique </H3> Avec la fonction echange et la fonction bubble_sort
 
-```python
-def swap(T : list, i : int, j : int) -> list:
-    """ fonction permutation (à garder elle sert beaucoup!!)  """
-    # à compléter
+\>>> for index in range(0,10,1): print(collect[index]['Name'])
 
-def bubble_sort(T : list) -> list:
-    """ fonction tri a bulle permutation des éléments 2 à 2 en faisant remonter
-    la plus grande valeur en fin de la liste  """
-    # à compléter
-```
 
-**Remarque : il existe d’autres versions du tri bulle** 
 
-**<H3 STYLE="COLOR:red;">Activité n°10.:** Tri bulle et temps d’exécution :</H3> ajouter ce script aux fonctions de l’activité précédente en mettant en commentaire les deux print précédent :
+` `Bulbasaur
 
-```python
-import time
+` `Ivysaur
 
-# on fait une moyenne sur plusieurs tris de tableau de même longueur
-somme_des_durees = 0
-for i in range(5):
-    liste = genere_liste_aleatoire(1_000, 1_000_000)
-    start_time=time.time()
-    bubble_sort(liste)
-    somme_des_durees = somme_des_durees + time.time() - start_time
-moyenne = somme_des_durees/5
-print("Temps d execution pour 1_000: %s secondes ---" % (moyenne))
+` `Venusaur
 
-somme_des_durees = 0
-for i in range(5):
-    liste = genere_liste_aleatoire(2_000, 1_000_000)
-    start_time=time.time()
-    bubble_sort(liste)
-    somme_des_durees = somme_des_durees + time.time() - start_time
-moyenne = somme_des_durees/5
-print("Temps d execution pour 2_000: %s secondes ---" % (moyenne))
+` `VenusaurMega Venusaur
 
-somme_des_durees = 0
-for i in range(5):
-    liste = genere
+` `Charmander
 
-_liste_aleatoire(10_000, 1_000_000)
-    start_time=time.time()
-    bubble_sort(liste)
-    somme_des_durees = somme_des_durees + time.time() - start_time
-moyenne = somme_des_durees/5
-print("Temps d execution pour 10_000: %s secondes ---" % (moyenne))
-```
+` `Charmeleon
 
-Animation :[ http://lwh.free.fr/pages/algo/tri/tri_bulle.html ](http://lwh.free.fr/pages/algo/tri/tri_bulle.html)
+` `Charizard
 
-## <H2 STYLE="COLOR:BLUE;">5. Exercices<a name="_page9_x40.00_y511.92"></a></H2>
+` `CharizardMega Charizard X
 
-=> CAPYTALE Le code vous sera donné par votre enseignant
+` `CharizardMega Charizard Y
 
-**<H3 STYLE="COLOR:red;">Exercice n°1** </H3>: Créer une fonction selection_sort_desc() qui permet trier avec l’algorithme de tri par sélection une liste aléatoire par valeurs décroissantes.
+` `Squirtle
 
-**<H3 STYLE="COLOR:red;">Exercice n°2** </H3>: Créer une fonction selection\_sort\_asc\_partir\_fin() qui permet trier avec l’algorithme de tri par sélection une liste aléatoire par valeurs croissantes de manière à compléter l’algorithme suivant :
+Essayons maintenant de voir ce que fait la dernière fonction : la fonction creation\_aap.
 
-```python
-def selection_sort_asc_partir_fin(T):
-    for i in range(…, 0, …):
-        maxi = …
-        for j in range(…):
-            if T[j]> T[…]:
-                maxi = j
-        if maxi !=i:
-            …
-    return T
-```
+7. Observer le code de la fonction et répondre aux questions :
 
-**<H3 STYLE="COLOR:red;">Exercice n°3** </H3>: Créer une fonction selection_sort_desc_partir_fin() qui permet trier avec l’algorithme de tri par sélection et l’algorithme de l’exercice 2, une liste aléatoire par valeurs décroissantes.
+|<p>22</p><p>23</p><p>24</p><p>25</p><p>26</p><p>27</p><p>28</p><p>29</p><p>30</p><p>31</p><p>32</p><p>33</p><p>34</p><p>35</p><p>36</p><p>37</p><p>38</p><p>39</p><p>40</p><p>41</p><p>42</p><p>43</p><p>44</p>|def creation\_cp():<br>`    `'''Renvoie une collection-tableau de dictionnaires des pokemons'''<br>`    `return creer\_collection('pokemon.csv')<br><br>def creation\_aap():<br>`    `'''Renvoi un arbre contenant des noeuds-pokemons'''<br><br>`    `pokemons = creer\_collection('pokemon.csv')<br>`    `choix = 'Attack'<br><br>`    `arbre = nvAV()<br><br>`    `for index in range(len(pokemons)):<br>`        `d = pokemons[index] # d pour data (pour ne pas écraser la fonction data)<br>`        `c = int(d[choix])   # c pour cle (pour ne pas écraser la fonction cle)<br>`        `noeud = nvND(c, d)<br>        <br>`        `if estArbreVide(arbre):<br>`            `arbre = nvABR(noeud)<br>`        `elif index < 41 :        <br>`            `inserer\_noeud\_dans\_ABR(arbre, noeud)<br><br>`    `return arbre|
+| - | :- |
 
-**<H3 STYLE="COLOR:red;">Exercice n°4** :</H3> Créer une fonction bubble_sort_desc() qui permet trier avec l’algorithme de tri à bulles une liste aléatoire par valeurs décroissantes.
+<a name="_hlk73020016"></a>Ligne 30 : quel est l'attribut du dictionnaire choisi pour jouer le rôle de clé dans l'arbre ?
+
+Ligne 32 : quel est le contenu de l'arbre initialement ?
+
+Ligne 34 : la base des pokemons contient 800 pokemons. Quel va être la valeur finale de la variable de boucle index ?
+
+Ligne 35 : à chaque tour de boucle, la variable d va t-elle contenir un enregistrement ou la valeur de la clé choisie ?
+
+Ligne 36 : à chaque tour de boucle, la variable c va t-elle contenir un string ou un entier ?
+
+Ligne 37 : Quelle est la clé du noeud créé ? Quel est le contenu de l'attribut data associé à ce Noeud ?
+
+Ligne 39 et +
+
+Que fait-on si l'arbre est vide lors du premier tour de boucle ?
+
+Que fait-on si l'arbre n'est pas vide lors des autres tours de boucle ?
+
+Quelle va être la taille de l'arbre à la fin de la boucle POUR ?
+
+7. Utilisez le code suivant pour voir le principe de nos enregistrements stockés dans l'arbre à Pokemons (aap):
+
+\>>> arbre = creation\_aap()
+
+\>>> print(arbre)
+
+![Arbre de Pokémons avec l'attaque en clé]
+
+7. Utilisez les commandes suivantes pour réopndre aux questions :
+- <a name="_hlk73021548"></a>quelle est la version d'utilisation qui correspond à un utilisateur ne connaissant pas l'implémentation exacte de l'ABR et qui utilise les fonctions d'interface ?
+- quelle est la version d'utilisation qui correspond à un utilisateur connaissant l'implémentation actuelle et la manipulant directement ?
+- sous quelle forme l'ABR est-il manifestement implémenté ?
+- En cas de modification future de l'implémentation, quelle est la version d'utilisation à privilégier ?
+
+**Version 1 :**
+
+\>>> cle(racine(arbre))
+
+49
+
+
+
+\>>> data(racine(arbre))
+
+{'#': '1', 'Name': 'Bulbasaur', 'Type 1': 'Grass', 'Type 2': 'Poison', 'Total': '318', 'HP': '45', 'Attack': '49', 'Defense': '49', 'Sp. Atk': '65', 'Sp. Def': '65', 'Speed': '45', 'Generation': '1', 'Legendary': 'False'}
+
+
+
+\>>> data(racine(arbre))['Name']
+
+'Bulbasaur'
+
+
+
+\>>> g = gauche(arbre)
+
+\>>> data(racine(g))['Name']
+
+'Squirtle'
+
+
+
+\>>> cle(racine(g))
+
+48
+
+
+
+\>>> d = droite(arbre)
+
+\>>> data(racine(d))['Name']
+
+'Ivysaur'
+
+
+
+\>>> cle(racine(d))
+
+62
+
+
+
+**Version 2 :**
+
+\>>> arbre.racine.cle
+
+49
+
+
+
+\>>> arbre.racine.data
+
+{'#': '1', 'Name': 'Bulbasaur', 'Type 1': 'Grass', 'Type 2': 'Poison', 'Total': '318', 'HP': '45', 'Attack': '49', 'Defense': '49', 'Sp. Atk': '65', 'Sp. Def': '65', 'Speed': '45', 'Generation': '1', 'Legendary': 'False'}
+
+
+
+\>>> arbre.racine.data['Name']
+
+'Bulbasaur'
+
+
+
+\>>> g = arbre.gauche
+
+\>>> g.racine.data['Name']
+
+'Squirtle'
+
+
+
+\>>> g.racine.cle
+
+48
+
+
+
+\>>> d = arbre.droite
+
+\>>> d.racine.data['Name']
+
+'Ivysaur'
+
+
+
+\>>> d.racine.cle
+
+62
+
+
+
+1. **Recherche**
+
+3\.15. Ouvrir le module **abr.py**. Retrouver un algorithme permettant de rechercher un noeud dans un ABR en utilisant **les fonctions d'interface du module**. Une fois l'algorithme retrouvé, implémenter le dans la fonction recherche.
+
+Renvoyer la valeur au lieu de True
+
+3\.16. Tester l'absence d'erreur en lançant directement le module abr.py. Vérifiez ensuite que la fonction fonctionne : relancer le programme **arbre\_pokemons.py** puis lancer ces commandes :
+
+\>>> aap = creation\_aap()
+
+\>>> print(aap)
+
+\>>> recherche(aap, 49)
+
+<abr.Noeud object at 0x7f0da76a0e48>
+
+
+
+\>>> reponse = recherche(aap, 102)
+
+\>>> data(reponse)['Name']
+
+'Nidoking'
+
+
+
+\>>> data(recherche(aap, 102))['Name']
+
+'Nidoking'
+
+1. **Affichage particulier**
+
+Premier avantage des ABR : les noeuds sont 'triés' entre eux. Du coup, on peut les afficher un par un de façon ... triée.
+
+Il suffit de demander l'affichage infixe (la racine au milieu de l'affichage) !
+
+Deuxième avantage : pour trouver la plus petite clé disponible, il suffit d'aller à gauche tant que le sous-arbre n'est pas vide.
+
+Troisième avantage : pour trouver la plus grande clé, il suffit d'aller à droite tant que le sous-arbre n'est pas vide.
+
+4\.17. Afficher les attaques de 41 Pokemons stockées en utilisant simplement ceci :
+
+\>>> parcours\_infixe(arbre)
+
+20
+
+25
+
+30
+
+35
+
+45
+
+45
+
+45
+
+47
+
+48
+
+49
+
+52
+
+55
+
+56
+
+57
+
+60
+
+60
+
+60
+
+62
+
+62
+
+63
+
+64
+
+72
+
+75
+
+80
+
+80
+
+81
+
+82
+
+83
+
+84
+
+85
+
+90
+
+90
+
+90
+
+92
+
+100
+
+100
+
+102
+
+103
+
+104
+
+130
+
+150
+
+![Arbre de Pokémons avec l'attaque en clé]
+
+4\.18. <a name="_hlk73025306"></a>Modifier **parcours\_infixe** : il faudra afficher également le nom du Pokemon à côté de son score d'attaque.
+
+\>>> aap = creation\_aap()
+
+\>>> parcours\_infixe(aap)
+
+` `20 pour Metapod
+
+` `25 pour Kakuna
+
+` `30 pour Caterpie
+
+` `35 pour Weedle
+
+` `45 pour Butterfree
+
+` `45 pour Pidgey
+
+` `45 pour Clefairy
+
+` `47 pour Nidoran♀
+
+` `48 pour Squirtle
+
+` `49 pour Bulbasaur
+
+` `52 pour Charmander
+
+` `55 pour Pikachu
+
+` `56 pour Rattata
+
+` `57 pour Nidoran♂
+
+` `60 pour Pidgeotto
+
+` `60 pour Spearow
+
+` `60 pour Ekans
+
+` `62 pour Ivysaur
+
+` `62 pour Nidorina
+
+` `63 pour Wartortle
+
+` `64 pour Charmeleon
+
+` `72 pour Nidorino
+
+` `75 pour Sandshrew
+
+` `80 pour Pidgeot
+
+` `80 pour PidgeotMega Pidgeot
+
+` `81 pour Raticate
+
+` `82 pour Venusaur
+
+` `83 pour Blastoise
+
+` `84 pour Charizard
+
+` `85 pour Arbok
+
+` `90 pour Beedrill
+
+` `90 pour Fearow
+
+` `90 pour Raichu
+
+` `92 pour Nidoqueen
+
+` `100 pour VenusaurMega Venusaur
+
+` `100 pour Sandslash
+
+` `102 pour Nidoking
+
+` `103 pour BlastoiseMega Blastoise
+
+` `104 pour CharizardMega Charizard Y
+
+` `130 pour CharizardMega Charizard X
+
+` `150 pour BeedrillMega Beedrill
+
+4\.19. A droite toute : rajouter dans le programme arbre\_pokemon la fonction récursive cle\_max : on transfère la plus grande valeur à chaque appel !
+
+def cle\_max(arbre, maximum=None):
+`    `if estArbreVide(arbre):
+`        `return maximum
+`    `else:
+`        `maximum = cle(racine(arbre))
+`        `return cle\_max(droite(arbre), maximum)
+
+Utilisation :
+
+\>>> aap = creation\_aap()
+
+\>>> cle\_max(aap)
+
+150
+
+
+
+\>>> recherche(aap, 150)
+
+<abr.Noeud object at 0x7fac40696f28>
+
+
+
+\>>> data(recherche(aap, 150))['Name']
+
+'BeedrillMega Beedrill'
+
+4\.20. A gauche toute : créer dans le programme arbre\_pokemon la fonction récursive cle\_min : on transfère la plus petite valeur à chaque appel !
+
+
+Terminale NSI 	Chap 06 : Les arbres binaires de recherche	Page 15/15
+
+[Arbre de Pokémons avec l'attaque en clé]: Aspose.Words.6e55a686-622e-41c3-8254-4f896d64da0f.017.png
