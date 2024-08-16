@@ -1333,25 +1333,25 @@ t3.height() == 3
 
 9\. Valider le test unitaire suivant, pour l’arbre t3.
 ```python
-t3.prefix\_traversal()  == ['3', '4', '2', '7', '6', '5', '1', '0']
+t3.prefix_traversal()  == ['3', '4', '2', '7', '6', '5', '1', '0']
 ```
 10\. Ajouter une méthode publique infix\_traversal() qui renvoie un parcours en profondeur infixé de l’arbre.
 
 11\. Valider le test unitaire suivant, pour l’arbre t3.
 ```python
-t3.infix\_traversal()   == ['4', '2', '3', '6', '7', '1', '5', '0']
+t3.infix_traversal()   == ['4', '2', '3', '6', '7', '1', '5', '0']
 ```
 12\. Ajouter une méthode publique postfix\_traversal() qui renvoie un parcours en profondeur postfixé de l’arbre.
 
 13\. Valider le test unitaire suivant, pour l’arbre t3.
 ```python
-t3.postfix\_traversal() == ['2', '4', '6', '1', '0', '5', '7', '3']
+t3.postfix_traversal() == ['2', '4', '6', '1', '0', '5', '7', '3']
 ```
 14\. Ajouter méthode publique width\_traversal() qui renvoie un parcours en largeur de l’arbre.
 
 15\. Valider le test unitaire suivant, pour l’arbre t3.
 ```python
-t3.width\_traversal()   == ['3', '4', '7', '2', '6', '5', '1', '0']
+t3.width_traversal()   == ['3', '4', '7', '2', '6', '5', '1', '0']
 ```
 
 **<H3 STYLE="COLOR:red;">Exercice n°11 : Notation RPN :**</H3>
@@ -1372,7 +1372,7 @@ from mon_module_qui_est_sur_le_bureau import *
 # ou import mon_module_qui_est_sur_le_bureau
 ```
 
-ou en recopiera le code du fichier de l'exercice précédent.
+ou on recopiera le code du fichier de l'exercice précédent.
 
 3\. Créer une classe RPN avec :
 
