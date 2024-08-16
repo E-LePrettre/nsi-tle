@@ -1272,7 +1272,11 @@ Quel parcours renvoie un affichage de l’expression sous sa forme habituelle, e
 
 Les deux autres affichages correspondent à la notation polonaise et à la notation polonaise inversée. Ces notations permettent de représenter des expressions arithmétiques sans parenthèses.
 
-**<H3 STYLE="COLOR:red;">Exercice n°10 : arbre binaire :**</H3>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc149141409"></a>**8. Projets**</H2>
+
+**<H3 STYLE="COLOR:red;">Exercice n°1 : arbre binaire :**</H3>
+
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
 
 Commençons par étudier les arbres binaires, en utilisant une définition récursive : un arbre binaire est
 
@@ -1354,7 +1358,9 @@ t3.postfix_traversal() == ['2', '4', '6', '1', '0', '5', '7', '3']
 t3.width_traversal()   == ['3', '4', '7', '2', '6', '5', '1', '0']
 ```
 
-**<H3 STYLE="COLOR:red;">Exercice n°11 : Notation RPN :**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°2 : Notation RPN :**</H3>
+
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
 
 Le parcours en profondeur infixe permet de modéliser des expressions arithmétiques au prix de l’absence de parenthèses (voir cours).
 
