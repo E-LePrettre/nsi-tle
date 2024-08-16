@@ -302,9 +302,12 @@ Nous allons récupérer un fichier CSV contenant les données de 800 Pokémons. 
 - Sur chaque enregistrement, les différents attributs ou champs sont séparés par une virgule (ou un point-virgule ou autre)
 
 Si on rajoute les éléments importants en rouge (dont le passage à la ligne (invisible à l'affichage)**↲**):
-
-1</p><p>2</p><p>3</p><p>4</p>#**,**Name**,**Type 1**,**Type 2**,**Total**,**HP**,**Attack**,**Defense**,**Sp. Atk**,**Sp. Def**,**Speed**,**Generation**,**Legendary**↲**</p><p>1**,**Bulbasaur**,**Grass**,**Poison**,**318**,**45**,**49**,**49**,**65**,**65**,**45**,**1**,**False**↲**</p><p>2**,**Ivysaur**,**Grass**,**Poison**,**405**,**60**,**62**,**63**,**80**,**80**,**60**,**1**,**False**↲**</p><p>3**,**Venusaur**,**Grass**,**Poison**,**525**,**80**,**82**,**83**,**100**,**100**,**80**,**1**,**False**↲**
- :- |
+```
+#,Name,Type 1,Type 2,Total,HP,Attack,Defense,Sp. Atk,Sp. Def,Speed,Generation,Legendary↲
+1,Bulbasaur,Grass,Poison,318,45,49,49,65,65,45,1,False↲
+2,Ivysaur,Grass,Poison,405,60,62,63,80,80,60,1,False↲
+3,Venusaur,Grass,Poison,525,80,82,83,100,100,80,1,False↲
+```
 
 Le but ici est d'utiliser les enregistrements pour construire l'ABR.
 
@@ -452,24 +455,32 @@ En regardant les importations, expliquer :
 Essayons maintenant de voir ce que fait la dernière fonction : la fonction creation\_aap.
 
 12\. Observer le code de la fonction et répondre aux questions :
+```python
+def creation_cp():
+    '''Renvoie une collection-tableau de dictionnaires des pokemons'''
+    return creer_collection('pokemon.csv')
 
-22</p><p>23</p><p>24</p><p>25</p><p>26</p><p>27</p><p>28</p><p>29</p><p>30</p><p>31</p><p>32</p><p>33</p><p>34</p><p>35</p><p>36</p><p>37</p><p>38</p><p>39</p><p>40</p><p>41</p><p>42</p><p>43</p><p>44def creation\_cp():<br>
-`       `'''Renvoie une collection-tableau de dictionnaires des pokemons'''<br>
-`       `return creer\_collection('pokemon.csv')<br><br>def creation\_aap():<br>
-`       `'''Renvoi un arbre contenant des noeuds-pokemons'''<br><br>
-`       `pokemons = creer\_collection('pokemon.csv')<br>
-`       `choix = 'Attack'<br><br>
-`       `arbre = nvAV()<br><br>
-`       `for index in range(len(pokemons)):<br>
-`           `d = pokemons[index] # d pour data (pour ne pas écraser la fonction data)<br>
-`           `c = int(d[choix])   # c pour cle (pour ne pas écraser la fonction cle)<br>
-`           `noeud = nvND(c, d)<br>        <br>
-`           `if estArbreVide(arbre):<br>
-`               `arbre = nvABR(noeud)<br>
-`           `elif index < 41 :        <br>
-`               `inserer\_noeud\_dans\_ABR(arbre, noeud)<br><br>
-`       `return arbre|
-| - 
+def creation_aap():
+    '''Renvoi un arbre contenant des noeuds-pokemons'''
+
+    pokemons = creer_collection('pokemon.csv')
+    choix = 'Attack'
+
+    arbre = nvAV()
+
+    for index in range(len(pokemons)):
+        d = pokemons[index] # d pour data (pour ne pas écraser la fonction data)
+        c = int(d[choix])   # c pour cle (pour ne pas écraser la fonction cle)
+        noeud = nvND(c, d)
+        
+        if estArbreVide(arbre):
+            arbre = nvABR(noeud)
+        elif index < 41 :        
+            inserer_noeud_dans_ABR(arbre, noeud)
+
+    return arbre
+```
+
 
 Ligne 30 : quel est l'attribut du dictionnaire choisi pour jouer le rôle de clé dans l'arbre ?
 
