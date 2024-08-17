@@ -40,6 +40,7 @@ Le premier message est envoyé le 29 octobre 1969 entre l’université UCLA de 
 ### <a name="_toc154844731"></a>**2.2. La couche application**
 
 |<p>- **La couche application** : Son rôle est principalement de **choisir le mode de transmission** (ce sont des protocoles comme http, https, ftp, smtp....)</p>|
+| - |
 
 
 
