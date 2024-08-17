@@ -216,13 +216,10 @@ Donc la plage d'adresse disponible est de **172 . 128 . 0 . 1 à 172 . 128 . 63 
 | - |
 
 
-1. ### <a name="_toc154844739"></a>**Qu’est-ce qu’un paquet IP ?**
-**Un paquet IP :** La couche **RESEAU** reçoit les segments que la couche **TRANSPORT** lui a fourni. Elle ne les envoie pas directement : les segments ne contiennent pas l'adresse IP du destinataire !
+#### <a name="_toc154844739"></a>**é.4.6. Qu’est-ce qu’un paquet IP ?**
 
-On prend donc le segment et on lui rajoute un **en-tête IP.**
-
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.018.png)
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.017.png)
+|<p>**Un paquet IP :** La couche **RESEAU** reçoit les segments que la couche **TRANSPORT** lui a fourni. Elle ne les envoie pas directement : les segments ne contiennent pas l'adresse IP du destinataire !</p><p>On prend donc le segment et on lui rajoute un **en-tête IP.**</p><p>![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.018.png)</p>|
+| - |
 
 **L'en-tête IP** : L'en-tête IP est un ensemble d'information qu'on va placer devant le segment TCP.
 
