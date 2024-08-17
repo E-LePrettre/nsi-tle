@@ -75,12 +75,7 @@ Non, il va simplement envoyer son message (mis en forme en respectant HTTP) à l
 
 ### <a name="_toc154844732"></a>**2.3. La couche transport**
 
-|<p>**La couche transport :** Une fois choisi le mode de transport,  cette couche est chargée **de le mettre en œuvre.**
-</p><p></p><p>
-En gros deux protocoles sont disponibles : **UDP** (User Datagram Protocol) et **TCP** (Transmission Control Protocol).
-</p><p></p><p>
-- TCP est un **protocole fiable**, qui permet l'acheminement sans erreur de données issues d'une machine à une autre machine. Son **rôle est de fragmenter le message** à transmettre de manière à pouvoir le faire passer sur la couche internet. A l'inverse, sur la machine destination, TCP replace dans l'ordre les fragments transmis sur la couche internet pour reconstruire le message initial.
-- UDP est en revanche un protocole plus simple que TCP. Son utilisation présuppose que l'on n'a **pas besoin de la conservation de l'ordre de remise** des paquets. Il n'y a pas vérification de l'arrivée de tous les paquets, ( très utile pour la transmission de vidéos...)</p>|
+|<p>**La couche transport :** Une fois choisi le mode de transport,  cette couche est chargée **de le mettre en œuvre.**</p><p></p><p>En gros deux protocoles sont disponibles : **UDP** (User Datagram Protocol) et **TCP** (Transmission Control Protocol).</p><p></p><p>- TCP est un **protocole fiable**, qui permet l'acheminement sans erreur de données issues d'une machine à une autre machine. Son **rôle est de fragmenter le message** à transmettre de manière à pouvoir le faire passer sur la couche internet. A l'inverse, sur la machine destination, TCP replace dans l'ordre les fragments transmis sur la couche internet pour reconstruire le message initial.</p><p>- UDP est en revanche un protocole plus simple que TCP. Son utilisation présuppose que l'on n'a **pas besoin de la conservation de l'ordre de remise** des paquets. Il n'y a pas vérification de l'arrivée de tous les paquets, ( très utile pour la transmission de vidéos...)</p>|
 | - |
 
 
