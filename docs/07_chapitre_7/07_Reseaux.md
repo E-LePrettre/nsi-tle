@@ -111,7 +111,7 @@ C'est simple : la **couche TRANSPORT** ne sait pas faire. Alors elle délègue
 #### <a name="_toc154844734"></a>**2.4.1. Réseau et IP**
 
 |<p>- **La couche internet :** Cette couche réalise **l'interconnexion** des réseaux et ce **à l'aide du protocole IP** (Internet Protocol). Elle permet d'acheminer les données au bon destinataire dans le réseau, en laissant aux couches supérieures le soin de les réordonner (TCP) et de les interpréter (Application)</p>|
-| - |
+
 
 
 **Exemple** :
@@ -128,8 +128,10 @@ Cette couche est considérée comme un aiguilleur. Elle se charge de savoir si l
 
 - d'une machine qui **n'appartient pas au même réseau** (ici A18 à un message pour B7): on sait qu'il faut envoyer le message vers un réseau externe.
 
-![La communication entre deux réseaux distincts passe par un routeur](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.013.png)
-1. ### <a name="_toc154844735"></a>**Et comment fait cette couche pour savoir si le destinataire est sur le réseau interne ou s'il faut sortir du réseau actuel?**
+![La communication entre deux réseaux distincts passe par un routeur](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.013.png){: .center}
+
+#### <a name="_toc154844735"></a>**2.4.2. Et comment fait cette couche pour savoir si le destinataire est sur le réseau interne ou s'il faut sortir du réseau actuel?**
+
 **Adresse IP = Adresse réseau + Adresse machine**
 
 La couche RESEAU / INTERNET peut identifier les machines à l'aide de l’adresse IP. Il est totalement impossible qu'une machine connaisse les adresses de TOUTES les autres machines branchées sur INTERNET. 
