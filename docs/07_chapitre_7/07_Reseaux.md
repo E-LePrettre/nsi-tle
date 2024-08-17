@@ -342,9 +342,13 @@ Il n'y a plus qu'à envoyer le message. La difficulté est qu'on ne peut donner 
 Dans le réseau ci-dessus, si l'ordinateur d'adresse 192.168.0.5 veut interroger le serveur 10.7.3.8 :
 
 \- l'adresse 10.7.3.8 **n'étant pas dans le sous-réseau F** (d'adresse 192.168.0.0 / 24), la requête est confiée au routeur **via son adresse passerelle dans le réseau F (ici 192.168.0.254)**.
+
 \- le routeur observe si l'IP recherchée appartient à un autre des sous-réseaux auquel il est connecté. Ici, l'IP recherchée 10.7.3.8 **n'appartient ni au sous-réseau A ou E**.
+
 \- le routeur va donc regarder dans sa table de routage **l'adresse passerelle d'un autre routeur** vers qui elle doit rediriger les données. 
+
   - **Si le sous-réseau C fait partie de sa table de routage**, le routeur R1 saura alors que le meilleur chemin est (par exemple) de confier les données au routeur R3.
+  
   - **si le sous-réseau C ne fait pas partie de la table de routage**, le routeur R1 va alors le rediriger vers une route «par défaut» (que l'on peut assimiler au panneau «toutes directions» sur les panneaux de signalisation).
 
 **Exemple: table de routage du routeur R1**
