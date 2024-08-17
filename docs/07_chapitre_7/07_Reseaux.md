@@ -395,7 +395,7 @@ De la même manière, la communication avec le réseau C nécessite de confier l
 2\. Attribuer aux différentes interfaces des routeurs des adresses.
 3\. Donner la table de routage du routeur R1​ à son initialisation. Ajouter une colonne distance.
 
-|<p>**Destination**|**Masque**|**Passerelle**|**Interface**|**Distance**|
+|**Destination**|**Masque**|**Passerelle**|**Interface**|**Distance**|
 | :- | :- | :- | :- | :- |
 |||||
 
@@ -412,7 +412,8 @@ De la même manière, la communication avec le réseau C nécessite de confier l
 8\. Quel chemin vont suivre les paquets entre PC1 et PC2 ?
 
 
-1. ## <a name="_toc154844747"></a>**Métrique maximale**
+### <a name="_toc154844747"></a>**4.2. Métrique maximale**
+
 **Métrique maximale :** Pour limiter le nombre de routes inutiles et limiter la taille des messages RIP sur le réseau, on considère qu'une **métrique de 16** correspond à une **route impossible à atteindre**.
 ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.040.png)
 
