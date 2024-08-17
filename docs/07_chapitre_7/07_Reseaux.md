@@ -348,18 +348,19 @@ Dans le réseau ci-dessus, si l'ordinateur d'adresse 192.168.0.5 veut interrog
 \- le routeur va donc regarder dans sa table de routage **l'adresse passerelle d'un autre routeur** vers qui elle doit rediriger les données. 
 
   - **Si le sous-réseau C fait partie de sa table de routage**, le routeur R1 saura alors que le meilleur chemin est (par exemple) de confier les données au routeur R3.
-  
+
   - **si le sous-réseau C ne fait pas partie de la table de routage**, le routeur R1 va alors le rediriger vers une route «par défaut» (que l'on peut assimiler au panneau «toutes directions» sur les panneaux de signalisation).
 
 **Exemple: table de routage du routeur R1**
 
-**Destination****Interface****Passerelle**|
+|**Destination**|**Interface**|**Passerelle**|
 | :-: | :- | :- |
 |F|192\.168.0.254||
 |A|10\.0.5.152||
 |E|172\.17.1.254||
 |B|172\.17.1.254|172\.17.1.123|
 |C|10\.0.5.152|10\.0.5.135|
+| - |
 
 Les trois réseaux F, A et E sont directement accessibles au routeur R1, puisqu'il en fait partie : il n'a donc **pas besoin d'adresse passerelle** pour communiquer avec ces réseaux.
 
@@ -403,7 +404,7 @@ Ensuite, chaque routeur **va recevoir** périodiquement (toutes les 30 secondes)
 |<p>**Activité n° AUTONUM  \* Arabic :**  Routage RiP</p><p>![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.038.png)</p><p>1. Pour chaque sous-réseau situé entre deux routeurs, donner la première adresse utilisable pour adresser une machine et la dernière.</p><p>2. Attribuer aux différentes interfaces des routeurs des adresses.</p><p>3. Donner la table de routage du routeur R1​ à son initialisation. Ajouter une colonne distance.</p>|
 | :- |
 
-**Destination****Masque****Passerelle****Interface****Distance**|
+|<p>**Destination**|**Masque**|**Passerelle**|**Interface**|**Distance**|
 | :- | :- | :- | :- | :- |
 ||||||
 
