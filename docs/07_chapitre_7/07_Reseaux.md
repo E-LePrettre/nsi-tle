@@ -467,19 +467,14 @@ Précision : la mention **On-link** pour l’adresse de la passerelle, indique 
 - **Mise en place** : **RIP** met du temps à se mettre en place car la connaissance des nouvelles routes se fait de proche en proche, un nouveau saut uniquement toutes les 30s. Ici le routeur central va mettre 90s à apprendre l'existence des routeurs Gauche et Droite. Et le routeur Droite va donc devoir attendre encore 90s pour apprendre l'existence du routeur Gauche !
 
 
-1. # <a name="_toc154844749"></a>**Le routage dynamique OSPF (Open Shortest Path First)**
-   1. ## <a name="_toc154844750"></a>**Le principe du routage OSPF**
-Dans le **protocole OSPF (*Open Shortest Path First*)**, comme dans le cas du protocole RIP, les routeurs échangent entre eux des informations, mais ces échanges sont plus « intelligents » dans le cas d’OSPF, permettant ainsi de réduire l’occupation du réseau.
+## <a name="_toc154844749"></a>**5. Le routage dynamique OSPF (Open Shortest Path First)**
+### <a name="_toc154844750"></a>**5.1. Le principe du routage OSPF**
 
-- Tous les routeurs ont une **vision globale** et **identique** du réseau : pour cela, ils reçoivent des informations depuis tout le réseau
-- Les distances prennent en compte le nombre de routeur à traverser (nombre de sauts), mais également le **débit binaire** de chaque « câble » (appelé aussi **bande passante**), exprimé en bits/s.
+|<p>Dans le **protocole OSPF (*Open Shortest Path First*)**, comme dans le cas du protocole RIP, les routeurs échangent entre eux des informations, mais ces échanges sont plus « intelligents » dans le cas d’OSPF, permettant ainsi de réduire l’occupation du réseau.</p><p>- Tous les routeurs ont une **vision globale** et **identique** du réseau : pour cela, ils reçoivent des informations depuis tout le réseau</p><p>- Les distances prennent en compte le nombre de routeur à traverser (nombre de sauts), mais également le **débit binaire** de chaque « câble » (appelé aussi **bande passante**), exprimé en bits/s.</p><p>Le protocole OSPF permet à chaque routeur de connaitre le graphe complet des liaisons entre tous les routeurs du réseau, avec leur débits.</p><p>Ainsi, le « meilleur » chemin n’est pas forcément le plus court, mais le plus rapide.</p>|
+| - |
 
-Le protocole OSPF permet à chaque routeur de connaitre le graphe complet des liaisons entre tous les routeurs du réseau, avec leur débits.
 
-Ainsi, le « meilleur » chemin n’est pas forcément le plus court, mais le plus rapide.
-
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.041.png)
-1. ## <a name="_toc154844751"></a>**Le métrique d’OSPF**
+### <a name="_toc154844751"></a>**5.2. Le métrique d’OSPF**
 |<p>**Bande Passante et débit** : La **bande passante** caractérise la valeur maximale d'une communication entre deux ordinateurs, exprimée en bit.s<sup>-1</sup>.</p><p></p><p>Le **débit** caractérise lui la valeur réelle de cette capacité de transmission. Le débit est donc inférieur à la bande passante.</p><p></p>|![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.043.png) :- |
 
 ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.042.png)
