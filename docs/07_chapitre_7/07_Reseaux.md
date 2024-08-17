@@ -50,7 +50,7 @@ Le premier message est envoyé le 29 octobre 1969 entre l’université UCLA de 
 
 Pour cela, les deux programmes (le **client HTTP** et le **serveur HTTP**) respectent un **langage commun : le HTTP.**
 
-![1 Requête - 2 - Traitement - 3 - Réponse](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.004.png)
+![1 Requête - 2 - Traitement - 3 - Réponse](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.004.png){: .center}
 
 Un **programme-serveur** tourne sur une machine distante et il est identifié par un **PORT** sur cet **ordinateur** qu'on appelle serveur. Le PORT typique est **80 pour http** et **443 pour https**.
 
