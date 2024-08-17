@@ -34,7 +34,7 @@ Le premier message est envoyé le 29 octobre 1969 entre l’université UCLA de 
 ### <a name="_toc154844730"></a>**2.1. Les différentes couches**
 
 |<p>Les règles de communications (**Protocoles**) entre ordinateurs doivent se soumettre à certaines contraintes pour que les réseaux soient compatibles entre eux.</p><p>Le **modèle TCP / IP** est un modèle en couches. Chaque couche ne peut communiquer qu'avec la couche immédiatement **inférieure** ou **supérieure**.</p><p>On retrouve **deux notions** très importantes pour obtenir un système stable :</p><p>1. **Encapsulation** : chaque tâche est encapsulée dans une couche.</p><p>2. **Interface** : chaque couche communique avec ses couches voisines en utilisant uniquement l'interface.</p><p>A part cela, les couches sont **indépendantes** : tant que son interface reste la même, on peut changer le code interne d'une couche sans risques </p>|![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.002.png)|
-| - | :- |
+| - | - |
 
 
 
@@ -230,19 +230,15 @@ Donc la plage d'adresse disponible est de **172 . 128 . 0 . 1 à 172 . 128 . 63 
 | - | - |
 |- L'adresse IP source (4 octets en IPv4, 16 octets en IPV6). Sans cela, on ne pourrait pas répondre au message.|![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.022.png)|
 |- Un compteur nommé TTL (Time to Live) en IPv4 ou Hop Limit en IPv6 (1 octet dans les deux cas) : c'est un compteur qui décroit de 1 à chaque fois que le paquet est transféré par un routeur. Arrivé à 1, le paquet n'est plus déplacé et part juste à la poubelle.|![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.023.png)|
-| - | :- |
+| - | - |
 
 
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.020.png)
 
-Il existe bien entendu encore d'autres données dans cet en-tête mais nous allons nous limiter à ceux-ci.
-
-Ils permettent de comprendre l'essentiel du protocole.
-
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.025.png)
+|<p>Il existe bien entendu encore d'autres données dans cet en-tête mais nous allons nous limiter à ceux-ci.</p><p>Ils permettent de comprendre l'essentiel du protocole.</p><p>![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.025.png)|
+| - |
 
 
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.024.png)
+
 
 On symbolisera donc le paquet IP à l'aide d'un symbole plus symbolique. Par exemple :
 
