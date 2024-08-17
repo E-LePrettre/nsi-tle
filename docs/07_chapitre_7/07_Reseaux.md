@@ -1,530 +1,728 @@
 ﻿---
 author: ELP
-title: 07a Le HTML
+title: 07 Les protocoles de routage
 ---
 
-**Table des matières** 
 
-1. [Historique](#_page0_x40.00_y600.92)
-2. [Le fonctionnement des sites web](#_page1_x40.00_y237.92)
-3. [Le langage HTML5](#_page2_x40.00_y48.92)
-4. [L’organisation d’une page HTML5](#_page3_x40.00_y117.92)
-5. [Insérer une image](#_page9_x40.00_y607.92)
 
 
-## <H2 STYLE="COLOR:BLUE;">1. Historique<a name="_page0_x40.00_y600.92"></a></H2>
+**Table des matières**
 
-**Vidéo** : historique : [https://ladigitale.dev/digiview/#/v/6690fec0420aa](https://ladigitale.dev/digiview/#/v/6690fec0420aa)
+[1.	Historique	1](#_toc154844728)
 
-Le "World Wide Web", plus communément appelé "Web" a été développé au CERN (Conseil Européen pour la Recherche Nucléaire) par le Britannique **Sir Timothy John Berners-Lee** et le Belge **Robert Cailliau** en 1991. À cette époque, les principaux centres de recherche mondiaux étaient déjà connectés les uns aux autres, mais pour faciliter les échanges d'information, Tim Berners-Lee met au point le système hypertexte. Le système hypertexte permet, à partir d'un document, de consulter d'autres documents en cliquant sur des mots clés. Ces mots "cliquables" sont appelés **hyperliens** et sont souvent soulignés et en bleu.
+[2.	Rappels de première	1](#_toc154844729)
 
-La première page web est toujours consultable à l'adresse suivante :
+[3.	Tables de routages et le routage statique	10](#_toc154844742)
 
-- [http://info.cern.ch/hypertext/WWW/TheProject.html](http://info.cern.ch/hypertext/WWW/TheProject.html)
+[4.	Le routage dynamique RIP (Routing Information Protocol)	12](#_toc154844745)
 
-Tim Berners-Lee développe le premier navigateur web (logiciel permettant de lire des pages contenant des hypertextes), il l'appelle simplement "**WorldWideWeb**". Tim Berners-Lee a créé le World Wide Web Consortium (W3C) qui définit les nouvelles versions des langages liés au Web.
+[5.	Le routage dynamique OSPF (Open Shortest Path First)	15](#_toc154844749)
 
-Le web se base sur trois choses : le **protocole HTTP** (HyperText Transfert Protocol), les **URL** (Uniform Resource Locator) et le langage de description **HTML** (HyperText Markup Language).
+[6.	Exercices	17](#_toc154844753)
 
-Une chose très importante à bien avoir à l'esprit : beaucoup de personnes confondent "web" et "internet". L’"**internet**" est un "**réseau de réseaux**" alors que, comme nous venons de le voir, le web est la combinaison de trois technologies : HTTP, URL et HTML. D'ailleurs, on trouve autre chose que le "web" sur internet, par exemple, les emails avec le protocole SMTP (Simple Mail Transfert Protocol) et les transferts de fichiers avec le protocole FTP (File Transfert Protocol).
+**Compétences évaluables :**
 
-Tim Berners-Lee n'est donc pas l'inventeur d'Internet, c'est « seulement » l'inventeur du Web.
+- Identifier, suivant le protocole de routage utilisé, la route empruntée par un paquet
 
-## <H2 STYLE="COLOR:BLUE;">2. Le<a name="_page1_x40.00_y237.92"></a> fonctionnement des sites web</H2>
-### <H3 STYLE="COLOR:GREEN;">2.1. Les<a name="_page1_x40.00_y259.92"></a> navigateurs utilisés</H3>
 
-Pour consulter un site web, on doit lancer un programme appelé **navigateur web** :
+## <a name="_toc154844728"></a>**1. Historique** 
+Le réseau ARPANET, ancêtre de l’Internet, date de **1969**. C’est le premier réseau qui a utilisé un système à base de paquets pour le transfert de données.
 
-![Navigateurs](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.004.png)
+Le premier message est envoyé le 29 octobre 1969 entre l’université UCLA de Californie et l’institut de recherche de Stanford.
 
-### <H3 STYLE="COLOR:GREEN;">2.2. Les<a name="_page1_x40.00_y340.92"></a> langages</H3>
+## <a name="_toc154844729"></a>**2. Rappels de première**
+### <a name="_toc154844730"></a>**2.1. Les différentes couches**
+|<p>Les règles de communications (**Protocoles**) entre ordinateurs doivent se soumettre à certaines contraintes pour que les réseaux soient compatibles entre eux.</p><p>Le **modèle TCP / IP** est un modèle en couches. Chaque couche ne peut communiquer qu'avec la couche immédiatement **inférieure** ou **supérieure**.</p><p>On retrouve **deux notions** très importantes pour obtenir un système stable :</p><p>1. **Encapsulation** : chaque tâche est encapsulée dans une couche.</p><p>2. **Interface** : chaque couche communique avec ses couches voisines en utilisant uniquement l'interface.</p><p>A part cela, les couches sont **indépendantes** : tant que son interface reste la même, on peut changer le code interne d'une couche sans risques </p>|![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.002.png)|
+| - | :- |
 
-Pour créer des sites web, on utilise des langages particuliers : le CSS et le HTML.
 
-Ces deux langages ont des rôles différents :
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.001.png)
+1. ## <a name="_toc154844731"></a>**La couche application**
+- **La couche application** : Son rôle est principalement de **choisir le mode de transmission** (ce sont des protocoles comme http, https, ftp, smtp....)
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.003.png)**Exemple** : Votre navigateur Web (par exemple Firefox) veut communiquer avec le serveur HTTP servant le site elisa.leprettre.free.fr
 
-- HTML (HyperText Markup Language) : Son rôle est de gérer et organiser le contenu. C’est donc en HTML que l’on écrit ce qui doit être affiché sur la page : le texte, les liens, les images….
+Pour cela, les deux programmes (le **client HTTP** et le **serveur HTTP**) respectent un **langage commun : le HTTP.**
 
-- CSS (Cascading Style Sheets) : le rôle du CSS est de gérer l’apparence de la page Web (agencement, positionnement, …). Il est apparu en 1996. Il a besoin d’une page HTML pour fonctionner.
+![1 Requête - 2 - Traitement - 3 - Réponse](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.004.png)
 
-![HTML CSS](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.005.png)
+Un **programme-serveur** tourne sur une machine distante et il est identifié par un **PORT** sur cet **ordinateur** qu'on appelle serveur. Le PORT typique est **80 pour http** et **443 pour https**.
 
-- Le HTML définit le contenu.
-- Le CSS permet de définir la présentation : couleurs, image de fond, marges, taille du texte…
+**Quels types de requêtes peut-on avoir ?**
+##### **Méthode GET : paramètres dans l'URL** : La méthode GET permet de discuter très facilement avec le serveur puisqu'on peut placer les paramètres qu'on veut lui transmettre directement dans l'URL.
+#####
+##### **Méthode POST : paramètres dans le body de la requête** 
+#####
+##### La méthode GET est **pratique** mais si vous devez envoyer beaucoup de données, l'URL va être très longue.
+Autre désavantage : si vous passez un mot de passe en GET en https, le message est crypté OK. Personne ne peut lire votre mot de passe sur le réseau. C'est vrai. Mais le mot de passe sera noté en clair dans votre URL.
 
-### <H3 STYLE="COLOR:GREEN;">2.3. Les<a name="_page1_x40.00_y687.92"></a> éditeurs et les logiciels conseillés</H3>
+Dans ces deux cas, on préférera la méthode de transfert vers le serveur en **POST** : cette fois, le client va transmettre les données fournies (paramètres, fichiers...) dans le BODY. C'est pour cela que le BODY de la méthode GET est vide. On n'y place rien.
 
-Pour ce cours, nous utiliserons principalement **Capytale** pour les activités du cours et repl.it pour les projets, un éditeur en ligne qui permet de voir instantanément le résultat de son code HTML, CSS et JavaScript.
+Quelle que soit la requête, le navigateur, ici Firefox, va mettre en forme les données que vous voulez envoyer en respectant le protocole HTTP.
 
-**Un logiciel intéressant pour cette partie est Visual Studio Code**
+Le **protocole HTTP** fait donc parti de la **couche APPLICATION** : il définit comment deux applications peuvent discuter en respectant des règles de communications communes : le **protocole**.
 
-De plus, il est conseillé d’installer plusieurs navigateurs sur son ordinateur pour s’assurer que son site fonctionne correctement sur chacun d’eux : **Microsoft Edge et Firefox** au minimum.
+Mais ce n'est pas le programme FIREFOX lui-même qui va directement envoyer le message au serveur.
 
-Le site [https://caniuse.com/](https://caniuse.com/) tient à jour une liste des fonctionnalités prises en charge par les différentes versions de chaque navigateur.
+Non, il va simplement envoyer son message (mis en forme en respectant HTTP) à la couche du dessous : la couche **TRANSPORT**.
+1. ## <a name="_toc154844732"></a>**La couche transport**
+**La couche transport :** Une fois choisi le mode de transport,  cette couche est chargée **de le mettre en œuvre.**
 
-## <H2 STYLE="COLOR:BLUE;">3. Le<a name="_page2_x40.00_y48.92"></a> langage HTML5</H2>
-### <H3 STYLE="COLOR:GREEN;">3.1. Page<a name="_page2_x40.00_y70.92"></a> web en HTML</H3>
+En gros deux protocoles sont disponibles : **UDP** (User Datagram Protocol) et **TCP** (Transmission Control Protocol).
 
-**<H3 STYLE="COLOR:red;">Activité n°1. :</H3>**
+- TCP est un **protocole fiable**, qui permet l'acheminement sans erreur de données issues d'une machine à une autre machine. Son **rôle est de fragmenter le message** à transmettre de manière à pouvoir le faire passer sur la couche internet. A l'inverse, sur la machine destination, TCP replace dans l'ordre les fragments transmis sur la couche internet pour reconstruire le message initial.
+- UDP est en revanche un protocole plus simple que TCP. Son utilisation présuppose que l'on n'a **pas besoin de la conservation de l'ordre de remise** des paquets. Il n'y a pas vérification de l'arrivée de tous les paquets, ( très utile pour la transmission de vidéos...)
 
-=> CAPYTALE Le code vous sera donné par votre enseignant
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.005.png)
 
-### <H3 STYLE="COLOR:GREEN;">3.2. Les<a name="_page2_x40.00_y155.92"></a> balises</H3>
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.006.png)**Que va faire la couche TRANSPORT du message que lui envoie Firefox ?**
 
-Pour donner les instructions en HTML il faut utiliser des **balises**. Celles-ci sont invisibles à l’écran mais elles permettent à l’ordinateur de comprendre ce qu’il doit afficher. Les balises se repèrent facilement. Elles sont entourées de « chevrons », c’est-à-dire des symboles < balise>.
 
-#### <H4 STYLE="COLOR:MAGENTA;">3.2.1. Les<a name="_page2_x40.00_y212.92"></a> balises en paires</H4>
 
-Elles fonctionnent en nombre paire : `<balise1>` des indications `</balise1>`. On distingue une balise ouvrante et une balise fermante.
 
-#### <H4 STYLE="COLOR:MAGENTA;">3.2.2. Les<a name="_page2_x40.00_y258.92"></a> balises orphelines</H4>
 
-Elles servent en un point précis `<balise/>`.
 
-### <H3 STYLE="COLOR:GREEN;">3.3. Les<a name="_page2_x40.00_y290.92"></a> attributs</H3>
+- Premièrement, elle **découpe le message** en plusieurs sous-messages si le message du base est trop gros.
 
-Ce sont les options des balises : appelées attributs. Ils donnent les options des balises. Ils se placent après le nom de la balise ouvrante.
+  ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.007.png)
 
-`<balise attribut="valeur">`
+- Ensuite, elle **identifie chaque programme** (émetteur et récepteur) avec un identifiant. L'identifiant de la couche TRANSPORT est le **PORT**, un simple numéro encodé sur 2 octets (donc entre 1 et 65535). 
 
-### <H3 STYLE="COLOR:GREEN;">3.4. Structure<a name="_page2_x40.00_y347.92"></a> de base d’une page HTML5</H3>
+- A l'aide des sous-messages et des informations sur les PORTS, la couche **crée ensemble de segments TCP**.
 
-**<H3 STYLE="COLOR:red;">Activité n°2. :</H3>**
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <title>Logique sur les passoires</title>
-    </head>
-    <body>
-        Bonjour tout le monde
-    </body>
-</html>
-```
-Par souci de lisibilité du code on met des indentations (non obligatoires en HTML5).
+**Un segment TCP :** C'est l'un des sous-messages précédé d'informations supplémentaires qu'on nomme l'**en-tête TCP**. Notamment (mais pas que)
 
-Enregistrer, ouvrir le fichier et observer…
+- Le **PORT de l'application Source** du message (SRC) [ ce PORT est encodé sur les deux premiers octets ]
+- Le **PORT de l'application Destinataire** du message (DST) [ce PORT est encodé sur les deux octets suivants]
+- Un moyen d'identifier le **numéro du segment** par rapport aux autres (Séquence) [...]
+- et d'autres choses encore ...
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.008.png)
 
-- La première ligne s’appelle le **doctype**, elle indique qu’il s’agit bien d’une page web HTML.
-- Les deux balises html englobent tout le contenu de la page.
-- L’en-tête head donne le titre, l’encodage. Le titre s’affichera dans l’onglet du navigateur et dans les résultats de recherche de Google par exemple. Les informations que contient l'en-tête ne sont pas affichées sur la page, ce sont simplement des informations générales à destination de l'ordinateur.
+On connaît la structure de l'en-tête bit par bit et qu'on peut donc récupérer facilement les données à l'intérieur. On va simplement noter cet en-tête TCP par un rectangle jaune.
 
-`<meta charset="utf-8" />` : Cette balise indique l'encodage utilisé dans le fichier .html qui détermine comment les caractères spéciaux vont s'afficher (accents, idéogrammes chinois et japonais, caractères arabes, etc.). Il y a plusieurs techniques d'encodage mais aujourd'hui autant que possible on utilise UTF-8.
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.009.png)
 
-`<title>` : C'est le titre de votre page, probablement l'élément le plus important ! Toute page doit avoir un titre qui décrit ce qu'elle contient.
+A présent on a plein de segments dont on connaît l'expéditeur et le destinataire. **Mais comment trouver la bonne machine ?**
 
-![Title](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.008.png)
+C'est simple : la **couche TRANSPORT** ne sait pas faire. Alors elle délègue à la **couche RESEAU** qu'on nomme également couche **INTERNET**.
+1. ## <a name="_toc154844733"></a>**La couche réseau ou internet**
+   1. ### <a name="_toc154844734"></a>**Réseau et IP**
+- **La couche internet :** Cette couche réalise **l'interconnexion** des réseaux et ce **à l'aide du protocole IP** (Internet Protocol). Elle permet d'acheminer les données au bon destinataire dans le réseau, en laissant aux couches supérieures le soin de les réordonner (TCP) et de les interpréter (Application)
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.010.png)
 
-Il faut savoir que le titre apparaît
+**Exemple** :
 
- aussi dans les résultats de recherche, comme sur Google.
+Cette couche est considérée comme un aiguilleur. Elle se charge de savoir si le message est à destination: 
 
-- Le corps body : tout ce qui est écrit ici sera affiché.
+- de la **même machine** (ici A9 à un message pour A9): elle va envoyer le message vers la **couche APPLICATION**
 
-**Les commentaires** : (pour pouvoir se relire ou pour expliquer le code)
+  ![Destinataire réel = Destinataire final](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.011.png)
 
-`<!-- je fais un commentaire-->`
+- d'une machine qui **appartient au même réseau** que la machine elle-même (ici A9 à un message pour A2): on sait alors qu'on peut envoyer le message à la couche RESEAU du destinataire via sur le réseau interne
 
-Tout le code source est accessible à partir du navigateur. Dans **Firefox** : Menu > Web developer > page source ou CTRL + u.
+  ![Communication entre deux machines du même réseau](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.012.png)
 
-**Exemple de structure complète d’une page HTML**
+- d'une machine qui **n'appartient pas au même réseau** (ici A18 à un message pour B7): on sait qu'il faut envoyer le message vers un réseau externe.
 
-Voici un exemple complet d'une page HTML simple :
-```html
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>Exemple de page HTML</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
-</head>
-<body>
-    <h1>Bienvenue sur ma page</h1>
-    <p>Ceci est un paragraphe.</p>
-    <a href="https://example.com">Un lien</a>
-</body>
-</html>
-```
+![La communication entre deux réseaux distincts passe par un routeur](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.013.png)
+1. ### <a name="_toc154844735"></a>**Et comment fait cette couche pour savoir si le destinataire est sur le réseau interne ou s'il faut sortir du réseau actuel?**
+**Adresse IP = Adresse réseau + Adresse machine**
 
-- `<!DOCTYPE html>` : Indique qu'il s'agit d'un document HTML5.
-- `<html>` : Conteneur principal de tout le contenu HTML.
-- `<head>` : Contient des **informations sur le document, comme le titre et les liens vers les ressources externes**.
-- `<body>` : Contient le **contenu visible et interactif de la page**.
+La couche RESEAU / INTERNET peut identifier les machines à l'aide de l’adresse IP. Il est totalement impossible qu'une machine connaisse les adresses de TOUTES les autres machines branchées sur INTERNET. 
 
+Du coup, cette adresse IP est en réalité composée de deux parties.
 
-![DOM-model](DOM-model.svg.png)
+- Une **adresse réseau** qui identifie le réseau auquel appartient la machine
+- Une **adresse machine** qui identifie la machine elle-même sur ce réseau
 
-## <H2 STYLE="COLOR:BLUE;">4. L’organisation<a name="_page3_x40.00_y117.92"></a> d’une page HTML5</H2>
-### <H3 STYLE="COLOR:GREEN;">4.1. Les<a name="_page3_x40.00_y139.92"></a> paragraphes</H3>
+Qu'on soit en IP version 4 ou en IP version 6, **il existe un mécanisme permettant de savoir si l'adresse de destination est sur le même réseau que l'ordinateur actuel** ou si l'ordinateur de destination est en dehors du réseau actuel.
 
-La plupart du temps, on écrit du texte à l’intérieur d’un paragraphe. Le langage HTML propose justement la balise `<p>` pour délimiter les paragraphes. Il faut évidemment mettre ses paragraphes entre les balises body.
 
-**<H3 STYLE="COLOR:red;">Activité n°3. :</H3>**
-```html
-<body> 
-    <p>Bonjour et bienvenue sur ma page</p>     
-</body> 
-```
-**<H3 STYLE="COLOR:red;">Activité n°4. :</H3>** Je voudrais écrire le texte suivant exactement avec la même mise en page ci-dessous à la place de « Bonjour et bienvenue sur ma page ». **À vous de jouer !!**
-```html
-<body>
-    <p>
-        On appelle passoire tout instrument sur lequel on peut définir trois sous-ensembles : l’intérieur, l’extérieur, et les trous.
-        L’intérieur est généralement placé au-dessus de l’extérieur et se compose le plus souvent de nouilles et d’eau.
-        Les trous ne sont pas importants. En effet, une expérience simple permet de se rendre compte que l’on ne change pas notablement les qualités de l’instrument en réduisant de moitié le nombre des trous, puis en réduisant cette moitié de moitié… etc… etc… et à la limite jusqu’à ce qu’il n’y ait plus de trous du tout. D’où le théorème :
-        La notion de passoires est indépendante de la notion de trous et réciproquement.
-    </p>
-</body>
-```
-**Attention à mettre des indentations pour que le code soit lisible !!**
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.014.png)
+1. ### <a name="_toc154844736"></a>**Qui attribue les adresse IP ?**
+**Attribution des adresses IP** : Tout ordinateur se connecte sur un réseau via une carte réseau. Cette carte réseau possède un numéro d'identification unique : **l'adresse mac.** Une table de correspondance entre les adresses MAC et les adresses IP est maintenue à jour par le protocole de résolution d’adresses **ARP**.
 
-### <H3 STYLE="COLOR:GREEN;">4.2. La<a name="_page3_x40.00_y481.92"></a> balise retour à la ligne</H3>
+Notre ordinateur via sa carte se connecte sur un réseau ( via un routeur) qui se connecte sur un autre réseau etc....
 
-Il existe une balise orpheline `<br />` qui permet un retour à la ligne.
+Pour simplifier : c'est le **serveur DHCP** (Dynamic Host Configuration Protocol) qui est chargé de délivrer une adresse IP.
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.015.png)
+1. ### <a name="_toc154844737"></a>**Comment savoir à quel réseau appartient une machine ?**
+Une **adresse IP** est accompagnée d'un **masque sous réseau**. Un masque sous réseau est de la forme : 255.0.0.0 ou 255.255.0.0 ou encore 255.255.255.0.  On utilise à présent la « notation CIDR » (*Classless Inter-Domain Routing*). 
 
-**<H3 STYLE="COLOR:red;">Activité n°5. :</H3>** Modifier l’application n°4 pour ne mettre qu’un seul paragraphe et garder la mise en page.
+**Par exemple** IP : 192.168.0.5/16 (masque : 255.255.0.0) 
 
-![Exemple](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.018.jpeg)
+Signifie que c'est la machine 0.5 dans le réseau **192.168**.0.0. 
 
-### <H3 STYLE="COLOR:GREEN;">4.3. Les<a name="_page3_x40.00_y702.92"></a> titres</H3>
+La machine dont l'adresse IP est **192.168**.1.6/16, fait partie du même réseau que la précédente. C'est à dire la machine 1.6 du réseau **192.168**.0.0 
 
-Il a y six niveaux de titres différents :
+Alors que la machine **192.168.1.**6/24 fait partie d'un autre réseau (**192.168.1**.0) (c'est la machine 6 du réseau **192.168.1**.0)
 
-- Entre les balises `<h1></h1>` : titre de niveau 1.
-- Entre les balises `<h2></h2>` : titre de niveau 2.
-- ….
-- Entre les balises `<h6></h6>` : titre de niveau 6.
+**Comment déterminer l'adresse du réseau de cette machine ?** L'adresse réseau de cette machine est le résultat du ET logique appliqué entre l'adresse IP et le masque. ..... c'est à dire ?
 
-**<H3 STYLE="COLOR:red;">Activité n°6. :</H3>** Ajouter un titre à l’application n°4 : Les passoires Puis un sous-titre : Le théorème des passoires,
+Considérons la machine dont la configuration réseau est : 172.128.10.5 **/18**; (Masque **:** 255.255.192.0)
 
-Ainsi, on aura :
+On obtient **l'adresse du sous réseau** avec l'opérateur AND et on obtient **l'adresse de la machine** (l'hôte) dans le sous réseau avec le AND du complément du masque. Écrivons en binaire l'adresse IP et le masque :
 
-![Exemple](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.022.jpeg)
+172\.128.10.5
 
-**<H3 STYLE="COLOR:red;">Activité n°7. :</H3>** Ajouter un autre paragraphe à la suite dont voici le texte :
+s'écrit en binaire :
 
-```
-Les différents ordres de passoires
-On appelle passoires du premier ordre les passoires qui ne laissent passer ni les nouilles ni l'eau. 
-On appelle passoires du second ordre les passoires qui laissent passer et les nouilles et l'eau.
-On appelle passoires du troisième ordre, ou passoires complexes, les passoires qui laissent passer quelquefois l'un ou l'autre et quelquefois pas.   
-```
+10101100 . 10000000 . 00001010 . 00000101
 
-Ajouter les bonnes balises pour observer cela sur le navigateur.
+Le masque de sous réseau s'écrit en binaire :
 
-![Exemple](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.025.jpeg)
+11111111 . 11111111 . 11000000 . 00000000
 
-**Attention à mettre des indentations pour que le code soit lisible !!**
+Posons l'opération du ET logique entre ces deux écritures :
 
-**<H3 STYLE="COLOR:red;">Activité n°8. :</H3>** Ajouter des titres d’ordre inférieurs et des paragraphes correspondants, dont voici le texte :
+`     `10101100 . 10000000 . 00001010 . 00000101
 
-```
-Les différents types de passoires du troisième ordre
-Pour qu'une passoire complexe laisse passer l'eau et pas les nouilles, il faut et il suffit que le diamètre des trous soit notablement inférieur au diamètre des nouilles.
-Pour qu'une passoire complexe laisse passer les nouilles et pas l'eau, il faut et il suffit que le diamètre des trous soit notablement inférieur au diamètre de l'eau.
-Les différents types de passoire du premier ordre
-Quant aux passoires du premier ordre qui ne laissent passer ni les nouilles ni l'eau, il y en a de deux sortes : 
-Les passoires qui ne laissent passer ni les nouilles ni l'eau ni dans un sens ni dans l'autre et celles qui ne laissent passer ni les nouilles ni l'eau que dans un sens unique. 
-Ces passoires là on les appelle des casseroles.
-```
+ET   11111111 . 11111111 . 11000000 . 00000000
 
-Ajouter les bonnes balises pour observer cela sur le navigateur.
+\--------------------------------------------------
 
-![Exemple](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.029.jpeg)
+`     `10101100 . 10000000 . 00000000 . 00000000     
 
-**<H3 STYLE="COLOR:red;">Activité n°9. :</H3>** Ajouter des titres d’ordre inférieurs et des paragraphes correspondants, dont voici le texte :
+On met en décimal le résultat : **172.128.0.0 qui est l'adresse du réseau**.
 
-```
-Les différents types de casseroles
-Il y a trois sortes de casseroles. Les casseroles avec la queue à droite, les casseroles avec la queue à gauche, et les casseroles avec pas de queues du tout. Mais celles-là on les appelle des autobus.
-Les différents types d'autobus
-Il y a trois sortes d'autobus : les autobus qui marchent à droite ; les autobus qui marchent à gauche et les autobus qui ne marchent ni d'un côté ni de l'autre. Mais ceux-là, on les appelle des casseroles.
-```
+**Pour ce réseau, combien d'adresse sont utilisables ?** 
 
-![Exemple](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.031.png)
+Reprenons l'écriture en binaire du masque. On observe que nous pouvons la découper en deux parties ( en partant de la droite ) Une partie avec que des 0 et le reste
 
-### <H3 STYLE="COLOR:GREEN;">4.4. Mettre<a name="_page5_x40.00_y676.92"></a> en valeur</H3>
+11111111 . 11111111 . 11 <---> 000000 . 00000000
 
-Il y a différentes façons de mettre en valeur :
+On peut aller de 000000 . 00000000 à 111111 . 11111111. En décimal : de 0 à 16383 C'est à dire 16384 adresses possibles.... soit 2^14 = 16 384
 
-- Pour mettre un peu en valeur le texte on utilise la balise `<em></em>`.
+Enfin pas tout à fait :
 
-**<H3 STYLE="COLOR:red;">Activité n°10. :</H3>** utiliser les balises précédentes pour le mot passoire et théorème du premier paragraphe.
+- Il faut retirer l'adresse du réseau lui-même : 172.128.0.0
+- Il faut également retirer (la dernière ) l'adresse de broadcast (adresse réservée pour une diffusion sur toutes les machines du réseau)
 
-![Exemple](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.033.png)
+Donc en tout : 16382 machines
 
-- Pour mettre en valeur le texte on utilise la balise `<strong></strong>`.
+**Quelle est l'adresse de broadcast ?**
 
-**<H3 STYLE="COLOR:red;">Activité n°11. :</H3>** utiliser les balises précédentes pour les mots ci-dessous du deuxième paragraphe.
+L'adresse de **broadcast** qui permet d'envoyer des données à toutes les machines du sous réseau (pour l'apprentissage du réseau par exemple et créer la table de routage). L'adresse de broadcast est la dernière adresse disponible, on remplit de 1 à droite.
 
-![Exemple](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.036.jpeg)
+Pour la déterminer on fait le complément à 255 de la partie sous-réseau..., c'est à dire :
 
-- Les balises `<mark></mark>` permettent de faire ressortir visuellement une portion de texte. L’extrait n’est pas forcément considéré comme important mais on veut qu’il se distingue bien du reste du texte.
+`            `réseau        sous-réseau
 
-**<H3 STYLE="COLOR:red;">Activité n°12. :</H3>** utiliser les balises précédentes pour les mots ci-dessous du troisième paragraphe.
+`            `-------------|----------
 
-![Exemple](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.038.jpeg)
+réseau    : 172  .  128  .  0  .  0
 
-**Attention** : HTML pour le fond, CSS pour la forme
+masque    : 255  .  255  . 192 .  0
 
-Le rôle des balises est d
+broadcast : 172  .  128  . 63  . 255 (192+63 = 255 et 0+255 = 255)
 
-'indiquer le sens du texte. Ainsi, `<strong>` indique à l'ordinateur « Ce texte est important ». C'est tout.
+Donc la plage d'adresse disponible est de **172 . 128 . 0 . 1 à 172 . 128 . 63 . 254**
+1. ### <a name="_toc154844738"></a>**Le protocole DNS (Domain Name Server)**
+Dans la réalité, on ne tape pas l'adresse IP de tel ou tel site. On écrit une adresse du type : www.google.frµ. C'est un nom de domaine qui est associé à une adresse IP.
 
-Et pour montrer que le texte est **important**, l'ordinateur décide de le mettre en gras (mais il pourrait aussi bien l'écrire en rouge !). La plupart des navigateurs affichent les textes importants en gras, mais rien ne les y oblige.
+Cette association est réalisée par un **serveur DNS**
 
-Pourquoi c’est important de différencier par les balises adéquates le texte ?
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.016.png)
+1. ### <a name="_toc154844739"></a>**Qu’est-ce qu’un paquet IP ?**
+**Un paquet IP :** La couche **RESEAU** reçoit les segments que la couche **TRANSPORT** lui a fourni. Elle ne les envoie pas directement : les segments ne contiennent pas l'adresse IP du destinataire !
 
-De nombreux programmes analysent le code source des pages web, à commencer par les robots de moteurs de recherche. Ces robots parcourent le Web en lisant le code HTML de tous les sites. C'est le cas des robots de Google et de Bing, par exemple. Les mots-clés « **importants** » ont tendance à avoir plus de valeur à leurs yeux, donc si quelqu'un fait une recherche sur ces mots, il a plus de chances de tomber sur votre site.
+On prend donc le segment et on lui rajoute un **en-tête IP.**
 
-### <H3 STYLE="COLOR:GREEN;">4.5. Les<a name="_page7_x40.00_y36.92"></a> listes</H3>
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.018.png)
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.017.png)
 
-Il y a deux types de listes :
+**L'en-tête IP** : L'en-tête IP est un ensemble d'information qu'on va placer devant le segment TCP.
 
-- Les listes non ordonnées ou listes à puces
+Comme l'en-tête TCP, il s'agit **d'informations encodées** sur un nombre spécifique d'octets et décodables facilement.
 
-Pour créer une liste d’éléments sans notion d’ordre, il suffit d’utiliser les balises `<ul></ul>`. Puis pour chacun des éléments on utilise les balises `<li></li>`.
+Le contenu exact de l'en-tête va dépendre du système d'adressage utilisé : IPv4 ou IPv6 par exemple. 
 
-Par exemple :
-```html
-<ul>
-    <li>Fraises</li>
-    <li>Framboises</li>
-    <li>Cerises</li>
-</ul>
-```
-**<H3 STYLE="COLOR:red;">Activité n°13. :</H3>** utiliser les balises précédentes pour les mots ci-dessous du cinquième paragraphe.
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.019.png)
+|<p>**Que rajoute-on dans cet en-tête ?**</p><p>- L'adresse IP destination (4 octets en IPv4, 16 octets en IPV6). On la place en premier car c'est la première chose qu'un routeur doit lire. </p>|![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.021.png)|
+| - | - |
+|- L'adresse IP source (4 octets en IPv4, 16 octets en IPV6). Sans cela, on ne pourrait pas répondre au message.|![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.022.png)|
+|- Un compteur nommé TTL (Time to Live) en IPv4 ou Hop Limit en IPv6 (1 octet dans les deux cas) : c'est un compteur qui décroit de 1 à chaque fois que le paquet est transféré par un routeur. Arrivé à 1, le paquet n'est plus déplacé et part juste à la poubelle.|![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.023.png)|
 
-![Exemple](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.040.png)
 
-- Les listes ordonnées ou listes numérotées ou énumérations
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.020.png)
 
-Il suffit de remplacer les balises `<ul>` par `<ol>` et on utilise aussi les balises `<li></li>`. Par exemple :
-```html
-<ol>
-    <li>Fraises</li>
-    <li>Framboises</li>
-    <li>Cerises</li>
-</ol>
-```
-**<H3 STYLE="COLOR:red;">Activité n°14. :</H3>** utiliser les balises précédentes pour les mots ci-dessous du dernier paragraphe.
+Il existe bien entendu encore d'autres données dans cet en-tête mais nous allons nous limiter à ceux-ci.
 
-![Exemple](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.043.jpeg)
+Ils permettent de comprendre l'essentiel du protocole.
 
-### <H3 STYLE="COLOR:GREEN;">4.6. Les<a name="_page7_x40.00_y697.92"></a> liens hypertexte</H3>
-#### <H4 STYLE="COLOR:MAGENTA;">4.6.1. Les<a name="_page7_x40.00_y717.92"></a> liens absolus</H4>
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.025.png)
 
-Pour faire un lien vers un autre site, il faut utiliser les balises `<a></a>` et un attribut href qui indiquera la page.
-Par exemple :
-```html
-<a href="https://fr.wikipedia.org/wiki/Passoire">Passoire</a>
-```
-**<H3 STYLE="COLOR:red;">Activité n°15. :</H3>** utiliser les balises précédentes pour mettre un lien vers casserole sur Wikipedia comme ci-dessous.
 
-![Exemple](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.046.jpeg)
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.024.png)
 
-**Remarque** : Si vous faites un lien vers un site qui comporte une adresse un peu bizarre avec des &, comme : `http://www.site.com/?data=15&name=mateo21`, vous devrez remplacer tous les « & » par « `&amp;` » dans votre lien comme ceci : `http://www.site.com/?data=15&amp;name=mateo21`.
+On symbolisera donc le paquet IP à l'aide d'un symbole plus symbolique. Par exemple :
 
-#### <H4 STYLE="COLOR:MAGENTA;">4.6.2. Lien<a name="_page8_x40.00_y259.92"></a> relatif vers une page d’un même dossier</H4>
+![ref1]
 
-Pour faire un lien vers une page située dans un même dossier, on crée un lien relatif. Il suffit d’utiliser les balises `<a>` avec l’attribut href.
+|**Activité n° AUTONUM  \* Arabic :**  La machine d'adresse IP v4  70.30.20.145 /16  veut joindre la machine d'adresse IP  70.30.21.5 . Comment sait-on s'il faut rester dans le réseau actuel ou quitter le réseau ?|
+| - |
 
-**<H3 STYLE="COLOR:red;">Activité n°16. :</H3>** Créer une nouvelle page html page2.html dans le dossier contenant la page1 (Titre : Page 2). Après avoir rempli, la **structure minimale de la nouvelle page html** :
-```html
-<p>
-    Pour consulter la <a href="index.html">logique sur les passoires</a>
-</p>
-```
+|**Activité n° AUTONUM  \* Arabic :**  La machine d'adresse IP v4  70.30.20.145 /24  veut joindre la machine d'adresse IP  70.30.21.5 . Comment sait-on s'il faut rester dans le réseau actuel ou quitter le réseau ?|
+| - |
 
-Observer la page2.html.
+|**Activité n° AUTONUM  \* Arabic :**  La machine d'adresse IP v4  20.30.40.50  et de masque  255.0.0.0  veut joindre la machine d'adresse IP  20.200.100.5 . Comment sait-on s'il faut rester dans le réseau actuel ou quitter le réseau ?|
+| - |
 
-#### <H4 STYLE="COLOR:MAGENTA;">4.6.3. Lien<a name="_page8_x40.00_y391.92"></a> relatif vers une page située dans un dossier fils</H4>
+|**Activité n° AUTONUM  \* Arabic :**  La machine d'adresse IP v4  90.80.20.120  et de masque  255.255.255.0  veut joindre la machine d'adresse IP  90.80.20.5 . Comment sait-on s'il faut rester dans le réseau actuel ou quitter le réseau ?|
+| - |
 
-**ON NE POURRA PAS LE FAIRE AVEC CAPYTALE**
-Pour faire un lien vers une page située dans un sous-dossier, on utilise le chemin relatif :
+|**Activité n° AUTONUM  \* Arabic :**  La machine d'adresse IP v6  2a01:cb0c:96ac:d400:63ba:f65c:3616:15d4  veut joindre la machine d'adresse IP  2a01:cb0c:96ac:d400:73ba:12e3:3616:45a1 . Comment sait-on s'il faut rester dans le réseau actuel ou quitter le réseau ?|
+| - |
+###
+1. ### <a name="_hlk59303203"></a><a name="_toc154844740"></a>**Les pertes de paquets**
+Il se peut, et cela est courant que des paquets se perdent...
 
-Créer un dossier **contenu** dans le dossier contenant la page index.html. Créer une nouvelle page html page3.html avec la **structure minimale** dans le dossier contenu (Titre : Page3). Sur la page2.html, rajouter :
-```html
-<p>
-    Pour consulter la <a href="contenu/page3.html">page 3</a> du site
-</p>
-```
+Les causes possibles sont nombreuses :
 
-Observer la page2.html.
+- Engorgement d'un serveur
+- Délai d'attente trop long
+- etc.
 
-#### <H4 STYLE="COLOR:MAGENTA;">4.6.4. Lien<a name="_page8_x40.00_y511.92"></a> relatif vers une page située dans un dossier parent</H4>
-**ON NE POURRA PAS LE FAIRE AVEC CAPYTALE**
-Pour faire un lien vers une page dans un dossier parent, on utilise toujours la même chose.
+Le protocole TCP contrôle l'envoi et la bonne réception des paquets avec des accusés de réception (**ACK : acknowledgement** ou acquittement en Français ). Ce processus d'acquittement permet de détecter les pertes de paquets.
 
-Sur la page3.html, rajouter :
-```html
-<p>
-    Pour consulter la <a href="../page2.html">page 2</a> du site
-</p>
-```
-#### <H4 STYLE="COLOR:MAGENTA;">4.6.5. Lien<a name="_page8_x40.00_y599.92"></a> vers une ancre sur une même page</H4>
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.027.png)
 
-Une **ancre** est une sorte de point de repère que l’on peut mettre dans les pages html lorsqu’elles sont très longues. Il peut alors être utile de faire un lien amenant plus bas dans la même page pour que le visiteur puisse sauter directement à la partie qui l'intéresse. Pour créer une ancre, il suffit de rajouter l'attribut id à une balise qui va alors servir de repère. Ce peut être n'importe quelle balise.
+1. ### <a name="_toc154844741"></a>**Le protocole de bit alterné**
 
-**<H3 STYLE="COLOR:red;">Activité n°17. :</H3>** Sur la index.html, on va faire une ancre sur le titre en haut de page
-```html
-<h1 id="haut">Les passoires</h1>
-```
+Considérons deux ordinateurs A et B.
 
-On crée un lien en bas de la page pour remonter vers le haut. Rajouter tout en bas (mais dans le body) la référence avec `#`
-```html
-<p>
-    <a href="#haut">Aller en haut</a>
-</p>
-```
-Enregistrer et observer. S’il ne se passe rien, augmenter le zoom afin de faire apparaître les barres de défilement sur le côté.
+- Au moment d'émettre une trame, A va lui ajouter un bit ( 0 ou 1) appelé drapeau( flag)
+- Dès cette trame reçue, B envoie un accusé de réception en ajoutant un bit (1 ou 0)
 
-#### <H4 STYLE="COLOR:MAGENTA;">4.6.6. Lien<a name="_page9_x40.00_y36.92"></a> vers une ancre sur une autre page</H4>
+**La règle :** la première trame envoyée par A aura pour drapeau 0, dès cette trame reçue par B, ce dernier va envoyer un accusé de réception avec le drapeau 1 (ce 1 signifie "la prochaine trame que A va m'envoyer devra avoir son drapeau à 1").
 
-Pour faire un lien vers **une ancre située dans une autre page,** on précise l’adresse de la page et le nom de l’ancre précédée de #.
+Dès que A reçoit l'accusé de réception avec le drapeau à 1, il envoie la 2e trame avec un drapeau à 1, et ainsi de suite...
 
-**<H3 STYLE="COLOR:red;">Activité n°18. :</H3>** Sur la page2.html, on va faire un lien vers l’ancre de la index.html.
-```html
-<h1 id="haut">Les passoires</h1>
-```
-On crée un lien en bas de la page pour remonter vers le haut. Rajouter tout en bas (mais dans le body) la référence avec #
-```html
-<p>
-    <a href="index.html#haut">Aller en haut de la page logique sur les passoires</a>
-</p>
-```
-Enregistrer et observer.
+A------Trame1/0---->B
 
-#### <H4 STYLE="COLOR:MAGENTA;">4.6.7. Lien<a name="_page9_x40.00_y195.92"></a> affichant une infobulle</H4>
+A<-----ACK/1--------B
 
-Avec l’**attribut** title
+A------Trame2/1---->B
 
-**<H3 STYLE="COLOR:red;">Activité n°19. :</H3>** Sur la page2.html, on va faire une infobulle
-```html
-<p>
-    <a href="index.html#haut" title="Vous ne le regretterez pas !">Aller en haut de la page logique sur les passoires</a>
-</p>
-```
-Enregistrer et observer.
+A<-----ACK/0--------B
 
-#### <H4 STYLE="COLOR:MAGENTA;">4.6.8. Lien<a name="_page9_x40.00_y316.92"></a> qui ouvre une nouvelle fenêtre</H4>
+A------Trame3/0---->B
 
-Pour forcer l’ouverture d’un lien dans une nouvelle fenêtre, on rajoutera target="_blank" à la balise `<a>`
+A<-----ACK/1--------B
 
-**<H3 STYLE="COLOR:red;">Activité n°20. :</H3>** Sur la page2.html, on va faire une infobulle
-```html
-<p>
-    <a href="index.html#haut" title="Vous ne le regretterez pas !" target="_blank">Aller en haut de la page logique sur les passoires</a>
-</p>
-```
-Enregistrer et observer.
+etc...
 
-#### <H4 STYLE="COLOR:MAGENTA;">4.6.9. Un<a name="_page9_x40.00_y437.92"></a> lien pour envoyer un e-mail</H4>
+Le système de drapeau est complété avec un **système d'horloge** côté émetteur. Un "chronomètre" est déclenché à chaque envoi de trame, si au bout d'un certain temps, l'émetteur n'a pas reçu un acquittement correct (avec le bon drapeau), la trame précédemment envoyée par l'émetteur est considérée comme perdue et est de **nouveau envoyée**.
 
-Avec un lien de type mailto, en cas de clic, un nouveau message vide s’ouvre.
+|<p>**Exemple 1 :**</p><p>A------Trame1/0 xx B ( la trame 1 s'est perdue )</p><p>-----------------------</p><p>Le temps est écoulé</p><p>A------Trame1/0---->B (la trame1 est renvoyée)</p><p>A<-----ACK/1--------B</p>|<p>**Exemple 2 :**</p><p>A------Trame1/0---->B</p><p>A< xx ACK/1--------B ( l'accusé réception s'est perdu)</p><p>-----------------------</p><p>Le temps est écoulé</p><p>A------Trame1/0---->B (la trame est renvoyée)</p><p>A<-----ACK/1--------B</p>|
+| - | - |
 
-**<H3 STYLE="COLOR:red;">Activité n°21. :</H3>** Sur la index.html, on va faire un lien vers un mail
-```html
-<p>
-    <a href="mailto:votrenom@bidule.com">Envoyez-moi un e-mail !</a>
-</p>
-```
-Enregistrer et observer.
 
-#### <H4 STYLE="COLOR:MAGENTA;">4.6.10. Un<a name="_page9_x40.00_y544.92"></a> lien pour télécharger un fichier</H4>
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.028.png)
 
-Il s’agit d’un même type de lien mais vers le dossier à télécharger.
 
-Par exemple :
-```html
-<p><a href="monfichier.zip">Télécharger le fichier</a></p>
-```
+**Les limites** : Dans certaines situations, le protocole de bit alterné ne permet pas de récupérer les trames perdues, c'est pour cela que ce protocole est aujourd'hui remplacé par des protocoles plus efficaces, mais aussi plus complexes. 
 
-## <H2 STYLE="COLOR:BLUE;">5. Insérer<a name="_page9_x40.00_y607.92"></a> une image</H2>
-### <H3 STYLE="COLOR:GREEN;">5.1. Les<a name="_page9_x40.00_y629.92"></a> différents formats d’images</H3>
+Un exemple de données définitivement perdues
 
-Le format de l’image influence le poids mais également la qualité de l’image. Toutes les images diffusées sur internet ont un point commun : elles sont **compressées.**
 
-#### <H4 STYLE="COLOR:MAGENTA;">5.1.1. Le<a name="_page9_x40.00_y680.92"></a> JPEG</H4>
 
-Les images au format JPEG (Joint Photographic Expert Group) sont très répandues sur le Web. Ce format est conçu pour réduire le poids des photos qui peuvent comporter plus de 16 millions de couleurs différentes. Les images JPEG sont enregistrées avec l’extension .jpg ou .jpeg. Ce format permet de réduire le poids des photos mais les images sont de moindre qualité.
 
-#### <H4 STYLE="COLOR:MAGENTA;">5.1.2. Le<a name="_page9_x40.00_y751.92"></a> PNG</H4>
 
-Le format PNG (Portable Network Graphics) est le plus récent de tous. Le PNG a deux gros avantages : il peut être rendu transparent et il n’altère pas la qualité de l’image.
 
-Le PNG existe en deux versions :
 
-- PNG 8 bits : 256 couleurs
-- PNG 24 bits : 16 millions de couleurs
 
-Une photo au format PNG a un poids plus important qu’au format JPEG.
 
-#### <H4 STYLE="COLOR:MAGENTA;">5.1.3. Le<a name="_page10_x40.00_y106.92"></a> GIF</H4>
+En **conclusion** :
 
-Le format GIF est limité à 256 couleurs. Par contre il peut être animé.
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.029.png)
+1. # <a name="_toc154844742"></a>**Tables de routages et le routage statique**
+   1. ## ![ref2]<a name="_toc154844743"></a>**Les chemins dans le réseau**
+On a donc un paquet IP qui contient l'adresse IP du **destinataire** et l'adresse de l'expéditeur initial
 
-#### <H4 STYLE="COLOR:MAGENTA;">5.1.4. Le<a name="_page10_x40.00_y144.92"></a> BITMAP</H4>
+Il n'y a plus qu'à envoyer le message. La difficulté est qu'on ne peut donner le message qu'à un autre ordinateur avec qui on est en liaison directe. Nous allons donc voir à quel **intermédiaire de communication** (ou **passerelle**) transférer ce paquet IP pour qu'il parvienne à destination.
 
-C’est un format non compressé donc très (trop) gros.
+La **couche RESEAU et son protocole IP** se charge justement de savoir qui doit gérer le paquet ensuite, qui est la prochaine passerelle.
 
-### <H3 STYLE="COLOR:GREEN;">5.2. Insérer<a name="_page10_x40.00_y183.92"></a> une image</H3>
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.031.png)
+1. ## <a name="_toc154844744"></a>**Les tables de routage**
+Voici comment se présente une table de routage :
 
-Pour insérer une image, il faut utiliser la balise orpheline `<img />`. La balise doit être accompagnée de deux attributs obligatoires :
+1. Une colonne **IP Destinataire** permet d'identifier l'adresse IP de destination (et donc le réseau de destination)
+1. Une colonne **Passerelle** : **C'est l'adresse IP de la carte réseau du routeur** **à qui on va confier le paquet**, si on n'est pas capable de le délivrer directement (donc si l'adresse IP de destination n'est pas dans notre propre sous-réseau). Cette adresse de passerelle n'est donc pas *systématiquement* mentionnée. Quand elle l'est, elle donne le renseignement sur le prochain routeur à qui le paquet est confié.
+1. une colonne **Interface** : On parle également d'interface d'entrée/sortie. c'est **l'adresse IP de la carte réseau du routeur par où va sortir** le paquet à envoyer. Il y a donc **toujours** une adresse d'interface à renseigner. Parfois cette interface sera juste nommée *interface1* ou *interface2*.
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.032.png)
 
-- src : il permet d’avoir le chemin de la source 
 
-Par exemple :
-```html
-<img src="http://monsite.fr/fleur.jpg" />
-<img src="images/fleur.jpg" />
-```
-- alt : cela signifie « texte alternatif ». Il faut toujours indiquer un texte alternatif à l’image qui permet de décrire l’image si elle ne s’affiche pas dans le navigateur de l’utilisateur. De plus, elle sera d’une aide précieuse pour les personnes mal voyantes. Cela aide aussi les robots des moteurs de recherche pour les recherches d'images. Pour la fleur, on mettrait par exemple : alt="Une fleur".
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.033.png)![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.034.png)![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.035.png)
 
-- title : permet d’insérer une info bulle (attribut facultatif)
+Dans le réseau ci-dessus, si l'ordinateur d'adresse 192.168.0.5 veut interroger le serveur 10.7.3.8 :
 
-On aura ainsi finalement :
-```html
-<p>
-    Voici une photo d'une fleur de mon jardin <br />
-    <img src="images/fleur.jpg" alt="Photo d'une fleur" title="C'est beau les fleurs quand même !" />
-</p>
-```
-**Attention** : à ne pas mettre d’espace dans le nom !!
+- l'adresse 10.7.3.8 **n'étant pas dans le sous-réseau F** (d'adresse 192.168.0.0 / 24), la requête est confiée au routeur **via son adresse passerelle dans le réseau F (ici 192.168.0.254)**.
+- le routeur observe si l'IP recherchée appartient à un autre des sous-réseaux auquel il est connecté. Ici, l'IP recherchée 10.7.3.8 **n'appartient ni au sous-réseau A ou E**.
+- le routeur va donc regarder dans sa table de routage **l'adresse passerelle d'un autre routeur** vers qui elle doit rediriger les données. 
+  - **Si le sous-réseau C fait partie de sa table de routage**, le routeur R1 saura alors que le meilleur chemin est (par exemple) de confier les données au routeur R3.
+  - **si le sous-réseau C ne fait pas partie de la table de routage**, le routeur R1 va alors le rediriger vers une route «par défaut» (que l'on peut assimiler au panneau «toutes directions» sur les panneaux de signalisation).
 
-**ON NE POURRA PAS LE FAIRE AVEC CAPYTALE**
-Chercher trois images sur le web d’une passoire, d’une casserole et d’un autobus. Les enregistrer dans un dossier **images** dans le dossier Documents\site. Ouvrir la index.html et insérer ces trois images de telle sorte à obtenir la page ci-dessous. Mettre des infobulles du type « Ceci est une passoire ! »
+**Exemple: table de routage du routeur R1**
 
-![Exemple](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.063.jpeg)
+|**Destination**|**Interface**|**Passerelle**|
+| :-: | :- | :- |
+|F|192\.168.0.254||
+|A|10\.0.5.152||
+|E|172\.17.1.254||
+|B|172\.17.1.254|172\.17.1.123|
+|C|10\.0.5.152|10\.0.5.135|
 
-![Exemple](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.064.png)
+Les trois réseaux F, A et E sont directement accessibles au routeur R1, puisqu'il en fait partie : il n'a donc **pas besoin d'adresse passerelle** pour communiquer avec ces réseaux.
 
-![Exemple](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.065.png)
+Par contre, la communication avec le réseau B nécessite de confier le paquet au routeur R2 (c'est le choix de cette table de routage). Il faut donc mentionner **l'adresse IP de ce routeur R2** (172.17.1.123), qu'on appelle **adresse de passerelle**.
 
-Enregistrer et observer.
+De la même manière, la communication avec le réseau C nécessite de confier le paquet au routeur R3 (c'est le choix de cette table de routage). Il faut donc mentionner **l'adresse IP de ce routeur R3** (10.0.5.135)
 
-On peut proposer une miniature cliquable pour des images très grosses :
+**Comment sont construites les tables de routage ?** 
 
-![Exemple](Aspose.Words.69e325b4-61fe-496b-8990-a642022b14d2.066.png)
+- Soit à la main par l'administrateur réseau, quand le réseau est petit : on parle alors de table **statique**.
+- Soit de manière **dynamique** : les réseaux s'envoient eux-mêmes des informations permettant de mettre à jour leurs tables de routages respectives. Des algorithmes de détermination de meilleur chemin sont alors utilisés : nous allons en découvrir deux, le **protocole RIP et le protocole OSPF.**
 
-Il faut les placer toutes les deux dans un dossier img. On affiche la version mini sur la page et on fait un lien vers la plus grosse image pour que l’image agrandie s’affiche lorsqu’on clique sur la miniature.
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.036.png)
 
-```html
-<p>
-    Voici une photo d'une fleur de mon jardin. Cliquez dessus !<br />
-    <a href="img/fleur.jpg">
-        <img src="images/fleur_mini.jpg" alt="Photo d'une fleur" title="C'est beau les fleurs quand même !" />
-    </a>
-</p>
-```
-Vérification de la syntaxe de votre page.
 
-Pour vérifier que votre page Web est conforme aux spécifications HTML5, rendez-vous sur le site du W3C (World Wide Web Consortium) : [http://validator.w3.org](http://validator.w3.org)
 
-Pour une page Web locale (pas encore publiée sur le Web) :
 
-Validate by File Upload → Check
 
-S'il y a des erreurs, elles vous seront indiquées, avec des explications.
+1. # <a name="_toc154844745"></a>**Le routage dynamique RIP (Routing Information Protocol)**
+   1. ## <a name="_toc154844746"></a>**Le principe du routage RIP**
+Le **Routing Information Protocol (RIP)** est basé sur **l'échange** (toutes les **30 secondes**) des tables de routage de chaque routeur.
+
+Au début, chaque routeur ne connaît **que les réseaux auquel il est directement connecté**, associé à la **distance 1.**
+
+Ensuite, chaque routeur **va recevoir** périodiquement (toutes les 30 secondes) la table des réseaux auquel il est connecté, et mettre à jour sa propre table suivant les règles ci-dessous :
+
+- s'il découvre une route vers un **nouveau réseau inconnu**, il **l'ajoute à sa table en augmentant de 1** la distance annoncée par le routeur qui lui a transmis sa table.
+- s'il découvre une route vers un **réseau connu mais plus courte** (en rajoutant 1) que celle qu'il possède dans sa table, **il actualise sa table.**
+- s'il découvre une route vers un **réseau connu mais plus longue** que celle qu'il possède dans sa table, il **ignore cette route**.
+- s'il reçoit une route vers un **réseau connu** en provenance d'un routeur déjà existant dans sa table, il **met à jour sa table** car la topologie du réseau a été modifiée.
+- si le réseau n'évolue pas (dûs à une panne ou ajout de nouveau matériel), les tables de routage ***convergent*** vers une **valeur stable**. Elles n'évoluent plus.
+- si un routeur ne reçoit pas **pendant 3 minutes** d'information de la part d'un routeur qui lui avait auparavant communiqué sa table de routage, ce routeur est considéré comme en panne, et toutes les routes passant par lui sont affectées de la **distance infinie** : 16.
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.037.png)
+
+**Remarques et inconvénients:**
+
+- Le protocole RIP n'admet qu'une distance maximale égale à 15 (ceci explique que 16 soit considéré comme la distance infinie), ce qui le limite aux réseaux de petite taille.
+- Chaque routeur n'a jamais connaissance de la topologie du réseau tout entier : il ne le connaît que par ce que les autres routeurs lui ont raconté. On dit que ce protocole de routage est du *routing by rumor*.
+- La *métrique* utilisée (le nombre de sauts) ne tient pas compte de la qualité de la liaison, contrairement au protocole OSPF.
+
+|<p>**Activité n° AUTONUM  \* Arabic :**  Routage RiP</p><p>![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.038.png)</p><p>1. Pour chaque sous-réseau situé entre deux routeurs, donner la première adresse utilisable pour adresser une machine et la dernière.</p><p>2. Attribuer aux différentes interfaces des routeurs des adresses.</p><p>3. Donner la table de routage du routeur R1​ à son initialisation. Ajouter une colonne distance.</p>|
+| :- |
+
+|**Destination**|**Masque**|**Passerelle**|**Interface**|**Distance**|
+| :- | :- | :- | :- | :- |
+||||||
+
+|<p>**Remarque :** Pour simplifier la lecture, ne rien écrire dans la colonne Passerelle si celle-ci est le routeur lui-même. De plus, ne pas prendre en compte l’adresse de loopback et la route par défaut.</p><p>4. Même question pour le routeur R3​ et le routeur R2</p><p>5. Donner la table de routage du routeur R1​ si on imagine qu’il a d’abord échangé une demande RIP avec le routeur R3</p><p>6. Donner la table de routage du routeur R1si on imagine qu’il a ensuite échangé une demande RIP avec le routeur R2</p><p>7. Quelle est la table de routage finale pour le routeur R1​.</p><p>8. Quel chemin vont suivre les paquets entre PC1 et PC2 ?</p><p>
+</p><p>
+</p><p>![ref3]![ref3]</p>|
+| :- |
+
+1. ## <a name="_toc154844747"></a>**Métrique maximale**
+**Métrique maximale :** Pour limiter le nombre de routes inutiles et limiter la taille des messages RIP sur le réseau, on considère qu'une **métrique de 16** correspond à une **route impossible à atteindre**.
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.040.png)
+
+**Par exemple :** Sur un ordinateur relié à une box internet dans un réseau privé, on obtient par exemple la table de routage qui suit, résultat de la commande route print sous Windows. Par exemple : IPv4 Table de routage
+
+\===========================================================================
+
+Itinéraires actifs :
+
+Destination réseau    Masque réseau  Adr. passerelle   Adr. interface Métrique
+
+`          `0.0.0.0          0.0.0.0    192.168.1.254    192.168.1.138     55
+
+`        `127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
+
+`        `127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
+
+`  `127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+
+`      `192.168.1.0    255.255.255.0         On-link     192.168.1.138    311
+
+`    `192.168.1.138  255.255.255.255         On-link     192.168.1.138    311
+
+`    `192.168.1.255  255.255.255.255         On-link     192.168.1.138    311
+
+`        `224.0.0.0        240.0.0.0         On-link         127.0.0.1    331
+
+`        `224.0.0.0        240.0.0.0         On-link     192.168.1.138    311
+
+`  `255.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+
+`  `255.255.255.255  255.255.255.255         On-link     192.168.1.138    311
+
+\===========================================================================
+
+
+Les adresses commençant par 127, ou par 224 ou par 255 et celles se terminant par 255 sont spécifiques au loopback, au multicast et au broadcast. Il reste :
+
+\===========================================================================
+
+Itinéraires actifs :
+
+Destination réseau    Masque réseau  Adr. passerelle   Adr. interface Métrique
+
+`          `0.0.0.0          0.0.0.0    192.168.1.254    192.168.1.138     55
+
+`      `192.168.1.0    255.255.255.0         On-link     192.168.1.138    311
+
+`    `192.168.1.138  255.255.255.255         On-link     192.168.1.138    311
+
+\===========================================================================
+
+Pour effectuer un envoi, la machine examine les lignes du tableau selon l’ordre des masques du plus grand au plus petit. Ici 255.255.255.255, puis 255.255.255.0 et enfin 0.0.0.0.
+
+- Si le destinataire est la machine qui a pour IP 192.168.1.138 (masque 255.255.255.255), l’interface utilisé a pour adresse 192.168.1.138 c’est la **même machine**.
+- Si le destinataire a pour IP 192.168.1.0 avec le masque 255.255.255.0, il s’agit du réseau local auquel est connectée la machine, et l’interface utilisé a pour adresse 192.168.1.138. C’est encore la **même machine**.
+- Si le destinataire a pour IP 0.0.0.0, avec le masque 0.0.0.0, il s’agit de toutes les autres adresses possibles. L’interface utilisée a pour adresse 192.168.1.138 c’est la machine locale, mais il faut sortir du réseau local et passer par la passerelle, qui appartient au réseau local, d’adresse 192.168.1.254. Autrement dit, la destination 0.0.0.0 avec le masque 0.0.0.0 propose **une route par défaut**, si aucune autre route n’a été trouvée.
+
+Précision : la mention **On-link** pour l’adresse de la passerelle, indique que la route cherchée est sur le réseau auquel est connectée la machine émettrice.
+
+1. ## <a name="_toc154844748"></a>**Conclusion sur le protocole RIP**
+- **Rôle** : aucun routeur n'a de rôle prépondérant dans le système autonome (à part le fait que certains soient en liaison avec l'extérieur par exemple) : **RIP** utilise un **algorithme totalement réparti**
+- **Métrique** : La métrique utilisée pour définir les distances est simplement **le nombre de sauts**
+- **Informations transmises** : c'est un protocole à **vecteur de distance** : chaque routeur transmet toutes les 30s à ses voisins directs l'ensemble des couples **(destination;distance)** qu'il connait. Chaque routeur reçoit les informations de ses voisins, rajoute simplement 1 à leurs métriques (pour prendre en compte le saut supplémentaire vers eux) et garde les meilleurs choix de passerelles pour les différentes destinations : celles dont la métrique est la plus basse.
+- **Connaissance du réseau** : **RIP** ne permet pas aux routeurs d'avoir une vision globale du réseau et de choisir certains chemins : on décide juste de la passerelle suivante à qui on transmet le paquet. Chaque routeur ne connait donc que ses voisins directs et sait auquel transmettre un paquet IP pour une destination donnée. 
+- **Taille** : RIP ne permet pas de gérer des systèmes autonomes comportant des routeurs situés à plus de 15 sauts l'un de l'autre (sinon, le réseau serait encombré par les messages RIP et n'aurait plus le temps de gérer les vrais messages !)
+- **Mise en place** : **RIP** met du temps à se mettre en place car la connaissance des nouvelles routes se fait de proche en proche, un nouveau saut uniquement toutes les 30s. Ici le routeur central va mettre 90s à apprendre l'existence des routeurs Gauche et Droite. Et le routeur Droite va donc devoir attendre encore 90s pour apprendre l'existence du routeur Gauche !
+
+
+1. # <a name="_toc154844749"></a>**Le routage dynamique OSPF (Open Shortest Path First)**
+   1. ## <a name="_toc154844750"></a>**Le principe du routage OSPF**
+Dans le **protocole OSPF (*Open Shortest Path First*)**, comme dans le cas du protocole RIP, les routeurs échangent entre eux des informations, mais ces échanges sont plus « intelligents » dans le cas d’OSPF, permettant ainsi de réduire l’occupation du réseau.
+
+- Tous les routeurs ont une **vision globale** et **identique** du réseau : pour cela, ils reçoivent des informations depuis tout le réseau
+- Les distances prennent en compte le nombre de routeur à traverser (nombre de sauts), mais également le **débit binaire** de chaque « câble » (appelé aussi **bande passante**), exprimé en bits/s.
+
+Le protocole OSPF permet à chaque routeur de connaitre le graphe complet des liaisons entre tous les routeurs du réseau, avec leur débits.
+
+Ainsi, le « meilleur » chemin n’est pas forcément le plus court, mais le plus rapide.
+
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.041.png)
+1. ## <a name="_toc154844751"></a>**Le métrique d’OSPF**
+|<p>**Bande Passante et débit** : La **bande passante** caractérise la valeur maximale d'une communication entre deux ordinateurs, exprimée en bit.s<sup>-1</sup>.</p><p></p><p>Le **débit** caractérise lui la valeur réelle de cette capacité de transmission. Le débit est donc inférieur à la bande passante.</p><p></p>|![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.043.png)|
+| - | :- |
+
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.042.png)
+
+##### **Métrique OSPF :** OSPF (Open Shortest Path First) utilise le coût entre deux routeurs comme paramètre de sa métrique : plus la liaison est rapide, plus la valeur utilisée sera petite. 
+Sur la plupart des systèmes travaillant en OSPF, la valeur de référence par défaut est actuellement de  1.10<sup>8</sup> .
+
+Avec cette valeur de référence, on obtient alors :
+
+Coût=<a name="_hlk70715629"></a>108débit(b/s)
+
+Particularité d'OSPF : on arrondit les coûts à l'entier. Le coût des liaisons transmises est un entier compris entre 1 et 65535.
+
+Cette formule de calcul peut être différente suivant les exercices, et sera systématiquement redonnée. 
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.044.png)
+
+|**Activité n° AUTONUM  \* Arabic :**  Calculer la métrique OSPF d'une liaison Fibre (1 Gbit/s) avec une valeur par défaut de <a name="_hlk70715653"></a>10<sup>8</sup>.|
+| :- |
+
+|**Activité n° AUTONUM  \* Arabic :**  Calculer la métrique OSPF d'une liaison FastEthernet (100 Mbit/s) avec une valeur par défaut de 10<sup>8</sup>.|
+| :- |
+|**Activité n° AUTONUM  \* Arabic :**  Calculer la métrique OSPF d'une liaison Ethernet (10 Mbit/s) avec une valeur par défaut de 10<sup>8.</sup>|
+
+|**Activité n° AUTONUM  \* Arabic :**  Que vaut la bande passante d'une liaison dont le coût OSPF est de 50 avec une valeur de référence de 10<sup>8</sup>.|
+| :- |
+|<p>**Activité n° AUTONUM  \* Arabic :**  Un routeur A3 fonctionnant sous OSPF reçoit les informations suivantes :</p><p>- Liaison A - B avec un coût de 1</p><p>- Liaison A - C avec un coût de 1000</p><p>- Liaison A - D avec un coût de 100</p><p>- Liaison B - D avec un coût de 10</p><p>- Liaison C - E avec un coût de 200</p><p>- Liaison C - F avec un coût de 100</p><p>- Liaison D - E avec un coût de 1</p><p>- Liaison E - G avec un coût de 100</p><p>- Liaison F - G avec un coût de 10</p><p>Représenter le tout sous forme d'un graphe où les sommets sont les routeurs et les arcs portent les coûts.</p>|
+
+|<p>**Activité n° AUTONUM  \* Arabic :**  Quel est le coût de la liaison AE ? Calculer toutes les routes possibles et choisir celle qui présente le coût le plus faible.</p><p>Question supplémentaire : contrairement au cas RIP, le routeur A a-t-il les moyens de connaitre la route que va suivre le paquet le long du trajet A vers E ?</p>|
+| - |
+1. ## <a name="_toc154844752"></a>**L’algorithme de Dijkstra**
+L’algorithme de Dijkstra permet de résoudre un problème algorithmique : le problème du plus court chemin.
+
+Le principe de l’algorithme est de chercher à chaque étape le plus court chemin.
+
+On souhaite aller de la ville A à la ville G en empruntant le plus court chemin :
+
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.045.png)
+
+|A|B|C|D|E|F|G|Etapes|
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+|0|1A|2A|||||1|
+|x|1A||3B||4B||2|
+|x|x|2A|5C|6C|||3|
+|x|x|x|3B|5D|6D|6D|4|
+|x|x|x|x||4B|8F|5|
+|x|x|x|x|5D|x|10E|6|
+|x|x|x|x|x|x|6D|7|
+
+On fait donc 6 km de A à G en suivant le chemin : A, B, D, G
+
+<https://youtu.be/rI-Rc7eF4iw> 
+
+|<p>**Activité n° AUTONUM  \* Arabic :**  </p><p>Donner le plus court chemin pour aller de E à F dans le graphe ci-dessous :![image](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.046.png)</p>|
+| - |
+
+
+1. # <a name="_toc154844753"></a>**Exercices**
+**Exercice n°1 : Protocole RIP**
+
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.047.png)
+
+1. Établir la table de routage du routeur A en vous basant sur le protocole RIP (métrique = nombre de sauts).
+
+|**Destination**|**Masque**|**Passerelle**|**Interface**|**Distance**|
+| :- | :- | :- | :- | :- |
+||||||
+
+1. Quel est, d’après la table de routage construite ci-dessus, le chemin qui sera emprunté par un paquet pour aller d’une machine ayant pour adresse IP 172.18.1.1/16 à une machine ayant pour adresse IP 172.16.5.3/16?
+
+<a name="_hlk51874478"></a>**Exercice n°2 : <a name="_hlk52886978"></a>Protocole OSPF**
+
+1. Calculer les coûts des routes suivantes :
+
+|Route|1|2|3|4|5|6|7|8|
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+|Débit|50 kbps|100 kbps|500 kbps|1 Mbps|10 Mbps|100 Mbps|1 Gbps|10 Gbps|
+|Coût|||||||1<sup>(\*)</sup>|1<sup>(\*)</sup>|
+
+(\*) Le coût ne peut être qu’un nombre entier Fast Ethernet(100Mbps), Gigabit et 10 Gigas, partagent le même cout
+
+1. Soit le réseau suivant :
+
+
+
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.048.png)![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.049.png)![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.050.png)![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.051.png)
+
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.052.png)
+
+|**Réseau**|**Métrique**|
+| :-: | :-: |
+|**172.18.0.0/16**||
+|**192.168.1.0/24**||
+|**192.168.2.0/24**||
+|||
+|||
+|||
+|||
+On donne les débits suivants :
+
+- Liaison routeur A - routeur B : 1 Mbps
+- Liaison routeur A - routeur C : 10 Mbps
+- Liaison routeur C - routeur B : 10 Mbps
+
+En vous basant sur le protocole OSPF (métrique = somme des coûts), **déterminer** la table de routage du routeur A
+
+1. ` `Quel est, d'après la table de routage construite ci-dessus, le chemin qui sera emprunté par un paquet pour aller d'une machine ayant pour adresse IP 172.18.2.4/16 à une machine ayant pour adresse IP 172.16.1.5/16 ? Préciser la métrique.
+
+**Exercice n°3 : masque réseau**
+
+Trois machines ont respectivement pour adresses IP 90.8.220.5, 90.8.220.33 et 90.8.220.29. Est-ce que ces machines appartiennent toutes les trois au réseau 90.8.220.0/27?
+
+Sinon combien de routeurs sont nécessaires pour faire communiquer ces machines ? Quelles sont les adresses de leurs cartes réseau (interfaces)?
+
+**Exercice n°4 : table de routage**
+
+Une machine Ml a pour adresse IP 192.168.1.12 et elle se trouve dans un réseau d’adresses 192.168.1.0/24. Elle est reliée à un routeur qui possède deux interfaces réseau qui ont pour adresses respectives 192.168.1.1/24 et 172.20.121.1/24. Une seconde machine M2 a pour adresse IP 172.20.121.17 et se trouve dans le réseau d'adresses 172.20.121.0/24, reliée au routeur. 
+
+1. Compléter la table de routage de ce routeur.
+
+Adresse 		Masque 		Passerelle 	Interface 
+
+192\.168.1.0 
+
+172\.20.121.0
+
+1. Compléter la table de routage de la machine Ml.
+
+Adresse 		Masque 		Passerelle 	Interface 
+
+192\.168.1.0 
+
+0\.0.0.0
+
+1. Compléter la table de routage de la machine M2. 
+
+Adresse 		Masque 		Passerelle 	Interface
+
+172\.20.121.0
+
+0\.0.0.0
+
+
+**Exercice n°5 : protocoles RIP**
+
+Considérons le réseau suivant, pour lequel on admettra la norme suivante :
+
+- le poste client et le poste serveur se voient attribués respectivement la première adresse de la plage de leur réseau ( soit respectivement 192.168.0.1 et 172.16.180.1) ;
+- les routeurs d'accès R1 et R6 ont sur leur interface réseau les dernières adresses IP de la plage de leur réseau (soit respectivemment 192.168.0.254 et 172.16.180.251) ;
+- Entre deux interfaces internes, le routeur de plus bas indice possède la première adresse et le routeur de dernier indice la seconde adresse : par exemple entre R2 et R5, les interfaces sont connectées par le réseau 10.1.4.0/30, donc l'interface de R2 est 10.1.4.1 et celle de R5 est 10.1.4.2 ;
+- tous les routeurs suivent le protocole RIP.
+
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.053.png)
+
+Déterminer les tables de routage de R1, R2 et R3
+
+
+
+
+
+
+
+
+
+
+
+
+
+**Exercice n°6 : protocole OSPF**
+
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.054.png)![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.055.png)![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.056.png)
+
+1\.	Un hôte du nœud K envoie un paquet à destination du nœud J, à l’adresse 5.12.85.26. Quelle va être la route suivie par ce paquet
+
+a)	Avec le protocole RIP ?
+
+b)	Avec le protocole OSPF ?
+
+2\.	Un hôte du nœud A envoie un paquet à destination du nœud J, à l’adresse 5.12.85.26. Quelle va être la route suivie par ce paquet avec le protocole OSPF ?
+
+3\. On admet que tous les sous-réseaux ont pour masques 255.255.255.0. Déterminer la table de routage du routeur A avec le protocole OSPF
+
+**Exercice n°7 : réseaux**
+
+Un réseau est constitué de 6 routeurs R1 à R6 dont on donne des tables de routage simplifiées. Les réseaux ont tous pour masque 255.255.255.0. La colonne M est la métrique utilisée.
+
+![ref4]
+
+![ref5]
+
+![ref6]
+
+1\.	Indiquer la route décrite par un paquet envoyé du routeur R1 au routeur R6.
+
+2\.	Indiquer la route décrite par un paquet envoyé du routeur R2 au routeur R3.
+
+3\.	Représenter ce réseau sous forme de graphe.
+
+**Exercice 8 : Adressage IP :**
+
+1. L’adresse IPv4 d’un réseau est 192.168.56.0/24. Combien de bits sont-ils dédiés à la partie réseau ? Combien de machines peut-on incorporer à ce réseau ?
+1. Quel est le masque de réseau de l’adresse de la question 1 ?
+1. Quelle est la première adresse utilisable sur le réseau de la question 1 ? La dernière ?
+1. Écrire l’adresse IPv4 222.1.1.20, de masque 255.255.255.192 en notation CIDR.
+1. Écrire l’adresse IPv4 135.1.1.25, de masque 255.255.248.0 en notation CIDR.
+1. Sur un ordinateur dont le système d’exploitation est Linux, la commande ifconfig retourne l’adresse IPv4 172.16.20.234 et le masque 255.255.0.0. Quelle est l’adresse réseau du réseau auquel cet ordinateur appartient ?
+1. Combien d’ordinateurs peut-on incorporer au réseau de la question précédente ?
+1. L’adresse IPv4 d’un ordinateur est 172.16.20.234/22. Combien d’ordinateurs peut-on incorporer à ce réseau ?
+1. Quelle est la première adresse utilisable sur le réseau de la question précédente ? La dernière ?
+
+
+Terminale NSI 		Chap 07 : Les protocoles de routage	Page 21/21
+
+[ref1]: Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.026.png
+[ref2]: Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.030.png
+[ref3]: Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.039.png
+[ref4]: Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.057.png
+[ref5]: Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.058.png
+[ref6]: Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.059.png
