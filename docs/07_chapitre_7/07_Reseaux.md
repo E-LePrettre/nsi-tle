@@ -36,10 +36,15 @@ Le premier message est envoyé le 29 octobre 1969 entre l’université UCLA de 
 | - | :- |
 
 
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.001.png)
-1. ## <a name="_toc154844731"></a>**La couche application**
-- **La couche application** : Son rôle est principalement de **choisir le mode de transmission** (ce sont des protocoles comme http, https, ftp, smtp....)
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.003.png)**Exemple** : Votre navigateur Web (par exemple Firefox) veut communiquer avec le serveur HTTP servant le site elisa.leprettre.free.fr
+
+### <a name="_toc154844731"></a>**2.2. La couche application**
+
+|<p>- **La couche application** : Son rôle est principalement de **choisir le mode de transmission** (ce sont des protocoles comme http, https, ftp, smtp....)</p>|
+
+
+
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.003.png){: .center}
+**Exemple** : Votre navigateur Web (par exemple Firefox) veut communiquer avec le serveur HTTP servant le site elisa.leprettre.free.fr
 
 Pour cela, les deux programmes (le **client HTTP** et le **serveur HTTP**) respectent un **langage commun : le HTTP.**
 
@@ -48,11 +53,12 @@ Pour cela, les deux programmes (le **client HTTP** et le **serveur HTTP**) re
 Un **programme-serveur** tourne sur une machine distante et il est identifié par un **PORT** sur cet **ordinateur** qu'on appelle serveur. Le PORT typique est **80 pour http** et **443 pour https**.
 
 **Quels types de requêtes peut-on avoir ?**
-##### **Méthode GET : paramètres dans l'URL** : La méthode GET permet de discuter très facilement avec le serveur puisqu'on peut placer les paramètres qu'on veut lui transmettre directement dans l'URL.
-#####
-##### **Méthode POST : paramètres dans le body de la requête** 
-#####
-##### La méthode GET est **pratique** mais si vous devez envoyer beaucoup de données, l'URL va être très longue.
+
+- **Méthode GET : paramètres dans l'URL** : La méthode GET permet de discuter très facilement avec le serveur puisqu'on peut placer les paramètres qu'on veut lui transmettre directement dans l'URL.
+
+- **Méthode POST : paramètres dans le body de la requête** 
+
+La méthode GET est **pratique** mais si vous devez envoyer beaucoup de données, l'URL va être très longue.
 Autre désavantage : si vous passez un mot de passe en GET en https, le message est crypté OK. Personne ne peut lire votre mot de passe sur le réseau. C'est vrai. Mais le mot de passe sera noté en clair dans votre URL.
 
 Dans ces deux cas, on préférera la méthode de transfert vers le serveur en **POST** : cette fois, le client va transmettre les données fournies (paramètres, fichiers...) dans le BODY. C'est pour cela que le BODY de la méthode GET est vide. On n'y place rien.
@@ -64,7 +70,8 @@ Le **protocole HTTP** fait donc parti de la **couche APPLICATION** : il déf
 Mais ce n'est pas le programme FIREFOX lui-même qui va directement envoyer le message au serveur.
 
 Non, il va simplement envoyer son message (mis en forme en respectant HTTP) à la couche du dessous : la couche **TRANSPORT**.
-1. ## <a name="_toc154844732"></a>**La couche transport**
+
+### <a name="_toc154844732"></a>**2.3. La couche transport**
 **La couche transport :** Une fois choisi le mode de transport,  cette couche est chargée **de le mettre en œuvre.**
 
 En gros deux protocoles sont disponibles : **UDP** (User Datagram Protocol) et **TCP** (Transmission Control Protocol).
@@ -72,18 +79,17 @@ En gros deux protocoles sont disponibles : **UDP** (User Datagram Protocol) et *
 - TCP est un **protocole fiable**, qui permet l'acheminement sans erreur de données issues d'une machine à une autre machine. Son **rôle est de fragmenter le message** à transmettre de manière à pouvoir le faire passer sur la couche internet. A l'inverse, sur la machine destination, TCP replace dans l'ordre les fragments transmis sur la couche internet pour reconstruire le message initial.
 - UDP est en revanche un protocole plus simple que TCP. Son utilisation présuppose que l'on n'a **pas besoin de la conservation de l'ordre de remise** des paquets. Il n'y a pas vérification de l'arrivée de tous les paquets, ( très utile pour la transmission de vidéos...)
 
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.005.png)
 
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.006.png)**Que va faire la couche TRANSPORT du message que lui envoie Firefox ?**
+**Que va faire la couche TRANSPORT du message que lui envoie Firefox ?**
 
-
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.006.png){: .center}
 
 
 
 
 - Premièrement, elle **découpe le message** en plusieurs sous-messages si le message du base est trop gros.
 
-  ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.007.png)
+  ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.007.png){: .center}
 
 - Ensuite, elle **identifie chaque programme** (émetteur et récepteur) avec un identifiant. L'identifiant de la couche TRANSPORT est le **PORT**, un simple numéro encodé sur 2 octets (donc entre 1 et 65535). 
 
