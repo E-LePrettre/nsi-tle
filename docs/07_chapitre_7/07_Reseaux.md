@@ -414,57 +414,41 @@ De la même manière, la communication avec le réseau C nécessite de confier l
 
 ### <a name="_toc154844747"></a>**4.2. Métrique maximale**
 
-**Métrique maximale :** Pour limiter le nombre de routes inutiles et limiter la taille des messages RIP sur le réseau, on considère qu'une **métrique de 16** correspond à une **route impossible à atteindre**.
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.040.png)
+|<p>**Métrique maximale :** Pour limiter le nombre de routes inutiles et limiter la taille des messages RIP sur le réseau, on considère qu'une **métrique de 16** correspond à une **route impossible à atteindre**.</p>|
+| - |
+
+
 
 **Par exemple :** Sur un ordinateur relié à une box internet dans un réseau privé, on obtient par exemple la table de routage qui suit, résultat de la commande route print sous Windows. Par exemple : IPv4 Table de routage
-
-\===========================================================================
-
-Itinéraires actifs :
-
+```
+===========================================================================
+Itinéraires actifs :
 Destination réseau    Masque réseau  Adr. passerelle   Adr. interface Métrique
-
-`          `0.0.0.0          0.0.0.0    192.168.1.254    192.168.1.138     55
-
-`        `127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
-
-`        `127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
-
-`  `127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
-
-`      `192.168.1.0    255.255.255.0         On-link     192.168.1.138    311
-
-`    `192.168.1.138  255.255.255.255         On-link     192.168.1.138    311
-
-`    `192.168.1.255  255.255.255.255         On-link     192.168.1.138    311
-
-`        `224.0.0.0        240.0.0.0         On-link         127.0.0.1    331
-
-`        `224.0.0.0        240.0.0.0         On-link     192.168.1.138    311
-
-`  `255.255.255.255  255.255.255.255         On-link         127.0.0.1    331
-
-`  `255.255.255.255  255.255.255.255         On-link     192.168.1.138    311
-
-\===========================================================================
+          0.0.0.0          0.0.0.0    192.168.1.254    192.168.1.138     55
+        127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
+        127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
+  127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+      192.168.1.0    255.255.255.0         On-link     192.168.1.138    311
+    192.168.1.138  255.255.255.255         On-link     192.168.1.138    311
+    192.168.1.255  255.255.255.255         On-link     192.168.1.138    311
+        224.0.0.0        240.0.0.0         On-link         127.0.0.1    331
+        224.0.0.0        240.0.0.0         On-link     192.168.1.138    311
+  255.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+  255.255.255.255  255.255.255.255         On-link     192.168.1.138    311
+===========================================================================
+```
 
 
 Les adresses commençant par 127, ou par 224 ou par 255 et celles se terminant par 255 sont spécifiques au loopback, au multicast et au broadcast. Il reste :
-
-\===========================================================================
-
-Itinéraires actifs :
-
+```
+===========================================================================
+Itinéraires actifs :
 Destination réseau    Masque réseau  Adr. passerelle   Adr. interface Métrique
-
-`          `0.0.0.0          0.0.0.0    192.168.1.254    192.168.1.138     55
-
-`      `192.168.1.0    255.255.255.0         On-link     192.168.1.138    311
-
-`    `192.168.1.138  255.255.255.255         On-link     192.168.1.138    311
-
-\===========================================================================
+          0.0.0.0          0.0.0.0    192.168.1.254    192.168.1.138     55
+      192.168.1.0    255.255.255.0         On-link     192.168.1.138    311
+    192.168.1.138  255.255.255.255         On-link     192.168.1.138    311
+===========================================================================
+```
 
 Pour effectuer un envoi, la machine examine les lignes du tableau selon l’ordre des masques du plus grand au plus petit. Ici 255.255.255.255, puis 255.255.255.0 et enfin 0.0.0.0.
 
@@ -474,7 +458,7 @@ Pour effectuer un envoi, la machine examine les lignes du tableau selon l’ordr
 
 Précision : la mention **On-link** pour l’adresse de la passerelle, indique que la route cherchée est sur le réseau auquel est connectée la machine émettrice.
 
-1. ## <a name="_toc154844748"></a>**Conclusion sur le protocole RIP**
+### <a name="_toc154844748"></a>**4.3. Conclusion sur le protocole RIP**
 - **Rôle** : aucun routeur n'a de rôle prépondérant dans le système autonome (à part le fait que certains soient en liaison avec l'extérieur par exemple) : **RIP** utilise un **algorithme totalement réparti**
 - **Métrique** : La métrique utilisée pour définir les distances est simplement **le nombre de sauts**
 - **Informations transmises** : c'est un protocole à **vecteur de distance** : chaque routeur transmet toutes les 30s à ses voisins directs l'ensemble des couples **(destination;distance)** qu'il connait. Chaque routeur reçoit les informations de ses voisins, rajoute simplement 1 à leurs métriques (pour prendre en compte le saut supplémentaire vers eux) et garde les meilleurs choix de passerelles pour les différentes destinations : celles dont la métrique est la plus basse.
