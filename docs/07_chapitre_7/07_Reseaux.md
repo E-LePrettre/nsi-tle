@@ -32,6 +32,7 @@ Le premier message est envoyé le 29 octobre 1969 entre l’université UCLA de 
 
 ## <a name="_toc154844729"></a>**2. Rappels de première**
 ### <a name="_toc154844730"></a>**2.1. Les différentes couches**
+
 |<p>Les règles de communications (**Protocoles**) entre ordinateurs doivent se soumettre à certaines contraintes pour que les réseaux soient compatibles entre eux.</p><p>Le **modèle TCP / IP** est un modèle en couches. Chaque couche ne peut communiquer qu'avec la couche immédiatement **inférieure** ou **supérieure**.</p><p>On retrouve **deux notions** très importantes pour obtenir un système stable :</p><p>1. **Encapsulation** : chaque tâche est encapsulée dans une couche.</p><p>2. **Interface** : chaque couche communique avec ses couches voisines en utilisant uniquement l'interface.</p><p>A part cela, les couches sont **indépendantes** : tant que son interface reste la même, on peut changer le code interne d'une couche sans risques </p>|![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.002.png)|
 | - | :- |
 
@@ -73,12 +74,14 @@ Mais ce n'est pas le programme FIREFOX lui-même qui va directement envoyer le m
 Non, il va simplement envoyer son message (mis en forme en respectant HTTP) à la couche du dessous : la couche **TRANSPORT**.
 
 ### <a name="_toc154844732"></a>**2.3. La couche transport**
-**La couche transport :** Une fois choisi le mode de transport,  cette couche est chargée **de le mettre en œuvre.**
 
+|<p>**La couche transport :** Une fois choisi le mode de transport,  cette couche est chargée **de le mettre en œuvre.**
+</p><p></p><p>
 En gros deux protocoles sont disponibles : **UDP** (User Datagram Protocol) et **TCP** (Transmission Control Protocol).
-
+</p><p></p><p>
 - TCP est un **protocole fiable**, qui permet l'acheminement sans erreur de données issues d'une machine à une autre machine. Son **rôle est de fragmenter le message** à transmettre de manière à pouvoir le faire passer sur la couche internet. A l'inverse, sur la machine destination, TCP replace dans l'ordre les fragments transmis sur la couche internet pour reconstruire le message initial.
-- UDP est en revanche un protocole plus simple que TCP. Son utilisation présuppose que l'on n'a **pas besoin de la conservation de l'ordre de remise** des paquets. Il n'y a pas vérification de l'arrivée de tous les paquets, ( très utile pour la transmission de vidéos...)
+- UDP est en revanche un protocole plus simple que TCP. Son utilisation présuppose que l'on n'a **pas besoin de la conservation de l'ordre de remise** des paquets. Il n'y a pas vérification de l'arrivée de tous les paquets, ( très utile pour la transmission de vidéos...)</p>|
+| - |
 
 
 **Que va faire la couche TRANSPORT du message que lui envoie Firefox ?**
