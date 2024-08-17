@@ -8,17 +8,17 @@ title: 07 Les protocoles de routage
 
 **Table des matières**
 
-[1.	Historique	1](#_toc154844728)
+[1.	Historique](#_toc154844728)
 
-[2.	Rappels de première	1](#_toc154844729)
+[2.	Rappels de première](#_toc154844729)
 
-[3.	Tables de routages et le routage statique	10](#_toc154844742)
+[3.	Tables de routages et le routage statique](#_toc154844742)
 
-[4.	Le routage dynamique RIP (Routing Information Protocol)	12](#_toc154844745)
+[4.	Le routage dynamique RIP (Routing Information Protocol)](#_toc154844745)
 
-[5.	Le routage dynamique OSPF (Open Shortest Path First)	15](#_toc154844749)
+[5.	Le routage dynamique OSPF (Open Shortest Path First)](#_toc154844749)
 
-[6.	Exercices	17](#_toc154844753)
+[6.	Exercices](#_toc154844753)
 
 **Compétences évaluables :**
 
@@ -34,7 +34,7 @@ Le premier message est envoyé le 29 octobre 1969 entre l’université UCLA de 
 ### <a name="_toc154844730"></a>**2.1. Les différentes couches**
 
 |<p>Les règles de communications (**Protocoles**) entre ordinateurs doivent se soumettre à certaines contraintes pour que les réseaux soient compatibles entre eux.</p><p>Le **modèle TCP / IP** est un modèle en couches. Chaque couche ne peut communiquer qu'avec la couche immédiatement **inférieure** ou **supérieure**.</p><p>On retrouve **deux notions** très importantes pour obtenir un système stable :</p><p>1. **Encapsulation** : chaque tâche est encapsulée dans une couche.</p><p>2. **Interface** : chaque couche communique avec ses couches voisines en utilisant uniquement l'interface.</p><p>A part cela, les couches sont **indépendantes** : tant que son interface reste la même, on peut changer le code interne d'une couche sans risques </p>|![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.002.png)|
-| - | - |
+| - |
 
 
 
@@ -212,7 +212,7 @@ Donc la plage d'adresse disponible est de **172 . 128 . 0 . 1 à 172 . 128 . 63 
 
 #### <a name="_toc154844738"></a>**2.4.5. Le protocole DNS (Domain Name Server)**
 
-|<p>Dans la réalité, on ne tape pas l'adresse IP de tel ou tel site. On écrit une adresse du type : www.google.frµ. C'est un nom de domaine qui est associé à une adresse IP.</p><p>Cette association est réalisée par un **serveur DNS**</p>|
+|<p>Dans la réalité, on ne tape pas l'adresse IP de tel ou tel site. On écrit une adresse du type : www.google.fr. C'est un nom de domaine qui est associé à une adresse IP.</p><p>Cette association est réalisée par un **serveur DNS**</p>|
 | - |
 
 
@@ -234,7 +234,7 @@ Donc la plage d'adresse disponible est de **172 . 128 . 0 . 1 à 172 . 128 . 63 
 
 
 
-|<p>Il existe bien entendu encore d'autres données dans cet en-tête mais nous allons nous limiter à ceux-ci.</p><p>Ils permettent de comprendre l'essentiel du protocole.</p><p>![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.025.png)|
+|<p>Il existe bien entendu encore d'autres données dans cet en-tête mais nous allons nous limiter à ceux-ci.</p><p>Ils permettent de comprendre l'essentiel du protocole.</p><p>![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.025.png)</p>|
 | - |
 
 
@@ -242,37 +242,26 @@ Donc la plage d'adresse disponible est de **172 . 128 . 0 . 1 à 172 . 128 . 63 
 
 On symbolisera donc le paquet IP à l'aide d'un symbole plus symbolique. Par exemple :
 
-![ref1]
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.026.png){: .center}
 
-|**Activité n° AUTONUM  \* Arabic :**  La machine d'adresse IP v4  70.30.20.145 /16  veut joindre la machine d'adresse IP  70.30.21.5 . Comment sait-on s'il faut rester dans le réseau actuel ou quitter le réseau ?|
+**Activité n° 1 :**  La machine d'adresse IP v4  70.30.20.145 /16  veut joindre la machine d'adresse IP  70.30.21.5 . Comment sait-on s'il faut rester dans le réseau actuel ou quitter le réseau ?
+
+**Activité n° 2 :**  La machine d'adresse IP v4  70.30.20.145 /24  veut joindre la machine d'adresse IP  70.30.21.5 . Comment sait-on s'il faut rester dans le réseau actuel ou quitter le réseau ?
+
+**Activité n° 3 :**  La machine d'adresse IP v4  20.30.40.50  et de masque  255.0.0.0  veut joindre la machine d'adresse IP  20.200.100.5 . Comment sait-on s'il faut rester dans le réseau actuel ou quitter le réseau ?
+
+**Activité n° 4 :**  La machine d'adresse IP v4  90.80.20.120  et de masque  255.255.255.0  veut joindre la machine d'adresse IP  90.80.20.5 . Comment sait-on s'il faut rester dans le réseau actuel ou quitter le réseau ?
+
+**Activité n° 5 :**  La machine d'adresse IP v6  2a01:cb0c:96ac:d400:63ba:f65c:3616:15d4  veut joindre la machine d'adresse IP  2a01:cb0c:96ac:d400:73ba:12e3:3616:45a1 . Comment sait-on s'il faut rester dans le réseau actuel ou quitter le réseau ?
+
+#### <a name="_toc154844740"></a>**2.4.7. Les pertes de paquets**
+
+|<p>Il se peut, et cela est courant que des paquets se perdent...</p><p>Les causes possibles sont nombreuses :</p><p>- Engorgement d'un serveur</p><p>- Délai d'attente trop long</p><p>- etc.</p><p>Le protocole TCP contrôle l'envoi et la bonne réception des paquets avec des accusés de réception (**ACK : acknowledgement** ou acquittement en Français ). Ce processus d'acquittement permet de détecter les pertes de paquets.</p>|
 | - |
 
-|**Activité n° AUTONUM  \* Arabic :**  La machine d'adresse IP v4  70.30.20.145 /24  veut joindre la machine d'adresse IP  70.30.21.5 . Comment sait-on s'il faut rester dans le réseau actuel ou quitter le réseau ?|
-| - |
 
-|**Activité n° AUTONUM  \* Arabic :**  La machine d'adresse IP v4  20.30.40.50  et de masque  255.0.0.0  veut joindre la machine d'adresse IP  20.200.100.5 . Comment sait-on s'il faut rester dans le réseau actuel ou quitter le réseau ?|
-| - |
 
-|**Activité n° AUTONUM  \* Arabic :**  La machine d'adresse IP v4  90.80.20.120  et de masque  255.255.255.0  veut joindre la machine d'adresse IP  90.80.20.5 . Comment sait-on s'il faut rester dans le réseau actuel ou quitter le réseau ?|
-| - |
-
-|**Activité n° AUTONUM  \* Arabic :**  La machine d'adresse IP v6  2a01:cb0c:96ac:d400:63ba:f65c:3616:15d4  veut joindre la machine d'adresse IP  2a01:cb0c:96ac:d400:73ba:12e3:3616:45a1 . Comment sait-on s'il faut rester dans le réseau actuel ou quitter le réseau ?|
-| - |
-###
-1. ### <a name="_hlk59303203"></a><a name="_toc154844740"></a>**Les pertes de paquets**
-Il se peut, et cela est courant que des paquets se perdent...
-
-Les causes possibles sont nombreuses :
-
-- Engorgement d'un serveur
-- Délai d'attente trop long
-- etc.
-
-Le protocole TCP contrôle l'envoi et la bonne réception des paquets avec des accusés de réception (**ACK : acknowledgement** ou acquittement en Français ). Ce processus d'acquittement permet de détecter les pertes de paquets.
-
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.027.png)
-
-1. ### <a name="_toc154844741"></a>**Le protocole de bit alterné**
+#### <a name="_toc154844741"></a>**2.4.8. Le protocole de bit alterné**
 
 Considérons deux ordinateurs A et B.
 
@@ -282,35 +271,45 @@ Considérons deux ordinateurs A et B.
 **La règle :** la première trame envoyée par A aura pour drapeau 0, dès cette trame reçue par B, ce dernier va envoyer un accusé de réception avec le drapeau 1 (ce 1 signifie "la prochaine trame que A va m'envoyer devra avoir son drapeau à 1").
 
 Dès que A reçoit l'accusé de réception avec le drapeau à 1, il envoie la 2e trame avec un drapeau à 1, et ainsi de suite...
-
+```
 A------Trame1/0---->B
-
 A<-----ACK/1--------B
-
 A------Trame2/1---->B
-
 A<-----ACK/0--------B
-
 A------Trame3/0---->B
-
 A<-----ACK/1--------B
+```
 
 etc...
 
 Le système de drapeau est complété avec un **système d'horloge** côté émetteur. Un "chronomètre" est déclenché à chaque envoi de trame, si au bout d'un certain temps, l'émetteur n'a pas reçu un acquittement correct (avec le bon drapeau), la trame précédemment envoyée par l'émetteur est considérée comme perdue et est de **nouveau envoyée**.
 
-|<p>**Exemple 1 :**</p><p>A------Trame1/0 xx B ( la trame 1 s'est perdue )</p><p>-----------------------</p><p>Le temps est écoulé</p><p>A------Trame1/0---->B (la trame1 est renvoyée)</p><p>A<-----ACK/1--------B</p>|<p>**Exemple 2 :**</p><p>A------Trame1/0---->B</p><p>A< xx ACK/1--------B ( l'accusé réception s'est perdu)</p><p>-----------------------</p><p>Le temps est écoulé</p><p>A------Trame1/0---->B (la trame est renvoyée)</p><p>A<-----ACK/1--------B</p>|
-| - | - |
+**Exemple 1 :**
+```
+A------Trame1/0 xx B ( la trame 1 s'est perdue )
+-----------------------
+Le temps est écoulé
+A------Trame1/0---->B (la trame1 est renvoyée)
+A<-----ACK/1--------B
+```
+**Exemple 2 :**
+```
+A------Trame1/0---->B
+A< xx ACK/1--------B ( l'accusé réception s'est perdu)
+-----------------------
+Le temps est écoulé
+A------Trame1/0---->B (la trame est renvoyée)
+A<-----ACK/1--------B
+```
 
 
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.028.png)
 
 
 **Les limites** : Dans certaines situations, le protocole de bit alterné ne permet pas de récupérer les trames perdues, c'est pour cela que ce protocole est aujourd'hui remplacé par des protocoles plus efficaces, mais aussi plus complexes. 
 
 Un exemple de données définitivement perdues
 
-
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.028.png){: .center}
 
 
 
@@ -320,38 +319,37 @@ Un exemple de données définitivement perdues
 
 En **conclusion** :
 
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.029.png)
-1. # <a name="_toc154844742"></a>**Tables de routages et le routage statique**
-   1. ## ![ref2]<a name="_toc154844743"></a>**Les chemins dans le réseau**
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.029.png){: .center}
+
+## <a name="_toc154844742"></a>**3. Tables de routages et le routage statique**
+### <a name="_toc154844743"></a>**3.1. Les chemins dans le réseau**
 On a donc un paquet IP qui contient l'adresse IP du **destinataire** et l'adresse de l'expéditeur initial
+
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.030.png){: .center}
 
 Il n'y a plus qu'à envoyer le message. La difficulté est qu'on ne peut donner le message qu'à un autre ordinateur avec qui on est en liaison directe. Nous allons donc voir à quel **intermédiaire de communication** (ou **passerelle**) transférer ce paquet IP pour qu'il parvienne à destination.
 
-La **couche RESEAU et son protocole IP** se charge justement de savoir qui doit gérer le paquet ensuite, qui est la prochaine passerelle.
-
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.031.png)
-1. ## <a name="_toc154844744"></a>**Les tables de routage**
-Voici comment se présente une table de routage :
-
-1. Une colonne **IP Destinataire** permet d'identifier l'adresse IP de destination (et donc le réseau de destination)
-1. Une colonne **Passerelle** : **C'est l'adresse IP de la carte réseau du routeur** **à qui on va confier le paquet**, si on n'est pas capable de le délivrer directement (donc si l'adresse IP de destination n'est pas dans notre propre sous-réseau). Cette adresse de passerelle n'est donc pas *systématiquement* mentionnée. Quand elle l'est, elle donne le renseignement sur le prochain routeur à qui le paquet est confié.
-1. une colonne **Interface** : On parle également d'interface d'entrée/sortie. c'est **l'adresse IP de la carte réseau du routeur par où va sortir** le paquet à envoyer. Il y a donc **toujours** une adresse d'interface à renseigner. Parfois cette interface sera juste nommée *interface1* ou *interface2*.
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.032.png)
+|<p>La **couche RESEAU et son protocole IP** se charge justement de savoir qui doit gérer le paquet ensuite, qui est la prochaine passerelle.</p>|
+| - |
 
 
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.033.png)![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.034.png)![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.035.png)
+### <a name="_toc154844744"></a>**3.2. Les tables de routage**
+|<p>Voici comment se présente une table de routage :</p><p>1. Une colonne **IP Destinataire** permet d'identifier l'adresse IP de destination (et donc le réseau de destination)</p><p>2. Une colonne **Passerelle** : **C'est l'adresse IP de la carte réseau du routeur** **à qui on va confier le paquet**, si on n'est pas capable de le délivrer directement (donc si l'adresse IP de destination n'est pas dans notre propre sous-réseau). Cette adresse de passerelle n'est donc pas *systématiquement* mentionnée. Quand elle l'est, elle donne le renseignement sur le prochain routeur à qui le paquet est confié.</p><p>3. une colonne **Interface** : On parle également d'interface d'entrée/sortie. c'est **l'adresse IP de la carte réseau du routeur par où va sortir** le paquet à envoyer. Il y a donc **toujours** une adresse d'interface à renseigner. Parfois cette interface sera juste nommée *interface1* ou *interface2*.</p>|
+| - |
+
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.035.png){: .center}
 
 Dans le réseau ci-dessus, si l'ordinateur d'adresse 192.168.0.5 veut interroger le serveur 10.7.3.8 :
 
-- l'adresse 10.7.3.8 **n'étant pas dans le sous-réseau F** (d'adresse 192.168.0.0 / 24), la requête est confiée au routeur **via son adresse passerelle dans le réseau F (ici 192.168.0.254)**.
-- le routeur observe si l'IP recherchée appartient à un autre des sous-réseaux auquel il est connecté. Ici, l'IP recherchée 10.7.3.8 **n'appartient ni au sous-réseau A ou E**.
-- le routeur va donc regarder dans sa table de routage **l'adresse passerelle d'un autre routeur** vers qui elle doit rediriger les données. 
+\- l'adresse 10.7.3.8 **n'étant pas dans le sous-réseau F** (d'adresse 192.168.0.0 / 24), la requête est confiée au routeur **via son adresse passerelle dans le réseau F (ici 192.168.0.254)**.
+\- le routeur observe si l'IP recherchée appartient à un autre des sous-réseaux auquel il est connecté. Ici, l'IP recherchée 10.7.3.8 **n'appartient ni au sous-réseau A ou E**.
+\- le routeur va donc regarder dans sa table de routage **l'adresse passerelle d'un autre routeur** vers qui elle doit rediriger les données. 
   - **Si le sous-réseau C fait partie de sa table de routage**, le routeur R1 saura alors que le meilleur chemin est (par exemple) de confier les données au routeur R3.
   - **si le sous-réseau C ne fait pas partie de la table de routage**, le routeur R1 va alors le rediriger vers une route «par défaut» (que l'on peut assimiler au panneau «toutes directions» sur les panneaux de signalisation).
 
 **Exemple: table de routage du routeur R1**
 
-|**Destination**|**Interface**|**Passerelle**|
+**Destination****Interface****Passerelle**|
 | :-: | :- | :- |
 |F|192\.168.0.254||
 |A|10\.0.5.152||
@@ -401,7 +399,7 @@ Ensuite, chaque routeur **va recevoir** périodiquement (toutes les 30 secondes)
 |<p>**Activité n° AUTONUM  \* Arabic :**  Routage RiP</p><p>![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.038.png)</p><p>1. Pour chaque sous-réseau situé entre deux routeurs, donner la première adresse utilisable pour adresser une machine et la dernière.</p><p>2. Attribuer aux différentes interfaces des routeurs des adresses.</p><p>3. Donner la table de routage du routeur R1​ à son initialisation. Ajouter une colonne distance.</p>|
 | :- |
 
-|**Destination**|**Masque**|**Passerelle**|**Interface**|**Distance**|
+**Destination****Masque****Passerelle****Interface****Distance**|
 | :- | :- | :- | :- | :- |
 ||||||
 
@@ -493,8 +491,7 @@ Ainsi, le « meilleur » chemin n’est pas forcément le plus court, mais le 
 
 ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.041.png)
 1. ## <a name="_toc154844751"></a>**Le métrique d’OSPF**
-|<p>**Bande Passante et débit** : La **bande passante** caractérise la valeur maximale d'une communication entre deux ordinateurs, exprimée en bit.s<sup>-1</sup>.</p><p></p><p>Le **débit** caractérise lui la valeur réelle de cette capacité de transmission. Le débit est donc inférieur à la bande passante.</p><p></p>|![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.043.png)|
-| - | :- |
+|<p>**Bande Passante et débit** : La **bande passante** caractérise la valeur maximale d'une communication entre deux ordinateurs, exprimée en bit.s<sup>-1</sup>.</p><p></p><p>Le **débit** caractérise lui la valeur réelle de cette capacité de transmission. Le débit est donc inférieur à la bande passante.</p><p></p>|![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.043.png) :- |
 
 ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.042.png)
 
@@ -510,19 +507,18 @@ Particularité d'OSPF : on arrondit les coûts à l'entier. Le coût des liaison
 Cette formule de calcul peut être différente suivant les exercices, et sera systématiquement redonnée. 
 ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.044.png)
 
-|**Activité n° AUTONUM  \* Arabic :**  Calculer la métrique OSPF d'une liaison Fibre (1 Gbit/s) avec une valeur par défaut de <a name="_hlk70715653"></a>10<sup>8</sup>.|
+**Activité n° AUTONUM  \* Arabic :**  Calculer la métrique OSPF d'une liaison Fibre (1 Gbit/s) avec une valeur par défaut de <a name="_hlk70715653"></a>10<sup>8</sup>.|
 | :- |
 
-|**Activité n° AUTONUM  \* Arabic :**  Calculer la métrique OSPF d'une liaison FastEthernet (100 Mbit/s) avec une valeur par défaut de 10<sup>8</sup>.|
+**Activité n° AUTONUM  \* Arabic :**  Calculer la métrique OSPF d'une liaison FastEthernet (100 Mbit/s) avec une valeur par défaut de 10<sup>8</sup>.|
 | :- |
-|**Activité n° AUTONUM  \* Arabic :**  Calculer la métrique OSPF d'une liaison Ethernet (10 Mbit/s) avec une valeur par défaut de 10<sup>8.</sup>|
+**Activité n° AUTONUM  \* Arabic :**  Calculer la métrique OSPF d'une liaison Ethernet (10 Mbit/s) avec une valeur par défaut de 10<sup>8.</sup>|
 
-|**Activité n° AUTONUM  \* Arabic :**  Que vaut la bande passante d'une liaison dont le coût OSPF est de 50 avec une valeur de référence de 10<sup>8</sup>.|
+**Activité n° AUTONUM  \* Arabic :**  Que vaut la bande passante d'une liaison dont le coût OSPF est de 50 avec une valeur de référence de 10<sup>8</sup>.|
 | :- |
 |<p>**Activité n° AUTONUM  \* Arabic :**  Un routeur A3 fonctionnant sous OSPF reçoit les informations suivantes :</p><p>- Liaison A - B avec un coût de 1</p><p>- Liaison A - C avec un coût de 1000</p><p>- Liaison A - D avec un coût de 100</p><p>- Liaison B - D avec un coût de 10</p><p>- Liaison C - E avec un coût de 200</p><p>- Liaison C - F avec un coût de 100</p><p>- Liaison D - E avec un coût de 1</p><p>- Liaison E - G avec un coût de 100</p><p>- Liaison F - G avec un coût de 10</p><p>Représenter le tout sous forme d'un graphe où les sommets sont les routeurs et les arcs portent les coûts.</p>|
 
-|<p>**Activité n° AUTONUM  \* Arabic :**  Quel est le coût de la liaison AE ? Calculer toutes les routes possibles et choisir celle qui présente le coût le plus faible.</p><p>Question supplémentaire : contrairement au cas RIP, le routeur A a-t-il les moyens de connaitre la route que va suivre le paquet le long du trajet A vers E ?</p>|
-| - |
+|<p>**Activité n° AUTONUM  \* Arabic :**  Quel est le coût de la liaison AE ? Calculer toutes les routes possibles et choisir celle qui présente le coût le plus faible.</p><p>Question supplémentaire : contrairement au cas RIP, le routeur A a-t-il les moyens de connaitre la route que va suivre le paquet le long du trajet A vers E ?</p>
 1. ## <a name="_toc154844752"></a>**L’algorithme de Dijkstra**
 L’algorithme de Dijkstra permet de résoudre un problème algorithmique : le problème du plus court chemin.
 
@@ -546,8 +542,7 @@ On fait donc 6 km de A à G en suivant le chemin : A, B, D, G
 
 <https://youtu.be/rI-Rc7eF4iw> 
 
-|<p>**Activité n° AUTONUM  \* Arabic :**  </p><p>Donner le plus court chemin pour aller de E à F dans le graphe ci-dessous :![image](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.046.png)</p>|
-| - |
+|<p>**Activité n° AUTONUM  \* Arabic :**  </p><p>Donner le plus court chemin pour aller de E à F dans le graphe ci-dessous :![image](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.046.png)</p>
 
 
 1. # <a name="_toc154844753"></a>**Exercices**
@@ -557,7 +552,7 @@ On fait donc 6 km de A à G en suivant le chemin : A, B, D, G
 
 1. Établir la table de routage du routeur A en vous basant sur le protocole RIP (métrique = nombre de sauts).
 
-|**Destination**|**Masque**|**Passerelle**|**Interface**|**Distance**|
+**Destination****Masque****Passerelle****Interface****Distance**|
 | :- | :- | :- | :- | :- |
 ||||||
 
@@ -582,11 +577,11 @@ On fait donc 6 km de A à G en suivant le chemin : A, B, D, G
 
 ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.052.png)
 
-|**Réseau**|**Métrique**|
+**Réseau****Métrique**|
 | :-: | :-: |
-|**172.18.0.0/16**||
-|**192.168.1.0/24**||
-|**192.168.2.0/24**||
+**172.18.0.0/16**||
+**192.168.1.0/24**||
+**192.168.2.0/24**||
 |||
 |||
 |||
