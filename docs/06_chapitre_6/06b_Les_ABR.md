@@ -67,6 +67,9 @@ Cela est dû au fait que, grâce à la relation d'ordre liant les valeurs, on pe
 
 ![](Aspose.Words.6e55a686-622e-41c3-8254-4f896d64da0f.008.png){: .center }
 
+
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
+
 **<H3 STYLE="COLOR:red;">Activité n° 1 :**  **Séquence dans un arbre binaire de recherche :**</H3> Quelle est la séquence associée à l’arbre binaire de recherche ci-dessous ?
 
 ![](Aspose.Words.6e55a686-622e-41c3-8254-4f896d64da0f.009.png){: .center }
@@ -171,6 +174,9 @@ Tester la avec la valeur 7 et la valeur 188.
 Tester la sur les 2 arbres. Que remarquez-vous ?
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc149153671"></a>**6. Exercices**</H2>
+
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
+
 **<H3 STYLE="COLOR:red;">Exercice n° 01 : Implémentation de quelques méthodes dans un ABR**</H3>
 
 Utiliser la classe Node du cours pour implémenter les méthodes suivantes.
@@ -194,6 +200,8 @@ Utiliser la classe Node du cours pour implémenter les méthodes suivantes.
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc149153672"></a>**7. Projet**</H2>
 **<H3 STYLE="COLOR:red;">Exercice n° 01 : arbre binaire de recherche ABR**</H3>
+
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
 
 ![](Aspose.Words.6e55a686-622e-41c3-8254-4f896d64da0f.015.png)
 
@@ -265,6 +273,8 @@ abr.search(9) == False
 On peut comparer l'exploration d'un ABR avec la recherche par dichotomie qui procède à peu près de la même manière, sauf qu'elle accède directement à chaque élément d'un tableau au lieu de suivre des liens. La différence entre les deux algorithmes est que, dans la recherche dichotomique, on suppose avoir un critère de découpage de l'espace en deux parties que l'on n'a pas dans la recherche dans un ABR.
 
 **<H3 STYLE="COLOR:red;">Exercice n° 02 : arbre binaire de recherche des Pokemons**</H3>
+
+**Seulement sur Thonny**
 
 On aura besoin d’un module d’affichage `pip install binarytree`.
 
