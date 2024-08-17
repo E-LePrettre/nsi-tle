@@ -354,13 +354,13 @@ Dans le réseau ci-dessus, si l'ordinateur d'adresse 192.168.0.5 veut interrog
 **Exemple: table de routage du routeur R1**
 
 |**Destination**|**Interface**|**Passerelle**|
-| :-: | :- | :- |
+| - | - | - |
 |F|192\.168.0.254||
 |A|10\.0.5.152||
 |E|172\.17.1.254||
 |B|172\.17.1.254|172\.17.1.123|
 |C|10\.0.5.152|10\.0.5.135|
-| - |
+||||
 
 Les trois réseaux F, A et E sont directement accessibles au routeur R1, puisqu'il en fait partie : il n'a donc **pas besoin d'adresse passerelle** pour communiquer avec ces réseaux.
 
