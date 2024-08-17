@@ -510,7 +510,7 @@ Sur la plupart des systèmes travaillant en OSPF, la valeur de référence par d
 
 Avec cette valeur de référence, on obtient alors :
 
-$Coût=(10^8)/débit(b\/s)$
+$Coût=frac{10^8}/{débit(b/s)}$
 
 Particularité d'OSPF : on arrondit les coûts à l'entier. Le coût des liaisons transmises est un entier compris entre 1 et 65535.
 
