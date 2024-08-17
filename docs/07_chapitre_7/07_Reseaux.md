@@ -368,32 +368,18 @@ Par contre, la communication avec le réseau B nécessite de confier le paquet a
 
 De la même manière, la communication avec le réseau C nécessite de confier le paquet au routeur R3 (c'est le choix de cette table de routage). Il faut donc mentionner **l'adresse IP de ce routeur R3** (10.0.5.135)
 
-**Comment sont construites les tables de routage ?** 
-
-- Soit à la main par l'administrateur réseau, quand le réseau est petit : on parle alors de table **statique**.
-- Soit de manière **dynamique** : les réseaux s'envoient eux-mêmes des informations permettant de mettre à jour leurs tables de routages respectives. Des algorithmes de détermination de meilleur chemin sont alors utilisés : nous allons en découvrir deux, le **protocole RIP et le protocole OSPF.**
-
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.036.png)
+|<p>**Comment sont construites les tables de routage ?**</p><p>- Soit à la main par l'administrateur réseau, quand le réseau est petit : on parle alors de table **statique**.</p><p>- Soit de manière **dynamique** : les réseaux s'envoient eux-mêmes des informations permettant de mettre à jour leurs tables de routages respectives. Des algorithmes de détermination de meilleur chemin sont alors utilisés : nous allons en découvrir deux, le **protocole RIP et le protocole OSPF.**</p>|
+| - |
 
 
 
 
+## <a name="_toc154844745"></a>**4. Le routage dynamique RIP (Routing Information Protocol)**
+### <a name="_toc154844746"></a>**4.1. Le principe du routage RIP**
 
-1. # <a name="_toc154844745"></a>**Le routage dynamique RIP (Routing Information Protocol)**
-   1. ## <a name="_toc154844746"></a>**Le principe du routage RIP**
-Le **Routing Information Protocol (RIP)** est basé sur **l'échange** (toutes les **30 secondes**) des tables de routage de chaque routeur.
+|<p>Le **Routing Information Protocol (RIP)** est basé sur **l'échange** (toutes les **30 secondes**) des tables de routage de chaque routeur.</p><p>Au début, chaque routeur ne connaît **que les réseaux auquel il est directement connecté**, associé à la **distance 1.**</p><p>Ensuite, chaque routeur **va recevoir** périodiquement (toutes les 30 secondes) la table des réseaux auquel il est connecté, et mettre à jour sa propre table suivant les règles ci-dessous :</p><p>- s'il découvre une route vers un **nouveau réseau inconnu**, il **l'ajoute à sa table en augmentant de 1** la distance annoncée par le routeur qui lui a transmis sa table.</p><p>- s'il découvre une route vers un **réseau connu mais plus courte** (en rajoutant 1) que celle qu'il possède dans sa table, **il actualise sa table.**</p><p>- s'il découvre une route vers un **réseau connu mais plus longue** que celle qu'il possède dans sa table, il **ignore cette route**.</p><p>- s'il reçoit une route vers un **réseau connu** en provenance d'un routeur déjà existant dans sa table, il **met à jour sa table** car la topologie du réseau a été modifiée.</p><p>- si le réseau n'évolue pas (dûs à une panne ou ajout de nouveau matériel), les tables de routage ***convergent*** vers une **valeur stable**. Elles n'évoluent plus.</p><p>- si un routeur ne reçoit pas **pendant 3 minutes** d'information de la part d'un routeur qui lui avait auparavant communiqué sa table de routage, ce routeur est considéré comme en panne, et toutes les routes passant par lui sont affectées de la **distance infinie** : 16.</p>|
+| - |
 
-Au début, chaque routeur ne connaît **que les réseaux auquel il est directement connecté**, associé à la **distance 1.**
-
-Ensuite, chaque routeur **va recevoir** périodiquement (toutes les 30 secondes) la table des réseaux auquel il est connecté, et mettre à jour sa propre table suivant les règles ci-dessous :
-
-- s'il découvre une route vers un **nouveau réseau inconnu**, il **l'ajoute à sa table en augmentant de 1** la distance annoncée par le routeur qui lui a transmis sa table.
-- s'il découvre une route vers un **réseau connu mais plus courte** (en rajoutant 1) que celle qu'il possède dans sa table, **il actualise sa table.**
-- s'il découvre une route vers un **réseau connu mais plus longue** que celle qu'il possède dans sa table, il **ignore cette route**.
-- s'il reçoit une route vers un **réseau connu** en provenance d'un routeur déjà existant dans sa table, il **met à jour sa table** car la topologie du réseau a été modifiée.
-- si le réseau n'évolue pas (dûs à une panne ou ajout de nouveau matériel), les tables de routage ***convergent*** vers une **valeur stable**. Elles n'évoluent plus.
-- si un routeur ne reçoit pas **pendant 3 minutes** d'information de la part d'un routeur qui lui avait auparavant communiqué sa table de routage, ce routeur est considéré comme en panne, et toutes les routes passant par lui sont affectées de la **distance infinie** : 16.
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.037.png)
 
 **Remarques et inconvénients:**
 
@@ -401,17 +387,30 @@ Ensuite, chaque routeur **va recevoir** périodiquement (toutes les 30 secondes)
 - Chaque routeur n'a jamais connaissance de la topologie du réseau tout entier : il ne le connaît que par ce que les autres routeurs lui ont raconté. On dit que ce protocole de routage est du *routing by rumor*.
 - La *métrique* utilisée (le nombre de sauts) ne tient pas compte de la qualité de la liaison, contrairement au protocole OSPF.
 
-|<p>**Activité n° AUTONUM  \* Arabic :**  Routage RiP</p><p>![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.038.png)</p><p>1. Pour chaque sous-réseau situé entre deux routeurs, donner la première adresse utilisable pour adresser une machine et la dernière.</p><p>2. Attribuer aux différentes interfaces des routeurs des adresses.</p><p>3. Donner la table de routage du routeur R1​ à son initialisation. Ajouter une colonne distance.</p>|
-| :- |
+**Activité n° 6 :**  Routage RiP
+
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.038.png){: .center}
+
+1\. Pour chaque sous-réseau situé entre deux routeurs, donner la première adresse utilisable pour adresser une machine et la dernière.
+2\. Attribuer aux différentes interfaces des routeurs des adresses.
+3\. Donner la table de routage du routeur R1​ à son initialisation. Ajouter une colonne distance.
 
 |<p>**Destination**|**Masque**|**Passerelle**|**Interface**|**Distance**|
 | :- | :- | :- | :- | :- |
-||||||
+|||||
 
-|<p>**Remarque :** Pour simplifier la lecture, ne rien écrire dans la colonne Passerelle si celle-ci est le routeur lui-même. De plus, ne pas prendre en compte l’adresse de loopback et la route par défaut.</p><p>4. Même question pour le routeur R3​ et le routeur R2</p><p>5. Donner la table de routage du routeur R1​ si on imagine qu’il a d’abord échangé une demande RIP avec le routeur R3</p><p>6. Donner la table de routage du routeur R1si on imagine qu’il a ensuite échangé une demande RIP avec le routeur R2</p><p>7. Quelle est la table de routage finale pour le routeur R1​.</p><p>8. Quel chemin vont suivre les paquets entre PC1 et PC2 ?</p><p>
-</p><p>
-</p><p>![ref3]![ref3]</p>|
-| :- |
+**Remarque :** Pour simplifier la lecture, ne rien écrire dans la colonne Passerelle si celle-ci est le routeur lui-même. De plus, ne pas prendre en compte l’adresse de loopback et la route par défaut.
+
+4\. Même question pour le routeur R3​ et le routeur R2
+
+5\. Donner la table de routage du routeur R1​ si on imagine qu’il a d’abord échangé une demande RIP avec le routeur R3
+
+6\. Donner la table de routage du routeur R1si on imagine qu’il a ensuite échangé une demande RIP avec le routeur R2
+
+7\. Quelle est la table de routage finale pour le routeur R1​.
+
+8\. Quel chemin vont suivre les paquets entre PC1 et PC2 ?
+
 
 1. ## <a name="_toc154844747"></a>**Métrique maximale**
 **Métrique maximale :** Pour limiter le nombre de routes inutiles et limiter la taille des messages RIP sur le réseau, on considère qu'une **métrique de 16** correspond à une **route impossible à atteindre**.
