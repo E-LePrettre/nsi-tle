@@ -94,25 +94,25 @@ Non, il va simplement envoyer son message (mis en forme en respectant HTTP) à l
 
 - A l'aide des sous-messages et des informations sur les PORTS, la couche **crée ensemble de segments TCP**.
 
-**Un segment TCP :** C'est l'un des sous-messages précédé d'informations supplémentaires qu'on nomme l'**en-tête TCP**. Notamment (mais pas que)
+|<p>**Un segment TCP :** C'est l'un des sous-messages précédé d'informations supplémentaires qu'on nomme l'**en-tête TCP**. Notamment (mais pas que)</p><p>- Le **PORT de l'application Source** du message (SRC) [ ce PORT est encodé sur les deux premiers octets ]</p><p>- Le **PORT de l'application Destinataire** du message (DST) [ce PORT est encodé sur les deux octets suivants]</p><p>- Un moyen d'identifier le **numéro du segment** par rapport aux autres (Séquence) [...]</p><p>- et d'autres choses encore ...</p>|
+| - |
 
-- Le **PORT de l'application Source** du message (SRC) [ ce PORT est encodé sur les deux premiers octets ]
-- Le **PORT de l'application Destinataire** du message (DST) [ce PORT est encodé sur les deux octets suivants]
-- Un moyen d'identifier le **numéro du segment** par rapport aux autres (Séquence) [...]
-- et d'autres choses encore ...
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.008.png)
+
 
 On connaît la structure de l'en-tête bit par bit et qu'on peut donc récupérer facilement les données à l'intérieur. On va simplement noter cet en-tête TCP par un rectangle jaune.
 
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.009.png)
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.009.png){: .center}
 
 A présent on a plein de segments dont on connaît l'expéditeur et le destinataire. **Mais comment trouver la bonne machine ?**
 
 C'est simple : la **couche TRANSPORT** ne sait pas faire. Alors elle délègue à la **couche RESEAU** qu'on nomme également couche **INTERNET**.
-1. ## <a name="_toc154844733"></a>**La couche réseau ou internet**
-   1. ### <a name="_toc154844734"></a>**Réseau et IP**
-- **La couche internet :** Cette couche réalise **l'interconnexion** des réseaux et ce **à l'aide du protocole IP** (Internet Protocol). Elle permet d'acheminer les données au bon destinataire dans le réseau, en laissant aux couches supérieures le soin de les réordonner (TCP) et de les interpréter (Application)
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.010.png)
+
+### <a name="_toc154844733"></a>**2.4. La couche réseau ou internet**
+#### <a name="_toc154844734"></a>**2.4.1. Réseau et IP**
+
+|<p>- **La couche internet :** Cette couche réalise **l'interconnexion** des réseaux et ce **à l'aide du protocole IP** (Internet Protocol). Elle permet d'acheminer les données au bon destinataire dans le réseau, en laissant aux couches supérieures le soin de les réordonner (TCP) et de les interpréter (Application)</p>|
+| - |
+
 
 **Exemple** :
 
@@ -120,11 +120,11 @@ Cette couche est considérée comme un aiguilleur. Elle se charge de savoir si l
 
 - de la **même machine** (ici A9 à un message pour A9): elle va envoyer le message vers la **couche APPLICATION**
 
-  ![Destinataire réel = Destinataire final](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.011.png)
+  ![Destinataire réel = Destinataire final](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.011.png){: .center}
 
 - d'une machine qui **appartient au même réseau** que la machine elle-même (ici A9 à un message pour A2): on sait alors qu'on peut envoyer le message à la couche RESEAU du destinataire via sur le réseau interne
 
-  ![Communication entre deux machines du même réseau](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.012.png)
+  ![Communication entre deux machines du même réseau](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.012.png){: .center}
 
 - d'une machine qui **n'appartient pas au même réseau** (ici A18 à un message pour B7): on sait qu'il faut envoyer le message vers un réseau externe.
 
