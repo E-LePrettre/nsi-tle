@@ -183,7 +183,7 @@ Tester la sur les 2 arbres. Que remarquez-vous ?
 
 Utiliser la classe Node du cours pour implémenter les méthodes suivantes.
 
-1. Créer un fichier ABR\_complet
+1. Sur Thonny : Créer un fichier ABR\_complet
 2. Recopier ou importer le fichier ABR
 3. D’après les propriétés de l’arbre, le nœud ayant la plus petite valeur se trouve forcément le plus à gauche. Implémenter une méthode qui donnera le min de l’ABR
 4. Pour rechercher le maximum, c’est la logique inverse de la recherche du minimum, on descend le plus à droite possible. Implémenter une méthode qui donnera le maximum de l’ABR
@@ -193,9 +193,9 @@ Utiliser la classe Node du cours pour implémenter les méthodes suivantes.
 
 **<H3 STYLE="COLOR:red;">Exercice n° 02 : Trier une liste en utilisant un ABR**</H3>
 
-1. Créer un fichier tri\_liste\_ABR
+1. Sur Thonny : Créer un fichier tri\_liste\_ABR
 2. Créer une liste de 10 entiers aléatoires distincts, puis générer un ABR dont les clés sont ces entiers. 
-3. Utiliser le fichier graphicarbre pour l’afficher. 
+3. Sur Thonny : Utiliser le fichier graphicarbre pour l’afficher. 
 4. Quel parcours permet d’afficher ces nombres dans l’ordre croissant ? 
 5. Écrire une fonction nom\_du\_parcours(abr, lst\_triee) prenant en argument un ABR et une liste vide, et ajoutant les clés de l’ABR à la liste dans l’ordre. 
 6. Écrire la fonction <a name="_hlk70628405"></a>tri\_abr(lst) renvoyant une copie triée de la liste lst en utilisant un ABR.
