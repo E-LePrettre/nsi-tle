@@ -210,12 +210,12 @@ broadcast : 172  .  128  . 63  . 255 (192+63 = 255 et 0+255 = 255)
 
 Donc la plage d'adresse disponible est de **172 . 128 . 0 . 1 à 172 . 128 . 63 . 254**
 
-1. ### <a name="_toc154844738"></a>**Le protocole DNS (Domain Name Server)**
-Dans la réalité, on ne tape pas l'adresse IP de tel ou tel site. On écrit une adresse du type : www.google.frµ. C'est un nom de domaine qui est associé à une adresse IP.
+#### <a name="_toc154844738"></a>**2.4.5. Le protocole DNS (Domain Name Server)**
 
-Cette association est réalisée par un **serveur DNS**
+|<p>Dans la réalité, on ne tape pas l'adresse IP de tel ou tel site. On écrit une adresse du type : www.google.frµ. C'est un nom de domaine qui est associé à une adresse IP.</p><p>Cette association est réalisée par un **serveur DNS**</p>|
+| - |
 
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.016.png)
+
 1. ### <a name="_toc154844739"></a>**Qu’est-ce qu’un paquet IP ?**
 **Un paquet IP :** La couche **RESEAU** reçoit les segments que la couche **TRANSPORT** lui a fourni. Elle ne les envoie pas directement : les segments ne contiennent pas l'adresse IP du destinataire !
 
