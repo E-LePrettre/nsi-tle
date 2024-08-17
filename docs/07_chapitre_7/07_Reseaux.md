@@ -137,15 +137,14 @@ Cette couche est considérée comme un aiguilleur. Elle se charge de savoir si l
 | - |
 
 
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.014.png)
-1. ### <a name="_toc154844736"></a>**Qui attribue les adresse IP ?**
-**Attribution des adresses IP** : Tout ordinateur se connecte sur un réseau via une carte réseau. Cette carte réseau possède un numéro d'identification unique : **l'adresse mac.** Une table de correspondance entre les adresses MAC et les adresses IP est maintenue à jour par le protocole de résolution d’adresses **ARP**.
 
-Notre ordinateur via sa carte se connecte sur un réseau ( via un routeur) qui se connecte sur un autre réseau etc....
+#### <a name="_toc154844736"></a>**2.4.3. Qui attribue les adresse IP ?**
 
-Pour simplifier : c'est le **serveur DHCP** (Dynamic Host Configuration Protocol) qui est chargé de délivrer une adresse IP.
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.015.png)
-1. ### <a name="_toc154844737"></a>**Comment savoir à quel réseau appartient une machine ?**
+|<p>**Attribution des adresses IP** : Tout ordinateur se connecte sur un réseau via une carte réseau. Cette carte réseau possède un numéro d'identification unique : **l'adresse mac.** Une table de correspondance entre les adresses MAC et les adresses IP est maintenue à jour par le protocole de résolution d’adresses **ARP**.</p><p>Notre ordinateur via sa carte se connecte sur un réseau ( via un routeur) qui se connecte sur un autre réseau etc....</p><p>Pour simplifier : c'est le **serveur DHCP** (Dynamic Host Configuration Protocol) qui est chargé de délivrer une adresse IP.</p>|
+| - |
+
+#### <a name="_toc154844737"></a>**2.4.4. Comment savoir à quel réseau appartient une machine ?**
+
 Une **adresse IP** est accompagnée d'un **masque sous réseau**. Un masque sous réseau est de la forme : 255.0.0.0 ou 255.255.0.0 ou encore 255.255.255.0.  On utilise à présent la « notation CIDR » (*Classless Inter-Domain Routing*). 
 
 **Par exemple** IP : 192.168.0.5/16 (masque : 255.255.0.0) 
@@ -161,35 +160,31 @@ Alors que la machine **192.168.1.**6/24 fait partie d'un autre réseau (**192.16
 Considérons la machine dont la configuration réseau est : 172.128.10.5 **/18**; (Masque **:** 255.255.192.0)
 
 On obtient **l'adresse du sous réseau** avec l'opérateur AND et on obtient **l'adresse de la machine** (l'hôte) dans le sous réseau avec le AND du complément du masque. Écrivons en binaire l'adresse IP et le masque :
-
-172\.128.10.5
-
+```
+172.128.10.5
 s'écrit en binaire :
-
 10101100 . 10000000 . 00001010 . 00000101
 
 Le masque de sous réseau s'écrit en binaire :
-
 11111111 . 11111111 . 11000000 . 00000000
+```
 
 Posons l'opération du ET logique entre ces deux écritures :
-
-`     `10101100 . 10000000 . 00001010 . 00000101
-
+```
+     10101100 . 10000000 . 00001010 . 00000101
 ET   11111111 . 11111111 . 11000000 . 00000000
-
-\--------------------------------------------------
-
-`     `10101100 . 10000000 . 00000000 . 00000000     
+--------------------------------------------------
+     10101100 . 10000000 . 00000000 . 00000000     
+```
 
 On met en décimal le résultat : **172.128.0.0 qui est l'adresse du réseau**.
 
 **Pour ce réseau, combien d'adresse sont utilisables ?** 
 
 Reprenons l'écriture en binaire du masque. On observe que nous pouvons la découper en deux parties ( en partant de la droite ) Une partie avec que des 0 et le reste
-
+```
 11111111 . 11111111 . 11 <---> 000000 . 00000000
-
+```
 On peut aller de 000000 . 00000000 à 111111 . 11111111. En décimal : de 0 à 16383 C'est à dire 16384 adresses possibles.... soit 2^14 = 16 384
 
 Enfin pas tout à fait :
@@ -204,18 +199,17 @@ Donc en tout : 16382 machines
 L'adresse de **broadcast** qui permet d'envoyer des données à toutes les machines du sous réseau (pour l'apprentissage du réseau par exemple et créer la table de routage). L'adresse de broadcast est la dernière adresse disponible, on remplit de 1 à droite.
 
 Pour la déterminer on fait le complément à 255 de la partie sous-réseau..., c'est à dire :
-
-`            `réseau        sous-réseau
-
-`            `-------------|----------
-
+```
+            réseau        sous-réseau
+            -------------|----------
 réseau    : 172  .  128  .  0  .  0
-
 masque    : 255  .  255  . 192 .  0
-
 broadcast : 172  .  128  . 63  . 255 (192+63 = 255 et 0+255 = 255)
+```
+
 
 Donc la plage d'adresse disponible est de **172 . 128 . 0 . 1 à 172 . 128 . 63 . 254**
+
 1. ### <a name="_toc154844738"></a>**Le protocole DNS (Domain Name Server)**
 Dans la réalité, on ne tape pas l'adresse IP de tel ou tel site. On écrit une adresse du type : www.google.frµ. C'est un nom de domaine qui est associé à une adresse IP.
 
