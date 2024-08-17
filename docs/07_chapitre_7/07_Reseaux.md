@@ -111,6 +111,7 @@ C'est simple : la **couche TRANSPORT** ne sait pas faire. Alors elle délègue
 #### <a name="_toc154844734"></a>**2.4.1. Réseau et IP**
 
 |<p>- **La couche internet :** Cette couche réalise **l'interconnexion** des réseaux et ce **à l'aide du protocole IP** (Internet Protocol). Elle permet d'acheminer les données au bon destinataire dans le réseau, en laissant aux couches supérieures le soin de les réordonner (TCP) et de les interpréter (Application)</p>|
+| - |
 
 
 
@@ -132,16 +133,8 @@ Cette couche est considérée comme un aiguilleur. Elle se charge de savoir si l
 
 #### <a name="_toc154844735"></a>**2.4.2. Et comment fait cette couche pour savoir si le destinataire est sur le réseau interne ou s'il faut sortir du réseau actuel?**
 
-**Adresse IP = Adresse réseau + Adresse machine**
-
-La couche RESEAU / INTERNET peut identifier les machines à l'aide de l’adresse IP. Il est totalement impossible qu'une machine connaisse les adresses de TOUTES les autres machines branchées sur INTERNET. 
-
-Du coup, cette adresse IP est en réalité composée de deux parties.
-
-- Une **adresse réseau** qui identifie le réseau auquel appartient la machine
-- Une **adresse machine** qui identifie la machine elle-même sur ce réseau
-
-Qu'on soit en IP version 4 ou en IP version 6, **il existe un mécanisme permettant de savoir si l'adresse de destination est sur le même réseau que l'ordinateur actuel** ou si l'ordinateur de destination est en dehors du réseau actuel.
+|<p>**Adresse IP = Adresse réseau + Adresse machine**</p><p>La couche RESEAU / INTERNET peut identifier les machines à l'aide de l’adresse IP. Il est totalement impossible qu'une machine connaisse les adresses de TOUTES les autres machines branchées sur INTERNET. </p><p>Du coup, cette adresse IP est en réalité composée de deux parties.</p><p>- Une **adresse réseau** qui identifie le réseau auquel appartient la machine</p><p>- Une **adresse machine** qui identifie la machine elle-même sur ce réseau</p><p>Qu'on soit en IP version 4 ou en IP version 6, **il existe un mécanisme permettant de savoir si l'adresse de destination est sur le même réseau que l'ordinateur actuel** ou si l'ordinateur de destination est en dehors du réseau actuel.</p>|
+| - |
 
 
 ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.014.png)
