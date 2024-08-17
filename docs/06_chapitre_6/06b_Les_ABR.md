@@ -119,6 +119,8 @@ class Node:
 
 La fonction inserer et la méthode insert sont équivalent car elles permettent de construire l’ABR.
 
+**Les activités 8 et 9 (visualisation de l'arbre) ne pourra se faire que sur Thonny en téléchargeant le fichier graphiarbre.py**
+
 **<H3 STYLE="COLOR:red;">Activité n° 8 : Représentation graphique de l’arbre**</H3> importer le fichier graphicarbre.py au script précédent pour visualiser l’arbre binaire de recherche 
 ```python
 from graphicarbre import *
