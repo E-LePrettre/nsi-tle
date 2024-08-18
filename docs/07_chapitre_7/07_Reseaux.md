@@ -367,7 +367,9 @@ Ensuite, chaque routeur **va recevoir** périodiquement (toutes les 30 secondes)
 ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.038.png){: .center}
 
 1\. Pour chaque sous-réseau situé entre deux routeurs, donner la première adresse utilisable pour adresser une machine et la dernière.
+
 2\. Attribuer aux différentes interfaces des routeurs des adresses.
+
 3\. Donner la table de routage du routeur R1​ à son initialisation. Ajouter une colonne distance.
 
 |**Destination**|**Masque**|**Passerelle**|**Interface**|**Distance**|
