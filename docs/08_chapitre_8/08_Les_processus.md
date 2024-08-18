@@ -143,19 +143,17 @@ Le **temps ou durée d’attente** d’un processus P correspond à la différen
 
 **Activité n° 4 :**  **Ordonnancement FIFO ou FCFS :**  Compléter le tableau suivant pour l’ordonnancement FIFO et schématiser cet algorithme
 
-|<a name="_hlk59704520"></a>Processus|P1|P2|P3|P4|
+|Processus|P1|P2|P3|P4|
 | - | - | - | - | - |
 |Durée|3|2|4|3|
 |Date d’arrivée|0|2|1|3|
 |Temps d’attente|||||
 |Temps d’exécution|||||
-
 ||
 | - |
 
 
-|<a name="_toc154927173"></a>**Activité n° AUTONUM  \* Arabic :**  **Ordonnancement Round Robin :**  Compléter le tableau suivant pour l’ordonnancement FIFO et schématiser cet algorithme|
-| - |
+**Activité n° 5 :**  **Ordonnancement Round Robin :**  Compléter le tableau suivant pour l’ordonnancement FIFO et schématiser cet algorithme
 
 |Processus|P1|P2|P3|P4|
 | - | - | - | - | - |
@@ -163,35 +161,37 @@ Le **temps ou durée d’attente** d’un processus P correspond à la différen
 |Date d’arrivée|0|2|1|3|
 |Temps d’attente|||||
 |Temps d’exécution|||||
-
 ||
 | - |
-1. ## **Etat des processus**
+
+### **2.4. Etat des processus**
 Selon que l'ordonnanceur aura décidé de le confier ou non au processeur pour son exécution, un processus peut donc se trouver dans 3 états :
 
 - **Prêt** : il attend qu'arrive le moment de son exécution.
 - **Élu** : il est en cours d'exécution par le processeur.
 - **Bloqué** : pendant son exécution (état **Élu**), le processus réclame une ressource qui n'est pas immédiatement disponible. Son exécution s'interrompt. Lorsque la ressource sera disponible, le processus repassera par l'état **Prêt** et attendra à nouveau son tour.
 
-Voici les transitions possibles entre ces états (diagramme issu de <https://info.blaisepascal.fr/nsi-processus-et-ressources>) :
+Voici les transitions possibles entre ces états (diagramme issu de [https://info.blaisepascal.fr/nsi-processus-et-ressources](https://info.blaisepascal.fr/nsi-processus-et-ressources)) :
 
-![image](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.021.png)
+![image](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.021.png){: .center}
 
 Ou de manière simplifiée :
 
-![image](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.022.png)
+![image](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.022.png){: .center}
 
 **Pourquoi l'accès à une ressource peut bloquer un processus ?**
 
 Pendant son exécution, un processus peut avoir besoin d'accéder à une **ressource déjà occupée** (un fichier déjà ouvert, par exemple) ou être **en attente d'une entrée-utilisateur** (un input() dans un code Python par exemple). Dans ce cas-là, le processeur va passer ce processus à l'état **Bloqué**, pour pouvoir ainsi se consacrer à un autre processus.
 
 Une fois débloqué, le processus va repasser à l'état **Prêt** et rejoindre (par exemple) la file d'attente des processus avant d'être à nouveau **Élu** et donc exécuté.
-1. ## <a name="_toc154927174"></a>**Notion d’interblocage (deadlock)**
+
+### <a name="_toc154927174"></a>**2.5. Notion d’interblocage (deadlock)**
+
 Un **interblocage** (ou étreinte fatale, *deadlock* en anglais pour impasse) est un phénomène qui peut se produire en programmation concurrente lorsque des processus s’attendent mutuellement.
 
 **Exemple** :Considérons 2 processus A et B, et deux ressources R et S. L'action des processus A et B est décrite ci-dessous :
 
-![image](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.023.png)
+![image](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.023.png){: .center}
 
 **Déroulement des processus A et B :**
 
@@ -212,7 +212,7 @@ Cette situation (critique) est appelée **interblocage** ou **deadlock**.
 
 les processus seront représentés par des **cercles**, les ressources par des **carrés**.
 
-![image](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.024.png)
+![image](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.024.png){: .center}
 
 Ce type de schéma fait apparaître un **cycle d'interdépendance**, qui caractérise ici la situation de deadlock.
 
@@ -226,19 +226,27 @@ Il existe trois stratégies pour éviter les interblocages :
 
 **Exemples dans la vie quotidienne**
 
-![carrefour](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.025.png)
+![carrefour](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.025.png){: .center}
 
-![image](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.026.png)
+![image](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.026.png){: .center}
 
-![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.027.png)
-1. # <a name="_toc154927175"></a>**Les processus sous Linux**
-   1. ## <a name="_toc154927176"></a>**Affichage des processus** 
+
+## <a name="_toc154927175"></a>**3. Les processus sous Linux**
+### <a name="_toc154927176"></a>**3.1. Affichage des processus** 
+
 Pour toute aide sous Linux : man *commande*. Par exemple man ps.
 
 Sous Linux il existe des commandes permettant de visualiser les processus.
 
-|<p>**Activité n° AUTONUM  \* Arabic :**  **Commande** ps -aef :Après avoir ouvert un terminal, tapez la commande suivante : ps -aef</p><p>![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.028.png)</p><p>Vous devriez avoir plusieurs informations sur les processus en cours sur votre ordinateur, notamment les PID et les PPID de ces processus.</p><p></p><p>Affiche l’arbre des processus. Taper la commande pstree</p><p>![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.029.png)</p>|
-| :- |
+**Activité n° 6 :**  **Commande** ps -aef :Après avoir ouvert un terminal, tapez la commande suivante : ps -aef
+
+![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.028.png){: .center}
+
+Vous devriez avoir plusieurs informations sur les processus en cours sur votre ordinateur, notamment les PID et les PPID de ces processus.
+
+Affiche l’arbre des processus. Taper la commande pstree
+
+![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.029.png){: .center}
 
 **Lister les processus** : La liste des processus peut être obtenu avec la  commande : ps avec les options suivantes:
 
@@ -251,20 +259,29 @@ Ou ps -e -o pid,ppid,stat,command qui permet d’affiner ce qu’on veut affiche
 pstree : affichage sous forme d’arbre
 
 
-![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.030.png)
+**Activité n° 7 :**  **Commande** top : Après avoir ouvert un terminal, tapez la commande suivante : top
 
+![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.031.png){: .center}
 
+En utilisant la commande top dans un terminal, observez ce qui se passe au niveau des processus quand vous **ouvrez le** navigateur web.
 
-|<p>**Activité n° AUTONUM  \* Arabic :**  **Commande** top : Après avoir ouvert un terminal, tapez la commande suivante : top</p><p>![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.031.png)</p><p>En utilisant la commande top dans un terminal, observez ce qui se passe au niveau des processus quand vous **ouvrez le** navigateur web.</p><p>**Fermez** le navigateur Web et observez le résultat dans le terminal</p><p></p><p>Selon le navigateur que vous utilisez, il se peut que le fonctionnement du navigateur soit associé à plusieurs processus.</p><p>Noter le PID des processus liés au fonctionnement du navigateur.</p><p>Il faut taper q pour sortir.</p>|
-| - |
+**Fermez** le navigateur Web et observez le résultat dans le terminal
+
+Selon le navigateur que vous utilisez, il se peut que le fonctionnement du navigateur soit associé à plusieurs processus.
+
+Noter le PID des processus liés au fonctionnement du navigateur.
+
+Il faut taper q pour sortir.
 
 **Commande** top : La commande ps ne permet pas de suivre en temps réel les processus (affichage figé). Pour avoir un suivi en temps réel, vous pouvez utiliser la commande top.
 
 Il faut taper q pour sortir.
-![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.032.png)
+
 
 Les processus fils du processus 0 sont init et kthreadd. Tous les processus ont pour aïeul le processus de PID 0.
-1. ## <a name="_toc154927177"></a>**Interruption d’un processus**
+
+### <a name="_toc154927177"></a>**3.2. Interruption d’un processus**
+
 **Commande** kill : Il est possible de supprimer un processus en utilisant la commande kill. L'utilisation de cette commande est très simple, il suffit de taper kill suivi du PID
 
 Pour tuer un processus, on lui envoie un signal de terminaison. On en utilise principalement 2 :
@@ -272,20 +289,26 @@ Pour tuer un processus, on lui envoie un signal de terminaison. On en utilise pr
 - SIGTERM (15) : demande la terminaison d'un processus. Cela permet au processus de se terminer proprement en libérant les ressources allouées.
 - SIGKILL (9) : demande la terminaison immédiate et inconditionnelle d'un processus. C'est une terminaison violente à n'appliquer que sur les processus récalcitrants qui ne répondent pas au signal SIGTERM. 
 
-![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.033.png)
+**Activité n° 8 :**  **Commande** kill : Lancer la commande top
 
-|<p>**Activité n° AUTONUM  \* Arabic :**  **Commande** kill : Lancer la commande top</p><p>Dans une autre console, repérer le PID de top puis tuer le avec la commande kill -15 n°PID.</p><p>Faire afficher la liste des processus. top est-il présent ? que s’est-il passer sur l’autre console ?</p>|
-| - |
+Dans une autre console, repérer le PID de top puis tuer le avec la commande kill -15 n°PID.
 
-|**Activité n° AUTONUM  \* Arabic :**  **Commande** kill : ouvrir un navigateur, utiliser la commande kill afin de supprimer le (ou les) processus lié(s) au fonctionnement du navigateur. Que se passe-t-il ?|
-| :- |
-1. ## <a name="_toc154927178"></a>**Creation d’un processus**
+Faire afficher la liste des processus. top est-il présent ? que s’est-il passer sur l’autre console ?
+
+**Activité n° 9 :**  **Commande** kill : ouvrir un navigateur, utiliser la commande kill afin de supprimer le (ou les) processus lié(s) au fonctionnement du navigateur. Que se passe-t-il ?
+
+
+### <a name="_toc154927178"></a>**3.3. Creation d’un processus**
 Sur Linux, la création d'un processus se fait par clonage d'un autre processus au travers d'un appel systeme : fork().
 
 - le processus qui fait appel à fork() est appelé **processus père**
 - le processus qui est ainsi créé par clonage est le **processus fils**
 - après le clonage, un processus peut remplacer son programme par un autre programme grâce à l'appel système exec().
-1. # <a name="_toc154927179"></a>**Exercices**
+
+## <a name="_toc154927179"></a>**4. Exercices**
+
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
+
 **Exercice n°1 : Processus et interblocage**
 
 On considère trois processus P1, P2 et P3 décrits ci-dessous :
@@ -302,7 +325,7 @@ Décrire une exécution des trois processus qui conduit à une situation d’int
 
 Dessiner un schéma représentant la situation.
 
-<a name="_hlk73217024"></a>**Exercice n°2 : Processus** 
+**Exercice n°2 : Processus** 
 
 1. Qu'est-ce qui limite concrètement le nombre de processus pouvant être lancer en même temps ?
 1. Qu'est-ce qu'un système d'exploitation multitâche ?
@@ -310,8 +333,4 @@ Dessiner un schéma représentant la situation.
 1. Que se passe-t-il au démarrage de l'ordinateur ?
 1. Quels sont les états pendant lesquels la mémoire vive réserve de la place au processeur ?
 
-![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.034.png)![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.035.png)![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.036.png)![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.037.png)
-Terminale NSI 		Chap 08 : Les processus	Page 12/12
 
-[ref1]: Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.014.jpeg
-[ref2]: Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.015.jpeg
