@@ -510,7 +510,7 @@ Sur la plupart des systèmes travaillant en OSPF, la valeur de référence par d
 
 Avec cette valeur de référence, on obtient alors :
 
-$Coût=frac{10^8}/{débit(b/s)}$
+$Coût=\frac{10^8}{débit(b/s)}$
 
 Particularité d'OSPF : on arrondit les coûts à l'entier. Le coût des liaisons transmises est un entier compris entre 1 et 65535.
 
@@ -521,10 +521,21 @@ Cette formule de calcul peut être différente suivant les exercices, et sera sy
 
 **Activité n° 8 :**  Calculer la métrique OSPF d'une liaison FastEthernet (100 Mbit/s) avec une valeur par défaut de 10<sup>8</sup>.
 
-**Activité n° AUTONUM  \* Arabic :**  Calculer la métrique OSPF d'une liaison Ethernet (10 Mbit/s) avec une valeur par défaut de 10<sup>8.</sup>|
+**Activité n° 9 :**  Calculer la métrique OSPF d'une liaison Ethernet (10 Mbit/s) avec une valeur par défaut de 10<sup>8</sup>
 
-**Activité n° AUTONUM  \* Arabic :**  Que vaut la bande passante d'une liaison dont le coût OSPF est de 50 avec une valeur de référence de 10<sup>8</sup>.
-|<p>**Activité n° AUTONUM  \* Arabic :**  Un routeur A3 fonctionnant sous OSPF reçoit les informations suivantes :</p><p>- Liaison A - B avec un coût de 1</p><p>- Liaison A - C avec un coût de 1000</p><p>- Liaison A - D avec un coût de 100</p><p>- Liaison B - D avec un coût de 10</p><p>- Liaison C - E avec un coût de 200</p><p>- Liaison C - F avec un coût de 100</p><p>- Liaison D - E avec un coût de 1</p><p>- Liaison E - G avec un coût de 100</p><p>- Liaison F - G avec un coût de 10</p><p>Représenter le tout sous forme d'un graphe où les sommets sont les routeurs et les arcs portent les coûts.</p>|
+**Activité n° 10 :**  Que vaut la bande passante d'une liaison dont le coût OSPF est de 50 avec une valeur de référence de 10<sup>8</sup>.
+
+**Activité n° 11 :**  Un routeur A3 fonctionnant sous OSPF reçoit les informations suivantes :
+
+- Liaison A - B avec un coût de 1
+
+- Liaison A - C avec un coût de 1000
+
+- Liaison A - D avec un coût de 100
+
+- Liaison B - D avec un coût de 10
+
+- Liaison C - E avec un coût de 200</p><p>- Liaison C - F avec un coût de 100</p><p>- Liaison D - E avec un coût de 1</p><p>- Liaison E - G avec un coût de 100</p><p>- Liaison F - G avec un coût de 10</p><p>Représenter le tout sous forme d'un graphe où les sommets sont les routeurs et les arcs portent les coûts.</p>|
 
 |<p>**Activité n° AUTONUM  \* Arabic :**  Quel est le coût de la liaison AE ? Calculer toutes les routes possibles et choisir celle qui présente le coût le plus faible.</p><p>Question supplémentaire : contrairement au cas RIP, le routeur A a-t-il les moyens de connaitre la route que va suivre le paquet le long du trajet A vers E ?</p>
 1. ## <a name="_toc154844752"></a>**L’algorithme de Dijkstra**
