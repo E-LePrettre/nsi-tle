@@ -223,6 +223,8 @@ Pour toute aide sous Linux : man *commande*. Par exemple man ps.
 
 Sous Linux il existe des commandes permettant de visualiser les processus.
 
+[https://moocbash.univ-reunion.fr/?cpu=asm&n=1](https://moocbash.univ-reunion.fr/?cpu=asm&n=1)
+
 **<H3 STYLE="COLOR:red;">Activité n° 6 :**  **Commande** ps -aef :</H3>Après avoir ouvert un terminal, tapez la commande suivante : ps -aef
 
 ![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.028.png){: .center}
@@ -249,13 +251,6 @@ pstree : affichage sous forme d’arbre
 
 ![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.031.png){: .center}
 
-En utilisant la commande top dans un terminal, observez ce qui se passe au niveau des processus quand vous **ouvrez le** navigateur web.
-
-**Fermez** le navigateur Web et observez le résultat dans le terminal
-
-Selon le navigateur que vous utilisez, il se peut que le fonctionnement du navigateur soit associé à plusieurs processus.
-
-Noter le PID des processus liés au fonctionnement du navigateur.
 
 Il faut taper q pour sortir.
 
@@ -276,11 +271,9 @@ Pour tuer un processus, on lui envoie un signal de terminaison. On en utilise pr
 
 **<H3 STYLE="COLOR:red;">Activité n° 8 :**  **Commande** kill :</H3> Lancer la commande top
 
-Dans une autre console, repérer le PID de top puis tuer le avec la commande kill -15 n°PID.
+**sur l'émulateur cela ne fonctionne pas** mais on pourrait repérer le PID de top puis tuer le avec la commande kill -15 n°PID. Ensuite faire afficher la liste des processus. top est-il présent ? que s’est-il passer sur l’autre console ?**
 
-Faire afficher la liste des processus. top est-il présent ? que s’est-il passer sur l’autre console ?
 
-**<H3 STYLE="COLOR:red;">Activité n° 9 :**  **Commande** kill :</H3> ouvrir un navigateur, utiliser la commande kill afin de supprimer le (ou les) processus lié(s) au fonctionnement du navigateur. Que se passe-t-il ?
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc154927178"></a>**3.3. Creation d’un processus**</H3>
 Sur Linux, la création d'un processus se fait par clonage d'un autre processus au travers d'un appel systeme : fork().
