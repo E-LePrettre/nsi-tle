@@ -595,7 +595,7 @@ https://ladigitale.dev/digiview/#/v/66c13a448a875
 
 **Exercice n°2 : <a name="_hlk52886978"></a>Protocole OSPF**
 
-1. Calculer les coûts des routes suivantes :
+1\. Calculer les coûts des routes suivantes :
 
 |Route|1|2|3|4|5|6|7|8|
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
@@ -604,23 +604,12 @@ https://ladigitale.dev/digiview/#/v/66c13a448a875
 
 (\*) Le coût ne peut être qu’un nombre entier Fast Ethernet(100Mbps), Gigabit et 10 Gigas, partagent le même cout
 
-1. Soit le réseau suivant :
+2\. Soit le réseau suivant :
 
 
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.052.png){: .center}
 
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.048.png)![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.049.png)![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.050.png)![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.051.png)
 
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.052.png)
-
-**Réseau****Métrique**|
-| :-: | :-: |
-**172.18.0.0/16**||
-**192.168.1.0/24**||
-**192.168.2.0/24**||
-|||
-|||
-|||
-|||
 On donne les débits suivants :
 
 - Liaison routeur A - routeur B : 1 Mbps
@@ -628,6 +617,16 @@ On donne les débits suivants :
 - Liaison routeur C - routeur B : 10 Mbps
 
 En vous basant sur le protocole OSPF (métrique = somme des coûts), **déterminer** la table de routage du routeur A
+
+|**Réseau**|**Métrique**|
+| :-: | :-: |
+|**172.18.0.0/16**||
+|**192.168.1.0/24**||
+|**192.168.2.0/24**||
+|||
+|||
+|||
+|||
 
 1. ` `Quel est, d'après la table de routage construite ci-dessus, le chemin qui sera emprunté par un paquet pour aller d'une machine ayant pour adresse IP 172.18.2.4/16 à une machine ayant pour adresse IP 172.16.1.5/16 ? Préciser la métrique.
 
