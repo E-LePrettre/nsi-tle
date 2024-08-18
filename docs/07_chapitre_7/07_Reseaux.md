@@ -535,17 +535,31 @@ Cette formule de calcul peut être différente suivant les exercices, et sera sy
 
 - Liaison B - D avec un coût de 10
 
-- Liaison C - E avec un coût de 200</p><p>- Liaison C - F avec un coût de 100</p><p>- Liaison D - E avec un coût de 1</p><p>- Liaison E - G avec un coût de 100</p><p>- Liaison F - G avec un coût de 10</p><p>Représenter le tout sous forme d'un graphe où les sommets sont les routeurs et les arcs portent les coûts.</p>|
+- Liaison C - E avec un coût de 200
 
-|<p>**Activité n° AUTONUM  \* Arabic :**  Quel est le coût de la liaison AE ? Calculer toutes les routes possibles et choisir celle qui présente le coût le plus faible.</p><p>Question supplémentaire : contrairement au cas RIP, le routeur A a-t-il les moyens de connaitre la route que va suivre le paquet le long du trajet A vers E ?</p>
-1. ## <a name="_toc154844752"></a>**L’algorithme de Dijkstra**
+- Liaison C - F avec un coût de 100
+
+- Liaison D - E avec un coût de 1
+
+- Liaison E - G avec un coût de 100
+
+- Liaison F - G avec un coût de 10
+
+Représenter le tout sous forme d'un graphe où les sommets sont les routeurs et les arcs portent les coûts.
+
+**Activité n° 12 :**  Quel est le coût de la liaison AE ? Calculer toutes les routes possibles et choisir celle qui présente le coût le plus faible.
+
+Question supplémentaire : contrairement au cas RIP, le routeur A a-t-il les moyens de connaitre la route que va suivre le paquet le long du trajet A vers E ?
+
+
+### <a name="_toc154844752"></a>**5.3. L’algorithme de Dijkstra**
 L’algorithme de Dijkstra permet de résoudre un problème algorithmique : le problème du plus court chemin.
 
 Le principe de l’algorithme est de chercher à chaque étape le plus court chemin.
 
 On souhaite aller de la ville A à la ville G en empruntant le plus court chemin :
 
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.045.png)
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.045.png){: .center}
 
 |A|B|C|D|E|F|G|Etapes|
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
@@ -559,25 +573,27 @@ On souhaite aller de la ville A à la ville G en empruntant le plus court chemin
 
 On fait donc 6 km de A à G en suivant le chemin : A, B, D, G
 
-<https://youtu.be/rI-Rc7eF4iw> 
+https://ladigitale.dev/digiview/#/v/66c13a448a875
 
-|<p>**Activité n° AUTONUM  \* Arabic :**  </p><p>Donner le plus court chemin pour aller de E à F dans le graphe ci-dessous :![image](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.046.png)</p>
+**Activité n° 13 :** Donner le plus court chemin pour aller de E à F dans le graphe ci-dessous :
+![image](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.046.png){: .center}
 
 
-1. # <a name="_toc154844753"></a>**Exercices**
+## <a name="_toc154844753"></a>**6. Exercices**
+
 **Exercice n°1 : Protocole RIP**
 
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.047.png)
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.047.png){: .center}
 
-1. Établir la table de routage du routeur A en vous basant sur le protocole RIP (métrique = nombre de sauts).
+1\. Établir la table de routage du routeur A en vous basant sur le protocole RIP (métrique = nombre de sauts).
 
-**Destination****Masque****Passerelle****Interface****Distance**|
+|**Destination**|**Masque**|**Passerelle**|**Interface**|**Distance**|
 | :- | :- | :- | :- | :- |
 ||||||
 
-1. Quel est, d’après la table de routage construite ci-dessus, le chemin qui sera emprunté par un paquet pour aller d’une machine ayant pour adresse IP 172.18.1.1/16 à une machine ayant pour adresse IP 172.16.5.3/16?
+2\. Quel est, d’après la table de routage construite ci-dessus, le chemin qui sera emprunté par un paquet pour aller d’une machine ayant pour adresse IP 172.18.1.1/16 à une machine ayant pour adresse IP 172.16.5.3/16?
 
-<a name="_hlk51874478"></a>**Exercice n°2 : <a name="_hlk52886978"></a>Protocole OSPF**
+**Exercice n°2 : <a name="_hlk52886978"></a>Protocole OSPF**
 
 1. Calculer les coûts des routes suivantes :
 
