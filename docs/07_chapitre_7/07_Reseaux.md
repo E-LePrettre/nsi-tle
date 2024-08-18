@@ -647,21 +647,19 @@ Une machine Ml a pour adresse IP 192.168.1.12 et elle se trouve dans un réseau 
 |172.20.121.0||||
 |||||
 
-1. Compléter la table de routage de la machine Ml.
+2\. Compléter la table de routage de la machine M1.
 
-Adresse 		Masque 		Passerelle 	Interface 
+|Adresse 		|Masque 		|Passerelle 	|Interface|
+|192.168.1.0||||
+|0.0.0.0||||
+|||||
 
-192\.168.1.0 
+3\. Compléter la table de routage de la machine M2. 
 
-0\.0.0.0
-
-1. Compléter la table de routage de la machine M2. 
-
-Adresse 		Masque 		Passerelle 	Interface
-
-172\.20.121.0
-
-0\.0.0.0
+|Adresse 		|Masque 		|Passerelle 	|Interface|
+|172.20.121.0||||
+|0.0.0.0||||
+|||||
 
 
 **Exercice n°5 : protocoles RIP**
@@ -691,7 +689,7 @@ Déterminer les tables de routage de R1, R2 et R3
 
 **Exercice n°6 : protocole OSPF**
 
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.054.png)![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.055.png)![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.056.png)
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.056.png)
 
 1\.	Un hôte du nœud K envoie un paquet à destination du nœud J, à l’adresse 5.12.85.26. Quelle va être la route suivie par ce paquet
 
@@ -707,11 +705,11 @@ b)	Avec le protocole OSPF ?
 
 Un réseau est constitué de 6 routeurs R1 à R6 dont on donne des tables de routage simplifiées. Les réseaux ont tous pour masque 255.255.255.0. La colonne M est la métrique utilisée.
 
-![ref4]
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.057.png)
 
-![ref5]
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.058.png)
 
-![ref6]
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.059.png)
 
 1\.	Indiquer la route décrite par un paquet envoyé du routeur R1 au routeur R6.
 
@@ -721,22 +719,14 @@ Un réseau est constitué de 6 routeurs R1 à R6 dont on donne des tables de rou
 
 **Exercice 8 : Adressage IP :**
 
-1. L’adresse IPv4 d’un réseau est 192.168.56.0/24. Combien de bits sont-ils dédiés à la partie réseau ? Combien de machines peut-on incorporer à ce réseau ?
-1. Quel est le masque de réseau de l’adresse de la question 1 ?
-1. Quelle est la première adresse utilisable sur le réseau de la question 1 ? La dernière ?
-1. Écrire l’adresse IPv4 222.1.1.20, de masque 255.255.255.192 en notation CIDR.
-1. Écrire l’adresse IPv4 135.1.1.25, de masque 255.255.248.0 en notation CIDR.
-1. Sur un ordinateur dont le système d’exploitation est Linux, la commande ifconfig retourne l’adresse IPv4 172.16.20.234 et le masque 255.255.0.0. Quelle est l’adresse réseau du réseau auquel cet ordinateur appartient ?
-1. Combien d’ordinateurs peut-on incorporer au réseau de la question précédente ?
-1. L’adresse IPv4 d’un ordinateur est 172.16.20.234/22. Combien d’ordinateurs peut-on incorporer à ce réseau ?
-1. Quelle est la première adresse utilisable sur le réseau de la question précédente ? La dernière ?
+1\. L’adresse IPv4 d’un réseau est 192.168.56.0/24. Combien de bits sont-ils dédiés à la partie réseau ? Combien de machines peut-on incorporer à ce réseau ?
+2\. Quel est le masque de réseau de l’adresse de la question 1 ?
+3\. Quelle est la première adresse utilisable sur le réseau de la question 1 ? La dernière ?
+4\. Écrire l’adresse IPv4 222.1.1.20, de masque 255.255.255.192 en notation CIDR.
+5\. Écrire l’adresse IPv4 135.1.1.25, de masque 255.255.248.0 en notation CIDR.
+6\. Sur un ordinateur dont le système d’exploitation est Linux, la commande ifconfig retourne l’adresse IPv4 172.16.20.234 et le masque 255.255.0.0. Quelle est l’adresse réseau du réseau auquel cet ordinateur appartient ?
+7\. Combien d’ordinateurs peut-on incorporer au réseau de la question précédente ?
+8\. L’adresse IPv4 d’un ordinateur est 172.16.20.234/22. Combien d’ordinateurs peut-on incorporer à ce réseau ?
+9\. Quelle est la première adresse utilisable sur le réseau de la question précédente ? La dernière ?
 
 
-Terminale NSI 		Chap 07 : Les protocoles de routage	Page 21/21
-
-[ref1]: Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.026.png
-[ref2]: Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.030.png
-[ref3]: Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.039.png
-[ref4]: Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.057.png
-[ref5]: Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.058.png
-[ref6]: Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.059.png
