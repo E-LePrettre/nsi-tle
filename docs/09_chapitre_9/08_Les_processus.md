@@ -42,3 +42,25 @@ Avec les acquis du programme de première, nous pouvons comprendre exactement ce
 
 ![Encapsulation](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.002.png){: .center}
 
+On se souvient aussi que les communications sur Internet utilisent un ensemble de protocoles, organisés en couches:
+
+- **Couche accès réseau** avec des protocoles tels que Ethernet ou 802.11 n.
+- **Couche Internet**, avec le protocole IP permettant de définir des routes, c'est-à-dire l'ensemble des machines du réseau traversées pour atteindre la machine de destination.
+- **Couche de transport** avec les protocoles UDP ou TCP, qui s'occupent en particulier de garantir l'intégrité des données transmises (garanties minimales pour UDP ou très fortes pour TCP).
+- **Couche d'application** dans laquelle se trouvent les protocoles de haut niveau : HTTP, IMAP, etc.
+
+Ce processus a été **très peu modifié depuis la conception** de TCP/IP à la fin des années 1970. 
+
+Chaque protocole (SMTP, FTP, puis HTTP au milieu des années 1990), s'est inséré dans ce cadre au niveau de la couche d'application.
+
+Cependant, avec la démocratisation d'Internet, du Web et la diversification des usages, **des problèmes sont apparus**.
+
+Les paquets IP sont envoyés par la source au prochain routeur de son sous-réseau.
+
+Ce routeur retransmet ensuite le paquet au routeur suivant et ainsi de suite jusqu'à l'arrivée à destination. 
+
+Chaque routeur peut donc inspecter les paquets pour en **connaître le contenu.**
+
+![Routage](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.003.png){: .center}
+
+
