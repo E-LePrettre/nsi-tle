@@ -118,17 +118,17 @@ Le **temps de terminaison** d’un processus P est la durée écoulée entre le 
 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
-**<H3 STYLE="COLOR:red;">Activité n° 1 :**  **temps de terminaison:**  compléter la ligne correspondante du tableau précédent</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 1 :**  **temps de terminaison:</H3>**  compléter la ligne correspondante du tableau précédent
 
 Le **temps d’exécution** ou **temps de séjour** du processus P, correspond à la différence du temps d’arrivée de P et du temps de terminaison de P
 
-**<H3 STYLE="COLOR:red;">Activité n° 2 :**  **temps d’exécution:**  compléter la ligne correspondante du tableau précédent</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 2 :**  **temps d’exécution:</H3>**  compléter la ligne correspondante du tableau précédent
 
 Le **temps ou durée d’attente** d’un processus P correspond à la différence entre le temps de séjour et la durée du processus
 
-**<H3 STYLE="COLOR:red;">Activité n° 3 :**  **temps d’attente:**  compléter la ligne correspondante du tableau précédent</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 3 :**  **temps d’attente:</H3>**  compléter la ligne correspondante du tableau précédent
 
-**<H3 STYLE="COLOR:red;">Activité n° 4 :**  **Ordonnancement FIFO ou FCFS :**  Compléter le tableau suivant pour l’ordonnancement FIFO et schématiser cet algorithme</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 4 :**  **Ordonnancement FIFO ou FCFS :</H3>**  Compléter le tableau suivant pour l’ordonnancement FIFO et schématiser cet algorithme
 
 |Processus|P1|P2|P3|P4|
 | - | - | - | - | - |
@@ -139,7 +139,7 @@ Le **temps ou durée d’attente** d’un processus P correspond à la différen
 ||
 | - |
 
-**<H3 STYLE="COLOR:red;">Activité n° 5 :**  **Ordonnancement Round Robin :**  Compléter le tableau suivant pour l’ordonnancement FIFO et schématiser cet algorithme</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 5 :**  **Ordonnancement Round Robin :</H3>**  Compléter le tableau suivant pour l’ordonnancement FIFO et schématiser cet algorithme
 
 |Processus|P1|P2|P3|P4|
 | - | - | - | - | - |
@@ -223,7 +223,7 @@ Pour toute aide sous Linux : man *commande*. Par exemple man ps.
 
 Sous Linux il existe des commandes permettant de visualiser les processus.
 
-**<H3 STYLE="COLOR:red;">Activité n° 6 :**  **Commande** ps -aef :Après avoir ouvert un terminal, tapez la commande suivante : ps -aef</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 6 :**  **Commande** ps -aef :</H3>Après avoir ouvert un terminal, tapez la commande suivante : ps -aef
 
 ![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.028.png){: .center}
 
@@ -245,7 +245,7 @@ Ou ps -e -o pid,ppid,stat,command qui permet d’affiner ce qu’on veut affiche
 
 pstree : affichage sous forme d’arbre
 
-**<H3 STYLE="COLOR:red;">Activité n° 7 :**  **Commande** top : Après avoir ouvert un terminal, tapez la commande suivante : top</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 7 :**  **Commande** top :</H3> Après avoir ouvert un terminal, tapez la commande suivante : top
 
 ![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.031.png){: .center}
 
@@ -274,7 +274,7 @@ Pour tuer un processus, on lui envoie un signal de terminaison. On en utilise pr
 - SIGTERM (15) : demande la terminaison d'un processus. Cela permet au processus de se terminer proprement en libérant les ressources allouées.
 - SIGKILL (9) : demande la terminaison immédiate et inconditionnelle d'un processus. C'est une terminaison violente à n'appliquer que sur les processus récalcitrants qui ne répondent pas au signal SIGTERM. 
 
-**<H3 STYLE="COLOR:red;">Activité n° 8 :**  **Commande** kill : Lancer la commande top</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 8 :**  **Commande** kill :</H3> Lancer la commande top
 
 Dans une autre console, repérer le PID de top puis tuer le avec la commande kill -15 n°PID.
 
