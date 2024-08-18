@@ -21,8 +21,8 @@ title: 08 Les processus
 - Décrire la création d’un processus, l’ordonnancement de plusieurs processus par le système.
 - Mettre en évidence le risque de l’interblocage (deadlock)
 
-1. # <a name="_toc154927166"></a>**Rappels de première**
-   1. ## <a name="_toc154927167"></a>**Rôle du système d’exploitation**
+## <a name="_toc154927166"></a>**1. Rappels de première**
+### <a name="_toc154927167"></a>**1.1. Rôle du système d’exploitation**
 Le système d’exploitation d’un ordinateur est chargé d’assurer les fonctionnalités de communication et d’interfaçage avec l’utilisateur. Un OS est un logiciel dont le principal domaine d’intervention est la gestion de toutes les ressources de l’ordinateur comme:
 
 - **Gestion des ressources matérielles** : L’OS cache la complexité du matériel, arbitre les requêtes d’accès aux ressources, évite les conflits, traite les interruptions, les entrées-sorties et les erreurs, empêchant les usages impropres de la machine.
