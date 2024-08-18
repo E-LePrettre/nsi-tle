@@ -21,8 +21,8 @@ title: 08 Les processus
 - Décrire la création d’un processus, l’ordonnancement de plusieurs processus par le système.
 - Mettre en évidence le risque de l’interblocage (deadlock)
 
-## <a name="_toc154927166"></a>**1. Rappels de première**
-### <a name="_toc154927167"></a>**1.1. Rôle du système d’exploitation**
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc154927166"></a>**1. Rappels de première**</H2>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc154927167"></a>**1.1. Rôle du système d’exploitation**</H3>
 Le système d’exploitation d’un ordinateur est chargé d’assurer les fonctionnalités de communication et d’interfaçage avec l’utilisateur. Un OS est un logiciel dont le principal domaine d’intervention est la gestion de toutes les ressources de l’ordinateur comme:
 
 - **Gestion des ressources matérielles** : L’OS cache la complexité du matériel, arbitre les requêtes d’accès aux ressources, évite les conflits, traite les interruptions, les entrées-sorties et les erreurs, empêchant les usages impropres de la machine.
@@ -32,7 +32,7 @@ Le système d’exploitation d’un ordinateur est chargé d’assurer les fonct
 
 C'est donc une composante logicielle très importante.
 
-### <a name="_toc154927168"></a>**1.2. Commandes Linux de base**
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc154927168"></a>**1.2. Commandes Linux de base**</H3>
 
    |sudo|*subsitute utilisator do*|Permet d’effectuer des commandes non autorisées. Le mot de passe est demandé. |
    | - | - | - |
@@ -52,20 +52,17 @@ C'est donc une composante logicielle très importante.
 
 [http://luffah.xyz/bidules/Terminus/](http://luffah.xyz/bidules/Terminus/)
 
-## <a name="_toc154927169"></a>**2. Les processus**
-### <a name="_toc154927170"></a>**2.1. Notion de processus**
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc154927169"></a>**2. Les processus**</H2>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc154927170"></a>**2.1. Notion de processus**</H3>
 Lorsqu'un programme est exécuté sur un ordinateur, celui-ci va créer un (ou plusieurs) **processus**.
 
 On dit que ce processus est une **instance d'exécution** de ce programme.
-
 
 Un **processus** est un programme en cours d’exécution, qui est constitué : 
 
 - D’un **ensemble d'instructions à exécuter**;
 - **l'état des registres** du processeur 
 - de ressources permettant des entrées-sorties de données (comme des ports réseau).
-
-
 
 **Remarques :** 
 
@@ -74,18 +71,17 @@ Un **processus** est un programme en cours d’exécution, qui est constitué :
 
 Les systèmes d’exploitation permettent à l’utilisateur de visualiser et gérer les processus grâce à un **gestionnaire de processus**.
 
-### <a name="_toc154927171"></a>**2.2. Identification des processus**
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc154927171"></a>**2.2. Identification des processus**</H3>
 
 Chaque processus possède un identifiant appelé **PID** (**Process Identification**), ce PID est un nombre entier. 
-
 
 Le premier processus créé au démarrage du système à pour PID 0, le second 1, le troisième 2… Le système d’exploitation utilise un compteur qui est incrémenté de 1 à chaque création de processus, le système utilise ce compteur pour attribuer les PID aux processus.
 
 Chaque processus possède aussi un **PPID** (**Parent Process Identification**). Ce PPID permet de connaitre le processus parent d’un processus (par exemple le processus *init* vu ci-dessus à un PID de 1 et un PPID de 0). 
 
-
 A noter que le processus 0 ne possède pas de PPID (c’est le seul dans cette situation).
-### <a name="_toc154927172"></a>**2.3. Ordonnancement des processus**
+
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc154927172"></a>**2.3. Ordonnancement des processus**</H3>
 Dans un système multitâche, plusieurs processus sont actifs simultanément, mais un processeur (simple cœur) ne peut exécuter qu’une instruction à la fois. Si plusieurs processus sont prêts, le système d’exploitation doit gérer l’allocation du processeur aux différents processus à exécuter. C’est **l’ordonnanceur** (**scheduler**) qui s’acquitte de cette tâche.
 
 Un ordonnanceur fait face à deux problèmes principaux :
@@ -106,20 +102,17 @@ Par exemple pour un ordonnancement sur le modèle SJF :
 
 Schéma d’ordonnancement de ces processus sur le modèle SJF
 
-
-
 ![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.007.png){: .center}
 
 P1 arrive en premier, puis P2 qui va donc s’exécuter après P1. Puis P3, P4 et P5 arrive pendant que P2 s’exécute. L’algorithme SJF va choisir le plus court, c’est-à-dire P5. Puis l’algorithme SJF va choisir le plus cours entre P4 et P3 donc c’est P4, et enfin P3
 
 Le **temps d’arrivée** d’un processus, ou **temps de soumission**, correspond au moment où le processus arrive dans la file d’attente.
 
+Le temps d’arrivée du processus P5 est 7. Celui de P4 est
 
-Le temps d’arrivée du processus P5 est 7. Celui de P4 est 6.
+ 6.
 
 La **durée du processus** P, ou **durée d’exécution** sur le cœur, correspond à la durée en quantum nécessaire à l’exécution du processus.
-
-
 
 La durée du processus P5 est 1. Celui de P4 est 2
 
@@ -127,21 +120,17 @@ Le **temps de terminaison** d’un processus P est la durée écoulée entre le 
 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
-**Activité n° 1 :**  **temps de terminaison:**  compléter la ligne correspondante du tableau précédent
-
+**<H3 STYLE="COLOR:red;">Activité n° 1 :**  **temps de terminaison:**  compléter la ligne correspondante du tableau précédent</H3>
 
 Le **temps d’exécution** ou **temps de séjour** du processus P, correspond à la différence du temps d’arrivée de P et du temps de terminaison de P
 
-
-**Activité n° 2 :**  **temps d’exécution:**  compléter la ligne correspondante du tableau précédent
+**<H3 STYLE="COLOR:red;">Activité n° 2 :**  **temps d’exécution:**  compléter la ligne correspondante du tableau précédent</H3>
 
 Le **temps ou durée d’attente** d’un processus P correspond à la différence entre le temps de séjour et la durée du processus
 
+**<H3 STYLE="COLOR:red;">Activité n° 3 :**  **temps d’attente:**  compléter la ligne correspondante du tableau précédent</H3>
 
-**Activité n° 3 :**  **temps d’attente:**  compléter la ligne correspondante du tableau précédent
-
-
-**Activité n° 4 :**  **Ordonnancement FIFO ou FCFS :**  Compléter le tableau suivant pour l’ordonnancement FIFO et schématiser cet algorithme
+**<H3 STYLE="COLOR:red;">Activité n° 4 :**  **Ordonnancement FIFO ou FCFS :**  Compléter le tableau suivant pour l’ordonnancement FIFO et schématiser cet algorithme</H3>
 
 |Processus|P1|P2|P3|P4|
 | - | - | - | - | - |
@@ -152,8 +141,7 @@ Le **temps ou durée d’attente** d’un processus P correspond à la différen
 ||
 | - |
 
-
-**Activité n° 5 :**  **Ordonnancement Round Robin :**  Compléter le tableau suivant pour l’ordonnancement FIFO et schématiser cet algorithme
+**<H3 STYLE="COLOR:red;">Activité n° 5 :**  **Ordonnancement Round Robin :**  Compléter le tableau suivant pour l’ordonnancement FIFO et schématiser cet algorithme</H3>
 
 |Processus|P1|P2|P3|P4|
 | - | - | - | - | - |
@@ -164,7 +152,7 @@ Le **temps ou durée d’attente** d’un processus P correspond à la différen
 ||
 | - |
 
-### **2.4. Etat des processus**
+### <H3 STYLE="COLOR:GREEN;"> **2.4. Etat des processus**</H3>
 Selon que l'ordonnanceur aura décidé de le confier ou non au processeur pour son exécution, un processus peut donc se trouver dans 3 états :
 
 - **Prêt** : il attend qu'arrive le moment de son exécution.
@@ -185,7 +173,7 @@ Pendant son exécution, un processus peut avoir besoin d'accéder à une **resso
 
 Une fois débloqué, le processus va repasser à l'état **Prêt** et rejoindre (par exemple) la file d'attente des processus avant d'être à nouveau **Élu** et donc exécuté.
 
-### <a name="_toc154927174"></a>**2.5. Notion d’interblocage (deadlock)**
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc154927174"></a>**2.5. Notion d’interblocage (deadlock)**</H3>
 
 Un **interblocage** (ou étreinte fatale, *deadlock* en anglais pour impasse) est un phénomène qui peut se produire en programmation concurrente lorsque des processus s’attendent mutuellement.
 
@@ -230,15 +218,14 @@ Il existe trois stratégies pour éviter les interblocages :
 
 ![image](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.026.png){: .center}
 
-
-## <a name="_toc154927175"></a>**3. Les processus sous Linux**
-### <a name="_toc154927176"></a>**3.1. Affichage des processus** 
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc154927175"></a>**3. Les processus sous Linux**</H2>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc154927176"></a>**3.1. Affichage des processus**</H3> 
 
 Pour toute aide sous Linux : man *commande*. Par exemple man ps.
 
 Sous Linux il existe des commandes permettant de visualiser les processus.
 
-**Activité n° 6 :**  **Commande** ps -aef :Après avoir ouvert un terminal, tapez la commande suivante : ps -aef
+**<H3 STYLE="COLOR:red;">Activité n° 6 :**  **Commande** ps -aef :Après avoir ouvert un terminal, tapez la commande suivante : ps -aef</H3>
 
 ![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.028.png){: .center}
 
@@ -248,7 +235,9 @@ Affiche l’arbre des processus. Taper la commande pstree
 
 ![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.029.png){: .center}
 
-**Lister les processus** : La liste des processus peut être obtenu avec la  commande : ps avec les options suivantes:
+**Lister les processus** : La liste des processus peut être obtenu avec la  commande : ps avec les options
+
+ suivantes:
 
 - -a tous les processus
 - -e les processus de tout le monde
@@ -258,8 +247,7 @@ Ou ps -e -o pid,ppid,stat,command qui permet d’affiner ce qu’on veut affiche
 
 pstree : affichage sous forme d’arbre
 
-
-**Activité n° 7 :**  **Commande** top : Après avoir ouvert un terminal, tapez la commande suivante : top
+**<H3 STYLE="COLOR:red;">Activité n° 7 :**  **Commande** top : Après avoir ouvert un terminal, tapez la commande suivante : top</H3>
 
 ![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.031.png){: .center}
 
@@ -277,10 +265,9 @@ Il faut taper q pour sortir.
 
 Il faut taper q pour sortir.
 
-
 Les processus fils du processus 0 sont init et kthreadd. Tous les processus ont pour aïeul le processus de PID 0.
 
-### <a name="_toc154927177"></a>**3.2. Interruption d’un processus**
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc154927177"></a>**3.2. Interruption d’un processus**</H3>
 
 **Commande** kill : Il est possible de supprimer un processus en utilisant la commande kill. L'utilisation de cette commande est très simple, il suffit de taper kill suivi du PID
 
@@ -289,27 +276,26 @@ Pour tuer un processus, on lui envoie un signal de terminaison. On en utilise pr
 - SIGTERM (15) : demande la terminaison d'un processus. Cela permet au processus de se terminer proprement en libérant les ressources allouées.
 - SIGKILL (9) : demande la terminaison immédiate et inconditionnelle d'un processus. C'est une terminaison violente à n'appliquer que sur les processus récalcitrants qui ne répondent pas au signal SIGTERM. 
 
-**Activité n° 8 :**  **Commande** kill : Lancer la commande top
+**<H3 STYLE="COLOR:red;">Activité n° 8 :**  **Commande** kill : Lancer la commande top</H3>
 
 Dans une autre console, repérer le PID de top puis tuer le avec la commande kill -15 n°PID.
 
 Faire afficher la liste des processus. top est-il présent ? que s’est-il passer sur l’autre console ?
 
-**Activité n° 9 :**  **Commande** kill : ouvrir un navigateur, utiliser la commande kill afin de supprimer le (ou les) processus lié(s) au fonctionnement du navigateur. Que se passe-t-il ?
+**<H3 STYLE="COLOR:red;">Activité n° 9 :**  **Commande** kill : ouvrir un navigateur, utiliser la commande kill afin de supprimer le (ou les) processus lié(s) au fonctionnement du navigateur. Que se passe-t-il ?</H3>
 
-
-### <a name="_toc154927178"></a>**3.3. Creation d’un processus**
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc154927178"></a>**3.3. Creation d’un processus**</H3>
 Sur Linux, la création d'un processus se fait par clonage d'un autre processus au travers d'un appel systeme : fork().
 
 - le processus qui fait appel à fork() est appelé **processus père**
 - le processus qui est ainsi créé par clonage est le **processus fils**
 - après le clonage, un processus peut remplacer son programme par un autre programme grâce à l'appel système exec().
 
-## <a name="_toc154927179"></a>**4. Exercices**
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc154927179"></a>**4. Exercices**</H2>
 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
-**Exercice n°1 : Processus et interblocage**
+**<H3 STYLE="COLOR:red;">Exercice n°1 : Processus et interblocage**</H3>
 
 On considère trois processus P1, P2 et P3 décrits ci-dessous :
 
@@ -325,12 +311,10 @@ Décrire une exécution des trois processus qui conduit à une situation d’int
 
 Dessiner un schéma représentant la situation.
 
-**Exercice n°2 : Processus** 
+**<H3 STYLE="COLOR:red;">Exercice n°2 : Processus**</H3>
 
 1. Qu'est-ce qui limite concrètement le nombre de processus pouvant être lancer en même temps ?
 1. Qu'est-ce qu'un système d'exploitation multitâche ?
 1. Que va devoir faire un système d'exploitation multitâche lorsque plusieurs processus fonctionnent "en même temps" sur un ordinateur ne disposant que d'un seul microprocesseur (un coeur) ?
 1. Que se passe-t-il au démarrage de l'ordinateur ?
 1. Quels sont les états pendant lesquels la mémoire vive réserve de la place au processeur ?
-
-
