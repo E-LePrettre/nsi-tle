@@ -642,24 +642,24 @@ Une machine Ml a pour adresse IP 192.168.1.12 et elle se trouve dans un réseau 
 
 1\. Compléter la table de routage de ce routeur.
 
-|Adresse 		|Masque 		|Passerelle 	|Interface|
+|Adresse|Masque|Passerelle|Interface|
 |192.168.1.0||||
 |172.20.121.0||||
-| - | - | - | - |
+|||||
 
 2\. Compléter la table de routage de la machine M1.
 
-|Adresse 		|Masque 		|Passerelle 	|Interface|
+|Adresse|Masque|Passerelle|Interface|
 |192.168.1.0||||
 |0.0.0.0||||
-| - | - | - | - |
+|||||
 
 3\. Compléter la table de routage de la machine M2. 
 
-|Adresse 		|Masque 		|Passerelle 	|Interface|
+|Adresse|Masque|Passerelle|Interface|
 |172.20.121.0||||
 |0.0.0.0||||
-| - | - | - | - |
+|||||
 
 
 **Exercice n°5 : protocoles RIP**
