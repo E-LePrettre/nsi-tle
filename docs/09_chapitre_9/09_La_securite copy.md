@@ -26,7 +26,7 @@ title: 09b Sécurisation des communications
 - Décrire les principes de chiffrement symétrique (clef partagée) et asymétrique (avec clef privée/clef publique)
 - Décrire l’échange d’une clef symétrique en utilisant un protocole asymétrique pour sécuriser une communication HTTPS
 
-1. # <a name="_toc174920494"></a>**Rappels** 
+## <a name="_toc174920494"></a>**Rappels** 
 ![TCP Handshake](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.001.png)Avec les acquis du programme de première, nous pouvons comprendre exactement ce qu'il se passe lorsque l'on navigue vers un site web, par exemple « http://gs-cassaigne.fr/ ».
 
 - - L'**URL du site** est **décodée** par le navigateur qui isole :
