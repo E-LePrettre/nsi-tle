@@ -88,15 +88,17 @@ Le tout devant bien entendu se faire dans le cadre d'une communication en utilis
 - La **cryptanalyse** est la technique qui consiste à déduire un texte en clair d’un texte chiffré **sans posséder la clé de chiffrement**. Le processus par lequel on tente de comprendre un message en particulier est appelé **une attaque**.
 - **Chiffrer** un message, c'est rendre une suite de symboles incompréhensible au moyen d'une **clé de chiffrement**.
 - **Déchiffrer** ou **décrypter**, c'est retrouver la suite de symboles originale à partir du message chiffré. On utilise **déchiffrer** quand on utilise la clé de chiffrement pour récupérer le texte original, et **décrypter** lorsqu'on arrive à retrouver le message original sans connaitre la clé de chiffrement.
-1. # <a name="_toc174920496"></a>**Introduction** 
+
+## <a name="_toc174920496"></a>**3. Introduction** 
 **Vidéo** : Comprendre le chiffrement SSL \_ TLS avec des emojis \_et le HTTPS
-1. # <a name="_toc174920497"></a>**Le chiffrement** 
+
+## <a name="_toc174920497"></a>**4. Le chiffrement** 
 **Exemple** : Alice veut transmettre un message secret à Bob via un réseau non sécurisé, comme Internet. C’est-à-dire que le message peut être intercepté par une autre personne. Un réseau sécurisé serait par exemple un câble unique allant directement de l’ordinateur d’Alice  à celui de Bob sans intermédiaire et sans autre connexion.  
 
 Le message **doit être chiffré** (crypté) à l’aide d’un algorithme de chiffrement et d’une clé.
 
-1. ## <a name="_toc174920498"></a>**Le chiffrement symétrique**
-   1. ### <a name="_toc174920499"></a>**Le principe**
+### <a name="_toc174920498"></a>**4.1. Le chiffrement symétrique**
+#### <a name="_toc174920499"></a>**4.1.1. Le principe**
 Dans un chiffrement symétrique, c'est **la même clé** qui va servir au chiffrement et au déchiffrement.
 
 ![image](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.004.png)
@@ -110,7 +112,7 @@ La clé est un renseignement permettant de chiffrer ou déchiffrer un message. C
 - une image (imaginez un chiffrement où on effectue un XOR par les pixels d'une image)
 
 Un chiffrement **est dit symétrique** lorsque la connaissance de la clé **ayant servi au chiffrement permet de déchiffrer** le message.
-![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.005.png)
+
 
 **Quel est l'avantage d'un chiffrement symétrique ?** 
 
