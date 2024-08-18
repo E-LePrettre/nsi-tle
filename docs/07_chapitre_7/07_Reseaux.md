@@ -208,9 +208,7 @@ Donc la plage d'adresses disponible est de **172 . 128 . 0 . 1 à 172 . 128 . 63
 |<p>**L'en-tête IP** : L'en-tête IP est un ensemble d'information qu'on va placer devant le segment TCP.</p><p>Comme l'en-tête TCP, il s'agit **d'informations encodées** sur un nombre spécifique d'octets et décodables facilement.</p><p>Le contenu exact de l'en-tête va dépendre du système d'adressage utilisé : IPv4 ou IPv6 par exemple.</p>|
 | - |
 
-|<p>**Que rajoute-on dans cet en-tête ?**</p><p>- L'adresse IP destination (4 octets en IPv4,
-
- 16 octets en IPV6). On la place en premier car c'est la première chose qu'un routeur doit lire. </p>|![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.021.png)|
+|<p>**Que rajoute-on dans cet en-tête ?**</p><p>- L'adresse IP destination (4 octets en IPv4, 16 octets en IPV6). On la place en premier car c'est la première chose qu'un routeur doit lire. </p>|![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.021.png)|
 | - | - |
 |- L'adresse IP source (4 octets en IPv4, 16 octets en IPV6). Sans cela, on ne pourrait pas répondre au message.|![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.022.png)|
 |- Un compteur nommé TTL (Time to Live) en IPv4 ou Hop Limit en IPv6 (1 octet dans les deux cas) : c'est un compteur qui décroit de 1 à chaque fois que le paquet est transféré par un routeur. Arrivé à 1, le paquet n'est plus déplacé et part juste à la poubelle.|![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.023.png)|
