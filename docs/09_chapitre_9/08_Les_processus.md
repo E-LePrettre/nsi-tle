@@ -88,3 +88,56 @@ Le tout devant bien entendu se faire dans le cadre d'une communication en utilis
 - **Chiffrer** un message, c'est rendre une suite de symboles incompréhensible au moyen d'une **clé de chiffrement**.
 - **Déchiffrer** ou **décrypter**, c'est retrouver la suite de symboles originale à partir du message chiffré. On utilise **déchiffrer** quand on utilise la clé de chiffrement pour récupérer le texte original, et **décrypter** lorsqu'on arrive à retrouver le message original sans connaitre la clé de chiffrement.
 
+## <a name="_toc174920496"></a>**3. Introduction** 
+**Vidéo** : Comprendre le chiffrement SSL \_ TLS avec des emojis \_et le HTTPS
+
+## <a name="_toc174920497"></a>**4. Le chiffrement** 
+**Exemple** : Alice veut transmettre un message secret à Bob via un réseau non sécurisé, comme Internet. C’est-à-dire que le message peut être intercepté par une autre personne. Un réseau sécurisé serait par exemple un câble unique allant directement de l’ordinateur d’Alice  à celui de Bob sans intermédiaire et sans autre connexion.  
+
+Le message **doit être chiffré** (crypté) à l’aide d’un algorithme de chiffrement et d’une clé.
+
+### <a name="_toc174920498"></a>**4.1. Le chiffrement symétrique**
+#### <a name="_toc174920499"></a>**4.1.1. Le principe**
+Dans un chiffrement symétrique, c'est **la même clé** qui va servir au chiffrement et au déchiffrement.
+
+![image](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.004.png)
+
+**Qu'appelle-t-on une clé ?** 
+
+La clé est un renseignement permettant de chiffrer ou déchiffrer un message. Cela peut être :
+
+- un nombre (dans un simple décalage des lettres de l'alphabet, comme [le chiffre de César](https://fr.wikipedia.org/wiki/Chiffrement_par_d%C3%A9calage))
+- une phrase (dans la méthode du [masque jetable](https://fr.wikipedia.org/wiki/Masque_jetable))
+- une image (imaginez un chiffrement où on effectue un XOR par les pixels d'une image)
+
+Un chiffrement **est dit symétrique** lorsque la connaissance de la clé **ayant servi au chiffrement permet de déchiffrer** le message.
+
+
+**Quel est l'avantage d'un chiffrement symétrique ?** 
+
+Les chiffrements symétriques sont souvent **rapides**, consommant **peu de ressources** et donc adaptés au chiffrement de flux important d'informations.
+
+Comme nous le verrons, la sécurisation des données transitant par le **protocole HTTPS** est basée sur un chiffrement symétrique.
+
+**Quel est l'inconvénient d'un chiffrement symétrique ?**
+
+**L’inconvénient majeur** est de **donner la clef au destinataire** avant l’envoyer le message. En effet, si j’envoie la clef à mon destinataire, elle ne doit pas être chiffrée, toute personne qui intercepte le message peut récupérer la clef partagée et donc intercepter mes futurs messages pour les déchiffrer.
+
+**Un chiffrement symétrique est-il un chiffrement de mauvaise qualité ?** 
+
+NON ! S'il est associé naturellement à des chiffrements simples et faibles (comme le décalage de César), un chiffrement symétrique **peut être très robuste**... voire inviolable.
+
+C'est le cas du masque jetable. Si le masque avec lequel on effectue le XOR sur le message est aussi long que le message, alors il est **impossible** de retrouver le message initial. Pourquoi ?
+
+Imaginons qu'Alice veuille transmettre le message clair "LUNDI". Elle le chiffre avec un masque jetable (que connait aussi Bob), et Bob reçoit donc "KHZOK". Si Marc a intercepté le message "KHZOK", *même s'il sait que la méthode de chiffrement utilisée est celle du masque jetable* (*principe de Kerckhoffs*), il n'a pas d'autre choix que de tester tous les masques de 5 lettres possibles.
+
+Ce qui lui donne 26<sup>5</sup> possibilités (plus de 11 millions) pour le masque, et par conséquent (propriété de bijectivité du XOR) 26<sup>5</sup> possibilités pour le message «déchiffré»...
+
+**Quels sont les chiffrements symétriques modernes ?** 
+
+L'algorithme de chiffrement symétrique le plus utilisé actuellement est le chiffrement [AES](https://fr.wikipedia.org/wiki/Advanced_Encryption_Standard), pour Advanced Encryption Standard.
+
+- chiffrement par bloc de 128 bits, répartis dans une matrice de 16 octets (matrice carrée de taille 4).
+- ces 128 bits sont transformés par des rotations, multiplications, transpositions, [...] de la matrice initiale, en faisant intervenir dans ces transformations une clé de 128, 192 ou 256 bits.
+- pour l'AES-256 (avec une clé de 256 bits), l'attaque par force brute nécessiterait 2<sup>256</sup> opérations, soit un nombre à 78 chiffres...
+- il n'existe pas d'attaque connue efficace à ce jour.
