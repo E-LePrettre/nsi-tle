@@ -65,7 +65,7 @@ Un **processus** est un programme en cours d’exécution, qui est constitué :
 - **l'état des registres** du processeur 
 - de ressources permettant des entrées-sorties de données (comme des ports réseau).
 
-![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.003.png)
+
 
 **Remarques :** 
 
@@ -73,19 +73,19 @@ Un **processus** est un programme en cours d’exécution, qui est constitué :
 - Un **processus est dynamique**: c’est une instance d’exécution d’un programme sur une machine de son lancement jusqu’à sa fin.
 
 Les systèmes d’exploitation permettent à l’utilisateur de visualiser et gérer les processus grâce à un **gestionnaire de processus**.
-1. ## <a name="_toc154927171"></a>**Identification des processus**
+
+### <a name="_toc154927171"></a>**2.2. Identification des processus**
+
 Chaque processus possède un identifiant appelé **PID** (**Process Identification**), ce PID est un nombre entier. 
-![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.004.png)
+
 
 Le premier processus créé au démarrage du système à pour PID 0, le second 1, le troisième 2… Le système d’exploitation utilise un compteur qui est incrémenté de 1 à chaque création de processus, le système utilise ce compteur pour attribuer les PID aux processus.
 
 Chaque processus possède aussi un **PPID** (**Parent Process Identification**). Ce PPID permet de connaitre le processus parent d’un processus (par exemple le processus *init* vu ci-dessus à un PID de 1 et un PPID de 0). 
 
 
-![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.005.png)
-
 A noter que le processus 0 ne possède pas de PPID (c’est le seul dans cette situation).
-1. ## <a name="_toc154927172"></a>**Ordonnancement des processus**
+### <a name="_toc154927172"></a>**2.3. Ordonnancement des processus**
 Dans un système multitâche, plusieurs processus sont actifs simultanément, mais un processeur (simple cœur) ne peut exécuter qu’une instruction à la fois. Si plusieurs processus sont prêts, le système d’exploitation doit gérer l’allocation du processeur aux différents processus à exécuter. C’est **l’ordonnanceur** (**scheduler**) qui s’acquitte de cette tâche.
 
 Un ordonnanceur fait face à deux problèmes principaux :
@@ -102,73 +102,46 @@ Pour cela il existe plusieurs algorithmes d'ordonnancement :
 
 Par exemple pour un ordonnancement sur le modèle SJF :
 
-![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.006.png)
+![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.006.png){: .center}
 
 Schéma d’ordonnancement de ces processus sur le modèle SJF
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.007.png)![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.008.png)![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.009.png)![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.010.png)![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.011.png)![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.012.png)![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.013.png)![ref1]![ref2]
+![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.007.png){: .center}
 
 P1 arrive en premier, puis P2 qui va donc s’exécuter après P1. Puis P3, P4 et P5 arrive pendant que P2 s’exécute. L’algorithme SJF va choisir le plus court, c’est-à-dire P5. Puis l’algorithme SJF va choisir le plus cours entre P4 et P3 donc c’est P4, et enfin P3
 
 Le **temps d’arrivée** d’un processus, ou **temps de soumission**, correspond au moment où le processus arrive dans la file d’attente.
-![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.016.png)
+
 
 Le temps d’arrivée du processus P5 est 7. Celui de P4 est 6.
 
 La **durée du processus** P, ou **durée d’exécution** sur le cœur, correspond à la durée en quantum nécessaire à l’exécution du processus.
 
-![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.017.png)
+
 
 La durée du processus P5 est 1. Celui de P4 est 2
 
 Le **temps de terminaison** d’un processus P est la durée écoulée entre le temps 0 et le temps où le processus est terminée P
 
-![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.018.png)
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
 
-|<a name="_hlk70674160"></a>**Activité n° AUTONUM  \* Arabic :**  **temps de terminaison:**  compléter la ligne correspondante du tableau précédent|
-| - |
+**Activité n° 1 :**  **temps de terminaison:**  compléter la ligne correspondante du tableau précédent
+
 
 Le **temps d’exécution** ou **temps de séjour** du processus P, correspond à la différence du temps d’arrivée de P et du temps de terminaison de P
-![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.019.png)
 
-|**Activité n° AUTONUM  \* Arabic :**  **temps d’exécution:**  compléter la ligne correspondante du tableau précédent|
-| :- |
+
+**Activité n° 2 :**  **temps d’exécution:**  compléter la ligne correspondante du tableau précédent
 
 Le **temps ou durée d’attente** d’un processus P correspond à la différence entre le temps de séjour et la durée du processus
-![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.020.png)
-
-|**Activité n° AUTONUM  \* Arabic :**  **temps d’attente:**  compléter la ligne correspondante du tableau précédent|
-| :- |
 
 
-|<a name="_hlk59549137"></a>**Activité n° AUTONUM  \* Arabic :**  **Ordonnancement FIFO ou FCFS :**  Compléter le tableau suivant pour l’ordonnancement FIFO et schématiser cet algorithme|
-| - |
+**Activité n° 3 :**  **temps d’attente:**  compléter la ligne correspondante du tableau précédent
+
+
+**Activité n° 4 :**  **Ordonnancement FIFO ou FCFS :**  Compléter le tableau suivant pour l’ordonnancement FIFO et schématiser cet algorithme
 
 |<a name="_hlk59704520"></a>Processus|P1|P2|P3|P4|
 | - | - | - | - | - |
