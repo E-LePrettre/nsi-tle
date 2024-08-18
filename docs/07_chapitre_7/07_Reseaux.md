@@ -34,7 +34,7 @@ Le premier message est envoyé le 29 octobre 1969 entre l’université UCLA de 
 ### <a name="_toc154844730"></a><H3 STYLE="COLOR:GREEN;">**2.1. Les différentes couches**</H3>
 
 |<p>Les règles de communications (**Protocoles**) entre ordinateurs doivent se soumettre à certaines contraintes pour que les réseaux soient compatibles entre eux.</p><p>Le **modèle TCP / IP** est un modèle en couches. Chaque couche ne peut communiquer qu'avec la couche immédiatement **inférieure** ou **supérieure**.</p><p>On retrouve **deux notions** très importantes pour obtenir un système stable :</p><p>1. **Encapsulation** : chaque tâche est encapsulée dans une couche.</p><p>2. **Interface** : chaque couche communique avec ses couches voisines en utilisant uniquement l'interface.</p><p>A part cela, les couches sont **indépendantes** : tant que son interface reste la même, on peut changer le code interne d'une couche sans risques </p>|![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.002.png)|
-| - |
+| - | - |
 
 ### <a name="_toc154844731"></a><H3 STYLE="COLOR:GREEN;">**2.2. La couche application**</H3>
 
