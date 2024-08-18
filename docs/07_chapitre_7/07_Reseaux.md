@@ -221,6 +221,9 @@ On symbolisera donc le paquet IP à l'aide d'un symbole plus symbolique. Par exe
 
 ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.026.png){: .center}
 
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
+
+
 **<H3 STYLE="COLOR:red;">Activité n° 1 :**</H3>  La machine d'adresse IP v4  70.30.20.145 /16  veut joindre la machine d'adresse IP  70.30.21.5 . Comment sait-on s'il faut rester dans le réseau actuel ou quitter le réseau ?
 
 **<H3 STYLE="COLOR:red;">Activité n° 2 :**</H3>  La machine d'adresse IP v4  70.30.20.145 /24  veut joindre la machine d'adresse IP  70.30.21.5 . Comment sait-on s'il faut rester dans le réseau actuel ou quitter le réseau ?
@@ -531,6 +534,8 @@ On fait donc 6 km de A à G en suivant le chemin : A, B, D, G
 ![image](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.046.png){: .center}
 
 ## <a name="_toc154844753"></a><H2 STYLE="COLOR:BLUE;">**6. Exercices**</H2>
+
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
 
 **<H3 STYLE="COLOR:red;">Exercice n°1 : Protocole RIP**</H3>
 
