@@ -645,21 +645,21 @@ Une machine Ml a pour adresse IP 192.168.1.12 et elle se trouve dans un réseau 
 |Adresse 		|Masque 		|Passerelle 	|Interface|
 |192.168.1.0||||
 |172.20.121.0||||
-|||||
+| - | - | - | - |
 
 2\. Compléter la table de routage de la machine M1.
 
 |Adresse 		|Masque 		|Passerelle 	|Interface|
 |192.168.1.0||||
 |0.0.0.0||||
-|||||
+| - | - | - | - |
 
 3\. Compléter la table de routage de la machine M2. 
 
 |Adresse 		|Masque 		|Passerelle 	|Interface|
 |172.20.121.0||||
 |0.0.0.0||||
-|||||
+| - | - | - | - |
 
 
 **Exercice n°5 : protocoles RIP**
@@ -720,13 +720,21 @@ Un réseau est constitué de 6 routeurs R1 à R6 dont on donne des tables de rou
 **Exercice 8 : Adressage IP :**
 
 1\. L’adresse IPv4 d’un réseau est 192.168.56.0/24. Combien de bits sont-ils dédiés à la partie réseau ? Combien de machines peut-on incorporer à ce réseau ?
+
 2\. Quel est le masque de réseau de l’adresse de la question 1 ?
+
 3\. Quelle est la première adresse utilisable sur le réseau de la question 1 ? La dernière ?
+
 4\. Écrire l’adresse IPv4 222.1.1.20, de masque 255.255.255.192 en notation CIDR.
+
 5\. Écrire l’adresse IPv4 135.1.1.25, de masque 255.255.248.0 en notation CIDR.
+
 6\. Sur un ordinateur dont le système d’exploitation est Linux, la commande ifconfig retourne l’adresse IPv4 172.16.20.234 et le masque 255.255.0.0. Quelle est l’adresse réseau du réseau auquel cet ordinateur appartient ?
+
 7\. Combien d’ordinateurs peut-on incorporer au réseau de la question précédente ?
+
 8\. L’adresse IPv4 d’un ordinateur est 172.16.20.234/22. Combien d’ordinateurs peut-on incorporer à ce réseau ?
+
 9\. Quelle est la première adresse utilisable sur le réseau de la question précédente ? La dernière ?
 
 
