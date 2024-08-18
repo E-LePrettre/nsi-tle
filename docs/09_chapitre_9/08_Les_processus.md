@@ -27,3 +27,18 @@ title: 08 Les processus
 
 ## <a name="_toc174920494"></a>**1. Rappels** 
 
+![TCP Handshake](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.001.png){: .center}
+
+Avec les acquis du programme de première, nous pouvons comprendre exactement ce qu'il se passe lorsque l'on navigue vers un site web, par exemple « http://gs-cassaigne.fr/ ».
+
+- L'**URL du site** est **décodée** par le navigateur qui isole :
+- le protocole (HTTP), 
+- le **nom de domaine** (gs-cassaigne.fr) 
+- le chemin vers la ressource (ici **/**, la « racine » du site).
+- Le navigateur effectue **une résolution de nom** pour déterminer **l'adresse IP** correspondant au nom de domaine (213.186.33.16). (on peut la trouver en faisant un tracert dans la console windows)
+- Le navigateur peut alors établir une **connexion TCP** vers l'adresse IP du serveur web, sur le port 80 via un hanshaking en trois temps
+
+- Une fois la connexion établie, client et serveur échangent des données en utilisant le **protocole HTTP** tout en découpant les données en **paquets TCP**, eux-mêmes **encapsulés dans des paquets IP**.
+
+![Encapsulation](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.002.png){: .center}
+
