@@ -628,7 +628,7 @@ En vous basant sur le protocole OSPF (métrique = somme des coûts), **détermin
 |||
 |||
 
-1. ` `Quel est, d'après la table de routage construite ci-dessus, le chemin qui sera emprunté par un paquet pour aller d'une machine ayant pour adresse IP 172.18.2.4/16 à une machine ayant pour adresse IP 172.16.1.5/16 ? Préciser la métrique.
+3\. Quel est, d'après la table de routage construite ci-dessus, le chemin qui sera emprunté par un paquet pour aller d'une machine ayant pour adresse IP 172.18.2.4/16 à une machine ayant pour adresse IP 172.16.1.5/16 ? Préciser la métrique.
 
 **Exercice n°3 : masque réseau**
 
@@ -640,13 +640,12 @@ Sinon combien de routeurs sont nécessaires pour faire communiquer ces machines 
 
 Une machine Ml a pour adresse IP 192.168.1.12 et elle se trouve dans un réseau d’adresses 192.168.1.0/24. Elle est reliée à un routeur qui possède deux interfaces réseau qui ont pour adresses respectives 192.168.1.1/24 et 172.20.121.1/24. Une seconde machine M2 a pour adresse IP 172.20.121.17 et se trouve dans le réseau d'adresses 172.20.121.0/24, reliée au routeur. 
 
-1. Compléter la table de routage de ce routeur.
+1\. Compléter la table de routage de ce routeur.
 
-Adresse 		Masque 		Passerelle 	Interface 
-
-192\.168.1.0 
-
-172\.20.121.0
+|Adresse 		|Masque 		|Passerelle 	|Interface|
+|192.168.1.0||||
+|172.20.121.0||||
+|||||
 
 1. Compléter la table de routage de la machine Ml.
 
