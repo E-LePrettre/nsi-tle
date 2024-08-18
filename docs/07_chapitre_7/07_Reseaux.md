@@ -671,7 +671,7 @@ Considérons le réseau suivant, pour lequel on admettra la norme suivante :
 - Entre deux interfaces internes, le routeur de plus bas indice possède la première adresse et le routeur de dernier indice la seconde adresse : par exemple entre R2 et R5, les interfaces sont connectées par le réseau 10.1.4.0/30, donc l'interface de R2 est 10.1.4.1 et celle de R5 est 10.1.4.2 ;
 - tous les routeurs suivent le protocole RIP.
 
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.053.png)
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.053.png){: .center}
 
 Déterminer les tables de routage de R1, R2 et R3
 
@@ -689,7 +689,7 @@ Déterminer les tables de routage de R1, R2 et R3
 
 **Exercice n°6 : protocole OSPF**
 
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.056.png)
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.056.png){: .center}
 
 1\.	Un hôte du nœud K envoie un paquet à destination du nœud J, à l’adresse 5.12.85.26. Quelle va être la route suivie par ce paquet
 
@@ -705,11 +705,11 @@ b)	Avec le protocole OSPF ?
 
 Un réseau est constitué de 6 routeurs R1 à R6 dont on donne des tables de routage simplifiées. Les réseaux ont tous pour masque 255.255.255.0. La colonne M est la métrique utilisée.
 
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.057.png)
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.057.png){: .center}
 
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.058.png)
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.058.png){: .center}
 
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.059.png)
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.059.png){: .center}
 
 1\.	Indiquer la route décrite par un paquet envoyé du routeur R1 au routeur R6.
 
