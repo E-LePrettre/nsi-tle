@@ -108,9 +108,7 @@ P1 arrive en premier, puis P2 qui va donc s’exécuter après P1. Puis P3, P4 e
 
 Le **temps d’arrivée** d’un processus, ou **temps de soumission**, correspond au moment où le processus arrive dans la file d’attente.
 
-Le temps d’arrivée du processus P5 est 7. Celui de P4 est
-
- 6.
+Le temps d’arrivée du processus P5 est 7. Celui de P4 est 6.
 
 La **durée du processus** P, ou **durée d’exécution** sur le cœur, correspond à la durée en quantum nécessaire à l’exécution du processus.
 
@@ -282,7 +280,7 @@ Dans une autre console, repérer le PID de top puis tuer le avec la commande kil
 
 Faire afficher la liste des processus. top est-il présent ? que s’est-il passer sur l’autre console ?
 
-**<H3 STYLE="COLOR:red;">Activité n° 9 :**  **Commande** kill : ouvrir un navigateur, utiliser la commande kill afin de supprimer le (ou les) processus lié(s) au fonctionnement du navigateur. Que se passe-t-il ?</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 9 :**  **Commande** kill :</H3> ouvrir un navigateur, utiliser la commande kill afin de supprimer le (ou les) processus lié(s) au fonctionnement du navigateur. Que se passe-t-il ?
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc154927178"></a>**3.3. Creation d’un processus**</H3>
 Sur Linux, la création d'un processus se fait par clonage d'un autre processus au travers d'un appel systeme : fork().
