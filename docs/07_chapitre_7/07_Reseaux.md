@@ -109,7 +109,7 @@ Cette couche est considérée comme un aiguilleur. Elle se charge de savoir si l
 
 - de la **même machine** (ici A9 à un message pour A9): elle va envoyer le message vers la **couche APPLICATION**
 
-  ![Destinataire réel = Destinataire final](Aspose.Words.4dc14-e18c-4929-ab9b-fb06ded469b5.011.png){: .center}
+![Destinataire réel = Destinataire final](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.011.png){: .center}
 
 - d'une machine qui **appartient au même réseau** que la machine elle-même (ici A9 à un message pour A2): on sait alors qu'on peut envoyer le message à la couche RESEAU du destinataire via le réseau interne
 
