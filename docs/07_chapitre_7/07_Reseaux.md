@@ -221,15 +221,15 @@ On symbolisera donc le paquet IP à l'aide d'un symbole plus symbolique. Par exe
 
 ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.026.png){: .center}
 
-<H3 STYLE="COLOR:red;">**Activité n° 1 :**</H3>  La machine d'adresse IP v4  70.30.20.145 /16  veut joindre la machine d'adresse IP  70.30.21.5 . Comment sait-on s'il faut rester dans le réseau actuel ou quitter le réseau ?
+**<H3 STYLE="COLOR:red;">Activité n° 1 :**</H3>  La machine d'adresse IP v4  70.30.20.145 /16  veut joindre la machine d'adresse IP  70.30.21.5 . Comment sait-on s'il faut rester dans le réseau actuel ou quitter le réseau ?
 
-<H3 STYLE="COLOR:red;">**Activité n° 2 :**</H3>  La machine d'adresse IP v4  70.30.20.145 /24  veut joindre la machine d'adresse IP  70.30.21.5 . Comment sait-on s'il faut rester dans le réseau actuel ou quitter le réseau ?
+**<H3 STYLE="COLOR:red;">Activité n° 2 :**</H3>  La machine d'adresse IP v4  70.30.20.145 /24  veut joindre la machine d'adresse IP  70.30.21.5 . Comment sait-on s'il faut rester dans le réseau actuel ou quitter le réseau ?
 
-<H3 STYLE="COLOR:red;">**Activité n° 3 :**</H3>  La machine d'adresse IP v4  20.30.40.50  et de masque  255.0.0.0  veut joindre la machine d'adresse IP  20.200.100.5 . Comment sait-on s'il faut rester dans le réseau actuel ou quitter le réseau ?
+**<H3 STYLE="COLOR:red;">Activité n° 3 :**</H3>  La machine d'adresse IP v4  20.30.40.50  et de masque  255.0.0.0  veut joindre la machine d'adresse IP  20.200.100.5 . Comment sait-on s'il faut rester dans le réseau actuel ou quitter le réseau ?
 
-<H3 STYLE="COLOR:red;">**Activité n° 4 :**</H3>  La machine d'adresse IP v4  90.80.20.120  et de masque  255.255.255.0  veut joindre la machine d'adresse IP  90.80.20.5 . Comment sait-on s'il faut rester dans le réseau actuel ou quitter le réseau ?
+**<H3 STYLE="COLOR:red;">Activité n° 4 :**</H3>  La machine d'adresse IP v4  90.80.20.120  et de masque  255.255.255.0  veut joindre la machine d'adresse IP  90.80.20.5 . Comment sait-on s'il faut rester dans le réseau actuel ou quitter le réseau ?
 
-<H3 STYLE="COLOR:red;">**Activité n° 5 :**</H3>  La machine d'adresse IP v6  2a01:cb0c:96ac:d400:63ba:f65c:3616:15d4  veut joindre la machine d'adresse IP  2a01:cb0c:96ac:d400:73ba:12e3:3616:45a1 . Comment sait-on s'il faut rester dans le réseau actuel ou quitter le réseau ?
+**<H3 STYLE="COLOR:red;">Activité n° 5 :**</H3>  La machine d'adresse IP v6  2a01:cb0c:96ac:d400:63ba:f65c:3616:15d4  veut joindre la machine d'adresse IP  2a01:cb0c:96ac:d400:73ba:12e3:3616:45a1 . Comment sait-on s'il faut rester dans le réseau actuel ou quitter le réseau ?
 
 #### <a name="_toc154844740"></a><H4 STYLE="COLOR:MAGENTA;">**2.4.7. Les pertes de paquets**</H4>
 
@@ -298,9 +298,7 @@ Il n'y a plus qu'à envoyer le message. La difficulté est qu'on ne peut donner 
 | - |
 
 ### <a name="_toc154844744"></a><H3 STYLE="COLOR:GREEN;">**3.2. Les tables de routage**</H3>
-|<p>Voici comment se présente une table de routage :</p><p>1. Une colonne **IP Destinataire** permet d'identifier l'adresse IP de destination (et donc le réseau de destination)</p><p>2. Une colonne **Passerelle** : **C'est l'adresse IP de la carte réseau du routeur** **à qui on va confier le paquet**, si on n'est pas capable de le délivrer directement (donc si l'adresse IP de destination n'est pas dans notre propre sous-réseau). Cette adresse de passerelle n'est donc pas *systématiquement* mentionnée. Quand elle l'est, elle donne le renseignement sur le
-
- prochain routeur à qui le paquet est confié.</p><p>3. une colonne **Interface** : On parle également d'interface d'entrée/sortie. c'est **l'adresse IP de la carte réseau du routeur par où va sortir** le paquet à envoyer. Il y a donc **toujours** une adresse d'interface à renseigner. Parfois cette interface sera juste nommée *interface1* ou *interface2*.</p>|
+|<p>Voici comment se présente une table de routage :</p><p>1. Une colonne **IP Destinataire** permet d'identifier l'adresse IP de destination (et donc le réseau de destination)</p><p>2. Une colonne **Passerelle** : **C'est l'adresse IP de la carte réseau du routeur** **à qui on va confier le paquet**, si on n'est pas capable de le délivrer directement (donc si l'adresse IP de destination n'est pas dans notre propre sous-réseau). Cette adresse de passerelle n'est donc pas *systématiquement* mentionnée. Quand elle l'est, elle donne le renseignement sur le prochain routeur à qui le paquet est confié.</p><p>3. une colonne **Interface** : On parle également d'interface d'entrée/sortie. c'est **l'adresse IP de la carte réseau du routeur par où va sortir** le paquet à envoyer. Il y a donc **toujours** une adresse d'interface à renseigner. Parfois cette interface sera juste nommée *interface1* ou *interface2*.</p>|
 | - |
 
 ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.035.png){: .center}
@@ -364,7 +362,7 @@ Ensuite, chaque routeur **va recevoir** périodiquement (toutes les 30 secondes)
 - Chaque routeur n'a jamais connaissance de la topologie du réseau tout entier : il ne le connaît que par ce que les autres routeurs lui ont raconté. On dit que ce protocole de routage est du *routing by rumor*.
 - La *métrique* utilisée (le nombre de sauts) ne tient pas compte de la qualité de la liaison, contrairement au protocole OSPF.
 
-<H3 STYLE="COLOR:red;">**Activité n° 6 :**</H3>  Routage RiP
+**<H3 STYLE="COLOR:red;">Activité n° 6 :**</H3>  Routage RiP
 
 ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.038.png){: .center}
 
@@ -399,9 +397,7 @@ Itinéraires actifs :
 Destination réseau    Masque réseau  Adr. passerelle   Adr. interface Métrique
           0.0.0.0          0.0.0.0    192.168.1.254    192.168.1.138     55
         127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
-        127.0.0.1  255.255.255.255         On-link         127.0.0
-
-.1    331
+        127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
   127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
       192.168.1.0    255.255.255.0         On-link     192.168.1.138    311
     192.168.1.138  255.255.255.255         On-link     192.168.1.138    311
@@ -472,15 +468,15 @@ Particularité d'OSPF : on arrondit les coûts à l'entier. Le coût des liaison
 
 Cette formule de calcul peut être différente suivant les exercices, et sera systématiquement redonnée. 
 
-<H3 STYLE="COLOR:red;">**Activité n° 7 :**</H3>  Calculer la métrique OSPF d'une liaison Fibre (1 Gbit/s) avec une valeur par défaut de 10<sup>8</sup>.
+**<H3 STYLE="COLOR:red;">Activité n° 7 :**</H3>  Calculer la métrique OSPF d'une liaison Fibre (1 Gbit/s) avec une valeur par défaut de 10<sup>8</sup>.
 
-<H3 STYLE="COLOR:red;">**Activité n° 8 :**</H3>  Calculer la métrique OSPF d'une liaison FastEthernet (100 Mbit/s) avec une valeur par défaut de 10<sup>8</sup>.
+**<H3 STYLE="COLOR:red;">Activité n° 8 :**</H3>  Calculer la métrique OSPF d'une liaison FastEthernet (100 Mbit/s) avec une valeur par défaut de 10<sup>8</sup>.
 
-<H3 STYLE="COLOR:red;">**Activité n° 9 :**</H3>  Calculer la métrique OSPF d'une liaison Ethernet (10 Mbit/s) avec une valeur par défaut de 10<sup>8</sup>.
+**<H3 STYLE="COLOR:red;">Activité n° 9 :**</H3>  Calculer la métrique OSPF d'une liaison Ethernet (10 Mbit/s) avec une valeur par défaut de 10<sup>8</sup>.
 
-<H3 STYLE="COLOR:red;">**Activité n° 10 :**</H3>  Que vaut la bande passante d'une liaison dont le coût OSPF est de 50 avec une valeur de référence de 10<sup>8</sup>.
+**<H3 STYLE="COLOR:red;">Activité n° 10 :**</H3>  Que vaut la bande passante d'une liaison dont le coût OSPF est de 50 avec une valeur de référence de 10<sup>8</sup>.
 
-<H3 STYLE="COLOR:red;">**Activité n° 11 :**</H3>  Un routeur A3 fonctionnant sous OSPF reçoit les informations suivantes :
+**<H3 STYLE="COLOR:red;">Activité n° 11 :**</H3>  Un routeur A3 fonctionnant sous OSPF reçoit les informations suivantes :
 
 - Liaison A - B avec un coût de 1
 
@@ -502,7 +498,7 @@ Cette formule de calcul peut être différente suivant les exercices, et sera sy
 
 Représenter le tout sous forme d'un graphe où les sommets sont les routeurs et les arcs portent les coûts.
 
-<H3 STYLE="COLOR:red;">**Activité n° 12 :**</H3>  Quel est le coût de la liaison AE ? Calculer toutes les routes possibles et choisir celle qui présente le coût le plus faible.
+**<H3 STYLE="COLOR:red;">Activité n° 12 :**</H3>  Quel est le coût de la liaison AE ? Calculer toutes les routes possibles et choisir celle qui présente le coût le plus faible.
 
 Question supplémentaire : contrairement au cas RIP, le routeur A a-t-il les moyens de connaitre la route que va suivre le paquet le long du trajet A vers E ?
 
@@ -527,14 +523,14 @@ On souhaite aller de la ville A à la ville G en empruntant le plus court chemin
 
 On fait donc 6 km de A à G en suivant le chemin : A, B, D, G
 
-https://ladigitale.dev/digiview/#/v/66c13a448a875
+[https://ladigitale.dev/digiview/#/v/66c13a448a875](https://ladigitale.dev/digiview/#/v/66c13a448a875)
 
-<H3 STYLE="COLOR:red;">**Activité n° 13 :**</H3>  Donner le plus court chemin pour aller de E à F dans le graphe ci-dessous :
+**<H3 STYLE="COLOR:red;">Activité n° 13 :**</H3>  Donner le plus court chemin pour aller de E à F dans le graphe ci-dessous :
 ![image](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.046.png){: .center}
 
 ## <a name="_toc154844753"></a><H2 STYLE="COLOR:BLUE;">**6. Exercices**</H2>
 
-<H3 STYLE="COLOR:red;">**Exercice n°1 : Protocole RIP**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°1 : Protocole RIP**</H3>
 
 ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.047.png){: .center}
 
@@ -546,7 +542,7 @@ https://ladigitale.dev/digiview/#/v/66c13a448a875
 
 2\. Quel est, d’après la table de routage construite ci-dessus, le chemin qui sera emprunté par un paquet pour aller d’une machine ayant pour adresse IP 172.18.1.1/16 à une machine ayant pour adresse IP 172.16.5.3/16?
 
-<H3 STYLE="COLOR:red;">**Exercice n°2 : Protocole OSPF**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°2 : Protocole OSPF**</H3>
 
 1\. Calculer les coûts des routes suivantes :
 
@@ -581,13 +577,13 @@ En vous basant sur le protocole OSPF (métrique = somme des coûts), **détermin
 
 3\. Quel est, d'après la table de routage construite ci-dessus, le chemin qui sera emprunté par un paquet pour aller d'une machine ayant pour adresse IP 172.18.2.4/16 à une machine ayant pour adresse IP 172.16.1.5/16 ? Préciser la métrique.
 
-<H3 STYLE="COLOR:red;">**Exercice n°3 : Masque réseau**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°3 : Masque réseau**</H3>
 
 Trois machines ont respectivement pour adresses IP 90.8.220.5, 90.8.220.33 et 90.8.220.29. Est-ce que ces machines appartiennent toutes les trois au réseau 90.8.220.0/27?
 
 Sinon combien de routeurs sont nécessaires pour faire communiquer ces machines ? Quelles sont les adresses de leurs cartes réseau (interfaces)?
 
-<H3 STYLE="COLOR:red;">**Exercice n°4 : Table de routage**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°4 : Table de routage**</H3>
 
 Une machine M1 a pour adresse IP 192.168.1.12 et elle se trouve dans un réseau d’adresses 192.168.1.0/24. Elle est reliée à un routeur qui possède deux interfaces réseau qui ont pour adresses respectives 192.168.1.1/24 et 172.20.121.1/24. Une seconde machine M2 a pour adresse IP 172.20.121.17 et se trouve dans le réseau d'adresses 172.20.121.0/24, reliée au routeur. 
 
@@ -615,22 +611,20 @@ Une machine M1 a pour adresse IP 192.168.1.12 et elle se trouve dans un réseau 
 |0.0.0.0||||
 |||||
 
-<H3 STYLE="COLOR:red;">**Exercice n°5 : Protocoles RIP**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°5 : Protocoles RIP**</H3>
 
 Considérons le réseau suivant, pour lequel on admettra la norme suivante :
 
 - Le poste client et le poste serveur se voient attribués respectivement la première adresse de la plage de leur réseau (soit respectivement 192.168.0.1 et 172.16.180.1).
 - Les routeurs d'accès R1 et R6 ont sur leur interface réseau les dernières adresses IP de la plage de leur réseau (soit respectivement 192.168.0.254 et 172.16.180.251).
-- Entre deux interfaces internes, le routeur de plus bas indice possède la première adresse et le routeur de dernier indice la seconde adresse : par exemple entre R2 et R5, les interfaces sont connectées par le réseau 10.1.4.0/30, donc l'interface de R2 est 
-
-10.1.4.1 et celle de R5 est 10.1.4.2.
+- Entre deux interfaces internes, le routeur de plus bas indice possède la première adresse et le routeur de dernier indice la seconde adresse : par exemple entre R2 et R5, les interfaces sont connectées par le réseau 10.1.4.0/30, donc l'interface de R2 est 10.1.4.1 et celle de R5 est 10.1.4.2.
 - Tous les routeurs suivent le protocole RIP.
 
 ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.053.png){: .center}
 
 Déterminer les tables de routage de R1, R2 et R3.
 
-<H3 STYLE="COLOR:red;">**Exercice n°6 : Protocole OSPF**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°6 : Protocole OSPF**</H3>
 
 ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.056.png){: .center}
 
@@ -644,7 +638,7 @@ b)	Avec le protocole OSPF?
 
 3\. On admet que tous les sous-réseaux ont pour masques 255.255.255.0. Déterminer la table de routage du routeur A avec le protocole OSPF.
 
-<H3 STYLE="COLOR:red;">**Exercice n°7 : Réseaux**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°7 : Réseaux**</H3>
 
 Un réseau est constitué de 6 routeurs R1 à R6 dont on donne des tables de routage simplifiées. Les réseaux ont tous pour masque 255.255.255.0. La colonne M est la métrique utilisée.
 
@@ -660,7 +654,7 @@ Un réseau est constitué de 6 routeurs R1 à R6 dont on donne des tables de rou
 
 3\.	Représenter ce réseau sous forme de graphe.
 
-<H3 STYLE="COLOR:red;">**Exercice n°8 : Adressage IP**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°8 : Adressage IP**</H3>
 
 1\. L’adresse IPv4 d’un réseau est 192.168.56.0/24. Combien de bits sont-ils dédiés à la partie réseau? Combien de machines peut-on incorporer à ce réseau?
 
