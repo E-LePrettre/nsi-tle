@@ -7,13 +7,13 @@ title: 08 Les processus
 
 **Table des matières**
 
-[1.	Rappels de première	1](#_toc154927166)
+[1.	Rappels de première	](#_toc154927166)
 
-[2.	Les processus	2](#_toc154927169)
+[2.	Les processus](#_toc154927169)
 
-[3.	Les processus sous Linux	9](#_toc154927175)
+[3.	Les processus sous Linux](#_toc154927175)
 
-[4.	Exercices	11](#_toc154927179)
+[4.	Exercices	](#_toc154927179)
 
 
 **Compétences évaluables :**
@@ -31,8 +31,8 @@ Le système d’exploitation d’un ordinateur est chargé d’assurer les fonct
 - **Sécurisation** - L’OS assure la sécurité globale du système.
 
 C'est donc une composante logicielle très importante.
-![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.001.png)
-1. ## <a name="_toc154927168"></a>**Commandes Linux de base**
+
+### <a name="_toc154927168"></a>**1.2. Commandes Linux de base**
 
    |sudo|*subsitute utilisator do*|Permet d’effectuer des commandes non autorisées. Le mot de passe est demandé. |
    | - | - | - |
@@ -50,13 +50,14 @@ C'est donc une composante logicielle très importante.
    |touch *arg* |*touch* |Crée un fichier vide de nom *arg*, s'il n'existe pas, sinon met à jour, avec la date courante, sa date de dernière modification s'il existe déjà. |
    |kill *arg*|*kill*|Arrête le processus numéro *arg*|
 
-<http://luffah.xyz/bidules/Terminus/>
-1. # <a name="_toc154927169"></a>**Les processus**
-   1. ## <a name="_toc154927170"></a>**Notion de processus**
+[http://luffah.xyz/bidules/Terminus/](http://luffah.xyz/bidules/Terminus/)
+
+## <a name="_toc154927169"></a>**2. Les processus**
+### <a name="_toc154927170"></a>**2.1. Notion de processus**
 Lorsqu'un programme est exécuté sur un ordinateur, celui-ci va créer un (ou plusieurs) **processus**.
 
 On dit que ce processus est une **instance d'exécution** de ce programme.
-![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.002.png)
+
 
 Un **processus** est un programme en cours d’exécution, qui est constitué : 
 
