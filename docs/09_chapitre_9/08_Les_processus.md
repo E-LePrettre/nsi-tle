@@ -63,4 +63,12 @@ Chaque routeur peut donc inspecter les paquets pour en **connaître le contenu.
 
 ![Routage](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.003.png){: .center}
 
+Cette situation n'est **clairement pas idéale.** En effet, si l'on utilise un site web pour effectuer des transactions bancaires, renseigner des informations personnelles (impôts, arrêt maladie, etc.), ou simplement exprimer son opinion, on souhaite que le contenu des messages envoyés ne soit connu que de deux entités: la source et la destination.
 
+Ce simple constat nous permet de mettre en avant trois aspects liés à la sécurisation des communications:
+
+- Comment chiffrer le contenu des communications afin qu'elles ne soient lisibles que par la source et la destination (garantie de **confidentialité**) ?
+- Comment garantir que le serveur auquel on se connecte est bien celui auquel on pense se connecter (garantie d'**authenticité**) ?
+- Comment s'assurer que le message transmis n'a pas été modifié par un tiers (garantie d'**intégrité**) ?
+
+Le tout devant bien entendu se faire dans le cadre d'une communication en utilisant l'infrastructure d'Internet, à savoir les communications TCP/IP ?
