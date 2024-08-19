@@ -502,4 +502,32 @@ assert chiffre_xor(b"\x02t  5&<>(::8;6i-t,='i=&9+!", c) == b"L'informatique c'es
 ```
 
 
+**Exercice n°2 :** dechiffre\_xor
+
+Comme expliqué dans le cours, un chiffrement XOR simple n'apporte pas une grande sécurité. 
+
+On va montrer qu'en connaissant quelques informations on peut facilement retrouver la clé si cette dernière est trop courte.
+
+Soit la chaîne d'octets chiffrée:
+```
+b'\x0c7,)x8,=#z,+5-/\x99\xf1y69y8774=y(\x9b\xf0\*77)=x'
+```
+On sait que les 4 derniers caractères du message en clair sont "nse!". 
+
+On utilisera la méthode endswith() pour tester la terminaison 
+
+<https://www.w3schools.com/python/ref_string_endswith.asp>
+
+Par exemple ici :
+```python
+mon_test.endswith(b"nse!")
+```
+On sait aussi que la clé fait exactement 3 caractères et que ce sont des lettres majuscules sans accent.
+
+Écrire un programme Python (fonction dechiffre\_xor), en important la fonction chiffre\_xor de l’exercice précédent, qui essaye toutes les combinaisons de clé jusqu'à trouver la bonne. 
+
+Mesurer le temps d'exécution. 
+
+On pourra utiliser la fonction time.time() du module time pour connaître l'heure courante, en nombre de secondes depuis une date de référence non spécifiée.
+
 
