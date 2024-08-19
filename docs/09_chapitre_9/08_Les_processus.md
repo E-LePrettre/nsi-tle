@@ -443,3 +443,152 @@ Le transmission par protocole HTTP de données chiffrées au préalable avec l
 
 Merci à Gilles Lassus et Mireille Coilhac 
 
+
+## <a name="_toc174920509"></a>**6. Exercices**
+**Exercice n°1 :** chiffre\_xor
+
+Écrire en Python une fonction chiffre\_xor(msg, cle) qui prend en arguments deux chaînes d'octets (type bytes) et qui renvoie le chiffrement XOR du message avec la clé, sous forme d'une liste
+
+L'opérateur XOR en python est «^».
+
+Vérifions les tables de vérité avec la fonction xor du cours et l’opérateur «^»
+```
+>>> xor(0,0)
+0
+>>> 0^0
+0
+>>> xor(1,0)
+1
+>>> 1^0
+1
+>>> xor(0,1)
+1
+>>> 0^1
+1
+>>> xor(1,1)
+0
+>>> 1^1
+0
+```
+
+
+Comme on va utiliser les lettres accentuées, on devra utiliser la méthode encode() qui permet d’encoder en utf-8.
+
+Par exemple :
+```
+>>> m = "je suis un élève".encode()
+>>> print(m)
+b'je suis un \xc3\xa9l\xc3\xa8ve'
+```
+
+
+On utilisera l’opérateur bytes dans le return de la liste codée. Il renvoie un objet bytes qui est une séquence immuable (ne peut pas être modifiée) d'entiers dans la plage 0 <=x < 256.
+
+Par exemple :
+```
+>>> bytes([65, 66, 67])
+b'ABC'
+```
+
+Indication : On rappelle que pour un chiffrement XOR, la clé doit être «étendue» de façon à avoir la même taille que le message. On pourra faire une utilisation judicieuse de l'opérateur «%» dans une compréhension de liste…. 
+
+Test : 
+```python
+m = "L'informatique c'est super".encode()
+c = "NSI".encode()
+assert chiffre_xor(m, c) == b"\x02t  5&<>(::8;6i-t,='i=&9+!"
+assert chiffre_xor(b"\x02t  5&<>(::8;6i-t,='i=&9+!", c) == b"L'informatique c'est super"
+```
+
+
+
+**Exercice n°2 :** dechiffre\_xor
+
+Comme expliqué dans le cours, un chiffrement XOR simple n'apporte pas une grande sécurité. 
+
+On va montrer qu'en connaissant quelques informations on peut facilement retrouver la clé si cette dernière est trop courte.
+
+Soit la chaîne d'octets chiffrée:
+```
+b'\x0c7,)x8,=#z,+5-/\x99\xf1y69y8774=y(\x9b\xf0\*77)=x'
+```
+On sait que les 4 derniers caractères du message en clair sont "nse!". 
+
+On utilisera la méthode endswith() pour tester la terminaison 
+
+<https://www.w3schools.com/python/ref_string_endswith.asp>
+
+Par exemple ici :
+```python
+mon_test.endswith(b"nse!")
+```
+On sait aussi que la clé fait exactement 3 caractères et que ce sont des lettres majuscules sans accent.
+
+Écrire un programme Python (fonction dechiffre\_xor), en important la fonction chiffre\_xor de l’exercice précédent, qui essaye toutes les combinaisons de clé jusqu'à trouver la bonne. 
+
+Mesurer le temps d'exécution. 
+
+On pourra utiliser la fonction time.time() du module time pour connaître l'heure courante, en nombre de secondes depuis une date de référence non spécifiée.
+
+
+1. # <a name="_toc174920510"></a>**Projet**
+**Exercice n°01 : clé symétrique :**
+
+On utilisera un fichier echange\_cle.py.
+
+**La situation** : Alice veut établir une liaison sécurisée avec Bob en chiffrement symétrique avec la clef kfinale. Mais comment transmettre cette clef à Bob sans que celle-ci ne soit interceptée ?
+
+**Etapes du processus :**  Voici comment Alice et Bob vont procéder :
+
+La clef ne sera jamais "transmise", mais elle sera créée par Bob, et retrouvée par Alice.
+
+- **1er temps** : Alice génère une clef publique (notée kpub) et l'envoie à Bob. Cette clef peut être interceptée mais ce n'est pas grave.
+
+En même temps que la clef publique, elle génère une clef privée (notée kpriv). Les deux clefs sont liées, nous verrons un peu plus tard comment.
+
+- **2ème temps** : Bob génère une clef kfinale qu'il garde secrète et qui servira à chiffrer les échanges avec Alice. Il chiffre cette clef qui devient kFinaleChiffree grâce à kpub qu'il a reçu d'Alice. Il envoie kFinaleChiffree à Alice.
+- **3ème temps** : Alice déchiffre kFinaleChiffree avec sa clef privée et trouve kfinale.
+
+kfinale est donc maintenant connue d'Alice et de Bob qui vont pouvoir l'utiliser pour communiquer en chiffrement symétrique.
+
+**Lien entre clef publique et clé privée :** Notons  𝑓(kpub, m)  le message m chiffré avec la clef publique, et  𝑓(kpriv, m)  le message m chiffré avec la clef privée.
+
+kpub et kpriv obéissent à :
+```
+𝑓(kpriv, 𝑓(kpub, m)) = 𝑓(kpub,  𝑓(kpriv, m)) = m
+```
+En d'autres termes, si Bob chiffre avec la clef publique, Alice saura déchiffrer avec sa clef privée connue d'elle seule. Le système exige aussi que la connaissance de la clef publique ne permette pas de déchiffrer le message envoyé par Bob. C'est le cas quand on chiffre avec des fonctions de hashage, mais ici, pour comprendre le principe, nous allons simplifier et utiliser un chiffrement proche de celui de Vigenère.
+
+Nous admettrons, pour l'exemple, que l'on ne peut pas décrypter le message de Bob avec la clef publique, ni découvrir la clef privée à partir de la clef publique.
+
+1\. 1<sup>er</sup> temps : Créer la clé publique
+
+Dans notre exemple, on va utiliser un code proche du codage de Vigenere
+
+- On génère 10 nombres aléatoire entre 0 et 36 qui seront les décalages à appliquer
+- On convertit ces nombres en hexa de longueur 2
+- On concatène pour créer une clef de longueur 20 (mais elle serait très simple à casser !)
+
+nous allons utiliser un alphabet de 36 lettres : [0-9] et [A-Z].
+
+Vous pourrez utiliser la fonction suivante qui convertit un entier (entre 0 et 255) en une chaine hexadécimale de 2 chiffres.
+```python
+def d2H(n: int) -> str:
+    """
+    convertit un nombre décimal compris entre 0 et 255 en un hexadécimal à 2 chiffres
+    :param n: entier à convertir en base 16
+    :return: une chaine de caractère représentant le nombre en base 16 sur deux caractères
+    >>> d2H(10)
+    '0a'
+    >>> d2H(100)
+    '64'
+    """
+    h = hex(n)[2:]
+    if len(h)<2 :
+        h = "0" + h
+    return h
+
+assert d2H(10) == '0a'
+assert d2H(100) == '64'
+```
+
