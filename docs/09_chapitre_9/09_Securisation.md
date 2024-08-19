@@ -26,7 +26,7 @@ title: 09 Sécurisation des communications
 - Décrire l’échange d’une clef symétrique en utilisant un protocole asymétrique pour sécuriser une communication HTTPS
 ## <H2 STYLE="COLOR:BLUE;">**1. Rappels**</H2>
 
-![TCP Handshake](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.001.png)
+![TCP Handshake](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.001.png){: .center}
 
 Avec les acquis du programme de première, nous pouvons comprendre exactement ce qu'il se passe lorsque l'on navigue vers un site web, par exemple « http://gs-cassaigne.fr/ ».
 
@@ -864,9 +864,7 @@ assert f("C5D71484F8CF9BF4B76F", "CLE2CHIFFRER") == 'TKYQ88T7IUVQ'
 
 5\. Scénario complet de la création et transmission de clef
 
-💻 Ajouter et compléter le scénario 
-
-:
+💻 Ajouter et compléter le scénario :
 
 😀 Nous avons maintenant tout ce qu'il nous faut, l'échange peut avoir lieu.
 
