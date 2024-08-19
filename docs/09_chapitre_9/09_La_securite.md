@@ -1044,15 +1044,19 @@ Il comporte un **clé Publique** et une **clé Privée** dont voici le princ
 - On peut décrypter avec la clé Privée les messages cryptés à l'aide de la clé Publique.
 - On peut décrypter avec la clé Publique les messages cryptés à l'aide de la clé Privée.
 
-![principe du chiffrement asymétrique](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.034.png)
+![principe du chiffrement asymétrique](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.034.png){: .center}
 
-![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.035.png)L'une des conditions de l'utilisation d'un tel chiffrement : qu'on ne puisse pas retrouver la valeur de la clé privée connaissant la valeur de la clé privée ou d'un message crypté quelconque. Il faut que cela soit trop compliqué et demande trop de temps ou qu'il existe beaucoup de valeurs possibles par exemple.
+L'une des conditions de l'utilisation d'un tel chiffrement : qu'on ne puisse pas retrouver la valeur de la clé privée connaissant la valeur de la clé privée ou d'un message crypté quelconque. Il faut que cela soit trop compliqué et demande trop de temps ou qu'il existe beaucoup de valeurs possibles par exemple.
 
 RSA est basé sur le principe des **fonctions à sens unique** : connaissant le message m, il est facile de chiffrer le message en calculant f(m) mais connaissant f(m) il est "difficile" de retrouver m. La notion de complexité algorithmique donne un moyen de quantifier la notion sinon floue de "difficile".
 
-![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.036.png)
+![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.035.png){: .center}
+
+
 
 En outre, **RSA** utilise des **fonctions à sens unique possédant une brèche** : connaissant la clé de déchiffrement, il devient "facile" de retrouver m connaissant f(m).
+
+![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.036.png){: .center}
 
 Là où c'est compliqué à mettre en place, c'est que trouver la brèche doit s'avérer "impossible" en un temps raisonnable.
 
@@ -1066,14 +1070,18 @@ Le chiffrement  **RSA**  date de **1977** et doit son nom aux initiales de
 
 **RSA** a été breveté par le **MIT** (Massachusetts Institute of Technology) en **1983** aux États-Unis.
 
-![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.037.png)Le brevet a expiré le 21 septembre **2000**.
+Le brevet a expiré le 21 septembre **2000**.
 
 Le cryptage RSA utilise de grands nombres premiers et le petit théorème de Fermat (lié à la division entière et à la congruence).
 
 La facilité du cryptage et la difficulté du décryptage sont liées au fait qu'il est facile de calculer le produit  **n = p\*q**  de deux nombres premiers **p** et **q** mais qu'il est difficile de retrouver **p** et **q** si on ne connaît que **n**.
 
+![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.037.png){: .center}
+
 Vous allez donc comprendre l'intérêt qu'on porte aux nombres premiers et aux diviseurs communs.
-##### Division entière ou euclidienne
+
+**Division entière ou euclidienne**
+
 Nous avons déjà vu la **division euclidienne et la notion de reste**.
 
 Si  **a = b\*q + r**  alors
@@ -1088,8 +1096,9 @@ Si on prend 15, on peut écrire que  15 = 2\*6 + 3 .
 La division euclidienne de 15 par 6 donne 2 :  15 // 6 = 2 .
 
 Le reste de cette division est de 3 :  15 % 6 = 3 .
-#####
-##### Congruence (hors programme)
+
+**Congruence**
+
 La notion de **congruence** (hors programme en NSI, on ne l'aborde ici qu'en terme de culture générale) est liée à ce reste.
 
 **Exemples sans définition exacte**
@@ -1102,12 +1111,27 @@ La notion de **congruence** (hors programme en NSI, on ne l'aborde ici qu'en t
 
 etc. ...
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 **Définition**
 
 Soient
 
-- ` `**n**  un entier naturel non nul et,
-- ` `**a**  et  **b**  deux entiers relatifs.
+- **n**  un entier naturel non nul et,
+- **a**  et  **b**  deux entiers relatifs.
 
 On dit que  **a  et  b  sont congrus modulo  n**  s'ils ont le même reste dans une division euclidienne par n.
 
@@ -1121,8 +1145,8 @@ La notation mathématique est **a ≡ b (mod n)** pour signaler que  **a �
 
 **Exemple**
 
-- ` `156 = 17\*9 + 3 . Donc  156 % 17  donne un reste de  3 .
-- ` `105 = 17\*6 + 3 . Donc  105 % 17  donne un reste de  3 .
+- 156 = 17\*9 + 3 . Donc  156 % 17  donne un reste de  3 .
+- 105 = 17\*6 + 3 . Donc  105 % 17  donne un reste de  3 .
 - On peut donc écrire que  **156 ≡ 105 (mod 17)**  pour dire que 156 est congru à 105 modulo 17.
 
 **Conséquence**
@@ -1133,7 +1157,7 @@ En Python :  **(a-b) % n == 0** 
 
 Ou encore :  **(a-b) // n == k**  avec k entier.
 
-` `156 ≡ 105 (mod 17)  implique que (156-105) / 17 donne un résultat entier.
+156 ≡ 105 (mod 17)  implique que (156-105) / 17 donne un résultat entier.
 
 En Python :  (156-105) / 17 = 51 / 17 = 3.0 
 
@@ -1145,14 +1169,14 @@ Sur notre exemple, nous prendrons  **cpub = (2159, 437)** 
 
 Si **m** est un bout du message à chiffrer, on obtient le message chiffré **mc** correspondant en utilisant cette formule :
 
-` `<b>mc = (m<sup>e</sup>) % n</b> 
+<b>mc = (m<sup>e</sup>) % n</b> 
 
 - **n** se nomme le **module de chiffrement** car il sert à faire un modulo et
 - **e** est l'**exposant de chiffrement** car on l'utilise en tant que mise à la puissance du message.
 
 En Python, ça donnera :
 
-` `**mc = (m\*\*e) % n** 
+**mc = (m\*\*e) % n** 
 
 La **Clé Privée** est un n-uplet  **cpri = (n, d)**  contenant
 
@@ -1161,7 +1185,7 @@ La **Clé Privée** est un n-uplet  **cpri = (n, d)**  contenant
 
 Si **mc** est un bout du message chiffré, on obtient le message déchiffré **md** correspondant en utilisant cette formule :
 
-` `<b>md = (mc<sup>d</sup>) % n</b> 
+<b>md = (mc<sup>d</sup>) % n</b> 
 
 Bien entendu, si les valeurs sont correctes, on aura **md** = **m** !
 
@@ -1169,16 +1193,18 @@ Pour notre exemple, nous prendrons (pas par hasard !)  **cpri = (2159, 1181)
 
 On la gardera secrète de façon à être le seul à pouvoir déchiffrer les messages chiffrés avec la Clé Publique.
 
-1. <a name="_hlk73046625"></a>On désire transmettre par exemple 500 et 1000 de façon cryptée. Calculer les deux messages **mc** à envoyer après application basique du chiffrement sur 500 et 1000 avec  **cpub = (2159, 437)** .
+2.1. On désire transmettre par exemple 500 et 1000 de façon cryptée. Calculer les deux messages **mc** à envoyer après application basique du chiffrement sur 500 et 1000 avec  **cpub = (2159, 437)** .
 
-` `**mc = (m\*\*e) % n** 
+**mc = (m\*\*e) % n** 
 
-1. <a name="_hlk73046670"></a>Que va donner le chiffrement d'un message valant 6000 ?
-1. <a name="_hlk73046715"></a>La personne ayant émis la clé publique reçoit le message suivant : **504** - **1746** - **900**. Sa clé privée (tenue secrète) est  **cpri = (2159, 1181)** .
+2.2. Que va donner le chiffrement d'un message valant 6000 ?
+
+2.3. La personne ayant émis la clé publique reçoit le message suivant : **504** - **1746** - **900**. Sa clé privée (tenue secrète) est  **cpri = (2159, 1181)** .
 
 Comment retrouver le message déchiffré ?
 
-##### Limitation du message chiffré par rapport au module de chiffrement n
+**Limitation du message chiffré par rapport au module de chiffrement n**
+
 La valeur de **n** permet d'obtenir la plage des valeurs qui seront déchiffrables : les valeurs **m** à chiffrer doivent impérativement être dans l'intervalle **[0,n[** ou **[0,n-1]**, sinon on ne peut parviendra pas à déchiffrer correctement la valeur initiale.
 
 Ici puisque  **n = 2159**, cela veut dire qu'on ne peut chiffrer que des valeurs comprises entre 0 et 2158.

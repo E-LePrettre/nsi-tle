@@ -979,7 +979,7 @@ Alice et Bob sont habitués à procéder comme nous venons de le voir. Bob va do
 
 💻 Ajouter et compléter le scénario :
 
-\1) 👩 Tout commence comme d'habitude : Alice crée une clef publique et une clef privée :
+1) 👩 Tout commence comme d'habitude : Alice crée une clef publique et une clef privée :
 ```python
 # # créez les clef publiques et privées d'Alice :
 (kpubAlice, kprivAlice) = creClef()
@@ -987,10 +987,10 @@ Alice et Bob sont habitués à procéder comme nous venons de le voir. Bob va do
 print("clé publique de Alice :", ❓)
 print("clé privée de Alice :", ❓)
 ```
-\2) 👩 Alice envoie à Bob la clé publique
+2) 👩 Alice envoie à Bob la clé publique
 Du moins, c'est ce qu'elle pense. Elle ignore votre présence ...
 
-\3) 🦸‍♂️ Mais\.\.\. Vous intervenez \.\.\.
+3) 🦸‍♂️ Mais\.\.\. Vous intervenez \.\.\.
 Vous interceptez l'envoi. Vous n'allez pas envoyer cette clef à Bob mais une autre : la votre !
 ```python
 # créez votre clef publique et votre clef privée associée
@@ -1001,7 +1001,7 @@ print('clé privée de Jimmy :', ❓)
 ```
 Vous avez une clef publique et une clef privée. Vous envoyez votre clef publique à Bob, qui pensera qu'il s'agit de la clef publique d'Alice.
 
-\4) 👨 Bob ne se doute de rien !
+4) 👨 Bob ne se doute de rien !
 
 Bob chiffre kFinale (la clé finale) avec cette clé publique qu'il vient de recevoir, et envoie cette clé chiffrée à Alice (où du moins, c'est ce qu'il pense. Mais vous êtes là...)
 
@@ -1014,7 +1014,7 @@ kFinale = "0VLFK4CEF9YS55KWV6JZ"
 kfinaleChiffreBob = ❓
 print('Bob envoie sa clé privé chiffrée avec la clé publique de Jimmy :', kfinaleChiffreBob)
 ```
-\5) 🦸‍♂️ Vous interceptez cette clef !
+5) 🦸‍♂️ Vous interceptez cette clef !
 
 Vous déchiffrez cette clef interceptée grâce à votre clef privée :
 
@@ -1036,15 +1036,94 @@ kfinaleChiffreAlice = ❓
 
 print("Jimmy envoie la clé privée de Bob chiffrée avec la vraie clé publique d'Alice :", kfinaleChiffreAlice)
 ```
-\7) 👩 Alice reçoit cette clef et la déchiffre avec sa clé privée\.
+7) 👩 Alice reçoit cette clef et la déchiffre avec sa clé privée\.
 ```python
 print(f(kprivAlice, kfinaleChiffreAlice))
 ```
 Elle obtient kFinale la bonne clé créée par Bob, et ils vont l'utiliser pour communiquer.
 
-\8) 👩🦸‍♂️👨Tous les échanges ultérieurs seront interceptés et décryptés par Jimmy !
+8) 👩🦸‍♂️👨Tous les échanges ultérieurs seront interceptés et décryptés par Jimmy !
 
 Ni Alice ni Bob ne se doute que Jimmy bad boy connait aussi la clé kFinale...
 
 👍 Bravo, vous avez réussi **une attaque par l'homme du milieu**.
 
+**Exercice n° 02 : chiffrement RSA**
+
+**1 - PRINCIPE DU CRYPTAGE ASYMÉTRIQUE**
+
+Il y a eu plusieurs types de systèmes de chiffrement asymétrique. Nous ne verrons que la version qui correspond à la version actuelle de ce type de système : le système **RSA**.
+
+Il comporte un **clé Publique** et une **clé Privée** dont voici le principe.
+
+- La clé Publique ne permet pas de décrypter les messages cryptés avec la clé Publique.
+- La clé Privée ne permet pas de décrypter les messages cryptés avec la clé Privée.
+- On peut décrypter avec la clé Privée les messages cryptés à l'aide de la clé Publique.
+- On peut décrypter avec la clé Publique les messages cryptés à l'aide de la clé Privée.
+
+![principe du chiffrement asymétrique](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.034.png){: .center}
+
+L'une des conditions de l'utilisation d'un tel chiffrement : qu'on ne puisse pas retrouver la valeur de la clé privée connaissant la valeur de la clé privée ou d'un message crypté quelconque. Il faut que cela soit trop compliqué et demande trop de temps ou qu'il existe beaucoup de valeurs possibles par exemple.
+
+RSA est basé sur le principe des **fonctions à sens unique** : connaissant le message m, il est facile de chiffrer le message en calculant f(m) mais connaissant f(m) il est "difficile" de retrouver m. La notion de complexité algorithmique donne un moyen de quantifier la notion sinon floue de "difficile".
+
+![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.035.png){: .center}
+
+
+
+En outre, **RSA** utilise des **fonctions à sens unique possédant une brèche** : connaissant la clé de déchiffrement, il devient "facile" de retrouver m connaissant f(m).
+
+![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.036.png){: .center}
+
+Là où c'est compliqué à mettre en place, c'est que trouver la brèche doit s'avérer "impossible" en un temps raisonnable.
+
+**2 - RSA**
+
+Le chiffrement  **RSA**  date de **1977** et doit son nom aux initiales de ses trois inventeurs  :
+
+- [Ronald Rivest](https://fr.wikipedia.org/wiki/Ronald_Rivest "https://fr.wikipedia.org/wiki/Ronald_Rivest") (né en 1947, cryptologue américain)
+- [Adi Shamir](https://www.infoforall.fr/act/archi/projet-chiffrement-rsa/) (né en 1962, mathématicien et cryptologue israélien)
+- [Leonard Adleman](https://www.infoforall.fr/act/archi/projet-chiffrement-rsa/) (né en 1945, chercheur américain en informatique théorique, et en informatique-biologie moléculaire)
+
+**RSA** a été breveté par le **MIT** (Massachusetts Institute of Technology) en **1983** aux États-Unis.
+
+Le brevet a expiré le 21 septembre **2000**.
+
+Le cryptage RSA utilise de grands nombres premiers et le petit théorème de Fermat (lié à la division entière et à la congruence).
+
+La facilité du cryptage et la difficulté du décryptage sont liées au fait qu'il est facile de calculer le produit  **n = p\*q**  de deux nombres premiers **p** et **q** mais qu'il est difficile de retrouver **p** et **q** si on ne connaît que **n**.
+
+![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.037.png){: .center}
+
+Vous allez donc comprendre l'intérêt qu'on porte aux nombres premiers et aux diviseurs communs.
+
+**Division entière ou euclidienne**
+
+Nous avons déjà vu la **division euclidienne et la notion de reste**.
+
+Si  **a = b\*q + r**  alors
+
+- La division euclidienne de a par b donne q :  **a // b = q** .
+- Le reste de cette division entière est alors r :  **a % b = r**  avec r dans  **[0;b[** .
+
+**Exemple**
+
+Si on prend 15, on peut écrire que  15 = 2\*6 + 3 .
+
+La division euclidienne de 15 par 6 donne 2 :  15 // 6 = 2 .
+
+Le reste de cette division est de 3 :  15 % 6 = 3 .
+
+**Congruence**
+
+La notion de **congruence** (hors programme en NSI, on ne l'aborde ici qu'en terme de culture générale) est liée à ce reste.
+
+**Exemples sans définition exacte**
+
+0, 6, 12, 18, 24, 30... sont congrus modulo 6 entre eux car le reste de leur division euclidienne par 6 donne un reste de 0 à chaque fois.
+
+1, 7, 13, 19, 25, 31... sont congrus modulo 6 entre eux car le reste de leur division euclidienne par 6 donne un reste de 1 à chaque fois.
+
+2, 8, 14, 20, 26, 32... sont congrus modulo 6 entre eux car le reste de leur division euclidienne par 6 donne un reste de 2 à chaque fois.
+
+etc. ...
