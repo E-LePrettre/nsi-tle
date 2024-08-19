@@ -723,136 +723,142 @@ print(creeClef())
 ```
 
 
-- 1. Comment utiliser les clés ?
+3\. Comment utiliser les clés ?
 
 **Tester ci-dessous** **en dehors du fichier** echange\_cle.py
 
 Prenons un exemple kpub = '48E52E29A3FA379A953F'
 
 Le premier décalage est codé par les deux premiers caractères 48, qui en décimal et modulo 36 sera :
-
+```python
 int('48', 16) % 36
-
+```
 Le second est E5
-
+```python
 int('E5', 16) % 36
-
+```
 Si la clef privé est kpriv = 'D883116D359FEC5CED375', les deux premiers décalages sont :
-
+```python
 print('D8 -> d = ',int('D8',16) % 36)
 print('83 -> d = ',int('83',16) % 36)
-
+```
 Dans l'exemple ci-dessus, la somme des décalages
 
-- - pour le 1er caractère vaut : 0 + 0 = 0
-- - pour le 2ème caractère vaut : 13 + 23 = 36
-- - On pourrait ainsi vérifier que pour n'importe quel caractère, la somme des décalages est égale à 0 ou à 36, ce qui, modulo 36, fait toujours 0.
+- pour le 1er caractère vaut : 0 + 0 = 0
+- pour le 2ème caractère vaut : 13 + 23 = 36
+- On pourrait ainsi vérifier que pour n'importe quel caractère, la somme des décalages est égale à 0 ou à 36, ce qui, modulo 36, fait toujours 0.
 
 L'application de kpriv compensera donc l'application de kpub, ce qui assure la condition !
 
 **Ajouter** le script suivant au fichier echange\_cle.py.
 
 Pour bien comprendre, voici comment retrouver les décalages en lisant les clés :
-
-\# le code ci-dessous vous montre comment retrouver les décalages en lisant les clefs
-\# la fonction decal(clef, i) convertit la tranche clef[i:i+2] en décimal
+```python
+# le code ci-dessous vous montre comment retrouver les décalages en lisant les clefs
+# la fonction decal(clef, i) convertit la tranche clef[i:i+2] en décimal
 (kpub, kpriv) = creClef()
 print('clef publique :', kpub, '\t clef privée :', kpriv)
 
-def decimal\_tranche\_i(clef, i):
-`    `return int(clef[i:i + 2], 16)
+def decimal_tranche_i(clef, i):
+    return int(clef[i:i + 2], 16)
 
 for i in range(0, 20, 2):
-`    `dPub = kpub[i:i + 2]
-`    `dPriv = kpriv[i:i + 2]
-`    `dPub\_dec = decimal\_tranche\_i(kpub, i)
-`    `dPriv\_dec = decimal\_tranche\_i(kpriv, i)
-`    `print('décalages hexa public privé:', dPub, dPriv, \
-`          `'\t -> \tdécalages décimaux public privé:', dPub\_dec, dPriv\_dec, \
-`          `'\t total = ', dPub\_dec + dPriv\_dec)
+    dPub = kpub[i:i + 2]
+    dPriv = kpriv[i:i + 2]
+    dPub_dec = decimal_tranche_i(kpub, i)
+    dPriv_dec = decimal_tranche_i(kpriv, i)
+    print('décalages hexa public privé:', dPub, dPriv, \
+          '\t -> \tdécalages décimaux public privé:', dPub_dec, dPriv_dec, \
+          '\t total = ', dPub_dec + dPriv_dec)
 
-`    `assert (dPub\_dec + dPriv\_dec) % 36 == 0
+    assert (dPub_dec + dPriv_dec) % 36 == 0
+```
 
-- 1. 2<sup>ème</sup> temps : Créer puis chiffrer une clé qui sera utilisée pour le chiffrement symétrique
+
+4\. 2<sup>ème</sup> temps : Créer puis chiffrer une clé qui sera utilisée pour le chiffrement symétrique
 
 💻 Ajouter et compléter la fonction qui va être utilisée pour créer une clef de chiffrement symétrique kfinale
-
-\# Bob crée la clef finale
+```python
+# Bob crée la clef finale
 def creeKFinale() -> str:
-`    `"""
-`    `crée un mot de 20 lettres en piochant 20 fois avec remise dans ALPHA
-`    `:return: par exemple 'KFIBCB2GU458925YPXHX'
-`    `"""
-`    `pass
+    """
+    crée un mot de 20 lettres en piochant 20 fois avec remise dans ALPHA
+    :return: par exemple 'KFIBCB2GU458925YPXHX'
+    """
+    pass
 
 
 print(creeKFinale())
+```
 
 Vérification 
-
-\# Vérification
+```python
+# Vérification
 seed(0)
 assert creeKFinale() == 'OQ2GWVPJUMDW8I86GY9J'
-
+```
 Bob doit maintenant chiffrer cette clef finale avec la clef publique d’Alice.
 
 Il nous faut donc une fonction f(k, m) qui chiffre un message m avec une clef k.
 
 Nous aurons besoin de la fonction ci-dessous à ajouter au fichier :
-
+```python
 def decal(clef: str) -> list:
-`    `"""
-`    `:param clef: chaîne de 20 caractères parmi 0, 1, 2, ..., 9, A, B, C, D, E, F
-`    `Par exemple : 'C5D71484F8CF9BF4B76F'
-`    `:return: liste de 10 entiers qui correspondent aux décalages en décimal à 
-`    `appliquer dans le chiffrement modulo 36
-`    `>>> decal('C5D71484F8CF9BF4B76F')
-`    `[17, 35, 20, 24, 32, 27, 11, 28, 3, 3]
-`    `En effet C5 correspond à 197 en décimal, et 197 % 36 = 17
-`    `"""
-`    `return [int(clef[i:i+2], 16) % 36 for i in range(0, len(clef), 2)]
+    """
+    :param clef: chaîne de 20 caractères parmi 0, 1, 2, ..., 9, A, B, C, D, E, F
+    Par exemple : 'C5D71484F8CF9BF4B76F'
+    :return: liste de 10 entiers qui correspondent aux décalages en décimal à 
+    appliquer dans le chiffrement modulo 36
+    >>> decal('C5D71484F8CF9BF4B76F')
+    [17, 35, 20, 24, 32, 27, 11, 28, 3, 3]
+    En effet C5 correspond à 197 en décimal, et 197 % 36 = 17
+    """
+    return [int(clef[i:i+2], 16) % 36 for i in range(0, len(clef), 2)]
+```
+
 
 Principe de la fonction f(k, m) :
 
 Cette fonction chiffre le message m par le principe du chiffrement de Vigenère avec la clef k.
-
+```
 f respecte f(kpriv, f(kpub,m)) = m.
-
+```
 Elle est cependant très basique : elle effetue un décalage des lettres conforme à la clef... C'est un décodage de Vigenère dont la clef serait publique donc trivialement cassée.
 
 💻 Ajouter et compléter la fonction avec :
 
-- - On définit ALPHA : chaîne des caractères possibles utilisés.
-- - On convertit la clef en une liste de décalages avec la fonction decal
-- - On initialise m\_chiffre = ""
-- - pour chaque ième caractère de m :
-- - déterminer son rang dans ALPHA : rang = ALPHA.index(lettre)
-- - déterminer decaler\_dele decalage à appliquer à rang. Il s'obtient pour la lettre de rang i de la clef. La clef étant plus courte que m, on boucle sur la clef. Le décalage est donc pour le rang i : decaler\_de = decalages[i % len(decalages)]
-- - déterminer idx qui est l'indice dans ALPHA du caractère chiffré.
-- idx = (rang + decaler\_de) % 36
-- - ajouter à m\_chiffre le caractère chiffré correspondant à idx
-- - renvoyer m\_chiffre
+-\ On définit ALPHA : chaîne des caractères possibles utilisés.
+-\ On convertit la clef en une liste de décalages avec la fonction decal
+-\ On initialise m\_chiffre = ""
+-\ pour chaque ième caractère de m :
+    - déterminer son rang dans ALPHA : rang = ALPHA.index(lettre)
+    - déterminer decaler\_dele decalage à appliquer à rang. Il s'obtient pour la lettre de rang i de la clef. La clef étant plus courte que m, on boucle sur la clef. Le décalage est donc pour le rang i : decaler\_de = decalages[i % len(decalages)]
+    - déterminer idx qui est l'indice dans ALPHA du caractère chiffré.
+-\ idx = (rang + decaler\_de) % 36
+    - ajouter à m\_chiffre le caractère chiffré correspondant à idx
+-\ renvoyer m\_chiffre
 
-\# Bob chiffre la clef finale
+```python
+# Bob chiffre la clef finale
 def f(k: str, m: str) -> str:
-`    `"""
-`    `Cette fonction chiffre le message m par le principe du chiffrement de 
-`    `Vigenère avec la clef k.
-`    `:param k: clef qui sert au chiffrement (on boucle la clef sur la longueur de m)
-`    `:param m: message à chiffrer
-`    `:return: le message chiffré
-`    `>>> f("00000000000000000000", "CLE2CHIFFRER")
-`    `'CLE2CHIFFRER'
-`    `>>> f("C5D71484F8CF9BF4B76F", "CLE2CHIFFRER")
-`    `'TKYQ88T7IUVQ'
-`    `"""
-`    `pass
-
-
+    """
+    Cette fonction chiffre le message m par le principe du chiffrement de 
+    Vigenère avec la clef k.
+    :param k: clef qui sert au chiffrement (on boucle la clef sur la longueur de m)
+    :param m: message à chiffrer
+    :return: le message chiffré
+    >>> f("00000000000000000000", "CLE2CHIFFRER")
+    'CLE2CHIFFRER'
+    >>> f("C5D71484F8CF9BF4B76F", "CLE2CHIFFRER")
+    'TKYQ88T7IUVQ'
+    """
+    pass
+    
 
 assert f("C5D71484F8CF9BF4B76F", "CLE2CHIFFRER") == 'TKYQ88T7IUVQ'
+```
 
-- 1. Scénario complet de la création et transmission de clef
+5\. Scénario complet de la création et transmission de clef
 
 💻 Ajouter et compléter le scénario :
 
@@ -864,10 +870,13 @@ assert f("C5D71484F8CF9BF4B76F", "CLE2CHIFFRER") == 'TKYQ88T7IUVQ'
 
 <b>1<sup>er</sup> temps :</b>
 
-\# Création des clef publique et privée
+```python
+# Création des clef publique et privée
 (kpub,kpriv) = creClef()
-print('Alice crée (et envoie à Bob) une clef publique : \t\t\t\tK\_pub\_Alice :', ❓)
+print('Alice crée (et envoie à Bob) une clef publique : \t\t\t\tK_pub_Alice :', ❓)
 print('clef privée associée secrète:  \t', ❓)
+```
+
 
 <b>2<sup>ème</sup> temps :</b> 
 
