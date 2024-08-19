@@ -1689,3 +1689,254 @@ NBP = [3, 7, 13, 29, 47, 127, 179, 257, 521, 1039, 2111]
 0.00017563680700004625
 
 ```
+
+Que vaut cette durée ici avec un seul nombre significatif  ?
+
+4.19. Comparer les temps d'exécution pour notre deuxième fonction de recherche, celle qui ne cherche les diviseurs que jusqu'à la racine carré de **x**.
+
+```
+>>> duree_v2(2111, 1000)
+4.331548000563634e-06
+```
+
+
+Exprimer les durées des questions 18 et 19 en puissance de 10<sup>-6</sup> puis comparer les durées moyennes d'exécution des questions 16 et 17.
+
+4.20. La durée est liée aux nombres de diviseurs à vérifier (nombre de fois où on effectue la boucle), à la taille (en octets) du nombre x par rapport aux nombres d'octets ainsi qu'à la taille (en octets) du diviseur...
+
+```
+>>> duree_v2(1008001, 10000)
+8.181419499996992e-05
+ 
+>>> duree_v2(1008003, 10000)
+1.609260599980189e-06
+ 
+>>> duree_v2(1008005, 10000)
+1.8608375999974668e-06
+ 
+>>> duree_v2(1008002, 10000)
+6.398853001883253e-07
+```
+
+
+**Questions**
+
+- Pourquoi les temps de réponses pour 1008003, 1008005 et 108002 (ces 3 nombres ne sont pas premiers) sont-ils bien plus bas que pour le nombre premier 1008001 ?
+- Pourquoi la réponse pour 108002 est-elle encore plus rapide ?
+- Que devrait faire cette durée pour vérifier de vrais nombres premiers de plus en plus grands ?
+
+4.21. Utiliser les appels suivants qui vont permettre de comparer les durées mais également les allures des coûts. Gagne-t-on simplement en temps en utilisant la limite de la racine carrée ?
+
+```
+>>> trace_duree(NBP, duree_v1, 1000)
+ 
+>>> trace_duree(NBP, duree_v2, 100000)
+```
+
+
+**Complexité de l'algorithme naïf**
+
+Nous avons vu qu'avec un peu d'algorithmique (on teste uniquement les entiers impairs) et de mathématique (on teste uniquement les diviseurs jusq'à la racine carrée), on était parvenu à améliorer la rapidité de la réponse pour un entier premier.
+```
+>>> trace_duree(NBP2, duree_v2, 100000)
+```
+
+![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.038.png){: .center}
+
+Réfléchissons un peu au coût d'une réponse sur un nombre premier **x**.
+
+Avec 2 bits b, on peut écrire des nombres de 0 à 3.
+
+Avec 3 bits b, on peut écrire des nombres de 0 à 7.
+
+Avec 4 bits b, on peut écrire des nombres de 0 à 15.
+
+Avec b bits, on peut écrire des nombres de 0 à 2<sup>b</sup>-1.
+
+Le lien entre n et b est donc de type <b>2<sup>b</sup></b>.
+
+Cela veut donc dire que le lien entre b et n est de type **log2(n)**.
+
+Si on en revient à notre algorithme :
+
+1. Au pire, on doit faire autant de tours de boucle que la racine carrée de **x**. La complexité semble donc liée à ceci :
+
+![coût de l'algorithme naïf](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.039.png)
+
+1. On pourrait croire que le coût de l'algorithme est lié à la racine carré mais en réalité la difficulté du travail demandé dépend du nombre de bits nécessaires à l'encodage du nombre.
+
+![coût de l'algorithme naïf](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.040.png)
+
+1. Or, puisque la racine carré n'est rien d'autres que la mise à la puisance 1/2, on peut donc écrire que :
+1. Le coût de la recherche de primalité d'un nombre quelconque s'exprimant avec b bits est en <b>O(2<sup>b/2</sup>)</b>
+1. Le coût de la recherche de primalité d'un nombre premier s'exprimant avec b bits est en <b>Θ(2<sup>b/2</sup>)</b>
+
+Conclusion : on ne pourra pas utiliser cet algorithme pour créer des nombres premiers de 512 bits au moins.
+
+Déçu ? Eh oui. Il va falloir cette fois abandonner les méthodes de résolution purement informatique et sortir l'arsenal des mathématiques. Mais ce n'est pas pour tout de suite, ni pour cette année. Nous allons donc nous limiter à des recherches sur des nombres premiers d'une vingtaine de bits chacune. C'est déjà pas mal. Ca permettra de créer des clés de 40 bits.
+
+En prenant quelques minutes, on pourrait rajouter quelques bits supplémentaires mais rien qui permettent de vraiment d'atteindre 1024 bits ou plus. Pour cela, il va falloir gagner quelques niveaux en mathématiques d'abord.
+
+4.22. Décommenter la ligne 111. Vous allez pouvoir obtenir la comparaison entre la courbe réelle des durées d'exécution et la courbe théorique exponentielle.
+
+![coût de l'algorithme naïf](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.041.png){: .center}
+
+```python
+# Création du graphique
+plt.plot(axe_x, axe_y, label="Temps de recherche 1er essai", color='red')
+plt.plot(axe_x, [2**(b/2)/((2**(axe_x[-1]/2))/axe_y[-1]) for b in axe_x], color='blue', label="Temps de recherche théorique")
+```
+
+
+
+
+Pour finir avec cette partie, voici l'allure des durées de traitement pour déterminer la primalité des entiers jusqu'à 1 million (à peine 20 bits donc) 
+
+On peut voir que la durée évolue à peine dans le cas d'un nombre non-premier (le bas de la courbe) mais qu'il devient de plus en plus long d'estimer si un grand nombre premier est premier.
+
+![durées pour prouver la primalité](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.042.png){: .center}
+
+
+4.23. programmation et bugs Dernière chose : quelqu'un propose une dernière implémentation de la fonction. Plutôt que d'utiliser un while pour implémenter le TANT QUE, il est passé par un for associé au fait qu'on sorte de la fonction après avoir rencontré un return.
+
+**Questions** :
+
+1. qu'est-ce qui provoque l'exécution des exemples du docstring (qui normalement ne sont que des exemples présents dans la documentation ?
+1. Pourquoi les exemples ne font-ils pas se lancer automatiquement si on importe le module et qu'on le lance depuis un autre script ?
+1. Pourrait-on la ligne vide 21 ?
+1. où se trouve l'erreur ? Modifier le code pour qu'elle fonctionne.
+
+```python
+def est_premier_v3(x: int) -> bool:
+    '''Fonction naïve qui recherche si un nombre est premier par force brute
+    :: param x(int)   :: un entier positif
+    :: return (bool)  :: True si x est premier, False sinon
+    .. ATTENTION : cette version disfonctionne si elle n'est pas modifée
+
+    :: exemples ::
+    >>> est_premier_v3(7)
+    True
+    >>> est_premier_v3(5)
+    True
+    >>> est_premier_v3(25)
+    False
+    >>> est_premier_v3(4)
+    False
+    >>> est_premier_v3(11)
+    True
+    >>> est_premier_v3(15)
+    False
+
+    '''
+
+    if x == 2:
+        return True
+    elif x % 2 == 0:
+        return False
+    else:
+        limite = math.floor(math.sqrt(x))
+        for d in range(3, limite, 2):
+            if x % d == 0:
+                return False
+    return True
+
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
+```
+
+
+```python
+**********************************************************************
+File "activite_prog_rsa.py", line 31, in __main__.est_premier_v3
+Failed example:
+    est_premier_v3(25)
+Expected:
+    False
+Got:
+    True
+**********************************************************************
+File "activite_prog_rsa.py", line 37, in __main__.est_premier_v3
+Failed example:
+    est_premier_v3(15)
+Expected:
+    False
+Got:
+    True
+**********************************************************************
+1 items had failures:
+   2 of   6 in __main__.est_premier_v3
+***Test Failed*** 2 failures.
+```
+
+
+**5 - ETAPES 1-2-3**
+
+Maintenant que nous savons déterminer (avec un algorithme assez peu performant) si un entier est premier ou pas, nous allons pouvoir réaliser les trois premières étapes de RSA :
+
+**Etape 1 : choisir deux nombres entiers p et q de b bits.**
+
+**Etape 2 : calculer le module de chiffrement n.**
+
+**n = p \* q** 
+
+**Etape 3 : calculer indicatrice d'Euler φ**
+
+**φ = (p-1) \* (q-1)** 
+
+Commençons par nous souvenir qu'avec <b>b</b> bits, on peut encoder un entier naturel dont la valeur varie de  <b>0</b>  à  <b>2<sup>b</sup> - 1</b> , soit  <b>2<sup>b</sup></b>  entiers au total.
+
+On veut créer un nombre qui nécessite vraiment b bits et qui ne soit pas zéro : il faut donc que le bit de poids fort et le bit de poids faible ne soient pas 0 :  **1-------1** .
+
+- Au minimum : seuls ces deux bits sont à 1. On a alors  <b>2<sup>b-1</sup> + 1</b> .
+- Au maximum : tous les bits sont à 1. On a alors la valeur maximale  <b>2<sup>b</sup> - 1</b> 
+
+Si on désire créer un nombre premier aléatoire de **b** bits, il suffit **naïvement** d'utiliser cet algorithme (on ne considèrera pas le cas où 2 est un premier possible, puisqu'on désire générer des grands nombres):
+
+La fonction **trouver\_premier**(**b**)
+
+- Calcule le plus petit et le plus grand nombre possible
+- Tire un nombre aléatoire IMPAIR entre ces deux nombres
+- Renvoie le premier nombre premier qu'on trouve à partir de ce nombre IMPAIR
+
+5.24. programmation et bugs : Fichier rsa\_v2.py. Mettre ce programme en mémoire.
+
+Lancer l'appel suivant puis corriger l'erreur qui apparaît.
+```
+>>> est_premier_v2(13)
+True
+ 
+>>> est_premier_v2(23)
+True
+ 
+>>> nombre_impair(13, 23)
+    while x % 2 == 0 or x < minimum or x > maximum:
+UnboundLocalError: local variable 'x' referenced before assignment
+```
+
+
+
+Finalisons.
+
+**Algorithme pour obtenir un nombre premier au hasard**
+
+Remarque : l'algorithme utilise
+
+1. la fonction **est\_premier**, ici dans sa version 2.
+1. la fonction **nombre\_impair**(**minimum**, **maximum**) qui renvoie un nombre impair aléatoire dans l'intervalle [minimum, maximum]
+
+**Description de l'algorithme de recherche** **renvoyer\_premier**(**b**)
+```
+ 	minimum ← le plus petit nombre IMPAIR voulu (2b-1 + 1)
+ 	maximum ← le plus grand nombre IMPAIR voulu (2b - 1)
+    x ← nombre_impair(minimum, maximum)
+    TANT QUE NON est_premier_v2(x)
+ 		x ← x + 2
+ 	    SI x > maximum
+ 		    x ← minimum
+ 	    Fin SI
+    Fin TANT QUE
+    Renvoyer x
+```
+

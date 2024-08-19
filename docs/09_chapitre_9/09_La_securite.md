@@ -1737,10 +1737,11 @@ Exprimer les durées des questions 18 et 19 en puissance de 10<sup>-6</sup> pui
 **Complexité de l'algorithme naïf**
 
 Nous avons vu qu'avec un peu d'algorithmique (on teste uniquement les entiers impairs) et de mathématique (on teste uniquement les diviseurs jusq'à la racine carrée), on était parvenu à améliorer la rapidité de la réponse pour un entier premier.
+```
+>>> trace_duree(NBP2, duree_v2, 100000)
+```
 
-\>>> trace\_duree(NBP2, duree\_v2, 100000)
-
-![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.038.png)
+![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.038.png){: .center}
 
 Réfléchissons un peu au coût d'une réponse sur un nombre premier **x**.
 
@@ -1776,108 +1777,99 @@ Déçu ? Eh oui. Il va falloir cette fois abandonner les méthodes de résolutio
 
 En prenant quelques minutes, on pourrait rajouter quelques bits supplémentaires mais rien qui permettent de vraiment d'atteindre 1024 bits ou plus. Pour cela, il va falloir gagner quelques niveaux en mathématiques d'abord.
 
-4\.22. Décommenter la ligne 111. Vous allez pouvoir obtenir la comparaison entre la courbe réelle des durées d'exécution et la courbe théorique exponentielle.
+4.22. Décommenter la ligne 111. Vous allez pouvoir obtenir la comparaison entre la courbe réelle des durées d'exécution et la courbe théorique exponentielle.
 
-![coût de l'algorithme naïf](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.041.png)
+![coût de l'algorithme naïf](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.041.png){: .center}
 
-\# Création du graphique
-plt.plot(axe\_x, axe\_y, label="Temps de recherche 1er essai", color='red')
-plt.plot(axe\_x, [2\*\*(b/2)/((2\*\*(axe\_x[-1]/2))/axe\_y[-1]) for b in axe\_x], color='blue', label="Temps de recherche théorique")
+```python
+# Création du graphique
+plt.plot(axe_x, axe_y, label="Temps de recherche 1er essai", color='red')
+plt.plot(axe_x, [2**(b/2)/((2**(axe_x[-1]/2))/axe_y[-1]) for b in axe_x], color='blue', label="Temps de recherche théorique")
+```
 
-![durées pour prouver la primalité](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.042.png)
+
+
 
 Pour finir avec cette partie, voici l'allure des durées de traitement pour déterminer la primalité des entiers jusqu'à 1 million (à peine 20 bits donc) 
 
 On peut voir que la durée évolue à peine dans le cas d'un nombre non-premier (le bas de la courbe) mais qu'il devient de plus en plus long d'estimer si un grand nombre premier est premier.
 
+![durées pour prouver la primalité](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.042.png){: .center}
 
 
-4\.23. programmation et bugs Dernière chose : quelqu'un propose une dernière implémentation de la fonction. Plutôt que d'utiliser un while pour implémenter le TANT QUE, il est passé par un for associé au fait qu'on sorte de la fonction après avoir rencontré un return.
+4.23. programmation et bugs Dernière chose : quelqu'un propose une dernière implémentation de la fonction. Plutôt que d'utiliser un while pour implémenter le TANT QUE, il est passé par un for associé au fait qu'on sorte de la fonction après avoir rencontré un return.
 
-<a name="_hlk73049432"></a>**Questions** :
+**Questions** :
 
 1. qu'est-ce qui provoque l'exécution des exemples du docstring (qui normalement ne sont que des exemples présents dans la documentation ?
 1. Pourquoi les exemples ne font-ils pas se lancer automatiquement si on importe le module et qu'on le lance depuis un autre script ?
 1. Pourrait-on la ligne vide 21 ?
 1. où se trouve l'erreur ? Modifier le code pour qu'elle fonctionne.
 
-def est\_premier\_v3(x: int) -> bool:
-`    `'''Fonction naïve qui recherche si un nombre est premier par force brute
-`    `:: param x(int)   :: un entier positif
-`    `:: return (bool)  :: True si x est premier, False sinon
-.. ATTENTION : cette version disfonctionne si elle n'est pas modifée
+```python
+def est_premier_v3(x: int) -> bool:
+    '''Fonction naïve qui recherche si un nombre est premier par force brute
+    :: param x(int)   :: un entier positif
+    :: return (bool)  :: True si x est premier, False sinon
+    .. ATTENTION : cette version disfonctionne si elle n'est pas modifée
 
-`    `:: exemples ::
-`    `>>> est\_premier\_v3(7)
-`    `True
-`    `>>> est\_premier\_v3(5)
-`    `True
-`    `>>> est\_premier\_v3(25)
-`    `False
-`    `>>> est\_premier\_v3(4)
-`    `False
-`    `>>> est\_premier\_v3(11)
-`    `True
-`    `>>> est\_premier\_v3(15)
-`    `False
+    :: exemples ::
+    >>> est_premier_v3(7)
+    True
+    >>> est_premier_v3(5)
+    True
+    >>> est_premier_v3(25)
+    False
+    >>> est_premier_v3(4)
+    False
+    >>> est_premier_v3(11)
+    True
+    >>> est_premier_v3(15)
+    False
 
-`    `'''
+    '''
 
-`    `if x == 2:
-`        `return True
-`    `elif x % 2 == 0:
-`        `return False
-`    `else:
-`        `limite = math.floor(math.sqrt(x))
-`        `for d in range(3, limite, 2):
-`            `if x % d == 0:
-`                `return False
-`    `return True
+    if x == 2:
+        return True
+    elif x % 2 == 0:
+        return False
+    else:
+        limite = math.floor(math.sqrt(x))
+        for d in range(3, limite, 2):
+            if x % d == 0:
+                return False
+    return True
 
 
-if \_\_name\_\_ == '\_\_main\_\_':
-`    `import doctest
-`    `doctest.testmod()
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
+```
 
-\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
 
-File "activite\_prog\_rsa.py", line 31, in \_\_main\_\_.est\_premier\_v3
-
+```python
+**********************************************************************
+File "activite_prog_rsa.py", line 31, in __main__.est_premier_v3
 Failed example:
-
-`    `est\_premier\_v3(25)
-
+    est_premier_v3(25)
 Expected:
-
-`    `False
-
+    False
 Got:
-
-`    `True
-
-\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
-
-File "activite\_prog\_rsa.py", line 37, in \_\_main\_\_.est\_premier\_v3
-
+    True
+**********************************************************************
+File "activite_prog_rsa.py", line 37, in __main__.est_premier_v3
 Failed example:
-
-`    `est\_premier\_v3(15)
-
+    est_premier_v3(15)
 Expected:
-
-`    `False
-
+    False
 Got:
-
-`    `True
-
-\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
-
+    True
+**********************************************************************
 1 items had failures:
+   2 of   6 in __main__.est_premier_v3
+***Test Failed*** 2 failures.
+```
 
-`   `2 of   6 in \_\_main\_\_.est\_premier\_v3
-
-\*\*\*Test Failed\*\*\* 2 failures.
 
 **5 - ETAPES 1-2-3**
 
@@ -1887,11 +1879,11 @@ Maintenant que nous savons déterminer (avec un algorithme assez peu performant)
 
 **Etape 2 : calculer le module de chiffrement n.**
 
-` `**n = p \* q** 
+**n = p \* q** 
 
 **Etape 3 : calculer indicatrice d'Euler φ**
 
-` `**φ = (p-1) \* (q-1)** 
+**φ = (p-1) \* (q-1)** 
 
 Commençons par nous souvenir qu'avec <b>b</b> bits, on peut encoder un entier naturel dont la valeur varie de  <b>0</b>  à  <b>2<sup>b</sup> - 1</b> , soit  <b>2<sup>b</sup></b>  entiers au total.
 
@@ -1908,58 +1900,48 @@ La fonction **trouver\_premier**(**b**)
 - Tire un nombre aléatoire IMPAIR entre ces deux nombres
 - Renvoie le premier nombre premier qu'on trouve à partir de ce nombre IMPAIR
 
-5\.24. programmation et bugs : Fichier rsa\_v2.py. Mettre ce programme en mémoire.
+5.24. programmation et bugs : Fichier rsa\_v2.py. Mettre ce programme en mémoire.
 
 Lancer l'appel suivant puis corriger l'erreur qui apparaît.
-
-\>>> est\_premier\_v2(13)
-
+```
+>>> est_premier_v2(13)
 True
-
-
-
-\>>> est\_premier\_v2(23)
-
+ 
+>>> est_premier_v2(23)
 True
-
-
-
-\>>> nombre\_impair(13, 23)
-
-`    `while x % 2 == 0 or x < minimum or x > maximum:
-
+ 
+>>> nombre_impair(13, 23)
+    while x % 2 == 0 or x < minimum or x > maximum:
 UnboundLocalError: local variable 'x' referenced before assignment
+```
 
 
 
 Finalisons.
-##### Algorithme pour obtenir un nombre premier au hasard
+
+**Algorithme pour obtenir un nombre premier au hasard**
+
 Remarque : l'algorithme utilise
 
 1. la fonction **est\_premier**, ici dans sa version 2.
 1. la fonction **nombre\_impair**(**minimum**, **maximum**) qui renvoie un nombre impair aléatoire dans l'intervalle [minimum, maximum]
 
 **Description de l'algorithme de recherche** **renvoyer\_premier**(**b**)
+```
+ 	minimum ← le plus petit nombre IMPAIR voulu (2b-1 + 1)
+ 	maximum ← le plus grand nombre IMPAIR voulu (2b - 1)
+    x ← nombre_impair(minimum, maximum)
+    TANT QUE NON est_premier_v2(x)
+ 		x ← x + 2
+ 	    SI x > maximum
+ 		    x ← minimum
+ 	    Fin SI
+    Fin TANT QUE
+    Renvoyer x
+```
 
-` 	`<b>minimum</b> ← le plus petit nombre IMPAIR voulu (<b>2<sup>b-1</sup> + 1</b>)
 
-` 	`<b>maximum</b> ← le plus grand nombre IMPAIR voulu (<b>2<sup>b</sup> - 1</b>)
 
-**x** ← **nombre\_impair**(**minimum**, **maximum**)
-
-**TANT QUE** **NON** **est\_premier\_v2**(**x**)
-
-` 		`**x** ← **x** + 2
-
-` 	`**SI** **x** > **maximum**
-
-` 		`**x** ← **minimum**
-
-` 	`Fin SI
-
-Fin TANT QUE
-
-**Renvoyer** **x**
 
 5\.25. <a name="_hlk73132134"></a>Réaliser l'implémentation de la fonction **renvoyer\_premier**.
 
