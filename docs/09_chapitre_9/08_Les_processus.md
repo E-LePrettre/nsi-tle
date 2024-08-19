@@ -1940,3 +1940,228 @@ Remarque : l'algorithme utilise
     Renvoyer x
 ```
 
+5.25. Réaliser l'implémentation de la fonction **renvoyer\_premier**.
+
+Ouf. Presque fini avec l'étape 1, 2 et 3 :
+
+**Structure d'un programme ou d'un module**
+
+On place les éléments dans un ordre précis et en séparant clairement les parties :
+
+-\ les importations
+
+-\ les CONSTANTES éventuelles
+
+-\ les déclarations de Classes
+
+-\ les déclarations de fonctions en séparant si possible :
+
+  - les fonctions internes (pas d'appel depuis l'extérieur)
+
+  - les fonctions d'interface (utilisables)
+
+-\ le programme qu'on veut voir s'exécuter uniquement en cas d'appel direct
+
+Voici ci-dessous le programme permettant de (presque) gérer les étapes 1, 2 et 3.
+
+5.26. Fichier rsa3.py : Observer la fonction **creer\_cles** puis lancer le programme. Observer les erreurs d'exécution fournies par le module **doctest**.
+
+**Questions**
+
+1. Où se trouve l'appel de la fonction **creer\_cles** ?
+1. Sous quelle condition cet appel ne se fera-t-il pas ?
+
+**6 - TESTER**
+
+Avant de continuer, voyons comment vérifier le bon déroulement du programme **même si un utilisateur envoie un mauvais argument à l'une des fonctions d'interface.**
+
+Nous allons revoir qu'on gère différemment
+
+- les **fonctions d'interface** : l'utilisateur a potentiellement envoyé n'importe quoi, il convient donc de vérifier les paramètres avant de demander aux fonctions internes de travailler sur ces données.
+- les **fonctions internes** : normalement, ces fonctions ont été testées et validées avant utilisation, si on leur transmet de bons arguments, pas de raison qu'elles dysfonctionnent.
+
+**Tester les fonctions avec des assertions**
+
+Première façon de faire : on stoppe l'exécution du programme
+
+- si l'une des préconditions est fausse (conditions sur les paramètres d'ENTREES)
+- si l'une des postconditions est fausse (conditions sur la réponse en SORTIE)
+
+Avantage : on surveille tout et on détecte tous les dysfonctionnements qu'on peut tenter de gérer ensuite
+
+Désavantage : ça coupe tout au moindre problème et ça ralentit le tout à cause du nombre importants de tests.
+
+On peut voir cela comme de la programmation "défensive" : on accepte de travailler qu'avec des données valides et on refuse de continuer au moindre problème. Ca peut être bien sur certaines applications où les problèmes engendrés peuvent être pires qu'une simple interruption.
+
+6.27. On va étudier deux fonctions supplémentaires. Lancer le fichier rsa4.py.
+
+En vous aidant de la première, créer des assertions pour la seconde fonction :
+
+1\. les préconditions AVANT de commencer à calculer phi.
+
+2\. vérifiez les deux postconditions suivantes APRES avec calculer phi mais avant de faire répondre la fonction :
+
+   - phi est bien un entier et
+
+   - phi < p\*q
+
+6.28. Tester si **p** et **q** sont premiers est-il rapide ou lent ?
+
+Est-ce bien utile d'ailleurs pour une fonction qui est juste censée renvoyer une multiplication ?
+
+**Conclusion sur l'utilisation des assertions**
+
+Tout vérifier est contre-productif. Il faut vérifier ce qui est important pour la fonction en elle-même, sans oublier qu'elle s'insère dans un ensemble.
+
+![déroulement des appels](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.043.png){: .center}
+
+6.29. Pourquoi n'est-ce pas la peine de vérifier la primalité de **p** et **q** dans **calculer\_module** si on a bien vérifié la fonction **renvoyer\_premier** ?
+
+Habituellement (sauf exception), on va donc supprimer une bonne partie des exceptions après la phase de développement. En garder quelques-unes bien choisies permet de détecter plus facilement les dysfonctionnements pour une cause non prévue si on n’a pas montrer la correction de toutes les fonctions.
+
+Une fois toutes les fonctions internes validées, il ne reste qu'à bien filtrer les arguments envoyés aux fonctions d'interface.
+
+**Filtrer les paramètres des fonctions d'interface (hors programme, simple présentation de culture générale)**
+Avec les fonctions d'interface, c'est plus compliqué : le contenu des paramètres est potentiellement mauvais.
+
+1. Soit on met des assertions : tant pis pour l'utilisateur qui fait n'importe quoi (on protège les données). Mais ça fait stopper le système.
+
+```python
+def creer_cles(b: int) -> tuple:
+    '''Renvoie un tuple contenant la clé publique et la clé privée ou None
+
+    :: param b(int)        :: le nombre de bits voulus pour les entiers premiers
+    :: return (tuple|None) :: un tuple contenant les clés ou None en cas de problème
+
+    '''
+
+    assert type(b) == int, "b n'est pas un entier"
+    assert b > 0
+
+    ..code
+    normal..
+```
+
+
+1. Soit on fait des tests d'erreurs (avec des **if**) sur les erreurs d'entrée qu'on peut prévoir, et on réalise autre chose que la séquence normale si c'est le cas. Il faut penser à tout et dire à l'utilisateur qu'on va renvoyer un mauvais résultat s'il envoie n'importe quoi... Est-ce mieux ?
+```python
+def creer_cles(b: int) -> tuple:
+    '''Renvoie un tuple contenant la clé publique et la clé privée ou None
+
+    :: param b(int)        :: le nombre de bits voulus pour les entiers premiers
+    :: return (tuple|None) :: un tuple contenant les clés ou None en cas de problème
+
+    '''
+
+    if type(b) == int and b > 0:
+
+        ...
+        code
+        normal...
+
+    else:
+
+        return None
+
+```
+
+
+1. Soit on tente de faire fonctionner le système (avec des **try**) et en cas déclenchement d'une erreur, on prévoit autre chose (avec des **except**). Mais on n'en parlera pas plus que ça, ce n'est pas au programme et il faut faire attention à ce qu'on fait aussi : si on envoie un flottant, ça passera ici ! Je n'en parle qu'en terme de culture générale, pour que vous sachiez ce que cela fait si vous tombez sur un tel code. On en parlera plus ensuite.
+```python
+def creer_cles(b: int) -> tuple:
+    '''Renvoie un tuple contenant la clé publique et la clé privée ou None
+
+    :: param b(int)        :: le nombre de bits voulus pour les entiers premiers
+    :: return (tuple) :: un tuple contenant les clés
+    .. on utilisera des premiers sur 20 bits en cas de problème quelconque
+
+    '''
+
+    try:
+        b = int(b)
+    except:
+        b = 20
+
+    if not b > 0:
+        b = 20
+
+    ..code
+    normal..
+
+```
+
+
+Le problème des méthodes 2 et 3 : il n'y pas toujours facile de retrouver la raison initiale d'une erreur à un moment si on a modifier les 'mauvaises' données envoyées par l'utilisateur. Bref, comme vous le voyez c'est un vrai sujet qui mérite des heures de formation.
+
+
+**A retenir pour cette année :**
+
+On distinguera 3 grands types d'erreur :
+
+1. les **erreurs de syntaxe** : facile à détecter par l'interpréteur (on a oublié un :, on a écrit dec plutôt que def...)
+1. les **erreurs d'exécution** : le code est "propre" mais l'un des contenus n'est pas du bon type ou ne contient pas ce qu'il faut. Il faut vérifier le contenu des variables pour savoir d'où vient le problème. Et si on a trop filtrer les arguments, il est possible que cela soit encore plus difficile !
+1. Les **erreurs logiques ou sémantiques** : le code a l'air propre mais l'algorithme est faux. Cela ne déclenche pas d'erreur mais renvoie de mauvaises réponses. Comme elles ne déclenchent pas d'erreur en elles-même, ces erreurs sont compliquées à gérer. C'est l'un qu'un bon choix d'assertions permet de couper le programme à l'endroit où les préconditions ou postconditions ne sont plus bonnes.
+
+Quelques bonnes pratiques pour limiter le nombre d'erreurs :
+
+1. Faire de petites fonctions ET les tester avant de passer à autre chose : c'est l'intéret des jeux de tests
+1. Placer des assertions permettant de vérifer les préconditions et les postconditions (cela coupe le déroulement du processus lorsqu'on détecte un problème)
+1. Choisir judicieusement les assertions en prenant en compte la position de la fonction dans le programme ou le module (fonction d'interface, fonction interne...)
+1. Le filtrage des paramètres est possible mais nécessite des précautions et n'est pas une solution miracle non plus : cela peut même compliquer la recherche de la source d'un bug.
+
+**7 - DÉTERMINER L'EXPOSANT E DE CHIFFREMENT**
+
+
+
+Rappel :
+
+**Etape 4 : choisir l'exposant de chiffrement e**
+
+Cette étape est plus délicate à réaliser. Nous allons voir qu'il va falloir utiliser l'**algorithme d'Euclide**.
+
+Sans un bon algorithme, cette simple recherche peut prendre du temps.
+
+Ce exposant de chiffrement **e** doit être
+
+1. un entier inférieur à **φ**
+1. premier avec **φ** : **e** ne doit pas partager de diviseur commun avec **φ** , d'où l'algorithme d'Euclide.
+
+Ici, on a  **φ = 2016**  et on décompose 2106 de cette façon :  2016 = 2<sup>5</sup> \* 3<sup>2</sup> \* 7  : 2, 3 et 7 sont donc les diviseurs à ne pas prendre pour **e**.
+
+Il suffit donc de prendre un nombre **e** qui ne soit divisible ni par 2, ni par 3, ni par 7.
+
+**Le plus grand commun diviseur de deux nombres premiers entre eux est donc ... 1 !**
+
+Il existe donc de nombreuses valeurs admissibles de **e**. Ces valeurs dépendent uniquement de **φ** (et donc indirectement de **p** et **q**).
+
+Commençons par voir comment fonctionne **l'algorithme d'Euclide** qui permet de déterminer le plus grand commun diviseur (PGCD) entre deux entiers.
+
+Le principe est de diviser un dividende par un diviseur pour trouver le reste.
+
+Le diviseur devient alors le dividende et le reste devient le diviseur.
+
+Si avant de faire la division, on voit que le diviseur est 0, on renvoie le dividende et il s'agit alors du PGCD.
+
+Cherchons le plus grand commun diviseur de 20 et 12 :
+
+![euclide_1](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.044.png){: .center}
+
+Le reste (qui est devenu le diviseur 8 maintenant) n'est pas nul, on continue.
+
+![euclide_2](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.045.png){: .center}
+
+Le reste (qui est devenu le diviseur 4 maintenant) n'est pas nul, on continue.
+
+![euclide_3](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.046.png){: .center}
+
+Le reste (qui est devenu le diviseur 0 maintenant) est nul : on arrête et on renvoie le nouveau dividende qui est le ... dernier diviseur non nul.
+
+![euclide_4](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.047.png){: .center}
+
+C'est bien la bonne réponse puisque 20 = 4 \* 5 et que 12 = 3 \* 4. 4 est bien le Plus Grand Commun Diviseur.
+
+Notez bien qu'avec Python, ce sera simple à coder puisqu'on peut obtenir le reste directement.
+
+
+
+
