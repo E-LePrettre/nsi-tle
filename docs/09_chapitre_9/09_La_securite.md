@@ -235,7 +235,7 @@ Bob récupère la clé publique 🔓 et peut chiffrer les messages. Seul Alice, 
 
 **Cependant, un problème reste à régler, il s'agit du problème de l'authentification : la sureté des communications dépend essentiellement sur le fait qu'Alice et Bob soient certains de communiquer avec la bonne personne.**
 
-1. ### <a name="_toc174920503"></a>**Echange de clé symétrique avec clés asymétriques : méthode de Diffie-Hellman**
+#### <a name="_toc174920503"></a>**4.2.2. Echange de clé symétrique avec clés asymétriques : méthode de Diffie-Hellman**
 En 1976, [Martin Hellman](https://fr.wikipedia.org/wiki/Martin_Hellman) a coécrit avec [Whit Diffie](https://fr.wikipedia.org/wiki/Whitfield_Diffie) un [article](https://ee.stanford.edu/~hellman/publications/24.pdf) où est décrit le protocole suivant, utilisant **les clefs asymétriques pour échanger des clefs symétriques**. On illustre le protocole par un message 📃 placé dans une boîte 📦 fermée par des cadenas.
 
 1. ![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.012.png)Alice met le message 📃 dans la boîte 📦 , puis la ferme avec sa clef publique 🔓 ;

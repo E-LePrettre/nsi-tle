@@ -233,3 +233,19 @@ Bob récupère la clé publique 🔓 et peut chiffrer les messages. Seul Alice, 
 **Inconvénients** : on doit générer **autant de clefs que d’expéditeurs potentiels**. De même, l’expéditeur doit avoir **autant de clef publique que de destinataire** à qui il envoie des messages. De plus, il est relativement lent même s’il existe des algorithmes (par exemple avec [l'algorithme de Rivest, Shamir et Adleman](https://fr.wikipedia.org/wiki/Chiffrement_RSA)) qui sont relativement rapides
 
 **Cependant, un problème reste à régler, il s'agit du problème de l'authentification : la sureté des communications dépend essentiellement sur le fait qu'Alice et Bob soient certains de communiquer avec la bonne personne.**
+
+#### <a name="_toc174920503"></a>**4.2.2. Echange de clé symétrique avec clés asymétriques : méthode de Diffie-Hellman**
+En 1976, [Martin Hellman](https://fr.wikipedia.org/wiki/Martin_Hellman) a coécrit avec [Whit Diffie](https://fr.wikipedia.org/wiki/Whitfield_Diffie) un [article](https://ee.stanford.edu/~hellman/publications/24.pdf) où est décrit le protocole suivant, utilisant **les clefs asymétriques pour échanger des clefs symétriques**. On illustre le protocole par un message 📃 placé dans une boîte 📦 fermée par des cadenas.
+
+1. ![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.012.png)Alice met le message 📃 dans la boîte 📦 , puis la ferme avec sa clef publique 🔓 ;
+1. ![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.013.png)Alice envoie la boîte fermée 📦🔒 à Bob  ;
+1. ![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.014.png)![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.015.png)![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.016.png)![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.017.png)Bob ne peut pas ouvrir la boîte 📦🔒 car il n'a pas la clef privée 🔑 d'Alice ; alors il rajoute sa clef publique 📦🔒🔒
+1. ![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.018.png)![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.019.png)Bob envoie la boîte fermée deux fois 📦🔒🔒 à Alice ;
+1. ![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.020.png)![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.021.png)Alice utilise sa clef privée 🔑 pour ouvrir partiellement la boîte 📦🔓 ;
+1. ![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.022.png)Alice renvoie la boîte 📦🔒 à Bob.
+1. ![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.023.png)Bob utilise sa clef privée 🔑 pour ouvrir la boîte 📦.
+1. Bob peut alors récupérer le message 📃 .
+
+Pour HTTPS, le message 📃 partagé entre Alice et Bob est **une clef symétrique** 🔐. La sécurisation de la communication est assurée parce qu'il est impossible à Marc 👽 de [se faire passer](https://fr.wikipedia.org/wiki/Attaque_de_l%27homme_du_milieu) pour Alice ou pour Bob sans disposer de **la clé privée** 🔑 de l'un des deux.
+
+Le protocole de Diffie-Hellman permet donc d'échanger une clé de chiffrement symétrique 🔐 à l'aide du chiffrement asymétrique. <https://www.venafi.com/fr/blog/en-quoi-les-echange-de-cles-diffie-hellman-et-rsa-different-ils> 
