@@ -399,3 +399,24 @@ Pour se prémunir de ces attaques, une *autorité de certification* assure de 
 **Activité n° 5  : Certification :** 
 
 Ecrire l'adresse : [https://www.elysee.fr/](https://www.elysee.fr) dans votre barre de navigation. Cliquer sur le cadenas, puis chercher le certificat.
+
+
+
+## <a name="_toc174920506"></a>**5. Le protocole HTTPS**
+### <a name="_toc174920507"></a>**5.1. Principe général**
+Aujourd'hui, plus de **90 % du trafic sur internet est chiffré** : les données ne transitent plus en clair (protocole HTTP) mais de manière chiffrée (protocole HTTPS), ce qui empêche la lecture de paquets éventuellement interceptés.
+
+Le protocole HTTPS est la réunion de deux protocoles :
+
+- le **protocole TLS (Transport Layer Security**, qui a succédé au SSL) : ce protocole, basé sur du **chiffrement asymétrique**, va conduire à la génération d'une clé identique chez le client et chez le serveur.
+- le protocole HTTP, mais qui convoiera maintenant des données chiffrées avec la clé générée à l'étape précédente. Les données peuvent toujours être interceptées, mais sont illisibles. Le **chiffrement symétrique** utilisé est actuellement le chiffrement AES.
+
+
+**Pourquoi ne pas utiliser que le chiffrement asymétrique, RSA par exemple ?**
+
+Le chiffrement RSA est très gourmand en ressources ! Le chiffrement/déchiffrement doit être rapide pour ne pas ralentir les communications ou l'exploitation des données.
+
+- Le **chiffrement asymétrique est donc réservé à l'échange de clés** (au début de la communication).
+- Le **chiffrement symétrique**, bien plus rapide, prend ensuite le relais pour l'ensemble de la communication.
+
+![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.031.png){: .center}
