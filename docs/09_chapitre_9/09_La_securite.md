@@ -877,29 +877,32 @@ print('Alice crée (et envoie à Bob) une clef publique : \t\t\t\tK_pub_Alice :'
 print('clef privée associée secrète:  \t', ❓)
 ```
 
-
 <b>2<sup>ème</sup> temps :</b> 
 
+```python
 print('Alice demande a Bob de créer la clef kfinale et ')
 print('de la chiffrer en utilisant la clef publique.')
 kfinale = ❓
 print('Bob crée la clef kfinale et la garde secrète : ', kfinale)
 kFinaleChiffree = ❓
 print("Il envoie kFinaleChiffree chiffrée avec la clé publique d'Alice \t\tkFinaleChiffree:", kFinaleChiffree)
+```
+
 
 <b>3<sup>ème</sup> temps :</b>
 
+```python
 print("Alice déchiffre kFinaleChiffree avec sa clef privée")
 print("Elle obtient :", ❓
 print("Cela correspond bien à la clef kfinale créée par Bob et tenue secrète.")
-
+```
 😀 Notez bien, la clef publique ne permet pas de décoder le mot
-
+```python
 print("On obtiendrait :", ❓)
-
+```
 😀 Le tour est joué ! Alice et Bob connaissent la clef kFinale, il vont pouvoir communiquer en utilisant un chiffrement symétrique !
 
-- 1. Alice et Bob communiquent !
+6/. Alice et Bob communiquent !
 
 Maintenant Alice et Bob vont communiquer avec cette clef échangée kfinale.
 
