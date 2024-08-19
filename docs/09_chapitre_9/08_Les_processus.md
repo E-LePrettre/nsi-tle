@@ -595,3 +595,133 @@ assert d2H(100) == '64'
 ```
 
 
+1.1. La fonction creCle()
+
+💻 Ajouter et compléter la fonction creCle()
+
+Voici son fonctionnement :
+
+- On génère 10 nombres aléatoires entre 0 et 255.
+- On convertit ces nombres en hexadécimal de longueur 2, en utilisant la fonction d2H
+- On concatène pour créer une clef de longueur 20. Les lettres devront être converties en majuscules.
+
+Cette clef serait très simple à casser, mais nous étudions ici seulement le principe.
+```python
+from random import randint
+
+def creClef() -> str:
+    """ Crée un clef de chiffrement composée de 20 caractères 
+    parmi ceux-ci : 0, 1, 2, ..., 9, A, B, C, D, E, F
+    :return: renvoie 20 caractères de 0, 1, 2, ..., 9, A, B, C, D, E, F
+    Par exemple : 'C5D71484F8CF9BF4B76F'
+    C5 représente 197, D7 représente 215 etc...
+    """
+    pass
+
+
+print(creClef())
+```
+
+
+Aide : on pourra utiliser **join()** et **upper()**
+
+Créez quelques clefs pour voir …
+```python
+for _ in range(3) :
+    print(creClef())
+```
+
+
+1.2. Approfondissement sur le module random :
+
+🤔 Pour tester notre fonction, comment obtenir des nombres "aléatoires" toujours identiques?
+En fait random crée des nombres "pseudos-aléatoires". Si on lui donne une initialisation a avec seed(a) , les nombres générés seront toujours identiques.
+
+**Tester ci-dessous** **en dehors du fichier** echange\_cle.py
+
+Sans initialisation du générateur, on obtient 5 listes différentes.
+
+Par défaut l'initialisation se fait avec la date actuelle, qui change tout le temps ..
+```python
+for i in range(5):
+    print([randint(0, 255) for i in range(10)])
+```
+
+
+On utilise une initialisation, par exemple seed(0)
+```python
+from random import seed
+for i in range(5):
+    seed(0)
+    print([randint(0, 255) for i in range(10)])
+```
+
+
+Nous aurions pu en choisir une autre, par exemple seed(42)
+```python
+from random import seed
+for i in range(5):
+    seed(42)
+    print([randint(0, 255) for i in range(10)])
+```
+
+
+Que remarquez vous ?
+
+😀 Nous pouvons donc tester notre fonction !
+
+Ajouter au fichier echange\_cle.py
+```python
+from random import seed
+seed(0)
+assert creClef() == 'C5D71484F8CF9BF4B76F'
+```
+
+
+2\. 1<sup>er</sup> temps : Créer la clé privée
+
+🔑 Il faut aussi créer une clef privée, liée à la clef publique. Dans notre exemple, le processus de création de la clef est très simple, et la conversion en hexadécimal est totalement factice. Il ne s'agit, comme dans le chiffrement de Vigenère, que d'appliquer un décalage variable des lettres. Pour les 10 premières lettres, le décalage est codé dans la clef, pour la 11ème on reprend le décalage de la 1ere, et ainsi de suite.... c'est ce qu'avait imaginé Vigenère.
+
+❓ Comment faire?
+
+Pour créer une clef qui permette de respecter :
+```
+𝑓(kpriv, 𝑓(kpub, m)) = 𝑓(kpub,  𝑓(kpriv, m)) = m
+```
+il suffit de créer les décalages qui compensent.
+
+Rappelons que nous allons utiliser un alphabet de 36 lettres :
+```
+ALPHA = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+```
+Par exemple, si on décale vers la droite de 12 (%36), il suffit de décaler encore de 36 - 12 = 24, en bouclant au début de l'alphabet, pour "retomber" sur le même caractère.
+
+On pourrait donc choisir un décalage dPriv = 36 - dPub % 36 .
+
+Pour "compliquer", on peut choisir également comme décalage dPriv = 36 - dPub % 36 + randint(1, 6) \* 36
+En effet, cela ne changera rien d'ajouter un décalage d'un nombre entier de fois 36. (On se limite à randint(1,6) pour que le nombre soit possible à coder en hexadécimal sur deux caractères).
+
+Voilà comment procéder pour créer la clef privée :
+```
+pour chaque décalage dPub de la clef publique :
+    dPriv = 36 - dPub % 36 + randint(1, 6) * 36 
+    coder dPriv en hexa2
+concaténer les hexa2(dPriv) en une chaine 
+```
+
+
+💻 Ajouter et compléter la fonction creClef()
+
+Attention, elle doit renvoyer un tuple (clef publique, clef privée)
+```python
+def creClef() -> tuple :
+    """
+    creClef doit renvoyer un tuple avec les 2 clefs: la publique et la privée
+    Exemple renvoyé:
+    ('47904730804B9E3225A9', '91D82584A08DCAEE6BBF')
+    """
+    pass
+
+
+print(creeClef())
+```
