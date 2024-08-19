@@ -420,10 +420,10 @@ Le chiffrement RSA est très gourmand en ressources ! Le chiffrement/déchiffrem
 
 ![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.031.png){: .center}
 
-1. ## <a name="_toc174920508"></a>**(HP) Fonctionnement du TLS : explication du *handshake***
+### <a name="_toc174920508"></a>**5.2. (HP) Fonctionnement du TLS : explication du *handshake***
 Observons en détail le fonctionnement du protocole TLS, dont le rôle est de générer de manière sécurisée une clé dont disposeront à la fois le client et le serveur, leur permettant ainsi d'appliquer un chiffrement symétrique à leurs échanges.
 
-![tls](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.032.png)
+![tls](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.032.png){: .center}
 
 - **étape 1** : le «client Hello». Le client envoie sa version de TLS utilisée.
 - **étape 2** : le «server Hello». Le serveur répond en renvoyant son certificat prouvant son identité, ainsi que sa clé publique.
@@ -437,7 +437,7 @@ Le transmission par protocole HTTP de données chiffrées au préalable avec l
 **POUR ALLER PLUS LOIN :** [Concours Alkindi (concours-alkindi.fr)](https://concours-alkindi.fr/main.html#/pageDiscover)
 
 
-![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.033.png)
+
 
 
 Merci à Gilles Lassus et Mireille Coilhac 
