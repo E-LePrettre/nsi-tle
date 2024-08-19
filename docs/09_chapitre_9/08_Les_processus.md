@@ -172,7 +172,7 @@ Comme la clé est plus courte que le message, il faut "reproduire" la clé vers 
 ⊕
  
   011101000110111101110100011011110111010001101111011101000110111101110100011011110111010001101111
- 
+  ________________________________________________________________________________________________
   001111000000101000011000000000110001101101001111001000110000000000000110000000110001000001001110
 ```   
 
@@ -189,7 +189,7 @@ Maintenant ce message est prêt pour être envoyé à son destinataire B. Si P i
 ⊕   
  
   011101000110111101110100011011110111010001101111011101000110111101110100011011110111010001101111
- 
+  ________________________________________________________________________________________________
   010010000110010101101100011011000110111100100000010101110110111101110010011011000110010000100001
 
 ```  
@@ -208,3 +208,28 @@ clé de chiffrement :  Vive la NSI !! 
 on chiffrera la phrase : Je suis en spécialité NSI et j’adore 
 
 
+### <a name="_toc174920501"></a>**4.2. Le chiffrement asymétrique**
+Le chiffrement asymétrique permet au poste destinataire de messages de générer une unique paire de clefs :
+
+- Une **clef privée** gardée secrète sur le poste destinataire des messages et stockée de manière sécurisée 
+- Une **clef publique** diffusée par le destinataire à tous les postes distants 
+
+
+#### <a name="_toc174920502"></a>**4.2.1. Le principe** 
+**Exemple :** 
+
+Alice crée deux clés, une clé de **chiffrement** 🔓 qu’elle rend **publique** et une clé de **déchiffrement** 🔑 qui reste **privée** (uniquement en possession de Alice). 
+
+Bob récupère la clé publique 🔓 et peut chiffrer les messages. Seul Alice, qui possède la clé privée 🔑, peut les déchiffrer.
+
+![Image](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.009.png){: .center}
+
+![Image](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.010.png){: .center}
+
+![Image](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.011.png){: .center}
+
+**Avantage** : Même si quelqu’un intercepte le message, **il n’a pas la clef privée** donc ne peut déchiffrer le message
+
+**Inconvénients** : on doit générer **autant de clefs que d’expéditeurs potentiels**. De même, l’expéditeur doit avoir **autant de clef publique que de destinataire** à qui il envoie des messages. De plus, il est relativement lent même s’il existe des algorithmes (par exemple avec [l'algorithme de Rivest, Shamir et Adleman](https://fr.wikipedia.org/wiki/Chiffrement_RSA)) qui sont relativement rapides
+
+**Cependant, un problème reste à régler, il s'agit du problème de l'authentification : la sureté des communications dépend essentiellement sur le fait qu'Alice et Bob soient certains de communiquer avec la bonne personne.**
