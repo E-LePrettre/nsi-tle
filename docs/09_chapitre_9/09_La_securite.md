@@ -238,20 +238,20 @@ Bob récupère la clé publique 🔓 et peut chiffrer les messages. Seul Alice, 
 #### <a name="_toc174920503"></a>**4.2.2. Echange de clé symétrique avec clés asymétriques : méthode de Diffie-Hellman**
 En 1976, [Martin Hellman](https://fr.wikipedia.org/wiki/Martin_Hellman) a coécrit avec [Whit Diffie](https://fr.wikipedia.org/wiki/Whitfield_Diffie) un [article](https://ee.stanford.edu/~hellman/publications/24.pdf) où est décrit le protocole suivant, utilisant **les clefs asymétriques pour échanger des clefs symétriques**. On illustre le protocole par un message 📃 placé dans une boîte 📦 fermée par des cadenas.
 
-1. ![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.012.png)Alice met le message 📃 dans la boîte 📦 , puis la ferme avec sa clef publique 🔓 ;
-1. ![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.013.png)Alice envoie la boîte fermée 📦🔒 à Bob  ;
-1. ![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.014.png)![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.015.png)![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.016.png)![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.017.png)Bob ne peut pas ouvrir la boîte 📦🔒 car il n'a pas la clef privée 🔑 d'Alice ; alors il rajoute sa clef publique 📦🔒🔒
-1. ![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.018.png)![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.019.png)Bob envoie la boîte fermée deux fois 📦🔒🔒 à Alice ;
-1. ![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.020.png)![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.021.png)Alice utilise sa clef privée 🔑 pour ouvrir partiellement la boîte 📦🔓 ;
-1. ![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.022.png)Alice renvoie la boîte 📦🔒 à Bob.
-1. ![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.023.png)Bob utilise sa clef privée 🔑 pour ouvrir la boîte 📦.
+1. Alice met le message 📃 dans la boîte 📦 , puis la ferme avec sa clef publique 🔓 ;
+1. Alice envoie la boîte fermée 📦🔒 à Bob  ;
+1. Bob ne peut pas ouvrir la boîte 📦🔒 car il n'a pas la clef privée 🔑 d'Alice ; alors il rajoute sa clef publique 📦🔒🔒
+1. Bob envoie la boîte fermée deux fois 📦🔒🔒 à Alice ;
+1. Alice utilise sa clef privée 🔑 pour ouvrir partiellement la boîte 📦🔓 ;
+1. Alice renvoie la boîte 📦🔒 à Bob.
+1. Bob utilise sa clef privée 🔑 pour ouvrir la boîte 📦.
 1. Bob peut alors récupérer le message 📃 .
 
 Pour HTTPS, le message 📃 partagé entre Alice et Bob est **une clef symétrique** 🔐. La sécurisation de la communication est assurée parce qu'il est impossible à Marc 👽 de [se faire passer](https://fr.wikipedia.org/wiki/Attaque_de_l%27homme_du_milieu) pour Alice ou pour Bob sans disposer de **la clé privée** 🔑 de l'un des deux.
 
 Le protocole de Diffie-Hellman permet donc d'échanger une clé de chiffrement symétrique 🔐 à l'aide du chiffrement asymétrique. <https://www.venafi.com/fr/blog/en-quoi-les-echange-de-cles-diffie-hellman-et-rsa-different-ils> 
 
-1. ### <a name="_toc174920504"></a>**Un exemple de chiffrement asymétrique : le chiffrement RSA**
+#### <a name="_toc174920504"></a>**4.2.3. Un exemple de chiffrement asymétrique : le chiffrement RSA**
 **Les congruences :**
 
 Il est 22h, quelle heure sera-t-il 8h plus tard ?
@@ -262,8 +262,14 @@ Si vous avez répondu 6h (et pas 30h à la question précédente), vous venez de
 
 Vérifions que 53≡5[24]. En effet 53=2×24+5
 
-|<p>**Activité n° AUTONUM  \* Arabic  : Les congruences :** </p><p>a. Compléter 103≡…[24]</p><p>b. Compléter : 13≡…[5]</p><p>c. Compléter : 42≡…[7]</p>|
-| :- |
+**Activité n° 2  : Les congruences :** 
+
+a. Compléter 103≡…[24]
+
+b. Compléter : 13≡…[5]
+
+c. Compléter : 42≡…[7]
+
 
 **Les nombres premiers** : On dit que deux nombres sont premiers entre eux **lorsque leur PGCD vaut 1**.
 
@@ -271,8 +277,7 @@ Par exemple 12 et 5 sont premiers entre eux
 
 33 et 27 ne sont pas premiers entre eux : 33=3×11 et 27=3<sup>3</sup>. Leur PGCD est égal à 3.
 
-|**Activité n° AUTONUM  \* Arabic  : Nombres premiers :** Donner la liste des nombres premiers avec 12 qui sont inférieurs à 12.|
-| - |
+**Activité n° 3  : Nombres premiers :** Donner la liste des nombres premiers avec 12 qui sont inférieurs à 12.
 
 **Histoire du chiffrement RSA** : Trois chercheurs du MIT (Boston), Ron Rivest, Adi Shamir et Len Adleman se penchent sur le protocole de Diffie et Hellman (concept de **chiffrement asymétrique**), convaincus qu'il est en effet impossible d'en trouver une implémentation pratique. En 1977, au cours de leurs recherches, ils démontrent en fait l'inverse de ce qu'ils cherchaient : ils créent le **premier protocole concret de chiffrement asymétrique** : le chiffrement **RSA**.
 
@@ -334,14 +339,31 @@ Alice reçoit la valeur 31. Il lui suffit alors d'élever 31 à la puissance 7 (
 
 Elle récupère la valeur 4, qui est bien le message original de Bob.
 
-![alice et bob](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.024.png)
+![alice et bob](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.024.png){: .center}
 
 <b>Comment ça marche ?</b> Grâce au [Petit Théorème de Fermat](https://fr.wikipedia.org/wiki/Petit_th%C3%A9or%C3%A8me_de_Fermat), on démontre (voir [ici](https://fr.wikipedia.org/wiki/Chiffrement_RSA)) assez facilement que <i>M <sup>ed</sup></i> ≡ <i>M</i> [<i>n</i>]. Il faut remarquer que <i>M <sup>ed</sup></i> = <i>M <sup>de</sup></i>. On voit que les rôles de la clé publique et de la clé privée sont <b>symétriques</b> : un message chiffré avec la clé publique se déchiffrera en le chiffrant avec la clé privée, tout comme un message chiffré avec la clé privée se déchiffrera en le chiffrant avec la clé publique.
 
 **Animation interactive** voir <https://animations.interstices.info/interstices-rsa/rsa.html>
 
-|<p>**Activité n° AUTONUM  \* Arabic  : Chiffrement RSA :** </p><p>Alice veut écrire à Bob.</p><p>Soit le couple de nombre premiers (p,q) avec  p=5 et q=13.</p><p>a. Calculer n et ϕ(*n*).</p><p>b. Justifier que (9,65) ne peut pas être une clé publique.</p><p>c. Vérifier que (11,65) est une clé publique. C'est la clé publique de Bob.</p><p>d. Vérifier que 35 est un inverse de 11 modulo 48.</p><p>e. En déduire la clé privée de Bob.</p><p>f. Chiffrer le nombre secret d'Alice 17 avec la clé publique de Bob. C'est ce nombre qu'Alice envoie à Bob.</p><p>g. Déchiffrer le nombre reçu par Bob</p><p></p>|
-| - |
+**Activité n° 4  : Chiffrement RSA :** 
+
+Alice veut écrire à Bob.
+
+Soit le couple de nombre premiers (p,q) avec  p=5 et q=13.
+
+a. Calculer n et ϕ(*n*).
+
+b. Justifier que (9,65) ne peut pas être une clé publique.
+
+c. Vérifier que (11,65) est une clé publique. C'est la clé publique de Bob.
+
+d. Vérifier que 35 est un inverse de 11 modulo 48.
+
+e. En déduire la clé privée de Bob.
+
+f. Chiffrer le nombre secret d'Alice 17 avec la clé publique de Bob. C'est ce nombre qu'Alice envoie à Bob.
+
+g. Déchiffrer le nombre reçu par Bob
 
 **RSA, un système inviolable ?**
 
@@ -353,6 +375,7 @@ Deux évènements pourraient faire s'écrouler la sécurité du RSA :
 
 - la découverte d'un **algorithme efficace de factorisation**, capable de tourner sur les ordinateurs actuels. Cette annonce est régulièrement faite, et tout aussi régulièrement contredite par la communauté scientifique.
 - **l'avènement d'[ordinateurs quantiques**](https://fr.wikipedia.org/wiki/Calculateur_quantique)**, dont la vitesse d'exécution permettrait une factorisation rapide. Il est à noter que l'algorithme de factorisation destiné à tourner sur un ordinateur quantique existe déjà : [l'algorithme de Schor](https://fr.wikipedia.org/wiki/Algorithme_de_Shor).
+
 
   1. ## <a name="_toc174920505"></a>**Attaque de l’homme du milieu (man in the middle)**
 ![homme milieu](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.025.png)
