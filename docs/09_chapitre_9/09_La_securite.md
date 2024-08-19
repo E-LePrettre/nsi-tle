@@ -1943,24 +1943,31 @@ Remarque : l'algorithme utilise
 
 
 
-5\.25. <a name="_hlk73132134"></a>Réaliser l'implémentation de la fonction **renvoyer\_premier**.
+5.25. Réaliser l'implémentation de la fonction **renvoyer\_premier**.
 
 Ouf. Presque fini avec l'étape 1, 2 et 3 :
 
-##### Structure d'un programme ou d'un module
+**Structure d'un programme ou d'un module**
+
 On place les éléments dans un ordre précis et en séparant clairement les parties :
 
-- les importations
-- les CONSTANTES éventuelles
-- les déclarations de Classes
-- les déclarations de fonctions en séparant si possible :
+-\ les importations
+
+-\ les CONSTANTES éventuelles
+
+-\ les déclarations de Classes
+
+-\ les déclarations de fonctions en séparant si possible :
+
   - les fonctions internes (pas d'appel depuis l'extérieur)
+
   - les fonctions d'interface (utilisables)
-- le programme qu'on veut voir s'exécuter uniquement en cas d'appel direct
+
+-\ le programme qu'on veut voir s'exécuter uniquement en cas d'appel direct
 
 Voici ci-dessous le programme permettant de (presque) gérer les étapes 1, 2 et 3.
 
-<a name="_hlk73104884"></a>5.26. Fichier rsa3.py : Observer la fonction **creer\_cles** puis lancer le programme. Observer les erreurs d'exécution fournies par le module **doctest**.
+5.26. Fichier rsa3.py : Observer la fonction **creer\_cles** puis lancer le programme. Observer les erreurs d'exécution fournies par le module **doctest**.
 
 **Questions**
 
@@ -1976,7 +1983,8 @@ Nous allons revoir qu'on gère différemment
 - les **fonctions d'interface** : l'utilisateur a potentiellement envoyé n'importe quoi, il convient donc de vérifier les paramètres avant de demander aux fonctions internes de travailler sur ces données.
 - les **fonctions internes** : normalement, ces fonctions ont été testées et validées avant utilisation, si on leur transmet de bons arguments, pas de raison qu'elles dysfonctionnent.
 
-##### Tester les fonctions avec des assertions
+**Tester les fonctions avec des assertions**
+
 Première façon de faire : on stoppe l'exécution du programme
 
 - si l'une des préconditions est fausse (conditions sur les paramètres d'ENTREES)
@@ -1988,16 +1996,19 @@ Désavantage : ça coupe tout au moindre problème et ça ralentit le tout à ca
 
 On peut voir cela comme de la programmation "défensive" : on accepte de travailler qu'avec des données valides et on refuse de continuer au moindre problème. Ca peut être bien sur certaines applications où les problèmes engendrés peuvent être pires qu'une simple interruption.
 
-6\.27. On va étudier deux fonctions supplémentaires. Lancer le fichier rsa4.py.
+6.27. On va étudier deux fonctions supplémentaires. Lancer le fichier rsa4.py.
 
 En vous aidant de la première, créer des assertions pour la seconde fonction :
 
-1. les préconditions AVANT de commencer à calculer phi.
-1. vérifiez les deux postconditions suivantes APRES avec calculer phi mais avant de faire répondre la fonction :
-   1. phi est bien un entier et
-   1. phi < p\*q
+1\. les préconditions AVANT de commencer à calculer phi.
 
-6\.28. <a name="_hlk73105518"></a>Tester si **p** et **q** sont premiers est-il rapide ou lent ?
+2\. vérifiez les deux postconditions suivantes APRES avec calculer phi mais avant de faire répondre la fonction :
+
+   - phi est bien un entier et
+
+   - phi < p\*q
+
+6.28. Tester si **p** et **q** sont premiers est-il rapide ou lent ?
 
 Est-ce bien utile d'ailleurs pour une fonction qui est juste censée renvoyer une multiplication ?
 
@@ -2005,79 +2016,89 @@ Est-ce bien utile d'ailleurs pour une fonction qui est juste censée renvoyer un
 
 Tout vérifier est contre-productif. Il faut vérifier ce qui est important pour la fonction en elle-même, sans oublier qu'elle s'insère dans un ensemble.
 
-![déroulement des appels](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.043.png)
+![déroulement des appels](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.043.png){: .center}
 
-<a name="_hlk73105585"></a>6.29. Pourquoi n'est-ce pas la peine de vérifier la primalité de **p** et **q** dans **calculer\_module** si on a bien vérifié la fonction **renvoyer\_premier** ?
+6.29. Pourquoi n'est-ce pas la peine de vérifier la primalité de **p** et **q** dans **calculer\_module** si on a bien vérifié la fonction **renvoyer\_premier** ?
 
 Habituellement (sauf exception), on va donc supprimer une bonne partie des exceptions après la phase de développement. En garder quelques-unes bien choisies permet de détecter plus facilement les dysfonctionnements pour une cause non prévue si on n’a pas montrer la correction de toutes les fonctions.
 
 Une fois toutes les fonctions internes validées, il ne reste qu'à bien filtrer les arguments envoyés aux fonctions d'interface.
 
-##### Filtrer les paramètres des fonctions d'interface (hors programme, simple présentation de culture générale)
+**Filtrer les paramètres des fonctions d'interface (hors programme, simple présentation de culture générale)**
 Avec les fonctions d'interface, c'est plus compliqué : le contenu des paramètres est potentiellement mauvais.
 
 1. Soit on met des assertions : tant pis pour l'utilisateur qui fait n'importe quoi (on protège les données). Mais ça fait stopper le système.
 
-def creer\_cles(b: int) -> tuple:
-`    `'''Renvoie un tuple contenant la clé publique et la clé privée ou None
+```python
+def creer_cles(b: int) -> tuple:
+    '''Renvoie un tuple contenant la clé publique et la clé privée ou None
 
-`    `:: param b(int)        :: le nombre de bits voulus pour les entiers premiers
-`    `:: return (tuple|None) :: un tuple contenant les clés ou None en cas de problème
+    :: param b(int)        :: le nombre de bits voulus pour les entiers premiers
+    :: return (tuple|None) :: un tuple contenant les clés ou None en cas de problème
 
-`    `'''
+    '''
 
-`    `assert type(b) == int, "b n'est pas un entier"
-`    `assert b > 0
+    assert type(b) == int, "b n'est pas un entier"
+    assert b > 0
 
-..code
-`    `normal..
+    ..code
+    normal..
+```
+
 
 1. Soit on fait des tests d'erreurs (avec des **if**) sur les erreurs d'entrée qu'on peut prévoir, et on réalise autre chose que la séquence normale si c'est le cas. Il faut penser à tout et dire à l'utilisateur qu'on va renvoyer un mauvais résultat s'il envoie n'importe quoi... Est-ce mieux ?
+```python
+def creer_cles(b: int) -> tuple:
+    '''Renvoie un tuple contenant la clé publique et la clé privée ou None
 
-def creer\_cles(b: int) -> tuple:
-`    `'''Renvoie un tuple contenant la clé publique et la clé privée ou None
+    :: param b(int)        :: le nombre de bits voulus pour les entiers premiers
+    :: return (tuple|None) :: un tuple contenant les clés ou None en cas de problème
 
-`    `:: param b(int)        :: le nombre de bits voulus pour les entiers premiers
-`    `:: return (tuple|None) :: un tuple contenant les clés ou None en cas de problème
+    '''
 
-`    `'''
+    if type(b) == int and b > 0:
 
-`    `if type(b) == int and b > 0:
+        ...
+        code
+        normal...
 
-...
-`        `code
-`        `normal...
+    else:
 
-`    `else:
+        return None
 
-`        `return None
+```
+
 
 1. Soit on tente de faire fonctionner le système (avec des **try**) et en cas déclenchement d'une erreur, on prévoit autre chose (avec des **except**). Mais on n'en parlera pas plus que ça, ce n'est pas au programme et il faut faire attention à ce qu'on fait aussi : si on envoie un flottant, ça passera ici ! Je n'en parle qu'en terme de culture générale, pour que vous sachiez ce que cela fait si vous tombez sur un tel code. On en parlera plus ensuite.
+```python
+def creer_cles(b: int) -> tuple:
+    '''Renvoie un tuple contenant la clé publique et la clé privée ou None
 
-def creer\_cles(b: int) -> tuple:
-`    `'''Renvoie un tuple contenant la clé publique et la clé privée ou None
+    :: param b(int)        :: le nombre de bits voulus pour les entiers premiers
+    :: return (tuple) :: un tuple contenant les clés
+    .. on utilisera des premiers sur 20 bits en cas de problème quelconque
 
-`    `:: param b(int)        :: le nombre de bits voulus pour les entiers premiers
-`    `:: return (tuple) :: un tuple contenant les clés
-.. on utilisera des premiers sur 20 bits en cas de problème quelconque
+    '''
 
-`    `'''
+    try:
+        b = int(b)
+    except:
+        b = 20
 
-`    `try:
-`        `b = int(b)
-`    `except:
-`        `b = 20
+    if not b > 0:
+        b = 20
 
-`    `if not b > 0:
-`        `b = 20
+    ..code
+    normal..
 
-..code
-`    `normal..
+```
+
 
 Le problème des méthodes 2 et 3 : il n'y pas toujours facile de retrouver la raison initiale d'une erreur à un moment si on a modifier les 'mauvaises' données envoyées par l'utilisateur. Bref, comme vous le voyez c'est un vrai sujet qui mérite des heures de formation.
 
 
-##### A retenir pour cette année :
+**A retenir pour cette année :**
+
 On distinguera 3 grands types d'erreur :
 
 1. les **erreurs de syntaxe** : facile à détecter par l'interpréteur (on a oublié un :, on a écrit dec plutôt que def...)
@@ -2093,7 +2114,7 @@ Quelques bonnes pratiques pour limiter le nombre d'erreurs :
 
 **7 - DÉTERMINER L'EXPOSANT E DE CHIFFREMENT**
 
-[⇩](https://www.infoforall.fr/act/archi/projet-chiffrement-rsa/#partie_8) [⇧](https://www.infoforall.fr/act/archi/projet-chiffrement-rsa/#partie_6) [⤊](https://www.infoforall.fr/act/archi/projet-chiffrement-rsa/#en_haut)
+
 
 Rappel :
 
@@ -2126,23 +2147,25 @@ Si avant de faire la division, on voit que le diviseur est 0, on renvoie le divi
 
 Cherchons le plus grand commun diviseur de 20 et 12 :
 
-![euclide_1](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.044.png)
+![euclide_1](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.044.png){: .center}
 
 Le reste (qui est devenu le diviseur 8 maintenant) n'est pas nul, on continue.
 
-![euclide_2](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.045.png)
+![euclide_2](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.045.png){: .center}
 
 Le reste (qui est devenu le diviseur 4 maintenant) n'est pas nul, on continue.
 
-![euclide_3](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.046.png)
+![euclide_3](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.046.png){: .center}
 
 Le reste (qui est devenu le diviseur 0 maintenant) est nul : on arrête et on renvoie le nouveau dividende qui est le ... dernier diviseur non nul.
 
-![euclide_4](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.047.png)
+![euclide_4](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.047.png){: .center}
 
 C'est bien la bonne réponse puisque 20 = 4 \* 5 et que 12 = 3 \* 4. 4 est bien le Plus Grand Commun Diviseur.
 
 Notez bien qu'avec Python, ce sera simple à coder puisqu'on peut obtenir le reste directement.
+
+
 
 \>>> 20 % 12
 
