@@ -198,6 +198,8 @@ On retrouve bien le code binaire d'origine. Pour ne pas s’embêter à vérifie
 
 On retrouve bien le message d'origine : Hello World!, B a pu lire le message envoyé par A alors que pour P, malgré le fait qu'il a pu intercepter le message, il n'a pas pu prendre connaissance de son contenu sans la clé.
 
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
+
 **<H3 STYLE="COLOR:red;">Activité n° 1  : Application du chiffrement symétrique</H3>** 
 - Créer une fonction chiffre(message, masque) qui chiffre message en le XOR avec masque.
 - Cette fonction doit pouvoir **aussi** servir à déchiffrer le message chiffré.
@@ -440,6 +442,8 @@ Le transmission par protocole HTTP de données chiffrées au préalable avec l
 Merci à Gilles Lassus et Mireille Coilhac 
 
 ## <H2 STYLE="COLOR:BLUE;">**6. Exercices**</H2>
+
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
 
 **<H3 STYLE="COLOR:red;">Exercice n°1 : chiffre\_xor</H3>**
 
