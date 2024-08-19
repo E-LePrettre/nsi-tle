@@ -907,48 +907,50 @@ print("On obtiendrait :", ❓)
 Maintenant Alice et Bob vont communiquer avec cette clef échangée kfinale.
 
 Ajouter les scripts suivants. Ils vont utiliser le chiffrement symétrique de Vigenère du TP précédent, dont on donne ci-dessous un script :
+```python
+def chiffrement_Vigenere(k: str, m: str, sens: int) -> str:
+    """
+    Chiffre ou déchiffre le message m avec la clef k
+    :param k: la clef de chiffrement
+    :param m:  le texte à chiffrer
+    :param sens: sens = 1 pour le chiffrage et sens = -1 pour le déchiffrage
+    :return: la fonction renvoie le texte chiffré ou déchiffré suivant le sens choisi: type str.
+    Par exemple :
+    >>> chiffrement_Vigenere('bizare', 'abominable', 1)
+    'ucgfskucdx'
+    >>> chiffrement_Vigenere('bizare','ucgfskucdx', -1)
+    'abominable'
+    """
+    m_chiffre = ""
+    for i in range(len(m)):
+        code = ord(m[i])
+        decal = sens * ord(k[i % len(k)])
+        if 65 <= code <= 90:
+            code = ((code + decal) - 65) % 26 + 65
+        elif 97 <= code and code <= 122:
+            code = ((code + decal) - 97) % 26 + 97
+        elif 32 <= code and code <= 64:
+            code = ((code + decal) - 32) % 33 + 32
+        m_chiffre += chr(code)
+    return m_chiffre
+```
 
-def chiffrement\_Vigenere(k: str, m: str, sens: int) -> str:
-`    `"""
-`    `Chiffre ou déchiffre le message m avec la clef k
-`    `:param k: la clef de chiffrement
-`    `:param m:  le texte à chiffrer
-`    `:param sens: sens = 1 pour le chiffrage et sens = -1 pour le déchiffrage
-`    `:return: la fonction renvoie le texte chiffré ou déchiffré suivant le sens choisi: type str.
-`    `Par exemple :
-`    `>>> chiffrement\_Vigenere('bizare', 'abominable', 1)
-`    `'ucgfskucdx'
-`    `>>> chiffrement\_Vigenere('bizare','ucgfskucdx', -1)
-`    `'abominable'
-`    `"""
-`    `m\_chiffre = ""
-`    `for i in range(len(m)):
-`        `code = ord(m[i])
-`        `decal = sens \* ord(k[i % len(k)])
-`        `if 65 <= code <= 90:
-`            `code = ((code + decal) - 65) % 26 + 65
-`        `elif 97 <= code and code <= 122:
-`            `code = ((code + decal) - 97) % 26 + 97
-`        `elif 32 <= code and code <= 64:
-`            `code = ((code + decal) - 32) % 33 + 32
-`        `m\_chiffre += chr(code)
-`    `return m\_chiffre
 
 Alice veut demander à Bob son mot de passe (qui est "bRa1cAPStp3").
 
 Bob chiffre donc son mot de passe avec kfinale qu'ils connaissent maintenant tous les deux, puis l'envoie :
-
-mdp\_chiffre = chiffrement\_Vigenere(kfinale,'bRa1cAPStp3',1)
-print("Bob envoie 'bRa1cAPStp3' chiffré avec kFinale -> ", mdp\_chiffre)
-
+```python
+mdp_chiffre = chiffrement_Vigenere(kfinale,'bRa1cAPStp3',1)
+print("Bob envoie 'bRa1cAPStp3' chiffré avec kFinale -> ", mdp_chiffre)
+```
 Alice déchiffre le mdp reçu avec kfinale:
-
-mdp\_clair = chiffrement\_Vigenere(kfinale,mdp\_chiffre,-1)
-print('Alice déchiffre avec kfinale ->', mdp\_clair)
-
+```python
+mdp_clair = chiffrement\_Vigenere(kfinale,mdp_chiffre,-1)
+print('Alice déchiffre avec kfinale ->', mdp_clair)
+```
 🌞 Mission réussie !
 
-- 1. Jimmy bad boy entre en scène…
+7\. Jimmy bad boy entre en scène…
 
 Alice et Bob sont habitués à procéder comme nous venons de le voir. Bob va donc créer kFinale qui va leur servir pour communiquer en chiffrement symétrique.
 
@@ -959,25 +961,25 @@ Alice et Bob sont habitués à procéder comme nous venons de le voir. Bob va do
 💻 Ajouter et compléter le scénario :
 
 \1) 👩 Tout commence comme d'habitude : Alice crée une clef publique et une clef privée :
-
-\# # créez les clef publiques et privées d'Alice :
+```python
+# # créez les clef publiques et privées d'Alice :
 (kpubAlice, kprivAlice) = creClef()
 
 print("clé publique de Alice :", ❓)
 print("clé privée de Alice :", ❓)
-
+```
 \2) 👩 Alice envoie à Bob la clé publique
 Du moins, c'est ce qu'elle pense. Elle ignore votre présence ...
 
 \3) 🦸‍♂️ Mais\.\.\. Vous intervenez \.\.\.
 Vous interceptez l'envoi. Vous n'allez pas envoyer cette clef à Bob mais une autre : la votre !
-
-\# créez votre clef publique et votre clef privée associée
+```python
+# créez votre clef publique et votre clef privée associée
 (kpubJimmy, kprivJimmy) = creClef()
 
 print('clé publique de Jimmy :', ❓)
 print('clé privée de Jimmy :', ❓)
-
+```
 Vous avez une clef publique et une clef privée. Vous envoyez votre clef publique à Bob, qui pensera qu'il s'agit de la clef publique d'Alice.
 
 \4) 👨 Bob ne se doute de rien !
@@ -987,21 +989,21 @@ Bob chiffre kFinale (la clé finale) avec cette clé publique qu'il vient de r
 La clé finale crée par Bob est : **'0VLFK4CEF9YS55KWV6JZ'**
 
 Créez la clé finale chiffrée avec votre clé publique (celle que Bob imagine être la clé de Alice)
-
+```python
 kFinale = "0VLFK4CEF9YS55KWV6JZ"
-\# codez cette clef avec la clé publique de Jimmy (Bob croit qu'il s'agit de celle de Alice)
+# codez cette clef avec la clé publique de Jimmy (Bob croit qu'il s'agit de celle de Alice)
 kfinaleChiffreBob = ❓
 print('Bob envoie sa clé privé chiffrée avec la clé publique de Jimmy :', kfinaleChiffreBob)
-
+```
 \5) 🦸‍♂️ Vous interceptez cette clef !
 
 Vous déchiffrez cette clef interceptée grâce à votre clef privée :
 
 Vous obtenez donc kFinale\_decryptee.
-
-kFinale\_decryptee = ❓
-print(kFinale\_decryptee)
-
+```python
+kFinale_decryptee = ❓
+print(kFinale_decryptee)
+```
 🦸‍♂️ Sans surprise, **vous voyez que vous détenez bien la clé finale**.
 
 En effet kFinale\_decryptee que vous avez reconstituée est bien égale à kFinale créée par Bob.
@@ -1009,16 +1011,16 @@ En effet kFinale\_decryptee que vous avez reconstituée est bien égale à kF
 6)🦸‍♂️ Vous faites comme si vous étiez Bob !
 
 Vous allez maintenant chiffrer kFinale\_decryptee avec la clé publique d' Alice, et lui envoyer.
-
-\# Créez la clé finale chiffrée avec la clé d'Alice :
+```python
+# Créez la clé finale chiffrée avec la clé d'Alice :
 kfinaleChiffreAlice = ❓
 
 print("Jimmy envoie la clé privée de Bob chiffrée avec la vraie clé publique d'Alice :", kfinaleChiffreAlice)
-
+```
 \7) 👩 Alice reçoit cette clef et la déchiffre avec sa clé privée\.
-
+```python
 print(f(kprivAlice, kfinaleChiffreAlice))
-
+```
 Elle obtient kFinale la bonne clé créée par Bob, et ils vont l'utiliser pour communiquer.
 
 \8) 👩🦸‍♂️👨Tous les échanges ultérieurs seront interceptés et décryptés par Jimmy !
@@ -1026,7 +1028,7 @@ Elle obtient kFinale la bonne clé créée par Bob, et ils vont l'utiliser pou
 Ni Alice ni Bob ne se doute que Jimmy bad boy connait aussi la clé kFinale...
 
 👍 Bravo, vous avez réussi **une attaque par l'homme du milieu**.
-**
+
 
 
 **Exercice n° 02 : chiffrement RSA**
