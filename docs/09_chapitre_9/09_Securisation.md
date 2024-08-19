@@ -38,7 +38,7 @@ Avec les acquis du programme de première, nous pouvons comprendre exactement ce
 - Le navigateur peut alors établir une **connexion TCP** vers l'adresse IP du serveur web, sur le port 80 via un hanshaking en trois temps.
 - Une fois la connexion établie, client et serveur échangent des données en utilisant le **protocole HTTP** tout en découpant les données en **paquets TCP**, eux-mêmes **encapsulés dans des paquets IP**.
 
-![Encapsulation](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.002.png)
+![Encapsulation](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.002.png){: .center}
 
 On se souvient aussi que les communications sur Internet utilisent un ensemble de protocoles, organisés en couches:
 
