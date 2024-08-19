@@ -832,14 +832,23 @@ Elle est cependant très basique : elle effetue un décalage des lettres conform
 💻 Ajouter et compléter la fonction avec :
 
 -\ On définit ALPHA : chaîne des caractères possibles utilisés.
+
 -\ On convertit la clef en une liste de décalages avec la fonction decal
+
 -\ On initialise m\_chiffre = ""
+
 -\ pour chaque ième caractère de m :
+
     - déterminer son rang dans ALPHA : rang = ALPHA.index(lettre)
+
     - déterminer decaler\_dele decalage à appliquer à rang. Il s'obtient pour la lettre de rang i de la clef. La clef étant plus courte que m, on boucle sur la clef. Le décalage est donc pour le rang i : decaler\_de = decalages[i % len(decalages)]
+
     - déterminer idx qui est l'indice dans ALPHA du caractère chiffré.
+
 -\ idx = (rang + decaler\_de) % 36
+
     - ajouter à m\_chiffre le caractère chiffré correspondant à idx
+    
 -\ renvoyer m\_chiffre
 
 ```python
