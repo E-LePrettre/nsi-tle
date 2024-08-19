@@ -533,6 +533,8 @@ On pourra utiliser la fonction time.time() du module time pour connaître l'heur
 
 **<H3 STYLE="COLOR:red;">Exercice n°01 : clé symétrique :**</H3>
 
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
+
 On utilisera un fichier echange\_cle.py.
 
 **La situation** : Alice veut établir une liaison sécurisée avec Bob en chiffrement symétrique avec la clef kfinale. Mais comment transmettre cette clef à Bob sans que celle-ci ne soit interceptée ?
@@ -1036,6 +1038,8 @@ Ni Alice ni Bob ne se doute que Jimmy bad boy connait aussi la clé kFinale...
 👍 Bravo, vous avez réussi **une attaque par l'homme du milieu**.
 
 **<H3 STYLE="COLOR:red;">Exercice n° 02 : chiffrement RSA</H3>**
+
+**Sur THONNY**
 
 **1 - PRINCIPE DU CRYPTAGE ASYMÉTRIQUE**
 
