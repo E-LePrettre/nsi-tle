@@ -1212,42 +1212,33 @@ Ici puisque  **n = 2159**, cela veut dire qu'on ne peut chiffrer que des valeu
 Attention, certaines valeurs ont un chiffrement assez problématique :
 
 Les deux premières valeurs (0 et 1) et la dernière valeur (2158) posent problème :
-
-\>>> (0\*\*437) % 2159
-
+```
+>>> (0**437) % 2159
 0        Un peu inutile car on retrouve le message de base...
-
-
-
-\>>> (2159\*\*437) % 2159
-
+ 
+>>> (2159**437) % 2159
 0        Inutile car on obtiendra 0 en déchiffrant !
+ 
 
-
-
-\>>> (1\*\*437) % 2159
-
+>>> (1**437) % 2159
 1        Pas vraiment un chiffrement...
-
-
-
-\>>> (2158\*\*437) % 2159
-
+ 
+>>> (2158**437) % 2159
 2158        Pas vraiment un chiffrement...
+```
 
 Entre 2 et 2157, ça fonctionne correctement :
-
-\>>> (2\*\*437) % 2159
-
+```
+>>> (2**437) % 2159
 389
-
-
-
-\>>> (2157\*\*437) % 2159
-
+ 
+>>> (2157**437) % 2159
 1770
-#####
-##### Principe d'un vrai chiffrement
+```
+
+
+**Principe d'un vrai chiffrement**
+
 Le vrai chiffrement se fait **sur un bloc d'octets** en réalité sinon, on transforme simplement une valeur comprise entre 0 et 255. C'est problématique dans le cas d'un texte car il suffit alors de connaître la fréquence du "e" dans la langue utilisée, et on pourrait retrouver assez facilement la valeur chiffrée du "e".
 
 On considère donc plutôt un encodage basé sur un ensemble d'octets et pas un octet unique.
@@ -1264,23 +1255,23 @@ Puisque **n** = **p** \* **q**, les nombres premiers **p** et **q** ne 
 
 Une autre technique courante consiste à utiliser des permutations d'octets par exemple. Mais le but ici n'est pas de faire un exposé sur les implémentations réelles de RSA.
 
-1. ` `<a name="_hlk73046851"></a>Quelle doit être la valeur minimale du module de chiffrement si on veut envoyer des blocs chiffrés de 4 octets ?
-1. <a name="_hlk73046894"></a> Peut-on utiliser des blocs de deux octets avec nos clés ?
-1. <a name="_hlk73046946"></a>Envoyer le message "Bonjour à tous" en utilisant simplement UNICODE : on chiffre chaque caractère directement par sa valeur unicode.
+2.4. Quelle doit être la valeur minimale du module de chiffrement si on veut envoyer des blocs chiffrés de 4 octets ?
+
+2.5. Peut-on utiliser des blocs de deux octets avec nos clés ?
+
+2.6. Envoyer le message "Bonjour à tous" en utilisant simplement UNICODE : on chiffre chaque caractère directement par sa valeur unicode.
 
 On utilisera les clés fournies dans cette activité.
 
 On peut trouver les valeurs unicode des caractères en utilisant la fonction native de Python **ord** :
-
-\>>> ord('A')
-
+```
+>>> ord('A')
 65
-
-
-
-\>>> chr(65)
-
+ 
+>>> chr(65)
 'A'
+```
+
 
 Attention à l'espace, qui est bien un caractère en lui-même.
 
@@ -1302,7 +1293,7 @@ Attention, pour obtenir des clés réellement utilisables, il faut prendre de tr
 
 Facile, c'est une multiplication.
 
-` `**n = p \* q** 
+**n = p \* q** 
 
 Cette valeur sera transmise à la fois dans la clé publique et la clé privée.
 
@@ -1319,50 +1310,38 @@ Avec  **n = 2159** , ce n'est pas très difficile ok.
 Avec  **n = 35823194494940926873** , c'est déjà plus diffile, non ?
 
 Et encore, ce nombre n'est pas si grand que cela puisqu'il ne nécessite que 65 bits pour être encodé :
-
-\>>> n = p\*q
-
-\>>> n
-
+```
+>>> n = p*q
+>>> n
 35823194494940926873
-
-
-
-\>>> bin(n)[2:]
-
+ 
+>>> bin(n)[2:]
 '11111000100100101100011011001011111111110101011101101001110011001'
-
-
-
-\>>> len(\_)
-
+ 
+>>> len(_)
 65
-
-
-
-\>>> p
-
+ 
+>>> p
 3875804809
-
-
-
-\>>> q
-
+ 
+>>> q
 9242775697
+```
+
 
 Si on prend un nombre n beaucoup plus grand, cela va forcément être encore plus diffile. Pour information, le nombre de bits de n est directement lié aux nombres de bits de p et q :
 
-\>>> len(bin(p)[2:])
-
+```
+>>> len(bin(p)[2:])
 32
-
-
-
-\>>> len(bin(q)[2:])
-
+ 
+>>> len(bin(q)[2:])
 34
+```
+
 
 Prendre des nombres p et q de 1000 bits chacun, et tout de suite ça vous donne une idée de la difficulté à retrouver p et q connaissant n.
+
 
 **Taille de la clé asymétrique**
 

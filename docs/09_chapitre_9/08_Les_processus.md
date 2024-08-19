@@ -1127,3 +1127,219 @@ La notion de **congruence** (hors programme en NSI, on ne l'aborde ici qu'en t
 2, 8, 14, 20, 26, 32... sont congrus modulo 6 entre eux car le reste de leur division euclidienne par 6 donne un reste de 2 à chaque fois.
 
 etc. ...
+
+**Définition**
+
+Soient
+
+- **n**  un entier naturel non nul et,
+- **a**  et  **b**  deux entiers relatifs.
+
+On dit que  **a  et  b  sont congrus modulo  n**  s'ils ont le même reste dans une division euclidienne par n.
+
+En Python, on peut donc écrire  **a % n == b % n** .
+
+On dit aussi que  **a  est congru à  b  modulo  n** .
+
+**Notation mathématique**
+
+La notation mathématique est **a ≡ b (mod n)** pour signaler que  **a  et  b  sont congrus modulo  n** .
+
+**Exemple**
+
+- 156 = 17\*9 + 3 . Donc  156 % 17  donne un reste de  3 .
+- 105 = 17\*6 + 3 . Donc  105 % 17  donne un reste de  3 .
+- On peut donc écrire que  **156 ≡ 105 (mod 17)**  pour dire que 156 est congru à 105 modulo 17.
+
+**Conséquence**
+
+On remarquera que **a ≡ b (mod n)** implique que (a-b) est divisible par n :
+
+En Python :  **(a-b) % n == 0** 
+
+Ou encore :  **(a-b) // n == k**  avec k entier.
+
+156 ≡ 105 (mod 17)  implique que (156-105) / 17 donne un résultat entier.
+
+En Python :  (156-105) / 17 = 51 / 17 = 3.0 
+
+**Exemple d'utilisation**
+
+La **Clé Publique** est un n-uplet  **cpub = (n, e)**  contenant deux informations notées **n** et **e**.
+
+Sur notre exemple, nous prendrons  **cpub = (2159, 437)** 
+
+Si **m** est un bout du message à chiffrer, on obtient le message chiffré **mc** correspondant en utilisant cette formule :
+
+<b>mc = (m<sup>e</sup>) % n</b> 
+
+- **n** se nomme le **module de chiffrement** car il sert à faire un modulo et
+- **e** est l'**exposant de chiffrement** car on l'utilise en tant que mise à la puissance du message.
+
+En Python, ça donnera :
+
+**mc = (m\*\*e) % n** 
+
+La **Clé Privée** est un n-uplet  **cpri = (n, d)**  contenant
+
+- le **module de chiffrement** **n** et
+- l'**exposant de déchiffrement** **d**.
+
+Si **mc** est un bout du message chiffré, on obtient le message déchiffré **md** correspondant en utilisant cette formule :
+
+<b>md = (mc<sup>d</sup>) % n</b> 
+
+Bien entendu, si les valeurs sont correctes, on aura **md** = **m** !
+
+Pour notre exemple, nous prendrons (pas par hasard !)  **cpri = (2159, 1181)** .
+
+On la gardera secrète de façon à être le seul à pouvoir déchiffrer les messages chiffrés avec la Clé Publique.
+
+2.1. On désire transmettre par exemple 500 et 1000 de façon cryptée. Calculer les deux messages **mc** à envoyer après application basique du chiffrement sur 500 et 1000 avec  **cpub = (2159, 437)** .
+
+**mc = (m\*\*e) % n** 
+
+2.2. Que va donner le chiffrement d'un message valant 6000 ?
+
+2.3. La personne ayant émis la clé publique reçoit le message suivant : **504** - **1746** - **900**. Sa clé privée (tenue secrète) est  **cpri = (2159, 1181)** .
+
+Comment retrouver le message déchiffré ?
+
+**Limitation du message chiffré par rapport au module de chiffrement n**
+
+La valeur de **n** permet d'obtenir la plage des valeurs qui seront déchiffrables : les valeurs **m** à chiffrer doivent impérativement être dans l'intervalle **[0,n[** ou **[0,n-1]**, sinon on ne peut parviendra pas à déchiffrer correctement la valeur initiale.
+
+Ici puisque  **n = 2159**, cela veut dire qu'on ne peut chiffrer que des valeurs comprises entre 0 et 2158.
+
+Attention, certaines valeurs ont un chiffrement assez problématique :
+
+Les deux premières valeurs (0 et 1) et la dernière valeur (2158) posent problème :
+```
+>>> (0**437) % 2159
+0        Un peu inutile car on retrouve le message de base...
+ 
+>>> (2159**437) % 2159
+0        Inutile car on obtiendra 0 en déchiffrant !
+ 
+
+>>> (1**437) % 2159
+1        Pas vraiment un chiffrement...
+ 
+>>> (2158**437) % 2159
+2158        Pas vraiment un chiffrement...
+```
+
+Entre 2 et 2157, ça fonctionne correctement :
+```
+>>> (2**437) % 2159
+389
+ 
+>>> (2157**437) % 2159
+1770
+```
+
+
+**Principe d'un vrai chiffrement**
+
+Le vrai chiffrement se fait **sur un bloc d'octets** en réalité sinon, on transforme simplement une valeur comprise entre 0 et 255. C'est problématique dans le cas d'un texte car il suffit alors de connaître la fréquence du "e" dans la langue utilisée, et on pourrait retrouver assez facilement la valeur chiffrée du "e".
+
+On considère donc plutôt un encodage basé sur un ensemble d'octets et pas un octet unique.
+
+On pourrait par exemple vouloir transmettre le string "AB" qui va se retrouver encodé en deux octets YZ: Y = 65 suivi de Z = 66 en ASCII.
+
+On va alors considérer que le message **m** à envoyer est 65\*256 + 66, soit 16706.
+
+Dans ce cas, il faut donc que **n** soit supérieur à 255\*256 + 255, 65535. Il faut donc un module de chiffrement **n** au moins égal à 65536...
+
+C'est logique, 2 octets correspondent à 16 bits, 2<sup>16</sup> possibilités, donc 2<sup>16</sup> - 1 pour la valeur maximale en entier naturel.
+
+Puisque **n** = **p** \* **q**, les nombres premiers **p** et **q** ne doivent donc pas être trop petits à cause de cela également.
+
+Une autre technique courante consiste à utiliser des permutations d'octets par exemple. Mais le but ici n'est pas de faire un exposé sur les implémentations réelles de RSA.
+
+2.4. Quelle doit être la valeur minimale du module de chiffrement si on veut envoyer des blocs chiffrés de 4 octets ?
+
+2.5. Peut-on utiliser des blocs de deux octets avec nos clés ?
+
+2.6. Envoyer le message "Bonjour à tous" en utilisant simplement UNICODE : on chiffre chaque caractère directement par sa valeur unicode.
+
+On utilisera les clés fournies dans cette activité.
+
+On peut trouver les valeurs unicode des caractères en utilisant la fonction native de Python **ord** :
+```
+>>> ord('A')
+65
+ 
+>>> chr(65)
+'A'
+```
+
+
+Attention à l'espace, qui est bien un caractère en lui-même.
+
+Créer une fonction Python pour trouver la valeur UNICODE et une fonction Python pour renvoyer la valeur chiffrée pourrait vous simplifier la vie...
+
+**3 - DÉTERMINATION DES CLÉS RSA**
+
+Le principe de l'utilisation étant posé, regardons comment déterminer les clés.
+
+**Etape 1 : choisir deux nombres entiers p et q**
+
+Assez facile.
+
+Pour notre exemple, nous prendrons par exemple  **p = 17**  et  **q = 127** .
+
+Attention, pour obtenir des clés réellement utilisables, il faut prendre de très grands nombres premiers !
+
+**Etape 2 : calculer le module de chiffrement n**
+
+Facile, c'est une multiplication.
+
+**n = p \* q** 
+
+Cette valeur sera transmise à la fois dans la clé publique et la clé privée.
+
+La valeur de **n** n'est donc pas d'une donnée secrète. Par contre, les valeurs de **p** et **q** devront être dissimulées.
+
+Avec nos valeurs de test, on obtient  n = 17 \* 127 , soit  **n = 2159** .
+
+Ce nombre n'est pas un nombre premier, puisqu'il est décomposable.
+
+Néanmoins, c'est bien de là que vient la "difficulté" du retour en arrière : si on vous donne un n très grand, on ne pourra pas retrouver p et q en un temps raisonnable.
+
+Avec  **n = 2159** , ce n'est pas très difficile ok.
+
+Avec  **n = 35823194494940926873** , c'est déjà plus diffile, non ?
+
+Et encore, ce nombre n'est pas si grand que cela puisqu'il ne nécessite que 65 bits pour être encodé :
+```
+>>> n = p*q
+>>> n
+35823194494940926873
+ 
+>>> bin(n)[2:]
+'11111000100100101100011011001011111111110101011101101001110011001'
+ 
+>>> len(_)
+65
+ 
+>>> p
+3875804809
+ 
+>>> q
+9242775697
+```
+
+
+Si on prend un nombre n beaucoup plus grand, cela va forcément être encore plus diffile. Pour information, le nombre de bits de n est directement lié aux nombres de bits de p et q :
+
+```
+>>> len(bin(p)[2:])
+32
+ 
+>>> len(bin(q)[2:])
+34
+```
+
+
+Prendre des nombres p et q de 1000 bits chacun, et tout de suite ça vous donne une idée de la difficulté à retrouver p et q connaissant n.
