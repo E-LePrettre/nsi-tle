@@ -2399,7 +2399,7 @@ Ou on peut aussi écrire  <b>a<sup>p–1</sup> = k*p + 1</b> .
 
 Or, le reste de la division de 1 par n'importe quel nombre donne bien un reste de 1. On peut donc écrire :
 
-` `<b>a<sup>p–1</sup> % p == 1 % p</b> 
+<b>a<sup>p–1</sup> % p == 1 % p</b> 
 
 **Conséquence**
 
@@ -2415,26 +2415,13 @@ Version 2  <b>a<sup>p</sup> ≡ a (mod p)</b>  (en multipliant par a de 
 Prenons le nombre premier p = 17.
 
 Prenons le nombre entier a = 50, non divisible par 17 : 50 / 17 =
-
-\>>> p = 17
-
-\>>> a = 50
-
-
-
-\>>> (a\*\*(p-1)) % p == 1 % p
-
+```
+>>> p = 17
+>>> a = 50
+ 
+>>> (a**(p-1)) % p == 1 % p
 True
-
-
-
-\>>> (a\*\*p) % p == a % p
-
+ 
+>>> (a**p) % p == a % p
 True
-
-Terminale NSI 	Chap 09 : Sécurisation des communications	Page 44/44
-
-[ref1]: Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.007.png
-[image]: Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.009.png
-[image]: Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.010.png
-[image]: Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.011.png
+```
