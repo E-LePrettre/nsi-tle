@@ -87,7 +87,7 @@ Le tout devant bien entendu se faire dans le cadre d'une communication en utilis
 
 ## <H2 STYLE="COLOR:BLUE;">**3. Introduction**</H2>
 
-**Vidéo** : Comprendre le chiffrement SSL \_ TLS avec des emojis \_et le HTTPS
+**Vidéo** : Comprendre le chiffrement SSL_TLS avec des emojis et le HTTPS [https://ladigitale.dev/digiview/#/v/66c3acacea2f2](https://ladigitale.dev/digiview/#/v/66c3acacea2f2)
 
 ## <H2 STYLE="COLOR:BLUE;">**4. Le chiffrement**</H2>
 
