@@ -2165,3 +2165,238 @@ Notez bien qu'avec Python, ce sera simple à coder puisqu'on peut obtenir le res
 
 
 
+```
+>>> 20 % 12
+8
+ 
+>>> 12 % 8
+4
+ 
+>>> 8 % 4
+0
+```
+
+
+Le principe de l'algorithme est simple à appliquer (je ne parlerai pas des justifications, et démonstration ici)
+
+**Algorithme d'Euclide**
+
+![Euclide](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.048.jpeg)
+
+Gravure d'Euclide (depuis <https://fr.wikipedia.org/wiki/Euclide#/media/Fichier:Euklid-von-Alexandria_1.jpg>) - Domaine Public
+
+**BUT**
+
+Renvoyer le plus grand commun diviseur de deux nombres entiers.
+
+Si on travaille avec :
+
+- **1614915** qu'on peut décomposer sous cette forme **5 \* 9 \* 17 \* 2111** de multiplication d'entiers et
+- **25455706711** dont la décomposition est **23 \* 2111 \* 524287**
+- le plus grand commun diviseur est **2111**
+
+**ENTREES**
+
+Deux nombres **a** et **b**
+
+**Préconditions** 
+
+- Ce sont bien des entiers
+- Si **a** < **b**, on rajoute juste une étape supplémentaire : l'algorithme parvient automatiquement à inverser a et b !
+
+**Description de l'algorithme**
+```
+    dividende ← a
+    diviseur ← b
+    TANT QUE diviseur est différent de 0
+            reste ← dividende % diviseur
+            dividende ← diviseur
+                on remplace le dividence par l'ancien diviseur
+            diviseur ← reste
+                on remplace le diviseur par le reste obtenu
+    Fin TANT QUE
+    Renvoyer dividende
+```
+
+
+on renvoie donc le diviseur ayant mené à un reste nul
+
+7.30. Fichier rsa5.py : Réaliser l'implémentation de l'algorithme via la fonction **pgcd** en ligne 116 : quelqu'un vous a déjà tapé deux lignes de code pour récupérer a et b. Il vous suffit donc de remplacer le **pass** par l'implémentation du **while**.
+
+Votre fonction doit passer les tests.
+
+Attention, une faute d'inattention se cache dans les quelques lignes déjà tapées. Mais les jeux de tests devraient vous dire clairement ce qui ne va pas.
+
+**Bug typique**
+
+Il s'agissait donc ici d'un mauvais nommage de variables
+
+D'où l'intérêt d'utiliser les propositions automatiques qui s'affichent sur les bons éditeurs de code.
+
+7.31. Observer **euclide\_bis**. Les noms ne sont pas explicites cette fois : certaines préfèrent de telles versions "épurées" avec des noms courts. Le problème vient de la compréhension du code quelques semaines, mois ou années plus tard.
+
+7.32. Votre fonction renvoie le plus grand commun diviseur. Quel doit être le PGCD de deux nombres premiers entre eux (tels que **e** et **φ**) ?
+
+**8 - DÉTERMINER L'EXPOSANT D DE DÉCHIFFREMENT**
+
+Voici le code si vous redemarrez à partir d'ici pendant une nouvelle séance et que vous n'êtes plus certain d'avoir un code valide : fichier rsa6.py
+
+**Etape 5 : trouver l'exposant de déchiffrement d (connaissant e et φ)**
+
+Ce exposant de déchiffrement **d** doit être l'inverse de **e** modulo **φ**.
+
+Cela veut dire qu'il faut respecter cette condition : le reste de la division entière de (e\*d) par φ vaut 1.
+
+**(e \* d) % φ = 1** 
+
+D'où la notion d'inverse "e = 1 / d".
+
+Dans le cas de notre exemple :
+
+- Indicatrice d'Euler  **φ = 2016** 
+- Exposant de chiffrement  **e = 437** 
+- on détermine que l'exposant de déchiffrement est  **d = 1181** 
+
+Vérification avec Python :
+```
+>>> e = 437
+>>> d = 1181
+>>> phi = 2016
+>>> (e*d) % phi
+1
+```
+
+
+Cette fois, il faudra utiliser **l'algorithme d'Euclide étendu**. Sinon, encore une fois, cela prendrait un temps énorme pour p et q de grande taille.
+
+Nous n'allons pas l'étudier, il est déjà codé et fonctionnel ici.
+
+Par contre, vous aller créer une fonction qui fait la même chose mais en version naïve et nous verrons que notre RSA maison ne fonctionnera plus trop bien sur cette dernière étape : trop lent pour de grandes clés.
+
+8.33. <a name="_hlk73132516"></a>Coder la fonction **calculer\_d\_naif** pour qu'elle renvoie la valeur de d en respectant cette technique 
+
+Connaissant **e et φ**, tester toutes les valeurs possibles de d jusqu'à trouver celle qui répond à :
+
+**(e \* d) % φ = 1** 
+
+Prenons le premier exemple du cours :
+
+- p = 17
+- q = 127
+- n = 2159
+- φ = 2016
+- e = 437
+
+La valeur de d est alors 1181.
+
+8.34. Tester ceci pour voir que les deux fonctions fonctionnent :
+```
+>>> e = 437
+>>> φ = 2016
+>>> calculer_d(e,φ)
+1181
+ 
+>>> calculer_d_naif(e,φ)
+1181
+```
+
+
+Voilà, vous avez codé de bout en bout la génération de clés RSA. Même la fin visiblement. Les oiseaux chantent, un arc-en-ciel apparâit, tout va bien dans le meilleur des mondes.
+
+Prenons cet exemple :
+
+- p = 703837
+- q = 844127
+- n = 594127815299
+- φ = 594126267336
+- e = 135478415797
+
+La valeur de d est alors 378707856781.
+
+8.35. Tester ceci pour voir que les deux fonctions fonctionnent, ou de façon problématique pour l'une d'entre elles, devinez laquelle ;o) :
+```
+>>> e = 135478415797
+>>> φ = 594126267336
+>>> calculer_d(e,φ)
+378707856781
+ 
+>>> calculer_d_naif(e,φ)
+378707856781
+```
+
+
+
+
+**9 - ET AVEC UN VRAI FICHIER ?**
+
+Maintenant que vous avez un moyen de générer de (petites) clés RSA, il est tenté de partager une clé publique avec quelqu'un que vous connaissez pour qu'il puisse vous transmettre des fichiers cryptés.
+
+8.36. Documentation et programmation° Fichier rsa7.py : Placer le gros programme suivant en mémoire. Ensuite, taper ceci dans la console pour comprendre comment fonctionne le chiffrement et le déchiffrement d'un fichier quelconque.
+
+```
+>>> cpub, cpri = creer_cles(20)
+>>> cpub
+(524019377303, 89243442031)
+ 
+>>> cpri
+(524019377303, 453869594791)
+ 
+>>> help(chiffrer_fichier)
+ 
+>>> help(dechiffrer_fichier)
+```
+
+
+Voici un exemple d'utilisation :
+
+```
+>>> cpub, cpri = creer_cles(20)
+>>> cpub
+(501751207679, 233074674377)
+ 
+>>> cpri
+(501751207679, 316864673033)
+>>> chiffrer_fichier(cpub, "test.png", "chiffre.png")
+ 
+Chiffrement en cours...
+50 ko - 100 ko - 150 ko - 200 ko -
+Chiffrement terminé
+
+>>> dechiffrer_fichier(cpri, "chiffre.png", "dechiffre.png")
+ 
+Déchiffrement en cours...
+50 ko - 100 ko - 150 ko - 200 ko - 250 ko -
+Déchiffrement réalisé
+```
+
+
+
+
+8.37. Générer deux clés. Gardez les valeurs de la privées. Envoyer via l'ENT ou par mail la clé publique à vos destinataires.
+
+8.38. Demander à cette personne de créer un fichier (texte, musique, pdf, video...) et de vous l'envoyer après l'avoir crypté avec la clé publique.
+
+Il ne restera qu'à la décrypter avec la clé privée.
+
+Attention : ça peut être long. C'est pour cela qu'on préférera utiliser un chiffrement symétrique une fois le canal sécurisé par le système asymétrique.
+
+Enfin, le chiffrement et le déchiffrement sont moins gourmands en temps avec un système symétrique.
+
+**10 - FAQ**
+
+**Petit théorème de Fermat (hors programme)**
+
+**Enoncé**
+
+Si  **p**  est un nombre premier et
+si  **a**  est un entier **non divisible par  p** ,
+
+alors  <b>a<sup>p–1</sup> – 1</b>  est un multiple de <b>p</b>.
+
+On pourrait donc écrire  <b>a<sup>p–1</sup> – 1 = k*p</b> .
+
+Ou on peut aussi écrire  <b>a<sup>p–1</sup> = k*p + 1</b> .
+
+Or, le reste de la division de 1 par n'importe quel nombre donne bien un reste de 1. On peut donc écrire :
+
+<b>a<sup>p–1</sup> % p == 1 % p</b> 
