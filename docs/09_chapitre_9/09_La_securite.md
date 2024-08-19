@@ -377,16 +377,16 @@ Deux évènements pourraient faire s'écrouler la sécurité du RSA :
 - **l'avènement d'[ordinateurs quantiques**](https://fr.wikipedia.org/wiki/Calculateur_quantique)**, dont la vitesse d'exécution permettrait une factorisation rapide. Il est à noter que l'algorithme de factorisation destiné à tourner sur un ordinateur quantique existe déjà : [l'algorithme de Schor](https://fr.wikipedia.org/wiki/Algorithme_de_Shor).
 
 
-  1. ## <a name="_toc174920505"></a>**Attaque de l’homme du milieu (man in the middle)**
-![homme milieu](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.025.png)
+### <a name="_toc174920505"></a>**4.3. Attaque de l’homme du milieu (man in the middle)**
+![homme milieu](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.025.png){: .center}
 
-![homme milieu](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.026.png)
+![homme milieu](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.026.png){: .center}
 
-![homme milieu](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.027.png)
+![homme milieu](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.027.png){: .center}
 
-![homme milieu](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.028.png)
+![homme milieu](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.028.png){: .center}
 
-![homme milieu](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.029.png)
+![homme milieu](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.029.png){: .center}
 
 Alice et Bob sont chacun persuadés d'utiliser la clé de l'autre, alors qu'ils utilisent en réalité tous les deux la clé de Jimmy.
 
@@ -396,8 +396,11 @@ Ce type d'attaque est appelé "**Man in the middle**". Elle peut être tentée c
 
 Pour se prémunir de ces attaques, une *autorité de certification* assure de l'identité d'un site afin d'éviter des attaques du type [*homme du milieu*](https://en.wikipedia.org/wiki/Man-in-the-middle_attack), sans laquelle on pourrait se connecter à un site tiers en pensant qu'il s'agit par exemple de sa banque en ligne. Les requêtes HTTPS peuvent être observées à partir de la console de firefox. Pour cela :
 
-|<p>**Activité n° AUTONUM  \* Arabic  : Certification :** </p><p>Ecrire l'adresse : https://www.elysee.fr/ dans votre barre de navigation. Cliquer sur le cadenas, puis chercher le certificat.</p>|
-| - |
+**Activité n° 5  : Certification :** 
+
+Ecrire l'adresse : [https://www.elysee.fr/](https://www.elysee.fr) dans votre barre de navigation. Cliquer sur le cadenas, puis chercher le certificat.
+
+
 1. # <a name="_toc174920506"></a>**Le protocole HTTPS**
    1. ## <a name="_toc174920507"></a>**Principe général**
 Aujourd'hui, plus de **90 % du trafic sur internet est chiffré** : les données ne transitent plus en clair (protocole HTTP) mais de manière chiffrée (protocole HTTPS), ce qui empêche la lecture de paquets éventuellement interceptés.
