@@ -151,7 +151,7 @@ L'algorithme de chiffrement symétrique le plus utilisé actuellement est le chi
 010010000110010101101100011011000110111100100000010101110110111101110010011011000110010000100001
 ```
 
-On a simplement utilisé le code ASCII de chaque caractère (par exemple, on peut vérifier que le H correspond bien à l'octet 01001000). Pour effectuer la "conversion" texte vers code binaire ASCII ou vis versa, vous pouvez utiliser le site <https://www.rapidtables.com/convert/number/ascii-to-binary.html>
+On a simplement utilisé le code ASCII de chaque caractère (par exemple, on peut vérifier que le H correspond bien à l'octet 01001000). Pour effectuer la "conversion" texte vers code binaire ASCII ou vis versa, vous pouvez utiliser le site [https://www.rapidtables.com/convert/number/ascii-to-binary.html](https://www.rapidtables.com/convert/number/ascii-to-binary.html)
 
 <b>2<sup>ème</sup> étape la clef</b> : On choisit un mot (ou une phrase) qui nous servira de clé de chiffrement, prenons pour exemple le mot "toto". "toto" nous donne en binaire :
 ```
@@ -162,7 +162,7 @@ On a simplement utilisé le code ASCII de chaque caractère (par exemple, on peu
 
 Table de vérité "XOR" :
 
-![Image](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.006.png)
+![Image](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.006.png){: .center}
 
 Comme la clé est plus courte que le message, il faut "reproduire" la clé vers la droite autant de fois que nécessaire (si la taille du message n'est pas un multiple de la taille de la clé, on peut reproduire seulement quelques bits de la clé pour la fin du message):
 
@@ -194,7 +194,7 @@ Maintenant ce message est prêt pour être envoyé à son destinataire B. Si P i
 
 ```  
 
-On retrouve bien le code binaire d'origine. Pour ne pas s’embêter à vérifier bit par bit, on peut utiliser ce [site](https://www.rapidtables.com/convert/number/binary-to-ascii.html) (<https://www.rapidtables.com/convert/number/binary-to-ascii.html>) qui vous permettra de repasser du code binaire ASCII au texte.
+On retrouve bien le code binaire d'origine. Pour ne pas s’embêter à vérifier bit par bit, on peut utiliser ce [site](https://www.rapidtables.com/convert/number/binary-to-ascii.html) ([https://www.rapidtables.com/convert/number/binary-to-ascii.html](https://www.rapidtables.com/convert/number/binary-to-ascii.html)) qui vous permettra de repasser du code binaire ASCII au texte.
 
 On retrouve bien le message d'origine : Hello World!, B a pu lire le message envoyé par A alors que pour P, malgré le fait qu'il a pu intercepter le message, il n'a pas pu prendre connaissance de son contenu sans la clé.
 
@@ -218,11 +218,11 @@ Alice crée deux clés, une clé de **chiffrement** 🔓 qu’elle rend **publiq
 
 Bob récupère la clé publique 🔓 et peut chiffrer les messages. Seul Alice, qui possède la clé privée 🔑, peut les déchiffrer.
 
-![Image](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.009.png)
+![Image](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.009.png){: .center}
 
-![Image](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.010.png)
+![Image](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.010.png){: .center}
 
-![Image](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.011.png)
+![Image](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.011.png){: .center}
 
 **Avantage** : Même si quelqu’un intercepte le message, **il n’a pas la clef privée** donc ne peut déchiffrer le message
 
@@ -247,7 +247,7 @@ voie la boîte fermée 📦🔒 à Bob  ;
 
 Pour HTTPS, le message 📃 partagé entre Alice et Bob est **une clef symétrique** 🔐. La sécurisation de la communication est assurée parce qu'il est impossible à Marc 👽 de [se faire passer](https://fr.wikipedia.org/wiki/Attaque_de_l%27homme_du_milieu) pour Alice ou pour Bob sans disposer de **la clé privée** 🔑 de l'un des deux.
 
-Le protocole de Diffie-Hellman permet donc d'échanger une clé de chiffrement symétrique 🔐 à l'aide du chiffrement asymétrique. <https://www.venafi.com/fr/blog/en-quoi-les-echange-de-cles-diffie-hellman-et-rsa-different-ils> 
+Le protocole de Diffie-Hellman permet donc d'échanger une clé de chiffrement symétrique 🔐 à l'aide du chiffrement asymétrique. [https://www.venafi.com/fr/blog/en-quoi-les-echange-de-cles-diffie-hellman-et-rsa-different-ils](https://www.venafi.com/fr/blog/en-quoi-les-echange-de-cles-diffie-hellman-et-rsa-different-ils) 
 
 #### <H4 STYLE="COLOR:MAGENTA;">**4.2.3. Un exemple de chiffrement asymétrique : le chiffrement RSA**</H4>
 
@@ -339,11 +339,11 @@ Alice reçoit la valeur 31. Il lui suffit alors d'élever 31 à la puissance 7 (
 
 Elle récupère la valeur 4, qui est bien le message original de Bob.
 
-![alice et bob](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.024.png)
+![alice et bob](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.024.png){: .center}
 
 <b>Comment ça marche ?</b> Grâce au [Petit Théorème de Fermat](https://fr.wikipedia.org/wiki/Petit_th%C3%A9or%C3%A8me_de_Fermat), on démontre (voir [ici](https://fr.wikipedia.org/wiki/Chiffrement_RSA)) assez facilement que <i>M <sup>ed</sup></i> ≡ <i>M</i> [<i>n</i>]. Il faut remarquer que <i>M <sup>ed</sup></i> = <i>M <sup>de</sup></i>. On voit que les rôles de la clé publique et de la clé privée sont <b>symétriques</b> : un message chiffré avec la clé publique se déchiffrera en le chiffrant avec la clé privée, tout comme un message chiffré avec la clé privée se déchiffrera en le chiffrant avec la clé publique.
 
-**Animation interactive** voir <https://animations.interstices.info/interstices-rsa/rsa.html>
+**Animation interactive** voir [https://animations.interstices.info/interstices-rsa/rsa.html](https://animations.interstices.info/interstices-rsa/rsa.html)
 
 **<H3 STYLE="COLOR:red;">Activité n° 4  : Chiffrement RSA</H3>**
 
@@ -378,15 +378,15 @@ Deux évènements pourraient faire s'écrouler la sécurité du RSA :
 
 ### <H3 STYLE="COLOR:GREEN;">**4.3. Attaque de l’homme du milieu (man in the middle)**</H3>
 
-![homme milieu](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.025.png)
+![homme milieu](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.025.png){: .center}
 
-![homme milieu](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.026.png)
+![homme milieu](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.026.png){: .center}
 
-![homme milieu](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.027.png)
+![homme milieu](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.027.png){: .center}
 
-![homme milieu](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.028.png)
+![homme milieu](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.028.png){: .center}
 
-![homme milieu](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.029.png)
+![homme milieu](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.029.png){: .center}
 
 Alice et Bob sont chacun persuadés d'utiliser la clé de l'autre, alors qu'ils utilisent en réalité tous les deux la clé de Jimmy.
 
@@ -418,13 +418,13 @@ Le chiffrement RSA est très gourmand en ressources ! Le chiffrement/déchiffrem
 - Le **chiffrement asymétrique est donc réservé à l'échange de clés** (au début de la communication).
 - Le **chiffrement symétrique**, bien plus rapide, prend ensuite le relais pour l'ensemble de la communication.
 
-![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.031.png)
+![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.031.png){: .center}
 
 ### <H3 STYLE="COLOR:GREEN;">**5.2. (HP) Fonctionnement du TLS : explication du *handshake***</H3>
 
 Observons en détail le fonctionnement du protocole TLS, dont le rôle est de générer de manière sécurisée une clé dont disposeront à la fois le client et le serveur, leur permettant ainsi d'appliquer un chiffrement symétrique à leurs échanges.
 
-![tls](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.032.png)
+![tls](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.032.png){: .center}
 
 - **étape 1** : le «client Hello». Le client envoie sa version de TLS utilisée.
 - **étape 2** : le «server Hello». Le serveur répond en renvoyant son certificat prouvant son identité, ainsi que sa clé publique.
@@ -512,7 +512,7 @@ On sait que les 4 derniers caractères du message en clair sont "nse!".
 
 On utilisera la méthode endswith() pour tester la terminaison 
 
-<https://www.w3schools.com/python/ref_string_endswith.asp>
+[https://www.w3schools.com/python/ref_string_endswith.asp](https://www.w3schools.com/python/ref_string_endswith.asp)
 
 Par exemple ici :
 ```python
