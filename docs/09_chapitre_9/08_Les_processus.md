@@ -100,7 +100,7 @@ Le message **doit être chiffré** (crypté) à l’aide d’un algorithme de ch
 #### <a name="_toc174920499"></a>**4.1.1. Le principe**
 Dans un chiffrement symétrique, c'est **la même clé** qui va servir au chiffrement et au déchiffrement.
 
-![image](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.004.png)
+![image](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.004.png){: .center}
 
 **Qu'appelle-t-on une clé ?** 
 
@@ -141,3 +141,70 @@ L'algorithme de chiffrement symétrique le plus utilisé actuellement est le chi
 - ces 128 bits sont transformés par des rotations, multiplications, transpositions, [...] de la matrice initiale, en faisant intervenir dans ces transformations une clé de 128, 192 ou 256 bits.
 - pour l'AES-256 (avec une clé de 256 bits), l'attaque par force brute nécessiterait 2<sup>256</sup> opérations, soit un nombre à 78 chiffres...
 - il n'existe pas d'attaque connue efficace à ce jour.
+
+#### <a name="_toc174920500"></a>**4.1.2. Réalisation**
+
+<b>1<sup>ère</sup> étape : le message :</b> Soit le message Hello World! en binaire :
+```
+010010000110010101101100011011000110111100100000010101110110111101110010011011000110010000100001
+```
+
+On a simplement utilisé le code ASCII de chaque caractère (par exemple, on peut vérifier que le H correspond bien à l'octet 01001000). Pour effectuer la "conversion" texte vers code binaire ASCII ou vis versa, vous pouvez utiliser le site <https://www.rapidtables.com/convert/number/ascii-to-binary.html>
+
+<b>2<sup>ème</sup> étape la clef</b> : On choisit un mot (ou une phrase) qui nous servira de clé de chiffrement, prenons pour exemple le mot "toto". "toto" nous donne en binaire :
+```
+01110100011011110111010001101111
+```
+
+
+
+<b>3<sup>ème</sup> étape le chiffrement</b> : Pour chiffrer le message nous allons effectuer un XOR bit à bit. Pour rappel, vous trouverez la table de vérité du XOR ci-dessous :
+
+Table de vérité "XOR" :
+
+![Image](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.006.png)
+
+Comme la clé est plus courte que le message, il faut "reproduire" la clé vers la droite autant de fois que nécessaire (si la taille du message n'est pas un multiple de la taille de la clé, on peut reproduire seulement quelques bits de la clé pour la fin du message):
+
+```
+ 
+  010010000110010101101100011011000110111100100000010101110110111101110010011011000110010000100001
+⊕
+ 
+  011101000110111101110100011011110111010001101111011101000110111101110100011011110111010001101111
+ 
+  001111000000101000011000000000110001101101001111001000110000000000000110000000110001000001001110
+```   
+
+Si on cherche à afficher le message chiffré avec un éditeur de texte) : 
+![Image](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.007.png)
+
+Maintenant ce message est prêt pour être envoyé à son destinataire B. Si P intercepte le message et cherche à le lire avec un éditeur de texte, il obtiendra la suite de caractère ![Image](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.007.png)
+
+<b>4<sup>ème</sup> étape le déchiffrement</b> : Bob a maintenant reçu le message chiffré, il possède la clé (toto), il va donc pouvoir déchiffrer le message <b>en appliquant un XOR</b> entre le message chiffré et la clé (on applique exactement la même méthode que ci-dessus).
+
+```  
+ 
+  001111000000101000011000000000110001101101001111001000110000000000000110000000110001000001001110
+⊕   
+ 
+  011101000110111101110100011011110111010001101111011101000110111101110100011011110111010001101111
+ 
+  010010000110010101101100011011000110111100100000010101110110111101110010011011000110010000100001
+
+```  
+
+
+On retrouve bien le code binaire d'origine. Pour ne pas s’embêter à vérifier bit par bit, on peut utiliser ce [site](https://www.rapidtables.com/convert/number/binary-to-ascii.html) (<https://www.rapidtables.com/convert/number/binary-to-ascii.html>) qui vous permettra de repasser du code binaire ASCII au texte.
+
+On retrouve bien le message d'origine : Hello World!, B a pu lire le message envoyé par A alors que pour P, malgré le fait qu'il a pu intercepter le message, il n'a pas pu prendre connaissance de son contenu sans la clé.
+
+**Activité n° 1  : Application du chiffrement symétrique :** 
+- Créer une fonction chiffre(message, masque) qui chiffre message en le XOR avec masque.
+- Cette fonction doit pouvoir **aussi** servir à déchiffrer le message chiffré.
+
+clé de chiffrement :  Vive la NSI !!  
+
+on chiffrera la phrase : Je suis en spécialité NSI et j’adore 
+
+
