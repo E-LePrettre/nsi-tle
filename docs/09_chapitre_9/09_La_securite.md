@@ -1357,7 +1357,7 @@ Le plus simple est d'avoir deux nombres premiers **p** et **q** de 1024 bits
 
 Etape facile, c'est un simple calcul.
 
-` `**φ = (p-1) \* (q-1)** 
+**φ = (p-1) \* (q-1)** 
 
 Ici, on obtient  φ = (17-1) \* (127-1) , soit  **φ = 2016** .
 
@@ -1369,8 +1369,8 @@ Sans un bon algorithme, cette simple recherche peut prendre du temps.
 
 Ce exposant de chiffrement **e** doit être
 
-1. un entier inférieur à **φ**
-1. premier avec **φ** : **e** ne doit pas partager de diviseur commun avec **φ** , d'où l'algorithme d'Euclide.
+1\. un entier inférieur à **φ**
+2\. premier avec **φ** : **e** ne doit pas partager de diviseur commun avec **φ** , d'où l'algorithme d'Euclide.
 
 Ici, on a  **φ = 2016**  et on ne pourrait pas prendre  **e = 2014**  car 2016 et 2014 sont divisibles par 2.
 
@@ -1388,7 +1388,7 @@ Ce exposant de déchiffrement **d** doit être l'inverse de **e** modulo **
 
 Cela veut dire qu'il faut respecter cette condition : le reste de la division entière de (e\*d) par φ vaut 1.
 
-` `**(e \* d) % φ = 1** 
+**(e \* d) % φ = 1** 
 
 D'où la notion d'inverse "e = 1 / d".
 
@@ -1399,20 +1399,19 @@ Dans le cas de notre exemple :
 - on détermine que l'exposant de déchiffrement est  **d = 1181** 
 
 Vérification avec Python :
-
-\>>> e = 437
-
-\>>> d = 1181
-
-\>>> phi = 2016
-
-\>>> (e\*d) % phi
-
+```
+>>> e = 437
+>>> d = 1181
+>>> phi = 2016
+>>> (e*d) % phi
 1
+```
+
 
 Cette fois, il faudra utiliser l'algorithme d'Euclide étendu. Sinon, encore une fois, cela prendrait un temps énorme pour p et q de grande taille.
 
-##### Trouver d ?
+**Trouver d ?**
+
 Pour déterminer **d**, il faut connaître **e** (facile, c'est dans la clé publique) et **φ** (non connue car cette valeur n'est pas publiée). Or pour connaître **φ**, il faut parvenir à retrouver **p** et **q** à partir de **n** ! C'est donc difficile algorithmiquement.
 
 On vient donc bien de dire que connaître la clé publique (**n** ,**e**) ne permet pas de trouver facilement la clé privée ou secrète (**n**, **d**).
@@ -1423,13 +1422,14 @@ Le but de cette activité est d'automatiser tout cela pour générer une clé pr
 
 Il ne s'agit pas de réaliser une véritable implémentation de RSA permettant de générer une clé de 2048 bits ! Juste de manipuler un peu le système pour voir qu'il fonctionne et que manipuler des grands nombres nécessite de faire attention à nos algorithmes, sinon c'est looooooooooong.
 
-4\.7. Installer **matplotlib**.
+4.7. Installer **matplotlib**.
 
 Nous allons devoir trouver deux nombres premiers.
 
 Il va donc falloir vérifier qu'un entier donné est un nombre premier ou pas. Une tâche pas trop compliqué si ce nombre est petit mais un calcul qui devient de plus en plus long lorsque le nombre devient important.
 
-##### Nombre premier
+**Nombre premier**
+
 **Définition** : un nombre premier est un nombre entier naturel qui n'est divisible que par 1 et par lui-même.
 
 **Exemples** :
@@ -1452,36 +1452,40 @@ Une version naïve d'une fonction vérifiant si un nombre est premier est donc d
 On tente de diviser **x** un par un par tous les nombres entiers dans **[2;x[**.
 
 La version avec un **while** :
+```python 
+def est_premier_v1(x):
+    '''Fonction très naïve qui recherche si un nombre est premier par force brute'''
+    assert type(x) == int
+    d = 2
+    while x % d != 0:  # tant que d n'est pas un diviseur de x
+        d = d + 1
+    if d < x:  # on a rencontré un diviseur avant d'atteindre x
+        reponse = False
+    else:
+        reponse = True
+    return reponse
+```
 
-def est\_premier\_v1(x):
-`    `'''Fonction très naïve qui recherche si un nombre est premier par force brute'''
-`    `assert type(x) == int
-`    `d = 2
-`    `while x % d != 0:  # tant que d n'est pas un diviseur de x
-`        `d = d + 1
-`    `if d < x:  # on a rencontré un diviseur avant d'atteindre x
-`        `reponse = False
-`    `else:
-`        `reponse = True
-`    `return reponse
 
 La version avec un **for** :
+```python
+def est_premier_v1(x):
+    '''Fonction très naïve qui recherche si un nombre est premier par force brute'''
+    assert type(x) == int
+    for d in range(2, x, 1):
+        if x % d == 0:  # si d est un diviseur de x
+            return False  # On vient de rencontrer un diviseur
+    return True  # Nous n'avons pas rencontré de diviseur
+```
 
-def est\_premier\_v1(x):
-`    `'''Fonction très naïve qui recherche si un nombre est premier par force brute'''
-`    `assert type(x) == int
-`    `for d in range(2, x, 1):
-`        `if x % d == 0:  # si d est un diviseur de x
-`            `return False  # On vient de rencontrer un diviseur
-`    `return True  # Nous n'avons pas rencontré de diviseur
 
 Prenons le cas de 18. On voit bien que pour tester la primalité, il suffira de le diviser par deux et c'est plié : le reste est nul.
 
-<a name="_hlk73047392"></a>4.8**. Première question** : un nombre (et donc pair) peut-il être divisible par 4, 8, 16... sans être divisible par 2 ?
+4.8**. Première question** : un nombre (et donc pair) peut-il être divisible par 4, 8, 16... sans être divisible par 2 ?
 
 **Deuxième question** : une fois qu'on a vérifié la division par 2, quels sont les prochains diviseurs à tester ?
 
-<a name="_hlk73047467"></a>4.9. Fichier est\_premier.py ! Version avec un peu d'algorithmique : modifier la fonction (version avec while) de façon à ce qu'elle renvoie bien la bonne réponse mais en utilisant le petit truc de la parité :
+4.9. Fichier est\_premier.py ! Version avec un peu d'algorithmique : modifier la fonction (version avec while) de façon à ce qu'elle renvoie bien la bonne réponse mais en utilisant le petit truc de la parité :
 
 - Si x est égal à 2 : on renvoie True.
 - Sinon si x est pair : on renvoie False.
@@ -1504,15 +1508,22 @@ Au delà de la racine de 100, 10, on va donc retrouver les mêmes valeurs mais e
 
 Prenons le cas de 103. Sa racine vaut approximativement 10.14889156509222. Pour savoir s'il est premier, il est inutile de chercher un diviseur éventuel supérieur à 10 :
 
-- soit on trouve un diviseur inférieur à 10 et on saura que 103 n'est pas premier.
-  - **103 % 2 = 1** car 103 = 2 \* 51 + 1
-  - **103 % 3 = 1** car 103 = 3 \* 34 + 1
-  - **103 % 5 = 3** car 103 = 5 \* 20 + 3
-  - **103 % 7 = 5** car 103 = 7 \* 14 + 5
-  - **103 % 9 = 4** car 103 = 9 \* 11 + 4
-- il est inutile de continuer : il faudrait écrire 11 \* quelque chose de supérieur à 10 sinon nous l'aurions trouvé avant ! Or, même 10\*11 donne 110 donc quelque chose de supérieur à 103...
+-\ soit on trouve un diviseur inférieur à 10 et on saura que 103 n'est pas premier.
 
-##### Trouver un diviseur avec la racine
+  - **103 % 2 = 1** car 103 = 2 \* 51 + 1
+
+  - **103 % 3 = 1** car 103 = 3 \* 34 + 1
+
+  - **103 % 5 = 3** car 103 = 5 \* 20 + 3
+
+  - **103 % 7 = 5** car 103 = 7 \* 14 + 5
+
+  - **103 % 9 = 4** car 103 = 9 \* 11 + 4
+
+-\ il est inutile de continuer : il faudrait écrire 11 \* quelque chose de supérieur à 10 sinon nous l'aurions trouvé avant ! Or, même 10\*11 donne 110 donc quelque chose de supérieur à 103...
+
+**Trouver un diviseur avec la racine**
+
 Pour un nombre x, s'il existe un diviseur supérieur à la racine de x, c'est qu'il existe nécessairement un diviseur inférieur à la racine de x.
 
 **x** = **a** \* **b**
@@ -1522,96 +1533,82 @@ Pour un nombre x, s'il existe un diviseur supérieur à la racine de x, c'est qu
 
 Moralité : si on cherche les diviseurs du plus grand ou plus petit, on finira pas tomber d'abord sur le plus petit : inutile de continuer après la racine si on n'a pas trouver avant la racine.
 
-<a name="_hlk73047636"></a>4.10. Considérons un nombre **x** et notons **r** sa racine carrée. Montrer par l'absurde qu'on ne peut pas écrire **x** = **a** \* **b** avec **a** **et** **b** supérieurs à **r**.
+4.10. Considérons un nombre **x** et notons **r** sa racine carrée. Montrer par l'absurde qu'on ne peut pas écrire **x** = **a** \* **b** avec **a** **et** **b** supérieurs à **r**.
 
-<a name="_hlk73047726"></a>4.11. Programmation et bugs : Quelqu'un veut créer un programme en utilisant cette notion de **a** **et** **b** supérieurs à **r**. Voici l'un de ses tests. Que teste-on réellement ici ?
-
+4.11. Programmation et bugs : Quelqu'un veut créer un programme en utilisant cette notion de **a** **et** **b** supérieurs à **r**. Voici l'un de ses tests. Que teste-on réellement ici ?
+```
 if a and b > r:
-
+```
 Que faut-il écrire pour réellement tester **a** **et** **b** supérieurs à **r** ?
 
-4\.12. <a name="_hlk73047823"></a>Utiliser la (mauvaise) fonction booléenne **est\_premier\_v1(x)** pour vérifier qu'elle renvoie bien **True** si **x** est premier et **False** sinon.
+4.12. >Utiliser la (mauvaise) fonction booléenne **est\_premier\_v1(x)** pour vérifier qu'elle renvoie bien **True** si **x** est premier et **False** sinon.
 
 Cette fonction va au-delà de la racine et est donc assez mal codée.
 
 La fonction gère déjà le cas 2 ou pair. Le TANT QUE doit gérer le cas d'un diviseur supérieur ou égal à 3 puisqu'on commence à diviser **x** par 3. Il faut continuer à modifier **d** dans la boucle non bornée TANT QUE la division euclidienne de **x** par **d** ne donne par un reste nul et que **d** est inférieur à **x**.
-
-\>>> est\_premier\_v1(13)
-
+```
+>>> est_premier_v1(13)
 True
-
-
-
-\>>> est\_premier\_v1(8191)
-
+ 
+>>> est_premier_v1(8191)
 True
-
-
-
-\>>> est\_premier\_v1(131071)
-
+ 
+>>> est_premier_v1(131071)
 True
-
-
-
-\>>> est\_premier\_v1(524287)
-
+ 
+>>> est_premier_v1(524287)
 True
-
-
-
-\>>> est\_premier\_v1(1008001)
-
+ 
+>>> est_premier_v1(1008001)
 True
-
-
-
-\>>> est\_premier\_v1(10003199)
-
+ 
+>>> est_premier_v1(10003199)
 True
-
-
-
-\>>> est\_premier\_v1(100003679)
-
+ 
+>>> est_premier_v1(100003679)
 True
+```
+
 
 La fonction a l'air de fonctionner mais...
 
-<a name="_hlk73048018"></a>4.13. Programmation et bugs : Pourquoi la fonction ne fonctionne-t-elle pas pour 2 alors qu'elle ne provoque pas d'erreur et qu'elle semble fonctionner pour les valeurs supérieures à deux ?
+4.13. Programmation et bugs : Pourquoi la fonction ne fonctionne-t-elle pas pour 2 alors qu'elle ne provoque pas d'erreur et qu'elle semble fonctionner pour les valeurs supérieures à deux ?
 
 Modifier la fonction pour qu'elle fonctionne, même pour 2.
-
-\>>> est\_premier\_v1(2)
-
+```
+>>> est_premier_v1(2)
 False
+```
 
-<a name="_hlk73048253"></a>4.14. Programmation et bugs° Aidez ce pauvre programmeur qui ne comprend pas pourquoi sa propre fonction ne fonctionne pas alors qu'il a bien fait ce qu'on lui demande : on divise par les entiers de 3 jusqu'à l'entier **x** dont on veut tester la primalité. Il a pourtant "presque" la même chose que nous... Et c'est ce "presque" qui pose problème.
-
-\>>> est\_premier\_v1(13)
-
+4.14. Programmation et bugs° Aidez ce pauvre programmeur qui ne comprend pas pourquoi sa propre fonction ne fonctionne pas alors qu'il a bien fait ce qu'on lui demande : on divise par les entiers de 3 jusqu'à l'entier **x** dont on veut tester la primalité. Il a pourtant "presque" la même chose que nous... Et c'est ce "presque" qui pose problème.
+```
+>>> est_premier_v1(13)
 False
+```
 
 Voici sa fonction :
+```python
+def est_premier_v1(x):
+    '''Fonction naïve qui recherche si un nombre est premier par force brute'''
+    assert type(x) == int
+    if x == 2:  # si x vaut 2, on renvoie True
+        reponse = True
+    elif x % 2 == 0:  # sinon si x est pair, on renvoie False
+        reponse = False
+    else:  # sinon, il faut chercher
+        d = 3
+        while x % d != 0:  # tant que d n'est pas un diviseur de x
+            d = d + 2
+        if d <= x:  # on est sorti avant d'avoir atteint x
+            reponse = False
+        else:
+            reponse = True
+    return reponse
 
-def est\_premier\_v1(x):
-`    `'''Fonction naïve qui recherche si un nombre est premier par force brute'''
-`    `assert type(x) == int
-`    `if x == 2:  # si x vaut 2, on renvoie True
-`        `reponse = True
-`    `elif x % 2 == 0:  # sinon si x est pair, on renvoie False
-`        `reponse = False
-`    `else:  # sinon, il faut chercher
-`        `d = 3
-`        `while x % d != 0:  # tant que d n'est pas un diviseur de x
-`            `d = d + 2
-`        `if d <= x:  # on est sorti avant d'avoir atteint x
-`            `reponse = False
-`        `else:
-`            `reponse = True
-`    `return reponse
+```
 
-4\.15. Fichier rsa.py. Mettre le code en mémoire. Il comporte 5 fonctions :
+
+4.15. Fichier rsa.py. Mettre le code en mémoire. Il comporte 5 fonctions :
 
 1. la fonction booléenne **est\_premier\_v1**(**x**) qui teste naïvement si **x** est premier en allant au delà de la racine
 1. la fonction booléenne **est\_premier\_v2**(**x**) qui teste naïvement si **x** est premier en allant uniquement jusqu'à racine de x.
@@ -1619,173 +1616,126 @@ def est\_premier\_v1(x):
 1. la fonction **duree\_v2**(**x**, **nb\_essais**=10) fait la même chose mais pour **est\_premier\_v2**.
 1. la fonction **trace\_duree**(**t**, **nb\_essais**=10) qui trace un graphique correspondant aux durées moyennes pour répondre à la primalité des entiers contenus dans le tableau t, entier par entier. Elle ne renvoie rien, c'est une fonction-procédure d'interface créant un simple affichage.
 
-4\.16. Tester la rapidité des deux fonctions en utilisant les nombres premiers stockés dans **NBP**, le tableau de **N**om**B**res **P**remiers.
-
+4.16. Tester la rapidité des deux fonctions en utilisant les nombres premiers stockés dans **NBP**, le tableau de **N**om**B**res **P**remiers.
+```
 NBP = [3, 7, 13, 29, 47, 127, 179, 257, 521, 1039, 2111]
+>>> duree_v1(NBP[0])
+1.8533000911702402e-06
+ 
+>>> duree_v1(NBP[1])
+3.363799987710081e-06
+ 
+>>> duree_v1(NBP[2])
+4.335299854574259e-06
+ 
+>>> duree_v1(NBP[3])
+6.7793998823617585e-06
+ 
+>>> duree_v1(NBP[4])
+1.0627700066834223e-05
+ 
+>>> duree_v1(NBP[5])
+1.2311300088185817e-05
+ 
+>>> duree_v1(NBP[6])
+1.2284100012038835e-05
+ 
+>>> duree_v1(NBP[7])
+4.099059988220688e-05
+ 
+>>> duree_v1(NBP[8])
+5.155100006959401e-05
+ 
+>>> duree_v1(NBP[9])
+0.00012017009994451655
+ 
+>>> duree_v1(NBP[10])
+0.000294514900087961
+```
+
+
+**Question** : que constate-t-on au niveau des temps de réponses lorsque le nombre premier devient de plus en plus grand ? A quoi est-ce dû ?
+
+4.17. Comparer plusieurs durées d'exécution pour un même nombre premier en fournissant un seul essai à chaque fois. Pourquoi a-t-on de telles différentes ?
+```
+>>> duree_v1(2111, 1)
+0.0002949560002889484
+ 
+>>> duree_v1(2111, 1)
+0.00023148800028138794
+ 
+>>> duree_v1(2111, 1)
+0.00027341500026523136
+ 
+>>> duree_v1(2111, 1)
+0.0007015280007180991
+```
+
+
+4.18. Pour obtenir un temps d'exécution moyen, on peut donc demander à notre fonction d'évaluer cette durée non pas sur un seul essai mais sur plusieurs milliers par exemple.
+```
+>>> duree_v1(2111, 1000)
+0.00017470132400012516
+ 
+>>> duree_v1(2111, 1000)
+0.0001734132050005428
+ 
+>>> duree_v1(2111, 1000)
+0.0001750983299989457
+ 
+>>> duree_v1(2111, 1000)
+0.00017563680700004625
+
+```
+
+
+
+Que vaut cette durée ici avec un seul nombre significatif  ?
+
+4.19. Comparer les temps d'exécution pour notre deuxième fonction de recherche, celle qui ne cherche les diviseurs que jusqu'à la racine carré de **x**.
+
+```
+>>> duree_v2(2111, 1000)
+4.331548000563634e-06
+```
+
+
+Exprimer les durées des questions 18 et 19 en puissance de 10<sup>-6</sup> puis comparer les durées moyennes d'exécution des questions 16 et 17.
+
+4.20. La durée est liée aux nombres de diviseurs à vérifier (nombre de fois où on effectue la boucle), à la taille (en octets) du nombre x par rapport aux nombres d'octets ainsi qu'à la taille (en octets) du diviseur...
+
+```
+>>> duree_v2(1008001, 10000)
+8.181419499996992e-05
+ 
+>>> duree_v2(1008003, 10000)
+1.609260599980189e-06
+ 
+>>> duree_v2(1008005, 10000)
+1.8608375999974668e-06
+ 
+>>> duree_v2(1008002, 10000)
+6.398853001883253e-07
+```
+
+
+**Questions**
 
-\>>> duree\_v1(NBP[0])
+- Pourquoi les temps de réponses pour 1008003, 1008005 et 108002 (ces 3 nombres ne sont pas premiers) sont-ils bien plus bas que pour le nombre premier 1008001 ?
+- Pourquoi la réponse pour 108002 est-elle encore plus rapide ?
+- Que devrait faire cette durée pour vérifier de vrais nombres premiers de plus en plus grands ?
 
-1\.8533000911702402e-06
+4.21. Utiliser les appels suivants qui vont permettre de comparer les durées mais également les allures des coûts. Gagne-t-on simplement en temps en utilisant la limite de la racine carrée ?
 
+```
+>>> trace_duree(NBP, duree_v1, 1000)
+ 
+>>> trace_duree(NBP, duree_v2, 100000)
+```
 
 
-\>>> duree\_v1(NBP[1])
+**Complexité de l'algorithme naïf**
 
-3\.363799987710081e-06
-
-
-
-\>>> duree\_v1(NBP[2])
-
-4\.335299854574259e-06
-
-
-
-\>>> duree\_v1(NBP[3])
-
-6\.7793998823617585e-06
-
-
-
-\>>> duree\_v1(NBP[4])
-
-1\.0627700066834223e-05
-
-
-
-\>>> duree\_v1(NBP[5])
-
-1\.2311300088185817e-05
-
-
-
-\>>> duree\_v1(NBP[6])
-
-1\.2284100012038835e-05
-
-
-
-\>>> duree\_v1(NBP[7])
-
-4\.099059988220688e-05
-
-
-
-\>>> duree\_v1(NBP[8])
-
-5\.155100006959401e-05
-
-
-
-\>>> duree\_v1(NBP[9])
-
-0\.00012017009994451655
-
-
-
-\>>> duree\_v1(NBP[10])
-
-0\.000294514900087961
-
-<a name="_hlk73100049"></a><a name="_hlk73048504"></a>**Question** : que constate-t-on au niveau des temps de réponses lorsque le nombre premier devient de plus en plus grand ? A quoi est-ce dû ?
-
-<a name="_hlk73048569"></a>4.17. Comparer plusieurs durées d'exécution pour un même nombre premier en fournissant un seul essai à chaque fois. Pourquoi a-t-on de telles différentes ?
-
-\>>> duree\_v1(2111, 1)
-
-0\.0002949560002889484
-
-
-
-\>>> duree\_v1(2111, 1)
-
-0\.00023148800028138794
-
-
-
-\>>> duree\_v1(2111, 1)
-
-0\.00027341500026523136
-
-
-
-\>>> duree\_v1(2111, 1)
-
-0\.0007015280007180991
-
-4\.18. Pour obtenir un temps d'exécution moyen, on peut donc demander à notre fonction d'évaluer cette durée non pas sur un seul essai mais sur plusieurs milliers par exemple.
-
-\>>> duree\_v1(2111, 1000)
-
-0\.00017470132400012516
-
-
-
-\>>> duree\_v1(2111, 1000)
-
-0\.0001734132050005428
-
-
-
-\>>> duree\_v1(2111, 1000)
-
-0\.0001750983299989457
-
-
-
-\>>> duree\_v1(2111, 1000)
-
-0\.00017563680700004625
-
-<a name="_hlk73048638"></a>Que vaut cette durée ici avec un seul nombre significatif  ?
-
-4\.19. Comparer les temps d'exécution pour notre deuxième fonction de recherche, celle qui ne cherche les diviseurs que jusqu'à la racine carré de **x**.
-
-\>>> duree\_v2(2111, 1000)
-
-4\.331548000563634e-06
-
-<a name="_hlk73048746"></a>Exprimer les durées des questions 18 et 19 en puissance de 10<sup>-6</sup> puis comparer les durées moyennes d'exécution des questions 16 et 17.
-
-4\.20. La durée est liée aux nombres de diviseurs à vérifier (nombre de fois où on effectue la boucle), à la taille (en octets) du nombre x par rapport aux nombres d'octets ainsi qu'à la taille (en octets) du diviseur...
-
-\>>> duree\_v2(1008001, 10000)
-
-8\.181419499996992e-05
-
-
-
-\>>> duree\_v2(1008003, 10000)
-
-1\.609260599980189e-06
-
-
-
-\>>> duree\_v2(1008005, 10000)
-
-1\.8608375999974668e-06
-
-
-
-\>>> duree\_v2(1008002, 10000)
-
-6\.398853001883253e-07
-
-<a name="_hlk73048832"></a>**Questions**
-
-- - Pourquoi les temps de réponses pour 1008003, 1008005 et 108002 (ces 3 nombres ne sont pas premiers) sont-ils bien plus bas que pour le nombre premier 1008001 ?
-- - Pourquoi la réponse pour 108002 est-elle encore plus rapide ?
-- - Que devrait faire cette durée pour vérifier de vrais nombres premiers de plus en plus grands ?
-
-<a name="_hlk73048992"></a>4.21. Utiliser les appels suivants qui vont permettre de comparer les durées mais également les allures des coûts. Gagne-t-on simplement en temps en utilisant la limite de la racine carrée ?
-
-\>>> trace\_duree(NBP, duree\_v1, 1000)
-
-
-
-\>>> trace\_duree(NBP, duree\_v2, 100000)
-
-##### Complexité de l'algorithme naïf
 Nous avons vu qu'avec un peu d'algorithmique (on teste uniquement les entiers impairs) et de mathématique (on teste uniquement les diviseurs jusq'à la racine carrée), on était parvenu à améliorer la rapidité de la réponse pour un entier premier.
 
 \>>> trace\_duree(NBP2, duree\_v2, 100000)

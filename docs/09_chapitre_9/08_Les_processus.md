@@ -1343,3 +1343,349 @@ Si on prend un nombre n beaucoup plus grand, cela va forcément être encore plu
 
 
 Prendre des nombres p et q de 1000 bits chacun, et tout de suite ça vous donne une idée de la difficulté à retrouver p et q connaissant n.
+
+
+**Taille de la clé asymétrique**
+
+Actuellement (2021), on considère que les clés asymétriques basées sur un nombre n de 2048 bits sont valables en terme de sécurité jusqu'en 2030. Au delà, on conseille d'augmenter le nombre de bits car la puissance de calculs aura bien évolué. Est-ce à dire que les clés asymétriques de 1024 bits ne sont plus sécurisées ? Tout dépends de ce que voulez protéger. Augmenter le nombre de bits, augmente en effet le temps d'exécution du chiffrement/déchiffrement.
+
+En effet, contrairement au cas symétrique (où avec 128 bits, on a vraiment presque 2<sup>128</sup> valeurs possibles), une clé asymétrique de 128 bits ne présente qu'une seule factorisation possible. Cela restreint fortement le nombre de possibilités à tester. Il faut donc augmenter la taille de la clé.
+
+**Comment obtenir un nombre n sur 2048 bits**
+
+Le plus simple est d'avoir deux nombres premiers **p** et **q** de 1024 bits chacun.
+
+**Etape 3 : calculer indicatrice d'Euler φ**
+
+Etape facile, c'est un simple calcul.
+
+**φ = (p-1) \* (q-1)** 
+
+Ici, on obtient  φ = (17-1) \* (127-1) , soit  **φ = 2016** .
+
+**Etape 4 : choisir l'exposant de chiffrement e**
+
+Cette étape est plus délicate à réaliser. Nous allons voir qu'il va falloir utiliser l'**algorithme d'Euclide**.
+
+Sans un bon algorithme, cette simple recherche peut prendre du temps.
+
+Ce exposant de chiffrement **e** doit être
+
+1\. un entier inférieur à **φ**
+2\. premier avec **φ** : **e** ne doit pas partager de diviseur commun avec **φ** , d'où l'algorithme d'Euclide.
+
+Ici, on a  **φ = 2016**  et on ne pourrait pas prendre  **e = 2014**  car 2016 et 2014 sont divisibles par 2.
+
+On peut décomposer 2016 de cette façon :  2016 = 2<sup>5</sup> \* 3<sup>2</sup> \* 7  : 2, 3 et 7 sont donc les diviseurs à ne pas prendre pour **e**.
+
+Il suffit donc de prendre un nombre **e** qui ne soit divisible ni par 2, ni par 3, ni par 7.
+
+Prenons par exemple  e = 19 \* 23 , soit  **e = 437** .
+
+Il existe donc de nombreuses valeurs admissibles de **e**. Ces valeurs dépendent de **φ** et donc uniquement indirectement de p et **q**. Le principe est de ne pas permettre à quelqu'un connaissant la clé publique (donc **e**) d'obtenir d'indice supplémentaire sur les valeurs possibles de **p** et **q**.
+
+**Etape 5 : trouver l'exposant de déchiffrement d (connaissant e et φ)**
+
+Ce exposant de déchiffrement **d** doit être l'inverse de **e** modulo **φ**.
+
+Cela veut dire qu'il faut respecter cette condition : le reste de la division entière de (e\*d) par φ vaut 1.
+
+**(e \* d) % φ = 1** 
+
+D'où la notion d'inverse "e = 1 / d".
+
+Dans le cas de notre exemple :
+
+- Indicatrice d'Euler  **φ = 2016** 
+- Exposant de chiffrement  **e = 437** 
+- on détermine que l'exposant de déchiffrement est  **d = 1181** 
+
+Vérification avec Python :
+```
+>>> e = 437
+>>> d = 1181
+>>> phi = 2016
+>>> (e*d) % phi
+1
+```
+
+
+Cette fois, il faudra utiliser l'algorithme d'Euclide étendu. Sinon, encore une fois, cela prendrait un temps énorme pour p et q de grande taille.
+
+**Trouver d ?**
+
+Pour déterminer **d**, il faut connaître **e** (facile, c'est dans la clé publique) et **φ** (non connue car cette valeur n'est pas publiée). Or pour connaître **φ**, il faut parvenir à retrouver **p** et **q** à partir de **n** ! C'est donc difficile algorithmiquement.
+
+On vient donc bien de dire que connaître la clé publique (**n** ,**e**) ne permet pas de trouver facilement la clé privée ou secrète (**n**, **d**).
+
+**4 - TP PYTHON - VÉRIFIER LA PRIMALITÉ D'UN ENTIER**
+
+Le but de cette activité est d'automatiser tout cela pour générer une clé privée et une clé publique automatiquement.
+
+Il ne s'agit pas de réaliser une véritable implémentation de RSA permettant de générer une clé de 2048 bits ! Juste de manipuler un peu le système pour voir qu'il fonctionne et que manipuler des grands nombres nécessite de faire attention à nos algorithmes, sinon c'est looooooooooong.
+
+4.7. Installer **matplotlib**.
+
+Nous allons devoir trouver deux nombres premiers.
+
+Il va donc falloir vérifier qu'un entier donné est un nombre premier ou pas. Une tâche pas trop compliqué si ce nombre est petit mais un calcul qui devient de plus en plus long lorsque le nombre devient important.
+
+**Nombre premier**
+
+**Définition** : un nombre premier est un nombre entier naturel qui n'est divisible que par 1 et par lui-même.
+
+**Exemples** :
+
+- 5 est premier car il n'est divisible que par 1 et 5.
+- 6 n'est pas premier car il est divisible par 1, 2, 3 et 6.
+- 7 est premier car il n'est divisible que par 1 et 7.
+- 8 n'est pas premier car il est divisible par 1, 2, 4 et 8.
+
+Les nombres premiers inferieurs à 100 sont : 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61,67,71, 73, 79, 83, 89 et 97.
+
+Jusque là, tout va bien.
+
+Mais comment faire pour un nombre de grande taille, disons 170141183460469231731687303715884105727 ?
+
+Une version naïve d'une fonction vérifiant si un nombre est premier est donc de vérifier qu'il ne soit pas divisible par l'un des entiers qui lui sont strictement inférieurs (à part 1).
+
+**Algorithme le plus brute et naïf qui soit**
+
+On tente de diviser **x** un par un par tous les nombres entiers dans **[2;x[**.
+
+La version avec un **while** :
+```python 
+def est_premier_v1(x):
+    '''Fonction très naïve qui recherche si un nombre est premier par force brute'''
+    assert type(x) == int
+    d = 2
+    while x % d != 0:  # tant que d n'est pas un diviseur de x
+        d = d + 1
+    if d < x:  # on a rencontré un diviseur avant d'atteindre x
+        reponse = False
+    else:
+        reponse = True
+    return reponse
+```
+
+
+La version avec un **for** :
+```python
+def est_premier_v1(x):
+    '''Fonction très naïve qui recherche si un nombre est premier par force brute'''
+    assert type(x) == int
+    for d in range(2, x, 1):
+        if x % d == 0:  # si d est un diviseur de x
+            return False  # On vient de rencontrer un diviseur
+    return True  # Nous n'avons pas rencontré de diviseur
+```
+
+
+Prenons le cas de 18. On voit bien que pour tester la primalité, il suffira de le diviser par deux et c'est plié : le reste est nul.
+
+4.8**. Première question** : un nombre (et donc pair) peut-il être divisible par 4, 8, 16... sans être divisible par 2 ?
+
+**Deuxième question** : une fois qu'on a vérifié la division par 2, quels sont les prochains diviseurs à tester ?
+
+4.9. Fichier est\_premier.py ! Version avec un peu d'algorithmique : modifier la fonction (version avec while) de façon à ce qu'elle renvoie bien la bonne réponse mais en utilisant le petit truc de la parité :
+
+- Si x est égal à 2 : on renvoie True.
+- Sinon si x est pair : on renvoie False.
+- Sinon : on effectue la boucle TANT QUE mais cette fois, on commence à 3 et on augmente de 2 pour ne prendre que les nombres impairs.
+
+Prenons le cas de 100. Voici les différentes façons de décomposer 100 (qui n'est pas premier) 
+
+- 100 = 1 \* 100
+- 100 = 2 \* 50
+- 100 = 4 \* 25
+- 100 = 5 \* 20
+- 100 = 10 \* 10.
+
+Au delà de la racine de 100, 10, on va donc retrouver les mêmes valeurs mais en inversant leur ordre :
+
+- 100 = 20 \*5
+- 100 = 25 \* 4
+- 100 = 50 \* 2
+- 100 = 100 \* 1
+
+Prenons le cas de 103. Sa racine vaut approximativement 10.14889156509222. Pour savoir s'il est premier, il est inutile de chercher un diviseur éventuel supérieur à 10 :
+
+-\ soit on trouve un diviseur inférieur à 10 et on saura que 103 n'est pas premier.
+
+  - **103 % 2 = 1** car 103 = 2 \* 51 + 1
+
+  - **103 % 3 = 1** car 103 = 3 \* 34 + 1
+
+  - **103 % 5 = 3** car 103 = 5 \* 20 + 3
+
+  - **103 % 7 = 5** car 103 = 7 \* 14 + 5
+
+  - **103 % 9 = 4** car 103 = 9 \* 11 + 4
+
+-\ il est inutile de continuer : il faudrait écrire 11 \* quelque chose de supérieur à 10 sinon nous l'aurions trouvé avant ! Or, même 10\*11 donne 110 donc quelque chose de supérieur à 103...
+
+**Trouver un diviseur avec la racine**
+
+Pour un nombre x, s'il existe un diviseur supérieur à la racine de x, c'est qu'il existe nécessairement un diviseur inférieur à la racine de x.
+
+**x** = **a** \* **b**
+
+- S'il existe a plus grand que la racine de x, c'est que b est plus petit que la racine de x
+- S'il existe a plus petit que la racine de x, c'est que b est plus grand que la racine de x.
+
+Moralité : si on cherche les diviseurs du plus grand ou plus petit, on finira pas tomber d'abord sur le plus petit : inutile de continuer après la racine si on n'a pas trouver avant la racine.
+
+4.10. Considérons un nombre **x** et notons **r** sa racine carrée. Montrer par l'absurde qu'on ne peut pas écrire **x** = **a** \* **b** avec **a** **et** **b** supérieurs à **r**.
+
+4.11. Programmation et bugs : Quelqu'un veut créer un programme en utilisant cette notion de **a** **et** **b** supérieurs à **r**. Voici l'un de ses tests. Que teste-on réellement ici ?
+```
+if a and b > r:
+```
+Que faut-il écrire pour réellement tester **a** **et** **b** supérieurs à **r** ?
+
+4.12. >Utiliser la (mauvaise) fonction booléenne **est\_premier\_v1(x)** pour vérifier qu'elle renvoie bien **True** si **x** est premier et **False** sinon.
+
+Cette fonction va au-delà de la racine et est donc assez mal codée.
+
+La fonction gère déjà le cas 2 ou pair. Le TANT QUE doit gérer le cas d'un diviseur supérieur ou égal à 3 puisqu'on commence à diviser **x** par 3. Il faut continuer à modifier **d** dans la boucle non bornée TANT QUE la division euclidienne de **x** par **d** ne donne par un reste nul et que **d** est inférieur à **x**.
+```
+>>> est_premier_v1(13)
+True
+ 
+>>> est_premier_v1(8191)
+True
+ 
+>>> est_premier_v1(131071)
+True
+ 
+>>> est_premier_v1(524287)
+True
+ 
+>>> est_premier_v1(1008001)
+True
+ 
+>>> est_premier_v1(10003199)
+True
+ 
+>>> est_premier_v1(100003679)
+True
+```
+
+
+La fonction a l'air de fonctionner mais...
+
+4.13. Programmation et bugs : Pourquoi la fonction ne fonctionne-t-elle pas pour 2 alors qu'elle ne provoque pas d'erreur et qu'elle semble fonctionner pour les valeurs supérieures à deux ?
+
+Modifier la fonction pour qu'elle fonctionne, même pour 2.
+```
+>>> est_premier_v1(2)
+False
+```
+
+4.14. Programmation et bugs° Aidez ce pauvre programmeur qui ne comprend pas pourquoi sa propre fonction ne fonctionne pas alors qu'il a bien fait ce qu'on lui demande : on divise par les entiers de 3 jusqu'à l'entier **x** dont on veut tester la primalité. Il a pourtant "presque" la même chose que nous... Et c'est ce "presque" qui pose problème.
+```
+>>> est_premier_v1(13)
+False
+```
+
+Voici sa fonction :
+```python
+def est_premier_v1(x):
+    '''Fonction naïve qui recherche si un nombre est premier par force brute'''
+    assert type(x) == int
+    if x == 2:  # si x vaut 2, on renvoie True
+        reponse = True
+    elif x % 2 == 0:  # sinon si x est pair, on renvoie False
+        reponse = False
+    else:  # sinon, il faut chercher
+        d = 3
+        while x % d != 0:  # tant que d n'est pas un diviseur de x
+            d = d + 2
+        if d <= x:  # on est sorti avant d'avoir atteint x
+            reponse = False
+        else:
+            reponse = True
+    return reponse
+
+```
+
+
+4.15. Fichier rsa.py. Mettre le code en mémoire. Il comporte 5 fonctions :
+
+1. la fonction booléenne **est\_premier\_v1**(**x**) qui teste naïvement si **x** est premier en allant au delà de la racine
+1. la fonction booléenne **est\_premier\_v2**(**x**) qui teste naïvement si **x** est premier en allant uniquement jusqu'à racine de x.
+1. la fonction **duree\_v1**(**x**, **nb\_essais**=10) qui renvoie un float correspondant au nombre de secondes pour que la fonction **est\_premier\_v1** réponde, sur une moyenne de 10 essais par défaut.
+1. la fonction **duree\_v2**(**x**, **nb\_essais**=10) fait la même chose mais pour **est\_premier\_v2**.
+1. la fonction **trace\_duree**(**t**, **nb\_essais**=10) qui trace un graphique correspondant aux durées moyennes pour répondre à la primalité des entiers contenus dans le tableau t, entier par entier. Elle ne renvoie rien, c'est une fonction-procédure d'interface créant un simple affichage.
+
+4.16. Tester la rapidité des deux fonctions en utilisant les nombres premiers stockés dans **NBP**, le tableau de **N**om**B**res **P**remiers.
+```
+NBP = [3, 7, 13, 29, 47, 127, 179, 257, 521, 1039, 2111]
+>>> duree_v1(NBP[0])
+1.8533000911702402e-06
+ 
+>>> duree_v1(NBP[1])
+3.363799987710081e-06
+ 
+>>> duree_v1(NBP[2])
+4.335299854574259e-06
+ 
+>>> duree_v1(NBP[3])
+6.7793998823617585e-06
+ 
+>>> duree_v1(NBP[4])
+1.0627700066834223e-05
+ 
+>>> duree_v1(NBP[5])
+1.2311300088185817e-05
+ 
+>>> duree_v1(NBP[6])
+1.2284100012038835e-05
+ 
+>>> duree_v1(NBP[7])
+4.099059988220688e-05
+ 
+>>> duree_v1(NBP[8])
+5.155100006959401e-05
+ 
+>>> duree_v1(NBP[9])
+0.00012017009994451655
+ 
+>>> duree_v1(NBP[10])
+0.000294514900087961
+```
+
+
+**Question** : que constate-t-on au niveau des temps de réponses lorsque le nombre premier devient de plus en plus grand ? A quoi est-ce dû ?
+
+4.17. Comparer plusieurs durées d'exécution pour un même nombre premier en fournissant un seul essai à chaque fois. Pourquoi a-t-on de telles différentes ?
+```
+>>> duree_v1(2111, 1)
+0.0002949560002889484
+ 
+>>> duree_v1(2111, 1)
+0.00023148800028138794
+ 
+>>> duree_v1(2111, 1)
+0.00027341500026523136
+ 
+>>> duree_v1(2111, 1)
+0.0007015280007180991
+```
+
+
+4.18. Pour obtenir un temps d'exécution moyen, on peut donc demander à notre fonction d'évaluer cette durée non pas sur un seul essai mais sur plusieurs milliers par exemple.
+```
+>>> duree_v1(2111, 1000)
+0.00017470132400012516
+ 
+>>> duree_v1(2111, 1000)
+0.0001734132050005428
+ 
+>>> duree_v1(2111, 1000)
+0.0001750983299989457
+ 
+>>> duree_v1(2111, 1000)
+0.00017563680700004625
+
+```
