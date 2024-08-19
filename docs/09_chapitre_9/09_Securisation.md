@@ -533,7 +533,7 @@ On pourra utiliser la fonction time.time() du module time pour connaître l'heur
 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
-On utilisera un fichier echange\_cle.py.
+sur Thonny : On utilisera un fichier echange\_cle.py.
 
 **La situation** : Alice veut établir une liaison sécurisée avec Bob en chiffrement symétrique avec la clef kfinale. Mais comment transmettre cette clef à Bob sans que celle-ci ne soit interceptée ?
 
@@ -672,9 +672,7 @@ assert creClef() == 'C5D71484F8CF9BF4B76F'
 
 🔑 Il faut aussi créer une clef privée, liée à la clef publique. Dans notre exemple, le processus de création de la clef est très simple, et la conversion en hexadécimal est totalement factice. Il ne s'agit, comme dans le chiffrement de Vigenère, que d'appliquer un décalage variable des lettres. Pour les 10 premières lettres, le décalage est codé dans la clef, pour la 11ème on reprend le décalage de la 1ere, et ainsi de suite.... c'est ce qu'avait imaginé Vigenère.
 
-❓ Comment faire
-
-?
+❓ Comment faire ?
 
 Pour créer une clef qui permette de respecter :
 
