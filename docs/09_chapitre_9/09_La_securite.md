@@ -602,29 +602,33 @@ Voici son fonctionnement :
 - On concatène pour créer une clef de longueur 20. Les lettres devront être converties en majuscules.
 
 Cette clef serait très simple à casser, mais nous étudions ici seulement le principe.
-
+```python
 from random import randint
 
 def creClef() -> str:
-`    `""" Crée un clef de chiffrement composée de 20 caractères 
-`    `parmi ceux-ci : 0, 1, 2, ..., 9, A, B, C, D, E, F
-`    `:return: renvoie 20 caractères de 0, 1, 2, ..., 9, A, B, C, D, E, F
-`    `Par exemple : 'C5D71484F8CF9BF4B76F'
-`    `C5 représente 197, D7 représente 215 etc...
-`    `"""
-`    `pass
+    """ Crée un clef de chiffrement composée de 20 caractères 
+    parmi ceux-ci : 0, 1, 2, ..., 9, A, B, C, D, E, F
+    :return: renvoie 20 caractères de 0, 1, 2, ..., 9, A, B, C, D, E, F
+    Par exemple : 'C5D71484F8CF9BF4B76F'
+    C5 représente 197, D7 représente 215 etc...
+    """
+    pass
 
 
 print(creClef())
+```
+
 
 Aide : on pourra utiliser **join()** et **upper()**
 
 Créez quelques clefs pour voir …
+```python
+for _ in range(3) :
+    print(creClef())
+```
 
-for \_ in range(3) :
-`    `print(creClef())
 
-- 1. Approfondissement sur le module random :
+1.2. Approfondissement sur le module random :
 
 🤔 Pour tester notre fonction, comment obtenir des nombres "aléatoires" toujours identiques?
 En fait random crée des nombres "pseudos-aléatoires". Si on lui donne une initialisation a avec seed(a) , les nombres générés seront toujours identiques.
@@ -634,9 +638,11 @@ En fait random crée des nombres "pseudos-aléatoires". Si on lui donne une init
 Sans initialisation du générateur, on obtient 5 listes différentes.
 
 Par défaut l'initialisation se fait avec la date actuelle, qui change tout le temps ..
-
+```python
 for i in range(5):
-`    `print([randint(0, 255) for i in range(10)])
+    print([randint(0, 255) for i in range(10)])
+```
+
 
 On utilise une initialisation, par exemple seed(0)
 
