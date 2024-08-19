@@ -59,7 +59,7 @@ Ce routeur retransmet ensuite le paquet au routeur suivant et ainsi de suite ju
 
 Chaque routeur peut donc inspecter les paquets pour en **connaître le contenu.**
 
-![Routage](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.003.png)
+![Routage](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.003.png){: .center}
 
 Cette situation n'est **clairement pas idéale.** En effet, si l'on utilise un site web pour effectuer des transactions bancaires, renseigner des informations personnelles (impôts, arrêt maladie, etc.), ou simplement exprimer son opinion, on souhaite que le contenu des messages envoyés ne soit connu que de deux entités: la source et la destination.
 
