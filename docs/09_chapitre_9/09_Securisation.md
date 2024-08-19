@@ -355,9 +355,7 @@ a. Calculer n et ϕ(*n*).
 
 b. Justifier que (9,65) ne peut pas être une clé publique.
 
-c. Vérifier que (11,65) est une clé publique. C'est la
-
- clé publique de Bob.
+c. Vérifier que (11,65) est une clé publique. C'est la clé publique de Bob.
 
 d. Vérifier que 35 est un inverse de 11 modulo 48.
 
