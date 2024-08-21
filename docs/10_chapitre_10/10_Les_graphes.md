@@ -616,33 +616,18 @@ B-A-C-E-F-D-G et B-A-F-E-C-G-D sont des parcours en largeur au départ de B.
 
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.030.png)
 
-Le 'point de départ' de notre parcours (le sommet s dans l'algorithme), sera le sommet A.</p><p>Vous noterez les sommets atteints à chaque étape ainsi que les sommets présents dans la file f.</p><p>Vous pourrez aussi, à chaque étape, donner les changements de couleur des sommets.</p><p></p>|
-| - |
+Le 'point de départ' de notre parcours (le sommet s dans l'algorithme), sera le sommet A.
+
+Vous noterez les sommets atteints à chaque étape ainsi que les sommets présents dans la file f.
+
+Vous pourrez aussi, à chaque étape, donner les changements de couleur des sommets.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.031.png)Dans Thonny : dans **le** fichier **graphe.py**
+Dans Thonny : dans **le** fichier **graphe.py**
 
 **L’algorithme du BFS** :
+
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.031.png)
 
 On marque les sommets découverts afin que chaque sommet ne soit enfilé qu’une fois. Ainsi, lorsqu’on défile un sommet, on sait qu’il n’a pas encore été visité.
 
@@ -663,41 +648,45 @@ Le test SI voisin n est pas dans decouverts permet donc de ne pas mettre en fil
 
 - 1er cas : Utiliser une file déjà codée
 - 2ème cas: liste de python
-
+```python
 file = [ ]
-
 file.append(…)
-
 file.pop(0)
-
+```
 - 3ème cas : avec module queue
-
+```python
 from queue import Queue
-
 file = Queue()
-
 file.empty() 
-
 file.put(…)
-
 file.get()
-
+```
 - 4<sup>ème</sup> cas : avec module collections
-
+```python
 from collections import deque
-
 file = deque([ ])
-
 file.append(…)
-
 file.popleft()
+if file : # => si la file n’est pas vide
+```
 
-if file : => si la file n’est pas vide
+**Activité n° 15 : Parcours en largeur:**   Implémenter l'algorithme du parcours en largeur .
+```python
+#importer une file !!
 
-|<p>**Activité n° AUTONUM  \* Arabic : Parcours en largeur:**   Implémenter l'algorithme du parcours en largeur .</p><p>#importer une file !!<br><br><br>def parcours\_largeur\_i(G, s):<br>`    `decouverts=[]<br>`    `en\_attente = File()<br>`    `pass</p><p></p><p>print(parcours\_largeur({"A": ("B", "D", "E"), "B": ("A", "C"), "C": ("B", "D"),<br>`                            `"D": ("A", "C", "E"), "E": ("A", "D", "F", "G"), <br>`                            `"F": ("E", "G"), "G": ("E", "F", "H"),<br>`                            `"H": ("G")}, "A"))</p>|
-| - |
+def parcours_largeur_i(G, s):
+    decouverts=[]
+    en_attente = File()
+    pass
 
-|<p>**Activité n° AUTONUM  \* Arabic : Parcours en largeur :**   Implémenter l'algorithme du parcours en largeur .</p><p>![image]Voici le graphe :</p><p>graphe= {'A': ['B', 'C'], 'B': ['A', 'D', 'E'], 'C': ['A', 'D'], 'D': ['B', 'C', 'E'], 'E': ['B', 'D', 'F', 'G'], 'F': ['E', 'G'], 'G': ['E', 'F', 'H'], 'H': ['G']},'B') </p><p>1. Donner le parcours en largeur de g grâce à l'algorithme BFS, si le sommet de départ est B. </p><p>2. Deviner le parcours en largeur de départ D, puis de départ G. </p><p>3. Vérifier grâce à votre algorithme.</p>|
+print(parcours_largeur({"A": ("B", "D", "E"), "B": ("A", "C"), "C": ("B", "D"),
+                            "D": ("A", "C", "E"), "E": ("A", "D", "F", "G"), 
+                            "F": ("E", "G"), "G": ("E", "F", "H"),
+                            "H": ("G")}, "A"))
+```
+
+
+**Activité n° 16 : Parcours en largeur :**   Implémenter l'algorithme du parcours en largeur .</p><p>![image]Voici le graphe :</p><p>graphe= {'A': ['B', 'C'], 'B': ['A', 'D', 'E'], 'C': ['A', 'D'], 'D': ['B', 'C', 'E'], 'E': ['B', 'D', 'F', 'G'], 'F': ['E', 'G'], 'G': ['E', 'F', 'H'], 'H': ['G']},'B') </p><p>1. Donner le parcours en largeur de g grâce à l'algorithme BFS, si le sommet de départ est B. </p><p>2. Deviner le parcours en largeur de départ D, puis de départ G. </p><p>3. Vérifier grâce à votre algorithme.</p>|
 | - |
 1. # <a name="_toc161063592"></a>**❤️Parcours en profondeur ❤️**
 **Cf : Video Parcours graphe**
