@@ -6,19 +6,19 @@ title: 10 Les graphes
 
 **Table des matières**
 
-[1.	Introduction et notion de base	2](#_toc161063570)
+[1.	Introduction et notion de base	](#_toc161063570)
 
-[2.	Modélisations d’un graphe	5](#_toc161063576)
+[2.	Modélisations d’un graphe	](#_toc161063576)
 
-[3.	Visualiser un graphe (à faire chez soi)	8](#_toc161063584)
+[3.	Visualiser un graphe ](#_toc161063584)
 
-[4.	❤️Création d’une class Graphe❤️	9](#_toc161063587)
+[4.	❤️Création d’une class Graphe❤️	](#_toc161063587)
 
-[5.	Les parcours	10](#_toc161063590)
+[5.	Les parcours	](#_toc161063590)
 
-[6.	Exercices	18](#_toc161063596)
+[6.	Exercices	](#_toc161063596)
 
-[7.	Projet	25](#_toc161063597)
+[7.	Projet	](#_toc161063597)
 
 
 **Compétences évaluables :**
