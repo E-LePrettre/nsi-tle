@@ -23,8 +23,8 @@ title: 10 Les graphes
 - Repérer la présence d’un cycle dans un graphe
 - Chercher un chemin dans un graphe
 
-<H2 STYLE="COLOR:BLUE;">## <a name="_toc161063570"></a>**1. Introduction et notion de base**</H2>  
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc161063571"></a>**1.1. Qu’est ce qu’un graphe ?**</H3>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063570"></a>**1. Introduction et notion de base**</H2>  
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063571"></a>**1.1. Qu’est ce qu’un graphe ?**</H3>
 
 Un graphe est une structure de données qui représente **des relations entre des objets.** Les objets sont représentés par des **sommets** (également appelés nœuds) et les relations entre eux sont représentées par des **arêtes** ou **arc**.
 
@@ -36,7 +36,7 @@ Le nombre de sommets d’un graphe s’appelle l’**ordre du graphe.**
 
 Le graphe précédent est d’ordre ????????????????.
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc161063572"></a>**1.2. A quoi sert un graphe ?**</H3>  
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063572"></a>**1.2. A quoi sert un graphe ?**</H3>  
 Il sert à représenter des **relations** entre des éléments. 
 
 Par exemple, il peut représenter un **réseau social** :
@@ -53,7 +53,7 @@ Ou un **réseau informatique**
 
 Les graphes servent aussi à représenter **des relations entre des données**, des **objets** ou pour faire du **routage dans les réseaux**.
 
-<H3 STYLE="COLOR:red;">**Activité n° 1 : Graphe social :**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 1 : Graphe social :**</H3>  
 Construisez un graphe de réseau social à partir des informations suivantes :
 
 - A est ami avec B et E
@@ -63,7 +63,7 @@ Construisez un graphe de réseau social à partir des informations suivantes :
 - E est ami avec A,D et F
 - F est ami avec C, D et E
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc161063573"></a>**1.3. Vocabulaire**</H3>  
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063573"></a>**1.3. Vocabulaire**</H3>  
 On dit que deux sommets A et B sont **voisins** s’ils sont reliés par une arête : ils sont aussi dits **adjacents.**
 
 Le **degré d’un sommet** c’est le nombre d’arêtes issues de ce sommet.
@@ -74,7 +74,7 @@ On la désigne par **les lettres des sommets** qu'elle comporte.
 
 Un **cycle** est **une chaîne qui commence et se termine au même sommet**.
 
-<H3 STYLE="COLOR:red;">**Activité n° 2 : Question vocabulaire**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 2 : Question vocabulaire**</H3>  
 Soit le graphe suivant :
 
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.008.png)
@@ -84,7 +84,7 @@ Soit le graphe suivant :
 - Donner deux sommets adjacents
 - Donner deux sommets non adjacents
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc161063574"></a>**1.4. Les différents types de graphes**</H3>  
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063574"></a>**1.4. Les différents types de graphes**</H3>  
 **Premier exemple :**
 
 Soit les lieux suivants : A, B, C, D, E, F et G.
@@ -138,7 +138,7 @@ Il est aussi possible **d'associer à chaque arête la durée du trajet entre 2 
 
 En fonction du choix fait par le conducteur (trajet le plus court "en distance" ou trajet le plus court "en temps").
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc161063575"></a>**1.5. Applications courantes des graphes**</H3>  
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063575"></a>**1.5. Applications courantes des graphes**</H3>  
 Les graphes sont utilisés dans de nombreuses applications courantes, notamment :
 
 - **Réseaux sociaux** : les réseaux sociaux peuvent être modélisés en utilisant des graphes où les sommets représentent les utilisateurs et les arêtes représentent les relations entre les utilisateurs (amis, abonnements, etc.).
@@ -152,31 +152,31 @@ Les graphes sont utilisés dans de nombreuses applications courantes, notamment 
  utilisant des sommets pour représenter les nœuds et des arêtes pour représenter les lignes électriques.
 - **Recherche en intelligence artificielle** : les graphes peuvent être utilisés pour implémenter des algorithmes d'IA, tels que l'algorithme A\* pour la recherche de chemin.
 
-<H2 STYLE="COLOR:BLUE;">## <a name="_toc161063576"></a>**2. Modélisations d’un graphe**</H2>  
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063576"></a>**2. Modélisations d’un graphe**</H2>  
 Il existe **deux méthodes** permettant d'implémenter un graphe : les **listes d’adjacence et les matrices d'adjacences**.
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc161063577"></a>**2.1. Représentation par matrice d’adjacence**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063577"></a>**2.1. Représentation par matrice d’adjacence**</H3>
 
 - On **classe les sommets** (en les numérotant, ou par ordre alphabétique).
 - On représente les arêtes (ou les arcs) **dans une matrice**, c'est-à-dire un tableau à deux dimensions où on inscrit un 1 en ligne i et colonne j si les sommets de rang i et de rang j sont **voisins** (dits aussi **adjacents**).
 
 Ce tableau s'appelle une **matrice d'adjacence** (on aurait très bien pu l'appeler aussi **matrice de voisinage**).
 
-<H4 STYLE="COLOR:MAGENTA;">#### <a name="_toc161063578"></a>**2.1.1. Graphe non orienté**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063578"></a>**2.1.1. Graphe non orienté**</H4>
 
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.016.png)
 
 Dans ce graphe non orienté, comme B est voisin de C, C est aussi voisin de B, ce qui signifie que l'arête qui relie B et C va donner lieu à deux "1" dans la matrice, situé de part et d'autre de la diagonale descendante (un mathématicien parlera de matrice *symétrique*).
 
-<H4 STYLE="COLOR:MAGENTA;">#### <a name="_toc161063579"></a>**2.1.2. Graphe orienté**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063579"></a>**2.1.2. Graphe orienté**</H4>
 
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.017.png)
 
-<H4 STYLE="COLOR:MAGENTA;">#### <a name="_toc161063580"></a>**2.1.3. Graphe pondéré**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063580"></a>**2.1.3. Graphe pondéré**</H4>
 
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.018.png)
 
-<H3 STYLE="COLOR:red;">**Activité n° 3 :**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 3 :**</H3>  
 Soit un ensemble d'amis connectés sur un réseau social quelconque. Voici les interactions qu'on a recensées:
 
 - André est ami avec Béa, Charles, Estelle et Fabrice,
@@ -192,14 +192,14 @@ Soit un ensemble d'amis connectés sur un réseau social quelconque. Voici les i
 
 2\. Donner la matrice d'adjacence de ce graphe.
 
-<H3 STYLE="COLOR:red;">**Activité n° 4 :**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 4 :**</H3>  
 Sur feuille : Construire les graphes correspondants aux matrices d'adjacence suivantes:
 
 1. ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.019.png)
 2. ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.020.png)
 3. ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.021.png)
 
-<H4 STYLE="COLOR:MAGENTA;">#### <a name="_toc161063581"></a>**2.1.4. ❤️Implémentation Python des matrices d’adjacence❤️**</H4>  
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063581"></a>**2.1.4. ❤️Implémentation Python des matrices d’adjacence❤️**</H4>  
 Une matrice se représente naturellement par une liste de listes.
 
 **Exemple :** La matrice
@@ -225,7 +225,7 @@ G = [[0, 1, 1, 1, 1],
 - Pour un graphe à n sommets, la complexité en mémoire (appelée aussi **complexité spatiale**) de la représentation matricielle est **en O(n²).**
 - Tester si un **sommet est isolé** (ou connaître ses voisins) est **en O(n)** puisqu'il faut parcourir une ligne, mais tester si deux sommets **sont adjacents** (voisins) est **en O(1),** c'est un simple accès au tableau.
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc161063582"></a>**2.2. ❤️Représentation par les listes d’adjacence❤️**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063582"></a>**2.2. ❤️Représentation par les listes d’adjacence❤️**</H3>
 
 - On associe à chaque sommet **sa liste des voisins** (c'est-à-dire les sommets adjacents). On utilise pour cela un **dictionnaire** dont les clés sont les sommets et les valeurs les listes des voisins.
 - Dans le cas d'un **graphe orienté** on associe à chaque sommet **la liste des *successeurs*** (ou bien des *prédécesseurs*, au choix).
@@ -250,7 +250,7 @@ G = {'A': ['B', 'C', 'D', 'E'],
 - Pour un graphe à n sommets et m arêtes, la complexité spatiale de la représentation en liste d'adjacence est **en O(n+m)**. C'est beaucoup mieux qu'une matrice d'adjacence lorsque le graphe comporte peu d'arêtes (i.e. beaucoup de 0 dans la matrice, non stockés avec des listes).
 - Tester si un **sommet est isolé** (ou connaître ses voisins) est **en O(1)** puisqu'on y accède immédiatement, mais tester si **deux sommets sont adjacents** (voisins) est **en O(n)** car il faut parcourir la liste.
 
-<H3 STYLE="COLOR:red;">**Activité n° 5 : Sur feuille :**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 5 : Sur feuille :**</H3>  
 Construire les graphes correspondants aux listes d'adjacence suivantes :
 
 1.
@@ -278,12 +278,12 @@ G2 = {
      }
 ```
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc161063583"></a>**2.3. ❤️Passage d’une représentation à l’autre❤️**</H3>  
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063583"></a>**2.3. ❤️Passage d’une représentation à l’autre❤️**</H3>  
 Dans THONNY : dans un fichier **graphe.py**
 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
-<H3 STYLE="COLOR:red;">**Activité n° 6 : Représentation par une matrice :**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 6 : Représentation par une matrice :**</H3>  
 Passage d’une représentation à l’autre : Ecrire une fonction `matrice2dico(sommets, matrice)` qui prend un graphe représenté par une liste de sommets et une matrice d’adjacence et renvoie le graphe équivalent représenté par un dictionnaire.
 
 ![](Aspose.Words.8c5294cc-479
@@ -294,7 +294,7 @@ Passage d’une représentation à l’autre : Ecrire une fonction `matrice2dico
 
 Tester avec M1, M2 et M3.
 
-<H3 STYLE="COLOR:red;">**Activité n° 7 : Représentation par dictionnaire :**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 7 : Représentation par dictionnaire :**</H3>  
 Passage d’une représentation à l’autre : Ecrire une fonction `dico2matrice(graphe_dico)` qui prend un graphe représenté par un dictionnaire et qui renvoie une liste de sommets et une matrice d’adjacence.
 
 ```python
@@ -325,12 +325,12 @@ G2 = {
 
 Tester avec G, G1 et G2.
 
-<H2 STYLE="COLOR:BLUE;">## <a name="_toc161063584"></a>**3. Visualiser un graphe**</H2>  
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063584"></a>**3. Visualiser un graphe**</H2>  
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc161063585"></a>**3.1. Avec le module networkx**</H3>  
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063585"></a>**3.1. Avec le module networkx**</H3>  
 Pour visualiser ce graphe, nous allons utiliser les bibliothèques networkx et matplotlib. Pensez à vérifier que les deux bibliothèques sont installées.
 
-<H3 STYLE="COLOR:red;">**Activité n° 8 : Représentation avec networkx :**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 8 : Représentation avec networkx :**</H3>  
 ```python
 import matplotlib.pyplot as plt
 import networkx as nx
@@ -359,13 +359,13 @@ nx.draw(G,with_labels = True) # Pour une representation classique
 plt.show()
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 9 : Représentation avec networkx :**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 9 : Représentation avec networkx :**</H3>  
 Tester avec G, G1 et G2 de la partie 2.2.
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc161063586"></a>**3.2. Avec le module graphviz**</H3>  
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063586"></a>**3.2. Avec le module graphviz**</H3>  
 Dans Thonny : Vérifiez que la bibliothèque graphviz est installée.
 
-<H3 STYLE="COLOR:red;">**Activité n° 10 : Représentation avec graphviz d’un graphe orienté**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 10 : Représentation avec graphviz d’un graphe orienté**</H3>  
 ```python
 import graphviz
 graphe_oriente = graphviz.Digraph()
@@ -384,10 +384,10 @@ graphviz.Source(graphe_oriente)
 graphe_oriente.view()
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 11 : Représentation avec graphviz d’un graphe orienté :**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 11 : Représentation avec graphviz d’un graphe orienté :**</H3>  
 Tester avec G2.
 
-<H3 STYLE="COLOR:red;">**Activité n° 12 : Représentation avec graphviz d’un graphe non orienté**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 12 : Représentation avec graphviz d’un graphe non orienté**</H3>  
 ```python
 import graphviz
 graphe_non_oriente = graphviz.Graph()
@@ -406,12 +406,12 @@ graphviz.Source(graphe_non_oriente)
 graphe_non_oriente.view()
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 13 : Représentation avec graphviz d’un graphe non orienté :**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 13 : Représentation avec graphviz d’un graphe non orienté :**</H3>  
 Tester avec G et G1.
 
-<H2 STYLE="COLOR:BLUE;">## <a name="_toc161063587"></a>**4. ❤️Création d’une class Graphe❤️**</H2>  
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063587"></a>**4. ❤️Création d’une class Graphe❤️**</H2>  
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc161063588"></a>**4.1. Interface**</H3>  
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063588"></a>**4.1. Interface**</H3>  
 Dans THONNY : Dans un fichier **graphe_POO.py**
 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
@@ -431,7 +431,7 @@ L'objet de type Graphe aura comme attributs :
 - une liste `liste_sommets` (donnée en paramètre dans la liste `liste_sommets`)
 - un dictionnaire `adjacents`, où chaque sommet se verra attribuer une liste vide `[]`.
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc161063589"></a>**4.2. Implémentation**</H3>  
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063589"></a>**4.2. Implémentation**</H3>  
 ```python
 class Graphe:
     def __init__(self, liste_sommets):
@@ -488,7 +488,7 @@ C', 'D')
     plt.show()
 ```
 
-<H2 STYLE="COLOR:BLUE;">## <a name="_toc161063590"></a>**5. Les parcours**</H2>  
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063590"></a>**5. Les parcours**</H2>  
 Un parcours de graphe est un algorithme consistant à **explorer les sommets d'un graphe de proche en proche** à partir d'un sommet initial.
 
 Parcourir simplement le dictionnaire ou la matrice d’un graphe comme on peut le faire pour effectuer une copie du graphe n’est pas considéré comme un parcours de graphe.
@@ -559,7 +559,7 @@ Contrairement à un parcours d'arbre, où les fils d'un nœud ne peuvent pas avo
 
 Il est donc nécessaire **de mémoriser les sommets déjà visités** ou découverts (on dira qu'un sommet est découvert lorsqu'on l'ajoute à S).
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc161063591"></a>**5.1. ❤️Parcours en largeur ❤️**</H3>  
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063591"></a>**5.1. ❤️Parcours en largeur ❤️**</H3>  
 
 **Cf : Video [https://ladigitale.dev/digiview/#/v/66c66c81c573a](https://ladigitale.dev/digiview/#/v/66c66c81c573a)**
 
@@ -576,7 +576,7 @@ Sur ce graphe A-B-C-F-E-D-G est un parcours en largeur au départ de A.
 
 B-A-C-E-F-D-G et B-A-F-E-C-G-D sont des parcours en largeur au départ de B.
 
-<H3 STYLE="COLOR:red;">**Activité n° 14 : Parcours en largeur :**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 14 : Parcours en largeur :**</H3>  
 Appliquez l'algorithme du parcours en largeur au graphe ci-dessous.
 
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.030.png)
@@ -635,7 +635,7 @@ file.popleft()
 if file : # => si la file n’est pas vide
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 15 : Parcours en largeur :**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 15 : Parcours en largeur :**</H3>  
 Implémenter l'algorithme du parcours en largeur .
 
 ```python
@@ -652,7 +652,7 @@ print(parcours_largeur({"A": ("B", "D", "E"), "B": ("A", "C"), "C": ("B", "D"),
                             "H": ("G")}, "A"))
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 16 : Parcours en largeur :**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 16 : Parcours en largeur :**</H3>  
 Implémenter l'algorithme du parcours en largeur .
 
 Voici le graphe :
@@ -669,7 +669,7 @@ graphe= {'A': ['B', 'C'], 'B': ['A', 'D', 'E'], 'C': ['A', 'D'], 'D': ['B', 'C',
 2. Deviner le parcours en largeur de départ D, puis de départ G.  
 3. Vérifier grâce à votre algorithme.
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc161063592"></a>**5.2. ❤️Parcours en profondeur ❤️**</H3>  
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063592"></a>**5.2. ❤️Parcours en profondeur ❤️**</H3>  
 
 **Cf : Video [https://ladigitale.dev/digiview/#/v/66c672b885a2a](https://ladigitale.dev/digiview/#/v/66c672b885a2a)**
 
@@ -683,7 +683,7 @@ Sur le graphe précédent, A-B-C-D-E-F-G et F-B-C-D-G-E-A sont des parcours en p
 
 F-B-C-D-G-A-E n’en est pas un (E a été empilé après A, donc sera dépilé avant).
 
-<H3 STYLE="COLOR:red;">**Activité n° 17 : Parcours en profondeur :**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 17 : Parcours en profondeur :**</H3>  
 Appliquez l'algorithme du parcours en profondeur au graphe ci-dessous.
 
 ![image](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.030.png)
@@ -713,7 +713,7 @@ pile.popleft()     #ou pop()
 if pile : #=> si la pile n’est pas vide
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 18 : Parcours en profondeur en version itérative :**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 18 : Parcours en profondeur en version itérative :**</H3>  
 Implémenter l'algorithme du parcours en profondeur.
 
 ```python
@@ -730,7 +730,7 @@ print(parcours_profondeur({"A": ("B", "D", "E"), "B": ("A", "C"), "C": ("B", "D"
                          "H": ("G")}, "A") )
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 19 : Parcours en profondeur :**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 19 : Parcours en profondeur :**</H3>  
 Implémenter l'algorithme du parcours en largeur .
 
 Voici le graphe :
@@ -751,7 +751,7 @@ graphe= {'A': ['B', 'C'], 'B': ['A', 'D', 'E'], 'C': ['A', 'D'], 'D': ['B', 'C',
 
 **Remarque :** En récursif il y a un petit souci : le fait de relancer la fonction `parcours_profondeur_recur` n’efface pas réellement la liste précédente => elle apparaitra sur l’appel pour le graphe suivant… Donc **relancer la console avant chaque test !** ou passer une liste vide en paramètre.
 
-<H3 STYLE="COLOR:red;">**Activité n° 20 : Parcours en profondeur en version récursive :**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 20 : Parcours en profondeur en version récursive :**</H3>  
 Implémenter l'algorithme du parcours en profondeur.
 
 ```python
@@ -766,8 +766,8 @@ print(parcours_profondeur_r({"A": ("B", "D", "E"), "B": ("A", "C"), "C": ("B", "
 
 On remarque que l’on n’obtient pas le même parcours en profondeur.
 
-<H3 STYLE="COLOR:GREEN;">### <a name="_toc161063593"></a>**5.3. Application des parcours**</H3>  
-<H4 STYLE="COLOR:MAGENTA;">#### <a name="_toc161063594"></a>**5.3.1. Le BFS et le chemin le plus court (Dijkstra)**</H4>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063593"></a>**5.3. Application des parcours**</H3>  
+#### <H4 STYLE="COLOR:MAGENTA;"><a name="_toc161063594"></a>**5.3.1. Le BFS et le chemin le plus court (Dijkstra)**</H4>
 
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.038.png)
 
@@ -838,7 +838,7 @@ for node in unvisited:
 
 C’est moins efficace (complexité temporelle plus grande due à l’absence de la fonction `min` qui est plus efficace que notre code) mais il fait la même chose : Pour chaque sommet appelé `node` non visité, on garde le `node` qui a la distance minimale du départ.
 
-<H4 STYLE="COLOR:MAGENTA;">#### <a name="_toc161063595"></a>**5.2. Parcourir un labyrinthe**</H4>  
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063595"></a>**5.2. Parcourir un labyrinthe**</H4>  
 **Considérons le problème suivant :**
 
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.039.gif)
@@ -904,24 +904,24 @@ Compléter le code.
 
 Merci à Gilles Lassus, Cédric Gouyou, Jean-Louis Thirot, et Mireille Coilhac
 
-<H2 STYLE="COLOR:BLUE;">## <a name="_toc161063596"></a>**6. Exercices**</H2>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063596"></a>**6. Exercices**</H2>
 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
-<H3 STYLE="COLOR:red;">**Exercice n°2 : Implémentation POO**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°2 : Implémentation POO**</H3>
 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
-<H3 STYLE="COLOR:red;">**Exercice n°3 : Parcours de graphe**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°3 : Parcours de graphe**</H3>
 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
-<H3 STYLE="COLOR:red;">**Exercice n°4 : plus court chemin**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°4 : plus court chemin**</H3>
 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
-<H2 STYLE="COLOR:BLUE;">## **7. Projet**</H2>  
-<H3 STYLE="COLOR:red;">**Exercice n°1 Utiliser Dijkstra pour :**</H3>
+## <H2 STYLE="COLOR:BLUE;"> **7. Projet**</H2>  
+**<H3 STYLE="COLOR:red;">Exercice n°1 Utiliser Dijkstra pour :**</H3>
 
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.050.png)
 
@@ -964,11 +964,11 @@ NB : on donnera comme étiquette au sommet R1 pour Routeur1, R2 pour Routeur2, e
  le programme donne le résultat attendu.
 4. Donner comme source R2 et non plus R1. Relancer le programme et conclure.
 
-<H3 STYLE="COLOR:red;">**Exercice n° 02 : projet ouvert Dijkstra**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n° 02 : projet ouvert Dijkstra**</H3>
 
 Coder l’algorithme de Dijkstra pour déterminer le plus court chemin entre deux villes sur le graphe du réseau routier (en km ou en temps au choix).
 
-<H3 STYLE="COLOR:red;">**Exercice n° 03 : projet ouvert Coloriage d’un parcours**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n° 03 : projet ouvert Coloriage d’un parcours**</H3>
 
 Reprendre les parcours de graphe mais à chaque étape du parcours, plutôt que d’afficher juste le sommet courant, afficher le graphe complet en coloriant les sommets au fur et à mesure du parcours.
 
@@ -976,7 +976,7 @@ On pourra colorier dans deux couleurs différentes les sommets découverts et le
 
 Plutôt que d’afficher le graphe à chaque étape, on peut enregistrer les différentes étapes sur disque puis créer un gif.
 
-<H3 STYLE="COLOR:red;">**Exercice n°04 : projet ouvert Simulation d’un réseau de routeurs suivant le protocole RIP**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°04 : projet ouvert Simulation d’un réseau de routeurs suivant le protocole RIP**</H3>
 
 On créera des classes `TableRoutage`, `Routeur` et `Reseau`.
 
@@ -1004,7 +1004,7 @@ Elle contient quatre méthodes :
 - `rip(self)`: lorsqu’on appelle cette méthode, les routeurs s’échangent les tables de routage jusqu’à ce que celles-ci n’évoluent plus.
 - `montrer(self)`: permet d’afficher le graphe des routeurs avec les adresses réseaux écrites sur les arêtes à l’aide de graphviz par exemple.
 
-<H3 STYLE="COLOR:red;">**Exercice n°05 : projet ouvert Labyrinthe**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°05 : projet ouvert Labyrinthe**</H3>
 
 On considère un labyrinthe défini comme une grille de cellules. Chaque cellule possède un mur droit et un mur bas, et chaque mur peut être ouvert, ce qui revient à dire qu’il n’y a un passage, ou pas de mur, ou fermé. Le passage entre deux cellules adjacentes est possible :
 
