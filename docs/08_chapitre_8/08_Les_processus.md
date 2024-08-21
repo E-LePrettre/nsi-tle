@@ -8,8 +8,11 @@ title: 08 Les processus
 **Table des matières**
 
 [1.	Rappels de première	](#_toc154927166)
+
 [2.	Les processus](#_toc154927169)
+
 [3.	Les processus sous Linux](#_toc154927175)
+
 [4.	Exercices	](#_toc154927179)
 
 
