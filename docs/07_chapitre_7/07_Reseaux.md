@@ -9,15 +9,10 @@ title: 07 Les protocoles de routage
 **Table des matières**
 
 [1.	Historique](#_toc154844728)
-
 [2.	Rappels de première](#_toc154844729)
-
 [3.	Tables de routages et le routage statique](#_toc154844742)
-
 [4.	Le routage dynamique RIP (Routing Information Protocol)](#_toc154844745)
-
 [5.	Le routage dynamique OSPF (Open Shortest Path First)](#_toc154844749)
-
 [6.	Exercices](#_toc154844753)
 
 **Compétences évaluables :**
