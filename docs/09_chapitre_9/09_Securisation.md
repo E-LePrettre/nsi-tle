@@ -7,17 +7,11 @@ title: 09 Sécurisation des communications
 **Table des matières**
 
 [1.	Rappels	](#_toc174920494)
-
 [2.	Vocabulaire	](#_toc174920495)
-
 [3.	Introduction	](#_toc174920496)
-
 [4.	Le chiffrement	](#_toc174920497)
-
 [5.	Le protocole HTTPS	](#_toc174920506)
-
 [6.	Exercices	](#_toc174920509)
-
 [7.	Projet	](#_toc174920510)
 
 **Compétences évaluables :**
