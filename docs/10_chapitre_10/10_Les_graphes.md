@@ -286,9 +286,7 @@ Dans THONNY : dans un fichier **graphe.py**
 **<H3 STYLE="COLOR:red;">Activité n° 6 : Représentation par une matrice :**</H3>  
 Passage d’une représentation à l’autre : Ecrire une fonction `matrice2dico(sommets, matrice)` qui prend un graphe représenté par une liste de sommets et une matrice d’adjacence et renvoie le graphe équivalent représenté par un dictionnaire.
 
-![](Aspose.Words.8c5294cc-479
-
-4-40b4-b86e-e5b8e2c35888.019.png)  
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.019.png)  
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.020.png)  
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.021.png)
 
