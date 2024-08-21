@@ -35,37 +35,49 @@ title: 10 Les graphes
 ### <a name="_toc161063571"></a>**1.1. Qu’est ce qu’un graphe ?**
 
 Un graphe est une structure de données qui représente **des relations entre des objets.** Les objets sont représentés par des **sommets** (également appelés nœuds) et les relations entre eux sont représentées par des **arêtes** ou **arc**.
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.001.png)![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.002.png)
+
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.001.png)
+
 
 Il y a donc zéro ou une arête entre une paire de sommets.
 
 Le nombre de sommets d’un graphe s’appelle l’**ordre du graphe.**
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.003.png)
-
 Le graphe précédent est d’ordre ????????????????.
 
-1. # ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.004.png)<a name="_toc161063572"></a>**A quoi sert un graphe ?**
+### <a name="_toc161063572"></a>**1.2. A quoi sert un graphe ?**
 Il sert à représenter des **relations** entre des éléments. 
 
 Par exemple il peut représenter un **réseau social** :
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.005.png)
-
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.004.png)
 
 Ou un **réseau de transport**
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.006.png)
-
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.005.png)
 
 Ou un **réseau informatique**
 
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.006.png)
 
 Les graphes servent aussi à représenter **des relations entre des données**, des **objets** ou pour faire du **routage dans les réseaux**.
 
-|<p>**Activité n° AUTONUM  \* Arabic : Graphe social :**  Construisez un graphe de réseau social à partir des informations suivantes :</p><p>- A est ami avec B et E</p><p>- B est ami avec A et C</p><p>- C est ami avec B,F et D</p><p>- D est ami avec C,F et E</p><p>- E est ami avec A,D et F</p><p>- F est ami avec C, D et E</p>|
-| - |
-1. # <a name="_toc161063573"></a>**Vocabulaire**
+**Activité n° 1 : Graphe social :**  Construisez un graphe de réseau social à partir des informations suivantes :
+
+- A est ami avec B et E
+
+- B est ami avec A et C
+
+- C est ami avec B,F et D
+
+- D est ami avec C,F et E
+
+- E est ami avec A,D et F
+
+- F est ami avec C, D et E
+
+
+### <a name="_toc161063573"></a>**1.3. Vocabulaire**
 On dit que deux sommets A et B sont **voisins** s’ils sont reliés par une arête : ils sont aussi dits **adjacents.**
 
 Le **degré d’un sommet** c’est le nombre d’arêtes issues de ce sommet.
@@ -76,16 +88,29 @@ On la désigne par **les lettres des sommets** qu'elle comporte.
 
 Un **cycle** est **une chaine qui commence et se termine au même sommet**
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.007.png)
 
-|<p>![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.008.png)**Activité n° AUTONUM  \* Arabic : Question vocabulaire**</p><p>Soit le graphe suivant : </p><p>- Donner l’ordre de ce graphe</p><p>- Donner le degré de chaque sommet de ce graphe</p><p>- Donner deux sommets adjacents</p><p>- Donner deux sommets non adjacents</p>|
-| - |
-1. # <a name="_toc161063574"></a>**Les différents types de graphes**
+**Activité n° 2 : Question vocabulaire**
+
+Soit le graphe suivant : 
+
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.008.png)
+
+- Donner l’ordre de ce graphe
+
+- Donner le degré de chaque sommet de ce graphe
+
+- Donner deux sommets adjacents
+
+- Donner deux sommets non adjacents
+
+### <a name="_toc161063574"></a>**1.4. Les différents types de graphes**
 **Premier exemple :**
 
 Soit les lieux suivants : A, B, C, D, E, F et G.
 
-![graphe_2](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.009.png)Les différents lieux sont reliés par les routes suivantes :
+![graphe_2](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.009.png)
+
+Les différents lieux sont reliés par les routes suivantes :
 
 - il existe une route entre A et C
 - il existe une route entre A et B
@@ -101,7 +126,9 @@ Avec cette représentation du réseau routier sous forme de graphe, il est ***i
 
 **Deuxième exemple :**
 
-Voici de nouvelles contraintes :![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.010.png)
+Voici de nouvelles contraintes :
+
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.010.png)
 
 - il existe une route entre A et C (double sens)
 - il existe une route entre A et B (sens unique B->A)
@@ -118,7 +145,9 @@ Dans un graphe **orienté**, chaque arête ne peut être parcourue que dans un s
 
 **Troisième exemple :**
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.012.png)Parfois il est intéressant **d'associer aux arrêtes ou aux arcs des valeurs**, on parle alors de **graphes pondérés.**
+Parfois il est intéressant **d'associer aux arrêtes ou aux arcs des valeurs**, on parle alors de **graphes pondérés.**
+
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.012.png)
 
 Si nous revenons à notre "graphe cartographie", il est possible **d'associer à chaque arête la distance en km entre les 2 lieux** :
 
@@ -127,7 +156,8 @@ Si nous revenons à notre "graphe cartographie", il est possible **d'associer à
 Il est aussi possible **d'associer à chaque arête la durée du trajet entre 2 points :**
 
 En fonction du choix fait par le conducteur (trajet le plus court "en distance" ou trajet le plus court "en temps").
-1. # <a name="_toc161063575"></a>**Applications courantes des graphes**
+
+### <a name="_toc161063575"></a>**1.5. Applications courantes des graphes**
 Les graphes sont utilisés dans de nombreuses applications courantes, notamment :
 
 - **Réseaux sociaux** : les réseaux sociaux peuvent être modélisés en utilisant des graphes où les sommets représentent les utilisateurs et les arêtes représentent les relations entre les utilisateurs (amis, abonnements, etc.).
@@ -139,78 +169,121 @@ Les graphes sont utilisés dans de nombreuses applications courantes, notamment 
 - **Réseau électrique** : les graphes peuvent être utilisés pour modéliser les réseaux électriques en utilisant des sommets pour représenter les nœuds et des arêtes pour représenter les lignes électriques.
 - **Recherche en intelligence artificielle** : les graphes peuvent être utilisés pour implémenter des algorithmes d'IA, tels que l'algorithme A\* pour la recherche de chemin.
 
-# **
-1. # <a name="_toc161063576"></a>**Modélisations d’un graphe**
+## <a name="_toc161063576"></a>**2. Modélisations d’un graphe**
+
 Il existe **deux méthodes** permettant d'implémenter un graphe : les **listes d’adjacence et les matrices d'adjacences**
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.014.png)
-1. # <a name="_toc161063577"></a>**Représentation par matrice d’adjacence** 
+
+
+### <a name="_toc161063577"></a>**>2.1. Représentation par matrice d’adjacence** 
+
 - On **classe les sommets** (en les numérotant, ou par ordre alphabétique).
 - on représente les arêtes (ou les arcs) **dans une matrice**, c'est-à-dire un tableau à deux dimensions où on inscrit un 1 en ligne i et colonne j si les sommets de rang i et de rang j sont **voisins** (dits aussi ***adjacents***).
 
 Ce tableau s'appelle une **matrice d'adjacence** (on aurait très bien pu l'appeler aussi *matrice de voisinage*).
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.015.png)
-1. ### <a name="_toc161063578"></a>**Graphe non orienté**
+
+#### <a name="_toc161063578"></a>**2.1.1. Graphe non orienté**
+
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.016.png)
 
 Dans ce graphe non orienté, comme B est voisin de C, C est aussi voisin de B, ce qui signifie que l'arête qui relie B et C va donner lieu à deux "1" dans la matrice, situé de part et d'autre de la diagonale descendante (un mathématicien parlera de matrice *symétrique*).
-1. ### <a name="_toc161063579"></a>**Graphe orienté**
+
+#### <a name="_toc161063579"></a>**2.1.2. Graphe orienté**
+
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.017.png)
-1. ### <a name="_toc161063580"></a>**Graphe pondéré**
+
+#### <a name="_toc161063580"></a>**2.1.3. Graphe pondéré**
+
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.018.png)
 
-|<p>**Activité n° AUTONUM  \* Arabic :** Soit un ensemble d'amis connectés sur un réseau social quelconque. Voici les interactions qu'on a recensées:</p><p>- André est ami avec Béa, Charles, Estelle et Fabrice,</p><p>- Béa est amie avec André, Charles, Denise et Héloïse,</p><p>- Charles est ami avec André, Béa, Denise, Estelle, Fabrice et Gilbert,</p><p>- Denise est amie avec Béa, Charles et Estelle,</p><p>- Estelle est amie avec André, Charles et Denise,</p><p>- Fabrice est ami avec André, Charles et Gilbert,</p><p>- Gilbert est ami avec Charles et Fabrice,</p><p>- Héloïse est amie avec Béa.</p><p>1. **Sur une feuille** : Représenter le graphe des relations dans ce réseau social (on désignera chaque individu par l'initiale de son prénom). Il est possible de faire en sorte que les arêtes ne se croisent pas !</p><p>2. Donner la matrice d'adjacence de ce graphe.</p>|
-| - |
+**Activité n° 3 :** Soit un ensemble d'amis connectés sur un réseau social quelconque. Voici les interactions qu'on a recensées:
 
-|<p>**Activité n° AUTONUM  \* Arabic : Sur feuille** : Construire les graphes correspondants aux matrices d'adjacence suivantes:</p><p>1. ` `![ref1]</p><p>2. ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.020.png)</p><p>3. ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.021.png)</p>|
-| - |
-1. ### <a name="_toc161063581"></a>**❤️Implémentation Python des matrices d’adjacence❤️**
+- André est ami avec Béa, Charles, Estelle et Fabrice,
+
+- Béa est amie avec André, Charles, Denise et Héloïse,
+
+- Charles est ami avec André, Béa, Denise, Estelle, Fabrice et Gilbert,
+
+- Denise est amie avec Béa, Charles et Estelle,
+
+- Estelle est amie avec André, Charles et Denise,
+
+- Fabrice est ami avec André, Charles et Gilbert,
+
+- Gilbert est ami avec Charles et Fabrice,
+
+- Héloïse est amie avec Béa.
+
+1\. **Sur une feuille** : Représenter le graphe des relations dans ce réseau social (on désignera chaque individu par l'initiale de son prénom). Il est possible de faire en sorte que les arêtes ne se croisent pas !
+
+2\. Donner la matrice d'adjacence de ce graphe.
+
+
+**Activité n° 4 : Sur feuille** : Construire les graphes correspondants aux matrices d'adjacence suivantes:
+
+1. ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.019.png)
+
+2. ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.020.png)
+
+3. ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.021.png)
+
+#### <a name="_toc161063581"></a>**2.1.4. ❤️Implémentation Python des matrices d’adjacence❤️**
 Une matrice se représente naturellement par une liste de listes.
 
 **Exemple:** La matrice 
 
-![ref1]
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.019.png)
 
 associée au graphe suivant
 
-![ref2]
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.022.png)
 
 sera représentée par la variable G suivante :
-
+```python
 G = [[0, 1, 1, 1, 1],
-`      `[1, 0, 1, 0, 0],
-`      `[1, 1, 0, 1, 0],
-`      `[1, 0, 1, 0, 1],
-`      `[1, 0, 0, 1, 0]]
+      [1, 0, 1, 0, 0],
+      [1, 1, 0, 1, 0],
+      [1, 0, 1, 0, 1],
+      [1, 0, 0, 1, 0]]
+```
+
 
 **Complexité en mémoire et temps d'accès :**
 
 - Pour un graphe à n sommets, la complexité en mémoire (appelée aussi *complexité spatiale*) de la représentation matricielle est **en O(n²).**
+
 - Tester si un **sommet est isolé** (ou connaître ses voisins) est **en O(n)** puisqu'il faut parcourir une ligne, mais tester si deux sommets **sont adjacents** (voisins) est **en O(1),** c'est un simple accès au tableau.
-  1. # <a name="_toc161063582"></a>**❤️Représentation par les listes d’adjacence❤️**
+
+## <a name="_toc161063582"></a>**2.2. ❤️Représentation par les listes d’adjacence❤️**
+
 - On associe à chaque sommet **sa liste des voisins** (c'est-à-dire les sommets adjacents). On utilise pour cela un **dictionnaire** dont les clés sont les sommets et les valeurs les listes des voisins.
+
 - Dans le cas d'un **graphe orienté** on associe à chaque sommet **la liste des *successeurs*** (ou bien des *prédécesseurs*, au choix).
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.023.png)
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.024.png)
 
-![ref3]Par exemple, le graphe
+Par exemple, le graphe
 
 sera représenté par le dictionnaire :
-
+```python
 G = {'A': ['B', 'C', 'D', 'E'],
-`     `'B': ['A', 'C'],
-`     `'C': ['A', 'B', 'D'],
-`     `'D': ['A', 'C', 'E'],
-`     `'E': ['A', 'D']
-`    `}
+     'B': ['A', 'C'],
+     'C': ['A', 'B', 'D'],
+     'D': ['A', 'C', 'E'],
+     'E': ['A', 'D']
+    }
+```
+
 
 **Complexité en mémoire et temps d'accès :**
 
 - Pour un graphe à n sommets et m arêtes, la complexité spatiale de la représentation en liste d'adjacence est **en O(n+m)**. C'est beaucoup mieux qu'une matrice d'adjacence lorsque le graphe comporte peu d'arêtes (i.e. beaucoup de 0 dans la matrice, non stockés avec des listes).
+
 - Tester si un **sommet est isolé** (ou connaître ses voisins) est **en O(1)** puisqu'on y accède immédiatement, mais tester si **deux sommets sont adjacents** (voisins) est **en O(n)** car il faut parcourir la liste.
 
-|<p>**Activité n° AUTONUM  \* Arabic : Sur feuille :** Construire les graphes correspondants aux listes d'adjacence suivantes :</p><p> </p><p>G1 = {</p><p>'A': ['B', 'C'],</p><p>'B': ['A', 'C', 'E', 'F'],</p><p>'C': ['A', 'B', 'D'],</p><p>'D': ['C', 'E'],</p><p>'E': ['B', 'D', 'F'],</p><p>'F': ['B', 'E']</p><p>`     `}</p><p></p><p>G2 = {</p><p>'A': ['B'],</p><p>'B': ['C', 'E'],</p><p>'C': ['B', 'D'],</p><p>'D': [],</p><p>'E': ['A']</p><p>`     `}</p>|
-| - |
+**Activité n° 5 : Sur feuille :** Construire les graphes correspondants aux listes d'adjacence suivantes :
+
+
 1. # <a name="_toc161063583"></a>**❤️Passage d’une représentation à l’autre❤️**
 Dans THONNY : dans un fichier **graphe.py**
 
