@@ -595,7 +595,7 @@ Il est donc nécessaire **de mémoriser les sommets déjà visités** ou découv
 
 ### <a name="_toc161063591"></a>**5.1. ❤️Parcours en largeur ❤️** 
 
-**Cf : Video [](https://ladigitale.dev/digiview/#/v/66c66c81c573a)
+**Cf : Video [](https://ladigitale.dev/digiview/#/v/66c66c81c573a)**
 
 Si on utilise une **file** (FIFO) pour S, les sommets enregistrés dans S en premier vont être visités les premiers. On va donc visiter d’abord les sommets le plus prêts de s<sub>1</sub> (ceux à distance 1, puis ceux à distance 2, puis 3…). C’est un **parcours en largeur (BFS, Breadth First Search)**. 
 
@@ -701,22 +701,23 @@ graphe= {'A': ['B', 'C'], 'B': ['A', 'D', 'E'], 'C': ['A', 'D'], 'D': ['B', 'C',
 
 ### <a name="_toc161063592"></a>**5.2. ❤️Parcours en profondeur ❤️**
 
-**Cf : Video Parcours graphe**
+**Cf : Video [](https://ladigitale.dev/digiview/#/v/66c672b885a2a)**
 
 Si on utilise une **pile** (LIFO) pour S, les sommets enregistrés en dernier vont être visités en premier : on parcourt le graphe en visitant à chaque fois un voisin du dernier sommet, sauf si celui-ci n’a pas de voisin non visité, auquel cas on remonte au dernier sommet ayant un voisin non visité. C’est un **parcours en profondeur (DFS, Depth First Search)**. 
 
 C’est le parcours utilisé naturellement par une personne qui explore **un labyrinthe**.
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.034.png)
+![image](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.029.png)
 
-![ref4]
+
 
 Sur le graphe précédent, A-B-C-D-E-F-G et F-B-C-D-G-E-A sont des parcours en profondeur. 
 
 F-B-C-D-G-A-E n’en est pas un (E a été empilé après A, donc sera dépilé avant).
 
-|<p>![ref5]**Activité n° AUTONUM  \* Arabic : Parcours en profondeur :**   Appliquez l'algorithme du parcours en profondeur au graphe ci-dessous.</p><p></p>|
-| - |
+**Activité n° 17 : Parcours en profondeur :**   Appliquez l'algorithme du parcours en profondeur au graphe ci-dessous
+
+![image](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.030.png)
 
 **L’algorithme du DFS en version itérative**
 
@@ -724,92 +725,85 @@ Dans Thonny : dans **le** fichier **graphe.py**
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.035.png)
-
-
-
-
-
-
-
 
 
 **Rappels sur les piles**
 
 - 1er cas : Utiliser une pile déjà codée
 - 2ème cas: liste de python
-
+```python
 pile = [ ]
-
 pile.append(…)
-
 pile.pop()
+```
 
 - 3<sup>ème</sup> cas : avec module collections
-
+```python
 from collections import deque
-
 pile = deque([ ])
-
 pile.appendleft(…) # ou append()
-
 pile.popleft()     #ou pop()
+if pile : #=> si la pile n’est pas vide
+```
 
-if pile : => si la pile n’est pas vide
+**Activité n° 18 : Parcours en profondeur en version itérative:**   Implémenter l'algorithme du parcours en profondeur
+```python
+# Importer une pile
 
-|<p>**Activité n° AUTONUM  \* Arabic : Parcours en profondeur en version itérative:**   Implémenter l'algorithme du parcours en profondeur</p><p># Importer une pile</p><p></p><p>def parcours\_profondeur(G, s):<br>`    `decouverts=[]<br>`    `en\_attente = Pile()<br>`    `pass</p><p></p><p>print(parcours\_profondeur({"A": ("B", "D", "E"), "B": ("A", "C"), "C": ("B", "D"),<br>`                         `"D": ("A", "C", "E"), "E": ("A", "D", "F", "G"),<br>`                         `"F": ("E", "G"), "G": ("E", "F", "H"),<br>`                         `"H": ("G")}, "A") )</p>|
-| - |
+def parcours_profondeur(G, s):
+    decouverts=[]
+    en_attente = Pile()
+    pass
 
-|<p>**Activité n° AUTONUM  \* Arabic : Parcours en profondeur :**   Implémenter l'algorithme du parcours en largeur .</p><p>![image]</p><p>Voici le graphe :</p><p>graphe= {'A': ['B', 'C'], 'B': ['A', 'D', 'E'], 'C': ['A', 'D'], 'D': ['B', 'C', 'E'], 'E': ['B', 'D', 'F', 'G'], 'F': ['E', 'G'], 'G': ['E', 'F', 'H'], 'H': ['G']},'B') == ['B', 'A', 'D', 'E', 'C', 'F', 'G', 'H']</p><p>1. Donner le parcours en profondeur de g grâce à l'algorithme DFS, si le sommet de départ est B. </p><p>2. Deviner le parcours en largeur de départ D, puis de départ G. </p><p>3. Vérifier grâce à votre algorithme.</p>|
-| - |
+print(parcours_profondeur({"A": ("B", "D", "E"), "B": ("A", "C"), "C": ("B", "D"),
+                         "D": ("A", "C", "E"), "E": ("A", "D", "F", "G"),
+                         "F": ("E", "G"), "G": ("E", "F", "H"),
+                         "H": ("G")}, "A") )
+```
+
+
+**Activité n° 19 : Parcours en profondeur :**   Implémenter l'algorithme du parcours en largeur .
+
+Voici le graphe :
+
+![image](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.029.png)
+
+```python
+graphe= {'A': ['B', 'C'], 'B': ['A', 'D', 'E'], 'C': ['A', 'D'], 'D': ['B', 'C', 'E'], 'E': ['B', 'D', 'F', 'G'], 'F': ['E', 'G'], 'G': ['E', 'F', 'H'], 'H': ['G']},'B') == ['B', 'A', 'D', 'E', 'C', 'F', 'G', 'H']
+```
+1\. Donner le parcours en profondeur de g grâce à l'algorithme DFS, si le sommet de départ est B. 
+
+2\. Deviner le parcours en largeur de départ D, puis de départ G. 
+
+3\. Vérifier grâce à votre algorithme.
 
 **L’algorithme du DFS en version récursive** :
-
-
-
-
-
-
-
-
-
-
-
-
 
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.037.png)
 
 **Remarque** : En récursif il y a un petit souci : le fait de relancer la fonction parcours\_profondeur\_recur n’efface pas réellement la liste précédente => elle apparaitra sur l’appelle pour le graphe suivant…Donc **relancer la console avant chaque test !** ou passer une liste vide en paramètre
 
-|<p>**Activité n° AUTONUM  \* Arabic : Parcours en profondeur en version recursive:**   Implémenter l'algorithme du parcours en profondeur</p><p>def parcours\_profondeur\_r (G, s,decouverts = [] ):<br>`    `pass</p><p></p><p>print(parcours\_profondeur\_r({"A": ("B", "D", "E"), "B": ("A", "C"), "C": ("B", "D"),<br>`                     `"D": ("A", "C", "E"), "E": ("A", "D", "F", "G"),<br>`                     `"F": ("E", "G"), "G": ("E", "F", "H"),<br>`                     `"H": ("G")}, "A") )</p>|
-| - |
+**Activité n° 20 : Parcours en profondeur en version recursive:**   Implémenter l'algorithme du parcours en profondeur
+```python
+def parcours_profondeur_r (G, s,decouverts = [] ):
+    pass
+
+print(parcours_profondeur_r({"A": ("B", "D", "E"), "B": ("A", "C"), "C": ("B", "D"),
+                     "D": ("A", "C", "E"), "E": ("A", "D", "F", "G"),
+                     "F": ("E", "G"), "G": ("E", "F", "H"),
+                     "H": ("G")}, "A") )
+```
 
 
 On remarque que l’on n’obtient pas le même parcours en profondeur
-1. # ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.038.png)<a name="_toc161063593"></a>**Application des parcours**
-   1. ### <a name="_toc161063594"></a>**Le BFS et le chemin le plus court (Dijkstra)**
 
-**Cf : Video Parcours graphe**
+### <a name="_toc161063593"></a>**5.3. Application des parcours**
+#### <a name="_toc161063594"></a>**5.3.1. Le BFS et le chemin le plus court (Dijkstra)**
+
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.038.png)
+
+**Cf : Video [](https://ladigitale.dev/digiview/#/v/66c675d32ad85)**
 
 Cette implémentation utilise 
 
@@ -820,23 +814,25 @@ Cette implémentation utilise
 
 Cette implémentation est simple, mais peut-être moins performante pour de grandes entrées en raison de la nécessité de trouver le nœud le plus proche à chaque itération en parcourant le tableau complet.
 
+```python
 def dijkstra(graph, start, end):
-`    `distances = {node: float('inf') for node in graph}
-`    `distances[start] = 0
-`    `unvisited = list(distances.keys()) # ou [key for key in graph.keys()]
-`    `while unvisited:
-`        `<a name="_hlk161065331"></a>current\_node = min(unvisited, key=lambda x: distances[x])
-`        `unvisited.remove(current\_node)
-`        `for neighbor, weight in graph[current\_node].items():
-`            `distance = distances[current\_node] + weight
-`            `if distance < distances[neighbor]:
-`                `distances[neighbor] = distance
-`    `return distances[end]
+    distances = {node: float('inf') for node in graph}
+    distances[start] = 0
+    unvisited = list(distances.keys()) # ou [key for key in graph.keys()]
+    while unvisited:
+        current_node = min(unvisited, key=lambda x: distances[x])
+        unvisited.remove(current_node)
+        for neighbor, weight in graph[current_node].items():
+            distance = distances[current_node] + weight
+            if distance < distances[neighbor]:
+                distances[neighbor] = distance
+    return distances[end]
 
 graph = {'A': {'B': 1, 'C': 4},'B': {'A': 1, 'C': 2, 'D': 5},'C': {'A': 4, 'B': 2, 'D': 1},'D': {'B': 5, 'C': 1},}
 
-
 print(dijkstra(graph, 'A', 'D'))  # Output: 4
+```
+
 
 Explication : 
 
@@ -855,32 +851,37 @@ Explication :
 **Aide** :
 
 La ligne 
-
-current\_node = min(unvisited, key=lambda x: distances[x])
-
+```python
+current_node = min(unvisited, key=lambda x: distances[x])
+```
 peut être remplacée par :
-
-min\_distance = float('inf')
-current\_node = None
+```python
+min_distance = float('inf')
+current_node = None
 for node in unvisited:
-`    `if distances[node] < min\_distance:
-`        `min\_distance = distances[node]
-`        `current\_node = node
+    if distances[node] < min_distance:
+        min_distance = distances[node]
+        current_node = node
+```
+
 
 C’est moins efficace (complexité temporelle plus grande due à l’absence de la fonction min qui est plus efficace que notre code) mais il fait la même chose : Pour chaque sommet appelé node non visité, on  garde le node qui a la distance minimale du départ
 
 
-1. ### ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.039.gif)<a name="_toc161063595"></a>**Parcourir un labyrinthe**
+#### <a name="_toc161063595"></a>**5.2. Parcourir un labyrinthe**
 **Considérons le problème suivant :**
+
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.039.gif)
 
 rechercher le chemin le plus long entre deux stations dans le métro. Indépendamment de l'aspect ludique, c'est en fait un problème difficile qu'on aurait bien du mal à résoudre de façon raisonnable sur un gros graphe comme celui du métro. Pour simplifier, nous allons donc considérer des labyrinthes.
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.040.gif)
+
 
 **Les labyrinthes**
 
 Voici l'image d'un labyrinthe :
 
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.040.gif)
 
 Ce labyrinthe correspond au graphe suivant :
 
@@ -896,8 +897,7 @@ Par exemple il n'y a pas d'arête entre les sommets (1, 1) et (1, 2) mais il y e
 
 Dans THONNY : Ouvrir le fichier **TP\_labyrinthe.py**
 
-|<p>**Capytale**</p><p>**70ca-3804414**</p>|
-| :-: |
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
 
 1. vérifier que l’implémentation est bonne
 1. vérifier que la liste d’adjacence de 3,6
@@ -942,55 +942,32 @@ Compléter le code
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Merci à Gilles Lassus, Cédric Gouyou, Jean-Louis Thirot, et Mireille Coilhac
-1. # <a name="_toc161063596"></a>**Exercices**
+## <a name="_toc161063596"></a>**6. Exercices**
 
-|<p>**Capytale**</p><p>**70ca-3804414**</p>|
-| :-: |
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
 
 **Exercice n°2 : Implémentation POO**
 
-|<p>**Capytale**</p><p>**70ca-3804414**</p>|
-| :-: |
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
 
 
 
 **Exercice n°3 : Parcours de graphe**
 
-|<p>**Capytale**</p><p>**70ca-3804414**</p>|
-| :-: |
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
 
 
 
 **Exercice n°4 : plus court chemin**
 
-|<p>**Capytale**</p><p>**70ca-3804414**</p>|
-| :-: |
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
 
 
-1. # **Projet**
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.050.png)**Exercice n°1 Utiliser Dijkstra pour :**
+## **7. Projet**
+**Exercice n°1 Utiliser Dijkstra pour :**
+
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.050.png)
 
 - **et les chemins qui mènent à Rome**
 
@@ -1084,43 +1061,33 @@ Le labyrinthe est encadré de murs (pas de passage vers le haut sur la première
 
 Le labyrinthe est créé avec tous les murs « fermés » (aucun passage entre les cellules), puis une méthode *generation* permet d’ouvrir des murs afin qu’il existe toujours un chemin entre deux cellules du labyrinthe. L’algorithme utilisé est décrit ici :
 
-<https://fr.wikipedia.org/wiki/Mod%C3%A9lisation_math%C3%A9matique_de_labyrinthe>
+[](https://fr.wikipedia.org/wiki/Mod%C3%A9lisation_math%C3%A9matique_de_labyrinthe)
 
-**class** Cellule:
+```python
+class Cellule:
+    def __init__(self):
+        self.mur_bas = True       	# True signifie que le mur est fermé
+        self.mur_droit = True    	# False signifie que le mur est ouvert
 
-`    `**def** \_\_init\_\_(self):
+class Labyrinthe:
+    def __init__(self, largeur, hauteur):
+        self.hauteur = hauteur
+        self.largeur = largeur
+        self.grille = [[Cellule() for j in range(largeur)] for i in range(hauteur)]
+        self.generation()
 
-`        `self.mur\_bas = True       	# True signifie que le mur est fermé
+    def solution(self, depart_ligne, depart_colonne, arrivee_ligne, arrivee_colonne):
+        """
+        Renvoie la liste de directions à suivre pour se rendre de la cellule
+        (depart_ligne, depart_colonne) à la cellule (arrivee_ligne, arrivee_colonne).
+        Exemple de retour : ['n', 'e', 'e', 's', 'o']
+        """
+```
 
-`        `self.mur\_droit = True    	# False signifie que le mur est ouvert
-
-**class** Labyrinthe:
-
-`    `**def** \_\_init\_\_(self, largeur, hauteur):
-
-`        `self.hauteur = hauteur
-
-`        `self.largeur = largeur
-
-`        `self.grille = [[Cellule() **for** j **in** range(largeur)] **for** i **in** range(hauteur)]
-
-`        `self.generation()
-
-`    `**def** solution(self, depart\_ligne, depart\_colonne, arrivee\_ligne, arrivee\_colonne):
-
-`        `"""
-
-`        `Renvoie la liste de directions à suivre pour se rendre de la cellule
-
-`        `(depart\_ligne, depart\_colonne) à la cellule (arrivee\_ligne, arrivee\_colonne).
-
-`        `Exemple de retour : ['n', 'e', 'e', 's', 'o']
-
-`        `"""
 
 **Travail à faire**
 
 Écrire la méthode solution renvoyant un chemin permettant de se rendre d’une cellule de départ à une cellule d’arrivée.
 
-Vous testerez votre code dans le fichier labyrinthe.py.
+Dans Thonny : Vous testerez votre code dans le fichier labyrinthe.py.
 
