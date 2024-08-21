@@ -18,7 +18,7 @@ title: 10 Les graphes
 
 [6.	Exercices	](#_toc161063596)
 
-[7.	Projet	](#_toc161063597)
+[7.	Projet](#_toc161063597)
 
 
 **Compétences évaluables :**
@@ -174,7 +174,7 @@ Les graphes sont utilisés dans de nombreuses applications courantes, notamment 
 Il existe **deux méthodes** permettant d'implémenter un graphe : les **listes d’adjacence et les matrices d'adjacences**
 
 
-### <a name="_toc161063577"></a>**>2.1. Représentation par matrice d’adjacence** 
+### <a name="_toc161063577"></a>**2.1. Représentation par matrice d’adjacence** 
 
 - On **classe les sommets** (en les numérotant, ou par ordre alphabétique).
 - on représente les arêtes (ou les arcs) **dans une matrice**, c'est-à-dire un tableau à deux dimensions où on inscrit un 1 en ligne i et colonne j si les sommets de rang i et de rang j sont **voisins** (dits aussi ***adjacents***).
@@ -595,7 +595,7 @@ Il est donc nécessaire **de mémoriser les sommets déjà visités** ou découv
 
 ### <a name="_toc161063591"></a>**5.1. ❤️Parcours en largeur ❤️** 
 
-**Cf : Video [](https://ladigitale.dev/digiview/#/v/66c66c81c573a)**
+**Cf : Video [https://ladigitale.dev/digiview/#/v/66c66c81c573a](https://ladigitale.dev/digiview/#/v/66c66c81c573a)**
 
 Si on utilise une **file** (FIFO) pour S, les sommets enregistrés dans S en premier vont être visités les premiers. On va donc visiter d’abord les sommets le plus prêts de s<sub>1</sub> (ceux à distance 1, puis ceux à distance 2, puis 3…). C’est un **parcours en largeur (BFS, Breadth First Search)**. 
 
@@ -701,7 +701,7 @@ graphe= {'A': ['B', 'C'], 'B': ['A', 'D', 'E'], 'C': ['A', 'D'], 'D': ['B', 'C',
 
 ### <a name="_toc161063592"></a>**5.2. ❤️Parcours en profondeur ❤️**
 
-**Cf : Video [](https://ladigitale.dev/digiview/#/v/66c672b885a2a)**
+**Cf : Video [https://ladigitale.dev/digiview/#/v/66c672b885a2a](https://ladigitale.dev/digiview/#/v/66c672b885a2a)**
 
 Si on utilise une **pile** (LIFO) pour S, les sommets enregistrés en dernier vont être visités en premier : on parcourt le graphe en visitant à chaque fois un voisin du dernier sommet, sauf si celui-ci n’a pas de voisin non visité, auquel cas on remonte au dernier sommet ayant un voisin non visité. C’est un **parcours en profondeur (DFS, Depth First Search)**. 
 
@@ -803,7 +803,7 @@ On remarque que l’on n’obtient pas le même parcours en profondeur
 
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.038.png)
 
-**Cf : Video [](https://ladigitale.dev/digiview/#/v/66c675d32ad85)**
+**Cf : Video [https://ladigitale.dev/digiview/#/v/66c675d32ad85](https://ladigitale.dev/digiview/#/v/66c675d32ad85)**
 
 Cette implémentation utilise 
 
