@@ -634,7 +634,7 @@ On marque les sommets découverts afin que chaque sommet ne soit enfilé qu’un
 
 **Aide :** 
 
-**# les voisins de tmp: G[tmp]**
+```# les voisins de tmp: G[tmp]```
 
 Le test SI voisin n est pas dans decouverts permet donc de ne pas mettre en file d'attente un voisin qui est (ou a été) déjà en file d'attente.
 
@@ -700,6 +700,7 @@ graphe= {'A': ['B', 'C'], 'B': ['A', 'D', 'E'], 'C': ['A', 'D'], 'D': ['B', 'C',
 3\.	Vérifier grâce à votre algorithme.
 
 ### <a name="_toc161063592"></a>**5.2. ❤️Parcours en profondeur ❤️**
+
 **Cf : Video Parcours graphe**
 
 Si on utilise une **pile** (LIFO) pour S, les sommets enregistrés en dernier vont être visités en premier : on parcourt le graphe en visitant à chaque fois un voisin du dernier sommet, sauf si celui-ci n’a pas de voisin non visité, auquel cas on remonte au dernier sommet ayant un voisin non visité. C’est un **parcours en profondeur (DFS, Depth First Search)**. 
