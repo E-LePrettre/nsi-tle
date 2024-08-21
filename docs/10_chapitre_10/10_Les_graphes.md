@@ -254,15 +254,16 @@ G = [[0, 1, 1, 1, 1],
 
 - Tester si un **sommet est isolé** (ou connaître ses voisins) est **en O(n)** puisqu'il faut parcourir une ligne, mais tester si deux sommets **sont adjacents** (voisins) est **en O(1),** c'est un simple accès au tableau.
 
-## <a name="_toc161063582"></a>**2.2. ❤️Représentation par les listes d’adjacence❤️**
+### <a name="_toc161063582"></a>**2.2. ❤️Représentation par les listes d’adjacence❤️**
 
 - On associe à chaque sommet **sa liste des voisins** (c'est-à-dire les sommets adjacents). On utilise pour cela un **dictionnaire** dont les clés sont les sommets et les valeurs les listes des voisins.
 
 - Dans le cas d'un **graphe orienté** on associe à chaque sommet **la liste des *successeurs*** (ou bien des *prédécesseurs*, au choix).
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.024.png)
 
 Par exemple, le graphe
+
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.022.png)
 
 sera représenté par le dictionnaire :
 ```python
@@ -282,138 +283,317 @@ G = {'A': ['B', 'C', 'D', 'E'],
 - Tester si un **sommet est isolé** (ou connaître ses voisins) est **en O(1)** puisqu'on y accède immédiatement, mais tester si **deux sommets sont adjacents** (voisins) est **en O(n)** car il faut parcourir la liste.
 
 **Activité n° 5 : Sur feuille :** Construire les graphes correspondants aux listes d'adjacence suivantes :
+1\.
+```python
+G1 = {
+'A': ['B', 'C'],
+'B': ['A', 'C', 'E', 'F'],
+'C': ['A', 'B', 'D'],
+'D': ['C', 'E'],
+'E': ['B', 'D', 'F'],
+'F': ['B', 'E']
+     }
+```
+2\.
+```python
+G2 = {
+'A': ['B'],
+'B': ['C', 'E'],
+'C': ['B', 'D'],
+'D': [],
+'E': ['A']
+     }
+```
 
+### <a name="_toc161063583"></a>**2.3. ❤️Passage d’une représentation à l’autre❤️**
 
-1. # <a name="_toc161063583"></a>**❤️Passage d’une représentation à l’autre❤️**
 Dans THONNY : dans un fichier **graphe.py**
 
-|<p>**Capytale**</p><p>**70ca-3804414**</p>|
-| :-: |
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
 
-|<p>` `**Activité n° AUTONUM  \* Arabic : Représentation par une matrice : Passage d’une représentation à l’autre :**  Ecrire une fonction matrice2dico(sommets, matrice) qui prend un graphe représenté par une liste de sommets et une matrice d’adjacence et renvoie le graphe équivalent représenté par un dictionnaire.</p><p>Tester avec M1, M2 et M3</p>|
-| - |
+**Activité n° 6 : Représentation par une matrice : Passage d’une représentation à l’autre :**  Ecrire une fonction matrice2dico(sommets, matrice) qui prend un graphe représenté par une liste de sommets et une matrice d’adjacence et renvoie le graphe équivalent représenté par un dictionnaire.
 
-|<p>` `**Activité n° AUTONUM  \* Arabic : Représentation par dictionnaire: Passage d’une représentation à l’autre :**  Ecrire une fonction dico2matrice(graphe\_dico) qui prend un graphe représenté par un dictionnaire et qui renvoie  une liste de sommets et une matrice d’adjacence.</p><p>Tester avec G, G1 et G2</p>|
-| - |
-1. # <a name="_toc161063584"></a>**Visualiser un graphe (à faire chez soi)**
-   1. # <a name="_toc161063585"></a>**Avec le module networkx**
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.019.png)
+
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.020.png)
+
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.021.png)
+
+Tester avec M1, M2 et M3
+
+**Activité n° 7 : Représentation par dictionnaire: Passage d’une représentation à l’autre :**  Ecrire une fonction dico2matrice(graphe\_dico) qui prend un graphe représenté par un dictionnaire et qui renvoie  une liste de sommets et une matrice d’adjacence.
+```python
+G = {'A': ['B', 'C', 'D', 'E'],
+     'B': ['A', 'C'],
+     'C': ['A', 'B', 'D'],
+     'D': ['A', 'C', 'E'],
+     'E': ['A', 'D']
+    }
+
+G1 = {
+'A': ['B', 'C'],
+'B': ['A', 'C', 'E', 'F'],
+'C': ['A', 'B', 'D'],
+'D': ['C', 'E'],
+'E': ['B', 'D', 'F'],
+'F': ['B', 'E']
+     }
+
+G2 = {
+'A': ['B'],
+'B': ['C', 'E'],
+'C': ['B', 'D'],
+'D': [],
+'E': ['A']
+     }
+```
+
+Tester avec G, G1 et G2
+
+## <a name="_toc161063584"></a>**3. Visualiser un graphe**
+
+### <a name="_toc161063585"></a>**3.1. Avec le module networkx**
+
 Pour visualiser ce graphe, nous allons utiliser les bibliothèques networkx et matplotlib. Pensez à vérifier que les deux bibliothèques sont installées 
 
-|<p>**Activité n° AUTONUM  \* Arabic : Représentation avec networkx :**  </p><p>import matplotlib.pyplot as plt<br>import networkx as nx<br><br>def cree\_graphe\_non\_oriente\_nx(dictionnaire: dict) -> nx.Graph:<br>`    `"""<br>`    `Cette fonction premet de transformer une représentation en dictionnaire en<br>`    `une représentation «complexe» d'un objet graphe orienté.<br><br>`    `- Précondition : l'entrée est un dictionnaire<br>`    `- Postcondition : la sortie est un graphe orienté (Graph) de Networkx<br>`    `"""<br>`    `Gnx = nx.Graph() <br>`    `for sommets in dictionnaire.keys():<br>`        `Gnx.add\_node(sommets) # Creation des sommets<br>`    `for sommet in dictionnaire.keys():<br>`        `for sommets\_adjacents in dictionnaire[sommet]:<br>`            `Gnx.add\_edge(sommet, sommets\_adjacents) # Creation des arcs<br>`    `return Gnx</p><p>plt.cla()# Pour effacer les figures précédentes<br>dico = {0:[1, 2], 1:[0, 2, 3], 2 : [0, 1, 3], 3: [1,2]}<br>G = cree\_graphe\_non\_oriente\_nx(dico)<br># nx.draw\_circular(G, with\_labels=True)<br>nx.draw(G,with\_labels = True) # Pour une representation classique<br>plt.show()</p>|
-| - |
+**Activité n° 8 : Représentation avec networkx :**  
+```python
+import matplotlib.pyplot as plt
+import networkx as nx
 
-|**Activité n° AUTONUM  \* Arabic : représentation avec networkx :**  Tester avec G, G1 et G2 de la partie 2.2.|
-| - |
-1. # <a name="_toc161063586"></a>**Avec le module graphviz**
-Vérifiez que la bibliothèque graphviz est installée
+def cree_graphe_non_oriente_nx(dictionnaire: dict) -> nx.Graph:
+    """
+    Cette fonction premet de transformer une représentation en dictionnaire en
+    une représentation «complexe» d'un objet graphe orienté.
 
-|<p>**Activité n° AUTONUM  \* Arabic : représentation avec graphviz  d’un graphe orienté**</p><p>import graphviz<br>graphe\_oriente = graphviz.Digraph()<br><br>#Ajout des noeuds avec la méthode node<br>graphe\_oriente.node("A")<br>graphe\_oriente.node("B")<br>graphe\_oriente.node("C")<br><br>#Ajout des arcs avec la méthode edge<br>graphe\_oriente.edge("A","B")<br>graphe\_oriente.edge("A","C")<br><br>#Affichage du graphe<br>graphviz.Source(graphe\_oriente)<br>graphe\_oriente.view()</p>|
-| - |
+    - Précondition : l'entrée est un dictionnaire
+    - Postcondition : la sortie est un graphe orienté (Graph) de Networkx
+    """
+    Gnx = nx.Graph() 
+    for sommets in dictionnaire.keys():
+        Gnx.add_node(sommets) # Creation des sommets
+    for sommet in dictionnaire.keys():
+        for sommets_adjacents in dictionnaire[sommet]:
+            Gnx.add_edge(sommet, sommets_adjacents) # Creation des arcs
+    return Gnx
 
-|**Activité n° AUTONUM  \* Arabic : représentation avec graphviz d’un graphe orienté :**  Tester avec G2|
-| - |
+plt.cla()# Pour effacer les figures précédentes
+dico = {0:[1, 2], 1:[0, 2, 3], 2 : [0, 1, 3], 3: [1,2]}
+G = cree_graphe_non_oriente_nx(dico)
+# nx.draw_circular(G, with_labels=True)
+nx.draw(G,with_labels = True) # Pour une representation classique
+plt.show()
+```
 
-|<p>**Activité n° AUTONUM  \* Arabic : représentation avec graphviz  d’un graphe non orienté**</p><p>import graphviz<br>graphe\_non\_oriente = graphviz.Graph()</p><p><br>#Ajout des noeuds avec la méthode node<br>graphe\_non\_oriente.node("A")<br>graphe\_non\_oriente.node("B")<br>graphe\_non\_oriente.node("C")<br><br>#Ajout des arcs avec la méthode edge<br>graphe\_non\_oriente.edge("A","B")<br>graphe\_non\_oriente.edge("A","C")<br><br>#Affichage du graphe<br>graphviz.Source(graphe\_non\_oriente)<br>graphe\_non\_oriente.view()</p>|
-| - |
+**Activité n° 9 : représentation avec networkx :**  Tester avec G, G1 et G2 de la partie 2.2.
 
-|**Activité n° AUTONUM  \* Arabic : représentation avec graphviz d’un graphe non orienté :**  Tester avec G et G1|
-| - |
-1. # <a name="_toc161063587"></a>**❤️Création d’une class Graphe❤️**
+### <a name="_toc161063586"></a>**3.2. Avec le module graphviz**
+
+dans Thonny : Vérifiez que la bibliothèque graphviz est installée
+
+**Activité n° 10 : représentation avec graphviz  d’un graphe orienté**
+```python
+import graphviz
+graphe_oriente = graphviz.Digraph()
+
+#Ajout des noeuds avec la méthode node
+graphe_oriente.node("A")
+graphe_oriente.node("B")
+graphe_oriente.node("C")
+
+#Ajout des arcs avec la méthode edge
+graphe_oriente.edge("A","B")
+graphe_oriente.edge("A","C")
+
+#Affichage du graphe
+graphviz.Source(graphe_oriente)
+graphe_oriente.view()
+```
+
+**Activité n° 11 : représentation avec graphviz d’un graphe orienté :**  Tester avec G2
+
+**Activité n° 12 : représentation avec graphviz  d’un graphe non orienté**
+```python
+import graphviz
+graphe_non_oriente = graphviz.Graph()
+
+#Ajout des noeuds avec la méthode node
+graphe_non_oriente.node("A")
+graphe_non_oriente.node("B")
+graphe_non_oriente.node("C")
+
+#Ajout des arcs avec la méthode edge
+graphe_non_oriente.edge("A","B")
+graphe_non_oriente.edge("A","C")
+
+#Affichage du graphe
+graphviz.Source(graphe_non_oriente)
+graphe_non_oriente.view()
+```
+
+**Activité n° 13 : représentation avec graphviz d’un graphe non orienté :**  Tester avec G et G1
+
+## <a name="_toc161063587"></a>**4. ❤️Création d’une class Graphe❤️**
+
 Dans cette partie, nous ne traiterons que des graphes **non-orientés**.
-1. # ![image]<a name="_toc161063588"></a>**Interface** 
+
+### <a name="_toc161063588"></a>**4.1. Interface** 
+
+
 Dans THONNY : Dans un fichier **graphe\_POO.py**
 
-|<p>**Capytale**</p><p>**70ca-3804414**</p>|
-| :-: |
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
+
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.022.png)
 
 Nous voulons que le graphe puisse être créé grâce aux instructions suivantes :
 
 - constructeur(s : liste de Sommets) -> Graphe: renvoie le graphe (S, Δ) où Δ est une liste vide d’arêtes
+
 - ajouter\_arete(g : Graphe, s1 : Sommet, s2 : Somme) -> graphe: à partir du graphe g = (S, A) et de deux sommets s1 et s2 appartenant à S renvoie le graphe (S, A ∪ {(s1, s2)})
+
 - voisins(g : Graphe, s : Sommets) -> liste de Sommets: renvoie la liste des sommets voisins de s dans le graphe g. Cette fonction est remplacée par une fonction successeurs et/ou predecesseurs dans le cas d’un graphe orienté.
+
 - sont\_voisins(g : Graphe, s1 : Sommet, s2 : Somme) -> bool: à partir du graphe g et de deux sommets s1 et s2 renvoie si s1 et voisin de s2
+
 - get\_dictionnaire(g : Graphe) -> dict : à partir du graphe renvoie le dictionnaire donnant la liste d’adjacence
 
 L'objet de type Graphe aura comme attributs :
 
 - une liste liste\_sommets (donnée en paramètre dans la liste liste\_sommets)
+
 - un dictionnaire adjacents, où chaque sommet se verra attribuer une liste vide [].
-  1. # <a name="_toc161063589"></a>**Implémentation** 
+
+### <a name="_toc161063589"></a>**4.2. Implémentation** 
+
+```python
 class Graphe:
-`    `def \_\_init\_\_(self, liste\_sommets):
-`        `self.liste\_sommets = liste\_sommets
-`        `self.adjacents = {sommet : [] for sommet in liste\_sommets}
+    def __init__(self, liste_sommets):
+        self.liste_sommets = liste_sommets
+        self.adjacents = {sommet : [] for sommet in liste_sommets}
 
-`    `def ajouter\_arete(self, s1, s2):
-`        `pass
+    def ajouter_arete(self, s1, s2):
+        pass
 
-`    `def voisins(self, s):
-`        `pass
+    def voisins(self, s):
+        pass
 
+    def sont_voisins(self, s1, s2):
+        pass
 
-`    `def sont\_voisins(self, s1, s2):
-`        `pass
+    def get_dictionnaire(self):
+        pass
 
-`    `def get\_dictionnaire(self):
-`        `pass
 
 #################################### Pour réaliser l'affichage #########################
 import matplotlib.pyplot as plt
 import networkx as nx
 
-def cree\_graphe\_non\_oriente\_nx(dictionnaire: dict) -> nx.Graph:
-`    `Gnx = nx.Graph()
-`    `for sommets in dictionnaire.keys():
-`        `Gnx.add\_node(sommets) # Creation des sommets
-`    `for sommet in dictionnaire.keys():
-`        `for sommets\_adjacents in dictionnaire[sommet]:
-`            `Gnx.add\_edge(sommet, sommets\_adjacents) # Creation des arcs
-`    `return Gnx
+def cree_graphe_non_oriente_nx(dictionnaire: dict) -> nx.Graph:
+    Gnx = nx.Graph()
+    for sommets in dictionnaire.keys():
+        Gnx.add_node(sommets) # Creation des sommets
+    for sommet in dictionnaire.keys():
+        for sommets_adjacents in dictionnaire[sommet]:
+            Gnx.add_edge(sommet, sommets_adjacents) # Creation des arcs
+    return Gnx
 
 
 
-if \_\_name\_\_ == '\_\_main\_\_':
-`    `g = Graphe(['A', 'B', 'C', 'D', 'E'])
-`    `g.ajouter\_arete('A', 'B')
-`    `g.ajouter\_arete('A', 'C')
-`    `g.ajouter\_arete('A', 'D')
-`    `g.ajouter\_arete('A', 'E')
-`    `g.ajouter\_arete('B', 'C')
-`    `g.ajouter\_arete('C', 'D')
-`    `g.ajouter\_arete('D', 'E')
-`    `assert g.sont\_voisins('E', 'A') == True
-`    `assert g.sont\_voisins('E', 'B') == False
-`    `assert g.voisins('C') == ['A', 'B', 'D']
-`    `dict\_2 = g.get\_dictionnaire()
-`    `print(dict\_2)
-`    `plt.cla()
-`    `G2 = cree\_graphe\_non\_oriente\_nx(dict\_2)
-`    `nx.draw\_circular(G2, with\_labels=True)
-`    `plt.show()
-1. # <a name="_toc161063590"></a>**Les parcours**
+if __name__ == '__main__':
+    g = Graphe(['A', 'B', 'C', 'D', 'E'])
+    g.ajouter_arete('A', 'B')
+    g.ajouter_arete('A', 'C')
+    g.ajouter_arete('A', 'D')
+    g.ajouter_arete('A', 'E')
+    g.ajouter_arete('B', 'C')
+    g.ajouter_arete('C', 'D')
+    g.ajouter_arete('D', 'E')
+    assert g.sont_voisins('E', 'A') == True
+    assert g.sont_voisins('E', 'B') == False
+    assert g.voisins('C') == ['A', 'B', 'D']
+    dict_2 = g.get_dictionnaire()
+    print(dict_2)
+    plt.cla()
+    G2 = cree_graphe_non_oriente_nx(dict_2)
+    nx.draw_circular(G2, with_labels=True)
+    plt.show()
+```
+
+
+## <a name="_toc161063590"></a>**5. Les parcours**
 Un parcours de graphe est un algorithme consistant à **explorer les sommets d'un graphe de proche en proche** à partir d'un sommet initial. 
 
 Parcourir simplement le dictionnaire ou la matrice d’un graphe comme on peut le faire pour effectuer une copie du graphe n’est pas considéré comme un parcours de graphe. 
 
 Tous les parcours suivent plus ou moins le même algorithme de base : 
 
-- On visite un sommet s1. On crée une structure S qui contiendra l’ensemble des voisins de s1. 
-- Tant que S n’est pas vide : 
+-\ On visite un sommet s1. On crée une structure S qui contiendra l’ensemble des voisins de s1. 
+-\ Tant que S n’est pas vide : 
   - on choisit un sommet s de S
   - on visite s 
   - on ajoute à S tous les voisins de s pas encore visités
 
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.026.png)
+```python
+Attention : sommets visités :class Graphe:
+    def __init__(self, liste_sommets):
+        self.liste_sommets = liste_sommets
+        self.adjacents = {sommet : [] for sommet in liste_sommets}
+
+    def ajouter_arete(self, s1, s2):
+        pass
+
+    def voisins(self, s):
+        pass
+
+    def sont_voisins(self, s1, s2):
+        pass
+
+    def get_dictionnaire(self):
+        pass
 
 
-**Attention : sommets visités :**
+#################################### Pour réaliser l'affichage #########################
+import matplotlib.pyplot as plt
+import networkx as nx
+
+def cree_graphe_non_oriente_nx(dictionnaire: dict) -> nx.Graph:
+    Gnx = nx.Graph()
+    for sommets in dictionnaire.keys():
+        Gnx.add_node(sommets) # Creation des sommets
+    for sommet in dictionnaire.keys():
+        for sommets_adjacents in dictionnaire[sommet]:
+            Gnx.add_edge(sommet, sommets_adjacents) # Creation des arcs
+    return Gnx
+
+
+
+if __name__ == '__main__':
+    g = Graphe(['A', 'B', 'C', 'D', 'E'])
+    g.ajouter_arete('A', 'B')
+    g.ajouter_arete('A', 'C')
+    g.ajouter_arete('A', 'D')
+    g.ajouter_arete('A', 'E')
+    g.ajouter_arete('B', 'C')
+    g.ajouter_arete('C', 'D')
+    g.ajouter_arete('D', 'E')
+    assert g.sont_voisins('E', 'A') == True
+    assert g.sont_voisins('E', 'B') == False
+    assert g.voisins('C') == ['A', 'B', 'D']
+    dict_2 = g.get_dictionnaire()
+    print(dict_2)
+    plt.cla()
+    G2 = cree_graphe_non_oriente_nx(dict_2)
+    nx.draw_circular(G2, with_labels=True)
+    plt.show()
+```
 
 Contrairement à un parcours d'arbre, où les fils d'un nœud ne peuvent pas avoir été visités avant le nœud, **un voisin d'un sommet peut avoir déjà été visité** en tant que voisin d'un sommet précédent...
 
 Il est donc nécessaire **de mémoriser les sommets déjà visités** ou découverts (on dira qu'un sommet est découvert lorsqu'on l'ajoute à S).
 
-1. # ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.027.jpeg)<a name="_toc161063591"></a>**❤️Parcours en largeur ❤️** 
+### <a name="_toc161063591"></a>**5.1. ❤️Parcours en largeur ❤️** 
 
 **Cf : Video Parcours graphe**
 
