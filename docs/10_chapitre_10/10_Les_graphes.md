@@ -595,23 +595,28 @@ Il est donc nécessaire **de mémoriser les sommets déjà visités** ou découv
 
 ### <a name="_toc161063591"></a>**5.1. ❤️Parcours en largeur ❤️** 
 
-**Cf : Video Parcours graphe**
+**Cf : Video [](https://ladigitale.dev/digiview/#/v/66c66c81c573a)
 
 Si on utilise une **file** (FIFO) pour S, les sommets enregistrés dans S en premier vont être visités les premiers. On va donc visiter d’abord les sommets le plus prêts de s<sub>1</sub> (ceux à distance 1, puis ceux à distance 2, puis 3…). C’est un **parcours en largeur (BFS, Breadth First Search)**. 
 
 On va utiliser ce parcours pour trouver :
 
 - le **sommet le plus prêt** de s<sub>1</sub> vérifiant une condition donnée 
-- le **chemin le plus court** entre s<sub>1</sub> et un autre sommet.
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.028.png)
 
-![ref4]
+- le **chemin le plus court** entre s<sub>1</sub> et un autre sommet.
+
+
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.029.png)
 
 Sur ce graphe A-B-C-F-E-D-G est un parcours en largeur au départ de A.
 
 B-A-C-E-F-D-G et B-A-F-E-C-G-D sont des parcours en largeur au départ de B.
 
-|<p>![ref5]**Activité n° AUTONUM  \* Arabic : Parcours en largeur :**   Appliquez l'algorithme du parcours en largeur au graphe ci-dessous.</p><p>Le 'point de départ' de notre parcours (le sommet s dans l'algorithme), sera le sommet A.</p><p>Vous noterez les sommets atteints à chaque étape ainsi que les sommets présents dans la file f.</p><p>Vous pourrez aussi, à chaque étape, donner les changements de couleur des sommets.</p><p></p>|
+**Activité n° 14 : Parcours en largeur :**   Appliquez l'algorithme du parcours en largeur au graphe ci-dessous.
+
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.030.png)
+
+Le 'point de départ' de notre parcours (le sommet s dans l'algorithme), sera le sommet A.</p><p>Vous noterez les sommets atteints à chaque étape ainsi que les sommets présents dans la file f.</p><p>Vous pourrez aussi, à chaque étape, donner les changements de couleur des sommets.</p><p></p>|
 | - |
 
 
