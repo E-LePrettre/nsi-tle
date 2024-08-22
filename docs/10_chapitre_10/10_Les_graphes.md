@@ -497,59 +497,7 @@ Tous les parcours suivent plus ou moins le même algorithme de base :
   - on visite s
   - on ajoute à S tous les voisins de s pas encore visités
 
-```python
-Attention : sommets visités :class Graphe:
-    def __init__(self, liste_sommets):
-        self.liste_sommets = liste_sommets
-        self.adjacents = {sommet : [] for sommet in liste_sommets}
-
-    def ajouter_arete(self, s1, s2):
-        pass
-
-    def voisins(self, s):
-        pass
-
-    def sont_voisins(self, s1, s2):
-        pass
-
-    def get_dictionnaire(self):
-        pass
-
-
-#################################### Pour réaliser l'affichage #########################
-import matplotlib.pyplot as plt
-import networkx as nx
-
-def cree_graphe_non_oriente_nx(dictionnaire: dict) -> nx.Graph:
-    Gnx = nx.Graph()
-    for sommets in dictionnaire.keys():
-        Gnx.add_node(sommets) # Creation des sommets
-    for sommet in dictionnaire.keys():
-        for sommets_adjacents in dictionnaire[sommet]:
-            Gnx.add_edge(sommet, sommets_adjacents) # Creation des arcs
-    return Gnx
-
-
-
-if __name__ == '__main__':
-    g = Graphe(['A', 'B', 'C', 'D', 'E'])
-    g.ajouter_arete('A', 'B')
-    g.ajouter_arete('A', 'C')
-    g.ajouter_arete('A', 'D')
-    g.ajouter_arete('A', 'E')
-    g.ajouter_arete('B', 'C')
-    g.ajouter_arete('C', 'D')
-    g.ajouter_arete('D', 'E')
-    assert g.sont_voisins('E', 'A') == True
-    assert g.sont_voisins('E', 'B') == False
-    assert g.voisins('C') == ['A', 'B', 'D']
-    dict_2 = g.get_dictionnaire()
-    print(dict_2)
-    plt.cla()
-    G2 = cree_graphe_non_oriente_nx(dict_2)
-    nx.draw_circular(G2, with_labels=True)
-    plt.show()
-```
+**Attention : sommets visités :**
 
 Contrairement à un parcours d'arbre, où les fils d'un nœud ne peuvent pas avoir été visités avant le nœud, **un voisin d'un sommet peut avoir déjà été visité** en tant que voisin d'un sommet précédent...
 
@@ -584,6 +532,8 @@ Vous noterez les sommets atteints à chaque étape ainsi que les sommets présen
 Vous pourrez aussi, à chaque étape, donner les changements de couleur des sommets.
 
 Dans Thonny : dans **le** fichier **graphe.py**
+
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
 
 **L’algorithme du BFS** :
 
@@ -803,9 +753,7 @@ Explication :
 - **distances[start] = 0** : ce bloc de code définit la distance du nœud de départ à lui-même à 0.
 - **unvisited = list(distances.keys())** : ce bloc de code crée un tableau **unvisited** qui contiendra les noeuds qui n'ont pas encore été visités.
 - **while unvisited:** : ce bloc de code définit une boucle qui s'exécutera tant qu'il reste des noeuds non visités.
--
-
- **current_node = min(unvisited, key=lambda x: distances[x])** : ce bloc de code trouve **le noeud dans unvisited avec la distance minimale à partir du nœud de départ** et le définit comme le noeud actuel. Plus précisément, **lambda x: distances[x]** est une fonction qui prend un nœud x comme entrée et renvoie la distance de ce nœud à partir du nœud de départ (comme stocké dans le dictionnaire distances). 
+- **current_node = min(unvisited, key=lambda x: distances[x])** : ce bloc de code trouve **le noeud dans unvisited avec la distance minimale à partir du nœud de départ** et le définit comme le noeud actuel. Plus précisément, **lambda x: distances[x]** est une fonction qui prend un nœud x comme entrée et renvoie la distance de ce nœud à partir du nœud de départ (comme stocké dans le dictionnaire distances). 
 - **unvisited.remove(current_node)** : ce bloc de code **retire le nœud actuel** de la liste **unvisited** pour marquer qu'il a été visité.
 - **for neighbor, weight in graph[current_node].items():** : ce bloc de code définit une **boucle qui parcourt les voisins** du nœud actuel.
 - **distance = distances[current_node] + weight** : ce bloc de **code calcule la distance minimale pour le voisin** en ajoutant le poids de l'arc qui relie le nœud actuel au voisin.
