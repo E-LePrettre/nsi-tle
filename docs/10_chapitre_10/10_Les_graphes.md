@@ -471,9 +471,7 @@ if __name__ == '__main__':
     g.ajouter_arete('A', 'D')
     g.ajouter_arete('A', 'E')
     g.ajouter_arete('B', 'C')
-    g.ajouter_arete('
-
-C', 'D')
+    g.ajouter_arete('C', 'D')
     g.ajouter_arete('D', 'E')
     assert g.sont_voisins('E', 'A') == True
     assert g.sont_voisins('E', 'B') == False
