@@ -7,11 +7,11 @@ title: 12 Algorithme de Boyer - Moore
 
 **Table des matières**
 
-[1.	Les fonctions déjà implémentées dans python	1](#_toc159537143)
+[1.	Les fonctions déjà implémentées dans python	](#_toc159537143)
 
-[2.	La recherche textuelle naïve	2](#_toc159537146)
+[2.	La recherche textuelle naïve](#_toc159537146)
 
-[3.	Application de l’algorithme de Boyer-Moore	4](#_toc159537151)
+[3.	Application de l’algorithme de Boyer-Moore](#_toc159537151)
 
 
 
