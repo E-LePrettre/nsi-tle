@@ -528,16 +528,16 @@ Cette figure permet de calculer les coefficients binomiaux d’un polynôme (x+y
 
 $n=2,\left(x+y\right)^2=\ x^2+2xy+y^2$
 
-n=3,x+y3= x3+3x2y+3xy2+y3
+$n=3,\left(x+y\right)^3=\ x^3+3x^2y+3xy^2+y^3$
 
-n=4,x+y4= x4+4x3y+6x2y2+4xy3+y4
+$n=4,\left(x+y\right)^4=\ x^4+4x^3y+6x^2y^2+4xy^3+y^4$
 
 voir compléments sur la page wikipedia : [Lien](https://fr.wikipedia.org/wiki/Triangle_de_Pascal)
 
 **Propriétés :** 
 
 - Il est possible de calculer directement un coefficient binomial à l’aide de cette formule
-  - Cnk=n!k!n-k!
+  $C\left(\begin{matrix}n\\k\\\end{matrix}\right)=\frac{n!}{k!\left(n-k\right)!}$
 - Un coefficient quelconque du triangle, situé à la ligne i et à la colonne j est calculé à partir de la formule de récurrence : (i et j supérieurs à 1)
 
 Cij=Ci-1j-1+Ci-1j
