@@ -44,8 +44,11 @@ Le problème est plus difficile quand il faut chercher non plus un seul caractè
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc159537145"></a>**1.2. La méthode find()**</H3>
 
 **<H3 STYLE="COLOR:red;">Activité n° 2  : find() :**</H3> 
+
 **sur Thonny** : télécharger le livre Le rouge et le noir de Stendhal, 
+
 ICI : [https://www.gutenberg.org/ebooks/798.txt.utf-8](https://www.gutenberg.org/ebooks/798.txt.utf-8)
+
 renommer le 'rougenoir.txt'
 
 et chercher ensuite si le motif 'Julien’ apparaît quelque part dans le roman et trouver une deuxième occurrence du mot ‘Julien’
