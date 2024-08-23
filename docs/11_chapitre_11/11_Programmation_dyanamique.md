@@ -120,7 +120,7 @@ De plus, l'utilisation de ce tableau va permettre de transformer cet **algorithm
 Ici :
 
 - l'écriture d'un **algorithme récursif naïf** (donné au début dans cet exemple) afin de résoudre d'abord les cas simples (ceux de la condition d'arrêt) pour pouvoir traiter ensuite les cas plus compliqués.
-- **utiliser un tableau  (ou un dictionnaire) servant à mémoriser les résultats** déjà calculés pour ne pas les recalculer afin de réduire le coût en temps de calcul,
+- **utiliser un tableau (ou un dictionnaire) servant à mémoriser les résultats** déjà calculés pour ne pas les recalculer afin de réduire le coût en temps de calcul,
 - **transformer un algorithme récursif en itératif** en raisonnant dans l'ordre inverse de celui des appels récursifs afin de finir l'optimisation (élément effectué en même temps que le précédent dans cet exemple).
 
 **<H3 STYLE="COLOR:red;">Activité n° 3: Suite de fibonacci avec mémoïsation avec un tableau :**</H3>  
@@ -348,16 +348,14 @@ fonction rendu_monnaie_dyna(somme_à_rendre, système)
 fin fonction
 ```
 
-<H4 STYLE="COLOR:MAGENTA;">#### <a name="_toc159507087"></a>**3.4.1. Première approche 
-
-: A la main**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc159507087"></a>**3.4.1. Première approche : A la main
 
 **<H3 STYLE="COLOR:red;">Activité n° 12 : programmation dynamique du rendu de monnaie :**</H3>  
 On exécute l'instruction rendu\_monnaie\_dyna(5, [2, 1]).
 1. Quel est la somme à rendre et quel est le système monétaire utilisé ?
 2. Décrire ci-dessous les différentes étapes lors de l'exécution de cette instruction.
 
-<H4 STYLE="COLOR:MAGENTA;">#### <a name="_toc159507088"></a>**3.4.2. Implémentation**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc159507088"></a>**3.4.2. Implémentation</H4>**
 
 **<H3 STYLE="COLOR:red;">Activité n° 13 : programmation dynamique du rendu de monnaie :**</H3>  
 1. Implémenter l’algorithme précédent
@@ -365,7 +363,7 @@ On exécute l'instruction rendu\_monnaie\_dyna(5, [2, 1]).
 
 Dans cette fonction, on a deux boucles emboîtées qui contiennent **une opération en temps constant** (calcul d'un minimum). Le temps d'exécution est alors **proportionnel au produit du nombre de pièces du système par la somme**. C'est plus long que pour l'algorithme glouton mais on obtient **une solution optimale** avec tous les systèmes de pièces qui contiennent la pièce de valeur 1. Par contre, cette amélioration nécessite un **plus grand espace mémoire** avec le tableau.
 
-<H4 STYLE="COLOR:MAGENTA;">#### <a name="_toc159507089"></a>**3.4.3. Deuxième approche : pour aller plus loin**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc159507089"></a>**3.4.3. Deuxième approche : pour aller plus loin</H4>**
 
 Dans le code précédent, on calcule le nombre de pièces correspondant à la solution optimale, mais on ne précise pas comment cette solution a été obtenue. Pire, la fonction renvoie une solution (un nombre de pièces), alors que celle-ci n'est pas solution de notre problème.
 
