@@ -101,7 +101,7 @@ assert nb_occurrences_rec(stendhal, 'informatique') == 0
 ## <a name="_toc159537146"></a>**2. La recherche textuelle naïve**
 ### <a name="_toc159537147"></a>**2.1. L’algorithme**
 
-**Vidéo (6 premières minutes) : recherche Boyer Moore**
+**[Vidéo (6 premières minutes) : recherche Boyer Moore](https://ladigitale.dev/digiview/#/v/66c903de43b5c)**
 
 La **recherche naïve** ou de **force brute** parcourt l’ensemble de la chaine caractère après caractère. A chaque caractère, on réalise une comparaison afin de vérifier que la clé de recherche correspond au caractère suivant de la chaine. Le traitement est long mais sûr.
 
