@@ -22,12 +22,20 @@ title: 12 Algorithme de Boyer - Moore
 
 ## <a name="_toc159537143"></a>**1. Les fonctions déjà implémentées dans python**
 
-<a name="_toc159537144"></a>La méthode index()
+### <a name="_toc159537144"></a>**1.1. La méthode index()**
 
 On sait déjà chercher un **caractère** dans une chaîne de caractères.
 
-|<p>**Activité n° AUTONUM  \* Arabic  : index() :** dans un fichier** recherche\_textuelle.py **:** écrivez une fonction trouve\_lettre(c, texte) qui renvoie le premier indice où l'on a trouvé la lettre c dans la chaîne de caractères texte, et qui renvoie None si la lettre cherchée ne s'y trouve pas.</p><p>def trouve\_lettre(c, texte):<br>`    `"""renvoie l'indice de la première occurrence de c dans texte<br>`    `ou renvoie None par convention sinon"""<br>`    `pass<br><br>assert trouve\_lettre('j', 'bonjour') == 3<br>assert trouve\_lettre('j', 'alphabet') is None</p>|
-| - |
+**Activité n° 1  : index() :** dans un fichier** recherche\_textuelle.py **:** écrivez une fonction trouve\_lettre(c, texte) qui renvoie le premier indice où l'on a trouvé la lettre c dans la chaîne de caractères texte, et qui renvoie None si la lettre cherchée ne s'y trouve pas.
+```python
+def trouve_lettre(c, texte):
+    """renvoie l'indice de la première occurrence de c dans texte
+    ou renvoie None par convention sinon"""
+    pass
+
+assert trouve_lettre('j', 'bonjour') == 3
+assert trouve_lettre('j', 'alphabet') is None
+```
 
 Le problème est plus difficile quand il faut chercher non plus un seul caractère mais un **mot** dans le texte.
 
@@ -35,7 +43,8 @@ Le problème est plus difficile quand il faut chercher non plus un seul caractè
 
 - on ne parlera pas de 'mot' mais de **motif**, ce qui est plus général.
 - quand on trouve le motif cherché à un endroit du texte, on dira qu'il s'agit d'une **occurrence** du motif dans le texte : cela désignera l'indice i tel que texte[i:i+1] == motif
-  1. <a name="_toc159537145"></a>**La méthode find()**
+
+### <a name="_toc159537145"></a>**1.2. La méthode find()**
 
 Python dispose d'une méthode find() attachée aux objets chaînes de caractère qui permet justement de trouver un motif dans la chaîne
 
