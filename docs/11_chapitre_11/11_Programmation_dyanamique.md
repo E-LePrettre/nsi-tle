@@ -540,7 +540,7 @@ voir compléments sur la page wikipedia : [Lien](https://fr.wikipedia.org/wiki/
   $C\left(\begin{matrix}n\\k\\\end{matrix}\right)=\frac{n!}{k!\left(n-k\right)!}$
 - Un coefficient quelconque du triangle, situé à la ligne i et à la colonne j est calculé à partir de la formule de récurrence : (i et j supérieurs à 1)
 
-Cij=Ci-1j-1+Ci-1j
+$C\left(\begin{matrix}i\\j\\\end{matrix}\right)=C\left(\begin{matrix}i-1\\j-1\\\end{matrix}\right)+C\left(\begin{matrix}i-1\\j\\\end{matrix}\right)$
 
 ![image](Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.011.png)
 
