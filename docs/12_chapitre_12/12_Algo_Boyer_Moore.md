@@ -107,87 +107,122 @@ La **recherche naïve** ou de **force brute** parcourt l’ensemble de la chaine
 
 Exemple :
 
-![](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.001.png)
+![image](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.001.png)
 
 On compare chaque lettre de la clé à la chaine. Le A correspond, mais le T non. Donc on effectue un décalage
 
-![](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.002.png)
+![image](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.002.png)
 
 Le A correspond mais le C non. Donc on décale
 
-![](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.003.png)
+![image](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.003.png)
 
 Le C ne correspond pas. On décale
 
-![](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.004.png)
+![image](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.004.png)
 
 Le A correspond, le T correspond mais le G ne correspond pas. On décale
 
-![](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.005.png)
+![image](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.005.png)
 
 Le A ne correspond pas, on décale
 
 Etc,
 
-![](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.006.png)
+![image](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.006.png)
 
 Le temps de traitement est **assez long** car il faut décaler à chaque fois d’un indice, car on parcourt l’ensemble de la chaine en comparant caractère après caractère. Dès qu’un caractère ne correspond pas il faut décaler d’un indice et recommencer.
 
 On relève l’indice du texte où débute le motif reconnu et on peut recommencer la recherche
 
-1. <a name="_toc159537148"></a>**Implémentation**
+### <a name="_toc159537148"></a>**2.2. Implémentation**
 
-|<p>**Activité n° AUTONUM  \* Arabic  : Algorithme naif :** Implémenter l’algorithme précédent en Python** </p><p>def recherche\_naive(chaine, cle):<br>`    `long\_txt = len(chaine)<br>`    `long\_cle = len(cle)<br><br>`    `# Parcourir la chaîne de caractères<br>`    `pass<br>`        `# Tant que j est inférieur à la longueur de la clé et que le caractère à la position i+j dans la chaîne est égal au caractère à la position j dans la clé<br>`        `pass<br>`        `## Si j est égal à la longueur de la clé (ce qui signifie que tous les caractères de la clé ont été trouvés dans la chaîne à partir de la position i)<br>`        `pass</p><p><br>`    `return -1<br><br><br>texte = 'CAATGTCTGCACCAAGAC'<br>motif = 'CAAG'<br>assert(recherche\_naive(texte, motif) == 12)<br>assert(recherche\_naive(texte, 'BB') == -1)</p><p></p>|
-| - |
-1. <a name="_toc159537149"></a>**Complexité**
+**Activité n° 5  : Algorithme naif :** Implémenter l’algorithme précédent en Python
+```python
+def recherche_naive(chaine, cle):
+    long_txt = len(chaine)
+    long_cle = len(cle)
+
+    # Parcourir la chaîne de caractères
+    pass
+        # Tant que j est inférieur à la longueur de la clé et que le caractère à la position i+j dans la chaîne est égal au caractère à la position j dans la clé
+        pass
+        ## Si j est égal à la longueur de la clé (ce qui signifie que tous les caractères de la clé ont été trouvés dans la chaîne à partir de la position i)
+        pass
+
+    return -1
+
+
+texte = 'CAATGTCTGCACCAAGAC'
+motif = 'CAAG'
+assert(recherche_naive(texte, motif) == 12)
+assert(recherche_naive(texte, 'BB') == -1)
+```
+
+
+### <a name="_toc159537149"></a>**2.3. Complexité**
 - Pour chaque position dans le texte (il y en a N-n+1), nous comparons le motif à la sous-chaîne du texte de la même longueur.
 - Chaque comparaison prend n opérations dans le pire des cas (quand le motif est présent à la position courante ou diffère seulement par le dernier caractère).
 - Donc, dans le pire des cas, nous effectuons (N-n) \* n comparaisons, d’où la complexité en **O(n²)**
 
-1. <a name="_toc159537150"></a>**Mesure du temps**
+### <a name="_toc159537150"></a>**2.4. Mesure du temps**
 
 On va reprendre ici le texte du roman *Le rouge et le noir* utilisé à la partie 1, et comparer les temps de recherche entre la fonction intégrée find de Python et notre fonction cherche.
 
-|<p>**Activité n° AUTONUM  \* Arabic  : temps :** Tester</p><p>from timeit import timeit<br>def recherche\_find(livre, texte):<br>`    `return livre.find(texte)<br><br>def recherche\_naif(livre, texte):<br>`    `return recherche\_naive(livre, texte )<br><br>livre = stendhal<br>texte = 'Mme de Rênal fut fidèle à sa promesse'<br>temps\_find = timeit("recherche\_find(livre, texte)", number=10, globals=globals())<br>temps\_naif = timeit("recherche\_naif(livre, texte)", number=10, globals=globals())<br>print("Temps en utilisant find : ",temps\_find)<br>print("Temps en utilisant l'algorithme naif : ",temps\_naif)</p>|
-| - |
+**Activité n° 6  : temps :** Tester
+```python
+from timeit import timeit
+def recherche_find(livre, texte):
+    return livre.find(texte)
 
-1. <a name="_toc159537151"></a>**Application de l’algorithme de Boyer-Moore**
-   1. <a name="_toc159537152"></a>**Un cas concret**
+def recherche_naif(livre, texte):
+    return recherche_naive(livre, texte )
+
+livre = stendhal
+texte = 'Mme de Rênal fut fidèle à sa promesse'
+temps_find = timeit("recherche_find(livre, texte)", number=10, globals=globals())
+temps_naif = timeit("recherche_naif(livre, texte)", number=10, globals=globals())
+print("Temps en utilisant find : ",temps_find)
+print("Temps en utilisant l'algorithme naif : ",temps_naif)
+```
+
+
+## <a name="_toc159537151"></a>**3. Application de l’algorithme de Boyer-Moore**
+### <a name="_toc159537152"></a>**3.1. Un cas concret**
 
 L’algorithme : 
 
-1. On examine la chaine, en partant du **bout de la clé**, et **en remontant les caractères de la clé un par un jusqu’à trouver une discordance**
-1. Si la lettre de la chaine examinée est identique à celle de la clé, **on remonte la clé**
-1. Sinon on regarde si cette lettre existe dans la clé :
+1\. On examine la chaine, en partant du **bout de la clé**, et **en remontant les caractères de la clé un par un jusqu’à trouver une discordance**
+2\. Si la lettre de la chaine examinée est identique à celle de la clé, **on remonte la clé**
+3\. Sinon on regarde si cette lettre existe dans la clé :
    1. Si elle n’existe pas : on peut faire un **saut maximal**
    1. Sinon : on réalise un saut jusqu’à **sa position**
 
 
-![](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.007.png)
 
 **Animation**
 
 <b>1<sup>er</sup> cas</b> :  la lettre n’est pas présente dans la clé
 
-![](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.008.png)
+![image](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.008.png)
 
 On positionne la clé en début de la chaine et on parcourt la chaine à partir du dernier élément de la clé. E ne correspond pas au A et **il n’y a pas de E dans la clé.** On **décale la clé de la longueur de celle-ci** c’est-à-dire de 6 indices
 
-![](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.009.png)
+![image](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.009.png)
 
 
 
 <b>2<sup>ème</sup> cas</b> : La lettre est présente dans la clé
 
-![](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.010.png)![](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.011.png)![](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.012.png)![](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.013.png)![](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.014.png)
+![image](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.014.png)
 
 Le X est non concordant avec le A de la clé par contre **il est présent dans la clé à l’indice 1**
 
-![](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.015.png)
+![image](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.015.png)
 
 On décale alors **de 4 indices**
 
-![](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.016.png)
+![image](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.016.png)
 
 Et on continue
 
@@ -196,30 +231,32 @@ Et on continue
 
 <b>3<sup>ème</sup> cas</b> : une lettre présente dans la clé après quelques coïncidences
 
-![](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.017.png)
+![image](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.017.png)
 
 A est en correspondance, G est en correspondance mais X n’est pas en correspondance mais **il se trouve dans la clé**
 
-![](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.018.png)
+![image](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.018.png)
 
 On décale de **deux indices** 
 
-![](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.019.png)
+![image](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.019.png)
 
 Et on continue
 
-1. <a name="_toc159537153"></a>**Prétraitement du motif** 
+### <a name="_toc159537153"></a>**3.2. Prétraitement du motif** 
 
 **Intérêt du prétraitement :** 
 
-- l’algorithme connait les caractères qui se trouvent dans la clé
-- Avant de lancer l’algorithme il faut créer une table de saut pour chaque caractère de la clé
+-\ l’algorithme connait les caractères qui se trouvent dans la clé
+
+-\ Avant de lancer l’algorithme il faut créer une table de saut pour chaque caractère de la clé
+
   - Ecart minimal entre une lettre de la clé et la fin de la clé
   - La dernière lettre et traitée à part : écart maximal si elle n’est pas présente ailleurs dans la clé
 
 Les sauts effectuer lors du traitement permettent de réduire sa durée. Plus la clé est longue plus l’algorithme est efficace pour la trouver car les sauts sont en moyenne plus grands.
 
-![](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.020.png)
+
 
 Pour construire la table de sauts pour TARTEMPION, l’algorithme teste d’abord le 10<sup>ème</sup> caractère de ce texte. Si c’est un N, il regarde si le 9<sup>ème</sup> caractère est un O, puis le 8<sup>ème</sup> ,…jusqu’au 1<sup>er</sup> .
 
@@ -233,31 +270,84 @@ On obtient ainsi la table de sauts suivante selon les lettres lues :
 
 À chaque lecture d’une lettre, si la lettre correspond à la lettre recherchée, on compare les lettres précédentes pour vérifier s’il s’agit du motif cherché. Sinon, on utilise la table de sauts pour décaler la fenêtre de recherche.
 
-|<p>**Activité n° AUTONUM  \* Arabic  : Algorithme pré-traitement :** Implémenter l’algorithme précédent en Python </p><p>def pre\_traitement(mot):<br>`    `"""Renvoie un dictionnaire avec pour clé la lettre et pour valeur le décalage"""<br>`    `decalages = {}<br>`    `n = len(mot)<br><br>`    `pass<br><br>assert pre\_traitement("dab") == {'d': 2, 'a': 1}<br>assert pre\_traitement("maman") == {'m': 2, 'a': 1}</p>|
-| - |
+**Activité n° 7  : Algorithme pré-traitement :** Implémenter l’algorithme précédent en Python 
+```python
+def pre_traitement(mot):
+    """Renvoie un dictionnaire avec pour clé la lettre et pour valeur le décalage"""
+    decalages = {}
+    n = len(mot)
+
+    pass
+
+assert pre_traitement("dab") == {'d': 2, 'a': 1}
+assert pre_traitement("maman") == {'m': 2, 'a': 1}
+```
 
 
-1. <a name="_toc159537154"></a>**L’algorithme**
+### <a name="_toc159537154"></a>**3.3. L’algorithme**
 
 La **première étape** est de réaliser le **pré-traitement c’est-à-dire la table de sauts**
 
 A chaque examen jusqu’à la fin de la chaine (-longueur de la clé) : 
 
-- Vérifier les **correspondances des caractères** en partant de la fin de la clé
-- Si correspondance, on remonte **la clé à l’envers**, lettre après lettre
-- Sinon, **on regarde dans la table de saut** si la lettre est présente :
+-\ Vérifier les **correspondances des caractères** en partant de la fin de la clé
+
+-\ Si correspondance, on remonte **la clé à l’envers**, lettre après lettre
+
+-\ Sinon, **on regarde dans la table de saut** si la lettre est présente :
+
   - Si la lettre est présente on fait le saut correspondant
   - Si la lettre est non présente on fait le saut maximal
 
 
-![](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.021.png)
 
-|<p>**Activité n° AUTONUM  \* Arabic  : Algorithme boyer\_moore : Rajouter:** </p><p>def recherche\_boyer(texte, mot):<br>`    `"""Recherche un mot dans un texte avec l'algo de boyer-moore    """<br>`    `N = len(texte)<br>`    `n = len(mot)<br><br>`    `# création de notre dictionnaire de décalages<br>`    `decalages = pre\_traitement(mot)<br><br>`    `# on commence à la fin du mot<br>`    `i = …<br>    <br>`    `while i < N:<br>`        `lettre = … # on récupère la lettre à la positon i dans le texte<br>`        `if lettre == … # si la lettre est la dernière du mot</p><p><br>`            `# On vérifie que le mot est là avec un slice sur texte<br>`            `if …<br>`                `return True<br>`        `# on décale<br>`        `if lettre in …:<br>`            `i += …<br>`        `else:<br>`            `i += …<br><br>`    `return False</p><p><br><br>assert recherche\_boyer('abracadabra', 'dab')<br>assert recherche\_boyer('abracadabra', 'abra')<br>assert recherche\_boyer('abracadabra', 'obra') is False<br>assert recherche\_boyer('abracadabra', 'bara') is False<br>assert recherche\_boyer('maman est là', 'maman')<br>assert recherche\_boyer('bonjour maman', 'maman')<br>assert recherche\_boyer('bonjour maman', 'papa') is False</p>|
-| - |
 
-1. <a name="_toc159537155"></a>**Comparaison des temps**
+**Activité n° 8  : Algorithme boyer\_moore : Rajouter:** 
+```python
+def recherche_boyer(texte, mot):
+    """Recherche un mot dans un texte avec l'algo de boyer-moore    """
+    N = len(texte)
+    n = len(mot)
 
-|<p>**Activité n° AUTONUM  \* Arabic  : Algorithme boyer\_moore : Rajouter:**</p><p>temps\_boyer = timeit("recherche\_boyer(livre, texte)", number=10, globals=globals())<br>print("Temps en utilisant find : ",temps\_naif)<br>print("Temps en utilisant l'algorithme Boyer-Moore : ",temps\_boyer)</p>|
-| - |
+    # création de notre dictionnaire de décalages
+    decalages = pre_traitement(mot)
+
+    # on commence à la fin du mot
+    i = …
+    
+    while i < N:
+        lettre = … # on récupère la lettre à la positon i dans le texte
+        if lettre == … # si la lettre est la dernière du mot
+
+            # On vérifie que le mot est là avec un slice sur texte
+            if …
+                return True
+        # on décale
+        if lettre in …:
+            i += …
+        else:
+            i += …
+
+    return False
+
+
+assert recherche_boyer('abracadabra', 'dab')
+assert recherche_boyer('abracadabra', 'abra')
+assert recherche_boyer('abracadabra', 'obra') is False
+assert recherche_boyer('abracadabra', 'bara') is False
+assert recherche_boyer('maman est là', 'maman')
+assert recherche_boyer('bonjour maman', 'maman')
+assert recherche_boyer('bonjour maman', 'papa') is False
+```
+
+
+### <a name="_toc159537155"></a>**3.4. Comparaison des temps**
+
+**Activité n° 9  : Algorithme boyer\_moore : Rajouter:**
+```python
+temps_boyer = timeit("recherche_boyer(livre, texte)", number=10, globals=globals())
+print("Temps en utilisant find : ",temps_naif)
+print("Temps en utilisant l'algorithme Boyer-Moore : ",temps_boyer)
+```
 
 
