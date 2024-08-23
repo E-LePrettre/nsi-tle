@@ -789,7 +789,7 @@ C’est moins efficace (complexité temporelle plus grande due à l’absence de
 #### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063595"></a>**5.3.2. Parcourir un labyrinthe**</H4>  
 **Considérons le problème suivant :**
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.039.gif)
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.039.gif){: .center}
 
 Rechercher le chemin le plus long entre deux stations dans le métro. Indépendamment de l'aspect ludique, c'est en fait un problème difficile qu'on aurait bien du mal à résoudre de façon raisonnable sur un gros graphe comme celui du métro. Pour simplifier, nous allons donc considérer des labyrinthes.
 
@@ -797,7 +797,7 @@ Rechercher le chemin le plus long entre deux stations dans le métro. Indépenda
 
 Voici l'image d'un labyrinthe :
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.040.gif)
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.040.gif){: .center}
 
 Ce labyrinthe correspond au graphe suivant :
 
