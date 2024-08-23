@@ -28,7 +28,7 @@ title: 10 Les graphes
 
 Un graphe est une structure de données qui représente **des relations entre des objets.** Les objets sont représentés par des **sommets** (également appelés nœuds) et les relations entre eux sont représentées par des **arêtes** ou **arc**.
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.001.png)
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.001.png){: .center}
 
 Il y a donc zéro ou une arête entre une paire de sommets.
 
@@ -41,15 +41,15 @@ Il sert à représenter des **relations** entre des éléments.
 
 Par exemple, il peut représenter un **réseau social** :
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.004.png)
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.004.png){: .center}
 
 Ou un **réseau de transport**
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.005.png)
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.005.png){: .center}
 
 Ou un **réseau informatique**
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.006.png)
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.006.png){: .center}
 
 Les graphes servent aussi à représenter **des relations entre des données**, des **objets** ou pour faire du **routage dans les réseaux**.
 
@@ -77,7 +77,7 @@ Un **cycle** est **une chaîne qui commence et se termine au même sommet**.
 **<H3 STYLE="COLOR:red;">Activité n° 2 : Question vocabulaire**</H3>  
 Soit le graphe suivant :
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.008.png)
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.008.png){: .center}
 
 - Donner l’ordre de ce graphe
 - Donner le degré de chaque sommet de ce graphe
@@ -89,7 +89,7 @@ Soit le graphe suivant :
 
 Soit les lieux suivants : A, B, C, D, E, F et G.
 
-![graphe_2](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.009.png)
+![graphe_2](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.009.png){: .center}
 
 Les différents lieux sont reliés par les routes suivantes :
 
@@ -109,7 +109,7 @@ Avec cette représentation du réseau routier sous forme de graphe, il est **imp
 
 Voici de nouvelles contraintes :
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.010.png)
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.010.png){: .center}
 
 - il existe une route entre A et C (double sens)
 - il existe une route entre A et B (sens unique B->A)
@@ -122,17 +122,17 @@ Voici de nouvelles contraintes :
 
 Dans un graphe **orienté**, chaque arête ne peut être parcourue que dans un seul sens indiqué par une flèche. L’arête s’appelle alors un **arc**.
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.011.png)
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.011.png){: .center}
 
 **Troisième exemple :**
 
 Parfois, il est intéressant **d'associer aux arrêtes ou aux arcs des valeurs**, on parle alors de **graphes pondérés.**
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.012.png)
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.012.png){: .center}
 
 Si nous revenons à notre "graphe cartographique", il est possible **d'associer à chaque arête la distance en km entre les 2 lieux** :
 
-![graphe_4](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.013.png)
+![graphe_4](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.013.png){: .center}
 
 Il est aussi possible **d'associer à chaque arête la durée du trajet entre 2 points :**
 
@@ -164,17 +164,17 @@ Ce tableau s'appelle une **matrice d'adjacence** (on aurait très bien pu l'appe
 
 #### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063578"></a>**2.1.1. Graphe non orienté**</H4>
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.016.png)
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.016.png){: .center} 
 
 Dans ce graphe non orienté, comme B est voisin de C, C est aussi voisin de B, ce qui signifie que l'arête qui relie B et C va donner lieu à deux "1" dans la matrice, situé de part et d'autre de la diagonale descendante (un mathématicien parlera de matrice *symétrique*).
 
 #### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063579"></a>**2.1.2. Graphe orienté**</H4>
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.017.png)
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.017.png){: .center}
 
 #### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063580"></a>**2.1.3. Graphe pondéré**</H4>
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.018.png)
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.018.png){: .center}
 
 **<H3 STYLE="COLOR:red;">Activité n° 3 :**</H3>  
 Soit un ensemble d'amis connectés sur un réseau social quelconque. Voici les interactions qu'on a recensées:
@@ -195,20 +195,20 @@ Soit un ensemble d'amis connectés sur un réseau social quelconque. Voici les i
 **<H3 STYLE="COLOR:red;">Activité n° 4 :**</H3>  
 Sur feuille : Construire les graphes correspondants aux matrices d'adjacence suivantes:
 
-1. ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.019.png)
-2. ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.020.png)
-3. ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.021.png)
+1. ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.019.png){: .center}
+2. ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.020.png){: .center}
+3. ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.021.png){: .center}
 
 #### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063581"></a>**2.1.4. ❤️Implémentation Python des matrices d’adjacence❤️**</H4>  
 Une matrice se représente naturellement par une liste de listes.
 
 **Exemple :** La matrice
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.019.png)
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.019.png){: .center}
 
 associée au graphe suivant
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.022.png)
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.022.png){: .center}
 
 sera représentée par la variable G suivante :
 
@@ -232,7 +232,7 @@ G = [[0, 1, 1, 1, 1],
 
 Par exemple, le graphe
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.022.png)
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.022.png){: .center}
 
 sera représenté par le dictionnaire :
 
@@ -286,9 +286,9 @@ Dans THONNY : dans un fichier **graphe.py**
 **<H3 STYLE="COLOR:red;">Activité n° 6 : Représentation par une matrice :**</H3>  
 Passage d’une représentation à l’autre : Ecrire une fonction `matrice2dico(sommets, matrice)` qui prend un graphe représenté par une liste de sommets et une matrice d’adjacence et renvoie le graphe équivalent représenté par un dictionnaire.
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.019.png)  
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.020.png)  
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.021.png)
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.019.png){: .center}  
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.020.png){: .center}  
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.021.png){: .center}
 
 Tester avec M1, M2 et M3.
 
@@ -414,7 +414,7 @@ Dans THONNY : Dans un fichier **graphe_POO.py**
 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.022.png)
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.022.png){: .center}
 
 Nous voulons que le graphe puisse être créé grâce aux instructions suivantes :
 
@@ -519,7 +519,7 @@ On va utiliser ce parcours pour trouver :
 - le **sommet le plus près** de s<sub>1</sub> vérifiant une condition donnée
 - le **chemin le plus court** entre s<sub>1</sub> et un autre sommet.
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.029.png)
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.029.png){: .center}
 
 Sur ce graphe A-B-C-F-E-D-G est un parcours en largeur au départ de A.
 
@@ -528,7 +528,7 @@ B-A-C-E-F-D-G et B-A-F-E-C-G-D sont des parcours en largeur au départ de B.
 **<H3 STYLE="COLOR:red;">Activité n° 15 : Parcours en largeur :**</H3>  
 Appliquez l'algorithme du parcours en largeur au graphe ci-dessous.
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.030.png)
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.030.png){: .center}
 
 Le 'point de départ' de notre parcours (le sommet s dans l'algorithme), sera le sommet A.
 
@@ -542,7 +542,7 @@ Dans Thonny : dans **le** fichier **graphe.py**
 
 **L’algorithme du BFS** :
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.031.png)
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.031.png){: .center}
 
 On marque les sommets découverts afin que chaque sommet ne soit enfilé qu’une fois. Ainsi, lorsqu’on défile un sommet, on sait qu’il n’a pas encore été visité.
 
@@ -558,7 +558,7 @@ Le test SI voisin n est pas dans découverts permet donc de ne pas mettre en fil
 
 À chaque instant, la file en_attente contient des sommets à la distance k+1 et à la distance k du point de départ :
 
-![image](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.032.png)
+![image](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.032.png){: .center}
 
 **Rappels sur les files**
 
@@ -608,7 +608,7 @@ Implémenter l'algorithme du parcours en largeur .
 
 Voici le graphe :
 
-![image](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.033.png)
+![image](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.033.png){: .center}
 
 ```python
 graphe= {'A': ['B', 'C'], 'B': ['A', 'D', 'E'], 'C': ['A', 'D'], 'D': ['B', 'C', 'E'], 'E': ['B', 'D', 'F', 'G'], 'F': ['E', 'G'], 'G': ['E', 'F', 'H'], 'H': ['G']},'B') 
@@ -626,7 +626,7 @@ Si on utilise une **pile** (LIFO) pour S, les sommets enregistrés en dernier vo
 
 C’est le parcours utilisé naturellement par une personne qui explore **un labyrinthe**.
 
-![image](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.029.png)
+![image](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.029.png){: .center}
 
 Sur le graphe précédent, A-B-C-D-E-F-G et F-B-C-D-G-E-A sont des parcours en profondeur.
 
@@ -635,13 +635,13 @@ F-B-C-D-G-A-E n’en est pas un (E a été empilé après A, donc sera dépilé 
 **<H3 STYLE="COLOR:red;">Activité n° 18 : Parcours en profondeur :**</H3>  
 Appliquez l'algorithme du parcours en profondeur au graphe ci-dessous.
 
-![image](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.030.png)
+![image](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.030.png){: .center}
 
 **L’algorithme du DFS en version itérative**
 
 Dans Thonny : dans **le** fichier **graphe.py**
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.035.png)
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.035.png){: .center}
 
 **Rappels sur les piles**
 
@@ -684,7 +684,7 @@ Implémenter l'algorithme du parcours en largeur .
 
 Voici le graphe :
 
-![image](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.029.png)
+![image](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.029.png){: .center}
 
 ```python
 graphe= {'A': ['B', 'C'], 'B': ['A', 'D', 'E'], 'C': ['A', 'D'], 'D': ['B', 'C', 'E'], 'E': ['B', 'D', 'F', 'G'], 'F': ['E', 'G'], 'G': ['E', 'F', 'H'], 'H': ['G']},'B') == ['B', 'A', 'D', 'E', 'C', 'F', 'G', 'H']
@@ -696,7 +696,7 @@ graphe= {'A': ['B', 'C'], 'B': ['A', 'D', 'E'], 'C': ['A', 'D'], 'D': ['B', 'C',
 
 **L’algorithme du DFS en version récursive :**
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.037.png)
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.037.png){: .center}
 
 **Remarque :** En récursif il y a un petit souci : le fait de relancer la fonction `parcours_profondeur_recur` n’efface pas réellement la liste précédente => elle apparaitra sur l’appel pour le graphe suivant… Donc **relancer la console avant chaque test !** ou passer une liste vide en paramètre.
 
@@ -718,7 +718,7 @@ On remarque que l’on n’obtient pas le même parcours en profondeur.
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063593"></a>**5.3. Application des parcours**</H3>  
 #### <H4 STYLE="COLOR:MAGENTA;"><a name="_toc161063594"></a>**5.3.1. Le BFS et le chemin le plus court (Dijkstra)**</H4>
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.038.png)
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.038.png){: .center}
 
 **Cf : Video [https://ladigitale.dev/digiview/#/v/66c675d32ad85](https://ladigitale.dev/digiview/#/v/66c675d32ad85)**
 
@@ -871,7 +871,7 @@ Merci à Gilles Lassus, Cédric Gouyou, Jean-Louis Thirot, et Mireille Coilhac
 ## <H2 STYLE="COLOR:BLUE;"> **7. Projet**</H2>  
 **<H3 STYLE="COLOR:red;">Exercice n°1 Utiliser Dijkstra pour :**</H3>
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.050.png)
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.050.png){: .center}
 
 - **et les chemins qui mènent à Rome**
 
@@ -898,7 +898,7 @@ La distance entre différents routeurs est donnée dans le tableau suivant. Le s
 
 Un réseau peut se représenter à l’aide d’un graphe. Chaque nœud (sommet) est un routeur. Chaque lien (arête) est le support qui véhicule l’information que l’on pondère avec la distance à parcourir. Ainsi, le poids du lien entre les routeur 3 et 5 est de 1 km. C’est un graphe pondéré.
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.051.png)
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.051.png){: .center}
 
 *figure* 
 
