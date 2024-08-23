@@ -348,7 +348,7 @@ fonction rendu_monnaie_dyna(somme_à_rendre, système)
 fin fonction
 ```
 
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc159507087"></a>**3.4.1. Première approche : A la main
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc159507087"></a>**3.4.1. Première approche : A la main**</h4>
 
 **<H3 STYLE="COLOR:red;">Activité n° 12 : programmation dynamique du rendu de monnaie :**</H3>  
 On exécute l'instruction rendu\_monnaie\_dyna(5, [2, 1]).
