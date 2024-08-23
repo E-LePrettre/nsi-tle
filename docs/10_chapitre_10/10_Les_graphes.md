@@ -429,7 +429,8 @@ L'objet de type Graphe aura comme attributs :
 - une liste `liste_sommets` (donnée en paramètre dans la liste `liste_sommets`)
 - un dictionnaire `adjacents`, où chaque sommet se verra attribuer une liste vide `[]`.
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063589"></a>**4.2. Implémentation**</H3>  
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063589"></a>**4.2. Implémentation**</H3> 
+ **<H3 STYLE="COLOR:red;">Activité n° 14 :  Implémentation du graphe en POO :**</H3>  Compléter les méthodes suivantes
 ```python
 class Graphe:
     def __init__(self, liste_sommets):
@@ -524,7 +525,7 @@ Sur ce graphe A-B-C-F-E-D-G est un parcours en largeur au départ de A.
 
 B-A-C-E-F-D-G et B-A-F-E-C-G-D sont des parcours en largeur au départ de B.
 
-**<H3 STYLE="COLOR:red;">Activité n° 14 : Parcours en largeur :**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 15 : Parcours en largeur :**</H3>  
 Appliquez l'algorithme du parcours en largeur au graphe ci-dessous.
 
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.030.png)
@@ -585,7 +586,7 @@ file.popleft()
 if file : # => si la file n’est pas vide
 ```
 
-**<H3 STYLE="COLOR:red;">Activité n° 15 : Parcours en largeur :**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 16 : Parcours en largeur :**</H3>  
 Implémenter l'algorithme du parcours en largeur .
 
 ```python
@@ -602,7 +603,7 @@ print(parcours_largeur({"A": ("B", "D", "E"), "B": ("A", "C"), "C": ("B", "D"),
                             "H": ("G")}, "A"))
 ```
 
-**<H3 STYLE="COLOR:red;">Activité n° 16 : Parcours en largeur :**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 17 : Parcours en largeur :**</H3>  
 Implémenter l'algorithme du parcours en largeur .
 
 Voici le graphe :
