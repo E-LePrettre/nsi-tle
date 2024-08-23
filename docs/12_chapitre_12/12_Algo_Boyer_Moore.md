@@ -195,8 +195,11 @@ print("Temps en utilisant l'algorithme naif : ",temps_naif)
 L’algorithme : 
 
 1\. On examine la chaine, en partant du **bout de la clé**, et **en remontant les caractères de la clé un par un jusqu’à trouver une discordance**
+
 2\. Si la lettre de la chaine examinée est identique à celle de la clé, **on remonte la clé**
+
 3\. Sinon on regarde si cette lettre existe dans la clé :
+
    1. Si elle n’existe pas : on peut faire un **saut maximal**
    1. Sinon : on réalise un saut jusqu’à **sa position**
 
