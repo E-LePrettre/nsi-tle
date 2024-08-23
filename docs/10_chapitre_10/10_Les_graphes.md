@@ -856,6 +856,8 @@ Merci à Gilles Lassus, Cédric Gouyou, Jean-Louis Thirot, et Mireille Coilhac
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063596"></a>**6. Exercices**</H2>
 
+**<H3 STYLE="COLOR:red;">Exercice n°1 : Implémentation avec matrice d’adjacence**</H3>
+
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
 **<H3 STYLE="COLOR:red;">Exercice n°2 : Implémentation POO**</H3>
