@@ -65,7 +65,7 @@ Fn= 0,              si n=0
 
 La version itérative a déjà été vu en première.
 
-<H3 STYLE="COLOR:red;">**Activité n° 1 : Suite de Fibonacci avec l’algorithme itératif :**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 1 : Suite de Fibonacci avec l’algorithme itératif :**</H3>  
 Tester le pour n = 6
 ```python
 def fibonacci_iteractif(n):
@@ -80,7 +80,7 @@ Tester avec n =10, 100,… y a-t-il un problème ?
 
 La version récursive est plus proche de la définition.
 
-<H3 STYLE="COLOR:red;">**Activité n° 2 : Suite de Fibonacci avec l’algorithme récursif dit naïf :**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 2 : Suite de Fibonacci avec l’algorithme récursif dit naïf :**</H3>  
 Tester le pour n = 6
 ```python
 def fibonacci_recursif(n) :
@@ -125,7 +125,7 @@ Ici :
  (ou un dictionnaire) servant à mémoriser les résultats** déjà calculés pour ne pas les recalculer afin de réduire le coût en temps de calcul,
 - **transformer un algorithme récursif en itératif** en raisonnant dans l'ordre inverse de celui des appels récursifs afin de finir l'optimisation (élément effectué en même temps que le précédent dans cet exemple).
 
-<H3 STYLE="COLOR:red;">**Activité n° 3: Suite de fibonacci avec mémoïsation avec un tableau :**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 3: Suite de fibonacci avec mémoïsation avec un tableau :**</H3>  
 Etude de la mémoïsation
 ```python
 # initialisation d'un tableau contenant des -1
@@ -142,7 +142,7 @@ Tester avec n =6, 10, 100,… y a-t-il un problème ?
 
 On peut bien sûr intégrer la création de la liste dans la fonction pour un code **plus élégant.** 
 
-<H3 STYLE="COLOR:red;">**Activité n° 4 : Suite de fibonacci avec mémoïsation avec un tableau:**</H3>
+**<H3 STYLE="COLOR:red;">Activité n° 4 : Suite de fibonacci avec mémoïsation avec un tableau:**</H3>
 ```python
 def fibonacci_mem2(n, F=[0,1]):
     if n >= len(F):
@@ -154,7 +154,7 @@ Tester avec n =6, 10, 100,… y a-t-il un problème ?
 
 ![image](Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.005.png)
 
-<H3 STYLE="COLOR:red;">**Activité n° 5 : Suite de fibonacci avec mémoïsation avec un dictionnaire:**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 5 : Suite de fibonacci avec mémoïsation avec un dictionnaire:**</H3>  
 ```python
 def fibonacci_mem3(n, F={0:0, 1:1}):
     pass
@@ -173,7 +173,7 @@ La liste est moins efficace, c'est donc normal, mais la différence n'est pas dr
 
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507080"></a>**2.4. La suite de Fibonacci : approche de bas en haut**</H3>
 
-<H3 STYLE="COLOR:red;">**Activité n° 6 : Suite de fibonacci approche de bas en haut :**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 6 : Suite de fibonacci approche de bas en haut :**</H3>  
 ```python
 def fiboMonte(n) :
     fib=[0 for _ in range(n + 2)]
@@ -188,7 +188,7 @@ Tester avec n =6, 10, 100,… y a-t-il un problème ?
 
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507081"></a>**2.5. La suite de Fibonacci : version pythonesque**</H3>
 
-<H3 STYLE="COLOR:red;">**Activité n° 7 : Suite de fibonacci approche de bas en haut version pythonesque :**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 7 : Suite de fibonacci approche de bas en haut version pythonesque :**</H3>  
 ```python
 def fiboMonte2(n) :
     a = b = 1
@@ -220,7 +220,7 @@ Les **algorithmes gloutons** utilisés pour la résolution de ce même problème
 
 L’approche de force brute pour le problème du rendu de monnaie consiste à **essayer toutes les combinaisons possibles de pièces jusqu’à ce que nous trouvions la solution**. C’est une approche simple mais elle peut être très lente pour de grandes sommes d’argent car elle calcule les mêmes résultats plusieurs fois.
 
-<H3 STYLE="COLOR:red;">**Activité n° 8 : Force Brute**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 8 : Force Brute**</H3>  
 Dans un fichier rendu\_monnaie écrire un programme dans le cas d’un rendu de 6€
 ```python
 def rendre_monnaie_brute(monnaie, somme):
@@ -240,7 +240,7 @@ Notez que cette approche **peut être très lente** pour de grandes sommes d’a
 
 L’algorithme glouton pour le problème du rendu de monnaie fonctionne en prenant toujours la plus grande pièce possible jusqu’à ce que toute la monnaie soit rendue. C’est une approche simple et efficace qui fonctionne bien lorsque l’ensemble des pièces est canonique. Les algorithmes gloutons permettent de trouver une solution mais ce n’est **pas toujours une solution optimale**.
 
-<H3 STYLE="COLOR:red;">**Activité n° 9 : Algorithme glouton**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 9 : Algorithme glouton**</H3>  
 Dans un fichier rendu\_monnaie implémenter le script suivant. 
 Tester le programme avec 6 €
 ```python
@@ -284,7 +284,7 @@ La complexité de l'algorithme glouton pour le problème du rendu de monnaie est
 
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507085"></a>**3.3. Approche récursive**</H3>
 
-<H3 STYLE="COLOR:red;">**Activité n° 10 : Récursif**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 10 : Récursif**</H3>  
 Dans un fichier rendu\_monnaie Écrire le programme récursif qui renvoie le nombre de pièces rendues
 ```python
 def rendre_monnaie_rec(monnaie, somme):
@@ -316,7 +316,7 @@ Dans cet exemple, rendre\_monnaie est une fonction récursive qui prend en ent
 
 À la fin, elle retourne le nombre minimum de pièces nécessaires pour rendre la somme. Si la somme ne peut pas être rendue avec les pièces disponibles, elle retourne la somme elle-même, ce qui est le pire cas possible. 
 
-<H3 STYLE="COLOR:red;">**Activité n° 11 : Récursif**</H3>   
+**<H3 STYLE="COLOR:red;">Activité n° 11 : Récursif**</H3>   
 Décrire en quoi cette approche est une application de la méthode « diviser pour régner ».
 
 L’arbre des appels récursifs : 
@@ -354,14 +354,14 @@ fin fonction
 
 : A la main**</H4>
 
-<H3 STYLE="COLOR:red;">**Activité n° 12 : programmation dynamique du rendu de monnaie :**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 12 : programmation dynamique du rendu de monnaie :**</H3>  
 On exécute l'instruction rendu\_monnaie\_dyna(5, [2, 1]).
 1. Quel est la somme à rendre et quel est le système monétaire utilisé ?
 2. Décrire ci-dessous les différentes étapes lors de l'exécution de cette instruction.
 
 <H4 STYLE="COLOR:MAGENTA;">#### <a name="_toc159507088"></a>**3.4.2. Implémentation**</H4>
 
-<H3 STYLE="COLOR:red;">**Activité n° 13 : programmation dynamique du rendu de monnaie :**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 13 : programmation dynamique du rendu de monnaie :**</H3>  
 1. Implémenter l’algorithme précédent
 2. On exécute l'instruction suivante : rendu\_monnaie\_dyna(10, [9, 3, 2]) La réponse est-elle correcte ? Pourquoi cela se produit-il ? Comment pourrait-on y remédier ?
 
@@ -399,7 +399,7 @@ assert rendu_monnaie_dyna_combi(10, [9, 3, 2]) == [2, 2, 3, 3]
 assert rendu_monnaie_dyna_combi(1, [9, 3, 2]) == [-1]
 ```
 
-<H3 STYLE="COLOR:red;">**Activité n° 14 : dynamique**</H3>   
+**<H3 STYLE="COLOR:red;">Activité n° 14 : dynamique**</H3>   
 1. Expliquer la ligne 7.
 2. Expliquer le test de la ligne 11.
 3. Que renvoie la fonction quand on l'exécute avec le système imaginaire et la somme 10 ? Expliquer.
@@ -408,7 +408,7 @@ Merci à Charles Poulmaire.
 
 ## <H2 STYLE="COLOR:BLUE;"> **4. Exercices :**</H2>
 
-<H3 STYLE="COLOR:red;">**Exercice n°01 : le pb du sac à dos**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°01 : le pb du sac à dos**</H3>
 
 On rappelle le problème du sac à dos déjà vu en première : on dispose de *n* objets assimilables à des couples (valeur, poids) et d’un sac à dos qui peut porter un poids maximum *w*. L’objectif est de maximiser la valeur des objets contenus dans le sac.
 
