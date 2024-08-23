@@ -21,6 +21,8 @@ title: 12 Algorithme de Boyer - Moore
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc159537143"></a>**1. Les fonctions déjà implémentées dans python**</H2>
 
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
+
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc159537144"></a>**1.1. La méthode index()**</H3>
 
 **<H3 STYLE="COLOR:red;">Activité n° 1  : index() :**</H3> dans un fichier **recherche\_textuelle.py**: écrivez une fonction trouve\_lettre(c, texte) qui renvoie le premier indice où l'on a trouvé la lettre c dans la chaîne de caractères texte, et qui renvoie None si la lettre cherchée ne s'y trouve pas.
