@@ -486,33 +486,35 @@ Voici le prix moyen des planches qu'elle peut vendre actuellement en fonction de
 1. Quelle est la meilleure découpe à faire pour des planches de 7 mètres ? Utilisez les résultats des questions précédentes pour connaître la découpe optimale pour moins de 7 mètres.
 1. Expliquer comment fonctionne l'appel decoupe\_optimale(prix, 7)
 
-def decoupe\_optimale(p, lg\_max):
-`    `'''Renvoie au final le prix maximum qu'on peut obtenir à partir des prix p'''
-`    `m = [-math.inf for i in range(len(p))]
-`    `m[0] = 0
-`    `m[1] = p[1]
-`    `return dr(lg\_max, p, m)
+```python
+def decoupe_optimale(p, lg_max):
+    '''Renvoie au final le prix maximum qu'on peut obtenir à partir des prix p'''
+    m = [-math.inf for i in range(len(p))]
+    m[0] = 0
+    m[1] = p[1]
+    return dr(lg_max, p, m)
 
 
 def dr(lg, p, m):
-`    `'''Renvoie le prix maximum d'une planche de longueur lg'''
-`    `# dr pour découpe récursive
-`    `if m[lg] != -math.inf:  # condition d'arrêt
-`        `return m[lg]
-`    `else:
-`        `# 1 - on fixe le prix à - l'infini pour cette lg
-`        `prix\_max = -math.inf
-`        `# 2 - on cherche le prix pour les différentes découpes
-`        `for i in range(1, lg + 1):  # 
-`            `prix\_max = max(prix\_max, p[i] + dr(lg - i, p, m))
-`        `# 3 - on mémoïse le prix max pour cette longueur de planche
-`        `m[lg] = prix\_max
-`        `# 4 - on répond à l'appel
-`        `return prix\_max
+    '''Renvoie le prix maximum d'une planche de longueur lg'''
+    # dr pour découpe récursive
+    if m[lg] != -math.inf:  # condition d'arrêt
+        return m[lg]
+    else:
+        # 1 - on fixe le prix à - l'infini pour cette lg
+        prix_max = -math.inf
+        # 2 - on cherche le prix pour les différentes découpes
+        for i in range(1, lg + 1):  # 
+            prix_max = max(prix_max, p[i] + dr(lg - i, p, m))
+        # 3 - on mémoïse le prix max pour cette longueur de planche
+        m[lg] = prix_max
+        # 4 - on répond à l'appel
+        return prix_max
+```
 
 
 
-1. <a name="_toc159507091"></a>**Projet : le triangle de Pascal**
+## <a name="_toc159507091"></a>**5. Projet : le triangle de Pascal**
 
 **Principe :** 
 
@@ -540,7 +542,7 @@ voir compléments sur la page wikipedia : [Lien](https://fr.wikipedia.org/wiki/
 
 Cij=Ci-1j-1+Ci-1j
 
-![](Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.011.png)
+![image](Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.011.png)
 
 Dans le triangle ci-dessous, cela signifie :
 
@@ -565,27 +567,22 @@ Par exemple le *3* est obtenu en faisant *1 + 2 = 3* (ses voisins du dessus)
 1. Ecrire des fonctions factorielle(n) et binome(n,k) qui permettent de calculer respectivement n ! et Cnk avec la première formule. Il faudra tenir compte des cas k =0 et k>n (dans ce cas là le coefficient binomial vaut 0)
 
    Test :
-
-\>>> binome(3,2)
-
+```
+>>> binome(3,2)
 3
-
-\>>> binome(2,3)
-
+>>> binome(2,3)
 0
-
-\>>> binome(3,0)
-
+>>> binome(3,0)
 1
+```
 
 1. Ecrire une fonction récursive binome\_rec(n, k) qui calcule le coefficient binomial avec le deuxième formule
 
 1. Affichage de tous les coefficient binomiaux pour une valeur de n donnée : écrire une fonction pascal(n)  qui prend en paramètre la valeur de n et qui retourne tous les coefficients binomiaux de n = 0 à n = 9 et de k = 0 à k = 9
 
    Test :
-
-\>>> pascal(9)
-
+```
+>>> pascal(9)
 [[1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 [1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
 [1, 2, 1, 0, 0, 0, 0, 0, 0, 0],
@@ -596,6 +593,7 @@ Par exemple le *3* est obtenu en faisant *1 + 2 = 3* (ses voisins du dessus)
 [1, 7, 21, 35, 35, 21, 7, 1, 0, 0],
 [1, 8, 28, 56, 70, 56, 28, 8, 1, 0],
 [1, 9, 36, 84, 126, 126, 84, 36, 9, 1]]
+```
 
 On remarque que l’on calcule souvent les mêmes coefficients binomiaux :
 
@@ -607,4 +605,3 @@ La mémoïsation consistera alors à stocker dans un tableau les solutions pour 
 
 1. Écrire une fonction pascal\_dyn(n) utilisant la programmation dynamique qui calcule et affiche les coefficient binomiaux pour une valeur de n entrée en paramètre
 
-Terminale NSI 	Chap 11 : Programmation dynamique	Page 1/6
