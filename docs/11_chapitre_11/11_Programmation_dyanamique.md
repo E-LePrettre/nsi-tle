@@ -546,12 +546,12 @@ $C\left(\begin{matrix}i\\j\\\end{matrix}\right)=C\left(\begin{matrix}i-1\\j-1\\\
 
 Dans le triangle ci-dessous, cela signifie :
 
-1. qu’on remplit les lignes une par une,
-1. qu’on ajoute deux valeurs voisine d’une même ligne pour obtenir celle sous la valeur de droite.
+1\. qu’on remplit les lignes une par une,
+2\. qu’on ajoute deux valeurs voisine d’une même ligne pour obtenir celle sous la valeur de droite.
 
 Par exemple le *3* est obtenu en faisant *1 + 2 = 3* (ses voisins du dessus)
 
-1. Compléter le triangle de Pascal suivant
+1\. Compléter le triangle de Pascal suivant
 
    |**n\k**|**0**|**1**|**2**|**3**|**4**|**5**|**6**|**7**|
    | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
@@ -564,7 +564,7 @@ Par exemple le *3* est obtenu en faisant *1 + 2 = 3* (ses voisins du dessus)
    |6|||||||||
    |7|||||||||
 
-1. Ecrire des fonctions factorielle(n) et binome(n,k) qui permettent de calculer respectivement n ! et Cnk avec la première formule. Il faudra tenir compte des cas k =0 et k>n (dans ce cas là le coefficient binomial vaut 0)
+2\. Ecrire des fonctions factorielle(n) et binome(n,k) qui permettent de calculer respectivement n ! et Cnk avec la première formule. Il faudra tenir compte des cas k =0 et k>n (dans ce cas là le coefficient binomial vaut 0)
 
    Test :
 ```
@@ -576,9 +576,9 @@ Par exemple le *3* est obtenu en faisant *1 + 2 = 3* (ses voisins du dessus)
 1
 ```
 
-1. Ecrire une fonction récursive binome\_rec(n, k) qui calcule le coefficient binomial avec le deuxième formule
+3\. Ecrire une fonction récursive binome\_rec(n, k) qui calcule le coefficient binomial avec le deuxième formule
 
-1. Affichage de tous les coefficient binomiaux pour une valeur de n donnée : écrire une fonction pascal(n)  qui prend en paramètre la valeur de n et qui retourne tous les coefficients binomiaux de n = 0 à n = 9 et de k = 0 à k = 9
+4\. Affichage de tous les coefficient binomiaux pour une valeur de n donnée : écrire une fonction pascal(n)  qui prend en paramètre la valeur de n et qui retourne tous les coefficients binomiaux de n = 0 à n = 9 et de k = 0 à k = 9
 
    Test :
 ```
@@ -603,5 +603,5 @@ arbre de calcul des coefficients pour n=4 p=2
 
 La mémoïsation consistera alors à stocker dans un tableau les solutions pour les sous-problèmes afin de ne pas les recalculer…
 
-1. Écrire une fonction pascal\_dyn(n) utilisant la programmation dynamique qui calcule et affiche les coefficient binomiaux pour une valeur de n entrée en paramètre
+5\. Écrire une fonction pascal\_dyn(n) utilisant la programmation dynamique qui calcule et affiche les coefficient binomiaux pour une valeur de n entrée en paramètre
 
