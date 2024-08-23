@@ -58,6 +58,8 @@ Fn= 0,              si n=0
 
 La version itérative a déjà été vu en première.
 
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
+
 **Activité n° 1 : Suite de Fibonacci  avec l’algorithme iteractif :** Tester le pour n = 6
 ```python
 def fibonacci_iteractif(n):
@@ -394,6 +396,8 @@ Merci à Charles Poulmaire
 
 ## **4. Exercices :** 
 
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
+
 **Exercice n°01 : le pb du sac à dos**
 
 On rappelle le problème du sac à dos déjà vu en première : on dispose de *n* objets assimilables à des couples (valeur, poids) et d’un sac à dos qui peut porter un poids maximum *w*. L’objectif est de maximiser la valeur des objets contenus dans le sac.
@@ -515,6 +519,8 @@ def dr(lg, p, m):
 
 
 ## <a name="_toc159507091"></a>**5. Projet : le triangle de Pascal**
+
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
 
 **Principe :** 
 
