@@ -816,7 +816,7 @@ Dans THONNY : Ouvrir le fichier **TP_labyrinthe.py**
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
 1. vérifier que l’implémentation est bonne
-2. vérifier que la liste d’adjacence de 3,6
+2. vérifier la liste d’adjacence de 3,6
 
 **Dessin de votre labyrinthe**
 
@@ -841,10 +841,12 @@ Il va donc maintenant falloir garder en mémoire, pour chaque sommet, le parent 
 
 Pour cela recopiez la fonction DFS faite précédemment et modifiez là comme suit :
 
-1. Avant la boucle créez une liste vide `chemin` et un dictionnaire vide `parent`.
-2. Toujours avant la boucle, pour chaque sommet `s` dans `a_voir`, définir son parent égal à (1, 1) : `parent[s] = (1, 1)`
-3. A chaque fois qu'on ajoute un sommet dans `a_voir`, il faut définir son parent dans le dictionnaire `parent`.
-4. A chaque fois qu'on ajoute un sommet dans `vus` on doit ajouter dans chemin un tuple `(parent[sommet], sommet)`.
+1\. Avant la boucle créez une liste vide `chemin` et un dictionnaire vide `parent`.
+2\. Toujours avant la boucle, pour chaque sommet `s` dans `a_voir`, définir son parent égal à (1, 1) : `parent[s] = (1, 1)`
+
+    - A chaque fois qu'on ajoute un sommet dans `a_voir`, il faut définir son parent dans le dictionnaire `parent`.
+    
+    - A chaque fois qu'on ajoute un sommet dans `vus` on doit ajouter dans chemin un tuple `(parent[sommet], sommet)`.
 
 Compléter le code.
 
