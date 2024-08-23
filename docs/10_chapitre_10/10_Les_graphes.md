@@ -491,10 +491,14 @@ Parcourir simplement le dictionnaire ou la matrice d’un graphe comme on peut l
 
 Tous les parcours suivent plus ou moins le même algorithme de base :
 
-- On visite un sommet s1. On crée une structure S qui contiendra l’ensemble des voisins de s1.
-- Tant que S n’est pas vide :
+-\ On visite un sommet s1. On crée une structure S qui contiendra l’ensemble des voisins de s1.
+
+-\ Tant que S n’est pas vide :
+
   - on choisit un sommet s de S
+
   - on visite s
+  
   - on ajoute à S tous les voisins de s pas encore visités
 
 **Attention : sommets visités :**
