@@ -400,8 +400,8 @@ On rappelle le problème du sac à dos déjà vu en première : on dispose de *
 
 Nous avons vu deux stratégies en première :
 
-- force brute : tester toutes les combinaisons possibles, envisageable avec 20 objets par exemple, mais pas avec 60 objets.
-- algorithmes gloutons :
+-\ force brute : tester toutes les combinaisons possibles, envisageable avec 20 objets par exemple, mais pas avec 60 objets.
+-\ algorithmes gloutons :
   - glouton 1 : on prend d’abord les objets de valeurs maximales
   - glouton 2 : on prend d’abord les objets maximisant le rapport valeur/poids.
 
@@ -444,29 +444,29 @@ Même exercice avec objets = [(5, 3), (9, 2), (10, 5), (6, 4), (7, 1), (9, 3)]**
 
 **Algorithme**
 
-1. Écrire l’algorithme en langage naturel permettant, à partir d’une liste d’objets au format (valeur, poids) et d’un poids maximal *w* de construire le tableau des solutions du problème du sac à dos comme ci-dessus.
+1^. Écrire l’algorithme en langage naturel permettant, à partir d’une liste d’objets au format (valeur, poids) et d’un poids maximal *w* de construire le tableau des solutions du problème du sac à dos comme ci-dessus.
 
-1. Écrire l’algorithme renvoyant une solution optimale à partir du tableau précédent.
+2\. Écrire l’algorithme renvoyant une solution optimale à partir du tableau précédent.
 
 ***ou***
 
 Expliquer la démarche en français le plus précisément possible.
 
-1. Quelle est la complexité, en temps et en mémoire, de cette méthode de résolution ?
+3\. Quelle est la complexité, en temps et en mémoire, de cette méthode de résolution ?
 
 **Programmation**
 
 Ouvrir le fichier sacados\_eleve.py.
 
-1. Écrire la fonction tableau\_kp\_dynamique(objets, w) qui renvoie le tableau donnant les solutions optimales pour 0 à len(objets) objets et des poids de 0 à w.
+1\. Écrire la fonction tableau\_kp\_dynamique(objets, w) qui renvoie le tableau donnant les solutions optimales pour 0 à len(objets) objets et des poids de 0 à w.
 
    Exécuter le code pour tester votre fonction.
 
-1. Écrire la fonction kp\_dynamique(objets, w), qui utilise la fonction tableau\_kp\_dynamique(objets, w) et renvoie la valeur maximale et une liste d’objets réalisant cette valeur. 
+2\. Écrire la fonction kp\_dynamique(objets, w), qui utilise la fonction tableau\_kp\_dynamique(objets, w) et renvoie la valeur maximale et une liste d’objets réalisant cette valeur. 
 
    Exécuter la fonction test\_dynamique() pour tester votre fonction.
 
-**
+
 
 **Exercice n° 2 : le problème de la découpe**
 
@@ -526,7 +526,7 @@ En mathématiques, le triangle de Pascal est une présentation des coefficients 
 
 Cette figure permet de calculer les coefficients binomiaux d’un polynôme (x+y) à la puissance n:
 
-n=2,x+y2= x2+2xy+y2
+$n=2,\left(x+y\right)^2=\ x^2+2xy+y^2$
 
 n=3,x+y3= x3+3x2y+3xy2+y3
 
