@@ -351,7 +351,7 @@ fin fonction
 #### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc159507087"></a>**3.4.1. Première approche : A la main**</h4>
 
 **<H3 STYLE="COLOR:red;">Activité n° 12 : programmation dynamique du rendu de monnaie :**</H3>  
-On exécute l'instruction rendu\_monnaie\_dyna(5, [2, 1]).
+On exécute l'instruction rendu\_monnaie\_dyna(5, [2, 4]).
 1. Quel est la somme à rendre et quel est le système monétaire utilisé ?
 2. Décrire ci-dessous les différentes étapes lors de l'exécution de cette instruction.
 
@@ -395,9 +395,12 @@ assert rendu_monnaie_dyna_combi(10, [9, 3, 2]) == [2, 2, 3, 3]
 assert rendu_monnaie_dyna_combi(1, [9, 3, 2]) == [-1]
 ```
 
-**<H3 STYLE="COLOR:red;">Activité n° 14 : dynamique**</H3>   
+**<H3 STYLE="COLOR:red;">Activité n° 14 : dynamique**</H3>  
+
 1. Expliquer la ligne 7.
+
 2. Expliquer le test de la ligne 11.
+
 3. Que renvoie la fonction quand on l'exécute avec le système imaginaire et la somme 10 ? Expliquer.
 
 Merci à Charles Poulmaire.
