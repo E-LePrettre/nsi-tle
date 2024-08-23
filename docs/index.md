@@ -14,7 +14,7 @@ EN CONSTRUCTION!!! a très bientôt!!
 9. Sécurisation des communications
 10. Les graphes
 11. Programmation dynamique
-12. 
+12. Algorithme Boyer - Moore
 13. 
 14. 
 
