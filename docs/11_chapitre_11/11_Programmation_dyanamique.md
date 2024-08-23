@@ -21,19 +21,21 @@ title: 11 Programmation dynamique
 
 - Utiliser la programmation dynamique pour écrire un algorithme
 
-## <a name="_toc159507072"></a>**1. Paradigmes algorithmiques**
-### <a name="_toc159507073"></a>**1.1. L’algorithme glouton**
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc159507072"></a>**1. Paradigmes algorithmiques**</H2>
+
+### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507073"></a>**1.1. L’algorithme glouton**</H3>
 
 Lorsque l’on utilise un algorithme glouton, on applique le **paradigme** de l’algorithme glouton. Ce paradigme se concentre sur les **problèmes d’optimisation**. Voici quelques caractéristiques importantes de la programmation d’un algorithme glouton :
 
 - **Construction incrémentale** : L’algorithme glouton construit une solution étape par étape. À chaque étape, il choisit **la direction la plus prometteuse** en se basant sur des règles simples et en considérant une seule donnée à la fois.
 - **Optimalité locale** : Le choix effectué à **chaque étape est localement optimal**, mais cela ne garantit **pas une solution globalement optimale**. Cependant, dans certains cas, l’optimalité locale conduit à l’optimalité globale.
 - **Heuristique** : Dans certains cas, l’algorithme glouton est simplement une heuristique (**méthode de résolution** qui privilégie des **solutions approximatives)** qui fournit **une solution sous-optimale.** Cependant, lorsque nous ne connaissons pas d’algorithme exact efficace, cette approche peut être utilisée.
-### <a name="_toc159507074"></a>**1.2. Diviser pour régner**
+
+### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507074"></a>**1.2. Diviser pour régner**</H3>
 
 Il **divise** un problème en sous-problèmes indépendants (qui ne se chevauchent pas), **résout** chaque sous-problème, et **combine** les solutions des sous-problèmes pour former une solution du problème initial.
 
-### <a name="_toc159507075"></a>**1.3. La programmation dynamique**
+### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507075"></a>**1.3. La programmation dynamique**</H3>
 
 La **programmation dynamique** est un **paradigme algorithmique** qui permet de résoudre des problèmes **d’optimisation** en les décomposant en **sous-problèmes** et en stockant les résultats intermédiaires pour éviter de recalculer les mêmes valeurs. Voici quelques points importants concernant la programmation dynamique :
 
@@ -44,7 +46,7 @@ La **programmation dynamique** est un **paradigme algorithmique** qui permet
    1. **Ascendante** : On commence par résoudre **les sous-problèmes les plus petits** et on remonte progressivement vers le problème initial. Les résultats sont stockés dans un tableau.
    1. **Descendante** : On part du problème global et on le décompose en sous-problèmes. On résout **chaque sous-problème en utilisant les résultats déjà calculés**.
 
-## <a name="_toc159507076"></a>**2. Programmation dynamique de la suite de Fibonacci**
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc159507076"></a>**2. Programmation dynamique de la suite de Fibonacci**</H2>
 
 Toutes les activités de cette partie du cours seront effectuées dans un seul fichier nommé **fibonacci.py**
 
@@ -54,13 +56,13 @@ Fn= 0,              si n=0
     1,              si n=1
     Fn-1+F(n-2),    si n>1
 ```
-### <a name="_toc159507077"></a>**2.1. La suite de Fibonacci : algorithme itératif**
+
+### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507077"></a>**2.1. La suite de Fibonacci : algorithme itératif**</H3>
 
 La version itérative a déjà été vu en première.
 
-=> **CAPYTALE Le code vous sera donné par votre enseignant**
-
-**Activité n° 1 : Suite de Fibonacci  avec l’algorithme iteractif :** Tester le pour n = 6
+<H3 STYLE="COLOR:red;">**Activité n° 1 : Suite de Fibonacci avec l’algorithme itératif :**</H3>  
+Tester le pour n = 6
 ```python
 def fibonacci_iteractif(n):
     u, v = 0, 1
@@ -70,11 +72,12 @@ def fibonacci_iteractif(n):
 ```
 Tester avec n =10, 100,… y a-t-il un problème ?
 
-### <a name="_toc159507078"></a>**2.2. La suite de Fibonacci : algorithme récursif**
+### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507078"></a>**2.2. La suite de Fibonacci : algorithme récursif**</H3>
 
 La version récursive est plus proche de la définition.
 
-**Activité n° 2 : Suite de Fibonacci avec l’algorithme récursif dit naif :** Tester le pour n = 6
+<H3 STYLE="COLOR:red;">**Activité n° 2 : Suite de Fibonacci avec l’algorithme récursif dit naïf :**</H3>  
+Tester le pour n = 6
 ```python
 def fibonacci_recursif(n) :
     if n == 0 or n == 1 :
@@ -96,29 +99,30 @@ Pour n = 6, il est possible d’illustrer le fonctionnement de ce programme avec
 
 On voit bien que certaines valeurs sont **calculées plusieurs fois.** 
 
-
-Et les appels augmentent de manière exponentielle comme on peut le voir dans l’arbre des appels de fib(8)
+Et les appels augmentent de manière exponentielle comme on peut le voir dans l’arbre des appels de fib(8).
 
 [lien](https://www.recursionvisualizer.com/?function_definition=def%20fib%28n%29%20%3A%0A%20%20%20%20if%20n%20%3D%3D%200%20or%20n%20%3D%3D%201%20%3A%0A%20%20%20%20%20%20%20%20return%20n%0A%20%20%20%20else%20%3A%0A%20%20%20%20%20%20%20%20return%20fib%28n-1%29%2Bfib%28n-2%29%0A&function_call=fib%288%29)
 
 ![image](Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.002.png)
 
-Il faut donc **mémoriser ces valeurs** : on va donc utiliser une **matrice (tableau de tableaux)**. 
+Il faut donc **mémoriser ces valeurs** : on va donc utiliser une **matrice (tableau de tableaux).** 
 
 De plus, l'utilisation de ce tableau va permettre de transformer cet **algorithme récursif en un itératif** : il suffit de changer l'ordre de parcours ; au lieu de diminuer de n à 1 et 0 comme dans l'algorithme récursif, il suffit d'augmenter dans le tableau de 0 et 1 à n.
 
 ![image](Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.003.png)
 
-### <a name="_toc159507079"></a>**2.3. La suite de Fibonacci : avec mémoïsation**
+### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507079"></a>**2.3. La suite de Fibonacci : avec mémoïsation**</H3>
 
 Ici :
 
 - l'écriture d'un **algorithme récursif naïf** (donné au début dans cet exemple) afin de résoudre d'abord les cas simples (ceux de la condition d'arrêt) pour pouvoir traiter ensuite les cas plus compliqués.
-- **utiliser un tableau (ou un dictionnaire) servant à mémoriser les résultats** déjà calculés pour ne pas les recalculer afin de réduire le coût en temps de calcul,
-- **transformer un algorithme récursif et en itératif** en raisonnant dans l'ordre inverse de celui des appels récursifs afin de finir l'optimisation (élément effectué en même temps que le précédent dans cet exemple).
+- **utiliser un tableau
 
+ (ou un dictionnaire) servant à mémoriser les résultats** déjà calculés pour ne pas les recalculer afin de réduire le coût en temps de calcul,
+- **transformer un algorithme récursif en itératif** en raisonnant dans l'ordre inverse de celui des appels récursifs afin de finir l'optimisation (élément effectué en même temps que le précédent dans cet exemple).
 
-**Activité n° 3: Suite de fibonacci avec mémoïsation avec un tableau :** Etude de la mémoïsation
+<H3 STYLE="COLOR:red;">**Activité n° 3: Suite de fibonacci avec mémoïsation avec un tableau :**</H3>  
+Etude de la mémoïsation
 ```python
 # initialisation d'un tableau contenant des -1
 F = [-1]*101
@@ -134,7 +138,7 @@ Tester avec n =6, 10, 100,… y a-t-il un problème ?
 
 On peut bien sûr intégrer la création de la liste dans la fonction pour un code **plus élégant.** 
 
-**Activité n° 4 : Suite de fibonacci avec mémoïsation avec un tableau:** 
+<H3 STYLE="COLOR:red;">**Activité n° 4 : Suite de fibonacci avec mémoïsation avec un tableau:**</H3>
 ```python
 def fibonacci_mem2(n, F=[0,1]):
     if n >= len(F):
@@ -144,10 +148,9 @@ def fibonacci_mem2(n, F=[0,1]):
 
 Tester avec n =6, 10, 100,… y a-t-il un problème ?
 
-
 ![image](Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.005.png)
 
-**Activité n° 5 : Suite de fibonacci avec mémoïsation avec un dictionnaire:** 
+<H3 STYLE="COLOR:red;">**Activité n° 5 : Suite de fibonacci avec mémoïsation avec un dictionnaire:**</H3>  
 ```python
 def fibonacci_mem3(n, F={0:0, 1:1}):
     pass
@@ -162,11 +165,11 @@ Pour une liste c'est O(n). Du coup, on pourrait s'attendre à une complexité li
 
 Dans les 2 cas on voit quelque chose qu'on pourrait **qualifier de pseudo linéaire....**
 
-La liste est moins efficace, c'est donc normal, mais la différence n'est pas drastique. En fait, on accède toujours aux 2 derniers éléments de la liste. Dans ce cas, le processeur garde à porté de la main les données qui vont servir à chaque itération. A porté de la main ? En cache !
+La liste est moins efficace, c'est donc normal, mais la différence n'est pas drastique. En fait, on accède toujours aux 2 derniers éléments de la liste. Dans ce cas, le processeur garde à portée de la main les données qui vont servir à chaque itération. À portée de la main ? En cache !
 
-### <a name="_toc159507080"></a>**2.4. La suite de Fibonacci : approche de bas en haut**
+### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507080"></a>**2.4. La suite de Fibonacci : approche de bas en haut**</H3>
 
-**Activité n° 6 : Suite de fibonacci approche de bas en haut :** 
+<H3 STYLE="COLOR:red;">**Activité n° 6 : Suite de fibonacci approche de bas en haut :**</H3>  
 ```python
 def fiboMonte(n) :
     fib=[0 for _ in range(n + 2)]
@@ -179,9 +182,9 @@ Tester avec n =6, 10, 100,… y a-t-il un problème ?
 
 ![image](Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.007.png)
 
-### <a name="_toc159507081"></a>**2.5. La suite de Fibonacci : version pythonesque**
+### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507081"></a>**2.5. La suite de Fibonacci : version pythonesque**</H3>
 
-**Activité n° 7 : Suite de fibonacci approche de bas en haut version pythonesque :**
+<H3 STYLE="COLOR:red;">**Activité n° 7 : Suite de fibonacci approche de bas en haut version pythonesque :**</H3>  
 ```python
 def fiboMonte2(n) :
     a = b = 1
@@ -201,7 +204,7 @@ On peut explorer des grandes valeurs de n :⏳ Il faut un peu de patience ...
 
 Merci à Mireille Coilhac
 
-## <a name="_toc159507082"></a>**3. L’optimisation du problème du rendu de monnaie**
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc159507082"></a>**3. L’optimisation du problème du rendu de monnaie**</H2>
 
 La programmation dynamique qui consiste à résoudre un problème en le décomposant en sous-problèmes, puis à résoudre les sous-problèmes des plus petits au plus grands, en stockant des résultats intermédiaires, permet d’aboutir rapidement à un résultat optimal en examinant tous les cas possibles : ce qu’on appelle **force brute**.
 
@@ -209,11 +212,12 @@ Les **algorithmes gloutons** utilisés pour la résolution de ce même problème
 
 **Enoncé du problème** : étant donné un système de monnaie (billets et pièces), comment rendre une somme de façon optimale c’est-à-dire avec le nombre minimal de pièces et de billets.
 
-### <a name="_toc159507083"></a>**3.1. Le rendu de monnaie en force brute**
+### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507083"></a>**3.1. Le rendu de monnaie en force brute**</H3>
 
 L’approche de force brute pour le problème du rendu de monnaie consiste à **essayer toutes les combinaisons possibles de pièces jusqu’à ce que nous trouvions la solution**. C’est une approche simple mais elle peut être très lente pour de grandes sommes d’argent car elle calcule les mêmes résultats plusieurs fois.
 
-**Activité n° 8 : Force Brute** Dans un fichier rendu\_monnaie écrire un programme dans le cas d’un rendu de 6€
+<H3 STYLE="COLOR:red;">**Activité n° 8 : Force Brute**</H3>  
+Dans un fichier rendu\_monnaie écrire un programme dans le cas d’un rendu de 6€
 ```python
 def rendre_monnaie_brute(monnaie, somme):
     
@@ -228,17 +232,18 @@ if __name__ == "__main__":
 
 Notez que cette approche **peut être très lente** pour de grandes sommes d’argent car elle calcule les mêmes résultats plusieurs fois. 
 
-### <a name="_toc159507084"></a>**3.2. Application classique avec les algorithmes gloutons**
+### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507084"></a>**3.2. Application classique avec les algorithmes gloutons**</H3>
 
 L’algorithme glouton pour le problème du rendu de monnaie fonctionne en prenant toujours la plus grande pièce possible jusqu’à ce que toute la monnaie soit rendue. C’est une approche simple et efficace qui fonctionne bien lorsque l’ensemble des pièces est canonique. Les algorithmes gloutons permettent de trouver une solution mais ce n’est **pas toujours une solution optimale**.
 
-
-
-**Activité n° 9 : Algorithme glouton** Dans un fichier rendu\_monnaie implémenter le script suivant. 
+<H3 STYLE="COLOR:red;">**Activité n° 9 : Algorithme glouton**</H3>  
+Dans un fichier rendu\_monnaie implémenter le script suivant. 
 Tester le programme avec 6 €
 ```python
 def rendre_monnaie_glouton(monnaie, somme):
-    # Trier la liste des pièces en ordre décroissant
+    # Trier la liste des pièces en ordre décro
+
+issant
     pass
 
     # Initialiser le résultat
@@ -265,17 +270,18 @@ if __name__ == "__main__":
 
 L’algorithme glouton retourne au mieux 3 billets/pièces
 
-Mais la **solution optimale est 2**. Ici, l’algorithme glouton donne une solution mais ce n’est **pas la solution optimale, car le système de monnaie choisi n’est pas canonique,** ce qui n’est pas le cas des euros
+Mais la **solution optimale est 2**. Ici, l’algorithme glouton donne une solution mais ce n’est **pas la solution optimale, car le système de monnaie choisi n’est pas canonique,** ce qui n’est pas le cas des euros.
 
 Comment rendre la monnaie avec l’algorithme glouton précédent ? => on est bloqué car lorsqu’on exécute l’algorithme glouton, **une fois la décision prise on ne peut pas revenir en arrière**.
 
 Par contre, l’algorithme glouton **est souvent très rapide** devant l’algorithme de force brute.
 
-La complexité de l'algorithme glouton pour le problème du rendu de monnaie est **linéaire**
+La complexité de l'algorithme glouton pour le problème du rendu de monnaie est **linéaire**.
 
-### <a name="_toc159507085"></a>**3.3. Approche récursive**
+### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507085"></a>**3.3. Approche récursive**</H3>
 
-**Activité n° 10 : Récursif** Dans un fichier rendu\_monnaie Écrire le programme récursif qui renvoie le nombre de pièces rendues
+<H3 STYLE="COLOR:red;">**Activité n° 10 : Récursif**</H3>  
+Dans un fichier rendu\_monnaie Écrire le programme récursif qui renvoie le nombre de pièces rendues
 ```python
 def rendre_monnaie_rec(monnaie, somme):
     # Initialiser le nombre minimum de pièces
@@ -299,7 +305,6 @@ if __name__ == "__main__":
     assert rendre_monnaie(monnaie, somme)==2
 ```
 
-
 Dans cet exemple, rendre\_monnaie est une fonction récursive qui prend en entrée une liste de pièces et une somme à rendre. Elle retourne le **nombre minimum de pièces** nécessaires pour rendre cette somme. 
 
 - Si la somme est dans la liste des pièces, elle retourne 1. 
@@ -307,7 +312,8 @@ Dans cet exemple, rendre\_monnaie est une fonction récursive qui prend en ent
 
 À la fin, elle retourne le nombre minimum de pièces nécessaires pour rendre la somme. Si la somme ne peut pas être rendue avec les pièces disponibles, elle retourne la somme elle-même, ce qui est le pire cas possible. 
 
-**Activité n° 11 : Récursif** : Décrire en quoi cette approche est une application de la méthode « diviser pour régner ».
+<H3 STYLE="COLOR:red;">**Activité n° 11 : Récursif**</H3>   
+Décrire en quoi cette approche est une application de la méthode « diviser pour régner ».
 
 L’arbre des appels récursifs : 
 
@@ -315,13 +321,13 @@ L’arbre des appels récursifs :
 
 <https://www.recursionvisualizer.com/?function_definition=def%20f%28monnaie%2C%20somme%29%3A%0A%20%20%20%20%23%20Initialiser%20le%20nombre%20minimum%20de%20pi%C3%A8ces%0A%20%20%20%20min_pieces%20%3D%20float%28'inf'%29%0A%0A%20%20%20%20%23%20V%C3%A9rifier%20si%20la%20somme%20est%20dans%20la%20liste%20des%20pi%C3%A8ces%0A%20%20%20%20if%20somme%20in%20monnaie%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%23%20Pour%20chaque%20pi%C3%A8ce%20dont%20la%20valeur%20est%20inf%C3%A9rieure%20%C3%A0%20la%20somme%0A%20%20%20%20%20%20%20%20for%20piece%20in%20monnaie%20%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20piece%20%3C%3D%20somme%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20Compter%20le%20nombre%20de%20pi%C3%A8ces%20en%20utilisant%20la%20r%C3%A9cursion%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nb_pieces%20%3D%20min%28min_pieces%2C%201%20%2B%20f%28monnaie%2C%20somme-piece%29%29%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20%20%20Si%20le%20nombre%20de%20pi%C3%A8ces%20est%20inf%C3%A9rieur%20au%20minimum%20actuel%2C%20mettre%20%C3%A0%20jour%20le%20minimum%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%20nb_pieces%20%3C%20min_pieces%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20min_pieces%20%3D%20nb_pieces%0A%20%20%20%20return%20min_pieces&function_call=f%28%5B1%2C%203%2C%204%5D%2C%206%29>
 
-- Sur le schéma, **tous les cas sont "traités**" (quand un algorithme "traite" tous les cas possibles, on parle souvent de méthode "brute force").
+- Sur le schéma, **tous les cas sont "traités"** (quand un algorithme "traite" tous les cas possibles, on parle souvent de méthode "brute force").
 - pour certains cas, on se retrouve dans une "impasse" (cas où on termine par un "1"), dans cette situation, la fonction renvoie "inf" ce qui permet de s'assurer que cette "solution"ne sera pas "retenue".
-- la profondeur minimum de l'arbre (avec une feuille 0) est de 2, la solution au problème est donc 2 (il existe plusieurs parcours : (1,1,4), (1,4,1), (4,1,1.) qui donne à chaque fois 3 mais un  seul parcours qui donne 2 (3,3))
+- la profondeur minimum de l'arbre (avec une feuille 0) est de 2, la solution au problème est donc 2 (il existe plusieurs parcours : (1,1,4), (1,4,1), (4,1,1.) qui donne à chaque fois 3 mais un  seul parcours qui donne 2 (3,3)).
 
-Il y a trop d’appels, il est trop lent à cause de **calculs répétitifs**
+Il y a trop d’appels, il est trop lent à cause de **calculs répétitifs.**
 
-### <a name="_toc159507086"></a>**3.4. Programmation dynamique** 
+### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507086"></a>**3.4. Programmation dynamique**</H3>
 
 Pour éviter de résoudre plusieurs fois le même problème (comme pour Fibonacci), on **mémorise** (dans un tableau ou une table de hachage) les arguments pour lesquels la fonction récursive a déjà été calculée. On choisit de **calculer tous les résultats des sous-problèmes**, en commençant par les plus simples et en finissant par les plus compliqués, ce qui permet de supprimer la récursivité.
 
@@ -340,24 +346,28 @@ fonction rendu_monnaie_dyna(somme_à_rendre, système)
 fin fonction
 ```
 
-#### <a name="_toc159507087"></a>**3.4.1. *Première approche : A la main***
+<H4 STYLE="COLOR:MAGENTA;">#### <a name="_toc159507087"></a>**3.4.1. Première approche 
 
-**Activité n° 12 : programmation dynamique du rendu de monnaie**: On exécute l'instruction rendu\_monnaie\_dyna(5, [2, 1]).
+: A la main**</H4>
+
+<H3 STYLE="COLOR:red;">**Activité n° 12 : programmation dynamique du rendu de monnaie :**</H3>  
+On exécute l'instruction rendu\_monnaie\_dyna(5, [2, 1]).
 1. Quel est la somme à rendre et quel est le système monétaire utilisé ?
 2. Décrire ci-dessous les différentes étapes lors de l'exécution de cette instruction.
 
-#### <a name="_toc159507088"></a>**3.4.2. Implémentation**
+<H4 STYLE="COLOR:MAGENTA;">#### <a name="_toc159507088"></a>**3.4.2. Implémentation**</H4>
 
-**Activité n° 13 : programmation dynamique du rendu de monnaie**: 
+<H3 STYLE="COLOR:red;">**Activité n° 13 : programmation dynamique du rendu de monnaie :**</H3>  
 1. Implémenter l’algorithme précédent
 2. On exécute l'instruction suivante : rendu\_monnaie\_dyna(10, [9, 3, 2]) La réponse est-elle correcte ? Pourquoi cela se produit-il ? Comment pourrait-on y remédier ?
 
-Dans cette fonction, on a deux boucles emboitées qui contiennent **une opération en temps constant** (calcul d'un minimum). Le temps d'exécution est alors **proportionnel au produit du nombre de pièces du système par la somme**. C'est plus long que pour l'algorithme glouton mais on obtient **une solution optimale** avec tous les systèmes de pièces qui contiennent la pièce de valeur 1 Par contre, cette amélioration nécessite un **plus grand espace mémoire** avec le tableau.
+Dans cette fonction, on a deux boucles emboîtées qui contiennent **une opération en temps constant** (calcul d'un minimum). Le temps d'exécution est alors **proportionnel au produit du nombre de pièces du système par la somme**. C'est plus long que pour l'algorithme glouton mais on obtient **une solution optimale** avec tous les systèmes de pièces qui contiennent la pièce de valeur 1. Par contre, cette amélioration nécessite un **plus grand espace mémoire** avec le tableau.
 
-#### <a name="_toc159507089"></a>**3.4.3. Deuxième approche : pour aller plus loin**
-Dans le code précédent, on calcule le nombre de pièces correspondant à la solution optimale, mais on ne précise pas comment cette solution a été obtenue. Pire, la fonction renvoie une solution (un nombre de pièces), alors que celle-ci n'est pas solution de notre problème 
+<H4 STYLE="COLOR:MAGENTA;">#### <a name="_toc159507089"></a>**3.4.3. Deuxième approche : pour aller plus loin**</H4>
 
-On propose ci-dessous une fonction permettant, non seulement de calculer le nombre de pièces utiles, mais aussi la combinaison des pièces à rendre et on gère également le cas où le rendu est impossible.
+Dans le code précédent, on calcule le nombre de pièces correspondant à la solution optimale, mais on ne précise pas comment cette solution a été obtenue. Pire, la fonction renvoie une solution (un nombre de pièces), alors que celle-ci n'est pas solution de notre problème.
+
+On propose ci-dessous une fonction permettant, non seulement de calculer le nombre de pièces utiles, mais aussi la combinaison des pièces à rendre, et on gère également le cas où le rendu est impossible.
 
 ```python 
 def rendu_monnaie_dyna_combi(somme_à_rendre, système):
@@ -385,28 +395,24 @@ assert rendu_monnaie_dyna_combi(10, [9, 3, 2]) == [2, 2, 3, 3]
 assert rendu_monnaie_dyna_combi(1, [9, 3, 2]) == [-1]
 ```
 
-
-**Activité n° 14 : dynamique** : 
+<H3 STYLE="COLOR:red;">**Activité n° 14 : dynamique**</H3>   
 1. Expliquer la ligne 7.
 2. Expliquer le test de la ligne 11.
-3. Que renvoie la fonction quand on l'exécute avec le système imaginaire et la somme  10 ? Expliquer
+3. Que renvoie la fonction quand on l'exécute avec le système imaginaire et la somme 10 ? Expliquer.
 
+Merci à Charles Poulmaire.
 
-Merci à Charles Poulmaire
+## <H2 STYLE="COLOR:BLUE;"> **4. Exercices :**</H2>
 
-## **4. Exercices :** 
-
-=> **CAPYTALE Le code vous sera donné par votre enseignant**
-
-**Exercice n°01 : le pb du sac à dos**
+<H3 STYLE="COLOR:red;">**Exercice n°01 : le pb du sac à dos**</H3>
 
 On rappelle le problème du sac à dos déjà vu en première : on dispose de *n* objets assimilables à des couples (valeur, poids) et d’un sac à dos qui peut porter un poids maximum *w*. L’objectif est de maximiser la valeur des objets contenus dans le sac.
 
 Nous avons vu deux stratégies en première :
 
--\ force brute : tester toutes les combinaisons possibles, envisageable avec 20 objets par exemple, mais pas avec 60 objets.
--\ algorithmes gloutons :
-  - glouton 1 : on prend d’abord les objets de valeurs maximales
+- force brute : tester toutes les combinaisons possibles, envisageable avec 20 objets par exemple, mais pas avec 60 objets.
+- algorithmes gloutons :
+  - glouton 1 : on prend d’abord les objets de valeurs maximales.
   - glouton 2 : on prend d’abord les objets maximisant le rapport valeur/poids.
 
 Les algorithmes gloutons sont très rapides, en O(<i>n log<sub>2</sub></i>(<i>n</i>)) si on trie les objets suivant le critère choisi avec un bon algorithme de tri, mais ne garantissent pas d’obtenir la meilleure solution.
@@ -419,7 +425,7 @@ Supposons qu’on a résolu le problème à *i* – 1 objets pour un poids maxim
 
 On rajoute un <i>i</i>-ème objet (<i>v<sub>i</sub></i>, <i>p<sub>i</sub></i>). Alors, une solution optimale du problème à <i>i</i> objets avec un poids maximal de <i>w</i> est :
 
-- soit une solution optimale du problème à *i* – 1 objets avec le poids maximal *w*
+- soit une solution optimale du problème à *i* – 1 objets avec le poids maximal *w*,
 - soit une solution optimale du problème à <i>i</i> – 1 objets avec le poids maximal <i>w</i> – <i>p<sub>i</sub></i> à laquelle on ajoute le <i>i</i>-ème objet.
 
 On résout donc successivement les problèmes à 1 objet, 2 objets, 3 objets, … pour les poids allant de 0 à *w*. On présente les solutions dans un tableau. Le contenu du tableau dépend de l’ordre des objets mais pas la dernière ligne.
@@ -429,7 +435,7 @@ On résout donc successivement les problèmes à 1 objet, 2 objets, 3 objets, �
 Résolution du problème du sac à dos avec la liste objets = [(3, 2), (8, 10), (2, 2), (8, 1), (4, 6), (6, 6)] et le poids maximal *w* = 10 kg. Les objets sont au format (valeur, poids).
 
 |objets\poids|0|1|2|3|4|5|6|7|8|9|10|
-| :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
 |0|0|0|0|0|0|0|0|0|0|0|0|
 |1|0|0|3|3|3|3|3|3|3|3|3|
 |2|0|0|3|3|3|3|3|3|3|3|8|
@@ -444,7 +450,9 @@ On obtient donc la valeur optimale de 17 avec les objets 1, 4, 6.
 
 **Exercice**
 
-Même exercice avec objets = [(5, 3), (9, 2), (10, 5), (6, 4), (7, 1), (9, 3)]** et** *w* = 10.
+Même exercice avec
+
+ objets = [(5, 3), (9, 2), (10, 5), (6, 4), (7, 1), (9, 3)]** et** *w* = 10.
 
 **Algorithme**
 
@@ -472,7 +480,7 @@ Ouvrir le fichier sacados\_eleve.py.
 
 
 
-**Exercice n° 2 : le problème de la découpe**
+**<H3 STYLE="COLOR:red;">Exercice n° 2 : le problème de la découpe**</h3>
 
 Une scierie récupère des troncs d'arbre de 10 mètres et plus pour en faire des planches.
 
@@ -518,7 +526,7 @@ def dr(lg, p, m):
 
 
 
-## <a name="_toc159507091"></a>**5. Projet : le triangle de Pascal**
+## <H2 STYLE="COLOR:BLUE;"><a name="_toc159507091"></a>**5. Projet : le triangle de Pascal</h2>**
 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
