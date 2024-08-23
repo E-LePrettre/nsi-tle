@@ -614,9 +614,7 @@ Voici le graphe :
 graphe= {'A': ['B', 'C'], 'B': ['A', 'D', 'E'], 'C': ['A', 'D'], 'D': ['B', 'C', 'E'], 'E': ['B', 'D', 'F', 'G'], 'F': ['E', 'G'], 'G': ['E', 'F', 'H'], 'H': ['G']},'B') 
 ```
 
-1. Donner le parcours en largeur de g grâce à l'algorithme BFS, si
-
- le sommet de départ est B.  
+1. Donner le parcours en largeur de g grâce à l'algorithme BFS, si le sommet de départ est B.  
 2. Deviner le parcours en largeur de départ D, puis de départ G.  
 3. Vérifier grâce à votre algorithme.
 
@@ -634,7 +632,7 @@ Sur le graphe précédent, A-B-C-D-E-F-G et F-B-C-D-G-E-A sont des parcours en p
 
 F-B-C-D-G-A-E n’en est pas un (E a été empilé après A, donc sera dépilé avant).
 
-**<H3 STYLE="COLOR:red;">Activité n° 17 : Parcours en profondeur :**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 18 : Parcours en profondeur :**</H3>  
 Appliquez l'algorithme du parcours en profondeur au graphe ci-dessous.
 
 ![image](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.030.png)
@@ -664,7 +662,7 @@ pile.popleft()     #ou pop()
 if pile : #=> si la pile n’est pas vide
 ```
 
-**<H3 STYLE="COLOR:red;">Activité n° 18 : Parcours en profondeur en version itérative :**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 19 : Parcours en profondeur en version itérative :**</H3>  
 Implémenter l'algorithme du parcours en profondeur.
 
 ```python
@@ -681,7 +679,7 @@ print(parcours_profondeur({"A": ("B", "D", "E"), "B": ("A", "C"), "C": ("B", "D"
                          "H": ("G")}, "A") )
 ```
 
-**<H3 STYLE="COLOR:red;">Activité n° 19 : Parcours en profondeur :**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 20 : Parcours en profondeur :**</H3>  
 Implémenter l'algorithme du parcours en largeur .
 
 Voici le graphe :
@@ -702,7 +700,7 @@ graphe= {'A': ['B', 'C'], 'B': ['A', 'D', 'E'], 'C': ['A', 'D'], 'D': ['B', 'C',
 
 **Remarque :** En récursif il y a un petit souci : le fait de relancer la fonction `parcours_profondeur_recur` n’efface pas réellement la liste précédente => elle apparaitra sur l’appel pour le graphe suivant… Donc **relancer la console avant chaque test !** ou passer une liste vide en paramètre.
 
-**<H3 STYLE="COLOR:red;">Activité n° 20 : Parcours en profondeur en version récursive :**</H3>  
+**<H3 STYLE="COLOR:red;">Activité n° 21 : Parcours en profondeur en version récursive :**</H3>  
 Implémenter l'algorithme du parcours en profondeur.
 
 ```python
@@ -733,6 +731,7 @@ Cette implémentation utilise
 
 Cette implémentation est simple, mais peut-être moins performante pour de grandes entrées en raison de la nécessité de trouver le nœud le plus proche à chaque itération en parcourant le tableau complet.
 
+ **<H3 STYLE="COLOR:red;">Activité n° 22 :  Le chemin le plus court:**</H3>  Tester :
 ```python
 def dijkstra(graph, start, end):
     distances = {node: float('inf') for node in graph}
