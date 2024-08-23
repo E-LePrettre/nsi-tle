@@ -24,6 +24,8 @@ title: 12 Algorithme de Boyer - Moore
 
 ### <a name="_toc159537144"></a>**1.1. La méthode index()**
 
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
+
 On sait déjà chercher un **caractère** dans une chaîne de caractères.
 
 **Activité n° 1  : index() :** dans un fichier **recherche\_textuelle.py**: écrivez une fonction trouve\_lettre(c, texte) qui renvoie le premier indice où l'on a trouvé la lettre c dans la chaîne de caractères texte, et qui renvoie None si la lettre cherchée ne s'y trouve pas.
