@@ -26,7 +26,7 @@ title: 12 Algorithme de Boyer - Moore
 
 On sait déjà chercher un **caractère** dans une chaîne de caractères.
 
-**Activité n° 1  : index() :** dans un fichier** recherche\_textuelle.py **:** écrivez une fonction trouve\_lettre(c, texte) qui renvoie le premier indice où l'on a trouvé la lettre c dans la chaîne de caractères texte, et qui renvoie None si la lettre cherchée ne s'y trouve pas.
+**Activité n° 1  : index() :** dans un fichier **recherche\_textuelle.py**: écrivez une fonction trouve\_lettre(c, texte) qui renvoie le premier indice où l'on a trouvé la lettre c dans la chaîne de caractères texte, et qui renvoie None si la lettre cherchée ne s'y trouve pas.
 ```python
 def trouve_lettre(c, texte):
     """renvoie l'indice de la première occurrence de c dans texte
@@ -48,21 +48,58 @@ Le problème est plus difficile quand il faut chercher non plus un seul caractè
 
 Python dispose d'une méthode find() attachée aux objets chaînes de caractère qui permet justement de trouver un motif dans la chaîne
 
-|<p>**Activité n° AUTONUM  \* Arabic  : find() :** télécharger le livre Le rouge et le noir de Stendhal, et chercher ensuite si le motif 'Julien’ apparaît quelque part dans le roman et trouver une deuxième occurrence du mot ‘Julien’</p><p>fichier = open('rougenoir.txt', 'r', encoding = 'utf-8')<br>stendhal = fichier.read()<br>fichier.close()<br>…</p>|
-| - |
+**Activité n° 2  : find() :** 
+**sur Thonny** : télécharger le livre Le rouge et le noir de Stendhal, 
+ICI : [https://www.gutenberg.org/ebooks/798.txt.utf-8](https://www.gutenberg.org/ebooks/798.txt.utf-8)
+renommer le 'rougenoir.txt'
+
+et chercher ensuite si le motif 'Julien’ apparaît quelque part dans le roman et trouver une deuxième occurrence du mot ‘Julien’
+
+```python
+fichier = open('rougenoir.txt', 'r', encoding = 'utf-8')
+stendhal = fichier.read()
+fichier.close()
+...
+```
 
 La méthode find renvoie -1 si le motif cherché n'apparaît pas dans le texte. 
 
-|<p>**Activité n° AUTONUM  \* Arabic  : find() :** Complétez ci-dessous le code de la fonction nb\_occurrences(texte, motif)</p><p>def nb\_occurrences(texte, motif):<br>`    `"""renvoie le nombre de fois où motif apparaît dans texte """<br>`    `pass<br><br>assert nb\_occurrences('bonjour monsieur gaboriot votre abonnement est fini', 'bo') == 3<br>assert nb\_occurrences(stendhal, 'Julien') == 1908<br>assert nb\_occurrences(stendhal, 'amour') == 225<br>assert nb\_occurrences(stendhal, 'informatique') == 0</p>|
-| - |
+**Activité n° 3  : find() :** Complétez ci-dessous le code de la fonction nb\_occurrences(texte, motif)
+```python
+def nb_occurrences(texte, motif):
+    """renvoie le nombre de fois où motif apparaît dans texte """
+    pass
+
+assert nb_occurrences('bonjour monsieur gaboriot votre abonnement est fini', 'bo') == 3
+assert nb_occurrences(stendhal, 'Julien') == 1908
+assert nb_occurrences(stendhal, 'amour') == 225
+assert nb_occurrences(stendhal, 'informatique') == 0
+```
+
 
 Autre réponse possible avec une fonction récursive.
 
-|<p>**Activité n° AUTONUM  \* Arabic  : find() :** Complétez ci-dessous le code de la fonction nb\_occurrences\_rec(texte, motif)</p><p>import sys<br>sys.setrecursionlimit(2000)<br><br>def nb\_occurrences\_rec(texte, motif, i=0):<br>`    `occurence = texte.find(motif, i)<br>`    `if occurence == -1 :<br>`        `pass<br>`    `else :<br>`        `pass<br><br>assert nb\_occurrences\_rec('bonjour monsieur gaboriot votre abonnement est fini', 'bo') == 3<br>assert nb\_occurrences\_rec(stendhal, 'Julien') == 1908<br>assert nb\_occurrences\_rec(stendhal, 'amour') ==225<br>assert nb\_occurrences\_rec(stendhal, 'informatique') == 0</p>|
-| - |
+**Activité n° 4  : find() :** Complétez ci-dessous le code de la fonction nb\_occurrences\_rec(texte, motif)
+```python
+import sys
+sys.setrecursionlimit(2000)
 
-1. <a name="_toc159537146"></a>**La recherche textuelle naïve**
-   1. <a name="_toc159537147"></a>**L’algorithme**
+def nb_occurrences_rec(texte, motif, i=0):
+    occurence = texte.find(motif, i)
+    if occurence == -1 :
+        pass
+    else :
+        pass
+
+assert nb_occurrences_rec('bonjour monsieur gaboriot votre abonnement est fini', 'bo') == 3
+assert nb_occurrences_rec(stendhal, 'Julien') == 1908
+assert nb_occurrences_rec(stendhal, 'amour') ==225
+assert nb_occurrences_rec(stendhal, 'informatique') == 0
+```
+
+
+## <a name="_toc159537146"></a>**2. La recherche textuelle naïve**
+### <a name="_toc159537147"></a>**2.1. L’algorithme**
 
 **Vidéo (6 premières minutes) : recherche Boyer Moore**
 
