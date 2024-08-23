@@ -786,7 +786,7 @@ for node in unvisited:
 
 C’est moins efficace (complexité temporelle plus grande due à l’absence de la fonction `min` qui est plus efficace que notre code) mais il fait la même chose : Pour chaque sommet appelé `node` non visité, on garde le `node` qui a la distance minimale du départ.
 
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063595"></a>**5.2. Parcourir un labyrinthe**</H4>  
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063595"></a>**5.3.2. Parcourir un labyrinthe**</H4>  
 **Considérons le problème suivant :**
 
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.039.gif)
