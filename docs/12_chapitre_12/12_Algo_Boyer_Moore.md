@@ -103,7 +103,7 @@ assert nb_occurrences_rec(stendhal, 'informatique') == 0
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc159537146"></a>**2. La recherche textuelle naïve**</H2>
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc159537147"></a>**2.1. L’algorithme**</H3>
 
-**<H3 STYLE="COLOR:red;">[Vidéo (6 premières minutes) : recherche Boyer Moore](https://ladigitale.dev/digiview/#/v/66c903de43b5c)**</H3>
+**[Vidéo (6 premières minutes) : recherche Boyer Moore](https://ladigitale.dev/digiview/#/v/66c903de43b5c)**
 
 La **recherche naïve** ou de **force brute** parcourt l’ensemble de la chaîne caractère après caractère. À chaque caractère, on réalise une comparaison afin de vérifier que la clé de recherche correspond au caractère suivant de la chaîne. Le traitement est long mais sûr.
 
