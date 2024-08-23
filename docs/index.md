@@ -13,7 +13,7 @@ EN CONSTRUCTION!!! a très bientôt!!
 8. Les processus
 9. Sécurisation des communications
 10. Les graphes
-11. 
+11. Programmation dynamique
 12. 
 13. 
 14. 
