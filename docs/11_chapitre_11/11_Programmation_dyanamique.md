@@ -443,6 +443,7 @@ Résolution du problème du sac à dos avec la liste objets = [(3, 2), (8, 10), 
 |4|0|8|8|11|11|13|13|13|13|13|13|
 |5|0|8|8|11|11|13|13|13|13|15|15|
 |6|0|8|8|11|11|13|13|14|14|17|17|
+||||||||||||
 
 La valeur maximale est 17, atteinte avec un poids de 9 kg. Puisque cette valeur n’est pas atteinte avec 5 objets, on a pris l’objet n°6, qui pèse 6 kg, donc il reste 9 – 6 = 3 kg pour 5 objets. Pour 5 objets, la valeur maximale atteinte avec 3 kg est égale à 11, c’est la même avec 4 objets. On n’a donc pas pris l’objet n°5, mais on a pris l’objet n°4 qui pèse 1 kg, donc il reste 2 kg pour 3 objets, ce qui permet une valeur égale à 3, déjà atteinte avec l’objet n°1.
 
