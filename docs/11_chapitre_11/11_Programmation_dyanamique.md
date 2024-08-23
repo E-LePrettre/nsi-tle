@@ -21,50 +21,66 @@ title: 11 Programmation dynamique
 
 - Utiliser la programmation dynamique pour écrire un algorithme
 
-1. <a name="_toc159507072"></a>**Paradigmes algorithmiques**
-   1. <a name="_toc159507073"></a>**L’algorithme glouton**
+## <a name="_toc159507072"></a>**1. Paradigmes algorithmiques**
+### <a name="_toc159507073"></a>**1.1. L’algorithme glouton**
 
 Lorsque l’on utilise un algorithme glouton, on applique le **paradigme** de l’algorithme glouton. Ce paradigme se concentre sur les **problèmes d’optimisation**. Voici quelques caractéristiques importantes de la programmation d’un algorithme glouton :
 
 - **Construction incrémentale** : L’algorithme glouton construit une solution étape par étape. À chaque étape, il choisit **la direction la plus prometteuse** en se basant sur des règles simples et en considérant une seule donnée à la fois.
 - **Optimalité locale** : Le choix effectué à **chaque étape est localement optimal**, mais cela ne garantit **pas une solution globalement optimale**. Cependant, dans certains cas, l’optimalité locale conduit à l’optimalité globale.
 - **Heuristique** : Dans certains cas, l’algorithme glouton est simplement une heuristique (**méthode de résolution** qui privilégie des **solutions approximatives)** qui fournit **une solution sous-optimale.** Cependant, lorsque nous ne connaissons pas d’algorithme exact efficace, cette approche peut être utilisée.
-  1. <a name="_toc159507074"></a>**Diviser pour régner**
+### <a name="_toc159507074"></a>**1.2. Diviser pour régner**
 
 Il **divise** un problème en sous-problèmes indépendants (qui ne se chevauchent pas), **résout** chaque sous-problème, et **combine** les solutions des sous-problèmes pour former une solution du problème initial.
 
-1. <a name="_toc159507075"></a>**La programmation dynamique**
+### <a name="_toc159507075"></a>**1.3. La programmation dynamique**
 
 La **programmation dynamique** est un **paradigme algorithmique** qui permet de résoudre des problèmes **d’optimisation** en les décomposant en **sous-problèmes** et en stockant les résultats intermédiaires pour éviter de recalculer les mêmes valeurs. Voici quelques points importants concernant la programmation dynamique :
 
-1. **Décomposition en sous-problèmes** : L’idée centrale de la programmation dynamique est de diviser un problème complexe en **sous-problèmes plus simples**. Chaque sous-problème est résolu indépendamment.
-1. **Stockage des résultats** : Plutôt que de recalculer les mêmes valeurs à plusieurs reprises, la programmation dynamique **mémoïse les résultats** des sous-problèmes dans une structure de données (généralement un tableau ou une matrice).
-1. **Optimalité de Bellman** : La programmation dynamique s’appuie sur le **principe d’optimalité de Bellman**. Selon ce principe, une solution optimale d’un problème global peut être construite en combinant des solutions optimales de sous-problèmes.
-1. **Deux approches** :
+1\. **Décomposition en sous-problèmes** : L’idée centrale de la programmation dynamique est de diviser un problème complexe en **sous-problèmes plus simples**. Chaque sous-problème est résolu indépendamment.
+2\. **Stockage des résultats** : Plutôt que de recalculer les mêmes valeurs à plusieurs reprises, la programmation dynamique **mémoïse les résultats** des sous-problèmes dans une structure de données (généralement un tableau ou une matrice).
+3\. **Optimalité de Bellman** : La programmation dynamique s’appuie sur le **principe d’optimalité de Bellman**. Selon ce principe, une solution optimale d’un problème global peut être construite en combinant des solutions optimales de sous-problèmes.
+4\. **Deux approches** :
    1. **Ascendante** : On commence par résoudre **les sous-problèmes les plus petits** et on remonte progressivement vers le problème initial. Les résultats sont stockés dans un tableau.
    1. **Descendante** : On part du problème global et on le décompose en sous-problèmes. On résout **chaque sous-problème en utilisant les résultats déjà calculés**.
 
-1. <a name="_toc159507076"></a>**Programmation dynamique de la suite de Fibonacci**
+## <a name="_toc159507076"></a>**2. Programmation dynamique de la suite de Fibonacci**
 
 Toutes les activités de cette partie du cours seront effectuées dans un seul fichier nommé **fibonacci.py**
 
 La suite de Fibonacci est définie par :
-
-Fn=0, si n=01, si n=1Fn-1+F(n-2), si n>1
-
-1. <a name="_toc159507077"></a>**La suite de Fibonacci : algorithme itératif**
+```
+Fn= 0,              si n=0
+    1,              si n=1
+    Fn-1+F(n-2),    si n>1
+```
+### <a name="_toc159507077"></a>**2.1. La suite de Fibonacci : algorithme itératif**
 
 La version itérative a déjà été vu en première.
 
-|<p>**Activité n° AUTONUM  \* Arabic : Suite de Fibonacci  avec l’algorithme iteractif :** Tester le pour n = 6</p><p>def fibonacci\_iteractif(*n*):<br>`    `u, v = 0, 1<br>`    `for i in range(*n*-1) :<br>`        `u, v = v, u+v<br>`    `return v</p><p>Tester avec n =10, 100,… y a-t-il un problème ?</p>|
-| - |
+**Activité n° 1 : Suite de Fibonacci  avec l’algorithme iteractif :** Tester le pour n = 6
+```python
+def fibonacci_iteractif(n):
+    u, v = 0, 1
+    for i in range(n-1) :
+        u, v = v, u+v
+    return v
+```
+Tester avec n =10, 100,… y a-t-il un problème ?
 
-1. <a name="_toc159507078"></a>**La suite de Fibonacci : algorithme récursif**
+### <a name="_toc159507078"></a>**2.2. La suite de Fibonacci : algorithme récursif**
 
 La version récursive est plus proche de la définition.
 
-|<p>**Activité n° AUTONUM  \* Arabic : Suite de Fibonacci avec l’algorithme récursif dit naif :** Tester le pour n = 6</p><p>def fibonacci\_recursif(*n*) :<br>`    `if n == 0 or n == 1 :<br>`        `return *n*<br>`    `else :<br>`        `return fibonacci\_recursif(*n*-1)+fibonacci\_recursif(*n*-2)</p><p>Tester avec n =10, 100,… y a-t-il un problème ?</p>|
-| - |
+**Activité n° 2 : Suite de Fibonacci avec l’algorithme récursif dit naif :** Tester le pour n = 6
+```python
+def fibonacci_recursif(n) :
+    if n == 0 or n == 1 :
+        return n
+    else :
+        return fibonacci_recursif(n-1)+fibonacci_recursif(n-2)
+```
+Tester avec n =10, 100,… y a-t-il un problème ?
 
 Cette fonction est **très peu performante.** 
 
@@ -74,22 +90,22 @@ Pour n = 6, il est possible d’illustrer le fonctionnement de ce programme avec
 
 <https://www.recursionvisualizer.com/?function_definition=def%20fib%28n%29%20%3A%0A%20%20%20%20if%20n%20%3D%3D%200%20or%20n%20%3D%3D%201%20%3A%0A%20%20%20%20%20%20%20%20return%20n%0A%20%20%20%20else%20%3A%0A%20%20%20%20%20%20%20%20return%20fib%28n-1%29%2Bfib%28n-2%29%0A&function_call=fib%286%29>
 
-![](Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.001.png)
+![image](Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.001.png)
 
 On voit bien que certaines valeurs sont **calculées plusieurs fois.** 
 
 
 Et les appels augmentent de manière exponentielle comme on peut le voir dans l’arbre des appels de fib(8)
 
-<https://www.recursionvisualizer.com/?function_definition=def%20fib%28n%29%20%3A%0A%20%20%20%20if%20n%20%3D%3D%200%20or%20n%20%3D%3D%201%20%3A%0A%20%20%20%20%20%20%20%20return%20n%0A%20%20%20%20else%20%3A%0A%20%20%20%20%20%20%20%20return%20fib%28n-1%29%2Bfib%28n-2%29%0A&function_call=fib%288%29>
+[lien](https://www.recursionvisualizer.com/?function_definition=def%20fib%28n%29%20%3A%0A%20%20%20%20if%20n%20%3D%3D%200%20or%20n%20%3D%3D%201%20%3A%0A%20%20%20%20%20%20%20%20return%20n%0A%20%20%20%20else%20%3A%0A%20%20%20%20%20%20%20%20return%20fib%28n-1%29%2Bfib%28n-2%29%0A&function_call=fib%288%29)
 
-![](Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.002.png)
+![image](Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.002.png)
 
 Il faut donc **mémoriser ces valeurs** : on va donc utiliser une **matrice (tableau de tableaux)**. 
 
 De plus, l'utilisation de ce tableau va permettre de transformer cet **algorithme récursif en un itératif** : il suffit de changer l'ordre de parcours ; au lieu de diminuer de n à 1 et 0 comme dans l'algorithme récursif, il suffit d'augmenter dans le tableau de 0 et 1 à n.
 
-![](Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.003.png)
+![image](Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.003.png)
 
 1. <a name="_toc159507079"></a>**La suite de Fibonacci : avec mémoïsation**
 
