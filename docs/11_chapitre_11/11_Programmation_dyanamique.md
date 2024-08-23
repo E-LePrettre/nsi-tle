@@ -352,13 +352,16 @@ fin fonction
 
 **<H3 STYLE="COLOR:red;">Activité n° 12 : programmation dynamique du rendu de monnaie :**</H3>  
 On exécute l'instruction rendu\_monnaie\_dyna(5, [2, 4]).
+
 1. Quel est la somme à rendre et quel est le système monétaire utilisé ?
+
 2. Décrire ci-dessous les différentes étapes lors de l'exécution de cette instruction.
 
 #### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc159507088"></a>**3.4.2. Implémentation</H4>**
 
 **<H3 STYLE="COLOR:red;">Activité n° 13 : programmation dynamique du rendu de monnaie :**</H3>  
 1. Implémenter l’algorithme précédent
+
 2. On exécute l'instruction suivante : rendu\_monnaie\_dyna(10, [9, 3, 2]) La réponse est-elle correcte ? Pourquoi cela se produit-il ? Comment pourrait-on y remédier ?
 
 Dans cette fonction, on a deux boucles emboîtées qui contiennent **une opération en temps constant** (calcul d'un minimum). Le temps d'exécution est alors **proportionnel au produit du nombre de pièces du système par la somme**. C'est plus long que pour l'algorithme glouton mais on obtient **une solution optimale** avec tous les systèmes de pièces qui contiennent la pièce de valeur 1. Par contre, cette amélioration nécessite un **plus grand espace mémoire** avec le tableau.
