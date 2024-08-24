@@ -63,7 +63,7 @@ Mais nous pouvons aller encore plus loin : l'instruction python test.py est ta
 
 Et donc :
 
-![image](Aspose.Words.558b02fe-3d26-44fd-94cc-6df85df942cd.004.png)![image](Aspose.Words.558b02fe-3d26-44fd-94cc-6df85df942cd.005.png)
+![image](Aspose.Words.558b02fe-3d26-44fd-94cc-6df85df942cd.005.png)
 
 Conclusion :
 
