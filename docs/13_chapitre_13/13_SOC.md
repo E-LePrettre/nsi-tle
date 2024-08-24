@@ -164,6 +164,8 @@ En revanche, il devient impossible de remplacer un composant défectueux (mémoi
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc162874825"></a>**4. Exercices**</H2>
 
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
+
 **<H3 STYLE="COLOR:red;">Exercice n°1 :**</H3>
 
 1\. Qu’est-ce qu’un SoC ?
