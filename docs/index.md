@@ -1,8 +1,6 @@
 # NSI Tle au lycée Jean Cassaigne
 ---
 
-EN CONSTRUCTION!!! a très bientôt!!
-
 1. Révisions de 1re
 2. Récursivité et Méthode diviser pour régner
 3. Base de données
@@ -15,7 +13,7 @@ EN CONSTRUCTION!!! a très bientôt!!
 10. Les graphes
 11. Programmation dynamique
 12. Algorithme Boyer - Moore
-13. 
-14. 
+13. Les SOCs
+14. Calculabilité - Décidabilité
 
 *Elisabeth Le Prettre*
