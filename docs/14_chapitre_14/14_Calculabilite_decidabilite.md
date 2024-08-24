@@ -230,14 +230,14 @@ Les machines de Turing constituent un outil important dans le domaine de classe 
 
     - la résolution d'un sudoku est dans NP : si quelqu'un vous montre un sudoku rempli, vous pouvez très rapidement lui dire si sa solution est valable ou pas.
     - la factorisation d'un nombre est dans NP : si quelqu'un vous propose 4567\*6037 comme décomposition de 27570979, vous pouvez très rapidement lui dire s'il a raison. (oui.)
-    - le problème du [sac à dos](https://glassus.github.io/premiere_nsi/T4_Algorithmique/4.6_Algorithmes_gloutons/cours/#3-le-probleme-du-sac-a-dos-knapsack-problem) (en version décisionnelle) est dans NP. Une proposition de butin peut facilement être examinée pour savoir si elle est possible ou non.
+    - le problème du sac à dos (en version décisionnelle) est dans NP. Une proposition de butin peut facilement être examinée pour savoir si elle est possible ou non.
     - le problème du voyageur de commerce (ou TSP : Traveller Sales Problem), en version décisionnelle, est dans NP. Si on vous propose un trajet, vous pouvez facilement vérifier que sa longueur est (par exemple) inférieure à 150 km.
 
 -\ Un problème important l’informatique actuelle est de savoir si P = NP. Très schématiquement, il s’agit de déterminer si le fait de pouvoir vérifier rapidement une solution à un problème implique de pouvoir la trouver rapidement ; ou encore, si ce que nous pouvons trouver rapidement lorsque nous avons de la chance peut être trouvé aussi vite par un calcul intelligent. 
 
   Tous les problèmes de P ont une solution qui peut être trouvée de manière polynomiale. Donc évidemment, la vérification de cette solution est aussi polynomiale. Donc tous les problèmes de P sont dans NP. On dit que P est inclus dans NP, que l'on écrit P ⊂ NP.
 
-  Voici une capture d'écran de l'excellente vidéo [Nos algorithmes pourraient-ils être BEAUCOUP plus rapides ? (P=NP ?)](https://www.youtube.com/watch?v=AgtOCNCejQ8) de l'excellent David Louapre :
+  Voici une capture d'écran de l'excellente vidéo Nos algorithmes pourraient-ils être BEAUCOUP plus rapides ? (P=NP ?) de l'excellent David Louapre :
 
   ![image](Aspose.Words.558b02fe-3d26-44fd-94cc-6df85df942cd.011.png)
 
@@ -256,7 +256,7 @@ Les machines de Turing constituent un outil important dans le domaine de classe 
 
 
 **Activité n° 1 : Problème P = NP** **:** 
-Répondez au questionnaire suivant à partir de la vidéo de ScienceEtonnante : [https://youtu.be/AgtOCNCejQ8](https://youtu.be/AgtOCNCejQ8) 
+Répondez au questionnaire suivant à partir de la vidéo de ScienceEtonnante : [https://ladigitale.dev/digiview/#/v/66c9f21514c6a](https://ladigitale.dev/digiview/#/v/66c9f21514c6a) 
 
 1. Quelle est la complexité de la recherche du minimum dans une liste ? 
 2. Quelle est la complexité du premier tri présenté dans la vidéo ?
