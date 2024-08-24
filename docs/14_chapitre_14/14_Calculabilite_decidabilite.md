@@ -23,7 +23,8 @@ title: 14 Calculabilité - Décidabilité
 - comprendre que la calculabilité ne dépend pas du langage de programmation utilisé
 - montrer, sans formalisme théorique, que le problème de l'arrêt est indécidable
 
-## <a name="_toc162880854"></a>**1. Un programme comme paramètre d’un programme**
+
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc162880854"></a>**1. Un programme comme paramètre d’un programme**</H2>
 
 Les codes que nous manipulons ressemblent souvent à cela :
 
@@ -32,6 +33,7 @@ def accueil(n):
     for k in range(n):
         print("bonjour")
 ```
+
 
 Le programme s'appelle accueil, et pour fonctionner il a besoin d'un paramètre, qui sera ici un nombre entier n.
 
@@ -69,8 +71,8 @@ Conclusion :
 
 À titre anecdotique, on pourra exécuter avec intérêt cette instruction Python : `a='a=%r;print(a%%a)';print(a%a)` Ce type de code (magique !) existe dans tous les langages et s'appelle un [quine](https://fr.wikipedia.org/wiki/Quine_\(informatique\)) : lorsqu’on exécute ce code, il imprime son propre code source
 
-## <a name="_toc162880855"></a>**2. Mon programma va-t-il s’arrêter ?**
-### <a name="_toc162880856"></a>**2.1. Exemple**
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc162880855"></a>**2. Mon programme va-t-il s’arrêter ?**</H2>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc162880856"></a>**2.1. Exemple**</H3>
 
 Considérons le programme suivant :
 
@@ -90,7 +92,7 @@ Comme la variable n ne sera jamais égale à 0, le programme va rentrer dans u
 
 **Question :** Est-ce qu'un programme d'*analyse de programmes* aurait pu faire cela à ma place ?
 
-## <a name="_toc162880857"></a>**2.2. Une machine pour prédire l’arrêt ou non d’un programme**
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc162880857"></a>**2.2. Une machine pour prédire l’arrêt ou non d’un programme**</H3>
 
 Après tout, un programme est une suite d'instructions (le code-source), et peut donc être, comme on l'a vu, le paramètre d'entrée d'un autre programme qui l'analyserait. Un tel programme (appelons-le halt) prendrait **en entrées** :
 
@@ -120,7 +122,7 @@ def halt(prog, x):
 
 Nous en resterons là pour l'instant dans l'écriture de ce programme. Nous allons nous en servir pour construire d'autres programmes.
 
-### <a name="_toc162880858"></a>**2.3. Amusons-nous avec ce programme halt.**
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc162880858"></a>**2.3. Amusons-nous avec ce programme halt.**</H3>
 
 Considérons le programme :
 
@@ -142,7 +144,7 @@ Ce programme sym reçoit donc en paramètre un programme prog, et :
 - va rentrer dans une boucle infinie si prog(prog) s'arrête.
 - va renvoyer 1 si prog(prog) ne s'arrête pas.
 
-### <a name="_toc162880859"></a>**2.4. Un léger problème ...**
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc162880859"></a>**2.4. Un léger problème ...**</H3>
 
 Puisqu'un programme peut prendre en paramètre son propre code-source, que donnerait l'appel à sym(sym) ?
 
@@ -153,7 +155,7 @@ Deux cas peuvent se présenter, suivant si halt(sym, sym) renvoie True ou F
 - **cas n°1** : halt(sym, sym) renvoie True, ce qui signifie que sym(sym) devrait s'arrêter. Mais dans ce cas-là, l'exécution de sym(sym) rentre dans une boucle infinie. **C'est une contradiction**.
 - **cas n°2** : halt(sym, sym) renvoie False, ce qui signifie que sym(sym) rentre dans une boucle infinie. Mais dans ce cas-là, l'exécution de sym(sym) se termine correctement et renvoie la valeur 1. **C'est une contradiction.**
 
-### <a name="_toc162880860"></a>**2.5. Conclusion**
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc162880860"></a>**2.5. Conclusion**</H3>
 
 Nous venons de prouver que notre programme halt, censé prédire si un programme prog peut s'arrêter sur une entrée x, **NE PEUT PAS EXISTER**.
 
@@ -174,7 +176,9 @@ Pour sa démonstration, il présente un modèle théorique de machine capable d'
 
 À la même époque, le mathématicien [Alonzo Church](https://fr.wikipedia.org/wiki/Alonzo_Church) démontre lui aussi ce théorème de l'arrêt, mais par un moyen totalement différent, en inventant le [lambda-calcul](https://fr.wikipedia.org/wiki/Lambda-calcul).
 
-Tous deux mettent ainsi un terme au rêve du mathématicien allemand [David Hilbert](https://fr.wikipedia.org/wiki/David_Hilbert), qui avait en 1928 posé la question de l'existence d'un algorithme capable de répondre «oui» ou «non» à n'importe quel énoncé mathématique posé sous forme décisionnelle («un triangle rectangle peut-il être isocèle ?», «existe-t-il un nombre premier pair ?»)
+Tous deux mettent ainsi
+
+ un terme au rêve du mathématicien allemand [David Hilbert](https://fr.wikipedia.org/wiki/David_Hilbert), qui avait en 1928 posé la question de l'existence d'un algorithme capable de répondre «oui» ou «non» à n'importe quel énoncé mathématique posé sous forme décisionnelle («un triangle rectangle peut-il être isocèle ?», «existe-t-il un nombre premier pair ?»)
 
 Cette question, appelée «problème de la décision», ou *Entscheidungsproblem* en allemand, est définitivement tranchée par le problème de l'arrêt : un tel théorème ne peut pas exister, puisque par exemple, aucun algorithme ne peut répondre «oui» ou «non» à la question «ce programme va-t-il s'arrêter ?».
 
@@ -189,14 +193,14 @@ Ce résultat démontre que toutes les questions sémantiques (non évidentes) au
 
 [Rice](https://en.wikipedia.org/wiki/Henry_Gordon_Rice) démontre que toutes ces questions peuvent être ramenées (on dit *réduites*) au théorème de l'arrêt, qui est indécidable.
 
-## <a name="_toc162880861"></a>**3. Calculabilité**
-### <a name="_toc162880862"></a>**3.1. Problème de l’arrêt**
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc162880861"></a>**3. Calculabilité**</H2>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc162880862"></a>**3.1. Problème de l’arrêt**</H3>
 
 Le problème de l'arrêt est dit **indécidable** car la fonction qui le résout (notre programme halt) n'est pas **calculable**.
 
 Démonstration par l’absurde que le programme ARRET n’existe pas. 
 
-Vidéo en anglais : <https://youtu.be/92WHN-pAFCs>
+[Vidéo en anglais] : (https://youtu.be/92WHN-pAFCs)
 
 **Théorème de Turing (1936)** : il n’existe pas d’algorithme permettant de prouver la terminaison de n’importe quel programme, c’est-à-dire que le problème de l’arrêt est indécidable
 
@@ -208,9 +212,7 @@ L’autre tour de force de Turing est d’avoir montré que ses machines sont ca
 
 complexes. Il a imaginé une machine de Turing spéciale qui prends en paramètre une autre machine de Turing M et une entrée e et qui simule le fonction de la machine M avec l’entrée e. C’est ce que l’on nomme la **machine de Turing universelle**.
 
-
-
-### <a name="_toc162880863"></a>**3.2. (HP) Calculable, oui, mais facilement ? -> 1 million de $ à gagner ci-dessous.**
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc162880863"></a>**3.2. (HP) Calculable, oui, mais facilement ? -> 1 million de $ à gagner ci-dessous.**</H3>
 
 Les machines de Turing constituent un outil important dans le domaine de classe de complexité des algorithmes et en particulier de la détermination des classes de problème que l’on peut résoudre dans un temps raisonnable, c’est à dire qui augmentent de façon polynomiale en fonction de la taille des entrées. 
 
@@ -251,14 +253,14 @@ Les machines de Turing constituent un outil important dans le domaine de classe 
 
   Alors, P = NP ou P ≠ NP ? Réponse peut-être un jour...
 
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc162880862"></a>**4. Exercices**</H2>
 
-=> **CAPYTALE Le code vous sera donné par votre enseignant**
-
-
-**Activité n° 1 : Problème P = NP** **:** 
+**<H3 STYLE="COLOR:red;">Exercice n° 1 : Problème P = NP**</H3> **:** 
 Répondez au questionnaire suivant à partir de la vidéo de ScienceEtonnante : [https://ladigitale.dev/digiview/#/v/66c9f21514c6a](https://ladigitale.dev/digiview/#/v/66c9f21514c6a) 
 
-1. Quelle est la complexité de la recherche du minimum dans une liste ? 
+1.
+
+ Quelle est la complexité de la recherche du minimum dans une liste ? 
 2. Quelle est la complexité du premier tri présenté dans la vidéo ?
 3. Quelle est la complexité de l’algorithme de tri le plus rapide présenté dans la vidéo ? Pouvez-vous donner le nom d’un algorithme vu en classe qui réalise ce tri ? 
 4. Citez un problème de complexité exponentielle. Expliquez en quoi il consiste
@@ -267,9 +269,7 @@ Répondez au questionnaire suivant à partir de la vidéo de ScienceEtonnante : 
 7. Donner le nom d’un problème “universel” ou NP-complet à résoudre pour résoudre tout les problèmes NP en temps polynomial
 8. Quel plan peut-on suivre pour résoudre P=NP et empocher le million ?
 
-## <a name="_toc162880862"></a>**4. Exercices**
-
-**Exercice 1 : Le programme qui lit un programme**
+**<H3 STYLE="COLOR:red;">Exercice 2 : Le programme qui lit un programme**</H3>
 On vous fournit le code suivant écrit en Python :
    ```python
    def analyse_programme(programme):
@@ -291,9 +291,7 @@ On vous fournit le code suivant écrit en Python :
 **Question 2** : Modifiez le programme pour qu'il compte le nombre total de caractères (y compris les espaces et les retours à la ligne) dans le code source fourni.
 
 
-
-
-**Exercice 2 : Calculer la somme des premiers entiers dans différents langages**
+**<H3 STYLE="COLOR:red;">Exercice 3 : Calculer la somme des premiers entiers dans différents langages**</H3>
 On vous propose trois implémentations d'une fonction qui calcule la somme des premiers entiers naturels dans trois langages différents : Python, JavaScript et C++. Comparez ces programmes.
    
    - **Python** :
@@ -328,11 +326,7 @@ On vous propose trois implémentations d'une fonction qui calcule la somme des p
 
 **Question 2** : Discutez de l'importance du langage de programmation dans la réalisation d'une tâche donnée. Est-ce que le choix du langage influence la capacité à résoudre ce problème ?
 
-
-
-
-
-**Exercice 3 : Explication du problème de l'arrêt par l'exemple**
+**<H3 STYLE="COLOR:red;">Exercice 4 : Explication du problème de l'arrêt par l'exemple**</H3>
 On définit un programme `arrêt_test` en Python qui prend en entrée un programme sous forme de chaîne de caractères, ainsi qu'une entrée pour ce programme, et qui doit déterminer si le programme s'arrête ou non.
    
    ```python
@@ -348,6 +342,4 @@ On définit un programme `arrêt_test` en Python qui prend en entrée un program
 **Question 1** : Expliquez pourquoi il est impossible de créer une fonction `execute_programme` qui détermine toujours correctement si un programme donné va s'arrêter ou non.
 
 **Question 2** : Proposez un scénario où `arret_test` échouerait à donner la bonne réponse si une telle fonction `execute_programme` existait.
-
-
 
