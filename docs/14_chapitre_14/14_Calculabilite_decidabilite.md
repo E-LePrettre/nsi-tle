@@ -4,37 +4,26 @@ title: 14 Calculabilité - Décidabilité
 ---
 
 
-**Chap 14 : Calculabilité - Décidabilité**
 
-<a name="_hlk38577387"></a>**Compétences évaluables :**
+
+
+**Table des matières**
+
+[1.	Un programme comme paramètre d’un programme	](#_toc162880854)
+
+[2.	Mon programma va-t-il s’arrêter ?	](#_toc162880855)
+
+[3.	Calculabilité	](#_toc162880861)
+
+[3.	exercices	](#_toc162880862)
+
+**Compétences évaluables :**
 
 - comprendre que tout programme est aussi une donnée
 - comprendre que la calculabilité ne dépend pas du langage de programmation utilisé
 - montrer, sans formalisme théorique, que le problème de l'arrêt est indécidable
 
-**Table des matières**
-
-[1.	Un programme comme paramètre d’un programme	1](#_toc162880854)
-
-[2.	Mon programma va-t-il s’arrêter ?	2](#_toc162880855)
-
-[2.1.	Exemple	2](#_toc162880856)
-
-[2.2.	Une machine pour prédire l’arrêt ou non d’un programme	2](#_toc162880857)
-
-[2.3.	Amusons-nous avec ce programme halt.	3](#_toc162880858)
-
-[2.4.	Un léger problème ...	4](#_toc162880859)
-
-[2.5.	Conclusion	4](#_toc162880860)
-
-[3.	Calculabilité	5](#_toc162880861)
-
-[3.1.	Problème de l’arrêt	5](#_toc162880862)
-
-[3.2.	(HP) Calculable, oui, mais facilement ? -> 1 million de $ à gagner ci-dessous.	5](#_toc162880863)
-
-1. <a name="_toc162880854"></a>**Un programme comme paramètre d’un programme**
+## <a name="_toc162880854"></a>**1. Un programme comme paramètre d’un programme**
 
 Les codes que nous manipulons ressemblent souvent à cela :
 

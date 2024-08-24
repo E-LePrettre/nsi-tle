@@ -8,13 +8,13 @@ title: 13 Les SOC
 
 **Table des matières**
 
-[1.	Historique et présentation	1](#_toc162874814)
+[1.	Historique et présentation	](#_toc162874814)
 
-[2.	What can we find in a modern PC?	3](#_toc162874817)
+[2.	What can we find in a modern PC?	](#_toc162874817)
 
-[3.	Les SoCs	6](#_toc162874822)
+[3.	Les SOCs	](#_toc162874822)
 
-[4.	Exercices	8](#_toc162874826)
+[4.	Exercices	](#_toc162874826)
 
 **Compétences évaluables :**
 
