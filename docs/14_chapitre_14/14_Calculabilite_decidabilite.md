@@ -39,7 +39,7 @@ Le programme s'appelle accueil, et pour fonctionner il a besoin d'un paramètre
 
 Voici comment nous pouvons représenter notre machine accueil, son paramètre d'entrée (5) et sa sortie (les 5 «bonjour»)
 
-![image](Aspose.Words.558b02fe-3d26-44fd-94cc-6df85df942cd.001.png)
+![image](Aspose.Words.558b02fe-3d26-44fd-94cc-6df85df942cd.001.png){: .center}
 
 Maintenant, enregistrons le code suivant dans un fichier test.py  dans un fichier facile à atteindre (par exemple langages)
 
@@ -53,17 +53,17 @@ accueil(5)
 
 Pour exécuter ce code, nous devons taper dans un terminal l'instruction suivante :
 
-![image](Aspose.Words.558b02fe-3d26-44fd-94cc-6df85df942cd.002.png)
+![image](Aspose.Words.558b02fe-3d26-44fd-94cc-6df85df942cd.002.png){: .center}
 
 L'illustration correspondante sera donc :
 
-![image](Aspose.Words.558b02fe-3d26-44fd-94cc-6df85df942cd.003.png)
+![image](Aspose.Words.558b02fe-3d26-44fd-94cc-6df85df942cd.003.png){: .center}
 
 Mais nous pouvons aller encore plus loin : l'instruction python test.py est tapée dans un terminal, qui lui-même est un programme appelé Terminal.
 
 Et donc :
 
-![image](Aspose.Words.558b02fe-3d26-44fd-94cc-6df85df942cd.005.png)
+![image](Aspose.Words.558b02fe-3d26-44fd-94cc-6df85df942cd.005.png){: .center}
 
 Conclusion :
 
@@ -101,14 +101,14 @@ Après tout, un programme est une suite d'instructions (le code-source), et peut
 
 L'instruction halt(prog, x) renverrait True si prog(x) s'arrête, et False si prog(x) ne s'arrête pas.
 
-![image](Aspose.Words.558b02fe-3d26-44fd-94cc-6df85df942cd.006.png)
+![image](Aspose.Words.558b02fe-3d26-44fd-94cc-6df85df942cd.006.png){: .center}
 
 **Exemple** :
 
 - halt(countdown, 10) renverrait True.
 - halt(countdown, 10.8) renverrait False.
 
-![image](Aspose.Words.558b02fe-3d26-44fd-94cc-6df85df942cd.007.png)
+![image](Aspose.Words.558b02fe-3d26-44fd-94cc-6df85df942cd.007.png){: .center}
 
 **Tentative d'écriture de halt en Python :**
 
@@ -137,7 +137,7 @@ def sym(prog):
 
 On peut remarquer que le programme halt est appelé avec comme paramètres prog, prog, ce qui signifie que **prog se prend lui-même en paramètre**. On rappelle que ce n'est pas choquant, un code-source étant une donnée comme une autre.
 
-![image](Aspose.Words.558b02fe-3d26-44fd-94cc-6df85df942cd.008.png)
+![image](Aspose.Words.558b02fe-3d26-44fd-94cc-6df85df942cd.008.png){: .center}
 
 Ce programme sym reçoit donc en paramètre un programme prog, et :
 
@@ -150,7 +150,7 @@ Puisqu'un programme peut prendre en paramètre son propre code-source, que donne
 
 Deux cas peuvent se présenter, suivant si halt(sym, sym) renvoie True ou False.
 
-![image](Aspose.Words.558b02fe-3d26-44fd-94cc-6df85df942cd.009.png)
+![image](Aspose.Words.558b02fe-3d26-44fd-94cc-6df85df942cd.009.png){: .center}
 
 - **cas n°1** : halt(sym, sym) renvoie True, ce qui signifie que sym(sym) devrait s'arrêter. Mais dans ce cas-là, l'exécution de sym(sym) rentre dans une boucle infinie. **C'est une contradiction**.
 - **cas n°2** : halt(sym, sym) renvoie False, ce qui signifie que sym(sym) rentre dans une boucle infinie. Mais dans ce cas-là, l'exécution de sym(sym) se termine correctement et renvoie la valeur 1. **C'est une contradiction.**
@@ -241,7 +241,7 @@ Les machines de Turing constituent un outil important dans le domaine de classe 
 
   Voici une capture d'écran de l'excellente vidéo Nos algorithmes pourraient-ils être BEAUCOUP plus rapides ? (P=NP ?) de l'excellent David Louapre :
 
-  ![image](Aspose.Words.558b02fe-3d26-44fd-94cc-6df85df942cd.011.png)
+  ![image](Aspose.Words.558b02fe-3d26-44fd-94cc-6df85df942cd.011.png){: .center}
 
   On y retrouve (en vert) la classe P, qui contient les algorithmes de tri. En blanc, la classe NP, qui contient les problèmes de factorisation, du sudoku, du sac-à-dos...
 
