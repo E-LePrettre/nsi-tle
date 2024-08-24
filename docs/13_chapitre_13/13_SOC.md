@@ -237,8 +237,6 @@ On retrouve le modèle de Von Neumann mais avec une architecture **avec deux bus
 
 Sur l’image d’un SoC on peut lire Adreno 630, Hexagon 685, Kryo 385, X20 LTE, Spectra 280. A quel composants du SoC correspondent ses dénominations ?
 
-Bien sûr ! Voici une série d'exercices basés sur les compétences évaluables en Terminale NSI concernant les systèmes sur puce (SoC), centrés sur l'identification des composants et l'analyse des avantages de l'intégration en termes de vitesse et de consommation énergétique.
-
 
 **Exercice 4 : Identification des composants sur un schéma de circuit**
 
