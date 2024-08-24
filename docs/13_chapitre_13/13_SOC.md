@@ -228,9 +228,14 @@ On retrouve le modèle de Von Neumann mais avec une architecture **avec deux bus
 
 **Exercice n°2 :** 
 
-![](Aspose.Words.f2a0a75b-c8c4-40af-be2d-a8e1a2e320ed.015.png)A partir de l'article du site [elektormagazine.fr](https://www.elektormagazine.fr/news/un-soc-combine-pour-dynamiser-les-performances-du-raspberry-pi-3-modele-b)
+![](Aspose.Words.f2a0a75b-c8c4-40af-be2d-a8e1a2e320ed.015.png)
+
+A partir de l'article du site [elektormagazine.fr](https://www.elektormagazine.fr/news/un-soc-combine-pour-dynamiser-les-performances-du-raspberry-pi-3-modele-b)
+
 \1) Relevez les differentes caractéristiques du SoC du Raspberry Pi 3 modèle B+\.
+
 \2) Les comparez au SoC du Raspberry Pi 4\.
+
 \3) Quelles sont les principales évolutions qui contribuent à ce gain? Une copie de l'article disponible dans le dossier ressource
 
 **Exercice n°3 :** 
