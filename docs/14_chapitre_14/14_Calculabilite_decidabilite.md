@@ -27,9 +27,11 @@ title: 14 Calculabilité - Décidabilité
 
 Les codes que nous manipulons ressemblent souvent à cela :
 
+```python
 def accueil(n):
-`    `for k in range(n):
-`        `print("bonjour")
+    for k in range(n):
+        print("bonjour")
+```
 
 Le programme s'appelle accueil, et pour fonctionner il a besoin d'un paramètre, qui sera ici un nombre entier n.
 
@@ -39,15 +41,17 @@ Voici comment nous pouvons représenter notre machine accueil, son paramètre d
 
 Maintenant, enregistrons le code suivant dans un fichier test.py  dans un fichier facile à atteindre (par exemple langages)
 
+```python
 def accueil(n):
-`    `for k in range(n):
-`        `print("bonjour")
+    for k in range(n):
+        print("bonjour")
 
 accueil(5)
+```
 
 Pour exécuter ce code, nous devons taper dans un terminal l'instruction suivante :
 
-![](Aspose.Words.558b02fe-3d26-44fd-94cc-6df85df942cd.002.png)
+![image](Aspose.Words.558b02fe-3d26-44fd-94cc-6df85df942cd.002.png)
 
 L'illustration correspondante sera donc :
 
@@ -57,24 +61,26 @@ Mais nous pouvons aller encore plus loin : l'instruction python test.py est ta
 
 Et donc :
 
-![](Aspose.Words.558b02fe-3d26-44fd-94cc-6df85df942cd.004.png)![image](Aspose.Words.558b02fe-3d26-44fd-94cc-6df85df942cd.005.png)
+![image](Aspose.Words.558b02fe-3d26-44fd-94cc-6df85df942cd.004.png)![image](Aspose.Words.558b02fe-3d26-44fd-94cc-6df85df942cd.005.png)
 
 Conclusion :
 
 **Il n'y a donc aucun obstacle à considérer un programme comme une simple donnée, pouvant être reçue en paramètre par un autre programme.** (voire par lui-même !)
 
-À titre anecdotique, on pourra exécuter avec intérêt cette instruction Python : a='a=%r;print(a%%a)';print(a%a) Ce type de code (magique !) existe dans tous les langages et s'appelle un [quine](https://fr.wikipedia.org/wiki/Quine_\(informatique\)) : lorsqu’on exécute ce code, il imprime son propre code source
+À titre anecdotique, on pourra exécuter avec intérêt cette instruction Python : `a='a=%r;print(a%%a)';print(a%a)` Ce type de code (magique !) existe dans tous les langages et s'appelle un [quine](https://fr.wikipedia.org/wiki/Quine_\(informatique\)) : lorsqu’on exécute ce code, il imprime son propre code source
 
-1. <a name="_toc162880855"></a>**Mon programma va-t-il s’arrêter ?**
-   1. <a name="_toc162880856"></a>**Exemple**
+## <a name="_toc162880855"></a>**2. Mon programma va-t-il s’arrêter ?**
+### <a name="_toc162880856"></a>**2.1. Exemple**
 
 Considérons le programme suivant :
 
+```python 
 def countdown(n):
-`    `while n != 0:
-`        `print(n)
-`        `n = n - 1
-`    `print("fini")
+    while n != 0:
+        print(n)
+        n = n - 1
+    print("fini")
+```
 
 En l'observant attentivement, je peux prévoir que countdown(10) affichera les nombres de 10 à 1 avant d'écrire "fini". Puis le programme s'arrêtera.
 
@@ -84,7 +90,7 @@ Comme la variable n ne sera jamais égale à 0, le programme va rentrer dans u
 
 **Question :** Est-ce qu'un programme d'*analyse de programmes* aurait pu faire cela à ma place ?
 
-1. <a name="_toc162880857"></a>**Une machine pour prédire l’arrêt ou non d’un programme**
+## <a name="_toc162880857"></a>**2.2. Une machine pour prédire l’arrêt ou non d’un programme**
 
 Après tout, un programme est une suite d'instructions (le code-source), et peut donc être, comme on l'a vu, le paramètre d'entrée d'un autre programme qui l'analyserait. Un tel programme (appelons-le halt) prendrait **en entrées** :
 
@@ -104,24 +110,28 @@ L'instruction halt(prog, x) renverrait True si prog(x) s'arrête, et Fals
 
 **Tentative d'écriture de halt en Python :**
 
+```python
 def halt(prog, x):
-`    `if "prog(x) s'arrête": # mes excuses, je n'ai pas eu le temps de finir totalemt ce code
-`        `return True
-`    `else :
-`        `return False
+    if "prog(x) s'arrête": # mes excuses, je n'ai pas eu le temps de finir totalemt ce code
+        return True
+    else :
+        return False
+```
 
 Nous en resterons là pour l'instant dans l'écriture de ce programme. Nous allons nous en servir pour construire d'autres programmes.
 
-1. <a name="_toc162880858"></a>**Amusons-nous avec ce programme halt.**
+### <a name="_toc162880858"></a>**2.3. Amusons-nous avec ce programme halt.**
 
 Considérons le programme :
 
+```python
 def sym(prog):
-`    `if halt(prog, prog) == True:
-`        `while True:
-`            `print("vers l'infini et au-delà !")
-`    `else:
-`        `return 1
+    if halt(prog, prog) == True:
+        while True:
+            print("vers l'infini et au-delà !")
+    else:
+        return 1
+```
 
 On peut remarquer que le programme halt est appelé avec comme paramètres prog, prog, ce qui signifie que **prog se prend lui-même en paramètre**. On rappelle que ce n'est pas choquant, un code-source étant une donnée comme une autre.
 
@@ -131,7 +141,8 @@ Ce programme sym reçoit donc en paramètre un programme prog, et :
 
 - va rentrer dans une boucle infinie si prog(prog) s'arrête.
 - va renvoyer 1 si prog(prog) ne s'arrête pas.
-  1. <a name="_toc162880859"></a>**Un léger problème ...**
+
+### <a name="_toc162880859"></a>**2.4. Un léger problème ...**
 
 Puisqu'un programme peut prendre en paramètre son propre code-source, que donnerait l'appel à sym(sym) ?
 
@@ -141,7 +152,8 @@ Deux cas peuvent se présenter, suivant si halt(sym, sym) renvoie True ou F
 
 - **cas n°1** : halt(sym, sym) renvoie True, ce qui signifie que sym(sym) devrait s'arrêter. Mais dans ce cas-là, l'exécution de sym(sym) rentre dans une boucle infinie. **C'est une contradiction**.
 - **cas n°2** : halt(sym, sym) renvoie False, ce qui signifie que sym(sym) rentre dans une boucle infinie. Mais dans ce cas-là, l'exécution de sym(sym) se termine correctement et renvoie la valeur 1. **C'est une contradiction.**
-  1. <a name="_toc162880860"></a>**Conclusion**
+
+### <a name="_toc162880860"></a>**2.5. Conclusion**
 
 Nous venons de prouver que notre programme halt, censé prédire si un programme prog peut s'arrêter sur une entrée x, **NE PEUT PAS EXISTER**.
 
@@ -177,8 +189,8 @@ Ce résultat démontre que toutes les questions sémantiques (non évidentes) au
 
 [Rice](https://en.wikipedia.org/wiki/Henry_Gordon_Rice) démontre que toutes ces questions peuvent être ramenées (on dit *réduites*) au théorème de l'arrêt, qui est indécidable.
 
-1. <a name="_toc162880861"></a>**Calculabilité**
-   1. <a name="_toc162880862"></a>**Problème de l’arrêt**
+## <a name="_toc162880861"></a>**3. Calculabilité**
+### <a name="_toc162880862"></a>**3.1. Problème de l’arrêt**
 
 Le problème de l'arrêt est dit **indécidable** car la fonction qui le résout (notre programme halt) n'est pas **calculable**.
 
@@ -196,17 +208,17 @@ L’autre tour de force de Turing est d’avoir montré que ses machines sont ca
 
 complexes. Il a imaginé une machine de Turing spéciale qui prends en paramètre une autre machine de Turing M et une entrée e et qui simule le fonction de la machine M avec l’entrée e. C’est ce que l’on nomme la **machine de Turing universelle**.
 
-![](Aspose.Words.558b02fe-3d26-44fd-94cc-6df85df942cd.010.png)
 
-1. <a name="_toc162880863"></a>**(HP) Calculable, oui, mais facilement ? -> 1 million de $ à gagner ci-dessous.**
+
+### <a name="_toc162880863"></a>**3.2. (HP) Calculable, oui, mais facilement ? -> 1 million de $ à gagner ci-dessous.**
 
 Les machines de Turing constituent un outil important dans le domaine de classe de complexité des algorithmes et en particulier de la détermination des classes de problème que l’on peut résoudre dans un temps raisonnable, c’est à dire qui augmentent de façon polynomiale en fonction de la taille des entrées. 
 
-- On appelle **cette classe P**. : On dira que sont de **«classe P»** tous les problèmes dont l'algorithme de recherche de solution est de **complexité polynomiale**.
+-\ On appelle **cette classe P**. : On dira que sont de **«classe P»** tous les problèmes dont l'algorithme de recherche de solution est de **complexité polynomiale**.
 
   Que retrouve-t-on dans la classe P ? Tous les problèmes dont la solution est un algorithme de complexité linéraire, quadratique, logarithmique... Tout mais surtout pas un algorithme de complexité exponentielle.
 
-- Une autre classe de problème est celle des problèmes de décision dont la vérification du résultat, une fois celui-ci connu, demande un temps polynomial. On la note **NP**. 
+-\ Une autre classe de problème est celle des problèmes de décision dont la vérification du résultat, une fois celui-ci connu, demande un temps polynomial. On la note **NP**. 
 
   On dira que sont de **«classe NP»** tous les problèmes dont l'algorithme de recherche de solution est **Non-déterministe Polynomial**.
 
@@ -216,12 +228,12 @@ Les machines de Turing constituent un outil important dans le domaine de classe 
 
   Pour le résumer très grossièrement, un problème de classe NP est un problème dont on sait vérifier facilement si une solution proposée marche ou pas :
 
-- la résolution d'un sudoku est dans NP : si quelqu'un vous montre un sudoku rempli, vous pouvez très rapidement lui dire si sa solution est valable ou pas.
-- la factorisation d'un nombre est dans NP : si quelqu'un vous propose 4567\*6037 comme décomposition de 27570979, vous pouvez très rapidement lui dire s'il a raison. (oui.)
-- le problème du [sac à dos](https://glassus.github.io/premiere_nsi/T4_Algorithmique/4.6_Algorithmes_gloutons/cours/#3-le-probleme-du-sac-a-dos-knapsack-problem) (en version décisionnelle) est dans NP. Une proposition de butin peut facilement être examinée pour savoir si elle est possible ou non.
-- le problème du voyageur de commerce (ou TSP : Traveller Sales Problem), en version décisionnelle, est dans NP. Si on vous propose un trajet, vous pouvez facilement vérifier que sa longueur est (par exemple) inférieure à 150 km.
+    - la résolution d'un sudoku est dans NP : si quelqu'un vous montre un sudoku rempli, vous pouvez très rapidement lui dire si sa solution est valable ou pas.
+    - la factorisation d'un nombre est dans NP : si quelqu'un vous propose 4567\*6037 comme décomposition de 27570979, vous pouvez très rapidement lui dire s'il a raison. (oui.)
+    - le problème du [sac à dos](https://glassus.github.io/premiere_nsi/T4_Algorithmique/4.6_Algorithmes_gloutons/cours/#3-le-probleme-du-sac-a-dos-knapsack-problem) (en version décisionnelle) est dans NP. Une proposition de butin peut facilement être examinée pour savoir si elle est possible ou non.
+    - le problème du voyageur de commerce (ou TSP : Traveller Sales Problem), en version décisionnelle, est dans NP. Si on vous propose un trajet, vous pouvez facilement vérifier que sa longueur est (par exemple) inférieure à 150 km.
 
-- Un problème important l’informatique actuelle est de savoir si P = NP. Très schématiquement, il s’agit de déterminer si le fait de pouvoir vérifier rapidement une solution à un problème implique de pouvoir la trouver rapidement ; ou encore, si ce que nous pouvons trouver rapidement lorsque nous avons de la chance peut être trouvé aussi vite par un calcul intelligent. 
+-\ Un problème important l’informatique actuelle est de savoir si P = NP. Très schématiquement, il s’agit de déterminer si le fait de pouvoir vérifier rapidement une solution à un problème implique de pouvoir la trouver rapidement ; ou encore, si ce que nous pouvons trouver rapidement lorsque nous avons de la chance peut être trouvé aussi vite par un calcul intelligent. 
 
   Tous les problèmes de P ont une solution qui peut être trouvée de manière polynomiale. Donc évidemment, la vérification de cette solution est aussi polynomiale. Donc tous les problèmes de P sont dans NP. On dit que P est inclus dans NP, que l'on écrit P ⊂ NP.
 
@@ -240,7 +252,7 @@ Les machines de Turing constituent un outil important dans le domaine de classe 
   Alors, P = NP ou P ≠ NP ? Réponse peut-être un jour...
 
 
-
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
 
 
 **Activité n° 1 : Problème P = NP** **:** 
@@ -254,3 +266,88 @@ Répondez au questionnaire suivant à partir de la vidéo de ScienceEtonnante : 
 6. Citez un problème dont on pensait qu’il était NP et qui est devenu P
 7. Donner le nom d’un problème “universel” ou NP-complet à résoudre pour résoudre tout les problèmes NP en temps polynomial
 8. Quel plan peut-on suivre pour résoudre P=NP et empocher le million ?
+
+## <a name="_toc162880862"></a>**4. Exercices**
+
+**Exercice 1 : Le programme qui lit un programme**
+On vous fournit le code suivant écrit en Python :
+   ```python
+   def analyse_programme(programme):
+       lignes = programme.split('\n')
+       return len(lignes)
+   
+   programme_exemple = """
+   def somme(a, b):
+       return a + b
+   
+   resultat = somme(5, 3)
+   print(resultat)
+   """
+   
+   print(analyse_programme(programme_exemple))
+   ```
+**Question 1** : Expliquez comment ce programme traite le code source qui lui est fourni.
+
+**Question 2** : Modifiez le programme pour qu'il compte le nombre total de caractères (y compris les espaces et les retours à la ligne) dans le code source fourni.
+
+
+
+
+**Exercice 2 : Calculer la somme des premiers entiers dans différents langages**
+On vous propose trois implémentations d'une fonction qui calcule la somme des premiers entiers naturels dans trois langages différents : Python, JavaScript et C++. Comparez ces programmes.
+   
+   - **Python** :
+   ```python
+   def somme_entiers(n):
+       return sum(range(n+1))
+   ```
+   
+   - **JavaScript** :
+   ```javascript
+   function sommeEntiers(n) {
+       let sum = 0;
+       for (let i = 0; i <= n; i++) {
+           sum += i;
+       }
+       return sum;
+   }
+   ```
+   
+   - **C++** :
+   ```cpp
+   int sommeEntiers(int n) {
+       int sum = 0;
+       for (int i = 0; i <= n; i++) {
+           sum += i;
+       }
+       return sum;
+   }
+   ```
+
+**Question 1** : Expliquez en quoi ces trois programmes réalisent le même calcul malgré les différences de syntaxe.
+
+**Question 2** : Discutez de l'importance du langage de programmation dans la réalisation d'une tâche donnée. Est-ce que le choix du langage influence la capacité à résoudre ce problème ?
+
+
+
+
+
+**Exercice 3 : Explication du problème de l'arrêt par l'exemple**
+On définit un programme `arrêt_test` en Python qui prend en entrée un programme sous forme de chaîne de caractères, ainsi qu'une entrée pour ce programme, et qui doit déterminer si le programme s'arrête ou non.
+   
+   ```python
+   def arret_test(programme, entree):
+       # Ce programme suppose qu'il peut déterminer si un programme s'arrête ou non.
+       # Imaginons que nous avons une telle fonction magique.
+       if execute_programme(programme, entree):
+           return "Le programme s'arrête."
+       else:
+           return "Le programme ne s'arrête pas."
+   ```
+   
+**Question 1** : Expliquez pourquoi il est impossible de créer une fonction `execute_programme` qui détermine toujours correctement si un programme donné va s'arrêter ou non.
+
+**Question 2** : Proposez un scénario où `arret_test` échouerait à donner la bonne réponse si une telle fonction `execute_programme` existait.
+
+
+
