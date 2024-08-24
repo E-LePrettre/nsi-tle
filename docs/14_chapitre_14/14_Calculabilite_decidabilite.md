@@ -200,7 +200,7 @@ Le problème de l'arrêt est dit **indécidable** car la fonction qui le réso
 
 Démonstration par l’absurde que le programme ARRET n’existe pas. 
 
-[Vidéo en anglais] : (https://youtu.be/92WHN-pAFCs)
+[Vidéo en anglais](https://youtu.be/92WHN-pAFCs)
 
 **Théorème de Turing (1936)** : il n’existe pas d’algorithme permettant de prouver la terminaison de n’importe quel programme, c’est-à-dire que le problème de l’arrêt est indécidable
 
@@ -253,14 +253,12 @@ Les machines de Turing constituent un outil important dans le domaine de classe 
 
   Alors, P = NP ou P ≠ NP ? Réponse peut-être un jour...
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc162880862"></a>**4. Exercices**</H2>
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
 
-**<H3 STYLE="COLOR:red;">Exercice n° 1 : Problème P = NP**</H3> **:** 
+**<H3 STYLE="COLOR:red;">Activité n° 1 : Problème P = NP**</H3> **:** 
 Répondez au questionnaire suivant à partir de la vidéo de ScienceEtonnante : [https://ladigitale.dev/digiview/#/v/66c9f21514c6a](https://ladigitale.dev/digiview/#/v/66c9f21514c6a) 
 
-1.
-
- Quelle est la complexité de la recherche du minimum dans une liste ? 
+1. Quelle est la complexité de la recherche du minimum dans une liste ? 
 2. Quelle est la complexité du premier tri présenté dans la vidéo ?
 3. Quelle est la complexité de l’algorithme de tri le plus rapide présenté dans la vidéo ? Pouvez-vous donner le nom d’un algorithme vu en classe qui réalise ce tri ? 
 4. Citez un problème de complexité exponentielle. Expliquez en quoi il consiste
@@ -269,7 +267,10 @@ Répondez au questionnaire suivant à partir de la vidéo de ScienceEtonnante : 
 7. Donner le nom d’un problème “universel” ou NP-complet à résoudre pour résoudre tout les problèmes NP en temps polynomial
 8. Quel plan peut-on suivre pour résoudre P=NP et empocher le million ?
 
-**<H3 STYLE="COLOR:red;">Exercice 2 : Le programme qui lit un programme**</H3>
+
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc162880862"></a>**4. Exercices**</H2>
+
+**<H3 STYLE="COLOR:red;">Exercice 1 : Le programme qui lit un programme**</H3>
 On vous fournit le code suivant écrit en Python :
    ```python
    def analyse_programme(programme):
@@ -291,7 +292,7 @@ On vous fournit le code suivant écrit en Python :
 **Question 2** : Modifiez le programme pour qu'il compte le nombre total de caractères (y compris les espaces et les retours à la ligne) dans le code source fourni.
 
 
-**<H3 STYLE="COLOR:red;">Exercice 3 : Calculer la somme des premiers entiers dans différents langages**</H3>
+**<H3 STYLE="COLOR:red;">Exercice 2 : Calculer la somme des premiers entiers dans différents langages**</H3>
 On vous propose trois implémentations d'une fonction qui calcule la somme des premiers entiers naturels dans trois langages différents : Python, JavaScript et C++. Comparez ces programmes.
    
    - **Python** :
@@ -326,7 +327,7 @@ On vous propose trois implémentations d'une fonction qui calcule la somme des p
 
 **Question 2** : Discutez de l'importance du langage de programmation dans la réalisation d'une tâche donnée. Est-ce que le choix du langage influence la capacité à résoudre ce problème ?
 
-**<H3 STYLE="COLOR:red;">Exercice 4 : Explication du problème de l'arrêt par l'exemple**</H3>
+**<H3 STYLE="COLOR:red;">Exercice 3 : Explication du problème de l'arrêt par l'exemple**</H3>
 On définit un programme `arrêt_test` en Python qui prend en entrée un programme sous forme de chaîne de caractères, ainsi qu'une entrée pour ce programme, et qui doit déterminer si le programme s'arrête ou non.
    
    ```python
