@@ -54,15 +54,12 @@ def trouve_dicho(L, val):
 ### **<H3 STYLE="COLOR:GREEN;">Vérification</H3>**
 
 ```
->>> L = [2, 3, 6, 7, 11, 14, 18, 19, 24]
->>> print(trouve_dicho(L, 14))
-5
->>> print(trouve_dicho(L, 2))
-0
->>> print(trouve_dicho(L, 24))
-8
->>> print(trouve_dicho(L, 1976))
-None
+# tester avec (dans l'éditeur)
+L = [2, 3, 6, 7, 11, 14, 18, 19, 24]
+print(trouve_dicho(L, 14))
+print(trouve_dicho(L, 2))
+print(trouve_dicho(L, 24))
+print(trouve_dicho(L, 1976))
 ```
 
 ???+ question "Tester ce qui est proposé"

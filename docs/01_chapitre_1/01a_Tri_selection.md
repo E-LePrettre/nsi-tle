@@ -32,10 +32,10 @@ def tri_selection(l):
 ### <H3 STYLE="COLOR:GREEN;">**Vérification</h3>**
 
 ```
->>> a = [7, 5, 2, 8, 1, 4]
->>> tri_selection(a)
->>> print(a)
-[1, 2, 4, 5, 7, 8]
+# tester avec (dans l'éditeur)
+a = [7, 5, 2, 8, 1, 4]
+tri_selection(a)
+print(a)
 ```
 
 ???+ question "Tester ce qui est proposé"

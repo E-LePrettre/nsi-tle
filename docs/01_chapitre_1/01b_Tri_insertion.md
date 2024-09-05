@@ -34,10 +34,10 @@ def tri_insertion(l):
 ### <H3 STYLE="COLOR:GREEN;">**Vérification</H3>**
 
 ```
->>> a = [7, 5, 2, 8, 1, 4]
->>> tri_insertion(a)
->>> print(a)
-[1, 2, 4, 5, 7, 8]
+# tester avec (dans l'éditeur)
+a = [7, 5, 2, 8, 1, 4]
+tri_insertion(a)
+print(a)
 ```
 
 
@@ -63,7 +63,7 @@ for i in range(5):
     tri_insertion(a)
     somme_des_durees = somme_des_durees + time.time() - start_time
 moyenne = somme_des_durees / 5
-print("Temps d'exécution pour 1_000: %s secondes ---" % (moyenne))
+print("Temps d'exécution pour 100: %s secondes ---" % (moyenne))
 
 somme_des_durees = 0
 for i in range(5):
@@ -72,7 +72,7 @@ for i in range(5):
     tri_insertion(b)
     somme_des_durees = somme_des_durees + time.time() - start_time
 moyenne = somme_des_durees / 5
-print("Temps d'exécution pour 10_000: %s secondes ---" % (moyenne))
+print("Temps d'exécution pour 1_000: %s secondes ---" % (moyenne))
 ```
 
 ???+ question "recopier le script du tri par sélection et tester ce qui est proposé ci-dessus. ATTENTION ce peut prendre du temps!!"
