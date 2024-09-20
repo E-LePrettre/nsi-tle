@@ -325,18 +325,23 @@ def fusion(S1: List[int], S2: List[int], S: List[int]) -> None:
     Combine les éléments des deux listes S1 et S2 dans la liste S (en place).
     i est le nombre d'élément(s) de S1 copié(s) dans S1. 
     j est le nombre d'élément(s) de S2 copié(s) dans S2. 
-    On doit donc avoir i + j <= len(S).
     """
     i = 0
     j = 0
 
-    while i + j < len(S):
-        if j == len(S2) or (i < len(S1) and S1[i] < S2[j]):
+    while i < len(S1)  and j < len(S2):
+        if S1[i] < S2[j]:
             S[i + j] = S1[i]
             i = i + 1
         else:
             S[i + j] = S2[j]
             j = j + 1
+    while i < len(S1)  :
+        S[i + j] = S1[i]
+        i = i + 1
+    while j < len(S2)  :
+        S[i + j] = S2[j]
+        j = j + 1
 ```
 
 **<H3 STYLE="COLOR:red;">Activité n° 6 :</H3>**
