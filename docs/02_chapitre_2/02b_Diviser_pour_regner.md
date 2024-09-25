@@ -422,6 +422,11 @@ print("tri fusion : ",(end-start).total_seconds())
 
     {{ IDE() }}
 
+On devrait trouver environ
+tri insertion :  0.051002
+tri selection :  0.027
+tri fusion :  0.002999
+
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc144400476"></a>**5. Retour sur la recherche dichotomique**</H2>
 Nous avons déjà rencontré la recherche dichotomique. On rappelle qu’il s’agit de déterminer si un entier val apparait dans une liste tab qui est triée par ordre croissant. Plus précisément on cherche à écrire une fonction qui :
 
