@@ -534,27 +534,11 @@ Pour chacun des sous-tableaux, on définit un **nouveau pivot** et on répète l
 
 La complexité moyenne est en O(nlogn) mais O(n²) dans le pire des cas.
 
-1 Ecrire une fonction tri\_rapide\_gauche qui permet d’illustrer le schéma suivant :
+Ecrire une fonction tri\_rapide\_gauche qui permet d’illustrer le schéma suivant :
 
 ![Tri rapide (pivot en tête)](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.028.png)
 
-2 💣 💣 Ecrire une fonction tri\_rapide\_milieu qui permet d’illustrer le schéma suivant :
 
-![Tri rapide (pivot au centre)](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.029.png)
-
-**Aide :** il faut créer une fonction partition(T, indice\_gauche, indice\_droite, indice\_pivot) qui trie les éléments plus petit que le pivot vont à gauche et les élément plus grand que le pivot à droite. Concrètement, pour partitionner un sous-tableau :
-
-- le pivot est placé à la fin (arbitrairement), en l'échangeant avec le dernier élément du sous-tableau ;
-
-- tous les éléments inférieurs au pivot sont placés en début du sous-tableau ;
-
-- le pivot est déplacé à la fin des éléments déplacés.
-
-3 Ecrire une fonction tri\_rapide\_aléatoire qui permet d’illustrer le schéma suivant :
-
-![Tri rapide (pivot aléatoire)](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.030.png)
-
-**Aide** : utiliser la fonction partition précédente
 
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc144400478"></a>**7. Projet (démarche d’investigation)**</H2>
