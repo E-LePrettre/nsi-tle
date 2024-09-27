@@ -490,35 +490,9 @@ L’efficacité d’un algorithme qui s’appuie sur le paradigme « Diviser pou
 11 La fonction maxmin2 est-elle, théoriquement, plus efficace que la fonction maxmin1 ? Dans la pratique ? Comment expliquer ce comportement ?
 
 
-**<H3 STYLE="COLOR:red;">Exercice n°4 :</H3>** **Problème de la sous-séquence de somme maximale**
 
-Étant donné un tableau tab[1..n] d’entiers (positifs et négatifs), déterminer la valeur maximale du sous-tableau tab[g..h] donnant la plus grande somme de tous les sous-tableaux contigus de tab. Pour plus de commodité, la sous-séquence de somme maximale est 0 si tous les entiers sont négatifs.
 
-Exemples
-
-- Pour le tableau tab = [-2, -5, 6, -2, -3, 1, 5, -6], la sous séquence de somme maximale est [6, -2, -3, 1, 5] et sa somme est 7.
-- Pour le tableau tab = [0, 1, 2, -2, 3, 2], la sous séquence de somme maximale est [1, 2, -2, 3, 2] et sa somme est 6.
-- Pour le tableau tab = [1, -2, 3, 10, -4, 7, 2, -5], la sous séquence de somme maximale est [3, 10, -4, 7, 2] et sa somme est 18.
-
-1 On envisage dans un premier temps un algorithme basé sur le paradigme « Brute force » : on évalue la somme de chaque sous-tableau (parmi les n(n+1)/2 sous-tableaux possibles) et à chaque évaluation on mémorise la somme maximale. Écrire le code de la fonction sous\_tab\_max dont la spécification est : sous\_tab\_max(tab: List[int]) -> int
-
-2 Quelle est la complexité de cette fonction ?
-
-Le tableau initial est scindé en deux parties de tailles à peu près égales (selon que n est pair ou impair) : la plus grande somme se trouve soit dans le sous-tableau B de droite, soit dans le sous-tableau A de gauche, soit à cheval sur les deux sous-parties. Dans ce dernier cas elle est constituée d’une plus grande somme de la partie gauche se terminant à la fin de la partie gauche (c.-à-d. en m), et d’une plus grande somme de la partie droite commençant au début de la partie droite (c’est à dire en m+1).
-
-![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.031.png)
-
-La procédure est récursive. Pour « sortir » des appels récursifs, il est nécessaire de ren- contrer un « couple de données-paramètres » (transmis à l’appel) dont la solution est triviale. C’est le cas si le tableau est composé d’au plus un élément.
-
-3 Écrire le code de la fonction somme\_max dont la spécification est : 
-
-   ```somme_max(tab: List[int]) -> int```
-
-4 Écrire le code de la fonction max\_sous\_tab dont la spécification est :
-
-   ```max_sous_tab(tab: List[float], milieu: int) -> float```
-
-**<H3 STYLE="COLOR:red;">Exercice n°5 :</H3>** **Tri rapide**
+**<H3 STYLE="COLOR:red;">Exercice n°4 :</H3>** **Tri rapide**
 
 Le Quicksort est une méthode de tri inventée par Sir Charles Antony Richard Hoare en 1961 et fondée sur la méthode de conception « diviser pour régner ». Il peut être implémenté sur un tableau ou sur des listes ; son utilisation la plus répandue concerne tout de même les tableaux. 
 
