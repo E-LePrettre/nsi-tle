@@ -433,20 +433,24 @@ Nous avons déjà rencontré la recherche dichotomique. On rappelle qu’il s’
 - **prend en paramètres : val la valeur recherchée, table tableau trié par ordre croissant;**
 - **renvoie i un indice où la valeur val apparait dans tab et None si la val n’est pas dans tab.**
 
-Pour cela on utilisera la technique de la dichotomie. Il s’agira de délimiter une portion du tableau dans laquelle la valeur peut se trouver avec deux indices g et d. On peut illustrer la situation à chaque étape :
+Pour cela on utilisera la technique de la dichotomie. Il s’agira de délimiter une portion du tableau dans laquelle la valeur peut se trouver avec deux indices g et d. => Voir exercice n°1
 
-**<H3 STYLE="COLOR:red;">Activité n° 9 :</H3>**
-Écrire une fonction récursive en Python qui
+
+
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc144400477"></a>**6. Exercices**</H2> 
+
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
+
+**<H3 STYLE="COLOR:red;">Exercice n°1 : Recherche dichotomique</H3>**
+
+Écrire une fonction recherche_dicho_r(tab,val) récursive en Python qui
 
 - prend en paramètres une liste tab d’entiers triés par ordre croissant, un entier à rechercher val.
 
 - renvoie i un indice où la valeur val apparait dans tab (ou True selon comment est codé l’algorithme) et False si la val n’est pas dans tab.  La valeur i est recherchée dans tab[g..d]
 
-???+ question "Tester ce qui est proposé"
-
-    {{ IDE() }}
-
 On peut passer les slices des listes de python ou utiliser des indices entrés avec une valeur par défaut
+
 
 La méthode « Diviser pour régner » est le paradigme naturel de la récursivité.
 
@@ -454,11 +458,7 @@ La complexité d’un algorithme qui s’appuie sur le paradigme « Diviser pour
 
 L’efficacité d’un algorithme qui s’appuie sur le paradigme « Diviser pour régner » dépend de l’implémentation de la récursivité par le langage choisi.
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc144400477"></a>**6. Exercices**</H2> 
-
-=> **CAPYTALE Le code vous sera donné par votre enseignant**
-
-**<H3 STYLE="COLOR:red;">Exercice n°1 : Sommes des n nombres d’un tableau</H3>** 
+**<H3 STYLE="COLOR:red;">Exercice n°2 : Sommes des n nombres d’un tableau</H3>** 
 
 1 Écrire le code de fonction somme1 qui permet de déterminer la somme des n nombres (entiers) d’un tableau en récursif
 
@@ -467,7 +467,7 @@ L’efficacité d’un algorithme qui s’appuie sur le paradigme « Diviser pou
    Écrire le code de la fonction somme2 qui implémente cet algorithme.
 
 
-**<H3 STYLE="COLOR:red;">Exercice n°2 : Recherche des plus grand et petit éléments dans un tableau</H3>** 
+**<H3 STYLE="COLOR:red;">Exercice n°3 : Recherche des plus grand et petit éléments dans un tableau</H3>** 
 
 1. Générer une liste contenant un million de termes choisis aléatoirement entre un et mille milliards.
 1. Utiliser les fonctions min et max fournies par le langage Python afin d’afficher les maximum et minimum dans la liste.
@@ -490,7 +490,7 @@ L’efficacité d’un algorithme qui s’appuie sur le paradigme « Diviser pou
 11 La fonction maxmin2 est-elle, théoriquement, plus efficace que la fonction maxmin1 ? Dans la pratique ? Comment expliquer ce comportement ?
 
 
-**<H3 STYLE="COLOR:red;">Exercice n°3 :</H3>** **Problème de la sous-séquence de somme maximale**
+**<H3 STYLE="COLOR:red;">Exercice n°4 :</H3>** **Problème de la sous-séquence de somme maximale**
 
 Étant donné un tableau tab[1..n] d’entiers (positifs et négatifs), déterminer la valeur maximale du sous-tableau tab[g..h] donnant la plus grande somme de tous les sous-tableaux contigus de tab. Pour plus de commodité, la sous-séquence de somme maximale est 0 si tous les entiers sont négatifs.
 
@@ -518,7 +518,7 @@ La procédure est récursive. Pour « sortir » des appels récursifs, il est n�
 
    ```max_sous_tab(tab: List[float], milieu: int) -> float```
 
-**<H3 STYLE="COLOR:red;">Exercice n°4 :</H3>** **Tri rapide**
+**<H3 STYLE="COLOR:red;">Exercice n°5 :</H3>** **Tri rapide**
 
 Le Quicksort est une méthode de tri inventée par Sir Charles Antony Richard Hoare en 1961 et fondée sur la méthode de conception « diviser pour régner ». Il peut être implémenté sur un tableau ou sur des listes ; son utilisation la plus répandue concerne tout de même les tableaux. 
 
