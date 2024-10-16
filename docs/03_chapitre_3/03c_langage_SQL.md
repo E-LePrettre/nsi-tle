@@ -499,7 +499,7 @@ Les réalisateurs qui avaient pour nationalité Etats-Unis ont eu le nombre de f
 ```sql
 CREATE TABLE nationalite (
 id_nationalite INT NOT NULL,
-nom_nationalite VARCHAR(255) NOT NUL,
+nom_nationalite VARCHAR(255) NOT NULL,
 PRIMARY KEY ("id_nationalite" AUTOINCREMENT)
 );
 ```
