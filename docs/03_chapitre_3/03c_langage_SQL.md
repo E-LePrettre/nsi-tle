@@ -122,14 +122,8 @@ REFERENCES realisateur (id_realisateur)
 ## <H2 STYLE="COLOR:BLUE;"><a name="_toc173365563"></a>**3. Insertion de données**</H2>
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365564"></a>**3.1. Insertion**</H3>
 
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.012.png){ width=50%; : .center }
-
-Pour interroger la base de données pour récupérer des informations correspondant à des critères prédéfinis 
-
-- il faut utiliser le mot clé **SELECT** en précisant le nom prdes champs que l’on souhaite affiché,
-- il faut préciser sur quelle table on va faire cette interrogation avec le mot clé **FROM**, 
-- puis préciser les conditions avec lesquelles nous souhaitons récupérer ses champs ce sont des conditions booléennes, 
-- enfin il existe quelques options pour trier ces données ou afficher un nombre de conditions prédéterminées
+Pour insérer des données dans une base de données en SQL, on utilise la commande INSERT INTO. Voici les étapes et la syntaxe générale : 
+![](insert.png){width=30%; : .center }
 
 Cliquer sur ouvrir un onglet
 
@@ -233,6 +227,16 @@ WHERE id_film  = 26 ;
 Vérifier ensuite que le film a bien été supprimé.
 
 ## <H2 STYLE="COLOR:BLUE;"><a name="_toc173365566"></a>**4. Interrogation de la base de données**</H2>
+
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.012.png){ width=50%; : .center }
+
+Pour interroger la base de données pour récupérer des informations correspondant à des critères prédéfinis 
+
+- il faut utiliser le mot clé **SELECT** en précisant le nom prdes champs que l’on souhaite affiché,
+- il faut préciser sur quelle table on va faire cette interrogation avec le mot clé **FROM**, 
+- puis préciser les conditions avec lesquelles nous souhaitons récupérer ses champs ce sont des conditions booléennes, 
+- enfin il existe quelques options pour trier ces données ou afficher un nombre de conditions prédéterminées
+
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365567"></a>**4.1. Affichage simple**</H3>
 
 **<H3 STYLE="COLOR:red;">Activité n° 12 : Affichage par numéro**</H3> Faire afficher le titre, l’année et la nationalité d’un film en particulier connaissant son id : Exécuter 
