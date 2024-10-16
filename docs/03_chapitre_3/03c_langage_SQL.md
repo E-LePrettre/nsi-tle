@@ -372,6 +372,9 @@ On obtient tous les réalisateurs avec leur prénom et leur nom mais dans la mê
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365574"></a>**4.8. Affichage avec deux requêtes**</H3>
 
 **<H3 STYLE="COLOR:red;">Activité n° 26 : Affichage de morceau de chaine de caractères sur deux tables**</H3> Afficher la nationalité du réalisateur dont le nom commence par L ET la nationalité du (des) film commence par S : Exécuter
+
+UNION : Cet opérateur combine les résultats des deux requêtes et supprime les doublons. Pour que UNION fonctionne, les deux sous-requêtes doivent retourner le même nombre de colonnes et ces colonnes doivent être de types de données compatibles.
+
 ```sql
 SELECT nationalite_realisateur AS nationalite
 FROM realisateur
