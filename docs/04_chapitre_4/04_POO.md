@@ -250,13 +250,17 @@ print(qui.ma_residence())
 print(qui.vieillissement())
 ```
 
-```txt
-Je suis Jean Dupont, j'ai 33 ans.
-J'habite Paris.
-```
+
 ???+ question "Tester ce qui est proposé"
 
     {{ IDE() }}
+
+on obtient :
+```txt
+Je suis Jean Dupont, j'ai 33 ans.
+J'habite Paris.
+34
+```
 
 Pour appeler une méthode de l’instance Personne, il suffit donc d’écrire **instance.méthode()**.
 
