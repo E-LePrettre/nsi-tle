@@ -74,6 +74,7 @@ Quelles actions a déclenché le code précédent ?
 
 La classe est une espèce de moule, à partir de ce moule nous allons créer des **objets** (plus exactement nous parlerons **d'instances**).
 
+
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc88030952"></a>**2.2. Objet ou instance**</H3>
 Exemple :
 ```python
@@ -122,14 +123,18 @@ class Personne:
 
    def __init__(self, nom : str, prenom : str):   # le constructeur
       """ Pour l'instant, on ne va définir que 3 attributs """
-      # Dans le constructeur, on crée des variables self.nom, self.prenom et self.age que 
-      l’on initialise avec les paramètres passés au constructeur lors de l’instanciation.
+      # Dans le constructeur, on crée des variables self.nom, self.prenom et self.age que l’on initialise avec les paramètres passés au constructeur lors de l’instanciation.
       self.nom   = nom
       self.prenom    = prenom
       self.age   = 33
 
 gollum = Personne('Dupont', 'Jean')
+# on va utiliser la méthode format() pour mettre en forme
 print("Je suis {0} {1}, j'ai {2} ans." . format(gollum.prenom, gollum.nom, gollum.age))
+# on va utiliser le f string pour mettre en forme
+print(f"Je suis {gollum.prenom} {gollum.nom}, j'ai {gollum.age} ans.")
+# On pourrait aussi écrire print comme ça c'est un peu plus pénible :
+print("Je suis,",gollum.prenom,gollum.nom, "j'ai", gollum.age, "ans." )
 ```
 
 ```txt
