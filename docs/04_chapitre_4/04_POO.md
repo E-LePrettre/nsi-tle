@@ -493,7 +493,6 @@ class Personne:
 
 ### Programme principal ###
 qui = Personne('Dupont', 'Jean')
-
 print(qui.get_name())
 qui.set_name('Durant')     # modifie le nom
 print(qui.get_name())
