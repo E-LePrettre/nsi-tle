@@ -137,7 +137,8 @@ class Personne:
 
    def __init__(self, nom : str, prenom : str):   # le constructeur
       """ Pour l'instant, on ne va définir que 3 attributs """
-      # Dans le constructeur, on crée des variables self.nom, self.prenom et self.age que l’on initialise avec les paramètres passés au constructeur lors de l’instanciation.
+      # Dans le constructeur, on crée des variables self.nom, self.prenom et self.age 
+      # que l’on initialise avec les paramètres passés au constructeur lors de l’instanciation.
       self.nom   = nom
       self.prenom    = prenom
       self.age   = 33
