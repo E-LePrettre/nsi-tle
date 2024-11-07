@@ -330,11 +330,11 @@ On n'a aucun affiche autre que celui qui montre que toi appartient à l’espace
 class Personne:
     """Classe représentant une personne"""
     def __init__(self, nom : str, prenom : str):
-        self.__nom    = nom
-        self.__prenom = prenom
+        self.nom = nom
+        self.prenom = prenom
 
     def __str__(self):
-        return self.__prenom + " " + self.__nom
+        return self.prenom + " " + self.nom
 toi = Personne('Durant', 'Jean')
 print(toi)
 ```
