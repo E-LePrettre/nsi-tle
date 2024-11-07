@@ -182,12 +182,15 @@ class Personne:
       print("décédé(e) à {0} ans". format(self.age))
 
 moi = Personne('Dupont', 'Jean')
+print("Je suis {0} {1}." . format(moi.prenom, moi.nom))
 del moi
+print("Je suis {0} {1}." . format(moi.prenom, moi.nom)) # on obtient une erreur car l'instance moi a été détruite
 ```
 
 ```txt
 Voici Jean Dupont
 décédé(e) à 33 ans
+NameError: name 'moi' is not defined
 ```
 ???+ question "Tester ce qui est proposé"
 
@@ -215,10 +218,16 @@ class Personne:
    def ma_residence(self):
       """ ...et la méthode associée au lieu de résidence """
       return "J'habite {0}." . format(self.residence)
+    
+   def vieillissement(self):
+      """méthode qui agit sur l'attribut age"""
+      self.age +=1
+      return self.age  
 
 qui = Personne('Dupont', 'Jean')
 print("Je suis {0} {1}, j'ai {2} ans." . format(qui.prenom, qui.nom, qui.age))
 print(qui.ma_residence())
+print(qui.vieillissement())
 ```
 
 ```txt
@@ -229,7 +238,7 @@ J'habite Paris.
 
     {{ IDE() }}
 
-Pour appeler une méthode de l’instance Personne, il suffit donc d’écrire instance.méthode().
+Pour appeler une méthode de l’instance Personne, il suffit donc d’écrire **instance.méthode()**.
 
 #### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030958"></a>**2.3.5. Les méthodes pour représenter un objet**</H4>
 
@@ -239,15 +248,36 @@ La méthode spéciale ```__repr__``` retourne la chaine de caractère qu’il fa
 class Personne:
     """Classe représentant une personne"""
     def __init__(self, nom : str, prenom : str):
-        self.__nom    = nom
-        self.__prenom = prenom
+        self.nom    = nom
+        self.prenom = prenom
 
-    def __repr__(self):
-        return self.__nom + " " + self.__prenom
+toi = Personne('Durant', 'Jean')
 ```
 ```txt
-Je suis Jean Dupont, j'ai 33 ans.
-J'habite Paris.
+# Tester dans la console
+toi
+```
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
+
+On n'a aucun affiche autre que celui qui montre que toi appartient à l’espace de nom global et référence un objet de type Personne situé à l’adresse...
+
+```python
+class Personne:
+    """Classe représentant une personne"""
+    def __init__(self, nom : str, prenom : str):
+        self.nom    = nom
+        self.prenom = prenom
+
+    def __repr__(self):
+        return self.nom + " " + self.prenom
+
+toi = Personne('Durant', 'Jean')
+```
+```txt
+# Tester dans la console
+toi
 ```
 ???+ question "Tester ce qui est proposé"
 
@@ -255,6 +285,23 @@ J'habite Paris.
 
 **<H3 STYLE="COLOR:red;">Activité n° 5 : Surcharge de méthode :**</H3> 
 La méthode spéciale ```__str__``` retourne la chaine de caractère qu’il faut afficher lorsque l’on appelle la fonction print sur l’objet
+```python
+class Personne:
+    """Classe représentant une personne"""
+    def __init__(self, nom : str, prenom : str):
+        self.nom    = nom
+        self.prenom = prenom
+
+toi = Personne('Durant', 'Jean')
+print(toi)
+```
+
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
+
+On n'a aucun affiche autre que celui qui montre que toi appartient à l’espace de nom global et référence un objet de type Personne situé à l’adresse...
+
 ```python
 class Personne:
     """Classe représentant une personne"""
@@ -267,9 +314,7 @@ class Personne:
 toi = Personne('Durant', 'Jean')
 print(toi)
 ```
-```txt
-Jean Durant
-```
+
 ???+ question "Tester ce qui est proposé"
 
     {{ IDE() }}
@@ -295,6 +340,7 @@ toi = Personne('Durant', 'Jean')
 print(Personne.population)
 ```
 ```txt
+# on obtient
 2
 ```
 ???+ question "Tester ce qui est proposé"
@@ -343,7 +389,7 @@ class Personne:
 qui = Personne('Dupont', 'Jean')
 
 print(qui.nom)       # donne le nom
-qui.nom = 'Durant'    # modifie l'attribut => INTERDIT
+qui.nom = 'Durant'    # modifie l'attribut => INTERDIT  imaginez que l'utilisateur modifie le nombre de vie dans le jeu !!
 print(qui.nom)          # donne le nouveau nom
 ```
 
