@@ -407,7 +407,7 @@ class Personne:
    def __init__(self, nom : str, prenom : str, age=33):
       self.nom = nom
       self.prenom = prenom
-      self.age   = age
+      self.age = age
 
 ### Programme principal ###
 qui = Personne('Dupont', 'Jean')
