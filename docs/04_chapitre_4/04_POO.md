@@ -52,13 +52,9 @@ En terminal seules les deux premières notions sont au programme de NSI
 Exemple :
 ```python
 class Personne:
-
    """
-
    Classe des personnes
-
    """
-
    pass
 ```
 
