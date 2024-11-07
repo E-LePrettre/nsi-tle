@@ -139,13 +139,13 @@ class Personne:
       """ Pour l'instant, on ne va définir que 3 attributs """
       # Dans le constructeur, on crée des variables self.nom, self.prenom et self.age 
       # que l’on initialise avec les paramètres passés au constructeur lors de l’instanciation.
-      self.nom   = nom
-      self.prenom    = prenom
-      self.age   = 33
+      self.nom = nom
+      self.prenom = prenom
+      self.age = 33
 
 gollum = Personne('Dupont', 'Jean')
 # on va utiliser la méthode format() pour mettre en forme
-print("Je suis {0} {1}, j'ai {2} ans." . format(gollum.prenom, gollum.nom, gollum.age))
+print("Je suis {0} {1}, j'ai {2} ans.".format(gollum.prenom, gollum.nom, gollum.age))
 # on va utiliser le f string pour mettre en forme
 print(f"Je suis {gollum.prenom} {gollum.nom}, j'ai {gollum.age} ans.")
 # On pourrait aussi écrire print comme ça c'est un peu plus pénible :
@@ -190,18 +190,18 @@ class Personne:
    - son âge"""
 
    def __init__(self, nom : str, prenom : str):   # le constructeur
-      self.nom   = nom
-      self.prenom    = prenom
-      self.age   = 33
-      print("Voici {0} {1}" . format(self.prenom, self.nom))
+      self.nom = nom
+      self.prenom = prenom
+      self.age = 33
+      print("Voici {0} {1}".format(self.prenom, self.nom))
 
    def __del__(self): # le destructeur
       print("décédé(e) à {0} ans". format(self.age))
 
 moi = Personne('Dupont', 'Jean')
-print("Je suis {0} {1}." . format(moi.prenom, moi.nom))
+print("Je suis {0} {1}.".format(moi.prenom, moi.nom))
 del moi
-print("Je suis {0} {1}." . format(moi.prenom, moi.nom)) # on obtient une erreur car l'instance moi a été détruite
+print("Je suis {0} {1}.".format(moi.prenom, moi.nom)) # on obtient une erreur car l'instance moi a été détruite
 ```
 
 
@@ -230,14 +230,14 @@ class Personne:
    - son lieu de résidence"""
    def __init__(self, nom : str, prenom : str):   # le constructeur
       """ on ajoute un attribut lieu de résidence... """
-      self.nom      = nom
-      self.prenom       = prenom
-      self.age      = 33
+      self.nom = nom
+      self.prenom = prenom
+      self.age = 33
       self.residence = "Paris"
 
    def ma_residence(self):
       """ ...et la méthode associée au lieu de résidence """
-      return "J'habite {0}." . format(self.residence)
+      return "J'habite {0}.".format(self.residence)
     
    def vieillissement(self):
       """méthode qui agit sur l'attribut age"""
@@ -245,7 +245,7 @@ class Personne:
       return self.age  
 
 qui = Personne('Dupont', 'Jean')
-print("Je suis {0} {1}, j'ai {2} ans." . format(qui.prenom, qui.nom, qui.age))
+print("Je suis {0} {1}, j'ai {2} ans.".format(qui.prenom, qui.nom, qui.age))
 print(qui.ma_residence())
 print(qui.vieillissement())
 ```
@@ -272,7 +272,7 @@ La méthode spéciale ```__repr__``` retourne la chaine de caractère qu’il fa
 class Personne:
     """Classe représentant une personne"""
     def __init__(self, nom : str, prenom : str):
-        self.nom    = nom
+        self.nom = nom
         self.prenom = prenom
 
 toi = Personne('Durant', 'Jean')
@@ -291,7 +291,7 @@ On n'a aucun affiche autre que celui qui montre que toi appartient à l’espace
 class Personne:
     """Classe représentant une personne"""
     def __init__(self, nom : str, prenom : str):
-        self.nom    = nom
+        self.nom = nom
         self.prenom = prenom
 
     def __repr__(self):
@@ -313,7 +313,7 @@ La méthode spéciale ```__str__``` retourne la chaine de caractère qu’il fau
 class Personne:
     """Classe représentant une personne"""
     def __init__(self, nom : str, prenom : str):
-        self.nom    = nom
+        self.nom = nom
         self.prenom = prenom
 
 toi = Personne('Durant', 'Jean')
@@ -355,8 +355,8 @@ class Personne:
    population = 0
 
    def __init__(self, nom : str, prenom : str):
-      self.nom   = nom
-      self.prenom    = prenom
+      self.nom = nom
+      self.prenom = prenom
       Personne.population += 1
 
 moi = Personne('Dupont', 'Jean')
@@ -405,8 +405,8 @@ class Personne:
    - son âge"""
 
    def __init__(self, nom : str, prenom : str, age=33):
-      self.nom   = nom
-      self.prenom    = prenom
+      self.nom = nom
+      self.prenom = prenom
       self.age   = age
 
 ### Programme principal ###
@@ -447,7 +447,7 @@ class Personne:
 
     def __init__(self, nom : str, prenom : str, age=33):
         self.__nom   = nom        #attribut privé
-        self.prenom    = prenom
+        self.prenom = prenom
         self.age   = age
     def get_name(self):
         return self.__nom
@@ -474,7 +474,7 @@ class Personne:
 
     def __init__(self, nom : str, prenom : str, age=33):
         self.__nom   = nom        #attribut privé
-        self.prenom    = prenom
+        self.prenom = prenom
         self.age   = age
     def get_name(self):
         return self.__nom
@@ -505,7 +505,7 @@ class Personne:
 
     def __init__(self, nom : str, prenom : str, age=33):
         self.__nom   = nom        #attribut privé
-        self.prenom    = prenom
+        self.prenom = prenom
         self.age   = age
 
     def get_name(self):
@@ -557,7 +557,7 @@ class Personne:
 
     def __init__(self, nom : str, prenom : str, age=33):
         self.__nom   = nom        #attribut privé
-        self.prenom    = prenom
+        self.prenom = prenom
         self.age   = age
 
     def __get_name(self): # méthode donnant accès à l'attribut ne pas oublier les underscores devant
@@ -591,7 +591,7 @@ contrôle de l’accès à l’attribut
 class Personne:
     """ Classe représentant une personne """
     def __init__(self, nom : str, prenom : str, age=33):
-        self.nom    = nom
+        self.nom = nom
         self.prenom = prenom
         self.__age    = age
 
