@@ -152,13 +152,15 @@ print(f"Je suis {gollum.prenom} {gollum.nom}, j'ai {gollum.age} ans.")
 print("Je suis,",gollum.prenom,gollum.nom, "j'ai", gollum.age, "ans." )
 ```
 
-```txt
-Je suis Jean Dupont, j'ai 33 ans.
-```
+
 ???+ question "Tester ce qui est proposé"
 
     {{ IDE() }}
 
+On obtient :
+```txt
+Je suis Jean Dupont, j'ai 33 ans.
+```
 Lors de la création de l’instance gollum, Python va automatiquement remplacer self par gollum et ainsi créer trois attributs :
 
 - gollum.nom qui aura pour valeur le nom passé en paramètre (Dupont), 
@@ -202,14 +204,17 @@ del moi
 print("Je suis {0} {1}." . format(moi.prenom, moi.nom)) # on obtient une erreur car l'instance moi a été détruite
 ```
 
+
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
+
+On obtient :
 ```txt
 Voici Jean Dupont
 décédé(e) à 33 ans
 NameError: name 'moi' is not defined
 ```
-???+ question "Tester ce qui est proposé"
-
-    {{ IDE() }}
 
 #### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030957"></a>**2.3.4. Les autres méthodes**</H4>
 
