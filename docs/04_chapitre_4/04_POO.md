@@ -78,8 +78,13 @@ La classe est une espèce de moule, à partir de ce moule nous allons créer des
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc88030952"></a>**2.2. Objet ou instance**</H3>
 Exemple :
 ```python
-Julien = Personne() # c'est la personne numéro 1
+class Personne:
+   """
+   Classe des personnes
+   """
+   pass
 
+Julien = Personne() # c'est la personne numéro 1
 Mathilde = Personne() # c'est la personne numéro 2
 ```
 
@@ -93,8 +98,21 @@ Julien et Mathilde sont des objets (des instances) de la classe Personne.
 
 Afin d’en découvrir davantage sur Julien, taper et exécuter l’instruction suivante :
 ```python
+class Personne:
+   """
+   Classe des personnes
+   """
+   pass
+
+Julien = Personne() # c'est la personne numéro 1
+Mathilde = Personne() # c'est la personne numéro 2
+
 print(Julien)
 ```
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
+
 On obtient
 ```txt
 <__main__.Personne object at 0x0000021C7CE97A10>
