@@ -926,10 +926,10 @@ def delPosition(self, position):
 Tester
 ```
 >>> afficherListe(list1)
-"('Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche')"
+"('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche')"
 >>> list1.delPosition(3)
 >>> afficherListe(list1)
-"('Mardi', 'Mercredi', 'Jeudi', 'Samedi', 'Dimanche')" 
+"('Lundi', 'Mardi', 'Mercredi', 'Vendredi', 'Samedi', 'Dimanche')" 
 ```
 
 **<H3 STYLE="COLOR:red;">Activité n° 25 :**  **structure liste avec de la POO, Création de la structure autres méthodes** :</H3> Réaliser maintenant la méthode d'interface de lecture des valeurs. Voici le prototype.
@@ -942,7 +942,7 @@ def readPosition(self, position):
 Tester
 ```
 >>> list1.readPosition(2)
-'Jeudi'
+'Mercredi'
 ```
 
 
