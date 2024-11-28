@@ -449,15 +449,29 @@ def lireElement(L, index=-1):
     pass
 ```
 
-**<H3 STYLE="COLOR:red;">Activité n° 10 :**  **structure liste avec des lists fonction** ```insererElement``` :</H3> On connait déjà la méthode append qui permet de rajouter un nouvel élément à la fin de nos objets de type natif list-Python.
+**<H3 STYLE="COLOR:red;">Activité n° 10 :**  **structure liste avec des lists fonction** ```insererElement``` :</H3> 
 
-Attention, append modifie la variable sur laquelle on agit MAIS elle ne renvoie rien : il faudra donc l'utiliser sur une copie du tableau et renvoyer cette copie ensuite. 
+On connait déja la méthode append qui permet de rajouter un nouvel élément à la fin de nos objets de type natif list-Python.
 
-La fonction devra toujours renvoyer la copie modifiée.
+Attention, on évite append et pop!! car ils modifient la variable sur laquelle on agit
+
+La fonction devra toujours renvoyer la **copie modifiée**.
+
+On pourra s'aider de 2 fonctions **supprimerTete(L)** et **ajouterTete(x,L)**
+
 ```python
 def insererElement(x, L, position):
     '''Renvoie une Liste en insérant x à la position position. '''
     pass
+
+
+L=nouvelleListe()
+L = ajouterTete(2,L)
+L = ajouterTete(3,L)
+L = ajouterTete(1,L)
+print(L)
+L = insererElement(25,L,1)
+print(L)
 ```
 
 **Remarque** il existe également une méthode nommée insert qui permet de faire la même chose en choisissant la position de l'insertion.
@@ -475,6 +489,9 @@ On peut donc l'utiliser pour juste modifier le tableau, sans mémoriser la valeu
 def supprimerPosition(L, position):
     '''Renvoie une nouvelle liste où on a supprimé l'élément situé à la position fournie'''
     pass
+
+L = supprimerPosition(L, 2)
+print(L)
 ```
 
 **Erreur courante :** Il ne faut pas faire ceci :
@@ -489,6 +506,8 @@ Avec ce code, vous allez renvoyer l'élément supprimé et pas le nouveau tablea
 def afficherListe(L):
     '''Renvoie une représentation de la Liste sous forme d'une séquence commençant par la tête'''
     return str(tuple(L))
+
+print(afficherListe(L))
 ```
 
 On va obtenir le même effet pour l'utilisateur, si ce n'est que le code utilise les fonctionnalités de Python et que nous ne connaissons pas les coûts de ces fonctions.
