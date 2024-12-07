@@ -7,7 +7,9 @@ title: 01g Fiche méthode - Les dictionnaires
 ## **<H2 STYLE="COLOR:BLUE;">1. Définition</H2>**
 Un dictionnaire est une structure de données en Python qui associe des clés (**keys**) à des valeurs (**values**).  
 Il est défini par des accolades `{}`.  
+
 - Chaque clé est unique.
+
 - Les valeurs peuvent être de n’importe quel type (int, str, list, autre dictionnaire…).
 
 ## **<H2 STYLE="COLOR:BLUE;">2. Création d’un Dictionnaire</H2>**
@@ -65,7 +67,9 @@ print(etudiant)
 
 ## **<H2 STYLE="COLOR:BLUE;">6. Supprimer un Élément</H2>**
 **Méthodes principales :**
+
 - `del` pour supprimer une clé.
+
 - `.pop()` pour récupérer et supprimer une valeur.
 
 **Exemple :**  
