@@ -1467,6 +1467,10 @@ Rajouter au programme principal :
 
 Cette implémentation est très **peu efficace** 
 
+**<H3 STYLE="COLOR:red;">Activité  : Structure file avec la POO et les lists de Python:**</H3> On va rajouter à la structure de base précédente deux fonctions : ```taille2``` et ```sommet2``` qui permettent respectivement de retourner la taille de la pile (sans utiliser la fonction de python len !!) et le sommet de la pile (sans utiliser les indices !!). On ne pourra utiliser seulement les fonctions primitives précédentes et en devra récupérer la pile originelle telle qu’elle était.
+
+On pourra s’aider d’une file auxiliaire.
+
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667935"></a>**5.4. ❤️3<sup>ème</sup> implémentation de la structure file avec la POO et une liste chainée❤️**</H3>
 
 **=> CAPYTALE Le code vous sera donné par votre enseignant**
