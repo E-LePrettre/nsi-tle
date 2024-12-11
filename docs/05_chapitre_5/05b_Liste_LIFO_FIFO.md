@@ -1742,6 +1742,11 @@ hashed_password = hash_object.hexdigest()
 print(hashed_password)  # Empreinte unique
 ```
 
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
+
+
 #### **Détection des modifications dans un fichier**  
 En calculant l'empreinte d'un fichier à un moment donné, on peut détecter si ce fichier a été modifié ultérieurement. C'est une méthode utilisée par les systèmes de contrôle de versions ou les logiciels de vérification d'intégrité (ex : `md5sum`, `sha256sum`).  
 
@@ -1758,6 +1763,10 @@ def hash_file(filename):
 
 print(hash_file("monFichier.txt"))
 ```
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
+
 
 #### **Autres usages courants** :  
 - **Indexation et recherche rapide** (dans les bases de données ou dictionnaires).  
@@ -1779,6 +1788,10 @@ Chaque clé est transformée en un indice via une fonction de hachage, permettan
 dictionnaire = {"nom": "Alice", "âge": 30}
 print(dictionnaire["nom"])  # Recherche rapide grâce à une table de hachage
 ```
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
+
 
 ##### **Caractéristiques** :  
 1. **Complexité en temps constant** :  
@@ -1820,6 +1833,9 @@ hash_object = hashlib.sha1(data.encode())
 sha1_hash = hash_object.hexdigest()
 print(sha1_hash)  # Exemple d'empreinte : a5e64f98b819a40e05d15ec2cbd7d25544f6f435
 ```
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
 
 
 - SHA-256 (très courant et plus sécurisé)
@@ -1839,6 +1855,9 @@ sha256_hash = hash_object.hexdigest()
 print(sha256_hash)  # Exemple d'empreinte : 9e31b9c8c694b1616dfd28481f54741a421d2481a18c62e531b34a79b36520b4
 ```
 
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
 
 
 ##### **Applications simples :**
@@ -1878,6 +1897,9 @@ print(sha256_hash)  # Exemple d'empreinte : 9e31b9c8c694b1616dfd28481f54741a421d
    # Empreinte stockée : d2d2d2c7e9d3f4d4c8e7c7e5a6d3e4b8d7c9f6a4b6e4c8e2
    ```
 
+???+ question "Tester ce qui est proposé"
+
+    {{ IDE() }}
 
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667943"></a>**6.5. Rappel : Utilisation des dictionnaires en Python**</H3>
