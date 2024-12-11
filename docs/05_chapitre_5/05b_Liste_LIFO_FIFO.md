@@ -1546,9 +1546,7 @@ f.enfiler('Mercredi')
 ```
 Compléter les 2 méthodes suivante : taille() et sommet()
 
-Tester
 
-Ajouter deux fonctions taille(file) sommet(file)
 ```python
 class Node:
     def __init__(self, value = None, next = None):
@@ -1583,6 +1581,9 @@ f.enfiler('Lundi')
 f.enfiler('Mardi')
 f.enfiler('Mercredi')
 ```
+Tester
+
+Ajouter deux fonctions taille2(file) sommet2(file)
 
 Tester
 
