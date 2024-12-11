@@ -601,7 +601,7 @@ Quel est le problème ?
 
 **Attention** : **n n'est pas la queue mais un élément de la queue**. Ce qu'on nomme queue est bien l'ensemble des valeurs derrière la tête, pas juste la première.
 
-Pour pouvoir lire la séquence de cellules, on va créer une méthode returnFinalNode récursive qui aura la charge d'afficher progressivement les valeurs des cellules et de renvoyer au final la référence de la dernière cellule de la séquence, celle qui ne possède pas d'attribut n.
+Pour pouvoir lire la séquence de cellules, on va créer une méthode returnFinalValue récursive qui aura la charge d'afficher progressivement les valeurs des cellules et de renvoyer au final la référence de la dernière cellule de la séquence, celle qui ne possède pas d'attribut n.
 
 ![Principe de la lecture de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.018.png){width=50%; : .center }
 
@@ -715,7 +715,7 @@ class Node:
     def __init__(self, value, next=None):
         # ce qui a été fait précédemment
 
-    def returnFinalNode(self):
+    def returnFinalValue(self):
         # ce qui a été fait précédemment
 
     def __str__(self): # on peut mettre __repr__ à la place pour éviter de taper print
@@ -954,16 +954,15 @@ def recupererValeur(cellule):
         return [cellule.v] + recupererValeur(cellule.n)
 
 # Programme principal
-if __name__ == '__main__':
-    di = Node("Dimanche")
-    sa = Node("Samedi", di)
-    ve = Node("Vendredi", sa)
-    je = Node("Jeudi", ve)
-    me = Node("Mercredi", je)
-    ma = Node("Mardi", me)
-    lu = Node("Lundi", ma)
-    list1 = Liste(lu)
-    print(afficherListe(list1))
+di = Node("Dimanche")
+sa = Node("Samedi", di)
+ve = Node("Vendredi", sa)
+je = Node("Jeudi", ve)
+me = Node("Mercredi", je)
+ma = Node("Mardi", me)
+lu = Node("Lundi", ma)
+list1 = Liste(lu)
+print(afficherListe(list1))
 ```
 
 **<H3 STYLE="COLOR:red;">Activité n° 24 :**  **structure liste avec de la POO, Création de la structure méthode** ```delPosition``` :</H3> Compléter la méthode.
