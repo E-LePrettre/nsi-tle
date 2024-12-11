@@ -1705,49 +1705,185 @@ La notion de *Hachage* est omiprésente en informatique et est au coeur du fon
 
 #### <H4 STYLE="COLOR:MAGENTA;"> **6.4.1. Définition d’une fonction de hachage**</H4>
 
-Une fonction de hachage est une fonction qui va calculer une empreinte unique à partir de la donnée fournie en entrée. Elle doit respecter les règles suivantes :
 
-- La longueur de l'empreinte (valeur retournée par la fonction de hachage) doit être toujours la même, indépendamment de la donnée fournie en entrée.
-- Connaissant l'empreinte, il ne doit pas être possible de reconstituer la donnée d'origine
-- des données différentes doivent donner *dans la mesure du possible* des empreintes différentes.
-- des données identiques doivent donner des empreintes identiques.
+⚓︎  
+Une fonction de hachage calcule une empreinte unique à partir de la donnée fournie en entrée. Elle doit respecter les propriétés suivantes :  
+
+1. **Longueur constante** :  
+   La longueur de l'empreinte (valeur retournée) doit être fixe, quel que soit le volume ou le contenu des données en entrée.  
+
+2. **Irréversibilité** :  
+   Il doit être impossible de retrouver la donnée d'origine à partir de l'empreinte, ce qui garantit une sécurité cryptographique.  
+
+3. **Unicité (dans la mesure du possible)** :  
+   Des données différentes doivent produire des empreintes différentes. Cependant, des collisions (deux données différentes produisant la même empreinte) peuvent exister mais doivent être minimisées.  
+
+4. **Déterminisme** :  
+   Des données identiques doivent produire des empreintes identiques à chaque calcul.  
+
+**Remarque importante** : La fonction `hash()` de Python ne garantit pas les mêmes empreintes d'une session à l'autre, car elle intègre un "salt" pour renforcer la sécurité. Pour des besoins reproductibles, on utilise des bibliothèques comme `hashlib`.  
+
+
 
 #### <H4 STYLE="COLOR:MAGENTA;"> **6.4.2. Quelques utilisations du hachage**</H4>
+⚓︎  
 
-L'utilisation la plus courante est le stockage des mots de passe dans un système informatique un peu sécurisé. En effet, lorsqu'on crée un compte sur un service en ligne, le mot de passe ne **doit pas être stocké en clair**, une empreinte est générée afin que si le service est piraté et que les comptes sont dérobés, il ne soit pas possible de reconstituer le mot de passe à partir de l'empreinte. Voici un exemple de fonctionnement d'une fonction de hachage.
+#### **Stockage sécurisé des mots de passe**  
+Lorsqu'un utilisateur crée un compte, son mot de passe ne doit jamais être stocké en clair pour des raisons de sécurité. Le mot de passe est transformé en empreinte (par exemple, via une fonction comme SHA-256) avant d'être enregistré. Si la base de données est compromise, il est presque impossible de retrouver le mot de passe original.  
 
-Nous utiliserons le hachage accessible sous *Python* au travers de la fonction hash() :
+Exemple Python avec `hashlib` pour une empreinte SHA-256 :  
+
+```python
+import hashlib
+
+password = "monMotDePasse"
+hash_object = hashlib.sha256(password.encode())
+hashed_password = hash_object.hexdigest()
+print(hashed_password)  # Empreinte unique
 ```
->>> hash("Aldébaran")
-7932194494807972993
->>> hash("Aldebaran")
--2778791670536604289
->>> hash("Andjekel Aldébaran")
--8861304277632426640
+
+#### **Détection des modifications dans un fichier**  
+En calculant l'empreinte d'un fichier à un moment donné, on peut détecter si ce fichier a été modifié ultérieurement. C'est une méthode utilisée par les systèmes de contrôle de versions ou les logiciels de vérification d'intégrité (ex : `md5sum`, `sha256sum`).  
+
+Exemple d'utilisation avec Python :  
+```python
+import hashlib
+
+def hash_file(filename):
+    hasher = hashlib.sha256()
+    with open(filename, 'rb') as f:
+        while chunk := f.read(8192):  # Lecture par blocs
+            hasher.update(chunk)
+    return hasher.hexdigest()
+
+print(hash_file("monFichier.txt"))
 ```
 
-On constate bien sur cet exemple que :
+#### **Autres usages courants** :  
+- **Indexation et recherche rapide** (dans les bases de données ou dictionnaires).  
+- **Cryptographie** : Les fonctions de hachage jouent un rôle clé dans les signatures numériques et la blockchain.  
+- **Vérification des téléchargements** : Les empreintes permettent de s'assurer qu'un fichier n'a pas été altéré pendant son transfert.  
 
-- toutes les empreintes ont la même longueur
-- un petit changement dans la valeur d'entrée fournit une empreinte totalement différentes
+---
 
-Une autre utilisation du hachage est la détection de la modification d'un fichier.
+#### <H4 STYLE="COLOR:MAGENTA;"> **6.4.3. Table de hachage** </H4>
+⚓︎  
 
-Ainsi la fonction de hachage peut mettre en évidence des différences qui seraient invisibles à l'oeil nu.
+Une table de hachage est une structure de données clé-valeur qui permet un accès rapide aux éléments.  
 
-#### <H4 STYLE="COLOR:MAGENTA;"> **6.4.3. Table de Hachage**</H4>
+##### **Principe** :  
+Chaque clé est transformée en un indice via une fonction de hachage, permettant d'accéder directement à la valeur correspondante.  
+
+**Exemple simplifié de fonctionnement en Python** :  
+```python
+dictionnaire = {"nom": "Alice", "âge": 30}
+print(dictionnaire["nom"])  # Recherche rapide grâce à une table de hachage
+```
+
+##### **Caractéristiques** :  
+1. **Complexité en temps constant** :  
+   L'accès à un élément dans une table de hachage est en moyenne constant, \( O(1) \), indépendamment de la taille de la table.  
+
+2. **Gestion des collisions** :  
+   Lorsque deux clés différentes produisent le même indice (collision), des techniques comme le chaînage ou l'adressage ouvert sont utilisées pour résoudre le conflit.  
+
+##### **Comparaison avec d'autres structures** :  
+- Dans un tableau ou une liste chaînée, la recherche est proportionnelle au nombre d'éléments (\( O(n) \)).  
+- Une table de hachage est donc beaucoup plus rapide pour la recherche sur des clés.  
 
 Regardez la vidéo ci-dessous sur les tables de hachage.
 
 Tables de hash : <https://ladigitale.dev/digiview/#/v/66bcbaf4e545d>
 
-Ce qui est important à retenir c'est que la recherche dans une table de hachage **est indépendante du nombre d'éléments dans cette table.**
+##### **Les limites des fonctions de hachage :**  
+   - Elles ne garantissent pas l'absence totale de collisions.  
+   - Leur efficacité dépend de la qualité de la fonction de hachage choisie.  
 
-Dans un tableau ou une liste chaînée au contraire, la recherche d'un élément prend un temps **proportionnel** au nombre d'éléments dans la structure.
 
-Dans un dictionnaire, les clés sont stockées dans une table de hachage, ce qui explique le fait que le dictionnaire est optimisé pour la recherche sur les clés.
+##### **Exemples de fonctions de hachage populaires :**  
+
+- MD5 (désormais considéré comme obsolète en cryptographie). 
+
+- SHA-1 (déprécié pour des raisons de sécurité).  
+
+**Longueur de l'empreinte** : SHA-1 produit une empreinte de 160 bits (40 caractères hexadécimaux).  
+
+**Pourquoi elle est dépréciée ?**  
+  SHA-1 n'est plus considéré comme sécurisé, car des chercheurs ont trouvé des moyens de générer des **collisions** (deux données différentes produisant la même empreinte) en un temps raisonnable avec des ressources informatiques modernes. Cela rend SHA-1 inadapté pour des usages sensibles comme la cryptographie ou la vérification d'intégrité.  
+
+**Exemple** :  
+```python
+import hashlib
+
+data = "Message important"
+hash_object = hashlib.sha1(data.encode())
+sha1_hash = hash_object.hexdigest()
+print(sha1_hash)  # Exemple d'empreinte : a5e64f98b819a40e05d15ec2cbd7d25544f6f435
+```
+
+
+- SHA-256 (très courant et plus sécurisé)
+
+**Longueur de l'empreinte** : SHA-256 produit une empreinte de 256 bits (64 caractères hexadécimaux).  
+
+**Pourquoi est-il utilisé ?**  
+  SHA-256 est beaucoup plus robuste que SHA-1, car il est conçu pour éviter les collisions et les attaques par force brute. Il est largement utilisé dans des domaines sensibles comme la sécurité informatique, la blockchain, et les signatures numériques.  
+
+**Exemple** :  
+```python
+import hashlib
+
+data = "Message important"
+hash_object = hashlib.sha256(data.encode())
+sha256_hash = hash_object.hexdigest()
+print(sha256_hash)  # Exemple d'empreinte : 9e31b9c8c694b1616dfd28481f54741a421d2481a18c62e531b34a79b36520b4
+```
+
+
+
+##### **Applications simples :**
+
+1 **Vérification d'intégrité des fichiers :**
+   - Avant de télécharger un fichier (par exemple un logiciel), on vous fournit une empreinte (souvent en SHA-256).  
+   - Après le téléchargement, vous calculez l'empreinte de votre fichier et vérifiez qu'elle correspond à celle fournie.  
+   - **But** : S'assurer que le fichier n'a pas été modifié ou corrompu pendant le transfert.
+
+   **Exemple pratique :**  
+   Vous téléchargez un fichier "important.iso" et l'empreinte fournie par le site est :  
+   `d2a6c7b04f09d856a0e6b7a4c5d4c8c9d9e8f7e2e67f6c98d8c7e4b5c4d3b2a1`  
+   Vous calculez ensuite :  
+   ```python
+   hash_file = hashlib.sha256(open("important.iso", "rb").read()).hexdigest()
+   print(hash_file)
+   ```  
+   Si les deux empreintes sont identiques, le fichier est fiable.
+
+---
+
+2 **Stockage sécurisé des mots de passe :**
+   - Quand un utilisateur crée un compte, son mot de passe n'est jamais stocké directement. Au lieu de cela, une empreinte est générée avec SHA-256 (ou une version améliorée comme PBKDF2).  
+   - Quand l'utilisateur se connecte, son mot de passe saisi est haché et comparé à l'empreinte stockée. Si elles correspondent, l'accès est accordé.  
+
+   **Pourquoi ne pas stocker les mots de passe en clair ?**  
+   Si une base de données est piratée, les mots de passe sont protégés, car il est pratiquement impossible de retrouver l'original à partir de l'empreinte.  
+
+   **Exemple simple :**  
+   ```python
+   def store_password(password):
+       hash_object = hashlib.sha256(password.encode())
+       return hash_object.hexdigest()
+
+   stored_hash = store_password("motDePasse123")
+   print(stored_hash)
+   # Empreinte stockée : d2d2d2c7e9d3f4d4c8e7c7e5a6d3e4b8d7c9f6a4b6e4c8e2
+   ```
+
+
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667943"></a>**6.5. Rappel : Utilisation des dictionnaires en Python**</H3>
+
+
+Dans un dictionnaire, les clés sont stockées dans une table de hachage, ce qui explique le fait que le dictionnaire est optimisé pour la recherche sur les clés.
 
 Vous pouvez à présent regarder la vidéo suivante afin de vous reviser la manipulation des dictionnaires en python.
 
