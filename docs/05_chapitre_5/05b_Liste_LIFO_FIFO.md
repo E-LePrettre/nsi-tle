@@ -1763,9 +1763,7 @@ def hash_file(filename):
 
 print(hash_file("monFichier.txt"))
 ```
-???+ question "Tester ce qui est proposé"
 
-    {{ IDE() }}
 
 
 #### **Autres usages courants** :  
