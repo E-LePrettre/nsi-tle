@@ -1473,55 +1473,118 @@ Cette implémentation est très **peu efficace**
 
 **Sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé file\_POO.py**
 
-**<H3 STYLE="COLOR:red;">Activité n° 39 : Structure pile avec la POO et les listes chainées :**</H3> Tester cette implémentation **sur python tutor**
+**<H3 STYLE="COLOR:red;">Activité n° 39 : Structure pile avec la POO et les listes chainées :**</H3> COmpléter le constructeur de Node
 
 ```python
-'''Implémentation de type abstrait File avec la POO 
-et les listes chainées et deux classes'''
+'''Implémentation de type abstrait File avec la POO et les listes chainées et deux classes'''
 
 class Node:
     def __init__(self, value = None, next = None):
-        self.v = value
-        self.n = next
+        pass
+```
+
+Compléter le constructeur de la class File
+```python
+class Node:
+    def __init__(self, value = None, next = None):
+        pass
 
 class File:
     def __init__(self, c=None):
-        self.cellule = c
+        pass
+```
+Tester
+```
+f = File()
+```
+Completer les 3 méthodes : estVide(), enfiler() et defiler()
+
+Tester
+```
+f = File()
+assert f.estVide() == True
+f.enfiler('Lundi')
+f.enfiler('Mardi')
+f.enfiler('Mercredi')
+assert f.estVide() == False
+assert f.defiler() == 'Lundi'
+assert f.defiler() == 'Mardi'
+assert f.defiler() == 'Mercredi'
+assert f.defiler() == 'File vide'
+```
+Compléter la méthode \_\_str\_\_.Attention c'est un peu plus compliqué
+```python
+class Node:
+    def __init__(self, value = None, next = None):
+        pass
+
+class File:
+    def __init__(self, c=None):
+        pass
 
     def estVide(self):
-        return self.cellule is None
+        pass
 
     def enfiler(self, element):
-        if self.estVide():
-            self.cellule = Node(element)
-        else:
-            tmp = self.cellule
-            while tmp.n != None :
-                tmp = tmp.n
-            tmp.n = Node(element)
+        pass
 
     def defiler(self):
-        try:
-            val = self.cellule.v
-            self.cellule = self.cellule.n
-            return val
-        except:
-            return 'File vide'
-
-
-# Programme principal
-if __name__ == '__main__':
-    ma_file = File()
-    assert ma_file.estVide() == True
-    ma_file.enfiler('Lundi')
-    ma_file.enfiler('Mardi')
-    ma_file.enfiler('Mercredi')
-    assert ma_file.estVide() == False
-    assert ma_file.defiler() == 'Lundi'
-    assert ma_file.defiler() == 'Mardi'
-    assert ma_file.defiler() == 'Mercredi'
-    assert ma_file.defiler() == 'File vide'
+        pass
+    
+    def __str__(self):
+        pass
+    
+f = File()
+assert f.estVide() == True
+f.enfiler('Lundi')
+f.enfiler('Mardi')
+f.enfiler('Mercredi')
 ```
+Compléter les 2 méthodes suivante : taille() et sommet()
+
+Tester
+
+Ajouter deux fonctions taille(file) sommet(file)
+```python
+class Node:
+    def __init__(self, value = None, next = None):
+        pass
+
+class File:
+    def __init__(self, c=None):
+        pass
+
+    def estVide(self):
+        pass
+
+    def enfiler(self, element):
+        pass
+
+    def defiler(self):
+        pass
+    
+    def __str__(self):
+        pass
+    
+    def taille(self):
+        pass
+    
+    def sommet(self):
+        pass
+
+    
+f = File()
+assert f.estVide() == True
+f.enfiler('Lundi')
+f.enfiler('Mardi')
+f.enfiler('Mercredi')
+```
+
+Tester
+
+Ajouter une fonction afficherFile(file)
+
+Tester
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667936"></a>**5.5. Autre implémentation des files avec les bibliothèques de Python**</H3>
 
