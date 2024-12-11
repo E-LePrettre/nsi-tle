@@ -1279,7 +1279,7 @@ def recupererValeur(cellule):
         return [cellule.v] + recupererValeur(cellule.n)
 ```
 
-**<H3 STYLE="COLOR:red;">Activité n° 33 : Structure pile avec la POO et les listes chainée version 2 classes :**</H3> rajouter aux structures précédentes deux fonctions ```taille``` et ```sommet``` qui permettent le retourner la taille et de retourner le sommet de la pile
+**<H3 STYLE="COLOR:red;">Activité n° 33 : Structure pile avec la POO et les listes chainée version 2 classes :**</H3> rajouter aux structures précédentes deux méthodes ```taille``` et ```sommet``` qui permettent le retourner la taille et de retourner le sommet de la pile
 
 ```python
     def taille(self) :
@@ -1296,6 +1296,7 @@ if __name__ == '__main__':
     print(p.taille())
     print(p.sommet())
 ```
+**<H3 STYLE="COLOR:red;">Activité  : Structure pile avec la POO et les listes chainée version 2 classes :**</H3> rajouter aux structures précédentes deux fonctions ```taille``` et ```sommet``` qui permettent le retourner la taille et de retourner le sommet de la pile
 
 - **Pour plus de fonctions…. => EXERCICE**
 
