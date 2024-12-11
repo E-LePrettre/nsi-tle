@@ -1861,11 +1861,15 @@ print(sha256_hash)  # Exemple d'empreinte : 9e31b9c8c694b1616dfd28481f54741a421d
 ##### **Applications simples :**
 
 1 **Vérification d'intégrité des fichiers :**
-   - Avant de télécharger un fichier (par exemple un logiciel), on vous fournit une empreinte (souvent en SHA-256).  
-   - Après le téléchargement, vous calculez l'empreinte de votre fichier et vérifiez qu'elle correspond à celle fournie.  
+
+   - Avant de télécharger un fichier (par exemple un logiciel), on vous fournit une empreinte (souvent en SHA-256). 
+
+   - Après le téléchargement, vous calculez l'empreinte de votre fichier et vérifiez qu'elle correspond à celle fournie. 
+
    - **But** : S'assurer que le fichier n'a pas été modifié ou corrompu pendant le transfert.
 
    **Exemple pratique :**  
+
    Vous téléchargez un fichier "important.iso" et l'empreinte fournie par le site est :  
    `d2a6c7b04f09d856a0e6b7a4c5d4c8c9d9e8f7e2e67f6c98d8c7e4b5c4d3b2a1`  
    Vous calculez ensuite :  
@@ -1878,10 +1882,13 @@ print(sha256_hash)  # Exemple d'empreinte : 9e31b9c8c694b1616dfd28481f54741a421d
 ---
 
 2 **Stockage sécurisé des mots de passe :**
+
    - Quand un utilisateur crée un compte, son mot de passe n'est jamais stocké directement. Au lieu de cela, une empreinte est générée avec SHA-256 (ou une version améliorée comme PBKDF2).  
+
    - Quand l'utilisateur se connecte, son mot de passe saisi est haché et comparé à l'empreinte stockée. Si elles correspondent, l'accès est accordé.  
 
    **Pourquoi ne pas stocker les mots de passe en clair ?**  
+   
    Si une base de données est piratée, les mots de passe sont protégés, car il est pratiquement impossible de retrouver l'original à partir de l'empreinte.  
 
    **Exemple simple :**  
