@@ -1126,84 +1126,84 @@ if __name__ == '__main__':
 
 !!! question Structure pile avec la POO et les lists de Python :
 
-**<H3 STYLE="COLOR:red;">Activité n° 28 : Structure pile avec la POO et les lists de Python :**</H3> 
+    **<H3 STYLE="COLOR:red;">Activité n° 28 : Structure pile avec la POO et les lists de Python :**</H3> 
 
 
-Créer une classe Pile qui construit une liste vide, puis compléter les autres méthodes de la classe  :
+    Créer une classe Pile qui construit une liste vide, puis compléter les autres méthodes de la classe  :
 
-```python
-'''Implémentation 3 de type abstrait Liste en utilisant la POO et les listes de Python'''
+    ```python
+    '''Implémentation 3 de type abstrait Liste en utilisant la POO et les listes de Python'''
 
-class Pile:
-    '''Classe permettant de créer des piles'''
-    def __init__(self):
-        pass
+    class Pile:
+        '''Classe permettant de créer des piles'''
+        def __init__(self):
+            pass
 
-    def estVide(self) :
-        pass
+        def estVide(self) :
+            pass
 
-    def empiler(self, element) :
-        # 1ère version
-        # self.pile.append(element)
-        # 2ème version
-        pass
+        def empiler(self, element) :
+            # 1ère version
+            # self.pile.append(element)
+            # 2ème version
+            pass
 
-    def depiler(self):
-        
-        # 1ère version
-        # return self.pile.pop() # ou self.pile.pop(-1)
-        # 2ème version
-        pass
+        def depiler(self):
+            
+            # 1ère version
+            # return self.pile.pop() # ou self.pile.pop(-1)
+            # 2ème version
+            pass
 
-if __name__ == '__main__':
-    p = Pile()
-    for i in range(4):
-        p.empiler(2 * i)
-```
-Tester :
-```
->>> p.estVide() 
->>> p.depiler()
->>> p.depiler()
->>> p.depiler()
->>> p.depiler()
->>> p.depiler()
-```
+    if __name__ == '__main__':
+        p = Pile()
+        for i in range(4):
+            p.empiler(2 * i)
+    ```
+    Tester :
+    ```
+    >>> p.estVide() 
+    >>> p.depiler()
+    >>> p.depiler()
+    >>> p.depiler()
+    >>> p.depiler()
+    >>> p.depiler()
+    ```
 
-**<H3 STYLE="COLOR:red;">Activité n° 29 : Structure pile avec la POO et les lists de Python:**</H3> On va rajouter à la structure de base précédente deux méthodes de la classe Pile : ```taille``` et ```sommet``` qui permettent respectivement de retourner la taille de la pile (**sans utiliser la fonction de python len !!**) et le sommet de la pile (**sans utiliser les indices !!**). On ne pourra utiliser seulement les fonctions primitives précédentes et en devra récupérer la pile originelle telle qu’elle était.
+    **<H3 STYLE="COLOR:red;">Activité n° 29 : Structure pile avec la POO et les lists de Python:**</H3> On va rajouter à la structure de base précédente deux méthodes de la classe Pile : ```taille``` et ```sommet``` qui permettent respectivement de retourner la taille de la pile (**sans utiliser la fonction de python len !!**) et le sommet de la pile (**sans utiliser les indices !!**). On ne pourra utiliser seulement les fonctions primitives précédentes et en devra récupérer la pile originelle telle qu’elle était.
 
-On pourra s’aider d’une  pile auxiliaire.
-```python
-    def taille(self):
-        pass
+    On pourra s’aider d’une  pile auxiliaire.
+    ```python
+        def taille(self):
+            pass
 
-    def sommet(self):
-        pass 
+        def sommet(self):
+            pass 
 
-if __name__ == '__main__':
-    p = Pile()
-    for i in range(4):
-        p.empiler(2 * i)
-```
-Tester
-```
->>> p.taille()
->>> p.sommet()
-```
+    if __name__ == '__main__':
+        p = Pile()
+        for i in range(4):
+            p.empiler(2 * i)
+    ```
+    Tester
+    ```
+    >>> p.taille()
+    >>> p.sommet()
+    ```
 
-Ici, **tous les coûts d’exécution sont unitaires.**
+    Ici, **tous les coûts d’exécution sont unitaires.**
 
-**<H3 STYLE="COLOR:red;">Activité n° 30 : Structure pile avec la POO et les lists de Python:**</H3> On va rajouter à la structure une méthode de la classe Pile : afficher qui permet d’afficher (retourner) la pile sous forme de liste .
+    **<H3 STYLE="COLOR:red;">Activité n° 30 : Structure pile avec la POO et les lists de Python:**</H3> On va rajouter à la structure une méthode de la classe Pile : afficher qui permet d’afficher (retourner) la pile sous forme de liste .
 
-```python
-    def afficher(self):
-        pass
-```
-Tester :
-```
->>> p.afficher()
-[0, 2, 4, 6, 8]
-```
+    ```python
+        def afficher(self):
+            pass
+    ```
+    Tester :
+    ```
+    >>> p.afficher()
+    [0, 2, 4, 6, 8]
+    ``
 !!!
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667930"></a>**4.4. ❤️3<sup>ème</sup> implémentation de la structure pile avec la POO et les listes chainée❤️**</H3>
