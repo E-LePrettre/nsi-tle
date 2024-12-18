@@ -2202,11 +2202,11 @@ print(sha256_hash)  # Exemple d'empreinte : 9e31b9c8c694b1616dfd28481f54741a421d
 
     Le dictionnaire est donc une **structure de données optimisée** pour la recherche sur les clés.
 
-    ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667944"></a>**6.6. La complexité**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667944"></a>**6.6. La complexité**</H3>
 
-    ![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.039.png){width=50%; : .center }
+![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.039.png){width=50%; : .center }
 
-    Dans les deux cas ce n’est pas très efficace : on voudrait une **complexité logarithmique de toutes ces opérations**. On peut faire cela en utilisant des structures de données : **les arbres binaires**
+Dans les deux cas ce n’est pas très efficace : on voudrait une **complexité logarithmique de toutes ces opérations**. On peut faire cela en utilisant des structures de données : **les arbres binaires**
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc151667945"></a>**7. Exercices**</H2>
 
