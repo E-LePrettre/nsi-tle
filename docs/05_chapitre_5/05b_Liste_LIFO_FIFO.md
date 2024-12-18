@@ -2363,6 +2363,40 @@ ateur. li faut stocker le résultat intermédiaire dans la structure pour effect
 
 Note : On supposera également que la syntaxe en NPI est correcte.
 
+```python
+def evaluer_npi(pile):
+    # Pile pour stocker les opérandes
+    p = []
+
+    pass
+
+
+    return p.pop()
+
+
+pile = [3, 2, "+", 13, "*"]
+assert evaluer_npi(pile) == 65
+
+pile = [4, 5, "+", 2, "*"]
+assert evaluer_npi(pile) == 18
+
+pile = [10, 2, "/"]
+assert evaluer_npi(pile) == 5
+
+pile = [15, 7, "-", 1, "+"]
+assert evaluer_npi(pile) == 9
+
+pile = [15, 7, 1, 1, "+", "-", "/", 3, "*", 2, 1, 1, "+", "+", "-"]
+assert evaluer_npi(pile) == 5
+
+pile = [10, 0, "/"]
+try:
+    evaluer_npi(pile)
+except AssertionError as e:
+    assert str(e) == "Division par zéro impossible."
+
+```
+
 **<H3 STYLE="COLOR:red;">Exercice n°4 : Types abstraits**</H3>
 
 1\. Quelle opération ne fait pas partie de l'interface d'une pile ?
@@ -2432,9 +2466,48 @@ Nous allons réaliser une classe Pile en utilisant une liste Python. Voici le co
 
 ```python
 class Pile:
-   """Structure  de  pile"""
-   def init (self): 
-      self.contenu = []
+    """Structure  de  pile"""
+    def init (self): 
+        self.contenu = []
+        
+    # à compléter   
+        
+    def __str__(self):
+        return " -> ".join(map(str, reversed(self.contenu)))
+
+# Création d'une instance de la pile
+p = Pile()
+
+# Vérifier si la pile est vide
+print(p.est_vide())  # True
+
+# Empiler des éléments
+p.empiler(10)
+p.empiler(20)
+p.empiler(30)
+print(p)  # 30 -> 20 -> 10
+
+# Dépiler des éléments
+print(p.depiler())  # 30
+print(p)  # 20 -> 10
+
+# Empiler un nouvel élément
+p.empiler(40)
+print(p)  # 40 -> 20 -> 10
+
+# Dépiler jusqu'à vider la pile
+print(p.depiler())  # 40
+print(p.depiler())  # 20
+print(p.depiler())  # 10
+print(p.est_vide())  # True
+
+# Tentative de dépiler une pile vide
+try:
+    p.depiler()
+except IndexError as e:
+    print("Erreur :", e)  # La pile est vide
+        
+    
 ```
 
 1 Implémentez la méthode est\_vide(self) qui retourne True si la Pile est vide et False sinon.
@@ -2447,6 +2520,24 @@ class Pile:
    1. sinon, retire l’élément au sommet de la pile et le retourne.
 
 4 **Bonus :** Vous pouvez implémenter la méthode spéciale str (self)
+
+```python
+    def __str__(self):
+        return "Pile : " + " -> ".join(map(str, reversed(self.contenu)))
+```  
+
+1. reversed(self.contenu) :
+reversed() est une fonction Python qui retourne un itérateur avec les éléments de la liste dans l'ordre inverse.
+Cela est nécessaire car dans une pile (LIFO), le dernier élément ajouté est en haut, donc on souhaite afficher les éléments du sommet vers la base.
+
+2. map(str, reversed(self.contenu)) :
+map est une fonction Python qui applique une fonction à chaque élément d'une collection (liste, itérateur, etc.).
+Ici, map(str, ...) convertit chaque élément retourné par reversed(self.contenu) en chaîne de caractères (str).
+Pourquoi utiliser map ? Cela évite de devoir écrire une boucle pour convertir chaque élément en chaîne de caractères.
+
+3. " -> ".join(...) :
+join est une méthode des chaînes de caractères en Python.
+Elle prend une liste de chaînes en entrée et concatène tous les éléments en insérant la chaîne spécifiée (ici " -> ") entre eux.
 
 **<H3 STYLE="COLOR:red;">Exercice n°8 : File en deux piles**</H3>
 
