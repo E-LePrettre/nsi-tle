@@ -413,7 +413,7 @@ Il est possible « d’enchaîner » les cons et d’obtenir ce genre de struc
     Un coût (dans le pire des cas) linéaire en lecture et en insertion. Pas terrible. Regardons si on peut faire mieux.
 
 
-!!! info "Capytale : Structure liste (chainée) avec les lists de Python"
+!!! question "Capytale : Structure liste (chainée) avec les lists de Python"
 
     ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667924"></a>**3.4. ❤️2<sup>ème</sup> implémentation de la structure liste (chainée) avec les lists de Python❤️**</H3>
 
@@ -1037,24 +1037,21 @@ Soit une pile P composée des éléments suivants : 12, 14, 8, 7, 19 et 22 (le s
 
 **Remarque** : Pour lire le sommet de la pile sans modifier la pile, on doit le dépiler et le rempiler.
 
-!!! question "Structure pile avec les listes de Python"
+!!! question "Capytale : Structure pile avec les listes de Python"
 
     ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667928"></a>**4.2. ❤️1<sup>ère</sup> implémentation de la structure pile avec les listes de Python❤️**</H3>
 
-    **=> CAPYTALE Le code vous sera donné par votre enseignant**
-
-    **Sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé pile\_list.py**
-
+    
     Nous utiliserons une simple liste pour représenter la pile. Il se trouve que les méthodes append et pop sur les listes jouent déjà le rôle de **push (empile)** et **pop (depile)** sur les piles.
 
-    !!! question "Structure pile avec les listes"
 
     **<H3 STYLE="COLOR:red;">Activité n° 26 : Structure pile avec les listes :**</H3> Compléter la **structure de base** suivante :
 
     **Remarque** : La fonction empiler ne renvoie rien.
 
     **Attention**
-    pile += [element] (opérateur d'addition avec affectation):
+
+    **pile += [element] (opérateur d'addition avec affectation):**
 
     - C'est une opération sur place pour les objets mutables comme les listes.
 
@@ -1062,7 +1059,7 @@ Soit une pile P composée des éléments suivants : 12, 14, 8, 7, 19 et 22 (le s
 
     - L'objet reste le même en mémoire.
 
-    pile = pile + [element] (concaténation suivie d'affectation):
+    **pile = pile + [element] (concaténation suivie d'affectation):**
 
     - C'est une opération de création d'un nouvel objet.
 
@@ -1126,15 +1123,11 @@ Soit une pile P composée des éléments suivants : 12, 14, 8, 7, 19 et 22 (le s
         assert sommet(ma_pile) == 'Mercredi'
     ```
 
-!!! question "Structure pile avec la POO et les lists de Python :"
+!!! info "Capytale : Structure pile avec la POO et les lists de Python :"
 
     ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667929"></a>**4.3. ❤️2<sup>ème</sup> implémentation de la structure pile avec la POO et les lists de Python❤️**</H3>
 
-    **=> CAPYTALE Le code vous sera donné par votre enseignant**
-
-    **Sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé pile\_POO\_list.py**
-
-
+    
     **<H3 STYLE="COLOR:red;">Activité n° 28 : Structure pile avec la POO et les lists de Python :**</H3> 
 
 
@@ -1214,12 +1207,11 @@ Soit une pile P composée des éléments suivants : 12, 14, 8, 7, 19 et 22 (le s
     [0, 2, 4, 6, 8]
     ```
 
-!!! question "Structure pile avec la POO et les listes chainée"
+!!! question "Capytale : Structure pile avec la POO et les listes chainée"
 
     ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667930"></a>**4.4. ❤️3<sup>ème</sup> implémentation de la structure pile avec la POO et les listes chainée❤️**</H3>
 
-    **=> CAPYTALE Le code vous sera donné par votre enseignant**
-
+ 
     La version à une classe est plus simple, elle peut être suffisante, mais les puristes préfèrent la version à deux classes qui colle davantage au modèle théorique proche des listes dans lequel une pile est soit une cellule, soit une pile vide.
 
     **<H3 STYLE="COLOR:red;">Activité n° 31 : Structure pile avec la POO et les listes chainée version 1 classe :**</H3> Créer une classe Pile qui peut recevoir deux paramètres lors de l'appel du constructeur : un paramètre value et un paramètre next. Les deux valeurs transmises devront être stockées dans deux attributs nommés v et n.
@@ -1280,7 +1272,6 @@ Soit une pile P composée des éléments suivants : 12, 14, 8, 7, 19 et 22 (le s
 
     **<H3 STYLE="COLOR:red;">Activité n° 32 : Structure pile avec la POO et les listes chainée version 2 classes :**</H3> Créer une classe Node qui peut recevoir deux paramètres lors de l'appel du constructeur : un paramètre ```value``` et un paramètre ```next```. Les deux valeurs transmises devront être stockées dans deux attributs nommés ```v``` et ```n```.
 
-    **Sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé pile\_POO\_v2.py**
 
     Et compléter la structure suivante :
     ```python
@@ -1347,8 +1338,7 @@ Soit une pile P composée des éléments suivants : 12, 14, 8, 7, 19 et 22 (le s
     ```
     **<H3 STYLE="COLOR:red;">Activité  : Structure pile avec la POO et les listes chainée version 2 classes :**</H3> rajouter aux structures précédentes deux fonctions ```taille2``` et ```sommet2``` qui permettent le retourner la taille et de retourner le sommet de la pile
 
-    - **Pour plus de fonctions…. => EXERCICE**
-
+   
     **[vidéo le crépier psychorigide](https://ladigitale.dev/digiview/#/v/66b7280a8b3b5)**
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc151667931"></a>**5. Les files**</H2>
@@ -1382,66 +1372,98 @@ Les primitives communément utilisées pour manipuler des files :
 - **defiler(F)** la file F est maintenant composée des éléments suivants : 12, 14, 8, 7, et 19 (le premier élément rentré dans la file est 19 ; le dernier élément rentré dans la file est 12) 
 - si on applique **defiler(F) 6 fois de suite,** estVide(F) **renvoie vrai** 
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667933"></a>**5.2. ❤️1<sup>ère</sup> implémentation de la structure file avec les listes de Python❤️**
+!!! info "Capytale : Structure file avec les listes de Python"
 
-**=> CAPYTALE Le code vous sera donné par votre enseignant**
+    ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667933"></a>**5.2. ❤️1<sup>ère</sup> implémentation de la structure file avec les listes de Python❤️**
 
-**Sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé file\_list.py**
+    On peut utiliser une implémentation similaire à celle des piles, mais si ```defiler``` renvoie l’élément de tête, ```enfiler``` doit placer le nouvel élément à la queue de la file. Pour cela, on doit remonter toute la file. L’opération ```enfiler``` est alors en **temps linéaire**.
 
-On peut utiliser une implémentation similaire à celle des piles, mais si ```defiler``` renvoie l’élément de tête, ```enfiler``` doit placer le nouvel élément à la queue de la file. Pour cela, on doit remonter toute la file. L’opération ```enfiler``` est alors en **temps linéaire**.
+    Nous utiliserons une simple liste pour représenter la pile. 
 
-Nous utiliserons une simple liste pour représenter la pile. Là encore nous utiliserons append(x) et pop(0) pour réaliser les méthode enfiler et defiler.
+    **<H3 STYLE="COLOR:red;">Activité n° 34 : Structure file avec les listes :**</H3> Compléter la **structure de base** suivante :
 
-**<H3 STYLE="COLOR:red;">Activité n° 34 : Structure file avec les listes :**</H3> Compléter la **structure de base** suivante :
+    **Remarque** : La fonction enfiler ne renvoie rien.
 
-**Remarque** : La fonction enfiler ne renvoie rien.
-```python
-'''Implémentation de type abstrait File en utilisant les listes de Python'''
+    **Attention**
 
-def fileVide() :
+    **file += [element] (opérateur d'addition avec affectation):**
+
+    - C'est une opération sur place pour les objets mutables comme les listes.
+
+    - Cela modifie directement la liste originale référencée par file.
+
+    - L'objet reste le même en mémoire.
+
+    **file = file + [element] (concaténation suivie d'affectation):**
+
+    - C'est une opération de création d'un nouvel objet.
+
+    - L'expression file + [element] crée une nouvelle liste en concaténant file et [element].
+
+    - L'affectation file = ... fait alors pointer le nom pile vers ce nouvel objet. Mais si la variable pile est passée à la fonction par référence (comme c'est souvent le cas avec les objets mutables en Python), cela coupe le lien avec l'objet original.
+
+    De la même manière
+
+    **file = file[1:]** crée une nouvelle liste et réaffecte la variable file localement dans la fonction. Cela ne modifie pas l'objet d'origine si vous utilisez la liste en dehors de la fonction (par exemple, une liste passée en argument). Pour corriger cela, vous devez modifier la liste en place.
+
+    ```python
+    '''Implémentation de type abstrait File en utilisant les listes de Python'''
+
+    def fileVide() :
+        pass
+
+    def estVide(file) :
+        pass
+
+    def enfiler(file, element) :
+        # 1ère façon 
+        #file.append(element) 
+
+        # 2ème façon
+        pass
+
+  def defiler(file) :
+    if not estVide(file):
+        # 1ère façon 
+        # return file.pop(0)
+        
+        # 2ème façon
+        
     pass
 
-def estVide(file) :
-    pass
 
-def enfiler(file, element) :
-    pass
+    # Programme principal
+    if __name__ == '__main__':
+        ma_file = fileVide()
+        assert estVide(ma_file) == True
+        enfiler(ma_file, 'Lundi')
+        enfiler(ma_file, 'Mardi')
+        enfiler(ma_file, 'Mercredi')
+        assert estVide(ma_file) == False
+        assert defiler(ma_file) == 'Lundi'
+        assert defiler(ma_file) == 'Mardi'
+        assert defiler(ma_file) == 'Mercredi'
+        assert defiler(ma_file) == 'File vide'
+    ```
+    
+    **<H3 STYLE="COLOR:red;">Activité n° 35 : Structure file avec les listes :**</H3> On va rajouter à la structure de base précédente deux fonctions : ```taille``` et ```sommet``` qui permettent respectivement de retourner la taille de la file (**sans utiliser la fonction de python len !!**) et le sommet de la file (**sans utiliser les indices !!**). On ne pourra utiliser seulement les fonctions primitives précédentes et en devra récupérer la file originelle telle qu’elle était.
 
-def defiler(file)
-    pass
+    ```python
+    def taille(file):
+        pass
+    def sommet(file):
+        pass
 
-# Programme principal
-if __name__ == '__main__':
-    ma_file = fileVide()
-    assert estVide(ma_file) == True
-    enfiler(ma_file, 'Lundi')
-    enfiler(ma_file, 'Mardi')
-    enfiler(ma_file, 'Mercredi')
-    assert estVide(ma_file) == False
-    assert defiler(ma_file) == 'Lundi'
-    assert defiler(ma_file) == 'Mardi'
-    assert defiler(ma_file) == 'Mercredi'
-    assert defiler(ma_file) == 'File vide'
-```
-
-**<H3 STYLE="COLOR:red;">Activité n° 35 : Structure file avec les listes :**</H3> On va rajouter à la structure de base précédente deux fonctions : ```taille``` et ```sommet``` qui permettent respectivement de retourner la taille de la file (sans utiliser la fonction de python len !!) et le sommet de la file (sans utiliser les indices !!). On ne pourra utiliser seulement les fonctions primitives précédentes et en devra récupérer la file originelle telle qu’elle était.
-
-```python
-def taille(file):
-    pass
-def sommet(file):
-    pass
-
-# Programme principal
-if __name__ == '__main__':
-    ma_file = fileVide()
-   
-    enfiler(ma_file, 'Lundi')
-    enfiler(ma_file, 'Mardi')
-    enfiler(ma_file, 'Mercredi')
-    assert taille(ma_file) == 3
-    assert sommet(ma_file) == 'Lundi'
-```
+    # Programme principal
+    if __name__ == '__main__':
+        ma_file = fileVide()
+    
+        enfiler(ma_file, 'Lundi')
+        enfiler(ma_file, 'Mardi')
+        enfiler(ma_file, 'Mercredi')
+        assert taille(ma_file) == 3
+        assert sommet(ma_file) == 'Lundi'
+    ```
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667934"></a>**5.3. ❤️2<sup>ème</sup> implémentation de la structure file avec la POO et les lists de Python❤️**</H3>
 
