@@ -1124,7 +1124,7 @@ if __name__ == '__main__':
 
 **Sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé pile\_POO\_list.py**
 
-!!! question Structure pile avec la POO et les lists de Python :
+!!! question "Structure pile avec la POO et les lists de Python :"
 
     **<H3 STYLE="COLOR:red;">Activité n° 28 : Structure pile avec la POO et les lists de Python :**</H3> 
 
