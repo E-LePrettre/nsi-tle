@@ -2526,17 +2526,23 @@ except IndexError as e:
         return "Pile : " + " -> ".join(map(str, reversed(self.contenu)))
 ```  
 
-1. reversed(self.contenu) :
+**1. reversed(self.contenu) :**
+
 reversed() est une fonction Python qui retourne un itérateur avec les éléments de la liste dans l'ordre inverse.
+
 Cela est nécessaire car dans une pile (LIFO), le dernier élément ajouté est en haut, donc on souhaite afficher les éléments du sommet vers la base.
 
-2. map(str, reversed(self.contenu)) :
+**2. map(str, reversed(self.contenu)) :**
+
 map est une fonction Python qui applique une fonction à chaque élément d'une collection (liste, itérateur, etc.).
 Ici, map(str, ...) convertit chaque élément retourné par reversed(self.contenu) en chaîne de caractères (str).
+
 Pourquoi utiliser map ? Cela évite de devoir écrire une boucle pour convertir chaque élément en chaîne de caractères.
 
-3. " -> ".join(...) :
+**3. " -> ".join(...) :**
+
 join est une méthode des chaînes de caractères en Python.
+
 Elle prend une liste de chaînes en entrée et concatène tous les éléments en insérant la chaîne spécifiée (ici " -> ") entre eux.
 
 **<H3 STYLE="COLOR:red;">Exercice n°8 :** </H3> annulé
@@ -2554,12 +2560,86 @@ Ecrire une fonction prenant en paramètres :
 
 et qui retourne l’indice de la parenthèse ouvrante associée.
 
+```python
+def trouver_parenthese_ouvrante(chaine, indice_fermante):
+    pile = []  # Pile pour stocker les indices des parenthèses ouvrantes
+    pass
+
+assert trouver_parenthese_ouvrante("(a + b)", 6) == 0  
+assert trouver_parenthese_ouvrante("((a + b) * c)", 7) == 1  
+assert trouver_parenthese_ouvrante("a + (b + (c + d))", 15) == 9 
+assert trouver_parenthese_ouvrante("(a + (b + (c)))", 13) == 5 
+```
+
 **<H3 STYLE="COLOR:red;">Exercice n°10 : file et copie**</H3>
 
 Vous allez améliorer la classe file en lui ajoutant quelques fonctionnalités. Vous pouvez utiliser, comme base de travail, l’implémentation des files avec les doubles piles ou celle avec les listes chaînées  
 
-1. Ajouter la méthode spéciale len (self) qui renvoie la longueur d’une file.
-1. Ecrire une fonction copie\_file(f) recevant une file (f) comme argument et renvoyant une copie f2 de f. Attention, la file f doit (bien sûr) être conservée !
+1. Ajouter la méthode spéciale \_\_len\_\_ (self) qui renvoie la longueur d’une file.
+
+```python
+class Cellule :
+    def __init__(self, contenu, suivante):
+        pass
+
+class Pile:
+    def __init__(self):
+        pass
+
+    def est_vide(self):
+        pass
+
+    def empile(self, x):
+        pass
+
+    def depile(self):
+        pass
+
+    def __str__(self):
+        s = ""
+        c = self.data
+        while c is not None:
+            s += str(c.contenu)  # Ajouter la valeur de la cellule
+            if c.suivante is not None:  # Ajouter un séparateur si ce n'est pas le dernier élément
+                s += " -> "
+            c = c.suivante
+        return s if s else ""  # Retourner un message "" si la pile est vide
+
+class File:
+    def __init__(self):
+        self.entree = Pile()
+        self.sortie = Pile()
+
+    def est_vide(self):
+        pass
+
+    def enfile(self,x):
+        pass
+
+    def defile(self):
+        pass
+    
+    def __str__(self):
+        return str(self.entree) + " " + str(self.sortie)
+
+        
+    def __len__(self):
+        pass
+     
+
+f = File()
+f.enfile("Lundi")
+f.enfile("Mardi")
+f.enfile("Mercredi")
+f.enfile("Jeudi")
+print(len(f))
+f.defile()
+len(f)
+```
+2 Ecrire une fonction copie\_file(f) recevant une file (f) comme argument et renvoyant une copie f2 de f. Attention, la file f doit (bien sûr) être conservée !
+
+Tester avec avec f
+et la copie_file de f
 
 **<H3 STYLE="COLOR:red;">Exercice n°11 : Le problème de Josephus**</H3>
 
