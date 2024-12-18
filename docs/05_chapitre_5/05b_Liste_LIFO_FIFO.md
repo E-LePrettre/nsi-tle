@@ -413,7 +413,7 @@ Il est possible « d’enchaîner » les cons et d’obtenir ce genre de struc
     Un coût (dans le pire des cas) linéaire en lecture et en insertion. Pas terrible. Regardons si on peut faire mieux.
 
 
-!!! info "Structure liste (chainée) avec les lists de Python"
+!!! info "Capytale : Structure liste (chainée) avec les lists de Python"
 
     ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667924"></a>**3.4. ❤️2<sup>ème</sup> implémentation de la structure liste (chainée) avec les lists de Python❤️**</H3>
 
@@ -516,485 +516,485 @@ Il est possible « d’enchaîner » les cons et d’obtenir ce genre de struc
 
     On va obtenir le même effet pour l'utilisateur, si ce n'est que le code utilise les fonctionnalités de Python et que nous ne connaissons pas les coûts de ces fonctions.
 
+!!! info "Capytale : Structure liste (chainée) avec POO"
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667925"></a>**3.5. ❤️ 3<sup>ème</sup> implémentation de la structure liste (chainée) avec POO ❤️**</H3>
+    ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667925"></a>**3.5. ❤️ 3<sup>ème</sup> implémentation de la structure liste (chainée) avec POO ❤️**</H3>
 
-**=> CAPYTALE Le code vous sera donné par votre enseignant**
 
-Une liste chaînée est une liste composée **de cellules ou de mailles**, comme une chaîne en métal. Chaque maillon (ou cellule) est associé à au moins deux informations :
+    Une liste chaînée est une liste composée **de cellules ou de mailles**, comme une chaîne en métal. Chaque maillon (ou cellule) est associé à au moins deux informations :
 
-- Le **contenu** de la cellule
-- **L'adresse** ou l'identifiant de la prochaine cellule
+    - Le **contenu** de la cellule
+    - **L'adresse** ou l'identifiant de la prochaine cellule
 
-Et **c'est tout.**
+    Et **c'est tout.**
 
-Du coup, la représentation de la liste donnerait cette fois quelque chose comme ceci :
+    Du coup, la représentation de la liste donnerait cette fois quelque chose comme ceci :
 
-![Principe de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.014.png){width=50%; : .center }
+    ![Principe de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.014.png){width=50%; : .center }
 
-Les maillons (ou cellules) sont placés les uns derrière les autres, mais rien ne nous y oblige.
+    Les maillons (ou cellules) sont placés les uns derrière les autres, mais rien ne nous y oblige.
 
-Pour insérer un nouvel élément, il suffit de **rediriger la lecture vers le nouvel élément et de créer un lien entre notre nouvel élément et le suivant** dans la liste. 
+    Pour insérer un nouvel élément, il suffit de **rediriger la lecture vers le nouvel élément et de créer un lien entre notre nouvel élément et le suivant** dans la liste. 
 
-**Exemple** ci-dessous : 
+    **Exemple** ci-dessous : 
 
-![Principe de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.015.png){width=50%; : .center }
+    ![Principe de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.015.png){width=50%; : .center }
 
-Du coup, il n'y a toujours **que 2 étapes pour insérer un nouvel élément**, quel que soit la longueur de la liste. On doit donc obtenir sur nos implémentations futures, un coût d'insertion constant.
+    Du coup, il n'y a toujours **que 2 étapes pour insérer un nouvel élément**, quel que soit la longueur de la liste. On doit donc obtenir sur nos implémentations futures, un coût d'insertion constant.
 
-Pour une grosse liste :
+    Pour une grosse liste :
 
-![Principe de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.016.png){width=50%; : .center }
+    ![Principe de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.016.png){width=50%; : .center }
 
-Le changement de tête ne nécessite que **deux opérations** avec une liste chaînée (alors qu'avec un tableau, il fallait déplacer toutes les cases avant de placer l'index 0) :
+    Le changement de tête ne nécessite que **deux opérations** avec une liste chaînée (alors qu'avec un tableau, il fallait déplacer toutes les cases avant de placer l'index 0) :
 
-![Principe de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.017.png){width=50%; : .center }
+    ![Principe de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.017.png){width=50%; : .center }
 
-Le **désavantage** lors de l'implémentation va être la **lecture** : pour lire le contenu de la 5e cellule, il faut passer par la lecture des précédentes : on commence par aller à la tête qui va nous dire où aller ensuite, etc...
+    Le **désavantage** lors de l'implémentation va être la **lecture** : pour lire le contenu de la 5e cellule, il faut passer par la lecture des précédentes : on commence par aller à la tête qui va nous dire où aller ensuite, etc...
 
-L'avantage du tableau par contre, c'est qu'on trouve très rapidement le contenu associé à un index. Là, c'est à coût constant.
+    L'avantage du tableau par contre, c'est qu'on trouve très rapidement le contenu associé à un index. Là, c'est à coût constant.
 
-**Sur Thonny Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé liste\_POO.py**
 
-Une liste chainée sera donc composée d’une Cellule (Node) constituée d’une tête contenant la valeur (Value) et d’une queue (Next) qui servira de pointeur vers la Cellule suivante.
 
-#### <H4 STYLE="COLOR:MAGENTA;"> **3.5.1. Création de la Cellule Node**</H4>
+    Une liste chainée sera donc composée d’une Cellule (Node) constituée d’une tête contenant la valeur (Value) et d’une queue (Next) qui servira de pointeur vers la Cellule suivante.
 
-**<H3 STYLE="COLOR:red;">Activité 13 :**  **structure liste avec de la POO, Création de la classe Cellule :**</H3> Chaque Cellule est constituée d’une **tete** et d’un **pointeur**. Il faut donc **initialiser l’attribut value et l’attribut next**.
+    #### <H4 STYLE="COLOR:MAGENTA;"> **3.5.1. Création de la Cellule Node**</H4>
 
-Créer une classe Node qui peut recevoir deux paramètres lors de l'appel du constructeur : un paramètre value et un paramètre next. Les deux valeurs transmises devront être stockées dans deux attributs nommés v et n.
-```python
-class Node:
-    '''Classe permettant de créer des cellules-maillons basiques'''
-    def __init__(self, value, next=None):
-        pass
-```
+    **<H3 STYLE="COLOR:red;">Activité 13 :**  **structure liste avec de la POO, Création de la classe Cellule :**</H3> Chaque Cellule est constituée d’une **tete** et d’un **pointeur**. Il faut donc **initialiser l’attribut value et l’attribut next**.
 
-Tester le constructeur avec quelques créations :
-```
->>> c1 = Node(5, None)
->>> c2 = Node(15, c1)
->>> c3 = Node(25, c2)
->>> c4 = Node(35, c3)
-```
+    Créer une classe Node qui peut recevoir deux paramètres lors de l'appel du constructeur : un paramètre value et un paramètre next. Les deux valeurs transmises devront être stockées dans deux attributs nommés v et n.
+    ```python
+    class Node:
+        '''Classe permettant de créer des cellules-maillons basiques'''
+        def __init__(self, value, next=None):
+            pass
+    ```
 
-**<H3 STYLE="COLOR:red;">Activité n° 14 :**  **structure liste avec de la POO, Création de la classe Cellule :**</H3> Représenter sur feuille la structure séquentielle linéaire (schéma des cellules) créée par les instructions précédentes.
+    Tester le constructeur avec quelques créations :
+    ```
+    >>> c1 = Node(5, None)
+    >>> c2 = Node(15, c1)
+    >>> c3 = Node(25, c2)
+    >>> c4 = Node(35, c3)
+    ```
 
+    **<H3 STYLE="COLOR:red;">Activité n° 14 :**  **structure liste avec de la POO, Création de la classe Cellule :**</H3> Représenter sur feuille la structure séquentielle linéaire (schéma des cellules) créée par les instructions précédentes.
 
 
-Notre cellule possède encore un léger problème : on pourrait lui transmettre n'importe quoi sur le paramètre next, pas nécessairement quelque chose de compatible avec l'attribut n qui doit contenir un objet Node ou None. On pourrait donc **imposer** en programmation défensive que ce paramètre soit bien l'instance d'une cellule ou None. Ce sont en effet les deux possibilités.
 
-Compléter le code suivant :
-```python
-class Node:
-    '''Classe permettant de créer des cellules-maillons basiques'''
-    def __init__(self, value, next=None):
-        assert isinstance(next, ...) or next == ...
-        # ce que vous avez écrit précédement 
-```
+    Notre cellule possède encore un léger problème : on pourrait lui transmettre n'importe quoi sur le paramètre next, pas nécessairement quelque chose de compatible avec l'attribut n qui doit contenir un objet Node ou None. On pourrait donc **imposer** en programmation défensive que ce paramètre soit bien l'instance d'une cellule ou None. Ce sont en effet les deux possibilités.
 
-**<H3 STYLE="COLOR:red;">Activité n° 15 :**  **structure liste avec de la POO, Création de la classe Cellule :**</H3> tester les instructions suivantes
-```
->>> a = Node('Marie-Antoinette', None)
->>> b = Node('Louis XVI', a)
->>> c = Node('Louis XV', 'Louis XVI')
-```
+    Compléter le code suivant :
+    ```python
+    class Node:
+        '''Classe permettant de créer des cellules-maillons basiques'''
+        def __init__(self, value, next=None):
+            assert isinstance(next, ...) or next == ...
+            # ce que vous avez écrit précédement 
+    ```
 
-Quel est le problème ?
+    **<H3 STYLE="COLOR:red;">Activité n° 15 :**  **structure liste avec de la POO, Création de la classe Cellule :**</H3> tester les instructions suivantes
+    ```
+    >>> a = Node('Marie-Antoinette', None)
+    >>> b = Node('Louis XVI', a)
+    >>> c = Node('Louis XV', 'Louis XVI')
+    ```
 
+    Quel est le problème ?
 
-**Attention** : **n n'est pas la queue mais un élément de la queue**. Ce qu'on nomme queue est bien l'ensemble des valeurs derrière la tête, pas juste la première.
 
-Pour pouvoir lire la séquence de cellules, on va créer une méthode returnFinalValue récursive qui aura la charge d'afficher progressivement les valeurs des cellules et de renvoyer au final la référence de la dernière cellule de la séquence, celle qui ne possède pas d'attribut n.
+    **Attention** : **n n'est pas la queue mais un élément de la queue**. Ce qu'on nomme queue est bien l'ensemble des valeurs derrière la tête, pas juste la première.
 
-![Principe de la lecture de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.018.png){width=50%; : .center }
+    Pour pouvoir lire la séquence de cellules, on va créer une méthode returnFinalValue récursive qui aura la charge d'afficher progressivement les valeurs des cellules et de renvoyer au final la référence de la dernière cellule de la séquence, celle qui ne possède pas d'attribut n.
 
-Si on part ici de la tête qui contient le string "Lundi", on devrait lire la séquence des jours et renvoyer la référence de la dernière cellule, celle qui contient "Dimanche".
+    ![Principe de la lecture de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.018.png){width=50%; : .center }
 
-**<H3 STYLE="COLOR:red;">Activité n° 16 :**  **structure liste avec de la POO, Création de la classe Cellule méthode returnFinalValue**</H3>
+    Si on part ici de la tête qui contient le string "Lundi", on devrait lire la séquence des jours et renvoyer la référence de la dernière cellule, celle qui contient "Dimanche".
 
-**Prototype :** ```returnFinalValue(cellule:Cellule) -> valeur``` :
+    **<H3 STYLE="COLOR:red;">Activité n° 16 :**  **structure liste avec de la POO, Création de la classe Cellule méthode returnFinalValue**</H3>
 
-C'est une méthode **récursive**. Le principe est le suivant :
+    **Prototype :** ```returnFinalValue(cellule:Cellule) -> valeur``` :
 
-- Si l'attribut n de cette cellule est vide : renvoyer la valeur de la Cellule en cours d'étude. En effet, s'il n'y a pas de suite, c'est bien la dernière node.
+    C'est une méthode **récursive**. Le principe est le suivant :
 
-- Sinon : renvoyer la méthode
+    - Si l'attribut n de cette cellule est vide : renvoyer la valeur de la Cellule en cours d'étude. En effet, s'il n'y a pas de suite, c'est bien la dernière node.
 
-**Questions**
+    - Sinon : renvoyer la méthode
 
-1. Quelle est la condition d'arrêt ?
+    **Questions**
 
-2. Quel est le cas de base ?
+    1. Quelle est la condition d'arrêt ?
 
-3. Comment parvient-on à avancer dans les Cellules ? Que fait l'appel récursif ?<
+    2. Quel est le cas de base ?
 
-Mettre à jour la classe Node que vous avez créé avec le code suivant et compléter la méthode ```returnFinalValue```
-```python
-class Node:
-    '''Classe permettant de créer des cellules-maillons basiques'''
-    def __init__(self, value, next=None):
-        # ce qui a été fait précédemment
+    3. Comment parvient-on à avancer dans les Cellules ? Que fait l'appel récursif ?<
 
-    def returnFinalValue(self):
-        pass
+    Mettre à jour la classe Node que vous avez créé avec le code suivant et compléter la méthode ```returnFinalValue```
+    ```python
+    class Node:
+        '''Classe permettant de créer des cellules-maillons basiques'''
+        def __init__(self, value, next=None):
+            # ce qui a été fait précédemment
 
+        def returnFinalValue(self):
+            pass
 
-di = Node("Dimanche")
-sa = Node("Samedi", di)
-ve = Node("Vendredi", sa)
-je = Node("Jeudi", ve)
-me = Node("Mercredi", je)
-ma = Node("Mardi", me)
-lu = Node("Lundi", ma)
-```
-Tester la méthode returnFinalValue avec 
 
-- lu
+    di = Node("Dimanche")
+    sa = Node("Samedi", di)
+    ve = Node("Vendredi", sa)
+    je = Node("Jeudi", ve)
+    me = Node("Mercredi", je)
+    ma = Node("Mardi", me)
+    lu = Node("Lundi", ma)
+    ```
+    Tester la méthode returnFinalValue avec 
 
-puis
+    - lu
 
-- je
+    puis
 
-**<H3 STYLE="COLOR:red;">Activité n° 17 :**  **structure liste avec de la POO, Création de la classe Cellule méthode** ```__str__```:</H3>  On peut ajouter une méthode pour l’affichage de la Cellule (Node)
+    - je
 
-Tester l'affichage de 
-- lu
+    **<H3 STYLE="COLOR:red;">Activité n° 17 :**  **structure liste avec de la POO, Création de la classe Cellule méthode** ```__str__```:</H3>  On peut ajouter une méthode pour l’affichage de la Cellule (Node)
 
-puis
+    Tester l'affichage de 
+    - lu
 
-- je
+    puis
 
-Qu'est ce que vous remarquez ?
+    - je
 
+    Qu'est ce que vous remarquez ?
 
 
-On  va rajouter une méthode \_\_str\_\_ pour pouvoir visualiser l'ensemble de la liste chainée comme ceci 
 
-```
->>> print(lu) 
-Lundi-Mardi-Mercredi-Jeudi-Vendredi-Samedi-Dimanche
->>> print(je)
-Jeudi-Vendredi-Samedi-Dimanche
-```
+    On  va rajouter une méthode \_\_str\_\_ pour pouvoir visualiser l'ensemble de la liste chainée comme ceci 
 
-Remarque : on voit qu'il n'y a pas None à la fin!
+    ```
+    >>> print(lu) 
+    Lundi-Mardi-Mercredi-Jeudi-Vendredi-Samedi-Dimanche
+    >>> print(je)
+    Jeudi-Vendredi-Samedi-Dimanche
+    ```
 
-Recopier et compléter :
+    Remarque : on voit qu'il n'y a pas None à la fin!
 
-```python
-class Node:
-    '''Classe permettant de créer des cellules-maillons basiques'''
-    def __init__(self, value, next=None):
-        # ce qui a été fait précédemment
+    Recopier et compléter :
 
-    def returnFinalValue(self):
-        # ce qui a été fait précédemment
-    
-    def __str__(self):
-        pass
+    ```python
+    class Node:
+        '''Classe permettant de créer des cellules-maillons basiques'''
+        def __init__(self, value, next=None):
+            # ce qui a été fait précédemment
 
+        def returnFinalValue(self):
+            # ce qui a été fait précédemment
+        
+        def __str__(self):
+            pass
 
-di = Node("Dimanche")
-sa = Node("Samedi", di)
-ve = Node("Vendredi", sa)
-je = Node("Jeudi", ve)
-me = Node("Mercredi", je)
-ma = Node("Mardi", me)
-lu = Node("Lundi", ma)
-print(lu)
-print(je)
-```
 
-#### <H4 STYLE="COLOR:MAGENTA;"> **3.5.2. Création de la Liste Chainée Liste**</H4>
+    di = Node("Dimanche")
+    sa = Node("Samedi", di)
+    ve = Node("Vendredi", sa)
+    je = Node("Jeudi", ve)
+    me = Node("Mercredi", je)
+    ma = Node("Mardi", me)
+    lu = Node("Lundi", ma)
+    print(lu)
+    print(je)
+    ```
 
-**<H3 STYLE="COLOR:red;">Activité n° 18 :**  **structure liste avec de la POO, Création de la classe Liste chainée :**</H3> La première Cellule constitue l **’entête** (head). Initialement son **pointeur sera de type None**.
+    #### <H4 STYLE="COLOR:MAGENTA;"> **3.5.2. Création de la Liste Chainée Liste**</H4>
 
-Puis son pointeur sera **chainé à la deuxième Cellule** et ainsi de suite jusqu’à la dernière qui aura un **pointeur de type None** qui constituera la fin de la liste.
+    **<H3 STYLE="COLOR:red;">Activité n° 18 :**  **structure liste avec de la POO, Création de la classe Liste chainée :**</H3> La première Cellule constitue l **’entête** (head). Initialement son **pointeur sera de type None**.
 
-**Code à compléter:** Mettre à jour et  compléter le constructeur
-```python
-class Node:
-    '''Classe permettant de créer des cellules-maillons basiques'''
-    def __init__(self, value, next=None):
-        # ce qui a été fait précédemment
+    Puis son pointeur sera **chainé à la deuxième Cellule** et ainsi de suite jusqu’à la dernière qui aura un **pointeur de type None** qui constituera la fin de la liste.
 
-    def returnFinalValue(self):
-        # ce qui a été fait précédemment
+    **Code à compléter:** Mettre à jour et  compléter le constructeur
+    ```python
+    class Node:
+        '''Classe permettant de créer des cellules-maillons basiques'''
+        def __init__(self, value, next=None):
+            # ce qui a été fait précédemment
 
-    def __str__(self): # on peut mettre __repr__ à la place pour éviter de taper print
-        # ce qui a été fait précédemment
+        def returnFinalValue(self):
+            # ce qui a été fait précédemment
 
-class Liste:
-    '''Classe implémenter une Liste sous forme Liste chaînée '''
-    def __init__(self, head = None):
-        assert type(head) == ... or head == ...
-        pass
+        def __str__(self): # on peut mettre __repr__ à la place pour éviter de taper print
+            # ce qui a été fait précédemment
 
-# Programme principal
-di = Node("Dimanche")
-sa = Node("Samedi", di)
-ve = Node("Vendredi", sa)
-je = Node("Jeudi", ve)
-me = Node("Mercredi", je)
-ma = Node("Mardi", me)
-lu = Node("Lundi", ma)
-list1 = Liste(lu)
-```
+    class Liste:
+        '''Classe implémenter une Liste sous forme Liste chaînée '''
+        def __init__(self, head = None):
+            assert type(head) == ... or head == ...
+            pass
 
-**Questions :**
+    # Programme principal
+    di = Node("Dimanche")
+    sa = Node("Samedi", di)
+    ve = Node("Vendredi", sa)
+    je = Node("Jeudi", ve)
+    me = Node("Mercredi", je)
+    ma = Node("Mardi", me)
+    lu = Node("Lundi", ma)
+    list1 = Liste(lu)
+    ```
 
-1. Comment obtenir dans la console le contenu de la tête en utilisant l'objet list1 ?
+    **Questions :**
 
-2. Comment obtenir le contenu de l'élément suivant en utilisant l'objet list1 ?
+    1. Comment obtenir dans la console le contenu de la tête en utilisant l'objet list1 ?
 
-3. Comment obtenir le contenu de l'élément encore derrière en utilisant l'objet list1 ?
+    2. Comment obtenir le contenu de l'élément suivant en utilisant l'objet list1 ?
 
-Le constructeur de la classe Liste utilise type plutôt que **isinstance** (classe Node) pour vérifier que l'objet reçu est bien une instance. C'est juste pour vous **montrer qu'on peut tester cela de deux façons**
+    3. Comment obtenir le contenu de l'élément encore derrière en utilisant l'objet list1 ?
 
-#### <H4 STYLE="COLOR:MAGENTA;"> **3.5.3. Création de l’interface : Liste « souple », version mutable**</H4>
+    Le constructeur de la classe Liste utilise type plutôt que **isinstance** (classe Node) pour vérifier que l'objet reçu est bien une instance. C'est juste pour vous **montrer qu'on peut tester cela de deux façons**
 
-![Principe de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.019.png){width=50%; : .center }
+    #### <H4 STYLE="COLOR:MAGENTA;"> **3.5.3. Création de l’interface : Liste « souple », version mutable**</H4>
 
-1. ```nouvelleList() -> Liste``` : on crée une nouvelle liste vide. Cette méthode correspond au constructeur de classe Liste => pas besoin de la créer
+    ![Principe de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.019.png){width=50%; : .center }
 
-1. ```isEmpty(L:Liste) -> bool``` : renvoie un booléen qui vaut True si la liste L transmise est une liste vide.
-```
-listeA = Liste()
-isEmpty(listeA) va donc renvoyer l'équivalent de True.
-```
-1. ```insertPosition(x:Elt, L:Liste, position:int) -> None``` : on **modifie sur place** la liste : l'élément fourni x est maintenant l'élément de la liste situé en position position. On prendra ici un système de position lié à un index commençant à 0.
-```
-listeA peut être représentée par (12, 15, 18, 4)
+    1. ```nouvelleList() -> Liste``` : on crée une nouvelle liste vide. Cette méthode correspond au constructeur de classe Liste => pas besoin de la créer
 
-insertPosition(5, listeA, 2)
-listeA peut alors être représentée par (12, 15, 5, 18, 4).
-```
-1. ```delPosition(L:Liste, position:int) -> None``` : on **modifie sur place** la liste : l'élément en position position est supprimé, rendant la liste moins longue.
-```
-listeA peut être représentée par (12, 15, 18, 4)
+    1. ```isEmpty(L:Liste) -> bool``` : renvoie un booléen qui vaut True si la liste L transmise est une liste vide.
+    ```
+    listeA = Liste()
+    isEmpty(listeA) va donc renvoyer l'équivalent de True.
+    ```
+    1. ```insertPosition(x:Elt, L:Liste, position:int) -> None``` : on **modifie sur place** la liste : l'élément fourni x est maintenant l'élément de la liste situé en position position. On prendra ici un système de position lié à un index commençant à 0.
+    ```
+    listeA peut être représentée par (12, 15, 18, 4)
 
-delPosition(listeA, 1)
-listeA peut alors être représentée par (12, 18, 4).
-```
-1. ```readPosition(L:Liste, position:int) -> Elt``` : on **renvoie** l'élément stocké en position position
-```
-listeA peut être représentée par (12, 15, 18, 4)
+    insertPosition(5, listeA, 2)
+    listeA peut alors être représentée par (12, 15, 5, 18, 4).
+    ```
+    1. ```delPosition(L:Liste, position:int) -> None``` : on **modifie sur place** la liste : l'élément en position position est supprimé, rendant la liste moins longue.
+    ```
+    listeA peut être représentée par (12, 15, 18, 4)
 
-reponse = readPosition(listeA, 1)
-reponse peut alors être représentée par 15.
-```
+    delPosition(listeA, 1)
+    listeA peut alors être représentée par (12, 18, 4).
+    ```
+    1. ```readPosition(L:Liste, position:int) -> Elt``` : on **renvoie** l'élément stocké en position position
+    ```
+    listeA peut être représentée par (12, 15, 18, 4)
 
-**<H3 STYLE="COLOR:red;">Activité n° 19 :**  **structure liste avec de la POO, Création de la structure méthode** ```isEmpty``` :</H3> Créer la méthode d'interface ```isEmpty```. Votre méthode devra bien entendu travailler avec la classe Liste. On ira lire directement son attribut head, sans respect aucun pour l'encapsulation de l'objet. Ajouter la méthode à la classe Liste :
-```python 
-def isEmpty(self):
-   pass
-```
-Tester
-```
->>> list1.isEmpty()
-False
->>> list2 = Liste()
->>> list2.isEmpty()
-True
-```
+    reponse = readPosition(listeA, 1)
+    reponse peut alors être représentée par 15.
+    ```
 
-**<H3 STYLE="COLOR:red;">Activité n° 20 :**  **structure liste avec de la POO, Création de la structure méthode** ```insertHead```:</H3> Créer une méthode d’interface ```insertHead```. La solution est : 
-
-- de mémoriser l’ancienne entête dans variable temporaire temporary, 
-
-- Créer une instance de Node dont la valeur stockée est newData et qui pointe en sortie vers l’ancienne tête
-
-- Modifier l’attribut head de la Liste pour qu’il corresponde bien à la nouvelle instance de Node
-
-Ajouter la méthode à la classe Liste :
-```python
-def insertHead(self, newData): 
+    **<H3 STYLE="COLOR:red;">Activité n° 19 :**  **structure liste avec de la POO, Création de la structure méthode** ```isEmpty``` :</H3> Créer la méthode d'interface ```isEmpty```. Votre méthode devra bien entendu travailler avec la classe Liste. On ira lire directement son attribut head, sans respect aucun pour l'encapsulation de l'objet. Ajouter la méthode à la classe Liste :
+    ```python 
+    def isEmpty(self):
     pass
-```
-Tester :
-```
->>> list1.insertHead('sunday')
->>> list1.insertHead('saturday')
->>> list1.head.v
-'saturday'
->>> list1.head.n.v
-'sunday'
->>> list1.head.n.n.v
-'Lundi'
->>> list1.head.n.n.n.v
-'Mardi'
-```
+    ```
+    Tester
+    ```
+    >>> list1.isEmpty()
+    False
+    >>> list2 = Liste()
+    >>> list2.isEmpty()
+    True
+    ```
 
-Pour réaliser la méthode insertPosition :
+    **<H3 STYLE="COLOR:red;">Activité n° 20 :**  **structure liste avec de la POO, Création de la structure méthode** ```insertHead```:</H3> Créer une méthode d’interface ```insertHead```. La solution est : 
 
-Par exemple, pour insérer une Cellule en position 2, il faudra :
+    - de mémoriser l’ancienne entête dans variable temporaire temporary, 
 
-- Mémoriser l'adresse nommée **predecesseur** de l'élément en position 1 (celle de contenu B ici)
+    - Créer une instance de Node dont la valeur stockée est newData et qui pointe en sortie vers l’ancienne tête
 
-- Mémoriser l'adresse nommée **successeur** de l'élément en position 2 actuellement (celle de contenu C ici).
+    - Modifier l’attribut head de la Liste pour qu’il corresponde bien à la nouvelle instance de Node
 
-- Créer une nouvelle cellule **nouvelle** (celle de contenu Z ici) et la faire pointer vers **successeur**.
+    Ajouter la méthode à la classe Liste :
+    ```python
+    def insertHead(self, newData): 
+        pass
+    ```
+    Tester :
+    ```
+    >>> list1.insertHead('sunday')
+    >>> list1.insertHead('saturday')
+    >>> list1.head.v
+    'saturday'
+    >>> list1.head.n.v
+    'sunday'
+    >>> list1.head.n.n.v
+    'Lundi'
+    >>> list1.head.n.n.n.v
+    'Mardi'
+    ```
 
-- Faire pointer **predecesseur** sur notre **nouvelle** cellule.
+    Pour réaliser la méthode insertPosition :
 
-Avant d'insérer la nouvelle Cellule en position2, il faut mémoriser les identifiants des cellules contenant B (**predecesseur**, "index" 1) et C (**successeur**, "index" 2).
+    Par exemple, pour insérer une Cellule en position 2, il faudra :
 
-![Principe de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.020.png){width=50%; : .center }
+    - Mémoriser l'adresse nommée **predecesseur** de l'élément en position 1 (celle de contenu B ici)
 
+    - Mémoriser l'adresse nommée **successeur** de l'élément en position 2 actuellement (celle de contenu C ici).
 
-Après modification,
+    - Créer une nouvelle cellule **nouvelle** (celle de contenu Z ici) et la faire pointer vers **successeur**.
 
-![Principe de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.021.png){width=50%; : .center }
+    - Faire pointer **predecesseur** sur notre **nouvelle** cellule.
 
-Quelques précisions :
+    Avant d'insérer la nouvelle Cellule en position2, il faut mémoriser les identifiants des cellules contenant B (**predecesseur**, "index" 1) et C (**successeur**, "index" 2).
 
-- Pour insérer en position 1 : **predecesseur** est l'élément en position 0, soit ... la tête de la liste.
-
-- Pour insérer en position 2 : **predecesseur** sera l'élément en position 1. Il faut donc faire un bond en avant depuis la tête.
-
-- Pour insérer en position 3 : **predecesseur** sera l'élément en position 2. Il faut donc faire un bond en avant depuis la tête.
-
-- Si je veux insérer en position **position** : **predecesseur** sera la Cellule en position **position** - 1. Il faut donc faire un bond en avant depuis la tête.
-
-**<H3 STYLE="COLOR:red;">Activité 21 :**  **structure liste avec de la POO, Création de la structure méthode** ```insertPosition``` :</H3> Voici une méthode d'interface ```insertPosition```.
-
-```insertPosition(self, newData:Elt, position:int) -> None``` : on modifie sur place la liste : l'élément fourni newData est maintenant l'élément de la liste situé en position position. On prendra ici un système de position lié à un index commençant à 0.
-
-Lorsqu'on veut insérer ailleurs qu'à la tête, cette méthode va
-
-1. partir de la tête, effectuer position -1 saut vers la cellule suivante, et mémoriser l'identifiant de cette cellule dans **predecesseur**
-
-2. mémoriser dans **successeur** la référence de la cellule actuellement à la suite de **predecesseur**.
-
-3. créer la **nouvelle Cellule**, et la faire pointer vers **successeur**
-
-4. modifier **predecesseur** pour qu'elle pointe vers **nouvelle**.
-
-![Principe de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.022.png){width=60%; : .center }
+    ![Principe de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.020.png){width=50%; : .center }
 
 
+    Après modification,
 
-Ajouter la méthode suivante à la classe Liste
-```python
-def insertPosition(self, newData, position):
-    pass
-```
+    ![Principe de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.021.png){width=50%; : .center }
 
-**Question** : analyser le code pour parvenir à identifier les lignes où sont effectuées précisément les actions 1 à 4 précédentes.
+    Quelques précisions :
 
-Tester
-```
->>> list1.insertPosition('Tuesday', 1)
->>> list1
+    - Pour insérer en position 1 : **predecesseur** est l'élément en position 0, soit ... la tête de la liste.
 
-.head.v
-'Lundi'
->>> list1.head.n.v
-'Tuesday'
->>> list1.head.n.n.v
-'Mardi'
-```
+    - Pour insérer en position 2 : **predecesseur** sera l'élément en position 1. Il faut donc faire un bond en avant depuis la tête.
 
-**<H3 STYLE="COLOR:red;">Activité n° 22 :**  **structure liste avec de la POO, Création de la structure**</H3> L'insertion pure ne concerne que les lignes suivantes
-```python
-        # nextNode = previousNode.n  # on mémorise la cellule qu'il faudra "déplacer"
-        # newNode = Node(newData, nextNode)
-        # previousNode.n = newNode
-        # qui se résume par
-        self.head = Node(newData, self.head)
-```
-Ici le coût est bien constant. Par contre, que peut-on dire du coût de la recherche de la Cellule **predecesseur** dans le pire des cas ?
-```python
-        previousNode = self.head
-        for etape in range(1,position): #On avance jusqu’à(position-1) pour trouver previous
-            previousNode = previousNode.n
-```
-Au total, que peut-on alors dire du coût de l'insertion ?
+    - Pour insérer en position 3 : **predecesseur** sera l'élément en position 2. Il faut donc faire un bond en avant depuis la tête.
+
+    - Si je veux insérer en position **position** : **predecesseur** sera la Cellule en position **position** - 1. Il faut donc faire un bond en avant depuis la tête.
+
+    **<H3 STYLE="COLOR:red;">Activité 21 :**  **structure liste avec de la POO, Création de la structure méthode** ```insertPosition``` :</H3> Voici une méthode d'interface ```insertPosition```.
+
+    ```insertPosition(self, newData:Elt, position:int) -> None``` : on modifie sur place la liste : l'élément fourni newData est maintenant l'élément de la liste situé en position position. On prendra ici un système de position lié à un index commençant à 0.
+
+    Lorsqu'on veut insérer ailleurs qu'à la tête, cette méthode va
+
+    1. partir de la tête, effectuer position -1 saut vers la cellule suivante, et mémoriser l'identifiant de cette cellule dans **predecesseur**
+
+    2. mémoriser dans **successeur** la référence de la cellule actuellement à la suite de **predecesseur**.
+
+    3. créer la **nouvelle Cellule**, et la faire pointer vers **successeur**
+
+    4. modifier **predecesseur** pour qu'elle pointe vers **nouvelle**.
+
+    ![Principe de la liste chaînée](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.022.png){width=60%; : .center }
 
 
-C'est un peu décevant du coup...
 
-On retrouve une **insertion à coût constant**
+    Ajouter la méthode suivante à la classe Liste
+    ```python
+    def insertPosition(self, newData, position):
+        pass
+    ```
 
-En réalité, la grande force des listes ne vient pas de l'insertion d'une Cellule individuelle (souvent on ne connait pas sa référence) mais de **l'insertion d'une liste à la suite d'une autre liste**. On parlera de **concaténation de listes**, comme avec les strings.
+    **Question** : analyser le code pour parvenir à identifier les lignes où sont effectuées précisément les actions 1 à 4 précédentes.
 
-Imaginons qu'on dispose des deux listes. L'une de 20 000 éléments et l'autre de 20 000 éléments également. Si on désire insérer la deuxième liste après la première liste, cela risque d'être compliqué avec des tableaux :
+    Tester
+    ```
+    >>> list1.insertPosition('Tuesday', 1)
+    >>> list1
 
-D'abord, il faut réserver une nouvelle place mémoire de 40 000 places :
+    .head.v
+    'Lundi'
+    >>> list1.head.n.v
+    'Tuesday'
+    >>> list1.head.n.n.v
+    'Mardi'
+    ```
 
-![Création d'un nouveau tableau](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.022.png){width=60%; : .center }
+    **<H3 STYLE="COLOR:red;">Activité n° 22 :**  **structure liste avec de la POO, Création de la structure**</H3> L'insertion pure ne concerne que les lignes suivantes
+    ```python
+            # nextNode = previousNode.n  # on mémorise la cellule qu'il faudra "déplacer"
+            # newNode = Node(newData, nextNode)
+            # previousNode.n = newNode
+            # qui se résume par
+            self.head = Node(newData, self.head)
+    ```
+    Ici le coût est bien constant. Par contre, que peut-on dire du coût de la recherche de la Cellule **predecesseur** dans le pire des cas ?
+    ```python
+            previousNode = self.head
+            for etape in range(1,position): #On avance jusqu’à(position-1) pour trouver previous
+                previousNode = previousNode.n
+    ```
+    Au total, que peut-on alors dire du coût de l'insertion ?
 
-Ensuite, il faut déplacer un par un les 20 000 éléments du premier tableau.
 
-![Déplacement des éléments de A](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.023.png){width=60%; : .center }
+    C'est un peu décevant du coup...
 
-Puis on déplace les 20 000 éléments du deuxième tableau.
+    On retrouve une **insertion à coût constant**
 
-![Déplacement des éléments de B](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.024.png){width=60%; : .center }
+    En réalité, la grande force des listes ne vient pas de l'insertion d'une Cellule individuelle (souvent on ne connait pas sa référence) mais de **l'insertion d'une liste à la suite d'une autre liste**. On parlera de **concaténation de listes**, comme avec les strings.
 
-Il suffit alors de connaître **la dernière Cellule de la première liste** (au pire, 20 000 lectures, c'est toujours mieux que 40 000 déplacements avec les tableaux) et **de la faire pointer vers la tête de la deuxième ligne**.
+    Imaginons qu'on dispose des deux listes. L'une de 20 000 éléments et l'autre de 20 000 éléments également. Si on désire insérer la deuxième liste après la première liste, cela risque d'être compliqué avec des tableaux :
 
-On pourra donc écrire des choses comme cela : lst1 + lst2. Cela veut juste dire de faire pointer la Cellule de fin de la première liste vers la tête de la deuxième liste.
+    D'abord, il faut réserver une nouvelle place mémoire de 40 000 places :
 
-![Changement de référence](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.025.png){width=60%; : .center }
+    ![Création d'un nouveau tableau](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.022.png){width=60%; : .center }
 
-En conclusion, le type abstrait LISTE peut s'implémenter de plusieurs façons différentes.
+    Ensuite, il faut déplacer un par un les 20 000 éléments du premier tableau.
 
-Les deux grandes implémentations sont sous forme d'une **structure de données tableaux** (accès lecture à coût constant) et sous forme de **listes chaînées** (insertion parfois à coût constant et facilité de "déplacement" de grands blocs de données).
+    ![Déplacement des éléments de A](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.023.png){width=60%; : .center }
 
-En fonction de besoin de votre algorithme, on prendra donc l'un ou l'autre.
+    Puis on déplace les 20 000 éléments du deuxième tableau.
 
-**<H3 STYLE="COLOR:red;">Activité n° 23 :**  **structure liste avec de la POO, Création de la structure FONCTION** ```afficherListe``` et ```recupererValeur``` :</H3> en utilisant l'interface, l'utilisateur peut-il se douter que les données sont stockées sous forme d'une liste chaînée composée d'objets ? Ajouter les 2 fonctions :
-```python
-def afficherListe(L):
-    tableau = recupererValeur(L.head)
-    return str(tuple(tableau))
+    ![Déplacement des éléments de B](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.024.png){width=60%; : .center }
 
-def recupererValeur(cellule):
-    if cellule.n == None:
-        return [cellule.v]
-    else:
-        return [cellule.v] + recupererValeur(cellule.n)
+    Il suffit alors de connaître **la dernière Cellule de la première liste** (au pire, 20 000 lectures, c'est toujours mieux que 40 000 déplacements avec les tableaux) et **de la faire pointer vers la tête de la deuxième ligne**.
 
-# Programme principal
-di = Node("Dimanche")
-sa = Node("Samedi", di)
-ve = Node("Vendredi", sa)
-je = Node("Jeudi", ve)
-me = Node("Mercredi", je)
-ma = Node("Mardi", me)
-lu = Node("Lundi", ma)
-list1 = Liste(lu)
-print(afficherListe(list1))
-```
+    On pourra donc écrire des choses comme cela : lst1 + lst2. Cela veut juste dire de faire pointer la Cellule de fin de la première liste vers la tête de la deuxième liste.
 
-**<H3 STYLE="COLOR:red;">Activité n° 24 :**  **structure liste avec de la POO, Création de la structure méthode** ```delPosition``` :</H3> Compléter la méthode.
-```python
-def delPosition(self, position):
-    pass
-```
-Tester
-```
->>> afficherListe(list1)
-"('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche')"
->>> list1.delPosition(3)
->>> afficherListe(list1)
-"('Lundi', 'Mardi', 'Mercredi', 'Vendredi', 'Samedi', 'Dimanche')" 
-```
+    ![Changement de référence](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.025.png){width=60%; : .center }
 
-**<H3 STYLE="COLOR:red;">Activité n° 25 :**  **structure liste avec de la POO, Création de la structure autres méthodes** :</H3> Réaliser maintenant la méthode d'interface de lecture des valeurs. Voici le prototype.
+    En conclusion, le type abstrait LISTE peut s'implémenter de plusieurs façons différentes.
 
-```readPosition(self:Liste, position:int) -> Elt``` : on renvoie l'élément stocké en position position.
-```python
-def readPosition(self, position):
-    pass
-```
-Tester
-```
->>> list1.readPosition(2)
-'Mercredi'
-```
+    Les deux grandes implémentations sont sous forme d'une **structure de données tableaux** (accès lecture à coût constant) et sous forme de **listes chaînées** (insertion parfois à coût constant et facilité de "déplacement" de grands blocs de données).
+
+    En fonction de besoin de votre algorithme, on prendra donc l'un ou l'autre.
+
+    **<H3 STYLE="COLOR:red;">Activité n° 23 :**  **structure liste avec de la POO, Création de la structure FONCTION** ```afficherListe``` et ```recupererValeur``` :</H3> en utilisant l'interface, l'utilisateur peut-il se douter que les données sont stockées sous forme d'une liste chaînée composée d'objets ? Ajouter les 2 fonctions :
+    ```python
+    def afficherListe(L):
+        tableau = recupererValeur(L.head)
+        return str(tuple(tableau))
+
+    def recupererValeur(cellule):
+        if cellule.n == None:
+            return [cellule.v]
+        else:
+            return [cellule.v] + recupererValeur(cellule.n)
+
+    # Programme principal
+    di = Node("Dimanche")
+    sa = Node("Samedi", di)
+    ve = Node("Vendredi", sa)
+    je = Node("Jeudi", ve)
+    me = Node("Mercredi", je)
+    ma = Node("Mardi", me)
+    lu = Node("Lundi", ma)
+    list1 = Liste(lu)
+    print(afficherListe(list1))
+    ```
+
+    **<H3 STYLE="COLOR:red;">Activité n° 24 :**  **structure liste avec de la POO, Création de la structure méthode** ```delPosition``` :</H3> Compléter la méthode.
+    ```python
+    def delPosition(self, position):
+        pass
+    ```
+    Tester
+    ```
+    >>> afficherListe(list1)
+    "('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche')"
+    >>> list1.delPosition(3)
+    >>> afficherListe(list1)
+    "('Lundi', 'Mardi', 'Mercredi', 'Vendredi', 'Samedi', 'Dimanche')" 
+    ```
+
+    **<H3 STYLE="COLOR:red;">Activité n° 25 :**  **structure liste avec de la POO, Création de la structure autres méthodes** :</H3> Réaliser maintenant la méthode d'interface de lecture des valeurs. Voici le prototype.
+
+    ```readPosition(self:Liste, position:int) -> Elt``` : on renvoie l'élément stocké en position position.
+    ```python
+    def readPosition(self, position):
+        pass
+    ```
+    Tester
+    ```
+    >>> list1.readPosition(2)
+    'Mercredi'
+    ```
 
 
 
