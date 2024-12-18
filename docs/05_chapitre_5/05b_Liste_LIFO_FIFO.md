@@ -2108,7 +2108,7 @@ print(sha256_hash)  # Exemple d'empreinte : 9e31b9c8c694b1616dfd28481f54741a421d
 
     {{ IDE() }}
 
-!!! question "Capytale : Utilisation des dictionnaires"
+!!! info "Capytale : Utilisation des dictionnaires"
 
     ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667943"></a>**6.5. Rappel : Utilisation des dictionnaires en Python**</H3>
 
