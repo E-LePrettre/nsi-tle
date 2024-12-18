@@ -1422,14 +1422,14 @@ Les primitives communément utilisées pour manipuler des files :
         # 2ème façon
         pass
 
-  def defiler(file) :
-    if not estVide(file):
-        # 1ère façon 
-        # return file.pop(0)
-        
-        # 2ème façon
-        
-    pass
+    def defiler(file) :
+        if not estVide(file):
+            # 1ère façon 
+            # return file.pop(0)
+            
+            # 2ème façon
+            
+        pass
 
 
     # Programme principal
@@ -1445,7 +1445,7 @@ Les primitives communément utilisées pour manipuler des files :
         assert defiler(ma_file) == 'Mercredi'
         assert defiler(ma_file) == 'File vide'
     ```
-    
+
     **<H3 STYLE="COLOR:red;">Activité n° 35 : Structure file avec les listes :**</H3> On va rajouter à la structure de base précédente deux fonctions : ```taille``` et ```sommet``` qui permettent respectivement de retourner la taille de la file (**sans utiliser la fonction de python len !!**) et le sommet de la file (**sans utiliser les indices !!**). On ne pourra utiliser seulement les fonctions primitives précédentes et en devra récupérer la file originelle telle qu’elle était.
 
     ```python
