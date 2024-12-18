@@ -1033,98 +1033,103 @@ Soit une pile P composée des éléments suivants : 12, 14, 8, 7, 19 et 22 (le s
 
 **Remarque** : Pour lire le sommet de la pile sans modifier la pile, on doit le dépiler et le rempiler.
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667928"></a>**4.2. ❤️1<sup>ère</sup> implémentation de la structure pile avec les listes de Python❤️**</H3>
+!!! question "Structure pile avec les listes de Python"
 
-**=> CAPYTALE Le code vous sera donné par votre enseignant**
+    ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667928"></a>**4.2. ❤️1<sup>ère</sup> implémentation de la structure pile avec les listes de Python❤️**</H3>
 
-**Sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé pile\_list.py**
+    **=> CAPYTALE Le code vous sera donné par votre enseignant**
 
-Nous utiliserons une simple liste pour représenter la pile. Il se trouve que les méthodes append et pop sur les listes jouent déjà le rôle de **push (empile)** et **pop (depile)** sur les piles.
+    **Sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé pile\_list.py**
 
-**<H3 STYLE="COLOR:red;">Activité n° 26 : Structure pile avec les listes :**</H3> Compléter la **structure de base** suivante :
+    Nous utiliserons une simple liste pour représenter la pile. Il se trouve que les méthodes append et pop sur les listes jouent déjà le rôle de **push (empile)** et **pop (depile)** sur les piles.
 
-**Remarque** : La fonction empiler ne renvoie rien.
+    !!! question "Structure pile avec les listes"
 
-**Attention**
-pile += [element] (opérateur d'addition avec affectation):
+    **<H3 STYLE="COLOR:red;">Activité n° 26 : Structure pile avec les listes :**</H3> Compléter la **structure de base** suivante :
 
-- C'est une opération sur place pour les objets mutables comme les listes.
+    **Remarque** : La fonction empiler ne renvoie rien.
 
-- Cela modifie directement la liste originale référencée par pile.
+    **Attention**
+    pile += [element] (opérateur d'addition avec affectation):
 
-- L'objet reste le même en mémoire.
+    - C'est une opération sur place pour les objets mutables comme les listes.
 
-pile = pile + [element] (concaténation suivie d'affectation):
+    - Cela modifie directement la liste originale référencée par pile.
 
-- C'est une opération de création d'un nouvel objet.
+    - L'objet reste le même en mémoire.
 
-- L'expression pile + [element] crée une nouvelle liste en concaténant pile et [element].
+    pile = pile + [element] (concaténation suivie d'affectation):
 
-- L'affectation pile = ... fait alors pointer le nom pile vers ce nouvel objet. Mais si la variable pile est passée à la fonction par référence (comme c'est souvent le cas avec les objets mutables en Python), cela coupe le lien avec l'objet original.
+    - C'est une opération de création d'un nouvel objet.
 
-```python
-'''Implémentation de type abstrait Pile en utilisant les listes de Python'''
+    - L'expression pile + [element] crée une nouvelle liste en concaténant pile et [element].
 
-def pileVide() :
-    pass
+    - L'affectation pile = ... fait alors pointer le nom pile vers ce nouvel objet. Mais si la variable pile est passée à la fonction par référence (comme c'est souvent le cas avec les objets mutables en Python), cela coupe le lien avec l'objet original.
 
-def estVide(pile) :
-    pass
+    ```python
+    '''Implémentation de type abstrait Pile en utilisant les listes de Python'''
 
-def empiler(pile, element) :
-    # 1ère façon 
-    #pile.append(element) 
-    # 2ème façon
-    pass
+    def pileVide() :
+        pass
 
-def depiler(pile) :
-    if not estVide(pile):
+    def estVide(pile) :
+        pass
+
+    def empiler(pile, element) :
         # 1ère façon 
-        # return pile.pop()
+        #pile.append(element) 
         # 2ème façon
-        
-    pass
+        pass
 
-# Programme principal
-if __name__ == '__main__':
-    ma_pile = pileVide()
-    assert estVide(ma_pile) == True
-    empiler(ma_pile, 'Lundi')
-    empiler(ma_pile, 'Mardi')
-    empiler(ma_pile, 'Mercredi')
-    assert estVide(ma_pile) == False
-    assert depiler(ma_pile) == 'Mercredi'
-    assert depiler(ma_pile) == 'Mardi'
-    assert depiler(ma_pile) == 'Lundi'
-    assert depiler(ma_pile) == 'Pile vide'
-```
+    def depiler(pile) :
+        if not estVide(pile):
+            # 1ère façon 
+            # return pile.pop()
+            # 2ème façon
+            
+        pass
 
-**<H3 STYLE="COLOR:red;">Activité n° 27 : Structure pile avec les listes :**</H3> On va rajouter à la structure de base précédente deux fonctions : ```taille``` et ```sommet``` qui permettent respectivement de retourner la taille de la pile (sans utiliser la fonction de python len !!) et le sommet de la pile (sans utiliser les indices !!). On ne pourra utiliser seulement les fonctions primitives précédentes et en devra récupérer la pile originelle telle qu’elle était.
+    # Programme principal
+    if __name__ == '__main__':
+        ma_pile = pileVide()
+        assert estVide(ma_pile) == True
+        empiler(ma_pile, 'Lundi')
+        empiler(ma_pile, 'Mardi')
+        empiler(ma_pile, 'Mercredi')
+        assert estVide(ma_pile) == False
+        assert depiler(ma_pile) == 'Mercredi'
+        assert depiler(ma_pile) == 'Mardi'
+        assert depiler(ma_pile) == 'Lundi'
+        assert depiler(ma_pile) == 'Pile vide'
+    ```
 
-On pourra s’aider d’une  pile auxiliaire.
-```python
-def taille(pile):
-    pass
-def sommet(pile):
-    pass
+    **<H3 STYLE="COLOR:red;">Activité n° 27 : Structure pile avec les listes :**</H3> On va rajouter à la structure de base précédente deux fonctions : ```taille``` et ```sommet``` qui permettent respectivement de retourner la taille de la pile (sans utiliser la fonction de python len !!) et le sommet de la pile (sans utiliser les indices !!). On ne pourra utiliser seulement les fonctions primitives précédentes et en devra récupérer la pile originelle telle qu’elle était.
 
-# Programme principal
-if __name__ == '__main__':
-    ma_pile = pileVide()
-    empiler(ma_pile, 'Lundi')
-    empiler(ma_pile, 'Mardi')
-    empiler(ma_pile, 'Mercredi')
-    assert taille(ma_pile) == 3
-    assert sommet(ma_pile) == 'Mercredi'
-```
+    On pourra s’aider d’une  pile auxiliaire.
+    ```python
+    def taille(pile):
+        pass
+    def sommet(pile):
+        pass
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667929"></a>**4.3. ❤️2<sup>ème</sup> implémentation de la structure pile avec la POO et les lists de Python❤️**</H3>
-
-**=> CAPYTALE Le code vous sera donné par votre enseignant**
-
-**Sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé pile\_POO\_list.py**
+    # Programme principal
+    if __name__ == '__main__':
+        ma_pile = pileVide()
+        empiler(ma_pile, 'Lundi')
+        empiler(ma_pile, 'Mardi')
+        empiler(ma_pile, 'Mercredi')
+        assert taille(ma_pile) == 3
+        assert sommet(ma_pile) == 'Mercredi'
+    ```
 
 !!! question "Structure pile avec la POO et les lists de Python :"
+
+    ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667929"></a>**4.3. ❤️2<sup>ème</sup> implémentation de la structure pile avec la POO et les lists de Python❤️**</H3>
+
+    **=> CAPYTALE Le code vous sera donné par votre enseignant**
+
+    **Sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé pile\_POO\_list.py**
+
 
     **<H3 STYLE="COLOR:red;">Activité n° 28 : Structure pile avec la POO et les lists de Python :**</H3> 
 
@@ -1203,143 +1208,144 @@ if __name__ == '__main__':
     ```
     >>> p.afficher()
     [0, 2, 4, 6, 8]
-    ``
-!!!
+    ```
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667930"></a>**4.4. ❤️3<sup>ème</sup> implémentation de la structure pile avec la POO et les listes chainée❤️**</H3>
+!!! question "Structure pile avec la POO et les listes chainée"
 
-**=> CAPYTALE Le code vous sera donné par votre enseignant**
+    ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667930"></a>**4.4. ❤️3<sup>ème</sup> implémentation de la structure pile avec la POO et les listes chainée❤️**</H3>
 
-La version à une classe est plus simple, elle peut être suffisante, mais les puristes préfèrent la version à deux classes qui colle davantage au modèle théorique proche des listes dans lequel une pile est soit une cellule, soit une pile vide.
+    **=> CAPYTALE Le code vous sera donné par votre enseignant**
 
-**<H3 STYLE="COLOR:red;">Activité n° 31 : Structure pile avec la POO et les listes chainée version 1 classe :**</H3> Créer une classe Pile qui peut recevoir deux paramètres lors de l'appel du constructeur : un paramètre value et un paramètre next. Les deux valeurs transmises devront être stockées dans deux attributs nommés v et n.
+    La version à une classe est plus simple, elle peut être suffisante, mais les puristes préfèrent la version à deux classes qui colle davantage au modèle théorique proche des listes dans lequel une pile est soit une cellule, soit une pile vide.
 
-**Sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé pile\_POO\_v1.py**
+    **<H3 STYLE="COLOR:red;">Activité n° 31 : Structure pile avec la POO et les listes chainée version 1 classe :**</H3> Créer une classe Pile qui peut recevoir deux paramètres lors de l'appel du constructeur : un paramètre value et un paramètre next. Les deux valeurs transmises devront être stockées dans deux attributs nommés v et n.
 
-Et compléter la structure suivante :
-```python
-'''Implémentation 3 de type abstrait Liste en utilisant la POO et les listes chainées version 1 classe'''
+    **Sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé pile\_POO\_v1.py**
 
-class Pile:
-    def __init__(self, value=None, next=None):
-        pass
+    Et compléter la structure suivante :
+    ```python
+    '''Implémentation 3 de type abstrait Liste en utilisant la POO et les listes chainées version 1 classe'''
 
-    def estVide(self) :
-        pass
+    class Pile:
+        def __init__(self, value=None, next=None):
+            pass
 
-    def empiler(self, element) :
-        pass
+        def estVide(self) :
+            pass
 
-    def depiler(self):
-        pass
-```
+        def empiler(self, element) :
+            pass
 
-Que faut il écrire dans la console pour :
+        def depiler(self):
+            pass
+    ```
 
-1. Créer une pile p ?
+    Que faut il écrire dans la console pour :
 
-2. Tester si p est vide ?
+    1. Créer une pile p ?
 
-3. Empiler dans p : Lundi, Mardi, Mercredi
+    2. Tester si p est vide ?
 
-4. Tester si p est vide ?
+    3. Empiler dans p : Lundi, Mardi, Mercredi
 
-5. Dépiler toute la pile p
+    4. Tester si p est vide ?
 
-**Remarque** on pourra afficher les piles construites en ajoutant la méthode \_\_str\_\_
-```python
-    def __str__(self): # on peut mettre __repr__ à la place pour éviter de taper print
-        pass
-```
-Ajouter les deux méthodes ```taille``` et ```sommet```
-```python
-    def taille(self) :
-        pass
+    5. Dépiler toute la pile p
 
-    def sommet(self) :
-        pass
+    **Remarque** on pourra afficher les piles construites en ajoutant la méthode \_\_str\_\_
+    ```python
+        def __str__(self): # on peut mettre __repr__ à la place pour éviter de taper print
+            pass
+    ```
+    Ajouter les deux méthodes ```taille``` et ```sommet```
+    ```python
+        def taille(self) :
+            pass
 
-if __name__ == '__main__':
-    p = Pile()
-    p.empiler('Lundi')
-    p.empiler('Mardi')
-    p.empiler('Mercredi')
-    print(p.taille())
-    print(p.sommet())
-```
+        def sommet(self) :
+            pass
 
-**<H3 STYLE="COLOR:red;">Activité n° 32 : Structure pile avec la POO et les listes chainée version 2 classes :**</H3> Créer une classe Node qui peut recevoir deux paramètres lors de l'appel du constructeur : un paramètre ```value``` et un paramètre ```next```. Les deux valeurs transmises devront être stockées dans deux attributs nommés ```v``` et ```n```.
+    if __name__ == '__main__':
+        p = Pile()
+        p.empiler('Lundi')
+        p.empiler('Mardi')
+        p.empiler('Mercredi')
+        print(p.taille())
+        print(p.sommet())
+    ```
 
-**Sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé pile\_POO\_v2.py**
+    **<H3 STYLE="COLOR:red;">Activité n° 32 : Structure pile avec la POO et les listes chainée version 2 classes :**</H3> Créer une classe Node qui peut recevoir deux paramètres lors de l'appel du constructeur : un paramètre ```value``` et un paramètre ```next```. Les deux valeurs transmises devront être stockées dans deux attributs nommés ```v``` et ```n```.
 
-Et compléter la structure suivante :
-```python
-'''Implémentation 3 de type abstrait Liste en utilisant la POO et les listes chainées version 2 classes'''
+    **Sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé pile\_POO\_v2.py**
 
-class Node:
-    def __init__(self, value=None, next=None):
-        pass
+    Et compléter la structure suivante :
+    ```python
+    '''Implémentation 3 de type abstrait Liste en utilisant la POO et les listes chainées version 2 classes'''
 
-class Pile:
-    def __init__(self, c=None):
-        pass
+    class Node:
+        def __init__(self, value=None, next=None):
+            pass
 
-    def estVide(self) :
-        pass
+    class Pile:
+        def __init__(self, c=None):
+            pass
 
-    def empiler(self, element) :
-        pass
+        def estVide(self) :
+            pass
 
-    def depiler(self):
-        pass
-```
-Que faut-il écrire dans la console pour :
+        def empiler(self, element) :
+            pass
 
-1. Créer une pile p ?
+        def depiler(self):
+            pass
+    ```
+    Que faut-il écrire dans la console pour :
 
-2. Tester si p est vide ?
+    1. Créer une pile p ?
 
-3. Empiler dans p : Lundi, Mardi, Mercredi
+    2. Tester si p est vide ?
 
-4. Tester si p est vide ?<
+    3. Empiler dans p : Lundi, Mardi, Mercredi
 
-5. Dépiler toute la pile p
+    4. Tester si p est vide ?<
 
-**Remarque** On pourra afficher les piles construites avec les fonctions ```afficherListe``` et ```recupererValeur```  des Listes chainées
-```python
-def afficherListe(L):
-    tableau = recupererValeur(L.cellule)
-    return str(tuple(tableau))
+    5. Dépiler toute la pile p
 
-def recupererValeur(cellule):
-    if cellule.n == None:
-        return [cellule.v]
-    else:
-        return [cellule.v] + recupererValeur(cellule.n)
-```
+    **Remarque** On pourra afficher les piles construites avec les fonctions ```afficherListe``` et ```recupererValeur```  des Listes chainées
+    ```python
+    def afficherListe(L):
+        tableau = recupererValeur(L.cellule)
+        return str(tuple(tableau))
 
-**<H3 STYLE="COLOR:red;">Activité n° 33 : Structure pile avec la POO et les listes chainée version 2 classes :**</H3> rajouter aux structures précédentes deux méthodes ```taille``` et ```sommet``` qui permettent le retourner la taille et de retourner le sommet de la pile
+    def recupererValeur(cellule):
+        if cellule.n == None:
+            return [cellule.v]
+        else:
+            return [cellule.v] + recupererValeur(cellule.n)
+    ```
 
-```python
-    def taille(self) :
-        pass
+    **<H3 STYLE="COLOR:red;">Activité n° 33 : Structure pile avec la POO et les listes chainée version 2 classes :**</H3> rajouter aux structures précédentes deux méthodes ```taille``` et ```sommet``` qui permettent le retourner la taille et de retourner le sommet de la pile
 
-    def sommet(self) :
-        pass
+    ```python
+        def taille(self) :
+            pass
 
-if __name__ == '__main__':
-    p = Pile()
-    p.empiler('Lundi')
-    p.empiler('Mardi')
-    p.empiler('Mercredi')
-    print(p.taille())
-    print(p.sommet())
-```
-**<H3 STYLE="COLOR:red;">Activité  : Structure pile avec la POO et les listes chainée version 2 classes :**</H3> rajouter aux structures précédentes deux fonctions ```taille2``` et ```sommet2``` qui permettent le retourner la taille et de retourner le sommet de la pile
+        def sommet(self) :
+            pass
 
-- **Pour plus de fonctions…. => EXERCICE**
+    if __name__ == '__main__':
+        p = Pile()
+        p.empiler('Lundi')
+        p.empiler('Mardi')
+        p.empiler('Mercredi')
+        print(p.taille())
+        print(p.sommet())
+    ```
+    **<H3 STYLE="COLOR:red;">Activité  : Structure pile avec la POO et les listes chainée version 2 classes :**</H3> rajouter aux structures précédentes deux fonctions ```taille2``` et ```sommet2``` qui permettent le retourner la taille et de retourner le sommet de la pile
 
-**[vidéo le crépier psychorigide](https://ladigitale.dev/digiview/#/v/66b7280a8b3b5)**
+    - **Pour plus de fonctions…. => EXERCICE**
+
+    **[vidéo le crépier psychorigide](https://ladigitale.dev/digiview/#/v/66b7280a8b3b5)**
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc151667931"></a>**5. Les files**</H2>
 
