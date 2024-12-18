@@ -2659,19 +2659,105 @@ c'est-à-dire que le soldat à la position 4 est le premier à être tué, et 8 
 
 La fonction josephus qui fait appel à la TAD file est donnée ci-dessous
 
+!!! info
+Le TAD signifie Type Abstrait de Données (Abstract Data Type en anglais). C'est un concept théorique en informatique qui définit une structure de données uniquement par les opérations qu'elle propose, indépendamment de son implémentation concrète.
+!!!
+
+Pour le problème de Josephus, nous ajoutons les éléments suivants :
+
+1. Initialisation :
+
+Les personnes sont placées dans la file dans l'ordre initial.
+
+2 Rotation circulaire :
+
+On utilise les opérations defile et enfile pour faire circuler les personnes dans le cercle.
+
+3 Élimination :
+
+Après avoir déplacé les m−1 premières personnes en fin de file, on utilise defile pour éliminer la m-ième personne.
+
+4 Répétition :
+
+On continue le processus jusqu'à ce qu'il reste un seul élément dans la file.
+
+
+Implémenter la file avec une liste chainée pour que la fonction josephus([1, 2, 3, 4, 5, 6, 7, 8], 3) 
+
+
+Pour simplifier on peut d’abord sortir : 4 7 2 6 3 1 5 8 the last one is 8
+
 ```python
-def josephus(liste, module):
-    f = File()
-    for personne in liste :
-        f.enfiler(personne)
-    while not(f.estVide()):
-        p = f.enfiler()
-    return p
+class Node:
+    def __init__(self, value = None, next = None):
+        pass
+
+class File:
+    def __init__(self, c=None):
+        self.cellule = ...
+        self.queue = ...
+
+    def estVide(self):
+        return ...
+
+    def enfile(self, element):
+        pass   
+
+    def defile(self):
+        if not self.estVide():
+            pass
+        else:
+            raise IndexError("File vide")
+    
+    def __str__(self):  # on peut mettre __repr__ à la place pour éviter de taper print
+        if self.cellule is None:
+            raise IndexError("File vide")
+        else:
+            result = str(self.cellule.v)
+            next_node = self.cellule.n
+            while next_node is not None:
+                result += " - " + str(next_node.v)
+                next_node = next_node.n
+            return result
+    
+            
+    def __len__(self):
+        pass
 ```
+Implémenter la fonction josephus(liste, m)
 
-Implémenter la file avec une liste chainée pour que la fonction josephus([1, 2, 3, 4, 5, 6, 7, 8], 3) renvoie 8
+```python
+def josephus(liste, m):
+    f = File()
 
-Pour simplifier on peut d’abord sortir : 3 6 1 5 2 8 4 7 the last one is 7
+    # Initialisation : enfiler toutes les personnes
+    ...
+    
+    # on part du numéro 1 qu'en va renfiler 
+
+    # Élimination des personnes
+    while len(f) > 1:
+        # Faire circuler les m-1 premières personnes
+        ...    
+            # On défiler et renfile 
+            ...
+        # Éliminer la m-ième personne
+        elimine = ...
+        print(f"Personne éliminée : {elimine}")
+
+    # Retourner le dernier survivant
+    survivant = ...
+    print(f"Le survivant est : {survivant}")
+    return survivant
+
+# Exemple : 8 personnes et élimination toutes les 3 positions
+liste_personnes = [1, 2, 3, 4, 5, 6, 7, 8]
+m = 3
+
+# Appel de la fonction josephus
+dernier_survivant = josephus(liste_personnes, m)
+print(dernier_survivant)
+```
 
 **<H3 STYLE="COLOR:red;">Exercice n°12 : Le jeu de cartes : bataille**</H3>
 
@@ -2684,6 +2770,44 @@ Vous aurez à  gérer d'une part la valeur des cartes et d'autre part les cas d'
 Le programme partiel du jeu de bataille :
 
 **Créer et importer une File**
+
+```python
+class Node:
+    def __init__(self, value = None, next = None):
+        pass
+
+class File:
+    def __init__(self, c=None):
+        self.cellule = ...
+        self.queue = ...
+
+    def estVide(self):
+        return ...
+
+    def enfiler(self, element):
+        pass   
+
+    def defiler(self):
+        if not self.estVide():
+            pass
+        else:
+            raise IndexError("File vide")
+    
+    def __str__(self):  # on peut mettre __repr__ à la place pour éviter de taper print
+        if self.cellule is None:
+            raise IndexError("File vide")
+        else:
+            result = str(self.cellule.v)
+            next_node = self.cellule.n
+            while next_node is not None:
+                result += " - " + str(next_node.v)
+                next_node = next_node.n
+            return result
+    
+            
+    def __len__(self):
+        pass
+```
 
 ```python
 import random
@@ -2700,6 +2824,7 @@ for i in range(len(cartes) // 2):
     paquet_alice.enfiler(cartes.pop())
     paquet_basile.enfiler(cartes.pop())
 
+
 # Gestion d'un tour de jeu
 def tour():
     global en_cours
@@ -2711,6 +2836,7 @@ def tour():
         en_cours = False
     else:
         tirer()
+
 
 # Si la partie n'est pas terminée, tirage d'une carte
 def tirer():
@@ -2728,6 +2854,7 @@ def tirer():
         paquet_basile.enfiler(b)
         paquet_basile.enfiler(a)
 
+
 # démarrage du jeu
 en_cours = True
 nb_tours = 0
@@ -2737,9 +2864,52 @@ while en_cours:  # not paquet_alice.est_vide() and not paquet_basile.est_vide() 
 print("Partie en ", nb_tours, " tours")
 ```
 
-Ne pas oublier de mettre le bon fichier file au même endroit que celui-ci
+
+
 
 Une fois terminé les modifications, vous transformerez le programme bataille en classe Bataille avec toutes les fonctions encapsulées dans celle-ci.
+
+```python
+import random
+
+
+class Bataille:
+    def __init__(self, paquet_alice, paquet_basile):
+        self.paquet_alice = paquet_alice
+        self.paquet_basile = paquet_basile
+        self.egalite = File()
+        self.en_cours = True
+    
+    def tour(self):
+        pass
+    
+    def tirer(self):
+        pass
+        
+# Initialisation des paquets
+paquet_alice = File()
+paquet_basile = File()
+
+# Création et mélange du jeu de 52 cartes
+cartes = [i for i in range(0, 52)]
+random.shuffle(cartes)
+
+# Distribution des cartes aux 2 joueurs
+for i in range(len(cartes) // 2):
+    paquet_alice.enfiler(cartes.pop())
+    paquet_basile.enfiler(cartes.pop())
+
+# Démarrage du jeu
+en_cours = True
+nb_tours = 0
+jeu = Bataille(paquet_alice, paquet_basile)
+
+while jeu.en_cours:
+    jeu.tour()
+    nb_tours += 1
+
+print(f"Partie terminée en {nb_tours} tours.")
+```
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc151667946"></a>**8. Projets**</H2>
 
