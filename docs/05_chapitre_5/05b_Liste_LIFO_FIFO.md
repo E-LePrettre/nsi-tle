@@ -2539,7 +2539,7 @@ Pourquoi utiliser map ? Cela évite de devoir écrire une boucle pour convertir 
 join est une méthode des chaînes de caractères en Python.
 Elle prend une liste de chaînes en entrée et concatène tous les éléments en insérant la chaîne spécifiée (ici " -> ") entre eux.
 
-**<H3 STYLE="COLOR:red;">Exercice n°8 : </H3> annulé
+**<H3 STYLE="COLOR:red;">Exercice n°8 :** </H3> annulé
 
 
 
