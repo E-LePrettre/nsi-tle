@@ -2936,6 +2936,9 @@ A la fin la pile doit être vide…
 
 Ecrire une fonction verification(expression) qui prend en paramètre une chaine de caractère qui retourne OK si l’expression est bien parenthésée et NON sinon.
 
+assert verification("(())") == "OK"
+assert verification("())(") == "NON"
+
 **<H3 STYLE="COLOR:red;">Exercice n°02 : implémentation d’une liste chainée**</H3>
 
 **=> CAPYTALE Le code vous sera donné par votre enseignant**
