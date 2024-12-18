@@ -1044,6 +1044,24 @@ Nous utiliserons une simple liste pour représenter la pile. Il se trouve que le
 **<H3 STYLE="COLOR:red;">Activité n° 26 : Structure pile avec les listes :**</H3> Compléter la **structure de base** suivante :
 
 **Remarque** : La fonction empiler ne renvoie rien.
+
+**Attention**
+pile += [element] (opérateur d'addition avec affectation):
+
+- C'est une opération sur place pour les objets mutables comme les listes.
+
+- Cela modifie directement la liste originale référencée par pile.
+
+- L'objet reste le même en mémoire.
+
+pile = pile + [element] (concaténation suivie d'affectation):
+
+- C'est une opération de création d'un nouvel objet.
+
+- L'expression pile + [element] crée une nouvelle liste en concaténant pile et [element].
+
+- L'affectation pile = ... fait alors pointer le nom pile vers ce nouvel objet. Mais si la variable pile est passée à la fonction par référence (comme c'est souvent le cas avec les objets mutables en Python), cela coupe le lien avec l'objet original.
+
 ```python
 '''Implémentation de type abstrait Pile en utilisant les listes de Python'''
 
@@ -1054,9 +1072,17 @@ def estVide(pile) :
     pass
 
 def empiler(pile, element) :
+    # 1ère façon 
+    #pile.append(element) 
+    # 2ème façon
     pass
 
-def depiler(pile)
+def depiler(pile) :
+    if not estVide(pile):
+        # 1ère façon 
+        # return pile.pop()
+        # 2ème façon
+        
     pass
 
 # Programme principal
@@ -1098,7 +1124,12 @@ if __name__ == '__main__':
 
 **Sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé pile\_POO\_list.py**
 
-**<H3 STYLE="COLOR:red;">Activité n° 28 : Structure pile avec la POO et les lists de Python :**</H3> Créer une classe Pile qui construit une liste vide, puis compléter les autres méthodes de la classe  :
+!!! question Structure pile avec la POO et les lists de Python :
+
+**<H3 STYLE="COLOR:red;">Activité n° 28 : Structure pile avec la POO et les lists de Python :**</H3> 
+
+
+Créer une classe Pile qui construit une liste vide, puis compléter les autres méthodes de la classe  :
 
 ```python
 '''Implémentation 3 de type abstrait Liste en utilisant la POO et les listes de Python'''
@@ -1112,9 +1143,16 @@ class Pile:
         pass
 
     def empiler(self, element) :
+        # 1ère version
+        # self.pile.append(element)
+        # 2ème version
         pass
 
     def depiler(self):
+        
+        # 1ère version
+        # return self.pile.pop() # ou self.pile.pop(-1)
+        # 2ème version
         pass
 
 if __name__ == '__main__':
@@ -1132,7 +1170,7 @@ Tester :
 >>> p.depiler()
 ```
 
-**<H3 STYLE="COLOR:red;">Activité n° 29 : Structure pile avec la POO et les lists de Python:**</H3> On va rajouter à la structure de base précédente deux méthodes de la classe Pile : ```taille``` et ```sommet``` qui permettent respectivement de retourner la taille de la pile (sans utiliser la fonction de python len !!) et le sommet de la pile (sans utiliser les indices !!). On ne pourra utiliser seulement les fonctions primitives précédentes et en devra récupérer la pile originelle telle qu’elle était.
+**<H3 STYLE="COLOR:red;">Activité n° 29 : Structure pile avec la POO et les lists de Python:**</H3> On va rajouter à la structure de base précédente deux méthodes de la classe Pile : ```taille``` et ```sommet``` qui permettent respectivement de retourner la taille de la pile (**sans utiliser la fonction de python len !!**) et le sommet de la pile (**sans utiliser les indices !!**). On ne pourra utiliser seulement les fonctions primitives précédentes et en devra récupérer la pile originelle telle qu’elle était.
 
 On pourra s’aider d’une  pile auxiliaire.
 ```python
@@ -1166,6 +1204,7 @@ Tester :
 >>> p.afficher()
 [0, 2, 4, 6, 8]
 ```
+!!!
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667930"></a>**4.4. ❤️3<sup>ème</sup> implémentation de la structure pile avec la POO et les listes chainée❤️**</H3>
 
