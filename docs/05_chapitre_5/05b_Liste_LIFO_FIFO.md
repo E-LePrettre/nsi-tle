@@ -2251,12 +2251,35 @@ class Pile:
         pass
 
     def __str__(self):
-        s = "|"
+        s = ""
         c = self.data
-        while c != None :
-            s += str(c.contenu)+"|"
+        while c is not None:
+            s += str(c.contenu)  # Ajouter la valeur de la cellule
+            if c.suivante is not None:  # Ajouter un séparateur si ce n'est pas le dernier élément
+                s += " -> "
             c = c.suivante
-        return s
+        return s if s else ""  # Retourner un message "" si la pile est vide
+
+p = Pile()
+print( p.est_vide())  # True
+
+# Empiler des éléments
+p.empile(10)
+p.empile(20)
+p.empile(30)
+
+print(p)  # |30|20|10|
+print(p.est_vide())  # False
+
+# Dépiler des éléments
+print(p.depile())  # 30
+print(p)  # |20|10|
+print(p.depile())  # 20
+print(p)  # |10|
+
+# Tester défilement jusqu'à vide
+print(p.depile())  # 10
+print(p.est_vide())  # True
 
 # -------------------------------------------------------    
 # Implémentation d'une file à l'aide de deux piles 
@@ -2274,6 +2297,35 @@ class File:
 
     def defile(self):
         pass
+
+    def __str__(self):
+        return str(self.entree) + " " + str(self.sortie)
+    
+
+f = File()
+print(f.est_vide())  # True
+
+# Ajouter des éléments dans la file
+f.enfile("Lundi")
+f.enfile("Mardi")
+f.enfile("Mercredi")
+print(f)
+
+# Défilage d'éléments
+print(f.defile())  # Lundi
+print(f)
+
+print(f.defile())  # Mardi
+print(f)
+
+# Ajouter un nouvel élément
+f.enfile("Jeudi")
+print(f)
+
+# Défilage jusqu'à vide
+print(f.defile())  # Mercredi
+print(f.defile())  # Jeudi
+print(f.est_vide())  # True
 ```
 
 **<H3 STYLE="COLOR:red;">Exercice n°2 : Structure de données**</H3> 
