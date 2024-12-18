@@ -130,285 +130,287 @@ Il est possible « d’enchaîner » les cons et d’obtenir ce genre de struc
 - L1 = vide() 
 - L2 = cons(8, cons(5, cons(3, L1))) => La tête de L2 correspond à 8 et la queue contient les éléments 3 et 5
 
-**<H3 STYLE="COLOR:red;">Activité n° 1 :**</H3>  Voici une série d'instructions (les instructions ci-dessous s'enchaînent), expliquez ce qui se passe à chacune des étapes :
-```
-L = vide() 
-ajoutEnTete(10,L) 
-ajoutEnTete(9,L) 
-ajoutEnTete(7,L) 
-L1 = vide() 
-L2 = cons(5, cons(4, cons(3, cons (2, cons(1, cons(0,L1))))))
-```
+!!! question "Capytale : Structure liste (chainée) avec des tuples"
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667923"></a>**3.3. ❤️1<sup>ère</sup> implémentation de la structure liste (chainée) avec des tuples❤️**</H3>
-Les tuples sont déclarés en utilisant **les parenthèses**.
-
-On peut les lire à l'aide des boucles for.
-
-Les tuples sont **non-mutables** : on ne peut pas modifier leurs contenus après création.
-
-**Sur Thonny : Toutes les fonctions de cette implémentation doivent être dans le même fichier python appelé liste\_tuples.py**
-
-#### <H4 STYLE="COLOR:MAGENTA;"> **3.3.1. Implémentation simple avec les tuples**</H4>
-
-![Principe de l'interface entre l'utilisateur et les données](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.010.png){width=50%; : .center }
-
-En utilisant des tuples pour implémenter la structure de liste.
-
-![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.011.png){width=60%; : .center }
-
-**<H3 STYLE="COLOR:red;">Activité n° 2 :**  **structure liste avec des tuples fonction** ```nouvelleListe()``` **et** ```estVide()``` :</H3> Voici une première implémentation de la structure liste avec des tuples
-```python
-'''Implémentation de type abstrait Liste en utilisant des tuples (tete, queue)'''
-
-def nouvelleListe():
-    '''Renvoie une liste vide'''
-    pass
-
-# prédicat
-def estVide(L):
-    '''Renvoie True si la liste est vide'''
-    pass
-```
-
-Vérifier le bon fonctionnement de cette implémentation en exécutant ces instructions :
-```
->>> a = ()
->>> estVide(a)
-???
- 
->>> b = None
->>> estVide(b)
-???
- 
->>> c = "C"
->>> estVide(c)
-???
- 
->>> d = nouvelleListe()
->>> estVide(d)
-???
-```
-Quelle est la seule proposition qui respecte l'interface imposée par le créateur de cette implémentation ?
-
-**<H3 STYLE="COLOR:red;">Activité n° 3 :** **structure liste avec des tuples fonction** ```insererTete``` :</H3> Créer maintenant la fonction d'interface suivante :
-
-```insererTete(x:Elt, L:Liste) -> Liste``` : on **renvoie** une nouvelle liste où la tête est maintenant l'élément x et la queue la liste précédente L.
-
-**AIDE** : il suffit de renvoyer un nouveau tuple dont la tête est notre x et la queue l'ancien tuple !
-
-Voici un exemple d'utilisation :	
-```python
-# constructeur
-def insererTete(x,L) :
-    '''Renvoie une nouvelle liste où x est la tête et liste la queue'''
-    pass
-```
-```
->>> a = nouvelleListe()
->>> a = insererTete(5, a)
->>> a
-(5, ())
- 
->>> a = insererTete(2, a)
->>> a
-(2, (5, ()))
-```
-
-**<H3 STYLE="COLOR:red;">Activité n° 4 :**  **structure liste avec des tuples fonction** ```supprimerTete``` :</H3> Dernière fonction d'interface, supprimer la tête :
-
-```supprimerTete(L:Liste) -> Liste``` : on **renvoie** une nouvelle liste où la tête est maintenant le deuxième élément (la tête de la queue précédente !). Techniquement, cela revient bien à supprimer l'ancienne tête si on enregistre cette nouvelle version dans une variable. Notez bien qu'on aurait pu nommer cette fonction ```recupererQueue``` puisque c'est ce qu'elle fait.
-
-**Précondition** : L est une liste (ici () ou (tete,queue)), queue étant une liste.
-
-Imaginons la liste suivante :
-
-**5** → **8** → **2** → **3**
-
-Votre fonction doit renvoyer ceci :
-
-**8** → **2** → **3**
-
-**AIDE** : la tête est l'index 0 de la liste et la queue est son index 1.
-
-**AIDE 2** : pensez à gérer
-
-- le cas particulier de la liste vide () : pas de nouvelle tête puisque pas de queue. Il faudra renvoyer une liste vide.
-
-- le cas général où la queue dans votre liste est une liste non vide.
-
-Voici un exemple d'utilisation pour chacun des cas précédents :
-```python
-def supprimerTete(L):
-    '''Renvoie une nouvelle liste où on a supprimé la tête de l'ancienne '''
-    pass
-```
-```
->>> a = nouvelleListe()
->>> b = supprimerTete(a)
->>> b
-()
-
->>> a = insererTete(5, nouvelleListe())
->>> b = supprimerTete(a)
->>> b
-()
-
->>> a
-(20, (15, (5, ())))
- 
->>> b = supprimerTete(a)
->>> b
-(15, (5, ()))
- 
->>> c = supprimerTete(b)
->>> c
-(5, ())
-```
-
-**<H3 STYLE="COLOR:red;">Activité n° 5 :**  **structure liste avec des tuples fonction** ```lireTete``` : Réaliser la fonction d'interface permettant de lire la tête :</H3>
-
-```lireTete(L:Liste) -> Elt``` : on renvoie la tête de la liste L.
-
-**Précondition** : L est une liste (ici () ou (tete,queue)), queue étant une liste.
-
-Attention, on ne modifie pas la liste ! 
-
-Attention : pensez à vérifier que la liste n'est pas vide avant de chercher à lire l'index 0 (la tête).
-
-Exemple d'utilisation
-```python
-def lireTete(L):
-    '''Renvoie la tête de la liste, sans toucher à la liste elle-même'''
-    pass
-```
-```
->>> a = insererTete(5, nouvelleListe() )
->>> a = insererTete(15, a)
->>> lireTete(a)
-15
- 
->>> b = nouvelleListe()
->>> lireTete(b)
->>> 
-```
-
-**<H3 STYLE="COLOR:red;">Activité n° 6 :**  **structure liste avec des tuples fonction** ```afficherListe``` :</H3> Il nous manque encore une chose qui pourrait être pratique mais qui ne fait pas partie de l'interface obligatoire : de quoi représenter la liste sans montrer son implémentation mémoire réelle.
-
-Nous aimerions afficher (20, 15, 5) plutôt que (20, (15, (5, ()))). On lit, puis on supprime chaque valeur de la tête que l’on ajoute à une liste vide. On renvoie un string
-```python
-def afficherListe(L):
-    '''Renvoie une représentation de la Liste sous forme d'une séquence commençant par la tête    '''
-    reponse = []
-    # à compléter
-    return str(tuple(reponse))
-```
-Elle renvoie un string représentant le contenu interne de la Liste **de façon totalement arbitraire** : le contenu affiché n'a rien à voir avec le contenu réel (des tuples dans des tuples).
-
-Utiliser les instructions suivantes :
-```
->>> a = insererTete(20, (15, (5, nouvelleListe())))
->>> afficherListe(a)
-'(20, 15, 5)'
-```
-**Question** : Un utilisateur peut-il avoir une idée de l'implémentation interne de notre Liste en utilisant nos fonctions d'interface ?
+    **<H3 STYLE="COLOR:red;">Activité n° 1 :**</H3>  Voici une série d'instructions (les instructions ci-dessous s'enchaînent), expliquez ce qui se passe à chacune des étapes :
+    ```
+    L = vide() 
+    ajoutEnTete(10,L) 
+    ajoutEnTete(9,L) 
+    ajoutEnTete(7,L) 
+    L1 = vide() 
+    L2 = cons(5, cons(4, cons(3, cons (2, cons(1, cons(0,L1))))))
+    ```
 
 
-#### <H4 STYLE="COLOR:MAGENTA;"> **3.3.2. Implémentation plus souple avec les tuples**</H4>
-Nous voudrions par exemple parvenir à lire n'importe quelle valeur de notre liste, pas seulement la tête.
+    ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667923"></a>**3.3. ❤️1<sup>ère</sup> implémentation de la structure liste (chainée) avec des tuples❤️**</H3>
+    Les tuples sont déclarés en utilisant **les parenthèses**.
 
-![Principe de l'interface d'une liste plus souple](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.012.png){width=50%; : .center }
+    On peut les lire à l'aide des boucles for.
 
-L'avantage de notre implémentation par rapport au type abstrait : on colle au plus près à la structure (tête, queue).
+    Les tuples sont **non-mutables** : on ne peut pas modifier leurs contenus après création.
 
-Voyons maintenant les désavantages.
 
-**<H3 STYLE="COLOR:red;">Activité n° 7 :**  **structure liste avec des tuples fonction** ```lireElement``` :</H3> Créer la fonction d'interface lireElement en utilisant les fonctions d'interface que nous avons déjà créé : il faudra utiliser supprimerTete jusqu'à arriver à la bonne.
+    #### <H4 STYLE="COLOR:MAGENTA;"> **3.3.1. Implémentation simple avec les tuples**</H4>
 
-Combien de fois doit-on utiliser supprimerTete pour atteindre l'élément d'index **position** ?
+    ![Principe de l'interface entre l'utilisateur et les données](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.010.png){width=50%; : .center }
 
-Que doit-on faire une fois qu'on a récupéré la bonne liste ?
-```lireElement(L:Liste, position:int) -> Elt``` : on **renvoie** l'élément stocké en position **position**.
-```
-listeA = (12, 15, 18, 4)
-reponse = lireElement(listeA, 1)
-```
-reponse contient alors 15.
+    En utilisant des tuples pour implémenter la structure de liste.
 
-**Précondition** : L est une liste et **position** un index valide.
+    ![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.011.png){width=60%; : .center }
 
-Exemple d'utilisation :
-```python
-def lireElement(L, position):
-    '''Renvoie une représentation de la Liste sous forme d'une séquence commençant par la tête'''
-    pass
-```
-```
->>> a = insererTete(20, (15, (5, nouvelleListe())))
->>> lireElement(a, 1)
-15
- 
->>> lireElement(a, 0)
-20
- 
->>> lireElement(a, 2)
-5
-```
-Le pire des cas pour la lecture est ici le fait de vouloir lire la dernière valeur de la liste.
-**Question** : Que vaut le coût de la lecture d'éléments pour notre implémentation :
+    **<H3 STYLE="COLOR:red;">Activité n° 2 :**  **structure liste avec des tuples fonction** ```nouvelleListe()``` **et** ```estVide()``` :</H3> Voici une première implémentation de la structure liste avec des tuples
+    ```python
+    '''Implémentation de type abstrait Liste en utilisant des tuples (tete, queue)'''
 
-A : Elle est logarithmique
+    def nouvelleListe():
+        '''Renvoie une liste vide'''
+        pass
 
-B : Elle est linéaire
+    # prédicat
+    def estVide(L):
+        '''Renvoie True si la liste est vide'''
+        pass
+    ```
 
-C : Elle est quadratique
+    Vérifier le bon fonctionnement de cette implémentation en exécutant ces instructions :
+    ```
+    >>> a = ()
+    >>> estVide(a)
+    ???
+    
+    >>> b = None
+    >>> estVide(b)
+    ???
+    
+    >>> c = "C"
+    >>> estVide(c)
+    ???
+    
+    >>> d = nouvelleListe()
+    >>> estVide(d)
+    ???
+    ```
+    Quelle est la seule proposition qui respecte l'interface imposée par le créateur de cette implémentation ?
 
-D : Elle est exponentielle
+    **<H3 STYLE="COLOR:red;">Activité n° 3 :** **structure liste avec des tuples fonction** ```insererTete``` :</H3> Créer maintenant la fonction d'interface suivante :
 
-**<H3 STYLE="COLOR:red;">Activité n° 8 :**  **structure liste avec des tuples fonction** ```insererElement``` :</H3> Observer la fonction insererElement.
+    ```insererTete(x:Elt, L:Liste) -> Liste``` : on **renvoie** une nouvelle liste où la tête est maintenant l'élément x et la queue la liste précédente L.
 
-```insererElement(x:Elt, L:Liste, position:int) -> Liste``` : on **renvoie** une nouvelle liste où l'élément fourni x est maintenant l'élément de la liste situé en position **position**. On prendra ici un système de position lié à un index commençant à 0.
-```
-listeA = (12, 15, 18, 4)
-listeB = inserer(5, listeA, 2)
-```
-**listeB** contient alors (12, 15, **5**, 18, 4).
-```python
-def insererElement(x, L, position):
-    '''Renvoie une représentation de la Liste sous forme d'une séquence commençant par la tête '''
-    pass 
-```
+    **AIDE** : il suffit de renvoyer un nouveau tuple dont la tête est notre x et la queue l'ancien tuple !
 
-Exemple d'utilisation :
-```
->>> a = insererTete(20, (15, (5, nouvelleListe())))
->>> afficherListe(a)
-'(20, 15, 5)'
- 
->>> a = insererElement(12, a, 1)
->>> afficherListe(a)
-'(20, 12, 15, 5)'
- 
->>> a = insererElement(20, a, 2)
->>> afficherListe(a)
-'(20, 12, 20, 15, 5)'
-```
-**Question** : Que vaut le coût de l'insertion dans le pire des cas pour notre implémentation (lorsque l'élément à rajouter est à placer en fin de liste) :
+    Voici un exemple d'utilisation :	
+    ```python
+    # constructeur
+    def insererTete(x,L) :
+        '''Renvoie une nouvelle liste où x est la tête et liste la queue'''
+        pass
+    ```
+    ```
+    >>> a = nouvelleListe()
+    >>> a = insererTete(5, a)
+    >>> a
+    (5, ())
+    
+    >>> a = insererTete(2, a)
+    >>> a
+    (2, (5, ()))
+    ```
 
-A : Elle est logarithmique
+    **<H3 STYLE="COLOR:red;">Activité n° 4 :**  **structure liste avec des tuples fonction** ```supprimerTete``` :</H3> Dernière fonction d'interface, supprimer la tête :
 
-B : Elle est linéaire
+    ```supprimerTete(L:Liste) -> Liste``` : on **renvoie** une nouvelle liste où la tête est maintenant le deuxième élément (la tête de la queue précédente !). Techniquement, cela revient bien à supprimer l'ancienne tête si on enregistre cette nouvelle version dans une variable. Notez bien qu'on aurait pu nommer cette fonction ```recupererQueue``` puisque c'est ce qu'elle fait.
 
-C : Elle est quadratique
+    **Précondition** : L est une liste (ici () ou (tete,queue)), queue étant une liste.
 
-D : Elle est exponentielle
+    Imaginons la liste suivante :
 
-Coût de l'implémentation en tuple (tête, queue) : On notera donc que dans le pire des cas :
+    **5** → **8** → **2** → **3**
 
-- La **lecture** est à **coût linéaire** (**Θ(n)**)
-- **L'insertion** et la **suppression** est à **coût linéaire** (**Θ(n)**)
+    Votre fonction doit renvoyer ceci :
 
-Un coût (dans le pire des cas) linéaire en lecture et en insertion. Pas terrible. Regardons si on peut faire mieux.
+    **8** → **2** → **3**
+
+    **AIDE** : la tête est l'index 0 de la liste et la queue est son index 1.
+
+    **AIDE 2** : pensez à gérer
+
+    - le cas particulier de la liste vide () : pas de nouvelle tête puisque pas de queue. Il faudra renvoyer une liste vide.
+
+    - le cas général où la queue dans votre liste est une liste non vide.
+
+    Voici un exemple d'utilisation pour chacun des cas précédents :
+    ```python
+    def supprimerTete(L):
+        '''Renvoie une nouvelle liste où on a supprimé la tête de l'ancienne '''
+        pass
+    ```
+    ```
+    >>> a = nouvelleListe()
+    >>> b = supprimerTete(a)
+    >>> b
+    ()
+
+    >>> a = insererTete(5, nouvelleListe())
+    >>> b = supprimerTete(a)
+    >>> b
+    ()
+
+    >>> a
+    (20, (15, (5, ())))
+    
+    >>> b = supprimerTete(a)
+    >>> b
+    (15, (5, ()))
+    
+    >>> c = supprimerTete(b)
+    >>> c
+    (5, ())
+    ```
+
+    **<H3 STYLE="COLOR:red;">Activité n° 5 :**  **structure liste avec des tuples fonction** ```lireTete``` : Réaliser la fonction d'interface permettant de lire la tête :</H3>
+
+    ```lireTete(L:Liste) -> Elt``` : on renvoie la tête de la liste L.
+
+    **Précondition** : L est une liste (ici () ou (tete,queue)), queue étant une liste.
+
+    Attention, on ne modifie pas la liste ! 
+
+    Attention : pensez à vérifier que la liste n'est pas vide avant de chercher à lire l'index 0 (la tête).
+
+    Exemple d'utilisation
+    ```python
+    def lireTete(L):
+        '''Renvoie la tête de la liste, sans toucher à la liste elle-même'''
+        pass
+    ```
+    ```
+    >>> a = insererTete(5, nouvelleListe() )
+    >>> a = insererTete(15, a)
+    >>> lireTete(a)
+    15
+    
+    >>> b = nouvelleListe()
+    >>> lireTete(b)
+    >>> 
+    ```
+
+    **<H3 STYLE="COLOR:red;">Activité n° 6 :**  **structure liste avec des tuples fonction** ```afficherListe``` :</H3> Il nous manque encore une chose qui pourrait être pratique mais qui ne fait pas partie de l'interface obligatoire : de quoi représenter la liste sans montrer son implémentation mémoire réelle.
+
+    Nous aimerions afficher (20, 15, 5) plutôt que (20, (15, (5, ()))). On lit, puis on supprime chaque valeur de la tête que l’on ajoute à une liste vide. On renvoie un string
+    ```python
+    def afficherListe(L):
+        '''Renvoie une représentation de la Liste sous forme d'une séquence commençant par la tête    '''
+        reponse = []
+        # à compléter
+        return str(tuple(reponse))
+    ```
+    Elle renvoie un string représentant le contenu interne de la Liste **de façon totalement arbitraire** : le contenu affiché n'a rien à voir avec le contenu réel (des tuples dans des tuples).
+
+    Utiliser les instructions suivantes :
+    ```
+    >>> a = insererTete(20, (15, (5, nouvelleListe())))
+    >>> afficherListe(a)
+    '(20, 15, 5)'
+    ```
+    **Question** : Un utilisateur peut-il avoir une idée de l'implémentation interne de notre Liste en utilisant nos fonctions d'interface ?
+
+
+    #### <H4 STYLE="COLOR:MAGENTA;"> **3.3.2. Implémentation plus souple avec les tuples**</H4>
+    Nous voudrions par exemple parvenir à lire n'importe quelle valeur de notre liste, pas seulement la tête.
+
+    ![Principe de l'interface d'une liste plus souple](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.012.png){width=50%; : .center }
+
+    L'avantage de notre implémentation par rapport au type abstrait : on colle au plus près à la structure (tête, queue).
+
+    Voyons maintenant les désavantages.
+
+    **<H3 STYLE="COLOR:red;">Activité n° 7 :**  **structure liste avec des tuples fonction** ```lireElement``` :</H3> Créer la fonction d'interface lireElement en utilisant les fonctions d'interface que nous avons déjà créé : il faudra utiliser supprimerTete jusqu'à arriver à la bonne.
+
+    Combien de fois doit-on utiliser supprimerTete pour atteindre l'élément d'index **position** ?
+
+    Que doit-on faire une fois qu'on a récupéré la bonne liste ?
+    ```lireElement(L:Liste, position:int) -> Elt``` : on **renvoie** l'élément stocké en position **position**.
+    ```
+    listeA = (12, 15, 18, 4)
+    reponse = lireElement(listeA, 1)
+    ```
+    reponse contient alors 15.
+
+    **Précondition** : L est une liste et **position** un index valide.
+
+    Exemple d'utilisation :
+    ```python
+    def lireElement(L, position):
+        '''Renvoie une représentation de la Liste sous forme d'une séquence commençant par la tête'''
+        pass
+    ```
+    ```
+    >>> a = insererTete(20, (15, (5, nouvelleListe())))
+    >>> lireElement(a, 1)
+    15
+    
+    >>> lireElement(a, 0)
+    20
+    
+    >>> lireElement(a, 2)
+    5
+    ```
+    Le pire des cas pour la lecture est ici le fait de vouloir lire la dernière valeur de la liste.
+    **Question** : Que vaut le coût de la lecture d'éléments pour notre implémentation :
+
+    A : Elle est logarithmique
+
+    B : Elle est linéaire
+
+    C : Elle est quadratique
+
+    D : Elle est exponentielle
+
+    **<H3 STYLE="COLOR:red;">Activité n° 8 :**  **structure liste avec des tuples fonction** ```insererElement``` :</H3> Observer la fonction insererElement.
+
+    ```insererElement(x:Elt, L:Liste, position:int) -> Liste``` : on **renvoie** une nouvelle liste où l'élément fourni x est maintenant l'élément de la liste situé en position **position**. On prendra ici un système de position lié à un index commençant à 0.
+    ```
+    listeA = (12, 15, 18, 4)
+    listeB = inserer(5, listeA, 2)
+    ```
+    **listeB** contient alors (12, 15, **5**, 18, 4).
+    ```python
+    def insererElement(x, L, position):
+        '''Renvoie une représentation de la Liste sous forme d'une séquence commençant par la tête '''
+        pass 
+    ```
+
+    Exemple d'utilisation :
+    ```
+    >>> a = insererTete(20, (15, (5, nouvelleListe())))
+    >>> afficherListe(a)
+    '(20, 15, 5)'
+    
+    >>> a = insererElement(12, a, 1)
+    >>> afficherListe(a)
+    '(20, 12, 15, 5)'
+    
+    >>> a = insererElement(20, a, 2)
+    >>> afficherListe(a)
+    '(20, 12, 20, 15, 5)'
+    ```
+    **Question** : Que vaut le coût de l'insertion dans le pire des cas pour notre implémentation (lorsque l'élément à rajouter est à placer en fin de liste) :
+
+    A : Elle est logarithmique
+
+    B : Elle est linéaire
+
+    C : Elle est quadratique
+
+    D : Elle est exponentielle
+
+    Coût de l'implémentation en tuple (tête, queue) : On notera donc que dans le pire des cas :
+
+    - La **lecture** est à **coût linéaire** (**Θ(n)**)
+    - **L'insertion** et la **suppression** est à **coût linéaire** (**Θ(n)**)
+
+    Un coût (dans le pire des cas) linéaire en lecture et en insertion. Pas terrible. Regardons si on peut faire mieux.
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667924"></a>**3.4. ❤️2<sup>ème</sup> implémentation de la structure liste (chainée) avec les lists de Python❤️**</H3>
 
