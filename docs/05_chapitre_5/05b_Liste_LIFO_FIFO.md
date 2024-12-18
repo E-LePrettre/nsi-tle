@@ -2539,15 +2539,9 @@ Pourquoi utiliser map ? Cela évite de devoir écrire une boucle pour convertir 
 join est une méthode des chaînes de caractères en Python.
 Elle prend une liste de chaînes en entrée et concatène tous les éléments en insérant la chaîne spécifiée (ici " -> ") entre eux.
 
-**<H3 STYLE="COLOR:red;">Exercice n°8 : File en deux piles**</H3>
+**<H3 STYLE="COLOR:red;">Exercice n°8 : </H3> annulé
 
-Supposons que nous ayons deux piles et aucune autre variable temporaire. Est-il possible de "construire" une structure de données en file d’attente en utilisant uniquement les deux piles ? Nous supposerons que nous avons implémenté  les  méthodes  est\_vide,  empiler  et depiler.
 
-1 Imaginer comment réaliser une file à l’aide de deux piles nommées entree et sortie.
-2 En utilisant la classe Pile de l’exercice précédent, réaliser la classe File avec les méthodes :
-   - ```est_vide(self)``` qui renvoie True si la file est vide ;
-   - ```ajouter(self,v)``` qui stocke la valeur v dans la file ;
-   - ```retirer(self)``` qui retire et retourne la valeur du début de file (la première en attente). Cette méthode  soulève une exception IndexError si on l’applique sur une file vide.
 
 **<H3 STYLE="COLOR:red;">Exercice n°9 : pile ou file et parenthèse**</H3>
 
