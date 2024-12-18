@@ -2946,10 +2946,51 @@ assert verification("())(") == "NON"
 A partir de ce qui a été vu sur les listes chaînées, implémenter :
 
 1. La méthode lenListe(self) qui retourne la longueur de la liste
-1. La méthode get\_node\_index(self, i) qui permet de retourner la cellule d’indice i. Déterminer son ordre de complexité
 1. La méthode insert\_next(self, i, x) qui ajoute une cellule contenant la valeur x après la cellule d’indice i. Déterminer sa complexité
-1. La méthode delete\_head(self) qui supprime la première cellule de la liste. Déterminer sa complexité
+1. La méthode get\_node\_index(self, i) qui permet de retourner la cellule d’indice i. Déterminer son ordre de complexité
+1. La méthode delete\_head(self) qui supprime la première cellule de la liste et la renvoie. Déterminer sa complexité
 1. la méthode delete\_next(self, x) qui supprime la cellule située après la cellule de valeur x et le renvoie
+
+```python
+
+
+lst = Liste()
+assert lst.isEmpty() == True
+assert lst.lenListe() == 0
+
+lst.insert_next(0, 10)  # liste : [10]
+assert lst.lenListe() == 1
+
+lst.insert_next(1, 20)  # liste : [10, 20]
+assert lst.lenListe() == 2
+
+lst.insert_next(2, 30)  # liste : [10, 20, 30]
+assert lst.lenListe() == 3
+ 
+assert lst.get_node_index(0).v == 10
+assert lst.get_node_index(1).v == 20
+assert lst.get_node_index(2).v == 30
+
+lst.insert_next(1, 25)  # liste : [10, 20, 25, 30]
+assert lst.lenListe() == 4
+
+assert lst.get_node_index(2).v == 25
+
+val = lst.delete_head() 
+# liste : [20, 25, 30]
+assert val == 10
+assert lst.lenListe() == 3
+assert lst.get_node_index(0).v == 20
+
+
+# liste actuelle : [20, 25, 30]
+val_del = lst.delete_next(20)
+
+# liste : [20, 30]
+assert val_del == 25
+assert lst.lenListe() == 2
+assert lst.get_node_index(1).v == 30
+```
 
 **<H3 STYLE="COLOR:red;">Exercice n°03 : Pile et palindromes**</H3>
 
