@@ -1534,8 +1534,8 @@ Les primitives communément utilisées pour manipuler des files :
         assert ma_file.defiler() == 'File vide'
     ```
 
-    **<H3 STYLE="COLOR:red;">Activité n° 37 : Structure file avec la POO et les lists de Python:**</H3> On va rajouter à la structure de base précédente deux méthodes de la classe File : ```taille``` et ```sommet``` qui permettent respectivement de retourner la taille de la pile (sans utiliser la fonction de python len !!) et le sommet de la pile (sans utiliser les indices !!). On ne pourra utiliser seulement les fonctions primitives précédentes et en devra récupérer la pile originelle telle qu’elle était.
-
+    **<H3 STYLE="COLOR:red;">Activité n° 37 : Structure file avec la POO et les lists de Python:**</H3> On va rajouter à la structure de base précédente deux méthodes de la classe File : ```taille``` et ```sommet``` qui permettent respectivement de retourner la taille de la file (**sans utiliser la fonction de python len !!**) et le sommet de la file (**sans utiliser les indices !!**). On ne pourra utiliser seulement les fonctions primitives précédentes et en devra récupérer la file originelle telle qu’elle était.
+    
     On pourra s’aider d’une file auxiliaire.
     ```python
         def taille(self) :
@@ -1555,7 +1555,7 @@ Les primitives communément utilisées pour manipuler des files :
 
     Ici, **tous les coûts d’exécution sont unitaires.**
 
-    **<H3 STYLE="COLOR:red;">Activité n° 38 : Structure pile avec la POO et les lists de Python:**</H3> On va rajouter à la structure une méthode de la classe Pile : afficher qui permet d’afficher (retourner) la pile sous forme de liste .
+    **<H3 STYLE="COLOR:red;">Activité n° 38 : Structure pile avec la POO et les lists de Python:**</H3> On va rajouter à la structure une méthode de la classe File : afficher qui permet d’afficher (retourner) la file sous forme de liste .
 
     ```python
         def afficher(self) :
@@ -1568,8 +1568,8 @@ Les primitives communément utilisées pour manipuler des files :
 
     Cette implémentation est très **peu efficace** 
 
-    **<H3 STYLE="COLOR:red;">Activité  : Structure file avec la POO et les lists de Python:**</H3> On va rajouter à la structure de base précédente deux fonctions : ```taille2``` et ```sommet2``` qui permettent respectivement de retourner la taille de la pile (sans utiliser la fonction de python len !!) et le sommet de la pile (sans utiliser les indices !!). On ne pourra utiliser seulement les fonctions primitives précédentes et en devra récupérer la pile originelle telle qu’elle était.
-
+    **<H3 STYLE="COLOR:red;">Activité  : Structure file avec la POO et les lists de Python:**</H3> On va rajouter à la structure de base précédente deux fonctions : ```taille2``` et ```sommet2``` qui permettent respectivement de retourner la taille de la file (**sans utiliser la fonction de python len !!**) et le sommet de la file (**sans utiliser les indices !!**). On ne pourra utiliser seulement les fonctions primitives précédentes et en devra récupérer la file originelle telle qu’elle était.
+    
     On pourra s’aider d’une file auxiliaire.
 
 !!! info "Capytale : structure file avec la POO et une liste chainée"
