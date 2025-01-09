@@ -1603,7 +1603,7 @@ Les primitives communément utilisées pour manipuler des files :
             self.head = ...
     ```
     Tester
-    ```
+    ```python
     f = File()
     ```
     Completer les 3 méthodes : 
@@ -1615,7 +1615,8 @@ Les primitives communément utilisées pour manipuler des files :
     - enfiler2() et defiler2() sera la version enfiler par la queue et défiler par la tete : version plus simple!!
 
     Tester
-    ```
+    
+    ```python
     f = File()
     assert f.estVide() == True
     f.enfiler('Lundi')
