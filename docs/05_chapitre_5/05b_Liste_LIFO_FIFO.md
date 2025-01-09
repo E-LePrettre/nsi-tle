@@ -1600,12 +1600,19 @@ Les primitives communément utilisées pour manipuler des files :
     class File:
         def __init__(self, c=None):
             pass
+            self.head = ...
     ```
     Tester
     ```
     f = File()
     ```
-    Completer les 3 méthodes : estVide(), enfiler() et defiler()
+    Completer les 3 méthodes : 
+
+    - estVide(), 
+
+    - enfiler() et defiler() sera la version enfiler par la tête et défiler par la queue : version un peu plus compliquée!!
+
+    - enfiler2() et defiler2() sera la version enfiler par la queue et défiler par la tete : version plus simple!!
 
     Tester
     ```
@@ -1619,8 +1626,16 @@ Les primitives communément utilisées pour manipuler des files :
     assert f.defiler() == 'Mardi'
     assert f.defiler() == 'Mercredi'
     assert f.defiler() == 'File vide'
+    f.enfiler2('Lundi')
+    f.enfiler2('Mardi')
+    f.enfiler2('Mercredi')
+    assert f.defiler2() == 'Lundi'
+    assert f.defiler2() == 'Mardi'
+    assert f.defiler2() == 'Mercredi'
+    assert f.defiler2() == 'File vide'
     ```
-    Compléter la méthode \_\_str\_\_.Attention c'est un peu plus compliqué
+    Compléter la méthode \_\_str\_\_.Attention c'est un peu plus compliqué. De façon générale on peut utiliser une list pour enregistrer les valeurs que l'on va lire sur la file afin de les présenter : on mettra le sommet de la file à gauche (le premier à sortir) et la queue de la file à droite (par où on enfile)
+
     ```python
     class Node:
         def __init__(self, value = None, next = None):
@@ -1629,26 +1644,39 @@ Les primitives communément utilisées pour manipuler des files :
     class File:
         def __init__(self, c=None):
             pass
+            self.head = ...
 
         def estVide(self):
             pass
 
         def enfiler(self, element):
+            ### version enfiler par la tête et défiler par la queue
             pass
 
         def defiler(self):
+            ### version enfiler par la tête et défiler par la queue
+            pass
+        
+        def enfiler2(self, element):
+            ### version enfiler par la queue et défiler par la tete
+            pass
+
+        def defiler2(self):
+            ### version enfiler par la queue et défiler par la tete
             pass
         
         def __str__(self):
+            ### version enfiler par la queue et défiler par la tete
             pass
-        
+    
     f = File()
     assert f.estVide() == True
-    f.enfiler('Lundi')
-    f.enfiler('Mardi')
-    f.enfiler('Mercredi')
+    f.enfiler2('Lundi')
+    f.enfiler2('Mardi')
+    f.enfiler2('Mercredi')
+    
     ```
-    Compléter les 2 méthodes suivante : taille() et sommet()
+    Compléter les 2 méthodes suivante : taille() et sommet(). On utilisera enfiler2() et defiler2() qui sera la version enfiler par la queue et défiler par la tete
 
 
     ```python
@@ -1659,35 +1687,47 @@ Les primitives communément utilisées pour manipuler des files :
     class File:
         def __init__(self, c=None):
             pass
+            self.head = ...
 
         def estVide(self):
             pass
 
         def enfiler(self, element):
+            ### version enfiler par la tête et défiler par la queue
             pass
 
         def defiler(self):
+            ### version enfiler par la tête et défiler par la queue
+            pass
+        
+        def enfiler2(self, element):
+            ### version enfiler par la queue et défiler par la tete
+            pass
+
+        def defiler2(self):
+            ### version enfiler par la queue et défiler par la tete
             pass
         
         def __str__(self):
+            ### version enfiler par la queue et défiler par la tete
             pass
-        
+
         def taille(self):
             pass
         
         def sommet(self):
             pass
 
-        
     f = File()
     assert f.estVide() == True
-    f.enfiler('Lundi')
-    f.enfiler('Mardi')
-    f.enfiler('Mercredi')
+    f.enfiler2('Lundi')
+    f.enfiler2('Mardi')
+    f.enfiler2('Mercredi')
     ```
+
     Tester
 
-    Ajouter deux fonctions taille2(file) sommet2(file)
+    Ajouter deux fonctions taille(file) sommet(file). On utilisera enfiler2() et defiler2() qui sera la version enfiler par la queue et défiler par la tete
 
     Tester
 
@@ -1702,46 +1742,106 @@ Les primitives communément utilisées pour manipuler des files :
 
     ```python
     class Node:
-        def __init__(self, value = None, next = None):
+        def __init__(self, value=None, next=None):
+            # Initialisation d'un nœud avec une valeur et un pointeur vers le nœud suivant
             pass
+
 
     class File:
         def __init__(self, c=None):
-            self.cellule = ...
-            self.queue = .... # Ajout d'un pointeur pour la fin de la file
+            # Initialisation de la file avec une tête et une queue
+            self.head = c...    # Pointeur vers le premier élément de la file
+            self.queue = ...   # Pointeur vers le dernier élément de la file
 
         def estVide(self):
+            # Vérifie si la file est vide
             pass
 
         def enfiler(self, element):
-            new = Node(element) 
-            if self.estVide():
-                ...
+            ### version enfiler par la tête et défiler par la queue
+            """Ajoute un élément au début de la file."""
+            ...           # Création d'un nouveau nœud avec la valeur donnée
+            if ...        # Si la file est vide
+                ...       # Le nœud devient à la fois la tête et la queue
             else:
-                ...  # L'ancien dernier nœud pointe vers le nouveau nœud
-                ...    # La queue est mise à jour pour pointer vers le nouveau nœud
+                ...       # Le nouveau nœud pointe vers l'ancien premier nœud
+                ...       # Mise à jour de la tête avec le nouveau nœud
 
         def defiler(self):
-            if not self.estVide():
-                ...
-                if self.cellule is None:  # Si la tête devient vide, la file est vide
-                    ...
-                return ...
+            ### version enfiler par la tête et défiler par la queue
+            """Retire un élément à la fin de la file."""
+            if self.estVide():         # Si la file est vide
+                ...       # Retourne un message d'erreur
+            
+            if ...        # Cas d'un seul élément dans la file
+                ...       # Sauvegarde la valeur de l'unique nœud
+                ...       # Vide la tête
+                ...       # Vide la queue
+                ...       # Retourne la valeur supprimée
+            
+            ...           # Départ au premier nœud
+            while ...       # Parcours jusqu'à l'avant-dernier nœud
+                ...       
+
+            ...           # Sauvegarde la valeur du dernier nœud
+            ...           # Supprime la référence au dernier nœud
+            ...           # Met à jour la queue
+            ...           # Retourne la valeur supprimée
+
+        def enfiler2(self, element):
+            ### version enfiler par la queue et défiler par la tete
+            """Ajoute un élément à la fin de la file."""
+            ...          # Création d'un nouveau nœud
+            if ...       # Si la file est vide
+                ...      # Le nœud devient la tête et la queue
             else:
-                raise IndexError("File vide")
-            
-        def __str__(self):  # on peut mettre __repr__ à la place pour éviter de taper print
-            pass
+                ...       # L'ancien dernier nœud pointe vers le nouveau
+                ...       # Mise à jour de la queue avec le nouveau nœud
 
-            
+        def defiler2(self):
+            ### version enfiler par la queue et défiler par la tete
+            """Retire un élément au début de la file."""
+            if ...       # Si la file n'est pas vide
+                ...       # Sauvegarde la valeur de la tête
+                ...       # Passe au nœud suivant
+                if ...        # Si la file devient vide
+                    ...       # Vide aussi la queue
+                ...         # Retourne la valeur supprimée
+            else:
+                raise IndexError("File vide")  # Erreur si la file est vide
+
+        def __str__(self):
+            """Affiche les éléments de la file sous forme d'une chaîne."""
+            ### version enfiler par la queue et défiler par la tete
+            if self.head is None:          # Si la file est vide
+                return "[]"                # Retourne une chaîne vide
+            else:
+                ...       # Liste pour stocker les éléments
+                ...       # Départ au premier nœud
+                while ...        # Parcours de la file
+                    ...       # Ajoute la valeur à la liste
+                    ...       # Passe au nœud suivant
+                return ...      # Retourne les éléments sous forme de liste
 
 
-    f = File()
+
+    f=File()
     assert f.estVide() == True
     f.enfiler('Lundi')
     f.enfiler('Mardi')
     f.enfiler('Mercredi')
+    assert f.estVide() == False
+    assert f.defiler() == 'Lundi'
+    assert f.defiler() == 'Mardi'
+    assert f.defiler() == 'Mercredi'
+    assert f.defiler() == 'File vide'
+    f.enfiler2('Lundi')
+    f.enfiler2('Mardi')
+    f.enfiler2('Mercredi')
     print(f)
+    assert f.defiler2() == 'Lundi'
+    assert f.defiler2() == 'Mardi'
+    assert f.defiler2() == 'Mercredi'
     ```
 
 !!! question "Capytale : Utilisation de deque"
