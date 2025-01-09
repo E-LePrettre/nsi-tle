@@ -1867,7 +1867,7 @@ Les primitives communément utilisées pour manipuler des files :
     # Vérifier si la pile est vide
 
 
-    print("La pile est vide ?", est_vide)
+    print("La pile est vide ?", est_vide(pile))
 
     ##########################################################
     # Empiler des éléments 10, 20 puis 30 
@@ -1916,7 +1916,7 @@ Les primitives communément utilisées pour manipuler des files :
     # Vérifier si la file est vide
 
 
-    print("La file est vide ?", est_vide)
+    print("La file est vide ?", est_vide(file))
 
     ##########################################################
     # Enfiler des éléments 10, 20 puis 30 
