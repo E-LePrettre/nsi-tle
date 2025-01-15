@@ -2398,7 +2398,7 @@ class File:
 
     def defile(self):
         pass
-
+    
     def __str__(self):
         return str(self.entree) + " " + str(self.sortie)
     
@@ -2607,7 +2607,7 @@ try:
     p.depiler()
 except IndexError as e:
     print("Erreur :", e)  # La pile est vide
-        
+                
     
 ```
 
@@ -2622,29 +2622,31 @@ except IndexError as e:
 
 4 **Bonus :** Vous pouvez implémenter la méthode spéciale str (self)
 
-```python
-    def __str__(self):
-        return "Pile : " + " -> ".join(map(str, reversed(self.contenu)))
-```  
+!!! info
+    ```python
+        def __str__(self):
+            return "Pile : " + " -> ".join(map(str, reversed(self.contenu)))
+    ```  
 
-**1. reversed(self.contenu) :**
+    **1. reversed(self.contenu) :**
 
-reversed() est une fonction Python qui retourne un itérateur avec les éléments de la liste dans l'ordre inverse.
+    reversed() est une fonction Python qui retourne un itérateur avec les éléments de la liste dans l'ordre inverse.
 
-Cela est nécessaire car dans une pile (LIFO), le dernier élément ajouté est en haut, donc on souhaite afficher les éléments du sommet vers la base.
+    Cela est nécessaire car dans une pile (LIFO), le dernier élément ajouté est en haut, donc on souhaite afficher les éléments du sommet vers la base.
 
-**2. map(str, reversed(self.contenu)) :**
+    **2. map(str, reversed(self.contenu)) :**
 
-map est une fonction Python qui applique une fonction à chaque élément d'une collection (liste, itérateur, etc.).
-Ici, map(str, ...) convertit chaque élément retourné par reversed(self.contenu) en chaîne de caractères (str).
+    map est une fonction Python qui applique une fonction à chaque élément d'une collection (liste, itérateur, etc.).
+    Ici, map(str, ...) convertit chaque élément retourné par reversed(self.contenu) en chaîne de caractères (str).
 
-Pourquoi utiliser map ? Cela évite de devoir écrire une boucle pour convertir chaque élément en chaîne de caractères.
+    Pourquoi utiliser map ? Cela évite de devoir écrire une boucle pour convertir chaque élément en chaîne de caractères.
 
-**3. " -> ".join(...) :**
+    **3. " -> ".join(...) :**
 
-join est une méthode des chaînes de caractères en Python.
+    join est une méthode des chaînes de caractères en Python.
 
-Elle prend une liste de chaînes en entrée et concatène tous les éléments en insérant la chaîne spécifiée (ici " -> ") entre eux.
+    Elle prend une liste de chaînes en entrée et concatène tous les éléments en insérant la chaîne spécifiée (ici " -> ") entre eux.
+!!!
 
 **<H3 STYLE="COLOR:red;">Exercice n°8 :** </H3> annulé
 
@@ -2663,7 +2665,7 @@ et qui retourne l’indice de la parenthèse ouvrante associée.
 
 ```python
 def trouver_parenthese_ouvrante(chaine, indice_fermante):
-    pile = []  # Pile pour stocker les indices des parenthèses ouvrantes
+    pile = ...  # Pile pour stocker les indices des parenthèses ouvrantes
     pass
 
 assert trouver_parenthese_ouvrante("(a + b)", 6) == 0  
@@ -2791,31 +2793,37 @@ Pour simplifier on peut d’abord sortir : 4 7 2 6 3 1 5 8 the last one is 8
 ```python
 class Node:
     def __init__(self, value = None, next = None):
-        pass
+        self.v = ...
+        self.n = ...
 
 class File:
     def __init__(self, c=None):
-        self.cellule = ...
-        self.queue = ...
+        self.head = ...
 
     def estVide(self):
-        return ...
-
+        pass
+    
     def enfile(self, element):
-        pass   
-
+        ### version enfiler par la queue et défiler par la tete
+        if self.estVide():
+            self.head = Node(element)
+        else:
+            ...
+    
     def defile(self):
+        ### version enfiler par la queue et défiler par la tete
         if not self.estVide():
-            pass
+            ...
         else:
             raise IndexError("File vide")
+
     
     def __str__(self):  # on peut mettre __repr__ à la place pour éviter de taper print
-        if self.cellule is None:
+        if self.head is None:
             raise IndexError("File vide")
         else:
-            result = str(self.cellule.v)
-            next_node = self.cellule.n
+            result = str(self.head.v)
+            next_node = self.head.n
             while next_node is not None:
                 result += " - " + str(next_node.v)
                 next_node = next_node.n
@@ -2858,6 +2866,7 @@ m = 3
 # Appel de la fonction josephus
 dernier_survivant = josephus(liste_personnes, m)
 print(dernier_survivant)
+
 ```
 
 **<H3 STYLE="COLOR:red;">Exercice n°12 : Le jeu de cartes : bataille**</H3>
@@ -2875,31 +2884,37 @@ Le programme partiel du jeu de bataille :
 ```python
 class Node:
     def __init__(self, value = None, next = None):
-        pass
+        self.v = ...
+        self.n = ...
 
 class File:
     def __init__(self, c=None):
-        self.cellule = ...
-        self.queue = ...
+        self.head = ...
 
     def estVide(self):
-        return ...
-
+        pass
+    
     def enfiler(self, element):
-        pass   
-
+        ### version enfiler par la queue et défiler par la tete
+        if self.estVide():
+            self.head = Node(element)
+        else:
+            ...
+    
     def defiler(self):
+        ### version enfiler par la queue et défiler par la tete
         if not self.estVide():
-            pass
+            ...
         else:
             raise IndexError("File vide")
+
     
     def __str__(self):  # on peut mettre __repr__ à la place pour éviter de taper print
-        if self.cellule is None:
+        if self.head is None:
             raise IndexError("File vide")
         else:
-            result = str(self.cellule.v)
-            next_node = self.cellule.n
+            result = str(self.head.v)
+            next_node = self.head.n
             while next_node is not None:
                 result += " - " + str(next_node.v)
                 next_node = next_node.n
@@ -2915,6 +2930,7 @@ import random
 
 paquet_alice = File()
 paquet_basile = File()
+...  # Initialisation de la file pour les égalités
 
 # crée le jeu de 52 cartes
 cartes = [i for i in range(0, 52)]
@@ -2954,6 +2970,8 @@ def tirer():
     elif valeura < valeurb:
         paquet_basile.enfiler(b)
         paquet_basile.enfiler(a)
+    else: 
+        ...
 
 
 # démarrage du jeu
