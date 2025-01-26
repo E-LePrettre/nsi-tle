@@ -783,18 +783,7 @@ On veut construire cet arbre à l'aide de la classe Arbre. Le problème est que 
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.039.png){width=30%; : .center }
 
-Ajouter la méthode de la classe Arbre suivante :
-```python
-def greffeGD(value, left = None, right = None):
-    pass
-
-E = Arbre.greffeGD('E')
-D = Arbre.greffeGD('D')
-C = Arbre.greffeGD('C')
-B = Arbre.greffeGD('B', D, E)
-arbre = Arbre.greffeGD('A', B, C)
-```
-On pourra aussi tester avec l’arbre T.
+Implanter les deux arbres : le premier que l'on appelera arbre et le deuxième sera noté T
 
 On note que les **constructeurs de la classe Nœud sont protégés** et que pour pouvoir y accéder on utilise un setter.
 
@@ -827,9 +816,13 @@ HAUTEUR(T) :
 
 La fonction max renvoie la plus grande valeur des 2 valeurs passées en paramètre (exemple : max(5,6) renvoie 6).
 
-**<H3 STYLE="COLOR:red;">Activité n° 26 :**  **Arbres binaires et POO fonction hauteur :</H3>** Implémenter l’algorithme de la **fonction** hauteur et tester l’arbre précédent.
+**<H3 STYLE="COLOR:red;">Activité n° 26 :**  **Arbres binaires et POO fonction hauteur :</H3>** Implémenter l’algorithme de la **fonction** hauteur 
 
-**<H3 STYLE="COLOR:red;">Activité n° 27 :**  **Arbres binaires et POO méthode hauteur :</H3>** Implémenter l’algorithme de la **méthode** hauteur2 et tester l’arbre précédent.
+Tester avec les 2 arbres précédents
+
+**<H3 STYLE="COLOR:red;">Activité n° 27 :**  **Arbres binaires et POO méthode hauteur :</H3>** Implémenter l’algorithme de la **méthode** hauteur2 
+
+Tester avec les 2 arbres précédents
 
 Voici l’algorithme correspondant à la fonction taille : 
 ```
@@ -841,9 +834,13 @@ TAILLE(T) :
   fin si
 ```
 
-**<H3 STYLE="COLOR:red;">Activité n° 28 :**  **Arbres binaires et POO fonction taille :</H3>** Implémenter l’algorithme de la **fonction** taille et tester l’arbre précédent.
+**<H3 STYLE="COLOR:red;">Activité n° 28 :**  **Arbres binaires et POO fonction taille :</H3>** Implémenter l’algorithme de la **fonction** taille 
 
-**<H4 STYLE="COLOR:red;">Activité n° 29 :**  **Arbres binaires et POO méthode taille :</H3>** Implémenter l’algorithme de la **méthode** taille2 et tester l’arbre précédent.
+Tester avec les 2 arbres précédents
+
+**<H4 STYLE="COLOR:red;">Activité n° 29 :**  **Arbres binaires et POO méthode taille :</H3>** Implémenter l’algorithme de la **méthode** taille2 
+
+Tester avec les 2 arbres précédents
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141397"></a>**3.8. Un autre code de représentation**</H3>
 
@@ -1030,18 +1027,19 @@ Ajouter le programme principal suivant :
 ```python
 if __name__ == '__main__':
     ######début de la construction de l'arbre binaire###########
-    h = AB.Arbre.greffeGD('h')
-    c = AB.Arbre.greffeGD('c', None, h)
-    l = AB.Arbre.greffeGD('l')
-    i = AB.Arbre.greffeGD('i')
-    j = AB.Arbre.greffeGD('j', l)
-    d = AB.Arbre.greffeGD('d', i, j)
-    a = AB.Arbre.greffeGD('a', c, d)
-    k = AB.Arbre.greffeGD('k')
-    e = AB.Arbre.greffeGD('e', k)
-    f = AB.Arbre.greffeGD('f')
-    b = AB.Arbre.greffeGD('b', e, f)
-    arbre = AB.Arbre.greffeGD('r', a, b)
+    h = Noeud('h')
+    c = Noeud('c', None, h)
+    l = Noeud('l')
+    i = Noeud('i')
+    j = Noeud('j', l)
+    d = Noeud('d', i, j)
+    a = Noeud('a', c, d)
+    k = Noeud('k')
+    e = Noeud('e', k)
+    f = Noeud('f')
+    b = Noeud('b', e, f)
+    r = Noeud('r', a, b)
+    arbre = Arbre(r)
     ######fin de la construction de l'arbre binaire###########
 ```
 Vérifier que l’on obtient bien les parcours de l’activité précédente.
