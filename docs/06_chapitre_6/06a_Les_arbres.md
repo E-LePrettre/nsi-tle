@@ -754,22 +754,43 @@ TAILLE(T) :
 ```python
 class Noeud:
     def __init__(self, valeur , g = None, d = None):
+        """
+        Initialise un nœud de l'arbre binaire.
+        valeur : contient la donnée du nœud
+        g : référence au sous-arbre gauche
+        d : référence au sous-arbre droit
+        """
         pass
 
 class Arbre:
     def __init__(self, noeud=None):
+        """
+        Initialise un arbre binaire avec un nœud racine.
+        """
         pass
 
     def estVide(self):
+        """
+        Vérifie si l'arbre est vide.
+        """
         pass
 
     def get_valeur(self):
+        """
+        Retourne la valeur du nœud racine de l'arbre.
+        """
         pass
 
     def get_gauche(self):
+        """
+        Retourne le sous-arbre gauche.
+        """
         pass
 
     def get_droit(self):
+        """
+        Retourne le sous-arbre droit.
+        """
         pass
 ```
 
