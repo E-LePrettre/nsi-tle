@@ -914,7 +914,7 @@ l'arbre déjà utilisé :
         3. Parcours en suffixe (postordre)
         Ordre de visite : h, c, i, l, j, d, a, k, e, f, b, r
 
-
+![parcours](parcours.gif)
 
 ???+ question "Activité n° 31 :Arbre binaire et parcours en profondeur"
 
