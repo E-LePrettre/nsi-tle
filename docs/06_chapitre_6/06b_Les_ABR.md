@@ -102,6 +102,17 @@ class Node:
     def estFeuille(self):
         pass
 ```
+on rajoutera cet ABR pour tester
+```python
+if __name__ == "__main__":
+    n3 = Node(3)
+    n7 = Node(7)
+    n5 = Node(5, n3, n7)
+
+    print(n5) 
+    print(n3.estFeuille()) 
+    print(n5.estFeuille())  
+```
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149153668"></a>**5.2. ❤️Insérer dans un ABR ❤️**</H3>
 
