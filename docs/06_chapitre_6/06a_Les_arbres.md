@@ -803,13 +803,14 @@ On note que les **constructeurs de la classe Nœud sont protégés** et que pour
 Ajouter la **méthode** suivante à la classe Nœud :
 ```python
 def __repr__(self):
+    # return self.valeur + str(self.g) +str(self.d) # mais il y aura beaucoup de None
     return self.valeur+str(self.g).replace('None','.')+str(self.d).replace('None','.')
 ```
 
 Ajouter la **méthode** suivante à la classe Arbre : 
 ```python
 def __str__(self): # ou __repr__ pour éviter le print...
-    return self.noeud.__str__()
+    return str(self.noeud)
 ```
 
 Tester sur les arbres binaires précédents.
