@@ -1155,7 +1155,22 @@ Vérifier que l’on obtient bien le résultat escompté.
 
 Ajouter (sur Thonny dans le fichier **arbre\_binaire\_POO\_v1\_parcours.py**,), l’implémentation de ce parcours sous **forme de fonction**.
 
-On implémentera la file par une liste.
+On implémentera la file avec 
+```python
+from collections import deque
+
+def file_vide():
+    pass
+
+def enfiler(file, element):
+    pass
+
+def est_vide(file):
+    pass
+
+def defiler(file):
+    pass
+```
 
 Vérifier que l’on obtient bien le résultat escompté.
 
@@ -1163,7 +1178,22 @@ Vérifier que l’on obtient bien le résultat escompté.
 
 Ajouter (sur Thonny dans le fichier **arbre\_binaire\_POO\_v2\_parcours.py**), l’implémentation de ce parcours sous **forme de fonction.**
 
-On implémentera la file par une liste.
+On implémentera la file avec 
+```python
+from collections import deque
+
+def file_vide():
+    pass
+
+def enfiler(file, element):
+    pass
+
+def est_vide(file):
+    pass
+
+def defiler(file):
+    pass
+```
 
 Vérifier que l’on obtient bien le résultat escompté.
 
