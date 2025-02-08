@@ -1045,8 +1045,6 @@ Sur Thonny : Créer un fichier python dans le même dossier que arbre\_binaire\_
 
 
 
-**Implémenter les trois parcours sous forme de fonctions**.
-
 Ajouter le programme principal suivant :
 ```python
 class Noeud:
@@ -1092,7 +1090,15 @@ if __name__ == '__main__':
     arbre = Arbre(r)
     ######fin de la construction de l'arbre binaire###########
 ```
+
+Implémenter les **3 fonctions** qui permettent de parcourir l'arbre précédent **en profondeur**
+
+
 Vérifier que l’on obtient bien les parcours de l’activité précédente.
+
+Implémenter les 3 **Méthodes** par exemple parcours_infixe2() qui permettent de parcourir l'arbre précédent **en profondeur**
+
+Vérifier que l’on obtient bien les parcours
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc149141406"></a>**5. Parcours en largeur d’un arbre binaire**</H2>
 
@@ -1126,7 +1132,22 @@ Voici **l’algorithme parcours en largeur**.
 
 Ajouter (sur Thonny : dans le fichier **arbre\_binaire\_tuple\_parcours.py**,), l’implémentation de ce parcours sous **forme de fonction.**
 
-On implémentera la file par une liste.
+On implémentera la file avec 
+```python
+from collections import deque
+
+def file_vide():
+    pass
+
+def enfiler(file, element):
+    pass
+
+def est_vide(file):
+    pass
+
+def defiler(file):
+    pass
+```
 
 Vérifier que l’on obtient bien le résultat escompté.
 
