@@ -140,13 +140,44 @@ print(T)
 ```
 **<H3 STYLE="COLOR:red;">Activité n° 7 : Insertion dans un ABR**</H3> Créer la **méthode** insert(self, data) à la classe Node 
 
+On testera avec :
+```python
+T = Node(8)  
+
+for value in [3, 10, 1, 6, 14, 4, 7, 13]:
+    T.insert(value)
+
+print(T)
+```
+
 La fonction inserer et la méthode insert sont équivalent car elles permettent de construire l’ABR.
 
 **Les activités 8 et 9 (visualisation de l'arbre) ne pourra se faire que sur Thonny en téléchargeant le fichier graphiarbre.py**
 
-**<H3 STYLE="COLOR:red;">Activité n° 8 : Représentation graphique de l’arbre**</H3> importer le fichier graphicarbre.py au script précédent pour visualiser l’arbre binaire de recherche 
+**<H3 STYLE="COLOR:red;">Activité n° 8 : Représentation graphique de l’arbre**</H3> 
 ```python
-from graphicarbre import *
+from graphviz import Digraph
+
+def dessiner_arbre_graphviz(arbre):
+    """
+    Génère un rendu visuel de l'ABR en utilisant Graphviz.
+    """
+    def ajouter_noeud(graphe, arbre):
+        if arbre:
+            graphe.node(str(arbre.value))  # Ajouter le nœud
+            if arbre.left:
+                graphe.edge(str(arbre.value), str(arbre.left.value))  # Lien vers gauche
+                ajouter_noeud(graphe, arbre.left)
+            if arbre.right:
+                graphe.edge(str(arbre.value), str(arbre.right.value))  # Lien vers droite
+                ajouter_noeud(graphe, arbre.right)
+
+    dot = Digraph(comment="Arbre Binaire de Recherche")
+    ajouter_noeud(dot, arbre)
+    return dot
+
+dot = dessiner_arbre_graphviz(T)
+dot
 ```
 
 **<H3 STYLE="COLOR:red;">Activité n° 9 : Représentation graphique de l’arbre**</H3> Tester le programme précédent avec 
