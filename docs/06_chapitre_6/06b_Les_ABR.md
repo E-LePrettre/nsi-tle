@@ -129,6 +129,15 @@ if __name__ == "__main__":
 
 **<H3 STYLE="COLOR:red;">Activité n° 6 : Insertion dans un ABR**</H3> Créer la **fonction** inserer(T, data)qui répond à l’algorithme précédent
 
+On testera avec :
+```python
+T = None 
+
+for value in [8, 3, 10, 1, 6, 14, 4, 7, 13]:
+    T = inserer(T, value)
+
+print(T)
+```
 **<H3 STYLE="COLOR:red;">Activité n° 7 : Insertion dans un ABR**</H3> Créer la **méthode** insert(self, data) à la classe Node 
 
 La fonction inserer et la méthode insert sont équivalent car elles permettent de construire l’ABR.
