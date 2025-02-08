@@ -696,6 +696,8 @@ print(arbre.affiche2())
 print(T.affiche2())
 ```
 
+**<H3 STYLE="COLOR:red;">Activité n° 19 :**  **Arbres binaires et POO : fonction** hauteur** :</H3>** Implémenter l’algorithme de la **fonction** hauteur et tester l’arbre précédent.
+
 Voici l’algorithme correspondant à la fonction hauteur : (convention 1 pour la racine)
 ```
 HAUTEUR(T) :
@@ -708,11 +710,13 @@ HAUTEUR(T) :
 
 La fonction max renvoie la plus grande valeur des 2 valeurs passées en paramètre (exemple : max(5,6) renvoie 6).
 
-**<H3 STYLE="COLOR:red;">Activité n° 19 :**  **Arbres binaires et POO : fonction** hauteur** :</H3>** Implémenter l’algorithme de la **fonction** hauteur et tester l’arbre précédent.
+
 
 **<H3 STYLE="COLOR:red;">Activité n° 20 :**  **Arbres binaires et POO : méthode** hauteur** :</H3>** Implémenter l’algorithme de la **méthode** hauteur2 et tester l’arbre précédent.
 
 Tester avec l’arbre T qui devrait avoir une hauteur de 5.
+
+**<H3 STYLE="COLOR:red;">Activité n° 21 :**  **Arbres binaires et POO : fonction** taille** :</H3>** Implémenter l’algorithme de la **fonction** taille et tester l’arbre précédent.
 
 Voici l’algorithme correspondant à la fonction taille :
 ```
@@ -724,7 +728,7 @@ TAILLE(T) :
   fin si
 ```
 
-**<H3 STYLE="COLOR:red;">Activité n° 21 :**  **Arbres binaires et POO : fonction** taille** :</H3>** Implémenter l’algorithme de la **fonction** taille et tester l’arbre précédent.
+
 
 **<H3 STYLE="COLOR:red;">Activité n° 22 :**  **Arbres binaires et POO : méthode** taille** :</H3>** Implémenter l’algorithme de la **méthode** taille2 et tester l’arbre précédent.
 
