@@ -408,23 +408,7 @@ Soit 15=20+21+22+23 en tout.
 
 L’arbre précédent une hauteur h = 3. Donc la taille du tableau sera de : 23+1-1=24-1=15.
 
-|**Activité n° 10 :**  **Arbres binaires et vocabulaire :**  Calculer la taille d'un Arbre Complet dont on vous donne la hauteur:|
-|-|
-|**Si on considère une profondeur de 1 pour la racine :**|
-|- Hauteur h = 1 : Taille n = 1|
-|- Hauteur h = 2 : Taille : n = 1 + 2 = 3|
-|- Hauteur h = 3 : La taille : n = 1 + 2 + ...|
-|- Hauteur h = 4 : La taille : n =|
-|- Hauteur h = 5 : La taille: n =|
-|Quelle fonction mathématique permettrait de trouver la hauteur h connaissant la taille n de l'arbre complet ?|
-||
-|**Si on considère une profondeur de 0 pour la racine :**|
-|- Hauteur h = 0 : Taille n = 1|
-|- Hauteur h = 1 : Taille : n = 1 + 2 = 3|
-|- Hauteur h = 2 : La taille : n = 1 + 2 + ...|
-|- Hauteur h = 3 : La taille : n =|
-|- Hauteur h = 4 : La taille: n =|
-|Quelle fonction mathématique permettrait de trouver la hauteur h connaissant la taille n de l'arbre complet ?|
+
 
 ???+ question "Activité n° 10 : Arbres binaires et vocabulaire :"
 
@@ -605,12 +589,14 @@ On veut construire cet arbre à l'aide de l’implémentation précédente.
 
 Écrire les commandes permettant de faire cette construction.
 
+**<H3 STYLE="COLOR:red;">Activité n° 14 :**  **Arbres binaires et les fonctions : fonction** hauteur** :</H3>** Implémenter l’algorithme de la fonction hauteur et tester le sur l’arbre précédent.
+
 Voici l’algorithme correspondant à la fonction hauteur : (convention 1 pour la racine)
 
 ```
 HAUTEUR(T) :
   si T est vide :
-    renvoyer 0
+    renvoyer 0 # -1 si convention 0 pour la racine
   sinon :
     renvoyer 1 + max(HAUTEUR(sous-arbre gauche), HAUTEUR(sous-arbre droit))
   fin si
@@ -618,7 +604,7 @@ HAUTEUR(T) :
 
 La fonction max renvoie la plus grande valeur des 2 valeurs passées en paramètre (exemple : max(5,6) renvoie 6).
 
-**<H3 STYLE="COLOR:red;">Activité n° 14 :**  **Arbres binaires et les fonctions : fonction** hauteur** :</H3>** Implémenter l’algorithme de la fonction hauteur et tester le sur l’arbre précédent.
+**<H3 STYLE="COLOR:red;">Activité n° 15 :**  **Arbres binaires et les fonctions : fonction** taille** :</H3>** Implémenter l’algorithme de la fonction taille et tester le sur l’arbre précédent.
 
 Voici l’algorithme correspondant à la fonction taille :
 ```
@@ -630,7 +616,7 @@ TAILLE(T) :
   fin si
 ```
 
-**<H3 STYLE="COLOR:red;">Activité n° 15 :**  **Arbres binaires et les fonctions : fonction** taille** :</H3>** Implémenter l’algorithme de la fonction taille et tester le sur l’arbre précédent.
+
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141395"></a>**3.6. ❤️2<sup>ème</sup> implémentation de la structure ARBRE BINAIRE avec la POO et une classe❤️**</H3>
 
