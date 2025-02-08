@@ -152,7 +152,6 @@ print(T)
 
 La fonction inserer et la méthode insert sont équivalent car elles permettent de construire l’ABR.
 
-**Les activités 8 et 9 (visualisation de l'arbre) ne pourra se faire que sur Thonny en téléchargeant le fichier graphiarbre.py**
 
 **<H3 STYLE="COLOR:red;">Activité n° 8 : Représentation graphique de l’arbre**</H3> 
 ```python
@@ -193,7 +192,8 @@ if __name__ == '__main__':
     abr.insert(2)
     abr.insert(7)
     abr.insert(5)
-    graphicarbre(abr)
+    dot_abr = dessiner_arbre_graphviz(abr)
+    display(dot_abr)
 
     # avec la fonction
     T = Node(6)
@@ -205,7 +205,8 @@ if __name__ == '__main__':
     inserer(T, 2)
     inserer(T, 7)
     inserer(T, 5)
-    graphicarbre(T)
+    dot_T = dessiner_arbre_graphviz(T)
+    display(dot_T)
 ```
 
 **Remarque** : on peut faire une boucle sur une liste pour éviter de recopier le code
