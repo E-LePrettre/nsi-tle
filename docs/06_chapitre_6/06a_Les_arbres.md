@@ -948,7 +948,9 @@ l'arbre déjà utilisé :
     ??? success "Solution"
 
         Premier algorithme : Parcours en suffixe (postordre)
+
         Deuxième algorithme : Parcours en préfixe (préordre)
+        
         Troisième algorithme : Parcours en infixe (in-ordre)
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141403"></a>**4.2. Implémentation des parcours en profondeur avec les tuples**</H3>
