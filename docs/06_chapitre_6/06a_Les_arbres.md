@@ -860,6 +860,10 @@ Tester avec les 2 arbres précédents
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141397"></a>**3.8. Un autre code de représentation**</H3>
 
+Sur Thonny : Créer un fichier python  **arbre\_binaire\_dictionnaire.py**.
+
+=> **CAPYTALE Le code vous sera donné par votre enseignant**
+
 On change de structure de représentation d'un arbre. On va utiliser un dictionnaire.
 
 On codera par exemple comme suit :
@@ -872,6 +876,8 @@ A = { 'r' : ['a','b'], 'a' : ['c','d'], 'b' : ['e','f'],\
 l'arbre déjà utilisé :
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.044.png){width=60%; : .center }
+
+**<H4 STYLE="COLOR:red;">Activité n° 29bis :**  **Arbres binaires avec un dictionnaire :</H3>** Implémenter l’algorithme de la **fonction** hauteur et de la **fonction** taille
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc149141398"></a>**4. Le parcours en profondeur des arbres binaires**</H2>
 
