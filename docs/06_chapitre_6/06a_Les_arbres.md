@@ -815,6 +815,8 @@ def __str__(self): # ou __repr__ pour éviter le print...
 
 Tester sur les arbres binaires précédents.
 
+**<H3 STYLE="COLOR:red;">Activité n° 26 :**  **Arbres binaires et POO fonction hauteur :</H3>** Implémenter l’algorithme de la **fonction** hauteur 
+
 Voici l’algorithme correspondant à la fonction hauteur : (convention 1 pour la racine)
 ```
 HAUTEUR(T) :
@@ -828,13 +830,15 @@ HAUTEUR(T) :
 
 La fonction max renvoie la plus grande valeur des 2 valeurs passées en paramètre (exemple : max(5,6) renvoie 6).
 
-**<H3 STYLE="COLOR:red;">Activité n° 26 :**  **Arbres binaires et POO fonction hauteur :</H3>** Implémenter l’algorithme de la **fonction** hauteur 
+
 
 Tester avec les 2 arbres précédents
 
 **<H3 STYLE="COLOR:red;">Activité n° 27 :**  **Arbres binaires et POO méthode hauteur :</H3>** Implémenter l’algorithme de la **méthode** hauteur2 
 
 Tester avec les 2 arbres précédents
+
+**<H3 STYLE="COLOR:red;">Activité n° 28 :**  **Arbres binaires et POO fonction taille :</H3>** Implémenter l’algorithme de la **fonction** taille 
 
 Voici l’algorithme correspondant à la fonction taille : 
 ```
@@ -846,7 +850,7 @@ TAILLE(T) :
   fin si
 ```
 
-**<H3 STYLE="COLOR:red;">Activité n° 28 :**  **Arbres binaires et POO fonction taille :</H3>** Implémenter l’algorithme de la **fonction** taille 
+
 
 Tester avec les 2 arbres précédents
 
