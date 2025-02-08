@@ -950,7 +950,7 @@ l'arbre déjà utilisé :
         Premier algorithme : Parcours en suffixe (postordre)
 
         Deuxième algorithme : Parcours en préfixe (préordre)
-        
+
         Troisième algorithme : Parcours en infixe (in-ordre)
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141403"></a>**4.2. Implémentation des parcours en profondeur avec les tuples**</H3>
@@ -985,9 +985,9 @@ if __name__ == '__main__':
     arbre = noeud('r', a, b)
     ######fin de la construction de l'arbre binaire###########
 ```
-Implémenter le parcours infixe sous forme de fonction de telle sorte que l’on obtienne :
+Implémenter le parcours infixe parcours_infixe2(arbre) sous forme de fonction de telle sorte que l’on obtienne :
 ```
->>> parcours_infixe(arbre)
+>>> parcours_infixe2(arbre)
 ['c', 'h', 'a', 'i', 'd', 'l', 'j', 'r', 'k', 'e', 'b', 'f']
 ```
 **Implémenter les autres parcours en profondeur**.
@@ -1043,12 +1043,38 @@ Sur Thonny : Créer un fichier python dans le même dossier que arbre\_binaire\_
 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
-Sur Thonny : Importer le module arbre\_binaire\_POO\_v2  sous forme **import arbre\_binaire\_POO\_v2 as AB**.
+
 
 **Implémenter les trois parcours sous forme de fonctions**.
 
 Ajouter le programme principal suivant :
 ```python
+class Noeud:
+    def __init__(self, valeur, g=None, d=None):
+        self.valeur = valeur  # Stocke la valeur du nœud
+        self.g = g       # Stocke le sous-arbre gauche
+        self.d = d        # Stocke le sous-arbre droit
+
+
+class Arbre:
+    def __init__(self, noeud=None):
+        self.noeud = noeud  # Stocke le nœud racine de l'arbre
+
+    def estVide(self):
+        return self.noeud is None
+
+    def get_valeur(self):
+        if self.noeud:
+            return self.noeud.valeur
+
+
+    def get_gauche(self):
+        if self.noeud:
+            return Arbre(self.noeud.g)
+
+    def get_droit(self):
+        if self.noeud:
+            return Arbre(self.noeud.d)
 if __name__ == '__main__':
     ######début de la construction de l'arbre binaire###########
     h = Noeud('h')
