@@ -179,34 +179,36 @@ dot = dessiner_arbre_graphviz(T)
 dot
 ```
 
+
 **<H3 STYLE="COLOR:red;">Activité n° 9 : Représentation graphique de l’arbre**</H3> Tester le programme précédent avec 
 ```python
-if __name__ == '__main__':
-    # avec la méthode
-    abr = Node(6)
-    abr.insert(8)
-    abr.insert(3)
-    abr.insert(1)
-    abr.insert(4)
-    abr.insert(9)
-    abr.insert(2)
-    abr.insert(7)
-    abr.insert(5)
-    dot_abr = dessiner_arbre_graphviz(abr)
-    display(dot_abr)
-
-    # avec la fonction
-    T = Node(6)
-    inserer(T, 8)
-    inserer(T, 3)
-    inserer(T, 1)
-    inserer(T, 4)
-    inserer(T, 9)
-    inserer(T, 2)
-    inserer(T, 7)
-    inserer(T, 5)
-    dot_T = dessiner_arbre_graphviz(T)
-    display(dot_T)
+# avec la méthode
+abr = Node(6)
+abr.insert(8)
+abr.insert(3)
+abr.insert(1)
+abr.insert(4)
+abr.insert(9)
+abr.insert(2)
+abr.insert(7)
+abr.insert(5)
+dot_abr = dessiner_arbre_graphviz(abr)
+dot_abr
+```
+**puis**
+```python
+# avec la fonction
+T = Node(6)
+inserer(T, 8)
+inserer(T, 3)
+inserer(T, 1)
+inserer(T, 4)
+inserer(T, 9)
+inserer(T, 2)
+inserer(T, 7)
+inserer(T, 5)
+dot_T = dessiner_arbre_graphviz(T)
+dot_T
 ```
 
 **Remarque** : on peut faire une boucle sur une liste pour éviter de recopier le code
