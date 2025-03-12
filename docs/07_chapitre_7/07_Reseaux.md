@@ -539,7 +539,7 @@ On fait donc 6 km de A à G en suivant le chemin : A, B, D, G
 
 **<H3 STYLE="COLOR:red;">Exercice n°1 : Protocole RIP**</H3>
 
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.047.png){: .center}
+![](A1.png){: .center}
 
 1\. Établir la table de routage du routeur A en vous basant sur le protocole RIP (métrique = nombre de sauts).
 
@@ -562,7 +562,7 @@ On fait donc 6 km de A à G en suivant le chemin : A, B, D, G
 
 2\. Soit le réseau suivant :
 
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.052.png){: .center}
+![](A1.png){: .center}
 
 On donne les débits suivants :
 
@@ -622,12 +622,14 @@ Une machine M1 a pour adresse IP 192.168.1.12 et elle se trouve dans un réseau 
 
 Considérons le réseau suivant, pour lequel on admettra la norme suivante :
 
-- Le poste client et le poste serveur se voient attribués respectivement la première adresse de la plage de leur réseau (soit respectivement 192.168.0.1 et 172.16.180.1).
-- Les routeurs d'accès R1 et R6 ont sur leur interface réseau les dernières adresses IP de la plage de leur réseau (soit respectivement 192.168.0.254 et 172.16.180.251).
+- Le poste client et le poste serveur se voient attribués respectivement la première adresse de la plage de leur réseau (soit respectivement 192.168.1.1 et 172.16.180.1).
+- Les routeurs d'accès R1 et R6 ont sur leur interface réseau les dernières adresses IP de la plage de leur réseau (soit respectivement 192.168.1.254 et 172.16.180.254).
 - Entre deux interfaces internes, le routeur de plus bas indice possède la première adresse et le routeur de dernier indice la seconde adresse : par exemple entre R2 et R5, les interfaces sont connectées par le réseau 10.1.4.0/30, donc l'interface de R2 est 10.1.4.1 et celle de R5 est 10.1.4.2.
 - Tous les routeurs suivent le protocole RIP.
 
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.053.png){: .center}
+![](A2..png){: .center}
+
+Attribuer les bonnes adresses IP aux interfaces des différents routeurs.
 
 Déterminer les tables de routage de R1, R2 et R3.
 
