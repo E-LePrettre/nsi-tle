@@ -1,4 +1,4 @@
-﻿---
+---
 author: ELP
 title: 07 Les protocoles de routage
 ---
@@ -645,7 +645,13 @@ b)	Avec le protocole OSPF?
 
 2\.	Un hôte du nœud A envoie un paquet à destination du nœud J, à l’adresse 5.12.85.26. Quelle va être la route suivie par ce paquet avec le protocole OSPF?
 
-3\. On admet que tous les sous-réseaux ont pour masques 255.255.255.0. Déterminer la table de routage du routeur A avec le protocole OSPF.
+3\. On admet que tous les sous-réseaux ont pour masques 255.255.255.0. Déterminer la table de routage du routeur A avec le protocole OSPF en lettre (Compléter le tableau suivant)
+
+Destination	Passerelle	Métrique
+
+4\. Déterminer la table de routage du routeur A avec le protocole OSPF en IP
+
+IP destination	   Masque	        Passerelle	        Interface	        Métrique
 
 **<H3 STYLE="COLOR:red;">Exercice n°7 : Réseaux**</H3>
 
@@ -671,9 +677,9 @@ Un réseau est constitué de 6 routeurs R1 à R6 dont on donne des tables de rou
 
 3\. Quelle est la première adresse utilisable sur le réseau de la question 1? La dernière?
 
-4\. Écrire l’adresse IPv4 222.1.1.20, de masque 255.255.255.192 en notation CIDR.
+4\. Écrire l’adresse IPv4 222.1.1.20, de masque 255.255.255.192 en notation CIDR (c'est à dire en /x).
 
-5\. Écrire l’adresse IPv4 135.1.1.25, de masque 255.255.248.0 en notation CIDR.
+5\. Écrire l’adresse IPv4 135.1.1.25, de masque 255.255.248.0 en notation CIDR (c'est à dire en /x)****.
 
 6\. Sur un ordinateur dont le système d’exploitation est Linux, la commande `ifconfig` retourne l’adresse IPv4 172.16.20.234 et le masque 255.255.0.0. Quelle est l’adresse réseau du réseau auquel cet ordinateur appartient?
 
