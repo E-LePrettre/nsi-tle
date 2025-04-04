@@ -20,8 +20,11 @@ Il est défini par des accolades `{}`.
 ???+ question "Activité n°1 : Créer un dictionnaire"
 
     Crée un dictionnaire représentant un étudiant avec les informations suivantes :
+
     - nom : "Dupont"
+
     - âge : 17
+
     - classe : "Terminale"
 
     ??? success "Python"
@@ -41,8 +44,11 @@ Il est défini par des accolades `{}`.
 ???+ question "Activité n°2 : Accès aux données"
 
     À partir du dictionnaire `etudiant`, affiche :
+
     - le nom de l’étudiant
+
     - l’âge via la méthode `.get()`
+
     - une clé inexistante avec une valeur par défaut
 
     ??? success "Python"
@@ -110,8 +116,11 @@ Il est défini par des accolades `{}`.
 ???+ question "Activité n°6 : Parcourir le dictionnaire"
 
     Affiche :
+
     - les clés
+
     - les valeurs
+    
     - les couples clé-valeur
 
     ??? success "Python"
