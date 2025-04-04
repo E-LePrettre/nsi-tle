@@ -4,109 +4,132 @@ title: 01g Fiche méthode - Les dictionnaires
 ---
 
 
-## **<H2 STYLE="COLOR:BLUE;">1. Définition</H2>**
+
+
+## <span style="color:blue;">1. Définition</span>
+
 Un dictionnaire est une structure de données en Python qui associe des clés (**keys**) à des valeurs (**values**).  
-Il est défini par des accolades `{}`.  
+Il est défini par des accolades `{}`.
 
-- Chaque clé est unique.
+- Chaque **clé est unique**.
+- Les **valeurs peuvent être de n’importe quel type** (int, str, list, autre dictionnaire…).
 
-- Les valeurs peuvent être de n’importe quel type (int, str, list, autre dictionnaire…).
 
-## **<H2 STYLE="COLOR:BLUE;">2. Création d’un Dictionnaire</H2>**
-**Syntaxe** :  
-```python
-# Dictionnaire vide
-mon_dictionnaire = {}
+## <span style="color:blue;">2. Création d’un Dictionnaire</span>
 
-# Dictionnaire avec des données
-etudiant = {"nom": "Dupont", "age": 17, "classe": "Terminale"}
-```
+???+ question "Activité n°1 : Créer un dictionnaire"
 
----
+    Crée un dictionnaire représentant un étudiant avec les informations suivantes :
+    - nom : "Dupont"
+    - âge : 17
+    - classe : "Terminale"
 
-## **<H2 STYLE="COLOR:BLUE;">3. Accéder aux Éléments</H2>**
-On utilise la clé entre crochets `[]` ou la méthode `.get()`.
+    ??? success "Python"
+        ```python
+        etudiant = {"nom": "Dupont", "age": 17, "classe": "Terminale"}
+        print(etudiant)
+        ```
 
-**Exemple :**  
-```python
-etudiant = {"nom": "Dupont", "age": 17, "classe": "Terminale"}
+    ??? success "Explication"
+        Le dictionnaire est créé avec trois paires **clé-valeur**.  
+        Les clés sont des chaînes (`str`) : `"nom"`, `"age"`, `"classe"`.
 
-# Par les crochets
-print(etudiant["nom"])  # Affiche "Dupont"
 
-# Par la méthode .get()
-print(etudiant.get("age"))  # Affiche 17
 
-# Si la clé n'existe pas avec .get()
-print(etudiant.get("adresse", "Clé non trouvée"))  # Affiche "Clé non trouvée"
-```
+## <span style="color:blue;">3. Accéder aux Éléments</span>
 
----
+???+ question "Activité n°2 : Accès aux données"
 
-## **<H2 STYLE="COLOR:BLUE;">4. Modifier un Élément</H2>**
-Il suffit d'assigner une nouvelle valeur à une clé existante.
+    À partir du dictionnaire `etudiant`, affiche :
+    - le nom de l’étudiant
+    - l’âge via la méthode `.get()`
+    - une clé inexistante avec une valeur par défaut
 
-**Exemple :**  
-```python
-etudiant["age"] = 18  # Change l'âge à 18
-print(etudiant)
-```
+    ??? success "Python"
+        ```python
+        print(etudiant["nom"])
+        print(etudiant.get("age"))
+        print(etudiant.get("adresse", "Clé non trouvée"))
+        ```
 
----
+    ??? success "Résultat"
+        ```
+        Dupont
+        17
+        Clé non trouvée
+        ```
 
-## **<H2 STYLE="COLOR:BLUE;">5. Ajouter un Élément</H2>**
-Pour ajouter un couple clé-valeur, on utilise une clé nouvelle.
 
-**Exemple :**  
-```python
-etudiant["adresse"] = "Paris"
-print(etudiant)
-```
 
----
+## <span style="color:blue;">4. Modifier un Élément</span>
 
-## **<H2 STYLE="COLOR:BLUE;">6. Supprimer un Élément</H2>**
-**Méthodes principales :**
+???+ question "Activité n°3 : Modifier une valeur"
 
-- `del` pour supprimer une clé.
+    Modifie l'âge de l'étudiant en le passant à 18.
 
-- `.pop()` pour récupérer et supprimer une valeur.
+    ??? success "Python"
+        ```python
+        etudiant["age"] = 18
+        print(etudiant)
+        ```
 
-**Exemple :**  
-```python
-# Supprimer avec del
-del etudiant["classe"]
-print(etudiant)
 
-# Supprimer avec .pop()
-age = etudiant.pop("age")
-print(etudiant)  # La clé "age" est supprimée
-print(age)  # Affiche 18
-```
 
----
+## <span style="color:blue;">5. Ajouter un Élément</span>
 
-## **<H2 STYLE="COLOR:BLUE;">7. Parcourir un Dictionnaire</H2>**
-**Boucle `for`** pour parcourir clés, valeurs ou les deux.
+???+ question "Activité n°4 : Ajouter une adresse"
 
-**Exemples :**  
-```python
-# Parcourir les clés
-for cle in etudiant:
-    print(cle)
+    Ajoute une nouvelle clé `"adresse"` avec la valeur `"Paris"`.
 
-# Parcourir les valeurs
-for valeur in etudiant.values():
-    print(valeur)
+    ??? success "Python"
+        ```python
+        etudiant["adresse"] = "Paris"
+        print(etudiant)
+        ```
 
-# Parcourir les deux
-for cle, valeur in etudiant.items():
-    print(f"{cle}: {valeur}")
-```
 
----
 
-## **<H2 STYLE="COLOR:BLUE;">8. Méthodes Utiles</H2>**
+## <span style="color:blue;">6. Supprimer un Élément</span>
+
+???+ question "Activité n°5 : Suppression"
+
+    Supprime la clé `"classe"` avec `del` et la clé `"age"` avec `.pop()`.
+
+    ??? success "Python"
+        ```python
+        del etudiant["classe"]
+        age = etudiant.pop("age")
+        print(etudiant)
+        print("Âge supprimé :", age)
+        ```
+
+
+
+## <span style="color:blue;">7. Parcourir un Dictionnaire</span>
+
+???+ question "Activité n°6 : Parcourir le dictionnaire"
+
+    Affiche :
+    - les clés
+    - les valeurs
+    - les couples clé-valeur
+
+    ??? success "Python"
+        ```python
+        for cle in etudiant:
+            print("Clé :", cle)
+
+        for valeur in etudiant.values():
+            print("Valeur :", valeur)
+
+        for cle, valeur in etudiant.items():
+            print(f"{cle}: {valeur}")
+        ```
+
+
+
+## <span style="color:blue;">8. Méthodes Utiles</span>
+
 | Méthode               | Description                                 | Exemple                                   |
 |-----------------------|---------------------------------------------|-------------------------------------------|
 | `len(dico)`           | Nombre d’éléments dans le dictionnaire      | `len(etudiant)`                          |
@@ -116,18 +139,21 @@ for cle, valeur in etudiant.items():
 | `dico.clear()`        | Vide le dictionnaire                       | `etudiant.clear()`                       |
 | `dico.update(autre)`  | Ajoute ou met à jour des paires clé-valeur  | `etudiant.update({"age": 19, "ville": "Paris"})` |
 
----
 
-## **<H2 STYLE="COLOR:BLUE;">9. Imbrication des Dictionnaires</H2>**
-Les dictionnaires peuvent contenir d'autres dictionnaires.
 
-**Exemple :**  
-```python
-classe = {
-    "eleve1": {"nom": "Dupont", "age": 17},
-    "eleve2": {"nom": "Martin", "age": 18}
-}
+## <span style="color:blue;">9. Imbrication des Dictionnaires</span>
 
-print(classe["eleve1"]["nom"])  # Affiche "Dupont"
-```
+???+ question "Activité n°7 : Dictionnaires imbriqués"
+
+    Crée un dictionnaire représentant une classe contenant deux élèves avec nom et âge.
+
+    ??? success "Python"
+        ```python
+        classe = {
+            "eleve1": {"nom": "Dupont", "age": 17},
+            "eleve2": {"nom": "Martin", "age": 18}
+        }
+
+        print(classe["eleve1"]["nom"])  # Affiche "Dupont"
+        ```
 
