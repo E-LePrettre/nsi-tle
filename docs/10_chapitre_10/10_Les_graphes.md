@@ -617,7 +617,7 @@ file.get()
 - 4<sup>ème</sup> cas : avec module collections
 ```python
 from collections import deque
-file = deque([ ])
+file = deque()
 file.append(…)
 file.popleft()
 if file : # => si la file n’est pas vide
@@ -693,7 +693,7 @@ pile.pop()
 - 3<sup>ème</sup> cas : avec module collections
 ```python
 from collections import deque
-pile = deque([ ])
+pile = deque()
 pile.appendleft(…) # ou append()
 pile.popleft()     #ou pop()
 if pile : #=> si la pile n’est pas vide
