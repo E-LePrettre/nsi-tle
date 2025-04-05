@@ -724,7 +724,7 @@ Voici le graphe :
 ![image](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.029.png){: .center}
 
 ```python
-graphe= {'A': ['B', 'C'], 'B': ['A', 'D', 'E'], 'C': ['A', 'D'], 'D': ['B', 'C', 'E'], 'E': ['B', 'D', 'F', 'G'], 'F': ['E', 'G'], 'G': ['E', 'F', 'H'], 'H': ['G']},'B') == ['B', 'A', 'D', 'E', 'C', 'F', 'G', 'H']
+graphe= {'A': ['B', 'C'], 'B': ['A', 'D', 'E'], 'C': ['A', 'D'], 'D': ['B', 'C', 'E'], 'E': ['B', 'D', 'F', 'G'], 'F': ['E', 'G'], 'G': ['E', 'F', 'H'], 'H': ['G']}
 ```
 
 1. Donner le parcours en profondeur de g grâce à l'algorithme DFS, si le sommet de départ est B.  
