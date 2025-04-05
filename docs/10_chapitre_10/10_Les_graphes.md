@@ -292,18 +292,49 @@ Passage d’une représentation à l’autre : Ecrire une fonction `matrice2dico
 
 Tester avec M1, M2 et M3.
 
+```python
+# Matrice M1
+M1 = [
+    [0, 1, 1, 1, 1],
+    [1, 0, 1, 0, 0],
+    [1, 1, 0, 1, 0],
+    [1, 0, 1, 0, 1],
+    [1, 0, 0, 1, 0]
+]
+
+# Matrice M2
+M2 = [
+    [0, 1, 1, 0, 1],
+    [0, 0, 1, 0, 0],
+    [0, 0, 0, 1, 0],
+    [1, 0, 0, 0, 1],
+    [0, 0, 0, 0, 0]
+]
+
+# Matrice M3
+M3 = [
+    [0, 5, 10, 50, 12],
+    [5, 0, 10, 0, 0],
+    [10, 10, 0, 8, 0],
+    [50, 0, 8, 0, 100],
+    [12, 0, 0, 100, 0]
+]
+
+sommets = ['A', 'B', 'C', 'D', 'E']
+```
+
 **<H3 STYLE="COLOR:red;">Activité n° 7 : Représentation par dictionnaire :**</H3>  
 Passage d’une représentation à l’autre : Ecrire une fonction `dico2matrice(graphe_dico)` qui prend un graphe représenté par un dictionnaire et qui renvoie une liste de sommets et une matrice d’adjacence.
 
 ```python
-G = {'A': ['B', 'C', 'D', 'E'],
+G1 = {'A': ['B', 'C', 'D', 'E'],
      'B': ['A', 'C'],
      'C': ['A', 'B', 'D'],
      'D': ['A', 'C', 'E'],
      'E': ['A', 'D']
     }
 
-G1 = {
+G2 = {
 'A': ['B', 'C'],
 'B': ['A', 'C', 'E', 'F'],
 'C': ['A', 'B', 'D'],
@@ -312,7 +343,7 @@ G1 = {
 'F': ['B', 'E']
      }
 
-G2 = {
+G3 = {
 'A': ['B'],
 'B': ['C', 'E'],
 'C': ['B', 'D'],
@@ -321,7 +352,7 @@ G2 = {
      }
 ```
 
-Tester avec G, G1 et G2.
+Tester avec G1, G2 et G3.
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063584"></a>**3. Visualiser un graphe**</H2>  
 
@@ -358,7 +389,7 @@ plt.show()
 ```
 
 **<H3 STYLE="COLOR:red;">Activité n° 9 : Représentation avec networkx :**</H3>  
-Tester avec G, G1 et G2 de la partie 2.2.
+Tester avec G1, G2 et G3 de la partie 2.2.
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063586"></a>**3.2. Avec le module graphviz**</H3>  
 Dans Thonny : Vérifiez que la bibliothèque graphviz est installée.
@@ -366,24 +397,28 @@ Dans Thonny : Vérifiez que la bibliothèque graphviz est installée.
 **<H3 STYLE="COLOR:red;">Activité n° 10 : Représentation avec graphviz d’un graphe orienté**</H3>  
 ```python
 import graphviz
-graphe_oriente = graphviz.Digraph()
 
-#Ajout des noeuds avec la méthode node
+# Création du graphe orienté avec sortie au format SVG
+graphe_oriente = graphviz.Digraph(format='svg')
+
+# Ajout des nœuds
 graphe_oriente.node("A")
 graphe_oriente.node("B")
 graphe_oriente.node("C")
 
-#Ajout des arcs avec la méthode edge
-graphe_oriente.edge("A","B")
-graphe_oriente.edge("A","C")
+# Ajout des arcs
+graphe_oriente.edge("A", "B")
+graphe_oriente.edge("A", "C")
 
-#Affichage du graphe
-graphviz.Source(graphe_oriente)
-graphe_oriente.view()
+# Affichage du graphe
+# graphviz.Source(graphe_oriente) # pour le télécharger
+# #graphe_non_oriente.view()
+from graphviz import Source
+Source(graphe_oriente.source)
 ```
 
 **<H3 STYLE="COLOR:red;">Activité n° 11 : Représentation avec graphviz d’un graphe orienté :**</H3>  
-Tester avec G2.
+Tester avec G3.
 
 **<H3 STYLE="COLOR:red;">Activité n° 12 : Représentation avec graphviz d’un graphe non orienté**</H3>  
 ```python
@@ -400,12 +435,14 @@ graphe_non_oriente.edge("A","B")
 graphe_non_oriente.edge("A","C")
 
 #Affichage du graphe
-graphviz.Source(graphe_non_oriente)
-graphe_non_oriente.view()
+# graphviz.Source(graphe_non_oriente) # pour le télécharger
+# graphe_non_oriente.view()
+from graphviz import Source
+Source(graphe_non_oriente.source)
 ```
 
 **<H3 STYLE="COLOR:red;">Activité n° 13 : Représentation avec graphviz d’un graphe non orienté :**</H3>  
-Tester avec G et G1.
+Tester avec G1.
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063587"></a>**4. ❤️Création d’une class Graphe❤️**</H2>  
 
