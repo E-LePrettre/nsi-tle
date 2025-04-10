@@ -469,7 +469,9 @@ Avec cette valeur de référence, on obtient alors :
 
 $Coût=\frac{10^8}{débit(b/s)}$
 
-Particularité d'OSPF : on arrondit les coûts à l'entier. Le coût des liaisons transmises est un entier compris entre 1 et 65535.
+**ATTENTION** : la formule sera donnée dans l'énoncé.
+
+Particularité d'OSPF (en général mais toujours se conformer à l'énoncé de l'exercice!): on arrondit les coûts à l'entier. Le coût des liaisons transmises est un entier compris entre 1 et 65535.
 
 Cette formule de calcul peut être différente suivant les exercices, et sera systématiquement redonnée. 
 
