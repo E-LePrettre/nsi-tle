@@ -161,13 +161,16 @@ Tester avec n =6, 10, 100,… y a-t-il un problème ?
 
 ![image](Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.006.png)
 
-L'accès à un élément d'un dictionnaire est en O(1).
+L’accès à un élément d’un dictionnaire est en **O(1)** en moyenne, grâce à l’utilisation d’une table de hachage.
+Pour une liste, l’accès à un élément par son indice (L[i]) est aussi en **O(1)**. En revanche, rechercher une valeur sans connaître son indice (x in L) est en **O(n)**.
 
-Pour une liste c'est O(n). Du coup, on pourrait s'attendre à une complexité linéaire avec le dictionnaire, mais quadratique avec la liste.
+Dans le cas de Fibonacci en programmation dynamique, on accède aux éléments par indice connu, donc la complexité d’accès est **O(1)** dans les **deux cas.**
 
-Dans les 2 cas on voit quelque chose qu'on pourrait **qualifier de pseudo linéaire....**
+On pourrait s’attendre à ce que le dictionnaire soit plus efficace grâce à sa **flexibilité**, et que la liste soit moins performante, mais la différence n’est pas aussi marquée dans la pratique. Pourquoi ?
 
-La liste est moins efficace, c'est donc normal, mais la différence n'est pas drastique. En fait, on accède toujours aux 2 derniers éléments de la liste. Dans ce cas, le processeur garde à portée de la main les données qui vont servir à chaque itération. À portée de la main ? En cache !
+Parce qu’on accède toujours aux deux derniers éléments calculés dans la liste. Le processeur les garde à portée de main… **en cache** ! Cela permet un traitement très rapide, malgré les apparences.
+
+On observe alors une complexité qui reste **pseudo-linéaire dans les deux cas**. La liste semble moins souple, mais elle profite pleinement de la mémoire cache, ce qui la rend **très compétitive en pratique**.
 
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507080"></a>**2.4. La suite de Fibonacci : approche de bas en haut**</H3>
 
