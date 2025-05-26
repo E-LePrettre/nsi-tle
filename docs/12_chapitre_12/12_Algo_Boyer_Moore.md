@@ -78,19 +78,16 @@ texte = "Bonjour tout le monde"
 print(texte.find("tout"))   # Résultat : 7
 print(texte.find("pomme"))  # Résultat : -1
 ```
+Tester ce code :
 
 ```python
 fichier = open('rougenoir.txt', 'r', encoding = 'utf-8')
 stendhal = fichier.read()
 fichier.close()
 
-def trouve_lettre2(c, texte):
-    """renvoie l'indice de la première occurrence de c dans texte
-    ou renvoie None par convention sinon"""
-    pass
+print(stendhal.find('Julien'))
+print(stendhal.find('Julien', 25378))
 
-assert trouve_lettre2('j', 'bonjour') == 3
-assert trouve_lettre2('j', 'alphabet') is None
 ```
 
 
@@ -322,6 +319,9 @@ La **première étape** est de réaliser le **pré-traitement c’est-à-dire la
   - Si la lettre est non présente on fait le saut maximal.
 
 **<H3 STYLE="COLOR:red;">Activité n° 8  : Algorithme boyer\_moore : Rajouter:**</H3>
+
+Nous implémenterons une version qui retourne True si le mot est trouvé et False sinon
+ 
 ```python
 def recherche_boyer(texte, mot):
     """Recherche un mot dans un texte avec l'algo de boyer-moore    """
