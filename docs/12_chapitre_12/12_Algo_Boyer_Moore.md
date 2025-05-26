@@ -27,9 +27,18 @@ title: 12 Algorithme de Boyer - Moore
 
 **<H3 STYLE="COLOR:red;">Activité n° 1  : index() :**</H3> 
 
-Sur Thonny, créer un fichier **recherche\_textuelle.py**: 
+Ecrivez une fonction trouve\_lettre(c, texte) qui renvoie le premier indice où l'on a trouvé la lettre c dans la chaîne de caractères texte, et qui renvoie None si la lettre cherchée ne s'y trouve pas.
 
-écrivez une fonction trouve\_lettre(c, texte) qui renvoie le premier indice où l'on a trouvé la lettre c dans la chaîne de caractères texte, et qui renvoie None si la lettre cherchée ne s'y trouve pas.
+On utilisera la méthode `index()` qui retourne l’index de la première occurrence de la sous-chaîne recherchée, mais lève une exception ValueError si elle n’est pas trouvée.
+
+Par exemple : 
+```python
+texte = "Bonjour tout le monde"
+
+print(texte.index("tout"))  # Résultat : 7
+print(texte.index("pomme")) # Lève : ValueError: substring not found
+```
+
 ```python
 def trouve_lettre(c, texte):
     """renvoie l'indice de la première occurrence de c dans texte
@@ -51,7 +60,7 @@ Le problème est plus difficile quand il faut chercher non plus un seul caractè
 
 **<H3 STYLE="COLOR:red;">Activité n° 2  : find() :**</H3> 
 
-**sur Thonny** : télécharger le livre Le rouge et le noir de Stendhal, 
+Le livre qui est utilisé dans cette partie est  
 
 ICI : [https://www.gutenberg.org/ebooks/798.txt.utf-8](https://www.gutenberg.org/ebooks/798.txt.utf-8)
 
@@ -59,14 +68,32 @@ renommer le 'rougenoir.txt'
 
 et chercher ensuite si le motif 'Julien’ apparaît quelque part dans le roman et trouver une deuxième occurrence du mot ‘Julien’
 
+On utilisera la méthode `find()` qui retourne l’index de la première occurrence de la sous-chaîne recherchée, ou -1 si elle n’est pas trouvée.
+
+Par exemple 
+
+```python
+texte = "Bonjour tout le monde"
+
+print(texte.find("tout"))   # Résultat : 7
+print(texte.find("pomme"))  # Résultat : -1
+```
+
 ```python
 fichier = open('rougenoir.txt', 'r', encoding = 'utf-8')
 stendhal = fichier.read()
 fichier.close()
-...
+
+def trouve_lettre2(c, texte):
+    """renvoie l'indice de la première occurrence de c dans texte
+    ou renvoie None par convention sinon"""
+    pass
+
+assert trouve_lettre2('j', 'bonjour') == 3
+assert trouve_lettre2('j', 'alphabet') is None
 ```
 
-La méthode find renvoie -1 si le motif cherché n'apparaît pas dans le texte. 
+
 
 **<H3 STYLE="COLOR:red;">Activité n° 3  : find() :**</H3> Complétez ci-dessous le code de la fonction nb\_occurrences(texte, motif)
 ```python
