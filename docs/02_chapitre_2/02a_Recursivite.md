@@ -555,7 +555,7 @@ Elle est **élégante mais coûteuse** si mal utilisée (exemple : Fibonacci).
 
 
 
-## **<H2 STYLE="COLOR:BLUE;">3. Exercices<a name="_page0_x40.00_y375.03"></a>**</H2>
+## **<H2 STYLE="COLOR:BLUE;">📝 3. Exercices<a name="_page0_x40.00_y375.03"></a>**</H2>
 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
@@ -813,7 +813,7 @@ Elle est **élégante mais coûteuse** si mal utilisée (exemple : Fibonacci).
 
     8 Écrire une fonction nommée $renverse$ récursive qui, à partir d’une liste, retourne une liste dans laquelle les éléments sont renversés (les derniers apparaissent en premier).
 
-## **<H2 STYLE="COLOR:BLUE;">4. Projet (démarche d’investigation)<a name="_page0_x40.00_y375.044"></a></a>**</H2>
+## **<H2 STYLE="COLOR:BLUE;">🔍 4. Projet (démarche d’investigation)<a name="_page0_x40.00_y375.044"></a></a>**</H2>
 
 !!! abstract "**Projet 1 : Le flocon de Koch**"
 
