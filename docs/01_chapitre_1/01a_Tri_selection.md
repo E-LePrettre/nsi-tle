@@ -31,7 +31,7 @@ def tri_selection(l):
         if mini != i:
             l[i], l[mini] = l[mini], l[i]
     return l
-````
+```
 
 ### <H3 style="color:green;">🔎 Vérification</h3>
 
