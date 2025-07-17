@@ -27,28 +27,33 @@ title: 02a Récursivité
 
     Compare les deux versions proposées : une itérative, une récursive.
 
-    ??? success "🔁 Version itérative"
-        ```python
-        def decompte_i(n):
-            while n > 0:
-                print(n)
-                n -= 1
+    🔁 Version itérative
+    ```python
+    def decompte_i(n):
+        while n > 0:
+            print(n)
+            n -= 1
+        print("fin")
+
+    print(decompte_i(5))
+    ```
+        
+    ??? success "Python"
+    {{ IDE() }}
+
+    🔄 Version récursive
+    ```python
+    def decompte_r(n):
+        if n == 0:
             print("fin")
+        else:
+            print(n)
+            decompte_r(n - 1)
 
-        print(decompte_i(5))
-        ```
-
-    ??? success "🔄 Version récursive"
-        ```python
-        def decompte_r(n):
-            if n == 0:
-                print("fin")
-            else:
-                print(n)
-                decompte_r(n - 1)
-
-        print(decompte_r(5))
-        ```
+    print(decompte_r(5))
+    ```
+    ??? success "Python"
+        {{ IDE() }}
 
 ---
 
@@ -111,16 +116,17 @@ Il est très important de **faire confiance à la récursion** : on suppose que 
 
     Implémente la fonction récursive suivante :
 
-    ??? success "Python"
-        ```python
-        def puissance(x, n):
-            if n == 0:
-                return 1
-            else:
-                return x * puissance(x, n - 1)
+    ```python
+    def puissance(x, n):
+        if n == 0:
+            return 1
+        else:
+            return x * puissance(x, n - 1)
 
-        print(puissance(2, 5))
-        ```
+    print(puissance(2, 5))
+    ```
+    ??? success "Python"
+        {{ IDE() }}
 
 ---
 
@@ -131,15 +137,16 @@ On peut écrire une version **plus concise** en **oubliant** volontairement le `
 
     Voici une version équivalente, souvent utilisée en pratique :
 
-    ??? success "Python"
-        ```python
-        def puissance(x, n):
-            if n == 0:
-                return 1
-            return x * puissance(x, n - 1)
+    ```python
+    def puissance(x, n):
+        if n == 0:
+            return 1
+        return x * puissance(x, n - 1)
 
-        print(puissance(2, 4))
-        ```
+    print(puissance(2, 4))
+    ```
+    ??? success "Python"
+        {{ IDE() }}
 
 ---
 
@@ -178,13 +185,14 @@ La récursivité repose sur une **pile d’exécution** : chaque appel récursif
 
     Que se passe-t-il si une fonction récursive **n’a pas de condition d’arrêt** ?
 
-    ??? success "Python"
-        ```python
-        def f(n):
-            return 1 + f(n + 1)
+    ```python
+    def f(n):
+        return 1 + f(n + 1)
 
-        f(0)
-        ```
+    f(0)
+    ```
+    ??? success "Python"
+        {{ IDE() }}
 
     Résultat :
     ```
@@ -247,32 +255,38 @@ On ramène ainsi le calcul de `x × y` à un **sous-problème équivalent plus s
 
     Voici les deux implémentations de la méthode du paysan russe :
 
-    ??? success "🔁 Version itérative"
-        ```python
-        def multiply_i(x, y):
-            p = 0
-            while x > 0:
-                if x % 2 != 0:
-                    p += y
-                x //= 2
-                y *= 2
-            return p
+    🔁 Version itérative
+    ```python
+    def multiply_i(x, y):
+        p = 0
+        while x > 0:
+            if x % 2 != 0:
+                p += y
+            x //= 2
+            y *= 2
+        return p
 
-        print(multiply_i(105, 253))
-        ```
+    print(multiply_i(105, 253))
+    ```
 
-    ??? success "🔄 Version récursive"
-        ```python
-        def multiply_r(x, y):
-            if x <= 0:  # cas de base
-                return 0
-            elif x % 2 == 0:
-                return multiply_r(x // 2, y * 2)
-            else:
-                return multiply_r(x // 2, y * 2) + y
+    ??? success "Python"
+        {{ IDE() }}
 
-        print(multiply_r(105, 253))
-        ```
+    🔄 Version récursive
+    ```python
+    def multiply_r(x, y):
+        if x <= 0:  # cas de base
+            return 0
+        elif x % 2 == 0:
+            return multiply_r(x // 2, y * 2)
+        else:
+            return multiply_r(x // 2, y * 2) + y
+
+    print(multiply_r(105, 253))
+    ```
+
+    ??? success "Python"
+        {{ IDE() }}
 
 
 🖼️ **Animation de l’algorithme :**
@@ -302,26 +316,32 @@ Et par convention : $0! = 1$
 
     Voici les deux versions du calcul de la factorielle :
 
-    ??? success "🔁 Version itérative"
-        ```python
-        def factorielle_i(n):
-            result = 1
-            for i in range(1, n + 1):
-                result *= i
-            return result
+    🔁 Version itérative
+    ```python
+    def factorielle_i(n):
+        result = 1
+        for i in range(1, n + 1):
+            result *= i
+        return result
 
-        print(factorielle_i(10))
-        ```
+    print(factorielle_i(10))
+    ```
 
-    ??? success "🔄 Version récursive"
-        ```python
-        def factorielle_r(n):
-            if n == 1 or n == 0:
-                return 1
-            return n * factorielle_r(n - 1)
+    ??? success "Python"
+        {{ IDE() }}
 
-        print(factorielle_r(10))
-        ```
+    🔄 Version récursive
+    ```python
+    def factorielle_r(n):
+        if n == 1 or n == 0:
+            return 1
+        return n * factorielle_r(n - 1)
+
+    print(factorielle_r(10))
+    ```
+
+    ??? success "Python"
+        {{ IDE() }}
 
 
 🖼️ **Animation :**
@@ -403,17 +423,19 @@ Soit environ **584,5 milliards d’années** à raison d’un coup par seconde�
 
 ???+ question "🎯 Activité n°7 : Implémenter l’algorithme en Python"
 
-    ??? success "Python"
-        ```python
-        def hanoi(n, a="A", b="B", c="C"):
-            if n == 0:  # cas de base
-                return None
-            hanoi(n - 1, a, c, b)  # de A vers B en passant par C
-            print(f"Déplacer le disque {n} de la pique {a} vers la pique {c}.")
-            hanoi(n - 1, b, a, c)  # de B vers C en passant par A
+    ```python
+    def hanoi(n, a="A", b="B", c="C"):
+        if n == 0:  # cas de base
+            return None
+        hanoi(n - 1, a, c, b)  # de A vers B en passant par C
+        print(f"Déplacer le disque {n} de la pique {a} vers la pique {c}.")
+        hanoi(n - 1, b, a, c)  # de B vers C en passant par A
 
-        print(hanoi(4))
-        ```
+    print(hanoi(4))
+    ```
+
+    ??? success "Python"
+        {{ IDE() }}
 
 🔎 Pour aller plus loin :  
 [📖 Tours de Hanoï et base 3 (Accromath)](http://accromath.uqam.ca/2016/02/les-tours-de-hanoi-et-la-base-trois/)
@@ -435,28 +457,34 @@ Exemple : la **suite de Fibonacci**.
 
 ???+ question "🎯 Activité n°8 : Implémenter les deux versions de Fibonacci"
 
-    ??? success "🔁 Version itérative"
-        ```python
-        def fibo_i(n):
-            a, b = 0, 1
-            for i in range(n):
-                a, b = b, a + b
-            return a
+    🔁 Version itérative
+    ```python
+    def fibo_i(n):
+        a, b = 0, 1
+        for i in range(n):
+            a, b = b, a + b
+        return a
 
-        print(fibo_i(10))
-        ```
+    print(fibo_i(10))
+    ```
 
-    ??? success "🔄 Version récursive"
-        ```python
-        def fibo_r(n):
-            if n == 0:  # cas de base
-                return 0
-            elif n == 1 or n == 2:
-                return 1
-            return fibo_r(n - 1) + fibo_r(n - 2)
+    ??? success "Python"
+        {{ IDE() }}
 
-        print(fibo_r(10))
-        ```
+    🔄 Version récursive
+    ```python
+    def fibo_r(n):
+        if n == 0:  # cas de base
+            return 0
+        elif n == 1 or n == 2:
+            return 1
+        return fibo_r(n - 1) + fibo_r(n - 2)
+
+    print(fibo_r(10))
+    ```
+
+    ??? success "Python"
+        {{ IDE() }}
 
 ---
 
@@ -464,21 +492,23 @@ Exemple : la **suite de Fibonacci**.
 
     Ajoute ce code pour mesurer les performances :
 
-    ??? success "Python"
-        ```python
-        import time
+    ```python
+    import time
 
-        for k in range(1, 5):
-            print(k*10)
-            a = time.perf_counter_ns()
-            fibo_i(k*10)
-            b = time.perf_counter_ns()
-            print("itératif :", b-a, "ns")
-            a = time.perf_counter_ns()
-            fibo_r(k*10)
-            b = time.perf_counter_ns()
-            print("récursif :", b-a, "ns")
-        ```
+    for k in range(1, 5):
+        print(k*10)
+        a = time.perf_counter_ns()
+        fibo_i(k*10)
+        b = time.perf_counter_ns()
+        print("itératif :", b-a, "ns")
+        a = time.perf_counter_ns()
+        fibo_r(k*10)
+        b = time.perf_counter_ns()
+        print("récursif :", b-a, "ns")
+    ```
+
+    ??? success "Python"
+        {{ IDE() }}
 
 ---
 

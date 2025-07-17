@@ -1,369 +1,378 @@
 ﻿---
-
 author: ELP
 title: 02b Méthode diviser pour régner
 ---
 
-
 **Table des matières**
 
-1. [**Introduction**](#_toc144400464)
-2. [**L’exponentiation**](#_toc144400465)
-3. [**Tri fusion (MergeSort**)](#_toc144400469)
-4. [**Comparaison des performances**](#_toc144400475)
-5. [**Retour sur la recherche dichotomique**](#_toc144400476)
-6. [**Exercices**](#_toc144400477)
-7. [**Projet (démarche d’investigation)**](#_toc144400478)
+1. [🧠 Introduction](#_toc144400464)  
+2. [🔢 L’exponentiation](#_toc144400465)  
+3. [🧩 Tri fusion (MergeSort)](#_toc144400469)  
+4. [⏱️ Comparaison des performances](#_toc144400475)  
+5. [🔍 Retour sur la recherche dichotomique](#_toc144400476)  
+6. [📝 Exercices](#_toc144400477)  
+7. [💡 Projet (démarche d’investigation)](#_toc144400478)
 
+---
 
-**Compétences évaluables :**
+🎯 **Compétence évaluée :**  
+- ✍️ Écrire un algorithme utilisant la méthode « Diviser pour régner »
 
-- Ecrire un algorithme utilisant la méthode « diviser pour régner »
+---
 
-La méthode diviser pour régner *divide and conquer* se décompose en 3 étapes.
+La méthode **Diviser pour régner** (*divide and conquer*) repose sur 3 étapes :
 
-- **Diviser** : découper le problème de départ en sous problèmes
-- **Régner** : résoudre les sous problèmes soit directement soit récursivement si la division nous place dans le même problème de départ mais en plus petit
-- **Combiner** : à partir des solutions trouvées au sous problème, former la réponse finale. Si la récursivité a été employée dans la résolution, elle le sera aussi ici
+- ✂️ **Diviser** : découper le problème en sous-problèmes  
+- 👑 **Régner** : résoudre les sous-problèmes (souvent récursivement)  
+- 🧵 **Combiner** : rassembler les résultats pour répondre au problème initial
 
-**Remarque**: 
+🧠 **Remarque :**
 
-- Si les sous-problèmes sont indépendants les uns des autres : « **Diviser pour régner** ».
+- Si les sous-problèmes sont **indépendants** : 👉 on parle de **diviser pour régner**  
+- S’ils sont **dépendants** : 👉 c’est de la **programmation dynamique**
 
-- Si les sous-problèmes dépendent les uns des autres : « **Programmation dynamique** ».
+---
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc144400464"></a>**1. Introduction**</H2>
+## <H2 style="color:blue;">🧠 1. Introduction<a name="_toc144400464"></a></H2>
 
-L’idée de base est de trouver une **méthodologie** pour résoudre des problèmes. Par exemple : On veut résoudre le problème A. 
+Le principe est de **transformer un problème difficile en un ou plusieurs problèmes plus simples**.
 
-Si on sait : 
+🪄 Par exemple : pour résoudre un problème A, on peut :
 
-1\. transformer le problème A en un problème B; 
+1. 🔁 Le transformer en problème B  
+2. 🧠 Résoudre B  
+3. 🔁 Revenir à une solution du problème A
 
-2\. résoudre le problème B; 
+---
 
-3\. transformer la solution du problème B en une solution du problème A, 
+### <H3 style="color:green;">📞 Exemple : Le téléphone en chaîne</H3>
 
-alors on sait résoudre le problème A.
+L’équipe de volleyball (15 joueuses) reçoit une information urgente.  
+Comment prévenir tout le monde rapidement ?
 
-**<H3 STYLE="COLOR:red;">Exemple Le téléphone en chaine</H3>**
+---
 
-Les 15 joueuses d’une équipe de volleyball ont la liste des joueuses de l’équipe avec leur numéro de téléphone. La capitaine reçoît l’information que le prochain match a été́ déplacé́. Il faut prévenir toutes les autres joueuses.
+📌 **Solution 1**  
+La capitaine appelle **toutes les autres** joueuses → 14 appels.
 
-**Solution 1** : la capitaine se charge d’**appeler toutes les autres joueuses**. Et si elle passe 5 minutes au téléphone avec chacune d’entre-elles…
+⏱️ Si chaque appel dure 5 minutes :  
+**Durée totale t₁ = 14 × 5 = 70 min**  
+📉 Complexité en **O(n)**
 
-**Question à propos de la solution 1** : En combien de temps (noté t1) l’ensemble de l’équipé est informé? En déduire la complexité́ de cette solution en fonction de n (taille de l’équipe)
+---
 
-**Solution 2** : Une solution plus efficace et plus confortable pour la capitaine est **qu’elle divise la liste de joueuses en deux moitiés**. Elle **appelle alors la première joueuse** de chacune des deux listes obtenues. Elle leur donne l’information de report de match et leur demande à leur tour de faire la même chose : **diviser en deux la demi-liste** à laquelle elles appartiennent, **appeler la première joueuse** de chacune des parties et ainsi de suite … jusqu’à ce qu’il n’y ait plus personne à prévenir.
+📌 **Solution 2**  
+La capitaine appelle 2 joueuses → chacune appelle 2 autres → etc.
 
-Représentons l’arbre des appels pour la liste de 15 joueuses numérotées de 1 à 15.
+🎯 **Chaque appel divise le problème en deux**, puis **règle la moitié**.
+
+🌳 Voici l’arbre des appels :
 
 ![arbre binaire des appels](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.002.png)
 
-**Question à propos de la solution 2**: Si on suppose qu’un appel téléphonique dure 5 min. En combien de temps (noté t2) l’ensemble de l’équipe est informé ? En déduire la complexité́ de cette solution en fonction de n (taille de l’équipe)
+⏱️ **Temps t₂ ≈ log₂(n) × 5 min**  
+📈 Complexité en **O(log n)**
 
-**Conclusion**: La solution 2 illustre bien la méthode **Diviser pour régner** puisqu’à chaque nouvel appel téléphonique, le nombre de joueuses contactées avec le même message va doubler. La durée nécessaire pour la résolution du problème initial (téléphoner à toutes les joueuses) est alors réduite de manière significative.
+---
 
-La méthode « diviser pour régner » va s’appliquer à des problèmes où la **notion de taille va apparaitre**.  La résolution en utilisant la méthode diviser pour régner
+✅ **Conclusion :**  
+La solution 2 illustre la méthode **Diviser pour régner** :
 
-1\. Diviser pour faire apparaître les sous-problèmes à résoudre ; 
+- On découpe un grand problème en **plus petits**
+- Chacun est **résolu plus vite**
+- On obtient **globalement une solution plus rapide**
 
-2\. Régner pour résoudre effectivement les sous-problèmes ; 
+---
 
-3\. Combiner pour obtenir une solution du problème initial.
+## <H2 style="color:blue;">🔢 2. L’exponentiation<a name="_toc144400465"></a></H2>
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc144400465"></a>**2. L’exponentiation**</H2>
-L’exponentiation consiste à trouver une méthode pour calculer a à la puissance n, **SANS utiliser l’opérateur *puissance*.** L’idée est de se rapprocher de l’algorithme utilisé par le processeur d’un ordinateur, qui n’utilise que les 3 opérateurs de base pour effectuer les calculs (+,-,\*).
+L’objectif est de **calculer aⁿ sans utiliser l’opérateur `**`**, comme le ferait un processeur.
 
-![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.003.png)
+🧠 Le but est de n’utiliser que : `+`, `-`, `*`.
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc144400466"></a>**1.2. Programme itératif</H3>**
+![image exponentiation](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.003.png)
 
-**<H3 STYLE="COLOR:red;">Activité n° 1:</H3>**
+---
 
-Etudions l’algorithme d’exponentiation en version itérative
+### <H3 style="color:green;">🔁 2.1. Programme itératif</H3>
 
-```python
-def exp1(n : int ,a: float) -> float :
-    """
-    programme qui donne a^n en sortie
-    """
-    valeur=1
-    for i in range(n):
-        valeur*=a
-    return valeur
+???+ question "🎯 Activité n°1 : Étudier la version itérative"
 
-print(exp1(5,49))
-```
+    ??? success "Python"
+        ```python
+        def exp1(n : int ,a: float) -> float :
+            valeur=1
+            for i in range(n):
+                valeur *= a
+            return valeur
 
-???+ question "Tester ce qui est proposé"
+        print(exp1(5,49))
+        ```
 
-    {{ IDE() }}
+🧮 **Complexité :**  
+- La boucle tourne **n fois**  
+- À chaque tour : 1 multiplication et 1 affectation  
+👉 Complexité **O(n)**
 
-**Complexité** :
+---
 
-La boucle for est exécutée n fois. Il y a, à chaque itération, une opération arithmétique qui est réalisée (multiplication par a), et une affectation (le résultat est affecté à *valeur*).
+### <H3 style="color:green;">🔄 2.2. Programme récursif</H3>
 
-Il y a donc au total : **2n + 1** opérations.
+???+ question "🎯 Activité n°2 : Étudier la version récursive"
 
-La complexité est **O(n)**.
+    ??? success "Python"
+        ```python
+        def exp2(n : int ,a: float) -> float :
+            if n == 0:
+                return 1
+            else:
+                return a * exp2(n-1,a)
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc144400467"></a>**1.2. Programme récursif</H3>**
+        print(exp2(5,49))
+        ```
 
-**<H3 STYLE="COLOR:red;">Activité n° 2 :</H3>**
-Etudions l’algorithme d’exponentiation en version récursive
+🧮 **Complexité :**  
+Même raisonnement : **O(n)** (n appels récursifs)
 
-```python
-def exp2(n : int ,a: float) -> float :
-    """
-    programme qui donne a^n en sortie
-    """
-    if n == 0:
-        return 1
-    else:
-        return a* exp2(n-1,a)
+---
 
-print(exp2(5,49))
-```
+### <H3 style="color:green;">⚡ 2.3. Exponentiation rapide</H3>
 
-???+ question "Tester ce qui est proposé"
+L’algorithme **divise le problème par 2 à chaque appel**, ce qui réduit **le nombre total d’appels récursifs**.
 
-    {{ IDE() }}
+Exemple : `49⁵`
 
-**Complexité** :La complexité est aussi O(n).
+🪜 À chaque appel, on divise `n` par 2  
+🧵 On combine les résultats avec :
+
+- `y * y` si `n` est pair
+- `a * y * y` si `n` est impair
+
+![exponentiation rapide](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.005.png)
+
+---
+
+???+ question "🎯 Activité n°3 : Étudier la version Diviser pour régner"
+
+    ??? success "Python"
+        ```python
+        def exp3(n : int ,a: float) -> float :
+            if n == 0:
+                return 1
+            else:
+                y = exp3(n//2, a)
+                if n % 2 == 0:
+                    return y * y
+                else:
+                    return a * y * y
+
+        print(exp3(5,49))
+        ```
+
+---
+
+🧠 **Complexité :**  
+Nombre d'appels récursifs = nombre de divisions successives de `n` par 2  
+👉 Complexité **O(log n)**
+
+🌳 Représentation en arbre :  
+![arbre exponentiation rapide](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.006.png)
+
+---
+
+💬 **Remarque :**  
+Cette méthode peut être appliquée à d'autres opérations comme :
+- la **multiplication de matrices**
+- la **composition de fonctions**
+
+Mais attention au **coût unitaire** de chaque opération.
+
+📊 **Comparaison des vitesses :**
+
+![graphe exponentiation](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.007.png)
 
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc144400468"></a>**2.3. Exponentiation rapide : application de la méthode Diviser pour régner</H3>**
+### <H3 style="color:green;">📏 3.2. Illustration graphique</H3>
 
-Comme de nombreux algorithmes utilisant cette méthode, celui-ci fait des appels récursifs. Mais à la différence du précédent, **l’appel récursif se fait avec un paramètre que l’on divise par 2** (le paramètre n). C’est ce qui fait que le nombre d’appels récursifs est plus réduit. 
+Pour bien comprendre la méthode employée, le plus simple est de construire un **arbre binaire** dans lequel **chaque nœud est le résultat d’un appel récursif**.
 
-Par exemple 49<sup>5</sup>
+![arbre fusion](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.008.png)
 
-![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.004.png)
+🧩 *Résultats des différents appels récursifs (partie Diviser)*
 
-On retrouve l’étape 3 évoquée en introduction (la combinaison des sous problèmes) lorsque l’on réalise l’opération : return y\*y ou bien return x\*y\*y.
+![diviser](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.009.png)
 
-![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.005.png)
+🧠 *Résultats progressifs après les étapes Régner et Fusionner.*
 
-**<H3 STYLE="COLOR:red;">Activité n° 3 :</H3>**
-Etudions l’algorithme d’exponentiation en version méthode Diviser pour régner
+---
 
-```python
-def exp3(n : int ,a: float) -> float :
-    """
-    programme qui donne a^n en sortie
-    """
-    if n == 0:
-        return 1
-    else:
-        y = exp3(n//2,a) # on prend la valeur inférieure de n/2
-        if n%2 == 0 :
-            return y*y
-        else:
-            return a*y*y
+### 🏛️ **Légende des nœuds**
 
-print(exp3(5,49))
-```
-???+ question "Tester ce qui est proposé"
+* Chaque nœud = un **appel récursif**
+* □ **Pointillé** = appel **non encore effectué**
+* ▣ **Bordure en gras** = appel **en cours**
+* ■ **Vide** = partie **déjà traitée**
+* ▭ **Semi-rempli** = appel **en attente**
 
-    {{ IDE() }}
+---
 
-**Complexité**
+![seq1](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.010.png)
+![seq2](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.011.png)
+![seq3](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.012.png)
+![seq4](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.013.png)
+![seq5](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.014.png)
+![seq6](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.015.png)
+![seq7](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.016.png)
+![seq8](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.017.png)
+![seq9](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.018.png)
+![seq10](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.019.png)
+![seq11](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.020.png)
+![seq12](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.021.png)
+![seq13](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.022.png)
 
-Prenons pour exemple n = 8 :
+... et après quelques appels supplémentaires :
 
-Dans la phase de descente : exp3(8,a) appelle exp3(4,a) appelle exp3(2,a) qui appelle exp3(1,a) puis exp3(0,a).
+![final](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.023.png)
+![final2](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.024.png)
 
-Dans la phase de remontée: Une seule opération est réalisée à chaque appel recursif : y\*y
-C'est comme si l'on **dupliquait** le résultat de chaque multiplication (voir représentation en arbre plus bas)
+---
 
-- exp3(0,a) retourne 1
-- exp3(1,a) retourne a \* 1 \* 1
-- exp3(2,a) retourne a \* a
-- exp3(4,a) retourne a<sup>2</sup> \* a<sup>2</sup>
-- exp3(8,a) retourne a<sup>4</sup> \* a<sup>4</sup>
+### <H3 style="color:green;">🎥 3.3. Illustration en vidéo</H3>
 
-Le nombre d'opérations est le nombre de divisions par 2 qu'il faut faire pour réduire n à 0. Ce nombre est justement égal à :
+* Vidéo “danse” 🎤 : [Lien](https://ladigitale.dev/digiview/#/v/66a6a018f33ef)
+* Vidéo explicative 📚 : [Lien](https://ladigitale.dev/digiview/#/v/66a6a06310c1c)
+* Visualisation interactive 🔍 : [Lien](http://lwh.free.fr/pages/algo/tri/tri_fusion.html)
+🐟 Tu as raison, j’ai fait mon poisson rouge 🐠. Voici la section **reformatée correctement avec les activités** en respectant le style `???+ question`, avec `??? success` pour le code, comme dans le reste de ton cours :
 
-**log<sub>2</sub>(n)**
+---
 
-![exponentiation rapide: représentation en arbre](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.006.png)
+### 🧩 **3.2. Illustration graphique**
 
-représentation en arbre
+Pour bien comprendre la méthode employée, on construit un **arbre binaire** où chaque **nœud représente un appel récursif**.
 
-**Remarque** : L’exponentiation rapide peut être utilisée pour des “multiplications” plus compliquées, comme la multiplication de matrices, la composition de fonctions,… Dans ces cas, il ne faut pas oublier de compter le coût de la multiplication dans les calculs, qui n’est pas toujours constant.
-
-Comparaison des vitesses des différents algorithmes d’exponentiation
-
-![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.007.png)
-
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc144400469"></a>**3. Tri fusion (MergeSort)**</H2>
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc144400470"></a>**3.1. Le principe</H3>**
-
-Dans cette partie, nous allons essayer de comprendre les principes sur lesquels s’appuie ce tri. 
-
-Le tri fusion s’appuie sur la méthode **Diviser pour régner** pour trier les n éléments d’une séquence S :
-
-1. **Diviser :** Si la séquence S est composée de 0 ou un élément, retourner S immédiatement ; cette séquence est déjà triée. => **Cas de base**. 
-
-   Si la séquence S est composée de plus de deux éléments, la **diviser en deux sous-séquences** S1**​ et** S2**​** contenant chacune environ la moitié des éléments de S ; 
-
-- S1​ est formée des ![](48.png)  premiers éléments de S
-- S2**​**  contient les ![](49.png) derniers éléments de S.
-
-2 **Régner :** **Trier récursivement** S1 **et** S2
-
-3 **Combiner :** **Reformer la séquence** S en combinant, dans l’ordre, les éléments des séquences triées S1 et S2
-
-**Remarques** :
-
-- ![](48.png)  est la notation mathématique pour l’opération en Python n // 2, c’est à dire *le plus grand entier inférieur au résultat de la division de* *n par 2*.
-- ![](49.png)  est la notation mathématique pour l’opération en Python n // 2 + 1, c’est à dire pour *le plus petit entier supérieur au résultat de la division de* *n par 2*.
-
-**Exemple** : Pour n = 11
-
-- ![](48.png) donne les 5 premiers éléments 
-- ![](49.png) donne les 5+1 derniers éléments
-
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc144400471"></a>**3.2. Illustration graphique</H3>**
-
-Pour bien comprendre la méthode employée, le plus simple est de construire un arbre binaire dans lequel chaque nœud est le résultat d’un appel récursif.
-
+📌 **Étape Diviser** :
 ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.008.png)
+*Résultats des différents appels récursifs*
 
-*Résultats des différents appels récursifs (Partie **Diviser**)*
-
+📌 **Étapes Régner + Fusionner** :
 ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.009.png)
 
-*Résultats progressifs après les étapes **Régner** et **Fusionner**.*
+---
 
-***Légende***
+🗂️ **Légende des nœuds** :
 
-- *Chaque nœud représente un appel récursif* ;
-- **Nœud avec une bordure en pointilles :** *appels récursifs non encore effectués* ;
-- **Nœud avec une bordure en gras :** *appel récursif en cours* ;
-- **Nœud vide avec une bordure :** *partie déjà traitée* ;
-- **Nœud en partie vide (contenant tout de même des valeurs) :** *appels récursifs en attente*.
+* 🔄 *Nœud avec bordure pointillée* : appel **non encore effectué**
+* ▶️ *Nœud avec bordure en gras* : appel **en cours**
+* ✅ *Nœud vide avec bordure* : **partie déjà traitée**
+* ⏳ *Nœud en partie vide* : appel **en attente**
 
+---
+
+📈 **Évolution de l’exécution** :
 ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.010.png)
-
 ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.011.png)
-
 ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.012.png)
-
-![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.013.png)
-
-![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.014.png)
-
-![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.015.png)
-
-![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.016.png)
-
-![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.017.png)
-
-![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.018.png)
-
-![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.019.png)
-
-![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.020.png)
-
-![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.021.png)
-
-![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.022.png)
-
-… et après quelques appels supplémentaires…
-
-![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.023.png)
-
+...
 ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.024.png)
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc144400472"></a>**3.3. Illustration en vidéo</H3>**
+---
 
-Vidéo en dance : <https://ladigitale.dev/digiview/#/v/66a6a018f33ef> 
+### 🎥 **3.3. Illustration en vidéo**
 
-Vidéo explicative : <https://ladigitale.dev/digiview/#/v/66a6a06310c1c>
+* 💃 Animation visuelle : [Danse](https://ladigitale.dev/digiview/#/v/66a6a018f33ef)
+* 📚 Explication complète : [Vidéo explicative](https://ladigitale.dev/digiview/#/v/66a6a06310c1c)
+* 🔍 Visualisation interactive : [Simulateur](http://lwh.free.fr/pages/algo/tri/tri_fusion.html)
 
-Visualisation du tri <http://lwh.free.fr/pages/algo/tri/tri_fusion.html>
+---
+
+### 🧪 **3.4. Implémentation du tri fusion**
+
+???+ question "🔧 Activité n°4 : Compléter le code selon Diviser / Régner / Combiner"
+
+
+    ??? success "Python"
+        ```python
+        from typing import List
+
+        def tri_fusion(S: List[int]) -> None:
+            """
+            Implémentation du tri fusion. La liste S est modifiée en place.
+            """
+            n = len(S)  # ... (0)
+            if n < 2:
+                return None  # ... (1)
+
+            # Diviser
+            milieu = n // 2
+            S1 = S[:milieu]  # .... (3)
+            S2 = S[milieu:]  # .... (4)
+
+            # Régner
+            tri_fusion(S1)  # ... (6)
+            tri_fusion(S2)  # ... (7)
+
+            # Combiner
+            fusion(S1, S2, S)  # ... (9)
+        ```
 
 
 
-### <H3 STYLE="COLOR:GREEN;"> **<a name="_toc144400473"></a>3.4. Implémentation du tri fusion pour un tableau</H3>**
+---
 
-**<H3 STYLE="COLOR:red;">Activité n° 4 :</H3>**
-Étudier le code suivant et remplacer les … pour chaque numéro.
+???+ question "🔧 Activité n°5 : Expliquer en détail la fusion des deux listes triées"
 
-```python
-from typing import List
 
-def tri_fusion(S: List[int]) -> None:
-    """
-    Implémentation du tri fusion. La liste S est modifiée en place.
-    """
-    n = len(S)  # ... (0)
-    if n < 2:
-        return None  # ... (1)
+    ??? success "Python"
+        ```python
+        from typing import List
 
-    # Diviser, Régner, Combiner ? ... (2)
-    milieu = n // 2
-    S1 = S[:milieu]  # .... (3)
-    S2 = S[milieu:]  # .... (4)
+        def fusion(S1: List[int], S2: List[int], S: List[int]) -> None:
+            """
+            Combine les éléments des deux listes S1 et S2 dans la liste S (en place).
+            """
+            i = 0
+            j = 0
 
-    # Diviser, Régner, Combiner ? ... (5)
-    tri_fusion(S1)  # ... (6)
-    tri_fusion(S2)  # ... (7)
+            while i < len(S1) and j < len(S2):
+                if S1[i] < S2[j]:
+                    S[i + j] = S1[i]
+                    i += 1
+                else:
+                    S[i + j] = S2[j]
+                    j += 1
 
-    # Diviser, Régner, Combiner ? ... (8)
-    fusion(S1, S2, S)  # ... (9)
-```
+            while i < len(S1):
+                S[i + j] = S1[i]
+                i += 1
 
-**<H3 STYLE="COLOR:red;">Activité n° 5 :</H3>**
-Étudier le code suivant et expliquer comment s’effectue la fusion.
+            while j < len(S2):
+                S[i + j] = S2[j]
+                j += 1
+        ```
 
-```python
-from typing import List
+--- 
 
-def fusion(S1: List[int], S2: List[int], S: List[int]) -> None:
-    """
-    Combine les éléments des deux listes S1 et S2 dans la liste S (en place).
-    i est le nombre d'élément(s) de S1 copié(s) dans S1. 
-    j est le nombre d'élément(s) de S2 copié(s) dans S2. 
-    """
-    i = 0
-    j = 0
 
-    while i < len(S1)  and j < len(S2):
-        if S1[i] < S2[j]:
-            S[i + j] = S1[i]
-            i = i + 1
-        else:
-            S[i + j] = S2[j]
-            j = j + 1
-    while i < len(S1)  :
-        S[i + j] = S1[i]
-        i = i + 1
-    while j < len(S2)  :
-        S[i + j] = S2[j]
-        j = j + 1
-```
 
-**<H3 STYLE="COLOR:red;">Activité n° 6 :</H3>**
-Étudier le comportement du programme complet à l’aide de pythontutor.
-Construire la liste à l’aide de l’instruction :
-```python
-from random import randint
-liste = [randint(1, 400) for i in range(5)]
-```
 
-???+ question "Tester l'algorithme de tri fusion qui est proposé avec la liste ci-dessus"
 
-    {{ IDE() }}
+???+ question "🔧 Activité n°5 :**"
+    Étudier le comportement du programme complet à l’aide de pythontutor.
+    Construire la liste à l’aide de l’instruction :
+    ```python
+    from random import randint
+    liste = [randint(1, 400) for i in range(5)]
+    ```
 
-<!-- 
-**Attention : Python tutor est visiblement parti en vacances, il reviendra, esperons le, très rapidement**
+    ???+ question "Tester l'algorithme de tri fusion qui est proposé avec la liste ci-dessus"
+
+        {{ IDE() }}
+
+
 
 <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=from%20random%20import%20randint%0Afrom%20typing%20import%20List%0A%0Adef%20fusion%28S1%3A%20List%5Bint%5D,%20S2%3A%20List%5Bint%5D,%20S%3A%20List%5Bint%5D%29%20-%3E%20None%3A%0A%20%20%20%20%22%22%22%0A%20%20%20%20Combine%20les%20%C3%A9l%C3%A9ments%20des%20deux%20listes%20S1%20et%20S2%20dans%20la%20liste%20S%20%28en%20place%29.%0A%20%20%20%20i%20est%20le%20nombre%20d'%C3%A9l%C3%A9ment%28s%29%20de%20S1%20copi%C3%A9%28s%29%20dans%20S1.%0A%20%20%20%20j%20est%20le%20nombre%20d'%C3%A9l%C3%A9ment%28s%29%20de%20S2%20copi%C3%A9%28s%29%20dans%20S2.%0A%20%20%20%20On%20doit%20donc%20avoir%20i%20%2B%20j%20%3C%3D%20len%28S%29.%0A%20%20%20%20%22%22%22%0A%20%20%20%20i%20%3D%200%0A%20%20%20%20j%20%3D%200%0A%0A%20%20%20%20while%20i%20%3C%20len%28S1%29%20and%20j%20%3C%20len%28S2%29%20%3A%0A%20%20%20%20%20%20%20%20if%20S1%5Bi%5D%20%3C%20S2%5Bj%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20S%5Bi%20%2B%20j%5D%20%3D%20S1%5Bi%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%3D%20i%20%2B%201%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20S%5Bi%20%2B%20j%5D%20%3D%20S2%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%3D%20j%20%2B%201%0A%20%20%20%20while%20i%20%3C%20len%28S1%29%3A%0A%20%20%20%20%20%20%20%20S%5Bi%20%2B%20j%5D%20%3D%20S1%5Bi%5D%0A%20%20%20%20%20%20%20%20i%20%3D%20i%20%2B%201%0A%20%20%20%20while%20j%20%3C%20len%28S2%29%3A%0A%20%20%20%20%20%20%20%20S%5Bi%20%2B%20j%5D%20%3D%20S2%5Bj%5D%0A%20%20%20%20%20%20%20%20j%20%3D%20j%20%2B%201%0A%0Adef%20tri_fusion%28S%3A%20List%5Bint%5D%29%20-%3E%20None%3A%0A%20%20%20%20%22%22%22%0A%20%20%20%20Impl%C3%A9mentation%20du%20tri%20fusion.%0A%20%20%20%20La%20liste%20S%20est%20modifi%C3%A9e%20en%20place.%0A%20%20%20%20%22%22%22%0A%20%20%20%20n%20%3D%20len%28S%29%20%20%23%20...%20%280%29%0A%0A%20%20%20%20if%20n%20%3C%202%3A%0A%20%20%20%20%20%20%20%20return%20None%20%20%23%20...%20%281%29%0A%0A%20%20%20%20%23%20Diviser,%20R%C3%A9gner,%20Combiner%20%3F%20...%20%282%29%0A%20%20%20%20milieu%20%3D%20n%20//%202%0A%20%20%20%20S1%20%3D%20S%5B%3Amilieu%5D%20%20%23%20....%20%283%29%0A%20%20%20%20S2%20%3D%20S%5Bmilieu%3A%5D%20%20%23%20....%20%284%29%0A%0A%20%20%20%20%23%20Diviser,%20R%C3%A9gner,%20Combiner%20%3F%20...%20%285%29%0A%20%20%20%20tri_fusion%28S1%29%20%20%23%20...%20%286%29%0A%20%20%20%20tri_fusion%28S2%29%20%20%23%20...%20%287%29%0A%20%20%20%20%0A%20%20%20%20fusion%28S1,%20S2,%20S%29%0A%0Afrom%20random%20import%20randint%0Aliste%20%3D%20%5Brandint%281,%20400%29%20for%20i%20in%20range%285%29%5D%0Aprint%28liste%29%0Atri_fusion%28liste%29%20%23on%20trie%20en%20place!!%0Aprint%28liste%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
 
--->
+
 
 **<H3 STYLE="COLOR:red;">Activité n° 7 :</H3>**
 Quelle est la complexité de la fonction fusion ? Essayer d’évaluer la complexité de l’algorithme sans faire de calcul.
