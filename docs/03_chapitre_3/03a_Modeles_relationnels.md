@@ -73,7 +73,7 @@ Un SGBD est un **logiciel spécialisé** permettant de manipuler des bases de do
 
     *Relation Film* et *Relation Séance*
 
-    ```markdown
+    
     
     | **Titre**     | **Directeur**   | **Acteur**          |
     |---------------|-----------------|---------------------|
@@ -88,7 +88,7 @@ Un SGBD est un **logiciel spécialisé** permettant de manipuler des bases de do
     | Casablanca    | Studio          | 20:00               |
     | Les 400 coups | Sel             | 20:30               |
     | Star Wars     | Sel             | 22:15               |
-    ````
+    
 
 
     **1.** Quelle est la cardinalité de la relation Film ?
@@ -200,7 +200,7 @@ Dans certains cas, une **paire d’attributs (ou plus)** peut ensemble **former 
 
 📌 On représentera cette clé composée par une **double soulignement** ou une **annotation spéciale** dans le schéma relationnel :
 
-```markdown
+```
 Participation(id_étudiant, id_cours, note)
 PK : (id_étudiant, id_cours)
 ```
