@@ -427,7 +427,7 @@ La complexité du tri fusion est **O(n × log₂(n))**
 
 ---
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc144400475"></a>**4. Comparaison des performances**</H2>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc144400475">⏱️ **4. Comparaison des </a>performances**</H2>
 
 La complexité des algorithmes :
 
@@ -530,7 +530,7 @@ La complexité des algorithmes :
 
 ---
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc144400476"></a>**5. Retour sur la recherche dichotomique**</H2>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc144400476">🔍 **5. Retour sur la recherche</a> dichotomique**</H2>
 
 📌 On rappelle l’objectif :
 Déterminer si une valeur `val` est présente dans un tableau trié `tab`.
@@ -551,7 +551,7 @@ Utiliser la **dichotomie** :
 
 
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc144400477"></a>**6. Exercices**</H2> 
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc144400477">📝 **6. Exercices</a>**</H2> 
 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
@@ -629,7 +629,7 @@ Utiliser la **dichotomie** :
 
 
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc144400478"></a>**7. Projet (démarche d’investigation)**</H2>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc144400478">💡 **7. Projet </a>(démarche d’investigation)**</H2>
     
 !!! abstract "**Projet 1 : Rotation d’une image numérique**"
 
