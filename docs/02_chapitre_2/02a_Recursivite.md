@@ -285,16 +285,14 @@ On ramène ainsi le calcul de `x × y` à un **sous-problème équivalent plus s
 🔢 **La factorielle, c’est quoi ?**
 Elle correspond au **nombre de permutations possibles** d’un ensemble de `n` éléments.
 
-Exemple : \$3! = 6\$ façons de réordonner ‘a’, ‘b’, ‘c’ :
+Exemple : $3! = 6$ façons de réordonner ‘a’, ‘b’, ‘c’ :
 `abc`, `acb`, `bac`, `bca`, `cab`, `cba`.
 
 🧠 Définition mathématique :
 
-$$
-n! = n × (n - 1) × ... × 2 × 1
-$$
+$n!$ = $n × (n - 1) × ... × 2 × 1$
 
-Et par convention : \$0! = 1\$
+Et par convention : $0! = 1$
 
 ---
 
