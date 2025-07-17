@@ -99,7 +99,7 @@ print("Temps pour 1_000 : %s sec ---" % moyenne)
 Dans le pire des cas, pour une liste de taille `n` :
 
 * boucle `for` extérieure : `n-1` tours
-* boucle intérieure : \$1 + 2 + ... + (n-1) = \frac{n(n-1)}{2}\$
+* boucle intérieure : $1 + 2 + ... + (n-1) = \frac{n(n-1)}{2}$
 
 ✅ Confirme que le tri par sélection est en **𝑂(n²)**.
 
