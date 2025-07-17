@@ -364,5 +364,5 @@ PK : (id_étudiant, id_cours)
 
 !!! abstract "**Exercice 6 : vocabulaire**"
 
-    Regrouper ensemble les termes synonymes : colonne, entité, domaine, attribut, ligne, schéma, base de données, type, column, row.
+    Regrouper ensemble les termes synonymes : colonne, entité, domaine, attribut, ligne, schéma, base de données, type
 
