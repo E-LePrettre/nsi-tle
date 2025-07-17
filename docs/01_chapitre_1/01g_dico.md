@@ -106,7 +106,7 @@ Il est défini entre accolades `{}`.
 
 ## <H2 style="color:blue;">🗑️ 6. Supprimer un élément</H2>
 
-???+ question "Activité n°5 : Suppression"
+???+ question "🎯Activité n°5 : Suppression"
 
     Supprime la clé `"classe"` avec `del` et la clé `"age"` avec `.pop()`.
 
@@ -124,7 +124,7 @@ Il est défini entre accolades `{}`.
 
 ## <H2 style="color:blue;">🔁 7. Parcourir un dictionnaire</H2>
 
-???+ question "Activité n°6 : Parcourir le dictionnaire"
+???+ question "🎯Activité n°6 : Parcourir le dictionnaire"
 
     Affiche :
 
@@ -166,7 +166,7 @@ Il est défini entre accolades `{}`.
 
 ## <H2 style="color:blue;">🧱 9. Dictionnaires imbriqués</H2>
 
-???+ question "Activité n°7 : Dictionnaires imbriqués"
+???+ question "🎯Activité n°7 : Dictionnaires imbriqués"
 
     Crée un dictionnaire représentant une classe contenant deux élèves avec nom et âge.
 
