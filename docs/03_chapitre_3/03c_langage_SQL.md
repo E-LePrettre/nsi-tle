@@ -265,9 +265,8 @@ Exemple :
 ???+ question "📁 Activité n° 10 : Enregistrer dans vos DOCUMENTS"
     Enregistrez votre travail actuel dans le dossier `DOCUMENTS`.
 
-    ```
     ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.015.png){ width=50%; : .center }
-    ```
+    
 
 ---
 
@@ -372,217 +371,324 @@ Exemple :
 ---
 
 
-### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365568"></a>**4.2. Affichage et tri ascendant**</H3>
 
-**<H3 STYLE="COLOR:red;">Activité n° 16 : Affichage par intervalle de nombres trié avec un critère**</H3> Faire afficher l’id, le titre, l’année et la nationalité de films avec des intervalles d’années et triés par année : Exécuter 
-```sql
-SELECT id_film, titre_film, annee_film, nationalite_film
-FROM film
-WHERE annee_film > 2010 AND annee_film < 2020
-ORDER BY annee_film;
-```
-On voit qu’il s’affiche les films sortis entre 2010 et 2020 avec les champs demandés triés par année croissante.On peut rajouter si nécessaire ASC.
+### 🧾 <span style="color:green;"> 🔼 **4.2. Affichage et tri ascendant** <a name="_toc173365568"></a></span>
 
-**<H3 STYLE="COLOR:red;">Activité n° 17 : Affichage par intervalle de nombres trié avec plusieurs critères**</H3> Faire afficher l’id, le titre, l’année et la nationalité de films avec des intervalles d’années et triés par année PUIS par ordre alphabétique de titre : Exécuter 
-```sql
-SELECT id_film, titre_film, annee_film, nationalite_film
-FROM film
-WHERE annee_film > 2010 AND annee_film < 2020
-ORDER BY annee_film, titre_film;
-```
-On voit qu’il s’affiche les films sortis entre 2010 et 2020 avec les champs demandés triés par année croissante. Pour les films de 2017, ils sont ensuite triés par ordre alphabétique de titre.
-
-### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365569"></a>**4.3. Affichage avec partie d’une chaine de caractère**</H3>
-
-**<H3 STYLE="COLOR:red;">Activité n° 18 : Affichage par chaine de caractères**</H3> Faire afficher l’id, le titre, l’année et la nationalité de films avec un titre en particulier : Exécuter 
-```sql
-SELECT id_film, titre_film, annee_film, nationalite_film
-FROM film
-WHERE titre_film = 'WarGames';
-```
-On voit qu’il s’affiche le film wargames. Par contre, il faut indiquer le titre exact.
+???+ question "🔢 Activité n°16 : Tri par année croissante"
+    Afficher les films sortis entre 2010 et 2020, triés par **année croissante** :
 
 
+    ```sql
+    SELECT id_film, titre_film, annee_film, nationalite_film
+    FROM film
+    WHERE annee_film > 2010 AND annee_film < 2020
+    ORDER BY annee_film;
+    ```
 
-**<H3 STYLE="COLOR:red;">Activité n° 19 : Affichage par morceau de chaine de caractères**</H3> Faire afficher l’id, le titre, l’année et la nationalité de films avec un titre comportant des mots en particulier : Exécuter 
-```sql
-SELECT id_film, titre_film, annee_film, nationalite_film
-FROM film
-WHERE titre_film LIKE 'Star Wars%';
-```
-On voit qu’il s’affiche tous les films Star Wars. Le % permet d’indiquer où se trouve les caractères manquants. Ici on cherche tous les titres commençant exactement par Star Wars. On aurait pu noter %War% on aurait eu tous les films ayant dans leur nom les lettre War, donc les Star Wars et WarGames.On peut les triés par année de sortie en rajoutant ORDER BY annee\_film
-
-### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365570"></a>**4.4. Affichage avec une condition OU une autre**</H3>
-
-**<H3 STYLE="COLOR:red;">Activité n° 20 : Affichage par deux conditions**</H3> Faire afficher l’id, le titre, l’année et la nationalité de films avec une année en particulier OU un genre : Exécuter 
-```sql
-SELECT id_film, titre_film, annee_film, nationalite_film
-FROM film
-WHERE annee_film = 2017 OR genre_film = 'Science fiction';
-```
-On voit qu’il s’affiche le film wargames. Par contre, il faut indiquer le titre exact. On peut évidement trier par exemple par id\_realisateur.
-
-### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365571"></a>**4.5. Affichage avec critère dans une liste**</H3>
-
-**<H3 STYLE="COLOR:red;">Activité n° 21 : Affichage par plusieurs conditions**</H3> Faire afficher l’id, le titre, l’année et la nationalité de films avec plusieurs genres différents : Exécuter 
-```sql
-SELECT id_film, titre_film, annee_film, nationalite_film
-FROM film
-WHERE genre_film IN ('Science fiction', 'Policier');
-```
-On voit qu’il s’affiche l’ensemble des films de science-fiction et les policiers
-
-**<H3 STYLE="COLOR:red;">Activité n° 22 : Affichage sans plusieurs conditions**</H3> Faire afficher l’id, le titre, l’année et la nationalité de films SANS plusieurs genres différents : Exécuter 
-```sql
-SELECT id_film, titre_film, annee_film, nationalite_film
-FROM film
-WHERE genre_film NOT IN ('Science fiction', 'Policier');
-```
-On voit qu’il s’affiche l’ensemble des films sauf ceux de science-fiction et les policiers
-
-**<H3 STYLE="COLOR:red;">Activité n° 23 : Affichage sans plusieurs conditions avec un limite en nombre de sorties**</H3> Si le nombre de ligne est très important pour ne pas surcharger la mémoire de l’ordinateur : Executer
-```sql
-SELECT id_film, titre_film, annee_film, nationalite_film
-FROM film
-WHERE genre_film NOT IN ('Science fiction', 'Policier') 
-LIMIT 5;
-```
-On voit qu’il s’affiche la même liste que la précédente mais seulement les 5 premiers
-
-### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365572"></a>**4.6. Affichage et tri descendant**</H3>
-
-**<H3 STYLE="COLOR:red;">Activité n° 24 : Affichage sans plusieurs conditions trié descendant**</H3> Pour trier la liste précédente par année de la plus proche à la plus lointaine : Exécuter
-```sql
-SELECT id_film, titre_film, annee_film, nationalite_film
-FROM film
-WHERE genre_film NOT IN ('Science fiction', 'Policier') 
-ORDER BY annee_film DESC;
-```
-On voit qu’il s’affiche la liste de tous les films sauf ceux de science fiction et les policiers mais cette fois ci ils sont classés par année décroissante
-
-### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365573"></a>**4.7. Affichage avec concaténation de deux chaines de caractères**</H3>
-
-**<H3 STYLE="COLOR:red;">Activité n° 25 : Affichage avec concaténation et nommage d’attribut**</H3> Afficher le prénom et le nom des réalisateur : Exécuter
-```sql
-SELECT prenom_realisateur || ' ' || nom_realisateur AS Prenom_Nom
-FROM realisateur;
-```
-On utilise les tubes :   . Le mot clé AS permet de donner un nom à la chaine concaténée : Prenom\_Nom
-On obtient tous les réalisateurs avec leur prénom et leur nom mais dans la même colonne.
-
-### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365574"></a>**4.8. Affichage avec deux requêtes**</H3>
-
-**<H3 STYLE="COLOR:red;">Activité n° 26 : Affichage de morceau de chaine de caractères sur deux tables**</H3> Afficher la nationalité du réalisateur dont le nom commence par L ET la nationalité du (des) film commence par S : Exécuter
-
-UNION : Cet opérateur combine les résultats des deux requêtes et supprime les doublons. Pour que UNION fonctionne, les deux sous-requêtes doivent retourner le même nombre de colonnes et ces colonnes doivent être de types de données compatibles.
-
-```sql
-SELECT nationalite_realisateur AS nationalite
-FROM realisateur
-WHERE nom_realisateur LIKE 'L%'
-UNION
-SELECT nationalite_film AS nationalite_film
-FROM film
-WHERE titre_film LIKE 'S%';
-```
-Il s’agit de Lucas George qui est des états unis et les Star Wars sont des Etats-Unis d’où une seule ligne. Si on avait choisi les noms des réalisateurs qui commence par B on aurait eu en plus France et Royaume-Uni.
-
-### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365575"></a>**4.9. Affichage et comptage**</H3>
-
-**<H3 STYLE="COLOR:red;">Activité n° 27 : Afficher et compter**</H3> Compter le nombre de réalisateurs : Exécuter
-```sql
-SELECT COUNT(id_realisateur)
-FROM realisateur;
-```
-Il y a bien 11 réalisateurs dans la table.
-
-**<H3 STYLE="COLOR:red;">Activité n° 28 : Afficher et compter**</H3> Compter le nombre de réalisateurs dont le nom commence par la lettre L : Exécuter
+📝 On peut ajouter `ASC` pour expliciter le tri croissant (optionnel).
 
 
+???+ question "🧮 Activité n°17 : Tri croissant multi-critères"
+    Même chose que précédemment, mais les films sont triés **par année**, puis **par ordre alphabétique de titre** :
 
-```sql
-SELECT COUNT(id_realisateur)
-FROM realisateur
-WHERE nom_realisateur LIKE 'L%' ;
-```
-Il y en a 2 : Lumet et Lucas.
 
-**<H3 STYLE="COLOR:red;">Activité n° 29 : Afficher, sommer**</H3> Supposons que l’on ait une colonne avec le nombre de films de chaque réalisateur avec un attribut … si on veut faire la somme :
-```sql
-/* on ne pourra pas le faire ici */
-SELECT SUM(….)
-FROM realisateur;
-```
-On peut évidemment rajouter une condition avec le mot clé WHERE.
+    ```sql
+    SELECT id_film, titre_film, annee_film, nationalite_film
+    FROM film
+    WHERE annee_film > 2010 AND annee_film < 2020
+    ORDER BY annee_film, titre_film;
+    ```
 
-**<H3 STYLE="COLOR:red;">Activité n° 30 : Afficher, moyenne**</H3> De la même manière on peut vouloir faire la moyenne
-```sql
-/* on ne pourra pas le faire ici */
-SELECT AVG(…)
-FROM realisateur;
-```
+    ✅ Les films de même année seront ensuite classés par titre.
 
-On peut aussi chercher le maximum ou le minimum avec les fonctions **MAX** et **MIN**.
 
-### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365576"></a>**4.10. Afficher tous les champs**</H3>
+---
 
-**<H3 STYLE="COLOR:red;">Activité n° 31 : Afficher tous les champs**</H3>
-Exécuter :
+### 🧾 <span style="color:green;">🔍 **4.3. Affichage avec partie d’une chaîne de caractères** <a name="_toc173365569"></a>
+
+???+ question "🔡 Activité n°18 : Titre exact"
+    Afficher les films dont le **titre est exactement** "WarGames" :
+
+
+    ```sql
+    SELECT id_film, titre_film, annee_film, nationalite_film
+    FROM film
+    WHERE titre_film = 'WarGames';
+    ```
+
+
+???+ question "🔎 Activité n°19 : Partie de titre"
+    Afficher les titres commençant par **Star Wars** :
+
+
+    ```sql
+    SELECT id_film, titre_film, annee_film, nationalite_film
+    FROM film
+    WHERE titre_film LIKE 'Star Wars%';
+    ```
+
+➕ Le symbole `%` permet de remplacer des caractères :  
+- `LIKE 'Star Wars%'` → commence par  
+- `LIKE '%War%'` → contient  
+- `LIKE '%Wars'` → finit par  
+On peut aussi trier avec `ORDER BY annee_film`.
+
+
+---
+
+### 🧾 <span style="color:green;"> ⚖️ **4.4. Affichage avec une condition OU une autre** <a name="_toc173365570"></a></span>
+
+???+ question "🔀 Activité n°20 : OU logique"
+    Afficher les films de 2017 **ou** de genre 'Science fiction' :
+
+
+    ```sql
+    SELECT id_film, titre_film, annee_film, nationalite_film
+    FROM film
+    WHERE annee_film = 2017 OR genre_film = 'Science fiction';
+    ```
+
+
+---
+
+### 🧾 <span style="color:green;"> 📋 **4.5. Affichage avec critère dans une liste** <a name="_toc173365571"></a></span>
+
+???+ question "📑 Activité n°21 : Genre dans une liste"
+    Afficher les films de genre **'Science fiction'** ou **'Policier'** :
+
+
+    ```sql
+    SELECT id_film, titre_film, annee_film, nationalite_film
+    FROM film
+    WHERE genre_film IN ('Science fiction', 'Policier');
+    ```
+
+
+???+ question "🚫 Activité n°22 : Exclusion de genres"
+    Exclure les films des genres **'Science fiction'** ou **'Policier'** :
+
+
+    ```sql
+    SELECT id_film, titre_film, annee_film, nationalite_film
+    FROM film
+    WHERE genre_film NOT IN ('Science fiction', 'Policier');
+    ```
+
+
+???+ question "⛔ Activité n°23 : Limiter les résultats"
+    Même requête, mais limitée aux **5 premiers résultats** :
+
+
+    ```sql
+    SELECT id_film, titre_film, annee_film, nationalite_film
+    FROM film
+    WHERE genre_film NOT IN ('Science fiction', 'Policier') 
+    LIMIT 5;
+    ```
+
+
+---
+
+### 🧾 <span style="color:green;"> 🔽 **4.6. Affichage et tri descendant** <a name="_toc173365572"></a></span>
+
+???+ question "📉 Activité n°24 : Tri par année décroissante"
+    Trier les films (hors science fiction et policiers) par **année décroissante** :
+
+
+    ```sql
+    SELECT id_film, titre_film, annee_film, nationalite_film
+    FROM film
+    WHERE genre_film NOT IN ('Science fiction', 'Policier') 
+    ORDER BY annee_film DESC;
+    ```
+
+
+---
+
+### 🧾 <span style="color:green;"> 🔗 **4.7. Affichage avec concaténation** <a name="_toc173365573"></a></span>
+
+???+ question "🔤 Activité n°25 : Concaténation prénom + nom"
+    Afficher le **prénom + nom** de chaque réalisateur sur une seule ligne :
+
+
+    ```sql
+    SELECT prenom_realisateur || ' ' || nom_realisateur AS Prenom_Nom
+    FROM realisateur;
+    ```
+
+🔧 Le mot-clé `AS` renomme la colonne pour l’affichage.
+
+
+---
+
+### 🧾 <span style="color:green;"> 🔀 **4.8. Affichage avec deux requêtes (UNION)** <a name="_toc173365574"></a></span>
+
+???+ question "🧩 Activité n°26 : UNION de deux requêtes"
+    Afficher la **nationalité** :
+    \- des réalisateurs dont le **nom commence par L**
+    \- des films dont le **titre commence par S**
+
+
+    ```sql
+    SELECT nationalite_realisateur AS nationalite
+    FROM realisateur
+    WHERE nom_realisateur LIKE 'L%'
+    UNION
+    SELECT nationalite_film AS nationalite
+    FROM film
+    WHERE titre_film LIKE 'S%';
+    ```
+
+⚠️ `UNION` supprime les doublons. Les deux sous-requêtes doivent retourner **le même nombre de colonnes** avec **types compatibles**.
+
+
+---
+
+### 🧾 <span style="color:green;"> 🔢 **4.9. Affichage et fonctions d’agrégation** <a name="_toc173365575"></a></span>
+
+???+ question "🔢 Activité n°27 : Compter"
+    Nombre total de réalisateurs :
+
+
+    ```sql
+    SELECT COUNT(id_realisateur)
+    FROM realisateur;
+    ```
+
+
+???+ question "🔡 Activité n°28 : Compter avec condition"
+    Nombre de réalisateurs dont le nom commence par **L** :
+
+
+    ```sql
+    SELECT COUNT(id_realisateur)
+    FROM realisateur
+    WHERE nom_realisateur LIKE 'L%';
+    ```
+
+
+???+ question "➕ Activité n°29 : Somme (à faire plus tard)"
+    Exemple de syntaxe pour sommer :
+
+
+    ```sql
+    SELECT SUM(...)
+    FROM realisateur;
+    ```
+
+
+???+ question "➗ Activité n°30 : Moyenne (à faire plus tard)"
+    Exemple de syntaxe pour une moyenne :
+
+
+    ```sql
+    SELECT AVG(...)
+    FROM realisateur;
+    ```
+
+👉 On peut aussi utiliser `MAX(...)` et `MIN(...)`.
+
+
+---
+
+
+
+
+Voici la **suite du cours** (section 5) avec le **relooking complet**, incluant :
+
+* Icônes pour les grands titres 🧩
+* Reformulation légère pour plus de fluidité ✍️
+* Format d’activités interactives `???+ question` 🎯
+* Bloc `NOTE` lorsque nécessaire
+* Respect total de ta structure GitHub (aucune altération technique)
+
+---
+
+### 🗂️ **4.10. Afficher tous les champs** <a name="_toc173365576"></a>
+
+???+ question "📜 Activité n°31 : Affichage complet de la table `film`"
+Exécute la requête suivante pour afficher **tous les champs** et toutes les lignes de la table `film` :
+
+
 ```sql
 SELECT *
 FROM film;
 ```
 
-## <H2 STYLE="COLOR:BLUE;"><a name="_toc173365577"></a>**5. Requête de mise à jour**</H2>
-### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365578"></a>**5.1. La syntaxe de la requête de mise à jour**</H3>
+
+---
+
+## 🧩 **5. Requête de mise à jour** <a name="_toc173365577"></a>
+
+### 🛠️ **5.1. Syntaxe d’une requête UPDATE** <a name="_toc173365578"></a>
 
 ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.016.png){ width=30%; : .center }
 
-**UPDATE** avec le nom de la table sur lequel sera fait la mise à jour
+Une requête de mise à jour s’écrit en trois parties :
 
-**SET** pour préciser le ou les champs avec leur valeur
+* `UPDATE` : nom de la **table** à modifier
+* `SET` : champ à modifier, suivi de la **nouvelle valeur**
+* `WHERE` : condition pour **cibler précisément** les lignes à modifier (essentiel pour éviter d’écraser toute la table)
 
-**WHERE** pour les conditions
+---
 
-### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365579"></a>**5.2. Requête pour ajouter un attribut**</H3>
+### 🧱 **5.2. Ajouter un attribut dans une table** <a name="_toc173365579"></a>
 
-**<H3 STYLE="COLOR:red;">Activité n° 32 : Ajouter un attribut à une table existante**</H3> Ajouter l’attribut nbfilms\_realisateur à la table realisateur. Exécuter
+???+ question "➕ Activité n°32 : Ajouter une colonne"
+Ajouter un **nouvel attribut** `nbfilms_realisateur` (type entier) dans la table `realisateur` :
+
+
 ```sql
 ALTER TABLE realisateur
 ADD COLUMN nbfilms_realisateur INTEGER;
 ```
-**ALTER TABLE** permet d’indiquer avec quelle table on va travailler.
 
-**ADD COLUMN** pour ajouter une colonne
+🔍 Vérifie dans la structure de la table que la colonne est bien apparue. Elle est pour l’instant **remplie de valeurs NULL**.
 
-Vérifier dans la table realisateur qu’il y a une colonne de plus. Par contre, la colonne est complètement nulle.
 
-**<H3 STYLE="COLOR:red;">Activité n° 33 : Modifier une donnée d’une table**</H3> Transformer le nom de la nationalité de Lumet en Royaume-Uni. Exécuter
+---
+
+### ✏️ **5.3. Modifier une donnée dans une table**
+
+???+ question "🖊️ Activité n°33 : Modifier une donnée"
+Modifier la **nationalité** du réalisateur `Lumet` :
+
+
 ```sql
 UPDATE realisateur
 SET nationalite_realisateur = 'Royaume-Uni'
 WHERE nom_realisateur = 'Lumet';
 ```
 
-**UPDATE** pour dire sur quelle table la mise à jour sera faite
+🧪 Vérifie le changement.  
+👉 Puis restaure la nationalité d’origine avec :
 
-**SET** permet de donner le champ et la valeur que l’on veut attribuer.
-
-Vérifier que la nationalité de Lumet a bien été modifié. On remodifie la nationalité :
 ```sql
 UPDATE realisateur
 SET nationalite_realisateur = 'Etats-Unis'
 WHERE nom_realisateur = 'Lumet';
 ```
 
-**<H3 STYLE="COLOR:red;">Activité n° 34 : Ajouter des données d’une table**</H3> Ajouter le nombre de films à chaque réalisateur. Exécuter
+
+---
+
+### 📥 **5.4. Remplir des données dans une nouvelle colonne**
+
+???+ question "🔢 Activité n°34 : Mise à jour de valeurs"
+Mettre à jour la colonne `nbfilms_realisateur` pour tous les réalisateurs **américains** :
+
+
 ```sql
 UPDATE realisateur
 SET nbfilms_realisateur = 1
 WHERE nationalite_realisateur = 'Etats-Unis';
 ```
 
-Tous les réalisateurs dont la nationalité est Etats-Unis ont un nombre de films égal à 1. Vérifier.
+✅ Vérifie que tous les réalisateurs américains ont maintenant **nbfilms = 1** dans la colonne ajoutée.
+
+
+---
+
 
  
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365580"></a>**5.3. Requête de modification**</H3>
