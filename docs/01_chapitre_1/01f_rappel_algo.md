@@ -113,7 +113,7 @@ Début
     TantQue p < n faire
         p ← 2 × p
 Fin
-````
+```
 
 🔍 On pose `f(p) = n - p`
 
