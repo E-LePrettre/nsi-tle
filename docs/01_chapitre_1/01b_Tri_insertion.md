@@ -3,21 +3,24 @@ author: ELP
 title: 01b Fiche méthode - Tri par insertion
 ---
 
+## <H2 style="color:blue;">📌 Le principe</H2>
 
+Le travail se fait essentiellement sur les **indices**.  
+On considère que le premier élément est déjà trié.
 
-## <H2 STYLE="COLOR:BLUE;">**Le principe</H2>**
+🔁 Pour chaque nouvel élément (à partir de l’indice 1), on le **compare aux éléments précédents** :  
+- Tant qu’il est **plus petit**, on décale les éléments vers la droite.
+- Puis, on **insère** cet élément à la bonne place.
 
-Le travail se fait essentiellement sur les indices.
-On part de l'indice du premier élément, on considère que cet élément est l'élément minimum.
-On parcourt les éléments suivants et si on repère un élément plus petit que notre minimum, on garde en mémoire l'indice de ce nouvel élément minimum.
-Une fois le parcours fini, on échange l'élément de travail avec l'élément minimum qui a été trouvé.
-On avance d'un élément et on recommence jusqu'à l'avant-dernier.
+Ce tri fonctionne un peu comme si tu voulais **classer tes cartes en main** dans l’ordre croissant !
 
-## <H2 STYLE="COLOR:BLUE;">**L’algorithme</H2>**
+---
+
+## <H2 style="color:blue;">⚙️ L’algorithme</H2>
 
 ![animation_insertion](animation_insertion.gif)
 
-### <H3 STYLE="COLOR:GREEN;">**Script Python</H3>**
+### <H3 style="color:green;">💻 Script Python</H3>
 
 ```python
 def tri_insertion(l):
@@ -29,29 +32,31 @@ def tri_insertion(l):
             j = j - 1
         l[j] = val
     return l
-```
+````
 
-### <H3 STYLE="COLOR:GREEN;">**Vérification</H3>**
+### <H3 style="color:green;">🧪 Vérification</H3>
 
-```
-# tester avec (dans l'éditeur)
+```python
 a = [7, 5, 2, 8, 1, 4]
 tri_insertion(a)
 print(a)
 ```
 
+❓ Tester ce qui est proposé :
 
-???+ question "Tester ce qui est proposé"
+```
+{{ IDE() }}
+```
 
-    {{ IDE() }}
+---
 
-## <H2 STYLE="COLOR:BLUE;">**Complexité de l’algorithme</H2>**
+## <H2 style="color:blue;">📈 Complexité de l’algorithme</H2>
 
-### <H3 STYLE="COLOR:GREEN;">**Observation</H3>**
+### <H3 style="color:green;">🔬 Observation expérimentale</H3>
 
-On va étudier une moyenne sur 5 valeurs de deux appels sur la fonction `tri_insertion()`. On se place dans le pire des cas : une liste triée dans l'ordre décroissant.
+Étudions la **durée moyenne** pour trier une liste de 100 puis de 1 000 éléments, dans le **pire des cas** (liste triée à l’envers).
 
-Rajouter ce script au code précédent :
+Ajoute ce script :
 
 ```python
 import time
@@ -61,74 +66,92 @@ for i in range(5):
     a = [k for k in range(100 - 1)]
     start_time = time.time()
     tri_insertion(a)
-    somme_des_durees = somme_des_durees + time.time() - start_time
+    somme_des_durees += time.time() - start_time
 moyenne = somme_des_durees / 5
-print("Temps d'exécution pour 100: %s secondes ---" % (moyenne))
+print("Temps d'exécution pour 100 : %s secondes ---" % moyenne)
 
 somme_des_durees = 0
 for i in range(5):
     b = [k for k in range(1_000 - 1)]
     start_time = time.time()
     tri_insertion(b)
-    somme_des_durees = somme_des_durees + time.time() - start_time
+    somme_des_durees += time.time() - start_time
 moyenne = somme_des_durees / 5
-print("Temps d'exécution pour 1_000: %s secondes ---" % (moyenne))
+print("Temps d'exécution pour 1_000 : %s secondes ---" % moyenne)
 ```
 
-???+ question "recopier le script du tri par sélection et tester ce qui est proposé ci-dessus. ATTENTION ce peut prendre du temps!!"
+❓ Recopier le script du tri par insertion et tester le code ci-dessus.
+⚠️ Cela peut prendre un peu de temps !
 
-    {{ IDE() }}
+```
+{{ IDE() }}
+```
 
-En local, on trouve : 
+📊 Résultats constatés :
 
-- Temps d'exécution pour 1_000: 0.05830273628234863 secondes ---
-- Temps d'exécution pour 10_000: 5.961895084381103 secondes ---
+* Pour 1 000 : \~0.058 s
+* Pour 10 000 : \~5.96 s
 
-En comparant les temps de tri des listes a et b, que pouvez-vous supposer sur la complexité du tri par insertion ?
-Une liste à trier 10 fois plus longue prend 100 fois plus de temps : l'algorithme semble de complexité quadratique.
+💡 Une liste 10× plus longue prend 100× plus de temps → complexité **quadratique**.
 
-### <H3 STYLE="COLOR:GREEN;">**Démonstration</H3>**
+---
 
-Dénombrons le nombre d'opérations dans le pire des cas pour une liste de taille `n`.
+### <H3 style="color:green;">📚 Démonstration</H3>
 
-- Boucle `for` : elle s'exécute `n-1` fois.
-- Boucle `while` : dans le pire des cas, elle exécute d'abord 1 opération puis 2 puis 3... jusqu'à `n-1`. Or
+Dans le **pire des cas**, pour une liste de taille `n` :
 
-$1 + 2 + 3 + \cdots + (n-1) = \frac{n \times (n-1)}{2}$
+* La boucle `for` s'exécute `n-1` fois.
+* La boucle `while` s’exécute 1 + 2 + … + (n-1) fois :
 
-Si la liste est déjà triée, on ne rentre jamais dans la boucle `while` : le nombre d'opérations est dans ce cas égal à `n-1` ce qui caractérise une complexité linéaire.
+$$
+1 + 2 + 3 + \dots + (n-1) = \frac{n(n-1)}{2}
+$$
 
-### <H3 STYLE="COLOR:GREEN;">**Résumé de la complexité</H3>**
+➡️ Complexité : **𝑂(n²)**
 
-- **<H3 STYLE="COLOR:RED;">Dans le meilleur des cas (liste déjà triée) : complexité linéaire</H3>**
-- **<H3 STYLE="COLOR:RED;">Dans le pire des cas (liste triée dans l'ordre décroissant) : complexité quadratique. C'est cette complexité que nous retiendrons : le tri par insertion est de complexité quadratique.</H3>**
+---
 
-## <H2 STYLE="COLOR:BLUE;">**Preuve de l’algorithme</H2>**
+### <H3 style="color:green;">⏱️ Résumé des complexités</H3>
 
-### <H3 STYLE="COLOR:GREEN;">**Preuve de la terminaison</H3>
-**
-Est-on sûr que notre algorithme va s'arrêter ?
-Le programme est constitué d'une boucle `while` imbriquée dans une boucle `for`. Seule la boucle `while` peut provoquer une non-terminaison de l'algorithme. Observons donc ses conditions de sortie :
+* ✅ **Meilleur des cas** (liste déjà triée) : **complexité linéaire** → 𝑂(n)
+  *(on ne rentre jamais dans la boucle `while`)*
+
+* ❌ **Pire des cas** (liste triée à l’envers) : **complexité quadratique** → 𝑂(n²)
+
+> 🧠 **Remarque :** le tri par insertion est plus efficace que le tri par sélection **si la liste est partiellement triée**.
+
+---
+
+## <H2 style="color:blue;">🔐 Preuve de l’algorithme</H2>
+
+### <H3 style="color:green;">✔️ Preuve de terminaison</H3>
+
+L’algorithme contient :
+
+* une boucle `for` bien délimitée,
+* une boucle `while` avec condition :
 
 ```python
 while j > 0 and l[j - 1] > val:
 ```
 
-La condition `l[j - 1] > val` ne peut pas être rendue fausse avec certitude. Par contre, la condition `j > 0` sera fausse dès que la variable `j` deviendra nulle. Or la ligne `j = j - 1` nous assure que la variable `j` diminuera à chaque tour de boucle. La condition `j > 0` deviendra alors forcément fausse au bout d'un certain temps.
+📌 À chaque tour de boucle `while`, la variable `j` **diminue d’1**
+➡️ Elle devient forcément nulle au bout d’un moment → **sortie garantie**
 
-Nous avons donc prouvé la terminaison de l'algorithme.
-On appelle la valeur `j` un variant de boucle. C'est une notion théorique (ici illustrée de manière simple par `j` qui permet de prouver la bonne sortie d'une boucle et donc la terminaison d'un algorithme).
+La variable `j` est un **variant de boucle** : elle garantit que la boucle ne tourne pas indéfiniment.
 
-### <H3 STYLE="COLOR:GREEN;">**Preuve de la correction</H3>**
+---
 
-Les preuves de correction sont des preuves théoriques. La preuve ici s'appuie sur le concept mathématique de récurrence.
+### <H3 style="color:green;">✅ Preuve de la correction</H3>
 
-Principe du raisonnement par récurrence : une propriété `P(n)` est vraie si :
+📘 On raisonne par **récurrence** :
+Propriété `P(i)` : « La sous-liste `l[0:i]` est triée. »
 
-- `P(0)` (par exemple) est vraie
-- Pour tout entier naturel `n`, si `P(n)` est vraie alors `P(n+1)` est vraie.
+* **Initialisation** : pour `i = 0`, `l[0]` est triée.
+* **Hérédité** : si `l[0:i-1]` est triée, on insère `l[i]` à la bonne place → `l[0:i]` est triée.
 
-Ici la propriété serait : « Quand `i` varie entre 0 et `longueur(liste) -1`, la sous-liste de longueur `i` est triée dans l'ordre croissant. » On appelle cette propriété un invariant de boucle (sous-entendu : elle est vraie pour chaque boucle).
+➡️ La propriété est vraie pour tous les `i` entre 1 et `n-1`.
 
-- Quand `i` vaut 0, on place le minimum de la liste en `l[0]`, la sous-liste `l[0]` est donc triée.
-- Si la sous-liste de `k` éléments est triée, l'algorithme rajoute en dernière position de la liste le minimum de la sous-liste restante dont tous les éléments sont supérieurs au maximum de la sous-liste de `k` éléments. La sous-liste de `k+1` éléments est donc aussi triée.
+✅ C’est donc un **invariant de boucle** : à chaque itération, la liste partielle est bien triée.
+
+
