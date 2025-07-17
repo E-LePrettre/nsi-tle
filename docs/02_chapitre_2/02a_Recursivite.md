@@ -276,6 +276,7 @@ On ramène ainsi le calcul de `x × y` à un **sous-problème équivalent plus s
 
 
 🖼️ **Animation de l’algorithme :**
+
 ![fonction récursive](multiply.gif)
 
 ---
@@ -324,6 +325,7 @@ Et par convention : $0! = 1$
 
 
 🖼️ **Animation :**
+
 ![fonction récursive](factorielle.gif)
 
 ---
@@ -392,7 +394,7 @@ Déplacer **n disques** de A vers C revient à :
 
 🧮 **Nombre de déplacements :**  
 Avec 64 disques, il faudrait :  
-$$2^{64} - 1 = 18,446,744,073,709,551,615 \text{ coups}$$
+$2^{64} - 1$ = $18 446 744 073 709 551 615 \text{ coups}$
 
 Soit environ **584,5 milliards d’années** à raison d’un coup par seconde…  
 👉 **43 fois l'âge de l'univers**.
@@ -510,6 +512,7 @@ L’arbre d’appels devient vite **gigantesque**, avec des **milliers d'appels 
 ---
 
 🎬 Animation :
+
 ![fonction récursive](fibonacci.gif)
 
 ---
