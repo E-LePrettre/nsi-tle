@@ -604,23 +604,24 @@ Voici la **suite du cours** (section 5) avec le **relooking complet**, incluant 
 
 ---
 
-### 🗂️ **4.10. Afficher tous les champs** <a name="_toc173365576"></a>
+### 🧾 <span style="color:green;"> 🗂️ **4.10. Afficher tous les champs** <a name="_toc173365576"></a></span>
 
 ???+ question "📜 Activité n°31 : Affichage complet de la table `film`"
-Exécute la requête suivante pour afficher **tous les champs** et toutes les lignes de la table `film` :
+    
+    Exécute la requête suivante pour afficher **tous les champs** et toutes les lignes de la table `film` :
 
 
-```sql
-SELECT *
-FROM film;
-```
+    ```sql
+    SELECT *
+    FROM film;
+    ```
 
 
 ---
 
-## 🧩 **5. Requête de mise à jour** <a name="_toc173365577"></a>
+## <span style="color:blue;"> 🧩 **5. Requête de mise à jour** <a name="_toc173365577"></a></span>
 
-### 🛠️ **5.1. Syntaxe d’une requête UPDATE** <a name="_toc173365578"></a>
+### <span style="color:green;"> 🛠️ **5.1. Syntaxe d’une requête UPDATE** <a name="_toc173365578"></a></span>
 
 ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.016.png){ width=30%; : .center }
 
@@ -632,77 +633,85 @@ Une requête de mise à jour s’écrit en trois parties :
 
 ---
 
-### 🧱 **5.2. Ajouter un attribut dans une table** <a name="_toc173365579"></a>
+### <span style="color:green;">🧱 **5.2. Ajouter un attribut dans une table** <a name="_toc173365579"></a></span>
 
 ???+ question "➕ Activité n°32 : Ajouter une colonne"
-Ajouter un **nouvel attribut** `nbfilms_realisateur` (type entier) dans la table `realisateur` :
+    Ajouter un **nouvel attribut** `nbfilms_realisateur` (type entier) dans la table `realisateur` :
 
 
-```sql
-ALTER TABLE realisateur
-ADD COLUMN nbfilms_realisateur INTEGER;
-```
+    ```sql
+    ALTER TABLE realisateur
+    ADD COLUMN nbfilms_realisateur INTEGER;
+    ```
 
-🔍 Vérifie dans la structure de la table que la colonne est bien apparue. Elle est pour l’instant **remplie de valeurs NULL**.
+    🔍 Vérifie dans la structure de la table que la colonne est bien apparue. Elle est pour l’instant **remplie de valeurs NULL**.
 
 
 ---
 
-### ✏️ **5.3. Modifier une donnée dans une table**
+### <span style="color:green;"> ✏️ **5.3. Modifier une donnée dans une table**</span>
 
 ???+ question "🖊️ Activité n°33 : Modifier une donnée"
-Modifier la **nationalité** du réalisateur `Lumet` :
+    Modifier la **nationalité** du réalisateur `Lumet` :
 
 
-```sql
-UPDATE realisateur
-SET nationalite_realisateur = 'Royaume-Uni'
-WHERE nom_realisateur = 'Lumet';
-```
+    ```sql
+    UPDATE realisateur
+    SET nationalite_realisateur = 'Royaume-Uni'
+    WHERE nom_realisateur = 'Lumet';
+    ```
 
-🧪 Vérifie le changement.  
-👉 Puis restaure la nationalité d’origine avec :
+    🧪 Vérifie le changement.  
+    👉 Puis restaure la nationalité d’origine avec :
 
-```sql
-UPDATE realisateur
-SET nationalite_realisateur = 'Etats-Unis'
-WHERE nom_realisateur = 'Lumet';
-```
+    ```sql
+    UPDATE realisateur
+    SET nationalite_realisateur = 'Etats-Unis'
+    WHERE nom_realisateur = 'Lumet';
+    ```
 
 
 ---
 
-### 📥 **5.4. Remplir des données dans une nouvelle colonne**
+
+
+### <span style="color:green;">📥 **5.4. Remplir des données dans une nouvelle colonne**</span>
 
 ???+ question "🔢 Activité n°34 : Mise à jour de valeurs"
-Mettre à jour la colonne `nbfilms_realisateur` pour tous les réalisateurs **américains** :
 
 
-```sql
-UPDATE realisateur
-SET nbfilms_realisateur = 1
-WHERE nationalite_realisateur = 'Etats-Unis';
-```
+    Mettre à jour la colonne `nbfilms_realisateur` pour tous les réalisateurs **américains** :
 
-✅ Vérifie que tous les réalisateurs américains ont maintenant **nbfilms = 1** dans la colonne ajoutée.
+    ```sql
+    UPDATE realisateur
+    SET nbfilms_realisateur = 1
+    WHERE nationalite_realisateur = 'Etats-Unis';
+    ```
+
+    ✅ Vérifie que tous les réalisateurs américains ont maintenant **nbfilms = 1** dans la colonne ajoutée.
 
 
 ---
 
+???+ question "🎯 Activité n° 35 : Modifier plusieurs champs en même temps"
 
- 
-### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365580"></a>**5.3. Requête de modification**</H3>
+    Modifier le nombre de film et la nationalité du réalisateur. Exécuter :
 
-**<H3 STYLE="COLOR:red;">Activité n° 35 : Modifier plusieurs champs en même temps**</H3> Modifier le nombre de film et la nationalité du réalisateur. Exécuter
-```sql
-UPDATE realisateur
-SET nbfilms_realisateur = 2, nationalite_realisateur = 'USA'
-WHERE nationalite_realisateur = 'Etats-Unis';
-```
+    ```sql
+    UPDATE realisateur
+    SET nbfilms_realisateur = 2, nationalite_realisateur = 'USA'
+    WHERE nationalite_realisateur = 'Etats-Unis';
+    ```
 
-Les réalisateurs qui avaient pour nationalité Etats-Unis ont eu le nombre de films modifié et la nationalité aussi. Vérifier.
- 
-**<H3 STYLE="COLOR:red;">Activité n° 36 : Création de table**</H3> Création de la table nationalité
+    📌 Les réalisateurs qui avaient pour nationalité *Etats-Unis* ont eu le nombre de films modifié **et** la nationalité aussi.
+    ✅ Vérifier.
+
+---
+
+### <H3 STYLE="COLOR:red;">🏗️ Activité n° 36 : Création de table</H3>
+
+Création de la table `nationalite` :
+
 ```sql
 CREATE TABLE nationalite (
 id_nationalite INT NOT NULL,
@@ -710,42 +719,71 @@ nom_nationalite VARCHAR(255) NOT NULL,
 PRIMARY KEY ("id_nationalite" AUTOINCREMENT)
 );
 ```
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.007.png){ width=30%; : .center } 
 
-Vérifier que la table est créée.
- 
-### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365581"></a>**5.4. Mise en place d’un id**</H3>
+![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.007.png){ width=30%; : .center }
 
-**<H3 STYLE="COLOR:red;">Activité n° 37 : Afficher**</H3> Afficher la nationalité des films : Exécuter
+✅ Vérifier que la table est créée.
+
+---
+
+### <H3 STYLE="COLOR:red;">👀 Activité n° 37 : Afficher</H3>
+
+Afficher la nationalité des films : Exécuter
+
 ```sql
 SELECT nationalite_film
 FROM film;
 ```
-Il y a beaucoup de doublons !! Il faut les éliminer.
 
-**<H3 STYLE="COLOR:red;">Activité n° 38 : Afficher seulement ceux qui sont différents**</H3> Afficher les différentes nationalités des films : 
+⚠️ Il y a **beaucoup de doublons** ! Il faut les éliminer.
+
+---
+
+### <H3 STYLE="COLOR:red;">🧹 Activité n° 38 : Afficher seulement ceux qui sont différents</H3>
+
+Afficher les différentes nationalités des films :
+
 ```sql
 SELECT DISTINCT nationalite_film
 FROM film;
 ```
-**DISTINCT** permet de n’afficher que les valeurs différentes.
 
-**<H3 STYLE="COLOR:red;">Activité n° 39 : Insertion de données extraites d’une table dans une autre**</H3> Exécuter la requête suivante
+📌 `DISTINCT` permet de n’afficher que les **valeurs différentes**.
+
+---
+
+### <H3 STYLE="COLOR:red;">📤 Activité n° 39 : Insertion de données extraites d’une table dans une autre</H3>
+
+Exécuter la requête suivante :
+
 ```sql
 INSERT INTO nationalite
 (nom_nationalite)
 SELECT DISTINCT nationalite_film
 FROM film ;
 ```
-On met à jour la table nationalite avec les nationalités de la table film afin de pourvoir éliminer les doublons de la table film. Vérifier qu’il y a bien les trois nationalités dans la table nationalite.
 
-**<H3 STYLE="COLOR:red;">Activité n° 40 : Ajouter un attribut à une table existante**</H3> Ajouter l’attribut id\_nationalite\_film à la table film. 
+🔄 On met à jour la table `nationalite` avec les nationalités présentes dans la table `film`, afin de **supprimer les doublons**.
+
+✅ Vérifier qu’il y a bien **trois nationalités** dans la table `nationalite`.
+
+---
+
+### <H3 STYLE="COLOR:red;">➕ Activité n° 40 : Ajouter un attribut à une table existante</H3>
+
+Ajouter l’attribut `id_nationalite_film` à la table `film` :
+
 ```sql
 ALTER TABLE film
 ADD COLUMN id_nationalite_film INTEGER;
 ```
 
-**<H3 STYLE="COLOR:red;">Activité n° 41 : Alimenter un attribut d’une table grace à une autre**</H3> Ajouter l’attribut id\_nationalite\_film à la table film. Exécuter
+---
+
+### <H3 STYLE="COLOR:red;">🔗 Activité n° 41 : Alimenter un attribut d’une table grâce à une autre</H3>
+
+Exécuter :
+
 ```sql
 UPDATE film
 SET id_nationalite_film = (
@@ -754,13 +792,31 @@ FROM nationalite
 WHERE film.nationalite_film = nationalite.nom_nationalite
 );
 ```
-On met à jour le champ id\_nationalite\_film de la table film avec la table nationalite. Après le SET id\_nationalite\_film il faut ensuite aller chercher le id\_nationalite de la table nationalite. Le SELECT permet d’aller chercher le id\_nationalite dans la table nationalite pour le mettre dans la table film. La condition sera de telle sorte que le nom de la nationalité correspond à la nationalité du film. Pour cela, on note film.\_\_\_ pour dire que l’on va chercher le champ dans la table film. Cette nationalité dans la table film doit être égale à la nationalité dans la table nationalite d’où le nationalite.\_\_\_. Vérifier que l’id\_nationalite\_film de la table film est bien rempli.
 
-**<H3 STYLE="COLOR:red;">Activité n° 42 : Supprimer un attribut**</H3> Il suffit à présent de supprimer l’attribut en trop. 
+🧠 On met à jour le champ `id_nationalite_film` de la table `film` avec les valeurs de la table `nationalite`.
+
+* Après le `SET id_nationalite_film`, on va chercher le `id_nationalite` depuis la table `nationalite`.
+* Le `SELECT` récupère ce champ **si** la condition `film.nationalite_film = nationalite.nom_nationalite` est vraie.
+
+✅ Vérifier que le champ `id_nationalite_film` est bien rempli.
+
+---
+
+### <H3 STYLE="COLOR:red;">🗑️ Activité n° 42 : Supprimer un attribut</H3>
+
+Il suffit à présent de supprimer l’attribut devenu inutile :
+
 ```sql
 ALTER TABLE film
 DROP COLUMN nationalite_film;
 ```
+
+✅ La colonne `nationalite_film` est maintenant supprimée car elle est redondante avec la clé étrangère `id_nationalite_film`.
+
+---
+
+
+
  
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365582"></a>**5.5. Mise en majuscule d’un attribut**</H3>
 
