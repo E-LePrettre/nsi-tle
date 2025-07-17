@@ -98,16 +98,18 @@ L’objectif est de **calculer aⁿ sans utiliser l’opérateur `**`**, comme l
 
 ???+ question "🎯 Activité n°1 : Étudier la version itérative"
 
-    ??? success "Python"
-        ```python
-        def exp1(n : int ,a: float) -> float :
-            valeur=1
-            for i in range(n):
-                valeur *= a
-            return valeur
+    ```python
+    def exp1(n : int ,a: float) -> float :
+        valeur=1
+        for i in range(n):
+            valeur *= a
+        return valeur
 
-        print(exp1(5,49))
-        ```
+    print(exp1(5,49))
+    ```
+
+    ??? success "Python"
+        {{ IDE() }}
 
 🧮 **Complexité :**  
 - La boucle tourne **n fois**  
@@ -120,16 +122,18 @@ L’objectif est de **calculer aⁿ sans utiliser l’opérateur `**`**, comme l
 
 ???+ question "🎯 Activité n°2 : Étudier la version récursive"
 
-    ??? success "Python"
-        ```python
-        def exp2(n : int ,a: float) -> float :
-            if n == 0:
-                return 1
-            else:
-                return a * exp2(n-1,a)
+    ```python
+    def exp2(n : int ,a: float) -> float :
+        if n == 0:
+            return 1
+        else:
+            return a * exp2(n-1,a)
 
-        print(exp2(5,49))
-        ```
+    print(exp2(5,49))
+    ```
+
+    ??? success "Python"
+        {{ IDE() }}
 
 🧮 **Complexité :**  
 Même raisonnement : **O(n)** (n appels récursifs)
@@ -154,20 +158,22 @@ Exemple : `49⁵`
 
 ???+ question "🎯 Activité n°3 : Étudier la version Diviser pour régner"
 
-    ??? success "Python"
-        ```python
-        def exp3(n : int ,a: float) -> float :
-            if n == 0:
-                return 1
+    ```python
+    def exp3(n : int ,a: float) -> float :
+        if n == 0:
+            return 1
+        else:
+            y = exp3(n//2, a)
+            if n % 2 == 0:
+                return y * y
             else:
-                y = exp3(n//2, a)
-                if n % 2 == 0:
-                    return y * y
-                else:
-                    return a * y * y
+                return a * y * y
 
-        print(exp3(5,49))
-        ```
+    print(exp3(5,49))
+    ```
+
+    ??? success "Python"
+        {{ IDE() }}
 
 ---
 
@@ -290,30 +296,32 @@ Pour bien comprendre la méthode employée, on construit un **arbre binaire** o�
 ???+ question "🔧 Activité n°4 : Compléter le code selon Diviser / Régner / Combiner"
 
 
+    ```python
+    from typing import List
+
+    def tri_fusion(S: List[int]) -> None:
+        """
+        Implémentation du tri fusion. La liste S est modifiée en place.
+        """
+        n = len(S)  # ... (0)
+        if n < 2:
+            return None  # ... (1)
+
+        # Diviser
+        milieu = n // 2
+        S1 = S[:milieu]  # .... (3)
+        S2 = S[milieu:]  # .... (4)
+
+        # Régner
+        tri_fusion(S1)  # ... (6)
+        tri_fusion(S2)  # ... (7)
+
+        # Combiner
+        fusion(S1, S2, S)  # ... (9)
+    ```
+
     ??? success "Python"
-        ```python
-        from typing import List
-
-        def tri_fusion(S: List[int]) -> None:
-            """
-            Implémentation du tri fusion. La liste S est modifiée en place.
-            """
-            n = len(S)  # ... (0)
-            if n < 2:
-                return None  # ... (1)
-
-            # Diviser
-            milieu = n // 2
-            S1 = S[:milieu]  # .... (3)
-            S2 = S[milieu:]  # .... (4)
-
-            # Régner
-            tri_fusion(S1)  # ... (6)
-            tri_fusion(S2)  # ... (7)
-
-            # Combiner
-            fusion(S1, S2, S)  # ... (9)
-        ```
+        {{ IDE() }}
 
 
 
@@ -321,34 +329,35 @@ Pour bien comprendre la méthode employée, on construit un **arbre binaire** o�
 
 ???+ question "🔧 Activité n°5 : Expliquer en détail la fusion des deux listes triées"
 
+    ```python
+    from typing import List
 
-    ??? success "Python"
-        ```python
-        from typing import List
+    def fusion(S1: List[int], S2: List[int], S: List[int]) -> None:
+        """
+        Combine les éléments des deux listes S1 et S2 dans la liste S (en place).
+        """
+        i = 0
+        j = 0
 
-        def fusion(S1: List[int], S2: List[int], S: List[int]) -> None:
-            """
-            Combine les éléments des deux listes S1 et S2 dans la liste S (en place).
-            """
-            i = 0
-            j = 0
-
-            while i < len(S1) and j < len(S2):
-                if S1[i] < S2[j]:
-                    S[i + j] = S1[i]
-                    i += 1
-                else:
-                    S[i + j] = S2[j]
-                    j += 1
-
-            while i < len(S1):
+        while i < len(S1) and j < len(S2):
+            if S1[i] < S2[j]:
                 S[i + j] = S1[i]
                 i += 1
-
-            while j < len(S2):
+            else:
                 S[i + j] = S2[j]
                 j += 1
-        ```
+
+        while i < len(S1):
+            S[i + j] = S1[i]
+            i += 1
+
+        while j < len(S2):
+            S[i + j] = S2[j]
+            j += 1
+    ```
+
+    ??? success "Python"
+        {{ IDE() }}
 
 --- 
 
@@ -357,6 +366,7 @@ Pour bien comprendre la méthode employée, on construit un **arbre binaire** o�
 
 
 ???+ question "🔧 Activité n°5 :**"
+
     Étudier le comportement du programme complet à l’aide de pythontutor.
     Construire la liste à l’aide de l’instruction :
     ```python
@@ -364,7 +374,8 @@ Pour bien comprendre la méthode employée, on construit un **arbre binaire** o�
     liste = [randint(1, 400) for i in range(5)]
     ```
 
-    ???+ question "Tester l'algorithme de tri fusion qui est proposé avec la liste ci-dessus"
+    ??? success "Python"
+        Tester l'algorithme de tri fusion qui est proposé avec la liste ci-dessus
 
         {{ IDE() }}
 
