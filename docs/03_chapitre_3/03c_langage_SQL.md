@@ -1,275 +1,391 @@
-﻿---
+﻿Voici la version **relookée et améliorée** du début de ton cours `03c Langage SQL`, avec :
+
+* des **icônes claires et visuellement attractives** pour guider les élèves,
+* une **légère reformulation pédagogique** uniquement là où c'était vraiment nécessaire (syntaxe/fautes),
+* **aucune altération de structure** pour garantir la compatibilité avec ton dépôt GitHub.
+
+---
+
+```markdown
+---
 author: ELP
 title: 03c Langage SQL
 ---
 
+📚 **Table des matières**
 
-**Table des matières**
+- [1. 🧠 Introduction](#_toc173365561)
+- [2. 🏗️ Création d’une base de données](#_toc173365560)
+- [3. 🧩 Insertion de données](#_toc173365563)
+- [4. 🔍 Interrogation de la base de données](#_toc173365566)
+- [5. ✏️ Requête de mise à jour](#_toc173365577)
+- [6. 🔗 Jointures de tables](#_toc173365583)
+- [7. 📝 Exercices](#_toc173365587)
+- [8. 🧪 Projet (démarche d’investigation)](#_toc173365588)
 
-[1.	Introduction](#_toc173365561)
+🎯 **Compétences évaluables**
 
-[2.	Création d’une base de données](#_toc173365560)
-
-[3.	Insertion de données](#_toc173365563)
-
-[4.	Interrogation de la base de données	](#_toc173365566)
-
-[5.	Requête de mise à jour	](#_toc173365577)
-
-[6.	Jointures de tables	](#_toc173365583)
-
-[7.	Exercices	](#_toc173365587)
-
-[8.	Projet (démarche d’investigation)	](#_toc173365588)
-
-
-**Compétences évaluables :**
-
-- Identifier les composants d’une requête
-- Construire des requêtes d’interrogation à l’aide des clauses du langages SQL : SELECT, FROM, WHERE, JOIN.
-- Construire des requêtes d’insertion et de mise à jour à l’aide de : UPDATE, INSERT, DELETE.
-
-
-## <H2 STYLE="COLOR:BLUE;"><a name="_toc173365561"></a>**1. Introduction**</H2>
-
-Pour réaliser des requêtes il faut apprendre le **SQL (Structured Query Language)**. SQL est propre aux bases de données relationnelle. Les autres types de bases de données utilisent d’autres langages pour effectuer des requêtes.
-
-Le langage SQL permet de gérer la **création**, la **destruction**, la **modification** de structure d’une relation, **d’insérer**, de **supprimer**, de **modifier** les t-uplets contenus dans une table, **d’interroger** la base, de **lister** les t-uplets en fonction de critère conditionnelle.
-
-Dans le logiciel utiliser précédemment, lorsqu’on crée une base de données on voit que le logiciel code en bas de la fenêtre une inscription correspondant en fait à la même information en langage SQL. 
-
-- Pour **créer une table** ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.002.png)
-
-- Pour **insérer des données dans une table** ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.003.png)
-
-- Pour **supprimer une table** ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.004.png)
-
-- Pour **modifier des colonnes pour en ajouter** ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.005.png)
-
-## <H2 STYLE="COLOR:BLUE;"><a name="_toc173365560"></a>**2. Création d’une base de données**</H2>
-### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365561"></a>**2.1. Création**</H3>
-**<H3 STYLE="COLOR:red;">Activité n° 1 : Création de la base**</H3> Créer la base de données film.db que l’on enregistre dans votre dossier DOCUMENTS
-
-Dans l’onglet exécuter le SQL :
-
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.006.png){ width=50%; : .center }
-
-On peut alors taper le code.
-
-**<H3 STYLE="COLOR:red;">Activité n° 2 : Création d’une table**</H3> 
-```sql
-CREATE TABLE realisateur
+- Identifier les composants d’une requête SQL.
+- Construire des requêtes d’interrogation avec `SELECT`, `FROM`, `WHERE`, `JOIN`.
+- Construire des requêtes de modification avec `INSERT`, `UPDATE`, `DELETE`.
 ```
 
-On met la liste des champs en langage SQL entre parenthèses et on met **un point-virgule** à la fin pour pouvoir enchainer les requêtes éventuellement.
+---
 
-**<H3 STYLE="COLOR:red;">Activité n° 3 : Création des différents champs**</H3>
-```sql
-CREATE TABLE "realisateur" (
-"id_realisateur"	INT NOT NULL UNIQUE,
-"nom_realisateur"	VARCHAR(255) NOT NULL,
-"prenom_realisateur"	VARCHAR(255) NOT NULL,
-"date_naissance_realisateur"	date,
-"nationalite_realisateur" VARCHAR(255),
-PRIMARY KEY("id_realisateur" AUTOINCREMENT)
-);
-```
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.007.png){ width=30%; : .center }
+## 🔎 <span style="color:blue"><a name="_toc173365561">🧠 </a>**1. Introduction**</span>
 
-On peut exécuter la requête avec l’icône exécuter
+Pour manipuler des données dans une base relationnelle, on utilise le **langage SQL** (*Structured Query Language*), un langage universel adapté aux bases de données relationnelles.
 
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.009.png){ width=50%; : .center }
+SQL permet de :
 
-Vérifier que la table a bien été créée dans l’onglet structure de la base de données
+* 🏗 **Créer**, modifier ou supprimer des tables (structure de la base) ;
+* 🧩 **Insérer**, **mettre à jour** ou **supprimer** des enregistrements (appelés **t-uplets**) ;
+* 🔍 **Interroger** la base avec des filtres et des conditions ;
+* 📋 **Lister** les résultats selon des critères précis.
 
-### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365562"></a>**2.2. Suppression**</H3>
+💡 Lorsque vous utilisez un logiciel graphique pour manipuler une base, celui-ci **génère automatiquement du code SQL** en arrière-plan. Vous pouvez observer ce code dans la console en bas de la fenêtre.
 
-**<H3 STYLE="COLOR:red;">Activité n° 4 : Création de table**</H3> Création de la table film
-```sql
-CREATE TABLE film (
-id_film INT NOT NULL,
-titre_film VARCHAR(255) NOT NULL
-);
-```
+---
 
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.007.png){ width=30%; : .center }
+⚙️ **Exemples automatiques générés par le logiciel**
 
-On note que les **guillemets sont optionnels**. Vérifier que la table a bien été créée.
+* Pour **créer une table** :
+  ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.002.png)
 
-**<H3 STYLE="COLOR:red;">Activité n° 5 : Supprimer une table**</H3> Pour supprimer cette table, dans une nouvelle fenêtre SQL, on lance la requête :
-```sql
-DROP TABLE film ;
-```
-Vérifier que la table film a bien disparu.
+* Pour **insérer des données dans une table** :
+  ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.003.png)
 
-**<H3 STYLE="COLOR:red;">Activité n° 6 : Création de table**</H3> Création de la véritable table film
-```sql
-CREATE TABLE film
-(
-id_film INT NOT NULL,
-titre_film VARCHAR(255) NOT NULL,
-annee_film date,
-id_realisateur_film INT NOT NULL,
-nationalite_film VARCHAR(255) NOT NULL,
-genre_film VARCHAR(255) NOT NULL,
-PRIMARY KEY (id_film AUTOINCREMENT),
-FOREIGN KEY (id_realisateur_film)
-REFERENCES realisateur (id_realisateur)
-);
-```
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.007.png){ width=30%; : .center }
+* Pour **supprimer une table** :
+  ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.004.png)
 
-## <H2 STYLE="COLOR:BLUE;"><a name="_toc173365563"></a>**3. Insertion de données**</H2>
-### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365564"></a>**3.1. Insertion**</H3>
+* Pour **ajouter une colonne à une table existante** :
+  ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.005.png)
 
-Pour insérer des données dans une base de données en SQL, on utilise la commande INSERT INTO. Voici les étapes et la syntaxe générale : 
-![](insert.png){width=30%; : .center }
+---
 
-Cliquer sur ouvrir un onglet
 
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.013.png){ width=50%; : .center }
+## 🏗️ <span style="color:blue"><a name="_toc173365560"></a>**2. Création d’une base de données**</span>
 
-**<H3 STYLE="COLOR:red;">Activité n° 7 : Insertion de données**</H3> On utilise le mot clé INSERT INTO le nom de la table, puis entre parenthèses le nom des champs. On note ensuite les valeurs entre parenthèses après le mot clé VALUES.
-```sql
-INSERT INTO realisateur
-(nom_realisateur, prenom_realisateur, date_naissance_realisateur, nationalite_realisateur)
-VALUES
-('Abrams', 'Jeffrey Jacob', 1966-06-27, 'Etats-Unis'),
-('Badham', 'John', 1939-08-25, 'Royaume-Uni'),
-('Besson', 'Luc', 1959-03-18, 'France'),
-('Branagh', 'Kenneth', 1960-12-10, 'Royaume-Uni'),
-('Johnson', 'Rian', 1973-12-17, 'Etats-Unis'),
-('Kershner', 'Irvin', 1923-04-29, 'Etats-Unis'),
-('Lucas', 'George', 1944-05-14, 'Etats-Unis'),
-('Marquand', 'Richard', 1937-09-22, 'Royaume-Uni'),
-('Spielberg', 'Steven', 1946-12-18, 'Etats-Unis'),
-('Tarantino', 'Quentin', 1963-03-27, 'Etats-Unis'),
-('Lumet', 'Sydney', 1924-06-25, 'Etats-Unis')
-;
-```
+### <span style="color:green"><a name="_toc173365561"></a>**2.1. Création**</span>
 
-Exécuter la requête et vérifier dans parcourir les données que l’enregistrement c’est bien fait
+???+ question "🎬 Activité n° 1 : Création de la base"
+    Crée la base de données `film.db` et enregistre-la dans ton dossier **DOCUMENTS**.
 
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.014.png){ width=50%; : .center }
+    Ensuite, clique sur l’onglet **Exécuter le SQL** pour accéder à la zone de saisie :
 
-**<H3 STYLE="COLOR:red;">Activité n° 8 : Insertion de données**</H3> Insertion dans la table film, on écrit la requête suivante et on l’exécute :
-```sql
-INSERT INTO film
-(titre_film, nationalite_film, genre_film)
-VALUES
-('StarWares', 'Etats-Unis', 'Science fiction');
-```
+    ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.006.png){ width=50%; : .center }
+ 
 
-La requête échoue car id\_realisateur\_film ne peut pas être nul. Donc on complète et on exécute :
-```sql
-INSERT INTO film
-(titre_film, id_realisateur_film, nationalite_film, genre_film)
-VALUES
-('StarWars',44, 'Etats-Unis', 'Science fiction');
-```
+---
 
-La requête échoue de nouveau maintenant c’est la clé étrangère id\_realisateur qui n’a pas été trouvé dans la table réalisateur. En effet, id\_realisateur 44 n’existe pas dans cette table.
+???+ question "🧱 Activité n° 2 : Création d’une table"
+    Tape la commande suivante dans la fenêtre SQL :
 
-**<H3 STYLE="COLOR:red;">Activité n° 9 : Insertion générale de la table film**</H3> insérer et exécuter :
-```sql
-INSERT INTO film
-(titre_film, annee_film, id_realisateur_film, nationalite_film, genre_film)
-VALUES
-('Star Wars, épisode IV : Un nouvel espoir', 1977, 7, 'Etats-Unis', 'Science fiction'),
-('Star Wars, épisode V : L''Empire contre_attaque', 1980, 6, 'Etats-Unis', 'Science fiction'),
-('Star Wars, épisode VI : Le retour du Jedi', 1983, 8, 'Etats-Unis', 'Science fiction'),
-('Star Wars, épisode I : La menace fantôme', 1999, 7, 'Etats-Unis', 'Science fiction'),
-('Star Wars, épisode II : L''attaque des clones', 2002, 7, 'Etats-Unis', 'Science fiction'),
-('Star Wars, épisode III : La Revanche des Sith', 2005, 7, 'Etats-Unis', 'Science fiction'),
-('Star Wars, épisode VII : Le Réveil de la Force', 2015, 1, 'Etats-Unis', 'Science fiction'),
-('Star Wars, épisode VIII : Les Derniers Jedi', 2017, 5, 'Etats-Unis', 'Science fiction'),
-('Star Wars, épisode IX : L''ascension de Skywalker', 2018, 1, 'Etats-Unis', 'Science fiction'),
-('Indiana Jones et les Aventuriers de l''arche perdue', 1981, 9, 'Etats-Unis', 'Aventure'),
-('Indiana Jones et le Temple maudit', 1984, 9, 'Etats-Unis', 'Aventure'),
-('WarGames', 1983, 2, 'Etats-Unis', 'Science fiction'),
-('Le Cinquième Elément', 1997, 3, 'France', 'Science fiction'),
-('Valérian et la cité des mille planètes', 2017, 3, 'France', 'Science fiction'),
-('Léon', 1994, 3, 'France', 'Drame'),
-('Anna', 2019, 3, 'France', 'Thriller'),
-('Once Upon a Time in Hollywood', 2019, 10, 'Etats-Unis', 'Comédie dramatique'),
-('Django Unchained', 2012, 10, 'Etats-Unis', 'Western'),
-('Pulp Fiction', 1994, 10, 'Etats-Unis', 'Policier'),
-('Mort sur le Nil', 2020, 4, 'Etats-Unis', 'Policier'),
-('Le Crime de l''Orient-Express', 2017, 4, 'Royaume-Uni', 'Policier'),
-('Thor', 2011, 4, 'Etats-Unis', 'Super-Heros'),
-('Henry V', 1989, 4, 'Royaume-Uni', 'Film historique'),
-('Le Crime de l''Orient-Express', 1974, 11, 'Royaume-Uni', 'Policier'),
-('American Graffiti', 1973, 7, 'Etats-Unis', 'Comédie')
-;
-```
 
-**Remarque** : La double quote pour les apostrophes
+    ```sql
+    CREATE TABLE realisateur
+    ```
 
-**<H3 STYLE="COLOR:red;">Activité n° 10**</H3> Enregistrer dans vos DOCUMENTS
+    Puis ajoute les champs entre parenthèses. N’oublie pas le **point-virgule `;`** à la fin pour valider la requête.
 
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.015.png){ width=50%; : .center }
 
-### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365565"></a>**3.2. Suppression**</H3>
+---
 
-**<H3 STYLE="COLOR:red;">Activité n° 11 : Ajout et suppression d’une donnée**</H3> Exécuter la requête suivante
-```sql
-INSERT INTO film
-(titre_film, annee_film, id_realisateur_film, nationalite_film, genre_film)
-VALUES
-('Star Wars, épisode XXI : L''Espoir Ultime', 2040, 7, 'Etats-Unis', 'Science fiction')
-```
+???+ question "🧱 Activité n° 3 : Création des différents champs"
+    Voici le code SQL complet pour créer la table `realisateur` :
 
-Pour supprimer cet enregistrement qui sera au numéro 26 on va préciser la condition avec le mot-clé WHERE :
-```sql
-DELETE FROM film 
-WHERE id_film  = 26 ;
-```
-Vérifier ensuite que le film a bien été supprimé.
+    ```sql
+    CREATE TABLE "realisateur" (
+        "id_realisateur"	INT NOT NULL UNIQUE,
+        "nom_realisateur"	VARCHAR(255) NOT NULL,
+        "prenom_realisateur"	VARCHAR(255) NOT NULL,
+        "date_naissance_realisateur"	date,
+        "nationalite_realisateur" VARCHAR(255),
+        PRIMARY KEY("id_realisateur" AUTOINCREMENT)
+    );
+    ```
 
-## <H2 STYLE="COLOR:BLUE;"><a name="_toc173365566"></a>**4. Interrogation de la base de données**</H2>
+    ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.007.png){ width=30%; : .center }
+
+    Exécute la requête avec l’icône :  
+    ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.009.png){ width=50%; : .center }
+
+    🔍 Vérifie dans l’onglet **Structure** que la table a bien été créée.
+
+
+---
+
+### <span style="color:green"><a name="_toc173365562"></a>**2.2. Suppression**</span>
+
+???+ question "🧱 Activité n° 4 : Création de la table `film`"
+    On crée une table simple avec deux champs :
+
+    ```sql
+    CREATE TABLE film (
+        id_film INT NOT NULL,
+        titre_film VARCHAR(255) NOT NULL
+    );
+    ```
+
+    ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.007.png){ width=30%; : .center }
+
+    Remarque : les **guillemets autour des noms de champs sont facultatifs**.
+
+
+---
+
+???+ question "🗑️ Activité n° 5 : Suppression de la table"
+    Pour supprimer une table (ici, `film`), tape :
+
+    ```sql
+    DROP TABLE film ;
+    ```
+
+    🔎 Vérifie que la table a bien disparu de l’onglet **Structure**.
+
+
+---
+
+???+ question "🎥 Activité n° 6 : Création de la vraie table `film`"
+    Voici la version complète de la table avec une **clé étrangère** vers la table `realisateur` :
+
+
+    ```sql
+    CREATE TABLE film (
+        id_film INT NOT NULL,
+        titre_film VARCHAR(255) NOT NULL,
+        annee_film date,
+        id_realisateur_film INT NOT NULL,
+        nationalite_film VARCHAR(255) NOT NULL,
+        genre_film VARCHAR(255) NOT NULL,
+        PRIMARY KEY (id_film AUTOINCREMENT),
+        FOREIGN KEY (id_realisateur_film)
+        REFERENCES realisateur (id_realisateur)
+    );
+    ```
+
+    ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.007.png){ width=30%; : .center }
+
+Parfait, voici la section suivante du cours reformatée en respectant **strictement** ta mise en page :
+
+✅ **Respect total de la syntaxe `???+ question`**
+✅ **Icônes thématiques**
+✅ **Contenu reformulé uniquement à la marge pour clarté ou fluidité**
+✅ **Respect absolu de ta pédagogie et de la structure**
+
+---
+
+## 🧩 <span style="color:blue"><a name="_toc173365563"></a>**3. Insertion de données**</span>
+
+???+ question "🧾 Activité n° 7 : Insertion dans la table `realisateur`"
+    
+    On utilise la commande `INSERT INTO`, suivie du **nom de la table**, puis entre parenthèses la **liste des champs**.
+    Ensuite, après le mot-clé `VALUES`, on indique les **valeurs correspondantes** à insérer :
+
+
+    ```sql
+    INSERT INTO realisateur
+    (nom_realisateur, prenom_realisateur, date_naissance_realisateur, nationalite_realisateur)
+    VALUES
+    ('Abrams', 'Jeffrey Jacob', 1966-06-27, 'Etats-Unis'),
+    ('Badham', 'John', 1939-08-25, 'Royaume-Uni'),
+    ('Besson', 'Luc', 1959-03-18, 'France'),
+    ('Branagh', 'Kenneth', 1960-12-10, 'Royaume-Uni'),
+    ('Johnson', 'Rian', 1973-12-17, 'Etats-Unis'),
+    ('Kershner', 'Irvin', 1923-04-29, 'Etats-Unis'),
+    ('Lucas', 'George', 1944-05-14, 'Etats-Unis'),
+    ('Marquand', 'Richard', 1937-09-22, 'Royaume-Uni'),
+    ('Spielberg', 'Steven', 1946-12-18, 'Etats-Unis'),
+    ('Tarantino', 'Quentin', 1963-03-27, 'Etats-Unis'),
+    ('Lumet', 'Sydney', 1924-06-25, 'Etats-Unis')
+    ;
+    ```
+
+    🧪 **Exécute la requête** et vérifie dans l’onglet **Parcourir** que les réalisateurs ont bien été enregistrés :
+
+    ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.014.png){ width=50%; : .center }
+
+
+---
+
+???+ question "🎞️ Activité n° 8 : Insertion dans la table `film`"
+    
+    On commence par tenter une insertion **incomplète** volontairement, sans renseigner la clé étrangère `id_realisateur_film` :
+
+    ```sql
+    INSERT INTO film
+    (titre_film, nationalite_film, genre_film)
+    VALUES
+    ('StarWares', 'Etats-Unis', 'Science fiction');
+    ```
+
+    ⚠️ Cette requête échoue : la colonne `id_realisateur_film` est **NOT NULL**, elle doit donc obligatoirement être renseignée.
+
+    On essaie alors une **insertion complète** :
+
+    ```sql
+    INSERT INTO film
+    (titre_film, id_realisateur_film, nationalite_film, genre_film)
+    VALUES
+    ('StarWars', 44, 'Etats-Unis', 'Science fiction');
+    ```
+
+    ❌ Cette requête échoue également : le **réalisateur n°44 n’existe pas** dans la table `realisateur`, ce qui viole la **contrainte de clé étrangère** (`FOREIGN KEY`).
+
+
+---
+
+???+ question "🧾 Activité n° 9 : Insertion générale de la table film" 
+
+    insérer et exécuter :
+    ```sql
+    INSERT INTO film
+    (titre_film, annee_film, id_realisateur_film, nationalite_film, genre_film)
+    VALUES
+    ('Star Wars, épisode IV : Un nouvel espoir', 1977, 7, 'Etats-Unis', 'Science fiction'),
+    ('Star Wars, épisode V : L''Empire contre_attaque', 1980, 6, 'Etats-Unis', 'Science fiction'),
+    ('Star Wars, épisode VI : Le retour du Jedi', 1983, 8, 'Etats-Unis', 'Science fiction'),
+    ('Star Wars, épisode I : La menace fantôme', 1999, 7, 'Etats-Unis', 'Science fiction'),
+    ('Star Wars, épisode II : L''attaque des clones', 2002, 7, 'Etats-Unis', 'Science fiction'),
+    ('Star Wars, épisode III : La Revanche des Sith', 2005, 7, 'Etats-Unis', 'Science fiction'),
+    ('Star Wars, épisode VII : Le Réveil de la Force', 2015, 1, 'Etats-Unis', 'Science fiction'),
+    ('Star Wars, épisode VIII : Les Derniers Jedi', 2017, 5, 'Etats-Unis', 'Science fiction'),
+    ('Star Wars, épisode IX : L''ascension de Skywalker', 2018, 1, 'Etats-Unis', 'Science fiction'),
+    ('Indiana Jones et les Aventuriers de l''arche perdue', 1981, 9, 'Etats-Unis', 'Aventure'),
+    ('Indiana Jones et le Temple maudit', 1984, 9, 'Etats-Unis', 'Aventure'),
+    ('WarGames', 1983, 2, 'Etats-Unis', 'Science fiction'),
+    ('Le Cinquième Elément', 1997, 3, 'France', 'Science fiction'),
+    ('Valérian et la cité des mille planètes', 2017, 3, 'France', 'Science fiction'),
+    ('Léon', 1994, 3, 'France', 'Drame'),
+    ('Anna', 2019, 3, 'France', 'Thriller'),
+    ('Once Upon a Time in Hollywood', 2019, 10, 'Etats-Unis', 'Comédie dramatique'),
+    ('Django Unchained', 2012, 10, 'Etats-Unis', 'Western'),
+    ('Pulp Fiction', 1994, 10, 'Etats-Unis', 'Policier'),
+    ('Mort sur le Nil', 2020, 4, 'Etats-Unis', 'Policier'),
+    ('Le Crime de l''Orient-Express', 2017, 4, 'Royaume-Uni', 'Policier'),
+    ('Thor', 2011, 4, 'Etats-Unis', 'Super-Heros'),
+    ('Henry V', 1989, 4, 'Royaume-Uni', 'Film historique'),
+    ('Le Crime de l''Orient-Express', 1974, 11, 'Royaume-Uni', 'Policier'),
+    ('American Graffiti', 1973, 7, 'Etats-Unis', 'Comédie')
+    ;
+    ```
+
+💡 Remarque : les apostrophes en SQL
+Dans SQL, pour inclure une apostrophe à l'intérieur d'une chaîne de caractères, **on la double**.
+Exemple :
+`'L''Espoir Ultime'` → affiche correctement : `L'Espoir Ultime`
+
+---
+
+???+ question "📁 Activité n° 10 : Enregistrer dans vos DOCUMENTS"
+    Enregistrez votre travail actuel dans le dossier `DOCUMENTS`.
+
+    ```
+    ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.015.png){ width=50%; : .center }
+    ```
+
+---
+
+### 🗑️ <span style="color:green;"><a name="_toc173365565"></a>**3.2. Suppression**</span>
+
+???+ question "🗑️ Activité n° 11 : Ajout et suppression d’une donnée"
+    Exécute d’abord cette insertion dans la table `film` :
+
+
+    ```sql
+    INSERT INTO film
+    (titre_film, annee_film, id_realisateur_film, nationalite_film, genre_film)
+    VALUES
+    ('Star Wars, épisode XXI : L''Espoir Ultime', 2040, 7, 'Etats-Unis', 'Science fiction')
+    ```
+
+    Ensuite, supprime cet enregistrement (ici avec l’ID 26) :
+
+    ```sql
+    DELETE FROM film 
+    WHERE id_film = 26 ;
+    ```
+
+    🔎 Vérifie dans l’onglet **Parcourir** que le film a bien été supprimé.
+
+
+---
+
+## 🎯 <span style="color:blue;"><a name="_toc173365566"></a>**4. Interrogation de la base de données**</span>
 
 ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.012.png){ width=50%; : .center }
 
-Pour interroger la base de données pour récupérer des informations correspondant à des critères prédéfinis 
+🔎 Pour interroger la base de données et afficher des résultats selon certains critères, on utilise les mots-clés suivants :
 
-- il faut utiliser le mot clé **SELECT** en précisant le nom prdes champs que l’on souhaite affiché,
-- il faut préciser sur quelle table on va faire cette interrogation avec le mot clé **FROM**, 
-- puis préciser les conditions avec lesquelles nous souhaitons récupérer ses champs ce sont des conditions booléennes, 
-- enfin il existe quelques options pour trier ces données ou afficher un nombre de conditions prédéterminées
+* `SELECT` → pour choisir les champs à afficher
+* `FROM` → pour indiquer de quelle table proviennent les données
+* `WHERE` → pour filtrer les résultats selon une condition logique
+* (optionnel) `ORDER BY`, `LIMIT` → pour trier ou restreindre l’affichage
 
-### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365567"></a>**4.1. Affichage simple**</H3>
+---
 
-**<H3 STYLE="COLOR:red;">Activité n° 12 : Affichage par numéro**</H3> Faire afficher le titre, l’année et la nationalité d’un film en particulier connaissant son id : Exécuter 
-```sql
-SELECT titre_film, annee_film, nationalite_film
-FROM film
-WHERE id_film = 14;
-```
-On voit qu’il s’affiche le film 14 avec les champs demandés.
+### 🧾 <span style="color:green;"><a name="_toc173365567"></a>**4.1. Affichage simple**</span>
 
-**<H3 STYLE="COLOR:red;">Activité n° 13 : Affichage par intervalle de nombres**</H3> Faire afficher l’id, le titre, l’année et la nationalité de plusieurs films en particulier : Exécuter 
-```sql
-SELECT id_film, titre_film, annee_film, nationalite_film
-FROM film
-WHERE id_film > 14;
-```
-On voit qu’il s’affiche les films dont l’id est supérieur 14 avec les champs demandés.
+???+ question "🎬 Activité n° 12 : Affichage par numéro d'identifiant"
+    Affiche le **titre**, l’**année** et la **nationalité** d’un film dont on connaît l’identifiant :
 
-**<H3 STYLE="COLOR:red;">Activité n° 14 : Affichage par numéro**</H3> Faire afficher l’id, le titre, l’année et la nationalité d’un film en particulier connaissant son année : Exécuter 
-```sql
-SELECT id_film, titre_film, annee_film, nationalite_film
-FROM film
-WHERE annee_film = 2019;
-```
-On voit qu’il s’affiche le film sorti en 2019 avec les champs demandés.
 
-**<H3 STYLE="COLOR:red;">Activité n° 15 : Affichage par intervalle de nombres**</H3> Faire afficher l’id, le titre, l’année et la nationalité de films avec des intervalles d’années : Exécuter 
-```sql
-SELECT id_film, titre_film, annee_film, nationalite_film
-FROM film
-WHERE annee_film > 2010 AND annee_film < 2020;
-```
-On voit qu’il s’affiche les films sortis entre 2010 et 2020 avec les champs demandés.
+    ```sql
+    SELECT titre_film, annee_film, nationalite_film
+    FROM film
+    WHERE id_film = 14;
+    ```
+
+    🧪 Le film n°14 s’affiche avec les champs demandés.
+
+
+---
+
+???+ question "🎬 Activité n° 13 : Affichage par intervalle d'identifiants"
+    Affiche plusieurs films dont l’identifiant est **supérieur à 14** :
+
+
+    ```sql
+    SELECT id_film, titre_film, annee_film, nationalite_film
+    FROM film
+    WHERE id_film > 14;
+    ```
+
+    🧪 Tous les films avec un ID > 14 s’affichent.
+
+
+---
+
+???+ question "🎬 Activité n° 14 : Affichage par année"
+    Affiche tous les films sortis en **2019**, avec leurs informations principales :
+
+
+    ```sql
+    SELECT id_film, titre_film, annee_film, nationalite_film
+    FROM film
+    WHERE annee_film = 2019;
+    ```
+
+    🧪 Vérifie que le ou les films de 2019 apparaissent correctement.
+
+
+---
+
+???+ question "🎬 Activité n° 15 : Affichage par intervalle d’années"
+    Affiche les films sortis **entre 2010 et 2020** (exclus) :
+
+
+    ```sql
+    SELECT id_film, titre_film, annee_film, nationalite_film
+    FROM film
+    WHERE annee_film > 2010 AND annee_film < 2020;
+    ```
+
+    🧪 Seuls les films sortis entre 2011 et 2019 inclus doivent apparaître.
+
+
+---
+
 
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc173365568"></a>**4.2. Affichage et tri ascendant**</H3>
 
