@@ -3,19 +3,23 @@ author: ELP
 title: 01a Fiche méthode - Tri par sélection
 ---
 
-## <H2 STYLE="COLOR:BLUE;">**Le principe</h2>**
+## <H2 style="color:blue;">🔍 Le principe</h2>
 
-Le travail se fait essentiellement sur les indices.
-On part de l'indice du premier élément, on considère que cet élément est l'élément minimum.
-On parcourt les éléments suivants et si on repère un élément plus petit que notre minimum, on garde en mémoire l'indice de ce nouvel élément minimum.
-Une fois le parcours fini, on échange l'élément de travail avec l'élément minimum qui a été trouvé.
-On avance d'un élément et on recommence jusqu'à l'avant-dernier.
+Le travail se fait essentiellement sur les **indices**.  
+On part de l’indice du premier élément et on considère que cet élément est le **minimum**.
 
-## <H2 STYLE="COLOR:BLUE;">**L’algorithme</h2>**
+👉 On parcourt les éléments suivants. Si on repère un élément plus petit que notre minimum, on garde **en mémoire son indice**.
+
+📌 Une fois le parcours terminé, on **échange** l’élément de travail avec le minimum trouvé.  
+🔁 On recommence jusqu’à l’avant-dernier élément de la liste.
+
+---
+
+## <H2 style="color:blue;">⚙️ L’algorithme</h2>
 
 ![animation_selection](animation_selection.gif)
 
-### <H3 STYLE="COLOR:GREEN;">**Script Python</h3>**
+### <H3 style="color:green;">💻 Script Python</h3>
 
 ```python
 def tri_selection(l):
@@ -27,28 +31,32 @@ def tri_selection(l):
         if mini != i:
             l[i], l[mini] = l[mini], l[i]
     return l
-```
+````
 
-### <H3 STYLE="COLOR:GREEN;">**Vérification</h3>**
+### <H3 style="color:green;">🔎 Vérification</h3>
 
-```
-# tester avec (dans l'éditeur)
+```python
+# tester avec :
 a = [7, 5, 2, 8, 1, 4]
 tri_selection(a)
 print(a)
 ```
 
-???+ question "Tester ce qui est proposé"
+❓ Tester ce qui est proposé :
 
-    {{ IDE() }}
+```
+{{ IDE() }}
+```
 
-## <H2 STYLE="COLOR:BLUE;">**Complexité de l’algorithme</h2>**
+---
 
-### <H3 STYLE="COLOR:GREEN;">**Observation</h3>**
+## <H2 style="color:blue;">📈 Complexité de l’algorithme</h2>
 
-On va étudier une moyenne sur 5 valeurs de deux appels sur la fonction `tri_selection()`. On se place dans le pire des cas : une liste triée dans l'ordre décroissant.
+### <H3 style="color:green;">🔬 Observation</h3>
 
-Rajouter ce script au code précédent :
+On va mesurer une **moyenne de durée** sur 5 exécutions avec deux tailles de listes, dans le pire des cas (liste décroissante).
+
+Ajoute ce script :
 
 ```python
 import time
@@ -58,61 +66,93 @@ for i in range(5):
     a = [k for k in range(100 - 1)]
     start_time = time.time()
     tri_selection(a)
-    somme_des_durees = somme_des_durees + time.time() - start_time
+    somme_des_durees += time.time() - start_time
 moyenne = somme_des_durees / 5
-print("Temps d'exécution pour 100: %s secondes ---" % (moyenne))
+print("Temps pour 100 : %s sec ---" % moyenne)
 
 somme_des_durees = 0
 for i in range(5):
     b = [k for k in range(1_000 - 1)]
     start_time = time.time()
     tri_selection(b)
-    somme_des_durees = somme_des_durees + time.time() - start_time
+    somme_des_durees += time.time() - start_time
 moyenne = somme_des_durees / 5
-print("Temps d'exécution pour 1_000: %s secondes ---" % (moyenne))
+print("Temps pour 1_000 : %s sec ---" % moyenne)
 ```
-???+ question "recopier le script du tri par sélection et tester ce qui est proposé ci-dessus. ATTENTION ce peut prendre du temps!!"
 
-    {{ IDE() }}
+❓ Recopier le script du tri par sélection et tester le code ci-dessus.
+⚠️ Cela peut prendre un peu de temps !
 
-En local, on trouve :
+```
+{{ IDE() }}
+```
 
-- Temps d'exécution pour 1_000: 0.03949418067932129 secondes ---
-- Temps d'exécution pour 10_000: 4.569394874572754 secondes ---
+📊 En local, on trouve :
 
-En comparant les temps de tri des listes a et b, que pouvez-vous supposer sur la complexité du tri par insertion ?
-Une liste à trier 10 fois plus longue prend 100 fois plus de temps : l'algorithme semble de complexité quadratique.
+* Pour 1 000 : \~0.039 s
+* Pour 10 000 : \~4.57 s
 
-### <H3 STYLE="COLOR:GREEN;">**Démonstration</h3>**
+🧠 Conclusion : si on multiplie la taille par 10, le temps est multiplié par 100 → la **complexité est quadratique**.
 
-Dénombrons le nombre d'opérations dans le pire des cas pour une liste de taille `n`.
+---
 
-- Boucle `for` : elle s'exécute `n-1` fois.
-- Deuxième boucle `for` imbriquée : elle exécute d'abord 1 opération puis 2 puis 3... jusqu'à `n-1`. Or
+### <H3 style="color:green;">📚 Démonstration</h3>
 
-$1 + 2 + 3 + \cdots + (n-1) = \frac{n \times (n-1)}{2}$
+Dans le pire des cas, pour une liste de taille `n` :
 
-Cela confirme que le tri par sélection est de complexité quadratique.
+* boucle `for` extérieure : `n-1` tours
+* boucle intérieure : \$1 + 2 + ... + (n-1) = \frac{n(n-1)}{2}\$
 
-## <H2 STYLE="COLOR:BLUE;">**Preuve de l’algorithme</h2>**
+✅ Confirme que le tri par sélection est en **𝑂(n²)**.
 
-### <H3 STYLE="COLOR:GREEN;">**Preuve de la terminaison</h3>**
+Bien sûr ! Voici une **petite explication claire et pédagogique** de la **complexité du tri par sélection dans le meilleur des cas**, à insérer dans ta fiche ou à commenter à l’oral avec tes élèves.
 
-Est-on sûr que notre algorithme va s'arrêter ?
-À l'observation du programme constitué de deux boucles `for` imbriquées, il n'y a pas d'ambiguïté : on ne peut pas rentrer dans une boucle infinie. Le programme s'arrête forcément au bout d'un nombre fixe d'opérations. D'après nos calculs sur la complexité, ce nombre de tours de boucles est égal à
+✨ Complexité dans le meilleur des cas</h3>
 
-$\frac{n \times (n-1)}{2}$
+Même si la liste est **déjà triée**, le tri par sélection :
 
-Ceci prouve que l'algorithme se terminera.
+* **parcourt toujours l'intégralité des éléments restants** pour trouver un minimum,
+* effectue **les mêmes comparaisons** qu'en cas de liste en désordre,
+* mais **réalise moins d’échanges** (voire aucun si les indices minimaux ne changent pas).
 
-### <H3 STYLE="COLOR:GREEN;">**Preuve de la correction</h3>**
+🔍 **Ce qui change :**
 
-Les preuves de correction sont des preuves théoriques. La preuve ici s'appuie sur le concept mathématique de récurrence. Principe du raisonnement par récurrence : une propriété `P(n)` est vraie si :
+* ✅ Pas d'échange inutile si `mini == i`
+* ❌ Mais **toutes les comparaisons sont quand même faites**
 
-- `P(0)` (par exemple) est vraie
-- Pour tout entier naturel `n`, si `P(n)` est vraie alors `P(n+1)` est vraie.
+📌 **Conclusion :**
+Le **meilleur des cas** n’améliore pas significativement les performances :
 
-Ici la propriété serait : « Quand `k` varie entre 0 et `longueur(liste) -1`, la sous-liste de longueur `k` est triée dans l'ordre croissant. » On appelle cette propriété un invariant de boucle (sous-entendu : elle est vraie pour chaque boucle).
+> 🕒 Le nombre d’opérations reste proportionnel à \$n \times (n-1)/2\$
+> 👉 La complexité est donc **quadratique aussi dans le meilleur des cas : 𝑂(n²)**
 
-- Quand `k` vaut 0, on place le minimum de la liste en `l[0]`, la sous-liste `l[0]` est donc triée.
-- Si la sous-liste de `k` éléments est triée, l'algorithme rajoute en dernière position de la liste le minimum de la sous-liste restante dont tous les éléments sont supérieurs au maximum de la sous-liste de `k` éléments. La sous-liste de `k+1` éléments est donc aussi triée.
+
+
+---
+
+## <H2 style="color:blue;">🧪 Preuve de l’algorithme</h2>
+
+### <H3 style="color:green;">✔️ Preuve de la terminaison</h3>
+
+L’algorithme ne contient que des boucles `for` bien définies :
+il s’exécute toujours un **nombre fini d’opérations**.
+
+➡️ Le nombre total d’itérations est :
+\$\frac{n(n-1)}{2}\$
+Donc le programme **se termine toujours**.
+
+---
+
+### <H3 style="color:green;">✅ Preuve de la correction</h3>
+
+On utilise un **raisonnement par récurrence** :
+
+🧩 Propriété : « À chaque étape `k`, la sous-liste `l[0:k]` est triée. »
+
+* Initialisation : pour `k = 0`, on place le plus petit élément au début → c’est trié.
+* Hérédité : si les `k` premiers sont triés, l’algorithme place ensuite le plus petit élément restant à la bonne place (`k+1`), donc la sous-liste est toujours triée.
+
+🎯 Cette propriété est un **invariant de boucle**, elle reste vraie à chaque étape.
+✅ À la fin, la liste complète est triée.
+
+
