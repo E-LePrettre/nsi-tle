@@ -221,10 +221,7 @@ Dans ces cas, il faudra tenir compte du **coût de chaque multiplication** (qui 
 🧠 **Conclusion**
 L’exponentiation rapide améliore considérablement la vitesse de calcul pour des puissances élevées, surtout lorsqu’on travaille avec des structures plus complexes qu’un simple nombre.
 
----
 
-
-Voici ta section **3.1 Le principe du tri fusion** relookée dans le même esprit que la précédente : blocs clairs, pédagogiques, interactifs et parfaitement compatibles GitHub.
 
 ---
 
