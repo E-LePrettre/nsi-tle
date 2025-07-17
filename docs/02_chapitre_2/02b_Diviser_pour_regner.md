@@ -442,13 +442,13 @@ La complexité des algorithmes :
     ??? success "Python"
         {{ IDE() }}
 
-⏱️ **Résultats attendus** (approximatifs selon ta machine) :
+    ⏱️ **Résultats attendus** (approximatifs selon ta machine) :
 
-```
-tri insertion :  0.051
-tri selection :  0.027
-tri fusion    :  0.003
-```
+    ```
+    tri insertion :  0.051
+    tri selection :  0.027
+    tri fusion    :  0.003
+    ```
 
 ---
 
@@ -736,7 +736,7 @@ Utiliser la **dichotomie** :
             rotate(image,x0+m,y0,m)
             rotate(image,x0+m,y0+m,m)
         # à compléter
-    ```**Activité
+    ```
 
     3.7. *Analysez la procédure :* A l’aide de l’image suivante, que vous découperez, montrer pas à pas ce qui est réalisé par la fonction rotate
 
