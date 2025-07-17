@@ -3,21 +3,21 @@ author: ELP
 title: 01g Fiche méthode - Les dictionnaires
 ---
 
+## <H2 style="color:blue;">📘 1. Définition</H2>
 
+Un **dictionnaire** en Python est une structure de données qui associe des **clés** (`keys`) à des **valeurs** (`values`).  
+Il est défini entre accolades `{}`.
 
+✅ Caractéristiques :
 
-## <span style="color:blue;">1. Définition</span>
+- Chaque **clé est unique**
+- Les **valeurs** peuvent être de n'importe quel type : `int`, `str`, `list`, etc.
 
-Un dictionnaire est une structure de données en Python qui associe des clés (**keys**) à des valeurs (**values**).  
-Il est défini par des accolades `{}`.
+---
 
-- Chaque **clé est unique**.
-- Les **valeurs peuvent être de n’importe quel type** (int, str, list, autre dictionnaire…).
+## <H2 style="color:blue;">🛠️ 2. Création d’un dictionnaire</H2>
 
-
-## <span style="color:blue;">2. Création d’un Dictionnaire</span>
-
-???+ question "Activité n°1 : Créer un dictionnaire"
+???+ question "🎯Activité n°1 : Créer un dictionnaire" 
 
     Crée un dictionnaire représentant un étudiant avec les informations suivantes :
 
@@ -38,10 +38,13 @@ Il est défini par des accolades `{}`.
         Les clés sont des chaînes (`str`) : `"nom"`, `"age"`, `"classe"`.
 
 
+🧠 Chaque paire clé-valeur est notée sous la forme `"clé": valeur`.
 
-## <span style="color:blue;">3. Accéder aux Éléments</span>
+---
 
-???+ question "Activité n°2 : Accès aux données"
+## <H2 style="color:blue;">🔍 3. Accéder aux éléments</H2>
+
+???+ question "🎯 Activité n°2 : Accès aux données"
 
     À partir du dictionnaire `etudiant`, affiche :
 
@@ -65,11 +68,13 @@ Il est défini par des accolades `{}`.
         Clé non trouvée
         ```
 
+🧠 `.get()` permet d’éviter une erreur si la clé n’existe pas.
 
+---
 
-## <span style="color:blue;">4. Modifier un Élément</span>
+## <H2 style="color:blue;">✏️ 4. Modifier un élément</H2>
 
-???+ question "Activité n°3 : Modifier une valeur"
+???+ question "🎯 Activité n°3 : Modifier une valeur"
 
     Modifie l'âge de l'étudiant en le passant à 18.
 
@@ -79,11 +84,13 @@ Il est défini par des accolades `{}`.
         print(etudiant)
         ```
 
+➡️ On remplace simplement la valeur associée à la clé `"age"`.
 
+---
 
-## <span style="color:blue;">5. Ajouter un Élément</span>
+## <H2 style="color:blue;">➕ 5. Ajouter un élément</H2>
 
-???+ question "Activité n°4 : Ajouter une adresse"
+???+ question "🎯 Activité n°4 : Ajouter une adresse"
 
     Ajoute une nouvelle clé `"adresse"` avec la valeur `"Paris"`.
 
@@ -93,9 +100,11 @@ Il est défini par des accolades `{}`.
         print(etudiant)
         ```
 
+➡️ Si la clé n'existe pas, elle est ajoutée automatiquement.
 
+---
 
-## <span style="color:blue;">6. Supprimer un Élément</span>
+## <H2 style="color:blue;">🗑️ 6. Supprimer un élément</H2>
 
 ???+ question "Activité n°5 : Suppression"
 
@@ -109,9 +118,11 @@ Il est défini par des accolades `{}`.
         print("Âge supprimé :", age)
         ```
 
+🧠 `del` supprime sans retour ; `.pop()` supprime et renvoie la valeur.
 
+---
 
-## <span style="color:blue;">7. Parcourir un Dictionnaire</span>
+## <H2 style="color:blue;">🔁 7. Parcourir un dictionnaire</H2>
 
 ???+ question "Activité n°6 : Parcourir le dictionnaire"
 
@@ -136,21 +147,24 @@ Il est défini par des accolades `{}`.
         ```
 
 
+🧠 Utilise `.values()` ou `.items()` selon ce que tu veux parcourir.
 
-## <span style="color:blue;">8. Méthodes Utiles</span>
+---
 
-| Méthode               | Description                                 | Exemple                                   |
-|-----------------------|---------------------------------------------|-------------------------------------------|
-| `len(dico)`           | Nombre d’éléments dans le dictionnaire      | `len(etudiant)`                          |
-| `dico.keys()`         | Retourne une vue des clés                   | `etudiant.keys()`                        |
-| `dico.values()`       | Retourne une vue des valeurs                | `etudiant.values()`                      |
-| `dico.items()`        | Retourne une vue des couples clé-valeur     | `etudiant.items()`                       |
-| `dico.clear()`        | Vide le dictionnaire                       | `etudiant.clear()`                       |
-| `dico.update(autre)`  | Ajoute ou met à jour des paires clé-valeur  | `etudiant.update({"age": 19, "ville": "Paris"})` |
+## <H2 style="color:blue;">🧰 8. Méthodes utiles</H2>
 
+| Méthode              | Description                       | Exemple                               |
+| -------------------- | --------------------------------- | ------------------------------------- |
+| `len(dico)`          | Nombre de paires clé-valeur       | `len(etudiant)`                       |
+| `dico.keys()`        | Liste des clés                    | `etudiant.keys()`                     |
+| `dico.values()`      | Liste des valeurs                 | `etudiant.values()`                   |
+| `dico.items()`       | Liste des couples `(clé, valeur)` | `etudiant.items()`                    |
+| `dico.clear()`       | Vide le dictionnaire              | `etudiant.clear()`                    |
+| `dico.update({...})` | Met à jour ou ajoute des paires   | `etudiant.update({"ville": "Paris"})` |
 
+---
 
-## <span style="color:blue;">9. Imbrication des Dictionnaires</span>
+## <H2 style="color:blue;">🧱 9. Dictionnaires imbriqués</H2>
 
 ???+ question "Activité n°7 : Dictionnaires imbriqués"
 
@@ -165,4 +179,14 @@ Il est défini par des accolades `{}`.
 
         print(classe["eleve1"]["nom"])  # Affiche "Dupont"
         ```
+
+🧠 Les dictionnaires peuvent contenir **d'autres dictionnaires**. On accède alors aux valeurs avec plusieurs crochets `[ ]`.
+
+---
+
+
+
+
+
+
 
