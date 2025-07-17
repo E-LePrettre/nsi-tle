@@ -19,11 +19,11 @@ title: 03c Langage SQL
 - Identifier les composants d’une requête SQL.
 - Construire des requêtes d’interrogation avec `SELECT`, `FROM`, `WHERE`, `JOIN`.
 - Construire des requêtes de modification avec `INSERT`, `UPDATE`, `DELETE`.
-```
+
 
 ---
 
-## 🔎 <span style="color:blue"><a name="_toc173365561">🧠 </a>**1. Introduction**</span>
+##  <span style="color:blue"><a name="_toc173365561">🧠 </a>**1. Introduction**</span>
 
 Pour manipuler des données dans une base relationnelle, on utilise le **langage SQL** (*Structured Query Language*), un langage universel adapté aux bases de données relationnelles.
 
