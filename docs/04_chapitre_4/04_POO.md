@@ -7,9 +7,9 @@ title: 04 La P.O.O.
 
 **Table des matières**
 
-[1.	Introduction](#_toc88030949)
+[1.	📦 Introduction](#_toc88030949)
 
-[2.	Définitions](#_toc88030950)
+[2.	📘 Définitions](#_toc88030950)
 
 [3.	Les trois fondamentaux](#_toc88030960)
 
@@ -25,31 +25,47 @@ title: 04 La P.O.O.
 - Accéder aux attributs et méthodes d’une classe
 
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc88030949"></a>**1. Introduction**</H2>
+---
+
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc88030949"></a>📦 **1. Introduction**</H2>
+
 La programmation orientée objet repose, comme son nom l'indique, sur le concept **d'objet**.
 
 Chaque objet se décrit par un ensemble **d’attributs** (caractéristiques de l’objet) et un ensemble de **méthodes** portant sur des attributs (fonctionnalité de l’objet).
 
-L’un des objectifs principaux de la notion d’objet est d’organiser des programmes complexes grâce aux notions :
+🎯 L’un des objectifs principaux de la notion d’objet est d’organiser des programmes complexes grâce aux notions suivantes :
 
-- **l'encapsulation** des attributs empêche toute modification externe accidentelle (l’utilisateur va utiliser l’objet sans savoir ce qu’il contient. Par exemple, un conducteur de voiture). Le principe de l’encapsulation est **de regrouper dans le même objet**, les **données (attributs**) et les **traitements (méthodes**) qui lui sont spécifiques. Ainsi un objet est défini par ses attributs et ses méthodes.
-- **l’abstraction** : L’intérêt de la POO est qu’elle permet de créer des objets possédant un certain degré d’abstraction. Ce processus d’abstraction consiste à identifier des caractéristiques et des mécanismes communs pour un ensemble d’éléments.
-```
-* Attributs : Ce sont les données de l’objets, ses caractéristiques.
-* Méthodes : Ce sont les comportements de l’objet.
-```
-- **l'héritage** qui permet la ré utilisabilité du code, une classe Fille hérite d’une classe Mère (ex : classe Mère : animal, classe Fille : Panda)
-```
-* La super-classe (classe mère) déclare des méthodes et des attributs communs.
-* La sous-classe hérite des attributs, des méthodes et du type de la super-classe et peut les redéfinir (cf. polymorphisme).
-```
-- **le polymorphisme** : c’est la faculté pour une méthode portant le **même nom** mais appartenant à des classes distinctes héritées d’effectuer un **travail différent.** Cette propriété est acquise par la technique de la surcharge.
+* 🔐 **Encapsulation** : empêche toute modification externe accidentelle. L’utilisateur utilise l’objet sans savoir ce qu’il contient (comme un conducteur de voiture).
+  👉 Le principe de l’encapsulation est **de regrouper dans le même objet**, les **données (attributs)** et les **traitements (méthodes)** qui lui sont spécifiques.
 
-En terminal seules les deux premières notions sont au programme de NSI
+* 🧠 **Abstraction** : permet de créer des objets possédant un certain degré d’abstraction. Ce processus consiste à identifier des caractéristiques et mécanismes communs à plusieurs éléments.
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc88030950"></a>**2. Définitions**</H2>
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc88030951"></a>**2.1. Classe**</H3> 
-Exemple :
+
+  * Attributs : Ce sont les données de l’objet, ses caractéristiques.
+  * Méthodes : Ce sont les comportements de l’objet.
+
+
+* 👪 **Héritage** : permet la réutilisation du code. Une classe Fille hérite d’une classe Mère.
+  *(ex : classe Mère : Animal, classe Fille : Panda)*
+
+
+  * La super-classe (classe mère) déclare des méthodes et des attributs communs.
+  * La sous-classe hérite des attributs, des méthodes et du type de la super-classe,
+    et peut les redéfinir (cf. polymorphisme).
+
+
+* 🔁 **Polymorphisme** : une méthode portant **le même nom** mais appartenant à des classes différentes peut effectuer un **travail différent** (surcharge).
+
+📌 En Terminale, seules **l'encapsulation** et **l'abstraction** sont au programme de NSI.
+
+---
+
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc88030950"></a>📘 **2. Définitions**</H2>
+
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc88030951"></a>🏗️ **2.1. Classe**</H3>
+
+💡 Une classe est comme un moule à partir duquel on fabrique des objets. Voici un exemple :
+
 ```python
 class Personne:
    """
@@ -58,21 +74,24 @@ class Personne:
    pass
 ```
 
-- Un nom de classe commence toujours (c’est une convention) par une **lettre capitale** ;
+📍 À retenir :
 
-- pass est l’instruction Python qui indique de ne rien faire.
+* Un nom de classe commence toujours par une **lettre capitale** (convention).
+* `pass` signifie que l'on ne fait rien (instruction vide).
 
-Quelles actions a déclenché le code précédent ?
+🧠 Ce que fait ce code :
 
-- Création d’un objet Classe Personne ;
+* Crée un **objet Classe** appelé `Personne`.
+* Crée une **variable** `Personne` dans l’espace de nom global, qui référence l’objet classe `Personne`.
 
-- Création d’une variable Personne dans l’espace de nom global. Cette variable référence l’objet Classe Personne
+📌 La **classe** est un moule, à partir duquel on va créer des **objets** (ou plus précisément des **instances**).
 
-La classe est une espèce de moule, à partir de ce moule nous allons créer des **objets** (plus exactement nous parlerons **d'instances**).
+---
 
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc88030952"></a>🧍 **2.2. Objet ou instance**</H3>
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc88030952"></a>**2.2. Objet ou instance**</H3>
-Exemple :
+Un objet est une **instance** d’une classe.
+
 ```python
 class Personne:
    """
@@ -80,19 +99,17 @@ class Personne:
    """
    pass
 
-Julien = Personne() # c'est la personne numéro 1
-Mathilde = Personne() # c'est la personne numéro 2
+Julien = Personne()    # Instance 1
+Mathilde = Personne()  # Instance 2
 ```
 
-Quelles actions a déclenché le code précédent ?
+🧠 Ce que fait ce code :
 
-- Création d’un **objet (ou instance)** de la classe Personne ;
+* Crée deux **objets (instances)** de la classe `Personne`.
+* Les variables `Julien` et `Mathilde` font référence à ces objets.
 
-- Création d’une variable Julien ou Mathilde dans l’espace de nom global. Chaque variable référence l’objet.
+🧪 Explorons une instance :
 
-Julien et Mathilde sont des objets (des instances) de la classe Personne.
-
-Afin d’en découvrir davantage sur Julien, taper et exécuter l’instruction suivante :
 ```python
 class Personne:
    """
@@ -100,248 +117,355 @@ class Personne:
    """
    pass
 
-Julien = Personne() # c'est la personne numéro 1
-Mathilde = Personne() # c'est la personne numéro 2
+Julien = Personne()
+Mathilde = Personne()
 
 print(Julien)
 ```
-???+ question "Tester ce qui est proposé"
+
+???+ question "🧪 Tester ce qui est proposé"
 
     {{ IDE() }}
 
-On obtient
-```txt
-<__main__.Personne object at 0x0000021C7CE97A10>
-```
-Julien appartient à l’espace de nom global et référence un objet de type Personne situé à l’adresse 0x0000021C7CE97A10.
+    ??? success "📤 Résultat :"
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc88030953"></a>**2.3. Les méthodes**</H3>
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030954"></a>**2.3.1. Définition**</H4>
+        ```txt
+        <__main__.Personne object at 0x0000021C7CE97A10>
+        ```
 
-Une méthode est une « **fonction** » définie dans une classe. Elle est **locale** à la classe. Elle correspond à une **action** agissant sur l'objet.
+    📌 Cela signifie que `Julien` est un **objet de type Personne**, stocké à une certaine adresse mémoire, et accessible via le nom `Julien`.
 
-Par exemple : manger, marcher, parler, dormir sont des méthodes de la classe Personne. Tous les objets d’une même classe partagent les mêmes méthodes.
+---
 
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030955"></a>**2.3.2. Les constructeurs ou initialiseur**</H4>
+
+
+
+
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc88030953"></a>🔧 **2.3. Les méthodes**</H3>
+
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030954"></a>🧰 **2.3.1. Définition**</H4>
+
+Une méthode est une « **fonction** » définie à l’intérieur d’une **classe**. Elle est **locale** à cette classe.
+Elle correspond à une **action** exécutée sur l’objet.
+
+💡 Par exemple, dans la classe `Personne`, on pourrait définir des méthodes telles que :
+
+* `manger()`
+* `marcher()`
+* `parler()`
+* `dormir()`
+
+📌 Tous les objets créés à partir d’une même classe **partagent les mêmes méthodes**.
+
+---
+
+
+
+
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030955"></a>🛠️ **2.3.2. Les constructeurs ou initialiseur**</H4>
+
 Parmi les différents types de méthode, il existe un type particulier : les **constructeurs** ou **initialiseur**.
 
-Les constructeurs sont des **méthodes** qui construisent l'objet désigné par la classe au moment **d’instanciation** de la classe, c’est-à-dire ils permettent d’initialiser l’objet : ses attributs sont automatiquement créés, des valeurs par défaut peuvent même leur être affectées. Un constructeur porte le nom ```__init__```.
+Les constructeurs sont des **méthodes** qui construisent l'objet désigné par la classe au moment **d’instanciation** de la classe, c’est-à-dire qu’ils permettent d’initialiser l’objet : ses attributs sont automatiquement créés, des valeurs par défaut peuvent même leur être affectées.
+Un constructeur porte le nom `__init__`.
 
-**<H3 STYLE="COLOR:red;">Activité n° 1 : Classe et constructeur**</H3>
-```python
-class Personne:
-   """Classe définissant une personne caractérisée par :
-   - son nom
-   - son prénom
-   - son âge"""
-
-   def __init__(self, nom : str, prenom : str):   # le constructeur
-      """ Pour l'instant, on ne va définir que 3 attributs """
-      # Dans le constructeur, on crée des variables self.nom, self.prenom et self.age 
-      # que l’on initialise avec les paramètres passés au constructeur lors de l’instanciation.
-      self.nom = nom
-      self.prenom = prenom
-      self.age = 33
-
-gollum = Personne('Dupont', 'Jean')
-# on va utiliser la méthode format() pour mettre en forme
-print("Je suis {0} {1}, j'ai {2} ans.".format(gollum.prenom, gollum.nom, gollum.age))
-# on va utiliser le f string pour mettre en forme
-print(f"Je suis {gollum.prenom} {gollum.nom}, j'ai {gollum.age} ans.")
-# On pourrait aussi écrire print comme ça c'est un peu plus pénible :
-print("Je suis,",gollum.prenom,gollum.nom, "j'ai", gollum.age, "ans." )
-```
+???+ question "🧪 Activité n° 1 : Classe et constructeur"
 
 
-???+ question "Tester ce qui est proposé"
+    ```python
+    class Personne:
+    """Classe définissant une personne caractérisée par :
+    - son nom
+    - son prénom
+    - son âge"""
 
-    {{ IDE() }}
+    def __init__(self, nom : str, prenom : str):   # le constructeur
+        """ Pour l'instant, on ne va définir que 3 attributs """
+        # Dans le constructeur, on crée des variables self.nom, self.prenom et self.age 
+        # que l’on initialise avec les paramètres passés au constructeur lors de l’instanciation.
+        self.nom = nom
+        self.prenom = prenom
+        self.age = 33
 
-On obtient :
-```txt
-Je suis Jean Dupont, j'ai 33 ans.
-```
-Lors de la création de l’instance gollum, Python va automatiquement remplacer self par gollum et ainsi créer trois attributs :
+    gollum = Personne('Dupont', 'Jean')
+    # on va utiliser la méthode format() pour mettre en forme
+    print("Je suis {0} {1}, j'ai {2} ans.".format(gollum.prenom, gollum.nom, gollum.age))
+    # on va utiliser le f string pour mettre en forme
+    print(f"Je suis {gollum.prenom} {gollum.nom}, j'ai {gollum.age} ans.")
+    # On pourrait aussi écrire print comme ça c'est un peu plus pénible :
+    print("Je suis,", gollum.prenom, gollum.nom, "j'ai", gollum.age, "ans." )
+    ```
 
-- gollum.nom qui aura pour valeur le nom passé en paramètre (Dupont), 
-- gollum.prenom qui aura pour valeur le prénom passé en paramètre (Jean),
-- gollum.age qui aura pour valeur de départ la valeur donnée à self.age.
-
-La définition du constructeur consiste en une définition « classique » d'une fonction. Elle a pour nom ```__init__```. En Python, **tous les constructeurs s'appellent ainsi**. Les noms de méthodes entourés de part et d'autre de deux signes soulignés (```__nommethode__```) sont des **méthodes spéciales**. Dans la définition de méthode, on passe un premier paramètre nommé **self**.
-
-**self** (c’est une convention) correspond simplement à l’objet sur lequel on applique la méthode (il représente l’objet en train de se créer).
-
-Un **attribut** est une variable de classe propre à l’objet et sert à le caractériser.
-
-Exemple : nom, prénom, age.
-
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030956"></a>**2.3.3. Les destructeurs**</H4>
-
-Le **destructeur** d'une classe est une méthode spéciale lancée lors de la destruction d'un objet afin de récupérer les ressources (principalement la mémoire vive) réservée dynamiquement lors de l'instanciation de l'objet. Un constructeur porte le nom ```__del__```.
-
-Le destructeur est appelé implicitement à la sortie du programme, ou explicitement à travers l’instruction del.
-
-**<H3 STYLE="COLOR:red;">Activité n° 2 : Classe et destructeur**</H3>
-```python
-class Personne:
-   """Classe définissant une personne caractérisée par :
-   - son nom
-   - son prénom
-   - son âge"""
-
-   def __init__(self, nom : str, prenom : str):   # le constructeur
-      self.nom = nom
-      self.prenom = prenom
-      self.age = 33
-      print("Voici {0} {1}".format(self.prenom, self.nom))
-
-   def __del__(self): # le destructeur
-      print("décédé(e) à {0} ans". format(self.age))
-
-moi = Personne('Dupont', 'Jean')
-print("Je suis {0} {1}.".format(moi.prenom, moi.nom))
-del moi
-print("Je suis {0} {1}.".format(moi.prenom, moi.nom)) # on obtient une erreur car l'instance moi a été détruite
-```
-
-
-???+ question "Tester ce qui est proposé"
-
-    {{ IDE() }}
-
-On obtient :
-```txt
-Voici Jean Dupont
-décédé(e) à 33 ans
-NameError: name 'moi' is not defined
-```
-
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030957"></a>**2.3.4. Les autres méthodes**</H4>
-
-Créer une **méthode d'instance**, revient à **créer une fonction** ayant comme premier paramètre le mot clef self.
-
-**<H3 STYLE="COLOR:red;">Activité n° 3 : Classe et méthode**</H3>
-```python
-class Personne:
-   """Classe définissant une personne caractérisée par :
-   - son nom
-   - son prénom
-   - son âge
-   - son lieu de résidence"""
-   def __init__(self, nom : str, prenom : str):   # le constructeur
-      """ on ajoute un attribut lieu de résidence... """
-      self.nom = nom
-      self.prenom = prenom
-      self.age = 33
-      self.residence = "Paris"
-
-   def ma_residence(self):
-      """ ...et la méthode associée au lieu de résidence """
-      return "J'habite {0}.".format(self.residence)
+    ??? success "Python"
     
-   def vieillissement(self):
-      """méthode qui agit sur l'attribut age"""
-      self.age +=1
-      return self.age  
+        {{ IDE() }}
 
-qui = Personne('Dupont', 'Jean')
-print("Je suis {0} {1}, j'ai {2} ans.".format(qui.prenom, qui.nom, qui.age))
-print(qui.ma_residence())
-print(qui.vieillissement())
-```
+    ??? success "📤 Résultat :"
+
+        ✅ On obtient :
+
+        ```txt
+        Je suis Jean Dupont, j'ai 33 ans.
+        ```
+
+---
+
+Lors de la création de l’instance `gollum`, Python va automatiquement remplacer `self` par `gollum` et ainsi créer trois attributs :
+
+* `gollum.nom` qui aura pour valeur le nom passé en paramètre (`'Dupont'`)
+* `gollum.prenom` qui aura pour valeur le prénom passé en paramètre (`'Jean'`)
+* `gollum.age` qui aura pour valeur de départ la valeur donnée à `self.age` (ici, 33)
+
+🧠 La définition du constructeur consiste en une définition « classique » d'une fonction. Elle a pour nom `__init__`.
+En Python, **tous les constructeurs s'appellent ainsi**.
+
+ℹ️ Les noms de méthodes entourés de deux soulignés (`__nommethode__`) sont des **méthodes spéciales**.
+Dans la définition d'une méthode, on passe toujours un premier paramètre nommé **`self`** (convention).
+
+`self` représente **l’objet lui-même**, en train de se construire.
+
+🔎 Un **attribut** est une variable propre à l’objet. Il permet de caractériser l’instance.
+
+🧾 Exemple : `nom`, `prenom`, `age`.
+
+---
 
 
-???+ question "Tester ce qui est proposé"
 
-    {{ IDE() }}
 
-on obtient :
-```txt
-Je suis Jean Dupont, j'ai 33 ans.
-J'habite Paris.
-34
-```
 
-Pour appeler une méthode de l’instance Personne, il suffit donc d’écrire **instance.méthode()**.
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030956"></a>🧹 **2.3.3. Les destructeurs**</H4>
 
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030958"></a>**2.3.5. Les méthodes pour représenter un objet**</H4>
+Le **destructeur** d'une classe est une méthode spéciale lancée lors de la destruction d'un objet afin de libérer les ressources (principalement la mémoire vive) réservées dynamiquement lors de l'instanciation de l'objet.
+Un destructeur porte le nom `__del__`.
 
-**<H3 STYLE="COLOR:red;">Activité n° 4 : Surcharge de méthode :**</H3> 
-La méthode spéciale ```__repr__``` retourne la chaine de caractère qu’il faut afficher lorsque l’on tape directement le nom de l’objet
-```python
-class Personne:
-    """Classe représentant une personne"""
-    def __init__(self, nom : str, prenom : str):
+Il est appelé :
+
+* **Implicitement** à la fin du programme,
+* Ou **explicitement** via l’instruction `del`.
+
+???+ question "💀 Activité n° 2 : Classe et destructeur"
+
+
+    ```python
+    class Personne:
+    """Classe définissant une personne caractérisée par :
+    - son nom
+    - son prénom
+    - son âge"""
+
+    def __init__(self, nom : str, prenom : str):   # le constructeur
         self.nom = nom
         self.prenom = prenom
+        self.age = 33
+        print("Voici {0} {1}".format(self.prenom, self.nom))
 
-toi = Personne('Durant', 'Jean')
-```
-```txt
-# Tester dans la console
-toi
-```
-???+ question "Tester ce qui est proposé"
+    def __del__(self): # le destructeur
+        print("décédé(e) à {0} ans". format(self.age))
 
-    {{ IDE() }}
+    moi = Personne('Dupont', 'Jean')
+    print("Je suis {0} {1}.".format(moi.prenom, moi.nom))
+    del moi
+    print("Je suis {0} {1}.".format(moi.prenom, moi.nom))  # on obtient une erreur car l'instance moi a été détruite
+    ```
 
-On n'a aucun affiche autre que celui qui montre que toi appartient à l’espace de nom global et référence un objet de type Personne situé à l’adresse...
+    ??? success "Python"
+    
+        {{ IDE() }}
 
-```python
-class Personne:
-    """Classe représentant une personne"""
-    def __init__(self, nom : str, prenom : str):
+    ??? success "📤 Résultat :"
+
+        ✅ On obtient :
+
+        ```txt
+        Voici Jean Dupont
+        décédé(e) à 33 ans
+        NameError: name 'moi' is not defined
+        ```
+
+---
+
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030957"></a>🔧 **2.3.4. Les autres méthodes**</H4>
+
+Créer une **méthode d'instance**, revient à **créer une fonction** ayant comme **premier paramètre `self`**.
+
+???+ question "🛠️ Activité n° 3 : Classe et méthode"
+
+
+    ```python
+    class Personne:
+    """Classe définissant une personne caractérisée par :
+    - son nom
+    - son prénom
+    - son âge
+    - son lieu de résidence"""
+    def __init__(self, nom : str, prenom : str):   # le constructeur
+        """ on ajoute un attribut lieu de résidence... """
         self.nom = nom
         self.prenom = prenom
+        self.age = 33
+        self.residence = "Paris"
 
-    def __repr__(self):
-        return self.nom + " " + self.prenom
+    def ma_residence(self):
+        """ ...et la méthode associée au lieu de résidence """
+        return "J'habite {0}.".format(self.residence)
+        
+    def vieillissement(self):
+        """méthode qui agit sur l'attribut age"""
+        self.age += 1
+        return self.age  
 
-toi = Personne('Durant', 'Jean')
-```
-```txt
-# Tester dans la console
-toi
-```
-???+ question "Tester ce qui est proposé"
+    qui = Personne('Dupont', 'Jean')
+    print("Je suis {0} {1}, j'ai {2} ans.".format(qui.prenom, qui.nom, qui.age))
+    print(qui.ma_residence())
+    print(qui.vieillissement())
+    ```
 
-    {{ IDE() }}
+    ??? success "Python"
+    
+        {{ IDE() }}
 
-**<H3 STYLE="COLOR:red;">Activité n° 5 : Surcharge de méthode :**</H3> 
-La méthode spéciale ```__str__``` retourne la chaine de caractère qu’il faut afficher lorsque l’on appelle la fonction print sur l’objet
-```python
-class Personne:
-    """Classe représentant une personne"""
-    def __init__(self, nom : str, prenom : str):
-        self.nom = nom
-        self.prenom = prenom
+    ??? success "📤 Résultat :"
 
-toi = Personne('Durant', 'Jean')
-print(toi)
-```
 
-???+ question "Tester ce qui est proposé"
+        ✅ On obtient :
 
-    {{ IDE() }}
+        ```txt
+        Je suis Jean Dupont, j'ai 33 ans.
+        J'habite Paris.
+        34
+        ```
 
-On n'a aucun affiche autre que celui qui montre que toi appartient à l’espace de nom global et référence un objet de type Personne situé à l’adresse...
+🧠 Pour appeler une méthode de l’instance `Personne`, on utilise la notation :
+**`instance.méthode()`**
 
-```python
-class Personne:
-    """Classe représentant une personne"""
-    def __init__(self, nom : str, prenom : str):
-        self.nom = nom
-        self.prenom = prenom
+---
 
-    def __str__(self):
-        return self.prenom + " " + self.nom
-toi = Personne('Durant', 'Jean')
-print(toi)
-```
 
-???+ question "Tester ce qui est proposé"
 
-    {{ IDE() }}
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030958"></a>🎭 **2.3.5. Les méthodes pour représenter un objet**</H4>
+
+Certaines méthodes spéciales permettent de personnaliser la **représentation d’un objet**, soit dans l’interpréteur (`__repr__`), soit lors d’un affichage avec `print()` (`__str__`).
+
+???+ question "🧪 Activité n° 4 : Surcharge de méthode `__repr__`"
+
+
+    La méthode spéciale `__repr__` retourne la chaîne de caractères qui s’affiche quand on tape le nom de l’objet dans la console.
+
+    ```python
+    class Personne:
+        """Classe représentant une personne"""
+        def __init__(self, nom : str, prenom : str):
+            self.nom = nom
+            self.prenom = prenom
+
+    toi = Personne('Durant', 'Jean')
+    ```
+
+    Tester dans la console :
+    ```txt
+    toi
+    ```
+
+    ??? success "Python"
+    
+        {{ IDE() }}
+
+
+
+    🔍 Par défaut, Python affiche une représentation technique de l’objet :
+    ```
+    <__main__.Personne object at 0x000001E4B13F7F70>
+    ```
+
+    Pour personnaliser cela :
+
+    ```python
+    class Personne:
+        """Classe représentant une personne"""
+        def __init__(self, nom : str, prenom : str):
+            self.nom = nom
+            self.prenom = prenom
+
+        def __repr__(self):
+            return self.nom + " " + self.prenom
+
+    toi = Personne('Durant', 'Jean')
+    ```
+
+    Tester dans la console :
+    ```txt
+    toi
+    ```
+
+    ??? success "Python"
+    
+        {{ IDE() }}
+
+
+
+
+---
+
+???+ question "🖨️ Activité n° 5 : Surcharge de méthode `__str__`"
+
+
+    La méthode spéciale `__str__` est utilisée lorsqu’on appelle **`print(objet)`**. Elle permet d'afficher une version lisible et personnalisée de l'objet.
+
+    Par défaut :
+    ```python
+    class Personne:
+        """Classe représentant une personne"""
+        def __init__(self, nom : str, prenom : str):
+            self.nom = nom
+            self.prenom = prenom
+
+    toi = Personne('Durant', 'Jean')
+    print(toi)
+    ```
+    
+        
+    ??? success "Python"
+    
+        {{ IDE() }}
+
+    ??? success "📤 Résultat :"
+
+
+        Résultat :
+        ```
+        <__main__.Personne object at 0x0000021B1C14A2B0>
+        ```
+
+    Pour rendre l’affichage plus parlant :
+
+    ```python
+    class Personne:
+        """Classe représentant une personne"""
+        def __init__(self, nom : str, prenom : str):
+            self.nom = nom
+            self.prenom = prenom
+
+        def __str__(self):
+            return self.prenom + " " + self.nom
+
+    toi = Personne('Durant', 'Jean')
+    print(toi)
+    ```
+
+    ??? success "Python"
+    
+        {{ IDE() }}
+
+    ??? success "📤 Résultat :"
+        ```
+        Jean Durant
+        ```
+
+
+---
+
+
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc88030959"></a>**2.4. Attributs de classe**</H3>
 Jusqu’à présent, les attributs sont contenus dans l’objet. Ils sont propres à l’objet : si on crée plusieurs objets, les attributs nom, prénom,… de chacun ne seront pas forcément identiques d’un objet à l’autre. Mais on peut aussi définir des **attributs dans la classe**.
