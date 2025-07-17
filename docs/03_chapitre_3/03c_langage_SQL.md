@@ -693,20 +693,7 @@ Une requête de mise à jour s’écrit en trois parties :
 
 ---
 
-???+ question "🎯 Activité n° 35 : Modifier plusieurs champs en même temps"
 
-    Modifier le nombre de film et la nationalité du réalisateur. Exécuter :
-
-    ```sql
-    UPDATE realisateur
-    SET nbfilms_realisateur = 2, nationalite_realisateur = 'USA'
-    WHERE nationalite_realisateur = 'Etats-Unis';
-    ```
-
-    📌 Les réalisateurs qui avaient pour nationalité *Etats-Unis* ont eu le nombre de films modifié **et** la nationalité aussi.
-    ✅ Vérifier.
-
----
 
 
 ???+ question "🎯 Activité n°35 : Modifier plusieurs champs en même temps"
