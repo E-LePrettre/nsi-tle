@@ -3,89 +3,81 @@ author: ELP
 title: 02a Récursivité
 ---
 
-
-
-
-
 **Table des matières**
 
-[1.	Algorithmes récursifs](#_page0_x40.00_y375.04)
+[1. 📘 Algorithmes récursifs](#_page0_x40.00_y375.04)  
+[2. ⚠️ Les dangers de la récursivité](#_page0_x40.00_y375.02)  
+[3. 📝 Exercices](#_page0_x40.00_y375.03)  
+[4. 🔍 Projet (démarche d’investigation)](#_page0_x40.00_y375.044)
 
-[2.	Les dangers de la récursivité](#_page0_x40.00_y375.02)
+---
 
-[3.	Exercices](#_page0_x40.00_y375.03)
+🎯 **Compétences évaluables :**
 
-[4.	Projet (démarche d’investigation)](#_page0_x40.00_y375.044)
+- ✏️ Écrire un programme récursif  
+- 🔎 Analyser le fonctionnement d'un programme récursif
 
+---
 
+## <H2 style="color:blue;">📘 1. Algorithmes récursifs<a name="_page0_x40.00_y375.04"></a></H2>
 
-**Compétences évaluables :**
+### <H3 style="color:green;">🧠 1.1. Introduction</H3>
 
-- Écrire un programme récursif
-- Analyser le fonctionnement d'un programme récursif
+???+ question "🎯 Activité n°1 : Étudier deux versions d’un algorithme `decompte(n)`"
 
+    Compare les deux versions proposées : une itérative, une récursive.
 
-## **<H2 STYLE="COLOR:BLUE;">1. Algorithmes récursifs<a name="_page0_x40.00_y375.04"></a>**</H2>
+    ??? success "🔁 Version itérative"
+        ```python
+        def decompte_i(n):
+            while n > 0:
+                print(n)
+                n -= 1
+            print("fin")
 
-### **<H3 STYLE="COLOR:GREEN;">1.1. Introduction**</H3>
+        print(decompte_i(5))
+        ```
 
-**<H3 STYLE="COLOR:RED;">Activité n°1 :**</H3> Etudions ces deux algorithmes d’implémentation d’une fonction `decompte(n)`
+    ??? success "🔄 Version récursive"
+        ```python
+        def decompte_r(n):
+            if n == 0:
+                print("fin")
+            else:
+                print(n)
+                decompte_r(n - 1)
 
-#### Version itérative :
+        print(decompte_r(5))
+        ```
+
+---
+
+???+ question "🧪 Activité n°2 : Visualiser les deux fonctions sur Python Tutor"
+
+    Utilise les visualisations ci-dessous pour comparer les fonctionnements internes.
+
+    ✅ **Itératif :**
+    
+    <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20decompte_i%28n%29%3A%0A%20%20%20%20while%20n%20%3E%200%3A%0A%20%20%20%20%20%20%20%20print%28n%29%0A%20%20%20%20%20%20%20%20n%20-%3D%201%0A%20%20%20%20print%28%22fin%22%29%0A%0Aprint%28decompte_i%285%29%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+
+    ✅ **Récursif :**
+
+    <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20decompte_r%28n%29%3A%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20print%28%22fin%22%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20print%28n%29%0A%20%20%20%20%20%20%20%20decompte_r%28n%20-%201%29%0A%0Aprint%28decompte_r%285%29%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+
+🧠 Une fonction qui s’appelle elle-même est dite **récursive**.
+
+La récursivité est une méthode de résolution de problème qui **découpe un problème complexe en versions plus simples de lui-même**, jusqu’à arriver à un cas **facile à résoudre**.
+
+---
+
+### <H3 style="color:green;">🧩 1.2. Comment écrire une fonction récursive ?</H3>
+
+Pour bien écrire une fonction récursive, il faut :
+
+- 🟢 **Un ou plusieurs cas de base** : les situations où l’on **ne fait plus d’appel récursif**.
+- 🔁 **Un appel récursif** qui **rapproche du cas de base**.
 
 ```python
-def decompte_i(n):
-    while n > 0:
-        print(n)
-        n -= 1
-    print("fin")
-
-print(decompte_i(5))
-```
-
-???+ question "Tester ce qui est proposé"
-
-    {{ IDE() }}
-
-#### Version récursive :
-
-```python
-def decompte_r(n):
-    if n == 0:
-        print("fin")
-    else:
-        print(n)
-        decompte_r(n - 1)
-
-print(decompte_r(5))
-```
-
-???+ question "Tester ce qui est proposé"
-
-    {{ IDE() }}
-
-**<H3 STYLE="COLOR:RED;">Activité n°2 :**</H3> Tester les deux fonctions sur 
-
-- Python Tutor : version itérative
-
-<iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20decompte_i%28n%29%3A%0A%20%20%20%20while%20n%20%3E%200%3A%0A%20%20%20%20%20%20%20%20print%28n%29%0A%20%20%20%20%20%20%20%20n%20-%3D%201%0A%20%20%20%20print%28%22fin%22%29%0A%0Aprint%28decompte_i%285%29%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
-
-- Python Tutor : version récursive
-
-<iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20decompte_r%28n%29%3A%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20print%28%22fin%22%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20print%28n%29%0A%20%20%20%20%20%20%20%20decompte_r%28n%20-%201%29%0A%0Aprint%28decompte_r%285%29%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
-
-Une fonction qui s’appelle elle-même est dite **récursive**.
-
-La récursivité est une méthode de résolution de problèmes qui consiste à décomposer le problème **en sous-problèmes identiques de plus en plus petits** jusqu’à obtenir un problème suffisamment petit pour qu’il puisse être résolu de **manière triviale**.
-
-### **<H3 STYLE="COLOR:green;">1.2. Comment écrire une fonction récursive ?**</H3>
-
-Pour écrire une fonction récursive :
-
-- **Un (ou plusieurs) cas de base :** Les valeurs d’entrées pour lesquelles on ne fait aucun appel récursif sont appelées les cas de base.
-- **Appels récursifs (cas récursif) :** Appels de la méthode courante. Chaque suite d’appels récursifs doit essentiellement se terminer sur un cas de base.
-
-```texte
 def fonction(arguments):
     if condition d’arrêt:
         return cas de base
@@ -93,235 +85,270 @@ def fonction(arguments):
         return fonction(nouveaux arguments)
 ```
 
-### **<H3 STYLE="COLOR:GREEN;">1.3. Application à la fonction puissance**</H3>
+➡️ Chaque appel de la fonction **réduit le problème**, jusqu’à arriver à une situation qui **ne nécessite plus de récursion**.
 
-Le but est d’écrire une fonction $puissance(x, n)$ sans utiliser `**` de Python : On cherche à calculer l’opération de puissance n-ième d’un nombre `x` c’est-à-dire la multiplication répétée n fois de `x` avec lui-même : $x^n = x × ... × x$ n fois sans utiliser `**`.
+---
 
-**Cas de base :**
-On sait que la puissance de `x` pour `n = 0` vaut 1. 
+### <H3 style="color:green;">📐 1.3. Application à la fonction puissance</H3>
 
-**Cas récursif :**
-c’est-à-dire le passage des valeurs renvoyées par l'appel précédent à l'appel suivant. On sait : $x^n = x × ... × x (n fois)$  = $x × x^{n-1}$ (appel précédent).
+Le but est d’écrire une fonction `puissance(x, n)` **sans utiliser `**`**.  
+On cherche à calculer $x^n = x × x × … × x$ (n fois).
 
-**Remarque** : il est très important de supposer que les appels récursifs donnent les bons résultats => Faire confiance à la récursion.
+✅ **Cas de base :**  
+La puissance de `x` pour `n = 0` vaut **1**.
 
-**<H3 STYLE="COLOR:RED;">Activité n°3 :**</H3> Implémentation de la fonction en Python
+🔁 **Cas récursif :**  
+On utilise la relation :  
+$$x^n = x \times x^{n-1}$$  
+C’est-à-dire, on **multiplie x par la puissance précédente**.
 
-```python
-def puissance(x, n):
-    if n == 0:
-        return 1
-    else:
-        return x * puissance(x, n - 1)
+🧠 **Remarque pédagogique :**  
+Il est très important de **faire confiance à la récursion** : on suppose que les appels récursifs donnent les bons résultats.
 
-print(puissance(2, 5))
-```
+---
 
-???+ question "Tester ce qui est proposé"
+???+ question "🎯 Activité n°3 : Implémenter la fonction puissance"
 
-    {{ IDE() }}
+    Implémente la fonction récursive suivante :
 
-**Remarque :** Souvent on « oublie » de noter le `else` car si on ne fait pas le cas de base, le cas récursif doit se faire par défaut.
+    ??? success "Python"
+        ```python
+        def puissance(x, n):
+            if n == 0:
+                return 1
+            else:
+                return x * puissance(x, n - 1)
 
-```python
-def puissance(x, n):
-    if n == 0:
-        return 1
-    return x * puissance(x, n - 1)
+        print(puissance(2, 5))
+        ```
 
-print(puissance(2, 4))
-```
+---
 
-???+ question "Tester ce qui est proposé"
+📝 **Remarque de style :**  
+On peut écrire une version **plus concise** en **oubliant** volontairement le `else`.
 
-    {{ IDE() }}
+???+ question "🎯 Variante plus concise"
 
-**Correction**
+    Voici une version équivalente, souvent utilisée en pratique :
 
-- **Preuve de terminaison** :
-À chaque appel, la valeur du paramètre (n) diminue strictement. L’appel récursif s’arrête dès que n sera égal à 0. L’algorithme s’arrête alors.
+    ??? success "Python"
+        ```python
+        def puissance(x, n):
+            if n == 0:
+                return 1
+            return x * puissance(x, n - 1)
 
-- **Correction partielle** :
-À chaque boucle on peut écrire :
+        print(puissance(2, 4))
+        ```
 
-- $x × puissance(x, n-1)$
-- Puis $x × x × puissance(x, n-2)$
-- Puis $x × x × x × puissance(x, n-3)$
-- Et ainsi de suite jusqu’à $n = 0$
-- $x × ... × x$ (n fois) $× 1$
+---
 
-On obtient bien la fonction souhaitée.
+### <H3 style="color:green;">🔎 Analyse de correction</H3>
 
-**Remarque :** Le principe de programmation par récursivité est basé sur le fonctionnement de « l’empilement – dépilement » à l’aide d’une pile d’exécution stockant l’adresse mémoire de la prochaine instruction machine à exécuter et conservant une "trace" des valeurs des variables.
+✅ **Preuve de terminaison :**  
+À chaque appel récursif, la valeur de `n` diminue strictement.  
+L’appel s’arrête dès que `n == 0`.
 
-Dans le cas de puissance(2,4) on obtiendra :
+✅ **Correction partielle :**  
+Déroulé des appels :
+
+- `x * puissance(x, n-1)`
+- `x * x * puissance(x, n-2)`
+- `x * x * x * puissance(x, n-3)`
+- …
+- jusqu’à obtenir `x * ... * x * 1` (n fois)
+
+On obtient bien la valeur attendue de $x^n$.
+
+---
+
+📌 **Pile d’exécution**
+
+La récursivité repose sur une **pile d’exécution** : chaque appel récursif empile l’état courant, et Python « dépile » ces états lors du retour.
+
+🧠 Exemple : `puissance(2, 4)` produit un empilement visuel que l'on peut schématiser ainsi :
 
 ![](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.003.png)
 
-La mise en œuvre des algorithmes récursifs nécessite le plus souvent une **pile d’exécution**. 
+---
 
-### **<H3 STYLE="COLOR:green;">1.4. Fonction récursive sans cas de base….**</H3>
+### <H3 style="color:green;">❌ 1.4. Fonction récursive sans cas de base</H3>
 
-**<H3 STYLE="COLOR:RED;">Activité n°4 :**</H3> Fonction récursive sans condition d’arrêt :
+???+ question "🎯 Activité n°4 : Observer un appel récursif sans condition d’arrêt"
 
-```
->>> def f(n):
-...     return 1+f(n+1)
-...
->>> f(0)
+    Que se passe-t-il si une fonction récursive **n’a pas de condition d’arrêt** ?
 
-Traceback (most recent call last):
-  File "<pyshell#4>", line 1, in <module>
-    f(0)
-  File "<pyshell#3>", line 2, in f
-    return 1 + f(n+1)
-  File "<pyshell#3>", line 2, in f
-    return 1 + f(n+1)
-  File "<pyshell#3>", line 2, in f
-    return 1 + f(n+1)
-  [Previous line repeated 1022 more times]
-RecursionError: maximum recursion depth exceeded
+    ??? success "Python"
+        ```python
+        def f(n):
+            return 1 + f(n + 1)
 
-```
+        f(0)
+        ```
 
+    Résultat :
+    ```
+    RecursionError: maximum recursion depth exceeded
+    ```
 
-Ici la fonction ne s’arrêtera jamais !!
+    🧠 Python limite à environ **1000 appels récursifs** par défaut pour éviter les **boucles infinies**.
 
-L’interpréteur Python **limite** arbitrairement le nombre d’appels récursifs (la valeur par défaut est égale à 1000).
+---
 
-**Remarque :** Pour augmenter ce nombre :
+🛠️ **Augmenter la profondeur maximale (à éviter sans nécessité)** :
 
 ```python
 import sys
 sys.setrecursionlimit(1500)
 ```
 
-### **<H3 STYLE="COLOR:GREEN;">1.5. Application à la multiplication du paysan russe**</H3>
+⚠️ Attention : cela **augmente le risque de crash** si on dépasse la mémoire disponible.
 
-La méthode du paysan russe est un très vieil algorithme de **multiplication de deux nombres entiers.** Il s’agissait de la principale méthode de calcul en Europe avant l’introduction des chiffres arabes et les premiers ordinateurs l’ont utilisée avant que la multiplication ne soit directement intégrée dans le processeur sous forme de circuit électronique.
+---
 
+### <H3 style="color:green;">⚙️ 1.5. Application à la multiplication du paysan russe</H3>
 
-```
+La méthode du **paysan russe** est un très vieil algorithme de **multiplication de deux entiers**.  
+Elle a été utilisée avant l’introduction des chiffres arabes, et même dans les **premiers ordinateurs**, avant que la multiplication ne soit intégrée aux processeurs.
+
+---
+
+🧮 **Algorithme (pseudo-code)** :
+
+```text
 fonction multiply(x,y)
   p := 0
   tant que x > 0 
-	si x est impair faire
-		p := p + y 
-	x := x // 2
-	y := y * 2
-  fin tant que
+    si x est impair faire
+        p := p + y 
+    x := x // 2
+    y := y * 2
   return p
 ```
-Calcul de 105 x 253 par la méthode du paysan russe, p = 0 (au départ)
+
+---
+
+📊 **Exemple : 105 × 253**
+
+| x impair ?    | ✅   | ❌    | ❌    | ✅    | ❌    | ✅     | ✅     |
+| ------------- | --- | ---- | ---- | ---- | ---- | ----- | ----- |
+| p (si impair) | 253 |      |      | 2277 |      | 10373 | 26565 |
+| x = x // 2    | 52  | 26   | 13   | 6    | 3    | 1     | 0     |
+| y = y × 2     | 506 | 1012 | 2024 | 4048 | 8096 | 16192 | 32384 |
+
+Résultat final : `105 × 253 = 26565`
+
+---
+
+On ramène ainsi le calcul de `x × y` à un **sous-problème équivalent plus simple**.
+
+???+ question "🎯 Activité n°5 : Implémenter les deux versions"
 
 
-|*x impair*|V|F|F|V|F|V|V|
-| - | - | - | - | - | - | - | - |
-|`       `p = p + y|253|||2277||10373|26565|
-|x = x // 2|52|26|13|6|3|1|0|
-|y = y \* 2|506|1012|2024|4048|8096|16192|32384|
+    Voici les deux implémentations de la méthode du paysan russe :
 
-105 x 253 = 26565
+    ??? success "🔁 Version itérative"
+        ```python
+        def multiply_i(x, y):
+            p = 0
+            while x > 0:
+                if x % 2 != 0:
+                    p += y
+                x //= 2
+                y *= 2
+            return p
+
+        print(multiply_i(105, 253))
+        ```
+
+    ??? success "🔄 Version récursive"
+        ```python
+        def multiply_r(x, y):
+            if x <= 0:  # cas de base
+                return 0
+            elif x % 2 == 0:
+                return multiply_r(x // 2, y * 2)
+            else:
+                return multiply_r(x // 2, y * 2) + y
+
+        print(multiply_r(105, 253))
+        ```
 
 
-On ramène ainsi le problème du calcul du produit de *x* par *y* à un **sous-problème**. 
-
-**<H3 STYLE="COLOR:RED;">Activité n°5 :**</H3> On peut implémenter la version itérative et la version récursive en Python ainsi :
-
-#### Version itérative :
-
-```python
-def multiply_i(x, y):
-    p = 0
-    while x > 0:
-        if x % 2 != 0:
-            p += y
-        x //= 2
-        y *= 2
-    return p
-
-print(multiply_i(105, 253))
-```
-
-???+ question "Tester ce qui est proposé"
-
-    {{ IDE() }}
-
-#### Version récursive :
-
-```python
-def multiply_r(x, y):
-    if x <= 0:  # cas de base
-        return 0
-    elif x % 2 == 0:
-        return multiply_r(x // 2, y * 2)
-    else:
-        return multiply_r(x // 2, y * 2) + y
-
-print(multiply_r(105, 253))
-```
-
-???+ question "Tester ce qui est proposé"
-
-    {{ IDE() }}
-
-Rafraichir la page pour voir l'animation (F5)
-
+🖼️ **Animation de l’algorithme :**
 ![fonction récursive](multiply.gif)
 
+---
+
+### <H3 style="color:green;">📏 1.6. Application au calcul de factorielle</H3>
+
+🔢 **La factorielle, c’est quoi ?**
+Elle correspond au **nombre de permutations possibles** d’un ensemble de `n` éléments.
+
+Exemple : \$3! = 6\$ façons de réordonner ‘a’, ‘b’, ‘c’ :
+`abc`, `acb`, `bac`, `bca`, `cab`, `cba`.
+
+🧠 Définition mathématique :
+
+$$
+n! = n × (n - 1) × ... × 2 × 1
+$$
+
+Et par convention : \$0! = 1\$
+
+---
+
+???+ question "🎯 Activité n°6 : Tester deux implémentations de la factorielle"
 
 
-### **<H3 STYLE="COLOR:green;">1.6. Application au calcul de factorielle**</H3>
+    Voici les deux versions du calcul de la factorielle :
 
-**La factorielle : qu’est-ce que c’est ?**
-La fonction factorielle indique le nombre de permutations dans un ensemble comportant n éléments. Par exemple, il existe $3! = 6$ façons d’arranger les 3 caractères ‘a’ ‘b’ ‘c’ : `‘abc’ ‘acb’ ‘bac’ ‘bca’ ‘cab’ et ‘cba’`.
+    ??? success "🔁 Version itérative"
+        ```python
+        def factorielle_i(n):
+            result = 1
+            for i in range(1, n + 1):
+                result *= i
+            return result
 
-$n! = n × (n-1) × ... × 2 × 1$ pour `n` entier > 0. 
+        print(factorielle_i(10))
+        ```
 
-Cas particulier : $0! = 1$.
+    ??? success "🔄 Version récursive"
+        ```python
+        def factorielle_r(n):
+            if n == 1 or n == 0:
+                return 1
+            return n * factorielle_r(n - 1)
 
-**<H3 STYLE="COLOR:RED;">Activité n°6 :**</H3> Tester les deux implémentations suivantes :
+        print(factorielle_r(10))
+        ```
 
-#### Version itérative :
 
-```python
-def factorielle_i(n):
-    result = 1
-    for i in range(1, n + 1):
-        result *= i
-    return result
-
-print(factorielle_i(10))
-```
-
-???+ question "Tester ce qui est proposé"
-
-    {{ IDE() }}
-
-#### Version récursive :
-
-```python
-def factorielle_r(n):
-    if n == 1 or n == 0:
-        return 1
-    return n * factorielle_r(n - 1)
-
-print(factorielle_r(10))
-```
-
-???+ question "Tester ce qui est proposé"
-
-    {{ IDE() }}
-
-Rafraichir la page pour voir l'animation (F5)
-
+🖼️ **Animation :**
 ![fonction récursive](factorielle.gif)
 
-<iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20factorielle_r%28n%29%3A%0A%20%20%20%20if%20n%20%3D%3D%201%20or%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20return%20n%20*%20factorielle_r%28n%20-%201%29%0A%0Aprint%28factorielle_r%2810%29%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=40&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+---
 
-Un appel de fonction est une opération **plus couteuse** en soi qu’une opération arithmétique ou un test. C’est pourquoi on préfère souvent la fonction itérative à la fonction récursive.
+🎬 **Visualisation Python Tutor** :
 
-Dans le cas de la fonction factorielle, on prendra plutôt la version itérative, mais il y a des cas où la fonction récursive est clairement préférable, par exemple pour parcourir des arbres (vu un peu plus tard) ou pour faire des tris (chapitre suivant).
+<iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20factorielle_r%28n%29%3A%0A%20%20%20%20if%20n%20%3D%3D%201%20or%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20return%201%0A%20%20%20%20return%20n%20*%20factorielle_r%28n%20-%201%29%0A%0Aprint%28factorielle_r%2810%29%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=40&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"></iframe>
+
+---
+
+⚠️ **Remarque sur les performances** :
+Un appel de fonction est plus **coûteux** qu’un simple test ou calcul.
+
+➡️ Dans le cas de la **factorielle**, on privilégiera donc souvent la **version itérative**.
+
+✅ Cependant, pour certains types de problèmes comme :
+
+* les **arbres** (à venir)
+* les **algorithmes de tri** (chapitre suivant)
+
+➡️ la **version récursive** est **plus naturelle** et parfois même indispensable.
+
+--- 
 
 ### **<H3 STYLE="COLOR:GREEN;">1.7. Application aux tours de Hanoï**</H3>
 
