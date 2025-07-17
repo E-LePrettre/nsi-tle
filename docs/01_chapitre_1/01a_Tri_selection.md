@@ -42,11 +42,9 @@ tri_selection(a)
 print(a)
 ```
 
-❓ Tester ce qui est proposé :
+???+ question "❓Tester ce qui est proposé"
 
-```
-{{ IDE() }}
-```
+    {{ IDE() }}
 
 ---
 
@@ -80,12 +78,12 @@ moyenne = somme_des_durees / 5
 print("Temps pour 1_000 : %s sec ---" % moyenne)
 ```
 
-❓ Recopier le script du tri par sélection et tester le code ci-dessus.
-⚠️ Cela peut prendre un peu de temps !
+❓ **Recopier le script du tri par sélection et tester le code ci-dessus.**
+⚠️ **Cela peut prendre un peu de temps !**
 
-```
-{{ IDE() }}
-```
+???+ question "❓Tester ce qui est proposé"
+
+    {{ IDE() }}
 
 📊 En local, on trouve :
 

@@ -32,7 +32,7 @@ def tri_insertion(l):
             j = j - 1
         l[j] = val
     return l
-````
+```
 
 ### <H3 style="color:green;">🧪 Vérification</H3>
 
@@ -42,11 +42,9 @@ tri_insertion(a)
 print(a)
 ```
 
-❓ Tester ce qui est proposé :
+???+ question "❓Tester ce qui est proposé"
 
-```
-{{ IDE() }}
-```
+    {{ IDE() }}
 
 ---
 
@@ -80,12 +78,12 @@ moyenne = somme_des_durees / 5
 print("Temps d'exécution pour 1_000 : %s secondes ---" % moyenne)
 ```
 
-❓ Recopier le script du tri par insertion et tester le code ci-dessus.
-⚠️ Cela peut prendre un peu de temps !
+❓ **Recopier le script du tri par insertion et tester le code ci-dessus.**
+⚠️ **Cela peut prendre un peu de temps !**
 
-```
-{{ IDE() }}
-```
+???+ question "❓Tester ce qui est proposé"
+
+    {{ IDE() }}
 
 📊 Résultats constatés :
 

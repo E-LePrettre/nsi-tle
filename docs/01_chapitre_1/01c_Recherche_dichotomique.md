@@ -46,7 +46,7 @@ def trouve_dicho(L, val):
         else:
             return indice_centre
     return None
-````
+```
 
 ---
 
@@ -60,11 +60,9 @@ print(trouve_dicho(L, 24))   # ➜ 8
 print(trouve_dicho(L, 1976)) # ➜ None
 ```
 
-❓ Tester ce qui est proposé :
+???+ question "❓Tester ce qui est proposé"
 
-```
-{{ IDE() }}
-```
+    {{ IDE() }}
 
 ---
 
