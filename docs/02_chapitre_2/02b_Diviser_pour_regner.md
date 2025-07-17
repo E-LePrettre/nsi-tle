@@ -177,30 +177,111 @@ Exemple : `49⁵`
 
 ---
 
-🧠 **Complexité :**  
-Nombre d'appels récursifs = nombre de divisions successives de `n` par 2  
-👉 Complexité **O(log n)**
+💡 **Complexité**
 
-🌳 Représentation en arbre :  
-![arbre exponentiation rapide](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.006.png)
+Prenons `n = 8` :
+
+* **Phase de descente** :
+  `exp3(8, a)` → `exp3(4, a)` → `exp3(2, a)` → `exp3(1, a)` → `exp3(0, a)`
+* **Phase de remontée** :
+  À chaque appel récursif, **une seule multiplication** est effectuée (soit `y*y`, soit `a*y*y`)
+
+🌳 **Représentation en arbre** :
+
+* `exp3(0, a)` → retourne `1`
+* `exp3(1, a)` → `a * 1 * 1`
+* `exp3(2, a)` → `a * a`
+* `exp3(4, a)` → `a² * a²`
+* `exp3(8, a)` → `a⁴ * a⁴`
+
+📈 **Nombre d’opérations** :
+Le nombre d’étapes est le nombre de fois qu’on peut diviser `n` par `2`, c’est-à-dire :
+
+> **log<sub>2</sub>(n)**
 
 ---
 
-💬 **Remarque :**  
-Cette méthode peut être appliquée à d'autres opérations comme :
-- la **multiplication de matrices**
-- la **composition de fonctions**
+![exponentiation rapide: représentation en arbre](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.006.png)
 
-Mais attention au **coût unitaire** de chaque opération.
+📌 **Remarque**
+L’exponentiation rapide peut aussi s’appliquer à :
 
-📊 **Comparaison des vitesses :**
+* des **matrices**
+* des **fonctions composées**
+* ou tout autre système où la “multiplication” est une opération plus coûteuse que l'addition.
 
-![graphe exponentiation](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.007.png)
+Dans ces cas, il faudra tenir compte du **coût de chaque multiplication** (qui n’est pas toujours constant).
+
+---
+
+⏱️ Comparaison des vitesses d’exécution
+
+![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.007.png)
+
+🧠 **Conclusion**
+L’exponentiation rapide améliore considérablement la vitesse de calcul pour des puissances élevées, surtout lorsqu’on travaille avec des structures plus complexes qu’un simple nombre.
+
+---
+
+
+Voici ta section **3.1 Le principe du tri fusion** relookée dans le même esprit que la précédente : blocs clairs, pédagogiques, interactifs et parfaitement compatibles GitHub.
+
+---
+
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc144400469"></a>🧩 **3. Tri fusion (MergeSort)**</H2>
+
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc144400470"></a>🔍 **3.1. Le principe**</H3>
+
+⚙️ **Étapes du tri fusion :**
+
+1. **Diviser**
+
+   * Si la séquence `S` contient **0 ou 1 élément** : elle est déjà triée → **cas de base**
+   * Sinon, **diviser** la séquence `S` en deux sous-séquences `S₁` et `S₂` contenant chacune **environ la moitié** des éléments :
+
+     * `S₁` contient les ⌊n/2⌋ premiers éléments
+     * `S₂` contient les ⌈n/2⌉ derniers éléments
+
+2. **Régner**
+
+   * **Trier récursivement** les deux sous-séquences `S₁` et `S₂`
+
+3. **Combiner**
+
+   * **Fusionner** les deux sous-séquences triées en une seule séquence triée `S`
+
+---
+
+🔎 **Remarques** :
+
+* La notation ⌊n/2⌋ (plancher) correspond en Python à :
+
+  ```python
+  n // 2
+  ```
+
+* La notation ⌈n/2⌉ (plafond) correspond en Python à :
+
+  ```python
+  n // 2 + 1
+  ```
+
+---
+
+🧪 **Exemple pour n = 11** :
+
+| Étape  | Résultat                            |
+| ------ | ----------------------------------- |
+| ⌊11/2⌋ | 5 (→ 5 premiers éléments dans `S₁`) |
+| ⌈11/2⌉ | 6 (→ 6 derniers éléments dans `S₂`) |
+
+---
 
 
 
 
-### 🧩 **3.2. Illustration graphique**
+
+### <H3 STYLE="COLOR:GREEN;"> 🧩 **3.2. Illustration graphique</h3>**
 
 Pour bien comprendre la méthode employée, on construit un **arbre binaire** où chaque **nœud représente un appel récursif**.
 
@@ -231,7 +312,7 @@ Pour bien comprendre la méthode employée, on construit un **arbre binaire** o�
 
 ---
 
-### 🎥 **3.3. Illustration en vidéo**
+### <H3 STYLE="COLOR:GREEN;"> 🎥 **3.3. Illustration en vidéo</h3>**
 
 * 💃 Animation visuelle : [Danse](https://ladigitale.dev/digiview/#/v/66a6a018f33ef)
 * 📚 Explication complète : [Vidéo explicative](https://ladigitale.dev/digiview/#/v/66a6a06310c1c)
@@ -239,7 +320,7 @@ Pour bien comprendre la méthode employée, on construit un **arbre binaire** o�
 
 ---
 
-### 🧪 **3.4. Implémentation du tri fusion**
+### <H3 STYLE="COLOR:GREEN;"> 🧪 **3.4. Implémentation du tri fusion</h3>**
 
 ???+ question "🔧 Activité n°4 : Compléter le code selon Diviser / Régner / Combiner"
 
