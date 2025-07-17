@@ -136,7 +136,7 @@ L’algorithme ne contient que des boucles `for` bien définies :
 il s’exécute toujours un **nombre fini d’opérations**.
 
 ➡️ Le nombre total d’itérations est :
-\$\frac{n(n-1)}{2}\$
+$\frac{n(n-1)}{2}$
 Donc le programme **se termine toujours**.
 
 ---
@@ -151,6 +151,7 @@ On utilise un **raisonnement par récurrence** :
 * Hérédité : si les `k` premiers sont triés, l’algorithme place ensuite le plus petit élément restant à la bonne place (`k+1`), donc la sous-liste est toujours triée.
 
 🎯 Cette propriété est un **invariant de boucle**, elle reste vraie à chaque étape.
+
 ✅ À la fin, la liste complète est triée.
 
 
