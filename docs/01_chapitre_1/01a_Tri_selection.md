@@ -103,9 +103,9 @@ Dans le pire des cas, pour une liste de taille `n` :
 
 ✅ Confirme que le tri par sélection est en **𝑂(n²)**.
 
-Bien sûr ! Voici une **petite explication claire et pédagogique** de la **complexité du tri par sélection dans le meilleur des cas**, à insérer dans ta fiche ou à commenter à l’oral avec tes élèves.
 
-✨ Complexité dans le meilleur des cas</h3>
+
+✨ Complexité dans le meilleur des cas
 
 Même si la liste est **déjà triée**, le tri par sélection :
 
@@ -121,7 +121,7 @@ Même si la liste est **déjà triée**, le tri par sélection :
 📌 **Conclusion :**
 Le **meilleur des cas** n’améliore pas significativement les performances :
 
-> 🕒 Le nombre d’opérations reste proportionnel à \$n \times (n-1)/2\$
+> 🕒 Le nombre d’opérations reste proportionnel à $n \times (n-1)/2$
 > 👉 La complexité est donc **quadratique aussi dans le meilleur des cas : 𝑂(n²)**
 
 
