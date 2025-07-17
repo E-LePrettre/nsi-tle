@@ -5,9 +5,9 @@ title: 03a Modèles relationnels
 
 📚 **Table des matières**
 
-- [1. Qu’est ce qu’une base de données ?](#_toc144547406)
-- [2. Présentation du modèle relationnel](#_toc144547409)
-- [3. Exercices](#_toc144547422)
+-  [1. 🧩 Qu’est ce qu’une base de données ?](#_toc144547406)
+-  [2. 🧱 Présentation du modèle relationnel](#_toc144547409)
+-  [3. 🧠 Exercices](#_toc144547422)
 
 🎯 **Compétences évaluables**
 
@@ -25,9 +25,9 @@ Les bases de données relationnelles sont essentielles dans l’informatique d�
 
 ---
 
-## <H2 STYLE="COLOR:BLUE;">1. Qu’est ce qu’une base de données ?</H2>
+## <H2 STYLE="COLOR:BLUE;">🧩 **1. Qu’est ce qu’une base de données ?</H2>**
 
-### <H3 STYLE="COLOR:GREEN;">1.1. Notion de base de données</H3>
+### <H3 STYLE="COLOR:GREEN;">**1.1. Notion de base de données</H3>**
 
 🔢 Le traitement informatique implique la manipulation de **volumes importants de données**.
 
@@ -43,7 +43,7 @@ Un SGBD est un **logiciel spécialisé** permettant de manipuler des bases de do
 
 ---
 
-### <H3 STYLE="COLOR:GREEN;">1.2. Modèles de données</H3>
+### <H3 STYLE="COLOR:GREEN;">**1.2. Modèles de données</H3>**
 
 🔧 Les **modèles de données** déterminent comment l'information est structurée dans la base.
 
@@ -53,9 +53,9 @@ Un SGBD est un **logiciel spécialisé** permettant de manipuler des bases de do
 
 ---
 
-## <H2 STYLE="COLOR:BLUE;">2. Présentation du modèle relationnel</H2>
+## <H2 STYLE="COLOR:BLUE;">🧱 **2. Présentation du modèle relationnel</H2>**
 
-### <H3 STYLE="COLOR:GREEN;">2.1. Qu’est-ce qu’une relation ?</H3>
+### <H3 STYLE="COLOR:GREEN;">**2.1. Qu’est-ce qu’une relation ?</H3>**
 
 📘 Une **relation** représente un objet du monde réel caractérisé par plusieurs **attributs**.
 
@@ -113,7 +113,7 @@ Un SGBD est un **logiciel spécialisé** permettant de manipuler des bases de do
 
 ---
 
-### <H3 STYLE="COLOR:GREEN;">2.2. Qu’est-ce qu’une vue ?</H3>
+### <H3 STYLE="COLOR:GREEN;">**2.2. Qu’est-ce qu’une vue ?</H3>**
 
 🔍 Une **vue** est le **résultat d’une requête** sur la base, que l’on peut utiliser comme une relation.
 
@@ -130,11 +130,10 @@ Un SGBD est un **logiciel spécialisé** permettant de manipuler des bases de do
 
 ---
 
-### <H3 STYLE="COLOR:GREEN;">2.3. Vocabulaire</H3>
+### <H3 STYLE="COLOR:GREEN;">**2.3. Vocabulaire</H3>**
 
----
 
-#### <H4 STYLE="COLOR:MAGENTA;">2.3.1. Attributs</H4>
+#### <H4 STYLE="COLOR:MAGENTA;">**2.3.1. Attributs</H4>**
 
 🧱 Un **attribut** est une **colonne** de la table.
 📌 Une table = entête (attributs) + corps (tuples)
@@ -143,7 +142,7 @@ Un SGBD est un **logiciel spécialisé** permettant de manipuler des bases de do
 
 ---
 
-#### <H4 STYLE="COLOR:MAGENTA;">2.3.2. Domaine</H4>
+#### <H4 STYLE="COLOR:MAGENTA;">**2.3.2. Domaine</H4>**
 
 🔢 Le **domaine** d’un attribut est l’ensemble de ses valeurs admissibles.
 
@@ -157,7 +156,7 @@ Un SGBD est un **logiciel spécialisé** permettant de manipuler des bases de do
 
 
 
-#### <H4 STYLE="COLOR:MAGENTA;">**2.3.3. La clé primaire**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;">**2.3.3. La clé primaire</H4>**
 
 🔐 Une table **ne doit pas contenir deux t-uplets identiques**.
 Pour garantir cette **unicité**, on définit une **clé primaire** (*primary key*).
@@ -209,14 +208,14 @@ PK : (id_étudiant, id_cours)
 
 ---
 
-#### <H4 STYLE="COLOR:MAGENTA;">2.3.4. Éviter les doublons</H4>
+#### <H4 STYLE="COLOR:MAGENTA;">**2.3.4. Éviter les doublons</H4>**
 
 🔁 Redondance = Risque d’erreurs → ❌
 ✅ Solution : séparer en plusieurs tables et lier par identifiants
 
 ---
 
-#### <H4 STYLE="COLOR:MAGENTA;">2.3.5. Clé étrangère</H4>
+#### <H4 STYLE="COLOR:MAGENTA;">**2.3.5. Clé étrangère</H4>**
 
 🔗 Une **clé étrangère** fait référence à une clé primaire d’une autre table.
 
@@ -224,7 +223,7 @@ PK : (id_étudiant, id_cours)
 
 ---
 
-#### <H4 STYLE="COLOR:MAGENTA;">2.3.6. Contraintes d’intégrité</H4>
+#### <H4 STYLE="COLOR:MAGENTA;">**2.3.6. Contraintes d’intégrité</H4>**
 
 ⚖️ Permettent d’assurer la cohérence des données :
 
@@ -234,7 +233,7 @@ PK : (id_étudiant, id_cours)
 
 ---
 
-#### <H4 STYLE="COLOR:MAGENTA;">2.3.7. Schéma relationnel</H4>
+#### <H4 STYLE="COLOR:MAGENTA;">**2.3.7. Schéma relationnel</H4>**
 
 📋 Représente :
 
@@ -244,7 +243,7 @@ PK : (id_étudiant, id_cours)
 
 ---
 
-#### <H4 STYLE="COLOR:MAGENTA;">2.3.8. Diagramme relationnel</H4>
+#### <H4 STYLE="COLOR:MAGENTA;">**2.3.8. Diagramme relationnel</H4>**
 
 📊 Représentation visuelle des relations
 
@@ -257,7 +256,7 @@ PK : (id_étudiant, id_cours)
 
 ---
 
-#### <H4 STYLE="COLOR:MAGENTA;">2.3.9. Anomalies à éviter</H4>
+#### <H4 STYLE="COLOR:MAGENTA;">**2.3.9. Anomalies à éviter</H4>**
 
 ❌ Anomalies classiques :
 
@@ -268,7 +267,7 @@ PK : (id_étudiant, id_cours)
 
 ---
 
-## <H2 STYLE="COLOR:BLUE;">3. Exercices</H2>
+## <H2 STYLE="COLOR:BLUE;">**🧠 3. Exercices</H2>**
 
 💡 **À faire dans CAPYTALE** — le code vous sera donné par votre enseignant.
 
