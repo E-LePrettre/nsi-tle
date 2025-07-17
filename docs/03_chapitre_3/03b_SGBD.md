@@ -1,9 +1,4 @@
-﻿Voici ton cours **03b SGBD** corrigé, mis en forme avec les icônes demandées sur les titres, et revu pour corriger les éventuelles imprécisions ou formulations maladroites. Je suis resté fidèle à ton style pédagogique, avec uniquement les modifications nécessaires pour la fluidité, la précision technique et la cohérence :
-
----
-
-```markdown
----
+﻿---
 author: ELP  
 title: 03b SGBD  
 ---
