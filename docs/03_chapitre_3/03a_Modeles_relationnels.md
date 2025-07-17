@@ -74,6 +74,7 @@ Un SGBD est un **logiciel spécialisé** permettant de manipuler des bases de do
     *Relation Film* et *Relation Séance*
 
     ```markdown
+    
     | **Titre**     | **Directeur**   | **Acteur**          |
     |---------------|-----------------|---------------------|
     | Casablanca    | M. Curtiz       | Humphrey Bogart     |
