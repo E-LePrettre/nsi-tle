@@ -39,7 +39,7 @@ title: 02a Récursivité
     ```
         
     ??? success "Python"
-    {{ IDE() }}
+        {{ IDE() }}
 
     🔄 Version récursive
     ```python
