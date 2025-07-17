@@ -39,6 +39,7 @@ Les bases de données relationnelles sont essentielles dans l’informatique d�
 - 🔄 Aucun contrôle de concurrence entre utilisateurs
 
 💡 **Solution : utiliser un SGBD (Système de Gestion de Bases de Données)**  
+
 Un SGBD est un **logiciel spécialisé** permettant de manipuler des bases de données de façon sécurisée et performante.
 
 ---
@@ -48,7 +49,9 @@ Un SGBD est un **logiciel spécialisé** permettant de manipuler des bases de do
 🔧 Les **modèles de données** déterminent comment l'information est structurée dans la base.
 
 📐 **Modèle relationnel** proposé par **E.F. Codd** en 1970 :
+
 - Structure l'information sous forme de **relations**
+
 - Une relation est un **ensemble d'attributs**
 
 ---
@@ -62,9 +65,13 @@ Un SGBD est un **logiciel spécialisé** permettant de manipuler des bases de do
 📌 Exemple : un **employé** → nom, prénom, matricule, service, date d’embauche.
 
 🧩 Vocabulaire associé :
+
 - 🧬 **Tuple** = ligne = enregistrement = entrée
+
 - 🔢 **Degré** = nombre de champs
+
 - #️⃣ **Cardinalité** = nombre de lignes
+
 - 📋 Les tuples sont **uniques** et **non ordonnés**
 
 ---

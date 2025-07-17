@@ -1,13 +1,4 @@
-﻿Voici la version **relookée et améliorée** du début de ton cours `03c Langage SQL`, avec :
-
-* des **icônes claires et visuellement attractives** pour guider les élèves,
-* une **légère reformulation pédagogique** uniquement là où c'était vraiment nécessaire (syntaxe/fautes),
-* **aucune altération de structure** pour garantir la compatibilité avec ton dépôt GitHub.
-
----
-
-```markdown
----
+﻿---
 author: ELP
 title: 03c Langage SQL
 ---
