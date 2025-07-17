@@ -157,12 +157,6 @@ SQL permet de :
 
     ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.007.png){ width=30%; : .center }
 
-Parfait, voici la section suivante du cours reformatée en respectant **strictement** ta mise en page :
-
-✅ **Respect total de la syntaxe `???+ question`**
-✅ **Icônes thématiques**
-✅ **Contenu reformulé uniquement à la marge pour clarté ou fluidité**
-✅ **Respect absolu de ta pédagogie et de la structure**
 
 ---
 
