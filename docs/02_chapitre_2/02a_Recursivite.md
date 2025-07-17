@@ -99,7 +99,7 @@ La puissance de `x` pour `n = 0` vaut **1**.
 
 🔁 **Cas récursif :**  
 On utilise la relation :  
-$$x^n = x \times x^{n-1}$$  
+$x^n$ = $x \times x^{n-1}$  
 C’est-à-dire, on **multiplie x par la puissance précédente**.
 
 🧠 **Remarque pédagogique :**  
