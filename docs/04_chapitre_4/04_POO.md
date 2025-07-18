@@ -657,12 +657,8 @@ Par exemple, une méthode qui renvoie le nom pourrait s'appeler `get_name`.
     
         {{ IDE() }}
 
-   
 
-
----
-
-📌 **Remarque :** Dans l’IDE Thonny ou un autre environnement, il faut mettre en commentaire la ligne qui provoque l’erreur pour continuer le test.
+    📌 **Remarque :** Dans l’IDE Thonny ou un autre environnement, il faut mettre en commentaire la ligne qui provoque l’erreur pour continuer le test.
 
     ```python
     class Personne:
