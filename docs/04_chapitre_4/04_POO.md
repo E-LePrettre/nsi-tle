@@ -11,13 +11,13 @@ title: 04 La P.O.O.
 
 [2.	📘 Définitions](#_toc88030950)
 
-[3.	Les trois fondamentaux](#_toc88030960)
+[3.	🔐 Les trois fondamentaux](#_toc88030960)
 
-[4.	Décorateurs (pour aller plus loin)](#_toc88030972)
+[4.	🧩 Décorateurs (pour aller plus loin)](#_toc88030972)
 
-[5.	Exercices](#_toc88030973)
+[5.	🧠 Exercices](#_toc88030973)
 
-[6.	Projet (démarche d’investigation)](#_toc88030974)
+[6.	🧪 Projet (démarche d’investigation)](#_toc88030974)
 
 **Compétences évaluables :**
 
@@ -1480,7 +1480,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
 
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc88030973"></a>**5. Exercices**</H2>
+## <H2 STYLE="COLOR:BLUE;"> 🧠<a name="_toc88030973"></a>**5. Exercices**</H2>
 
 **=> CAPYTALE Le code vous sera donné par votre enseignant**
 
@@ -1668,7 +1668,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
     - Enfin, écrire une méthode \_\_str\_\_(self) qui renvoie une chaîne de caractères décrivant le contenu du tableau.
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc88030974"></a>**6. Projet (démarche d’investigation)**</H2>
+## <H2 STYLE="COLOR:BLUE;">🧪 <a name="_toc88030974"></a>**6. Projet (démarche d’investigation)**</H2>
     
 !!! abstract "**Projet 1 : Jeu de cartes**"
 
