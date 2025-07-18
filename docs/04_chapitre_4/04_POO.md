@@ -684,7 +684,7 @@ Par exemple, une méthode qui renvoie le nom pourrait s'appeler `get_name`.
     print(qui.get_name())
     ```
 
-        ??? success "Python"
+    ??? success "Python"
     
         {{ IDE() }}
 
