@@ -765,8 +765,9 @@ Cela permet un contrôle sur la **validité** des données modifiées.
 * **Création** : `objet = NomDeClasse()`
 * **Caractéristiques** :
 
-  * Il possède **des attributs** (état).
-  * Il possède **des méthodes** (comportement).
+> * Il possède **des attributs** (état).
+>
+> * Il possède **des méthodes** (comportement).
 
 ---
 
@@ -775,12 +776,13 @@ Cela permet un contrôle sur la **validité** des données modifiées.
 * **Définition** : Donnée ou information associée à un objet (ou une classe).
 * **Types** :
 
-  * **Attribut d’instance** : propre à chaque objet.
-
-    * Exemple : `self.nom`
-  * **Attribut de classe** : partagé par tous les objets.
-
-    * Exemple : `Personne.population`
+> * **Attribut d’instance** : propre à chaque objet.
+>
+>   - Exemple : `self.nom`
+> 
+> * **Attribut de classe** : partagé par tous les objets.
+>
+>   - Exemple : `Personne.population`
 
 ---
 
@@ -789,15 +791,21 @@ Cela permet un contrôle sur la **validité** des données modifiées.
 * **Définition** : Fonction **définie à l’intérieur d’une classe**.
 * **Types** :
 
-  * **Méthode d’instance** : agit sur un objet (`self` en premier paramètre).
-  * **Méthode spéciale** (commence et finit par `__`) :
-
-    * `__init__()` : constructeur (initialisation de l’objet).
-    * `__str__()` : représentation sous forme de chaîne.
-    * `__repr__()` : représentation officielle (pour le débogage).
-    * `__eq__()` : égalité (`==`)
-    * `__lt__()` : inférieur à (`<`)
-    * etc.
+>  * **Méthode d’instance** : agit sur un objet (`self` en premier paramètre).
+>
+> * **Méthode spéciale** (commence et finit par `__`) :
+>
+>    - `__init__()` : constructeur (initialisation de l’objet).
+>
+>    - `__str__()` : représentation sous forme de chaîne.
+>
+>    - `__repr__()` : représentation officielle (pour le débogage).
+>
+>    - `__eq__()` : égalité (`==`)
+>
+>    - `__lt__()` : inférieur à (`<`)
+>
+>    - etc.
 
 ---
 
@@ -813,9 +821,11 @@ Cela permet un contrôle sur la **validité** des données modifiées.
 * **Définition** : Protection des données internes d’un objet.
 * **Convention** :
 
-  * Attribut **public** : `nom`
-  * Attribut **protégé** (usage interne conseillé) : `_nom`
-  * Attribut **privé** (fortement restreint) : `__nom`
+>  * Attribut **public** : `nom`
+>
+>  * Attribut **protégé** (usage interne conseillé) : `_nom`
+>
+>  * Attribut **privé** (fortement restreint) : `__nom`
 
 ---
 
