@@ -746,6 +746,127 @@ Cela permet un contrôle sur la **validité** des données modifiées.
 
 ---
 
+Voici un **résumé du cours de Programmation Orientée Objet (POO)** avec **tous les mots de vocabulaire essentiels à retenir**, **hors partie "hors programme"** :
+
+---
+
+## 📚 **Résumé du cours de POO : vocabulaire à retenir**
+
+🔹 **Classe**
+
+* **Définition** : Modèle, plan ou moule permettant de créer des objets.
+* **Syntaxe** : `class NomDeClasse:`
+* **Exemple** : `class Personne:`
+
+---
+
+🔹 **Objet**
+
+* **Définition** : Instance concrète d’une classe.
+* **Création** : `objet = NomDeClasse()`
+* **Caractéristiques** :
+
+  * Il possède **des attributs** (état).
+  * Il possède **des méthodes** (comportement).
+
+---
+
+🔹 **Attribut**
+
+* **Définition** : Donnée ou information associée à un objet (ou une classe).
+* **Types** :
+
+  * **Attribut d’instance** : propre à chaque objet.
+
+    * Exemple : `self.nom`
+  * **Attribut de classe** : partagé par tous les objets.
+
+    * Exemple : `Personne.population`
+
+---
+
+🔹 **Méthode**
+
+* **Définition** : Fonction **définie à l’intérieur d’une classe**.
+* **Types** :
+
+  * **Méthode d’instance** : agit sur un objet (`self` en premier paramètre).
+  * **Méthode spéciale** (commence et finit par `__`) :
+
+    * `__init__()` : constructeur (initialisation de l’objet).
+    * `__str__()` : représentation sous forme de chaîne.
+    * `__repr__()` : représentation officielle (pour le débogage).
+    * `__eq__()` : égalité (`==`)
+    * `__lt__()` : inférieur à (`<`)
+    * etc.
+
+---
+
+🔹 **Constructeur**
+
+* **Définition** : Méthode spéciale appelée automatiquement lors de la création d’un objet.
+* **Syntaxe** : `def __init__(self, ...)`
+
+---
+
+🔹 **Encapsulation**
+
+* **Définition** : Protection des données internes d’un objet.
+* **Convention** :
+
+  * Attribut **public** : `nom`
+  * Attribut **protégé** (usage interne conseillé) : `_nom`
+  * Attribut **privé** (fortement restreint) : `__nom`
+
+---
+
+🔹 **Accesseur**
+
+* **Définition** : Méthode permettant de **lire** la valeur d’un attribut privé.
+* **Convention** : méthode `get_nom`
+
+---
+
+🔹 **Mutateur**
+
+* **Définition** : Méthode permettant de **modifier** un attribut privé.
+* **Convention** : méthode `set_nom`
+
+---
+
+🔹 **Instance**
+
+* **Définition** : Objet issu d'une classe.
+* **Exemple** : `moi = Personne("Dupont", "Jean")`
+
+---
+
+🔹 **Référence**
+
+* **Définition** : Nom (variable) pointant vers un objet en mémoire.
+
+---
+
+🔹 **Self**
+
+* **Définition** : Paramètre obligatoire représentant l’objet courant.
+* **Utilisation** : pour accéder aux **attributs** et **méthodes de l’objet**.
+
+---
+
+🔹 **Namespace (espace de nommage)**
+
+* **Définition** : Ensemble des noms (variables, fonctions, classes…) disponibles dans un contexte donné.
+
+---
+
+🔹 **Attribut dynamique**
+
+* **Définition** : Attribut ajouté à un objet **en dehors de sa définition de classe**.
+
+---
+
+
 
 
 
