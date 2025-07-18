@@ -1055,13 +1055,11 @@ Elle reçoit comme argument le nom de l’attribut **sous forme de chaîne**.
 
 ---
 
-#### <H4 STYLE="COLOR:MAGENTA;">🚫 **Activité n°13 : Ce qu’il ne faut pas faire**</H4>
+???+ question "🚫 **Activité n°13 : Ce qu’il ne faut pas faire**"
 
-⚠️ Il est **interdit** en programmation orientée objet d’accéder directement à des attributs **privés** ou de les modifier sans méthode.
+    ⚠️ Il est **interdit** en programmation orientée objet d’accéder directement à des attributs **privés** ou de les modifier sans méthode.
 
----
-
-???+ question "🎯 Ce qu’il ne faut pas faire (à proscrire en Terminale)"
+    Ce qu’il ne faut pas faire (à proscrire en Terminale)
 
     ```python
     class Personne:
