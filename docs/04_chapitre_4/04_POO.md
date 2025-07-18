@@ -908,7 +908,7 @@ Le constructeur `property()` attend jusqu’à **quatre paramètres optionnels**
 
 ---
 
-???+ question "🎯 Activité n°10 (Hors programme): Encapsulation d’un attribut avec `property`"
+???+ question "🎯(Hors programme) Activité n°10 : Encapsulation d’un attribut avec `property`"
 
     ```python
     class Personne:
@@ -954,7 +954,7 @@ Le constructeur `property()` attend jusqu’à **quatre paramètres optionnels**
 
 ---
 
-???+ question "🎯 Activité n°11 (Hors programme) : Contrôle de l’accès à l’attribut"
+???+ question "🎯 (Hors programme) Activité n°11 : Contrôle de l’accès à l’attribut"
 
     ```python
     class Personne:
@@ -1007,7 +1007,7 @@ Elle reçoit comme argument le nom de l’attribut **sous forme de chaîne**.
 
 ---
 
-???+ question "🎯 Activité n°12 (Hors programme) : Utilisation de `__getattr__`"
+???+ question "🎯 (Hors programme) Activité n°12 : Utilisation de `__getattr__`"
 
     ```python
     class Personne:
@@ -1055,7 +1055,7 @@ Elle reçoit comme argument le nom de l’attribut **sous forme de chaîne**.
 
 ---
 
-???+ question "🚫 **Activité n°13 (Hors programme): Ce qu’il ne faut pas faire**"
+???+ question "🚫 (Hors programme) **Activité n°13 : Ce qu’il ne faut pas faire**"
 
     ⚠️ Il est **interdit** en programmation orientée objet d’accéder directement à des attributs **privés** ou de les modifier sans méthode.
 
