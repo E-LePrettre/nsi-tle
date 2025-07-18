@@ -689,8 +689,6 @@ Nous aimerions maintenant accéder à **n'importe quelle valeur** de la liste, e
 
 
 
-
-
 !!! question "Capytale : Structure liste (chainée) avec les lists de Python"
 
     ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667924"></a>**3.4. ❤️2<sup>ème</sup> implémentation de la structure liste (chainée) avec les lists de Python❤️**</H3>
