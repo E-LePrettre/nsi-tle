@@ -683,6 +683,7 @@ Par exemple, une méthode qui renvoie le nom pourrait s'appeler `get_name`.
     qui.__nom = 'Durant'      # crée un nouvel attribut, ne modifie pas __nom
     print(qui.get_name())
     ```
+    
         ??? success "Python"
     
         {{ IDE() }}
