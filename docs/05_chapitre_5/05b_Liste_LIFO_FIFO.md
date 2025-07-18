@@ -3,165 +3,261 @@ author: ELP
 title: 05b Liste - Pile - File - Dictionnaire
 ---
 
-**Table des matières**
+📚 **Table des matières**
 
-[1.	Principaux types abstraits fournis avec le langage Python](#_toc151667915)
+[1.	🧱 Principaux types abstraits fournis avec le langage Python](#_toc151667915)  
+[2.	🧩 Les tableaux](#_toc151667919)  
+[3.	🔗 Les listes (chainées)](#_toc151667920)  
+[4.	Les piles](#_toc151667926)  
+[5.	Les files](#_toc151667931)  
+[6.	Les dictionnaires](#_toc151667938)  
+[7.	Exercices](#_toc151667945)  
+[8.	Projets](#_toc151667946)  
 
-[2.	Les tableaux](#_toc151667919)
+🎯 **Compétences évaluables :**
+- ✅ Distinguer des structures par le jeu des méthodes qui les caractérisent.
+- ✅ Choisir une structure de données adaptée à la situation à modéliser.
+- ✅ Distinguer la recherche d’une valeur dans une liste et dans un dictionnaire.
 
-[3.	Les listes (chainées)](#_toc151667920)
+---
 
-[4.	Les piles](#_toc151667926)
+## <H2 STYLE="COLOR:BLUE;">🧱 <a name="_toc151667915"></a>**1. Principaux types abstraits fournis avec le langage Python**</H2>
 
-[5.	Les files](#_toc151667931)
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667916"></a>🧱 **1.1. Liste (`list`)**</H3>
 
-[6.	Les dictionnaires](#_toc151667938)
+Le type **`list`** de Python repose sur une implémentation par **tableaux dynamiques**.
 
-[7.	Exercices](#_toc151667945)
+> ⚠️ **Attention** : Les *listes en Python* ne sont pas des *listes chaînées*, mais bien des **tableaux dynamiques** (équivalents à `array` dans d'autres langages).
 
-[8.	Projets](#_toc151667946)
+Les **listes**, **piles** (`stack`) et **files** (`queue`) sont des **structures de données abstraites** fondamentales.  
+Elles diffèrent principalement par **les règles d’ajout et d’accès aux éléments** qu’elles imposent.
 
+---
 
-**Compétences évaluables :**
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667917"></a>🧩 **1.2. Tableau associatif (`dict`)**</H3>
 
-- Distinguer des structures par le jeu des méthodes qui les caractérisent.
-- Choisir une structure de données adaptée à la situation à modéliser.
-- Distinguer la recherche d’une valeur dans une liste et dans un dictionnaire.
+Le type **`dict`** est l'implémentation Python du type abstrait **tableau associatif**.
 
+- Il repose sur une **table de hachage**.
+- Chaque **clé** est transformée par une **fonction de hachage** en un **indice** du tableau, utilisé pour stocker ou retrouver la valeur.
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc151667915"></a>**1. Principaux types abstraits fournis avec le langage Python**</H2>
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667916"></a>**1.1. Liste :** list</H3>
-Le type **list** de Python est implémenté à l’aide **de tableaux dynamiques**. 
+> ✅ L’accès à une valeur par clé se fait en **temps constant** (_O(1)_), **indépendamment du nombre de valeurs stockées**.
 
-Les **listes** (attention : C’est différent des listes en Python, qui sont des tableaux dynamiques (array dans d’autres langages)), les piles (stack en anglais) et les files (queue en anglais) sont des **structures abstraites de données** fondamentales en informatique. 
+Ainsi :
+- 🔍 Rechercher une valeur associée à une **clé** est très rapide ;
+- ❓ Savoir si une **clé** est présente est également en **temps constant** ;
+- 🔁 Contrairement aux listes, où la recherche est proportionnelle à la taille (O(n)).
 
-Elles diffèrent par les conditions d’ajout et d’accès aux éléments qui les constituent
+📌 L’étude détaillée des dictionnaires est abordée plus loin dans ce chapitre.
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667917"></a>**1.2. Tableau associatif :** dict</H3>
-Le type dict de Python est une implémentation du type abstrait **tableau associatif**. L’implémentation correspond à une **table de hachage**, ce qui signifie que la valeur est stockée dans un tableau et que **la position dans ce tableau dépend du résultat d’une fonction de hachage appliquée à la clé**. 
+---
 
-En **un temps indépendant du nombre de valeurs stockées** dans le dictionnaire, Python peut retrouver la valeur associée à n’importe quelle clé : pour cela il **calcule un indice à partir de la valeur de la clé** (qui doit donc être hachable, c’est-à-dire non mutable) et récupère la valeur stockée à cet indice dans un tableau.
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667918"></a>🧮 **1.3. Ensemble (`set`)**</H3>
 
-Une caractéristique essentielle des dictionnaires est que la **récupération d’une valeur associée à une clé** se fait en un **temps constant**, indépendant de la taille du dictionnaire. 
+Un **`set`** Python est similaire à un **dictionnaire** ne contenant que des **clés**.
 
-De même, savoir **si une clé fait partie du dictionnaire** prend un **temps constant** (alors que vérifier si un élément est dans une liste prend un temps proportionnel à la taille de la liste).
+- 📌 Tous les éléments sont **uniques** ;
+- 🧰 Les opérations classiques sur les ensembles (union, intersection, différence, etc.) sont **nativement disponibles** et **optimisées**.
 
-L’étude plus précise des dictionnaires est en fin de chapitre
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667918"></a>**1.3. Ensemble :** set</H3>
-Un ensemble Python (**set**) est équivalent à **un dictionnaire ne contenant que des clés**. Par construction, chaque élément est donc **unique**. De plus, avec le type set on dispose déjà des opérations ensemblistes habituelles, implémentées de manière très efficace : union, intersection, différence, etc.
+Exemple :
+```python
+myset = {"apple", "banana", "cherry"}
+```
 
-Par exemple :
+---
 
-myset = {"apple", "banana", "cherry"}
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc151667919"></a>**2. Les tableaux**</H2>
-Un **tableau** est une structure de données dans laquelle les éléments, de **même type**, occupent des **positions contiguës** en mémoire.
+## <H2 STYLE="COLOR:BLUE;">🧩 <a name="_toc151667919"></a>**2. Les tableaux**</H2>
 
-Le **nombre d’éléments** qu’un tableau peut contenir est déterminé à la **création du tableau.**
+Un **tableau** est une **structure de données** dont :
 
-|**Type Python**|**Type abstrait**|**Opération**|**Exemple**|**Complexité**|
-| :-: | :-: | :-: | :-: | :-: |
-|N’existe pas|Tableau|Accès à un élément|<h3>**tab[i]**</h3>|O(1)|
-|||Modification d’un élément|<h3>**tab[i] = x**</h3>|O(1)|
-|||Effacement d’un élément|<h3>**retire(tab, i)**</h3>|O(n)|
-|||Insertion d’un élément|<h3>**insere(tab, x, i)**</h3>|O(n)|
-|||Recherche d’un élément|<h3>**est_dans(tab, x)**</h3>|O(n)|
+* tous les éléments sont du **même type** ;
+* les éléments sont stockés à des **adresses contiguës** en mémoire ;
+* la **taille est fixée à la création**.
 
-Pourquoi l’insertion d’un élément dans un tableau est en O(N) ?
+📊 **Résumé des opérations sur un tableau abstrait :**
 
-Dans cette partie, on imagine que le tableau a cette allure :
+| **Type Python** | **Type abstrait** |       **Opération**       |     **Exemple**     | **Complexité** |
+| :-------------: | :---------------: | :-----------------------: | :-----------------: | :------------: |
+|   N’existe pas  |      Tableau      |     Accès à un élément    |       `tab[i]`      |      O(1)      |
+|                 |                   | Modification d’un élément |     `tab[i] = x`    |      O(1)      |
+|                 |                   |  Effacement d’un élément  |   `retire(tab, i)`  |      O(n)      |
+|                 |                   |   Insertion d’un élément  | `insere(tab, x, i)` |      O(n)      |
+|                 |                   |   Recherche d’un élément  |  `est_dans(tab, x)` |      O(n)      |
 
-|**1**|**1**|**2**|**3**|**4**|**5**|**vide**|**vide**|**vide**|
-| :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+🔎 **Pourquoi l’insertion est-elle en O(n) ?**
 
-Si on introduit, en position 1, la valeur 7. Le tableau est alors :
+Prenons un tableau initial :
 
-|**7**|**1**|**1**|**2**|**3**|**4**|**5**|**vide**|**vide**|
-| :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+|  1  |  1  |  2  |  3  |  4  |  5  | vide | vide | vide |
+| :-: | :-: | :-: | :-: | :-: | :-: | :--: | :--: | :--: |
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc151667920"></a>**3. Les listes (chainées)**</H2>
-Les **listes chaînées** constituent une structure de données :
+Si l'on insère la valeur **7 en position 1**, il faut **décaler tous les éléments** vers la droite :
 
-- de ***longueur modifiable*** ;
-- ***plus efficace que les tableaux** lorsqu’il s’agit d’ajouter ou de retirer un élément* (il n’est pas nécessaire de faire de la place en déplaçant les éléments) ;
-- qui servira de **brique** à l’élaboration **d’autres structures** de données.
+|  7  |  1  |  1  |  2  |  3  |  4  |  5  | vide | vide |
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: | :--: | :--: |
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667921"></a>**3.1. Obtenir une définition**</H3>
-Lorsque l'implémentation de la liste fait apparaître une chaîne de valeurs, chacune pointant vers la suivante, on dit que la liste est une liste **chaînée**.
+Ainsi, plus le tableau est rempli, plus **l'opération devient coûteuse**.
+
+---
+
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc151667920"></a>**3. Les listes (chaînées)**</H2>
+
+Les **listes chaînées** sont une **structure de données** :
+
+* 🔁 **à longueur variable** ;
+* ⚡ **plus efficaces que les tableaux** pour l'ajout ou la suppression d’éléments ;
+* 🧱 Utiles pour construire d'autres structures complexes.
+
+---
+
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667921"></a>🔗 **3.1. Obtenir une définition**</H3>
+
+Lorsque les éléments sont reliés **les uns aux autres**, on parle de **liste chaînée**.
 
 ![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.004.png){width=60%; : .center }
 
-Une **liste chaînée** permet de représenter une liste ; *chaque élément de cette liste est une **cellule*** contenant :
+Chaque élément, ou **cellule**, contient :
 
-- la **valeur** de l’élément à stocker ;
-- l’**adresse mémoire de la cellule** représentant l’élément suivant.
+* 📦 la **valeur** stockée ;
+* 📍 l’**adresse** de l’élément suivant.
 
 Une liste chaînée est :
 
-- *soit **la liste vide*** (objet None) ;
-- *soit constituée de son premier élément* (objet de type Cellule) et *du reste des éléments qui forment aussi une liste*. Une liste chaînée est donc une **structure récursive**.
+* soit **vide** (`None`) ;
+* soit constituée d’une **cellule** (élément) suivie du **reste de la liste**, ce qui en fait une **structure récursive**.
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667922"></a>**3.2. Primitive sur les listes**</H3>
+---
+
+
+Bien sûr ! Voici ta section **3.2 à 3.3.1** avec la **présentation modernisée** (icônes, encadrés, tableaux), **sans aucune simplification du contenu pédagogique**, en **respectant strictement ta mise en forme GitHub** et **en laissant tous les ❤️ comme demandé**.
+
+---
+
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667922"></a>**3.2. Primitives sur les listes**</H3>
+
 Voici les **opérations minimales** (appelées aussi **primitives**) qui permettent de définir la structure et de lui donner les méthodes attendues :
 
-- Le **constructeur :** produit soit une liste vide ou une liste** à partir d’un couple tête (élément) et reste (liste)
-- Les **sélecteurs** qui permettent d’accéder à la tête de la liste ou au reste. Par exemple, ajouter un élément en tête de liste.
-- Le **prédicat** qui teste la vacuité d’une liste (le fait qu’elle soit vide). Il renvoie un booléen
+* Le **constructeur :** produit soit une liste vide ou une liste **à partir d’un couple tête (élément) et reste (liste)**
+* Les **sélecteurs** qui permettent d’accéder à la tête de la liste ou au reste. Par exemple, ajouter un élément en tête de liste.
+* Le **prédicat** qui teste la vacuité d’une liste (le fait qu’elle soit vide). Il renvoie un booléen.
 
-|Créer une liste L vide|L = vide()|
-| - | - |
-|Tester si une liste L est vide|estVide(L)|
-|Ajouter un élément *x* en tête de la liste L|ajouteEnTete(x,L)|
-|Supprimer la tête *x* d’une liste L et renvoyer cette tête *x*|supprEnTete(L)|
-|Créer une nouvelle liste L1 à partir d’un élément *x* et d’une liste existante L|L1 = cons(x, L)|
+| 🧱 Opération                                                                     | 💡 Instruction      |
+| -------------------------------------------------------------------------------- | ------------------- |
+| Créer une liste L vide                                                           | `L = vide()`        |
+| Tester si une liste L est vide                                                   | `estVide(L)`        |
+| Ajouter un élément *x* en tête de la liste L                                     | `ajouteEnTete(x,L)` |
+| Supprimer la tête *x* d’une liste L et renvoyer cette tête *x*                   | `supprEnTete(L)`    |
+| Créer une nouvelle liste L1 à partir d’un élément *x* et d’une liste existante L | `L1 = cons(x, L)`   |
 
-**Le constructeur**, historiquement appelé cons, qui permet d’obtenir une nouvelle liste à partir d’une liste et d’un élément (L1 = cons(x, L)). 
+🛠️ **Le constructeur**, historiquement appelé `cons`, permet d’obtenir une nouvelle liste à partir d’une liste et d’un élément (`L1 = cons(x, L)`).
 
-Il est possible « d’enchaîner » les cons et d’obtenir ce genre de structure : cons(x, cons(y, cons(z, L)))
+Il est possible « d’enchaîner » les `cons` et d’obtenir ce genre de structure :
 
-**Exemple :** Voici une série d'instructions (les instructions ci-dessous s'enchaînent).
+```python
+cons(x, cons(y, cons(z, L)))
+```
 
-- L=vide() => on a créé une liste vide 
-- estVide(L) => renvoie vrai 
-- ajoutEnTete (3,L) => La liste L contient maintenant l'élément 3 
-- estVide(L) => renvoie faux 
-- ajoutEnTete(5,L) => la tête de la liste L correspond à 5, la queue contient l'élément 3 
-- ajoutEnTete(8,L) => la tête de la liste L correspond à 8, la queue contient les éléments 3 et 5 
-- t = supprEnTete(L) => la variable t vaut 8, la tête de L correspond à 5 et la queue contient l'élément 3 
-- L1 = vide() 
-- L2 = cons(8, cons(5, cons(3, L1))) => La tête de L2 correspond à 8 et la queue contient les éléments 3 et 5
+---
 
-!!! info "Capytale : Structure liste (chainée) avec des tuples"
+📌 **Exemple :** Voici une série d'instructions (les instructions ci-dessous s'enchaînent) :
 
-    **<H3 STYLE="COLOR:red;">Activité n° 1 :**</H3>  Voici une série d'instructions (les instructions ci-dessous s'enchaînent), expliquez ce qui se passe à chacune des étapes :
+* `L=vide()` ⇒ on a créé une liste vide
+* `estVide(L)` ⇒ renvoie `vrai`
+* `ajoutEnTete(3,L)` ⇒ La liste L contient maintenant l'élément `3`
+* `estVide(L)` ⇒ renvoie `faux`
+* `ajoutEnTete(5,L)` ⇒ la tête de L = `5`, la queue contient `3`
+* `ajoutEnTete(8,L)` ⇒ la tête de L = `8`, la queue contient `5` et `3`
+* `t = supprEnTete(L)` ⇒ `t = 8`, L devient \[5, 3]
+* `L1 = vide()`
+* `L2 = cons(8, cons(5, cons(3, L1)))` ⇒ L2 = \[8, 5, 3]
+
+---
+
+!!! info "🧠 Capytale : Structure liste (chaînée) avec des tuples"
+
+
+???+ question "📝 **Activité n°1 :**"
+    Voici une série d'instructions (les instructions ci-dessous s'enchaînent), expliquez ce qui se passe à chacune des étapes :
+
     ```
     L = vide() 
-    ajoutEnTete(10,L) 
-    ajoutEnTete(9,L) 
-    ajoutEnTete(7,L) 
+    ajoutEnTete(10, L) 
+    ajoutEnTete(9, L) 
+    ajoutEnTete(7, L) 
     L1 = vide() 
-    L2 = cons(5, cons(4, cons(3, cons (2, cons(1, cons(0,L1))))))
+    L2 = cons(5, cons(4, cons(3, cons(2, cons(1, cons(0, L1))))))
     ```
 
+    ??? success "📤 Solution :"
 
-    ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667923"></a>**3.3. ❤️1<sup>ère</sup> implémentation de la structure liste (chainée) avec des tuples❤️**</H3>
-    Les tuples sont déclarés en utilisant **les parenthèses**.
+        ```python
+        L = vide()
+        ```
 
-    On peut les lire à l'aide des boucles for.
+        👉 Création d’une **liste vide**.
 
-    Les tuples sont **non-mutables** : on ne peut pas modifier leurs contenus après création.
+        ```python
+        ajoutEnTete(10,L)
+        ```
+
+        👉 La **valeur 10** est ajoutée en tête de la liste `L`, donc `L = [10]`.
+
+        ```python
+        ajoutEnTete(9,L)
+        ```
+
+        👉 La valeur 9 est ajoutée en tête, donc `L = [9, 10]`.
+
+        ```python
+        ajoutEnTete(7,L)
+        ```
+
+        👉 La valeur 7 est ajoutée en tête, donc `L = [7, 9, 10]`.
+
+        ```python
+        L1 = vide()
+        ```
+
+        👉 Création d’une **seconde liste vide**, nommée `L1`.
+
+        ```python
+        L2 = cons(5, cons(4, cons(3, cons(2, cons(1, cons(0,L1))))))
+        ```
+
+        👉 Construction récursive de la liste `L2` :
+        `L2 = [5, 4, 3, 2, 1, 0]`
+        (*chaque `cons(x, liste)` ajoute `x` en tête de la nouvelle liste*)
 
 
-    #### <H4 STYLE="COLOR:MAGENTA;"> **3.3.1. Implémentation simple avec les tuples**</H4>
 
-    ![Principe de l'interface entre l'utilisateur et les données](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.010.png){width=50%; : .center }
 
-    En utilisant des tuples pour implémenter la structure de liste.
+---
 
-    ![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.011.png){width=60%; : .center }
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667923"></a>**3.3. ❤️1<sup>ère</sup> implémentation de la structure liste (chaînée) avec des tuples❤️**</H3>
 
-    **<H3 STYLE="COLOR:red;">Activité n° 2 :**  **structure liste avec des tuples fonction** ```nouvelleListe()``` **et** ```estVide()``` :</H3> Voici une première implémentation de la structure liste avec des tuples
+Les **tuples** sont déclarés en utilisant **les parenthèses**.
+Ils peuvent être parcourus via des **boucles `for`**.
+
+⚠️ Les tuples sont **non-mutables** : on **ne peut pas modifier leur contenu après leur création**.
+
+---
+
+#### <H4 STYLE="COLOR:MAGENTA;"> **3.3.1. Implémentation simple avec les tuples**</H4>
+
+📊 Schéma : principe de l'interface entre l'utilisateur et les données
+![Principe interface utilisateur/données](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.010.png){width=50%; : .center }
+
+📌 Structure avec tuples – représentation mémoire :
+![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.011.png){width=60%; : .center }
+
+---
+
+???+ question "🧪 **Activité n°2 : structure liste avec des tuples – fonctions `nouvelleListe()` et `estVide()`**"
+
+    Voici une première implémentation de la structure liste avec des tuples :
+
     ```python
-    '''Implémentation de type abstrait Liste en utilisant des tuples (tete, queue)'''
+    '''Implémentation de type abstrait Liste en utilisant des tuples (tête, queue)'''
 
     def nouvelleListe():
         '''Renvoie une liste vide'''
@@ -173,78 +269,156 @@ Il est possible « d’enchaîner » les cons et d’obtenir ce genre de struc
         pass
     ```
 
-    Vérifier le bon fonctionnement de cette implémentation en exécutant ces instructions :
-    ```
+    Vérifie leur bon fonctionnement avec les instructions suivantes :
+
+    ```python
     >>> a = ()
     >>> estVide(a)
     ???
-    
+
     >>> b = None
     >>> estVide(b)
     ???
-    
+
     >>> c = "C"
     >>> estVide(c)
     ???
-    
+
     >>> d = nouvelleListe()
     >>> estVide(d)
     ???
     ```
-    Quelle est la seule proposition qui respecte l'interface imposée par le créateur de cette implémentation ?
 
-    **<H3 STYLE="COLOR:red;">Activité n° 3 :** **structure liste avec des tuples fonction** ```insererTete``` :</H3> Créer maintenant la fonction d'interface suivante :
+    ??? success "📤 Solution :"
 
-    ```insererTete(x:Elt, L:Liste) -> Liste``` : on **renvoie** une nouvelle liste où la tête est maintenant l'élément x et la queue la liste précédente L.
+        Rappel du contrat : la fonction `nouvelleListe()` doit renvoyer une **liste vide** compatible avec le prédicat `estVide()`.
 
-    **AIDE** : il suffit de renvoyer un nouveau tuple dont la tête est notre x et la queue l'ancien tuple !
+        Voici les tests :
 
-    Voici un exemple d'utilisation :	
+        ```python
+        >>> a = ()
+        >>> estVide(a)
+        ✅ True  # Le tuple vide est interprété comme une liste vide ici
+        ```
+
+        ```python
+        >>> b = None
+        >>> estVide(b)
+        ❌ False  # `None` n’est pas compatible avec l’implémentation par tuple
+        ```
+
+        ```python
+        >>> c = "C"
+        >>> estVide(c)
+        ❌ False  # une chaîne de caractères n’est pas une liste chaînée
+        ```
+
+        ```python
+        >>> d = nouvelleListe()
+        >>> estVide(d)
+        ✅ True  # nouvelleListe doit renvoyer un tuple vide (), donc résultat True
+        ```
+
+    ❓ **Question finale :**
+
+    Quelle est **la seule proposition** qui respecte **l’interface imposée par le créateur** de cette implémentation ?
+
+    ??? success "📤 Solution :"
+
+        📌 La **seule structure** respectant **l’interface imposée** est :
+
+        ```python
+        a = ()  # ou d = nouvelleListe()
+        ```
+
+        💡 Il faut que `nouvelleListe()` retourne le tuple vide `()` pour que `estVide()` fonctionne correctement.
+
+---
+
+
+
+
+???+ question "🧪 Activité n° 3 : `insererTete`"
+
+    📌 **Objectif** : Créer la fonction d'interface suivante :
+
+    ```
+    insererTete(x:Elt, L:Liste) → Liste
+    ```
+
+    🔧 Elle **renvoie** une nouvelle liste dont la **tête** est l’élément `x`, et la **queue** est la liste précédente `L`.
+
+    💬 **Astuce** : Il suffit de créer un **nouveau tuple** dont la tête est `x`, et la queue est `L`.
+
+    🎯 **Exemple d'utilisation** :
+
     ```python
     # constructeur
     def insererTete(x,L) :
         '''Renvoie une nouvelle liste où x est la tête et liste la queue'''
         pass
     ```
+
     ```
     >>> a = nouvelleListe()
     >>> a = insererTete(5, a)
     >>> a
     (5, ())
-    
+
     >>> a = insererTete(2, a)
     >>> a
     (2, (5, ()))
     ```
 
-    **<H3 STYLE="COLOR:red;">Activité n° 4 :**  **structure liste avec des tuples fonction** ```supprimerTete``` :</H3> Dernière fonction d'interface, supprimer la tête :
+    ??? success "📤 Solution :"
 
-    ```supprimerTete(L:Liste) -> Liste``` : on **renvoie** une nouvelle liste où la tête est maintenant le deuxième élément (la tête de la queue précédente !). Techniquement, cela revient bien à supprimer l'ancienne tête si on enregistre cette nouvelle version dans une variable. Notez bien qu'on aurait pu nommer cette fonction ```recupererQueue``` puisque c'est ce qu'elle fait.
+        ```python
+        def insererTete(x, L):
+            '''Renvoie une nouvelle liste dont la tête est x et la queue est L'''
+            return (x, L)
+        ```
 
-    **Précondition** : L est une liste (ici () ou (tete,queue)), queue étant une liste.
+---
 
-    Imaginons la liste suivante :
+???+ question "🧪 Activité n° 4 : `supprimerTete`"
 
-    **5** → **8** → **2** → **3**
+    📌 **Objectif** : Créer une fonction d’interface pour **supprimer la tête** d’une liste.
 
-    Votre fonction doit renvoyer ceci :
+    ```
+    supprimerTete(L:Liste) → Liste
+    ```
 
-    **8** → **2** → **3**
+    📎 Elle **renvoie** une nouvelle liste dont la tête est l’élément **suivant** (celui de la queue précédente).
 
-    **AIDE** : la tête est l'index 0 de la liste et la queue est son index 1.
+    🧠 Cela revient à "récupérer la queue". On aurait d'ailleurs pu l'appeler `recupererQueue`.
 
-    **AIDE 2** : pensez à gérer
+    ⚠️ **Précondition** : `L` est une liste bien formée (vide `()` ou `(tête, queue)`).
 
-    - le cas particulier de la liste vide () : pas de nouvelle tête puisque pas de queue. Il faudra renvoyer une liste vide.
+    🧪 Exemple visuel :
 
-    - le cas général où la queue dans votre liste est une liste non vide.
+    ```
+    Liste initiale : 5 → 8 → 2 → 3
+    Résultat      : 8 → 2 → 3
+    ```
 
-    Voici un exemple d'utilisation pour chacun des cas précédents :
+    💬 **Astuce** :
+
+    * La **tête** est en `L[0]`
+    * La **queue** est en `L[1]`
+
+    👀 Pense à gérer deux cas :
+
+    * 🔸 **Liste vide** → on renvoie `()`
+    * 🔹 **Liste non vide** → on renvoie `L[1]`
+
+    🎯 **Exemples d’utilisation** :
+
     ```python
     def supprimerTete(L):
         '''Renvoie une nouvelle liste où on a supprimé la tête de l'ancienne '''
         pass
     ```
+
     ```
     >>> a = nouvelleListe()
     >>> b = supprimerTete(a)
@@ -256,44 +430,78 @@ Il est possible « d’enchaîner » les cons et d’obtenir ce genre de struc
     >>> b
     ()
 
-    >>> a
-    (20, (15, (5, ())))
-    
+    >>> a = (20, (15, (5, ())))
     >>> b = supprimerTete(a)
     >>> b
     (15, (5, ()))
-    
+
     >>> c = supprimerTete(b)
     >>> c
     (5, ())
     ```
 
-    **<H3 STYLE="COLOR:red;">Activité n° 5 :**  **structure liste avec des tuples fonction** ```lireTete``` : Réaliser la fonction d'interface permettant de lire la tête :</H3>
+    ??? success "📤 Solution :"
 
-    ```lireTete(L:Liste) -> Elt``` : on renvoie la tête de la liste L.
+        ```python
+        def supprimerTete(L):
+            '''Renvoie la queue de la liste (supprime la tête)'''
+            if estVide(L):
+                return ()
+            else:
+                return L[1]
+        ```
 
-    **Précondition** : L est une liste (ici () ou (tete,queue)), queue étant une liste.
+---
 
-    Attention, on ne modifie pas la liste ! 
+???+ question "🧪 Activité n° 5 : `lireTete`"
 
-    Attention : pensez à vérifier que la liste n'est pas vide avant de chercher à lire l'index 0 (la tête).
+    📌 **Objectif** : Créer la fonction permettant de **lire la tête** d’une liste sans la modifier.
 
-    Exemple d'utilisation
+    ```
+    lireTete(L:Liste) → Elt
+    ```
+
+    ⚠️ **Précondition** : `L` est bien une liste (vide ou `(tête, queue)`).
+
+    📎 **Attention** :
+
+    * On **ne modifie pas** la structure.
+    * Il faut vérifier que la liste **n’est pas vide** avant d’accéder à `L[0]`.
+
+    🎯 **Exemple d'utilisation** :
+
     ```python
     def lireTete(L):
         '''Renvoie la tête de la liste, sans toucher à la liste elle-même'''
         pass
     ```
+
     ```
-    >>> a = insererTete(5, nouvelleListe() )
+    >>> a = insererTete(5, nouvelleListe())
     >>> a = insererTete(15, a)
     >>> lireTete(a)
     15
-    
+
     >>> b = nouvelleListe()
     >>> lireTete(b)
-    >>> 
+    None
     ```
+
+    ??? success "📤 Solution :"
+
+
+        ```python
+        def lireTete(L):
+            '''Renvoie l’élément en tête de la liste (sans modification)'''
+            if estVide(L):
+                return None  # ou lever une exception si on préfère
+            else:
+                return L[0]
+        ```
+
+---
+
+
 
     **<H3 STYLE="COLOR:red;">Activité n° 6 :**  **structure liste avec des tuples fonction** ```afficherListe``` :</H3> Il nous manque encore une chose qui pourrait être pratique mais qui ne fait pas partie de l'interface obligatoire : de quoi représenter la liste sans montrer son implémentation mémoire réelle.
 
