@@ -683,7 +683,7 @@ Par exemple, une méthode qui renvoie le nom pourrait s'appeler `get_name`.
     qui.__nom = 'Durant'      # crée un nouvel attribut, ne modifie pas __nom
     print(qui.get_name())
     ```
-    
+
         ??? success "Python"
     
         {{ IDE() }}
@@ -747,9 +747,7 @@ Cela permet un contrôle sur la **validité** des données modifiées.
 
 ---
 
-Voici un **résumé du cours de Programmation Orientée Objet (POO)** avec **tous les mots de vocabulaire essentiels à retenir**, **hors partie "hors programme"** :
 
----
 
 ## 📚 **Résumé du cours de POO : vocabulaire à retenir**
 
