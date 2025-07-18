@@ -1475,1419 +1475,1427 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
 **=> CAPYTALE Le code vous sera donné par votre enseignant**
 
-**<H3 STYLE="COLOR:red;">Exercice n°1 :**</H3> On considère une classe **Personnage** représentant un personnage de Jeu. Le plateau de jeu est représenté par un repère **orthonormé à trois axes**. La position du joueur dans le plateau est repérée par **ses attributs x, y, z**.
+!!! abstract "**Exercice 1**" 
 
-1 Écrire un constructeur initialisant les mesures.
+    On considère une classe **Personnage** représentant un personnage de Jeu. Le plateau de jeu est représenté par un repère **orthonormé à trois axes**. La position du joueur dans le plateau est repérée par **ses attributs x, y, z**.
 
-2 Écrire les méthodes **avance, droite** et **saute** permettant respectivement de faire avancer, aller à droite et sauter le personnage, c’est-à-dire d’augmenter de 1 respectivement x, y et z.
+    1 Écrire un constructeur initialisant les mesures.
 
-3 Implémenter une autre méthode **coord** renvoyant les coordonnées sous forme d’un triplet.
+    2 Écrire les méthodes **avance, droite** et **saute** permettant respectivement de faire avancer, aller à droite et sauter le personnage, c’est-à-dire d’augmenter de 1 respectivement x, y et z.
 
-4 Essayer avec : Laura = Personnage(0, 0, 0)
+    3 Implémenter une autre méthode **coord** renvoyant les coordonnées sous forme d’un triplet.
 
-**<H3 STYLE="COLOR:red;">Exercice n°2 :**</H3> Voici un programme en Python :
-```python
-import random 
-class Piece : 
-    def alea(self) : 
-        return random.randint(0,1) 
-    def moyenne(self, n): 
-        tirage = [] 
-        for i in range(n): 
-            tirage.append(self.alea()) 
-        return sum(tirage) / n 
-p = Piece() 
-print(p.moyenne(100)) 
-```
+    4 Essayer avec : Laura = Personnage(0, 0, 0)
 
-Expliquer en détail ce qu’il permet d’afficher.
+!!! abstract "**Exercice 2**" 
 
-**<H3 STYLE="COLOR:red;">Exercice n°3 :**</H3> On considère une classe **Carre** admettant la mesure des côtés d’un carré en attribut.
+    Voici un programme en Python :
+    ```python
+    import random 
+    class Piece : 
+        def alea(self) : 
+            return random.randint(0,1) 
+        def moyenne(self, n): 
+            tirage = [] 
+            for i in range(n): 
+                tirage.append(self.alea()) 
+            return sum(tirage) / n 
+    p = Piece() 
+    print(p.moyenne(100)) 
+    ```
 
-1 Écrire un constructeur initialisant les mesures.
+    Expliquer en détail ce qu’il permet d’afficher.
 
-2 Écrire les méthodes :
+!!! abstract "**Exercice 3**" 
 
-   - **perimetre**, permettant de retourner le périmètre du carré.
+    On considère une classe **Carre** admettant la mesure des côtés d’un carré en attribut.
 
-   - **aire** permettant de retourner son aire.
+    1 Écrire un constructeur initialisant les mesures.
 
-3 Créer des exemples.
+    2 Écrire les méthodes :
 
-**<H3 STYLE="COLOR:red;">Exercice n°4 :**</H3> 
-Définir une classe **Fraction** pour représenter un nombre rationnel.
+    - **perimetre**, permettant de retourner le périmètre du carré.
 
-Cette classe possède deux **attributs num** et **denom**, qui sont des entiers et désignent respectivement le numérateur et le dénominateur.
+    - **aire** permettant de retourner son aire.
 
-De plus, on demande que le dénominateur soit particulièrement un entier strictement positif.
+    3 Créer des exemples.
 
-1 Écrire un constructeur de cette classe.
+!!! abstract "**Exercice 4**"
 
-   Le constructeur doit lever une **ValueError** si le dénominateur fourni n’est pas strictement positif.
+    Définir une classe **Fraction** pour représenter un nombre rationnel.
 
-   Pour cela, on utilise : raise : <https://www.w3schools.com/python/ref_keyword_raise.asp#:~:text=The%20raise%20keyword%20is%20used,to%20print%20to%20the%20user>.
+    Cette classe possède deux **attributs num** et **denom**, qui sont des entiers et désignent respectivement le numérateur et le dénominateur.
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.014.png){: .center }
+    De plus, on demande que le dénominateur soit particulièrement un entier strictement positif.
 
-2 Ajouter une méthode **\_\_str\_\_** qui renvoie une chaîne de caractère de la forme "12 / 13", ou simplement de la forme "12" lorsque le dénominateur vaut 1. ( \_\_str\_\_(self) est une méthode de Python : renvoie une chaîne de caractères)
+    1 Écrire un constructeur de cette classe.
 
-3 Ajouter des méthodes **\_\_eq\_\_** et **\_\_lt\_\_** qui reçoivent une deuxième fraction en argument et renvoient True si la première fraction représente respectivement un nombre égal ou un nombre strictement inférieur à la fraction. 
+    Le constructeur doit lever une **ValueError** si le dénominateur fourni n’est pas strictement positif.
 
-   ( \_\_lt\_\_(self, other) est une méthode de Python : Pour self = t, elle renvoie True si t est strictement plus petit que other ) ( \_\_eq\_\_(self, other) est une méthode de Python : Pour self = t, elle renvoie True si t est égal à other )
+    Pour cela, on utilise : raise : <https://www.w3schools.com/python/ref_keyword_raise.asp#:~:text=The%20raise%20keyword%20is%20used,to%20print%20to%20the%20user>.
 
-4 Ajouter des méthodes **\_\_add\_\_** et **\_\_mul\_\_** qui reçoivent une deuxième fraction en argument et renvoient une nouvelle fraction représentant respectivement la somme et le produit des deux fractions.
+    ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.014.png){: .center }
 
-5 Tester ces opérations.
+    2 Ajouter une méthode **\_\_str\_\_** qui renvoie une chaîne de caractère de la forme "12 / 13", ou simplement de la forme "12" lorsque le dénominateur vaut 1. ( \_\_str\_\_(self) est une méthode de Python : renvoie une chaîne de caractères)
 
-6 **Question bonus** : S’assurer que les fractions sont toujours sous forme réduite.
+    3 Ajouter des méthodes **\_\_eq\_\_** et **\_\_lt\_\_** qui reçoivent une deuxième fraction en argument et renvoient True si la première fraction représente respectivement un nombre égal ou un nombre strictement inférieur à la fraction. 
 
-**<H3 STYLE="COLOR:red;">Exercice n°5 : La classe « Complexe »**</H3>
+    ( \_\_lt\_\_(self, other) est une méthode de Python : Pour self = t, elle renvoie True si t est strictement plus petit que other ) ( \_\_eq\_\_(self, other) est une méthode de Python : Pour self = t, elle renvoie True si t est égal à other )
 
-En mathématiques, dans un plan rapporté à un repère orthonormé ( O;u,v), tout point M de coordonnées (x; y) peut être représenté par ce que l'on nomme un nombre complexe, qui peut s'écrire sous la forme:
+    4 Ajouter des méthodes **\_\_add\_\_** et **\_\_mul\_\_** qui reçoivent une deuxième fraction en argument et renvoient une nouvelle fraction représentant respectivement la somme et le produit des deux fractions.
 
-*z=x+iy*.
+    5 Tester ces opérations.
 
-On dit que x est la partie réelle de z et y, sa partie imaginaire.
+    6 **Question bonus** : S’assurer que les fractions sont toujours sous forme réduite.
 
-En posant z = x + iy et z' = x' + iy, on définit alors les opérations suivantes :
+!!! abstract "**Exercice 5 : La classe « Complexe »**"
 
-- z + z' = (x + x') + i(y + y')
-- z - z' = (x - x') + i(y - y')
-- z × z' = (xx' - yy') + i(xy' + x'y)
+    En mathématiques, dans un plan rapporté à un repère orthonormé ( O;u,v), tout point M de coordonnées (x; y) peut être représenté par ce que l'on nomme un nombre complexe, qui peut s'écrire sous la forme:
 
-De plus, on dit que z = z' si x = x' et y = y'. Écrire en Python une classe complexe :
+    *z=x+iy*.
 
-- qui définit un nombre complexe (le constructeur devra initialiser un tuple de deux nombres : la partie réelle et la partie imaginaire);
-- ayant une méthode permettant d'afficher le nombre complexe sous forme d'un tuple de deux éléments;
-- permettant d'ajouter, soustraire, multiplier et comparer (en termes d'égalité) deux nombres complexes;
-- permettant de donner la distance de l'origine du repère au point représenté par le nombre complexe (on appelle cette distance le module, qui est égal à $\sqrt{x^2+y^2}$).
+    On dit que x est la partie réelle de z et y, sa partie imaginaire.
 
-**Aide :** Les méthodes à mettre sont des méthodes spéciales qui existent déjà (dans l'ordre de l'exercice) :
+    En posant z = x + iy et z' = x' + iy, on définit alors les opérations suivantes :
 
-- \_\_add\_\_
-- \_\_sub\_\_
-- \_\_mul\_\_
-- \_\_eq\_\_
+    - z + z' = (x + x') + i(y + y')
+    - z - z' = (x - x') + i(y - y')
+    - z × z' = (xx' - yy') + i(xy' + x'y)
 
-De ce fait on aura :
-```python
-def __add__(self, other):
-    return Complexe(self.x + other.x, self.y + other.y)
-```
+    De plus, on dit que z = z' si x = x' et y = y'. Écrire en Python une classe complexe :
 
-où other représente l’autre objet.
+    - qui définit un nombre complexe (le constructeur devra initialiser un tuple de deux nombres : la partie réelle et la partie imaginaire);
+    - ayant une méthode permettant d'afficher le nombre complexe sous forme d'un tuple de deux éléments;
+    - permettant d'ajouter, soustraire, multiplier et comparer (en termes d'égalité) deux nombres complexes;
+    - permettant de donner la distance de l'origine du repère au point représenté par le nombre complexe (on appelle cette distance le module, qui est égal à $\sqrt{x^2+y^2}$).
 
-Tester cette classe avec les nombres : *z=3 + 5i* et *z’=7 + i*.
+    **Aide :** Les méthodes à mettre sont des méthodes spéciales qui existent déjà (dans l'ordre de l'exercice) :
 
-Ce qui donne si on appelle afficher\_tuple() la méthode permettant d’afficher le tuple :
-```txt
->>> z = Complexe(-3,5)
->>> zprime = Complexe(7,1)
->>> z.afficher_tuple()
-Out[3]: (-3, 5)
->>> (z+zprime).afficher_tuple()
-Out[4]: (4, 6)
-```
-Etc…
+    - \_\_add\_\_
+    - \_\_sub\_\_
+    - \_\_mul\_\_
+    - \_\_eq\_\_
 
-**<H3 STYLE="COLOR:red;">Exercice n°6 : La classe « Temps »**</H3>
+    De ce fait on aura :
+    ```python
+    def __add__(self, other):
+        return Complexe(self.x + other.x, self.y + other.y)
+    ```
 
-En Python, écrire une classe Temps qui permet de définir un horaire au format hh : mm : ss et qui admet les méthodes suivantes :
+    où other représente l’autre objet.
 
-- affiche, qui affiche l'horaire au format « 12 h 37 min 45 s »;
-- \_\_add\_\_ , qui ajoute deux horaires de la classe Temps;
-- \_\_sub\_\_ , qui calcule la différence entre deux horaires de la classe Temps.
+    Tester cette classe avec les nombres : *z=3 + 5i* et *z’=7 + i*.
 
+    Ce qui donne si on appelle afficher\_tuple() la méthode permettant d’afficher le tuple :
+    ```txt
+    >>> z = Complexe(-3,5)
+    >>> zprime = Complexe(7,1)
+    >>> z.afficher_tuple()
+    Out[3]: (-3, 5)
+    >>> (z+zprime).afficher_tuple()
+    Out[4]: (4, 6)
+    ```
+    Etc…
 
+!!! abstract "**Exercice 6 : La classe « Temps »**"
 
+    En Python, écrire une classe Temps qui permet de définir un horaire au format hh : mm : ss et qui admet les méthodes suivantes :
 
-**<H3 STYLE="COLOR:red;">Exercice n°7 : La classe Intervalle**</H3>
+    - affiche, qui affiche l'horaire au format « 12 h 37 min 45 s »;
+    - \_\_add\_\_ , qui ajoute deux horaires de la classe Temps;
+    - \_\_sub\_\_ , qui calcule la différence entre deux horaires de la classe Temps.
 
-Définir une classe Intervalle représentant des intervalles de nombres. Cette classe possède deux attributs a et b représentant respectivement l’extrémité inférieure et l'extrémité supérieure de l’intervalle.
 
-Les deux extrémités sont considérées comme incluses dans l'intervalle.
 
-Tout intervalle avec b < a représente l'intervalle vide.
 
-- Écrire le constructeur de la classe Intervalle et une méthode est\_vide renvoyant True si l’objet représente l’intervalle vide et False sinon.
-- Ajouter des méthodes \_\_len\_\_ renvoyant la longueur de l'intervalle (l'intervalle vide à une longueur 0) et \_\_contains\_\_ testant l’appartenance à l'intervalle.
-- Ajouter une méthode \_\_eq\_\_ permettant de tester l'égalité de deux intervalles avec == et une méthode \_\_le\_\_  permettant de tester l'inclusion d’un intervalle dans un autre avec <=.
+!!! abstract "**Exercice 7 : La classe Intervalle**"
 
-Attention : toutes les représentations de l'intervalle vide doivent être considérées égales, et incluses dans tout intervalle.
+    Définir une classe Intervalle représentant des intervalles de nombres. Cette classe possède deux attributs a et b représentant respectivement l’extrémité inférieure et l'extrémité supérieure de l’intervalle.
 
-- Ajouter des méthodes intersection et union calculant respectivement l'intersection de deux intervalles et le plus petit intervalle contenant l’union de deux intervalles (l'intersection est bien toujours un intervalle, alors que l’union ne l’est pas forcément). Ces deux fonctions doivent renvoyer un nouvel intervalle sans modifier leurs paramètres.
+    Les deux extrémités sont considérées comme incluses dans l'intervalle.
 
-**<H3 STYLE="COLOR:red;">Exercice n°8 : La classe Date**</H3>
+    Tout intervalle avec b < a représente l'intervalle vide.
 
-Définir une classe Date pour représenter une date, avec trois attributs jour, mois et annee.
+    - Écrire le constructeur de la classe Intervalle et une méthode est\_vide renvoyant True si l’objet représente l’intervalle vide et False sinon.
+    - Ajouter des méthodes \_\_len\_\_ renvoyant la longueur de l'intervalle (l'intervalle vide à une longueur 0) et \_\_contains\_\_ testant l’appartenance à l'intervalle.
+    - Ajouter une méthode \_\_eq\_\_ permettant de tester l'égalité de deux intervalles avec == et une méthode \_\_le\_\_  permettant de tester l'inclusion d’un intervalle dans un autre avec <=.
 
-Écrire son constructeur.
+    Attention : toutes les représentations de l'intervalle vide doivent être considérées égales, et incluses dans tout intervalle.
 
-- Ajouter une méthode \_\_str\_\_ qui renvoie une chaîne de caractères de la forme "8 mai 1945". On pourra se servir d’un attribut de classe qui est un tableau donnant les noms des douze mois de l’année.
+    - Ajouter des méthodes intersection et union calculant respectivement l'intersection de deux intervalles et le plus petit intervalle contenant l’union de deux intervalles (l'intersection est bien toujours un intervalle, alors que l’union ne l’est pas forcément). Ces deux fonctions doivent renvoyer un nouvel intervalle sans modifier leurs paramètres.
 
-Tester en construisant des objets de la classe Date puis en les affichant avec print.
+!!! abstract "**Exercice 8 : La classe Date**"
 
-- Ajouter une méthode \_\_lt\_\_ qui permet de déterminer si une date d1 est antérieure à une date d2 en écrivant d1 < d2. La tester.
+    Définir une classe Date pour représenter une date, avec trois attributs jour, mois et annee.
 
-**<H3 STYLE="COLOR:red;">Exercice n°9 : La classe Tableau**</H3>
+    Écrire son constructeur.
 
-Dans certains langages de programmation, comme Pascal ou Ada, les tableaux ne sont pas nécessairement indexés à partir de 0. C’est le programmeur qui choisit sa plage d’indices.
+    - Ajouter une méthode \_\_str\_\_ qui renvoie une chaîne de caractères de la forme "8 mai 1945". On pourra se servir d’un attribut de classe qui est un tableau donnant les noms des douze mois de l’année.
 
-Par exemple, on peut déclarer un tableau dont les indices vont de -10 à 9 si on le souhaite.
+    Tester en construisant des objets de la classe Date puis en les affichant avec print.
 
-Dans cet exercice, on se propose de construire une classe Tableau pour réaliser de tels tableaux.
+    - Ajouter une méthode \_\_lt\_\_ qui permet de déterminer si une date d1 est antérieure à une date d2 en écrivant d1 < d2. La tester.
 
-Un objet de cette classe aura deux attributs, un attribut premier qui est la valeur de premier indice et un attribut contenu qui est un tableau Python contenant les éléments. Ce dernier est un vrai tableau Python, indexé à partir de 0.
+!!! abstract "**Exercice 9 : La classe Tableau**"
 
-- Écrire un constructeur \_\_init\_\_(self, tmin, tmax, v) où tmin est le premier indice, tmax le dernier indice et v la valeur utilisée pour initialiser toutes les cases du tableau.
+    Dans certains langages de programmation, comme Pascal ou Ada, les tableaux ne sont pas nécessairement indexés à partir de 0. C’est le programmeur qui choisit sa plage d’indices.
 
-Ainsi, on peut écrire   t = Tableau(-10, 9, 42) 
+    Par exemple, on peut déclarer un tableau dont les indices vont de -10 à 9 si on le souhaite.
 
-Pour construire un tableau de vingt cases, indexées de -10 à 9 et toutes initialisées avec la valeur 42.
+    Dans cet exercice, on se propose de construire une classe Tableau pour réaliser de tels tableaux.
 
-- Écrire une méthode \_\_len\_\_(self) qui renvoie la taille du tableau.
-- Écrire une méthode \_\_getitem\_\_(self, i) qui renvoie l'élément du tableau self d'indice i. De même, écrire une méthode \_\_setitem\_\_(self, i, v) qui modifie l’élément du tableau self d'indice i pour lui donner la valeur v.
+    Un objet de cette classe aura deux attributs, un attribut premier qui est la valeur de premier indice et un attribut contenu qui est un tableau Python contenant les éléments. Ce dernier est un vrai tableau Python, indexé à partir de 0.
 
-Ces deux méthodes doivent vérifier que l’indice i est bien valide et, dans le cas contraire, lever l'exception IndexError avec la valeur de i en argument (c’est-à-dire raise IndexError(i)).
+    - Écrire un constructeur \_\_init\_\_(self, tmin, tmax, v) où tmin est le premier indice, tmax le dernier indice et v la valeur utilisée pour initialiser toutes les cases du tableau.
 
-- Enfin, écrire une méthode \_\_str\_\_(self) qui renvoie une chaîne de caractères décrivant le contenu du tableau.
+    Ainsi, on peut écrire   t = Tableau(-10, 9, 42) 
+
+    Pour construire un tableau de vingt cases, indexées de -10 à 9 et toutes initialisées avec la valeur 42.
+
+    - Écrire une méthode \_\_len\_\_(self) qui renvoie la taille du tableau.
+    - Écrire une méthode \_\_getitem\_\_(self, i) qui renvoie l'élément du tableau self d'indice i. De même, écrire une méthode \_\_setitem\_\_(self, i, v) qui modifie l’élément du tableau self d'indice i pour lui donner la valeur v.
+
+    Ces deux méthodes doivent vérifier que l’indice i est bien valide et, dans le cas contraire, lever l'exception IndexError avec la valeur de i en argument (c’est-à-dire raise IndexError(i)).
+
+    - Enfin, écrire une méthode \_\_str\_\_(self) qui renvoie une chaîne de caractères décrivant le contenu du tableau.
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc88030974"></a>**6. Projet (démarche d’investigation)**</H2>
-**<H3 STYLE="COLOR:red;">Exercice n°1 : Jeu de cartes**</H3>
+    
+!!! abstract "**Projet 1 : Jeu de cartes**"
 
-**=> CAPYTALE Le code vous sera donné par votre enseignant**
+    **=> CAPYTALE Le code vous sera donné par votre enseignant**
 
 
-Pour construire un jeu de cartes, on va commencer par construire une classe Carte :
+    Pour construire un jeu de cartes, on va commencer par construire une classe Carte :
 
-1 sur Thonny : Créer un fichier python carte.py.
+    1 sur Thonny : Créer un fichier python carte.py.
 
-2 Écrire une classe Carte à partir du diagramme de classe ci-contre.
+    2 Écrire une classe Carte à partir du diagramme de classe ci-contre.
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.015.png){: .center }
+    ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.015.png){: .center }
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.016.png){: .center }
+    ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.016.png){: .center }
 
-**Aide** :
+    **Aide** :
 
-- le corps des méthodes ne sera pas développé immédiatement ; on utilisera l’instruction Python pass en attendant.
+    - le corps des méthodes ne sera pas développé immédiatement ; on utilisera l’instruction Python pass en attendant.
 
-- Carte définit une carte caractérisée par:
-```
-  * sa valeur,
-  * sa couleur,
-  * sa figure.
-```
+    - Carte définit une carte caractérisée par:
+    ```
+    * sa valeur,
+    * sa couleur,
+    * sa figure.
+    ```
 
-3 Compléter le constructeur de classe avec les attributs en haut.
+    3 Compléter le constructeur de classe avec les attributs en haut.
 
-   **Aide** : l’attribut \_\_figure permet de donner la figure correspondant à la valeur, 11 -> valet,  12 -> dame, 13 -> roi. Si la valeur est différente de 11, de 12 ou de 13, alors ce n’est pas une figure.
+    **Aide** : l’attribut \_\_figure permet de donner la figure correspondant à la valeur, 11 -> valet,  12 -> dame, 13 -> roi. Si la valeur est différente de 11, de 12 ou de 13, alors ce n’est pas une figure.
 
-4 Tester la classe en instanciant la classe comme suit, dans la console :
-```python
-ma_carte = Carte(11, "Trèfle")
-print(ma_carte)
-print(ma_carte.__doc__)    
-print(ma_carte.__init__.__doc__)
-```
+    4 Tester la classe en instanciant la classe comme suit, dans la console :
+    ```python
+    ma_carte = Carte(11, "Trèfle")
+    print(ma_carte)
+    print(ma_carte.__doc__)    
+    print(ma_carte.__init__.__doc__)
+    ```
 
-On supposera que les valeurs du jeu de 32 cartes vont de 7 à 14 (pour l’as) et que pour un jeu de 54 cartes de 2 à 14 (pour l’as).
+    On supposera que les valeurs du jeu de 32 cartes vont de 7 à 14 (pour l’as) et que pour un jeu de 54 cartes de 2 à 14 (pour l’as).
 
-5 Compléter les trois accesseurs (ou getter) pour retourner (obtenir) la valeur, la couleur et la figure d’une carte. On accède ainsi de manière publique aux trois attributs privés.
+    5 Compléter les trois accesseurs (ou getter) pour retourner (obtenir) la valeur, la couleur et la figure d’une carte. On accède ainsi de manière publique aux trois attributs privés.
 
-6 Compléter les trois mutateurs (ou setter) pour modifier la valeur d’un attribut. On veut rendre publique la modification de la valeur et de la couleur. Par contre, on souhaite garder la main sur la façon d’attribuer une figure à notre carte pour des questions de cohérence. On ne veut pas laisser la liberté à l’utilisateur de créer une carte incohérente entre sa valeur et sa figure, par exemple un roi de valeur 4. Donc le mutateur correspondant à l’attribut figure sera en accès privé.
+    6 Compléter les trois mutateurs (ou setter) pour modifier la valeur d’un attribut. On veut rendre publique la modification de la valeur et de la couleur. Par contre, on souhaite garder la main sur la façon d’attribuer une figure à notre carte pour des questions de cohérence. On ne veut pas laisser la liberté à l’utilisateur de créer une carte incohérente entre sa valeur et sa figure, par exemple un roi de valeur 4. Donc le mutateur correspondant à l’attribut figure sera en accès privé.
 
-- \_\_SetFigure : changer la figure en fonction de la nouvelle valeur.
-- SetValeur : retourne vrai si la valeur de la carte a été changée par val et faux sinon ; la valeur de la carte doit être comprise entre 2 et 14.
-- SetCouleur : retourne vrai si la couleur de la carte a été changée par coul et faux sinon ; la couleur de la carte doit être : Trèfle, Pique, Carreau, Cœur.
+    - \_\_SetFigure : changer la figure en fonction de la nouvelle valeur.
+    - SetValeur : retourne vrai si la valeur de la carte a été changée par val et faux sinon ; la valeur de la carte doit être comprise entre 2 et 14.
+    - SetCouleur : retourne vrai si la couleur de la carte a été changée par coul et faux sinon ; la couleur de la carte doit être : Trèfle, Pique, Carreau, Cœur.
 
-7 Tester la classe comme suit :
+    7 Tester la classe comme suit :
 
-```python
-ma_carte = Carte(11, "Trèfle")
-print(ma_carte.GetFigure())
-if ma_carte.SetValeur(13):
+    ```python
+    ma_carte = Carte(11, "Trèfle")
     print(ma_carte.GetFigure())
-```
+    if ma_carte.SetValeur(13):
+        print(ma_carte.GetFigure())
+    ```
 
-On va construire la classe JeuDeCartes.
+    On va construire la classe JeuDeCartes.
 
-8 Sur Python : Créer un fichier python jeudecartes.py.
+    8 Sur Python : Créer un fichier python jeudecartes.py.
 
-9 Écrire une classe JeuDeCartes à partir du diagramme de classe ci-contre.
+    9 Écrire une classe JeuDeCartes à partir du diagramme de classe ci-contre.
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.017.png){: .center }
+    ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.017.png){: .center }
 
-**Aide** :
+    **Aide** :
 
-- le corps des méthodes ne sera pas développé immédiatement ; on utilisera l’instruction Python pass en attendant.
-- Importer le module carte.
-- JeuDeCartes définit un jeu de cartes caractérisé par son nombre de cartes et son paquet de cartes.
+    - le corps des méthodes ne sera pas développé immédiatement ; on utilisera l’instruction Python pass en attendant.
+    - Importer le module carte.
+    - JeuDeCartes définit un jeu de cartes caractérisé par son nombre de cartes et son paquet de cartes.
 
-10 Compléter le constructeur de classe avec les attributs en haut.
+    10 Compléter le constructeur de classe avec les attributs en haut.
 
-**Aide** : \_\_PaquetdeCarte sera un attribut qui appellera
+    **Aide** : \_\_PaquetdeCarte sera un attribut qui appellera
 
- la méthode \_\_CreerPaquet().
+    la méthode \_\_CreerPaquet().
 
-11 La méthode \_\_CreerPaquet crée le paquet de cartes classé par valeur et couleur donc non mélangé. Si le nombre de cartes est 32, le jeu commence à la carte 7, sinon au 2. Compléter la méthode.
+    11 La méthode \_\_CreerPaquet crée le paquet de cartes classé par valeur et couleur donc non mélangé. Si le nombre de cartes est 32, le jeu commence à la carte 7, sinon au 2. Compléter la méthode.
 
-12 Compléter les deux accesseurs (getter).
+    12 Compléter les deux accesseurs (getter).
 
-- GetNbCarte retourne le nombre de cartes du jeu de cartes.
-- GetPaquet retourne le paquet de cartes.
+    - GetNbCarte retourne le nombre de cartes du jeu de cartes.
+    - GetPaquet retourne le paquet de cartes.
 
-13 Compléter la méthode MelangerPaquet en utilisant la méthode shuffle du module random : <https://www.w3schools.com/python/ref_random_shuffle.asp>.
+    13 Compléter la méthode MelangerPaquet en utilisant la méthode shuffle du module random : <https://www.w3schools.com/python/ref_random_shuffle.asp>.
 
-14 Tester le jeu de cartes (de 32 cartes).
-```python
-mon_jeu = JeuDeCartes(32)
-lepaquet = mon_jeu.GetPaquet()
-for i in range(len(lepaquet)):
-    print(lepaquet[i].GetValeur(), lepaquet[i].GetCouleur(), lepaquet[i].GetFigure())
-```
+    14 Tester le jeu de cartes (de 32 cartes).
+    ```python
+    mon_jeu = JeuDeCartes(32)
+    lepaquet = mon_jeu.GetPaquet()
+    for i in range(len(lepaquet)):
+        print(lepaquet[i].GetValeur(), lepaquet[i].GetCouleur(), lepaquet[i].GetFigure())
+    ```
 
-Puis :
-```python
-mon_jeu.MelangerPaquet()
-for i in range(len(lepaquet)):
-    print(lepaquet[i].GetValeur(), lepaquet[i].GetCouleur(), lepaquet[i].GetFigure())
-```
+    Puis :
+    ```python
+    mon_jeu.MelangerPaquet()
+    for i in range(len(lepaquet)):
+        print(lepaquet[i].GetValeur(), lepaquet[i].GetCouleur(), lepaquet[i].GetFigure())
+    ```
 
 
-**<H3 STYLE="COLOR:red;">Exercice n°2 : Filtres d’image**</h3>
+!!! abstract "**Projet 2 : Filtres d’image**"
 
-**=> CAPYTALE Le code vous sera donné par votre enseignant**
+    **=> CAPYTALE Le code vous sera donné par votre enseignant**
 
-Ce TP utilise la bibliothèque Pillow.
+    Ce TP utilise la bibliothèque Pillow.
 
-Nous allons travailler à partir de deux photos mises à disposition par Hans Stieglitz sur les Wikimedia commons, et soumise à la licence CC-BY-SA 3.0 :
+    Nous allons travailler à partir de deux photos mises à disposition par Hans Stieglitz sur les Wikimedia commons, et soumise à la licence CC-BY-SA 3.0 :
 
-- [tigre.jpg](https://upload.wikimedia.org/wikipedia/commons/4/41/Tiger-2.jpg)
+    - [tigre.jpg](https://upload.wikimedia.org/wikipedia/commons/4/41/Tiger-2.jpg)
 
-- tigrenb.png dans le dossier ressources
+    - tigrenb.png dans le dossier ressources
 
-1 Sur Thonny : Mettre les deux fichiers dans un dossier images
+    1 Sur Thonny : Mettre les deux fichiers dans un dossier images
 
-**Codage des couleurs**
+    **Codage des couleurs**
 
-Il existe plusieurs façons de coder les couleurs d’une image. Nous en présentons ici deux : le système RVB et le système CMJN. Le système CMJN est utilisé pour l'impression, tandis que le système RVB est utilisé pour la lumière (écran, projecteurs, ...).
+    Il existe plusieurs façons de coder les couleurs d’une image. Nous en présentons ici deux : le système RVB et le système CMJN. Le système CMJN est utilisé pour l'impression, tandis que le système RVB est utilisé pour la lumière (écran, projecteurs, ...).
 
-**Le système RVB :**
+    **Le système RVB :**
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.019.png){: .center }
+    ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.019.png){: .center }
 
-Il existe plusieurs façons de décrire les couleurs en informatique. Nous présentons ici une des plus utilisées : le codage RVB, qui est utilisé notamment dans les formats d'image JPEG et TIFF. Rouge vert bleu, abrégé RVB (ou RGB de l'anglais red, green, blue), est un format de codage des couleurs. Ces trois couleurs sont les couleurs primaires en synthèse additive. Elles correspondent en fait à peu près aux trois longueurs d'ondes auxquelles répondent les trois types de cônes de l'œil humain (voir trichromie). L'addition des trois donne du blanc pour l'œil humain. Elles sont utilisées en éclairage afin d'obtenir toutes les couleurs visibles par l'homme. Elles sont aujourd'hui utilisées en vidéo, pour l'affichage sur les écrans, et dans les logiciels d'imagerie.
+    Il existe plusieurs façons de décrire les couleurs en informatique. Nous présentons ici une des plus utilisées : le codage RVB, qui est utilisé notamment dans les formats d'image JPEG et TIFF. Rouge vert bleu, abrégé RVB (ou RGB de l'anglais red, green, blue), est un format de codage des couleurs. Ces trois couleurs sont les couleurs primaires en synthèse additive. Elles correspondent en fait à peu près aux trois longueurs d'ondes auxquelles répondent les trois types de cônes de l'œil humain (voir trichromie). L'addition des trois donne du blanc pour l'œil humain. Elles sont utilisées en éclairage afin d'obtenir toutes les couleurs visibles par l'homme. Elles sont aujourd'hui utilisées en vidéo, pour l'affichage sur les écrans, et dans les logiciels d'imagerie.
 
-C'est sur ce principe que fonctionnent les téléviseurs couleur. Si vous regardez un écran de télévision couleur avec une loupe, vous allez voir apparaître des groupes de trois points lumineux : un rouge, un vert et un bleu. La combinaison de ces trois points donne un point lumineux (un pixel) d'une certaine couleur.
+    C'est sur ce principe que fonctionnent les téléviseurs couleur. Si vous regardez un écran de télévision couleur avec une loupe, vous allez voir apparaître des groupes de trois points lumineux : un rouge, un vert et un bleu. La combinaison de ces trois points donne un point lumineux (un pixel) d'une certaine couleur.
 
 
 
-Le système RVB est une des façons de décrire une couleur en informatique. Ainsi le triplet {255, 255, 255} donnera du blanc, {255, 0, 0} un rouge pur, {100, 100, 100} un gris, etc. Le premier nombre donne la composante rouge, le deuxième la composante verte et le dernier la composante bleue.
+    Le système RVB est une des façons de décrire une couleur en informatique. Ainsi le triplet {255, 255, 255} donnera du blanc, {255, 0, 0} un rouge pur, {100, 100, 100} un gris, etc. Le premier nombre donne la composante rouge, le deuxième la composante verte et le dernier la composante bleue.
 
-**Le cube des couleurs :**
+    **Le cube des couleurs :**
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.020.png){: .center }
+    ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.020.png){: .center }
 
-On peut représenter chacune de ces couleurs comme un point d'un cube de l'espace de dimension trois en considérant un repère orthonormé dont les trois axes r, g, b représentent les intensités de rouge, de vert et de bleu. L'origine représente ainsi le noir (r=g=b=0) et le point opposé (r=g=b=255) le blanc. Les trois sommets (255,0,0), (0,255,0) et (0,0,255) représentent les trois couleurs de base (rouge, vert, bleu) et les trois sommets opposés, (0,255,255), (255,0,255) et (255,255,0), le cyan, le magenta et le jaune. La grande diagonale de ce cube joignant le noir et le blanc est l'axe achromatique, i.e. l'axe des niveaux de gris.
+    On peut représenter chacune de ces couleurs comme un point d'un cube de l'espace de dimension trois en considérant un repère orthonormé dont les trois axes r, g, b représentent les intensités de rouge, de vert et de bleu. L'origine représente ainsi le noir (r=g=b=0) et le point opposé (r=g=b=255) le blanc. Les trois sommets (255,0,0), (0,255,0) et (0,0,255) représentent les trois couleurs de base (rouge, vert, bleu) et les trois sommets opposés, (0,255,255), (255,0,255) et (255,255,0), le cyan, le magenta et le jaune. La grande diagonale de ce cube joignant le noir et le blanc est l'axe achromatique, i.e. l'axe des niveaux de gris.
 
-**Le système CMJN :**
+    **Le système CMJN :**
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.021.png){: .center }
+    ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.021.png){: .center }
 
-La quadrichromie ou CMJN (cyan, magenta, jaune, noir ; en anglais CMYK, cyan, magenta, yellow, key) est un procédé d'imprimerie permettant de reproduire un large spectre colorimétrique à partir des trois teintes de base (le cyan, le magenta et le jaune ou yellow en anglais) auxquelles on ajoute le noir (key en anglais). L'absence de ces trois composantes donne du blanc tandis que la somme des trois donne du noir. Toutefois, le noir obtenu par l'ajout des trois couleurs Cyan, Magenta et Jaune n'étant que partiellement noir en pratique (et coûtant cher), les imprimeurs rajoutent une composante d'encre noire.
+    La quadrichromie ou CMJN (cyan, magenta, jaune, noir ; en anglais CMYK, cyan, magenta, yellow, key) est un procédé d'imprimerie permettant de reproduire un large spectre colorimétrique à partir des trois teintes de base (le cyan, le magenta et le jaune ou yellow en anglais) auxquelles on ajoute le noir (key en anglais). L'absence de ces trois composantes donne du blanc tandis que la somme des trois donne du noir. Toutefois, le noir obtenu par l'ajout des trois couleurs Cyan, Magenta et Jaune n'étant que partiellement noir en pratique (et coûtant cher), les imprimeurs rajoutent une composante d'encre noire.
 
-**Formats d’images**
+    **Formats d’images**
 
-On désigne sous le terme d'image numérique toute image acquise, créée, traitée ou stockée sous forme binaire (suite de 0 et de 1).
+    On désigne sous le terme d'image numérique toute image acquise, créée, traitée ou stockée sous forme binaire (suite de 0 et de 1).
 
-**Images matricielles (ou images bitmap)**
+    **Images matricielles (ou images bitmap)**
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.022.png){: .center }
+    ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.022.png){: .center }
 
-Elles sont composées, comme leur nom l'indique, d'une matrice (tableau) de points colorés. Dans le cas des images à deux dimensions (le plus courant), les points sont appelés pixels. Ce type d'image s'adapte bien à l'affichage sur écran informatique ; il est en revanche peu adapté pour l'impression, car la résolution des écrans informatiques, généralement de 72 à 96 ppp (« points par pouce », en anglais dots per inch ou dpi) est bien inférieure à celle atteinte par les imprimantes, au moins 600 ppp aujourd'hui. L'image imprimée, si elle n'a pas une haute résolution, sera donc plus ou moins floue ou laissera apparaître des pixels carrés visibles.
+    Elles sont composées, comme leur nom l'indique, d'une matrice (tableau) de points colorés. Dans le cas des images à deux dimensions (le plus courant), les points sont appelés pixels. Ce type d'image s'adapte bien à l'affichage sur écran informatique ; il est en revanche peu adapté pour l'impression, car la résolution des écrans informatiques, généralement de 72 à 96 ppp (« points par pouce », en anglais dots per inch ou dpi) est bien inférieure à celle atteinte par les imprimantes, au moins 600 ppp aujourd'hui. L'image imprimée, si elle n'a pas une haute résolution, sera donc plus ou moins floue ou laissera apparaître des pixels carrés visibles.
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.023.png){: .center }
+    ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.023.png){: .center }
 
-Les formats d'images matricielles les plus courants sont jpeg, gif, png, tiff, bmp.
+    Les formats d'images matricielles les plus courants sont jpeg, gif, png, tiff, bmp.
 
-**Définition et résolution**
+    **Définition et résolution**
 
-La définition d'une image matricielle est donnée par le nombre de points la composant. En image numérique, cela correspond au nombre de pixels qui composent l'image en hauteur (axe vertical) et en largeur (axe horizontal) : 200 pixels x 450 pixels par exemple.
+    La définition d'une image matricielle est donnée par le nombre de points la composant. En image numérique, cela correspond au nombre de pixels qui composent l'image en hauteur (axe vertical) et en largeur (axe horizontal) : 200 pixels x 450 pixels par exemple.
 
-La résolution d'une image matricielle est donnée par un nombre de pixels par unité de longueur (classiquement en ppp). Ce paramètre est défini lors de la numérisation (passage de l'image sous forme binaire), et dépend principalement des caractéristiques du matériel utilisé lors de la numérisation. Plus le nombre de pixels par unité de longueur de la structure à numériser est élevé, plus la quantité d'information qui décrit cette structure est importante et plus la résolution est élevée. La résolution d'une image numérique définit donc le degré de détail de l'image. Ainsi, plus la résolution est élevée, meilleure est la restitution. Cependant, pour une même dimension d'image, plus la résolution est élevée, plus le nombre de pixels composant l'image est grand. Le nombre de pixels est proportionnel au carré de la résolution, étant donné le caractère bidimensionnel de l'image : si la résolution est multipliée par deux, le nombre de pixels est multiplié par quatre. Augmenter la résolution peut entraîner des temps de visualisation et d'impression plus longs, et conduire à une taille trop importante du fichier contenant l'image et à de la place excessive occupée en mémoire.
+    La résolution d'une image matricielle est donnée par un nombre de pixels par unité de longueur (classiquement en ppp). Ce paramètre est défini lors de la numérisation (passage de l'image sous forme binaire), et dépend principalement des caractéristiques du matériel utilisé lors de la numérisation. Plus le nombre de pixels par unité de longueur de la structure à numériser est élevé, plus la quantité d'information qui décrit cette structure est importante et plus la résolution est élevée. La résolution d'une image numérique définit donc le degré de détail de l'image. Ainsi, plus la résolution est élevée, meilleure est la restitution. Cependant, pour une même dimension d'image, plus la résolution est élevée, plus le nombre de pixels composant l'image est grand. Le nombre de pixels est proportionnel au carré de la résolution, étant donné le caractère bidimensionnel de l'image : si la résolution est multipliée par deux, le nombre de pixels est multiplié par quatre. Augmenter la résolution peut entraîner des temps de visualisation et d'impression plus longs, et conduire à une taille trop importante du fichier contenant l'image et à de la place excessive occupée en mémoire.
 
-**Filtres d’image**
+    **Filtres d’image**
 
-Cette partie du TP concerne l’algorithmique de l’image. Plus précisément, on manipulera des images matricielles, c’est-à-dire représentées par des tableaux de pixels.
+    Cette partie du TP concerne l’algorithmique de l’image. Plus précisément, on manipulera des images matricielles, c’est-à-dire représentées par des tableaux de pixels.
 
-On utilise Pillow pour s’affranchir de la question des formats de fichiers.
+    On utilise Pillow pour s’affranchir de la question des formats de fichiers.
 
-**Ouverture et enregistrement de fichiers d’image avec Pillow**
+    **Ouverture et enregistrement de fichiers d’image avec Pillow**
 
-Le bout de code suivant convertit le fichier tigre.jpg (au format JPEG) en tigre.png (au format PNG) :
-```python
-import PIL.Image as Image
-img = Image.open(r'tigre.jpg')
-img.save(r'tigre.png')
-```
+    Le bout de code suivant convertit le fichier tigre.jpg (au format JPEG) en tigre.png (au format PNG) :
+    ```python
+    import PIL.Image as Image
+    img = Image.open(r'tigre.jpg')
+    img.save(r'tigre.png')
+    ```
 
-**Informations sur une image**
+    **Informations sur une image**
 
-2 Sur Thonny, créer un fichier Python filtre.py 
+    2 Sur Thonny, créer un fichier Python filtre.py 
 
-Essayer :
-```python
-import PIL.Image as Image
-img = Image.open(r'tigre.jpg')
-```
-Déterminer la taille de l’image.
+    Essayer :
+    ```python
+    import PIL.Image as Image
+    img = Image.open(r'tigre.jpg')
+    ```
+    Déterminer la taille de l’image.
 
-**Représentation d’une image en mémoire**
+    **Représentation d’une image en mémoire**
 
-3 Si img est une image chargée avec PIL.Image.open, on accède à ses pixels via la méthode img.load() qui renvoie un tableau indexé par des couples d’entiers (et non pas une matrice au sens python du terme). Rajouter :
+    3 Si img est une image chargée avec PIL.Image.open, on accède à ses pixels via la méthode img.load() qui renvoie un tableau indexé par des couples d’entiers (et non pas une matrice au sens python du terme). Rajouter :
 
-```python
-pixels = img.load()
-print(pixels[0,0])
-```
-on obtient la valeur du pixel en haut à gauche de l’image.
+    ```python
+    pixels = img.load()
+    print(pixels[0,0])
+    ```
+    on obtient la valeur du pixel en haut à gauche de l’image.
 
-4 Afficher tous les pixels de l’image en couleurs.
+    4 Afficher tous les pixels de l’image en couleurs.
 
-**Aide** : Faire une boucle sur la taille de l’image
+    **Aide** : Faire une boucle sur la taille de l’image
 
-5 Afficher tous les pixels de l’image en noir et blanc. Conclure.
+    5 Afficher tous les pixels de l’image en noir et blanc. Conclure.
 
-**Modifier une image**
+    **Modifier une image**
 
-6 Pour modifier un pixel, on change sa valeur dans le tableau des pixels :
-```python
-pixels[0,0] = 0
-img.save(r'tigre_mod.png')
-```
-Est-ce que ça fonctionne avec l’image en noir et blanc ? Avec celle en couleurs ? Conclure.
+    6 Pour modifier un pixel, on change sa valeur dans le tableau des pixels :
+    ```python
+    pixels[0,0] = 0
+    img.save(r'tigre_mod.png')
+    ```
+    Est-ce que ça fonctionne avec l’image en noir et blanc ? Avec celle en couleurs ? Conclure.
 
-**Aide** : utiliser paint.net qui permet de zoomer facilement
+    **Aide** : utiliser paint.net qui permet de zoomer facilement
 
-**Premiers filtres**
+    **Premiers filtres**
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.024.png)
+    ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.024.png)
 
-Vous êtes parés pour écrire votre premier filtre. 
+    Vous êtes parés pour écrire votre premier filtre. 
 
-7 sur Thonny : Créer un fichier python premier\_filtre.py.
+    7 sur Thonny : Créer un fichier python premier\_filtre.py.
 
-8 Écrire une classe filtre à partir du diagramme de classe ci-contre.
+    8 Écrire une classe filtre à partir du diagramme de classe ci-contre.
 
-   **Aide** : le corps des méthodes ne sera pas développé immédiatement ; on utilisera l’instruction Python pass en attendant.
+    **Aide** : le corps des méthodes ne sera pas développé immédiatement ; on utilisera l’instruction Python pass en attendant.
 
-9 Compléter le constructeur de classe avec les attributs en haut.
+    9 Compléter le constructeur de classe avec les attributs en haut.
 
-**Aide** :
+    **Aide** :
 
-- \_\_img permet l’ouverture de l’image
-- \_\_pix permet d’accéder à un pixel de l’image que l’on a ouvert avec \_\_img
+    - \_\_img permet l’ouverture de l’image
+    - \_\_pix permet d’accéder à un pixel de l’image que l’on a ouvert avec \_\_img
 
-10 Compléter les méthodes suivantes :
+    10 Compléter les méthodes suivantes :
 
-- size()
+    - size()
 
-retourne la taille en pixels d'une image sous forme de tuple largeur, hauteur
+    retourne la taille en pixels d'une image sous forme de tuple largeur, hauteur
 
-**Aide** : appliquer la méthode size sur \_\_img
+    **Aide** : appliquer la méthode size sur \_\_img
 
-- width()
+    - width()
 
-  retourne la largeur d'une image en pixels
+    retourne la largeur d'une image en pixels
 
-**Aide** : sélectionner le premier élément du tuple donné par la méthode size()
+    **Aide** : sélectionner le premier élément du tuple donné par la méthode size()
 
-- height()
+    - height()
 
-  retourne la hauteur d'une image en pixels
+    retourne la hauteur d'une image en pixels
 
-**Aide** : sélectionner le deuxième élément du tuple donné par la méthode size()
+    **Aide** : sélectionner le deuxième élément du tuple donné par la méthode size()
 
-- weight()
+    - weight()
 
-  retourne le poids d'une image en pixels
+    retourne le poids d'une image en pixels
 
-**Aide** : multiplier largeur donnée par la méthode width() avec la hauteur donnée par la méthode height().
+    **Aide** : multiplier largeur donnée par la méthode width() avec la hauteur donnée par la méthode height().
 
-- get\_pix(x, y)
+    - get\_pix(x, y)
 
-  retourne la valeur du pixel de coordonnées (x,y), ou None si erreur
+    retourne la valeur du pixel de coordonnées (x,y), ou None si erreur
 
-**Aide** : la valeur de col et la valeur de row sont données en entrée. Si ces deux valeurs sont comprises entre la valeur 0 et la largeur obtenue avec la méthode width() et entre la valeur 0 et la hauteur obtenue avec la méthode height(), on retourne avec la méthode \_\_pix du constructeur l’objet. 
+    **Aide** : la valeur de col et la valeur de row sont données en entrée. Si ces deux valeurs sont comprises entre la valeur 0 et la largeur obtenue avec la méthode width() et entre la valeur 0 et la hauteur obtenue avec la méthode height(), on retourne avec la méthode \_\_pix du constructeur l’objet. 
 
-Cela donnera self.\_\_pix[col, row] qui permet d’accéder à la valeur du pixel.
+    Cela donnera self.\_\_pix[col, row] qui permet d’accéder à la valeur du pixel.
 
-11 Tester chaque méthode avec filtre.png. On choisira le pixel (0, 0) pour obtenir sa couleur.
+    11 Tester chaque méthode avec filtre.png. On choisira le pixel (0, 0) pour obtenir sa couleur.
 
-Retoucher une image revient à modifier les valeurs de certains pixels. On peut le faire localement (à un endroit bien précis de l'image) ou globalement. Dans ce dernier cas, on utilise un outil appelé « courbe tonale », qui ressemble au dessin ci-contre.
+    Retoucher une image revient à modifier les valeurs de certains pixels. On peut le faire localement (à un endroit bien précis de l'image) ou globalement. Dans ce dernier cas, on utilise un outil appelé « courbe tonale », qui ressemble au dessin ci-contre.
 
-Sur l'abscisse, on lit les valeurs originales des pixels et sur l'ordonnée les valeurs après modifications. Sur le graphique ci-contre, tous les pixels de valeurs 100 prendront la valeur 200. Ils vont donc s'éclaircir. La diagonale grise est la courbe où il n'y a aucune modification.
+    Sur l'abscisse, on lit les valeurs originales des pixels et sur l'ordonnée les valeurs après modifications. Sur le graphique ci-contre, tous les pixels de valeurs 100 prendront la valeur 200. Ils vont donc s'éclaircir. La diagonale grise est la courbe où il n'y a aucune modification.
 
-En fait, il y a trois courbes tonales : une pour le rouge, une pour le vert et une pour le bleu. On les modifie souvent simultanément de la même façon, mais on peut aussi les modifier séparément.
+    En fait, il y a trois courbes tonales : une pour le rouge, une pour le vert et une pour le bleu. On les modifie souvent simultanément de la même façon, mais on peut aussi les modifier séparément.
 
-**Négatif**
+    **Négatif**
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.025.png)
+    ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.025.png)
 
-12 Écrire une méthode reverse() qui remplace tous les pixels de l’image par leur valeur en négatif. Obtenir le négatif d'une image est très simple : toutes les composantes x de tous les pixels de l'image sont remplacées par 255 – x.
+    12 Écrire une méthode reverse() qui remplace tous les pixels de l’image par leur valeur en négatif. Obtenir le négatif d'une image est très simple : toutes les composantes x de tous les pixels de l'image sont remplacées par 255 – x.
 
-**Aide** : 
+    **Aide** : 
 
-- Pour chaque pixel, utiliser la méthode get\_pix sur l’objet lui-même pour récupérer la valeur du rouge, du vert et du bleu. Les couleurs sont obtenues dans cet ordre.
+    - Pour chaque pixel, utiliser la méthode get\_pix sur l’objet lui-même pour récupérer la valeur du rouge, du vert et du bleu. Les couleurs sont obtenues dans cet ordre.
 
-- Convertir chaque couleur en négatif et stocker (remplacer) les valeurs dans le pixel
+    - Convertir chaque couleur en négatif et stocker (remplacer) les valeurs dans le pixel
 
-- Sauver l’image avec la méthode save(file) à appliquer sur la méthode ouvrant l’image…
+    - Sauver l’image avec la méthode save(file) à appliquer sur la méthode ouvrant l’image…
 
-13 Tester la méthode avec filtre.png. Sauvegarder l’image sous filtre\_negatif.png. 
+    13 Tester la méthode avec filtre.png. Sauvegarder l’image sous filtre\_negatif.png. 
 
-**Rouge**
+    **Rouge**
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.026.png)
+    ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.026.png)
 
-Chaque pixel de l'image est une combinaison de rouge, de vert et de bleu. En assignant la valeur 0 aux composantes verte et bleue, on obtient une image à dominante rouge.
+    Chaque pixel de l'image est une combinaison de rouge, de vert et de bleu. En assignant la valeur 0 aux composantes verte et bleue, on obtient une image à dominante rouge.
 
-14 Écrire une méthode red() qui réalise cette opération.
+    14 Écrire une méthode red() qui réalise cette opération.
 
-15 Tester la méthode avec filtre.png. Sauvegarder l’image sous filtre\_rouge.png.  
+    15 Tester la méthode avec filtre.png. Sauvegarder l’image sous filtre\_rouge.png.  
 
-**Niveaux de gris**
+    **Niveaux de gris**
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.027.png)
+    ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.027.png)
 
-Dans une image en niveaux de gris, chaque pixel est noir, blanc, ou a un niveau de gris entre les deux. Cela signifie que les trois composantes ont la même valeur.
+    Dans une image en niveaux de gris, chaque pixel est noir, blanc, ou a un niveau de gris entre les deux. Cela signifie que les trois composantes ont la même valeur.
 
-L'œil est plus sensible à certaines couleurs qu'à d'autres. Le vert (pur), par exemple, paraît plus clair que le bleu (pur). Pour tenir compte de cette sensibilité dans la transformation d'une image couleur en une image en niveaux de gris, on ne prend généralement **pas la** **moyenne arithmétique** des intensités de couleurs fondamentales, mais une moyenne pondérée. **Pour simplifier** les choses, nous prendrons ici **la moyenne « classique ».**
+    L'œil est plus sensible à certaines couleurs qu'à d'autres. Le vert (pur), par exemple, paraît plus clair que le bleu (pur). Pour tenir compte de cette sensibilité dans la transformation d'une image couleur en une image en niveaux de gris, on ne prend généralement **pas la** **moyenne arithmétique** des intensités de couleurs fondamentales, mais une moyenne pondérée. **Pour simplifier** les choses, nous prendrons ici **la moyenne « classique ».**
 
-16 Écrire une méthode color2grey() qui transforme une image en couleurs vers une image en niveaux de gris. On souhaite ne pas écrire trois fois la même valeur à chaque couleur de chaque pixel. De ce fait, on sauvegardera l’image en filtre\_gris.png. 
+    16 Écrire une méthode color2grey() qui transforme une image en couleurs vers une image en niveaux de gris. On souhaite ne pas écrire trois fois la même valeur à chaque couleur de chaque pixel. De ce fait, on sauvegardera l’image en filtre\_gris.png. 
 
-**Aide** :
+    **Aide** :
 
-- L’intensité de chaque couleur de pixel doit être un entier
+    - L’intensité de chaque couleur de pixel doit être un entier
 
-- Pour créer la nouvelle image, on utilise Image.new en niveaux de gris (mode "L"). Voir help(Image.new) dans l’interpréteur.
+    - Pour créer la nouvelle image, on utilise Image.new en niveaux de gris (mode "L"). Voir help(Image.new) dans l’interpréteur.
 
-- Il faut donc enregistrer dans une variable Image.new("L", self.size()) puis, ouvrir cette variable (c’est l’ouverture d’une image) et l’affecter à une variable que l’on appellera pix pour rester proche du code écrit précédemment (self.\_\_pix). L’attribution de la nouvelle couleur ne prend donc plus qu’un argument et non 3.
+    - Il faut donc enregistrer dans une variable Image.new("L", self.size()) puis, ouvrir cette variable (c’est l’ouverture d’une image) et l’affecter à une variable que l’on appellera pix pour rester proche du code écrit précédemment (self.\_\_pix). L’attribution de la nouvelle couleur ne prend donc plus qu’un argument et non 3.
 
-17 Tester la méthode avec filtre.png. Sauvegarder l’image sous filtre\_gris.png.  
+    17 Tester la méthode avec filtre.png. Sauvegarder l’image sous filtre\_gris.png.  
 
-**Seuillage**
+    **Seuillage**
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.028.png)
+    ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.028.png)
 
-Le seuillage d'image est la méthode la plus simple de segmentation d'image.
+    Le seuillage d'image est la méthode la plus simple de segmentation d'image.
 
-À partir d'une image en niveau de gris, le seuillage d'image peut être utilisé pour créer une image comportant uniquement deux valeurs, noir ou blanc (monochrome). On remplace un à un les pixels d'une image par rapport à une valeur seuil fixée (par exemple 50). Ainsi, si un pixel à une valeur supérieure au seuil, il prendra la valeur 255 (blanc), et si sa valeur est inférieure, il prendra la valeur 0 (noir).
+    À partir d'une image en niveau de gris, le seuillage d'image peut être utilisé pour créer une image comportant uniquement deux valeurs, noir ou blanc (monochrome). On remplace un à un les pixels d'une image par rapport à une valeur seuil fixée (par exemple 50). Ainsi, si un pixel à une valeur supérieure au seuil, il prendra la valeur 255 (blanc), et si sa valeur est inférieure, il prendra la valeur 0 (noir).
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.029.png)
+    ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.029.png)
 
-Avec une image en couleur, on fera de même avec les trois composantes rouge, vert et bleu. Il y aura ainsi huit couleurs possibles pour chaque pixel : blanc, noir, rouge, vert, bleu, magenta, jaune et cyan.
+    Avec une image en couleur, on fera de même avec les trois composantes rouge, vert et bleu. Il y aura ainsi huit couleurs possibles pour chaque pixel : blanc, noir, rouge, vert, bleu, magenta, jaune et cyan.
 
-18 Écrire la méthode threshold() qui réalisent un seuillage pour un seuil donné en paramètre.
+    18 Écrire la méthode threshold() qui réalisent un seuillage pour un seuil donné en paramètre.
 
-   **Aide** : Pour le seuillage noir et blanc, on part de l’image en négatif donc il n’y a qu’une valeur pour chaque pixel.
+    **Aide** : Pour le seuillage noir et blanc, on part de l’image en négatif donc il n’y a qu’une valeur pour chaque pixel.
 
-19 Tester avec filtre\_gris.png et une valeur limite à 100. Sauvegarder l’image sous filtre\_seuillageNB.png.
+    19 Tester avec filtre\_gris.png et une valeur limite à 100. Sauvegarder l’image sous filtre\_seuillageNB.png.
 
-20 Ecrire la méthode et threshold\_color() qui réalise un seuillage pour un seuil donné en paramètre
+    20 Ecrire la méthode et threshold\_color() qui réalise un seuillage pour un seuil donné en paramètre
 
-   **Aide** : traiter chaque couleur au niveau de la limite qui sera un tuple composé d’une valeur pour chaque couleur. Pour simplifier l’écriture on peut écrire l’instruction sur la même ligne que la condition (après les deux points) 
+    **Aide** : traiter chaque couleur au niveau de la limite qui sera un tuple composé d’une valeur pour chaque couleur. Pour simplifier l’écriture on peut écrire l’instruction sur la même ligne que la condition (après les deux points) 
 
-21 Tester la méthode avec filtre.png et des valeurs limites (100,100,100). Sauvegarder l’image sous filtre\_seuillageColor.png.  
+    21 Tester la méthode avec filtre.png et des valeurs limites (100,100,100). Sauvegarder l’image sous filtre\_seuillageColor.png.  
 
-**Luminosité**
+    **Luminosité**
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.030.png)
+    ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.030.png)
 
-Pour augmenter la luminosité, il suffit d'ajouter une valeur fixe à tous les niveaux.
-Pour une valeur de + 96, tous les points de l'espace V' seront blancs.
+    Pour augmenter la luminosité, il suffit d'ajouter une valeur fixe à tous les niveaux.
+    Pour une valeur de + 96, tous les points de l'espace V' seront blancs.
 
-- Première conséquence : les points les plus noirs auront une valeur égale à 96 et il n'existera plus aucun point entre 0 et 96.
+    - Première conséquence : les points les plus noirs auront une valeur égale à 96 et il n'existera plus aucun point entre 0 et 96.
 
-- Deuxième conséquence : les points ayant une valeur supérieure à 160 deviendront des points parfaitement blancs, puisque la valeur maximale possible est 255. Il y a donc perte d'informations.
+    - Deuxième conséquence : les points ayant une valeur supérieure à 160 deviendront des points parfaitement blancs, puisque la valeur maximale possible est 255. Il y a donc perte d'informations.
 
 
-Pour éviter ces pertes d'informations, il faut que la courbe tonale rejoigne les axes tangentiellement, comme dans l'exemple ci-contre. Ainsi, aucun point de débordera des valeurs limites minimale (0) ou maximale (255). Il sera en particulier possible de revenir en arrière.
+    Pour éviter ces pertes d'informations, il faut que la courbe tonale rejoigne les axes tangentiellement, comme dans l'exemple ci-contre. Ainsi, aucun point de débordera des valeurs limites minimale (0) ou maximale (255). Il sera en particulier possible de revenir en arrière.
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.032.png)
+    ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.032.png)
 
-Pour diminuer la luminosité il faudra au contraire soustraire une valeur fixe à tous les niveaux.
-Pour une valeur de -100, tous les points de l'espace V" seront noirs.
+    Pour diminuer la luminosité il faudra au contraire soustraire une valeur fixe à tous les niveaux.
+    Pour une valeur de -100, tous les points de l'espace V" seront noirs.
 
-- Première conséquence : les points les plus blancs auront une valeur égale à 156 et il n'existera plus aucun point entre 156 et 255.
+    - Première conséquence : les points les plus blancs auront une valeur égale à 156 et il n'existera plus aucun point entre 156 et 255.
 
-- Deuxième conséquence : les points ayant une valeur comprise entre 0 et 100 deviendront noirs, puisque la valeur minimale est 0. Il y aura donc là aussi perte d'informations.
+    - Deuxième conséquence : les points ayant une valeur comprise entre 0 et 100 deviendront noirs, puisque la valeur minimale est 0. Il y aura donc là aussi perte d'informations.
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.033.png)
+    ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.033.png)
 
-22 Écrire une méthode brighten() qui réalisent un éclaircissement de l’image pour une valeur donnée en paramètre.
+    22 Écrire une méthode brighten() qui réalisent un éclaircissement de l’image pour une valeur donnée en paramètre.
 
-**Aide** : traiter chaque couleur de chaque pixel indifféremment des autres et utiliser les fonctions min() et max().
+    **Aide** : traiter chaque couleur de chaque pixel indifféremment des autres et utiliser les fonctions min() et max().
 
-23 Tester la méthode avec filtre.png et la valeur 20. Sauvegarder l’image sous filtre\_luminositeP20.png.  Recommencer avec filtre.png et la valeur -50. Sauvegarder l’image sous filtre\_luminositeM50.png.  
+    23 Tester la méthode avec filtre.png et la valeur 20. Sauvegarder l’image sous filtre\_luminositeP20.png.  Recommencer avec filtre.png et la valeur -50. Sauvegarder l’image sous filtre\_luminositeM50.png.  
 
 
-**Contraste**
+    **Contraste**
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.034.png)
+    ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.034.png)
 
-Pour rendre une image plus contrastée, il faut assombrir les points foncés et éclaircir les points clairs, par exemple comme dans la figure ci-contre.Les points de l'espace V" seront noirs et ceux de l'espace V' blancs. 
+    Pour rendre une image plus contrastée, il faut assombrir les points foncés et éclaircir les points clairs, par exemple comme dans la figure ci-contre.Les points de l'espace V" seront noirs et ceux de l'espace V' blancs. 
 
-Pour les mêmes raisons que précédemment, cette manière de faire va causer des pertes d'informations. Aussi faut-il adoucir la courbe. 
+    Pour les mêmes raisons que précédemment, cette manière de faire va causer des pertes d'informations. Aussi faut-il adoucir la courbe. 
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.035.png)
+    ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.035.png)
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.036.png)
+    ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.036.png)
 
-24 Écrire une méthode contrast() qui effectue un contraste de l’image en fonction d’une valeur donnée en paramètre.
+    24 Écrire une méthode contrast() qui effectue un contraste de l’image en fonction d’une valeur donnée en paramètre.
 
-**Aide** : Exemple de calcul de contraste :
+    **Aide** : Exemple de calcul de contraste :
 
-- Si la valeur est plus petite que 30, assignez la valeur 0.
+    - Si la valeur est plus petite que 30, assignez la valeur 0.
 
-- Si la valeur est plus grande que 225, assignez la valeur 255.
+    - Si la valeur est plus grande que 225, assignez la valeur 255.
 
-- Les valeurs c comprises entre 30 et 225 seront recalculées avec la formule : int(round((255.0 / 195.0) \* (c - 30) + 0.5))
+    - Les valeurs c comprises entre 30 et 225 seront recalculées avec la formule : int(round((255.0 / 195.0) \* (c - 30) + 0.5))
 
-25 Tester la méthode avec filtre.png et la valeur 30. Sauvegarder l’image sous filtre\_contraste30.png.  
+    25 Tester la méthode avec filtre.png et la valeur 30. Sauvegarder l’image sous filtre\_contraste30.png.  
 
 
-**Bruit**
+    **Bruit**
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.037.png)
+    ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.037.png)
 
-Le « bruit » consiste à remplacer **aléatoirement** un certain nombre de pixels par des pixels blancs.
+    Le « bruit » consiste à remplacer **aléatoirement** un certain nombre de pixels par des pixels blancs.
 
-26 Écrire une méthode noise() qui prend en paramètres la couleur du bruit en niveau de gris (valeur de 0 à 255) et un plafond d’apparition (0 à 10) appelé noise. 
+    26 Écrire une méthode noise() qui prend en paramètres la couleur du bruit en niveau de gris (valeur de 0 à 255) et un plafond d’apparition (0 à 10) appelé noise. 
 
-   **Aide** : le choix aléatoire du pixel qui sera affecté par du bruit en dessous de la valeur noise fixée.
+    **Aide** : le choix aléatoire du pixel qui sera affecté par du bruit en dessous de la valeur noise fixée.
 
-27 Tester la méthode avec filtre.png, 255 et la valeur 4. Sauvegarder l’image sous filtre\_bruit.png.  
+    27 Tester la méthode avec filtre.png, 255 et la valeur 4. Sauvegarder l’image sous filtre\_bruit.png.  
 
-**Symétrie axiale d'axe horizontal**
+    **Symétrie axiale d'axe horizontal**
 
-La symétrie axiale horizontale consiste à échanger les pixels du haut de l’image avec ceux du bas. Ainsi, chaque pixel de la rangée 0 sera échangé avec celui en dessous de lui à la rangée filtre.height() - 1 ; ceux de la rangée 1 avec ceux de la rangée filtre.height() - 2, etc.
+    La symétrie axiale horizontale consiste à échanger les pixels du haut de l’image avec ceux du bas. Ainsi, chaque pixel de la rangée 0 sera échangé avec celui en dessous de lui à la rangée filtre.height() - 1 ; ceux de la rangée 1 avec ceux de la rangée filtre.height() - 2, etc.
 
-28 Ecrire une méthode flip() qui fait la symétrie axiale.
+    28 Ecrire une méthode flip() qui fait la symétrie axiale.
 
-29 Tester la méthode avec filtre.png. Sauvegarder l’image sous filtre\_sym\_axiale.png.
+    29 Tester la méthode avec filtre.png. Sauvegarder l’image sous filtre\_sym\_axiale.png.
 
-**<H3 STYLE="COLOR:red;">Exercice n°3 : Blackjack**</h3>
+!!! abstract "**Projet 3 : Blackjack**"
 
-**=> CAPYTALE Le code vous sera donné par votre enseignant**
+    **=> CAPYTALE Le code vous sera donné par votre enseignant**
 
-**Règle du jeu :** d’après Wikipédia :Le blackjack est un jeu de carte. La partie oppose tous les joueurs contre le croupier (pour simplifier, il n'y aura ici qu'un seul joueur). Le but est de faire **plus de points** que le croupier **sans dépasser 21**. Dès qu'un joueur fait plus que 21, on dit qu'il « **saute** » et il perd sa mise initiale. La valeur des cartes est établie comme suit : 
+    **Règle du jeu :** d’après Wikipédia :Le blackjack est un jeu de carte. La partie oppose tous les joueurs contre le croupier (pour simplifier, il n'y aura ici qu'un seul joueur). Le but est de faire **plus de points** que le croupier **sans dépasser 21**. Dès qu'un joueur fait plus que 21, on dit qu'il « **saute** » et il perd sa mise initiale. La valeur des cartes est établie comme suit : 
 
-- de 2 à 10 → valeur nominale de la carte
+    - de 2 à 10 → valeur nominale de la carte
 
-- une figure → 10 points
+    - une figure → 10 points
 
-- un as → 1 ou 11 (au choix) 
+    - un as → 1 ou 11 (au choix) 
 
-Un blackjack est composé d'un as et d'une « bûche » (carte ayant pour valeur 10, donc 10, valet, dame ou roi). Cependant, si le joueur atteint **le point 21 en 3 cartes ou plus** on compte **le point 21** et non pas blackjack. 
+    Un blackjack est composé d'un as et d'une « bûche » (carte ayant pour valeur 10, donc 10, valet, dame ou roi). Cependant, si le joueur atteint **le point 21 en 3 cartes ou plus** on compte **le point 21** et non pas blackjack. 
 
-Au début de la partie le croupier distribue **une carte face visible** à chaque joueur et tire une carte face visible également pour lui. Il tire ensuite pour chacun des joueurs une seconde carte face visible et tire une seconde carte face cachée pour lui au blackjack américain. Au blackjack européen, le croupier tire sa seconde carte après le tour de jeu des joueurs. 
+    Au début de la partie le croupier distribue **une carte face visible** à chaque joueur et tire une carte face visible également pour lui. Il tire ensuite pour chacun des joueurs une seconde carte face visible et tire une seconde carte face cachée pour lui au blackjack américain. Au blackjack européen, le croupier tire sa seconde carte après le tour de jeu des joueurs. 
 
-Puis il demande au premier joueur de la table (joueur situé à sa gauche) l'option qu'il désire choisir. Si le joueur veut une carte, il doit l'annoncer en disant « Carte ! ». Le joueur peut demander autant de cartes qu'il le souhaite pour approcher **21 sans dépasser**. Si après le tirage d'une carte, il a dépassé 21, il perd sa mise et le croupier passe au joueur suivant. S'il décide de s'arrêter, en disant « Je reste », le croupier passe également au joueur suivant. 
+    Puis il demande au premier joueur de la table (joueur situé à sa gauche) l'option qu'il désire choisir. Si le joueur veut une carte, il doit l'annoncer en disant « Carte ! ». Le joueur peut demander autant de cartes qu'il le souhaite pour approcher **21 sans dépasser**. Si après le tirage d'une carte, il a dépassé 21, il perd sa mise et le croupier passe au joueur suivant. S'il décide de s'arrêter, en disant « Je reste », le croupier passe également au joueur suivant. 
 
-Le croupier répète cette opération jusqu'à ce que tous les joueurs soient servis. 
+    Le croupier répète cette opération jusqu'à ce que tous les joueurs soient servis. 
 
-Ensuite, il joue pour lui selon une règle simple et codifiée « la banque tire à 16, reste à 17 ». Ainsi, le croupier tire des cartes jusqu'à atteindre un nombre compris entre 17 et 21 que l'on appelle un point. S'il fait plus de 21, tous les joueurs restants gagnent mais s'il fait son point, seuls gagnent ceux ayant un point supérieur au sien (sans avoir sauté). Dans cette situation, le joueur remporte l'équivalent de sa mise. En cas d'égalité le joueur garde sa mise mais n'empoche rien en plus. À noter que le blackjack (une « bûche » et un as en deux cartes) est plus fort que 21 fait en ayant tiré plus de deux cartes.
+    Ensuite, il joue pour lui selon une règle simple et codifiée « la banque tire à 16, reste à 17 ». Ainsi, le croupier tire des cartes jusqu'à atteindre un nombre compris entre 17 et 21 que l'on appelle un point. S'il fait plus de 21, tous les joueurs restants gagnent mais s'il fait son point, seuls gagnent ceux ayant un point supérieur au sien (sans avoir sauté). Dans cette situation, le joueur remporte l'équivalent de sa mise. En cas d'égalité le joueur garde sa mise mais n'empoche rien en plus. À noter que le blackjack (une « bûche » et un as en deux cartes) est plus fort que 21 fait en ayant tiré plus de deux cartes.
 
-**Définition des trois classes**
+    **Définition des trois classes**
 
-- Card : correspond à la carte à jouer. Chaque carte appartient à une couleur (coeur ♥, carreau ♦, piques ♠ ou trèfle ♣) et vaut une certaine valeur
+    - Card : correspond à la carte à jouer. Chaque carte appartient à une couleur (coeur ♥, carreau ♦, piques ♠ ou trèfle ♣) et vaut une certaine valeur
 
-- Deck : correspond à la pile de cartes. La pile diminue au fur et à mesure que les cartes sont tirées. La pile contient 52 cartes au départ
+    - Deck : correspond à la pile de cartes. La pile diminue au fur et à mesure que les cartes sont tirées. La pile contient 52 cartes au départ
 
-- Hand : correspond aux cartes attribuées à chaque joueur. Une main est ce qui définit le score de chaque joueur et donc qui gagne
+    - Hand : correspond aux cartes attribuées à chaque joueur. Une main est ce qui définit le score de chaque joueur et donc qui gagne
 
-Et une classe Game pour la boucle de jeu
+    Et une classe Game pour la boucle de jeu
 
-1 Sur Thonny : Créer un fichier python blackjack.py
+    1 Sur Thonny : Créer un fichier python blackjack.py
 
-2 Faire une importation du module random
+    2 Faire une importation du module random
 
-**La classe Card :**
+    **La classe Card :**
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.038.png)
+    ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.038.png)
 
-3 Ecrire la classe Card à partir des diagrammes de classes ci-contre, les attributs sont en haut :
+    3 Ecrire la classe Card à partir des diagrammes de classes ci-contre, les attributs sont en haut :
 
-**Aide** : 
+    **Aide** : 
 
-- Chaque carte contiendra une couleur (suit) et une valeur (value)
+    - Chaque carte contiendra une couleur (suit) et une valeur (value)
 
-- La fonction \_\_repr\_\_() renverra la valeur (roi, reine, valet,…) et la couleur. On obtiendra ainsi la combinaison par exemple : roi de trèfle. Pour se faire utiliser la méthode join() (<https://www.w3schools.com/python/ref_string_join.asp>) avec un tuple constitué de la couleur et le la valeur.
+    - La fonction \_\_repr\_\_() renverra la valeur (roi, reine, valet,…) et la couleur. On obtiendra ainsi la combinaison par exemple : roi de trèfle. Pour se faire utiliser la méthode join() (<https://www.w3schools.com/python/ref_string_join.asp>) avec un tuple constitué de la couleur et le la valeur.
 
-**La classe Deck :**
+    **La classe Deck :**
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.039.png)
+    ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.039.png)
 
-Cette classe doit contenir les 52 cartes et doit être capable de les mélanger. Il faut également que la pile diminue au fur et à mesure que les cartes seront retirées.
+    Cette classe doit contenir les 52 cartes et doit être capable de les mélanger. Il faut également que la pile diminue au fur et à mesure que les cartes seront retirées.
 
-4 Ecrire la classe Deck à partir des diagrammes de classes ci-contre, l’attribut est en haut :
+    4 Ecrire la classe Deck à partir des diagrammes de classes ci-contre, l’attribut est en haut :
 
-**Aide** :
+    **Aide** :
 
-- Lors de la création d’une instance de Deck, il faut disposer d’une collection de toutes les cartes possibles. Pour cela il faut utiliser une compréhension de liste contenant des listes de chaque couleur et valeur. Il faut transmettre chaque combinaison à l’initialisation de la classe Card pour créer les 52 instances card uniques, comme suit : Card(suit, value). On s’aidera de la liste des couleurs ["Pique ♠", "Trèfle ♣", "Coeur ♥", "Carreau ♦"] et la liste de valeur ["As", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Valet", "Reine", "Roi"]
+    - Lors de la création d’une instance de Deck, il faut disposer d’une collection de toutes les cartes possibles. Pour cela il faut utiliser une compréhension de liste contenant des listes de chaque couleur et valeur. Il faut transmettre chaque combinaison à l’initialisation de la classe Card pour créer les 52 instances card uniques, comme suit : Card(suit, value). On s’aidera de la liste des couleurs ["Pique ♠", "Trèfle ♣", "Coeur ♥", "Carreau ♦"] et la liste de valeur ["As", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Valet", "Reine", "Roi"]
 
-- Implémentez une méthode \_\_str\_\_ : vous devriez obtenir quelque chose comme ceci :
-```txt
->>> piles_cartes = Deck()
->>> print(piles\_cartes)
-[As de Pique ♠, 2 de Pique ♠, 3 de Pique ♠, 4 de Pique ♠, 5 de Pique ♠, 6 de Pique ♠, 7 de Pique ♠, 8 de Pique ♠, 9 de Pique ♠, 10 de Pique ♠, Valet de Pique ♠, Reine de Pique ♠, Roi de Pique ♠, As de Trèfle ♣, 2 de Trèfle ♣, 3 de Trèfle ♣, 4 de Trèfle ♣, 5 de Trèfle ♣, 6 de Trèfle ♣, 7 de Trèfle ♣, 8 de Trèfle ♣, 9 de Trèfle ♣, 10 de Trèfle ♣, Valet de Trèfle ♣, Reine de Trèfle ♣, Roi de Trèfle ♣, As de Coeur ♥, 2 de Coeur ♥, 3 de Coeur ♥, 4 de Coeur ♥, 5 de Coeur ♥, 6 de Coeur ♥, 7 de Coeur ♥, 8 de Coeur ♥, 9 de Coeur ♥, 10 de Coeur ♥, Valet de Coeur ♥, Reine de Coeur ♥, Roi de Coeur ♥, As de Carreau ♦, 2 de Carreau ♦, 3 de Carreau ♦, 4 de Carreau ♦, 5 de Carreau ♦, 6 de Carreau ♦, 7 de Carreau ♦, 8 de Carreau ♦, 9 de Carreau ♦, 10 de Carreau ♦, Valet de Carreau ♦, Reine de Carreau ♦, Roi de Carreau ♦]
-```
+    - Implémentez une méthode \_\_str\_\_ : vous devriez obtenir quelque chose comme ceci :
+    ```txt
+    >>> piles_cartes = Deck()
+    >>> print(piles\_cartes)
+    [As de Pique ♠, 2 de Pique ♠, 3 de Pique ♠, 4 de Pique ♠, 5 de Pique ♠, 6 de Pique ♠, 7 de Pique ♠, 8 de Pique ♠, 9 de Pique ♠, 10 de Pique ♠, Valet de Pique ♠, Reine de Pique ♠, Roi de Pique ♠, As de Trèfle ♣, 2 de Trèfle ♣, 3 de Trèfle ♣, 4 de Trèfle ♣, 5 de Trèfle ♣, 6 de Trèfle ♣, 7 de Trèfle ♣, 8 de Trèfle ♣, 9 de Trèfle ♣, 10 de Trèfle ♣, Valet de Trèfle ♣, Reine de Trèfle ♣, Roi de Trèfle ♣, As de Coeur ♥, 2 de Coeur ♥, 3 de Coeur ♥, 4 de Coeur ♥, 5 de Coeur ♥, 6 de Coeur ♥, 7 de Coeur ♥, 8 de Coeur ♥, 9 de Coeur ♥, 10 de Coeur ♥, Valet de Coeur ♥, Reine de Coeur ♥, Roi de Coeur ♥, As de Carreau ♦, 2 de Carreau ♦, 3 de Carreau ♦, 4 de Carreau ♦, 5 de Carreau ♦, 6 de Carreau ♦, 7 de Carreau ♦, 8 de Carreau ♦, 9 de Carreau ♦, 10 de Carreau ♦, Valet de Carreau ♦, Reine de Carreau ♦, Roi de Carreau ♦]
+    ```
 
-- La méthode shuffle : <https://www.w3schools.com/python/ref_random_shuffle.asp>. On ne peut mélanger les cartes que si la pile en contient plus d’une carte.
-```txt
-# à ajouter
->>> pile_cartes.shuffle()
->>> print(pile_cartes)
-[9 de Coeur ♥, 6 de Pique ♠, 9 de Pique ♠, 10 de Trèfle ♣, 4 de Coeur ♥, 7 de Trèfle ♣, Valet de Pique ♠, As de Pique ♠, 7 de Pique ♠, 4 de Carreau ♦, 10 de Carreau ♦, 2 de Coeur ♥, Valet de Carreau ♦, 10 de Coeur ♥, 4 de Trèfle ♣, Reine de Trèfle ♣, Valet de Coeur ♥, As de Coeur ♥, 5 de Pique ♠, 6 de Coeur ♥, 10 de Pique ♠, 3 de Trèfle ♣, 7 de Carreau ♦, 3 de Coeur ♥, Roi de Coeur ♥, Roi de Pique ♠, 5 de Trèfle ♣, Reine de Carreau ♦, 3 de Pique ♠, 2 de Carreau ♦, 5 de Carreau ♦, 8 de Trèfle ♣, Reine de Coeur ♥, Reine de Pique ♠, 8 de Coeur ♥, Roi de Carreau ♦, Valet de Trèfle ♣, 5 de Coeur ♥, 8 de Pique ♠, 9 de Trèfle ♣, 3 de Carreau ♦, As de Carreau ♦, 2 de Pique ♠, Roi de Trèfle ♣, 4 de Pique ♠, As de Trèfle ♣, 2 de Trèfle ♣, 9 de Carreau ♦, 6 de Carreau ♦, 6 de Trèfle ♣, 7 de Coeur ♥, 8 de Carreau ♦]
-```
+    - La méthode shuffle : <https://www.w3schools.com/python/ref_random_shuffle.asp>. On ne peut mélanger les cartes que si la pile en contient plus d’une carte.
+    ```txt
+    # à ajouter
+    >>> pile_cartes.shuffle()
+    >>> print(pile_cartes)
+    [9 de Coeur ♥, 6 de Pique ♠, 9 de Pique ♠, 10 de Trèfle ♣, 4 de Coeur ♥, 7 de Trèfle ♣, Valet de Pique ♠, As de Pique ♠, 7 de Pique ♠, 4 de Carreau ♦, 10 de Carreau ♦, 2 de Coeur ♥, Valet de Carreau ♦, 10 de Coeur ♥, 4 de Trèfle ♣, Reine de Trèfle ♣, Valet de Coeur ♥, As de Coeur ♥, 5 de Pique ♠, 6 de Coeur ♥, 10 de Pique ♠, 3 de Trèfle ♣, 7 de Carreau ♦, 3 de Coeur ♥, Roi de Coeur ♥, Roi de Pique ♠, 5 de Trèfle ♣, Reine de Carreau ♦, 3 de Pique ♠, 2 de Carreau ♦, 5 de Carreau ♦, 8 de Trèfle ♣, Reine de Coeur ♥, Reine de Pique ♠, 8 de Coeur ♥, Roi de Carreau ♦, Valet de Trèfle ♣, 5 de Coeur ♥, 8 de Pique ♠, 9 de Trèfle ♣, 3 de Carreau ♦, As de Carreau ♦, 2 de Pique ♠, Roi de Trèfle ♣, 4 de Pique ♠, As de Trèfle ♣, 2 de Trèfle ♣, 9 de Carreau ♦, 6 de Carreau ♦, 6 de Trèfle ♣, 7 de Coeur ♥, 8 de Carreau ♦]
+    ```
 
-- La méthode deal permet de retirer du jeu la carte du dessus. Pour cela on utilisera la méthode pop() : <https://www.w3schools.com/python/ref_list_pop.asp>. Elle retournera la pile de carte sans la carte du dessus.
-```txt
-# à ajouter
->>> pile_cartes.deal()
-9 de Coeur ♥
-```
+    - La méthode deal permet de retirer du jeu la carte du dessus. Pour cela on utilisera la méthode pop() : <https://www.w3schools.com/python/ref_list_pop.asp>. Elle retournera la pile de carte sans la carte du dessus.
+    ```txt
+    # à ajouter
+    >>> pile_cartes.deal()
+    9 de Coeur ♥
+    ```
 
-**La classe Hand** :
+    **La classe Hand** :
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.040.png)
+    ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.040.png)
 
-Cette classe contient des cartes. Il vaut également attribuer une valeur par les règles du jeu en fonction des cartes qu’il contient.
+    Cette classe contient des cartes. Il vaut également attribuer une valeur par les règles du jeu en fonction des cartes qu’il contient.
 
-La main du croupier ne doit afficher qu’une seule carte, il faudra également suivre cette règle.
+    La main du croupier ne doit afficher qu’une seule carte, il faudra également suivre cette règle.
 
-5 Ecrire la classe Hand à partir des diagrammes de classes ci-contre :
+    5 Ecrire la classe Hand à partir des diagrammes de classes ci-contre :
 
-   **Aide** : le corps des méthodes ne sera pas développé immédiatement ; on utilisera l’instruction Python pass en attendant.
+    **Aide** : le corps des méthodes ne sera pas développé immédiatement ; on utilisera l’instruction Python pass en attendant.
 
-6 Compléter le constructeur de classe avec les attributs en haut.
+    6 Compléter le constructeur de classe avec les attributs en haut.
 
-**Aide** : l’attribut cards est une liste vide et l’attribut value commence à 0.
+    **Aide** : l’attribut cards est une liste vide et l’attribut value commence à 0.
 
-7 La méthode add\_card permet d’ajouter simplement l’instance card à la liste cards
+    7 La méthode add\_card permet d’ajouter simplement l’instance card à la liste cards
 
-**Aide** : 
+    **Aide** : 
 
-- on utilisera la méthode append
+    - on utilisera la méthode append
 
-- Implémentez une méthode \_\_str\_\_ : vous devriez obtenir quelque chose comme ceci :
-```txt
-# à ajouter
->>> pile_cartes.shuffle()
->>> carte_tiree = pile_cartes.deal()
->>> print(carte_tiree)
-6 de Carreau ♦
->>> ma_main = Hand()
->>> ma_main.add_card(carte_tiree)
->>> print(ma_main)
-[6 de Carreau ♦]
-```
+    - Implémentez une méthode \_\_str\_\_ : vous devriez obtenir quelque chose comme ceci :
+    ```txt
+    # à ajouter
+    >>> pile_cartes.shuffle()
+    >>> carte_tiree = pile_cartes.deal()
+    >>> print(carte_tiree)
+    6 de Carreau ♦
+    >>> ma_main = Hand()
+    >>> ma_main.add_card(carte_tiree)
+    >>> print(ma_main)
+    [6 de Carreau ♦]
+    ```
 
-8 La méthode calculate\_value permet de calculer la valeur de cards. La valeur value est initialisée à 0 et on suppose que le joueur n’a pas d’as (puisque c’est un cas particulier) : has\_ace = False. Il s’agit de parcourir les instances card de cards et d’ajouter leur valeur sous forme de nombre (entier) au total du joueur en utilisant les règles suivantes :
+    8 La méthode calculate\_value permet de calculer la valeur de cards. La valeur value est initialisée à 0 et on suppose que le joueur n’a pas d’as (puisque c’est un cas particulier) : has\_ace = False. Il s’agit de parcourir les instances card de cards et d’ajouter leur valeur sous forme de nombre (entier) au total du joueur en utilisant les règles suivantes :
 
-- Si la valeur de la carte est numérique, on ajoute sa valeur à la valeur de cette main (self.value)
+    - Si la valeur de la carte est numérique, on ajoute sa valeur à la valeur de cette main (self.value)
 
-**Aide** : on pourra utiliser la méthode isnumeric()
+    **Aide** : on pourra utiliser la méthode isnumeric()
 
-- Si ce n’est pas numérique, il faut vérifier si la carte est un as. Si c’est le cas, nous ajoutons 11 à la valeur de la main et définissons le drapeau has\_ace = True.
+    - Si ce n’est pas numérique, il faut vérifier si la carte est un as. Si c’est le cas, nous ajoutons 11 à la valeur de la main et définissons le drapeau has\_ace = True.
 
-- Si ce n’est pas un as, on ajoute simplement 10 à la valeur de la main.
+    - Si ce n’est pas un as, on ajoute simplement 10 à la valeur de la main.
 
-Une fois que cela est fait, on vérifie s’il y avait un as. Si c’est le cas, l’as ayant pour valeur 0 ou 11 au choix, il faut vérifier aussi que le total est supérieur à 21. Si c’est le cas il faut soustraire 10 pour que l’as ne vaille que 1.
+    Une fois que cela est fait, on vérifie s’il y avait un as. Si c’est le cas, l’as ayant pour valeur 0 ou 11 au choix, il faut vérifier aussi que le total est supérieur à 21. Si c’est le cas il faut soustraire 10 pour que l’as ne vaille que 1.
 
-9 La méthode get\_value permet de récupérer la valeur value et de la retourner.
+    9 La méthode get\_value permet de récupérer la valeur value et de la retourner.
 
-Vous devriez obtenir quelque chose comme ceci :
-```txt
-# à ajouter
->>> ma_main.add_card(pile_cartes.deal())
->>> print("ma main : ", ma_main)
-ma main :  [Valet de Carreau ♦, 5 de Pique ♠]
->>> ma_main.get_value()
-15
->>> ma_main.add_card(pile_cartes.deal())
->>> print("ma main : ", ma_main)
-ma main :  [Valet de Carreau ♦, 5 de Pique ♠, 7 de Coeur ♥]
->>> ma_main.get_value()
-22
-```
+    Vous devriez obtenir quelque chose comme ceci :
+    ```txt
+    # à ajouter
+    >>> ma_main.add_card(pile_cartes.deal())
+    >>> print("ma main : ", ma_main)
+    ma main :  [Valet de Carreau ♦, 5 de Pique ♠]
+    >>> ma_main.get_value()
+    15
+    >>> ma_main.add_card(pile_cartes.deal())
+    >>> print("ma main : ", ma_main)
+    ma main :  [Valet de Carreau ♦, 5 de Pique ♠, 7 de Coeur ♥]
+    >>> ma_main.get_value()
+    22
+    ```
 
-10 La méthode display permet d’afficher les cartes de chaque main ainsi que la valeur de la main. La première carte du croupier (dealer) est face cachée : il faut imprimer « caché » à la place.
-```txt
-# à ajouter
->>> ma_main.display()
-Valet de Carreau ♦
-5 de Pique ♠
-7 de Coeur ♥
-Valeur : 22
->>> main_dealer = Hand(True)
->>> main_dealer.add_card(pile_cartes.deal())
->>> main_dealer.add_card(pile_cartes.deal())
->>> main_dealer.display()
-caché
-8 de Trèfle ♣
-```
+    10 La méthode display permet d’afficher les cartes de chaque main ainsi que la valeur de la main. La première carte du croupier (dealer) est face cachée : il faut imprimer « caché » à la place.
+    ```txt
+    # à ajouter
+    >>> ma_main.display()
+    Valet de Carreau ♦
+    5 de Pique ♠
+    7 de Coeur ♥
+    Valeur : 22
+    >>> main_dealer = Hand(True)
+    >>> main_dealer.add_card(pile_cartes.deal())
+    >>> main_dealer.add_card(pile_cartes.deal())
+    >>> main_dealer.display()
+    caché
+    8 de Trèfle ♣
+    ```
 
-**La classe Game :**
+    **La classe Game :**
 
-![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.041.png)
+    ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.041.png)
 
-11 Ecrire la classe Game à partir des diagrammes de classes ci-contre :
+    11 Ecrire la classe Game à partir des diagrammes de classes ci-contre :
 
-   **Aide** : le corps des méthodes ne sera pas développé immédiatement ; on utilisera l’instruction Python pass en attendant.
+    **Aide** : le corps des méthodes ne sera pas développé immédiatement ; on utilisera l’instruction Python pass en attendant.
 
-12 Le constructeur sera laissé avec pass
+    12 Le constructeur sera laissé avec pass
 
-13 ★ ★ ★ ★ ★ La méthode play (1ere partie)
+    13 ★ ★ ★ ★ ★ La méthode play (1ere partie)
 
-**Aide** : 
+    **Aide** : 
 
-- Il faudra prévoir un booléen pour savoir si le joueur joue encore ou non au jeu.
+    - Il faudra prévoir un booléen pour savoir si le joueur joue encore ou non au jeu.
 
-- Tant que le joueur continue à jouer il faut récupérer la pile de cartes, la mélanger, donner une main au joueur, donner une main au croupier (ne pas oublier de passer dealer à True) 
+    - Tant que le joueur continue à jouer il faut récupérer la pile de cartes, la mélanger, donner une main au joueur, donner une main au croupier (ne pas oublier de passer dealer à True) 
 
-- Il faut ensuite ajouter deux cartes à la main du joueur (player\_Hand) et à la main du croupier (dealer\_Hand) avec la méthode add\_card
+    - Il faut ensuite ajouter deux cartes à la main du joueur (player\_Hand) et à la main du croupier (dealer\_Hand) avec la méthode add\_card
 
-- Il faut faire afficher les cartes de la main du joueur et la main du croupier avec la méthode display.
+    - Il faut faire afficher les cartes de la main du joueur et la main du croupier avec la méthode display.
 
-Cela marque la fin du code qui doit s’exécuter au début de chaque nouveau jeu
+    Cela marque la fin du code qui doit s’exécuter au début de chaque nouveau jeu
 
-On entre dans une boucle qui fonctionnera jusqu’à ce qu’un gagnant soit décidé. Il faut le contrôler avec un nouveau booléen (game\_over), par exemple while not game\_over.
+    On entre dans une boucle qui fonctionnera jusqu’à ce qu’un gagnant soit décidé. Il faut le contrôler avec un nouveau booléen (game\_over), par exemple while not game\_over.
 
-Dans la boucle, il faut vérifier le blackjack du joueur et du croupier, avec la méthode check\_for\_blackjack()
-```txt
-# la méthode play() complète
->>> game = Game()
->>> game.play()
-Main du joueur :
-Roi de Coeur ♥
-6 de Pique ♠
-Valeur : 16
-Main du croupier :
-caché
-4 de Trèfle ♣
-Choisir : [Carte / Rester] 
-\>? c
-Roi de Coeur ♥
-6 de Pique ♠
-Reine de Trèfle ♣
-Valeur : 26
-Le joueur perd!
-Une autre partie ? [O/N]
-\>? o
-Main du joueur :
-4 de Carreau ♦
-Valet de Coeur ♥
-Valeur : 14
-Main du croupier :
-caché
-10 de Coeur ♥
-Choisir : [Carte / Rester]
-\>? r
-Résultat final
-Main du joueur: 14
-Main du croupier: 13
-Le joueur gagne!
-Une autre partie ? [O/N]
-```
+    Dans la boucle, il faut vérifier le blackjack du joueur et du croupier, avec la méthode check\_for\_blackjack()
+    ```txt
+    # la méthode play() complète
+    >>> game = Game()
+    >>> game.play()
+    Main du joueur :
+    Roi de Coeur ♥
+    6 de Pique ♠
+    Valeur : 16
+    Main du croupier :
+    caché
+    4 de Trèfle ♣
+    Choisir : [Carte / Rester] 
+    \>? c
+    Roi de Coeur ♥
+    6 de Pique ♠
+    Reine de Trèfle ♣
+    Valeur : 26
+    Le joueur perd!
+    Une autre partie ? [O/N]
+    \>? o
+    Main du joueur :
+    4 de Carreau ♦
+    Valet de Coeur ♥
+    Valeur : 14
+    Main du croupier :
+    caché
+    10 de Coeur ♥
+    Choisir : [Carte / Rester]
+    \>? r
+    Résultat final
+    Main du joueur: 14
+    Main du croupier: 13
+    Le joueur gagne!
+    Une autre partie ? [O/N]
+    ```
 
-14 La méthode player\_is\_over permet de tester si la main du joueur est supérieure à 21. Cette méthode vérifie si la valeur de la main du joueur est terminée et renvoie les informations sous la forme d’un booléen
+    14 La méthode player\_is\_over permet de tester si la main du joueur est supérieure à 21. Cette méthode vérifie si la valeur de la main du joueur est terminée et renvoie les informations sous la forme d’un booléen
 
-**Aide** : Le score sera obtenue avec la méthode get\_value()
+    **Aide** : Le score sera obtenue avec la méthode get\_value()
 
-15 La méthode check\_for\_blackjack permet de vérifier s’il y a blackjack. Si l’un des joueurs a reçu un as et une carte illustrée, sa main sera de 21, donc il gagne automatiquement. Il faut garder une trace de quel joueur peut avoir un blackjack, donc on gardera un booléen pour le joueur (player) et le croupier (dealer). Si l’un des booléens est True alors il y a un gagnant.
+    15 La méthode check\_for\_blackjack permet de vérifier s’il y a blackjack. Si l’un des joueurs a reçu un as et une carte illustrée, sa main sera de 21, donc il gagne automatiquement. Il faut garder une trace de quel joueur peut avoir un blackjack, donc on gardera un booléen pour le joueur (player) et le croupier (dealer). Si l’un des booléens est True alors il y a un gagnant.
 
-16 La méthode play (2<sup>ème</sup> partie)
+    16 La méthode play (2<sup>ème</sup> partie)
 
-Revenir à la boucle while not game\_over, il faut à présent vérifier le cas où le joueur ou le croupier a fait blackjack (méthode précédente). Si l’un des booléens est True alors il y a un gagnant et continue permettra de sortir de la boucle jeu. On appellera la méthode show\_blackjack\_results qui prend deux arguments.
+    Revenir à la boucle while not game\_over, il faut à présent vérifier le cas où le joueur ou le croupier a fait blackjack (méthode précédente). Si l’un des booléens est True alors il y a un gagnant et continue permettra de sortir de la boucle jeu. On appellera la méthode show\_blackjack\_results qui prend deux arguments.
 
-17 La méthode show\_blackjack\_results permet l’affichage du ou des gagnant(s) qui a(ont) fait blackjack.
+    17 La méthode show\_blackjack\_results permet l’affichage du ou des gagnant(s) qui a(ont) fait blackjack.
 
-18 La méthode play (3<sup>ème</sup> partie)
+    18 La méthode play (3<sup>ème</sup> partie)
 
-Si aucun des joueurs n’avait de blackjack, la boucle de jeu se poursuivra
+    Si aucun des joueurs n’avait de blackjack, la boucle de jeu se poursuivra
 
-Le joueur peut maintenant faire un choix : ajouter ou non plus de cartes à sa main ou soumettre sa main actuelle. 
+    Le joueur peut maintenant faire un choix : ajouter ou non plus de cartes à sa main ou soumettre sa main actuelle. 
 
-Dans la boucle while, Il faut donc demander au joueur ce qu’il veut faire : carte / rester. Astuce : utiliser la méthode lower() pour toutes les combinaisons majuscules/minuscules.
+    Dans la boucle while, Il faut donc demander au joueur ce qu’il veut faire : carte / rester. Astuce : utiliser la méthode lower() pour toutes les combinaisons majuscules/minuscules.
 
-19 Si le joueur ne répond pas la bonne lettre, il faut continuer simplement à demander à nouveau.
+    19 Si le joueur ne répond pas la bonne lettre, il faut continuer simplement à demander à nouveau.
 
-20 Si le joueur choisit carte, il faut ajouter une carte supplémentaire à sa main. Cela se fait de la même manière qu’auparavant avec les méthodes deal() et add\_card().
+    20 Si le joueur choisit carte, il faut ajouter une carte supplémentaire à sa main. Cela se fait de la même manière qu’auparavant avec les méthodes deal() et add\_card().
 
-21 Dans la condition précédente, si la main du joueur a une valeur supérieure à 21 il a perdu donc la boucle du jeu doit se rompre et le croupier gagne
+    21 Dans la condition précédente, si la main du joueur a une valeur supérieure à 21 il a perdu donc la boucle du jeu doit se rompre et le croupier gagne
 
-22 Si à présent le joueur choisit de rester avec sa main, il faut comparer son score avec celui du croupier. Il faut afficher la valeur de la main du joueur et du croupier, comparer les valeurs de chaque main et afficher qui gagne. Si les deux mains ont même valeur alors il y a match nul.
+    22 Si à présent le joueur choisit de rester avec sa main, il faut comparer son score avec celui du croupier. Il faut afficher la valeur de la main du joueur et du croupier, comparer les valeurs de chaque main et afficher qui gagne. Si les deux mains ont même valeur alors il y a match nul.
 
-23 On peut ajouter une petite boucle pour que le joueur est le choix de rejouer ou non. Astuce utiliser les booléens de la méthode play et game\_over
+    23 On peut ajouter une petite boucle pour que le joueur est le choix de rejouer ou non. Astuce utiliser les booléens de la méthode play et game\_over
 
-24 Pour lancer le jeu il faut créer une instance de la classe Game et on appelle la méthode play. 
+    24 Pour lancer le jeu il faut créer une instance de la classe Game et on appelle la méthode play. 
 
-   **Aide** : mettre les lignes de code précédentes dans if \_\_name\_\_ == "\_\_main\_\_": qui ne lancera le jeu que dans le cas où on utilise le fichier blackjack et non un import depuis un autre fichier.
+    **Aide** : mettre les lignes de code précédentes dans if \_\_name\_\_ == "\_\_main\_\_": qui ne lancera le jeu que dans le cas où on utilise le fichier blackjack et non un import depuis un autre fichier.
 
 
 
-**<H3 STYLE="COLOR:red;">Exercice n°4 : Banque**</h3>
+!!! abstract "**Projet 4 : Banque**"
 
-**=> CAPYTALE Le code vous sera donné par votre enseignant**
+    **=> CAPYTALE Le code vous sera donné par votre enseignant**
 
-L’objectif est de simuler (sommairement bien sûr) le fonctionnement d’une banque. Le programme doit permettre :
+    L’objectif est de simuler (sommairement bien sûr) le fonctionnement d’une banque. Le programme doit permettre :
 
-- La création d’une banque ;
+    - La création d’une banque ;
 
-- La création de comptes bancaires ;
+    - La création de comptes bancaires ;
 
-- La création de personnes propriétaires de ces comptes bancaires.
+    - La création de personnes propriétaires de ces comptes bancaires.
 
-1 Dans un module nommé personne, créer la classe Personne  et les méthodes :
-```python
-class Personne():
-    """
-    Modélisation d'une personne.
+    1 Dans un module nommé personne, créer la classe Personne  et les méthodes :
+    ```python
+    class Personne():
+        """
+        Modélisation d'une personne.
 
-    Attributs
-    ---------
-    - nom : str
-        Renseigné à la création de l'objet
-    - Prenom : str
-        Renseigné à la création de l'objet
-    - email : str
-        Email. Initialisé à ""
-    - telephone : str
-        Numéro de téléphone. Initialisé à ""
-    - date_naissance : str
-        Chaîne de caractères au format jour/mois/année (4 chiffres). Initialisé à ""
-    - jour_naissance : int
-        Déterminé à partir de la date de naissance. Initialisée à -1
-    - mois_naissance : int
-        Déterminé à partir de la date de naissance. Initialisée à -1
-    - annee_naissance : int
-        Déterminé à partir de la date de naissance. Initialisée à -1
-    """
+        Attributs
+        ---------
+        - nom : str
+            Renseigné à la création de l'objet
+        - Prenom : str
+            Renseigné à la création de l'objet
+        - email : str
+            Email. Initialisé à ""
+        - telephone : str
+            Numéro de téléphone. Initialisé à ""
+        - date_naissance : str
+            Chaîne de caractères au format jour/mois/année (4 chiffres). Initialisé à ""
+        - jour_naissance : int
+            Déterminé à partir de la date de naissance. Initialisée à -1
+        - mois_naissance : int
+            Déterminé à partir de la date de naissance. Initialisée à -1
+        - annee_naissance : int
+            Déterminé à partir de la date de naissance. Initialisée à -1
+        """
 
-    def __init__(self, nom: str, prenom: str) -> None:
+        def __init__(self, nom: str, prenom: str) -> None:
+            """
+            Initialisation des attributs.
+            """
+            pass
+
+        def modifier_nom(self, nom: str) -> None:
+            """
+            Permet de modifier le nom de la personne.
+            """
+            pass
+
+        def obtenir_nom(self) -> str:
+            """
+            Retourne le nom de la personne.
+            """
+            pass
+
+        def modifier_prenom(self, prenom: str) -> None:
+            """
+            Permet de modifier le prénom de la personne.
+            """
+            pass
+
+        def obtenir_prenom(self) -> str:
+            """
+            Retourne le prénom de la personne.
+            """
+            pass
+
+        def obtenir_email(self) -> str:
+            """
+            Retourne l'email de la personne.
+            """
+            pass
+
+        def renseigner_email(self, email: str) -> None:
+            """
+            Renseigne l'attribut email de la personne.
+            """
+            pass
+
+        def obtenir_telephone(self) -> str:
+            """
+            Retourne le numéro de téléphone de la personne.
+            """
+            pass
+
+        def renseigner_telephone(self, telephone: str) -> None:
+            """
+            Renseigne l'attribut telephone de la personne.
+            """
+            pass
+
+        def renseigner_date_naissance(self, date: str) -> None:
+            """
+            Récupère la date de naissance sous la forme jour/mois/année.
+            Renseigne l'attribut date_naissance et, après un traitement, les attributs
+            jour_naissance, mois_naissance, annee_naissance.
+
+            Lève une exception de type ValueError si l'année ne possède pas le bon format.
+            """
+            pass
+
+        def obtenir_date_naissance(self) -> str:
+            """
+            Retourne la date de naissance.
+            """
+            pass
+
+        def obtenir_age(self, annee_en_cours: int) -> int:
+            """
+            Retourne l'age de la personne à partir de l'année en cours.
+
+            Lève une exception de type Exception si la date de naissance n'a pas été renseignée au préalable.
+            """
+            pass
+
+        def infos(self) -> str:
+            """
+            Retourne toutes les informations relatives à la personne.
+            """
+            chaine = """
+            Prénom : {}
+            Nom : {}
+            Date de naissance : {}
+            Email : {}
+            Téléphone : {}
+            """.format(self.obtenir_prenom(), self.obtenir_nom(),
+                    self.obtenir_date_naissance(), self.obtenir_email(),
+                    self.obtenir_telephone())
+
+            return chaine
+    ```
+
+    Tester la classe en instanciant au moins un objet de type Personne et en utilisant toutes les méthodes.
+
+    2 Dans un module nommé compte\_bancaire créer la classe Compte\_bancaire et les méthodes :
+
+    Ne pas oublier d’importer la classe Personne du module personne au début du fichier.
+    ```python
+    class Compte_bancaire():
+        """
+        Définition d'un compte bancaire.
+
+        Attributs
+        ---------
+        - proprietaire : Personne
+            Personne propriétaire du compte. Initialisé à la création de l'objet.
+        - identifiant : int
+            Identifiant unique du compte. Initialisé à la création de l'objet par un calcul réalisé par une méthode statique.
+        - solde : float
+            Solde du compte. Initialisé à la création de l'objet.
+        """
+
+        def __init__(self, proprietaire: Personne, montant_initial: float) -> None:
+            """
+            Initialisation des attributs.
+            """
+            pass
+
+        @staticmethod
+        def determine_id(proprietaire: Personne) -> int:
+            """
+            Détermine l'identifiant du compte aléatoirement à partir du
+            nom et du prénom du propriétaire.
+
+            Méthode statique
+            """
+            pass
+
+        def obtenir_solde(self) -> float:
+            """
+            Retourne le solde du compte.
+            """
+            pass
+
+        def depot(self, montant: float) -> None:
+            """
+            Ajoute montant au solde
+            """
+            pass
+
+        def retrait(self, montant: float) -> None:
+            """
+            Retire le montant montant du solde à la condition qu'il y ait suffisamment d'argent.
+            Une exception de type ValueError est levée si le montant est trop important
+            """
+            pass
+
+        def infos(self) -> str:
+            """
+            Informations sur le compte.
+            """
+            chaine = """
+            Compte numéro : {}
+            Solde : {}
+            """.format(self.identifiant, self.solde)
+
+            chaine = chaine + self.proprietaire.infos()
+
+            return chaine
+    ```
+
+
+    Tester la classe en instanciant au moins un objet de type Compte\_bancaire et en utilisant toutes les méthodes.
+
+    3 Dans un module nommé banque, créer la classe Banque et les méthodes : 
+
+    Ne pas oublier d’importer la classe Personne du module personne au début du fichier.
+
+    Ne pas oublier d’importer la classe Compte\_bancaire du module compte\_bancaire au début du fichier.
+    ```python
+    class Banque():
+        """
+        Modélisation d'une banque.
+
+        Attributs
+        ---------
+        - nom : str
+            Nom de la banque. Initialisé lors de la création de l'objet.
+        - comptes : Liste[Compte_bancaire]
+            Liste des comptes bancaires au sein de la banque.
+        """
+
+        def __init__(self, nom: str) -> None:
+            """
+            Initialisation de l'objet
+            """
+            pass
+
+        def creation_compte(self) -> None:
+            """
+            Prend en charge l'ouverture d'un compte au sein de la banque.
+            """
+            print("Procédure de création du compte :")
+            print("---------------------------------")
+
+            nom = input("Nom du propriétaire du compte : ")
+            prenom = input("Prenom du propriétaire du compte : ")
+            montant_initial = float(input("Montant du dépôt initial : "))
+
+            p = Personne(nom, prenom)
+            c = Compte_bancaire(p, montant_initial)
+
+            self.comptes.append(c)
+
+        def infos(self) -> str:
+            """
+            Informations sur la banque
+            """
+            chaine = """
+            -----------
+            """
+
+            for compte in self.comptes:
+                chaine = chaine + compte.infos()
+                chaine = """
+                -----------
+
+                """
+
+            return chaine
+    ```
+
+    4 Dans le fichier nommé main, instancier un objet de type Banque et créer quelques comptes bancaires.
+
+!!! abstract "**Projet 5 : Jeu de la vie**"
+
+    **=> CAPYTALE Le code vous sera donné par votre enseignant**
+
+    Le but de ce sujet est de réaliser en Python une implémentation du jeu de la vie en utilisant la programmation objet.
+
+    Un **automate cellulaire** consiste en une grille régulière de « cellules » contenant chacune un « état » choisi parmi un ensemble fini et qui peut évoluer au cours du temps. L’état d’une cellule au temps t+1t+1t+1 est fonction de l’état au temps ttt d’un nombre fini de cellules appelé son « voisinage ». À chaque nouvelle unité de temps, les mêmes règles sont appliquées simultanément à toutes les cellules de la grille, produisant une nouvelle « génération » de cellules dépendant entièrement de la génération précédente.
+
+    Le **jeu de la vie** a été inventé par le mathématicien britannique John H. Conway (1937-2020). C’est un exemple de ce qu’on appelle un automate cellulaire bidimensionnel. Il se déroule sur un tableau rectangulaire (L×H) de cellules. Une cellule est représentée par ses coordonnées x et y qui vérifient 0⩽x<L  et 0⩽y<H.
+
+    Une cellule peut être dans deux états : **vivante** ou **morte**. La dynamique du jeu s’exprime par les règles de transition suivantes :
+
+    - *une cellule vivante reste vivante à la génération suivante si elle est entourée de 2 ou 3 voisines vivantes et meurt sinon* ;
+    - *une cellule morte devient vivante à la génération suivante si elle possède exactement 3 voisines vivantes*.
+
+    La notion de « voisinage » dans le jeu de la vie est celle des 8 cases qui peuvent entourer une case donnée (on parle de voisinage de Moore).
+
+    Pour implémenter la simulation, on va tout d’abord rechercher une modélisation objet du problème, puis procéder à son implémentation.
+
+    1 Quelles classes peut-on envisager au premier abord pour implémenter ce problème ?
+
+    **Réponse** Les classes Grille et Cellule viennent facilement à l’esprit, on peut penser à une classe Etat représentant l’état d’une cellule si l’on veut pousser la modélisation un peu plus loin.
+
+
+    2 Quelles méthodes pourrait-on imaginer pour chaque classe ?
+
+    **Réponse** Nous retrouverons ces méthodes dans l’implémentation, mais il faut au moins songer ici aux méthodes qui permettent de récupérer l’état interne des attributs et de les modifier. Il faut aussi penser à la représentation du voisinage d’une cellule et aux méthodes permettant de le modifier ou de le récupérer.
+
+
+    3 Dans quelle classe pouvons-nous représenter simplement la notion de voisinage d’une cellule ? Et le calculer ?
+
+    **Réponse** Il peut être commode qu’une Cellule connaisse ses voisins, mais une Grille est plus à même de calculer les voisinages. On peut donc définir une méthode de calcul de voisinage dans la Grille et des méthodes pour affecter ou lire la liste des voisins dans la Cellule, ce qui lui permettra de calculer son état futur selon les règles du jeu de la vie.
+
+    4 Une cellule est au bord si x=0, x=L−1, y=0 ou y=H−1. Combien de voisins possède une cellule qui n’est pas au bord ? Combien de voisins possède une cellule qui est au bord ?
+
+    **Réponse** Une cellule qui n’est pas au bord possède 8 voisins. Une cellule qui est en bordure en possède 3 dans les angles ou 5 ailleurs sur les bords.
+
+
+    5 Que pourrions-nous aussi considérer comme voisin de droite de la case en haut et à droite de la grille ? Et comme voisin du haut ?
+
+    **Réponse** Nous pourrions considérer que le voisin de la cellule en haut et à droite de la grille est la cellule en haut et à gauche. De même le voisin du haut de la case en haut à droite pourrait être la cellule en bas à droite de la grille (grille torique).
+
+    **Implémentation du jeu**
+
+    **Chaque classe sera définie dans un fichier différent**
+
+    **La classe Cellule**
+
+    1 Implémenter tout d’abord une classe Cellule avec comme attributs :
+
+    - un booléen actuel initialisé à False ;
+
+    - un booléen futur initialisé à False ;
+
+    - une liste voisins initialisée à None.
+
+    **Remarque.** La valeur False signifie que la cellule est morte et True qu’elle est vivante.
+
+    2 Ajouter les méthodes suivantes :
+
+    - est\_vivant qui renvoie l’état actuel (vrai ou faux) ;
+
+    - set\_voisins qui permet d’affecter comme voisins la liste passée en paramètre ;
+
+    -  get\_voisins qui renvoie la liste des voisins de la cellule ;
+
+    - naitre qui met l’état futur de la cellule à True ;
+
+    - mourir qui permet l’opération inverse ;
+
+    - basculer qui fait passer l’état futur de la cellule dans l’état actuel.
+
+    3 Ajouter à la classe Cellule une méthode \_\_str\_\_ qui retourne le caractère "X" si la cellule est vivante et un tiret "-" sinon.
+    Expliquer brièvement l’utilité d’une telle méthode \_\_str\_\_ en Python.
+    4 Ajouter une méthode calcule\_etat\_futur dans la classe Cellule qui permet d’implémenter les règles d’évolution du jeu de la vie en préparant l’état futur à sa nouvelle valeur.
+
+    **La classe Grille**
+
+    5 Créer la classe Grille et y définir les attributs suivants : 
+
+    - largeur (passé en argument) ;
+
+    - hauteur (passé en argument) ;
+
+    - matrix : un tableau de cellules à 2 dimensions implémenté en Python par une liste de listes.
+
+    **Remarque :** Définir la méthode set\_matrix pour construire le tableau. **Remarque :** Une nouvelle Cellule sera créée par l’appel Cellule().
+
+    6 Ajouter les méthodes :
+
+    - dans\_grille qui indique si un point de coordonnées iii et jjj est bien dans la grille ;
+
+    - set\_cell\_xy qui permet d’affecter une nouvelle cellule à la case (i,j)(i,j)(i,j) de la grille, si (i,j)(i,j)(i,j) est bien dans la grille ;
+
+    - get\_cell\_xy qui permet de récupérer la cellule située dans la case (i,j)(i,j)(i,j) de la grille, si (i,j)(i,j)(i,j) est bien dans la grille ;
+
+    - get\_largeur qui permet de récupérer la largeur de la grille ;
+
+    - get\_hauteur qui permet de récupérer la hauteur de la grille ;
+
+    - est\_voisin une *méthode statique* qui vérifie si les cases (i,j)(i,j)(i,j) et (x,y)(x,y)(x,y) sont voisines dans la grille.
+
+    7 Ajouter une méthode get\_voisins qui renvoie la liste des voisins d’une cellule.
+    8 Fournir une méthode set\_voisins qui affecte à chaque cellule de la grille la liste de ses voisins.
+    9 Donner une méthode \_\_str\_\_ qui permet d’afficher la grille sur un terminal.
+    10 On veut remplir aléatoirement la Grille avec un certain taux de Cellule vivantes. Définir une méthode remplir\_alea avec le taux (en pourcentage) en argument.
+
+    **Le jeu**
+
+    11 Définir une méthode jeu permettant de passer en revue toutes les Cellules de la Grille, de calculer leur état futur, puis une méthode actualise qui bascule toutes les cellules de la Grille dans leur état futur.
+    12 Dans le fichier principal, entrer le code suivant afin de lancer le jeu :
+    ```python
+    from grille import Grille
+    import time
+
+
+    def effacer_ecran():
+        print("\u001B[H\u001B[J")
+
+
+    def main():
+        plateau = Grille(20, 30)
+        plateau.remplir_alea(55)
+        plateau.set_voisins()
+        while True:
+            effacer_ecran()
+            print(plateau)
+            print("\n")
+            time.sleep(0.5)
+            plateau.jeu()
+            plateau.actualise()
+
+
+    main()
+    ```
+
+
+    **spécifications**
+
+    **Classe Cellule**
+    ```python
+    class Cellule :
+    def __init__(self: Cellule) -> None:
         """
         Initialisation des attributs.
         """
         pass
 
-    def modifier_nom(self, nom: str) -> None:
+    def est_vivant(self: Cellule) -> bool:
         """
-        Permet de modifier le nom de la personne.
-        """
-        pass
-
-    def obtenir_nom(self) -> str:
-        """
-        Retourne le nom de la personne.
+        Retourne l'état actuel de la cellule.
         """
         pass
 
-    def modifier_prenom(self, prenom: str) -> None:
+    def set_voisins(self: Cellule, voisins: List[Cellule]) -> None:
         """
-        Permet de modifier le prénom de la personne.
-        """
-        pass
-
-    def obtenir_prenom(self) -> str:
-        """
-        Retourne le prénom de la personne.
+        Affecte comme voisins la liste passée en paramètre.
         """
         pass
 
-    def obtenir_email(self) -> str:
+    def get_voisins(self: Cellule) -> List[Cellule]:
         """
-        Retourne l'email de la personne.
-        """
-        pass
-
-    def renseigner_email(self, email: str) -> None:
-        """
-        Renseigne l'attribut email de la personne.
+        Renvoie la liste des voisins de la cellule
         """
         pass
 
-    def obtenir_telephone(self) -> str:
+    def naitre(self: Cellule) -> None:
         """
-        Retourne le numéro de téléphone de la personne.
-        """
-        pass
-
-    def renseigner_telephone(self, telephone: str) -> None:
-        """
-        Renseigne l'attribut telephone de la personne.
+        Met l’état futur de la cellule à `True`
         """
         pass
 
-    def renseigner_date_naissance(self, date: str) -> None:
+    def mourir(self: Cellule) -> None:
         """
-        Récupère la date de naissance sous la forme jour/mois/année.
-        Renseigne l'attribut date_naissance et, après un traitement, les attributs
-        jour_naissance, mois_naissance, annee_naissance.
-
-        Lève une exception de type ValueError si l'année ne possède pas le bon format.
+        Met l’état futur de la cellule à `False`
         """
         pass
 
-    def obtenir_date_naissance(self) -> str:
+    def basculer(self: Cellule) -> None:
         """
-        Retourne la date de naissance.
-        """
-        pass
-
-    def obtenir_age(self, annee_en_cours: int) -> int:
-        """
-        Retourne l'age de la personne à partir de l'année en cours.
-
-        Lève une exception de type Exception si la date de naissance n'a pas été renseignée au préalable.
+        Fait passer l’état futur de la cellule dans l’état actuel
         """
         pass
 
-    def infos(self) -> str:
+    def __str__(self: Cellule) -> str:
         """
-        Retourne toutes les informations relatives à la personne.
+        Représentation de l'objet sous forme d'une chaîne de caractères
         """
-        chaine = """
-        Prénom : {}
-        Nom : {}
-        Date de naissance : {}
-        Email : {}
-        Téléphone : {}
-        """.format(self.obtenir_prenom(), self.obtenir_nom(),
-                   self.obtenir_date_naissance(), self.obtenir_email(),
-                   self.obtenir_telephone())
+        pass
 
-        return chaine
-```
-
-Tester la classe en instanciant au moins un objet de type Personne et en utilisant toutes les méthodes.
-
-2 Dans un module nommé compte\_bancaire créer la classe Compte\_bancaire et les méthodes :
-
-Ne pas oublier d’importer la classe Personne du module personne au début du fichier.
-```python
-class Compte_bancaire():
-    """
-    Définition d'un compte bancaire.
-
-    Attributs
-    ---------
-    - proprietaire : Personne
-        Personne propriétaire du compte. Initialisé à la création de l'objet.
-    - identifiant : int
-        Identifiant unique du compte. Initialisé à la création de l'objet par un calcul réalisé par une méthode statique.
-    - solde : float
-        Solde du compte. Initialisé à la création de l'objet.
-    """
-
-    def __init__(self, proprietaire: Personne, montant_initial: float) -> None:
+    def calcule_etat_futur(self: Cellule) -> None:
         """
-        Initialisation des attributs.
+        Implémente les règles d’évolution du jeu de la vie en préparant l’état futur à sa nouvelle valeur
+        """
+        pass
+    ```
+
+
+    **Classe Grille**
+    ```python
+    class Grille:
+    def __init__(self: Grille, largeur: int, hauteur: int) -> None:
+        """
+        Initialisations des attributs
+        """
+        pass
+
+    def set_matrix(self: Grille) -> List[List[Cellule]]:
+        """
+        Construction de la grille de cellules
+        """
+        pass
+
+    def dans_grille(self: Grille, i: int, j: int) -> bool:
+        """
+        Vérifie que le point de coordonnées (i,j) est dans la grille
+        """
+        pass
+
+    def set_cell_xy(self: Grille, i: int, j: int, cellule: Cellule) -> None:
+        """
+        Affecte une nouvelle cellule à la case (i,j) de la grille
+        """
+        pass
+
+    def get_cell_xy(self: Grille, i: int, j: int) -> Cellule:
+        """
+        Récupère la cellule située dans la case (i,j) de la grille
+        """
+        pass
+
+    def get_largeur(self: Grille) -> int:
+        """
+        Récupère la largeur de la grille
+        """
+        pass
+
+    def get_hauteur(self: Grille) -> int:
+        """
+        Récupère la hauteur de la grille
         """
         pass
 
     @staticmethod
-    def determine_id(proprietaire: Personne) -> int:
+    def est_voisin(i: int, j: int, x: int, y: int) -> bool:
         """
-        Détermine l'identifiant du compte aléatoirement à partir du
-        nom et du prénom du propriétaire.
-
-        Méthode statique
+        Vérifie si les cases (i,j) et (x,y) sont voisines dans la grille
         """
         pass
 
-    def obtenir_solde(self) -> float:
+    def get_voisins(self: Grille, x: int, y: int) -> List[Cellule]:
         """
-        Retourne le solde du compte.
-        """
-        pass
-
-    def depot(self, montant: float) -> None:
-        """
-        Ajoute montant au solde
+        Renvoie la liste des voisins d’une cellule
         """
         pass
 
-    def retrait(self, montant: float) -> None:
+    def set_voisins(self: Grille):
         """
-        Retire le montant montant du solde à la condition qu'il y ait suffisamment d'argent.
-        Une exception de type ValueError est levée si le montant est trop important
-        """
-        pass
-
-    def infos(self) -> str:
-        """
-        Informations sur le compte.
-        """
-        chaine = """
-        Compte numéro : {}
-        Solde : {}
-        """.format(self.identifiant, self.solde)
-
-        chaine = chaine + self.proprietaire.infos()
-
-        return chaine
-```
-
-
-Tester la classe en instanciant au moins un objet de type Compte\_bancaire et en utilisant toutes les méthodes.
-
-3 Dans un module nommé banque, créer la classe Banque et les méthodes : 
-
-Ne pas oublier d’importer la classe Personne du module personne au début du fichier.
-
-Ne pas oublier d’importer la classe Compte\_bancaire du module compte\_bancaire au début du fichier.
-```python
-class Banque():
-    """
-    Modélisation d'une banque.
-
-    Attributs
-    ---------
-    - nom : str
-        Nom de la banque. Initialisé lors de la création de l'objet.
-    - comptes : Liste[Compte_bancaire]
-        Liste des comptes bancaires au sein de la banque.
-    """
-
-    def __init__(self, nom: str) -> None:
-        """
-        Initialisation de l'objet
+        Affecte à chaque cellule de la grille la liste de ses voisins
         """
         pass
 
-    def creation_compte(self) -> None:
+    def __str__(self: Grille) -> str:
         """
-        Prend en charge l'ouverture d'un compte au sein de la banque.
+        Représentation de l'objet
         """
-        print("Procédure de création du compte :")
-        print("---------------------------------")
+        pass
 
-        nom = input("Nom du propriétaire du compte : ")
-        prenom = input("Prenom du propriétaire du compte : ")
-        montant_initial = float(input("Montant du dépôt initial : "))
-
-        p = Personne(nom, prenom)
-        c = Compte_bancaire(p, montant_initial)
-
-        self.comptes.append(c)
-
-    def infos(self) -> str:
+    def remplir_alea(self, taux: int) -> None:
         """
-        Informations sur la banque
+        Remplir aléatoirement la Grille avec un certain taux de Cellules vivantes
         """
-        chaine = """
-        -----------
+        pass
+
+    def jeu(self: Grille) -> None:
         """
-
-        for compte in self.comptes:
-            chaine = chaine + compte.infos()
-            chaine = """
-            -----------
-
-            """
-
-        return chaine
-```
-
-4 Dans le fichier nommé main, instancier un objet de type Banque et créer quelques comptes bancaires.
-
-**<H3 STYLE="COLOR:red;">Exercice n°5 : Jeu de la vie**</h3>
-
-**=> CAPYTALE Le code vous sera donné par votre enseignant**
-
-Le but de ce sujet est de réaliser en Python une implémentation du jeu de la vie en utilisant la programmation objet.
-
-Un **automate cellulaire** consiste en une grille régulière de « cellules » contenant chacune un « état » choisi parmi un ensemble fini et qui peut évoluer au cours du temps. L’état d’une cellule au temps t+1t+1t+1 est fonction de l’état au temps ttt d’un nombre fini de cellules appelé son « voisinage ». À chaque nouvelle unité de temps, les mêmes règles sont appliquées simultanément à toutes les cellules de la grille, produisant une nouvelle « génération » de cellules dépendant entièrement de la génération précédente.
-
-Le **jeu de la vie** a été inventé par le mathématicien britannique John H. Conway (1937-2020). C’est un exemple de ce qu’on appelle un automate cellulaire bidimensionnel. Il se déroule sur un tableau rectangulaire (L×H) de cellules. Une cellule est représentée par ses coordonnées x et y qui vérifient 0⩽x<L  et 0⩽y<H.
-
-Une cellule peut être dans deux états : **vivante** ou **morte**. La dynamique du jeu s’exprime par les règles de transition suivantes :
-
-- *une cellule vivante reste vivante à la génération suivante si elle est entourée de 2 ou 3 voisines vivantes et meurt sinon* ;
-- *une cellule morte devient vivante à la génération suivante si elle possède exactement 3 voisines vivantes*.
-
-La notion de « voisinage » dans le jeu de la vie est celle des 8 cases qui peuvent entourer une case donnée (on parle de voisinage de Moore).
-
-Pour implémenter la simulation, on va tout d’abord rechercher une modélisation objet du problème, puis procéder à son implémentation.
-
-1 Quelles classes peut-on envisager au premier abord pour implémenter ce problème ?
-
-**Réponse** Les classes Grille et Cellule viennent facilement à l’esprit, on peut penser à une classe Etat représentant l’état d’une cellule si l’on veut pousser la modélisation un peu plus loin.
-
-
-2 Quelles méthodes pourrait-on imaginer pour chaque classe ?
-
-**Réponse** Nous retrouverons ces méthodes dans l’implémentation, mais il faut au moins songer ici aux méthodes qui permettent de récupérer l’état interne des attributs et de les modifier. Il faut aussi penser à la représentation du voisinage d’une cellule et aux méthodes permettant de le modifier ou de le récupérer.
-
-
-3 Dans quelle classe pouvons-nous représenter simplement la notion de voisinage d’une cellule ? Et le calculer ?
-
-**Réponse** Il peut être commode qu’une Cellule connaisse ses voisins, mais une Grille est plus à même de calculer les voisinages. On peut donc définir une méthode de calcul de voisinage dans la Grille et des méthodes pour affecter ou lire la liste des voisins dans la Cellule, ce qui lui permettra de calculer son état futur selon les règles du jeu de la vie.
-
-4 Une cellule est au bord si x=0, x=L−1, y=0 ou y=H−1. Combien de voisins possède une cellule qui n’est pas au bord ? Combien de voisins possède une cellule qui est au bord ?
-
-**Réponse** Une cellule qui n’est pas au bord possède 8 voisins. Une cellule qui est en bordure en possède 3 dans les angles ou 5 ailleurs sur les bords.
-
-
-5 Que pourrions-nous aussi considérer comme voisin de droite de la case en haut et à droite de la grille ? Et comme voisin du haut ?
-
-**Réponse** Nous pourrions considérer que le voisin de la cellule en haut et à droite de la grille est la cellule en haut et à gauche. De même le voisin du haut de la case en haut à droite pourrait être la cellule en bas à droite de la grille (grille torique).
-
-**Implémentation du jeu**
-
-**Chaque classe sera définie dans un fichier différent**
-
-**La classe Cellule**
-
-1 Implémenter tout d’abord une classe Cellule avec comme attributs :
-
-- un booléen actuel initialisé à False ;
-
-- un booléen futur initialisé à False ;
-
-- une liste voisins initialisée à None.
-
-**Remarque.** La valeur False signifie que la cellule est morte et True qu’elle est vivante.
-
-2 Ajouter les méthodes suivantes :
-
-- est\_vivant qui renvoie l’état actuel (vrai ou faux) ;
-
-- set\_voisins qui permet d’affecter comme voisins la liste passée en paramètre ;
-
--  get\_voisins qui renvoie la liste des voisins de la cellule ;
-
-- naitre qui met l’état futur de la cellule à True ;
-
-- mourir qui permet l’opération inverse ;
-
-- basculer qui fait passer l’état futur de la cellule dans l’état actuel.
-
-3 Ajouter à la classe Cellule une méthode \_\_str\_\_ qui retourne le caractère "X" si la cellule est vivante et un tiret "-" sinon.
-   Expliquer brièvement l’utilité d’une telle méthode \_\_str\_\_ en Python.
-4 Ajouter une méthode calcule\_etat\_futur dans la classe Cellule qui permet d’implémenter les règles d’évolution du jeu de la vie en préparant l’état futur à sa nouvelle valeur.
-
-**La classe Grille**
-
-5 Créer la classe Grille et y définir les attributs suivants : 
-
-- largeur (passé en argument) ;
-
-- hauteur (passé en argument) ;
-
-- matrix : un tableau de cellules à 2 dimensions implémenté en Python par une liste de listes.
-
-**Remarque :** Définir la méthode set\_matrix pour construire le tableau. **Remarque :** Une nouvelle Cellule sera créée par l’appel Cellule().
-
-6 Ajouter les méthodes :
-
-- dans\_grille qui indique si un point de coordonnées iii et jjj est bien dans la grille ;
-
-- set\_cell\_xy qui permet d’affecter une nouvelle cellule à la case (i,j)(i,j)(i,j) de la grille, si (i,j)(i,j)(i,j) est bien dans la grille ;
-
-- get\_cell\_xy qui permet de récupérer la cellule située dans la case (i,j)(i,j)(i,j) de la grille, si (i,j)(i,j)(i,j) est bien dans la grille ;
-
-- get\_largeur qui permet de récupérer la largeur de la grille ;
-
-- get\_hauteur qui permet de récupérer la hauteur de la grille ;
-
-- est\_voisin une *méthode statique* qui vérifie si les cases (i,j)(i,j)(i,j) et (x,y)(x,y)(x,y) sont voisines dans la grille.
-
-7 Ajouter une méthode get\_voisins qui renvoie la liste des voisins d’une cellule.
-8 Fournir une méthode set\_voisins qui affecte à chaque cellule de la grille la liste de ses voisins.
-9 Donner une méthode \_\_str\_\_ qui permet d’afficher la grille sur un terminal.
-10 On veut remplir aléatoirement la Grille avec un certain taux de Cellule vivantes. Définir une méthode remplir\_alea avec le taux (en pourcentage) en argument.
-
-**Le jeu**
-
-11 Définir une méthode jeu permettant de passer en revue toutes les Cellules de la Grille, de calculer leur état futur, puis une méthode actualise qui bascule toutes les cellules de la Grille dans leur état futur.
-12 Dans le fichier principal, entrer le code suivant afin de lancer le jeu :
-```python
-from grille import Grille
-import time
-
-
-def effacer_ecran():
-    print("\u001B[H\u001B[J")
-
-
-def main():
-    plateau = Grille(20, 30)
-    plateau.remplir_alea(55)
-    plateau.set_voisins()
-    while True:
-        effacer_ecran()
-        print(plateau)
-        print("\n")
-        time.sleep(0.5)
-        plateau.jeu()
-        plateau.actualise()
-
-
-main()
-```
-
-
-**spécifications**
-
-**Classe Cellule**
-```python
-class Cellule :
-   def __init__(self: Cellule) -> None:
-      """
-      Initialisation des attributs.
-      """
-      pass
-
-   def est_vivant(self: Cellule) -> bool:
-      """
-      Retourne l'état actuel de la cellule.
-      """
-      pass
-
-   def set_voisins(self: Cellule, voisins: List[Cellule]) -> None:
-      """
-      Affecte comme voisins la liste passée en paramètre.
-      """
-      pass
-
-   def get_voisins(self: Cellule) -> List[Cellule]:
-      """
-      Renvoie la liste des voisins de la cellule
-      """
-      pass
-
-   def naitre(self: Cellule) -> None:
-      """
-      Met l’état futur de la cellule à `True`
-      """
-      pass
-
-   def mourir(self: Cellule) -> None:
-      """
-      Met l’état futur de la cellule à `False`
-      """
-      pass
-
-   def basculer(self: Cellule) -> None:
-      """
-      Fait passer l’état futur de la cellule dans l’état actuel
-      """
-      pass
-
-   def __str__(self: Cellule) -> str:
-      """
-      Représentation de l'objet sous forme d'une chaîne de caractères
-      """
-      pass
-
-   def calcule_etat_futur(self: Cellule) -> None:
-      """
-      Implémente les règles d’évolution du jeu de la vie en préparant l’état futur à sa nouvelle valeur
-      """
-      pass
-```
-
-
-**Classe Grille**
-```python
-class Grille:
-   def __init__(self: Grille, largeur: int, hauteur: int) -> None:
-      """
-      Initialisations des attributs
-      """
-      pass
-
-   def set_matrix(self: Grille) -> List[List[Cellule]]:
-      """
-      Construction de la grille de cellules
-      """
-      pass
-
-   def dans_grille(self: Grille, i: int, j: int) -> bool:
-      """
-      Vérifie que le point de coordonnées (i,j) est dans la grille
-      """
-      pass
-
-   def set_cell_xy(self: Grille, i: int, j: int, cellule: Cellule) -> None:
-      """
-      Affecte une nouvelle cellule à la case (i,j) de la grille
-      """
-      pass
-
-   def get_cell_xy(self: Grille, i: int, j: int) -> Cellule:
-      """
-      Récupère la cellule située dans la case (i,j) de la grille
-      """
-      pass
-
-   def get_largeur(self: Grille) -> int:
-      """
-      Récupère la largeur de la grille
-      """
-      pass
-
-   def get_hauteur(self: Grille) -> int:
-      """
-      Récupère la hauteur de la grille
-      """
-      pass
-
-   @staticmethod
-   def est_voisin(i: int, j: int, x: int, y: int) -> bool:
-      """
-      Vérifie si les cases (i,j) et (x,y) sont voisines dans la grille
-      """
-      pass
-
-   def get_voisins(self: Grille, x: int, y: int) -> List[Cellule]:
-      """
-      Renvoie la liste des voisins d’une cellule
-      """
-      pass
-
-   def set_voisins(self: Grille):
-      """
-      Affecte à chaque cellule de la grille la liste de ses voisins
-      """
-      pass
-
-   def __str__(self: Grille) -> str:
-      """
-      Représentation de l'objet
-      """
-      pass
-
-   def remplir_alea(self, taux: int) -> None:
-      """
-      Remplir aléatoirement la Grille avec un certain taux de Cellules vivantes
-      """
-      pass
-
-   def jeu(self: Grille) -> None:
-      """
-      Passe en revue toutes les Cellules de la Grille, calcule leur état futur
-      """
-      pass
-
-   def actualise(self: Grille) -> None:
-      """
-      Bascule toutes les cellules de la Grille dans leur état futur
-      """
-      pass
-
-```
+        Passe en revue toutes les Cellules de la Grille, calcule leur état futur
+        """
+        pass
+
+    def actualise(self: Grille) -> None:
+        """
+        Bascule toutes les cellules de la Grille dans leur état futur
+        """
+        pass
+
+    ```
