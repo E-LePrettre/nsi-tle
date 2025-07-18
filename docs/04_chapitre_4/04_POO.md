@@ -753,491 +753,604 @@ Cela permet un contrôle sur la **validité** des données modifiées.
 
 
 
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030964"></a>**3.1.3. (Hors programme) Propriétés**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030964"></a>🛡️ **3.1.3. (Hors programme) Propriétés**</H4>
 
-Les propriétés sont un moyen transparent de **manipuler des attributs d’objet**. Elles permettent de dire à Python : « Quand un utilisateur souhaite modifier cet attribut, fais cela ». De cette façon, on peut rendre certains attributs tout à fait **inaccessibles depuis l’extérieur de la classe**, ou dire qu’un attribut ne **sera visible qu’en lecture et non modifiable**. Ou encore, on peut faire en sorte que, si on modifie un attribut, Python recalcule la valeur d’un autre attribut de l’objet.
+Les **propriétés** permettent de **manipuler des attributs d’objet** de manière **transparente**.
+Elles permettent de dire à Python :
 
-Pour l’utilisateur, c’est absolument transparent : il croit avoir, dans tous les cas, un accès direct à l’attribut. C’est **dans la définition de la classe** que l’on précise que tel ou tel attribut doit être accessible ou modifiable grâce à certaines propriétés.
+> « Quand un utilisateur souhaite accéder ou modifier cet attribut, exécute cette méthode. »
 
-Un constructeur porte le nom property. Elle attend quatre paramètres, tous optionnels :
+Ainsi :
 
-- La méthode donnant accès à l’attribut ;
-- La méthode modifiant l’attribut ;
-- La méthode appelée quand on souhaite supprimer l’attribut ;
-- La méthode appelée quand on demande de l’aide sur l’attribut.
+* Certains attributs peuvent devenir **inaccessibles** depuis l’extérieur,
+* D’autres seront visibles **en lecture uniquement**,
+* Ou encore, la modification d’un attribut pourra déclencher le **recalcul d’un autre**.
 
-En pratique, on utilise surtout les deux premiers paramètres : ceux définissant les méthodes d’accès et de modification, autrement dit les **accesseur** et **mutateur** d’objet.
+🎯 Pour l’utilisateur, **tout semble normal**, comme s’il accédait directement à l’attribut.
+Mais c’est **dans la classe** que l’on **contrôle** ce qui est réellement fait en coulisses.
 
-**<H3 STYLE="COLOR:red;">(Hors programme) Activité n° 10 : Encapsulation de l’attribut**</H3>
-```python
-class Personne:
-    """Classe définissant une personne caractérisée par :
-    - son nom
-    - son prénom
-    - son âge"""
+---
 
-    def __init__(self, nom : str, prenom : str, age=33):
-        self.__nom   = nom        #attribut privé
-        self.prenom = prenom
-        self.age   = age
+Le constructeur `property()` attend jusqu’à **quatre paramètres optionnels** :
 
-    def __get_name(self): # méthode donnant accès à l'attribut ne pas oublier les underscores devant
-        return self.__nom
+1. Méthode d’accès à l’attribut *(getter)*,
+2. Méthode de modification *(setter)*,
+3. Méthode pour supprimer l’attribut *(deleter)*,
+4. Méthode pour afficher de l’aide *(doc)*.
 
-    def __set_name(self, nom : str): # méthode modifiant l'attribut
-        self.__nom = nom
+> En pratique, on utilise surtout le **getter** et le **setter**.
 
-    nom = property(__get_name, __set_name) # l'attribut nom est accessible et modifiable
+---
 
-### Programme principal ###
-qui = Personne('Dupont', 'Jean')
+???+ question "🎯 (Hors programme) Activité n°10 : Encapsulation d’un attribut avec `property`"
 
-# pour l'utilisateur l'attribut nom parait public
-print(qui.nom)    # donne le nom
-qui.nom = 'Durant'
-print(qui.nom)
-```
+    ```python
+    class Personne:
+        """Classe définissant une personne caractérisée par :
+        - son nom
+        - son prénom
+        - son âge"""
 
-```txt
-Dupont
-Durant
-```
-???+ question "Tester ce qui est proposé"
+        def __init__(self, nom : str, prenom : str, age=33):
+            self.__nom = nom        # attribut privé
+            self.prenom = prenom
+            self.age = age
 
-    {{ IDE() }}
+        def __get_name(self):
+            return self.__nom
 
-**<H3 STYLE="COLOR:red;">(Hors programme) Activité n° 11 : Encapsulation de l’attribut**</H3>
-contrôle de l’accès à l’attribut
-```python
-class Personne:
-    """ Classe représentant une personne """
-    def __init__(self, nom : str, prenom : str, age=33):
-        self.nom = nom
-        self.prenom = prenom
-        self.__age    = age
+        def __set_name(self, nom : str):
+            self.__nom = nom
 
-    def __get_age(self):
-        return self.__age
+        nom = property(__get_name, __set_name)  # on crée une propriété
 
-    def __set_age(self, age : int):
-        if age > 18:
+    ### Programme principal ###
+    qui = Personne('Dupont', 'Jean')
+
+    # pour l’utilisateur, l’attribut "nom" semble public
+    print(qui.nom)       # donne le nom
+    qui.nom = 'Durant'   # modifie le nom grâce au setter
+    print(qui.nom)
+    ```
+
+    ??? success "Python"
+    
+        {{ IDE() }}
+
+    ??? success "📤 Résultat :"
+
+        ```txt
+        Dupont  
+        Durant
+        ```
+
+
+
+---
+
+???+ question "🎯 (Hors programme) Activité n°11 : Contrôle de l’accès à l’attribut"
+
+
+    ??? success "Python"
+    
+        {{ IDE() }}
+
+    ??? success "📤 Résultat :"
+
+        ```txt
+        33  
+        33
+        ```
+
+
+
+---
+
+#### <H4 STYLE="COLOR:MAGENTA;">🧩 **Méthode spéciale `__getattr__`**</H4>
+
+La méthode spéciale `__getattr__` est appelée quand **Python ne trouve pas** l’attribut demandé.
+Elle reçoit comme argument le nom de l’attribut **sous forme de chaîne**.
+
+> ⚠️ Cette méthode **ne sert que pour l’accès en lecture**, **et uniquement si l’attribut n’existe pas.**
+
+---
+
+???+ question "🎯 (Hors programme) Activité n°12 : Utilisation de `__getattr__`"
+
+    ```python
+    class Personne:
+        """Classe représentant une personne"""
+        def __init__(self, nom : str, prenom : str, age=33):
+            self.__nom = nom
+            self.__prenom = prenom
             self.__age = age
 
-    age = property(__get_age, __set_age)
+        def __getattr__(self, name : str):
+            return 'Attribut introuvable'
 
-### Programme principal ###
-qui = Personne('Dupont', 'Jean')
-print(qui.age)
-qui.age = 10      # ne modifie pas l’attribut
-print(qui.age)
-```
+        def __get_age(self):
+            return self.__age
 
-```txt
-33
-33
-```
-???+ question "Tester ce qui est proposé"
+        def __set_age(self, age : int):
+            if age > 17:
+                self.__age = age
 
-    {{ IDE() }}
+        age = property(__get_age, __set_age)
 
-La **méthode spéciale** ```__getattr__``` permet de définir une méthode d’accès aux attributs plus large que celle que Python propose par défaut. En fait, cette méthode est appelée quand on tape objet.attribut (non pas pour modifier l’attribut mais simplement pour y accéder). Python recherche l’attribut et, s’il ne le trouve pas dans l’objet et si une méthode ```__getattr__``` existe, il va l’appeler en lui passant en paramètre le nom de l’attribut recherché, sous la forme d’une **chaine de caractères**.
+    ### Programme principal ###
+    qui = Personne('Dupont', 'Jean')
+    print(qui.age)
+    qui.age = 10      # ne modifie pas l’attribut car < 17
+    print(qui.age)
+    print(qui.nom)         # nom est privé => introuvable
+    print(qui.tartempion)  # n'existe pas => introuvable
+    ```
 
-```__getattr__``` est utilisé uniquement si l'attribut auquel on tente d'avoir accès n'existe pas dans l'objet.
+    ??? success "Python"
+    
+        {{ IDE() }}
 
-**<H3 STYLE="COLOR:red;">(Hors programme)Activité n° 12 : méthode spéciale ```__getattr__```**</H3>
-```python
-class Personne:
-    """ Classe représentant une personne """
-    def __init__(self, nom : str, prenom : str, age=33):
-        self.__nom    = nom
-        self.__prenom = prenom
-        self.__age    = age
-    def __get_age(self):
-        return self.__age
-    def __set_age(self, age : int):
-        if age > 17:
+    ??? success "📤 Résultat :"
+
+        ```txt
+        33  
+        33  
+        Attribut introuvable  
+        Attribut introuvable
+        ```
+
+
+
+---
+
+#### <H4 STYLE="COLOR:MAGENTA;">🚫 **(Hors programme) Activité n°13 : Ce qu’il ne faut pas faire**</H4>
+
+⚠️ Il est **interdit** en programmation orientée objet d’accéder directement à des attributs **privés** ou de les modifier sans méthode.
+
+---
+
+???+ question "🎯 Ce qu’il ne faut pas faire (à proscrire en Terminale)"
+
+    ```python
+    class Personne:
+        """Classe représentant une personne"""
+        def __init__(self, nom : str, prenom : str, age=33):
+            self.__nom = nom
+            self.__prenom = prenom
             self.__age = age
 
-    age = property(__get_age, __set_age)
+        def __get_age(self):
+            return self.__age
 
-### Programme principal ###
-qui = Personne('Dupont', 'Jean')
-print(qui.age)
-qui.age = 10      # ne modifie pas l’attribut car < 17
-print(qui.age)
-print(qui.nom)   # lever d’exception car nom est un attribut privé (n’existe pas)
-```
-???+ question "Tester ce qui est proposé"
+        def __set_age(self, age : int):
+            if age > 17:
+                self.__age = age
 
-    {{ IDE() }}
+        age = property(__get_age, __set_age)
 
-Lever d'exception
+    ### Programme principal ###
+    qui = Personne('Dupont', 'Jean')
+    print(qui.age)
+    qui.__name, qui.__age = 'Albert', 18      # À PROSCRIRE : crée de nouveaux attributs inutiles
+    print(qui.__name, qui.__age)
+    print(qui.age)  # Toujours 33 car self.__age original n’a pas été modifié
+    ```
+
+    ??? success "Python"
+    
+        {{ IDE() }}
+
+    ??? success "📤 Résultat :"
+
+        ```txt
+        33  
+        Albert 18  
+        33
+        ```
+
+
+---
+
+
+
+
+
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc88030965"></a>🧬 **3.2. (Hors programme) Héritage**</H3>
+
+L’**héritage** est un pilier fondamental de la programmation orientée objet. Il permet :
+
+* La **réutilisation** de code existant,
+* L’**extension** de comportements d’une classe,
+* L’**organisation hiérarchique** des objets.
+
+On crée une **classe fille** (ou sous-classe) qui hérite d’une **classe mère** (ou superclasse).
+👉 Cette classe fille **bénéficie automatiquement** des attributs et méthodes de sa mère.
+
+> Une classe B qui hérite de A peut utiliser toutes les méthodes et attributs de A.
+
+---
+
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030966"></a>🌿 **3.2.1. (Hors programme) Héritage simple**</H4>
+
+???+ question "🎯 (Hors programme) Activité n°14 : Héritage simple"
+
+    On définit une première classe `Personne`, puis une classe `AgentSpecial` qui **hérite** de `Personne`.
+
+    ```python
+    class Personne:
+        """Classe représentant une personne"""
+        def __init__(self, nom : str, prenom : str):
+            self.__nom = nom
+            self.__prenom = prenom
+
+        def get_identity(self):
+            return self.__prenom + " " + self.__nom
+
+    class AgentSpecial(Personne):
+        """Classe définissant un agent spécial héritant de Personne"""
+        def __init__(self, nom : str, prenom : str, matricule : str):
+            Personne.__init__(self, nom, prenom)  # appel explicite au constructeur
+            self.__matricule = matricule
+
+        def get_matricule(self):
+            return self.__matricule
+
+    ### Programme principal ###
+    qui = AgentSpecial('Dupont', 'Jean', '007')
+    print("{0} : {1}".format(qui.get_identity(), qui.get_matricule()))
+    ```
+
+    ??? success "Python"
+    
+        {{ IDE() }}
+
+    ??? success "📤 Résultat :"
+
+        ```txt
+        Jean Dupont : 007
+        ```
+
+
+
+> ✅ L'objet `qui` accède aux méthodes de `Personne` **sans les redéfinir**.
+
+---
+
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030967"></a>🧩 **3.2.2. (Hors programme) Héritage multiple**</H4>
+
+Python permet aussi l’**héritage multiple** :
+🧠 Une classe peut hériter de **plusieurs classes mères**, séparées par des virgules :
 
 ```python
-class Personne:
-    """ Classe représentant une personne """
-    def __init__(self, nom : str, prenom : str, age=33):
-        self.__nom    = nom
-        self.__prenom = prenom
-        self.__age    = age
-    def __getattr__(self, name : str):
-        return 'Attribut introuvable'
-    def __get_age(self):
-        return self.__age
-    def __set_age(self, age : int):
-        if age > 17:
-            self.__age = age
-
-    age = property(__get_age, __set_age)
-
-### Programme principal ###
-qui = Personne('Dupont', 'Jean')
-print(qui.age)
-qui.age = 10      # ne modifie pas l’attribut car < 17
-print(qui.age)
-print(qui.nom)
-print(qui.tartempion)
-```
-
-```txt
-33
-33
-Attribut introuvable
-Attribut introuvable
-```
-
-???+ question "Tester ce qui est proposé"
-
-    {{ IDE() }}
-
-**<H3 STYLE="COLOR:red;">(Hors programme)Activité n° 13 : Ce qu’il ne faut pas faire !!**</H3>
-```python
-class Personne:
-    """ Classe représentant une personne """
-    def __init__(self, nom : str, prenom : str, age=33):
-        self.__nom    = nom
-        self.__prenom = prenom
-        self.__age    = age
-    def __get_age(self):
-        return self.__age
-    def __set_age(self, age : int):
-        if age > 17:
-            self.__age = age
-
-    age = property(__get_age, __set_age)
-
-### Programme principal ###
-qui = Personne('Dupont', 'Jean')
-print(qui.age)
-qui.__name, qui.__age = 'Albert', 18      # à proscrire !! c'est INTERDIT en terminale il faut utiliser une méthode pour cela !!
-print(qui.__name, qui.__age)
-print(qui.age)    # résultat très étonnant...
-```
-
-```txt
-33
-Albert 18
-33
-```
-???+ question "Tester ce qui est proposé"
-
-    {{ IDE() }}
-
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc88030965"></a>**3.2. (Hors programme) Héritage**</H3>
-
-L’héritage est l’un des fondements de la programmation objet qui permet une **réutilisation** d’éléments déjà programmés dans un cadre général. L’héritage est une fonctionnalité objet qui permet de déclarer que telle classe sera elle-même modelée sur une autre classe, qu’on appelle la classe parente, ou la classe **mère**. 
-
-Si une classe B hérite de la classe A, les objets créés sur le modèle de la classe B auront accès aux méthodes et attributs de la classe A. On dit que la classe B est la **fille** de la classe A qui est le **parent** (ou la superclasse).
-
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030966"></a>**3.2.1. (Hors programme) Héritage simple**</H4>
-
-**<H3 STYLE="COLOR:red;">(Hors programme) Activité n° 14  Héritage simple:**</H3> 
-On définit une première classe Personne et une seconde classe AgentSpecial qui hérite de Personne.
-```python
-class Personne:
-    """Classe représentant une personne"""
-    def __init__(self, nom : str, prenom : str):
-        self.__nom    = nom
-        self.__prenom = prenom
-    def get_identity(self):
-        return self.__prenom + " " + self.__nom
-
-class AgentSpecial(Personne):
-    """Classe définissant un agent spécial.
-    Elle hérite de la classe Personne"""
-    def __init__(self, nom : str, prenom : str, matricule : str):
-        """Un agent se définit par son nom et son matricule"""
-        Personne.__init__(self, nom, prenom)   # appel explicite au constructeur
-        self.__matricule = matricule
-    def get_matricule(self):
-        return self.__matricule
-
-### Programme principal ###
-qui = AgentSpecial('Dupont', 'Jean', '007')
-print("{0} : {1}".format(qui.get_identity(), qui.get_matricule()))
-```
-
-```txt 
-Jean Dupont : 007
-```
-
-???+ question "Tester ce qui est proposé"
-
-    {{ IDE() }}
-
-On n’a pas besoin de redéfinir les attribut nom et prenom de la classe AgentSpecial puisqu’elle hérite de Personne.
-
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030967"></a>**3.2.2. (Hors programme) Héritage multiple**</H4>
-
-Python inclut un mécanisme permettant l’héritage multiple. L’idée est en substance très simple : au lieu d’hériter d’une seule classe, on peut hériter de plusieurs. Assez souvent, on utilisera l’héritage multiple pour des classes qui ont besoin de certaines fonctionnalités définies dans une classe mère.
-
-On précise plusieurs classes mères séparée par des virgules :
-```txt
 class SuperHero(Personne, Pouvoirs):
 ```
 
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030968"></a>**3.2.3. (Hors programme) Ordre de recherche de méthodes**</H4>
+Ce mécanisme est utile quand on souhaite combiner des **comportements indépendants** issus de plusieurs classes.
 
-La recherche des méthodes se fait dans l’ordre de la définition de la classe. Dans l’exemple ci-dessus, si on appelle une méthode d’un objet issu de SuperHero, on va d’abord chercher dans la classe SuperHero. Si la méthode n’est pas trouvée, on cherche dans toutes les classes mère de la classe Personne. Si on ne trouve pas la méthode, on la recherche dans Pouvoirs et ses classes mères successivement.
+> Exemple : `Personne` pour les attributs, `Pouvoirs` pour les capacités spéciales.
 
-L’ordre de définition des classes mères est important.
+---
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc88030969"></a>**3.3. (Hors programme) Polymorphisme**</H3>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030968"></a>🧭 **3.2.3. (Hors programme) Ordre de recherche de méthodes**</H4>
 
-Un objet va hériter des attributs et méthodes de ces ancêtres. Mais un objet garde toujours la capacité de pouvoir redéfinir une méthode afin de la réécrire ou de la compléter.
+Quand on appelle une méthode, Python suit un **ordre de recherche (MRO - Method Resolution Order)** :
 
-Le polymorphisme permet à un objet de modifier son comportement propre et celui de ses descendants.
+1. Il commence dans la **classe courante** (ex: `SuperHero`),
+2. Puis explore les **classes mères dans l’ordre de leur déclaration**,
+3. Ensuite leurs classes mères, et ainsi de suite…
 
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030970"></a>**3.3.1. (Hors programme) Polymorphisme statique : surcharge de méthodes**</H4>
+> ⚠️ L’**ordre d’héritage est important** ! Il influe sur le comportement des méthodes.
 
-Lorsqu’on surcharge une méthode, le but n’est pas d’écraser l’ancienne, mais de la compléter de façon à apporter de nouvelles fonctionnalités.
+---
 
-De fait, il n’est pas nécessaire pour un objet de réécrire une méthode ou un constructeur si ceux de son ancêtre suffisent.
 
-**<H3 STYLE="COLOR:red;">(Hors programme) Activité n° 15 surcharge de méthodes :**</H3> 
-On ajoute ```get_identity``` aux deux classes.
+
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc88030969"></a>🌀 **3.3. (Hors programme) Polymorphisme**</H3>
+
+Un objet hérite des attributs et des méthodes de ses **ancêtres**, mais il peut également **redéfinir** une méthode afin de la **modifier ou la compléter**.
+
+Le **polymorphisme** permet à une méthode ou un opérateur d’adopter des **comportements différents** selon le contexte ou le type d’objet concerné.
+
+> 🧠 En POO, **un même nom** de méthode peut effectuer **des actions différentes** selon l’objet qui l’utilise.
+
+---
+
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030970"></a>🧱 **3.3.1. (Hors programme) Polymorphisme statique : surcharge de méthodes**</H4>
+
+???+ question "🎯 (Hors programme) Activité n°15 : Surcharge de méthodes"
+
+    On redéfinit ici la méthode `get_identity` dans la classe `AgentSpecial`.
+
+    ```python
+    class Personne:
+        """Classe représentant une personne"""
+        def __init__(self, nom : str, prenom : str):
+            self.__nom = nom
+            self.__prenom = prenom
+
+        def get_identity(self):
+            return self.__prenom + " " + self.__nom
+
+    class AgentSpecial(Personne):
+        """Classe définissant un agent spécial"""
+        def __init__(self, nom : str, prenom : str, matricule : str):
+            Personne.__init__(self, nom, prenom)
+            self.__matricule = matricule
+
+        def get_identity(self):
+            return self.__matricule
+
+    ### Programme principal ###
+    moi = AgentSpecial('Dupont', 'Jean', '007')
+    print("identité : {0}".format(moi.get_identity()))
+
+    toi = Personne('Durant', 'Jean')
+    print("identité : {0}".format(toi.get_identity()))
+    ```
+
+    ??? success "Python"
+    
+        {{ IDE() }}
+
+    ??? success "📤 Résultat :"
+
+        ```txt
+        identité : 007  
+        identité : Jean Durant
+        ```
+
+
+
+> 🔁 Le nom de la méthode est **le même**, mais le **comportement est adapté** à la classe.
+
+---
+
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030971"></a>➕ **3.3.2. (Hors programme) Polymorphisme statique : surcharge d’opérateurs**</H4>
+
+La surcharge d’opérateur permet de donner à un opérateur (comme `+` ou `==`) un **comportement spécifique pour une classe donnée**.
+
+Voici les principales méthodes spéciales pour les opérateurs arithmétiques :
+
+| Opérateur | Méthode spéciale |
+| --------: | ---------------- |
+|       `+` | `__add__`        |
+|       `-` | `__sub__`        |
+|       `*` | `__mul__`        |
+|       `/` | `__truediv__`    |
+|      `//` | `__floordiv__`   |
+|       `%` | `__mod__`        |
+|      `**` | `__pow__`        |
+
+Et pour les comparaisons :
+
+| Opérateur | Méthode spéciale |
+| --------- | ---------------- |
+| `==`      | `__eq__`         |
+| `!=`      | `__ne__`         |
+| `>`       | `__gt__`         |
+| `>=`      | `__ge__`         |
+| `<`       | `__lt__`         |
+| `<=`      | `__le__`         |
+
+---
+
+???+ question "🎯 (Hors programme) Activité n°16 : Surcharge de l'opérateur + et comparaisons"
+
+    Exemple avec une classe `Duree` :
+
+    ```python
+    class Duree:
+        """Classe contenant des durées sous la forme minutes.secondes"""
+        def __init__(self, duree = 0.0):
+            min, sec = str(duree).split('.')
+            self.__min, self.__sec = int(min), int(sec)
+
+        def __str__(self):
+            return "{0:02}:{1:02}".format(self.__min, self.__sec)
+
+        def __add__(self, duree : float):
+            """Ajoute un nombre de secondes (format décimal)"""
+            nouvelle_duree = Duree()
+            min, sec = str(duree).split('.')
+            nouvelle_duree.__min = self.__min + int(min)
+            nouvelle_duree.__sec = self.__sec + int(sec)
+            if nouvelle_duree.__sec >= 60:
+                nouvelle_duree.__min += nouvelle_duree.__sec // 60
+                nouvelle_duree.__sec = nouvelle_duree.__sec % 60
+            return nouvelle_duree
+
+        def __eq__(self, autre_duree):
+            return self.__min == autre_duree.__min and self.__sec == autre_duree.__sec
+
+        def __gt__(self, autre_duree):
+            total1 = self.__min * 60 + self.__sec
+            total2 = autre_duree.__min * 60 + autre_duree.__sec
+            return total1 > total2
+
+    ### Programme principal ###
+    d1 = Duree(12.8)
+    print(d1)
+
+    d2 = d1 + .54   # Ajoute 54 secondes
+    print(d2)
+
+    print(d1 == d2) # False
+    print(d2 > d1)  # True
+    ```
+
+    ??? success "Python"
+    
+        {{ IDE() }}
+
+    ??? success "📤 Résultat :"
+
+        ```txt
+        12:08  
+        13:02  
+        False  
+        True
+        ```
+
+
+
+> ✅ On utilise l'opérateur `+` comme s’il était natif pour la classe `Duree`, et les comparaisons deviennent **intuitives**.
+
+---
+
+
+
+
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc88030972"></a>🧩 **4. (Hors programme) Décorateurs**</H2>
+
+Les **décorateurs** sont des fonctions particulières de Python qui permettent de **modifier le comportement** d'autres fonctions ou classes, sans en changer le code directement.
+
+> 🎯 Un décorateur prend une fonction en **paramètre**, et renvoie une **nouvelle fonction** (modifiée, enrichie…).
+
+---
+
+📌 **Syntaxe classique** :
+
 ```python
-class Personne:
-    """Classe représentant une personne"""
-    def __init__(self, nom : str, prenom : str):
-        self.__nom    = nom
-        self.__prenom = prenom
-
-    def get_identity(self):
-        return self.__prenom + " " + self.__nom
-
-class AgentSpecial(Personne):
-    """Classe définissant un agent spécial.
-    Elle hérite de la classe Personne"""
-    def __init__(self, nom : str, prenom : str, matricule : str):
-        """Un agent se définit par son nom et son matricule"""
-        Personne.__init__(self, nom, prenom)   # appel explicite au constructeur pour nom et prénom
-        self.__matricule = matricule            # on ajoute l'attribut matricule
-
-    def get_identity(self):                     # pour accéder au matricule
-        return self.__matricule
-
-### Programme principal ###
-moi = AgentSpecial('Dupont', 'Jean', '007')
-print("identité : {0}".format(moi.get_identity()))
-
-toi = Personne('Durant', 'Jean')
-print("identité : {0}".format(toi.get_identity()))
-```
-
-```txt
-identité : 007
-identité : Jean Durant
-```
-
-???+ question "Tester ce qui est proposé"
-
-    {{ IDE() }}
-
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030971"></a>**3.3.2. (Hors programme) Polymorphisme statique : surcharge d’opérateurs**</H4>
-
-La surcharge d’opérateur permet d’avoir une signification spécifique quand ils sont appliqués à des types spécifiques. Surcharger les opérateurs standards permet de tirer parti de l’intuition des utilisateurs de la classe.
-
-Pour surcharger l’addition, la méthode spéciale à redéfinir est \_\_add\_\_. Elle prend en paramètre l’objet que l’on souhaite ajouter. Il existe d’autres méthodes :
-
-- \_\_sub\_\_ : surcharge de l'opérateur –
-- \_\_mul\_\_ : surcharge de l'opérateur \*
-- \_\_truediv\_\_ : surcharge de l'opérateur /
-- \_\_floordiv\_\_ : surcharge de l'opérateur // (division entière)
-- \_\_mod\_\_ : surcharge de l'opérateur % (modulo)
-- \_\_pow\_\_ : surcharge de l'opérateur \*\* (puissance)
-
-à consulter sur [le site web de Python](https://www.python.org/).
-
-Méthode de comparaison qui prend en paramètre l’objet à comparer à self et renvoie un booléen.
-
-- \_\_eq\_\_ : surcharge l’opérateur ==
-- \_\_ne\_\_ : surcharge l’opérateur !=
-- \_\_gt\_\_ : surcharge l’opérateur >
-- \_\_ge\_\_ : surcharge l’opérateur =>=
-- \_\_lt\_\_ : surcharge l’opérateur <
-- \_\_le\_\_ : surcharge l’opérateur <=
-
-Exemple de comparaison de durée :
-```python
-class Duree:
-    """Classe contenant des durées sous la forme d'un nombre de minutes
-    et de secondes"""
-    def __init__(self, duree = 0.0):
-        min, sec = str(duree).split('.')
-        self.__min, self.__sec = int(min), int(sec)
-
-    def __str__(self):
-        return "{0:02}:{1:02}".format(self.__min, self.__sec)
-
-    def __add__(self, duree : float):
-        """L'objet à ajouter est un entier, le nombre de secondes"""
-        nouvelle_duree = Duree()
-        min, sec = str(duree).split('.')
-        nouvelle_duree.__min  = self.__min + int(min)
-        nouvelle_duree.__sec  = self.__sec + int(sec)
-        if nouvelle_duree.__sec >= 60:
-            nouvelle_duree.__min += nouvelle_duree.__sec // 60
-            nouvelle_duree.__sec  = nouvelle_duree.__sec % 60
-        return nouvelle_duree
-
-    def __eq__(self, autre_duree):
-        """Test si self et autre_duree sont égales"""
-        return self.__sec == autre_duree.__sec and self.__min == autre_duree.__min
-
-    def __gt__(self, autre_duree):
-        """Test si self > autre_duree"""
-        nb_sec1 = self.__sec + self.__min * 60
-        nb_sec2 = autre_duree.__sec + autre_duree.__min * 60
-        return nb_sec1 > nb_sec2
-
-d1 = Duree(12.8)
-print(d1)
-d2 = d1 + .54  # ajoute 54 secondes
-print(d2)
-print(d1 == d2)
-print(d2 > d1)
-```
-
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc88030972"></a>**4. (Hors programme) Décorateurs**</H2>
-Les décorateurs sont des fonctions de Python dont le rôle est de **modifier le comportement** par défaut d’autres fonctions ou classes. Une fonction modifiée par un décorateur ne s’exécutera pas elle-même mais appellera le décorateur. C’est au décorateur de décider s’il veut exécuter la fonction et dans quelles conditions.
-
-La syntaxe et la suivante :
-```txt
 @nom_du_decorateur
-
-def ma_fonction(...)
-```
-Le décorateur s’exécute
-
- au moment de la définition et non lors de l’appel. Il prend en paramètre une fonction (celle qu’il modifie) et renvoie une fonction (qui peut être la même).
-```txt
-def fonction():
-   pass
+def ma_fonction(...):
+    ...
 ```
 
-Le code précédent a le même comportement que le code suivant:
-```txt
-def fonction():
-   pass
+Cette syntaxe est équivalente à :
 
-fonction = decorateur(fonction)
-```
-
-**<H3 STYLE="COLOR:red;">(Hors programme) Activité n° 16 décorateur debug avec les fonctions :**</H3> 
-```python 
-def debug(fonction : callable):
-    print("appel de la fonction {0}".format(fonction))
-    return fonction
-
-@debug
-def factoriel(n : int) -> int:
-    """ calcul de n! """
-    if n < 2:
-        return 1
-    return n * factoriel(n-1)
-
-print(factoriel(4))
-```
-
-```txt
-appel de la fonction <function factoriel at 0x000001CF559CD040>
-24
-```
-???+ question "Tester ce qui est proposé"
-
-    {{ IDE() }}
-
-On peut ainsi poursuivre le débogage et tracer les appels récursifs de la fonction factoriel()
-
-**<H3 STYLE="COLOR:red;">(Hors programme) Activité n° 17 décorateur debug avec les fonctions :**</H3> 
-plus en détail
 ```python
-def debug(fonction : callable):
-    print("appel de la fonction {0}".format(fonction))
+def ma_fonction(...):
+    ...
 
-    def pile_appels(n : int):
-        print("appel de la fonction", n)
-        return fonction(n)
-    return pile_appels
-
-@debug
-def factoriel(n : int) -> int:
-    """ calcul de n! """
-    if n < 2:
-        return 1
-    return n * factoriel(n-1)
-
-print(factoriel(4))
+ma_fonction = nom_du_decorateur(ma_fonction)
 ```
 
-```txt
-appel de la fonction <function factoriel at 0x00000268913B14C0>
-appel de la fonction 4
-appel de la fonction 3
-appel de la fonction 2
-appel de la fonction 1
-24
-```
-???+ question "Tester ce qui est proposé"
+> 🧠 Le décorateur est exécuté **au moment de la définition de la fonction**, et non à son appel.
 
-    {{ IDE() }}
+---
 
-Il est important de noter que les décorateurs peuvent s’utiliser avec des méthodes de classes.
+???+ question "🧪 (Hors programme) Activité n°16 : décorateur `debug` simple"
 
-**<H3 STYLE="COLOR:red;">(Hors programme) Activité n° 18 décorateur debug avec la POO :**</H3>
-Il faut obligatoirement définir la méthode \_\_call\_\_() pour pouvoir rendre cette instance callable.
-```python
-class Debug:
-    def __init__(self, fonction):
-        self.call = 0
-        self.fonction = fonction
-    def __call__(self, *args, **kwargs):
-        self.call +=1
-        print("appel de la fonction {0}".format(self.call))
-        return self.fonction(*args, **kwargs)
+    ```python
+    def debug(fonction : callable):
+        print("appel de la fonction {0}".format(fonction))
+        return fonction
 
-@Debug
-def factoriel(n : int) -> int:
-    """ calcul de n! """
-    if n < 2:
-        return 1
-    return n * factoriel(n-1)
+    @debug
+    def factoriel(n : int) -> int:
+        """ calcul de n! """
+        if n < 2:
+            return 1
+        return n * factoriel(n-1)
 
-print(factoriel(4))
-```
+    print(factoriel(4))
+    ```
 
-```txt
-appel de la fonction 1
-appel de la fonction 2
-appel de la fonction 3
-appel de la fonction 4
-24
-```
+    ??? success "Python"
+    
+        {{ IDE() }}
 
-???+ question "Tester ce qui est proposé"
+    ??? success "📤 Résultat :"
 
-    {{ IDE() }}
+        ```txt
+        appel de la fonction <function factoriel at 0x000001CF559CD040>
+        24
+        ```
+
+
+
+> ✅ Ce décorateur affiche le nom de la fonction décorée **au moment de sa déclaration**.
+
+---
+
+
+???+ question "🧪 (Hors programme) Activité n°17 : décorateur `debug` avec suivi d'appels"
+
+    On modifie le décorateur pour afficher **chaque appel** de la fonction :
+
+    ```python
+    def debug(fonction : callable):
+        print("appel de la fonction {0}".format(fonction))
+
+        def pile_appels(n : int):
+            print("appel de la fonction", n)
+            return fonction(n)
+        return pile_appels
+
+    @debug
+    def factoriel(n : int) -> int:
+        """ calcul de n! """
+        if n < 2:
+            return 1
+        return n * factoriel(n-1)
+
+    print(factoriel(4))
+    ```
+
+    ??? success "Python"
+    
+        {{ IDE() }}
+
+    ??? success "📤 Résultat :"
+
+        ```txt
+        appel de la fonction <function factoriel at 0x00000268913B14C0>
+        appel de la fonction 4
+        appel de la fonction 3
+        appel de la fonction 2
+        appel de la fonction 1
+        24
+        ```
+
+
+> 🔍 Cette version affiche chaque **étape de la récursivité**.
+
+---
+
+???+ question "🧪 (Hors programme) Activité n°18 : décorateur `debug` orienté objet"
+
+    On définit un décorateur sous forme de **classe** avec la méthode spéciale `__call__`.
+
+    ```python
+    class Debug:
+        def __init__(self, fonction):
+            self.call = 0
+            self.fonction = fonction
+
+        def __call__(self, *args, **kwargs):
+            self.call += 1
+            print("appel de la fonction {0}".format(self.call))
+            return self.fonction(*args, **kwargs)
+
+    @Debug
+    def factoriel(n : int) -> int:
+        """ calcul de n! """
+        if n < 2:
+            return 1
+        return n * factoriel(n-1)
+
+    print(factoriel(4))
+    ```
+
+    ??? success "Python"
+    
+        {{ IDE() }}
+
+    ??? success "📤 Résultat :"
+
+        ```txt
+        appel de la fonction 1  
+        appel de la fonction 2  
+        appel de la fonction 3  
+        appel de la fonction 4  
+        24
+        ```
+
+
+> 🛠️ Cette version **compte le nombre d'appels** grâce à l'attribut `self.call` de la classe décoratrice.
+
+---
+
 
 
 
