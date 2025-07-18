@@ -5,9 +5,9 @@ title: 05a Interface et implémentation
 
 📚 **Table des matières**
 
-[1.	Rappels : modules, fonctions](#_toc145779687)  
-[2.	Interface d’une structure de données abstraites](#_toc145779688)  
-[3.	Implémentation](#_toc145779693)
+[1.	🧩 Rappels : modules, fonctions](#_toc145779687)  
+[2.	🛠️ Interface d’une structure de données abstraites](#_toc145779688)  
+[3.	📌 Implémentation](#_toc145779693)
 
 🎯 **Compétences évaluables :**
 
@@ -17,9 +17,9 @@ title: 05a Interface et implémentation
 
 ---
 
- possède dans la bibliothèque standard un grand nombre de structures de données, programmées de manière efficace.
+ Python possède dans la bibliothèque standard un grand nombre de structures de données, programmées de manière efficace.
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc145779687"></a>**1. Rappels : modules, fonctions**</H2>
+## <H2 STYLE="COLOR:BLUE;">🧩 <a name="_toc145779687"></a>**1. Rappels : modules, fonctions**</H2>
 
 Pour chaque **module**, on distingue :
 
@@ -37,7 +37,7 @@ Pour chaque **fonction** du module, la spécification doit indiquer :
 
 ---
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc145779688"></a>**2. Interface d’une structure de données abstraites**</H2>
+## <H2 STYLE="COLOR:BLUE;">🛠️ <a name="_toc145779688"></a>**2. Interface d’une structure de données abstraites**</H2>
 
 Une structure de données abstraites ou type abstrait est **une spécification mathématique d’un ensemble de données et de l’ensemble des opérateurs associées.**
 
@@ -105,13 +105,13 @@ C’est une pile dont l’application de l’opérateur `estVide` renvoie **vrai
 Une pile à un **élément** est composée, dans le haut de sa pile, par l’élément et d’une pile vide.
 Nous avons ainsi compris ce qu’est une pile à un élément :
 
-```txt
+```
 (a, vide())
 ```
 
 Une pile à **deux éléments** peut être représentée ainsi :
 
-```txt
+```
 (hautDeLaPile, secondElementDeLaPile, vide())
 ```
 
@@ -164,6 +164,7 @@ P = (Anakin, (Boba Fett, (Dark Vador, (Han Solo, (Yoda, vide())))))
 		```
 		Pcouleur = (rouge, (bleu, (vert, vide())))
 		Pentier  = (12, (5, (3, (6, (1, vide())))))
+		avec une structure linéaire comme les tableaux ou les tuples
 		```
 
 👉 Pour manipuler un objet de ce type, on utilise des opérateurs spécifiques tels que `empiler()` et `depiler()`.
@@ -358,16 +359,33 @@ Elle fonctionne selon le principe **FIFO** (First In, First Out).
 📌 Représentation :
 `F = (tête, queue, reste_de_file)`
 
-📸 *Illustration visuelle insérée*
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.015.jpeg){width=25%; : .center }
 
 ---
 
 📌 **Exemple :**
-Représentation en file de :
 
-`Anakin, Boba Fett, Dark Vador, Han Solo, Yoda`
+On aimerait ranger un groupe d’individu dans un objet de type file
 
-`F = (Anakin, Yoda, (Boba Fett, Dark Vador, Han Solo))`
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.016.png){width=25%; : .center }
+
+Anakin, Boba Fett, Dark Vador, Han Solo, Yoda
+
+Une représentation de la file correspondante est 
+
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.017.png){width=50%; : .center }
+
+Une File à un élément a pour :
+
+- tête : vide
+- queue : le seul élément
+- troisième champ : vide
+
+Une File à deux éléments a pour :
+
+- tête : un élément
+- queue : un élément
+- troisième champ : vide
 
 ---
 
@@ -386,14 +404,22 @@ Opérateur récursif :
 * queue : `a`
 * troisième champ : `enfiler(troisième champ de F, queue de F)`
 
-📸 *Illustration visuelle insérée*
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.020.png){width=25%; : .center }
+
 
 ✅ Exemple :
 
-```
-F = (Anakin, Yoda, (Boba Fett, Dark Vador, Han Solo))
-enfiler(Luke, F) → (Anakin, Luke, (Boba Fett, Dark Vador, Han Solo, Yoda))
-```
+En reprenant l’exemple précédent où
+
+```F=(Anakin,Yoda,(BobaFett,DarkVador,HanSolo)))```
+
+```enfiler(Luke,F) ```
+
+est la file :
+
+```F=(Anakin,Luke,(BobaFett,DarkVador,HanSolo,Yoda)))```
+
+
 
 ---
 
@@ -409,10 +435,17 @@ La fonction **transforme F** et **renvoie la tête** de F.
 
 ✅ Exemple :
 
-```
-F = (Anakin, Yoda, (Boba Fett, Dark Vador, Han Solo))
-defiler(F) → (Boba Fett, Yoda, (Dark Vador, Han Solo))
-```
+En reprenant l’exemple précédent où 
+
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.022.png){width=25%; : .center }
+
+```F=(Anakin,Yoda,(BobaFett,DarkVador,HanSolo))) ```
+
+La commande de ```defiler(F)``` transforme la file *F* en :
+
+```BobaFett,Yoda,(DarkVador,HanSolo)))```
+
+
 
 ---
 
@@ -466,6 +499,11 @@ defiler(F) → (Boba Fett, Yoda, (Dark Vador, Han Solo))
 ---
 
 
+## <H2 STYLE="COLOR:BLUE;">📌 <a name="_toc145779693"></a>**3. Implémentation** </H2>
+
+**Définition : Implémentation**
+
+Implémenter une structure de données à travers une structure existante c’est **écrire les éléments de l’interface** à l’aide d**es outils proposées** par la structure de données existante.
 
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc145779694"></a>🧮 **3.1. Tableau**</H3>
@@ -586,18 +624,12 @@ depiler(P):
 ---
 
 🔎 **Exemple :**
-Appel :
+Si on lance depiler(P) on obtient :
 
-```
-depiler(P)
-```
-
-Résultat :
-
-* `sommet(P)` diminue
-* `T[6]` a toujours un sens pour le **tableau**, mais **plus pour la pile**
+Observer que T[6] a encore un sens pour le tableau mais plus pour la pile.
 
 ![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.033.png){width=50%; : .center }
+
 
 ---
 
@@ -652,9 +684,11 @@ La **donnée de la file** = le contenu du tableau `T` + la valeur de `tete(F)` e
 ---
 
 🔎 **Exemple :**
-File `F = (15, 4, (6, 9, 8))` représentée dans le tableau :
+
+Une représentation de l’implémentation avec un tableau T de la file F = (15, 4, (6, 9, 8)) est :
 
 ![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.036.png){width=50%; : .center }
+
 
 ---
 
@@ -697,15 +731,16 @@ enfiler(a, F):
 ---
 
 🔎 **Exemple :**
-À partir de la file précédente :
 
-```
-enfiler(17, F)
-enfiler(3, F)
-enfiler(5, F)
-```
+on dispose d’une file dont la représentation de l’implémentation en tableau est :
 
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.036.png){width=50%; : .center }
+
+
+
+Si on lance ```enfiler(17,F)``` puis ```enfiler(3,F)``` et enfin ```enfiler(5,F)```, on obtient cette représentation :
 ![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.041.png){width=50%; : .center }
+
 
 ---
 
@@ -724,13 +759,15 @@ defiler(F):
 ---
 
 🔎 **Exemple :**
-Appel :
 
-```
-defiler(F)
-```
+On dispose de la file de l'exemple précédent :
 
-Résultat :
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.042.png){width=50%; : .center }
+
+
+
+Si on lance ```defiler(F)```, on obtient :
+
 ![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.044.png){width=50%; : .center }
 
 📌 **Remarque :** `T[7]` existe toujours dans le tableau, mais **n’a plus de signification dans la file**.
