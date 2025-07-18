@@ -992,9 +992,10 @@ Le constructeur `property()` attend jusqu’à **quatre paramètres optionnels**
         ```
 
 
-La méthode spéciale __getattr__ permet de définir une méthode d’accès aux attributs plus large que celle que Python propose par défaut. En fait, cette méthode est appelée quand on tape objet.attribut (non pas pour modifier l’attribut mais simplement pour y accéder). Python recherche l’attribut et, s’il ne le trouve pas dans l’objet et si une méthode __getattr__ existe, il va l’appeler en lui passant en paramètre le nom de l’attribut recherché, sous la forme d’une chaine de caractères.
+La méthode spéciale `__getattr__` permet de définir une méthode d’accès aux attributs plus large que celle que Python propose par défaut. En fait, cette méthode est appelée quand on tape objet.attribut (non pas pour modifier l’attribut mais simplement pour y accéder). Python recherche l’attribut et, s’il ne le trouve pas dans l’objet et si une méthode `__getattr__` existe, il va l’appeler en lui passant en paramètre le nom de l’attribut recherché, sous la forme d’une chaine de caractères.
 
-__getattr__ est utilisé uniquement si l'attribut auquel on tente d'avoir accès n'existe pas dans l'objet.
+`__getattr__` est utilisé uniquement si l'attribut auquel on tente d'avoir accès n'existe pas dans l'objet.
+
 ---
 
 #### <H4 STYLE="COLOR:MAGENTA;">🧩 **Méthode spéciale `__getattr__`**</H4>
