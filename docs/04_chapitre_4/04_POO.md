@@ -908,7 +908,7 @@ Le constructeur `property()` attend jusqu’à **quatre paramètres optionnels**
 
 ---
 
-???+ question "🎯 (Hors programme) Activité n°10 : Encapsulation d’un attribut avec `property`"
+???+ question "🎯 Activité n°10 : Encapsulation d’un attribut avec `property`"
 
     ```python
     class Personne:
@@ -954,8 +954,31 @@ Le constructeur `property()` attend jusqu’à **quatre paramètres optionnels**
 
 ---
 
-???+ question "🎯 (Hors programme) Activité n°11 : Contrôle de l’accès à l’attribut"
+???+ question "🎯 Activité n°11 : Contrôle de l’accès à l’attribut"
 
+    ```python
+    class Personne:
+    """ Classe représentant une personne """
+    def __init__(self, nom : str, prenom : str, age=33):
+        self.nom = nom
+        self.prenom = prenom
+        self.__age    = age
+
+    def __get_age(self):
+        return self.__age
+
+    def __set_age(self, age : int):
+        if age > 18:
+            self.__age = age
+
+    age = property(__get_age, __set_age)
+
+    ### Programme principal ###
+    qui = Personne('Dupont', 'Jean')
+    print(qui.age)
+    qui.age = 10      # ne modifie pas l’attribut
+    print(qui.age)
+    ```
 
     ??? success "Python"
     
@@ -969,7 +992,9 @@ Le constructeur `property()` attend jusqu’à **quatre paramètres optionnels**
         ```
 
 
+La méthode spéciale __getattr__ permet de définir une méthode d’accès aux attributs plus large que celle que Python propose par défaut. En fait, cette méthode est appelée quand on tape objet.attribut (non pas pour modifier l’attribut mais simplement pour y accéder). Python recherche l’attribut et, s’il ne le trouve pas dans l’objet et si une méthode __getattr__ existe, il va l’appeler en lui passant en paramètre le nom de l’attribut recherché, sous la forme d’une chaine de caractères.
 
+__getattr__ est utilisé uniquement si l'attribut auquel on tente d'avoir accès n'existe pas dans l'objet.
 ---
 
 #### <H4 STYLE="COLOR:MAGENTA;">🧩 **Méthode spéciale `__getattr__`**</H4>
@@ -981,7 +1006,7 @@ Elle reçoit comme argument le nom de l’attribut **sous forme de chaîne**.
 
 ---
 
-???+ question "🎯 (Hors programme) Activité n°12 : Utilisation de `__getattr__`"
+???+ question "🎯 Activité n°12 : Utilisation de `__getattr__`"
 
     ```python
     class Personne:
@@ -1029,7 +1054,7 @@ Elle reçoit comme argument le nom de l’attribut **sous forme de chaîne**.
 
 ---
 
-#### <H4 STYLE="COLOR:MAGENTA;">🚫 **(Hors programme) Activité n°13 : Ce qu’il ne faut pas faire**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;">🚫 **Activité n°13 : Ce qu’il ne faut pas faire**</H4>
 
 ⚠️ Il est **interdit** en programmation orientée objet d’accéder directement à des attributs **privés** ou de les modifier sans méthode.
 
@@ -1081,7 +1106,7 @@ Elle reçoit comme argument le nom de l’attribut **sous forme de chaîne**.
 
 
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc88030965"></a>🧬 **3.2. (Hors programme) Héritage**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc88030965"></a>🧬 **3.2. Héritage**</H3>
 
 L’**héritage** est un pilier fondamental de la programmation orientée objet. Il permet :
 
@@ -1096,9 +1121,9 @@ On crée une **classe fille** (ou sous-classe) qui hérite d’une **classe mèr
 
 ---
 
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030966"></a>🌿 **3.2.1. (Hors programme) Héritage simple**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030966"></a>🌿 **3.2.1. Héritage simple**</H4>
 
-???+ question "🎯 (Hors programme) Activité n°14 : Héritage simple"
+???+ question "🎯 Activité n°14 : Héritage simple"
 
     On définit une première classe `Personne`, puis une classe `AgentSpecial` qui **hérite** de `Personne`.
 
@@ -1142,7 +1167,7 @@ On crée une **classe fille** (ou sous-classe) qui hérite d’une **classe mèr
 
 ---
 
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030967"></a>🧩 **3.2.2. (Hors programme) Héritage multiple**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030967"></a>🧩 **3.2.2. Héritage multiple**</H4>
 
 Python permet aussi l’**héritage multiple** :
 🧠 Une classe peut hériter de **plusieurs classes mères**, séparées par des virgules :
@@ -1157,7 +1182,7 @@ Ce mécanisme est utile quand on souhaite combiner des **comportements indépend
 
 ---
 
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030968"></a>🧭 **3.2.3. (Hors programme) Ordre de recherche de méthodes**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030968"></a>🧭 **3.2.3. Ordre de recherche de méthodes**</H4>
 
 Quand on appelle une méthode, Python suit un **ordre de recherche (MRO - Method Resolution Order)** :
 
@@ -1171,7 +1196,7 @@ Quand on appelle une méthode, Python suit un **ordre de recherche (MRO - Method
 
 
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc88030969"></a>🌀 **3.3. (Hors programme) Polymorphisme**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc88030969"></a>🌀 **3.3. Polymorphisme**</H3>
 
 Un objet hérite des attributs et des méthodes de ses **ancêtres**, mais il peut également **redéfinir** une méthode afin de la **modifier ou la compléter**.
 
@@ -1181,9 +1206,9 @@ Le **polymorphisme** permet à une méthode ou un opérateur d’adopter des **c
 
 ---
 
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030970"></a>🧱 **3.3.1. (Hors programme) Polymorphisme statique : surcharge de méthodes**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030970"></a>🧱 **3.3.1. Polymorphisme statique : surcharge de méthodes**</H4>
 
-???+ question "🎯 (Hors programme) Activité n°15 : Surcharge de méthodes"
+???+ question "🎯 Activité n°15 : Surcharge de méthodes"
 
     On redéfinit ici la méthode `get_identity` dans la classe `AgentSpecial`.
 
@@ -1231,7 +1256,7 @@ Le **polymorphisme** permet à une méthode ou un opérateur d’adopter des **c
 
 ---
 
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030971"></a>➕ **3.3.2. (Hors programme) Polymorphisme statique : surcharge d’opérateurs**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030971"></a>➕ **3.3.2. Polymorphisme statique : surcharge d’opérateurs**</H4>
 
 La surcharge d’opérateur permet de donner à un opérateur (comme `+` ou `==`) un **comportement spécifique pour une classe donnée**.
 
@@ -1260,7 +1285,7 @@ Et pour les comparaisons :
 
 ---
 
-???+ question "🎯 (Hors programme) Activité n°16 : Surcharge de l'opérateur + et comparaisons"
+???+ question "🎯 Activité n°16 : Surcharge de l'opérateur + et comparaisons"
 
     Exemple avec une classe `Duree` :
 
