@@ -15,8 +15,11 @@ title: 05b Liste - Pile - File - Dictionnaire
 [8.	Projets](#_toc151667946)  
 
 🎯 **Compétences évaluables :**
+
 - ✅ Distinguer des structures par le jeu des méthodes qui les caractérisent.
+
 - ✅ Choisir une structure de données adaptée à la situation à modéliser.
+
 - ✅ Distinguer la recherche d’une valeur dans une liste et dans un dictionnaire.
 
 ---
@@ -44,8 +47,11 @@ Le type **`dict`** est l'implémentation Python du type abstrait **tableau assoc
 > ✅ L’accès à une valeur par clé se fait en **temps constant** (_O(1)_), **indépendamment du nombre de valeurs stockées**.
 
 Ainsi :
+
 - 🔍 Rechercher une valeur associée à une **clé** est très rapide ;
+
 - ❓ Savoir si une **clé** est présente est également en **temps constant** ;
+
 - 🔁 Contrairement aux listes, où la recherche est proportionnelle à la taille (O(n)).
 
 📌 L’étude détaillée des dictionnaires est abordée plus loin dans ce chapitre.
@@ -129,9 +135,7 @@ Une liste chaînée est :
 ---
 
 
-Bien sûr ! Voici ta section **3.2 à 3.3.1** avec la **présentation modernisée** (icônes, encadrés, tableaux), **sans aucune simplification du contenu pédagogique**, en **respectant strictement ta mise en forme GitHub** et **en laissant tous les ❤️ comme demandé**.
 
----
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667922"></a>**3.2. Primitives sur les listes**</H3>
 
