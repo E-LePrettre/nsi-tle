@@ -908,7 +908,7 @@ Le constructeur `property()` attend jusqu’à **quatre paramètres optionnels**
 
 ---
 
-???+ question "🎯 Activité n°10 : Encapsulation d’un attribut avec `property`"
+???+ question "🎯 Activité n°10 (Hors programme): Encapsulation d’un attribut avec `property`"
 
     ```python
     class Personne:
@@ -954,7 +954,7 @@ Le constructeur `property()` attend jusqu’à **quatre paramètres optionnels**
 
 ---
 
-???+ question "🎯 Activité n°11 : Contrôle de l’accès à l’attribut"
+???+ question "🎯 Activité n°11 (Hors programme) : Contrôle de l’accès à l’attribut"
 
     ```python
     class Personne:
@@ -998,7 +998,7 @@ La méthode spéciale `__getattr__` permet de définir une méthode d’accès a
 
 ---
 
-#### <H4 STYLE="COLOR:MAGENTA;">🧩 **Méthode spéciale `__getattr__`**</H4>
+🧩 **Méthode spéciale `__getattr__`**
 
 La méthode spéciale `__getattr__` est appelée quand **Python ne trouve pas** l’attribut demandé.
 Elle reçoit comme argument le nom de l’attribut **sous forme de chaîne**.
@@ -1007,7 +1007,7 @@ Elle reçoit comme argument le nom de l’attribut **sous forme de chaîne**.
 
 ---
 
-???+ question "🎯 Activité n°12 : Utilisation de `__getattr__`"
+???+ question "🎯 Activité n°12 (Hors programme) : Utilisation de `__getattr__`"
 
     ```python
     class Personne:
@@ -1055,7 +1055,7 @@ Elle reçoit comme argument le nom de l’attribut **sous forme de chaîne**.
 
 ---
 
-???+ question "🚫 **Activité n°13 : Ce qu’il ne faut pas faire**"
+???+ question "🚫 **Activité n°13 (Hors programme): Ce qu’il ne faut pas faire**"
 
     ⚠️ Il est **interdit** en programmation orientée objet d’accéder directement à des attributs **privés** ou de les modifier sans méthode.
 
