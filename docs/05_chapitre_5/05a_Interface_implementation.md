@@ -3,546 +3,763 @@ author: ELP
 title: 05a Interface et implémentation
 ---
 
-**Table des matières** 
+📚 **Table des matières**
 
-[1.	Rappels : modules, fonctions	](#_toc145779687)
+[1.	Rappels : modules, fonctions](#_toc145779687)  
+[2.	Interface d’une structure de données abstraites](#_toc145779688)  
+[3.	Implémentation](#_toc145779693)
 
-[2.	Interface d’une structure de données abstraites	](#_toc145779688)
+🎯 **Compétences évaluables :**
 
-[3.	Implémentation	](#_toc145779693)
-
-
-**Compétences évaluables :**
-
-- Spécifier une structure de données par son interface.
-- Distinguer interface et implémentation.
+- Spécifier une structure de données par son interface.  
+- Distinguer interface et implémentation.  
 - Écrire plusieurs implémentations d’une même structure de données.
 
+---
 
-Python possède dans la bibliothèque standard un grand nombre de structures de données, programmées de manière efficace.
+ possède dans la bibliothèque standard un grand nombre de structures de données, programmées de manière efficace.
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc145779687"></a>**1. Rappels : modules, fonctions**</H2>
+
 Pour chaque **module**, on distingue :
 
-- Sa **réalisation** (ou **implémentation**) : c’est le code lui-même 
-- Son **interface** (**API**) : c’est l’énumération des fonctions définies dans le module qui sont utilisées depuis d’autres modules/programmes, les **clients**.
-- L’interface doit présenter une **documentation** dans laquelle tout ce que doit savoir le client doit être indiqué
-- L’objectif de l’interface est que le **client n’ait pas à consulter l’implémentation pour utiliser les fonctions** 
+- Sa **réalisation** (ou **implémentation**) : c’est le code lui-même  
+- Son **interface** (**API**) : c’est l’énumération des fonctions définies dans le module qui sont utilisées depuis d’autres modules/programmes, les **clients**.  
+- L’interface doit présenter une **documentation** dans laquelle tout ce que doit savoir le client doit être indiqué  
+- L’objectif de l’interface est que le **client n’ait pas à consulter l’implémentation pour utiliser les fonctions**  
 
 Pour chaque **fonction** du module, la spécification doit indiquer :
 
-- Son **nom**
-- La liste de ses **paramètres** accompagnés de leur type
-- Le **type** de la valeur retournée
-- La **documentation** de la fonction
+- ✅ Son **nom**  
+- ✅ La liste de ses **paramètres** accompagnés de leur type  
+- ✅ Le **type** de la valeur retournée  
+- ✅ La **documentation** de la fonction  
+
+---
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc145779688"></a>**2. Interface d’une structure de données abstraites**</H2>
+
 Une structure de données abstraites ou type abstrait est **une spécification mathématique d’un ensemble de données et de l’ensemble des opérateurs associées.**
 
-On qualifie d’abstrait ce type de données car il correspond à un cahier des charges qu’une structure de données doit ensuite implémenter.
+On qualifie d’**abstrait** ce type de données car il correspond à un **cahier des charges** qu’une structure de données doit ensuite implémenter.
 
+📌 Nous allons aborder deux structures de données abstraites : **la pile** et **la file**.  
+📌 La structure du **tableau** est une structure de données **non abstraite**.
 
-Nous allons aborder deux structures de données abstraites : la pile et la file.
+L’étude des structures de données abstraites permet de **choisir des structures qui simplifient la compréhension des algorithmes**, mais surtout qui permettent **d’optimiser en coût de nombreux algorithmes**.
 
-La structure du tableau est une structure de données **non abstraites.** 
-
-L’étude des structures de données abstraites permettent de choisir des structures qui simplifient la compréhension des algorithmes mais surtout qui permettent **d’optimiser en coût de nombreux algorithmes**.
+---
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc145779689"></a>**2.1. Un premier exemple : la pile**</H3>
-- Qu’est ce que c’est une structure de données **pile ?**
+
+🧩 **Qu’est-ce que c’est une structure de données pile ?**
 
 **Définition :** Une pile est :
 
-- Soit vide
-- Soit une cellule à deux champs, un champ contenant un élément, et un champ contenant une autre pile
+- Soit **vide**  
+- Soit **une cellule à deux champs**, un champ contenant un **élément**, et un champ contenant **une autre pile**
 
-On dit que cette structure de donnée est de type LIFO : Last In First Out
+On dit que cette structure de données est de type **LIFO** : *Last In First Out*
 
-On pourra représenter une pile de la manière suivante :
+🧠 On pourra représenter une pile de la manière suivante :
 
+```
 P = (hautDeLaPile, resteDeLaPile)
+```
 
 ![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.003.jpeg){width=25%; : .center }
 
+---
 
+🛠️ **Propriété 1 : Créer une pile vide :**
 
-Pour pouvoir travailler avec des données structurées en pile, il faut déjà pouvoir créer une pile vide. Nous devons nous doter d’une notation synthétique et compréhensible. Pour créer une pile P vide on écrira :
+La structure pile dispose d’un **opérateur pour créer une pile P vide**. On notera dans ce cours :
 
+```
 P = vide()
+```
 
-**Propriété 1 : Créer une Pile vide :**
+---
 
-La structure pile dispose d’un opérateur pour créer une pile P vide. On notera dans ce cours 
-```P = vide()```
+❓ **Propriété 2 : La fonction estVide()** :
 
+À toute pile `P`, on peut appliquer un **opérateur booléen** :
 
-Pour appliquer la définition à un objet P, nous devons savoir si P est vide ou non. Il faut donc se doter d’un opérateur estVide qui a un objet de type pile P renvoie un booleen : Vraie si la P est vide et Faux sinon.
+* `estVide(P) = Vraie` si `P` est vide
+* `estVide(P) = Faux` si `P` n’est pas vide
 
-**Propriété 2 : La fonction estVide()** : 
+---
 
-A toute pile P :
+🧬 Si cette pile **n’est pas vide**, elle se compose de deux champs :
 
-- ```estVide(P) = Vraie``` si P est vide
-- ```estVide(P) = Faux``` si P n’est pas vide
-
-
-
-Si cette pile n’est pas vide, elle se compose de deux champs : un premier contenant un élément de type élémentaire (booléen, entier, flottant) et un second de type pile.
+* Un premier contenant un **élément de type élémentaire** (booléen, entier, flottant)
+* Un second de **type pile**
 
 Cette définition est donc **récursive** : une pile est définie à partir d’une pile.
 
-Nous savons ce qu’est une pile vide. C’est une pile dont l’application de l’opérateur estVide renvoie vraie.
+---
 
-Une pile à un élément est composée dans le haut de sa pile par l’élément et d’une pile vide. Nous avons ainsi compris ce qu’est une pile à un élément : (a, vide())
+🧠 Nous savons ce qu’est une pile vide.
+C’est une pile dont l’application de l’opérateur `estVide` renvoie **vraie**.
 
-Une pile à deux éléments peut être représentées ainsi : (hautDeLaPile, secondElementDeLaPile, vide())
+Une pile à un **élément** est composée, dans le haut de sa pile, par l’élément et d’une pile vide.
+Nous avons ainsi compris ce qu’est une pile à un élément :
 
-**Exemple** : on aimerait ranger un groupe d'individus dans un objet de type pile :
+```txt
+(a, vide())
+```
 
-Anakin ; Boba Fett ; Dark Vador ; Han Solo ; Yoda
+Une pile à **deux éléments** peut être représentée ainsi :
+
+```txt
+(hautDeLaPile, secondElementDeLaPile, vide())
+```
+
+---
+
+👾 **Exemple** : on aimerait ranger un groupe d'individus dans un objet de type pile :
+
+**Anakin ; Boba Fett ; Dark Vador ; Han Solo ; Yoda**
 
 Une représentation de ces données en pile serait : 
 
-```P=(Anakin,(Boba Fett,(Dark Vador,(Han Solo,(Yoda,vide())))))```
+```
+P = (Anakin, (Boba Fett, (Dark Vador, (Han Solo, (Yoda, vide())))))
+```
 
-Le haut de la pile est Anakin et le reste est 
+📌 Le **haut de la pile** est `Anakin`
+📌 Le **reste de la pile** est :
 
-```(BobaFett,(DarkVador,(HanSolo,(Yoda,vide()))))```
+```
+(Boba Fett, (Dark Vador, (Han Solo, (Yoda, vide()))))
+```
 
 ![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.006.jpeg){width=25%; : .center }
 
+---
+
+
+
 **=> CAPYTALE Le code vous sera donné par votre enseignant**
 
-**<H3 STYLE="COLOR:RED;">Activité n° 1 :**</H3>
 
-1. Donner une représentation en pile de cet ensemble de couleurs : rouge, bleu, vert. On nommera cette pile ```Pcouleur```
 
-2. Donner une représentation en pile de cet ensemble de nombres : 12, 5, 3, 6, 1. On nommera cette pile ```Pentier```.
 
-3. Comment manipuler un objet de ce type ?
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc145779690"></a>**2.2. Manipulation de la pile**</H3>
 
-**Propriété 3 : Empiler un élément en haut de la pile :**
+---
 
-Soit *P* une pile, la pile obtenue en empilant un élément *a* en haut de *P* est la pile (*a, P*).
+???+ question "📌 **Activité n°1 : Représentations en pile**"
 
-On notera cet opérateur ```empiler(a, P)```
+	1. Donner une représentation en pile de cet ensemble de couleurs : rouge, bleu, vert.  
+	On nommera cette pile `Pcouleur`.
+
+	2. Donner une représentation en pile de cet ensemble de nombres : 12, 5, 3, 6, 1.  
+	On nommera cette pile `Pentier`.
+
+	3. Comment manipuler un objet de ce type ?
+
+    ??? success "📤 Solution :"
+
+		```
+		Pcouleur = (rouge, (bleu, (vert, vide())))
+		Pentier  = (12, (5, (3, (6, (1, vide())))))
+		```
+
+👉 Pour manipuler un objet de ce type, on utilise des opérateurs spécifiques tels que `empiler()` et `depiler()`.
+
+---
+
+🎯 **Propriété 3 : Empiler un élément en haut de la pile**
+
+Soit *P* une pile, la pile obtenue en empilant un élément *a* en haut de *P* est la pile *(a, P)*.
+On notera cet opérateur : `empiler(a, P)`
 
 ![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.008.jpeg){width=25%; : .center }
 
+---
 
+**Exemple** :
+Soit :
 
+```
+P = (Anakin, (Boba Fett, (Dark Vador, (Han Solo, (Yoda, vide())))))
+```
 
+La commande :
 
+```
+empiler(Luke, P)
+```
 
-**Exemple** : En reprenant l’exemple précédent où
+produit la pile :
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.009.jpeg){width=25%; : .center }
+```
+(Luke, (Anakin, (Boba Fett, (Dark Vador, (Han Solo, (Yoda, vide()))))))
+```
 
-```P=(Anakin,(Boba Fett,(Dark Vador,(Han Solo,(Yoda,vide())))))```
+---
 
-la commande ```empiler(Luke, P)``` transforme  la pile *P* en : 
+???+ question "📌 **Activité n°2 : Ajouter un élément à une pile**"
 
-```(Luke, (Anakin,(Boba Fett,(Dark Vador,(Han Solo,(Yoda,vide()))))))```
+	Reprendre l’activité précédente et ajouter le violet à `Pcouleur`.
 
+    ??? success "📤 Solution :"
 
+		```
+		Pcouleur = (violet, (rouge, (bleu, (vert, vide()))))
+		```
 
-**<H3 STYLE="COLOR:RED;">Activité n° 2 :**</H3> Reprendre l’activité précédente et ajouter le violet à ```Pcouleur```
+---
 
+🎯 **Propriété 4 : Dépiler le haut de la pile**
 
-**Propriété 4 : Dépiler le haut de la pile :**
+Soient deux piles `P1` et `P2`, et un élément `a` en haut de la pile `P1`.
+La pile obtenue en dépilant l’élément `a` de `P1` est la pile `P2`.
 
-Soit *P1, P2* deux pile et *a* en haut de la pile *P1,* la pile obtenue en dépilant l’élément *a* de la pile *P1* est la pile *P2*.
-
-On notera cet opérateur ```depiler(P1)```, elle transforme la pile initiale et renvoie l’élément dépiler.
+On notera cet opérateur : `depiler(P1)`
+Elle transforme la pile initiale et **renvoie l’élément dépilé**.
 
 ![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.011.jpeg){width=25%; : .center }
 
+---
+
+**Exemple** :
+Soit :
+
+```
+P = (Anakin, (Boba Fett, (Dark Vador, (Han Solo, (Yoda, vide())))))
+```
+
+La commande :
+
+```
+depiler(P)
+```
+
+transforme la pile en :
+
+```
+(Boba Fett, (Dark Vador, (Han Solo, (Yoda, vide()))))
+```
+
+et **renvoie** :
+
+```
+Anakin
+```
+
+---
+
+???+ question "📌 **Activité n°3 : Retirer le premier élément**"
+
+	Reprendre l’activité 1 et retirer la première couleur de `Pcouleur`.
+
+    ??? success "📤 Solution :"
+
+		Avant :
+
+		```
+		Pcouleur = (rouge, (bleu, (vert, vide())))
+		```
+
+		Après :
+
+		```
+		(bleu, (vert, vide()))
+		```
+
+		Élément dépilé :
+
+		```
+		rouge
+		```
+
+---
 
 
 
-**Exemple :** En reprenant l’exemple précédent où
-
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.012.jpeg){width=25%; : .center }
-
-```P=(Anakin,(Boba Fett,(Dark Vador,(Han Solo,(Yoda,vide())))))```
-
-la commande ```depiler(P)``` transforme  la pile *P* en : 
-
-```(Boba Fett,(Dark Vador,(Han Solo,(Yoda,vide()))))``` et renvoie Anakin.
 
 
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc145779690"></a>📦 **2.2. Interface d’une structure de données : définition**</H3>
 
-**<H3 STYLE="COLOR:RED;">Activité n° 3 :**</H3> Reprendre l’activité 1 et retirer la première couleur
-
-
-
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc145779690"></a>**2.2. Interface d’une structure de données : définition**</H3>
-
-**Définition : Interface d’une structure de données abstraite :**
-
+🧠 **Définition :**
 L’**interface d’une structure de données abstraite** est l’ensemble des opérateurs nécessaires à la manipulation de cette structure.
 
+---
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc145779691"></a>**2.3. Interface de la pile**</H3>
-**Exemple :**  L’interface de la structure pile est l’ensemble des opérateurs vu précédemment :
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc145779691"></a>🔧 **2.3. Interface de la pile**</H3>
 
-- ```vide()```
-- ```estVide(P)```
-- ```empiler(a, P)```
-- ```depiler(P)```
+📌 **Exemple :**
+L’interface minimale de la structure pile est constituée des opérateurs suivants :
 
-On peut ajouter d’autres éléments à l’interface mais l’objectif et d’avoir une interface minimale qui permet de manipuler cette structure.
+* `vide()`
+* `estVide(P)`
+* `empiler(a, P)`
+* `depiler(P)`
 
-**<H3 STYLE="COLOR:RED;">Activité n° 4 :**</H3> 
-Ecrire un script en pseudo code qui permet de connaitre le nombre d’élément dans une pile P. On garde la pile P intacte à la fin.
+L’objectif est de fournir une interface la plus réduite possible tout en étant complète pour manipuler cette structure.
 
+---
 
-**<H3 STYLE="COLOR:RED;">Activité n° 5 :**</H3> 
-Ecrire un script en pseudo code qui permet de supprimer le premier élément du reste d’une pile P (c’est-à-dire le deuxième élement de la pile)
+???+ question "📝 **Activité n°4 :**"
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc145779692"></a>**2.4. L’interface de la file**</H3>
+	Écrire un script en pseudo-code qui permet de connaître le **nombre d’éléments dans une pile P**.
+	🧠 On doit garder la pile P **intacte à la fin**.
 
-**Définition :** Une file est :
+    ??? success "📤 Solution :"
 
-- Soit vide
-- Soit une cellule à trois champs, un champ tête, un champ queue et un champ contenant une file
+		```
+		fonction compter_elements(P):
+			temp = vide()
+			compteur = 0
+			tant que non estVide(P):
+				elt = depiler(P)
+				empiler(elt, temp)
+				compteur = compteur + 1
+			tant que non estVide(temp):
+				elt = depiler(temp)
+				empiler(elt, P)
+			retourner compteur
+		```
 
-Une structure de File fonctionne sur le principe premier entré – premier sorti de type FIFO : First In First Out
+---
 
-On pourra représenter une file de la manière suivante :
+???+ question "📝 **Activité n°5 :**"
 
-```F = (teteDeLaFile, queueDeFile, coeurDeFile)```
+	Écrire un script en pseudo-code qui permet de **supprimer le deuxième élément** de la pile P.
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.015.jpeg){width=25%; : .center }
+    ??? success "📤 Solution :"
 
+		```pseudo
+		fonction supprimer_deuxieme(P):
+			if estVide(P):
+				retourner
+			elt1 = depiler(P)
+			if estVide(P):
+				empiler(elt1, P)
+				retourner
+			elt2 = depiler(P)    # deuxième élément, à supprimer
+			empiler(elt1, P)
+		```
 
+---
 
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc145779692"></a>📨 **2.4. L’interface de la file**</H3>
 
-**Exemple :** On aimerait ranger un groupe d’individu dans un objet de type file
+🧠 **Définition :**
+Une **file** est une structure :
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.016.png){width=25%; : .center }
+* soit vide,
+* soit constituée de trois champs : une **tête**, une **queue**, et un **troisième champ contenant une file**.
 
-Anakin, Boba Fett, Dark Vador, Han Solo, Yoda
+Elle fonctionne selon le principe **FIFO** (First In, First Out).
 
-Une représentation de la file correspondante est 
+📌 Représentation :
+`F = (tête, queue, reste_de_file)`
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.017.png){width=50%; : .center }
+📸 *Illustration visuelle insérée*
 
-Une File à un élément a pour :
+---
 
-- tête : vide
-- queue : le seul élément
-- troisième champ : vide
+📌 **Exemple :**
+Représentation en file de :
 
-Une File à deux éléments a pour :
+`Anakin, Boba Fett, Dark Vador, Han Solo, Yoda`
 
-- tête : un élément
-- queue : un élément
-- troisième champ : vide
+`F = (Anakin, Yoda, (Boba Fett, Dark Vador, Han Solo))`
 
-**Propriété 5 : Définir une file vide :**
+---
 
-Une file est vide si sa queue est vide.
+🧩 **Propriété 5 : Définir une file vide**
 
-Pour affecter à une variable *F* une file vide, on notera ```F = vide()```
+`F = vide()`
+Une file est vide si sa **queue** est vide.
 
+---
 
-**Propriété 6 : Définir enfiler(a, F) :**
+🧩 **Propriété 6 : Définir `enfiler(a, F)`**
 
-La nouvelle file obtenue à l’enfilement de *a* sur *F* est la file :
+Opérateur récursif :
 
-- De tête celle de *F,*
-- De queue *a*,
-- Et de troisième champ enfiler(troisième champ de *F*, queue de *F*)
+* tête : celle de F
+* queue : `a`
+* troisième champ : `enfiler(troisième champ de F, queue de F)`
 
-Cet opérateur est récursif.
+📸 *Illustration visuelle insérée*
 
+✅ Exemple :
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.020.png){width=25%; : .center }
+```
+F = (Anakin, Yoda, (Boba Fett, Dark Vador, Han Solo))
+enfiler(Luke, F) → (Anakin, Luke, (Boba Fett, Dark Vador, Han Solo, Yoda))
+```
 
+---
 
+🧩 **Propriété 7 : Définir `defiler(F)`**
 
-**Exemple :**  En reprenant l’exemple précédent où
+Opérateur récursif :
 
-```F=(Anakin,Yoda,(BobaFett,DarkVador,HanSolo)))```
+* nouvelle tête : tête du troisième champ
+* queue : même que F
+* troisième champ : `defiler(troisième champ de F)`
 
-```enfiler(Luke,F) ```
+La fonction **transforme F** et **renvoie la tête** de F.
 
-est la file :
+✅ Exemple :
 
-```F=(Anakin,Luke,(BobaFett,DarkVador,HanSolo,Yoda)))```
+```
+F = (Anakin, Yoda, (Boba Fett, Dark Vador, Han Solo))
+defiler(F) → (Boba Fett, Yoda, (Dark Vador, Han Solo))
+```
 
+---
 
+🧩 **Propriété 8 : Interface d’une file**
 
+* `vide()`
+* `estVide(F)`
+* `enfiler(a, F)`
+* `defiler(F)`
 
+---
 
+???+ question "📝 **Activité n°6 :**"
 
+	Écrire un script en pseudo-code qui permet de **connaître le nombre d’éléments dans une file F**, sans la modifier.
 
-**Propriété 7 : Définir defiler(F) :**
+    ??? success "📤 Solution :"
 
-La nouvelle file obtenue par défilement de *F* est la file :
+		```pseudo
+		fonction compter_elements(F):
+			temp = vide()
+			compteur = 0
+			tant que non estVide(F):
+				elt = defiler(F)
+				enfiler(elt, temp)
+				compteur = compteur + 1
+			tant que non estVide(temp):
+				elt = defiler(temp)
+				enfiler(elt, F)
+			retourner compteur
+		```
 
-- De tête, la tête du troisième champ de *F,*
-- De queue celle de *F*,
-- Et de troisième champ defiler(du troisième champ de *F*)
+---
 
-Cet opérateur est récursif.
+???+ question "📝 **Activité n°7 :**"
 
-Cet opérateur transforme *F* et renvoie la tête de *F.*
+	Écrire un script en pseudo-code qui permet de **supprimer le premier élément du troisième champ** de la file F.
 
+    ??? success "📤 Solution :"
 
+		```pseudo
+		fonction supprimer_premier_du_troisieme(F):
+			si estVide(F):
+				retourner
+			troisieme = F.troisieme_champ
+			if estVide(troisieme):
+				retourner
+			defiler(troisieme)
+		```
 
+---
 
 
 
-**Exemple :**  En reprenant l’exemple précédent où 
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.022.png){width=25%; : .center }
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc145779694"></a>🧮 **3.1. Tableau**</H3>
 
-```F=(Anakin,Yoda,(BobaFett,DarkVador,HanSolo))) ```
+📘 **Définition : Tableau**
+Un **tableau** est une **structure de données** à **taille fixe** dans laquelle **chaque case est indexée**.
+On peut **accéder à une case** en connaissant son **index**.
 
-La commande de ```defiler(F)``` transforme la file *F* en :
+---
 
-```BobaFett,Yoda,(DarkVador,HanSolo)))```
+🧠 **Propriété 9 : Accès à une valeur d’un tableau**
+Pour accéder à une valeur d’indice `i` dans un tableau `T`, on écrit :
 
+```
+T[i]
+```
 
-**Propriété 8 : Interface d’une file :**
+Il est aussi possible de **réaffecter** une valeur du tableau par une autre à partir de son index :
 
-L’interface de la structure de file est composée de :
+```
+T[i] = nouvelle_valeur
+```
 
-- ```vide()```
-- ```estVide(F)```
-- ```enfiler(a, F)```
-- ```defiler(F)```
+---
 
-
-**<H3 STYLE="COLOR:RED;">Activité n° 6 :**</H3> 
-Ecrire un script en pseudo code qui permet de connaitre le nombre d’élément dans une file F. On garde la file F intacte à la fin.
-
-**<H3 STYLE="COLOR:RED;">Activité n° 7 :**</H3> 
-Ecrire un script en pseudo code qui permet de supprimer le premier élément du troisième champ
-
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc145779693"></a>**3. Implémentation** </H2>
-
-**Définition : Implémentation**
-
-Implémenter une structure de données à travers une structure existante c’est écrire les éléments de l’interface à l’aide des outils proposées par la structure de données existante.
-
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc145779694"></a>**3.1. Tableau**</H3>
-**Définition : Tableau**
-
-Un tableau est une structure de données avec une taille fixe où chacune des cases est indexée. On peut accéder à une case connaissant son index.
-
-
-**Propriété 9 : Accès à une valeur d’un tableau**
-
-Pour accéder à une valeur indexé *i* dans un tableau T. On écrira T[i]. 
-
-On peut réaffecter une valeur du tableau par une autre à partir de son index.
-
-
-**Exemple :** 
-
-Ce tableau a une longueur maximale de 7.
-
-T[1] = 15.
-
-T[5] est vide.
+🔎 **Exemple**
+Ce tableau a une **longueur maximale de 7**.
+`T[1] = 15`
+`T[5]` est vide.
 
 ![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.027.png){width=50%; : .center }
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc145779695"></a>**3.2. Implémentation des piles avec des tableaux**</H3>
-Soit *P* une pile.
+---
 
-On dispose d’un tableau nommé *T* avec *n* emplacements.
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc145779695"></a>📚 **3.2. Implémentation des piles avec des tableaux**</H3>
 
-Il est possible d’implémenter la pile *P* d’au plus *n* éléments avec le tableau *T*. 
+On considère une pile `P`.
 
-Le tableau possède un attribut *sommet(P)* qui indexe l’élément le plus récemment inséré. La pile est constituée des éléments *T*[1..*sommet(P)*], tous ceux compris entre *T[1]*, l’élément situé à la base de la pile, et *T[sommet(P)],* l’élément situé au sommet.
+📌 **Donnée :**
+On dispose d’un tableau `T` avec `n` emplacements.
 
-La donnée de la pile se constitue donc de la donnée de *T* et de la valeur de *sommet(P)*
+On peut implémenter une pile `P` contenant **au plus `n` éléments** avec le tableau `T`.
 
+🔹 Le tableau possède un **attribut `sommet(P)`** qui **indexe l’élément le plus récemment empilé**.
 
+📦 La pile contient donc les éléments compris entre :
 
-**Exemple :** On considère la pile (9,(2,(6,(15,*vide()*)))). Son implémentation se compose de la donnée du tableau T : 
+```
+T[1] (base) et T[sommet(P)] (sommet)
+```
 
-et de *sommet(P)* = 4
+👉 La **donnée de la pile** = contenu de `T` + valeur de `sommet(P)`.
 
+---
+
+🔎 **Exemple :**
+Pile `(9,(2,(6,(15,vide()))))`
+⇒ `sommet(P) = 4`
 ![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.027.png){width=50%; : .center }
 
-**Attention :**  *sommet(P)* est un index du tableau, pas un élément de la pile.
+⚠️ **Remarque :** `sommet(P)` est un **index** du tableau, **pas une valeur de la pile**.
 
-**Propriété 10 : Implémentation de la fonction estVide(P) :**
-```
-estVide(paramètre : P)
-	si sommet(P) = 0	// signifie que le tableau est vide
- 		alors retourner VRAI
- 	sinon retourner FAUX
-```
+---
 
+🔧 **Propriété 10 :** Implémentation de `estVide(P)`
 
-**Propriété 11 : Implémentation de la fonction empiler(a, P) :**
 ```
-empiler(paramètres : a,P)
-	si sommet(P) = n	// signifie que le tableau est complet
- 		alors afficher "espace insuffisant"
- 	sinon 
- 		sommet(P) := sommet(P)+1
- 		T[sommet(P)] := a
+estVide(P):
+    si sommet(P) == 0:        # le tableau est vide
+        retourner VRAI
+    sinon:
+        retourner FAUX
 ```
 
+---
 
+🔧 **Propriété 11 :** Implémentation de `empiler(a, P)`
 
+```
+empiler(a, P):
+    si sommet(P) == n:        # le tableau est plein
+        afficher "espace insuffisant"
+    sinon:
+        sommet(P) := sommet(P) + 1
+        T[sommet(P)] := a
+```
 
+---
 
-**Exemple :** Si on lance ```empiler(17,P)``` puis ```empiler(3,P)``` on obtient alors cette représentation :
+🔎 **Exemple :**
+Appels successifs :
+
+```
+empiler(17, P)
+empiler(3, P)
+```
 
 ![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.031.png){width=50%; : .center }
 
-**Propriété 12 : Implémentation de la fonction depiler(P) :**
+---
+
+🔧 **Propriété 12 :** Implémentation de `depiler(P)`
+
 ```
-depiler(paramètre : P)
-	si sommet(P) = 0	
- 		alors afficher "pile vide"
- 	sinon 
- 		sommet(P) := sommet(P)-1
- 		retourner T[sommet(P)+1]
+depiler(P):
+    si sommet(P) == 0:
+        afficher "pile vide"
+    sinon:
+        sommet(P) := sommet(P) - 1
+        retourner T[sommet(P) + 1]
 ```
 
+📝 **Observation :**
 
+* `empiler()` ne renvoie rien (procédure)
+* `depiler()` renvoie un élément (fonction)
 
-On observe que la procédure empiler ne renvoie rien alors que la fonction dépiler renvoie un élément de la pile.
+---
 
+🔎 **Exemple :**
+Appel :
 
+```
+depiler(P)
+```
 
+Résultat :
 
-**Exemple :**  Si on lance depiler(P) on obtient :
-
-Observer que T[6] a encore un sens pour le tableau mais plus pour la pile.
+* `sommet(P)` diminue
+* `T[6]` a toujours un sens pour le **tableau**, mais **plus pour la pile**
 
 ![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.033.png){width=50%; : .center }
 
+---
 
 
 
 
-**<H3 STYLE="COLOR:RED;">Activité n° 8 :**</H3> On considère la pile dont la représentation en tableau est :
+???+ question "📝 **Activité n°8 :**"
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.034.png){width=50%; : .center }
+	On considère la pile dont la représentation en tableau est :
 
-Pour chaque question, on repartira du tableau de départ.
+	![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.034.png){width=50%; : .center }
 
-1. Qu'obtient-on si on lance successivement depiler(P), depiler(P), depiler(P) et depiler(P).
+	🧪 **Pour chaque question, on repartira du tableau de départ.**
 
-2. Qu'obtient-on si on lance successivement depiler(P), depiler(P), depiler(P), depiler(P) et depiler(P).
+	1. Qu'obtient-on si on lance successivement :
+	`depiler(P), depiler(P), depiler(P), depiler(P)`
 
-3. Qu'obtient-on si on lance successivement empiler(3,P), empiler(5,P) et depiler(P)
+	2. Qu'obtient-on si on lance successivement :
+	`depiler(P), depiler(P), depiler(P), depiler(P), depiler(P)`
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc145779696"></a>**3.3. Implémentation des files avec des tableaux**</H3>
+	3. Qu'obtient-on si on lance successivement :
+	`empiler(3, P), empiler(5, P), depiler(P)`
 
-On dispose d’un tableau nommé *T* avec *n* emplacements.
+---
 
-Il est possible d’implémenter d’une file *F* d’au plus *n* éléments avec le tableau *T*.
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc145779696"></a>🔁 **3.3. Implémentation des files avec des tableaux**</H3>
 
-Le tableau possède un attribut *tete(F)* qui indexe l’élément de tête et un attribut *queue(F)* qui indexe l’emplacement où un nouvel élément sera inséré. *T[queue(F)]* est vide au sens de la file.
+🧰 On dispose d’un **tableau** `T` avec `n` emplacements.
 
-La file est constituée des éléments *T[tete(F)… queue(F) – 1]*
+Il est possible d’implémenter une **file `F`** contenant au plus `n` éléments à l’aide de ce tableau.
 
-Avec cette implémentation *T[n+1]* doit pointer vers *T[1]* au sens de la file. Une façon de visualiser cette implémentation est un tableau circulaire où le début du tableau et la fin du tableau seraient reliés.
+---
 
-Les élément de la file se trouvent aux emplacements *tete(F), tete(F) + 1, … , queue(F) – 1*, après quoi l’on « boucle » : l’emplacement 1 suit immédiatement l’emplacement *n* dans un ordre circulaire.
+📌 Le tableau contient deux attributs :
 
-Dans cette implémentation la queue est vide.
+* `tete(F)` : index de l’élément en **tête** de la file
+* `queue(F)` : index de l’**emplacement où insérer** le prochain élément (cet emplacement est vide au sens de la file)
 
-**Définition :** La donnée de la file se constitue de la donnée d’un tableau T, de la valeur de *tete(F)* et de *queue(F).*
+📐 La file est formée des éléments entre :
 
+```
+T[tete(F)] ... T[queue(F) - 1]
+```
 
+🌀 Le tableau est vu comme **circulaire** : `T[n+1]` est relié à `T[1]`.
 
+---
 
+📘 **Définition :**
+La **donnée de la file** = le contenu du tableau `T` + la valeur de `tete(F)` et `queue(F)`.
 
-**Exemple :** Une représentation de l’implémentation avec un tableau T de la file F = (15, 4, (6, 9, 8)) est :
+---
+
+🔎 **Exemple :**
+File `F = (15, 4, (6, 9, 8))` représentée dans le tableau :
 
 ![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.036.png){width=50%; : .center }
 
-**Propriété 13** : 
+---
 
-- Quand *tete(F) = queue(F)*, la file est vide
-- Quand *tete(F) = queue(F)* + 1, la file est pleine
+🧠 **Propriété 13 : Cas particuliers**
 
+* Si `tete(F) == queue(F)` → la file est **vide**
+* Si `tete(F) == queue(F) + 1` → la file est **pleine**
 
-En effet, *queue(F)* est vide au sens de la file. Si *tete(F) = queue(F)* alors la tête est vide, c’est que la file est vide.
+💡 Pourquoi ?
 
-L’emplacement *queue(F)* doit toujours être vide au sens de la file. Si *tete(F) = queue(F)* + 1, le prochain enfilage sera que *tete(F) = queue(F).*
+* `queue(F)` est toujours **vide au sens de la file**
+* Donc si `tete(F) == queue(F)`, il n’y a plus rien à lire
+* Si `tete(F) == queue(F) + 1`, on ne peut plus insérer sans écraser
 
-**Propriété 14** : **Implémentation de la fonction** ```estVide(F)``` **:**
+---
+
+🔧 **Propriété 14 : Implémentation de la fonction** `estVide(F)`
+
 ```
-estVide(F)
-	si queue(F) = tete(F)
-		alors retourner VRAI
-	sinon retourner FAUX
-```
-
-
-
-**Propriété 15** : **Implémentation de la fonction** ```enfiler(a,F)``` **:**
-```
-enfiler(a,F)
-	T(queue(F)) := a
-	si queue(F) = n
-		alors queue(F) := 1
-	sinon queue(F) += 1
+estVide(F):
+    si queue(F) == tete(F):
+        retourner VRAI
+    sinon:
+        retourner FAUX
 ```
 
+---
 
+🔧 **Propriété 15 : Implémentation de la fonction** `enfiler(a, F)`
 
+```
+enfiler(a, F):
+    T[queue(F)] := a
+    si queue(F) == n:
+        queue(F) := 1
+    sinon:
+        queue(F) += 1
+```
 
+---
 
+🔎 **Exemple :**
+À partir de la file précédente :
 
+```
+enfiler(17, F)
+enfiler(3, F)
+enfiler(5, F)
+```
 
-
-
-**Exemple** : on dispose d’une file dont la représentation de l’implémentation en tableau est :
-
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.036.png){width=50%; : .center }
-
-
-
-Si on lance ```enfiler(17,F)``` puis ```enfiler(3,F)``` et enfin ```enfiler(5,F)```, on obtient cette représentation :
 ![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.041.png){width=50%; : .center }
 
-**Propriété 16** : **Implémentation de la fonction** ```defiler(F)``` **:**
+---
+
+🔧 **Propriété 16 : Implémentation de la fonction** `defiler(F)`
+
 ```
-défiler(F)
-	x := T[tete(F)]
-	si tete(F) = n
-		alors tete(F) := 1
-	sinon tete(F) += 1
-	retourner x
+defiler(F):
+    x := T[tete(F)]
+    si tete(F) == n:
+        tete(F) := 1
+    sinon:
+        tete(F) += 1
+    retourner x
 ```
 
+---
 
+🔎 **Exemple :**
+Appel :
 
-**Exemple** : On dispose de la file de l'exemple précédent :
+```
+defiler(F)
+```
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.042.png){width=50%; : .center }
-
-
-
-Si on lance ```defiler(F)```, on obtient :
-
+Résultat :
 ![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.044.png){width=50%; : .center }
 
-Observer que T[7] a encore un sens pour le tableau mais plus pour la file.
+📌 **Remarque :** `T[7]` existe toujours dans le tableau, mais **n’a plus de signification dans la file**.
 
-**<H3 STYLE="COLOR:RED;">Activité n° 9 :**</H3> 
-On considère la file dont la représentation de l'implémentation en tableau est :
+---
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.036.png){width=50%; : .center }
+???+ question "📝 **Activité n°9 :**"
 
-1. Qu'obtient-on si on lance successivement ```defiler(F), defiler(F), defiler(F)``` et ```defiler(F)```.
+	On considère la file représentée comme suit :
 
-2. Qu'obtient-on si on lance successivement ```defiler(F), defiler(F), defiler(F), defiler(F)``` et ```defiler(F)```.
+	![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.036.png){width=50%; : .center }
 
-3. Qu'obtient-on si on lance successivement ```enfiler(3,F), enfiler(5,F)``` et ```defiler(F)```
+	1. Qu'obtient-on si on lance successivement :
 
+	```
+	defiler(F), defiler(F), defiler(F), defiler(F)
+	```
+
+	2. Qu'obtient-on si on lance successivement :
+
+	```
+	defiler(F), defiler(F), defiler(F), defiler(F), defiler(F)
+	```
+
+	3. Qu'obtient-on si on lance successivement :
+
+	```
+	enfiler(3,F), enfiler(5,F), defiler(F)
+	```
+
+---
 
