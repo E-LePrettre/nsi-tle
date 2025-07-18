@@ -467,194 +467,291 @@ Certaines méthodes spéciales permettent de personnaliser la **représentation 
 
 
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc88030959"></a>**2.4. Attributs de classe**</H3>
-Jusqu’à présent, les attributs sont contenus dans l’objet. Ils sont propres à l’objet : si on crée plusieurs objets, les attributs nom, prénom,… de chacun ne seront pas forcément identiques d’un objet à l’autre. Mais on peut aussi définir des **attributs dans la classe**.
 
-**<H3 STYLE="COLOR:red;">Activité n° 6 : Classe et attributs de classe**</H3>
+
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc88030959"></a>🏷️ **2.4. Attributs de classe**</H3>
+
+Jusqu’à présent, les attributs étaient définis **dans l’objet** (on parle alors d’**attributs d’instance**).
+Ils sont **propres à chaque objet** : si on crée plusieurs objets, les attributs `nom`, `prénom`, etc., ne seront pas forcément identiques d’un objet à l’autre.
+
+Mais on peut aussi définir des **attributs dans la classe elle-même**, partagés par **toutes les instances**. Ce sont les **attributs de classe**.
+
+???+ question "🔢 Activité n° 6 : Classe et attributs de classe"
+
+
+    ```python
+    class Personne:
+        """Classe définissant une personne caractérisée par :
+        - son nom
+        - son prénom"""
+        population = 0
+
+        def __init__(self, nom : str, prenom : str):
+            self.nom = nom
+            self.prenom = prenom
+            Personne.population += 1
+
+    moi = Personne('Dupont', 'Jean')
+    toi = Personne('Durant', 'Jean')
+    print(Personne.population)
+    ```
+
+    ??? success "Python"
+    
+        {{ IDE() }}
+
+    ??? success "📤 Résultat :"
+
+        ```txt
+        2
+        ```
+
+
+
+📌 L’attribut `population` est défini **dans la classe** (et non dans le constructeur).  
+🔧 Pour y accéder ou le modifier dans une méthode, on utilise `NomDeClasse.attribut`, ici `Personne.population`.
+
+💡 Cela permet de **suivre un compteur commun** à toutes les instances de la classe, ici : combien de personnes ont été créées.
+
+
+---
+
+
+
+
+
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc88030960"></a>🔐 **3. Les trois fondamentaux**</H2>
+
+La programmation orientée objet repose sur trois concepts essentiels : **l'encapsulation**, **l'héritage** et **le polymorphisme**.
+En classe de Terminale, seuls **les deux premiers** sont abordés, et nous nous concentrerons principalement sur **l'encapsulation**.
+
+---
+
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc88030961"></a>🧳 **3.1. Encapsulation**</H3>
+
+L’**encapsulation** permet de **protéger les données** internes d’un objet contre des modifications imprévues.
+Elle permet de **masquer les détails d’implémentation** tout en offrant des méthodes pour **accéder ou modifier** les attributs.
+
+On parle alors :
+
+* d’**accesseurs** (ou **getters**) pour **lire** les données ;
+* de **mutateurs** (ou **setters**) pour **modifier** les données.
+
+Au lieu d’écrire directement :
+
 ```python
-class Personne:
-   """Classe définissant une personne caractérisée par :
-   - son nom
-   - son prénom"""
-   population = 0
-
-   def __init__(self, nom : str, prenom : str):
-      self.nom = nom
-      self.prenom = prenom
-      Personne.population += 1
-
-moi = Personne('Dupont', 'Jean')
-toi = Personne('Durant', 'Jean')
-print(Personne.population)
+objet.attribut
 ```
-```txt
-# on obtient
-2
+
+on utilisera :
+
+```python
+objet.get_attribut()
 ```
-???+ question "Tester ce qui est proposé"
 
-    {{ IDE() }}
+Et pour modifier :
 
-On définit l’attribut de classe directement dans le corps de la classe **avant** la définition du constructeur. Lorsqu’on veut l’appeler dans le constructeur, on **préfixe le nom de l’attribut de classe** par le **nom de la classe :** Personne.population.
-
-Et on y accède également en dehors de la classe.
-
-A chaque fois que l’on crée un objet de type Personne, l’attribut de classe population s’incrémente de 1. Cela peut être utile d’avoir des attributs de classe, quand tous nos objets doivent avoir **certaines données identiques.**
-
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc88030960"></a>**3. Les trois fondamentaux**</H2>
-
-La POO est dirigée par trois fondamentaux qu'il convient de toujours garder à l'esprit : **encapsulation**, **héritage** et **polymorphisme**. Les deux derniers sont hors programmes.
-
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc88030961"></a>**3.1. Encapsulation**</H3>
-L’encapsulation introduit une nouvelle manière de gérer les données. On cherche aussi à **masquer** aux yeux d’un programmeur extérieur tous les rouages d’un objet et donc l’ensemble des procédures et fonctions destinées à la **gestion interne de l’objet**, auxquelles le programmeur final n’aura pas à avoir accès.
-
-L’encapsulation permet donc de **masquer un certain nombre d’attributs et méthodes** tout en laissant visibles d’autres attributs et méthodes.
-
-On va définir des méthodes appelées des **accesseurs** et **mutateurs** (ou getter et setter en anglais). Les accesseurs donnent accès à l’attribut. Les mutateurs permettent de le modifier.
-
-- Pour accéder à un attribut, au lieu d’écrire ```mon_objet.mon_attribut```, il faut écrire ```mon_objet.get_mon_attribut()```. 
-- Pour modifier l’attribut ce sera ```mon_objet.set_mon_attribut(valeur)``` et non pas ```mon_objet.mon_attribut = valeur```.
+```python
+objet.set_attribut(valeur)
+```
 
 ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.003.png){: .center }
 
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030962"></a>**3.1.1. Attributs et méthode publics**</H4>
-Comme leur nom l'indique, les attributs et méthodes dits publics sont **accessibles** depuis tous les descendants et dans tous les modules. On peut considérer que les éléments publics n'ont pas de restriction particulière.
+---
 
-**<H3 STYLE="COLOR:red;">Activité n° 7 : attributs publics**</H3>
-```python
-class Personne:
-   """Classe définissant une personne caractérisée par :
-   - son nom
-   - son prénom
-   - son âge"""
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030962"></a>🔓 **3.1.1. Attributs et méthodes publics**</H4>
 
-   def __init__(self, nom : str, prenom : str, age=33):
-      self.nom = nom
-      self.prenom = prenom
-      self.age = age
+Un **attribut public** est accessible **directement** depuis l’extérieur.
+Mais cela pose des risques, car il peut être **modifié sans contrôle**, ce qui **viole l’encapsulation**.
 
-### Programme principal ###
-qui = Personne('Dupont', 'Jean')
+???+ question "🎯 Activité n° 7 : Attributs publics"
 
-print(qui.nom)       # donne le nom
-qui.nom = 'Durant'    # modifie l'attribut => INTERDIT  imaginez que l'utilisateur modifie le nombre de vie dans le jeu !!
-print(qui.nom)          # donne le nouveau nom
-```
 
-```txt
-Dupont
-Durant
-```
-???+ question "Tester ce qui est proposé"
+    ```python
+    class Personne:
+        """Classe définissant une personne caractérisée par :
+        - son nom
+        - son prénom
+        - son âge"""
 
-    {{ IDE() }}
+        def __init__(self, nom : str, prenom : str, age=33):
+            self.nom = nom
+            self.prenom = prenom
+            self.age = age
 
-Un **attribut** ne devrait être **public** que si sa modification n'entraîne **pas de changement dans le comportement de l'objet.** Dans le cas contraire, il faut **passer par une méthode**.
+    ### Programme principal ###
+    qui = Personne('Dupont', 'Jean')
 
-Modifier un attribut "manuellement" et ensuite appeler une méthode pour informer de cette modification est une **violation du principe d'encapsulation.**
+    print(qui.nom)       # donne le nom
+    qui.nom = 'Durant'   # modifie l'attribut => INTERDIT (ex. : changer les points de vie dans un jeu !)
+    print(qui.nom)       # donne le nouveau nom
+    ```
 
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030963"></a>**3.1.2. Attributs et méthodes privés**</H4>
+    ??? success "Python"
+    
+        {{ IDE() }}
 
-Python permet (plus ou moins) de protéger les attributs en leur donnant un nom qui commence par le double souligné **```__```** C’est une convention !!
+    ??? success "📤 Résultat :"
+        ```txt
+        Dupont
+        Durant
+        ```
 
-Lorsqu’on crée un attribut (ou une méthode) dont le nom commence par ```__``` il n’est plus accessible directement. L’utilisateur ne pourra pas lire ni modifier directement les variables internes : il doit utiliser une méthode créée par les codeurs !! Ce sont les getter (accesseur) et setter (mutateur) .
 
-Très souvent, les **accesseurs** en **lecture** verront leur nom commencer par get quand leurs homologues, les **mutateurs**, en **écriture** verront le leur commencer par set. Ainsi si on veut créer une méthode qui renvoie le nom, on pourrait la nommer ```get_name```.
 
-**<H3 STYLE="COLOR:red;">Activité n° 8 : attributs privés et accesseur**</H3>
-```python
-class Personne:
-    """Classe définissant une personne caractérisée par :
-    - son nom
-    - son prénom
-    - son âge"""
+🚫 Modifier un attribut sans contrôle peut **altérer le fonctionnement** de l’objet.
 
-    def __init__(self, nom : str, prenom : str, age=33):
-        self.__nom   = nom        #attribut privé
-        self.prenom = prenom
-        self.age   = age
-    def get_name(self):
-        return self.__nom
+✅ Un attribut ne devrait être **public** que s’il **n’impacte pas le comportement** de l’objet.
 
-### Programme principal ###
-qui = Personne('Dupont', 'Jean')
 
-print(qui.get_name())     # donne le nom
-print(qui.__nom)         # lève l’exception AttibuteError car l’attribut n’est plus accessible !!
-qui.__nom = 'Durant'      # ne modifie pas l’attribut
-print(qui.get_name())
-```
-???+ question "Tester ce qui est proposé"
+---
 
-    {{ IDE() }}
 
-Sur Thonny : On met en commentaire la ligne levant l’exception
-```python
-class Personne:
-    """Classe définissant une personne caractérisée par :
-    - son nom
-    - son prénom
-    - son âge"""
 
-    def __init__(self, nom : str, prenom : str, age=33):
-        self.__nom   = nom        #attribut privé
-        self.prenom = prenom
-        self.age   = age
-    def get_name(self):
-        return self.__nom
 
-### Programme principal ###
-qui = Personne('Dupont', 'Jean')
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030963"></a>🔒 **3.1.2. Attributs et méthodes privés**</H4>
 
-print(qui.get_name())     # donne le nom
-# print(qui.__nom)       # lève l’exception AttibuteError
-qui.__nom = 'Durant'      # ne modifie pas l’attribut
-print(qui.get_name())
-```
-```txt
-Dupont
-Dupont
-```
-???+ question "Tester ce qui est proposé"
+Python permet (plus ou moins) de **protéger les attributs** en leur donnant un nom qui commence par **deux underscores `__`**.
+👉 **C’est une convention !**
 
-    {{ IDE() }}
+Lorsqu’on crée un attribut ou une méthode dont le nom commence par `__`, il **n’est plus accessible directement**.
+Cela oblige l’utilisateur à **passer par des méthodes spécifiques** pour **lire** ou **modifier** la donnée : ce sont les **getters** (accesseurs) et les **setters** (mutateurs).
 
-**<H3 STYLE="COLOR:red;">Activité n° 9 : attributs privés et mutateur**</H3>
-```python
-class Personne:
-    """Classe définissant une personne caractérisée par :
-    - son nom
-    - son prénom
-    - son âge"""
+> ✅ Très souvent :
+>
+> * les accesseurs en lecture commencent par `get_...`
+> * les mutateurs en écriture commencent par `set_...`
 
-    def __init__(self, nom : str, prenom : str, age=33):
-        self.__nom   = nom        #attribut privé
-        self.prenom = prenom
-        self.age   = age
+Par exemple, une méthode qui renvoie le nom pourrait s'appeler `get_name`.
 
-    def get_name(self):
-        return self.__nom
+---
 
-    def set_name(self, nom : str):
-        nom = str(nom)        # il faut que le nom fourni soit un string
-        self.__nom = nom
+???+ question "🎯 Activité n° 8 : Attributs privés et accesseur"
 
-### Programme principal ###
-qui = Personne('Dupont', 'Jean')
-print(qui.get_name())
-qui.set_name('Durant')     # modifie le nom
-print(qui.get_name())
-```
 
-```txt
-Dupont
-Durant
-```
-???+ question "Tester ce qui est proposé"
+    ```python
+    class Personne:
+        """Classe définissant une personne caractérisée par :
+        - son nom
+        - son prénom
+        - son âge"""
 
-    {{ IDE() }}
+        def __init__(self, nom : str, prenom : str, age=33):
+            self.__nom = nom        # attribut privé
+            self.prenom = prenom
+            self.age = age
 
-Le mutateur récupère l’argument fournit dans le paramètre (nom) et place la chaine dans ```self.__nom```.
+        def get_name(self):
+            return self.__nom
+
+    ### Programme principal ###
+    qui = Personne('Dupont', 'Jean')
+
+    print(qui.get_name())     # donne le nom
+    print(qui.__nom)          # lève une exception AttributeError
+    qui.__nom = 'Durant'      # ne modifie pas réellement l’attribut privé
+    print(qui.get_name())
+    ```
+
+    ??? success "Python"
+    
+        {{ IDE() }}
+
+   
+
+
+---
+
+📌 **Remarque :** Dans l’IDE Thonny ou un autre environnement, il faut mettre en commentaire la ligne qui provoque l’erreur pour continuer le test.
+
+    ```python
+    class Personne:
+        """Classe définissant une personne caractérisée par :
+        - son nom
+        - son prénom
+        - son âge"""
+
+        def __init__(self, nom : str, prenom : str, age=33):
+            self.__nom = nom        # attribut privé
+            self.prenom = prenom
+            self.age = age
+
+        def get_name(self):
+            return self.__nom
+
+    ### Programme principal ###
+    qui = Personne('Dupont', 'Jean')
+
+    print(qui.get_name())
+    # print(qui.__nom)       # lève l’exception AttributeError
+    qui.__nom = 'Durant'      # crée un nouvel attribut, ne modifie pas __nom
+    print(qui.get_name())
+    ```
+        ??? success "Python"
+    
+        {{ IDE() }}
+
+    ??? success "📤 Résultat :"
+
+        ```txt
+        Dupont
+        Dupont
+        ```
+
+
+
+---
+
+???+ question "🔧 Activité n° 9 : Attributs privés et mutateur"
+
+
+    ```python
+    class Personne:
+        """Classe définissant une personne caractérisée par :
+        - son nom
+        - son prénom
+        - son âge"""
+
+        def __init__(self, nom : str, prenom : str, age=33):
+            self.__nom = nom        # attribut privé
+            self.prenom = prenom
+            self.age = age
+
+        def get_name(self):
+            return self.__nom
+
+        def set_name(self, nom : str):
+            nom = str(nom)           # on s’assure que le paramètre est bien une chaîne
+            self.__nom = nom
+
+    ### Programme principal ###
+    qui = Personne('Dupont', 'Jean')
+    print(qui.get_name())
+    qui.set_name('Durant')     # modifie le nom via le setter
+    print(qui.get_name())
+    ```
+
+    ??? success "Python"
+    
+        {{ IDE() }}
+
+    ??? success "📤 Résultat :"
+
+        ```txt
+        Dupont
+        Durant
+        ```
+
+
+
+
+📝 Le **mutateur** (setter) prend en paramètre une valeur et vient l’affecter à `self.__nom`.
+Cela permet un contrôle sur la **validité** des données modifiées.
+
+---
+
+
+
 
 #### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030964"></a>**3.1.3. (Hors programme) Propriétés**</H4>
 
