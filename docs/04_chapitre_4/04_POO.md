@@ -36,22 +36,22 @@ Chaque objet se décrit par un ensemble **d’attributs** (caractéristiques de 
 🎯 L’un des objectifs principaux de la notion d’objet est d’organiser des programmes complexes grâce aux notions suivantes :
 
 * 🔐 **Encapsulation** : empêche toute modification externe accidentelle. L’utilisateur utilise l’objet sans savoir ce qu’il contient (comme un conducteur de voiture).
-  👉 Le principe de l’encapsulation est **de regrouper dans le même objet**, les **données (attributs)** et les **traitements (méthodes)** qui lui sont spécifiques.
+
+> 👉 Le principe de l’encapsulation est **de regrouper dans le même objet**, les **données (attributs)** et les **traitements (méthodes)** qui lui sont spécifiques.
 
 * 🧠 **Abstraction** : permet de créer des objets possédant un certain degré d’abstraction. Ce processus consiste à identifier des caractéristiques et mécanismes communs à plusieurs éléments.
 
-
-  * Attributs : Ce sont les données de l’objet, ses caractéristiques.
-  * Méthodes : Ce sont les comportements de l’objet.
+> * Attributs : Ce sont les données de l’objet, ses caractéristiques.
+>
+> * Méthodes : Ce sont les comportements de l’objet.
 
 
 * 👪 **Héritage** : permet la réutilisation du code. Une classe Fille hérite d’une classe Mère.
-  *(ex : classe Mère : Animal, classe Fille : Panda)*
+    (ex : classe Mère : Animal, classe Fille : Panda)*
 
-
-  * La super-classe (classe mère) déclare des méthodes et des attributs communs.
-  * La sous-classe hérite des attributs, des méthodes et du type de la super-classe,
-    et peut les redéfinir (cf. polymorphisme).
+> * La super-classe (classe mère) déclare des méthodes et des attributs communs.
+> 
+> * La sous-classe hérite des attributs, des méthodes et du type de la super-classe,  et peut les redéfinir (cf. polymorphisme).
 
 
 * 🔁 **Polymorphisme** : une méthode portant **le même nom** mais appartenant à des classes différentes peut effectuer un **travail différent** (surcharge).
