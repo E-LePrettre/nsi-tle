@@ -695,14 +695,20 @@ Nous aimerions maintenant accéder à **n'importe quelle valeur** de la liste, e
 
 !!! question "Capytale : Structure liste (chainée) avec les lists de Python"
 
-    ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667924"></a>**3.4. ❤️2<sup>ème</sup> implémentation de la structure liste (chainée) avec les lists de Python❤️**</H3>
 
 
-    Si le type natif list se nomme ainsi, c'est bien qu'il permet l'implémentation de Liste. Par contre, en interne, il s'agit d'une tableau dynamique qui possède plus de fonctions d'interface que celle du type abstrait **TABLEAU DYNAMIQUE**. La structure de données nommée list est donc un savant mélange de fonctionnalités des tableaux et des listes.
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667924"></a>**3.4. ❤️2<sup>ème</sup> implémentation de la structure liste (chaînée) avec les `lists` de Python❤️**</H3>
 
+🧠 Si le type natif `list` se nomme ainsi, c'est bien qu'il permet l'**implémentation de Liste**.
+⚙️ En interne, il s'agit d’un **tableau dynamique** qui possède plus de fonctions d'interface que le type abstrait **TABLEAU DYNAMIQUE**.
+🔁 La structure de données `list` est donc un **savoureux mélange de fonctionnalités** issues des **tableaux** et des **listes**.
 
+---
 
-    **<H3 STYLE="COLOR:red;">Activité n° 9 :**  **structure liste avec des lists fonction** ```nouvelleListe```**,** ```estVide``` **et** ```lireElement``` :</H3> Ces fonctions restent les mêmes en utilisant les lists plustot que les tableaux :
+???+ question "🧪 Activité n° 9 : structure liste avec des `lists` – fonctions `nouvelleListe`, `estVide`, `lireElement`"
+
+    Ces fonctions restent les mêmes, même si on utilise les `lists` de Python plutôt que des tableaux :
+
     ```python
     '''Implémentation 3 de type abstrait Liste en utilisant le type natif liste de Python
 
@@ -733,42 +739,74 @@ Nous aimerions maintenant accéder à **n'importe quelle valeur** de la liste, e
         pass
     ```
 
-    **<H3 STYLE="COLOR:red;">Activité n° 10 :**  **structure liste avec des lists fonction** ```insererElement``` :</H3> 
+    ??? success "📘 Solution :"
 
-    On connait déja la méthode append qui permet de rajouter un nouvel élément à la fin de nos objets de type natif list-Python.
+        ```python
+        def nouvelleListe():
+            return []
 
-    Attention, on évite append et pop!! car ils modifient la variable sur laquelle on agit
+        def estVide(L):
+            return len(L) == 0
 
-    La fonction devra toujours renvoyer la **copie modifiée**.
+        def lireElement(L, index=-1):
+            return L[index]
+        ```
 
-    On pourra s'aider de 2 fonctions **supprimerTete(L)** et **ajouterTete(x,L)**
+---
+
+???+ question "🧪 Activité n° 10 : structure liste avec des `lists` – fonction `insererElement`"
+
+    On connaît déjà la méthode `append`, mais ici **on l’évite**, car elle **modifie la liste en place**.
+    La fonction devra toujours **renvoyer une copie modifiée**.
+
+    💡 Astuce : s'aider des fonctions `supprimerTete(L)` et `ajouterTete(x,L)`.
 
     ```python
     def insererElement(x, L, position):
         '''Renvoie une Liste en insérant x à la position position. '''
         pass
 
-
-    L=nouvelleListe()
-    L = ajouterTete(2,L)
-    L = ajouterTete(3,L)
-    L = ajouterTete(1,L)
+    L = nouvelleListe()
+    L = ajouterTete(2, L)
+    L = ajouterTete(3, L)
+    L = ajouterTete(1, L)
     print(L)
-    L = insererElement(25,L,1)
+    L = insererElement(25, L, 1)
     print(L)
     ```
 
-    **Remarque** il existe également une méthode nommée insert qui permet de faire la même chose en choisissant la position de l'insertion.
+    ⚠️ **Erreur courante à ne pas faire :**
 
-    **Erreur courante :** Ne faites donc jamais ceci : insert étant une fonction-procédure, comme append, vous allez renvoyer ... None.
     ```python
     reponse = [element for element in L]
     return reponse.insert(position, x)
     ```
 
-    **<H3 STYLE="COLOR:red;">Activité n° 11 :**  **structure liste avec des lists fonction** ```pop``` :</H3> De la même façon, il existe une méthode nommée pop qui permet d'extraire un élément (la méthode renvoie l'élément) et modifie le tableau en place.
+    ❌ `insert()` est une **fonction-procédure** : elle retourne `None` !
 
-    On peut donc l'utiliser pour juste modifier le tableau, sans mémoriser la valeur extraite.
+    ??? success "📘 Solution :"
+
+        ```python
+        def insererElement(x, L, position):
+            copie = L[:]
+            copie.insert(position, x)
+            return copie
+        
+        L = nouvelleListe()
+        L = ajouterTete(2, L)
+        L = ajouterTete(3, L)
+        L = ajouterTete(1, L)
+        print(L)
+        L = insererElement(25, L, 1)
+        print(L)
+        ```
+
+---
+
+???+ question "🧪 Activité n° 11 : structure liste avec des `lists` – fonction `supprimerPosition`"
+
+    Comme pour `append`, la méthode `pop()` modifie la liste en place. On s'en sert uniquement pour ses effets de bord.
+
     ```python
     def supprimerPosition(L, position):
         '''Renvoie une nouvelle liste où on a supprimé l'élément situé à la position fournie'''
@@ -778,14 +816,32 @@ Nous aimerions maintenant accéder à **n'importe quelle valeur** de la liste, e
     print(L)
     ```
 
-    **Erreur courante :** Il ne faut pas faire ceci :
-    ```python 
+    ⚠️ **À ne pas faire :**
+
+    ```python
     reponse = [element for element in L]
     return reponse.pop(position)
     ```
-    Avec ce code, vous allez renvoyer l'élément supprimé et pas le nouveau tableau
 
-    **<H3 STYLE="COLOR:red;">Activité n° 12 :**  **structure liste avec des lists fonction** ```afficherListe``` :</H3> on rajoute la fonction d’affichage globale de la liste. C’est une fonction optionnel pour notre interface :
+    ❌ Cela retourne l'élément supprimé, **pas la nouvelle liste**.
+
+    ??? success "📘 Solution :"
+
+        ```python
+        def supprimerPosition(L, position):
+            copie = L[:]
+            copie.pop(position)
+            return copie
+        L = supprimerPosition(L, 2)
+        print(L)
+        ```
+
+---
+
+???+ question "🧪 Activité n° 12 : structure liste avec des `lists` – fonction `afficherListe`"
+
+    On ajoute ici une fonction **d’affichage globale** pour respecter l’interface du type abstrait Liste :
+
     ```python
     def afficherListe(L):
         '''Renvoie une représentation de la Liste sous forme d'une séquence commençant par la tête'''
@@ -794,7 +850,12 @@ Nous aimerions maintenant accéder à **n'importe quelle valeur** de la liste, e
     print(afficherListe(L))
     ```
 
-    On va obtenir le même effet pour l'utilisateur, si ce n'est que le code utilise les fonctionnalités de Python et que nous ne connaissons pas les coûts de ces fonctions.
+    📎 On affiche la structure comme une **séquence immuable**, ce qui est plus lisible que la syntaxe brute d’une `list`.
+
+
+
+---
+
 
 !!! info "Capytale : Structure liste (chainée) avec POO"
 
