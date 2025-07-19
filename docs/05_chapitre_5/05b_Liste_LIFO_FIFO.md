@@ -9,7 +9,7 @@ title: 05b Liste - Pile - File - Dictionnaire
 [2.	🧩 Les tableaux](#_toc151667919)  
 [3.	🔗 Les listes (chainées)](#_toc151667920)  
 [4.	🥞 Les piles](#_toc151667926)  
-[5.	Les files](#_toc151667931)  
+[5.	🛒 Les files](#_toc151667931)  
 [6.	Les dictionnaires](#_toc151667938)  
 [7.	Exercices](#_toc151667945)  
 [8.	Projets](#_toc151667946)  
@@ -699,7 +699,7 @@ Nous aimerions maintenant accéder à **n'importe quelle valeur** de la liste, e
 
 
 
-!!! question "Capytale : Structure liste (chainée) avec les lists de Python"
+!!! info "Capytale : Structure liste (chainée) avec les lists de Python"
 
 
 
@@ -1252,8 +1252,7 @@ On va créer une méthode `returnFinalValue` qui :
 
     3. Et encore derrière ?
    
-
-   ??? success "❇️ Solution :"
+    ??? success "❇️ Solution :"
 
         → `list1.head.v`
 
@@ -2025,18 +2024,28 @@ Soit une pile P composée des éléments suivants :
 
 
 
-!!! question "Capytale : Structure pile avec la POO et les listes chainée"
+!!! info "Capytale : Structure pile avec la POO et les listes chainée"
 
-    ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667930"></a>**4.4. ❤️3<sup>ème</sup> implémentation de la structure pile avec la POO et les listes chainée❤️**</H3>
 
- 
-    La version à une classe est plus simple, elle peut être suffisante, mais les puristes préfèrent la version à deux classes qui colle davantage au modèle théorique proche des listes dans lequel une pile est soit une cellule, soit une pile vide.
 
-    **<H3 STYLE="COLOR:red;">Activité n° 31 : Structure pile avec la POO et les listes chainée version 1 classe :**</H3> Créer une classe Pile qui peut recevoir deux paramètres lors de l'appel du constructeur : un paramètre value et un paramètre next. Les deux valeurs transmises devront être stockées dans deux attributs nommés v et n.
 
-    **Sur Thonny : Toutes les fonctions de cette implémentation doivent être  dans le même fichier python appelé pile\_POO\_v1.py**
 
-    Et compléter la structure suivante :
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667930"></a>**4.4. ❤️3<sup>ème</sup> implémentation de la structure pile avec la POO et les listes chainée❤️**</H3>
+
+La version à une classe est plus simple, elle peut être suffisante, mais les puristes préfèrent la version à deux classes qui colle davantage au modèle théorique proche des listes dans lequel une pile est soit une cellule, soit une pile vide.
+
+---
+
+???+ question "📘 Activité n° 31 : Structure pile avec la POO et les listes chainée version 1 classe"
+
+    Créer une classe `Pile` qui peut recevoir deux paramètres lors de l'appel du constructeur : un paramètre `value` et un paramètre `next`.
+
+    Les deux valeurs transmises devront être stockées dans deux attributs nommés `v` et `n`.
+
+
+
+    🎯 Compléter la structure suivante :
+
     ```python
     '''Implémentation 3 de type abstrait Liste en utilisant la POO et les listes chainées version 1 classe'''
 
@@ -2044,40 +2053,39 @@ Soit une pile P composée des éléments suivants :
         def __init__(self, value=None, next=None):
             pass
 
-        def estVide(self) :
+        def estVide(self):
             pass
 
-        def empiler(self, element) :
+        def empiler(self, element):
             pass
 
         def depiler(self):
             pass
     ```
 
-    Que faut il écrire dans la console pour :
+    🖥️ Que faut-il écrire dans la console pour :
 
-    1. Créer une pile p ?
+    1. Créer une pile `p` ?
+    2. Tester si `p` est vide ?
+    3. Empiler dans `p` : Lundi, Mardi, Mercredi
+    4. Tester si `p` est vide ?
+    5. Dépiler toute la pile `p`
 
-    2. Tester si p est vide ?
+    📝 **Remarque** : on pourra afficher les piles construites en ajoutant la méthode `__str__`
 
-    3. Empiler dans p : Lundi, Mardi, Mercredi
-
-    4. Tester si p est vide ?
-
-    5. Dépiler toute la pile p
-
-    **Remarque** on pourra afficher les piles construites en ajoutant la méthode \_\_str\_\_
     ```python
-        def __str__(self): # on peut mettre __repr__ à la place pour éviter de taper print
-            pass
+    def __str__(self):  # on peut mettre __repr__ à la place pour éviter de taper print
+        pass
     ```
-    Ajouter les deux méthodes ```taille``` et ```sommet```
-    ```python
-        def taille(self) :
-            pass
 
-        def sommet(self) :
-            pass
+    📌 Ajouter les deux méthodes `taille` et `sommet` :
+
+    ```python
+    def taille(self):
+        pass
+
+    def sommet(self):
+        pass
 
     if __name__ == '__main__':
         p = Pile()
@@ -2088,10 +2096,73 @@ Soit une pile P composée des éléments suivants :
         print(p.sommet())
     ```
 
-    **<H3 STYLE="COLOR:red;">Activité n° 32 : Structure pile avec la POO et les listes chainée version 2 classes :**</H3> Créer une classe Node qui peut recevoir deux paramètres lors de l'appel du constructeur : un paramètre ```value``` et un paramètre ```next```. Les deux valeurs transmises devront être stockées dans deux attributs nommés ```v``` et ```n```.
+    ??? success "✅ Solution :"
 
+        ```python
+        class Pile:
+            def __init__(self, value=None, next=None):
+                self.v = value
+                self.n = next
 
-    Et compléter la structure suivante :
+            def estVide(self):
+                return self.v is None and self.n is None
+
+            def empiler(self, element):
+                if self.estVide():
+                    self.v = element
+                else:
+                    self.n = Pile(self.v, self.n)
+                    self.v = element
+
+            def depiler(self):
+                if self.estVide():
+                    return "Pile vide"
+                elif self.n is None:
+                    val = self.v
+                    self.v = None
+                    return val
+                else:
+                    val = self.v
+                    self.v = self.n.v
+                    self.n = self.n.n
+                    return val
+
+            def __str__(self):
+                if self.estVide():
+                    return "[]"
+                valeurs = []
+                p = Pile(self.v, self.n)
+                while not p.estVide():
+                    valeurs.append(p.depiler())
+                for v in reversed(valeurs):
+                    self.empiler(v)
+                return str(valeurs)
+
+            def taille(self):
+                temp = Pile(self.v, self.n)
+                compteur = 0
+                while not temp.estVide():
+                    temp.depiler()
+                    compteur += 1
+                return compteur
+
+            def sommet(self):
+                return self.v
+        ```
+
+---
+
+???+ question "🧱 Activité n° 32 : Structure pile avec la POO et les listes chainée version 2 classes"
+
+    Créer une classe `Node` qui peut recevoir deux paramètres lors de l'appel du constructeur :
+
+    * un paramètre `value`
+    * un paramètre `next`
+
+    Les deux valeurs transmises devront être stockées dans deux attributs nommés `v` et `n`.
+
+    🎯 Compléter la structure suivante :
+
     ```python
     '''Implémentation 3 de type abstrait Liste en utilisant la POO et les listes chainées version 2 classes'''
 
@@ -2103,28 +2174,26 @@ Soit une pile P composée des éléments suivants :
         def __init__(self, c=None):
             pass
 
-        def estVide(self) :
+        def estVide(self):
             pass
 
-        def empiler(self, element) :
+        def empiler(self, element):
             pass
 
         def depiler(self):
             pass
     ```
-    Que faut-il écrire dans la console pour :
 
-    1. Créer une pile p ?
+    🖥️ Que faut-il écrire dans la console pour :
 
-    2. Tester si p est vide ?
+    1. Créer une pile `p` ?
+    2. Tester si `p` est vide ?
+    3. Empiler dans `p` : Lundi, Mardi, Mercredi
+    4. Tester si `p` est vide ?
+    5. Dépiler toute la pile `p`
 
-    3. Empiler dans p : Lundi, Mardi, Mercredi
+    📝 **Remarque** : On pourra afficher les piles construites avec les fonctions `afficherListe` et `recupererValeur` des Listes chaînées :
 
-    4. Tester si p est vide ?<
-
-    5. Dépiler toute la pile p
-
-    **Remarque** On pourra afficher les piles construites avec les fonctions ```afficherListe``` et ```recupererValeur```  des Listes chainées
     ```python
     def afficherListe(L):
         tableau = recupererValeur(L.cellule)
@@ -2137,14 +2206,63 @@ Soit une pile P composée des éléments suivants :
             return [cellule.v] + recupererValeur(cellule.n)
     ```
 
-    **<H3 STYLE="COLOR:red;">Activité n° 33 : Structure pile avec la POO et les listes chainée version 2 classes :**</H3> rajouter aux structures précédentes deux méthodes ```taille``` et ```sommet``` qui permettent le retourner la taille et de retourner le sommet de la pile
+    ??? success "✅❇️ Solution :"
+
+        ```python
+        class Node:
+            def __init__(self, value=None, next=None):
+                self.v = value
+                self.n = next
+
+        class Pile:
+            def __init__(self, c=None):
+                self.cellule = c
+
+            def estVide(self):
+                return self.cellule is None
+
+            def empiler(self, element):
+                self.cellule = Node(element, self.cellule)
+
+            def depiler(self):
+                if self.estVide():
+                    return "Pile vide"
+                else:
+                    val = self.cellule.v
+                    self.cellule = self.cellule.n
+                    return val
+
+        def afficherListe(L):
+            tableau = recupererValeur(L.cellule)
+            return str(tuple(tableau))
+
+        def recupererValeur(cellule):
+            if cellule is None:
+                return []
+            if cellule.n == None:
+                return [cellule.v]
+            else:
+                return [cellule.v] + recupererValeur(cellule.n)
+        ```
+
+---
+
+
+
+
+???+ question "📘 Activité n° 33 : Structure pile avec la POO et les listes chaînées version 2 classes – méthodes `taille` et `sommet`"
+
+    🧩 Rajouter aux structures précédentes deux méthodes :
+
+    * `taille` qui retourne la taille de la pile
+    * `sommet` qui retourne le sommet de la pile
 
     ```python
-        def taille(self) :
-            pass
+    def taille(self):
+        pass
 
-        def sommet(self) :
-            pass
+    def sommet(self):
+        pass
 
     if __name__ == '__main__':
         p = Pile()
@@ -2154,101 +2272,144 @@ Soit une pile P composée des éléments suivants :
         print(p.taille())
         print(p.sommet())
     ```
-    **<H3 STYLE="COLOR:red;">Activité  : Structure pile avec la POO et les listes chainée version 2 classes :**</H3> rajouter aux structures précédentes deux fonctions ```taille2``` et ```sommet2``` qui permettent le retourner la taille et de retourner le sommet de la pile
 
-   
-    **[vidéo le crépier psychorigide](https://ladigitale.dev/digiview/#/v/66b7280a8b3b5)**
+    ??? success "✅ Solution :"
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc151667931"></a>**5. Les files**</H2>
+        ```python
+        def taille(self):
+            compteur = 0
+            courant = self.cellule
+            while courant is not None:
+                compteur += 1
+                courant = courant.n
+            return compteur
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667932"></a>**5.1. Généralités**
+        def sommet(self):
+            if self.cellule is None:
+                return "Pile vide"
+            return self.cellule.v
+        ```
 
-En informatique, une **file** (queue en anglais) est une structure de données basée sur le principe « Premier entré, premier sorti », en anglais **FIFO (First In, First Out)**, ce qui veut dire que les premiers éléments ajoutés à la file seront les premiers à être récupérés.
+---
+
+???+ question "📘 Activité : Structure pile avec la POO et les listes chaînées version 2 classes – fonctions `taille2` et `sommet2`"
+
+    🧪 Rajouter aux structures précédentes deux **fonctions externes** :
+
+    * `taille2` : retourne la taille de la pile
+    * `sommet2` : retourne le sommet de la pile
+
+    📺 **[Vidéo – Le crêpier psychorigide](https://ladigitale.dev/digiview/#/v/66b7280a8b3b5)**
+
+    ??? success "✅ Solution :"
+
+        ```python
+        def taille2(pile):
+            compteur = 0
+            courant = pile.cellule
+            while courant is not None:
+                compteur += 1
+                courant = courant.n
+            return compteur
+
+        def sommet2(pile):
+            if pile.cellule is None:
+                return "Pile vide"
+            return pile.cellule.v
+        ```
+
+---
+
+## <H2 STYLE="COLOR:BLUE;">🛒 <a name="_toc151667931"></a>**5. Les files**</H2>
+
+---
+
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667932"></a>**5.1. Généralités**</H3>
+
+En informatique, une **file** (*queue* en anglais) est une structure de données basée sur le principe :
+➡️ **Premier entré, premier sorti** (**FIFO : First In, First Out**)
 
 ![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.033.png){width=30%; : .center }
 
-Voici quelques exemples d’usage courant d’une file :
+📌 **Exemples d’usage** :
 
-- En général, on utilise des **files pour mémoriser temporairement** des transactions qui doivent attendre pour être traitées
-- Les **serveurs d’impression**, qui doivent traiter les requêtes dans l’ordre dans lequel elles arrivent, et les insèrent dans une file d’attente (ou une queue).
-- Certains **moteurs multitâches**, dans un système d’exploitation, qui doivent accorder du temps machine à chaque tache, sans en privilégier aucune.
-- Gestion des clients arrivant dans un magasin, gestion des stock
-- …
+* 📊 Transactions temporaires en attente
+* 🖨️ Requêtes d’un **serveur d’impression**
+* ⚙️ Tâches en **multitâche** dans un OS
+* 🛒 Gestion de file d’attente de clients, stocks…
 
-Les primitives communément utilisées pour manipuler des files :
+---
 
-- **créer une file vide**
-- **enfiler** : ajoute un élément dans la file (en anglais : « **enqueue** »)
-- **défiler** : renvoie le prochaine élément de la file, et le retire de la file (en anglais : « **dequeue** »)
-- **estVide** : renvoie True si la file est vide, False sinon
+🛠️ **Primitives courantes** :
+
+* `fileVide()` : créer une file vide
+* `enfiler(file, x)` : ajoute un élément à la **queue** (**enqueue**)
+* `defiler(file)` : retire et renvoie l’élément en **tête** (**dequeue**)
+* `estVide(file)` : teste si la file est vide
 
 ![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.035.png){width=60%; : .center }
 
-**Exemple :** Exemples : Soit une file F composée des éléments suivants : 12, 14, 8, 7, 19 et 22 (le premier élément rentré dans la file est 22 ; le dernier élément rentré dans la file est 12). Pour chaque exemple ci-dessous on repart de la file d'origine : 
+---
 
-- **enfiler(F,42)** la file F est maintenant composée des éléments suivants : 42, 12, 14, 8, 7, 19 et 22 (le premier élément rentré dans la file est 22 ; le dernier élément rentré dans la file est 42) 
-- **defiler(F)** la file F est maintenant composée des éléments suivants : 12, 14, 8, 7, et 19 (le premier élément rentré dans la file est 19 ; le dernier élément rentré dans la file est 12) 
-- si on applique **defiler(F) 6 fois de suite,** estVide(F) **renvoie vrai** 
+🎯 **Exemple** :
+
+Soit une file `F` composée de `12, 14, 8, 7, 19, 22`
+(➡️ Premier élément : **22** ; Dernier élément : **12**)
+
+* `enfiler(F,42)` → devient : `42, 12, 14, 8, 7, 19, 22`
+* `defiler(F)` → devient : `12, 14, 8, 7, 19`
+* `defiler(F)` x6 → `estVide(F)` renvoie **True**
+
+---
 
 !!! info "Capytale : Structure file avec les listes de Python"
 
-    ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667933"></a>**5.2. ❤️1<sup>ère</sup> implémentation de la structure file avec les listes de Python❤️**
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667933"></a>**5.2. ❤️1<sup>ère</sup> implémentation de la structure file avec les listes de Python❤️**</H3>
 
-    On peut utiliser une implémentation similaire à celle des piles, mais si ```defiler``` renvoie l’élément de tête, ```enfiler``` doit placer le nouvel élément à la queue de la file. Pour cela, on doit remonter toute la file. L’opération ```enfiler``` est alors en **temps linéaire**.
+On peut utiliser une implémentation similaire à celle des piles,
+mais :
 
-    Nous utiliserons une simple liste pour représenter la pile. 
+* `defiler()` retire l’élément **en tête**
+* `enfiler()` ajoute un élément **en queue**
+  → donc en **temps linéaire** (il faut parcourir toute la file)
 
-    **<H3 STYLE="COLOR:red;">Activité n° 34 : Structure file avec les listes :**</H3> Compléter la **structure de base** suivante :
+---
 
-    **Remarque** : La fonction enfiler ne renvoie rien.
+???+ question "📘 Activité n° 34 : Structure file avec les listes"
 
-    **Attention**
+    🧩 Compléter la **structure de base** suivante :
 
-    **file += [element] (opérateur d'addition avec affectation):**
+    💬 **Remarque** : la fonction `enfiler` ne renvoie rien.
 
-    - C'est une opération sur place pour les objets mutables comme les listes.
+    ⚠️ **Attention aux effets de bord :**
 
-    - Cela modifie directement la liste originale référencée par file.
+    * `file += [element]` : ✅ en place, modifie l’objet
+    * `file = file + [element]` : ❌ recrée une nouvelle liste, coupe le lien
 
-    - L'objet reste le même en mémoire.
-
-    **file = file + [element] (concaténation suivie d'affectation):**
-
-    - C'est une opération de création d'un nouvel objet.
-
-    - L'expression file + [element] crée une nouvelle liste en concaténant file et [element].
-
-    - L'affectation file = ... fait alors pointer le nom pile vers ce nouvel objet. Mais si la variable pile est passée à la fonction par référence (comme c'est souvent le cas avec les objets mutables en Python), cela coupe le lien avec l'objet original.
-
-    De la même manière
-
-    **file = file[1:]** crée une nouvelle liste et réaffecte la variable file localement dans la fonction. Cela ne modifie pas l'objet d'origine si vous utilisez la liste en dehors de la fonction (par exemple, une liste passée en argument). Pour corriger cela, vous devez modifier la liste en place.
+    ⚠️ Même chose pour `file = file[1:]` qui ne modifie pas la liste passée en paramètre.
 
     ```python
     '''Implémentation de type abstrait File en utilisant les listes de Python'''
 
-    def fileVide() :
+    def fileVide():
         pass
 
-    def estVide(file) :
+    def estVide(file):
         pass
 
-    def enfiler(file, element) :
+    def enfiler(file, element):
         # 1ère façon 
-        #file.append(element) 
-
+        # file.append(element)
         # 2ème façon
         pass
 
-    def defiler(file) :
+    def defiler(file):
         if not estVide(file):
             # 1ère façon 
             # return file.pop(0)
-            
             # 2ème façon
-            
-        pass
-
+            pass
+        return "File vide"
 
     # Programme principal
     if __name__ == '__main__':
@@ -2264,53 +2425,114 @@ Les primitives communément utilisées pour manipuler des files :
         assert defiler(ma_file) == 'File vide'
     ```
 
-    **<H3 STYLE="COLOR:red;">Activité n° 35 : Structure file avec les listes :**</H3> On va rajouter à la structure de base précédente deux fonctions : ```taille``` et ```sommet``` qui permettent respectivement de retourner la taille de la file (**sans utiliser la fonction de python len !!**) et le sommet de la file (**sans utiliser les indices !!**). On ne pourra utiliser seulement les fonctions primitives précédentes et en devra récupérer la file originelle telle qu’elle était.
+    ??? success "✅ Solution :"
+
+        ```python
+        def fileVide():
+            return []
+
+        def estVide(file):
+            return file == []
+
+        def enfiler(file, element):
+            file.append(element)
+            # ou : file += [element]
+
+        def defiler(file):
+            if not estVide(file):
+                return file.pop(0)
+            return "File vide"
+
+        # Programme principal
+        if __name__ == '__main__':
+            ma_file = fileVide()
+            assert estVide(ma_file) == True
+            enfiler(ma_file, 'Lundi')
+            enfiler(ma_file, 'Mardi')
+            enfiler(ma_file, 'Mercredi')
+            assert estVide(ma_file) == False
+            assert defiler(ma_file) == 'Lundi'
+            assert defiler(ma_file) == 'Mardi'
+            assert defiler(ma_file) == 'Mercredi'
+            assert defiler(ma_file) == 'File vide'
+        ```
+
+---
+
+???+ question "📘 Activité n° 35 : Fonctions `taille` et `sommet` pour les files"
+
+    🎯 Rajouter deux fonctions à la structure précédente :
+
+    * `taille(file)` : retourne la **taille** de la file (**sans utiliser `len`**)
+    * `sommet(file)` : retourne le **sommet** (1er élément inséré) **sans utiliser les indices**
+
+    On ne pourra utiliser **que les primitives précédentes**, et la file **doit être restaurée**.
 
     ```python
     def taille(file):
         pass
+
     def sommet(file):
         pass
 
     # Programme principal
     if __name__ == '__main__':
         ma_file = fileVide()
-    
         enfiler(ma_file, 'Lundi')
         enfiler(ma_file, 'Mardi')
         enfiler(ma_file, 'Mercredi')
         assert taille(ma_file) == 3
         assert sommet(ma_file) == 'Lundi'
     ```
-!!! question "Capytale : Structure file avec la POO et les lists de Python"
 
-    ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667934"></a>**5.3. ❤️2<sup>ème</sup> implémentation de la structure file avec la POO et les lists de Python❤️**</H3>
+    ??? success "✅ Solution :"
 
-    **<H3 STYLE="COLOR:red;">Activité n° 36 : Structure File avec la POO et les lists de Python :**</H3> Créer une classe File qui construit une liste vide, puis compléter les autres méthodes de la classe  :
+        ```python
+        def taille(file):
+            compteur = 0
+            file_temp = fileVide()
+            while not estVide(file):
+                enfiler(file_temp, defiler(file))
+                compteur += 1
+            while not estVide(file_temp):
+                enfiler(file, defiler(file_temp))
+            return compteur
 
-    **Remarque** : La fonction enfiler ne renvoie rien.
+        def sommet(file):
+            file_temp = fileVide()
+            sommet_val = None
+            if not estVide(file):
+                sommet_val = defiler(file)
+                enfiler(file_temp, sommet_val)
+            while not estVide(file):
+                enfiler(file_temp, defiler(file))
+            while not estVide(file_temp):
+                enfiler(file, defiler(file_temp))
+            return sommet_val
+        ```
 
-    **Attention**
+---
 
-    **file += [element] (opérateur d'addition avec affectation):**
 
-    - C'est une opération sur place pour les objets mutables comme les listes.
+!!! info "Capytale : Structure file avec la POO et les lists de Python"
 
-    - Cela modifie directement la liste originale référencée par file.
 
-    - L'objet reste le même en mémoire.
 
-    **file = file + [element] (concaténation suivie d'affectation):**
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667934"></a>**5.3. ❤️2<sup>ème</sup> implémentation de la structure file avec la POO et les listes de Python❤️**</H3>
 
-    - C'est une opération de création d'un nouvel objet.
 
-    - L'expression file + [element] crée une nouvelle liste en concaténant file et [element].
 
-    - L'affectation file = ... fait alors pointer le nom pile vers ce nouvel objet. Mais si la variable pile est passée à la fonction par référence (comme c'est souvent le cas avec les objets mutables en Python), cela coupe le lien avec l'objet original.
+???+ question "📘 Activité n° 36 : Structure file avec la POO et les listes de Python"
 
-    De la même manière
+    Créer une classe `File` qui construit une **liste vide**, puis compléter les autres méthodes :
 
-    **file = file[1:]** crée une nouvelle liste et réaffecte la variable file localement dans la fonction. Cela ne modifie pas l'objet d'origine si vous utilisez la liste en dehors de la fonction (par exemple, une liste passée en argument). Pour corriger cela, vous devez modifier la liste en place.
+    💬 **Remarque** : La fonction `enfiler` ne renvoie rien.
+
+    ⚠️ **Attention** :
+
+    * `file += [element]` ➜ modifie **l'objet original** (en place ✅)
+    * `file = file + [element]` ➜ crée un **nouvel objet** (hors de la portée initiale ❌)
+    * `file = file[1:]` ne modifie pas la file d'origine (hors de la fonction)
 
     ```python
     '''Implémentation 3 de type abstrait Liste en utilisant la POO et les listes de Python'''
@@ -2320,23 +2542,22 @@ Les primitives communément utilisées pour manipuler des files :
         def __init__(self):
             pass
 
-        def estVide(self) :
+        def estVide(self):
             pass
 
-        def enfiler(self, element) :
+        def enfiler(self, element):
             # 1ère façon
             # self.file.append(element)
-            
             # 2ème façon
             pass
 
         def defiler(self):
             if not self.estVide():
                 # 1ère façon 
-                # return self. file.pop(0)
-            
+                # return self.file.pop(0)
                 # 2ème façon 
                 pass
+            return "File vide"
 
     # Programme principal
     if __name__ == '__main__':
@@ -2350,17 +2571,57 @@ Les primitives communément utilisées pour manipuler des files :
         assert ma_file.defiler() == 'Mardi'
         assert ma_file.defiler() == 'Mercredi'
         assert ma_file.defiler() == 'File vide'
-    ```
+```
 
-    **<H3 STYLE="COLOR:red;">Activité n° 37 : Structure file avec la POO et les lists de Python:**</H3> On va rajouter à la structure de base précédente deux méthodes de la classe File : ```taille``` et ```sommet``` qui permettent respectivement de retourner la taille de la file (**sans utiliser la fonction de python len !!**) et le sommet de la file (**sans utiliser les indices !!**). On ne pourra utiliser seulement les fonctions primitives précédentes et en devra récupérer la file originelle telle qu’elle était.
-    
-    On pourra s’aider d’une file auxiliaire.
+    ??? success "✅❇️ Solution :"
+
+        ```python
+        class File:
+            def __init__(self):
+                self.file = []
+
+            def estVide(self):
+                return self.file == []
+
+            def enfiler(self, element):
+                self.file += [element]
+
+            def defiler(self):
+                if not self.estVide():
+                    return self.file.pop(0)
+                return "File vide"
+        # Programme principal
+        if __name__ == '__main__':
+            ma_file = File()
+            assert ma_file.estVide() == True
+            ma_file.enfiler('Lundi')
+            ma_file.enfiler('Mardi')
+            ma_file.enfiler('Mercredi')
+            assert ma_file.estVide() == False
+            assert ma_file.defiler() == 'Lundi'
+            assert ma_file.defiler() == 'Mardi'
+            assert ma_file.defiler() == 'Mercredi'
+            assert ma_file.defiler() == 'File vide'
+        ```
+
+---
+
+???+ question "📘 Activité n° 37 : Méthodes `taille` et `sommet` (POO – file avec listes)"
+
+    On rajoute à la classe `File` deux méthodes :
+
+    * `taille` ➜ retourne la taille (**sans `len`**)
+    * `sommet` ➜ retourne le premier élément (**sans indices**)
+
+    📌 On pourra s’aider d’une **file auxiliaire**, et la file **doit être restaurée**.
+
     ```python
-        def taille(self) :
-            pass
+    def taille(self):
+        pass
 
-        def sommet(self):
-            pass
+    def sommet(self):
+        pass
+
     # Programme principal
     if __name__ == '__main__':
         ma_file = File()
@@ -2371,24 +2632,109 @@ Les primitives communément utilisées pour manipuler des files :
         assert ma_file.sommet() == 'Lundi'
     ```
 
-    Ici, **tous les coûts d’exécution sont unitaires.**
+    📎 Tous les **coûts d’exécution sont unitaires.**
 
-    **<H3 STYLE="COLOR:red;">Activité n° 38 : Structure pile avec la POO et les lists de Python:**</H3> On va rajouter à la structure une méthode de la classe File : afficher qui permet d’afficher (retourner) la file sous forme de liste .
+    ??? success "✅ Solution :"
+
+        ```python
+        def taille(self):
+            file_temp = []
+            compteur = 0
+            while not self.estVide():
+                file_temp.append(self.defiler())
+                compteur += 1
+            while file_temp != []:
+                self.enfiler(file_temp.pop(0))
+            return compteur
+
+        def sommet(self):
+            file_temp = []
+            sommet_val = None
+            if not self.estVide():
+                sommet_val = self.defiler()
+                file_temp.append(sommet_val)
+            while not self.estVide():
+                file_temp.append(self.defiler())
+            while file_temp != []:
+                self.enfiler(file_temp.pop(0))
+            return sommet_val
+        
+        # Programme principal
+        if __name__ == '__main__':
+            ma_file = File()
+            ma_file.enfiler('Lundi')
+            ma_file.enfiler('Mardi')
+            ma_file.enfiler('Mercredi')
+            assert ma_file.taille() == 3
+            assert ma_file.sommet() == 'Lundi'
+        ```
+
+---
+
+???+ question "📘 Activité n° 38 : Méthode `afficher` de la file (POO + liste)"
+
+    🎯 Ajouter une méthode `afficher` dans la classe `File`, qui retourne la file sous forme de **liste Python**.
 
     ```python
-        def afficher(self) :
-            pass
+    def afficher(self):
+        pass
     ```
-    Rajouter au programme principal :
+
+    🔧 Dans le programme principal :
+
     ```python
-        assert ma_file.afficher() == ['Mardi', 'Mercredi', 'Lundi']
+    assert ma_file.afficher() == ['Mardi', 'Mercredi', 'Lundi']
     ```
 
-    Cette implémentation est très **peu efficace** 
+    💡 Cette implémentation est **peu efficace**, mais fonctionnelle.
 
-    **<H3 STYLE="COLOR:red;">Activité  : Structure file avec la POO et les lists de Python:**</H3> On va rajouter à la structure de base précédente deux fonctions : ```taille2``` et ```sommet2``` qui permettent respectivement de retourner la taille de la file (**sans utiliser la fonction de python len !!**) et le sommet de la file (**sans utiliser les indices !!**). On ne pourra utiliser seulement les fonctions primitives précédentes et en devra récupérer la file originelle telle qu’elle était.
-    
-    On pourra s’aider d’une file auxiliaire.
+    ??? success "✅❇️ Solution :"
+
+        ```python
+        def afficher(self):
+            return self.file.copy()
+        ```
+
+---
+
+???+ question "📘 Activité : Fonctions `taille2` et `sommet2` (version fonctionnelle)"
+
+    🎯 Ajouter deux **fonctions** externes à la classe `File` :
+
+    * `taille2(file)` ➜ retourne la taille
+    * `sommet2(file)` ➜ retourne le sommet (1er élément)
+
+    📌 Toujours **sans `len`, ni indices**, avec restauration complète de la file.
+    On peut s’aider d’une **file auxiliaire**.
+
+    ??? success "✅ Solution :"
+
+        ```python
+        def taille2(file):
+            compteur = 0
+            file_temp = File()
+            while not file.estVide():
+                file_temp.enfiler(file.defiler())
+                compteur += 1
+            while not file_temp.estVide():
+                file.enfiler(file_temp.defiler())
+            return compteur
+
+        def sommet2(file):
+            file_temp = File()
+            sommet_val = None
+            if not file.estVide():
+                sommet_val = file.defiler()
+                file_temp.enfiler(sommet_val)
+            while not file.estVide():
+                file_temp.enfiler(file.defiler())
+            while not file_temp.estVide():
+                file.enfiler(file_temp.defiler())
+            return sommet_val
+        ```
+
+---
+
 
 !!! info "Capytale : structure file avec la POO et une liste chainée"
 
@@ -2663,7 +3009,7 @@ Les primitives communément utilisées pour manipuler des files :
     assert f.defiler2() == 'Mercredi'
     ```
 
-!!! question "Capytale : Utilisation de deque"
+!!! info "Capytale : Utilisation de deque"
 
     ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667936"></a>**5.5. Autre implémentation des files avec les bibliothèques de Python**</H3>
 
