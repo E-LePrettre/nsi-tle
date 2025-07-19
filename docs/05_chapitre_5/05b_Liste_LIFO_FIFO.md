@@ -1698,7 +1698,7 @@ Soit une pile P composée des éléments suivants :
 
 ---
 
-!!! question "🧪 Capytale : Structure pile avec les listes de Python"
+!!! info "🧪 Capytale : Structure pile avec les listes de Python"
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667928"></a>**4.2. ❤️1<sup>ère</sup> implémentation de la structure pile avec les listes de Python❤️**</H3>
 
@@ -2531,7 +2531,9 @@ mais :
     ⚠️ **Attention** :
 
     * `file += [element]` ➜ modifie **l'objet original** (en place ✅)
+
     * `file = file + [element]` ➜ crée un **nouvel objet** (hors de la portée initiale ❌)
+
     * `file = file[1:]` ne modifie pas la file d'origine (hors de la fonction)
 
     ```python
@@ -2558,7 +2560,7 @@ mais :
                 # 2ème façon 
                 pass
             return "File vide"
-
+    
     # Programme principal
     if __name__ == '__main__':
         ma_file = File()
@@ -2571,7 +2573,7 @@ mais :
         assert ma_file.defiler() == 'Mardi'
         assert ma_file.defiler() == 'Mercredi'
         assert ma_file.defiler() == 'File vide'
-```
+    ```
 
     ??? success "✅❇️ Solution :"
 
@@ -2692,7 +2694,7 @@ mais :
 
         ```python
         def afficher(self):
-            return self.file.copy()
+            return self.file
         ```
 
 ---
@@ -2738,11 +2740,13 @@ mais :
 
 !!! info "Capytale : structure file avec la POO et une liste chainée"
 
-    ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667935"></a>**5.4. ❤️3<sup>ème</sup> implémentation de la structure file avec la POO et une liste chainée❤️**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667935"></a>**5.4. ❤️3<sup>ème</sup> implémentation de la structure file avec la POO et une liste chainée❤️**</H3>
 
 
 
-    **<H3 STYLE="COLOR:red;">Activité n° 39 : Structure pile avec la POO et les listes chainées :**</H3> COmpléter le constructeur de Node
+
+
+???+ question "📘 Activité n° 39 : Structure pile avec la POO et les listes chainées"
 
     ```python
     '''Implémentation de type abstrait File avec la POO et les listes chainées et deux classes'''
@@ -2752,9 +2756,9 @@ mais :
             pass
     ```
 
-    Compléter le constructeur de la class File
+    Compléter le constructeur de la classe `File`
 
-    **attention** pour améliorer l'implémentation il nous faudra un attribut queue 
+    💡 **Attention** : pour améliorer l’implémentation, il nous faudra un attribut `queue`.
 
     ```python
     class Node:
@@ -2766,20 +2770,21 @@ mais :
             pass
             self.head = ...
     ```
-    Tester
+
+    🧪 Tester :
+
     ```python
     f = File()
     ```
-    Completer les 3 méthodes : 
 
-    - estVide(), 
+    Compléter les 3 méthodes :
 
-    - enfiler() et defiler() sera la version enfiler par la tête et défiler par la queue : version un peu plus compliquée!!
+    * `estVide()`
+    * `enfiler()` et `defiler()` → version : enfiler par la tête et défiler par la queue (**plus compliquée**)
+    * `enfiler2()` et `defiler2()` → version : enfiler par la queue et défiler par la tête (**plus simple**)
 
-    - enfiler2() et defiler2() sera la version enfiler par la queue et défiler par la tete : version plus simple!!
+    🧪 Tester :
 
-    Tester
-    
     ```python
     f = File()
     assert f.estVide() == True
@@ -2799,7 +2804,12 @@ mais :
     assert f.defiler2() == 'Mercredi'
     assert f.defiler2() == 'File vide'
     ```
-    Compléter la méthode \_\_str\_\_.Attention c'est un peu plus compliqué. De façon générale on peut utiliser une list pour enregistrer les valeurs que l'on va lire sur la file afin de les présenter : on mettra le sommet de la file à gauche (le premier à sortir) et la queue de la file à droite (par où on enfile)
+
+    🎯 Compléter la méthode `__str__`.
+    On peut utiliser une liste pour enregistrer les valeurs lues sur la file afin de les présenter dans l’ordre :
+
+    * Sommet (à gauche)
+    * Queue (à droite)
 
     ```python
     class Node:
@@ -2823,26 +2833,28 @@ mais :
             pass
         
         def enfiler2(self, element):
-            ### version enfiler par la queue et défiler par la tete
+            ### version enfiler par la queue et défiler par la tête
             pass
 
         def defiler2(self):
-            ### version enfiler par la queue et défiler par la tete
+            ### version enfiler par la queue et défiler par la tête
             pass
         
         def __str__(self):
-            ### version enfiler par la queue et défiler par la tete
+            ### version enfiler par la queue et défiler par la tête
             pass
-    
+
     f = File()
     assert f.estVide() == True
     f.enfiler2('Lundi')
     f.enfiler2('Mardi')
     f.enfiler2('Mercredi')
-    
     ```
-    Compléter les 2 méthodes suivante : taille() et sommet(). On utilisera enfiler2() et defiler2() qui sera la version enfiler par la queue et défiler par la tete
 
+
+
+    🎯 Compléter les deux méthodes suivantes : `taille()` et `sommet()`
+    (On utilisera `enfiler2()` et `defiler2()` → version plus simple)
 
     ```python
     class Node:
@@ -2858,23 +2870,18 @@ mais :
             pass
 
         def enfiler(self, element):
-            ### version enfiler par la tête et défiler par la queue
             pass
 
         def defiler(self):
-            ### version enfiler par la tête et défiler par la queue
             pass
         
         def enfiler2(self, element):
-            ### version enfiler par la queue et défiler par la tete
             pass
 
         def defiler2(self):
-            ### version enfiler par la queue et défiler par la tete
             pass
         
         def __str__(self):
-            ### version enfiler par la queue et défiler par la tete
             pass
 
         def taille(self):
@@ -2890,15 +2897,152 @@ mais :
     f.enfiler2('Mercredi')
     ```
 
-    Tester
+    🧪 Tester
 
-    Ajouter deux fonctions taille(file) sommet(file). On utilisera enfiler2() et defiler2() qui sera la version enfiler par la queue et défiler par la tete
 
-    Tester
 
-    Ajouter une fonction afficherFile(file)
+    🎯 Ajouter deux fonctions hors classe : `taille(file)` et `sommet(file)`
+    (utiliser également `enfiler2()` et `defiler2()`)
 
-    Tester
+    🧪 Tester
+
+
+
+    🎯 Ajouter une fonction `afficherFile(file)`
+
+    🧪 Tester
+
+
+
+    ??? success "✅ Solution :"
+
+        ```python
+        class Node:
+            def __init__(self, value=None, next=None):
+                self.v = value
+                self.n = next
+
+        class File:
+            def __init__(self, c=None):
+                self.head = c
+                self.queue = c
+
+            def estVide(self):
+                return self.head is None
+
+            def enfiler(self, element):
+                nouveau = Node(element, self.head)
+                self.head = nouveau
+                if self.queue is None:
+                    self.queue = nouveau
+
+            def defiler(self):
+                if self.estVide():
+                    return "File vide"
+                if self.head.n is None:
+                    val = self.head.v
+                    self.head = None
+                    self.queue = None
+                    return val
+                prec = self.head
+                curr = self.head.n
+                while curr.n is not None:
+                    prec = curr
+                    curr = curr.n
+                prec.n = None
+                self.queue = prec
+                return curr.v
+
+            def enfiler2(self, element):
+                nouveau = Node(element)
+                if self.estVide():
+                    self.head = nouveau
+                    self.queue = nouveau
+                else:
+                    self.queue.n = nouveau
+                    self.queue = nouveau
+
+            def defiler2(self):
+                if self.estVide():
+                    return "File vide"
+                val = self.head.v
+                self.head = self.head.n
+                if self.head is None:
+                    self.queue = None
+                return val
+
+            def __str__(self):
+                if self.head is None:
+                    return "[]"
+                else:
+                    res = []
+                    courant = self.head
+                    while courant is not None:
+                        res.append(courant.v)
+                        courant = courant.n
+                    return str(res)
+
+            def taille(self):
+                aux = File()
+                compteur = 0
+                while not self.estVide():
+                    val = self.defiler2()
+                    aux.enfiler2(val)
+                    compteur += 1
+                while not aux.estVide():
+                    self.enfiler2(aux.defiler2())
+                return compteur
+
+            def sommet(self):
+                aux = File()
+                sommet = None
+                while not self.estVide():
+                    val = self.defiler2()
+                    if sommet is None:
+                        sommet = val
+                    aux.enfiler2(val)
+                while not aux.estVide():
+                    self.enfiler2(aux.defiler2())
+                return sommet
+
+        def taille(file):
+            aux = File()
+            compteur = 0
+            while not file.estVide():
+                val = file.defiler2()
+                aux.enfiler2(val)
+                compteur += 1
+            while not aux.estVide():
+                file.enfiler2(aux.defiler2())
+            return compteur
+
+        def sommet(file):
+            aux = File()
+            sommet = None
+            while not file.estVide():
+                val = file.defiler2()
+                if sommet is None:
+                    sommet = val
+                aux.enfiler2(val)
+            while not aux.estVide():
+                file.enfiler2(aux.defiler2())
+            return sommet
+
+        def afficherFile(file):
+            aux = File()
+            valeurs = []
+            while not file.estVide():
+                val = file.defiler2()
+                valeurs.append(val)
+                aux.enfiler2(val)
+            while not aux.estVide():
+                file.enfiler2(aux.defiler2())
+            return valeurs
+        ```
+
+
+
+
 
     La file implémentée de la sorte n'est **pas très efficace** car il faut entièrement la la parcourir pour enfiler un élément!!
     On va améliorer l'efficacité avec **2 pointeurs** : l'un vers la **tête** et l'autre vers la **queue**!
@@ -3011,7 +3155,7 @@ mais :
 
 !!! info "Capytale : Utilisation de deque"
 
-    ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667936"></a>**5.5. Autre implémentation des files avec les bibliothèques de Python**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667936"></a>**5.5. Autre implémentation des files avec les bibliothèques de Python**</H3>
 
 
 
