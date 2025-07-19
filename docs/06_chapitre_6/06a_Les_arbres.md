@@ -953,7 +953,7 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
 
 ---
 
-???+ question "🌲 Activité n° 22 : Arbres binaires et POO : méthode `taille2`
+???+ question "🌲 Activité n° 22 : Arbres binaires et POO : méthode `taille2`"
 
     Implémenter l’algorithme de la **méthode** `taille2` et tester l’arbre précédent.
 
