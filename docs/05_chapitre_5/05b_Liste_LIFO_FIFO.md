@@ -10,9 +10,9 @@ title: 05b Liste - Pile - File - Dictionnaire
 [3.	🔗 Les listes (chainées)](#_toc151667920)  
 [4.	🥞 Les piles](#_toc151667926)  
 [5.	🛒 Les files](#_toc151667931)  
-[6.	Les dictionnaires](#_toc151667938)  
-[7.	Exercices](#_toc151667945)  
-[8.	Projets](#_toc151667946)  
+[6.	🛠️ Les dictionnaires](#_toc151667938)  
+[7.	💡 Exercices](#_toc151667945)  
+[8.	🔍 Projets](#_toc151667946)  
 
 🎯 **Compétences évaluables :**
 
@@ -3411,7 +3411,7 @@ Voici la suite de ton cours, structurée avec clarté et enrichie d’icônes po
 
 ---
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc151667938"></a>**6. Les dictionnaires**</H2>
+## <H2 STYLE="COLOR:BLUE;">🛠️ <a name="_toc151667938"></a>**6. Les dictionnaires**</H2>
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc60173193"></a><a name="_toc151667939"></a>**6.1. 📚 Définition**</H3>
 
@@ -3482,7 +3482,9 @@ Elle doit respecter plusieurs propriétés :
    → La **même entrée** doit toujours produire **la même sortie**.
 
 ⚠️ **Remarque** :
+
 La fonction `hash()` de Python **ne garantit pas** une empreinte identique entre deux exécutions.
+
 ➡️ Pour un **hachage stable**, on utilisera plutôt le module `hashlib`.
 
 
@@ -3491,7 +3493,8 @@ La fonction `hash()` de Python **ne garantit pas** une empreinte identique entre
 #### <H4 STYLE="COLOR:MAGENTA;"> **6.4.2. Quelques utilisations du hachage**</H4>
 ⚓︎  
 
-#### **Stockage sécurisé des mots de passe**  
+**Stockage sécurisé des mots de passe**  
+
 Lorsqu'un utilisateur crée un compte, son mot de passe ne doit jamais être stocké en clair pour des raisons de sécurité. Le mot de passe est transformé en empreinte (par exemple, via une fonction comme SHA-256) avant d'être enregistré. Si la base de données est compromise, il est presque impossible de retrouver le mot de passe original.  
 
 Exemple Python avec `hashlib` pour une empreinte SHA-256 :  
@@ -3510,7 +3513,9 @@ print(hashed_password)  # Empreinte unique
     {{ IDE() }}
 
 
-#### **Détection des modifications dans un fichier**  
+
+**Détection des modifications dans un fichier**  
+
 En calculant l'empreinte d'un fichier à un moment donné, on peut détecter si ce fichier a été modifié ultérieurement. C'est une méthode utilisée par les systèmes de contrôle de versions ou les logiciels de vérification d'intégrité (ex : `md5sum`, `sha256sum`).  
 
 Exemple d'utilisation avec Python :  
@@ -3529,7 +3534,8 @@ print(hash_file("monFichier.txt"))
 
 
 
-#### **Autres usages courants** :  
+**Autres usages courants** :  
+
 - **Indexation et recherche rapide** (dans les bases de données ou dictionnaires).  
 - **Cryptographie** : Les fonctions de hachage jouent un rôle clé dans les signatures numériques et la blockchain.  
 - **Vérification des téléchargements** : Les empreintes permettent de s'assurer qu'un fichier n'a pas été altéré pendant son transfert.  
@@ -3541,10 +3547,12 @@ print(hash_file("monFichier.txt"))
 
 Une table de hachage est une structure de données clé-valeur qui permet un accès rapide aux éléments.  
 
-##### **Principe** :  
+**Principe** :
+
 Chaque clé est transformée en un indice via une fonction de hachage, permettant d'accéder directement à la valeur correspondante.  
 
-**Exemple simplifié de fonctionnement en Python** :  
+**Exemple simplifié de fonctionnement en Python** : 
+
 ```python
 dictionnaire = {"nom": "Alice", "âge": 30}
 print(dictionnaire["nom"])  # Recherche rapide grâce à une table de hachage
@@ -3554,14 +3562,16 @@ print(dictionnaire["nom"])  # Recherche rapide grâce à une table de hachage
     {{ IDE() }}
 
 
-##### **Caractéristiques** :  
+**Caractéristiques** :  
+
 1. **Complexité en temps constant** :  
    L'accès à un élément dans une table de hachage est en moyenne constant, \( O(1) \), indépendamment de la taille de la table.  
 
 2. **Gestion des collisions** :  
    Lorsque deux clés différentes produisent le même indice (collision), des techniques comme le chaînage ou l'adressage ouvert sont utilisées pour résoudre le conflit.  
 
-##### **Comparaison avec d'autres structures** :  
+**Comparaison avec d'autres structures** :  
+
 - Dans un tableau ou une liste chaînée, la recherche est proportionnelle au nombre d'éléments (\( O(n) \)).  
 - Une table de hachage est donc beaucoup plus rapide pour la recherche sur des clés.  
 
@@ -3569,12 +3579,13 @@ Regardez la vidéo ci-dessous sur les tables de hachage.
 
 Tables de hash : <https://ladigitale.dev/digiview/#/v/66bcbaf4e545d>
 
-##### **Les limites des fonctions de hachage :**  
+**Les limites des fonctions de hachage :**  
+
    - Elles ne garantissent pas l'absence totale de collisions.  
    - Leur efficacité dépend de la qualité de la fonction de hachage choisie.  
 
 
-##### **Exemples de fonctions de hachage populaires :**  
+**Exemples de fonctions de hachage populaires :**  
 
 - MD5 (désormais considéré comme obsolète en cryptographie). 
 
@@ -3621,7 +3632,7 @@ print(sha256_hash)  # Exemple d'empreinte : 9e31b9c8c694b1616dfd28481f54741a421d
     {{ IDE() }}
 
 
-##### **Applications simples :**
+**Applications simples :**
 
 1 **Vérification d'intégrité des fichiers :**
 
@@ -3671,19 +3682,20 @@ print(sha256_hash)  # Exemple d'empreinte : 9e31b9c8c694b1616dfd28481f54741a421d
 
 !!! info "Capytale : Utilisation des dictionnaires"
 
-    ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667943"></a>**6.5. Rappel : Utilisation des dictionnaires en Python**</H3>
 
 
-    Dans un dictionnaire, les clés sont stockées dans une table de hachage, ce qui explique le fait que le dictionnaire est optimisé pour la recherche sur les clés.
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667943"></a>**6.5. 🧪 Rappel : Utilisation des dictionnaires en Python**</H3>
 
-    Vous pouvez à présent regarder la vidéo suivante afin de vous reviser la manipulation des dictionnaires en python.
+📘 Dans un dictionnaire, les clés sont stockées dans une **table de hachage**, ce qui explique pourquoi cette structure est **optimisée pour la recherche sur les clés**.
 
-    Les dictionnaires : <https://ladigitale.dev/digiview/#/v/66bcbd45219a3> 
+🎥 Pour vous remémorer les bases, vous pouvez consulter la vidéo suivante :
+🔗 [Les dictionnaires](https://ladigitale.dev/digiview/#/v/66bcbd45219a3)
 
+---
 
+???+ question "🔎 Activité n° 42 : Itérer sur les éléments d’un dictionnaire"
 
-    **<H3 STYLE="COLOR:red;">Activité n° 42 : Itérer sur les éléments d’un dictionnaire :**</H3> 
-    Au zoo de Beauval, il y a 5 éléphants d’Asie, 17 écureuils d’Asie, 2 pandas d’Asie, etc. On représente cet inventaire à l’aide d’un dictionnaire, de façon suivante :
+    🦁 Au zoo de Beauval, on recense différents animaux :
 
     ```python
     if __name__ == "__main__":
@@ -3697,1105 +3709,1155 @@ print(sha256_hash)  # Exemple d'empreinte : 9e31b9c8c694b1616dfd28481f54741a421d
         }
     ```
 
-    On représente de la même façon le zoo de La Flèche :
+    🦓 Et au zoo de La Flèche :
 
     ```python
-        zoo_LaFleche = {
-            'ours': ('Europe', 4),
-            'tigre': ('Asie', 7),
-            'girafe': ('Afrique', 11),
-            'hippopotame': ('Afrique', 3)
-        }
+    zoo_LaFleche = {
+        'ours': ('Europe', 4),
+        'tigre': ('Asie', 7),
+        'girafe': ('Afrique', 11),
+        'hippopotame': ('Afrique', 3)
+    }
     ```
 
-    On souhaite se doter d’une fonction **plus\_grand\_nombre()** qui prend un zoo en paramètre et qui renvoie le nom de l’animal le plus représenté dans ce zoo.
+    🐾 On veut créer une fonction `plus_grand_nombre()` qui retourne l’animal **le plus représenté** dans un zoo donné.
 
-    Par exemple
     ```python
     assert plus_grand_nombre(zoo_LaFleche) == 'girafe'
     assert plus_grand_nombre(zoo_Beauval) == 'écureuil'
     ```
 
-    1 Quel type de boucle peut-on envisager pour le code de cette fonction ?
+    1️⃣ Quel type de boucle peut-on envisager pour le code de cette fonction ?
+
     ```python
     for cle in dico.keys()
     for valeur in dico.values()
-    for (cle, valeur) in dico.items()
-    Aucune boucle.
+    ✅ for (cle, valeur) in dico.items()
+    ❌ Aucune boucle.
     ```
-    2 Écrire le corps de cette fonction.
 
-    On souhaite se doter d’une fonction **nombre\_total** qui prend un zoo en paramètre ainsi que le nom d’un continent, et qui renvoie le nombre d’animaux originaires de ce continent dans le zoo. 
+    2️⃣ ✏️ Écriture de la fonction :
 
-    Par exemple :
+    ??? success "❇️ Solution :"
+
+        ```python
+        def plus_grand_nombre(zoo):
+            max_nombre = 0
+            animal_max = ''
+            for (animal, (continent, nb)) in zoo.items():
+                if nb > max_nombre:
+                    max_nombre = nb
+                    animal_max = animal
+            return animal_max
+        ```
+
+
+
+    🐘 Maintenant, on veut une fonction `nombre_total()` qui prend en paramètre un zoo et un **continent**, et renvoie le **nombre total d'animaux** originaires de ce continent :
+
     ```python
     assert nombre_total(zoo_LaFleche, 'Afrique') == 14
     assert nombre_total(zoo_Beauval, 'Asie') == 24
     ```
 
-    3 Quel type de boucle peut-on envisager pour le code de cette fonction ?
+    3️⃣ Quel type de boucle peut-on envisager pour le code de cette fonction ?
+
     ```python
     for cle in dico.keys()
     for valeur in dico.values()
-    for (cle,valeur) in dico.items()
-    Aucune boucle.
+    ✅ for (cle, valeur) in dico.items()
+    ❌ Aucune boucle.
     ```
-    4 Écrire le code de cette fonction.
 
-    On souhaite se doter d’une fonction **nombre** qui prend un zoo en paramètre ainsi que le nom d’un animal, et qui renvoie le nombre de représentants de cet animal dans le zoo. 
+    4️⃣ ✏️ Écriture de la fonction :
 
-    Par exemple :
+    ??? success "❇️ Solution :"
+
+        ```python
+        def nombre_total(zoo, continent):
+            total = 0
+            for (animal, (cont, nb)) in zoo.items():
+                if cont == continent:
+                    total += nb
+            return total
+        ```
+
+
+
+    🐼 Enfin, une fonction `nombre()` qui retourne le **nombre d’un animal donné** dans un zoo :
+
     ```python
     assert nombre(zoo_LaFleche, 'panda') == 0
     assert nombre(zoo_Beauval, 'panda') == 2
     ```
 
-    5 Quel type de boucle peut-on envisager pour le code de cette fonction ?
+    5️⃣ Quel type de boucle peut-on envisager pour le code de cette fonction ?
+
     ```python
     for cle in dico.keys()
     for valeur in dico.values()
-    for (cle,valeur) in dico.items()
-    Aucune boucle.
+    for (cle, valeur) in dico.items()
+    ✅ Aucune boucle.
     ```
-    6 Écrire le code de cette fonction.
 
-    Le temps de recherche dans le dictionnaire est **pratiquement indépendant du nombre d'entrées** dans un dictionnaire (en multipliant le nombre de contacts par 100, le temps est resté pratiquement identique alors que dans le cas de la recherche dans un tableau, celui-ci est proportionnel à la longueur du tableau).
+    6️⃣ ✏️ Écriture de la fonction :
 
-    Le dictionnaire est donc une **structure de données optimisée** pour la recherche sur les clés.
+    ??? success "❇️ Solution :"
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667944"></a>**6.6. La complexité**</H3>
+        ```python
+        def nombre(zoo, animal):
+            return zoo[animal][1] if animal in zoo else 0
+        ```
+
+🕒 **Le temps de recherche** dans un dictionnaire est **indépendant du nombre d’entrées**, contrairement à une liste.
+💡 C’est donc une **structure très efficace** pour accéder à des données par clé.
+
+---
+
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667944"></a>**6.6. 📊 La complexité**</H3>
 
 ![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.039.png){width=50%; : .center }
 
-Dans les deux cas ce n’est pas très efficace : on voudrait une **complexité logarithmique de toutes ces opérations**. On peut faire cela en utilisant des structures de données : **les arbres binaires**
+🔁 Les structures précédentes (tableaux, dictionnaires simples…) **ne permettent pas toujours une efficacité maximale**.
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc151667945"></a>**7. Exercices**</H2>
+🎯 On vise une **complexité logarithmique** pour des opérations comme :
+
+* la recherche 🔍
+* l’insertion ➕
+* la suppression ❌
+
+🌳 C’est possible grâce à des structures plus évoluées comme les **arbres binaires de recherche (ABR)**.
+
+
+
+
+## <H2 STYLE="COLOR:BLUE;">💡 <a name="_toc151667945"></a>**7. Exercices**</H2>
 
 **=> CAPYTALE Le code vous sera donné par votre enseignant**
 
-**<H3 STYLE="COLOR:red;">Exercice n°1: Implémentation d’une file avec deux piles avec les listes chainées**</H3>
+!!! abstract "**Exercice n°1 : Implémentation d’une file avec deux piles avec les listes chainées**"
 
-Comment créer une file avec 2 piles ?
+    Comment créer une file avec 2 piles ?
 
-L'idée est la suivante : on crée une pile d'entrée et une pile de sortie.
+    L'idée est la suivante : on crée une pile d'entrée et une pile de sortie.
 
-- quand on veut enfiler, on empile sur la pile d'entrée.
-- quand on veut défiler, on dépile sur la pile de sortie.
-- si celle-ci est vide, on dépile entièrement la pile d'entrée dans la pile de sortie.
+    - quand on veut enfiler, on empile sur la pile d'entrée.
+    - quand on veut défiler, on dépile sur la pile de sortie.
+    - si celle-ci est vide, on dépile entièrement la pile d'entrée dans la pile de sortie.
 
-![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.040.png){width=50%; : .center }
+    ![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.040.png){width=50%; : .center }
 
-```python
-# il est impératif de comprendre qu'on peut choisir l'implémentation
-# de la classe Pile qu'on préfère parmi les deux traitées plus haut.
-# Comme elles ont la MÊME INTERFACE et qu'on ne va se servir que
-# de cette interface, leur mécanisme interne n'a aucune influence
-# sur le code de la classe File que nous ferons ensuite.
-
-# Par exemple, on choisit celle avec la liste chaînée :
-
-class Cellule :
-    def __init__(self, contenu, suivante):
-        pass
-
-class Pile:
-    def __init__(self):
-        pass
-
-    def est_vide(self):
-        pass
-
-    def empile(self, x):
-        pass
-
-    def depile(self):
-        pass
-
-    def __str__(self):
-        s = ""
-        c = self.data
-        while c is not None:
-            s += str(c.contenu)  # Ajouter la valeur de la cellule
-            if c.suivante is not None:  # Ajouter un séparateur si ce n'est pas le dernier élément
-                s += " -> "
-            c = c.suivante
-        return s if s else ""  # Retourner un message "" si la pile est vide
-
-p = Pile()
-print( p.est_vide())  # True
-
-# Empiler des éléments
-p.empile(10)
-p.empile(20)
-p.empile(30)
-
-print(p)  # |30|20|10|
-print(p.est_vide())  # False
-
-# Dépiler des éléments
-print(p.depile())  # 30
-print(p)  # |20|10|
-print(p.depile())  # 20
-print(p)  # |10|
-
-# Tester défilement jusqu'à vide
-print(p.depile())  # 10
-print(p.est_vide())  # True
-
-# -------------------------------------------------------    
-# Implémentation d'une file à l'aide de deux piles 
-
-class File:
-    def __init__(self):
-        self.entree = Pile()
-        self.sortie = Pile()
-
-    def est_vide(self):
-        pass
-
-    def enfile(self,x):
-        pass
-
-    def defile(self):
-        pass
-    
-    def __str__(self):
-        return str(self.entree) + " " + str(self.sortie)
-    
-
-f = File()
-print(f.est_vide())  # True
-
-# Ajouter des éléments dans la file
-f.enfile("Lundi")
-f.enfile("Mardi")
-f.enfile("Mercredi")
-print(f)
-
-# Défilage d'éléments
-print(f.defile())  # Lundi
-print(f)
-
-print(f.defile())  # Mardi
-print(f)
-
-# Ajouter un nouvel élément
-f.enfile("Jeudi")
-print(f)
-
-# Défilage jusqu'à vide
-print(f.defile())  # Mercredi
-print(f.defile())  # Jeudi
-print(f.est_vide())  # True
-```
-
-**<H3 STYLE="COLOR:red;">Exercice n°2 : Structure de données**</H3> 
-
-Quelle structure de données choisir pour chacune de ces tâches ? 
-
-1. Représenter un répertoire téléphonique.
-1. Stocker l'historique des actions effectuées dans un logiciel et disposer d'une commande Annuler (ou Undo).
-1. Envoyer des fichiers au serveur d'impression
-
-**<H3 STYLE="COLOR:red;">Exercice n°3 : La calculatrice HP**</H3>
-
-La Notation Polonaise Inversée (NPI) permet d'écrire des opérations arithmétiques, sans utiliser de parenthèses. Ici, nous nous limiterons à des nombres entiers naturels et aux opérations+, -, \* et/ sur eux. Dans cette notation, les opérateurs sont écrits après les opérandes (nombres entiers naturels). Par exemple l'expression classique : 
-
-13\*(3+2)
-
-Donne en NPI 
-
-3 2 +13 \*
-
-On écrit et on exécute les opérations dans le sens des priorités vues en cours de mathématiques. Dans cette notation, on réalise
-
-- L'addition entre 3 et 2 ( 3 2 + )
-- La multiplication entre le précédent résultat et 13 ( 13 \*)
-- On a ainsi le résultat.
-
-1 Donner la File correspondante à la saisie NPI de l'exemple. Faire de même avec la Pile.
-2 Quelle est la structure adaptée à la résolution de l'expression ?
-
-Note : On remarquera qu'on doit toujours avoir 2 opérandes pour un opér
-
-ateur. li faut stocker le résultat intermédiaire dans la structure pour effectuer la suite des calculs.
-
-3 En utilisant les opérations du type abstrait Pile, proposer une fonction permettant d'afficher le résultat d'une expression en NPI.
-
-Note : On supposera également que la syntaxe en NPI est correcte.
-
-```python
-def evaluer_npi(pile):
-    # Pile pour stocker les opérandes
-    p = []
-
-    pass
-
-
-    return p.pop()
-
-
-pile = [3, 2, "+", 13, "*"]
-assert evaluer_npi(pile) == 65
-
-pile = [4, 5, "+", 2, "*"]
-assert evaluer_npi(pile) == 18
-
-pile = [10, 2, "/"]
-assert evaluer_npi(pile) == 5
-
-pile = [15, 7, "-", 1, "+"]
-assert evaluer_npi(pile) == 9
-
-pile = [15, 7, 1, 1, "+", "-", "/", 3, "*", 2, 1, 1, "+", "+", "-"]
-assert evaluer_npi(pile) == 5
-
-pile = [10, 0, "/"]
-try:
-    evaluer_npi(pile)
-except AssertionError as e:
-    assert str(e) == "Division par zéro impossible."
-
-```
-
-**<H3 STYLE="COLOR:red;">Exercice n°4 : Types abstraits**</H3>
-
-1\. Quelle opération ne fait pas partie de l'interface d'une pile ?
-
-1. ajouter un élément à la pile 
-1. retirer l'élément le plus récent de la pile 
-1. retirer l'élément le plus ancien de la pile 
-
-2\. Quelle opération ne fait pas partie de l'interface d'une file?
-
-1. ajouter un élément à la file 
-1. retirer l'élément le plus récent de la file 
-1. retirer l'élément le plus ancien de la file 
-
-3\. L'opération dequeue d'une file s'exécute en un temps qui est proportionnel au nombre de valeurs stockées dans la file.
-
-1. Faux 
-1. Vrai
-
-4\. Un tableau associatif permet de créer une association clé -> valeur.
-
-Pour stocker des numéros de téléphone à l'aide d'un tableau associatif, quelle solution semble préférable, dans la mesure où il peut y avoir des homonymes?
-
-1. La clé est le numéro de téléphone, et la valeur est le nom correspondant 
-1. La clé est le nom et la valeur est le numéro de téléphone correspondant 
-1. La clé est le nom et la valeur la collection des numéros de téléphone correspondants 
-1. La clé est un simple numéro unique et la valeur le couple nom/téléphone
-
-**<H3 STYLE="COLOR:red;">Exercice n°5 : Type list en Python**</H3>
-
-1\. Le type list utilisé dans Python correspond le mieux :
-
-1. au type abstrait liste chaînée 
-1. au type abstrait file 
-1. au type abstrait tableau 
-
-2\. La récupération d'un élément d'un objet Python de type list, connaissant son indice :
-
-1. nécessite un temps proportionnel au nombre d'éléments de la liste 
-1. s'effectue en temps constant 
-1. est impossible 
-
-3\. Sur un objet de type list Python, quelles opérations sont faites en un temps indépendant de la longueur de la liste?
-
-1. supprimer le premier élément 
-1. supprimer le dernier élément
-1. ajouter un élément au début (en position 0)
-1. ajouter un élément à la fin
-
-**<H3 STYLE="COLOR:red;">Exercice n°6 : Structures de donnés Python**</H3>
-
-1\. Pour implémenter une pile avec Python, on peut se servir d'un type de données disponible dans le langage :
-
-1. le type list 
-1. le type dict 
-1. le type set 
-1. le type tuple 
-
-2\. Accéder à une valeur dans un dictionnaire à partir de la clé à laquelle la valeur est associée est réalisé :
-
-1. en un temps proportionnel à la taille du dictionnaire 
-1. en un temps constant 
-
-**<H3 STYLE="COLOR:red;">Exercice n°7 : Pile classique**</H3>
-
-Nous allons réaliser une classe Pile en utilisant une liste Python. Voici le contructeur de la classe
-
-```python
-class Pile:
-    """Structure  de  pile"""
-    def init (self): 
-        self.contenu = []
-        
-    # à compléter   
-        
-    def __str__(self):
-        return " -> ".join(map(str, reversed(self.contenu)))
-
-# Création d'une instance de la pile
-p = Pile()
-
-# Vérifier si la pile est vide
-print(p.est_vide())  # True
-
-# Empiler des éléments
-p.empiler(10)
-p.empiler(20)
-p.empiler(30)
-print(p)  # 30 -> 20 -> 10
-
-# Dépiler des éléments
-print(p.depiler())  # 30
-print(p)  # 20 -> 10
-
-# Empiler un nouvel élément
-p.empiler(40)
-print(p)  # 40 -> 20 -> 10
-
-# Dépiler jusqu'à vider la pile
-print(p.depiler())  # 40
-print(p.depiler())  # 20
-print(p.depiler())  # 10
-print(p.est_vide())  # True
-
-# Tentative de dépiler une pile vide
-try:
-    p.depiler()
-except IndexError as e:
-    print("Erreur :", e)  # La pile est vide
-                
-    
-```
-
-1 Implémentez la méthode est\_vide(self) qui retourne True si la Pile est vide et False sinon.
-
-2 Implémentez la méthode empiler(self,v) qui ajoute la valeur v au sommet de la pile (et donc en fin de la liste)
-
-3 Implémentez la méthode depiler(self) qui :
-
-   1. lève une exception *IndexError* si la liste est vide ;
-   1. sinon, retire l’élément au sommet de la pile et le retourne.
-
-4 **Bonus :** Vous pouvez implémenter la méthode spéciale str (self)
-
-!!! info
     ```python
+    # il est impératif de comprendre qu'on peut choisir l'implémentation
+    # de la classe Pile qu'on préfère parmi les deux traitées plus haut.
+    # Comme elles ont la MÊME INTERFACE et qu'on ne va se servir que
+    # de cette interface, leur mécanisme interne n'a aucune influence
+    # sur le code de la classe File que nous ferons ensuite.
+
+    # Par exemple, on choisit celle avec la liste chaînée :
+
+    class Cellule :
+        def __init__(self, contenu, suivante):
+            pass
+
+    class Pile:
+        def __init__(self):
+            pass
+
+        def est_vide(self):
+            pass
+
+        def empile(self, x):
+            pass
+
+        def depile(self):
+            pass
+
         def __str__(self):
-            return "Pile : " + " -> ".join(map(str, reversed(self.contenu)))
-    ```  
+            s = ""
+            c = self.data
+            while c is not None:
+                s += str(c.contenu)  # Ajouter la valeur de la cellule
+                if c.suivante is not None:  # Ajouter un séparateur si ce n'est pas le dernier élément
+                    s += " -> "
+                c = c.suivante
+            return s if s else ""  # Retourner un message "" si la pile est vide
 
-    **1. reversed(self.contenu) :**
+    p = Pile()
+    print( p.est_vide())  # True
 
-    reversed() est une fonction Python qui retourne un itérateur avec les éléments de la liste dans l'ordre inverse.
+    # Empiler des éléments
+    p.empile(10)
+    p.empile(20)
+    p.empile(30)
 
-    Cela est nécessaire car dans une pile (LIFO), le dernier élément ajouté est en haut, donc on souhaite afficher les éléments du sommet vers la base.
+    print(p)  # |30|20|10|
+    print(p.est_vide())  # False
 
-    **2. map(str, reversed(self.contenu)) :**
+    # Dépiler des éléments
+    print(p.depile())  # 30
+    print(p)  # |20|10|
+    print(p.depile())  # 20
+    print(p)  # |10|
 
-    map est une fonction Python qui applique une fonction à chaque élément d'une collection (liste, itérateur, etc.).
-    Ici, map(str, ...) convertit chaque élément retourné par reversed(self.contenu) en chaîne de caractères (str).
+    # Tester défilement jusqu'à vide
+    print(p.depile())  # 10
+    print(p.est_vide())  # True
 
-    Pourquoi utiliser map ? Cela évite de devoir écrire une boucle pour convertir chaque élément en chaîne de caractères.
+    # -------------------------------------------------------    
+    # Implémentation d'une file à l'aide de deux piles 
 
-    **3. " -> ".join(...) :**
+    class File:
+        def __init__(self):
+            self.entree = Pile()
+            self.sortie = Pile()
 
-    join est une méthode des chaînes de caractères en Python.
+        def est_vide(self):
+            pass
 
-    Elle prend une liste de chaînes en entrée et concatène tous les éléments en insérant la chaîne spécifiée (ici " -> ") entre eux.
-!!!
+        def enfile(self,x):
+            pass
 
-**<H3 STYLE="COLOR:red;">Exercice n°8 :** </H3> annulé
-
-
-
-**<H3 STYLE="COLOR:red;">Exercice n°9 : pile ou file et parenthèse**</H3>
-
-On dit qu’une chaîne de caractères comprenant, entre autre choses, des parenthèses ( et ) est bien parenthésée lorsque chaque parenthèse ouvrante est associée à une unique parenthèse fermante, et réciproquement.
-
-Ecrire une fonction prenant en paramètres :
-
-- une chaîne de caractères bien parenthésée ;
-- l’indice d’une parenthèse fermante.
-
-et qui retourne l’indice de la parenthèse ouvrante associée.
-
-```python
-def trouver_parenthese_ouvrante(chaine, indice_fermante):
-    pile = ...  # Pile pour stocker les indices des parenthèses ouvrantes
-    pass
-
-assert trouver_parenthese_ouvrante("(a + b)", 6) == 0  
-assert trouver_parenthese_ouvrante("((a + b) * c)", 7) == 1  
-assert trouver_parenthese_ouvrante("a + (b + (c + d))", 15) == 9 
-assert trouver_parenthese_ouvrante("(a + (b + (c)))", 13) == 5 
-```
-
-**<H3 STYLE="COLOR:red;">Exercice n°10 : file et copie**</H3>
-
-Vous allez améliorer la classe file en lui ajoutant quelques fonctionnalités. Vous pouvez utiliser, comme base de travail, l’implémentation des files avec les doubles piles ou celle avec les listes chaînées  
-
-1. Ajouter la méthode spéciale \_\_len\_\_ (self) qui renvoie la longueur d’une file.
-
-```python
-class Cellule :
-    def __init__(self, contenu, suivante):
-        pass
-
-class Pile:
-    def __init__(self):
-        pass
-
-    def est_vide(self):
-        pass
-
-    def empile(self, x):
-        pass
-
-    def depile(self):
-        pass
-
-    def __str__(self):
-        s = ""
-        c = self.data
-        while c is not None:
-            s += str(c.contenu)  # Ajouter la valeur de la cellule
-            if c.suivante is not None:  # Ajouter un séparateur si ce n'est pas le dernier élément
-                s += " -> "
-            c = c.suivante
-        return s if s else ""  # Retourner un message "" si la pile est vide
-
-class File:
-    def __init__(self):
-        self.entree = Pile()
-        self.sortie = Pile()
-
-    def est_vide(self):
-        pass
-
-    def enfile(self,x):
-        pass
-
-    def defile(self):
-        pass
-    
-    def __str__(self):
-        return str(self.entree) + " " + str(self.sortie)
-
+        def defile(self):
+            pass
         
-    def __len__(self):
-        pass
-     
+        def __str__(self):
+            return str(self.entree) + " " + str(self.sortie)
+        
 
-f = File()
-f.enfile("Lundi")
-f.enfile("Mardi")
-f.enfile("Mercredi")
-f.enfile("Jeudi")
-print(len(f))
-f.defile()
-len(f)
-```
-2 Ecrire une fonction copie\_file(f) recevant une file (f) comme argument et renvoyant une copie f2 de f. Attention, la file f doit (bien sûr) être conservée !
-
-Tester avec avec f
-et la copie_file de f
-
-**<H3 STYLE="COLOR:red;">Exercice n°11 : Le problème de Josephus**</H3>
-
-Josephus Flavius était un célèbre historien du premier siècle. Durant une guerre il fut pris au piège dans une cave avec son groupe de 40 soldats, entouré par les troupes ennemies. La légende raconte que le groupe encerclé préféra se suicider plutôt que d'être capturé. Ainsi Josephus et ses soldats formèrent un cercle et décidèrent de se tuer mutuellement et successivement, de manière à ce qu'une personne tue la troisième personne sur sa gauche, que la personne à droite du mort tue à son tour la troisième personne sur sa gauche, ainsi de suite jusqu'à ce qu'il ne reste qu'un seul survivant. Restant seul, ce dernier est censé se suicider lui-même. Josephus, qui ne souhaitait pas mourir, trouva rapidement la place sûre, c'est-à-dire la place de la dernière personne debout, sans que quiconque ne reste pour le tuer. Ainsi il resta en vie et put par la suite raconter cette légende. Trouver cette place sûre est maintenant appelé le problème de Josephus.
-
-Durant cet exercice nous implémenterons un programme qui simulera une version généralisée du problème de Josephus de la manière suivante : étant donnés n soldats, placés en cercle aux positions [0 ; n-1] avec 0 comme position de départ, il faut retirer chaque m-ième soldat jusqu'à ce que tous les soldats (même Josephus pour simplifier les choses) soient retirés.
-
-Dans l'exemple ci-dessous, nous commençons avec 8 soldats, et nous tuons à chaque tour le troisième soldat sur la gauche (remarquez que lorsqu'il reste au plus trois personnes vivantes, le soldat tuant se compte lui-même dans cette distance de trois soldats):
-
-![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.043.png){width=80%; : .center }
-
-Le programme que vous devez développer devra prendre comme entrées les nombres n et m, respectivement le nombre de soldats et la distance (dans l'exemple nous avons n=8 et m=3), et produire comme sortie l'ordre dans lequel les soldats seront tués, le dernier "tué" étant finalement le survivant :
-
-4 7 2 6 3 1 5 8 The surviving soldier is 8
-
-c'est-à-dire que le soldat à la position 4 est le premier à être tué, et 8 est la place sûre recherchée par Josephus.
-
-La fonction josephus qui fait appel à la TAD file est donnée ci-dessous
-
-!!! info
-Le TAD signifie Type Abstrait de Données (Abstract Data Type en anglais). C'est un concept théorique en informatique qui définit une structure de données uniquement par les opérations qu'elle propose, indépendamment de son implémentation concrète.
-!!!
-
-Pour le problème de Josephus, nous ajoutons les éléments suivants :
-
-1. Initialisation :
-
-Les personnes sont placées dans la file dans l'ordre initial.
-
-2 Rotation circulaire :
-
-On utilise les opérations defile et enfile pour faire circuler les personnes dans le cercle.
-
-3 Élimination :
-
-Après avoir déplacé les m−1 premières personnes en fin de file, on utilise defile pour éliminer la m-ième personne.
-
-4 Répétition :
-
-On continue le processus jusqu'à ce qu'il reste un seul élément dans la file.
-
-
-Implémenter la file avec une liste chainée pour que la fonction josephus([1, 2, 3, 4, 5, 6, 7, 8], 3) 
-
-
-Pour simplifier on peut d’abord sortir : 4 7 2 6 3 1 5 8 the last one is 8
-
-```python
-class Node:
-    def __init__(self, value = None, next = None):
-        self.v = ...
-        self.n = ...
-
-class File:
-    def __init__(self, c=None):
-        self.head = ...
-
-    def estVide(self):
-        pass
-    
-    def enfile(self, element):
-        ### version enfiler par la queue et défiler par la tete
-        if self.estVide():
-            self.head = Node(element)
-        else:
-            ...
-    
-    def defile(self):
-        ### version enfiler par la queue et défiler par la tete
-        if not self.estVide():
-            ...
-        else:
-            raise IndexError("File vide")
-
-    
-    def __str__(self):  # on peut mettre __repr__ à la place pour éviter de taper print
-        if self.head is None:
-            raise IndexError("File vide")
-        else:
-            result = str(self.head.v)
-            next_node = self.head.n
-            while next_node is not None:
-                result += " - " + str(next_node.v)
-                next_node = next_node.n
-            return result
-    
-            
-    def __len__(self):
-        pass
-```
-Implémenter la fonction josephus(liste, m)
-
-```python
-def josephus(liste, m):
     f = File()
+    print(f.est_vide())  # True
 
-    # Initialisation : enfiler toutes les personnes
-    ...
-    
-    # on part du numéro 1 qu'en va renfiler 
+    # Ajouter des éléments dans la file
+    f.enfile("Lundi")
+    f.enfile("Mardi")
+    f.enfile("Mercredi")
+    print(f)
 
-    # Élimination des personnes
-    while len(f) > 1:
-        # Faire circuler les m-1 premières personnes
-        ...    
-            # On défiler et renfile 
-            ...
-        # Éliminer la m-ième personne
-        elimine = ...
-        print(f"Personne éliminée : {elimine}")
+    # Défilage d'éléments
+    print(f.defile())  # Lundi
+    print(f)
 
-    # Retourner le dernier survivant
-    survivant = ...
-    print(f"Le survivant est : {survivant}")
-    return survivant
+    print(f.defile())  # Mardi
+    print(f)
 
-# Exemple : 8 personnes et élimination toutes les 3 positions
-liste_personnes = [1, 2, 3, 4, 5, 6, 7, 8]
-m = 3
+    # Ajouter un nouvel élément
+    f.enfile("Jeudi")
+    print(f)
 
-# Appel de la fonction josephus
-dernier_survivant = josephus(liste_personnes, m)
-print(dernier_survivant)
+    # Défilage jusqu'à vide
+    print(f.defile())  # Mercredi
+    print(f.defile())  # Jeudi
+    print(f.est_vide())  # True
+    ```
 
-```
+!!! abstract "**Exercice n°2 : Structure de données**"
 
-**<H3 STYLE="COLOR:red;">Exercice n°12 : Le jeu de cartes : bataille**</H3>
+    Quelle structure de données choisir pour chacune de ces tâches ? 
 
-Compléter le programme ci-dessous du jeu de la bataille. Sur **Thonny** : On l’appelera bataille.py
+    1. Représenter un répertoire téléphonique.
+    1. Stocker l'historique des actions effectuées dans un logiciel et disposer d'une commande Annuler (ou Undo).
+    1. Envoyer des fichiers au serveur d'impression
 
-Vous aurez à  gérer d'une part la valeur des cartes et d'autre part les cas d'égalités.
+!!! abstract "**Exercice n°3 : La calculatrice HP**"
 
-**Indice** : il faut créer une file égalité.
+    La Notation Polonaise Inversée (NPI) permet d'écrire des opérations arithmétiques, sans utiliser de parenthèses. Ici, nous nous limiterons à des nombres entiers naturels et aux opérations+, -, \* et/ sur eux. Dans cette notation, les opérateurs sont écrits après les opérandes (nombres entiers naturels). Par exemple l'expression classique : 
 
-Le programme partiel du jeu de bataille :
+    13\*(3+2)
 
-**Créer et importer une File**
+    Donne en NPI 
 
-```python
-class Node:
-    def __init__(self, value = None, next = None):
-        self.v = ...
-        self.n = ...
+    3 2 +13 \*
 
-class File:
-    def __init__(self, c=None):
-        self.head = ...
+    On écrit et on exécute les opérations dans le sens des priorités vues en cours de mathématiques. Dans cette notation, on réalise
 
-    def estVide(self):
+    - L'addition entre 3 et 2 ( 3 2 + )
+    - La multiplication entre le précédent résultat et 13 ( 13 \*)
+    - On a ainsi le résultat.
+
+    1 Donner la File correspondante à la saisie NPI de l'exemple. Faire de même avec la Pile.
+    2 Quelle est la structure adaptée à la résolution de l'expression ?
+
+    Note : On remarquera qu'on doit toujours avoir 2 opérandes pour un opér
+
+    ateur. li faut stocker le résultat intermédiaire dans la structure pour effectuer la suite des calculs.
+
+    3 En utilisant les opérations du type abstrait Pile, proposer une fonction permettant d'afficher le résultat d'une expression en NPI.
+
+    Note : On supposera également que la syntaxe en NPI est correcte.
+
+    ```python
+    def evaluer_npi(pile):
+        # Pile pour stocker les opérandes
+        p = []
+
         pass
-    
-    def enfiler(self, element):
-        ### version enfiler par la queue et défiler par la tete
-        if self.estVide():
-            self.head = Node(element)
-        else:
-            ...
-    
-    def defiler(self):
-        ### version enfiler par la queue et défiler par la tete
-        if not self.estVide():
-            ...
-        else:
-            raise IndexError("File vide")
 
-    
-    def __str__(self):  # on peut mettre __repr__ à la place pour éviter de taper print
-        if self.head is None:
-            raise IndexError("File vide")
-        else:
-            result = str(self.head.v)
-            next_node = self.head.n
-            while next_node is not None:
-                result += " - " + str(next_node.v)
-                next_node = next_node.n
-            return result
-    
+
+        return p.pop()
+
+
+    pile = [3, 2, "+", 13, "*"]
+    assert evaluer_npi(pile) == 65
+
+    pile = [4, 5, "+", 2, "*"]
+    assert evaluer_npi(pile) == 18
+
+    pile = [10, 2, "/"]
+    assert evaluer_npi(pile) == 5
+
+    pile = [15, 7, "-", 1, "+"]
+    assert evaluer_npi(pile) == 9
+
+    pile = [15, 7, 1, 1, "+", "-", "/", 3, "*", 2, 1, 1, "+", "+", "-"]
+    assert evaluer_npi(pile) == 5
+
+    pile = [10, 0, "/"]
+    try:
+        evaluer_npi(pile)
+    except AssertionError as e:
+        assert str(e) == "Division par zéro impossible."
+
+    ```
+
+!!! abstract "**Exercice n°4 : Types abstraits**"
+
+    1\. Quelle opération ne fait pas partie de l'interface d'une pile ?
+
+    1. ajouter un élément à la pile 
+    1. retirer l'élément le plus récent de la pile 
+    1. retirer l'élément le plus ancien de la pile 
+
+    2\. Quelle opération ne fait pas partie de l'interface d'une file?
+
+    1. ajouter un élément à la file 
+    1. retirer l'élément le plus récent de la file 
+    1. retirer l'élément le plus ancien de la file 
+
+    3\. L'opération dequeue d'une file s'exécute en un temps qui est proportionnel au nombre de valeurs stockées dans la file.
+
+    1. Faux 
+    1. Vrai
+
+    4\. Un tableau associatif permet de créer une association clé -> valeur.
+
+    Pour stocker des numéros de téléphone à l'aide d'un tableau associatif, quelle solution semble préférable, dans la mesure où il peut y avoir des homonymes?
+
+    1. La clé est le numéro de téléphone, et la valeur est le nom correspondant 
+    1. La clé est le nom et la valeur est le numéro de téléphone correspondant 
+    1. La clé est le nom et la valeur la collection des numéros de téléphone correspondants 
+    1. La clé est un simple numéro unique et la valeur le couple nom/téléphone
+
+!!! abstract "**Exercice n°5 : Type list en Python**"
+
+    1\. Le type list utilisé dans Python correspond le mieux :
+
+    1. au type abstrait liste chaînée 
+    1. au type abstrait file 
+    1. au type abstrait tableau 
+
+    2\. La récupération d'un élément d'un objet Python de type list, connaissant son indice :
+
+    1. nécessite un temps proportionnel au nombre d'éléments de la liste 
+    1. s'effectue en temps constant 
+    1. est impossible 
+
+    3\. Sur un objet de type list Python, quelles opérations sont faites en un temps indépendant de la longueur de la liste?
+
+    1. supprimer le premier élément 
+    1. supprimer le dernier élément
+    1. ajouter un élément au début (en position 0)
+    1. ajouter un élément à la fin
+
+!!! abstract "**Exercice n°6 : Structures de donnés Python**"
+
+    1\. Pour implémenter une pile avec Python, on peut se servir d'un type de données disponible dans le langage :
+
+    1. le type list 
+    1. le type dict 
+    1. le type set 
+    1. le type tuple 
+
+    2\. Accéder à une valeur dans un dictionnaire à partir de la clé à laquelle la valeur est associée est réalisé :
+
+    1. en un temps proportionnel à la taille du dictionnaire 
+    1. en un temps constant 
+
+!!! abstract "**Exercice n°7 : Pile classique**"
+
+    Nous allons réaliser une classe Pile en utilisant une liste Python. Voici le contructeur de la classe
+
+    ```python
+    class Pile:
+        """Structure  de  pile"""
+        def init (self): 
+            self.contenu = []
             
-    def __len__(self):
-        pass
-```
+        # à compléter   
+            
+        def __str__(self):
+            return " -> ".join(map(str, reversed(self.contenu)))
 
-```python
-import random
+    # Création d'une instance de la pile
+    p = Pile()
 
-paquet_alice = File()
-paquet_basile = File()
-...  # Initialisation de la file pour les égalités
+    # Vérifier si la pile est vide
+    print(p.est_vide())  # True
 
-# crée le jeu de 52 cartes
-cartes = [i for i in range(0, 52)]
-# melange les cartes
-random.shuffle(cartes)
-# distribue les cartes aux 2 joueurs
-for i in range(len(cartes) // 2):
-    paquet_alice.enfiler(cartes.pop())
-    paquet_basile.enfiler(cartes.pop())
+    # Empiler des éléments
+    p.empiler(10)
+    p.empiler(20)
+    p.empiler(30)
+    print(p)  # 30 -> 20 -> 10
 
+    # Dépiler des éléments
+    print(p.depiler())  # 30
+    print(p)  # 20 -> 10
 
-# Gestion d'un tour de jeu
-def tour():
-    global en_cours
-    if paquet_alice.estVide():
-        print("Alice perd")
-        en_cours = False
-    elif paquet_basile.estVide():
-        print("Basile perd")
-        en_cours = False
-    else:
-        tirer()
+    # Empiler un nouvel élément
+    p.empiler(40)
+    print(p)  # 40 -> 20 -> 10
 
+    # Dépiler jusqu'à vider la pile
+    print(p.depiler())  # 40
+    print(p.depiler())  # 20
+    print(p.depiler())  # 10
+    print(p.est_vide())  # True
 
-# Si la partie n'est pas terminée, tirage d'une carte
-def tirer():
-    a = paquet_alice.defiler()
-    b = paquet_basile.defiler()
-
-    valeura = a % 13
-    valeurb = b % 13
-    print("Alice", valeura, valeurb, "Basile")
-    # le programme ne gere pas l'égalité
-    if valeura > valeurb:
-        paquet_alice.enfiler(a)
-        paquet_alice.enfiler(b)
-    elif valeura < valeurb:
-        paquet_basile.enfiler(b)
-        paquet_basile.enfiler(a)
-    else: 
-        ...
-
-
-# démarrage du jeu
-en_cours = True
-nb_tours = 0
-while en_cours:  # not paquet_alice.est_vide() and not paquet_basile.est_vide()  :
-    tour()
-    nb_tours += 1
-print("Partie en ", nb_tours, " tours")
-```
-
-
-
-
-Une fois terminé les modifications, vous transformerez le programme bataille en classe Bataille avec toutes les fonctions encapsulées dans celle-ci.
-
-```python
-import random
-
-
-class Bataille:
-    def __init__(self, paquet_alice, paquet_basile):
-        self.paquet_alice = paquet_alice
-        self.paquet_basile = paquet_basile
-        self.egalite = File()
-        self.en_cours = True
-    
-    def tour(self):
-        pass
-    
-    def tirer(self):
-        pass
+    # Tentative de dépiler une pile vide
+    try:
+        p.depiler()
+    except IndexError as e:
+        print("Erreur :", e)  # La pile est vide
+                    
         
-# Initialisation des paquets
-paquet_alice = File()
-paquet_basile = File()
+    ```
 
-# Création et mélange du jeu de 52 cartes
-cartes = [i for i in range(0, 52)]
-random.shuffle(cartes)
+    1 Implémentez la méthode est\_vide(self) qui retourne True si la Pile est vide et False sinon.
 
-# Distribution des cartes aux 2 joueurs
-for i in range(len(cartes) // 2):
-    paquet_alice.enfiler(cartes.pop())
-    paquet_basile.enfiler(cartes.pop())
+    2 Implémentez la méthode empiler(self,v) qui ajoute la valeur v au sommet de la pile (et donc en fin de la liste)
 
-# Démarrage du jeu
-en_cours = True
-nb_tours = 0
-jeu = Bataille(paquet_alice, paquet_basile)
+    3 Implémentez la méthode depiler(self) qui :
 
-while jeu.en_cours:
-    jeu.tour()
-    nb_tours += 1
+    1. lève une exception *IndexError* si la liste est vide ;
+    1. sinon, retire l’élément au sommet de la pile et le retourne.
 
-print(f"Partie terminée en {nb_tours} tours.")
-```
+    4 **Bonus :** Vous pouvez implémenter la méthode spéciale str (self)
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc151667946"></a>**8. Projets**</H2>
+    !!! info
+        ```python
+            def __str__(self):
+                return "Pile : " + " -> ".join(map(str, reversed(self.contenu)))
+        ```  
 
-**<H3 STYLE="COLOR:red;">Exercice n°01 : Pile et contrôle du parenthésage d’une expression**</H3>
+        **1. reversed(self.contenu) :**
 
-**=> CAPYTALE Le code vous sera donné par votre enseignant**
+        reversed() est une fonction Python qui retourne un itérateur avec les éléments de la liste dans l'ordre inverse.
 
-Il s’agit d’écrire une fonction qui contrôle si une expression mathématique, donnée sous forme d’une chaine de caractères, est bien parenthésée, c’est-à-dire s’il y a autant de parenthèses ouvrantes que de fermantes, et qu’elles sont bien placées. Par exemple :
+        Cela est nécessaire car dans une pile (LIFO), le dernier élément ajouté est en haut, donc on souhaite afficher les éléments du sommet vers la base.
 
-- (()) est bien parenthésée
-- ())( ne l’est pas
+        **2. map(str, reversed(self.contenu)) :**
 
-L’algorithme :
+        map est une fonction Python qui applique une fonction à chaque élément d'une collection (liste, itérateur, etc.).
+        Ici, map(str, ...) convertit chaque élément retourné par reversed(self.contenu) en chaîne de caractères (str).
 
-On crée une pile
+        Pourquoi utiliser map ? Cela évite de devoir écrire une boucle pour convertir chaque élément en chaîne de caractères.
 
-On parcourt l’expression de gauche à droite
+        **3. " -> ".join(...) :**
 
-A chaque fois que l’on rencontre une parenthèse ouvrante "( " on l’empile.
+        join est une méthode des chaînes de caractères en Python.
 
-Si on rencontre une parenthèse fermante " ) " et que la pile n’est pas vide on dépile (sinon on retourne faux). 
+        Elle prend une liste de chaînes en entrée et concatène tous les éléments en insérant la chaîne spécifiée (ici " -> ") entre eux.
+    !!!
 
-A la fin la pile doit être vide…
+!!! abstract "**Exercice n°8 :** annulé"
 
-Ecrire une fonction verification(expression) qui prend en paramètre une chaine de caractère qui retourne OK si l’expression est bien parenthésée et NON sinon.
 
-assert verification("(())") == "OK"
-assert verification("())(") == "NON"
 
-**<H3 STYLE="COLOR:red;">Exercice n°02 : implémentation d’une liste chainée**</H3>
+!!! abstract "**Exercice n°9 : pile ou file et parenthèse**"
 
-**=> CAPYTALE Le code vous sera donné par votre enseignant**
+    On dit qu’une chaîne de caractères comprenant, entre autre choses, des parenthèses ( et ) est bien parenthésée lorsque chaque parenthèse ouvrante est associée à une unique parenthèse fermante, et réciproquement.
 
-A partir de ce qui a été vu sur les listes chaînées, implémenter :
+    Ecrire une fonction prenant en paramètres :
 
-1. La méthode lenListe(self) qui retourne la longueur de la liste
-1. La méthode insert\_next(self, i, x) qui ajoute une cellule contenant la valeur x après la cellule d’indice i. Déterminer sa complexité
-1. La méthode get\_node\_index(self, i) qui permet de retourner la cellule d’indice i. Déterminer son ordre de complexité
-1. La méthode delete\_head(self) qui supprime la première cellule de la liste et la renvoie. Déterminer sa complexité
-1. la méthode delete\_next(self, x) qui supprime la cellule située après la cellule de valeur x et le renvoie
+    - une chaîne de caractères bien parenthésée ;
+    - l’indice d’une parenthèse fermante.
 
-```python
+    et qui retourne l’indice de la parenthèse ouvrante associée.
 
+    ```python
+    def trouver_parenthese_ouvrante(chaine, indice_fermante):
+        pile = ...  # Pile pour stocker les indices des parenthèses ouvrantes
+        pass
 
-lst = Liste()
-assert lst.isEmpty() == True
-assert lst.lenListe() == 0
+    assert trouver_parenthese_ouvrante("(a + b)", 6) == 0  
+    assert trouver_parenthese_ouvrante("((a + b) * c)", 7) == 1  
+    assert trouver_parenthese_ouvrante("a + (b + (c + d))", 15) == 9 
+    assert trouver_parenthese_ouvrante("(a + (b + (c)))", 13) == 5 
+    ```
 
-lst.insert_next(0, 10)  # liste : [10]
-assert lst.lenListe() == 1
+!!! abstract "**Exercice n°10 : file et copie**"
 
-lst.insert_next(1, 20)  # liste : [10, 20]
-assert lst.lenListe() == 2
+    Vous allez améliorer la classe file en lui ajoutant quelques fonctionnalités. Vous pouvez utiliser, comme base de travail, l’implémentation des files avec les doubles piles ou celle avec les listes chaînées  
 
-lst.insert_next(2, 30)  # liste : [10, 20, 30]
-assert lst.lenListe() == 3
- 
-assert lst.get_node_index(0).v == 10
-assert lst.get_node_index(1).v == 20
-assert lst.get_node_index(2).v == 30
+    1. Ajouter la méthode spéciale \_\_len\_\_ (self) qui renvoie la longueur d’une file.
 
-lst.insert_next(1, 25)  # liste : [10, 20, 25, 30]
-assert lst.lenListe() == 4
+    ```python
+    class Cellule :
+        def __init__(self, contenu, suivante):
+            pass
 
-assert lst.get_node_index(2).v == 25
+    class Pile:
+        def __init__(self):
+            pass
 
-val = lst.delete_head() 
-# liste : [20, 25, 30]
-assert val == 10
-assert lst.lenListe() == 3
-assert lst.get_node_index(0).v == 20
+        def est_vide(self):
+            pass
 
+        def empile(self, x):
+            pass
 
-# liste actuelle : [20, 25, 30]
-val_del = lst.delete_next(20)
+        def depile(self):
+            pass
 
-# liste : [20, 30]
-assert val_del == 25
-assert lst.lenListe() == 2
-assert lst.get_node_index(1).v == 30
-```
+        def __str__(self):
+            s = ""
+            c = self.data
+            while c is not None:
+                s += str(c.contenu)  # Ajouter la valeur de la cellule
+                if c.suivante is not None:  # Ajouter un séparateur si ce n'est pas le dernier élément
+                    s += " -> "
+                c = c.suivante
+            return s if s else ""  # Retourner un message "" si la pile est vide
 
-**<H3 STYLE="COLOR:red;">Exercice n°03 : Pile et palindromes**</H3>
+    class File:
+        def __init__(self):
+            self.entree = Pile()
+            self.sortie = Pile()
 
-**=> CAPYTALE Le code vous sera donné par votre enseignant**
+        def est_vide(self):
+            pass
 
-Un palindrome est un mot qui se lit de la même façon de gauche à droite et de droite à gauche. Par exemple, abababa et un palindrome, ainsi que kayak et coloc.
+        def enfile(self,x):
+            pass
 
-Les piles sont des structures très utiles pour détecter les palindromes : on peut lire le mot jusqu’à sa moitié, et empiler les lettres qu’on lit, puis arrivé à la moitié on lit les lettres tout en dépilant et en regardant si le résultat du dépilage correspond à la lettre lue. Si ce n’est pas le cas, le mot en entrée n’est pas un palindrome.
+        def defile(self):
+            pass
+        
+        def __str__(self):
+            return str(self.entree) + " " + str(self.sortie)
 
-S’il y a toujours égalité, c’est un palindrome.
+            
+        def __len__(self):
+            pass
+        
 
-Il faut faire attention à distinguer les mots de longueur paire et impaire. Si le mot est pair, de longueur 2n, on lit n lettres en empilant, puis n lettres en dépilant. Si le mot est impair, de longueur 2n+1, on lit n lettres en empilant, on lit la lettre du milieu sans rien faire, puis on lit n lettres en dépilant.
+    f = File()
+    f.enfile("Lundi")
+    f.enfile("Mardi")
+    f.enfile("Mercredi")
+    f.enfile("Jeudi")
+    print(len(f))
+    f.defile()
+    len(f)
+    ```
+    2 Ecrire une fonction copie\_file(f) recevant une file (f) comme argument et renvoyant une copie f2 de f. Attention, la file f doit (bien sûr) être conservée !
 
-1 sur **Thonny** : Créer un fichier python pile.py
+    Tester avec avec f
+    et la copie_file de f
 
-2 Créer une classe Pile avec Un constructeur \_\_init\_\_() initialisant l’attribut **privé** que l’on appellera container à [] (liste vide Python)
+!!! abstract "**Exercice n°11 : Le problème de Josephus**"
 
-3 Implémenter la méthode publique get\_container dont le prototype est : get\_container(self) -> list et qui renvoie le contenu de la pile.
+    Josephus Flavius était un célèbre historien du premier siècle. Durant une guerre il fut pris au piège dans une cave avec son groupe de 40 soldats, entouré par les troupes ennemies. La légende raconte que le groupe encerclé préféra se suicider plutôt que d'être capturé. Ainsi Josephus et ses soldats formèrent un cercle et décidèrent de se tuer mutuellement et successivement, de manière à ce qu'une personne tue la troisième personne sur sa gauche, que la personne à droite du mort tue à son tour la troisième personne sur sa gauche, ainsi de suite jusqu'à ce qu'il ne reste qu'un seul survivant. Restant seul, ce dernier est censé se suicider lui-même. Josephus, qui ne souhaitait pas mourir, trouva rapidement la place sûre, c'est-à-dire la place de la dernière personne debout, sans que quiconque ne reste pour le tuer. Ainsi il resta en vie et put par la suite raconter cette légende. Trouver cette place sûre est maintenant appelé le problème de Josephus.
 
-4 Implémenter la méthode publique size() dont le prototypage est le suivant : size(self) -> int et qui renvoie la taille de la liste
+    Durant cet exercice nous implémenterons un programme qui simulera une version généralisée du problème de Josephus de la manière suivante : étant donnés n soldats, placés en cercle aux positions [0 ; n-1] avec 0 comme position de départ, il faut retirer chaque m-ième soldat jusqu'à ce que tous les soldats (même Josephus pour simplifier les choses) soient retirés.
 
-5 Implémenter la méthode publique is\_empty() qui renvoie True si la pile stockée dans le container est vide et False sinon. Le prototype est : is\_empty(self) -> bool
+    Dans l'exemple ci-dessous, nous commençons avec 8 soldats, et nous tuons à chaque tour le troisième soldat sur la gauche (remarquez que lorsqu'il reste au plus trois personnes vivantes, le soldat tuant se compte lui-même dans cette distance de trois soldats):
 
-6 Implémenter la méthode publique push(item) qui ajoute à la fin de la liste. On empile !!
+    ![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.043.png){width=80%; : .center }
 
-7 Implémenter la méthode publique pop() qui :
+    Le programme que vous devez développer devra prendre comme entrées les nombres n et m, respectivement le nombre de soldats et la distance (dans l'exemple nous avons n=8 et m=3), et produire comme sortie l'ordre dans lequel les soldats seront tués, le dernier "tué" étant finalement le survivant :
 
-- Retourne None si la pile est vide.
-- Retourne et enlève l’élément au sommet de la pile, si la pile n’est pas vide.
+    4 7 2 6 3 1 5 8 The surviving soldier is 8
 
-8 Valider les tests unitaires (avec des assert) suivants à partir d’une pile p qui contient les éléments respectivement empilés 1 et 2 :
+    c'est-à-dire que le soldat à la position 4 est le premier à être tué, et 8 est la place sûre recherchée par Josephus.
 
-- p.is\_empty() == False
-- p.get\_container() == [1,2]
-- p.pop() == 2
+    La fonction josephus qui fait appel à la TAD file est donnée ci-dessous
 
-9 Sur **Thonny** : Créer un fichier python palindrome.py
+    !!! info
+    Le TAD signifie Type Abstrait de Données (Abstract Data Type en anglais). C'est un concept théorique en informatique qui définit une structure de données uniquement par les opérations qu'elle propose, indépendamment de son implémentation concrète.
+    !!!
 
-10 Implémenter à l’aide d’une pile une fonction palindrome() qui prend en entrée un mot et renvoie True si c’est un palindrome et False sinon. On donne le prototype de la fonction palindrome(word : str) -> bool.
+    Pour le problème de Josephus, nous ajoutons les éléments suivants :
 
-11 Tester votre programme avec les tests suivants :
+    1. Initialisation :
 
-- palindrome("kayak")
-- palindrome("trust")
+    Les personnes sont placées dans la file dans l'ordre initial.
 
-**<H3 STYLE="COLOR:red;">Exercice n°04 : File et ordonnancement**</H3>
+    2 Rotation circulaire :
 
-**=> CAPYTALE Le code vous sera donné par votre enseignant**
+    On utilise les opérations defile et enfile pour faire circuler les personnes dans le cercle.
 
-L’ordonnancement consiste, pour le système d’exploitation, à optimiser l’utilisation du processeur en lui affectant tour à tour différentes tâches à exécuter. On appelle processus un programme en cours d’exécution. Il peut y en avoir des centaines à la fois sur une machine, alors qu’il n’y a que quelques processeurs (souvent 4).
+    3 Élimination :
 
-L’ordonnanceur va répartir le temps de calcul entre les programmes, afin que tous puissent avancer dans leur exécution de manière satisfaisante, et que les programmes qui n’ont pas besoin de temps processeur à un certain moment (par exemple parce qu’ils attendent une réponse de l’utilisateur avant de continuer) ne gaspillent pas de temps de calcul.
+    Après avoir déplacé les m−1 premières personnes en fin de file, on utilise defile pour éliminer la m-ième personne.
 
-La plupart des ordonnanceurs modernes utilisent des files pour garder en mémoire de façon optimale les programmes à exécuter. En effet, tout comme la pile était une structure naturelle pour gérer les palindromes à l’exercice précédent, la file est parfaitement adaptée à l’ordonnancement : les programmes qui demandent du temps de calcul sont insérés en bout de file, et ceux qui seront défilés pour obtenir effectivement du temps processeur sont ceux qui attendent depuis le plus longtemps.
+    4 Répétition :
 
-1 Sur **Thonny** : Créer un fichier python file.py
+    On continue le processus jusqu'à ce qu'il reste un seul élément dans la file.
 
-2 Créer une classe File avec Un constructeur \_\_init\_\_() initialisant l’attribut **privé** que l’on appellera container à [] (liste vide Python)
 
-3 Implémenter la méthode publique get\_container dont le prototype est : get\_container(self) -> list et qui renvoie le contenu de la file.
+    Implémenter la file avec une liste chainée pour que la fonction josephus([1, 2, 3, 4, 5, 6, 7, 8], 3) 
 
-4 Implémenter la méthode publique size() dont le prototypage est le suivant : size(self) -> int et qui ren
 
-voie la taille de la liste
+    Pour simplifier on peut d’abord sortir : 4 7 2 6 3 1 5 8 the last one is 8
 
-5 Implémenter la méthode publique is\_empty() qui renvoie True si la file stockée dans le container est vide et False sinon. Le prototype est : is\_empty(self) -> bool
+    ```python
+    class Node:
+        def __init__(self, value = None, next = None):
+            self.v = ...
+            self.n = ...
 
-6 Implémenter la méthode publique queue(item) qui ajoute à la fin de la liste. On enfile !!
+    class File:
+        def __init__(self, c=None):
+            self.head = ...
 
-7 Implémenter la méthode publique enqueue() qui :
+        def estVide(self):
+            pass
+        
+        def enfile(self, element):
+            ### version enfiler par la queue et défiler par la tete
+            if self.estVide():
+                self.head = Node(element)
+            else:
+                ...
+        
+        def defile(self):
+            ### version enfiler par la queue et défiler par la tete
+            if not self.estVide():
+                ...
+            else:
+                raise IndexError("File vide")
+
+        
+        def __str__(self):  # on peut mettre __repr__ à la place pour éviter de taper print
+            if self.head is None:
+                raise IndexError("File vide")
+            else:
+                result = str(self.head.v)
+                next_node = self.head.n
+                while next_node is not None:
+                    result += " - " + str(next_node.v)
+                    next_node = next_node.n
+                return result
+        
+                
+        def __len__(self):
+            pass
+    ```
+    Implémenter la fonction josephus(liste, m)
+
+    ```python
+    def josephus(liste, m):
+        f = File()
+
+        # Initialisation : enfiler toutes les personnes
+        ...
+        
+        # on part du numéro 1 qu'en va renfiler 
+
+        # Élimination des personnes
+        while len(f) > 1:
+            # Faire circuler les m-1 premières personnes
+            ...    
+                # On défiler et renfile 
+                ...
+            # Éliminer la m-ième personne
+            elimine = ...
+            print(f"Personne éliminée : {elimine}")
+
+        # Retourner le dernier survivant
+        survivant = ...
+        print(f"Le survivant est : {survivant}")
+        return survivant
+
+    # Exemple : 8 personnes et élimination toutes les 3 positions
+    liste_personnes = [1, 2, 3, 4, 5, 6, 7, 8]
+    m = 3
+
+    # Appel de la fonction josephus
+    dernier_survivant = josephus(liste_personnes, m)
+    print(dernier_survivant)
+
+    ```
+
+!!! abstract "**Exercice n°12 : Le jeu de cartes : bataille**"
+
+    Compléter le programme ci-dessous du jeu de la bataille. Sur **Thonny** : On l’appelera bataille.py
+
+    Vous aurez à  gérer d'une part la valeur des cartes et d'autre part les cas d'égalités.
+
+    **Indice** : il faut créer une file égalité.
+
+    Le programme partiel du jeu de bataille :
+
+    **Créer et importer une File**
+
+    ```python
+    class Node:
+        def __init__(self, value = None, next = None):
+            self.v = ...
+            self.n = ...
+
+    class File:
+        def __init__(self, c=None):
+            self.head = ...
+
+        def estVide(self):
+            pass
+        
+        def enfiler(self, element):
+            ### version enfiler par la queue et défiler par la tete
+            if self.estVide():
+                self.head = Node(element)
+            else:
+                ...
+        
+        def defiler(self):
+            ### version enfiler par la queue et défiler par la tete
+            if not self.estVide():
+                ...
+            else:
+                raise IndexError("File vide")
+
+        
+        def __str__(self):  # on peut mettre __repr__ à la place pour éviter de taper print
+            if self.head is None:
+                raise IndexError("File vide")
+            else:
+                result = str(self.head.v)
+                next_node = self.head.n
+                while next_node is not None:
+                    result += " - " + str(next_node.v)
+                    next_node = next_node.n
+                return result
+        
+                
+        def __len__(self):
+            pass
+    ```
+
+    ```python
+    import random
+
+    paquet_alice = File()
+    paquet_basile = File()
+    ...  # Initialisation de la file pour les égalités
+
+    # crée le jeu de 52 cartes
+    cartes = [i for i in range(0, 52)]
+    # melange les cartes
+    random.shuffle(cartes)
+    # distribue les cartes aux 2 joueurs
+    for i in range(len(cartes) // 2):
+        paquet_alice.enfiler(cartes.pop())
+        paquet_basile.enfiler(cartes.pop())
+
+
+    # Gestion d'un tour de jeu
+    def tour():
+        global en_cours
+        if paquet_alice.estVide():
+            print("Alice perd")
+            en_cours = False
+        elif paquet_basile.estVide():
+            print("Basile perd")
+            en_cours = False
+        else:
+            tirer()
+
+
+    # Si la partie n'est pas terminée, tirage d'une carte
+    def tirer():
+        a = paquet_alice.defiler()
+        b = paquet_basile.defiler()
+
+        valeura = a % 13
+        valeurb = b % 13
+        print("Alice", valeura, valeurb, "Basile")
+        # le programme ne gere pas l'égalité
+        if valeura > valeurb:
+            paquet_alice.enfiler(a)
+            paquet_alice.enfiler(b)
+        elif valeura < valeurb:
+            paquet_basile.enfiler(b)
+            paquet_basile.enfiler(a)
+        else: 
+            ...
 
-- Retourne None si la file est vide.
-- Retourne et enlève l’élément au début de la file, si la file n’est pas vide.
 
-8 Valider les tests unitaires (avec des assert) suivants à partir d’une file f qui contient les éléments respectivement enfilés 1 et 2 :
+    # démarrage du jeu
+    en_cours = True
+    nb_tours = 0
+    while en_cours:  # not paquet_alice.est_vide() and not paquet_basile.est_vide()  :
+        tour()
+        nb_tours += 1
+    print("Partie en ", nb_tours, " tours")
+    ```
 
-- f.is\_empty() == False
-- f.get\_container() == [1, 2]
-- f.enqueue() == 1
 
-9 Sur **Thonny** : Créer un fichier python scheduler.py
 
-10 Créer une classe Activite pour modéliser des activités avec Un constructeur \_\_init\_\_() initialisant ayant trois attributs privés : name, time et priority. Le prototype est le suivant : \_\_init\_\_(self, name : str, time : int, priority : int)
 
-11 Un accesseur (getter) get\_time() qui renvoie la valeur de l’attribut time.
+    Une fois terminé les modifications, vous transformerez le programme bataille en classe Bataille avec toutes les fonctions encapsulées dans celle-ci.
 
-12 Un accesseur (getter) get\_priority() qui renvoie la valeur de l’attribut priority.
+    ```python
+    import random
 
-13 Une méthode publique execute() qui décrémente l’attribut time d’une valeur passée en paramètre appelée time à la méthode et qui renvoie un booléen indiquant si time est nul (True) ou non (False).
 
-**Aide** : time ne peut en aucun cas être < 0.
+    class Bataille:
+        def __init__(self, paquet_alice, paquet_basile):
+            self.paquet_alice = paquet_alice
+            self.paquet_basile = paquet_basile
+            self.egalite = File()
+            self.en_cours = True
+        
+        def tour(self):
+            pass
+        
+        def tirer(self):
+            pass
+            
+    # Initialisation des paquets
+    paquet_alice = File()
+    paquet_basile = File()
 
-14 Une méthode spéciale \_\_repr\_\_(self) renvoyant une chaîne représentant l’activité selon le format : ```<nom activité>: <temps>s [<priorité>]```. 
+    # Création et mélange du jeu de 52 cartes
+    cartes = [i for i in range(0, 52)]
+    random.shuffle(cartes)
 
-**Aide** : on utilisera la méthode format() <https://python.sdv.univ-paris-diderot.fr/03_affichage/>
+    # Distribution des cartes aux 2 joueurs
+    for i in range(len(cartes) // 2):
+        paquet_alice.enfiler(cartes.pop())
+        paquet_basile.enfiler(cartes.pop())
 
-15 Créer une classe Ordonnanceur sur le patron suivant :
-```python
-import file as fl
+    # Démarrage du jeu
+    en_cours = True
+    nb_tours = 0
+    jeu = Bataille(paquet_alice, paquet_basile)
 
-class Ordonnanceur:
-	def __init__(self, quota=0):
-		self.__file  = fl.File()
-        self.__quota = int(quota)
+    while jeu.en_cours:
+        jeu.tour()
+        nb_tours += 1
 
-	def set_quota(self, quota : int) -> int:
-		# à compléter
+    print(f"Partie terminée en {nb_tours} tours.")
+    ```
 
-	def add_activity(self, activity : object):
-		# à compléter
+## <H2 STYLE="COLOR:BLUE;">🔍 <a name="_toc151667946"></a>**8. Projets**</H2>
 
-	def step(self):
-		# à compléter
+!!! abstract "**Projet n°01 : Pile et contrôle du parenthésage d’une expression**
 
-	def run(self):
-		# à compléter
-```
+    **=> CAPYTALE Le code vous sera donné par votre enseignant**
 
-16 Compléter la méthode add\_activity() qui ajoute une activité passée en paramètre à la file de processus de l’ordonnanceur.
+    Il s’agit d’écrire une fonction qui contrôle si une expression mathématique, donnée sous forme d’une chaine de caractères, est bien parenthésée, c’est-à-dire s’il y a autant de parenthèses ouvrantes que de fermantes, et qu’elles sont bien placées. Par exemple :
 
-17 Compléter le mutateur (setter) set\_quota()
+    - (()) est bien parenthésée
+    - ())( ne l’est pas
 
-18 **★★** Modifier la méthode step() qui effectue un “tour” d’ordonnancement comme suit :
+    L’algorithme :
 
-- si la file est vide, on ne fait rien : on attend.
-- s’il y a au moins une activité dans la file, on exécute l’activité en affichant son nom et sa durée. Puis, on décrémente son temps d’une unité et si son quota arrive à 0, on enfile l’activité.
+    On crée une pile
 
-19 **★★** Modifier la méthode run() qui itère step jusqu’à obtenir une file de processus vides.
+    On parcourt l’expression de gauche à droite
 
-20 **★★** Créer une liste de 10 activités de durée et de priorité aléatoires (durée entre 1 et 10 et priorité entre 0 et 2).
+    A chaque fois que l’on rencontre une parenthèse ouvrante "( " on l’empile.
 
-21 **★★** A l’aide d’une boucle, mettre toutes les activités dans la file de l’ordonnanceur puis exécuter l’ordonnanceur.
+    Si on rencontre une parenthèse fermante " ) " et que la pile n’est pas vide on dépile (sinon on retourne faux). 
 
-**<H3 STYLE="COLOR:red;">Exercice n°05 : Implémentation du type abstrait tableau dynamique en Python**</H3>
+    A la fin la pile doit être vide…
 
-**=> CAPYTALE Le code vous sera donné par votre enseignant**
+    Ecrire une fonction verification(expression) qui prend en paramètre une chaine de caractère qui retourne OK si l’expression est bien parenthésée et NON sinon.
 
-**Interface du type abstrait Tableau\_dynamique**
+    assert verification("(())") == "OK"
+    assert verification("())(") == "NON"
 
-L’interface de la classe est la suivante :
-```python
-Help on class TableauDynamique in module __main__:
+!!! abstract "**Projet n°02 : implémentation d’une liste chainée**"
 
-class TableauDynamique(builtins.object)
- |  TableauDynamique() -> 'None'
- |  
- |  Classe implémentant le type « tableau dynamqie »,
- |  version très simplifiée du type « liste » de Python.
- |  
- |  Methods defined here:
- |  
- |  __getitem__(self: 'TableauDynamique', i: 'int') -> 'object'
- |      Retourne l'élément d'indice i.
- |  
- |  __init__(self: 'TableauDynamique') -> 'None'
- |      Création d'un tableau vide à l'initialisation.
- |  
- |  __len__(self: 'TableauDynamique') -> 'int'
- |      Retourne le nombre d'éléments dans le tableau.
- |  
- |  append(self: 'TableauDynamique', obj: 'object') -> 'None'
- |      Ajoute l'élément obj en dernière position dans le tableau.
-```
+    **=> CAPYTALE Le code vous sera donné par votre enseignant**
 
-**Implémentation**
+    A partir de ce qui a été vu sur les listes chaînées, implémenter :
 
-1 Créer la classe **TableauDynamique**.
+    1. La méthode lenListe(self) qui retourne la longueur de la liste
+    1. La méthode insert\_next(self, i, x) qui ajoute une cellule contenant la valeur x après la cellule d’indice i. Déterminer sa complexité
+    1. La méthode get\_node\_index(self, i) qui permet de retourner la cellule d’indice i. Déterminer son ordre de complexité
+    1. La méthode delete\_head(self) qui supprime la première cellule de la liste et la renvoie. Déterminer sa complexité
+    1. la méthode delete\_next(self, x) qui supprime la cellule située après la cellule de valeur x et le renvoie
 
-2 Dans la méthode **\_\_init\_\_**, initialiser trois attributs privés **\_nbre**, **\_capacite** et **\_tab** tels que **\_nbre** donne le nombre d’éléments dans le tableau (initialement égal à 0), **\_capacite** donne le nombre maximal possible d’éléments dans le tableau (initialement égal à 1) et **\_tab** référence un tableau créé à l’aide de la fonction **py\_object** du module **ctypes**.
+    ```python
 
-**Remarque :** le code de création du tableau est le suivant :
-```python
-def _construit_tableau(self: TableauDynamique, capacite: int):
-    """
-    Construction d'un tableau de capacité donnée.
-    """
-    return (capacite * ctypes.py_object)()
-```
 
-3 Définir la méthode **\_\_len\_\_** dont la spécification est :
-```python
-def __len__(self: TableauDynamique) -> int:
-    """
-    Retourne le nombre d'éléments dans le tableau.
-    """
-```
+    lst = Liste()
+    assert lst.isEmpty() == True
+    assert lst.lenListe() == 0
 
-4 Définir la méthode **\_\_getitem\_\_** dont la spécification est :
-```python
-def __getitem__(self: TableauDynamique, i: int) -> object:
-    """
-    Retourne l'élément d'indice i.
+    lst.insert_next(0, 10)  # liste : [10]
+    assert lst.lenListe() == 1
 
-    Une exception est levée si l'indice n'appartient
-    pas au bon intervalle.
-    """
-```
+    lst.insert_next(1, 20)  # liste : [10, 20]
+    assert lst.lenListe() == 2
 
-5 Définir la méthode privée **\_augmente\_taille** dont la spécification est :
-```python
-def _augmente_taille(self: TableauDynamique, capacite: int) -> None:
-    """
-    Crée un nouveau tableau de dimension capacite puis copie tous les
-    éléments de l'ancien tableau dans ce dernier.
-    Fait en sorte que le nouveau tableau soit le tableau désormais
-    utilisé.
-    Met à jour l'attribut capacite.
-    """
-```
+    lst.insert_next(2, 30)  # liste : [10, 20, 30]
+    assert lst.lenListe() == 3
+    
+    assert lst.get_node_index(0).v == 10
+    assert lst.get_node_index(1).v == 20
+    assert lst.get_node_index(2).v == 30
 
-6 Définir la méthode **append** dont la spécification est :
-```python
-def append(self: TableauDynamique, obj: object) -> None:
-    """
-    Ajoute l'élément obj en dernière position dans le tableau.
-    """
-```
+    lst.insert_next(1, 25)  # liste : [10, 20, 25, 30]
+    assert lst.lenListe() == 4
 
-**Remarque :** La méthode **append** doit appeler la méthode **\_augmente\_taille**.
+    assert lst.get_node_index(2).v == 25
 
-7 Définir la méthode **\_\_repr\_\_** dont la spécification est :
-```python
-def __repr__(self: TableauDynamique) -> str:
-    """
-    Retourne la chaîne de caractères représentant le tableau.
-    """
-```
+    val = lst.delete_head() 
+    # liste : [20, 25, 30]
+    assert val == 10
+    assert lst.lenListe() == 3
+    assert lst.get_node_index(0).v == 20
 
-8 Tester le bon fonctionnement de la classe.
+
+    # liste actuelle : [20, 25, 30]
+    val_del = lst.delete_next(20)
+
+    # liste : [20, 30]
+    assert val_del == 25
+    assert lst.lenListe() == 2
+    assert lst.get_node_index(1).v == 30
+    ```
+
+!!! abstract "**Projet n°03 : Pile et palindromes**"
+
+    **=> CAPYTALE Le code vous sera donné par votre enseignant**
+
+    Un palindrome est un mot qui se lit de la même façon de gauche à droite et de droite à gauche. Par exemple, abababa et un palindrome, ainsi que kayak et coloc.
+
+    Les piles sont des structures très utiles pour détecter les palindromes : on peut lire le mot jusqu’à sa moitié, et empiler les lettres qu’on lit, puis arrivé à la moitié on lit les lettres tout en dépilant et en regardant si le résultat du dépilage correspond à la lettre lue. Si ce n’est pas le cas, le mot en entrée n’est pas un palindrome.
+
+    S’il y a toujours égalité, c’est un palindrome.
+
+    Il faut faire attention à distinguer les mots de longueur paire et impaire. Si le mot est pair, de longueur 2n, on lit n lettres en empilant, puis n lettres en dépilant. Si le mot est impair, de longueur 2n+1, on lit n lettres en empilant, on lit la lettre du milieu sans rien faire, puis on lit n lettres en dépilant.
+
+    1 sur **Thonny** : Créer un fichier python pile.py
+
+    2 Créer une classe Pile avec Un constructeur \_\_init\_\_() initialisant l’attribut **privé** que l’on appellera container à [] (liste vide Python)
+
+    3 Implémenter la méthode publique get\_container dont le prototype est : get\_container(self) -> list et qui renvoie le contenu de la pile.
+
+    4 Implémenter la méthode publique size() dont le prototypage est le suivant : size(self) -> int et qui renvoie la taille de la liste
+
+    5 Implémenter la méthode publique is\_empty() qui renvoie True si la pile stockée dans le container est vide et False sinon. Le prototype est : is\_empty(self) -> bool
+
+    6 Implémenter la méthode publique push(item) qui ajoute à la fin de la liste. On empile !!
+
+    7 Implémenter la méthode publique pop() qui :
+
+    - Retourne None si la pile est vide.
+    - Retourne et enlève l’élément au sommet de la pile, si la pile n’est pas vide.
+
+    8 Valider les tests unitaires (avec des assert) suivants à partir d’une pile p qui contient les éléments respectivement empilés 1 et 2 :
+
+    - p.is\_empty() == False
+    - p.get\_container() == [1,2]
+    - p.pop() == 2
+
+    9 Sur **Thonny** : Créer un fichier python palindrome.py
+
+    10 Implémenter à l’aide d’une pile une fonction palindrome() qui prend en entrée un mot et renvoie True si c’est un palindrome et False sinon. On donne le prototype de la fonction palindrome(word : str) -> bool.
+
+    11 Tester votre programme avec les tests suivants :
+
+    - palindrome("kayak")
+    - palindrome("trust")
+
+!!! abstract "**Projet n°04 : File et ordonnancement**"
+
+    **=> CAPYTALE Le code vous sera donné par votre enseignant**
+
+    L’ordonnancement consiste, pour le système d’exploitation, à optimiser l’utilisation du processeur en lui affectant tour à tour différentes tâches à exécuter. On appelle processus un programme en cours d’exécution. Il peut y en avoir des centaines à la fois sur une machine, alors qu’il n’y a que quelques processeurs (souvent 4).
+
+    L’ordonnanceur va répartir le temps de calcul entre les programmes, afin que tous puissent avancer dans leur exécution de manière satisfaisante, et que les programmes qui n’ont pas besoin de temps processeur à un certain moment (par exemple parce qu’ils attendent une réponse de l’utilisateur avant de continuer) ne gaspillent pas de temps de calcul.
+
+    La plupart des ordonnanceurs modernes utilisent des files pour garder en mémoire de façon optimale les programmes à exécuter. En effet, tout comme la pile était une structure naturelle pour gérer les palindromes à l’exercice précédent, la file est parfaitement adaptée à l’ordonnancement : les programmes qui demandent du temps de calcul sont insérés en bout de file, et ceux qui seront défilés pour obtenir effectivement du temps processeur sont ceux qui attendent depuis le plus longtemps.
+
+    1 Sur **Thonny** : Créer un fichier python file.py
+
+    2 Créer une classe File avec Un constructeur \_\_init\_\_() initialisant l’attribut **privé** que l’on appellera container à [] (liste vide Python)
+
+    3 Implémenter la méthode publique get\_container dont le prototype est : get\_container(self) -> list et qui renvoie le contenu de la file.
+
+    4 Implémenter la méthode publique size() dont le prototypage est le suivant : size(self) -> int et qui ren
+
+    voie la taille de la liste
+
+    5 Implémenter la méthode publique is\_empty() qui renvoie True si la file stockée dans le container est vide et False sinon. Le prototype est : is\_empty(self) -> bool
+
+    6 Implémenter la méthode publique queue(item) qui ajoute à la fin de la liste. On enfile !!
+
+    7 Implémenter la méthode publique enqueue() qui :
+
+    - Retourne None si la file est vide.
+    - Retourne et enlève l’élément au début de la file, si la file n’est pas vide.
+
+    8 Valider les tests unitaires (avec des assert) suivants à partir d’une file f qui contient les éléments respectivement enfilés 1 et 2 :
+
+    - f.is\_empty() == False
+    - f.get\_container() == [1, 2]
+    - f.enqueue() == 1
+
+    9 Sur **Thonny** : Créer un fichier python scheduler.py
+
+    10 Créer une classe Activite pour modéliser des activités avec Un constructeur \_\_init\_\_() initialisant ayant trois attributs privés : name, time et priority. Le prototype est le suivant : \_\_init\_\_(self, name : str, time : int, priority : int)
+
+    11 Un accesseur (getter) get\_time() qui renvoie la valeur de l’attribut time.
+
+    12 Un accesseur (getter) get\_priority() qui renvoie la valeur de l’attribut priority.
+
+    13 Une méthode publique execute() qui décrémente l’attribut time d’une valeur passée en paramètre appelée time à la méthode et qui renvoie un booléen indiquant si time est nul (True) ou non (False).
+
+    **Aide** : time ne peut en aucun cas être < 0.
+
+    14 Une méthode spéciale \_\_repr\_\_(self) renvoyant une chaîne représentant l’activité selon le format : ```<nom activité>: <temps>s [<priorité>]```. 
+
+    **Aide** : on utilisera la méthode format() <https://python.sdv.univ-paris-diderot.fr/03_affichage/>
+
+    15 Créer une classe Ordonnanceur sur le patron suivant :
+    ```python
+    import file as fl
+
+    class Ordonnanceur:
+        def __init__(self, quota=0):
+            self.__file  = fl.File()
+            self.__quota = int(quota)
+
+        def set_quota(self, quota : int) -> int:
+            # à compléter
+
+        def add_activity(self, activity : object):
+            # à compléter
+
+        def step(self):
+            # à compléter
+
+        def run(self):
+            # à compléter
+    ```
+
+    16 Compléter la méthode add\_activity() qui ajoute une activité passée en paramètre à la file de processus de l’ordonnanceur.
+
+    17 Compléter le mutateur (setter) set\_quota()
+
+    18 **★★** Modifier la méthode step() qui effectue un “tour” d’ordonnancement comme suit :
+
+    - si la file est vide, on ne fait rien : on attend.
+    - s’il y a au moins une activité dans la file, on exécute l’activité en affichant son nom et sa durée. Puis, on décrémente son temps d’une unité et si son quota arrive à 0, on enfile l’activité.
+
+    19 **★★** Modifier la méthode run() qui itère step jusqu’à obtenir une file de processus vides.
+
+    20 **★★** Créer une liste de 10 activités de durée et de priorité aléatoires (durée entre 1 et 10 et priorité entre 0 et 2).
+
+    21 **★★** A l’aide d’une boucle, mettre toutes les activités dans la file de l’ordonnanceur puis exécuter l’ordonnanceur.
+
+!!! abstract "**Projet n°05 : Implémentation du type abstrait tableau dynamique en Python**"
+
+    **=> CAPYTALE Le code vous sera donné par votre enseignant**
+
+    **Interface du type abstrait Tableau\_dynamique**
+
+    L’interface de la classe est la suivante :
+    ```python
+    Help on class TableauDynamique in module __main__:
+
+    class TableauDynamique(builtins.object)
+    |  TableauDynamique() -> 'None'
+    |  
+    |  Classe implémentant le type « tableau dynamqie »,
+    |  version très simplifiée du type « liste » de Python.
+    |  
+    |  Methods defined here:
+    |  
+    |  __getitem__(self: 'TableauDynamique', i: 'int') -> 'object'
+    |      Retourne l'élément d'indice i.
+    |  
+    |  __init__(self: 'TableauDynamique') -> 'None'
+    |      Création d'un tableau vide à l'initialisation.
+    |  
+    |  __len__(self: 'TableauDynamique') -> 'int'
+    |      Retourne le nombre d'éléments dans le tableau.
+    |  
+    |  append(self: 'TableauDynamique', obj: 'object') -> 'None'
+    |      Ajoute l'élément obj en dernière position dans le tableau.
+    ```
+
+    **Implémentation**
+
+    1 Créer la classe **TableauDynamique**.
+
+    2 Dans la méthode **\_\_init\_\_**, initialiser trois attributs privés **\_nbre**, **\_capacite** et **\_tab** tels que **\_nbre** donne le nombre d’éléments dans le tableau (initialement égal à 0), **\_capacite** donne le nombre maximal possible d’éléments dans le tableau (initialement égal à 1) et **\_tab** référence un tableau créé à l’aide de la fonction **py\_object** du module **ctypes**.
+
+    **Remarque :** le code de création du tableau est le suivant :
+    ```python
+    def _construit_tableau(self: TableauDynamique, capacite: int):
+        """
+        Construction d'un tableau de capacité donnée.
+        """
+        return (capacite * ctypes.py_object)()
+    ```
+
+    3 Définir la méthode **\_\_len\_\_** dont la spécification est :
+    ```python
+    def __len__(self: TableauDynamique) -> int:
+        """
+        Retourne le nombre d'éléments dans le tableau.
+        """
+    ```
+
+    4 Définir la méthode **\_\_getitem\_\_** dont la spécification est :
+    ```python
+    def __getitem__(self: TableauDynamique, i: int) -> object:
+        """
+        Retourne l'élément d'indice i.
+
+        Une exception est levée si l'indice n'appartient
+        pas au bon intervalle.
+        """
+    ```
+
+    5 Définir la méthode privée **\_augmente\_taille** dont la spécification est :
+    ```python
+    def _augmente_taille(self: TableauDynamique, capacite: int) -> None:
+        """
+        Crée un nouveau tableau de dimension capacite puis copie tous les
+        éléments de l'ancien tableau dans ce dernier.
+        Fait en sorte que le nouveau tableau soit le tableau désormais
+        utilisé.
+        Met à jour l'attribut capacite.
+        """
+    ```
+
+    6 Définir la méthode **append** dont la spécification est :
+    ```python
+    def append(self: TableauDynamique, obj: object) -> None:
+        """
+        Ajoute l'élément obj en dernière position dans le tableau.
+        """
+    ```
+
+    **Remarque :** La méthode **append** doit appeler la méthode **\_augmente\_taille**.
+
+    7 Définir la méthode **\_\_repr\_\_** dont la spécification est :
+    ```python
+    def __repr__(self: TableauDynamique) -> str:
+        """
+        Retourne la chaîne de caractères représentant le tableau.
+        """
+    ```
+
+    8 Tester le bon fonctionnement de la classe.
