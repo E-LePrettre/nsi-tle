@@ -816,131 +816,248 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
 
 
 
-**<H3 STYLE="COLOR:red;">Activité n° 18 :**  **Arbres binaires et POO :**</H3> Il est possible d'afficher un arbre binaire dans la console Python, pour cela, nous allons utiliser **la fonction** affiche :
 
-```python
-def affiche(arbre):
-   if arbre != None:
-      return (arbre.valeur,affiche(arbre.g),affiche(arbre.d))
-```
-Cette fonction renvoie une série de tuples de la forme (valeur,arbre_gauche, arbre_droite), comme "arbre_gauche" et "arbre_droite" seront eux-mêmes affichés sous forme de tuples, on aura donc un affichage qui ressemblera à : 
+???+ question "🌲 Activité n° 18 : Arbres binaires et POO"
 
-(valeur,(valeur_gauche,arbre_gauche_gauche,arbre_gauche_droite),(valeur_droite,arbre_droite_gauche,arbre_droite_droite)), 
+    🌳 Il est possible d'afficher un arbre binaire dans la console Python, pour cela, nous allons utiliser **la fonction** `affiche` :
 
-mais comme "arbre_gauche_gauche" sera lui-même représenté par un tuple...
+    ```python
+    def affiche(arbre):
+    if arbre != None:
+        return (arbre.valeur,affiche(arbre.g),affiche(arbre.d))
+    ```
 
-Ajouter :
-```python
-print(affiche(arbre))
-print(affiche(T))
-```
-**Remarque** : en implémentant la méthode affiche cela donnerait :
-```python
-def affiche2(self):
-    if self.g and self.d:
-        return self.valeur, self.g.affiche2(), self.d.affiche2()
-    elif self.g:
-        return self.valeur,self.g.affiche2(),None
-    elif self.d:
-        return self.valeur,None, self.d.affiche2()
-    else:
-        return self.valeur, None, None
-```
-Ajouter :
-```python
-print(arbre.affiche2())
-print(T.affiche2())
-```
+    Cette fonction renvoie une série de tuples de la forme (valeur,arbre\_gauche, arbre\_droite), comme "arbre\_gauche" et "arbre\_droite" seront eux-mêmes affichés sous forme de tuples, on aura donc un affichage qui ressemblera à :
 
-**<H3 STYLE="COLOR:red;">Activité n° 19 :**  **Arbres binaires et POO : fonction** hauteur** :</H3>** Implémenter l’algorithme de la **fonction** hauteur et tester l’arbre précédent.
+    (valeur,(valeur\_gauche,arbre\_gauche\_gauche,arbre\_gauche\_droite),(valeur\_droite,arbre\_droite\_gauche,arbre\_droite\_droite)),
 
-Voici l’algorithme correspondant à la fonction hauteur : (convention 1 pour la racine)
-```
-HAUTEUR(T) :
-  si T est vide :
-    renvoyer 0
-  sinon :
-    renvoyer 1 + max(HAUTEUR(T du sous-arbre gauche), HAUTEUR(T du sous-arbre droit))
-  fin si	
-```
+    mais comme "arbre\_gauche\_gauche" sera lui-même représenté par un tuple...
 
-La fonction max renvoie la plus grande valeur des 2 valeurs passées en paramètre (exemple : max(5,6) renvoie 6).
+    Ajouter :
+
+    ```python
+    print(affiche(arbre))
+    print(affiche(T))
+    ```
+
+    **Remarque** : en implémentant la méthode affiche cela donnerait :
+
+    ```python
+    def affiche2(self):
+        if self.g and self.d:
+            return self.valeur, self.g.affiche2(), self.d.affiche2()
+        elif self.g:
+            return self.valeur,self.g.affiche2(),None
+        elif self.d:
+            return self.valeur,None, self.d.affiche2()
+        else:
+            return self.valeur, None, None
+    ```
+
+    Ajouter :
+
+    ```python
+    print(arbre.affiche2())
+    print(T.affiche2())
+    ```
+
+    ??? success "❇️ Solution :"
+
+        ```python
+        # affichage fonctionnelle en tuple imbriqué
+        print(affiche(arbre))
+        print(affiche(T))
+
+        # méthode dans la classe
+        print(arbre.affiche2())
+        print(T.affiche2())
+        ```
+
+---
+
+???+ question "🌲 Activité n° 19 : Arbres binaires et POO : fonction `hauteur`"
+
+    Implémenter l’algorithme de la **fonction** `hauteur` et tester l’arbre précédent.
+
+    Voici l’algorithme correspondant à la fonction hauteur : (convention 1 pour la racine)
+
+    ```
+    HAUTEUR(T) :
+    si T est vide :
+        renvoyer 0
+    sinon :
+        renvoyer 1 + max(HAUTEUR(T du sous-arbre gauche), HAUTEUR(T du sous-arbre droit))
+    fin si	
+    ```
+
+    La fonction max renvoie la plus grande valeur des 2 valeurs passées en paramètre (exemple : max(5,6) renvoie 6).
+
+    ??? success "❇️ Solution :"
+
+        ```python
+        def hauteur(T):
+            if T is None:
+                return 0
+            else:
+                return 1 + max(hauteur(T.g), hauteur(T.d))
+        ```
+
+---
+
+???+ question "🌲 Activité n° 20 : Arbres binaires et POO : méthode `hauteur2`"
+
+    Implémenter l’algorithme de la **méthode** `hauteur2` et tester l’arbre précédent.
+
+    Tester avec l’arbre T qui devrait avoir une hauteur de 5.
+
+    ??? success "❇️ Solution :"
+
+        ```python
+        def hauteur2(self):
+            if self.g is None and self.d is None:
+                return 1
+            elif self.g is None:
+                return 1 + self.d.hauteur2()
+            elif self.d is None:
+                return 1 + self.g.hauteur2()
+            else:
+                return 1 + max(self.g.hauteur2(), self.d.hauteur2())
+        ```
+
+---
+
+???+ question "🌲 Activité n° 21 : Arbres binaires et POO : fonction `taille`"
+
+    Implémenter l’algorithme de la **fonction** `taille` et tester l’arbre précédent.
+
+    Voici l’algorithme correspondant à la fonction taille :
+
+    ```
+    TAILLE(T) :
+    si T est vide:
+        renvoyer 0
+    sinon :
+        renvoyer 1 + TAILLE(T du sous-arbre gauche)+TAILLE(T du sous-arbre droit)
+    fin si
+    ```
+
+    ??? success "❇️ Solution :"
+
+        ```python
+        def taille(T):
+            if T is None:
+                return 0
+            else:
+                return 1 + taille(T.g) + taille(T.d)
+        ```
+
+---
+
+???+ question "🌲 Activité n° 22 : Arbres binaires et POO : méthode `taille2`
+
+    Implémenter l’algorithme de la **méthode** `taille2` et tester l’arbre précédent.
+
+    ??? success "❇️ Solution :"
+
+        ```python
+        def taille2(self):
+            if self.g is None and self.d is None:
+                return 1
+            elif self.g is None:
+                return 1 + self.d.taille2()
+            elif self.d is None:
+                return 1 + self.g.taille2()
+            else:
+                return 1 + self.g.taille2() + self.d.taille2()
+        ```
+
+---
+
+### <H3 STYLE="COLOR:green;">❤️ 3<sup>ème</sup> implémentation de la structure ARBRE BINAIRE avec la POO avec 2 classes ❤️</H3>
 
 
 
-**<H3 STYLE="COLOR:red;">Activité n° 20 :**  **Arbres binaires et POO : méthode** hauteur** :</H3>** Implémenter l’algorithme de la **méthode** hauteur2 et tester l’arbre précédent.
+📎 **CAPYTALE : Le code vous sera donné par votre enseignant (arbre_binaire_POO_v2)**
 
-Tester avec l’arbre T qui devrait avoir une hauteur de 5.
+---
 
-**<H3 STYLE="COLOR:red;">Activité n° 21 :**  **Arbres binaires et POO : fonction** taille** :</H3>** Implémenter l’algorithme de la **fonction** taille et tester l’arbre précédent.
+???+ question "🌲 Activité n° 23 : Arbres binaires et POO : Méthode de Huffman simplifiée"
 
-Voici l’algorithme correspondant à la fonction taille :
-```
-TAILLE(T) :
-  si T est vide:
-    renvoyer 0
-  sinon :
-    renvoyer 1 + TAILLE(T du sous-arbre gauche)+TAILLE(T du sous-arbre droit)
-  fin si
-```
+    Implémenter la structure ARBRE avec deux classes :
 
+    ```python
+    class Noeud:
+        def __init__(self, valeur , g = None, d = None):
+            """
+            Initialise un nœud de l'arbre binaire.
+            valeur : contient la donnée du nœud
+            g : référence au sous-arbre gauche
+            d : référence au sous-arbre droit
+            """
+            pass
 
+    class Arbre:
+        def __init__(self, noeud=None):
+            """
+            Initialise un arbre binaire avec un nœud racine.
+            """
+            pass
 
-**<H3 STYLE="COLOR:red;">Activité n° 22 :**  **Arbres binaires et POO : méthode** taille** :</H3>** Implémenter l’algorithme de la **méthode** taille2 et tester l’arbre précédent.
+        def estVide(self):
+            """
+            Vérifie si l'arbre est vide.
+            """
+            pass
 
+        def get_valeur(self):
+            """
+            Retourne la valeur du nœud racine de l'arbre.
+            """
+            pass
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141396"></a>**3.7. ❤️ 3<sup>ème</sup> implémentation de la structure ARBRE BINAIRE avec la POO avec 2 classes❤️**</H3>
+        def get_gauche(self):
+            """
+            Retourne le sous-arbre gauche.
+            """
+            pass
 
-**Sur Thonny : Toutes les fonctions de cette implémentation doivent être dans le même fichier python arbre\_binaire\_POO\_v2.py**
+        def get_droit(self):
+            """
+            Retourne le sous-arbre droit.
+            """
+            pass
+    ```
 
-=> **CAPYTALE Le code vous sera donné par votre enseignant**
+    🧠 On peut noter que pour faire l’appel d’un attribut d’une autre classe, par exemple `valeur`, il faut remonter au constructeur de la classe Arbre. Ainsi on notera `self.noeud.valeur` dans la classe Arbre.
 
-**<H3 STYLE="COLOR:red;">Activité n° 23 :**  **Arbres binaires et POO : Méthode de Huffman simplifiée :</H3>** Implémenter la structure ARBRE avec deux classes :
+    ??? success "❇️ Solution :"
 
-```python
-class Noeud:
-    def __init__(self, valeur , g = None, d = None):
-        """
-        Initialise un nœud de l'arbre binaire.
-        valeur : contient la donnée du nœud
-        g : référence au sous-arbre gauche
-        d : référence au sous-arbre droit
-        """
-        pass
+        ```python
+        class Noeud:
+            def __init__(self, valeur , g = None, d = None):
+                self.valeur = valeur
+                self.g = g
+                self.d = d
 
-class Arbre:
-    def __init__(self, noeud=None):
-        """
-        Initialise un arbre binaire avec un nœud racine.
-        """
-        pass
+        class Arbre:
+            def __init__(self, noeud=None):
+                self.noeud = noeud
 
-    def estVide(self):
-        """
-        Vérifie si l'arbre est vide.
-        """
-        pass
+            def estVide(self):
+                return self.noeud is None
 
-    def get_valeur(self):
-        """
-        Retourne la valeur du nœud racine de l'arbre.
-        """
-        pass
+            def get_valeur(self):
+                return self.noeud.valeur
 
-    def get_gauche(self):
-        """
-        Retourne le sous-arbre gauche.
-        """
-        pass
+            def get_gauche(self):
+                return self.noeud.g
 
-    def get_droit(self):
-        """
-        Retourne le sous-arbre droit.
-        """
-        pass
-```
+            def get_droit(self):
+                return self.noeud.d
+        ```
 
-On peut noter que pour faire l’appel d’un attribut d’une autre classe, par exemple valeur, il faut remonter au constructeur de la classe Arbre. Ainsi on notera self.noeud.valeur dans la classe Arbre.
+---
+
 
 **<H3 STYLE="COLOR:red;">Activité n° 24 :**  **Arbres binaires et POO :</H3>** Soit l'arbre binaire suivant :
 
