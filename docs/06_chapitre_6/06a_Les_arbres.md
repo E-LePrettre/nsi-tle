@@ -5,7 +5,7 @@ title: 06a Les arbres
 
 **Table des matières**
 
-[1.	Terminologie](#_toc149141385)
+[1.	🌳 Terminologie](#_toc149141385)
 
 [2.	Notions générales sur les arbres](#_toc149141388)
 
@@ -30,385 +30,427 @@ title: 06a Les arbres
 
 
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc149141385"></a>**1. Terminologie**</H2>
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141386"></a>**1.1. Vocabulaire**</H3>
-
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.001.png){width=30%; : .center }
-
-Un arbre est une **structure hiérarchique de données**, composée de **nœuds**. Si on adopte le vocabulaire des graphes que l’on verra plus tard, un arbre est un **graphe non orienté, connexe, sans cycle**, et dans lequel un nœud joue le rôle de **racine**.
-
-Un **arbre** est un **type abstrait de données** ayant les propriétés suivantes (on parle ici des arborescences) :
-
-- Chaque **nœud** a exactement un seul **nœud père**, à l'exception du nœud **racine** qui est le seul nœud à ne pas avoir de père. (oui, **la** racine d'une arbre est **en haut**)
-- Chaque nœud peut avoir un nombre quelconque de **fils**, dont il est le père.
-- Les nœuds qui n'ont pas de fils sont appelés les **feuilles** (ou nœuds externes).
-- Les nœuds qui ne sont pas des feuilles sont des **nœuds internes**.
-- Le nom de chaque nœud est appelé son **étiquette**.
-
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141387"></a>**1.2. Exemples d’arbres**</H3>
-
-L’ **arbre généalogique**
-
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.002.png){width=30%; : .center }
-
-Voici un **arbre syntaxique** : un arbre syntaxique représente l’analyse d’une phrase à partir de règle (la grammaire)
-
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.003.png){width=30%; : .center }
-
-On peut également représenter les **expressions arithmétiques** par des arbres étiquetés par des opérateurs, des constantes et des variables. La structure de l’arbre rend compte de la priorité des opérateurs et rend inutile tout parenthésage.
-
-Pour l’expression : `(y/2-t)*(75+z)`
-
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.004.png){width=30%; : .center }
 
 
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc149141385"></a>**1. 🌳 Terminologie**</H2>
 
-???+ question "Activité n° 1 :"
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141386"></a>**1.1. 📚 Vocabulaire**</H3>
 
-    Représenter l’expression : 3+73-13
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.001.png){width=30%; .center}
 
-    ??? success "Solution"
+Un **arbre** est une **structure hiérarchique** composée de **nœuds**, utilisée pour représenter des données organisées selon des relations de parenté.
 
-        Représentation de l'arbre :
+📌 En langage plus mathématique : un arbre est un **graphe non orienté, connexe, sans cycle**, dans lequel un **nœud racine** sert de point de départ.
+
+🧠 À retenir :
+
+* Chaque **nœud** (ou sommet) a **au plus un père** (sauf la racine qui n’en a pas).
+* Un nœud peut avoir **0 ou plusieurs fils**.
+* Un **nœud sans fils** est une **feuille**.
+* Un nœud avec au moins un fils est un **nœud interne**.
+* Chaque nœud est souvent associé à une **étiquette**.
+
+---
+
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141387"></a>**1.2. 🌲 Exemples d’arbres**</H3>
+
+👪 **Arbre généalogique** :
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.002.png){width=30%; .center}
+
+📝 **Arbre syntaxique** (analyse grammaticale) :
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.003.png){width=30%; .center}
+
+🧮 **Arbre d'expression mathématique** :
+Exemple pour l'expression `(y/2 - t) × (75 + z)` :
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.004.png){width=30%; .center}
+
+???+ question "🎯 Activité n° 1 : Représenter l’expression 3 + 73 - 13"
+
+    ??? success "✔️ Solution"
+
         ```
-             -
-           /  \
-          +   13
-         / \
+            -
+        /   \
+        +    13
+        / \
         3   73
         ```
 
+🌐 **DOM (Document Object Model)** pour représenter une page HTML :
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.005.png){width=40%; .center}
 
-**DOM (Document Object Model) d’une page web**
+💾 **Arborescence des fichiers** dans un système UNIX :
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.006.gif){width=40%; .center}
 
-![Chapter 7: Markup Languages | The Missing Link: An Introduction to Web ...](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.005.png){width=40%; : .center }
+---
 
-**L'arborescence d'un disque dur :** Les systèmes Unix (MacOS ou GNU/Linux) organisent leur disque dur suivant l'arborescence :
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc149141388"></a>**2. 📏 Notions générales sur les arbres**</H2>
 
-![image](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.006.gif){width=40%; : .center }
+🧮 Définitions importantes :
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc149141388"></a>**2. Notions générales sur les arbres**</H2>
+* La **taille** d’un arbre = nombre total de **nœuds**
+* La **profondeur** d’un nœud = distance (en nombre d’arêtes) de ce nœud à la **racine**
+* La **hauteur** d’un arbre = profondeur maximale parmi tous ses nœuds
 
-- la **taille** d'un arbre est son nombre total de nœuds. 
-- la **profondeur** d'un nœud est le nombre de nœuds de son chemin le plus court vers la racine.
-- la **hauteur** d'un arbre est la profondeur de son nœud le plus profond. 
-  Nous prendrons comme **convention** que :
+🎯 **Convention dans ce cours** :
 
-  - si un arbre est réduit à **un seul nœud-racine**, sa hauteur sera **1**.
+* Arbre vide → **hauteur = 0**
+* Arbre réduit à la racine seule → **hauteur = 1**
 
-  - si un arbre est **vide**, sa hauteur est **0**.
+📌 Attention : certains livres définissent l’arbre vide avec une hauteur **-1** (on s’y adaptera selon le contexte).
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.007.png){width=30%; : .center }
+🔍 Exemple d’analyse :
 
-La taille ici est 8. La profondeur de G est 3 (G-K-C), la profondeur de B est 2 (B-C), la profondeur de Z est 4 (Z-F-B-C), la profondeur de C est 1. La hauteur de l'arbre est 4.
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.007.png){width=30%; .center}
 
-***Attention, dans certains ouvrages, l'arbre vide a pour hauteur -1, et donc l'arbre réduit à un seul nœud a pour hauteur 0, donc notre arbre aurait avec cette convention une hauteur 3.***
+* Taille = 8
+* Profondeur de **G** = 3 (G → K → C)
+* Profondeur de **Z** = 4 (Z → F → B → C)
+* Hauteur de l’arbre = 4
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc149141389"></a>**3. Les arbres binaires**</H2>
+---
 
-Parmi la forêt d’arbres possibles, on s’intéressera essentiellement aux **arbres dit binaires**.
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc149141389"></a>**3. 🌿 Les arbres binaires**</H2>
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141390"></a>**3.1. Définition**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141390"></a>**3.1. 🧩 Définition**</H3>
 
-L’arbre qui représente l’expression a×b+c-d+ⅇ est un arbre binaire
+🔄 L’arbre de l’expression `a × b + c - d + e` est un **arbre binaire** :
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.009.png){width=30%; : .center }
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.009.png){width=30%; .center}
 
-Les **arbres binaires** forment une structure de données qui peut se définir de façon récursive. Un arbre binaire est :
+🧠 **Définition récursive** d’un arbre binaire :
 
-- soit d'un **arbre vide**
-- Soit composé d’une racine portant une étiquette (clé) et d’**exactement** une paire d’arbres binaires appelés **sous-arbre gauche** et **sous-arbre droit.**
+* Soit un **arbre vide**
+* Soit une **racine** et exactement **deux sous-arbres** : un **gauche** et un **droit**
 
-**Conséquence** : un arbre binaire est constitué de nœuds qui peuvent avoir chacun 0, 1 ou 2 fils.
+📌 Un **nœud** peut donc avoir **0, 1 ou 2 fils**
 
-On symbolise parfois l'arbre vide par un symbole particulier sur les arbres binaires : cela évite d'oublier un fils. Même si l'un des fils est un arbre-vide, il apparaît sur l'arbre.
+🪄 Pour ne pas oublier un fils, on **représente l’arbre vide** avec un petit symbole, comme ci-dessous :
 
-![Arbre binaire](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.011.png)![Arbre binaire](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.012.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.011.png)
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.012.png)
 
-L'arbre binaire n'est pas identique car on identifie les fils gauche et droite.
+---
 
-VOCABULAIRE A MAITRISER : on notera
+📘 **À bien maîtriser : le vocabulaire précis**
 
-- qu'un **nœud d'arbre binaire** possède un **fils gauche** et un **fils droit** mais
+* Un **nœud** possède :
 
-- qu'un **arbre binaire** possède **un sous-arbre gauche** et un **sous-arbre droit** :
+  * un **fils gauche**
+  * un **fils droit**
 
-  - Le fils gauche est donc la racine du sous-arbre gauche.
+* Un **arbre binaire** est constitué :
 
-  - Le fils droit est donc la racine du sous-arbre droit.
+  * d’un **sous-arbre gauche**
+  * d’un **sous-arbre droit**
 
+🧩 Donc :
 
-???+ question "Activité n° 2 :"
-
-    Entourer en rouge le sous-arbre gauche de l'arbre précédent. Entourer en bleu le sous-arbre droit. Entourer en vert le sous-arbre droit du sous-arbre gauche.
-    ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.014.png){width=30%; : .center }
-
-    ??? success "Solution"
-
-        ![](ASanstitre.png){width=30%; : .center }
-
-
-???+ question "Activité n° 3 : Arbres binaires"
-
-    Quelle propriété ont les indices des fils gauches et droits ?
-
-    ??? success "Solution"
-
-        Dans un arbre binaire, si on considère que les nœuds de l'arbre sont indexés de manière séquentielle dans un tableau, en commençant par la racine à l'indice 1 (ou 0 si l'on commence à compter à partir de 0), les indices des fils gauche et droit d'un nœud parent donné (à l'indice \(i\)) obéissent aux propriétés suivantes :
-
-        - **Fils gauche :** L'indice du fils gauche d'un nœud situé à l'indice \(i\) est \(2i\) (si l'indexation commence à 1) ou \(2i + 1\) (si l'indexation commence à 0).
-
-        - **Fils droit :** L'indice du fils droit d'un nœud situé à l'indice \(i\) est \(2i + 1\) (si l'indexation commence à 1) ou \(2i + 2\) (si l'indexation commence à 0).
-        
-        ### Exemple avec une indexation commençant à 1 :
-        - Si un nœud parent est à l'indice 3 :
-        - Le fils gauche est à l'indice \(2 \times 3 = 6\).
-        - Le fils droit est à l'indice \(2 \times 3 + 1 = 7\).
-        
-        ### Exemple avec une indexation commençant à 0 :
-        - Si un nœud parent est à l'indice 2 :
-        - Le fils gauche est à l'indice \(2 \times 2 + 1 = 5\).
-        - Le fils droit est à l'indice \(2 \times 2 + 2 = 6\).
-
-        Ces relations permettent de naviguer efficacement dans un arbre binaire lorsque celui-ci est représenté sous forme de tableau ou de liste.
+* Le **fils gauche** est la **racine du sous-arbre gauche**
+* Le **fils droit** est la **racine du sous-arbre droit**
 
 
 
 
-???+ question "Activité n° 4 : Arbres binaires"
+???+ question "🎯 Activité n°2 : Identifier des sous-arbres"
+
+    Entourer en **rouge** le sous-arbre gauche, en **bleu** le sous-arbre droit, et en **vert** le sous-arbre droit du sous-arbre gauche dans l’arbre suivant :
+    
+    ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.014.png){width=30%; .center}
+
+    ??? success "✔️ Solution"
+
+        > ![](ASanstitre.png){width=30%; .center}
+        >
+        > * 🔴 Le **sous-arbre gauche** est tout le bloc de gauche à partir du premier embranchement.
+        > * 🔵 Le **sous-arbre droit** est tout le bloc de droite.
+        > * 🟢 Le **sous-arbre droit du sous-arbre gauche** est celui qui descend à droite depuis le fils gauche de la racine.
+
+---
+
+???+ question "🔢 Activité n°3 : Arbres binaires et indexation dans un tableau"
+
+    > Quelle propriété ont les indices des fils gauches et droits dans un **tableau représentant un arbre binaire** ?
+
+    ??? success "🧠 Solution"
+
+        > ✅ Si l’indexation commence à **1** :
+        >
+        > * Fils gauche = `2 * i`
+        > * Fils droit = `2 * i + 1`
+        >
+        > ✅ Si l’indexation commence à **0** :
+        >
+        > * Fils gauche = `2 * i + 1`
+        > * Fils droit = `2 * i + 2`
+        >
+        > 🧪 Exemple avec une indexation à partir de 1 :
+        >
+        > * Pour le nœud à l’indice `3` → fils gauche à `6`, fils droit à `7`
+
+---
+
+???+ question "🧮 Activité n°4 : Arbre à partir d’un tableau"
 
     Voici un tableau représentant un arbre binaire :
+    
+    ```python
+    ['*', '-', 5, 2, 6, None, None, None, None, None, None, None, None, None, None]
     ```
-    [’\*’,’-’,5,2,6,None,None,None,None,None,None,None,None,None,None] 
-    ```
-    Le dessiner. Que peut-il représenter ?
+    
+    🔧 Le dessiner et interpréter ce qu’il représente.
 
-    ??? success "Solution"
+    ??? success "✏️ Solution"
 
-        Voici l'arbre correspondant :
+        > **Représentation de l’arbre :**
+        >
+        > ```
+        >     *
+        >    / \
+        >   -   5
+        >  / \
+        > 2   6
+        > ```
+        >
+        > **Interprétation :**
+        > Cet arbre représente une **expression mathématique**.
+        >
+        > * La racine `*` indique une multiplication.
+        > * Le sous-arbre gauche est une soustraction `2 - 6`.
+        > * Le sous-arbre droit est la constante `5`.
+        >   👉 L’expression est donc : **(2 − 6) × 5**
+
+---
+
+### <H3 STYLE="COLOR:GREEN;"><a name="_toc149141391"></a>**3.2. 🧪 Type Abstrait de Donnée (TAD) pour un arbre binaire**</H3>
+
+📘 Voici les **fonctions de l’interface minimale** pour manipuler un **arbre binaire immutable** (modifiable uniquement par création d’un nouvel arbre) :
+
+| Fonction                             | Description                                                                                     |
+| ------------------------------------ | ----------------------------------------------------------------------------------------------- |
+| `nvNd(x: Elt) -> Noeud`              | Crée un **nœud** contenant une valeur `x`                                                       |
+| `contenu(noeud: Noeud) -> Elt`       | Renvoie la **valeur** contenue dans un nœud                                                     |
+| `nvAv() -> Arbre`                    | Crée un **arbre vide**                                                                          |
+| `nvAB(noeud, g, d) -> Arbre`         | Crée un **arbre** dont la racine est `noeud`, avec `g` et `d` comme sous-arbres gauche et droit |
+| `estArbreVide(arbre: Arbre) -> bool` | Renvoie `True` si l’arbre est vide                                                              |
+| `racine(arbre: Arbre) -> Noeud`      | Donne la **racine** de l’arbre                                                                  |
+| `gauche(arbre: Arbre) -> Arbre`      | Renvoie le **sous-arbre gauche**                                                                |
+| `droite(arbre: Arbre) -> Arbre`      | Renvoie le **sous-arbre droit**                                                                 |
+
+---
+
+???+ question "🌲 Activité n°5 : Créer un arbre avec le TAD"
+
+    Créer l’arbre ci-dessous à l’aide des fonctions d’interface du TAD :
+
+    ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.015.png){width=30%; .center}
+
+    📝 Le contenu de chaque nœud est une chaîne : `"A"`, `"B"`, etc.
+
+    ??? success "🛠️ Solution"
+
+        ```python
+        # Étape 1 : Création des nœuds
+        noeud_A = nvNd("A")
+        noeud_C = nvNd("C")
+        noeud_E = nvNd("E")
+        noeud_G = nvNd("G")
+        noeud_B = nvNd("B")
+        noeud_F = nvNd("F")
+
+        # Étape 2 : Sous-arbre gauche (C avec fils G et B)
+        sous_arbre_gauche_C = nvAB(noeud_C, nvAB(noeud_G, nvAv(), nvAv()), nvAB(noeud_B, nvAv(), nvAv()))
+
+        # Étape 3 : Sous-arbre droit (E avec un seul fils droit F)
+        sous_arbre_droit_E = nvAB(noeud_E, nvAv(), nvAB(noeud_F, nvAv(), nvAv()))
+
+        # Étape 4 : Arbre final avec racine A
+        arbre_complet = nvAB(noeud_A, sous_arbre_gauche_C, sous_arbre_droit_E)
         ```
-            *
-           / \
-          -   5
-         / \
-        2   6
-        ```
-        Interprétation de l'arbre binaire :
-        Cet arbre peut représenter une expression mathématique où :
-        \* indique une multiplication,
-        \- indique une soustraction.
-        Ainsi, l'expression représentée par cet arbre serait : 
-        (2−6)∗5
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141391"></a>**3.2. TAD d’un ARBRE BINAIRE : son interface**</H3>
+---
 
-**Description de l'interface minimale du type abstrait Arbre :** Ici, il est décrit sous forme d'un type immutable, mais on pourrait faire la même chose en non-mutable.
 
-1. ```nvNd(x:Elt) -> Noeud``` : on crée un nouveau nœud et son élément attaché. Ce n'est pas une fonction d'interface de l'arbre mais on a besoin au moins de pouvoir créer un Noeud (les nœuds sont en même un type abstrait en réalité...)
-1. ```contenu(noeud:Noeud) -> Elt``` : renvoie l'élément (la valeur) contenue dans le nœud.
-1. ```nvAv() -> Arbre``` : on le note ainsi pour dire nvArbreBinaireVide : on crée un nouvel ARBRE BINAIRE vide.
-1. ```nvAB(noeud:Noeud, g:Arbre, d:Arbre) -> Arbre``` : on crée un nouvel ARBRE BINAIRE dont la racine est noeud et dont les sous-arbres sont g et d fournis.
-1. ```estArbreVide(arbre:Arbre) -> bool``` : True si l'arbre est un arbre vide.
-1. ```racine(arbre:Arbre) -> Noeud``` : renvoie le nœud jouant le rôle de la racine pour cet arbre.
-1. ```gauche(arbre:Arbre) -> Arbre``` : renvoie le sous-arbre gauche de arbre. On obtient bien un Arbre. Si vous voulez le noeud gauche, il faudra appliquer en plus la fonction racine.
-1. ```droite(arbre:Arbre) -> Arbre``` : renvoie le sous-arbre droit de arbre.
 
 
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141392"></a>**3.3. Caractéristiques d’un arbre binaire**</H3>
 
-???+ question "Activité n° 5 : Arbres binaires et TAD"
+❤️ À retenir :
 
-    Créer l'arbre à l'aide de ces fonctions d'interface.
-    ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.015.png){width=30%; : .center }
-    On considère que le contenu est juste un string portant le nom du nœud. Ainsi le nœud A porte l'information "A".
+* La **taille** d’un arbre est le **nombre total de nœuds** (on **n’inclut pas** les arbres-vides).
+* La **profondeur** d’un nœud est le **nombre de nœuds entre ce nœud et la racine**.
+* La **hauteur** d’un arbre est la **profondeur maximale** parmi tous ses nœuds.
 
-    ??? success "Solution"
+---
 
-        Pour créer l'arbre représenté sur l'image à l'aide des fonctions d'interface minimales du type abstrait Arbre (TAD), voici comment procéder. On va utiliser des chaînes de caractères pour représenter le contenu des nœuds.
+???+ question "🌳 Activité n°6 : Calcul de la taille d’un arbre"
 
-        ### Étapes pour créer l'arbre :
+    🧮 Déterminer la **taille** de l’arbre ci-dessous :
+    ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.017.png){width=30%; .center}
 
-        1. **Créer les nœuds individuels :**
-          Créez un nœud pour chaque élément de l'arbre :
-            ```python
-            noeud_A = nvNd("A")
-            noeud_C = nvNd("C")
-            noeud_E = nvNd("E")
-            noeud_G = nvNd("G")
-            noeud_B = nvNd("B")
-            noeud_F = nvNd("F")
-            ```
-        2. **Créer les sous-arbres :**
-          Créez les sous-arbres pour les nœuds `C` et `E` :
-            ```python
-            sous_arbre_gauche_C = nvAB(noeud_C, nvAB(noeud_G, nvAv(), nvAv()), nvAB(noeud_B, nvAv(), nvAv()))
-            sous_arbre_droit_E = nvAB(noeud_E, nvAv(), nvAB(noeud_F, nvAv(), nvAv()))
-            ```
-        3. **Créer l'arbre complet :**
-          Combinez les sous-arbres pour former l'arbre complet avec `A` comme racine :
-            ```python
-            arbre_complet = nvAB(noeud_A, sous_arbre_gauche_C, sous_arbre_droit_E)
-            ```
+    ??? success "✅ Solution"
 
+        > ✅ L’arbre contient les nœuds A, C, E, G, B et F.
+        > 👉 **Taille de l’arbre = 6**
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141392"></a>**3.3. Caractéristiques**</H3>
+---
 
-**Taille d’un arbre** : la taille d’un arbre est égale au nombre de nœuds de l’arbre. On ne compte pas les arbres-vides : l'arbre-vide ne possède pas de nœud.
+🎓 **Convention pour la profondeur :**
 
+Deux conventions sont admises (elles seront **indiquées au BAC**) :
 
-???+ question "Activité n° 6 : Taille des arbres"
+* 📏 **Convention 1 :** La racine est de profondeur **1**
+  ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.019.png){width=30%; .center}
 
-    Déterminer la taille de l’arbre.
-    ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.017.png){width=30%; : .center }
+* 🧱 **Convention 2 :** La racine est de profondeur **0**
+  ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.020.png){width=30%; .center}
 
-    ??? success "Solution"
+❤️ Quelle que soit la convention :
 
-        L'arbre contient les nœuds A, C, E, G, B, et F. En tout, il y a 6 nœuds dans cet arbre.
-        La taille de l'arbre est donc de 6.
+* La **profondeur d’un fils** = profondeur du père + 1
+* Deux nœuds avec la même profondeur sont à **même distance** de la racine
 
-**Profondeur d’un noeud** : Il s'agit du nombre de nœuds entre le nœud considéré et la racine.
+---
 
-Il existe ici deux écoles :
+???+ question "🧠 Activité n°7 : Taille, hauteur, arêtes, profondeur"
 
-- **Convention 1** : Soit on considère que la profondeur de la racine est de 1 : la racine est le premier étage de l'arbre.
+    Fournir la taille, la hauteur, le nombre d’arêtes de cet arbre, et la profondeur du nœud **C** :
+    
+    ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.023.png){width=30%; .center}
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.019.png){width=30%; : .center }
+    ??? success "📌 Solution"
 
-- **Convention 2** : Soit on considère que la profondeur de la racine est de 0 : la racine est le rez-de-chaussée, le niveau 0.
+        > 1. 🌳 **Taille** : 7 nœuds (A, B, C, D, E, F, G)
+        > 2. 📏 **Hauteur** : la racine est au niveau 0 ; les feuilles (D, E, F, G) sont au niveau 2 → **Hauteur = 2**
+        > 3. 🧩 **Nombre d’arêtes** = 7 – 1 = **6**
+        > 4. 🧮 **Profondeur du nœud C** = **1**
+        >
+        > 🧠 Cet arbre est **complet** car tous les niveaux sont remplis jusqu'à la hauteur maximale, et toutes les feuilles sont au **même niveau**.
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.020.png){width=30%; : .center }
+---
 
-On vous **indiquera le cas à respecter le jour du BAC**. On vous dites clairement sur la copie la convention qui vous utilisez.
+???+ question "🪢 Activité n°8 : Arbre filiforme"
 
-**Propriété** : quel que soit la convention choisie, la profondeur d'un nœud-fils est supérieure de 1 à celle de son père.
+    Même exercice :
+    ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.024.png){width=30%; .center}
 
-**Propriété** : si deux nœuds ont la même profondeur, c'est qu'ils sont à la même distance de la racine.
+    ??? success "📌 Solution"
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.021.png){width=30%; : .center }
+        > 1. 🌳 **Taille** : 7 nœuds
+        > 2. 📏 **Hauteur** : le dernier nœud G est au niveau 6 → **Hauteur = 6**
+        > 3. 🧩 **Nombre d’arêtes** = 6
+        > 4. 🧮 **Profondeur du nœud C** = 2
+        >
+        > ⚠️ Cet arbre est **filiforme** (ou **dégénéré**) car il se comporte comme une **liste chaînée** : un seul chemin.
 
-**Profondeur d’un arbre ou hauteur d’un arbre** : Il s'agit de la profondeur maximale qu'on trouve dans l'arbre, la "distance" entre la racine et la plus profonde des racines.
+---
 
-- **Convention 1** : Si la racine a une profondeur de 1, c'est pratique car un arbre-vide aurait une hauteur de 0. C'est "propre". Sur cet exemple, la hauteur de l'arbre est donc de 3.
+???+ question "🧩 Activité n°9 : Arbre déséquilibré"
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.019.png){width=30%; : .center }
 
-- **Convention 2** : Si la profondeur de la racine est de 0, il suffit de considérer qu'un arbre-vide n'a pas de hauteur puisqu'il n'a pas de nœud et que la profondeur se mesure sur les nœuds. C'est "propre" aussi. Sur cet exemple, la hauteur de l'arbre est donc de 2.
+    Une dernière analyse :
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.020.png){width=30%; : .center }
+    ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.025.png){width=30%; .center}
 
+    ??? success "📌 Solution"
 
-???+ question "Activité n° 7 : Arbres binaires et vocabulaire :"
+        > 1. 🌳 **Taille** : 7 nœuds
+        > 2. 📏 **Hauteur** : les nœuds E et G sont à la profondeur **4** → **Hauteur = 4**
+        > 3. 🧩 **Nombre d’arêtes** = 6
+        > 4. 🧮 **Profondeur du nœud C** = 2
+        >
+        > Cet arbre est **déséquilibré**, avec une profondeur irrégulière. Il n’est ni complet, ni filiforme.
 
-    Fournir la taille, la hauteur et le nombre d'arêtes de cet arbre. Fournir également la profondeur du nœud C.
-    ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.023.png){width=30%; : .center }
 
-    ??? success "Solution"
 
-        1. Taille de l'arbre
-        Dans cet arbre, les nœuds sont : A, B, C, D, E, F, et G.
-        Il y a donc 7 nœuds dans cet arbre.
 
-        2. Hauteur de l'arbre
-        La racine A est au niveau 0.
-        Les nœuds D, E, F, et G sont au niveau 2.
-        La hauteur de cet arbre est donc 2.
+---
 
-        3. Nombre d'arêtes
-        Avec 7 nœuds, le nombre d'arêtes est donc 6.
+🌳 **Hauteur et taille d’un arbre binaire complet (convention : racine à profondeur 0)**
 
-        4. Profondeur du nœud C
-        La profondeur du nœud C est donc 1.
+Un **arbre binaire complet** est un arbre dans lequel **tous les niveaux sont complètement remplis**. Cela signifie que chaque **nœud interne a deux enfants**, et que **le dernier niveau est plein**.
 
-On dit que cet arbre est **complet** car la plus grande profondeur est intégralement composée de feuilles.
+On suppose ici que **la profondeur de la racine est 0**.
 
+---
 
-???+ question "Activité n° 8 : Arbres binaires et vocabulaire :"
+🧩 Exemple 1 : Arbre de hauteur 1
 
-    Fournir la taille, la hauteur et le nombre d'arêtes de cet arbre. Fournir également la profondeur du nœud C.
-    ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.024.png){width=30%; : .center }
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.026.png){width=20%; .center}
 
-    ??? success "Solution"
+| Niveau | Nombre de nœuds |
+| ------ | --------------- |
+| 0      | 1 = 2⁰          |
+| 1      | 2 = 2¹          |
 
-        1. Taille de l'arbre
-        Dans cet arbre, les nœuds sont : A, B, C, D, E, F, et G.
-        Il y a donc 7 nœuds dans cet arbre.
+🧮 **Taille totale** : 1 + 2 = **3 nœuds**
 
-        2. Hauteur de l'arbre
-        La racine A est au niveau 0.
-        Le nœud G sont au niveau 6.
-        La hauteur de cet arbre est donc 6.
+---
 
-        3. Nombre d'arêtes
-        Avec 7 nœuds, le nombre d'arêtes est donc 6.
+🧩 Exemple 2 : Arbre de hauteur 2
 
-        4. Profondeur du nœud C
-        La profondeur du nœud C est donc 2.
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.027.png){width=30%; .center}
 
-On parle **d'arbre filiforme** ou **d'arbre dégénéré**.
+| Niveau | Nombre de nœuds |
+| ------ | --------------- |
+| 0      | 1 = 2⁰          |
+| 1      | 2 = 2¹          |
+| 2      | 4 = 2²          |
 
+🧮 **Taille totale** : 1 + 2 + 4 = **7 nœuds**
 
-???+ question "Activité n° 9 : Arbres binaires et vocabulaire :"
+---
 
-    Fournir la taille, la hauteur et le nombre d'arêtes de cet arbre. Fournir également la profondeur du nœud C.
-    ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.025.png){width=30%; : .center }
+🧩 Exemple 3 : Arbre de hauteur 3
 
-    ??? success "Solution"
+![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.028.png){width=40%; .center}
 
-        1. Taille de l'arbre
-        Dans cet arbre, les nœuds sont : A, B, C, D, E, F, et G.
-        Il y a donc 7 nœuds dans cet arbre.
+Cet arbre est **complet** : tous les nœuds internes ont **deux enfants**.
 
-        2. Hauteur de l'arbre
-        La racine A est au niveau 0.
-        Les nœuds E et G sont au niveau 4.
-        La hauteur de cet arbre est donc 4.
+| Niveau | Nombre de nœuds |
+| ------ | --------------- |
+| 0      | 1 = 2⁰          |
+| 1      | 2 = 2¹          |
+| 2      | 4 = 2²          |
+| 3      | 8 = 2³          |
 
-        3. Nombre d'arêtes
-        Avec 7 nœuds, le nombre d'arêtes est donc 6.
+🧮 **Taille totale** : 1 + 2 + 4 + 8 = **15 nœuds**
 
-        4. Profondeur du nœud C
-        La profondeur du nœud C est donc 2.
+---
 
-L’arbre binaire a une hauteur de 1 (convention 0 pour la racine).
+📏 **Formule générale** : Taille d’un arbre binaire complet
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.026.png){width=20%; : .center }
+Si un arbre a une hauteur **h** (avec racine à profondeur 0), alors :
 
-Au niveau 0 : il possède 1=20 nœud.
+$\text{Taille}$ = $2^{h+1} - 1$
 
-Au niveau 1 : il possède 2=21 nœuds.
+* Pour h = 3 :  $2^{4} - 1$ = $16 - 1 = 15$
+* Pour h = 4 :  $2^{5} - 1$ = $32 - 1 = 31$
 
-Soit 3=20+21 en tout.
+---
 
-L’arbre binaire ci-contre a une hauteur 2.
+🧠 **Pourquoi la formule fonctionne ?**
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.027.png){width=30%; : .center }
+Chaque niveau $i$ (de 0 à $h$) contient $2^i$ nœuds.
 
-Au niveau 0 : il possède 1=20 nœud.
+Donc la taille totale est la **somme géométrique** :
 
-Au niveau 1 : il possède 2=21 nœuds.
+$n = 2^0 + 2^1 + 2^2 + \dots + 2^h = 2^{h+1} - 1$
 
-Au niveau 2 : il possède 4=22 nœuds.
+C’est une propriété classique des puissances de 2.
 
-Soit 7=20+21+22 en tout.
+---
 
-L’arbre binaire ci-contre a une hauteur 3.
+🧮 **Astuce Python pour vérifier** :
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.028.png){width=40%; : .center }
-
-Cet arbre est complet (tous les nœuds internes ont deux fils).
-
-Au niveau 0 : il possède 1=20 nœud.
-
-Au niveau 1 : il possède 2=21 nœuds.
-
-Au niveau 2 : il possède 4=22 nœuds.
-
-Au niveau 3 : il possède 8=23 nœuds.
-
-Soit 15=20+21+22+23 en tout.
-
-L’arbre précédent une hauteur h = 3. Donc la taille du tableau sera de : 23+1-1=24-1=15.
-
-
+```python
+import math
+n = 15
+hauteur = int(math.log2(n + 1)) - 1  # pour convention racine à profondeur 0
+print("Hauteur estimée :", hauteur)  # Résultat : 3
+```
+??? success "Python"
+    {{ IDE() }}
 
 ???+ question "Activité n° 10 : Arbres binaires et vocabulaire :"
 
@@ -469,30 +511,35 @@ L’arbre précédent une hauteur h = 3. Donc la taille du tableau sera de : 23+
         $h = \log_2(n + 1) - 1$
 
 
+
+
+---
+
 **Encadrements de la hauteur d'un Arbre Binaire**
-Les deux cas extrêmes étant :
+🌲 Les deux cas extrêmes étant :
 
-- Arbre binaire filiforme
-- Arbre binaire complet
+* Arbre binaire **filiforme**
+* Arbre binaire **complet**
 
-On en déduit que pour un arbre binaire quelconque, situé entre ces deux cas particuliers extrêmes, on peut encadrer la hauteur de l'arbre binaire quelconque à l'aide de la formule suivante :
+On en déduit que pour un arbre binaire quelconque, situé entre ces deux cas particuliers extrêmes, on peut encadrer la **hauteur** de l'arbre binaire quelconque à l'aide de la formule suivante :
 
-**Encadrement avec une profondeur 1 pour la racine** :
+🧮 **Encadrement avec une profondeur 1 pour la racine** :
 
 ⌈<b>log<sub>2</sub>(n+1)</b>⌉ <b>≤ h ≤ n</b>
 
-On notera que les signes ⌈ ⌉ indiquent simplement un arrondi à l'entier supérieur.
+*Remarque : les signes ⌈ ⌉ indiquent simplement un arrondi à l'entier supérieur.*
 
-**Encadrement avec une profondeur 0 pour la racine**
+🧮 **Encadrement avec une profondeur 0 pour la racine** :
 
 ⌊<b>log<sub>2</sub>(n)</b>⌋ <b>≤ h ≤ n - 1</b>
 
-Cette fois, les signes ⌊ ⌋ veulent dire d'arrondir à l'inférieur.
+*Les signes ⌊ ⌋ signifient d'arrondir à l'inférieur.*
 
-**Exemple** : un arbre binaire complet de 15 noeuds possède une hauteur de 4 si la racine a une profondeur de 1.
+📌 **Exemple** : un arbre binaire complet de 15 nœuds possède une hauteur de 4 si la racine a une profondeur de 1.
 
-Si on tape ceci dans Python,
-```
+Si on tape ceci dans Python :
+
+```python
 >>> import math
 >>> math.log2(15+1)
 4.0
@@ -500,41 +547,38 @@ Si on tape ceci dans Python,
 4.087462841250339
 ```
 
-???+ question "Tester ce qui est proposé ci-dessus"
+
+
+??? success "❇️ Python :"
 
     {{ IDE() }}
 
-On voit alors qu'un arbre de 15 nœuds à une hauteur comprise dans [4; 15].
+
+On voit alors qu'un arbre de 15 nœuds a une hauteur comprise dans [4; 15].
 
 Par contre, avec 16 nœuds, on obtient une hauteur comprise dans [5; 16].
 
-C'est normal : avec 15 nœuds, l'arbre serait complet dans le meilleur des cas. Si on en rajoute un, il faut nécessairement rajouter un étage...
+✅ C'est normal : avec 15 nœuds, l'arbre serait complet dans le meilleur des cas. Si on en rajoute un, il faut nécessairement rajouter un étage…
 
-**Encadrements de la taille d'un Arbre Binaire**
 
-**Encadrement avec une profondeur 1 pour la racine** :
-
-<b>h ≤ n ≤ 2<sup>h</sup> - 1</b>
-
-**Encadrement avec une profondeur 0 pour la racine**
-
-<b>h + 1 ≤ n ≤ 2<sup>h+1</sup> - 1</b>
+---
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141393"></a>**3.4. Implémentation simple à partir de liste**</H3>
 
-De manière plus surprenante, il existe une méthode pour implémenter un arbre binaire (qui est une structure hiérarchique) avec une liste (qui est une structure linéaire). Ceci peut se faire par le biais d'une astuce sur les indices :
+💡 De manière plus surprenante, il existe une méthode pour implémenter un **arbre binaire** (structure hiérarchique) avec une **liste** (structure linéaire). Ceci peut se faire par le biais d'une astuce sur les indices :
 
-**Les fils du nœud d'indice i sont placés aux indices 2i+1 et 2i+2**.
+🧩 **Les fils du nœud d'indice `i` sont placés aux indices `2i+1` et `2i+2`.**
 
-Cette méthode est connue sous le nom de «méthode d'Eytzinger», et utilisée notamment en généalogie pour numéroter facilement les individus d'un arbre généalogique.
+Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et utilisée notamment en généalogie pour numéroter facilement les individus d’un arbre généalogique.
 
-**Exemple :**
+📌 **Exemple :**
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.032.png){width=40%; : .center }
 
-Pour comprendre facilement la numérotation, il suffit de s'imaginer l'arbre complet (en rajoutant les fils vides) et de faire une numérotation en largeur, niveau par niveau :
+🧠 Pour comprendre facilement la numérotation, il suffit de s'imaginer l’arbre **complet** (en rajoutant les fils vides) et de faire une numérotation **en largeur**, niveau par niveau :
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.033.png){width=40%; : .center }
+
 
 
 
@@ -547,118 +591,230 @@ Pour comprendre facilement la numérotation, il suffit de s'imaginer l'arbre com
 
         ![](ABSanstitre.png){width=30%; : .center }
 
-**Remarque :** parfois (comme dans le sujet 0...) la racine de l'arbre est placée à l'indice 1. Dans ce cas, les fils du nœud d'indice i sont placés aux indices 2i et 2i+1.
+
+
+
+
+---
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141394"></a>**3.5. ❤️1<sup>ère</sup> implémentation de la structure ARBRE BINAIRE sous forme de tuple❤️**</H3>
 
-**Sur Thonny : Toutes les fonctions de cette implémentation doivent être dans le même fichier python arbre_binaire_tuple.py**
 
-=> **CAPYTALE Le code vous sera donné par votre enseignant**
+📎 **CAPYTALE** : Le code vous sera donné par votre enseignant (arbre_binaire_tuple).
 
-**<H3 STYLE="COLOR:red;">Activité n° 12 :**  **Arbres binaires et les fonctions :**</H3> implémenter cette structure
-
-```python
-def arbreVide():
-    pass
-
-def noeud(e, g=None, d=None):
-    # retourne la valeur du noeud, son fils gauche et son fils droit s'ils existent
-    pass
-
-def etiquette(arbre):
-    #retourne la valeur de la racine
-    pass
-
-def gauche(arbre):
-    # retourne le sous arbre gauche
-    pass
-
-def droit(arbre):
-    #retourne le sous arbre droit
-    pass
-
-def estVide(arbre):
-    pass
-```
-
-**<H3 STYLE="COLOR:red;">Activité n° 13 :**  **Arbres binaires et les fonctions:**</H3> Soit l'arbre binaire suivant :
-
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.035.png){width=25%; : .center }
-
-On veut construire cet arbre à l'aide de l’implémentation précédente.
-
-Écrire les commandes permettant de faire cette construction.
-
-**<H3 STYLE="COLOR:red;">Activité n° 14 :**  **Arbres binaires et les fonctions : fonction** hauteur** :</H3>** Implémenter l’algorithme de la fonction hauteur et tester le sur l’arbre précédent.
-
-Voici l’algorithme correspondant à la fonction hauteur : (convention 1 pour la racine)
-
-```
-HAUTEUR(T) :
-  si T est vide :
-    renvoyer 0 # -1 si convention 0 pour la racine
-  sinon :
-    renvoyer 1 + max(HAUTEUR(sous-arbre gauche), HAUTEUR(sous-arbre droit))
-  fin si
-```
-
-La fonction max renvoie la plus grande valeur des 2 valeurs passées en paramètre (exemple : max(5,6) renvoie 6).
-
-**<H3 STYLE="COLOR:red;">Activité n° 15 :**  **Arbres binaires et les fonctions : fonction** taille** :</H3>** Implémenter l’algorithme de la fonction taille et tester le sur l’arbre précédent.
-
-Voici l’algorithme correspondant à la fonction taille :
-```
-TAILLE(T) :
-  si T = NIL :
-    renvoyer 0
-  sinon :
-    renvoyer 1 + TAILLE(sous-arbre gauche)+ TAILLE(sous-arbre droit)
-  fin si
-```
+???+ question "🧩 Activité n° 12 : Arbres binaires et les fonctions"
 
 
+    Implémenter cette structure de base :
+
+    ```python
+    def arbreVide():
+        pass
+
+    def noeud(e, g=None, d=None):
+        # retourne la valeur du noeud, son fils gauche et son fils droit s'ils existent
+        pass
+
+    def etiquette(arbre):
+        # retourne la valeur de la racine
+        pass
+
+    def gauche(arbre):
+        # retourne le sous arbre gauche
+        pass
+
+    def droit(arbre):
+        # retourne le sous arbre droit
+        pass
+
+    def estVide(arbre):
+        pass
+    ```
+
+    ??? success "❇️ Solution :"
+
+        ```python
+        def arbreVide():
+            return None
+
+        def noeud(e, g=None, d=None):
+            return (e, g, d)
+
+        def etiquette(arbre):
+            return arbre[0]
+
+        def gauche(arbre):
+            return arbre[1]
+
+        def droit(arbre):
+            return arbre[2]
+
+        def estVide(arbre):
+            return arbre is None
+        ```
+
+
+???+ question "🌳 Activité n° 13 : Construire un arbre avec les fonctions"
+
+    Soit l'arbre suivant :
+
+    ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.035.png){width=25%; : .center }
+
+    Construire cet arbre avec l’implémentation précédente.
+
+    ??? success "❇️ Solution :"
+
+        ```python
+        arbre = noeud("A",
+                    noeud("B", noeud("D"), noeud("E")),
+                    noeud("C", None, noeud("F")))
+        ```
+
+
+???+ question "🧠 Activité n° 14 : Fonction hauteur"
+
+    Implémenter l’algorithme de la fonction `hauteur` et tester-la sur l’arbre précédent.
+
+    Voici l’algorithme (convention 1 pour la racine) :
+    ```
+    HAUTEUR(T) :
+    si T est vide :
+        renvoyer 0
+    sinon :
+        renvoyer 1 + max(HAUTEUR(gauche), HAUTEUR(droit))
+    ```
+
+    ??? success "❇️ Solution :"
+
+        ```python
+        def hauteur(arbre):
+            if estVide(arbre):
+                return 0
+            else:
+                return 1 + max(hauteur(gauche(arbre)), hauteur(droit(arbre)))
+
+        # Test :
+        print(hauteur(arbre))  # Doit renvoyer 3
+        ```
+
+
+???+ question "📏 Activité n° 15 : Fonction taille"
+
+
+    Implémenter la fonction `taille` et tester-la.
+
+    ```
+    TAILLE(T) :
+    si T = NIL :
+        renvoyer 0
+    sinon :
+        renvoyer 1 + TAILLE(gauche) + TAILLE(droit)
+    ```
+
+    ??? success "❇️ Solution :"
+
+        ```python
+        def taille(arbre):
+            if estVide(arbre):
+                return 0
+            else:
+                return 1 + taille(gauche(arbre)) + taille(droit(arbre))
+
+        # Test :
+        print(taille(arbre))  # Doit renvoyer 6
+        ```
+
+
+---
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141395"></a>**3.6. ❤️2<sup>ème</sup> implémentation de la structure ARBRE BINAIRE avec la POO et une classe❤️**</H3>
 
-**Sur Thonny : Toutes les fonctions de cette implémentation doivent être dans le même fichier python arbre_binaire_POO_v1.py**
 
-=> **CAPYTALE Le code vous sera donné par votre enseignant**
 
-**<H3 STYLE="COLOR:red;">Activité n° 16 :**  **Arbres binaires et POO : Méthode de Huffman simplifiée :**</H3> Implémenter la structure ARBRE avec une seule classe :
+📎 **CAPYTALE** : Le code vous sera donné par votre enseignant (arbre_binaire_POO_v1).
 
-```python
-class Noeud:
-    def __init__(self, valeur = None, g = None, d = None):
-        pass
+???+ question "🔧 Activité n° 16 : Arbres binaires et POO – Méthode de Huffman simplifiée"
 
-    def estVide(self):
-        pass
-```
 
-**Question** : expliquer le rôle de chaque méthode de la classe Noeud.
+    Implémenter la structure ARBRE avec une seule classe :
 
-**<H3 STYLE="COLOR:red;">Activité n° 17 :**  **Arbres binaires et POO :**</H3> Soit l'arbre binaire suivant :
+    ```python
+    class Noeud:
+        def __init__(self, valeur = None, g = None, d = None):
+            pass
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.038.png){width=30%; : .center }
+        def estVide(self):
+            pass
+    ```
 
-On veut construire cet arbre à l'aide de la classe Nœud précédente.
+    ❓ **Question** : expliquer le rôle de chaque méthode de la classe `Noeud`.
 
-Le début des commandes permettant de faire cette construction :
-```python
-E = Noeud('E')
-D = Noeud('D')
- ???
-arbre = Noeud('A', B, C)
-```
+    ??? success "❇️ Solution :"
 
-On implantera aussi l’arbre T :
+        ```python
+        class Noeud:
+            def __init__(self, valeur=None, g=None, d=None):
+                self.valeur = valeur
+                self.g = g
+                self.d = d
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.039.png){width=30%; : .center }
-```python
-T = Noeud('A')
-T.g = Noeud('B') 
-???
-```
+            def estVide(self):
+                return self.valeur is None
+        ```
+
+        - `__init__` initialise un nœud avec une valeur et deux sous-arbres gauche (g) et droit (d).  
+        - `estVide` permet de tester si le nœud est vide, c’est-à-dire si sa valeur est `None`.
+
+
+???+ question "🌲 Activité n° 17 : Construire un arbre avec la classe Noeud"
+
+
+    Soit l'arbre suivant :
+
+    ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.038.png){width=30%; : .center }
+
+    Compléter les commandes :
+
+    ```python
+    E = Noeud('E')
+    D = Noeud('D')
+    ???
+    arbre = Noeud('A', B, C)
+    ```
+
+    On implantera aussi l’arbre T :
+
+    ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.039.png){width=30%; : .center }
+
+    ```python
+    T = Noeud('A')
+    T.g = Noeud('B') 
+    ???
+    ```
+
+    ??? success "❇️ Solution :"
+
+        ```python
+        # Arbre 1
+        E = Noeud('E')
+        D = Noeud('D')
+        B = Noeud('B', D, E)
+
+        F = Noeud('F')
+        C = Noeud('C', None, F)
+
+        arbre = Noeud('A', B, C)
+
+        # Arbre T
+        T = Noeud('A')
+        T.g = Noeud('B')
+        T.d = Noeud('C')
+        ```
+
+
+---
+
+
 
 **<H3 STYLE="COLOR:red;">Activité n° 18 :**  **Arbres binaires et POO :**</H3> Il est possible d'afficher un arbre binaire dans la console Python, pour cela, nous allons utiliser **la fonction** affiche :
 
