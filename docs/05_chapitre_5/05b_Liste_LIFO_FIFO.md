@@ -8,7 +8,7 @@ title: 05b Liste - Pile - File - Dictionnaire
 [1.	🧱 Principaux types abstraits fournis avec le langage Python](#_toc151667915)  
 [2.	🧩 Les tableaux](#_toc151667919)  
 [3.	🔗 Les listes (chainées)](#_toc151667920)  
-[4.	Les piles](#_toc151667926)  
+[4.	🥞 Les piles](#_toc151667926)  
 [5.	Les files](#_toc151667931)  
 [6.	Les dictionnaires](#_toc151667938)  
 [7.	Exercices](#_toc151667945)  
@@ -106,7 +106,7 @@ Ainsi, plus le tableau est rempli, plus **l'opération devient coûteuse**.
 
 ---
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc151667920"></a>**3. Les listes (chaînées)**</H2>
+## <H2 STYLE="COLOR:BLUE;">🔗 <a name="_toc151667920"></a>**3. Les listes (chaînées)**</H2>
 
 Les **listes chaînées** sont une **structure de données** :
 
@@ -554,7 +554,7 @@ Ils peuvent être parcourus via des **boucles `for`**.
 
 ---
 
-### 🧱 <H4 STYLE="COLOR:MAGENTA;">3.3.2. Implémentation plus souple avec les tuples</H4>
+###  <H4 STYLE="COLOR:MAGENTA;">🧱 3.3.2. Implémentation plus souple avec les tuples</H4>
 
 Nous aimerions maintenant accéder à **n'importe quelle valeur** de la liste, et non plus seulement la tête.
 
@@ -1455,56 +1455,95 @@ Avant d'insérer la nouvelle Cellule en position 2, il faut mémoriser les ident
 
 
 
-    **<H3 STYLE="COLOR:red;">Activité n° 22 :**  **structure liste avec de la POO, Création de la structure**</H3> L'insertion pure ne concerne que les lignes suivantes
+
+???+ question "🧩 Activité n° 22 :Structure liste avec de la POO, Analyse du coût d'insertion"
+
+    💡 L'insertion pure ne concerne que les lignes suivantes :
+
     ```python
-            # nextNode = previousNode.n  # on mémorise la cellule qu'il faudra "déplacer"
-            # newNode = Node(newData, nextNode)
-            # previousNode.n = newNode
-            # qui se résume par
-            self.head = Node(newData, self.head)
+    # nextNode = previousNode.n  # on mémorise la cellule qu'il faudra "déplacer"
+    # newNode = Node(newData, nextNode)
+    # previousNode.n = newNode
+    # qui se résume par
+    self.head = Node(newData, self.head)
     ```
-    Ici le coût est bien constant. Par contre, que peut-on dire du coût de la recherche de la Cellule **predecesseur** dans le pire des cas ?
+
+    📌 Ici le coût est bien **constant**.
+
+    Mais que peut-on dire du coût de la **recherche** de la Cellule `predecesseur` dans le pire des cas ?
+
     ```python
-            previousNode = self.head
-            for etape in range(1,position): #On avance jusqu’à(position-1) pour trouver previous
-                previousNode = previousNode.n
+    previousNode = self.head
+    for etape in range(1, position):  # On avance jusqu’à (position - 1) pour trouver previous
+        previousNode = previousNode.n
     ```
-    Au total, que peut-on alors dire du coût de l'insertion ?
+
+    ❓ **Au total**, que peut-on alors dire du coût de l'insertion ?
+
+    ??? success "❇️ Solution :"
+
+        Si l’on insère en tête de liste, on n’a pas besoin de chercher le prédécesseur, donc le coût est constant : O(1).
+
+        En revanche, pour une insertion à une position quelconque, il faut souvent trouver le prédécesseur, ce qui coûte O(n) dans le pire des cas.
+
+        ➡️ Donc, le coût total de l’insertion dans une liste chaînée est en général O(n), à cause de la recherche du prédécesseur.
 
 
-    C'est un peu décevant du coup...
+    ⛅ C’est un peu **décevant** du coup...
 
-    On retrouve une **insertion à coût constant**
+---
 
-    En réalité, la grande force des listes ne vient pas de l'insertion d'une Cellule individuelle (souvent on ne connait pas sa référence) mais de **l'insertion d'une liste à la suite d'une autre liste**. On parlera de **concaténation de listes**, comme avec les strings.
+🔁 On retrouve une **insertion à coût constant**, **mais uniquement si on connaît la cellule précédente**.
 
-    Imaginons qu'on dispose des deux listes. L'une de 20 000 éléments et l'autre de 20 000 éléments également. Si on désire insérer la deuxième liste après la première liste, cela risque d'être compliqué avec des tableaux :
+En réalité, la grande force des listes ne vient pas de l’insertion d’une cellule individuelle (souvent on ne connaît pas sa référence), mais de **l’insertion d’une liste à la suite d’une autre**.
 
-    D'abord, il faut réserver une nouvelle place mémoire de 40 000 places :
+On parle alors de **concaténation de listes**, comme avec les chaînes de caractères.
 
-    ![Création d'un nouveau tableau](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.022.png){width=60%; : .center }
+---
 
-    Ensuite, il faut déplacer un par un les 20 000 éléments du premier tableau.
+🧠 Imaginons deux listes contenant 20 000 éléments chacune.
 
-    ![Déplacement des éléments de A](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.023.png){width=60%; : .center }
+➡️ Si on souhaite insérer la deuxième liste **à la suite** de la première, cela devient **très coûteux** avec des tableaux :
 
-    Puis on déplace les 20 000 éléments du deuxième tableau.
+1. Réserver une nouvelle mémoire de 40 000 cases :
 
-    ![Déplacement des éléments de B](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.024.png){width=60%; : .center }
+   ![Création d'un nouveau tableau](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.022.png){width=60%; : .center }
 
-    Il suffit alors de connaître **la dernière Cellule de la première liste** (au pire, 20 000 lectures, c'est toujours mieux que 40 000 déplacements avec les tableaux) et **de la faire pointer vers la tête de la deuxième ligne**.
+2. Copier les 20 000 éléments du premier tableau :
 
-    On pourra donc écrire des choses comme cela : lst1 + lst2. Cela veut juste dire de faire pointer la Cellule de fin de la première liste vers la tête de la deuxième liste.
+   ![Déplacement des éléments de A](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.023.png){width=60%; : .center }
 
-    ![Changement de référence](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.025.png){width=60%; : .center }
+3. Copier ensuite les 20 000 éléments du deuxième tableau :
 
-    En conclusion, le type abstrait LISTE peut s'implémenter de plusieurs façons différentes.
+   ![Déplacement des éléments de B](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.024.png){width=60%; : .center }
 
-    Les deux grandes implémentations sont sous forme d'une **structure de données tableaux** (accès lecture à coût constant) et sous forme de **listes chaînées** (insertion parfois à coût constant et facilité de "déplacement" de grands blocs de données).
+---
 
-    En fonction de besoin de votre algorithme, on prendra donc l'un ou l'autre.
+🔗 Avec une **liste chaînée**, il suffit de connaître la **dernière cellule de la première liste** (20 000 lectures au pire) et de la faire pointer vers la **tête** de la deuxième liste.
 
-    **<H3 STYLE="COLOR:red;">Activité n° 23 :**  **structure liste avec de la POO, Création de la structure FONCTION** ```afficherListe``` et ```recupererValeur``` :</H3> en utilisant l'interface, l'utilisateur peut-il se douter que les données sont stockées sous forme d'une liste chaînée composée d'objets ? Ajouter les 2 fonctions :
+> On pourra donc écrire quelque chose comme `lst1 + lst2`, ce qui signifie : faire pointer la cellule de fin de la première liste vers la tête de la deuxième.
+
+📌 Illustration du lien entre les deux :
+
+![Changement de référence](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.025.png){width=60%; : .center }
+
+---
+
+📚 En conclusion, le **type abstrait LISTE** peut s’implémenter de plusieurs manières différentes :
+
+* **Structure de données tableau** : accès rapide à un index (lecture à coût constant)
+* **Liste chaînée** : insertion rapide (coût constant parfois), idéale pour concaténer ou insérer sans tout déplacer
+
+👉 En fonction des **besoins de l’algorithme**, on choisira l’implémentation la plus adaptée.
+
+---
+
+???+ question "🧪 Activité n° 23 :Créer une structure fonction `afficherListe` et `recupererValeur`"
+
+    🔍 En utilisant l’interface, l’utilisateur peut-il se douter que les données sont stockées sous forme de **liste chaînée** composée d’objets ?
+
+    🛠️ Ajouter les **2 fonctions** :
+
     ```python
     def afficherListe(L):
         tableau = recupererValeur(L.head)
@@ -1528,13 +1567,28 @@ Avant d'insérer la nouvelle Cellule en position 2, il faut mémoriser les ident
     print(afficherListe(list1))
     ```
 
-    **<H3 STYLE="COLOR:red;">Activité n° 24 :**  **structure liste avec de la POO, Création de la structure méthode** ```delPosition``` :</H3> Compléter la méthode.
+    ??? success "❇️ Solution :"
+
+        Ces deux fonctions permettent de reconstruire **un affichage lisible** depuis une structure de type liste chaînée.
+
+        * `recupererValeur` utilise une **fonction récursive** pour parcourir les cellules,
+
+        * `afficherListe` transforme le résultat en tuple pour un affichage plus clair.
+
+---
+
+???+ question "🧹 Activité n° 24 : Créer la méthode `delPosition` pour supprimer un élément"
+
+    🛠️ Compléter la méthode :
+
     ```python
     def delPosition(self, position):
         pass
     ```
-    Tester
-    ```
+
+    🧪 Tester :
+
+    ```python
     >>> afficherListe(list1)
     "('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche')"
     >>> list1.delPosition(3)
@@ -1542,89 +1596,135 @@ Avant d'insérer la nouvelle Cellule en position 2, il faut mémoriser les ident
     "('Lundi', 'Mardi', 'Mercredi', 'Vendredi', 'Samedi', 'Dimanche')" 
     ```
 
-    **<H3 STYLE="COLOR:red;">Activité n° 25 :**  **structure liste avec de la POO, Création de la structure autres méthodes** :</H3> Réaliser maintenant la méthode d'interface de lecture des valeurs. Voici le prototype.
+    ??? success "❇️ Solution :"
 
-    ```readPosition(self:Liste, position:int) -> Elt``` : on renvoie l'élément stocké en position position.
+        ```python
+        def delPosition(self, position):
+            if position == 0:
+                self.head = self.head.n
+            else:
+                predecesseur = self.head
+                for i in range(position - 1):
+                    predecesseur = predecesseur.n
+                cellule_a_supprimer = predecesseur.n
+                predecesseur.n = cellule_a_supprimer.n
+        ```
+
+🧠 Cette méthode :
+
+* Gère d’abord le **cas particulier** où l’on supprime la tête (`position == 0`),
+* Puis, pour toute autre position, elle repère la cellule à supprimer (via le **prédécesseur**) et **reconnecte** les cellules entre elles en **sautant** celle à supprimer.
+
+---
+
+
+???+ question "🧠 Activité n° 25 : structure liste avec de la POO, Création de la structure autres méthodes"
+
+    🧩 Réaliser maintenant la méthode d'interface de lecture des valeurs. Voici le prototype :
+
+    ```python
+    readPosition(self:Liste, position:int) -> Elt
+    ```
+
+    🔎 On renvoie l'élément stocké en position `position`.
+
     ```python
     def readPosition(self, position):
         pass
     ```
-    Tester
-    ```
+
+    🧪 Tester :
+
+    ```python
     >>> list1.readPosition(2)
     'Mercredi'
     ```
 
+    ??? success "✅❇️ Solution :"
 
+        ```python
+        def readPosition(self, position):
+            if position < 0:
+                raise IndexError("Position négative non autorisée.")
+            current = self.head
+            index = 0
+            while current is not None and index < position:
+                current = current.n
+                index += 1
+            if current is None:
+                raise IndexError("Position hors de la liste.")
+            return current.v
+        ```
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc151667926"></a>**4. Les piles**</H2>
+---
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667927"></a>**4.1. Généralités**</H3>
+## <H2 STYLE="COLOR:BLUE;">🥞 <a name="_toc151667926"></a>**4. Les piles**</H2>
 
-En informatique, une **pile** (en anglais **stack**) est une structure de données fondée sur le principe « dernier arrivé, premier sorti » (ou **LIFO pour Last In, First Out**), ce qui veut dire que les derniers éléments ajoutés à la pile seront les premiers à être récupérés.
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667927"></a>**4.1. Généralités 📚**</H3>
 
-![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.028.png){ : .center }
+💻 En informatique, une **pile** (en anglais **stack**) est une structure de données fondée sur le principe **« dernier arrivé, premier sorti »** (**LIFO** pour *Last In, First Out*), ce qui veut dire que les derniers éléments ajoutés à la pile seront les premiers à être récupérés.
 
-Le fonctionnement est donc celui d’une pile d’assiettes : on ajoute des assiettes sur la pile, et on les récupère dans l’ordre inverse, en commençant par la dernière ajoutée.
+🍽️ Le fonctionnement est donc celui d’une pile d’assiettes : on ajoute des assiettes sur la pile, et on les récupère dans l’ordre inverse, en commençant par la dernière ajoutée.
 
-Voici quelques exemples d’usage courant d’une pile: 
+📌 Voici quelques exemples d’usage courant d’une pile :
 
-- Dans un navigateur web, une pile sert à mémoriser les **pages Web visitées**. L’adresse de chaque nouvelle page visitée est empilée et l’utilisateur dépile l’adresse de la page précédente en cliquant le bouton «Afficher la page précédente».
-- L’évaluation des **expressions mathématiques** en notation post-fixée (ou polonaise inverse) utilise une pile. 
-- La fonction « Annuler la frappe » (en anglais «Undo») d’un traitement de texte mémorise les modifications apportées au texte dans une pile. 
+* 🌐 Dans un navigateur web, une pile sert à mémoriser les **pages Web visitées**.
+* 🧮 L’évaluation des **expressions mathématiques** en notation post-fixée (ou polonaise inverse).
+* ✏️ La fonction « Annuler la frappe » (*Undo*) dans un traitement de texte.
 
-Pour implémenter une structure de pile, on a besoin d’un nombre réduit d’opérations de bases. Les trois primitives de bases  :
+---
 
-Une pile est une structure de donnée munie des fonctions primitives suivantes :
+🧰 Pour implémenter une pile, on utilise quatre **fonctions primitives** :
 
-- **pileVide()** : renvoie une pile vide
-- **estVide(pile)** : renvoie un booléen indiquant si la pile est vide
-- **empiler(pile, element)** : rajoute un élément à la pile (**push** en anglais)
-- **depiler(pile)** : enlève un élément à la pile et le renvoie (**pop**)
+* 🔹 **pileVide()** : renvoie une pile vide
+* 🔹 **estVide(pile)** : renvoie un booléen indiquant si la pile est vide
+* 🔹 **empiler(pile, element)** : ajoute un élément à la pile (**push**)
+* 🔹 **depiler(pile)** : retire un élément de la pile et le renvoie (**pop**)
 
-![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.030.png){width=60%; : .center }
+---
 
-**Exemple :**
+📖 **Exemple d’utilisation :**
 
-Soit une pile P composée des éléments suivants : 12, 14, 8, 7, 19 et 22 (le sommet de la pile est 22) **Pour chaque exemple ci-dessous on repart de la pile d'origine :** 
+Soit une pile P composée des éléments suivants :
+`12, 14, 8, 7, 19, 22` (le sommet est 22)
+🔁 Pour chaque exemple, on repart de la pile d’origine :
 
-- **pop(P)** renvoie 22 et la pile P est maintenant composée des éléments suivants : 12, 14, 8, 7 et 19 (le sommet de la pile est 19) 
-- **push(P,42)** la pile P est maintenant composée des éléments suivants : 12, 14, 8, 7, 19, 22 et 42 
-- **sommet(P)** renvoie 22, la pile P n'est pas modifiée 
-- si on applique pop(P) 6 fois de suite, **pile\_vide(P)** renvoie vrai 
-- Après avoir appliqué pop(P) une fois, **taille(P)** renvoie 5
+* **pop(P)** → renvoie 22 → sommet devient 19
+* **push(P,42)** → pile devient `... 19, 22, 42`
+* **sommet(P)** → renvoie 22
+* **pop(P)** x6 → pile vide → **pile\_vide(P)** = True
+* **pop(P)** x1 → reste 5 éléments → **taille(P)** = 5
 
-**Remarque** : Pour lire le sommet de la pile sans modifier la pile, on doit le dépiler et le rempiler.
+📝 **Remarque** : pour lire le sommet **sans modifier** la pile, il faut le dépiler puis le rempiler.
 
-!!! question "Capytale : Structure pile avec les listes de Python"
+---
 
-    ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667928"></a>**4.2. ❤️1<sup>ère</sup> implémentation de la structure pile avec les listes de Python❤️**</H3>
+!!! question "🧪 Capytale : Structure pile avec les listes de Python"
 
-    
-    Nous utiliserons une simple liste pour représenter la pile. Il se trouve que les méthodes append et pop sur les listes jouent déjà le rôle de **push (empile)** et **pop (depile)** sur les piles.
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667928"></a>**4.2. ❤️1<sup>ère</sup> implémentation de la structure pile avec les listes de Python❤️**</H3>
 
+📌 Nous utiliserons une simple liste pour représenter la pile.
+🔧 Les méthodes `append()` et `pop()` jouent déjà les rôles de `empiler()` et `depiler()`.
 
-    **<H3 STYLE="COLOR:red;">Activité n° 26 : Structure pile avec les listes :**</H3> Compléter la **structure de base** suivante :
+---
 
-    **Remarque** : La fonction empiler ne renvoie rien.
+???+ question "🔧 Activité n° 26 : Structure pile avec les listes"
 
-    **Attention**
+    ✍️ Compléter la **structure de base** suivante :
 
-    **pile += [element] (opérateur d'addition avec affectation):**
+    💬 **Remarque** : La fonction `empiler` ne renvoie rien.
 
-    - C'est une opération sur place pour les objets mutables comme les listes.
+    ⚠️ **Attention aux effets de bord** :
 
-    - Cela modifie directement la liste originale référencée par pile.
+    **pile += \[element]** :
 
-    - L'objet reste le même en mémoire.
+    * ✅ opération **sur place**
+    * ✅ la liste originale est **modifiée directement**
 
-    **pile = pile + [element] (concaténation suivie d'affectation):**
+    **pile = pile + \[element]** :
 
-    - C'est une opération de création d'un nouvel objet.
-
-    - L'expression pile + [element] crée une nouvelle liste en concaténant pile et [element].
-
-    - L'affectation pile = ... fait alors pointer le nom pile vers ce nouvel objet. Mais si la variable pile est passée à la fonction par référence (comme c'est souvent le cas avec les objets mutables en Python), cela coupe le lien avec l'objet original.
+    * ❌ création d’un **nouvel objet**
+    * ❌ peut **rompre la liaison** si la pile est passée par référence
 
     ```python
     '''Implémentation de type abstrait Pile en utilisant les listes de Python'''
@@ -1646,7 +1746,7 @@ Soit une pile P composée des éléments suivants : 12, 14, 8, 7, 19 et 22 (le s
             # 1ère façon 
             # return pile.pop()
             # 2ème façon
-            
+            pass
         pass
 
     # Programme principal
@@ -1663,12 +1763,64 @@ Soit une pile P composée des éléments suivants : 12, 14, 8, 7, 19 et 22 (le s
         assert depiler(ma_pile) == 'Pile vide'
     ```
 
-    **<H3 STYLE="COLOR:red;">Activité n° 27 : Structure pile avec les listes :**</H3> On va rajouter à la structure de base précédente deux fonctions : ```taille``` et ```sommet``` qui permettent respectivement de retourner la taille de la pile (sans utiliser la fonction de python len !!) et le sommet de la pile (sans utiliser les indices !!). On ne pourra utiliser seulement les fonctions primitives précédentes et en devra récupérer la pile originelle telle qu’elle était.
+    ??? success "🎯✅ Solution :"
 
-    On pourra s’aider d’une  pile auxiliaire.
+        ```python
+        '''Implémentation de type abstrait Pile en utilisant les listes de Python'''
+
+        def pileVide():
+            return []
+
+        def estVide(pile):
+            return len(pile) == 0
+
+        def empiler(pile, element):
+            pile.append(element)  # méthode en place
+            # pile += [element]   # aussi en place, mais attention aux effets de bord
+
+        def depiler(pile):
+            if not estVide(pile):
+                return pile.pop()
+                # Variante :
+                # dernier = pile[-1]
+                # del pile[-1]
+                # return dernier
+            return 'Pile vide'
+
+        # Programme principal
+        if __name__ == '__main__':
+            ma_pile = pileVide()
+            assert estVide(ma_pile) == True
+            empiler(ma_pile, 'Lundi')
+            empiler(ma_pile, 'Mardi')
+            empiler(ma_pile, 'Mercredi')
+            assert estVide(ma_pile) == False
+            assert depiler(ma_pile) == 'Mercredi'
+            assert depiler(ma_pile) == 'Mardi'
+            assert depiler(ma_pile) == 'Lundi'
+            assert depiler(ma_pile) == 'Pile vide'
+        ```
+
+---
+
+
+
+
+???+ question "🧱 Activité n° 27 : Structure pile avec les listes"
+
+    🎯 On va rajouter à la structure de base précédente deux fonctions : `taille` et `sommet`
+    📌 Elles permettent respectivement de :
+
+    * retourner la **taille de la pile** (**sans utiliser `len`** ❌)
+    * retourner le **sommet de la pile** (**sans utiliser les indices** ❌)
+
+    💡 On n'utilisera que les fonctions primitives précédentes (`empiler`, `depiler`, etc.)
+    📦 On pourra s’aider d’une **pile auxiliaire** pour restaurer l’état initial.
+
     ```python
     def taille(pile):
         pass
+
     def sommet(pile):
         pass
 
@@ -1682,15 +1834,41 @@ Soit une pile P composée des éléments suivants : 12, 14, 8, 7, 19 et 22 (le s
         assert sommet(ma_pile) == 'Mercredi'
     ```
 
-!!! info "Capytale : Structure pile avec la POO et les lists de Python :"
+    ??? success "✅❇️ Solution :"
 
-    ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667929"></a>**4.3. ❤️2<sup>ème</sup> implémentation de la structure pile avec la POO et les lists de Python❤️**</H3>
+        ```python
+        def taille(pile):
+            compteur = 0
+            pile_temp = pileVide()
+            while not estVide(pile):
+                empiler(pile_temp, depiler(pile))
+                compteur += 1
+            while not estVide(pile_temp):
+                empiler(pile, depiler(pile_temp))
+            return compteur
 
-    
-    **<H3 STYLE="COLOR:red;">Activité n° 28 : Structure pile avec la POO et les lists de Python :**</H3> 
+        def sommet(pile):
+            pile_temp = pileVide()
+            sommet_val = None
+            while not estVide(pile):
+                sommet_val = depiler(pile)
+                empiler(pile_temp, sommet_val)
+            while not estVide(pile_temp):
+                empiler(pile, depiler(pile_temp))
+            return sommet_val
+        ```
 
+---
 
-    Créer une classe Pile qui construit une liste vide, puis compléter les autres méthodes de la classe  :
+!!! info "💡 Capytale : Structure pile avec la POO et les lists de Python"
+
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667929"></a>**4.3. ❤️2<sup>ème</sup> implémentation de la structure pile avec la POO et les lists de Python❤️**</H3>
+
+---
+
+???+ question "🏗️ Activité n° 28 : Structure pile avec la POO et les lists de Python"
+
+    Créer une classe `Pile` qui construit une liste vide, puis compléter les autres méthodes de la classe :
 
     ```python
     '''Implémentation 3 de type abstrait Liste en utilisant la POO et les listes de Python'''
@@ -1710,7 +1888,6 @@ Soit une pile P composée des éléments suivants : 12, 14, 8, 7, 19 et 22 (le s
             pass
 
         def depiler(self):
-            
             # 1ère version
             # return self.pile.pop() # ou self.pile.pop(-1)
             # 2ème version
@@ -1721,8 +1898,10 @@ Soit une pile P composée des éléments suivants : 12, 14, 8, 7, 19 et 22 (le s
         for i in range(4):
             p.empiler(2 * i)
     ```
-    Tester :
-    ```
+
+    🧪 Tester :
+
+    ```python
     >>> p.estVide() 
     >>> p.depiler()
     >>> p.depiler()
@@ -1731,40 +1910,120 @@ Soit une pile P composée des éléments suivants : 12, 14, 8, 7, 19 et 22 (le s
     >>> p.depiler()
     ```
 
-    **<H3 STYLE="COLOR:red;">Activité n° 29 : Structure pile avec la POO et les lists de Python:**</H3> On va rajouter à la structure de base précédente deux méthodes de la classe Pile : ```taille``` et ```sommet``` qui permettent respectivement de retourner la taille de la pile (**sans utiliser la fonction de python len !!**) et le sommet de la pile (**sans utiliser les indices !!**). On ne pourra utiliser seulement les fonctions primitives précédentes et en devra récupérer la pile originelle telle qu’elle était.
+    ??? success "✅ Solution :"
 
-    On pourra s’aider d’une  pile auxiliaire.
+        ```python
+        class Pile:
+            '''Classe permettant de créer des piles'''
+            def __init__(self):
+                self.pile = []
+
+            def estVide(self):
+                return self.pile == []
+
+            def empiler(self, element):
+                self.pile.append(element)
+                # ou : self.pile += [element]
+
+            def depiler(self):
+                if not self.estVide():
+                    return self.pile.pop()
+                return "Pile vide"
+
+        if __name__ == '__main__':
+            p = Pile()
+            for i in range(4):
+                p.empiler(2 * i)
+        ```
+
+---
+
+???+ question "📐 Activité n° 29 : Méthodes `taille` et `sommet` en POO"
+
+    On va rajouter à la structure de base précédente deux méthodes de la classe `Pile` :
+
+    * `taille` : retourne la **taille de la pile** (**sans utiliser `len`** ❌)
+    * `sommet` : retourne le **sommet de la pile** (**sans utiliser les indices** ❌)
+
+    📦 On pourra s’aider d’une **pile auxiliaire**.
+    📌 On doit récupérer la pile dans son état initial.
+
     ```python
-        def taille(self):
-            pass
+    def taille(self):
+        pass
 
-        def sommet(self):
-            pass 
+    def sommet(self):
+        pass 
 
     if __name__ == '__main__':
         p = Pile()
         for i in range(4):
             p.empiler(2 * i)
     ```
-    Tester
-    ```
+
+    Tester :
+
+    ```python
     >>> p.taille()
     >>> p.sommet()
     ```
 
-    Ici, **tous les coûts d’exécution sont unitaires.**
+    🧠 Ici, **tous les coûts d’exécution sont unitaires.**
 
-    **<H3 STYLE="COLOR:red;">Activité n° 30 : Structure pile avec la POO et les lists de Python:**</H3> On va rajouter à la structure une méthode de la classe Pile : afficher qui permet d’afficher (retourner) la pile sous forme de liste .
+    ??? success "✅❇️ Solution :"
+
+        ```python
+        def taille(self):
+            pile_temp = []
+            compteur = 0
+            while not self.estVide():
+                pile_temp.append(self.depiler())
+                compteur += 1
+            while pile_temp != []:
+                self.empiler(pile_temp.pop())
+            return compteur
+
+        def sommet(self):
+            pile_temp = []
+            sommet_val = None
+            while not self.estVide():
+                sommet_val = self.depiler()
+                pile_temp.append(sommet_val)
+            while pile_temp != []:
+                self.empiler(pile_temp.pop())
+            return sommet_val
+        ```
+
+---
+
+???+ question "🖨️ Activité n° 30 : Affichage d’une pile (POO + liste)"
+
+    On va rajouter à la structure une méthode de la classe `Pile` :
+    🔎 `afficher` → permet d’**afficher (retourner) la pile** sous forme de **liste**
 
     ```python
-        def afficher(self):
-            pass
+    def afficher(self):
+        pass
     ```
-    Tester :
-    ```
+
+    🧪 Tester :
+
+    ```python
     >>> p.afficher()
     [0, 2, 4, 6, 8]
     ```
+
+    ??? success "✅ Solution :"
+
+        ```python
+        def afficher(self):
+            return self.pile
+        ```
+
+---
+
+
+
 
 !!! question "Capytale : Structure pile avec la POO et les listes chainée"
 
