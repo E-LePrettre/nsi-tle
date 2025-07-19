@@ -3044,10 +3044,23 @@ mais :
 
 
 
-    La file implémentée de la sorte n'est **pas très efficace** car il faut entièrement la la parcourir pour enfiler un élément!!
-    On va améliorer l'efficacité avec **2 pointeurs** : l'un vers la **tête** et l'autre vers la **queue**!
+La file implémentée de la sorte n'est **pas très efficace** car il faut entièrement la la parcourir pour enfiler un élément!!
+    
+On va améliorer l'efficacité avec **2 pointeurs** : l'un vers la **tête** et l'autre vers la **queue**!
 
-    Compléter la structure
+ 
+---
+
+???+ question "📘 Activité n° 39bis : Optimisation de la file avec 2 pointeurs (tête et queue)"
+
+    🧠 La file implémentée précédemment n’est **pas très efficace** car il faut la parcourir entièrement pour enfiler un élément.
+
+    🚀 On va **améliorer l’efficacité** avec **2 pointeurs** :
+
+    * Un vers la **tête** (début de la file),
+    * Un vers la **queue** (fin de la file).
+
+    Compléter la structure suivante :
 
     ```python
     class Node:
@@ -3060,81 +3073,37 @@ mais :
         def __init__(self, c=None):
             # Initialisation de la file avec une tête et une queue
             self.head = c...    # Pointeur vers le premier élément de la file
-            self.queue = ...   # Pointeur vers le dernier élément de la file
+            self.queue = ...    # Pointeur vers le dernier élément de la file
 
         def estVide(self):
             # Vérifie si la file est vide
             pass
 
         def enfiler(self, element):
-            ### version enfiler par la tête et défiler par la queue
             """Ajoute un élément au début de la file."""
-            ...           # Création d'un nouveau nœud avec la valeur donnée
-            if ...        # Si la file est vide
-                ...       # Le nœud devient à la fois la tête et la queue
-            else:
-                ...       # Le nouveau nœud pointe vers l'ancien premier nœud
-                ...       # Mise à jour de la tête avec le nouveau nœud
+            ...
 
         def defiler(self):
-            ### version enfiler par la tête et défiler par la queue
             """Retire un élément à la fin de la file."""
-            if self.estVide():         # Si la file est vide
-                ...       # Retourne un message d'erreur
-            
-            if ...        # Cas d'un seul élément dans la file
-                ...       # Sauvegarde la valeur de l'unique nœud
-                ...       # Vide la tête
-                ...       # Vide la queue
-                ...       # Retourne la valeur supprimée
-            
-            ...           # Départ au premier nœud
-            while ...       # Parcours jusqu'à l'avant-dernier nœud
-                ...       
-
-            ...           # Sauvegarde la valeur du dernier nœud
-            ...           # Supprime la référence au dernier nœud
-            ...           # Met à jour la queue
-            ...           # Retourne la valeur supprimée
+            ...
 
         def enfiler2(self, element):
-            ### version enfiler par la queue et défiler par la tete
             """Ajoute un élément à la fin de la file."""
-            ...          # Création d'un nouveau nœud
-            if ...       # Si la file est vide
-                ...      # Le nœud devient la tête et la queue
-            else:
-                ...       # L'ancien dernier nœud pointe vers le nouveau
-                ...       # Mise à jour de la queue avec le nouveau nœud
+            ...
 
         def defiler2(self):
-            ### version enfiler par la queue et défiler par la tete
             """Retire un élément au début de la file."""
-            if ...       # Si la file n'est pas vide
-                ...       # Sauvegarde la valeur de la tête
-                ...       # Passe au nœud suivant
-                if ...        # Si la file devient vide
-                    ...       # Vide aussi la queue
-                ...         # Retourne la valeur supprimée
-            else:
-                raise IndexError("File vide")  # Erreur si la file est vide
+            ...
 
         def __str__(self):
             """Affiche les éléments de la file sous forme d'une chaîne."""
-            ### version enfiler par la queue et défiler par la tete
-            if self.head is None:          # Si la file est vide
-                return "[]"                # Retourne une chaîne vide
-            else:
-                ...       # Liste pour stocker les éléments
-                ...       # Départ au premier nœud
-                while ...        # Parcours de la file
-                    ...       # Ajoute la valeur à la liste
-                    ...       # Passe au nœud suivant
-                return ...      # Retourne les éléments sous forme de liste
+            ...
+    ```
 
+    🧪 **Tester le comportement de la file :**
 
-
-    f=File()
+    ```python
+    f = File()
     assert f.estVide() == True
     f.enfiler('Lundi')
     f.enfiler('Mardi')
@@ -3153,17 +3122,100 @@ mais :
     assert f.defiler2() == 'Mercredi'
     ```
 
+
+    ??? success "✅ Solution :"
+
+        ```python
+        class Node:
+            def __init__(self, value=None, next=None):
+                self.v = value
+                self.n = next
+
+
+        class File:
+            def __init__(self, c=None):
+                self.head = c
+                self.queue = c
+
+            def estVide(self):
+                return self.head is None
+
+            def enfiler(self, element):
+                nouveau = Node(element, self.head)
+                self.head = nouveau
+                if self.queue is None:
+                    self.queue = nouveau
+
+            def defiler(self):
+                if self.estVide():
+                    return "File vide"
+                
+                if self.head.n is None:
+                    val = self.head.v
+                    self.head = None
+                    self.queue = None
+                    return val
+
+                prec = self.head
+                curr = self.head.n
+                while curr.n is not None:
+                    prec = curr
+                    curr = curr.n
+                
+                val = curr.v
+                prec.n = None
+                self.queue = prec
+                return val
+
+            def enfiler2(self, element):
+                nouveau = Node(element)
+                if self.estVide():
+                    self.head = nouveau
+                    self.queue = nouveau
+                else:
+                    self.queue.n = nouveau
+                    self.queue = nouveau
+
+            def defiler2(self):
+                if self.estVide():
+                    return "File vide"
+                val = self.head.v
+                self.head = self.head.n
+                if self.head is None:
+                    self.queue = None
+                return val
+
+            def __str__(self):
+                if self.head is None:
+                    return "[]"
+                else:
+                    res = []
+                    courant = self.head
+                    while courant is not None:
+                        res.append(courant.v)
+                        courant = courant.n
+                    return str(res)
+        ```
+
+---
+
+
+
+
+
 !!! info "Capytale : Utilisation de deque"
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667936"></a>**5.5. Autre implémentation des files avec les bibliothèques de Python**</H3>
 
 
 
-    **<H3 STYLE="COLOR:red;">Activité n°40.: Utilisation de deque pour Implémenter une Pile :</H3> 
 
-    empiler -> .append()
+???+ question "📦 Activité n°40 : Utilisation de `deque` pour implémenter une **Pile**"
 
-    depiler -> .pop()
+    🔁 Opérations fondamentales :
+
+    * `empiler` → `.append()`
+    * `depiler` → `.pop()`
 
     ```python
     from collections import deque
@@ -3208,11 +3260,49 @@ mais :
     print("La taille de la pile:", taille)
     ```
 
-    **<H3 STYLE="COLOR:red;">Activité n°41.: Utilisation de deque pour Implémenter une File :</H3> 
 
-    enfiler() -> .append()
+    ??? success "✅❇️ Solution :"
 
-    défiler() -> .popleft()
+        ```python
+        from collections import deque
+
+        # Création de la pile
+        pile = deque()
+
+        # Vérifier si la pile est vide
+        def est_vide(pile):
+            return len(pile) == 0
+
+        print("La pile est vide ?", est_vide(pile))
+
+        # Empiler des éléments
+        pile.append(10)
+        pile.append(20)
+        pile.append(30)
+
+        print("Pile après empilage:", pile)
+
+        # Dépiler un élément
+        element = pile.pop()
+        print("Élément dépilé:", element)
+
+        # Regarder le sommet
+        sommet = pile[-1]
+        print("Élément au sommet:", sommet)
+
+        # Taille de la pile
+        taille = len(pile)
+        print("La taille de la pile:", taille)
+        ```
+
+---
+
+???+ question "🚉 Activité n°41 : Utilisation de `deque` pour implémenter une **File**"
+
+    🔁 Opérations fondamentales :
+
+    * `enfiler()` → `.append()`
+    * `défiler()` → `.popleft()`
 
     ```python
     from collections import deque
@@ -3257,82 +3347,144 @@ mais :
     print("La taille de la file:", taille)
     ```
 
-    Les piles et les files sont des structures de données fondamentales qui peuvent être implémentées de manière efficace en Python à l'aide de listes ou de la classe deque de la bibliothèque collections. 
 
-    L'utilisation de **deque** est souvent préférée pour des raisons de performance, notamment pour les **files**.
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667937"></a>**5.6. Piles vs Files :**</H3>
+    ??? success "✅ Solution :"
 
-|**Pile**|**File**|
-| :-: | :-: |
-|Les objets sont insérés et supprimés à 1 seule extrémité|Les objets sont insérés et retirés aux 2 extrémités.|
-|Dans les piles, un seul pointeur est utilisé. Il pointe vers le haut de la pile. |Dans les files, deux pointeurs différents sont utilisés pour les extrémités; le tète et la fin.|
-|Dans les piles, le dernier objet inséré est le premier à sortir. |Dans les files, l’objet inséré en premier est le premier qui sera supprimé. |
-|Les piles suivent l’ordre Last In First Out (LIFO) |Les files suivent l’ordre First In First Out (FIFO)|
-|Les opérations de pile s’appellent « Empiler » et « Dépiler ». |Les opérations de file sont appelées « Enfiler » et « Défiler ».|
-|Les piles sont visualisées sous forme de collections verticales. |Les files sont visualisées sous forme de collections horizontales.|
+        ```python
+        from collections import deque
+
+        # Création de la file
+        file = deque()
+
+        # Vérifier si la file est vide
+        def est_vide(file):
+            return len(file) == 0
+
+        print("La file est vide ?", est_vide(file))
+
+        # Enfiler des éléments
+        file.append(10)
+        file.append(20)
+        file.append(30)
+
+        print("file après enfilage:", file)
+
+        # Défiler un élément
+        element = file.popleft()
+        print("Élément défilé:", element)
+
+        # Regarder l’élément au sommet
+        sommet = file[0]
+        print("Élément au sommet:", sommet)
+
+        # Taille de la file
+        taille = len(file)
+        print("La taille de la file:", taille)
+        ```
+
+---
+
+🧠 **Rappel** :
+Les **piles** et **files** sont des structures fondamentales.
+✅ L’utilisation de `deque` est **préférée** pour les performances, notamment en file (accès efficace en **tête** et **queue**).
+
+---
+
+
+
+
+Voici la suite de ton cours, structurée avec clarté et enrichie d’icônes pour plus d’attrait, tout en **préservant les ❤️ et les formulations d’origine** :
+
+---
+
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667937"></a>**5.6. 🔁 Piles vs Files :**</H3>
+
+|                                         🧱 **Pile**                                         |                                       🚦 **File**                                       |
+| :-----------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------: |
+|               📍 Les objets sont insérés et supprimés à **1 seule extrémité**               |                🔄 Les objets sont insérés et retirés aux **2 extrémités**               |
+| 📌 Dans les piles, un **seul pointeur** est utilisé. Il pointe vers le **haut** de la pile. | 📌 Dans les files, **deux pointeurs** sont utilisés : vers la **tête** et la **queue**. |
+|                 📦 Le **dernier objet inséré** est le **premier à sortir**.                 |               🚪 Le **premier objet inséré** est le **premier à sortir**.               |
+|                          🔃 Ordre : **LIFO** (*Last In First Out*)                          |                        🔁 Ordre : **FIFO** (*First In First Out*)                       |
+|                         🛠️ Opérations : « Empiler » et « Dépiler »                         |                       🛠️ Opérations : « Enfiler » et « Défiler »                       |
+|                         🧊 Visualisation : **collection verticale**                         |                      📏 Visualisation : **collection horizontale**                      |
+
+---
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc151667938"></a>**6. Les dictionnaires**</H2>
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc60173193"></a><a name="_toc151667939"></a>**6.1. Définition**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc60173193"></a><a name="_toc151667939"></a>**6.1. 📚 Définition**</H3>
 
-Les dictionnaires ont déjà été étudiés en classe de première. 
+🧠 Les dictionnaires ont déjà été étudiés en classe de première.
+Pour rappel, ce type de données, aussi appelé **tableau associatif**, permet de stocker des **valeurs** accessibles via une **clé**, contrairement au tableau où on accède par indice.
 
-Pour rappel, ce type de données, aussi appelé **tableau associatif**, permet de stocker des **valeurs** et d'y accéder au moyen d'une **clé**, contrairement au tableau qui permet d'accéder à une donnée au moyen d'un indice.
+**📖 Exemple** : un dictionnaire de langues
+🔑 Toutes les **clés sont distinctes**. On s’intéresse donc ici principalement **aux clés** et à leur gestion.
 
-**Exemple** : un dictionnaire (le livre) de langues
+---
 
-On suppose que toutes les clés sont distinctes et dans la suite on va se concentrer sur les clés et non pas sur les données associées.
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc60173194"></a><a name="_toc151667940"></a>**6.2. 🛠️ Opérations de base dans un dictionnaire**</H3>
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc60173194"></a><a name="_toc151667940"></a>**6.2. Les opérations de bases dans un dictionnaire**</H3>
+Les opérations classiques à connaître :
 
-Les opérations classiques que l'on peut effectuer sur un dictionnaire sont :
+* ➕ **Ajouter** une entrée : `dico["clé"] = valeur`
+* ✏️ **Modifier** une entrée : `dico["clé"] = nouvelle_valeur`
+* ❌ **Supprimer** une entrée : `dico.pop("clé")`
+* 🔍 **Rechercher** une clé : `"clé" in dico`
 
-- **Ajouter** une nouvelle entrée au dictionnaire en créant une nouvelle clé
-- **Modifier** la valeur associée à une clé existante
-- **Supprimer** une entrée dans un dictionnaire (méthode .pop())
-- **Rechercher** la présence d'une clé dans un dictionnaire
+⚠️ **Attention** :
+Le dictionnaire Python est une **version spécifique** d'une structure plus générale.
+Ce qui nous intéresse ici, c’est **l’efficacité des interrogations et modifications.**
 
-**Attention** : Le dictionnaire de Python permet d’avoir ce comportement mais est une version spécifique à Python de cette donnée plus générale. Ce qui nous intéresse ici c’est d’avoir une structure de données que l’on va interroger et que l’on peut modifier. Le but est de trouver des méthodes pour faire cela efficacement.
+---
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc60173197"></a><a name="_toc151667941"></a>**6.3. Les clés**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc60173197"></a><a name="_toc151667941"></a>**6.3. 🧩 Les clés**</H3>
 
-Une clé peut être d'un autre type que chaîne de caractère, du moment que c'est un **objet non mutable**, c'est à dire qui ne peut pas être modifié. Une clé ne **peut pas être une liste** par exemple car une liste est un objet mutable que l'on peut modifier, par exemple au travers de la méthode .append().
+Une **clé** peut être un type :
 
-Regardons ce qui se passe si on essaye de définir une clé de type **list** pour un dictionnaire :
+* ✅ non mutable (str, int, tuple, etc.)
+* ❌ **pas** mutable (liste, dictionnaire…)
+
+Exemple d’erreur avec une liste :
+
 ```
 >>> dico[[2,1]] = "..."
----------------------------------------------------------------------------
-TypeError                                 Traceback (most recent call last)
-<ipython-input-4-d463baccae6e> in <module>()
-----> 1 dico[[2,1]]
 TypeError: unhashable type: 'list'
 ```
-Le type **list** n'est pas pas *hashable*. Mais qu'est-ce que le hachage ?
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667942"></a>**6.4. Hachage**</H3>
+🧠 La raison : le type `list` **n’est pas hashable**. Cela signifie qu’il **ne peut pas être utilisé comme clé**.
 
-La notion de *Hachage* est omiprésente en informatique et est au coeur du fonctionnement des dictionnaires. Le hachage est un mécanisme permettant de transformer la clé en un nombre unique permettant l'accès à la donnée, un peu à la manière d'un indice dans un tableau.
+---
 
-#### <H4 STYLE="COLOR:MAGENTA;"> **6.4.1. Définition d’une fonction de hachage**</H4>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667942"></a>**6.4. 🔐 Hachage**</H3>
 
+📌 Le **hachage** est au cœur du fonctionnement des dictionnaires.
+C’est une opération qui transforme une **clé** en **indice unique** dans une table.
 
-⚓︎  
-Une fonction de hachage calcule une empreinte unique à partir de la donnée fournie en entrée. Elle doit respecter les propriétés suivantes :  
+---
 
-1. **Longueur constante** :  
-   La longueur de l'empreinte (valeur retournée) doit être fixe, quel que soit le volume ou le contenu des données en entrée.  
+#### <H4 STYLE="COLOR:MAGENTA;">🔧 6.4.1. Définition d’une fonction de hachage</H4>
 
-2. **Irréversibilité** :  
-   Il doit être impossible de retrouver la donnée d'origine à partir de l'empreinte, ce qui garantit une sécurité cryptographique.  
+🔑 Une fonction de hachage produit une **empreinte unique** pour une clé donnée.
+Elle doit respecter plusieurs propriétés :
 
-3. **Unicité (dans la mesure du possible)** :  
-   Des données différentes doivent produire des empreintes différentes. Cependant, des collisions (deux données différentes produisant la même empreinte) peuvent exister mais doivent être minimisées.  
+1. 📏 **Longueur constante**
+   → L’empreinte doit toujours avoir la même taille, peu importe l’entrée.
 
-4. **Déterminisme** :  
-   Des données identiques doivent produire des empreintes identiques à chaque calcul.  
+2. 🔒 **Irréversibilité**
+   → On ne doit **pas pouvoir retrouver la clé d’origine** à partir de l’empreinte.
 
-**Remarque importante** : La fonction `hash()` de Python ne garantit pas les mêmes empreintes d'une session à l'autre, car elle intègre un "salt" pour renforcer la sécurité. Pour des besoins reproductibles, on utilise des bibliothèques comme `hashlib`.  
+3. 🧬 **Unicité (maximale)**
+   → Deux clés différentes doivent générer **des empreintes différentes**.
+   ✅ Des **collisions** sont possibles mais rares.
+
+4. ♻️ **Déterminisme**
+   → La **même entrée** doit toujours produire **la même sortie**.
+
+⚠️ **Remarque** :
+La fonction `hash()` de Python **ne garantit pas** une empreinte identique entre deux exécutions.
+➡️ Pour un **hachage stable**, on utilisera plutôt le module `hashlib`.
+
 
 
 
