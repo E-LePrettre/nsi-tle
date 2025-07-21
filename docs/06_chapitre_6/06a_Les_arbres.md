@@ -7,9 +7,9 @@ title: 06a Les arbres
 
 [1.	🌳 Terminologie](#_toc149141385)
 
-[2.	Notions générales sur les arbres](#_toc149141388)
+[2.	📏 Notions générales sur les arbres](#_toc149141388)
 
-[3.	Les arbres binaires](#_toc149141389)
+[3.	🌿 Les arbres binaires](#_toc149141389)
 
 [4.	Le parcours en profondeur des arbres binaires](#_toc149141398)
 
@@ -973,7 +973,7 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
 
 ---
 
-### <H3 STYLE="COLOR:green;">❤️ 3<sup>ème</sup> implémentation de la structure ARBRE BINAIRE avec la POO avec 2 classes ❤️</H3>
+### <H3 STYLE="COLOR:green;">3.7. ❤️ 3<sup>ème</sup> implémentation de la structure ARBRE BINAIRE avec la POO avec 2 classes ❤️</H3>
 
 
 
@@ -1059,77 +1059,234 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
 ---
 
 
-**<H3 STYLE="COLOR:red;">Activité n° 24 :**  **Arbres binaires et POO :</H3>** Soit l'arbre binaire suivant :
-
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.038.png){width=30%; : .center }
-
-On veut construire cet arbre à l'aide de la classe Arbre. Le problème est que les attributs g et d ne font plus partie de cette classe et on ne peut plus y accéder. Il faut donc rajouter une méthode qui sera un mutateur (setter).
-
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.039.png){width=30%; : .center }
-
-Implanter les deux arbres : le premier que l'on appelera arbre et le deuxième sera noté T
-
-On note que les **constructeurs de la classe Nœud sont protégés** et que pour pouvoir y accéder on utilise un setter.
-
-**<H3 STYLE="COLOR:red;">Activité n° 25 :**  **Arbres binaires et POO :</H3>** Il est possible d'afficher un arbre binaire dans la console Python, pour cela, nous allons utiliser deux méthodes.
-
-Ajouter la **méthode** suivante à la classe Nœud :
-```python
-def __repr__(self):
-    # return self.valeur + str(self.g) +str(self.d) # mais il y aura beaucoup de None
-    return self.valeur+str(self.g).replace('None','.')+str(self.d).replace('None','.')
-```
-
-Ajouter la **méthode** suivante à la classe Arbre : 
-```python
-def __str__(self): # ou __repr__ pour éviter le print...
-    return str(self.noeud)
-```
-
-Tester sur les arbres binaires précédents.
-
-**<H3 STYLE="COLOR:red;">Activité n° 26 :**  **Arbres binaires et POO fonction hauteur :</H3>** Implémenter l’algorithme de la **fonction** hauteur 
-
-Voici l’algorithme correspondant à la fonction hauteur : (convention 1 pour la racine)
-```
-HAUTEUR(T) :
-  si T est vide :
-    renvoyer 0
-  sinon :
-    renvoyer 1 + max(HAUTEUR(T du sous-arbre gauche), HAUTEUR(T du sous-arbre droit))
-  fin si
-```
-			
-
-La fonction max renvoie la plus grande valeur des 2 valeurs passées en paramètre (exemple : max(5,6) renvoie 6).
 
 
 
-Tester avec les 2 arbres précédents
 
-**<H3 STYLE="COLOR:red;">Activité n° 27 :**  **Arbres binaires et POO méthode hauteur :</H3>** Implémenter l’algorithme de la **méthode** hauteur2 
+???+ question "📝 **Activité n°24 :** Construire deux arbres binaires"
+    Soit l’arbre suivant :
 
-Tester avec les 2 arbres précédents
+    
+    ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.038.png){width=30%; .center}
 
-**<H3 STYLE="COLOR:red;">Activité n° 28 :**  **Arbres binaires et POO fonction taille :</H3>** Implémenter l’algorithme de la **fonction** taille 
+    On veut construire cet arbre à l'aide de la classe `Arbre`. Le problème est que les attributs `g` et `d` ne font plus partie de cette classe et on ne peut plus y accéder. Il faut donc rajouter une méthode qui sera un mutateur (**setter**).
 
-Voici l’algorithme correspondant à la fonction taille : 
-```
-TAILLE(T) :
-  si T est vide:
-    renvoyer 0
-  sinon :
-    renvoyer 1 + TAILLE(T.gauche)+TAILLE(T.droit)
-  fin si
-```
+    ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.039.png){width=30%; .center}
+
+    Implanter les deux arbres :  
+    - le premier que l'on appellera `arbre` (le petit)  
+    - le deuxième sera noté `T` (le grand arbre ci-dessus)
+
+    On note que les **constructeurs de la classe Nœud sont protégés** et que pour pouvoir y accéder on utilise un setter.
+    
+
+    ??? success "❇️ Solution :"
+        ```python
+        class Noeud:
+            def __init__(self, valeur):
+                self.valeur = valeur
+                self.g = None
+                self.d = None
+
+        class Arbre:
+            def __init__(self, noeud=None):
+                self.noeud = noeud
+        ```
+
+        ✅ Petit arbre :
+        ```python
+        arbre = Arbre(Noeud("r"))
+        arbre.noeud.g = Noeud("a")
+        arbre.noeud.d = Noeud("b")
+        arbre.noeud.g.g = Noeud("c")
+        ```
+
+        ✅ Grand arbre :
+        ```python
+        T = Arbre(Noeud("A"))
+        T.noeud.g = Noeud("B")
+        T.noeud.d = Noeud("C")
+        T.noeud.g.g = Noeud("D")
+        T.noeud.g.d = Noeud("E")
+        T.noeud.g.d.g = Noeud("F")
+        T.noeud.g.d.g.g = Noeud("G")
+        ```
+
+
+---
+
+???+ question "Activité n° 25 : Affichage des arbres"
+
+    Ajouter les méthodes pour afficher les arbres
+    Il est possible d'afficher un arbre binaire dans la console Python, pour cela, nous allons utiliser deux méthodes.
+
+
+    Ajouter la **méthode** suivante à la classe `Noeud` :
+    ```python
+    def __repr__(self):
+        return self.valeur + str(self.g).replace("None", ".") + str(self.d).replace("None", ".")
+    ```
+
+    Ajouter la **méthode** suivante à la classe `Arbre` :
+    ```python
+    def __str__(self):
+        return str(self.noeud)
+    ```
+
+    Tester ensuite avec les arbres précédents.
+    
+    ??? success "❇️ Solution :"
+        ✅ À insérer dans les classes :
+        ```python
+        class Noeud:
+        ...
+        def __repr__(self):
+            return self.valeur + str(self.g).replace("None", ".") + str(self.d).replace("None", ".")
+        
+        class Arbre:
+            ...
+            def __str__(self):
+                return str(self.noeud)
+        ```
+
+        ✅ Test :
+        ```python
+        print(arbre)
+        print(T)
+        ```
+
+
+---
+
+???+ question " Activité n° 26 : Fonction hauteur"
+
+    Implémenter la fonction hauteur
+    Voici l’algorithme correspondant à la fonction **hauteur** :
+
+    ```
+    HAUTEUR(T) :
+    si T est vide :
+        renvoyer 0
+    sinon :
+        renvoyer 1 + max(HAUTEUR(T du sous-arbre gauche), HAUTEUR(T du sous-arbre droit))
+    ```
+
+    🔎 La fonction `max()` permet de renvoyer la plus grande valeur des deux valeurs passées en paramètre.  
+    ➤ Par exemple : `max(5, 6)` renvoie `6`.
+
+    Tester avec les 2 arbres précédents.
+
+
+    ??? success "❇️ Solution :"
+        ```python
+        def hauteur(T):
+            if T.noeud is None:
+                return 0
+            gauche = Arbre(T.noeud.g)
+            droite = Arbre(T.noeud.d)
+            return 1 + max(hauteur(gauche), hauteur(droite))
+        ```
+
+        ✅ Test :
+        ```python
+        print(hauteur(arbre))  # devrait afficher 3
+        print(hauteur(T))      # devrait afficher 5
+        ```
+
+
+---
+
+???+ question "📝 Activité n° 27 : Méthode hauteur2"
+
+
+    Implémenter maintenant la même fonctionnalité, mais **en méthode** de la classe `Arbre`.
+
+
+    Tester avec les deux arbres précédents.
+
+
+    ??? success "❇️ Solution :"
+        ```python
+        class Arbre:
+            ...
+            def hauteur2(self):
+                if self.noeud is None:
+                    return 0
+                g = Arbre(self.noeud.g)
+                d = Arbre(self.noeud.d)
+                return 1 + max(g.hauteur2(), d.hauteur2())
+        ```
+
+        ✅ Test :
+        ```python
+        print(arbre.hauteur2())  # 3
+        print(T.hauteur2())      # 5
+        ```
+
+
+---
+
+???+ question "📝 Activité n° 28 : Fonction taille"
+
+    Implémenter la fonction taille"
+    Voici l’algorithme de la **fonction** taille :
+
+    ```
+    TAILLE(T) :
+    si T est vide :
+        renvoyer 0
+    sinon :
+        renvoyer 1 + TAILLE(T.gauche) + TAILLE(T.droit)
+    ```
+
+    Tester avec les deux arbres précédents.
+
+
+    ??? success "❇️ Solution :"
+        ```python
+        def taille(T):
+            if T.noeud is None:
+                return 0
+            return 1 + taille(Arbre(T.noeud.g)) + taille(Arbre(T.noeud.d))
+        ```
+
+        ✅ Test :
+        ```python
+        print(taille(arbre))  # 4
+        print(taille(T))      # 7
+        ```
 
 
 
-Tester avec les 2 arbres précédents
 
-**<H4 STYLE="COLOR:red;">Activité n° 29 :**  **Arbres binaires et POO méthode taille :</H3>** Implémenter l’algorithme de la **méthode** taille2 
+???+ question "📝 Activité n° 29 : Méthode taille2"
 
-Tester avec les 2 arbres précédents
+
+    Implémenter maintenant une **méthode** `taille2()` dans la classe `Arbre` qui réalise le même calcul que la fonction précédente.
+
+    Tester avec les deux arbres précédents.
+
+
+    ??? success "❇️ Solution :"
+        ```python
+        class Arbre:
+            ...
+            def taille2(self):
+                if self.noeud is None:
+                    return 0
+                g = Arbre(self.noeud.g)
+                d = Arbre(self.noeud.d)
+                return 1 + g.taille2() + d.taille2()
+        ```
+
+        ✅ Test :
+        ```python
+        print(arbre.taille2())  # 4
+        print(T.taille2())      # 7
+    ```
+
+
+
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141397"></a>**3.8. Un autre code de représentation**</H3>
 
