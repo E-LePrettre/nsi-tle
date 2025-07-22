@@ -871,7 +871,7 @@ return reponse.insert(position, x)
 ---
 
 
-!!! info "Capytale : Structure liste (chainée) avec POO"
+!!! info "Capytale : Structure liste (chainée) avec POO (activite_liste_POO)"
 
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667925"></a>**3.5. ❤️ 3<sup>ème</sup> implémentation de la structure liste (chaînée) avec POO ❤️**</H3>
@@ -938,10 +938,10 @@ Il faut suivre les références une à une jusqu’à la cellule voulue.
 
 ⚙️ **Structure d’une cellule (ou maillon)**
 
-Chaque cellule de la liste chaînée est représentée par une **classe `Node`**, constituée de deux attributs :
+Chaque cellule (Node) de la liste chaînée est représentée par une **classe `Node`**, constituée de deux attributs :
 
 * `v` : la **valeur** (tête)
-* `n` : la **référence** vers la **cellule suivante** (queue)
+* `n` : la **référence** (next) vers la **cellule suivante** (queue)
 
 ---
 
@@ -987,12 +987,6 @@ Chaque cellule de la liste chaînée est représentée par une **classe `Node`**
         >>> c4 = Node(35, c3)
         ```
 
-        On crée une chaîne de cellules :
-
-        ```
-        [35 | ●] → [25 | ●] → [15 | ●] → [5 | ∅]
-        ```
-
 ---
 
 
@@ -1003,6 +997,12 @@ Chaque cellule de la liste chaînée est représentée par une **classe `Node`**
 ???+ question "📝 **Activité n°14 : Représentation de la structure chaînée**"
 
     Représenter sur **feuille** la **structure séquentielle linéaire** (schéma des cellules) créée par les instructions précédentes.
+
+    ??? success "📤 Solution :"
+        ```
+        [35 | ●] → [25 | ●] → [15 | ●] → [5 | ∅]
+  c4          c3         c2        c1
+        ```
 
 ---
 
@@ -1050,7 +1050,8 @@ Chaque cellule de la liste chaînée est représentée par une **classe `Node`**
 
     ??? success "📤 Solution :"
 
-        💥 Erreur sur la dernière ligne :
+        💥 La documentation n'a rien à voir dans cette histoire. Erreur sur la dernière ligne :
+
         `'Louis XVI'` est une **chaîne de caractères**, pas une **instance de Node**.
 
         Grâce à l’assertion, le constructeur **refuse** cette valeur inappropriée, ce qui évite des comportements imprévisibles.
@@ -1073,6 +1074,7 @@ On va créer une méthode `returnFinalValue` qui :
 
 ![Lecture récursive](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.018.png){width=50%; : .center }
 
+Si on part ici de la tête qui contient le string "Lundi", on devrait lire la séquence des jours et renvoyer la référence de la dernière cellule, celle qui contient "Dimanche".
 ---
 
 ???+ question "🧠 **Activité n°16 : Création de la méthode `returnFinalValue`**"
@@ -1095,6 +1097,11 @@ On va créer une méthode `returnFinalValue` qui :
     2. Quel est le cas de base ?
     3. Comment la fonction progresse-t-elle dans la liste ?
 
+    ??? success "📤 Solution :"
+        1. if self.n == None:
+        2. self # self.v est possible mais ce n’est pas demandé
+        3. self.n.fonction
+
     Voici le squelette à compléter :
 
     ```python
@@ -1116,10 +1123,13 @@ On va créer une méthode `returnFinalValue` qui :
     lu = Node("Lundi", ma)
     ```
 
-    Tester :
+    Tester la méthode returnFinalValue avec 
 
-    * `lu.returnFinalValue()`
-    * `je.returnFinalValue()`
+    - lu
+
+    puis
+
+    - je
 
     ??? success "📤 Solution :"
 
@@ -1141,16 +1151,23 @@ On va créer une méthode `returnFinalValue` qui :
 
 ???+ question "📺 **Activité n°17 : méthode `__str__` pour l’affichage**"
 
-    Tester l'affichage de :
+    Tester l'affichage de 
+    - lu
 
-    ```python
-    print(lu)
-    print(je)
-    ```
+    puis
 
-    **Observation :**
-    On voit des objets `Node` comme `<__main__.Node object at ...>`.
-    C’est peu lisible.
+    - je
+
+    Qu'est ce que vous remarquez ?
+
+    ??? success "📤 Solution :"
+        ```python
+        print(lu)
+        print(je)
+        ```
+        **Observation :**
+        On voit des objets `Node` comme `<__main__.Node object at ...>`. Ce sont les adresses en mémoire de chaque Node qui sont évidement différentes.
+        C’est peu lisible.
 
     ➡️ On va donc écrire une méthode `__str__` qui affiche toutes les valeurs liées.
 
@@ -1195,10 +1212,10 @@ On va créer une méthode `returnFinalValue` qui :
 
         ```python
         def __str__(self):
-            if self.n is None:
-                return self.v
-            else:
-                return self.v + "-" + str(self.n)
+            if self.n :
+                return str(self.v) + '-' + str(self.n)
+            else :
+                return str(self.v)
         ```
 
         ✅ On obtient une chaîne lisible représentant **toute la séquence** de maillons depuis le nœud initial.
@@ -1220,16 +1237,24 @@ On va créer une méthode `returnFinalValue` qui :
     💬 Initialement, la liste est vide, donc `head = None`. Ensuite, chaque cellule pointe vers la suivante jusqu’à la dernière dont le `next` est `None`.
 
     ```python
+    class Node:
+        '''Classe permettant de créer des cellules-maillons basiques'''
+        def __init__(self, value, next=None):
+            # ce qui a été fait précédemment
+
+        def returnFinalValue(self):
+            # ce qui a été fait précédemment
+
+        def __str__(self): 
+            # ce qui a été fait précédemment
+
     class Liste:
-        '''Classe pour implémenter une Liste sous forme de liste chaînée'''
-        def __init__(self, head=None):
-            assert type(head) == Node or head is None
-            self.head = head
-    ```
-
-    Exemple de création :
-
-    ```python
+        '''Classe implémenter une Liste sous forme Liste chaînée '''
+        def __init__(self, head = None):
+            assert type(head) == ... or head == ...
+            pass
+    
+    # Programme principal
     di = Node("Dimanche")
     sa = Node("Samedi", di)
     ve = Node("Vendredi", sa)
@@ -1239,6 +1264,7 @@ On va créer une méthode `returnFinalValue` qui :
     lu = Node("Lundi", ma)
     list1 = Liste(lu)
     ```
+    
 
     ??? success "❇️ Solution :"
 
@@ -1278,13 +1304,35 @@ On va créer une méthode `returnFinalValue` qui :
 
 Voici les **méthodes prévues** dans notre interface :
 
-| Méthode                | Description                              |
-| ---------------------- | ---------------------------------------- |
-| `__init__()`           | Crée une liste vide                      |
-| `isEmpty()`            | Retourne `True` si la liste est vide     |
-| `insertPosition(x, p)` | Insère un élément `x` à la position `p`  |
-| `delPosition(p)`       | Supprime l’élément en position `p`       |
-| `readPosition(p)`      | Retourne l’élément situé en position `p` |
+
+1. ```nouvelleList()``` correspond au constructeur `__init__() -> Liste` : on crée une nouvelle liste vide. 
+
+1. ```isEmpty(L:Liste) -> bool``` : renvoie un booléen qui vaut True si la liste L transmise est une liste vide.
+```
+listeA = Liste()
+isEmpty(listeA) va donc renvoyer l'équivalent de True.
+```
+3 ```insertPosition(x:Elt, L:Liste, position:int) -> None``` : on **modifie sur place** la liste : l'élément fourni x est maintenant l'élément de la liste situé en position position. On prendra ici un système de position lié à un index commençant à 0.
+```
+listeA peut être représentée par (12, 15, 18, 4)
+
+insertPosition(5, listeA, 2)
+listeA peut alors être représentée par (12, 15, 5, 18, 4).
+```
+4 ```delPosition(L:Liste, position:int) -> None``` : on **modifie sur place** la liste : l'élément en position position est supprimé, rendant la liste moins longue.
+```
+listeA peut être représentée par (12, 15, 18, 4)
+
+delPosition(listeA, 1)
+listeA peut alors être représentée par (12, 18, 4).
+```
+5 ```readPosition(L:Liste, position:int) -> Elt``` : on **renvoie** l'élément stocké en position position
+```
+listeA peut être représentée par (12, 15, 18, 4)
+
+reponse = readPosition(listeA, 1)
+reponse peut alors être représentée par 15.
+```
 
 ---
 
@@ -1292,7 +1340,6 @@ Voici les **méthodes prévues** dans notre interface :
 
     Créer une méthode d’interface `isEmpty()` qui retourne `True` si la liste est vide, `False` sinon.
 
-    💡 Elle teste si `head == None`.
 
     🧪 À tester :
 
@@ -1360,6 +1407,10 @@ Voici les **méthodes prévues** dans notre interface :
         def insertHead(self, newData):
             temporary = self.head
             self.head = Node(newData, temporary)
+        
+        # plus simplement
+        def insertHead(self, newData): 
+            self.head = Node(newData, self.head)
         ```
 
 ---
@@ -1450,13 +1501,19 @@ Avant d'insérer la nouvelle Cellule en position 2, il faut mémoriser les ident
 
         ```python
         def insertPosition(self, newData, position):
-            predecesseur = self.head
-            for i in range(position - 1):
-                predecesseur = predecesseur.n
-            successeur = predecesseur.n
-            nouvelle = Node(newData, successeur)
-            predecesseur.n = nouvelle
+            if position == 0:  # On retrouve la fonction insertHead en réalité
+                self.insertHead(newData)
+            else :
+                previousNode = self.head
+                for i in range(position-1): #On avance jusqu'à position-1 pour trouver previousNode
+                    previousNode = previousNode.n
+                previousNode.n = Node(newData, previousNode.n)
         ```
+
+        ligne 5 on part de la tête
+        ligne 6 effectuer position-1 saut vers la cellule suivante
+        ligne 7 mémoriser l'identifiant de cette cellule dans predecesseur
+        ligne 8 predecesseur sera la Cellule en position position - 1
 
 ---
 
@@ -1479,6 +1536,12 @@ Avant d'insérer la nouvelle Cellule en position 2, il faut mémoriser les ident
 
     Mais que peut-on dire du coût de la **recherche** de la Cellule `predecesseur` dans le pire des cas ?
 
+    ??? success "❇️ Solution :"
+        Cependant, pour insérer un élément à une position donnée (autre que le début de la liste), il faut d'abord identifier son prédécesseur dans la liste. La recherche du prédécesseur nécessite un parcours séquentiel des nœuds à partir de la tête jusqu'à atteindre la position voulue.
+
+        Dans le pire des cas, cette recherche implique de traverser toute la liste, c'est-à-dire n−1 nœuds pour une liste de taille 
+        n. Le coût est donc linéaire, soit O(n).
+
     ```python
     previousNode = self.head
     for etape in range(1, position):  # On avance jusqu’à (position - 1) pour trouver previous
@@ -1496,9 +1559,10 @@ Avant d'insérer la nouvelle Cellule en position 2, il faut mémoriser les ident
         ➡️ Donc, le coût total de l’insertion dans une liste chaînée est en général O(n), à cause de la recherche du prédécesseur.
 
 
-    ⛅ C’est un peu **décevant** du coup...
-
+    
 ---
+
+⛅ C’est un peu **décevant** du coup...
 
 🔁 On retrouve une **insertion à coût constant**, **mais uniquement si on connaît la cellule précédente**.
 
@@ -1607,14 +1671,14 @@ On parle alors de **concaténation de listes**, comme avec les chaînes de carac
 
         ```python
         def delPosition(self, position):
-            if position == 0:
-                self.head = self.head.n
-            else:
-                predecesseur = self.head
-                for i in range(position - 1):
-                    predecesseur = predecesseur.n
-                cellule_a_supprimer = predecesseur.n
-                predecesseur.n = cellule_a_supprimer.n
+            if not self.isEmpty():
+                if position==0:
+                    self.head = self.head.n
+                else:
+                    newNode = self.head
+                    for i in range(position-1):
+                        newNode = newNode.n
+                    newNode.n = newNode.n.n
         ```
 
 🧠 Cette méthode :
@@ -1651,19 +1715,16 @@ On parle alors de **concaténation de listes**, comme avec les chaînes de carac
 
         ```python
         def readPosition(self, position):
-            if position < 0:
-                raise IndexError("Position négative non autorisée.")
-            current = self.head
-            index = 0
-            while current is not None and index < position:
-                current = current.n
-                index += 1
-            if current is None:
-                raise IndexError("Position hors de la liste.")
-            return current.v
+            if not self.isEmpty():
+                newNode = self.head
+                for i in range(position):
+                    newNode = newNode.n
+                return newNode.v
         ```
 
 ---
+
+!!! info "🧪 Capytale : Structure pile avec les listes de Python (activite_pile_list)"
 
 ## <H2 STYLE="COLOR:BLUE;">🥞 <a name="_toc151667926"></a>**4. Les piles**</H2>
 
@@ -1706,12 +1767,12 @@ Soit une pile P composée des éléments suivants :
 
 ---
 
-!!! info "🧪 Capytale : Structure pile avec les listes de Python"
+
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667928"></a>**4.2. ❤️1<sup>ère</sup> implémentation de la structure pile avec les listes de Python❤️**</H3>
 
 📌 Nous utiliserons une simple liste pour représenter la pile.
-🔧 Les méthodes `append()` et `pop()` jouent déjà les rôles de `empiler()` et `depiler()`.
+🔧 Les méthodes `append()` et `pop()` jouent déjà les rôles de `empiler()` (`push()`) et `depiler()` (`pop()`).
 
 ---
 
@@ -1723,15 +1784,21 @@ Soit une pile P composée des éléments suivants :
 
     ⚠️ **Attention aux effets de bord** :
 
-    **pile += \[element]** :
+    **pile += [element] (opérateur d'addition avec affectation):**
 
-    * ✅ opération **sur place**
-    * ✅ la liste originale est **modifiée directement**
+    - C'est une opération sur place pour les objets mutables comme les listes.
 
-    **pile = pile + \[element]** :
+    - Cela modifie directement la liste originale référencée par pile.
 
-    * ❌ création d’un **nouvel objet**
-    * ❌ peut **rompre la liaison** si la pile est passée par référence
+    - L'objet reste le même en mémoire.
+
+    **pile = pile + [element] (concaténation suivie d'affectation):**
+
+    - C'est une opération de création d'un nouvel objet.
+
+    - L'expression pile + [element] crée une nouvelle liste en concaténant pile et [element].
+
+    - L'affectation pile = ... fait alors pointer le nom pile vers ce nouvel objet. Mais si la variable pile est passée à la fonction par référence (comme c'est souvent le cas avec les objets mutables en Python), cela coupe le lien avec l'objet original.
 
     ```python
     '''Implémentation de type abstrait Pile en utilisant les listes de Python'''
@@ -1779,7 +1846,7 @@ Soit une pile P composée des éléments suivants :
             return []
 
         def estVide(pile):
-            return len(pile) == 0
+            return pile == []
 
         def empiler(pile, element):
             pile.append(element)  # méthode en place
@@ -1787,11 +1854,13 @@ Soit une pile P composée des éléments suivants :
 
         def depiler(pile):
             if not estVide(pile):
-                return pile.pop()
-                # Variante :
-                # dernier = pile[-1]
-                # del pile[-1]
-                # return dernier
+                # 1ère façon 
+                # return pile.pop()
+                
+                # 2ème façon
+                val = pile[-1]  
+                pile[:] = pile[:-1]   # ou del pile[-1] qui est plus performant
+                return val
             return 'Pile vide'
 
         # Programme principal
@@ -1855,19 +1924,15 @@ Soit une pile P composée des éléments suivants :
             return compteur
 
         def sommet(pile):
-            pile_temp = pileVide()
-            sommet_val = None
-            while not estVide(pile):
-                sommet_val = depiler(pile)
-                empiler(pile_temp, sommet_val)
-            while not estVide(pile_temp):
-                empiler(pile, depiler(pile_temp))
-            return sommet_val
+            assert pile, "La pile est vide" 
+            temporary = depiler(pile)
+            empiler(pile, temporary)
+            return temporary
         ```
 
 ---
 
-!!! info "💡 Capytale : Structure pile avec la POO et les lists de Python"
+!!! info "💡 Capytale : Structure pile avec la POO et les lists de Python (activite_pile_POO_list)"
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667929"></a>**4.3. ❤️2<sup>ème</sup> implémentation de la structure pile avec la POO et les lists de Python❤️**</H3>
 
@@ -1933,9 +1998,14 @@ Soit une pile P composée des éléments suivants :
                 # ou : self.pile += [element]
 
             def depiler(self):
-                if not self.estVide():
-                    return self.pile.pop()
-                return "Pile vide"
+                assert not self.estVide(),"Pile vide"
+                # 1ère version
+                # return self.pile.pop() # ou self.pile.pop(-1)
+                
+                # 2ème version
+                val = self.pile[-1]
+                self.pile = self.pile[:-1]
+                return val
 
         if __name__ == '__main__':
             p = Pile()
@@ -1975,32 +2045,30 @@ Soit une pile P composée des éléments suivants :
     >>> p.sommet()
     ```
 
-    🧠 Ici, **tous les coûts d’exécution sont unitaires.**
+
 
     ??? success "✅❇️ Solution :"
 
         ```python
         def taille(self):
-            pile_temp = []
+            q = Pile()
             compteur = 0
             while not self.estVide():
-                pile_temp.append(self.depiler())
+                q.empiler(self.depiler())
                 compteur += 1
-            while pile_temp != []:
-                self.empiler(pile_temp.pop())
+            while not q.estVide():
+                self.empiler(q.depiler())
             return compteur
 
         def sommet(self):
-            pile_temp = []
-            sommet_val = None
-            while not self.estVide():
-                sommet_val = self.depiler()
-                pile_temp.append(sommet_val)
-            while pile_temp != []:
-                self.empiler(pile_temp.pop())
-            return sommet_val
+            assert not self.estVide(), "Pile vide"
+            temporary = self.depiler()
+            self.empiler(temporary)
+            return temporary
+
         ```
 
+🧠 Ici, **tous les coûts d’exécution sont unitaires.**
 ---
 
 ???+ question "🖨️ Activité n° 30 : Affichage d’une pile (POO + liste)"
@@ -2032,7 +2100,7 @@ Soit une pile P composée des éléments suivants :
 
 
 
-!!! info "Capytale : Structure pile avec la POO et les listes chainée"
+!!! info "Capytale : Structure pile avec la POO et les listes chainée (activite_pile_POO)"
 
 
 
@@ -2071,6 +2139,38 @@ La version à une classe est plus simple, elle peut être suffisante, mais les p
             pass
     ```
 
+    ??? success "✅ Solution :"
+
+        ```python
+        class Pile:
+            def __init__(self, value=None, next=None):
+                self.v = value
+                self.n = next
+
+            def estVide(self):
+                return self.v is None and self.n is None
+
+            def empiler(self, element):
+                if self.estVide():
+                    self.v = element
+                else:
+                    self.n = Pile(self.v, self.n)
+                    self.v = element
+
+            def depiler(self):
+                if self.estVide():
+                    return "Pile vide"
+                elif self.n is None:
+                    val = self.v
+                    self.v = None
+                    return val
+                else:
+                    val = self.v
+                    self.v = self.n.v
+                    self.n = self.n.n
+                    return val
+        ```
+
     🖥️ Que faut-il écrire dans la console pour :
 
     1. Créer une pile `p` ?
@@ -2078,6 +2178,22 @@ La version à une classe est plus simple, elle peut être suffisante, mais les p
     3. Empiler dans `p` : Lundi, Mardi, Mercredi
     4. Tester si `p` est vide ?
     5. Dépiler toute la pile `p`
+
+    ??? success "✅ Solution :"
+        ```
+        p = Pile()
+        p.estVide()
+
+        P.empiler('Lundi')
+        p.empiler('Mardi')
+        p.empiler('Mercredi')
+
+        p.estVide()
+
+        p.depiler()
+        p.depiler()
+        p.depiler()
+        ```
 
     📝 **Remarque** : on pourra afficher les piles construites en ajoutant la méthode `__str__`
 
@@ -2135,23 +2251,17 @@ La version à une classe est plus simple, elle peut être suffisante, mais les p
                     self.n = self.n.n
                     return val
 
-            def __str__(self):
-                if self.estVide():
-                    return "[]"
-                valeurs = []
-                p = Pile(self.v, self.n)
-                while not p.estVide():
-                    valeurs.append(p.depiler())
-                for v in reversed(valeurs):
-                    self.empiler(v)
-                return str(valeurs)
+            def __str__(self): # on peut mettre __repr__ à la place pour éviter de taper print
+                return str(self.v) + "-" + str(self.n)
 
             def taille(self):
-                temp = Pile(self.v, self.n)
+                q = Pile()
                 compteur = 0
-                while not temp.estVide():
-                    temp.depiler()
+                while not self.estVide():
+                    q.empiler(self.depiler())
                     compteur += 1
+                while not q.estVide():
+                    self.empiler(q.depiler())
                 return compteur
 
             def sommet(self):
@@ -2192,29 +2302,7 @@ La version à une classe est plus simple, elle peut être suffisante, mais les p
             pass
     ```
 
-    🖥️ Que faut-il écrire dans la console pour :
-
-    1. Créer une pile `p` ?
-    2. Tester si `p` est vide ?
-    3. Empiler dans `p` : Lundi, Mardi, Mercredi
-    4. Tester si `p` est vide ?
-    5. Dépiler toute la pile `p`
-
-    📝 **Remarque** : On pourra afficher les piles construites avec les fonctions `afficherListe` et `recupererValeur` des Listes chaînées :
-
-    ```python
-    def afficherListe(L):
-        tableau = recupererValeur(L.cellule)
-        return str(tuple(tableau))
-
-    def recupererValeur(cellule):
-        if cellule.n == None:
-            return [cellule.v]
-        else:
-            return [cellule.v] + recupererValeur(cellule.n)
-    ```
-
-    ??? success "✅❇️ Solution :"
+        ??? success "✅❇️ Solution :"
 
         ```python
         class Node:
@@ -2238,8 +2326,50 @@ La version à une classe est plus simple, elle peut être suffisante, mais les p
                 else:
                     val = self.cellule.v
                     self.cellule = self.cellule.n
-                    return val
+                    return vaL
+        ```
 
+    🖥️ Que faut-il écrire dans la console pour :
+
+    1. Créer une pile `p` ?
+    2. Tester si `p` est vide ?
+    3. Empiler dans `p` : Lundi, Mardi, Mercredi
+    4. Tester si `p` est vide ?
+    5. Dépiler toute la pile `p`
+
+    ??? success "✅❇️ Solution :"
+        ```
+        p = Pile()
+        p.estVide()
+
+        p.empiler('Lundi')
+        p.empiler('Mardi')
+        p.empiler('Mercredi')
+
+        p.estVide()
+
+        p.depiler()
+        p.depiler()
+        p.depiler()
+        ```
+
+    📝 **Remarque** : On pourra afficher les piles construites avec les fonctions `afficherListe` et `recupererValeur` des Listes chaînées :
+
+    ```python
+    def afficherListe(L):
+        tableau = recupererValeur(L.cellule)
+        return str(tuple(tableau))
+
+    def recupererValeur(cellule):
+        if cellule.n == None:
+            return [cellule.v]
+        else:
+            return [cellule.v] + recupererValeur(cellule.n)
+    ```
+
+    ??? success "✅❇️ Solution :"
+
+        ```python
         def afficherListe(L):
             tableau = recupererValeur(L.cellule)
             return str(tuple(tableau))
@@ -2251,6 +2381,11 @@ La version à une classe est plus simple, elle peut être suffisante, mais les p
                 return [cellule.v]
             else:
                 return [cellule.v] + recupererValeur(cellule.n)
+        p = Pile()
+        p.empiler('Lundi')
+        p.empiler('Mardi')
+        p.empiler('Mercredi')
+        afficherListe(p)
         ```
 
 ---
@@ -2285,17 +2420,26 @@ La version à une classe est plus simple, elle peut être suffisante, mais les p
 
         ```python
         def taille(self):
+            q = Pile()
             compteur = 0
-            courant = self.cellule
-            while courant is not None:
+            while not self.estVide():
+                q.empiler(self.depiler())
                 compteur += 1
-                courant = courant.n
+            while not q.estVide():
+                self.empiler(q.depiler())
             return compteur
 
         def sommet(self):
             if self.cellule is None:
                 return "Pile vide"
             return self.cellule.v
+
+        p = Pile()
+        p.empiler('Lundi')
+        p.empiler('Mardi')
+        p.empiler('Mercredi')
+        print(p.taille())
+        print(p.sommet())
         ```
 
 ---
@@ -2307,17 +2451,19 @@ La version à une classe est plus simple, elle peut être suffisante, mais les p
     * `taille2` : retourne la taille de la pile
     * `sommet2` : retourne le sommet de la pile
 
-    📺 **[Vidéo – Le crêpier psychorigide](https://ladigitale.dev/digiview/#/v/66b7280a8b3b5)**
+
 
     ??? success "✅ Solution :"
 
         ```python
         def taille2(pile):
+            q = Pile()
             compteur = 0
-            courant = pile.cellule
-            while courant is not None:
+            while not pile.estVide():
+                q.empiler(pile.depiler())
                 compteur += 1
-                courant = courant.n
+            while not q.estVide():
+                pile.empiler(q.depiler())
             return compteur
 
         def sommet2(pile):
@@ -2326,7 +2472,11 @@ La version à une classe est plus simple, elle peut être suffisante, mais les p
             return pile.cellule.v
         ```
 
+📺 **[Vidéo – Le crêpier psychorigide](https://ladigitale.dev/digiview/#/v/66b7280a8b3b5)**
+
 ---
+
+!!! info "Capytale : Structure file avec les listes de Python (activite_file_list)"
 
 ## <H2 STYLE="COLOR:BLUE;">🛒 <a name="_toc151667931"></a>**5. Les files**</H2>
 
@@ -2370,7 +2520,7 @@ Soit une file `F` composée de `12, 14, 8, 7, 19, 22`
 
 ---
 
-!!! info "Capytale : Structure file avec les listes de Python"
+
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667933"></a>**5.2. ❤️1<sup>ère</sup> implémentation de la structure file avec les listes de Python❤️**</H3>
 
@@ -2391,10 +2541,25 @@ mais :
 
     ⚠️ **Attention aux effets de bord :**
 
-    * `file += [element]` : ✅ en place, modifie l’objet
-    * `file = file + [element]` : ❌ recrée une nouvelle liste, coupe le lien
+    **file += [element] (opérateur d'addition avec affectation):**
 
-    ⚠️ Même chose pour `file = file[1:]` qui ne modifie pas la liste passée en paramètre.
+    - C'est une opération sur place pour les objets mutables comme les listes.
+
+    - Cela modifie directement la liste originale référencée par file.
+
+    - L'objet reste le même en mémoire.
+
+    **file = file + [element] (concaténation suivie d'affectation):**
+
+    - C'est une opération de création d'un nouvel objet.
+
+    - L'expression file + [element] crée une nouvelle liste en concaténant file et [element].
+
+    - L'affectation file = ... fait alors pointer le nom pile vers ce nouvel objet. Mais si la variable pile est passée à la fonction par référence (comme c'est souvent le cas avec les objets mutables en Python), cela coupe le lien avec l'objet original.
+
+    De la même manière
+
+    **file = file[1:]** crée une nouvelle liste et réaffecte la variable file localement dans la fonction. Cela ne modifie pas l'objet d'origine si vous utilisez la liste en dehors de la fonction (par exemple, une liste passée en argument). Pour corriger cela, vous devez modifier la liste en place.
 
     ```python
     '''Implémentation de type abstrait File en utilisant les listes de Python'''
@@ -2443,13 +2608,23 @@ mais :
             return file == []
 
         def enfiler(file, element):
-            file.append(element)
-            # ou : file += [element]
+            # 1ère façon 
+            #file.append(element) 
+            
+            # 2ème façon
+            file += [element]
 
         def defiler(file):
             if not estVide(file):
-                return file.pop(0)
-            return "File vide"
+                # 1ère façon 
+                # return file.pop(0)
+                
+                # 2ème façon      
+                valeur = file[0]
+                file[:] = file[1:] # ou del file[0] qui est plus performant
+                return valeur
+            else:
+                return 'File vide'
 
         # Programme principal
         if __name__ == '__main__':
@@ -2507,22 +2682,21 @@ mais :
             return compteur
 
         def sommet(file):
-            file_temp = fileVide()
-            sommet_val = None
-            if not estVide(file):
-                sommet_val = defiler(file)
-                enfiler(file_temp, sommet_val)
+            assert not estVide(file), "File vide"
+            temporary = defiler(file)
+            q = fileVide()
+            enfiler(q, temporary)
             while not estVide(file):
-                enfiler(file_temp, defiler(file))
-            while not estVide(file_temp):
-                enfiler(file, defiler(file_temp))
-            return sommet_val
+                enfiler(q, defiler(file))
+            while not estVide(q):
+                enfiler(file, defiler(q))
+            return temporary
         ```
 
 ---
 
 
-!!! info "Capytale : Structure file avec la POO et les lists de Python"
+!!! info "Capytale : Structure file avec la POO et les lists de Python(activite_file_POO_list)"
 
 
 
@@ -2538,11 +2712,25 @@ mais :
 
     ⚠️ **Attention** :
 
-    * `file += [element]` ➜ modifie **l'objet original** (en place ✅)
+    **file += [element] (opérateur d'addition avec affectation):**
 
-    * `file = file + [element]` ➜ crée un **nouvel objet** (hors de la portée initiale ❌)
+    - C'est une opération sur place pour les objets mutables comme les listes.
 
-    * `file = file[1:]` ne modifie pas la file d'origine (hors de la fonction)
+    - Cela modifie directement la liste originale référencée par file.
+
+    - L'objet reste le même en mémoire.
+
+    **file = file + [element] (concaténation suivie d'affectation):**
+
+    - C'est une opération de création d'un nouvel objet.
+
+    - L'expression file + [element] crée une nouvelle liste en concaténant file et [element].
+
+    - L'affectation file = ... fait alors pointer le nom pile vers ce nouvel objet. Mais si la variable pile est passée à la fonction par référence (comme c'est souvent le cas avec les objets mutables en Python), cela coupe le lien avec l'objet original.
+
+    De la même manière
+
+    **file = file[1:]** crée une nouvelle liste et réaffecte la variable file localement dans la fonction. Cela ne modifie pas l'objet d'origine si vous utilisez la liste en dehors de la fonction (par exemple, une liste passée en argument). Pour corriger cela, vous devez modifier la liste en place.
 
     ```python
     '''Implémentation 3 de type abstrait Liste en utilisant la POO et les listes de Python'''
@@ -2598,8 +2786,16 @@ mais :
 
             def defiler(self):
                 if not self.estVide():
-                    return self.file.pop(0)
-                return "File vide"
+                    # 1ère façon 
+                    # return self. file.pop(0)
+                
+                    # 2ème façon
+                    valeur = self.file[0]
+                    self.file[:] = self.file[1:] # ou del self.file[0] qui est plus performant
+                    return valeur
+        else:
+            return 'File vide'
+
         # Programme principal
         if __name__ == '__main__':
             ma_file = File()
@@ -2642,32 +2838,31 @@ mais :
         assert ma_file.sommet() == 'Lundi'
     ```
 
-    📎 Tous les **coûts d’exécution sont unitaires.**
+
 
     ??? success "✅ Solution :"
 
         ```python
         def taille(self):
-            file_temp = []
+            g = File()
             compteur = 0
             while not self.estVide():
-                file_temp.append(self.defiler())
+                g.enfiler(self.defiler())
                 compteur += 1
-            while file_temp != []:
-                self.enfiler(file_temp.pop(0))
+            while not g.estVide():
+                self.enfiler(g.defiler())
             return compteur
 
         def sommet(self):
-            file_temp = []
-            sommet_val = None
-            if not self.estVide():
-                sommet_val = self.defiler()
-                file_temp.append(sommet_val)
+            assert not self.estVide(), "File vide"
+            temporary = self.defiler()
+            g = File()
+            g.enfiler(temporary)
             while not self.estVide():
-                file_temp.append(self.defiler())
-            while file_temp != []:
-                self.enfiler(file_temp.pop(0))
-            return sommet_val
+                g.enfiler(self.defiler())
+            while not g.estVide():
+                self.enfiler(g.defiler())
+            return temporary
         
         # Programme principal
         if __name__ == '__main__':
@@ -2678,6 +2873,8 @@ mais :
             assert ma_file.taille() == 3
             assert ma_file.sommet() == 'Lundi'
         ```
+
+📎 Tous les **coûts d’exécution sont unitaires.**
 
 ---
 
@@ -2705,6 +2902,8 @@ mais :
             return self.file
         ```
 
+Cette implémentation est très peu efficace
+
 ---
 
 ???+ question "📘 Activité : Fonctions `taille2` et `sommet2` (version fonctionnelle)"
@@ -2731,22 +2930,16 @@ mais :
             return compteur
 
         def sommet2(file):
-            file_temp = File()
-            sommet_val = None
-            if not file.estVide():
-                sommet_val = file.defiler()
-                file_temp.enfiler(sommet_val)
-            while not file.estVide():
-                file_temp.enfiler(file.defiler())
-            while not file_temp.estVide():
-                file.enfiler(file_temp.defiler())
-            return sommet_val
+            assert not file.estVide(), "File vide"
+            premier = file.defiler()
+            file.enfiler(premier)
+            return premier
         ```
 
 ---
 
 
-!!! info "Capytale : structure file avec la POO et une liste chainée"
+!!! info "Capytale : structure file avec la POO et une liste chainée (activite_file_POO)"
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667935"></a>**5.4. ❤️3<sup>ème</sup> implémentation de la structure file avec la POO et une liste chainée❤️**</H3>
 
@@ -2779,6 +2972,18 @@ mais :
             self.head = ...
     ```
 
+    ??? success "✅ Solution :"
+        ```python
+        class Node:
+            def __init__(self, value = None, next = None):
+                self.v = value
+                self.n = next
+
+        class File:
+            def __init__(self, c=None):
+                self.head = c
+        ```
+
     🧪 Tester :
 
     ```python
@@ -2790,6 +2995,62 @@ mais :
     * `estVide()`
     * `enfiler()` et `defiler()` → version : enfiler par la tête et défiler par la queue (**plus compliquée**)
     * `enfiler2()` et `defiler2()` → version : enfiler par la queue et défiler par la tête (**plus simple**)
+
+    ??? success "✅ Solution :"
+        ```python
+        class Node:
+            def __init__(self, value = None, next = None):
+                self.v = value
+                self.n = next
+
+        class File:
+            def __init__(self, c=None):
+                self.head = c
+
+            def estVide(self):
+                return self.head is None
+            
+            
+            def enfiler(self, element):
+                ### version enfiler par la tête et défiler par la queue
+                self.head = Node(element, self.head)
+
+            def defiler(self):
+                ### version enfiler par la tête et défiler par la queue
+                if not self.estVide():
+                    newNode = self.head
+                    if newNode.n == None: # cas d'une seule valeur
+                        val = newNode.v 
+                        self.head = None
+                        return val
+                        
+                    while not newNode.n.n == None: # on s'arrête à l'avant dernier
+                        newNode = newNode.n
+                    val = newNode.n.v
+                    newNode.n = None
+                    return val
+                else:
+                    return 'File vide'
+            
+            def enfiler2(self, element):
+                ### version enfiler par la queue et défiler par la tete
+                if self.estVide():
+                    self.head = Node(element)
+                else:
+                    tmp = self.head
+                    while tmp.n != None :
+                        tmp = tmp.n
+                    tmp.n = Node(element)
+            
+            def defiler2(self):
+                ### version enfiler par la queue et défiler par la tete
+                if not self.estVide():
+                    val = self.head.v
+                    self.head = self.head.n
+                    return val
+                else:
+                    return 'File vide'
+        ```
 
     🧪 Tester :
 
@@ -2818,6 +3079,7 @@ mais :
 
     * Sommet (à gauche)
     * Queue (à droite)
+
 
     ```python
     class Node:
@@ -2859,7 +3121,34 @@ mais :
     f.enfiler2('Mercredi')
     ```
 
-
+    ??? success "✅ Solution :"
+        ```python
+        #"""
+        def __str__(self):
+            ### version enfiler par la queue et défiler par la tete
+            if self.head is None:
+                return "[]"
+            result=[]
+            currentNode = self.head
+            while not currentNode == None:
+                result.append(str(currentNode.v))
+                currentNode = currentNode.n
+            return str(result)
+            
+            
+            """
+            def __str__(self):  # on peut mettre __repr__ à la place pour éviter de taper print
+                if self.head is None:
+                    raise IndexError("File vide")
+                else:
+                    result = str(self.head.v)
+                    next_node = self.head.n
+                    while next_node is not None:
+                        result =  str(next_node.v)+" - "  +result
+                        next_node = next_node.n
+                    return result
+            """
+        ```
 
     🎯 Compléter les deux méthodes suivantes : `taille()` et `sommet()`
     (On utilisera `enfiler2()` et `defiler2()` → version plus simple)
@@ -2905,6 +3194,22 @@ mais :
     f.enfiler2('Mercredi')
     ```
 
+    ??? success "✅ Solution :"
+        ```python
+        def taille(self):
+            compteur = 0
+            currentNode = self.head
+            while currentNode is not None:
+                compteur += 1
+                currentNode = currentNode.n
+            return compteur
+        
+        def sommet(self):
+            if self.estVide():
+                return 'File vide'
+            return self.head.v
+        ```
+
     🧪 Tester
 
 
@@ -2912,6 +3217,21 @@ mais :
     🎯 Ajouter deux fonctions hors classe : `taille(file)` et `sommet(file)`
     (utiliser également `enfiler2()` et `defiler2()`)
 
+    ??? success "✅ Solution :"
+        ```python
+        def taille2(file):
+            count = 0
+            tmp = file.head
+            while tmp is not None:
+                count += 1
+                tmp = tmp.n
+            return count
+
+        def sommet2(file):
+            if file.estVide():
+                return "File vide"
+            return file.head.v
+        ```
     🧪 Tester
 
 
@@ -2925,127 +3245,31 @@ mais :
     ??? success "✅ Solution :"
 
         ```python
-        class Node:
-            def __init__(self, value=None, next=None):
-                self.v = value
-                self.n = next
-
-        class File:
-            def __init__(self, c=None):
-                self.head = c
-                self.queue = c
-
-            def estVide(self):
-                return self.head is None
-
-            def enfiler(self, element):
-                nouveau = Node(element, self.head)
-                self.head = nouveau
-                if self.queue is None:
-                    self.queue = nouveau
-
-            def defiler(self):
-                if self.estVide():
-                    return "File vide"
-                if self.head.n is None:
-                    val = self.head.v
-                    self.head = None
-                    self.queue = None
-                    return val
-                prec = self.head
-                curr = self.head.n
-                while curr.n is not None:
-                    prec = curr
-                    curr = curr.n
-                prec.n = None
-                self.queue = prec
-                return curr.v
-
-            def enfiler2(self, element):
-                nouveau = Node(element)
-                if self.estVide():
-                    self.head = nouveau
-                    self.queue = nouveau
-                else:
-                    self.queue.n = nouveau
-                    self.queue = nouveau
-
-            def defiler2(self):
-                if self.estVide():
-                    return "File vide"
-                val = self.head.v
-                self.head = self.head.n
-                if self.head is None:
-                    self.queue = None
-                return val
-
-            def __str__(self):
-                if self.head is None:
-                    return "[]"
-                else:
-                    res = []
-                    courant = self.head
-                    while courant is not None:
-                        res.append(courant.v)
-                        courant = courant.n
-                    return str(res)
-
-            def taille(self):
-                aux = File()
-                compteur = 0
-                while not self.estVide():
-                    val = self.defiler2()
-                    aux.enfiler2(val)
-                    compteur += 1
-                while not aux.estVide():
-                    self.enfiler2(aux.defiler2())
-                return compteur
-
-            def sommet(self):
-                aux = File()
-                sommet = None
-                while not self.estVide():
-                    val = self.defiler2()
-                    if sommet is None:
-                        sommet = val
-                    aux.enfiler2(val)
-                while not aux.estVide():
-                    self.enfiler2(aux.defiler2())
-                return sommet
-
-        def taille(file):
-            aux = File()
-            compteur = 0
-            while not file.estVide():
-                val = file.defiler2()
-                aux.enfiler2(val)
-                compteur += 1
-            while not aux.estVide():
-                file.enfiler2(aux.defiler2())
-            return compteur
-
-        def sommet(file):
-            aux = File()
-            sommet = None
-            while not file.estVide():
-                val = file.defiler2()
-                if sommet is None:
-                    sommet = val
-                aux.enfiler2(val)
-            while not aux.estVide():
-                file.enfiler2(aux.defiler2())
-            return sommet
-
+        #version avec une list
         def afficherFile(file):
-            aux = File()
-            valeurs = []
-            while not file.estVide():
-                val = file.defiler2()
-                valeurs.append(val)
-                aux.enfiler2(val)
-            while not aux.estVide():
-                file.enfiler2(aux.defiler2())
-            return valeurs
+            result=[]
+            if file.head is None:
+                return "File vide"
+            else:
+                result.append(file.head.v)
+                next_node = file.head.n
+                while next_node is not None:
+                    result.append(next_node.v)
+                    next_node = next_node.n
+                return result
+
+        """
+        def afficherFile(file):
+            if file.head is None:
+                return "File vide"
+            else:
+                result = str(file.head.v)
+                next_node = file.head.n
+                while next_node is not None:
+                    result += " - " + str(next_node.v)
+                    next_node = next_node.n
+                return result
+        """
         ```
 
 
@@ -3149,30 +3373,31 @@ On va améliorer l'efficacité avec **2 pointeurs** : l'un vers la **tête** et 
                 return self.head is None
 
             def enfiler(self, element):
-                nouveau = Node(element, self.head)
-                self.head = nouveau
-                if self.queue is None:
-                    self.queue = nouveau
+                ### version enfiler par la tête et défiler par la queue
+                newNode = Node(element)
+                if self.estVide():
+                    self.head = self.queue = newNode
+                else:
+                    newNode.n = self.head
+                    self.head = newNode
 
             def defiler(self):
+                ### version enfiler par la tête et défiler par la queue
                 if self.estVide():
-                    return "File vide"
+                    return 'File vide'
                 
-                if self.head.n is None:
+                if self.head == self.queue: # Si la file n'a qu'un seul élément
                     val = self.head.v
                     self.head = None
                     self.queue = None
                     return val
-
-                prec = self.head
-                curr = self.head.n
-                while curr.n is not None:
-                    prec = curr
-                    curr = curr.n
-                
-                val = curr.v
-                prec.n = None
-                self.queue = prec
+                # Sinon, on doit parcourir la liste pour trouver l'avant-dernier nœud
+                currentNode = self.head
+                while currentNode.n != self.queue:
+                    currentNode = currentNode.n
+                val = self.queue.v
+                currentNode.n = None
+                self.queue = currentNode
                 return val
 
             def enfiler2(self, element):
@@ -3184,25 +3409,53 @@ On va améliorer l'efficacité avec **2 pointeurs** : l'un vers la **tête** et 
                     self.queue.n = nouveau
                     self.queue = nouveau
 
-            def defiler2(self):
+            def enfiler2(self, element):
+                ### version enfiler par la queue et défiler par la tete
+                newNode = Node(element) 
                 if self.estVide():
-                    return "File vide"
-                val = self.head.v
-                self.head = self.head.n
-                if self.head is None:
-                    self.queue = None
-                return val
+                    self.head = self.queue = newNode
+                else:
+                    self.queue.n = newNode  # L'ancien dernier nœud pointe vers le nouveau nœud
+                    self.queue = newNode    # La queue est mise à jour pour pointer vers le nouveau nœud
 
+            def defiler2(self):
+                ### version enfiler par la queue et défiler par la tete
+                if not self.estVide():
+                    val = self.head.v
+                    self.head = self.head.n
+                    if self.head is None:  # Si la tête devient vide, la file est vide
+                        self.queue = None
+                    return val
+                else:
+                    raise IndexError("File vide")
+
+            #"""
             def __str__(self):
+                ### version enfiler par la queue et défiler par la tete
                 if self.head is None:
                     return "[]"
+                result=[]
+                currentNode = self.head
+                while not currentNode == None:
+                    result.append(str(currentNode.v))
+                    currentNode = currentNode.n
+                return str(result)
+    
+       
+    
+            """        
+            def __str__(self):  # on peut mettre __repr__ à la place pour éviter de taper print
+                if self.head is None:
+                    raise IndexError("File vide")
                 else:
-                    res = []
-                    courant = self.head
-                    while courant is not None:
-                        res.append(courant.v)
-                        courant = courant.n
-                    return str(res)
+                    result = str(self.head.v)
+                    next_node = self.head.n
+                    while next_node is not None:
+                        result += " - " + str(next_node.v)
+                        next_node = next_node.n
+                    return result
+            """
+        
         ```
 
 ---
@@ -3211,7 +3464,7 @@ On va améliorer l'efficacité avec **2 pointeurs** : l'un vers la **tête** et 
 
 
 
-!!! info "Capytale : Utilisation de deque"
+!!! info "Capytale : Utilisation de deque (activite_deque)"
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667936"></a>**5.5. Autre implémentation des files avec les bibliothèques de Python**</H3>
 
@@ -3402,9 +3655,7 @@ Les **piles** et **files** sont des structures fondamentales.
 
 
 
-Voici la suite de ton cours, structurée avec clarté et enrichie d’icônes pour plus d’attrait, tout en **préservant les ❤️ et les formulations d’origine** :
 
----
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667937"></a>**5.6. 🔁 Piles vs Files :**</H3>
 
@@ -3688,7 +3939,7 @@ print(sha256_hash)  # Exemple d'empreinte : 9e31b9c8c694b1616dfd28481f54741a421d
 
     {{ IDE() }}
 
-!!! info "Capytale : Utilisation des dictionnaires"
+!!! info "Capytale : Utilisation des dictionnaires (activite_dico)"
 
 
 
@@ -3728,7 +3979,7 @@ print(sha256_hash)  # Exemple d'empreinte : 9e31b9c8c694b1616dfd28481f54741a421d
     }
     ```
 
-    🐾 On veut créer une fonction `plus_grand_nombre()` qui retourne l’animal **le plus représenté** dans un zoo donné.
+    On veut créer une fonction `plus_grand_nombre()` qui retourne l’animal **le plus représenté** dans un zoo donné.
 
     ```python
     assert plus_grand_nombre(zoo_LaFleche) == 'girafe'
@@ -3740,9 +3991,13 @@ print(sha256_hash)  # Exemple d'empreinte : 9e31b9c8c694b1616dfd28481f54741a421d
     ```python
     for cle in dico.keys()
     for valeur in dico.values()
-    ✅ for (cle, valeur) in dico.items()
-    ❌ Aucune boucle.
+    for (cle, valeur) in dico.items()
+    Aucune boucle.
     ```
+    ??? success "❇️ Solution :"
+        ```
+        ✅ for (cle, valeur) in dico.items()
+        ```
 
     2️⃣ ✏️ Écriture de la fonction :
 
@@ -3750,13 +4005,13 @@ print(sha256_hash)  # Exemple d'empreinte : 9e31b9c8c694b1616dfd28481f54741a421d
 
         ```python
         def plus_grand_nombre(zoo):
-            max_nombre = 0
-            animal_max = ''
-            for (animal, (continent, nb)) in zoo.items():
-                if nb > max_nombre:
-                    max_nombre = nb
-                    animal_max = animal
-            return animal_max
+                max_nombre = 0
+                animal_max = None
+                for animal, tple in zoo.items():
+                    if tple[1] > max_nombre:
+                        max_nombre = tple[1]
+                        animal_max = animal
+                return animal_max
         ```
 
 
@@ -3773,9 +4028,12 @@ print(sha256_hash)  # Exemple d'empreinte : 9e31b9c8c694b1616dfd28481f54741a421d
     ```python
     for cle in dico.keys()
     for valeur in dico.values()
-    ✅ for (cle, valeur) in dico.items()
-    ❌ Aucune boucle.
+    for (cle, valeur) in dico.items()
+    Aucune boucle.
     ```
+
+    ??? success "❇️ Solution :"
+        ```✅ for (cle, valeur) in dico.items()```
 
     4️⃣ ✏️ Écriture de la fonction :
 
@@ -3805,8 +4063,11 @@ print(sha256_hash)  # Exemple d'empreinte : 9e31b9c8c694b1616dfd28481f54741a421d
     for cle in dico.keys()
     for valeur in dico.values()
     for (cle, valeur) in dico.items()
-    ✅ Aucune boucle.
+    Aucune boucle.
     ```
+
+    ??? success "❇️ Solution :"
+        ```✅ Aucune boucle```
 
     6️⃣ ✏️ Écriture de la fonction :
 
