@@ -11,7 +11,7 @@ title: 06a Les arbres
 
 [3.	🌿 Les arbres binaires](#_toc149141389)
 
-[4.	Le parcours en profondeur des arbres binaires](#_toc149141398)
+[4.	👣 Le parcours en profondeur des arbres binaires](#_toc149141398)
 
 [5.	Parcours en largeur d’un arbre binaire](#_toc149141406)
 
@@ -600,7 +600,7 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141394"></a>**3.5. ❤️1<sup>ère</sup> implémentation de la structure ARBRE BINAIRE sous forme de tuple❤️**</H3>
 
 
-!!! info "🧠 Capytale : Structure liste (chaînée) avec des tuples"(arbre_binaire_tuple).
+!!! info "🧠 Capytale : arbre_binaire_tuple"
 
 ???+ question "🧩 Activité n° 12 : Arbres binaires et les fonctions"
 
@@ -641,13 +641,16 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
             return (e, g, d)
 
         def etiquette(arbre):
-            return arbre[0]
+            if arbre :
+                return arbre[0]
 
         def gauche(arbre):
-            return arbre[1]
+            if arbre :
+                return arbre[1]
 
         def droit(arbre):
-            return arbre[2]
+            if arbre :
+                return arbre[2]
 
         def estVide(arbre):
             return arbre is None
@@ -726,12 +729,13 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
 
 
 ---
+!!! info "🧠 Capytale : arbre_binaire_POO_v1"
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141395"></a>**3.6. ❤️2<sup>ème</sup> implémentation de la structure ARBRE BINAIRE avec la POO et une classe❤️**</H3>
 
 
 
-📎 **CAPYTALE** : Le code vous sera donné par votre enseignant (arbre_binaire_POO_v1).
+
 
 ???+ question "🔧 Activité n° 16 : Arbres binaires et POO – Méthode de Huffman simplifiée"
 
@@ -762,8 +766,9 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
                 return self.valeur is None
         ```
 
-        - `__init__` initialise un nœud avec une valeur et deux sous-arbres gauche (g) et droit (d).  
-        - `estVide` permet de tester si le nœud est vide, c’est-à-dire si sa valeur est `None`.
+        `__init__(self, valeur=None, g=None, d=None)`	Constructeur de la classe. Il initialise un nœud avec une valeur (valeur) et des références aux sous-arbres gauche (g) et droit (d). Par défaut, le nœud est vide (valeur None).
+
+        `estVide(self)`	Méthode qui retourne True si le nœud est vide, c'est-à-dire si sa valeur est None. Cela permet de savoir si l'arbre contient des données ou non.
 
 
 ???+ question "🌲 Activité n° 17 : Construire un arbre avec la classe Noeud"
@@ -806,9 +811,22 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
         arbre = Noeud('A', B, C)
 
         # Arbre T
+        # Création de la racine
         T = Noeud('A')
+
+        # Ajout du sous-arbre gauche et droit de A
         T.g = Noeud('B')
         T.d = Noeud('C')
+
+        # Ajout des sous-arbres de B
+        T.g.g = Noeud('D')
+        T.g.d = Noeud('E')
+
+        # Ajout du sous-arbre gauche de E
+        T.g.d.g = Noeud('F')
+
+        # Ajout du sous-arbre droite de F
+        T.g.d.g.d = Noeud('G')
         ```
 
 
@@ -914,14 +932,15 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
 
         ```python
         def hauteur2(self):
-            if self.g is None and self.d is None:
-                return 1
-            elif self.g is None:
-                return 1 + self.d.hauteur2()
-            elif self.d is None:
-                return 1 + self.g.hauteur2()
-            else:
-                return 1 + max(self.g.hauteur2(), self.d.hauteur2())
+                """
+                Méthode calculant la hauteur de l'arbre.
+                """
+                if self is None or self.estVide():  # Vérifie si l'arbre est vide
+                    return 0
+                else:
+                    hauteur_gauche = self.g.hauteur2() if self.g else 0
+                    hauteur_droite = self.d.hauteur2() if self.d else 0
+                    return 1 + max(hauteur_gauche, hauteur_droite)
         ```
 
 ---
@@ -961,25 +980,24 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
 
         ```python
         def taille2(self):
-            if self.g is None and self.d is None:
-                return 1
-            elif self.g is None:
-                return 1 + self.d.taille2()
-            elif self.d is None:
-                return 1 + self.g.taille2()
-            else:
-                return 1 + self.g.taille2() + self.d.taille2()
+        """
+        Méthode calculant le nombre total de nœuds de l'arbre.
+        """
+        if self is None or self.estVide():  # Vérifie si l'arbre est vide
+            return 0
+        else:
+            taille_gauche = self.g.taille2() if self.g else 0
+            taille_droite = self.d.taille2() if self.d else 0
+            return 1 + taille_gauche + taille_droite
         ```
 
 ---
 
+!!! info "🧠 Capytale : arbre_binaire_POO_v2"
+
 ### <H3 STYLE="COLOR:green;">3.7. ❤️ 3<sup>ème</sup> implémentation de la structure ARBRE BINAIRE avec la POO avec 2 classes ❤️</H3>
 
 
-
-📎 **CAPYTALE : Le code vous sera donné par votre enseignant (arbre_binaire_POO_v2)**
-
----
 
 ???+ question "🌲 Activité n° 23 : Arbres binaires et POO : Méthode de Huffman simplifiée"
 
@@ -1028,7 +1046,7 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
             pass
     ```
 
-    🧠 On peut noter que pour faire l’appel d’un attribut d’une autre classe, par exemple `valeur`, il faut remonter au constructeur de la classe Arbre. Ainsi on notera `self.noeud.valeur` dans la classe Arbre.
+    
 
     ??? success "❇️ Solution :"
 
@@ -1050,11 +1068,28 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
                 return self.noeud.valeur
 
             def get_gauche(self):
-                return self.noeud.g
+                """
+                Retourne le sous-arbre gauche.
+                """
+                if self.noeud:
+                    return Arbre(self.noeud.g)
+                #version 2 return self.noeud.g mais
+                # Vous accédez directement au sous-noeud gauche ou droit, sans 
+                # le "remettre dans un objet Arbre". Cela brise un peu l'encapsulation 
+                # de la structure : vous obtenez un objet Noeud brut, pas un Arbre, 
+                # donc vous ne pouvez pas enchaîner les méthodes d'Arbre dessus.
 
             def get_droit(self):
-                return self.noeud.d
+                """
+                Retourne le sous-arbre droit.
+                """
+                if self.noeud:
+                    return Arbre(self.noeud.d)
+                # meme remarque que précédement
         ```
+    
+
+🧠 On peut noter que pour faire l’appel d’un attribut d’une autre classe, par exemple `valeur`, il faut remonter au constructeur de la classe Arbre. Ainsi on notera `self.noeud.valeur` dans la classe Arbre.
 
 ---
 
@@ -1082,34 +1117,26 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
 
     ??? success "❇️ Solution :"
         ```python
-        class Noeud:
-            def __init__(self, valeur):
-                self.valeur = valeur
-                self.g = None
-                self.d = None
+        E = Noeud('E')
+        D = Noeud('D')
+        C = Noeud('C')
+        B = Noeud('B', D, E)
+        A = Noeud('A', B, C)
+        arbre = Arbre(A)
 
-        class Arbre:
-            def __init__(self, noeud=None):
-                self.noeud = noeud
-        ```
+        # Création de l’arbre T
+        G = Noeud('G')
+        F = Noeud('F',None, G)
+        E = Noeud('E', F, None)
+        D = Noeud('D')
+        C = Noeud('C')
 
-        ✅ Petit arbre :
-        ```python
-        arbre = Arbre(Noeud("r"))
-        arbre.noeud.g = Noeud("a")
-        arbre.noeud.d = Noeud("b")
-        arbre.noeud.g.g = Noeud("c")
-        ```
+        # Nœud intermédiaire
+        B = Noeud('B', D, E)
 
-        ✅ Grand arbre :
-        ```python
-        T = Arbre(Noeud("A"))
-        T.noeud.g = Noeud("B")
-        T.noeud.d = Noeud("C")
-        T.noeud.g.g = Noeud("D")
-        T.noeud.g.d = Noeud("E")
-        T.noeud.g.d.g = Noeud("F")
-        T.noeud.g.d.g.g = Noeud("G")
+        # Racine
+        A = Noeud('A', B, C)
+        T = Arbre(A)
         ```
 
 
@@ -1171,20 +1198,17 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
         renvoyer 1 + max(HAUTEUR(T du sous-arbre gauche), HAUTEUR(T du sous-arbre droit))
     ```
 
-    🔎 La fonction `max()` permet de renvoyer la plus grande valeur des deux valeurs passées en paramètre.  
-    ➤ Par exemple : `max(5, 6)` renvoie `6`.
-
-    Tester avec les 2 arbres précédents.
-
-
     ??? success "❇️ Solution :"
         ```python
-        def hauteur(T):
-            if T.noeud is None:
+        def hauteur(arbre):
+            """
+            Fonction récursive qui calcule la hauteur d'un arbre binaire.
+            """
+            if arbre is None :  # Si l'arbre est vide, la hauteur est 0
                 return 0
-            gauche = Arbre(T.noeud.g)
-            droite = Arbre(T.noeud.d)
-            return 1 + max(hauteur(gauche), hauteur(droite))
+            else:
+                return 1 + max(hauteur(arbre.get_gauche()) if arbre.get_gauche() else 0, hauteur(arbre.get_droit()) if arbre.get_droit() else 0)
+
         ```
 
         ✅ Test :
@@ -1192,6 +1216,14 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
         print(hauteur(arbre))  # devrait afficher 3
         print(hauteur(T))      # devrait afficher 5
         ```
+
+    🔎 La fonction `max()` permet de renvoyer la plus grande valeur des deux valeurs passées en paramètre.  
+    ➤ Par exemple : `max(5, 6)` renvoie `6`.
+
+    Tester avec les 2 arbres précédents.
+
+
+    
 
 
 ---
@@ -1212,9 +1244,11 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
             def hauteur2(self):
                 if self.noeud is None:
                     return 0
-                g = Arbre(self.noeud.g)
-                d = Arbre(self.noeud.d)
-                return 1 + max(g.hauteur2(), d.hauteur2())
+                else:
+                    hauteur_gauche = self.get_gauche().hauteur2() if self.get_gauche() else 0
+                    hauteur_droite = self.get_droit().hauteur2() if self.get_droit() else 0
+                    return 1 + max(hauteur_gauche, hauteur_droite)
+        
         ```
 
         ✅ Test :
@@ -1274,9 +1308,11 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
             def taille2(self):
                 if self.noeud is None:
                     return 0
-                g = Arbre(self.noeud.g)
-                d = Arbre(self.noeud.d)
-                return 1 + g.taille2() + d.taille2()
+                else:
+                    taille_gauche = self.get_gauche().taille2() if self.get_gauche() else 0
+                    taille_droite = self.get_droit().taille2() if self.get_droit() else 0
+                    return 1 + taille_gauche + taille_droite
+        
         ```
 
         ✅ Test :
@@ -1286,184 +1322,352 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
     ```
 
 
+!!! info "🧠 Capytale : arbre\_binaire\_dictionnaire"
 
+Parfait ! Voici la **suite du cours** avec une **présentation harmonisée**, respectant tes consignes de style (activités bien encadrées, icônes, mise en forme pédagogique, et aucune suppression de contenu explicatif) :
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141397"></a>**3.8. Un autre code de représentation**</H3>
+---
 
-Sur Thonny : Créer un fichier python  **arbre\_binaire\_dictionnaire.py**.
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141397"></a>**3.8. ❤️ Un autre code de représentation ❤️**</H3>
 
-=> **CAPYTALE Le code vous sera donné par votre enseignant**
+💡 Parfois, on souhaite représenter un **arbre binaire** autrement qu’avec une classe. Ici, on va utiliser un **dictionnaire Python** pour coder les liens entre les nœuds.
 
-On change de structure de représentation d'un arbre. On va utiliser un dictionnaire.
+➡️ Exemple de codage :
 
-On codera par exemple comme suit :
 ```python
-A = { 'r' : ['a','b'], 'a' : ['c','d'], 'b' : ['e','f'],\
-	 'c' : ['','h'], 'd' : ['i', 'j'], 'e' : ['k',''], 'f' : ['',''], \
-  'h' : ['',''], 'i': ['',''], 'j' : ['m',''], 'k' : ['',''], 'm' : ['','']}
+A = {
+    'r' : ['a','b'], 'a' : ['c','d'], 'b' : ['e','f'],
+    'c' : ['','h'], 'd' : ['i', 'j'], 'e' : ['k',''], 'f' : ['',''],
+    'h' : ['',''], 'i': ['',''], 'j' : ['m',''], 'k' : ['',''], 'm' : ['','']
+}
 ```
 
-l'arbre déjà utilisé :
+🖼️ Voici l’arbre correspondant :
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.044.png){width=60%; : .center }
 
-**<H4 STYLE="COLOR:red;">Activité n° 29bis :**  **Arbres binaires avec un dictionnaire :</H3>** Implémenter l’algorithme de la **fonction** hauteur et de la **fonction** taille
+---
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc149141398"></a>**4. Le parcours en profondeur des arbres binaires**</H2>
+???+ question "📝 Activité n° 29bis : Arbres binaires avec un dictionnaire"
+
+    🎯 **Objectif :** Implémenter deux fonctions :
+
+    * `hauteur(arbre, racine)` : calcule la **hauteur** de l’arbre (en nombre de niveaux)
+    * `taille(arbre, racine)` : calcule la **taille** (nombre total de nœuds)
+
+    💡 Rappel :
+
+    * La **hauteur** correspond au **plus grand nombre d’arêtes** entre la racine et une feuille.
+    * La **taille** correspond au **nombre total de nœuds** de l’arbre.
+
+    ??? success "❇️ Solution :"
+        ```python
+        def hauteur(arbre, racine):
+            """
+            Calcule la hauteur d'un arbre représenté sous forme de dictionnaire.
+            """
+            if racine == "":  # Cas d'un nœud vide
+                return 0
+
+            gauche, droit = arbre[racine]  # Récupération des enfants
+            return 1 + max(hauteur(arbre, gauche), hauteur(arbre, droit))
+
+
+        # Calcul de la hauteur et de la taille de l'arbre
+        print(hauteur(A, 'r'))  # Devrait afficher 5
+        ```     
+
+---
+
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc149141398"></a>**4. 👣 Le parcours en profondeur des arbres binaires**</H2>
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141399"></a>**4.1. Les algorithmes**</H3>
 
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc149141400"></a>**4.1.1. Le parcours préfixe**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc149141400"></a>**4.1.1. Le parcours préfixe (préordre)**</H4>
 
-**Ordre préfixe**
+👣 Ordre du parcours :
+
+1. **Visite du nœud**
+2. Parcours de la branche gauche
+3. Parcours de la branche droite
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.046.png)
 
-1. **Visite du nœud**
+---
 
-2. Parcours branche gauche
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc149141401"></a>**4.1.2. Le parcours infixe (in-ordre)**</H4>
 
-3. Parcours branche droite 
+👣 Ordre du parcours :
 
-
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc149141401"></a>**4.1.2. Le parcours infixe**</H4>
-
-**Ordre infixe**
+1. Parcours de la branche gauche
+2. **Visite du nœud**
+3. Parcours de la branche droite
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.047.png)
 
-1. Parcours branche gauche 
+---
 
-2. **Visite du nœud**
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc149141402"></a>**4.1.3. Le parcours suffixe (postordre)**</H4>
 
-3. Parcours branche droite 
+👣 Ordre du parcours :
 
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc149141402"></a>**4.1.3. Le parcours suffixe ou postfixe**</H4>
-
-**Ordre suffixe**
+1. Parcours de la branche gauche
+2. Parcours de la branche droite
+3. **Visite du nœud**
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.048.png)
 
-1. Parcours branche gauche
+---
 
-2. Parcours branche droite 
-
-3. **Visite du nœud**
+???+ question "**🧠 Activité n° 30 : Arbre binaire et parcours en profondeur**"
 
 
+    Donner les trois parcours des sommets de l’arbre suivant :
 
-???+ question "Activité n° 30 :Arbre binaire et parcours en profondeur"
-
-    Donner les trois parcours des sommets de l’arbre.
     ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.049.png){width=80%; : .center }
 
-    ??? success "Solution"
+    ??? success "📤 Solution"
 
-        1. Parcours en préfixe (préordre)
-        Ordre de visite : r, a, c, h, d, i, j, l, b, e, k, f
-        2. Parcours en infixe (in-ordre)
-        Ordre de visite : h, c, a, i, d, l, j, r, k, e, b, f
-        3. Parcours en suffixe (postordre)
-        Ordre de visite : h, c, i, l, j, d, a, k, e, f, b, r
+        1. Parcours en préfixe (préordre) :
+        ➤ r, a, c, h, d, i, j, l, b, e, k, f
+
+        2. Parcours en infixe (in-ordre) :
+        ➤ h, c, a, i, d, l, j, r, k, e, b, f
+
+        3. Parcours en suffixe (postordre) :
+        ➤ h, c, i, l, j, d, a, k, e, f, b, r
+
+
+---
 
 ![parcours](parcours.gif)
 
-???+ question "Activité n° 31 :Arbre binaire et parcours en profondeur"
+???+ question "**🧠 Activité n° 31 : Arbre binaire et parcours en profondeur**"
 
-    Voici 3 algorithmes récursifs, dire pour chacun d’entre eux à quel parcours il correspond.
+
+    Voici 3 algorithmes récursifs.
+
+    Pour chacun d’eux, indique s’il correspond à un parcours **préfixe**, **infixe**, ou **suffixe** :
+
     ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.050.png){: .center }
     ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.051.png){: .center }
     ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.052.png){: .center }
 
-    ??? success "Solution"
+    ??? success "📤 Solution"
 
-        Premier algorithme : Parcours en suffixe (postordre)
+        - Premier algorithme : **Suffixe (postordre)**
+        - Deuxième algorithme : **Préfixe (préordre)**
+        - Troisième algorithme : **Infixe (in-ordre)**
 
-        Deuxième algorithme : Parcours en préfixe (préordre)
 
-        Troisième algorithme : Parcours en infixe (in-ordre)
+---
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141403"></a>**4.2. Implémentation des parcours en profondeur avec les tuples**</H3>
+!!! info "🧠 Capytale : **arbre\_binaire\_tuple\_parcours**"
 
-**<H3 STYLE="COLOR:red;">Activité n° 32 : Arbre binaire et parcours en profondeur :**</H3>
+### <H3 STYLE="COLOR:GREEN;">📦 <a name="_toc149141403"></a>**4.2. Implémentation des parcours en profondeur avec les tuples**</H3>
 
-Sur Thonny : Créer un fichier python  **arbre\_binaire\_tuple\_parcours.py**.
+???+ question "**🧠 Activité n° 32 : Arbre binaire et parcours en profondeur :**"
 
-=> **CAPYTALE Le code vous sera donné par votre enseignant**
+    🧠 Principe :
+    Chaque nœud de l’arbre est représenté par un tuple de la forme (valeur, gauche, droite).
+    On va construire l’arbre puis programmer les parcours récursifs.
 
-Ajouter le programme principal suivant :
-```python
-def noeud(e, g=None, d=None):
-    return e, g, d
+    ```
+    Fonction parcours(arbre)
+    Données : arbre binaire
+    Si l’arbre n’est pas vide alors
+      parcours(sous-arbre gauche)
+      Afficher : la racine de l’arbre
+      parcours(sous-arbre droit)
+    ```
 
-def parcours_infixe(T):
-    pass
+    Ajouter le programme principal suivant :
+    ```python
+    def noeud(e, g=None, d=None):
+        return e, g, d
 
-if __name__ == '__main__':
-    ######début de la construction de l'arbre binaire###########
-    h = noeud('h')
-    c = noeud('c', None, h)
-    l = noeud('l')
-    i = noeud('i')
-    j = noeud('j', l)
-    d = noeud('d', i, j)
-    a = noeud('a', c, d)
-    k = noeud('k')
-    e = noeud('e', k)
-    f = noeud('f')
-    b = noeud('b', e, f)
-    arbre = noeud('r', a, b)
-    ######fin de la construction de l'arbre binaire###########
-```
-Implémenter le parcours infixe parcours_infixe2(arbre) sous forme de fonction de telle sorte que l’on obtienne :
-```
->>> parcours_infixe2(arbre)
-['c', 'h', 'a', 'i', 'd', 'l', 'j', 'r', 'k', 'e', 'b', 'f']
-```
-**Implémenter les autres parcours en profondeur**.
-
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141404"></a>**4.3. Implémentation des parcours en profondeur par les méthodes**</H3>
-
-**<H3 STYLE="COLOR:red;">Activité n° 33 : Arbre binaire et parcours en profondeur :**</H3>
-
-Sur Thonny : Créer un fichier python **arbre\_binaire\_POO\_v1\_parcours.py**.
-
-=> **CAPYTALE Le code vous sera donné par votre enseignant**
-
-Ajouter le programme principal suivant :
-```python
-class Noeud:
-    def __init__(self, valeur = None, g = None, d = None):
-        self.valeur = valeur
-        self.g = g
-        self.d= d
-
-    def estVide(self):
-        return self.valeur is None
-    
-    def parcours_infixe(self):
+    def parcours_infixe(T):
         pass
 
-if __name__ == '__main__':
-    ######début de la construction de l'arbre binaire###########
-    h = Noeud('h')
-    c = Noeud('c', None, h)
-    l = Noeud('l')
-    i = Noeud('i')
-    j = Noeud('j', l)
-    d = Noeud('d', i, j)
-    a = Noeud('a', c, d)
-    k = Noeud('k')
-    e = Noeud('e', k)
-    f = Noeud('f')
-    b = Noeud('b', e, f)
-    arbre = Noeud('r', a, b)
-    ######fin de la construction de l'arbre binaire###########
-```
+    if __name__ == '__main__':
+        ######début de la construction de l'arbre binaire###########
+        h = noeud('h')
+        c = noeud('c', None, h)
+        l = noeud('l')
+        i = noeud('i')
+        j = noeud('j', l)
+        d = noeud('d', i, j)
+        a = noeud('a', c, d)
+        k = noeud('k')
+        e = noeud('e', k)
+        f = noeud('f')
+        b = noeud('b', e, f)
+        arbre = noeud('r', a, b)
+        ######fin de la construction de l'arbre binaire###########
+    ```
 
-Implémenter le parcours infixe sous forme de méthode, puis les autres parcours.
+    ??? success "📤 Solution"
+        ```python
+        def noeud(e, g=None, d=None):
+            return e, g, d
 
-Vérifier que l’on obtient bien les parcours de l’activité précédente.
+        def parcours_infixe(T):
+            if not T:
+                return None
+            else:
+                parcours_infixe(T[1])
+                print(T[0], end=' ')
+                parcours_infixe(T[2])
+        ```
+
+    Implémenter le parcours infixe parcours_infixe2(arbre) sous forme de fonction de telle sorte que l’on obtienne :
+    ```
+    >>> parcours_infixe2(arbre)
+    ['c', 'h', 'a', 'i', 'd', 'l', 'j', 'r', 'k', 'e', 'b', 'f']
+    ```
+
+    ??? success "📤 Solution"
+        ```python
+        def parcours_infixe2(T):
+            if not T:
+                return []
+            else:
+                return parcours_infixe2(T[1])+[T[0]]+parcours_infixe2(T[2])
+        print(parcours_infixe2(arbre))
+        ```
+
+
+    **Implémenter les autres parcours en profondeur**.
+
+    ??? success "📤 Solution"
+        ```python
+        def parcours_prefixe(T):
+            if not T:
+                return []
+            else:
+                return [T[0]]+parcours_prefixe(T[1])+parcours_prefixe(T[2])
+        print(parcours_prefixe(arbre))
+
+        def parcours_suffixe(T):
+            if not T:
+                return []
+            else:
+                return parcours_suffixe(T[1])+parcours_suffixe(T[2])+[T[0]]
+        print(parcours_suffixe(arbre))
+        ```
+
+--- 
+
+!!! info "🧠 Capytale : arbre\_binaire\_POO\_v1\_parcours"
+
+### <H3 STYLE="COLOR:GREEN;">📦 <a name="_toc149141404"></a>**4.3. Implémentation des parcours en profondeur par les méthodes**</H3>
+
+???+ question "**🧠 Activité n° 33 : Arbre binaire et parcours en profondeur :**"
+
+    ```
+    Fonction parcours(arbre)
+    Données : arbre binaire
+    Si l’arbre n’est pas vide alors
+      parcours(sous-arbre gauche)
+      Afficher : la racine de l’arbre
+      parcours(sous-arbre droit)
+    ```
+
+    Ajouter le programme principal suivant :
+    ```python
+    class Noeud:
+        def __init__(self, valeur = None, g = None, d = None):
+            self.valeur = valeur
+            self.g = g
+            self.d= d
+
+        def estVide(self):
+            return self.valeur is None
+        
+        def parcours_infixe(self):
+            pass
+
+    if __name__ == '__main__':
+        ######début de la construction de l'arbre binaire###########
+        h = Noeud('h')
+        c = Noeud('c', None, h)
+        l = Noeud('l')
+        i = Noeud('i')
+        j = Noeud('j', l)
+        d = Noeud('d', i, j)
+        a = Noeud('a', c, d)
+        k = Noeud('k')
+        e = Noeud('e', k)
+        f = Noeud('f')
+        b = Noeud('b', e, f)
+        arbre = Noeud('r', a, b)
+        ######fin de la construction de l'arbre binaire###########
+    ```
+
+    Implémenter le parcours infixe sous forme de méthode, puis les autres parcours.
+
+
+    Vérifier que l’on obtient bien les parcours de l’activité précédente.
+
+    ??? success "📤 Solution"
+        ```python
+        class Noeud:
+            def __init__(self, valeur = None, g = None, d = None):
+                self.valeur = valeur
+                self.g = g
+                self.d= d
+
+            def estVide(self):
+                return self.valeur is None
+            
+            def parcours_infixe(self):
+                if self.g:
+                    self.g.parcours_infixe()
+                print(self.valeur, end=' ')
+                if self.d:
+                    self.d.parcours_infixe()
+            
+            def parcours_infixe2(self):
+                self.g.parcours_infixe2() if self.g else []
+                print(self.valeur, end=' ')
+                self.d.parcours_infixe2() if self.d else []
+            
+            def parcours_infixe3(self):
+                gauche = self.g.parcours_infixe3() if self.g else [] 
+                droite = self.d.parcours_infixe3() if self.d else []
+                return gauche + [self.valeur] + droite
+
+        if __name__ == '__main__':
+            ######début de la construction de l'arbre binaire###########
+            h = Noeud('h')
+            c = Noeud('c', None, h)
+            l = Noeud('l')
+            i = Noeud('i')
+            j = Noeud('j', l)
+            d = Noeud('d', i, j)
+            a = Noeud('a', c, d)
+            k = Noeud('k')
+            e = Noeud('e', k)
+            f = Noeud('f')
+            b = Noeud('b', e, f)
+            arbre = Noeud('r', a, b)
+            ######fin de la construction de l'arbre binaire###########
+        ```
+    
+    Implémenter les parcours sous forme de fonction
+
+    ??? success "📤 Solution"
+        ```python
+        def parcours_infixe2(T):
+            if not T:
+                return None
+            else:
+                parcours_infixe2(T.g)
+                print(T.valeur, end=' ')
+                parcours_infixe2(T.d)
+        print(parcours_infixe2(arbre))
+        ```
+
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141405"></a>**4.4. Implémentation des parcours en profondeur par une fonction**</H3>
 
@@ -1471,7 +1675,7 @@ Vérifier que l’on obtient bien les parcours de l’activité précédente.
 
 Sur Thonny : Créer un fichier python dans le même dossier que arbre\_binaire\_POO et le nommer **arbre\_binaire\_POO\_v2\_parcours.py**.
 
-=> **CAPYTALE Le code vous sera donné par votre enseignant**
+=> **CAPYTALE : activite_arbre_binaire_POO_v2**
 
 
 
