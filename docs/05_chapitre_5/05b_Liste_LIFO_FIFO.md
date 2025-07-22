@@ -682,7 +682,7 @@ Nous aimerions maintenant accéder à **n'importe quelle valeur** de la liste, e
 
 
 
-!!! info "Capytale : Structure liste (chainée) avec les lists de Python"
+!!! info "Capytale : Structure liste (chainée) avec les lists de Python (activite_liste_list)"
 
 
 
@@ -735,7 +735,7 @@ Nous aimerions maintenant accéder à **n'importe quelle valeur** de la liste, e
             return []
 
         def estVide(L):
-            return len(L) == 0
+            return L == []
 
         def lireElement(L, index=-1):
             return L[index]
@@ -764,22 +764,29 @@ Nous aimerions maintenant accéder à **n'importe quelle valeur** de la liste, e
     print(L)
     ```
 
-    ⚠️ **Erreur courante à ne pas faire :**
-
-    ```python
-    reponse = [element for element in L]
-    return reponse.insert(position, x)
-    ```
-
-    ❌ `insert()` est une **fonction-procédure** : elle retourne `None` !
 
     ??? success "📘 Solution :"
 
         ```python
+        def supprimerTete(L):
+            return L[1:]
+
+        def ajouterTete(x,L):
+            return [x]+L
+
         def insererElement(x, L, position):
-            copie = L[:]
-            copie.insert(position, x)
-            return copie
+            '''Renvoie une Liste en insérant x à la position position. '''
+            L1 = nouvelleListe()
+            for i in range(position):
+                a = lireElement(L,0)
+                L = supprimerTete(L)
+                L1 = ajouterTete(a,L1)
+            L = ajouterTete(x, L)
+            while not estVide(L1):
+                a = lireElement(L1,0)
+                L1 = supprimerTete(L1)
+                L = ajouterTete(a,L)
+            return L
         
         L = nouvelleListe()
         L = ajouterTete(2, L)
@@ -790,7 +797,15 @@ Nous aimerions maintenant accéder à **n'importe quelle valeur** de la liste, e
         print(L)
         ```
 
+**Remarque** il existe également une méthode nommée insert qui permet de faire la même chose en choisissant la position de l'insertion.
+
+**Erreur courante :** Ne faites donc jamais ceci : ❌ `insert()` est une **fonction-procédure** : elle retourne `None` !.
+```python
+reponse = [element for element in L]
+return reponse.insert(position, x)
+```
 ---
+
 
 ???+ question "🧪 Activité n° 11 : structure liste avec des `lists` – fonction `supprimerPosition`"
 
@@ -805,7 +820,29 @@ Nous aimerions maintenant accéder à **n'importe quelle valeur** de la liste, e
     print(L)
     ```
 
-    ⚠️ **À ne pas faire :**
+    
+
+    ??? success "📘 Solution :"
+
+        ```python
+        def supprimerPosition(L, position):
+            '''Renvoie une nouvelle liste où on a supprimé l'élément situé à la position fournie'''
+            L1 = nouvelleListe()
+            for i in range(position):
+                a = lireElement(L,0)
+                L = supprimerTete(L)
+                L1 = ajouterTete(a,L1)
+            L = supprimerTete(L)
+            while not estVide(L1):
+                a = lireElement(L1,0)
+                L1 = supprimerTete(L1)
+                L = ajouterTete(a,L)
+            return L
+
+        L = supprimerPosition(L, 2)
+        print(L)
+        ```
+⚠️ **À ne pas faire :**
 
     ```python
     reponse = [element for element in L]
@@ -813,18 +850,6 @@ Nous aimerions maintenant accéder à **n'importe quelle valeur** de la liste, e
     ```
 
     ❌ Cela retourne l'élément supprimé, **pas la nouvelle liste**.
-
-    ??? success "📘 Solution :"
-
-        ```python
-        def supprimerPosition(L, position):
-            copie = L[:]
-            copie.pop(position)
-            return copie
-        L = supprimerPosition(L, 2)
-        print(L)
-        ```
-
 ---
 
 ???+ question "🧪 Activité n° 12 : structure liste avec des `lists` – fonction `afficherListe`"
