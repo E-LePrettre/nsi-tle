@@ -600,7 +600,7 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141394"></a>**3.5. ❤️1<sup>ère</sup> implémentation de la structure ARBRE BINAIRE sous forme de tuple❤️**</H3>
 
 
-📎 **CAPYTALE** : Le code vous sera donné par votre enseignant (arbre_binaire_tuple).
+!!! info "🧠 Capytale : Structure liste (chaînée) avec des tuples"(arbre_binaire_tuple).
 
 ???+ question "🧩 Activité n° 12 : Arbres binaires et les fonctions"
 

@@ -177,7 +177,7 @@ cons(x, cons(y, cons(z, L)))
 
 ---
 
-!!! info "🧠 Capytale : Structure liste (chaînée) avec des tuples"
+!!! info "🧠 Capytale : Structure liste (chaînée) avec des tuples (activite_liste_tuples )"
 
 
 ???+ question "📝 **Activité n°1 :**"
@@ -194,44 +194,12 @@ cons(x, cons(y, cons(z, L)))
 
     ??? success "📤 Solution :"
 
-        ```python
-        L = vide()
-        ```
-
-        👉 Création d’une **liste vide**.
-
-        ```python
-        ajoutEnTete(10,L)
-        ```
-
-        👉 La **valeur 10** est ajoutée en tête de la liste `L`, donc `L = [10]`.
-
-        ```python
-        ajoutEnTete(9,L)
-        ```
-
-        👉 La valeur 9 est ajoutée en tête, donc `L = [9, 10]`.
-
-        ```python
-        ajoutEnTete(7,L)
-        ```
-
-        👉 La valeur 7 est ajoutée en tête, donc `L = [7, 9, 10]`.
-
-        ```python
-        L1 = vide()
-        ```
-
-        👉 Création d’une **seconde liste vide**, nommée `L1`.
-
-        ```python
-        L2 = cons(5, cons(4, cons(3, cons(2, cons(1, cons(0,L1))))))
-        ```
-
-        👉 Construction récursive de la liste `L2` :
-        `L2 = [5, 4, 3, 2, 1, 0]`
-        (*chaque `cons(x, liste)` ajoute `x` en tête de la nouvelle liste*)
-
+        1. on crée un liste vide L 
+        2. (10, vide())
+        3. (9, (10, vide()))
+        4. (7, (9, (10, vide())))
+        5. on crée un liste vide L1
+        5. L2 est une liste constituée de (5, (4, (3, (2, (1, (0, vide()))))))
 
 
 
@@ -300,27 +268,22 @@ Ils peuvent être parcourus via des **boucles `for`**.
         Voici les tests :
 
         ```python
-        >>> a = ()
-        >>> estVide(a)
-        ✅ True  # Le tuple vide est interprété comme une liste vide ici
-        ```
+        a = ()
+        print(estVide(a))
+        # ✅ True  # Le tuple vide est interprété comme une liste vide ici
 
-        ```python
-        >>> b = None
-        >>> estVide(b)
-        ❌ False  # `None` n’est pas compatible avec l’implémentation par tuple
-        ```
 
-        ```python
-        >>> c = "C"
-        >>> estVide(c)
-        ❌ False  # une chaîne de caractères n’est pas une liste chaînée
-        ```
+        b = None
+        print(estVide(b))
+        # ❌ False  # `None` n’est pas compatible avec l’implémentation par tuple
 
-        ```python
-        >>> d = nouvelleListe()
-        >>> estVide(d)
-        ✅ True  # nouvelleListe doit renvoyer un tuple vide (), donc résultat True
+        c = "C"
+        print(estVide(c))
+        # ❌ False  # une chaîne de caractères n’est pas une liste chaînée
+
+        d = nouvelleListe()
+        print(estVide(d))
+        # ✅ True  # nouvelleListe doit renvoyer un tuple vide (), donc résultat True
         ```
 
     ❓ **Question finale :**
@@ -332,7 +295,7 @@ Ils peuvent être parcourus via des **boucles `for`**.
         📌 La **seule structure** respectant **l’interface imposée** est :
 
         ```python
-        a = ()  # ou d = nouvelleListe()
+        d = nouvelleListe()
         ```
 
         💡 Il faut que `nouvelleListe()` retourne le tuple vide `()` pour que `estVide()` fonctionne correctement.
@@ -450,7 +413,7 @@ Ils peuvent être parcourus via des **boucles `for`**.
         def supprimerTete(L):
             '''Renvoie la queue de la liste (supprime la tête)'''
             if estVide(L):
-                return ()
+                return nouvelleListe()
             else:
                 return L[1]
         ```
@@ -621,7 +584,7 @@ Nous aimerions maintenant accéder à **n'importe quelle valeur** de la liste, e
             return lireTete(L)
         ```
 
-        ✅ Réponse à la question : **B : linéaire**, car on parcourt la liste séquentiellement jusqu’à l’élément recherché.
+        ✅ Réponse à la question : **B : linéaire**, car on parcourt la liste séquentiellement jusqu’à l’élément recherché. Il va falloir supprimer autant de tête que l'index voulu et ensuite on pourra lire la valeur.
 
     ---
 
@@ -677,6 +640,22 @@ Nous aimerions maintenant accéder à **n'importe quelle valeur** de la liste, e
     ??? success "📤 Solution :"
 
         ```python
+        # version itérative
+        def insererElement(x, L, position):
+        '''Renvoie une représentation de la Liste sous forme d'une séquence commençant par la tête '''
+        L1= nouvelleListe()
+        for i in range(position):
+            a = lireTete(L)
+            L = supprimerTete(L) 
+            L1 = insererTete(a,L1)
+        L = insererTete(x,L)
+        while not estVide(L1):
+            a = lireTete(L1)
+            L1 = supprimerTete(L1)
+            L = insererTete(a,L)
+        return L 
+
+        # version récursive
         def insererElement(x, L, position):
             '''Insère l’élément x à la position donnée dans la Liste'''
             if position == 0:
@@ -685,7 +664,11 @@ Nous aimerions maintenant accéder à **n'importe quelle valeur** de la liste, e
                 return insererTete(lireTete(L), insererElement(x, supprimerTete(L), position - 1))
         ```
 
-        ✅ Réponse à la question : **B : linéaire**, car on doit reconstruire toute la liste jusqu’à la position d’insertion.
+        ✅ Réponse à la question : **B : linéaire**. Si notre liste possède n éléments, on voudra le placer à l'index n-1.
+        On remarque qu'on a n-1 opérations de suppressions de têtes puis n-1 opérations d'insertion de têtes.
+        On a donc 2 * (n-1) opérations linéaires à effectuer.
+        On a donc 2 n - 2 opérations.
+        On voit donc que l'insertion possède un coût en O(n) : il s'agit d'une évolution linéaire.
 
 📌 **Résumé des coûts** :
 
