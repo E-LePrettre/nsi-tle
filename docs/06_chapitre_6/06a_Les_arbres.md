@@ -13,13 +13,13 @@ title: 06a Les arbres
 
 [4.	👣 Le parcours en profondeur des arbres binaires](#_toc149141398)
 
-[5.	Parcours en largeur d’un arbre binaire](#_toc149141406)
+[5.	🌳 Parcours en largeur d’un arbre binaire](#_toc149141406)
 
-[6.	Une application de l’arbre binaire : notation polonaise inversée](#_toc149141407)
+[6.	🧮 Une application de l’arbre binaire : notation polonaise inversée](#_toc149141407)
 
-[7.	Exercices](#_toc149141408)
+[7.	🧠 Exercices](#_toc149141408)
 
-[8.	Projets](#_toc149141409)
+[8.	🚧 Projets](#_toc149141409)
 
 **Compétences évaluables :**
 
@@ -1668,196 +1668,425 @@ A = {
         print(parcours_infixe2(arbre))
         ```
 
+!!! info "🧠 Capytale : activite_arbre_binaire_POO_v2"
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc149141405"></a>**4.4. Implémentation des parcours en profondeur par une fonction**</H3>
 
-**<H3 STYLE="COLOR:red;">Activité n° 34 : Arbre binaire et parcours en profondeur :**</H3>
+???+ question "**🧠 Activité n° 34 : Arbre binaire et parcours en profondeur :**"
 
-Sur Thonny : Créer un fichier python dans le même dossier que arbre\_binaire\_POO et le nommer **arbre\_binaire\_POO\_v2\_parcours.py**.
-
-=> **CAPYTALE : activite_arbre_binaire_POO_v2**
-
-
-
-Ajouter le programme principal suivant :
-```python
-class Noeud:
-    def __init__(self, valeur, g=None, d=None):
-        self.valeur = valeur  # Stocke la valeur du nœud
-        self.g = g       # Stocke le sous-arbre gauche
-        self.d = d        # Stocke le sous-arbre droit
+    Ajouter le programme principal suivant :
+    ```python
+    class Noeud:
+        def __init__(self, valeur, g=None, d=None):
+            self.valeur = valeur  # Stocke la valeur du nœud
+            self.g = g       # Stocke le sous-arbre gauche
+            self.d = d        # Stocke le sous-arbre droit
 
 
-class Arbre:
-    def __init__(self, noeud=None):
-        self.noeud = noeud  # Stocke le nœud racine de l'arbre
+    class Arbre:
+        def __init__(self, noeud=None):
+            self.noeud = noeud  # Stocke le nœud racine de l'arbre
 
-    def estVide(self):
-        return self.noeud is None
+        def estVide(self):
+            return self.noeud is None
 
-    def get_valeur(self):
-        if self.noeud:
-            return self.noeud.valeur
-
-
-    def get_gauche(self):
-        if self.noeud:
-            return Arbre(self.noeud.g)
-
-    def get_droit(self):
-        if self.noeud:
-            return Arbre(self.noeud.d)
-if __name__ == '__main__':
-    ######début de la construction de l'arbre binaire###########
-    h = Noeud('h')
-    c = Noeud('c', None, h)
-    l = Noeud('l')
-    i = Noeud('i')
-    j = Noeud('j', l)
-    d = Noeud('d', i, j)
-    a = Noeud('a', c, d)
-    k = Noeud('k')
-    e = Noeud('e', k)
-    f = Noeud('f')
-    b = Noeud('b', e, f)
-    r = Noeud('r', a, b)
-    arbre = Arbre(r)
-    ######fin de la construction de l'arbre binaire###########
-```
-
-Implémenter les **3 fonctions** qui permettent de parcourir l'arbre précédent **en profondeur**
+        def get_valeur(self):
+            if self.noeud:
+                return self.noeud.valeur
 
 
-Vérifier que l’on obtient bien les parcours de l’activité précédente.
+        def get_gauche(self):
+            if self.noeud:
+                return Arbre(self.noeud.g)
 
-Implémenter les 3 **Méthodes** par exemple parcours_infixe2() qui permettent de parcourir l'arbre précédent **en profondeur**
+        def get_droit(self):
+            if self.noeud:
+                return Arbre(self.noeud.d)
+    if __name__ == '__main__':
+        ######début de la construction de l'arbre binaire###########
+        h = Noeud('h')
+        c = Noeud('c', None, h)
+        l = Noeud('l')
+        i = Noeud('i')
+        j = Noeud('j', l)
+        d = Noeud('d', i, j)
+        a = Noeud('a', c, d)
+        k = Noeud('k')
+        e = Noeud('e', k)
+        f = Noeud('f')
+        b = Noeud('b', e, f)
+        r = Noeud('r', a, b)
+        arbre = Arbre(r)
+        ######fin de la construction de l'arbre binaire###########
+    ```
 
-Vérifier que l’on obtient bien les parcours
+    Implémenter les **3 fonctions** qui permettent de parcourir l'arbre précédent **en profondeur**
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc149141406"></a>**5. Parcours en largeur d’un arbre binaire**</H2>
+    ??? success "📤 Solution"
+        ```python
+        def parcours_infixe(T):
+            if not T:
+                return None
+            else:
+                parcours_infixe(T.get_gauche())
+                print(T.get_valeur(), end=' ')
+                parcours_infixe(T.get_droit())
+        
+        print(parcours_infixe(arbre))
+        ``` 
 
-Le parcours d’un arbre en largeur consiste à partir de la racine, on visite ensuite son fils gauche puis son fils droit, puis le fils gauche du fils gauche etc… Comme le montre le schéma ci-dessous :
+    Vérifier que l’on obtient bien les parcours de l’activité précédente.
+
+    Implémenter les 3 **Méthodes** par exemple parcours_infixe2() qui permettent de parcourir l'arbre précédent **en profondeur**
+
+    ??? success "📤 Solution"
+        ```python
+        def parcours_infixe2(self):
+            if self.get_gauche():
+                self.get_gauche().parcours_infixe2()
+            print(self.get_valeur(), end=' ')
+            if self.get_droit():
+                self.get_droit().parcours_infixe2()
+        
+        def parcours_infixe3(self):
+            gauche = self.get_gauche().parcours_infixe3() if self.get_gauche() else [] 
+            droite = self.get_droit().parcours_infixe3() if self.get_droit() else []
+            return gauche + [self.get_valeur()] + droite
+        ```
+   
+
+        Vérifier que l’on obtient bien les parcours
+
+
+
+---
+
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc149141406"></a>🌳 **5. Parcours en largeur d’un arbre binaire**</H2>
+
+👀 Le **parcours en largeur** consiste à explorer **niveau par niveau** un arbre binaire, en partant de la racine, puis en visitant successivement les fils gauche et droit, puis les enfants du nœud suivant, etc.
+
+---
+
+📊 **Visualisation du parcours en largeur** :
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.053.png){width=80%; : .center }
 
-L’idée est la suivante : On utilise une File.
+---
 
-- On met l’arbre dans la file.
+🧠 **Principe de fonctionnement :**
 
-- Puis tant que la file n’est pas vide :
+> Le parcours repose sur l’utilisation d’une **file (queue)**, selon la logique suivante :
 
-  - On défile la file.
+* 🎯 On **enfile** l’arbre racine.
+* 🔁 Tant que la file n’est pas vide :
 
-  - On récupère la racine.
+  * On **défile** pour extraire le nœud en tête.
+  * On traite la valeur de ce nœud (**visite**).
+  * Si le fils gauche existe ➜ on l’**enfile**.
+  * Si le fils droit existe ➜ on l’**enfile**.
 
-  - On enfile **son fils gauche** s’il existe.
+---
 
-  - On enfile **son fils droit** s’il existe.
-
-Voici **l’algorithme parcours en largeur**.
+⚙️ **Algorithme (schéma)** :
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.054.png){: .center }
 
-**Remarque** : au lieu d’afficher tmp on peut l’ajouter à une liste vide et retourner la liste à la fin du script.
+📝 **Remarque** :
+→ Au lieu d’afficher chaque élément lors de la visite, on peut **les ajouter dans une liste**, puis retourner cette liste complète à la fin du traitement.
 
-**<H3 STYLE="COLOR:red;">Activité n° 35 : Arbre binaire et parcours en largeur :</H3>** Utiliser l’algorithme précédent pour vérifier que l’on obtient bien rabcdefhijkm.
+---
 
-**<H3 STYLE="COLOR:red;">Activité n° 36 : Arbre binaire et parcours en largeur :**</H3>
+???+ question "**🧠 Activité n° 35 : Arbre binaire et parcours en largeur**"
 
-Ajouter (sur Thonny : dans le fichier **arbre\_binaire\_tuple\_parcours.py**,), l’implémentation de ce parcours sous **forme de fonction.**
 
-On implémentera la file avec 
-```python
-from collections import deque
+    ✔️ Utilise l’algorithme précédent pour vérifier que l’on obtient bien le parcours :
 
-def file_vide():
-    pass
+    ```
+    ➤ r a b c d e f h i j k m
+    ```
 
-def enfiler(file, element):
-    pass
+    ??? success "✅ Solution"
 
-def est_vide(file):
-    pass
+        Le parcours en largeur donné par l'algorithme doit retourner la **liste** suivante :
+        `['r', 'a', 'b', 'c', 'd', 'e', 'f', 'h', 'i', 'j', 'k', 'l']`
 
-def defiler(file):
-    pass
+
+---
+
+!!! info "🧠 Capytale : fichier arbre\_binaire\_tuple\_parcours"
+
+???+ question "**📝 Activité n° 36 : Implémentation en programmation fonctionnelle (avec tuples)**"
+
+
+
+    📚 **Structure de la file à utiliser :**
+
+    ```python
+    from collections import deque
+
+    def file_vide():
+        pass
+
+    def enfiler(file, element):
+        pass
+
+    def est_vide(file):
+        pass
+
+    def defiler(file):
+        pass
+    ```
+
+    ??? success "✅ Solution"
+        ```python
+        from collections import deque
+
+        def file_vide():
+            return deque()
+
+        def enfiler(file, element):
+            file.append(element)
+
+        def est_vide(file):
+            return len(file)==0
+
+        def defiler(file):
+            if not est_vide(file):
+                return file.popleft()
+        ```
+
+
+???+ question "**🧠 Activité n° 36 : Arbre binaire et parcours en largeur (tuples)**"
+
+
+    Implémente la fonction de parcours en largeur en utilisant la file ci-dessus.
+
+    Vérifie que le résultat obtenu est bien conforme à celui attendu (voir activité précédente).
+
+    ??? success "✅ Solution"
+        ```python
+        def parcours_largeur(T):
+            f = file_vide()
+            enfiler(f, T)
+            while not est_vide(f):
+                tmp = defiler(f)
+                print(tmp[0], end=' ')
+                if tmp[1]:
+                    enfiler(f, tmp[1])
+                if tmp[2]:
+                    enfiler(f, tmp[2])
+
+        def parcours_largeur2(T):
+            f = file_vide()
+            enfiler(f, T)
+            s=[]
+            while not est_vide(f):
+                tmp = defiler(f)
+                s.append(tmp[0])
+                if tmp[1]:
+                    enfiler(f, tmp[1])
+                if tmp[2]:
+                    enfiler(f, tmp[2])
+            return s
+        ```
+
+        La fonction doit retourner : `['r', 'a', 'b', 'c', 'd', 'e', 'f', 'h', 'i', 'j', 'k', 'l']`
+
+
+---
+
+!!! info "🧠 Capytale : fichier arbre_binaire_POO_v1_parcours"
+
+???+ question "**📝 Activité n° 37 : Implémentation en POO v1 (méthodes simples)**"
+
+    implémente le **parcours en largeur** sous forme de **fonction extérieure** utilisant la file.
+
+    📚 **Structure de la file à utiliser :**
+
+    ```python
+    from collections import deque
+
+    def file_vide():
+        pass
+
+    def enfiler(file, element):
+        pass
+
+    def est_vide(file):
+        pass
+
+    def defiler(file):
+        pass
+    ```
+
+    ??? success "✅ Solution"
+        ```python
+        from collections import deque
+
+        def file_vide():
+            return deque()
+
+        def enfiler(file, element):
+            file.append(element)
+
+        def est_vide(file):
+            return len(file)==0
+
+        def defiler(file):
+            if not est_vide(file):
+                return file.popleft()
+        ```
+
+???+ question "**🧠 Activité n° 37 : Arbre binaire et parcours en largeur (POO v1)**"
+
+
+    Implémente la fonction de parcours en largeur (fonction classique, pas méthode) .
+
+    ??? success "✅ Solution"
+        ```python
+        def parcours_largeur(T):
+            f = file_vide()
+            enfiler(f, T)
+            while not est_vide(f):
+                tmp = defiler(f)
+                print(tmp.valeur, end=' ')
+                if tmp.g:
+                    enfiler(f, tmp.g)
+                if tmp.d:
+                    enfiler(f, tmp.d)
+        print(parcours_largeur(arbre))
+        ```
+
+        Comme précédemment, on doit obtenir la liste :
+        `['r', 'a', 'b', 'c', 'd', 'e', 'f', 'h', 'i', 'j', 'k', 'l']`
+
+---
+
+!!! info "🧠 Capytale : fichier arbre_binaire_POO_v2_parcours"
+
+???+ question "**📝 Activité n° 38 : Implémentation en POO v2 (interface Arbre)**"
+
+    implémente à nouveau le **parcours en largeur** à partir de l’**interface Arbre** définie précédemment.
+
+    📚 **Structure de la file à utiliser :**
+
+    ```python
+    from collections import deque
+
+    def file_vide():
+        pass
+
+    def enfiler(file, element):
+        pass
+
+    def est_vide(file):
+        pass
+
+    def defiler(file):
+        pass
+    ```
+
+    ??? success "✅ Solution"
+        ```python
+        from collections import deque
+
+        def file_vide():
+            return deque()
+
+        def enfiler(file, element):
+            file.append(element)
+
+        def est_vide(file):
+            return len(file)==0
+
+        def defiler(file):
+            if not est_vide(file):
+                return file.popleft()
+        ```
+
+???+ question "**🧠 Activité n° 38 : Arbre binaire et parcours en largeur (POO v2)**"
+
+
+    Implémente la fonction de parcours en largeur dans `arbre_binaire_POO_v2_parcours.py`, en utilisant la structure d’arbre objet avec interface.
+
+    ??? success "✅ Solution"
+        ```python
+        def parcours_largeur(T):
+            f = file_vide()
+            enfiler(f, T)
+            while not est_vide(f):
+                tmp = defiler(f)
+                print(tmp.get_valeur(), end=' ')
+                if tmp.get_gauche():
+                    enfiler(f, tmp.get_gauche())
+                if tmp.get_droit():
+                    enfiler(f, tmp.get_droit())
+        print(parcours_largeur(arbre))
+        ```
+        Le parcours attendu reste :
+        `['r', 'a', 'b', 'c', 'd', 'e', 'f', 'h', 'i', 'j', 'k', 'm']`
+
+
+
+
+---
+
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc149141407"></a>🧮 **6. Une application de l’arbre binaire : notation polonaise inversée (RPN)**</H2>
+
+🧠 L’usage d’une **pile** est naturel lors de l’évaluation **postfixée** (suffixe) d’une expression algébrique.
+
+Prenons l’exemple :
+
+```
+(1 + 2) × (3 − 4 / (5²))
 ```
 
-Vérifier que l’on obtient bien le résultat escompté.
+Cette expression peut être représentée par un **arbre binaire**, où :
 
-**<H3 STYLE="COLOR:red;">Activité n° 37 : Arbre binaire et parcours en largeur :**</H3>
+* Les **nœuds internes** sont des **opérateurs** (comme `+`, `-`, `*`, etc.)
+* Les **feuilles** sont des **nombres**.
 
-Ajouter (sur Thonny dans le fichier **arbre\_binaire\_POO\_v1\_parcours.py**,), l’implémentation de ce parcours sous **forme de fonction**.
+---
 
-On implémentera la file avec 
-```python
-from collections import deque
-
-def file_vide():
-    pass
-
-def enfiler(file, element):
-    pass
-
-def est_vide(file):
-    pass
-
-def defiler(file):
-    pass
-```
-
-Vérifier que l’on obtient bien le résultat escompté.
-
-**<H3 STYLE="COLOR:red;">Activité n° 38 : Arbre binaire et parcours en largeur :**</H3>
-
-Ajouter (sur Thonny dans le fichier **arbre\_binaire\_POO\_v2\_parcours.py**), l’implémentation de ce parcours sous **forme de fonction.**
-
-On implémentera la file avec 
-```python
-from collections import deque
-
-def file_vide():
-    pass
-
-def enfiler(file, element):
-    pass
-
-def est_vide(file):
-    pass
-
-def defiler(file):
-    pass
-```
-
-Vérifier que l’on obtient bien le résultat escompté.
-
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc149141407"></a>**6. Une application de l’arbre binaire : notation polonaise inversée**</H2>
-
-L’usage d’une pile est naturel lors de l’évaluation post-fixée d’une expression algébrique. Le principe est le suivant : une expression algébrique, par exemple (1 + 2) × ( 3−4/( 5²)) peut être représentée avec un arbre dont les **nœuds sont les opérations** et **les feuilles les nombres**. 
-
-Ici, il s’agit d’un produit entre une somme et la différence entre un nombre et le quotient d’un nombre avec le carré d’un nombre. Cela donne l’arbre :
+🌳 Représentation arborescente
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.055.png){width=60%; : .center }
 
-Le principe du parcours postfixe (ou suffixe) d’un arbre consiste à lire d’abord le sous-arbre (appelé fils) gauche, puis le fils droit, puis effectuer l’opération (qui se trouve au nœud).
+---
 
-Ici, cela donne : 
+🧭 Parcours postfixe
+
+🔄 Le **parcours postfixe** (suffixe) d’un arbre consiste à :
+
+1. Lire d’abord le **sous-arbre gauche**.
+2. Puis le **sous-arbre droit**.
+3. Enfin, effectuer l’**opération** (au nœud).
+
+📌 Pour notre expression, on obtient :
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.056.png){width=40%; : .center }
 
-L’idée est donc, pour évaluer cette expression, d’utiliser
+---
 
- un tableau.
+🧱 Traduction en tableau :
 
-[1, 2, ’+’, 3, 4, 5, 2, ’\*\*’, ’/’, ’-’, ’\*’]
+On encode ce parcours sous forme de **liste Python** :
 
-correspondant à ce parcours de l’arbre.
+```python
+[1, 2, '+', 3, 4, 5, 2, '**', '/', '-', '*']
+```
 
-Un avantage de cette écriture de l’expression est **l’affranchissement complet de parenthésage**.
+✅ Cette forme évite totalement l’usage des parenthèses !
 
-Traditionnellement, les calculatrices HP utilis(ai ?)ent cette notation appelée RPN (pour Reverse Polish Notation) à l’origine parce que les machines n’étaient pas assez puissantes pour gérer les parenthésages mais qui s’avère très pratique à l’usage.
+---
 
-La calculatrice affiche (et gère) en permanence une pile (le sommet est affiché en bas de l’écran), et pour calculer l’expression précédente,
+🖩 Les calculatrices HP et la notation RPN
+
+💡 Les **calculatrices HP** ont historiquement utilisé cette notation, appelée **RPN** (*Reverse Polish Notation*), car les machines de l’époque ne pouvaient pas facilement analyser les parenthèses.
+
+➡️ L’utilisateur entre les nombres **dans une pile** puis les opérations qui s'appliquent aux éléments du sommet.
+
+📺 Voici une simulation du fonctionnement :
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.057.png){width=80%; : .center }
 
@@ -1865,268 +2094,302 @@ La calculatrice affiche (et gère) en permanence une pile (le sommet est affich�
 
 ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.059.png){width=80%; : .center }
 
-Comme les calculatrices HP, nous allons utiliser une pile pour faire les calculs correspondant à la notation polonaise inversée à partir d’entrées stockées initialement dans un tableau.
+---
 
-**<H3 STYLE="COLOR:red;">Activité n° 39 : Implémentation de la RPN en Python**</H3>
 
-Voici une implémentation possible de la RPN en python :
-```python
-def opere_bin(op, a, b):
-    """renvoie le résultat de l'opérateur binaire op entre a et b"""
-    if op == '+': return a + b
-    if op == '-': return a - b
-    if op == '*': return a * b
-    if op == '/': return a / b
-    if op == '**': return a ** b
 
-def evalue_rpn(expr):
-    """évaluation postfixe de l'expression expr sous forme d'un tableau"""
-    pile = []
-    operateurs = ['+', '-', '*', '/', '**']
-    for elem in expr:
-        if elem not in operateurs:
-            pile.append(elem)
-        else:
-            assert pile != [], "expression mal formée"
-            b = pile.pop()
-            assert pile != [], "expression mal formée"
-            a = pile.pop()
-            pile.append( opere_bin(elem, a, b) )
-    resultat = pile.pop()
-    assert pile == [], "expression mal formée"
-    return resultat
-```
+???+ question "📝 Activité n° 39 : Implémentation de la RPN en Python"
 
-Tester l’implémentation précédente avec [1, 2, '+', 3, 4, 5, 2, '\*\*', '/', '-', '\*'].
+    📌 Nous allons écrire une fonction qui évalue une expression **en notation postfixée**, à l’aide d’une **pile**.
 
-???+ question "Tester ce qui est proposé"
+    ```python   
+    def opere_bin(op, a, b):
+        """renvoie le résultat de l'opérateur binaire op entre a et b"""
+        if op == '+': return a + b
+        if op == '-': return a - b
+        if op == '*': return a * b
+        if op == '/': return a / b
+        if op == '**': return a ** b
 
-    {{ IDE() }}
+    def evalue_rpn(expr):
+        """évaluation postfixe de l'expression expr sous forme d'un tableau"""
+        pile = []
+        operateurs = ['+', '-', '*', '/', '**']
+        for elem in expr:
+            if elem not in operateurs:
+                pile.append(elem)
+            else:
+                assert pile != [], "expression mal formée"
+                b = pile.pop()
+                assert pile != [], "expression mal formée"
+                a = pile.pop()
+                pile.append(opere_bin(elem, a, b))
+        resultat = pile.pop()
+        assert pile == [], "expression mal formée"
+        return resultat
+    ```
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc149141408"></a>**7. Exercices**</H2>
+    ???+ question "Python"
 
+        {{ IDE() }}
 
-**<H3 STYLE="COLOR:red;">Exercice n°1 : <a name="_hlk52886978"></a>Ordre préfixe**</H3>
+---
 
-On considère l’arbre suivant :
+???+ question "🧪 **Activité n° 39 – Test de la fonction RPN**"
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.060.png){width=40%; : .center }
 
-On parcourt cet arbre en profondeur avec un ordre préfixe.
+    Teste l’implémentation précédente avec la liste :
 
-1. Quel est le résultat de l'opération obtenue si l'on tient compte des priorités opératoires, c'est-à-dire du fait que la multiplication et la division sont prioritaires sur l'addition et la soustraction? 
+    ```python
+    [1, 2, '+', 3, 4, 5, 2, '**', '/', '-', '*']
+    ```
 
-1. Implémenter cet arbre avec la méthode de Huffman (avec les deux classe) créer une méthode qui permette d’afficher l’arbre et retrouver le résultat de la question précédente à l'aide d’une méthode qui parcourt l’arbre en profondeur (avec ordre préfixe). La méthode aura pour prototype : parcoursprofondeur(self, file = [] ) -> list.
+    Que renvoie le programme ?
 
-   Et l’**algorithme du parcours en profondeur est** : 
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.061.png){: .center }
+    ??? success "✅ Solution"
 
-**<H3 STYLE="COLOR:red;">Exercice n°2 : autre définition de hauteur**</H3>
+        Le calcul se fait étape par étape dans une pile :
+        - 1 + 2 = 3
+        - 5 ** 2 = 25
+        - 4 / 25 = 0.16
+        - 3 - 0.16 ≈ 2.84
+        - 3 * 2.84 ≈ **8.52**
 
-On considère **l’arbre binaire complet** suivant :
+        ✅ La fonction renvoie donc environ **8.52**
 
-![Les arbres.](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.062.jpeg){: .center }
 
-Dans cet exercice, on utilisera la convention suivante : la hauteur d’un arbre binaire ne comportant qu’un nœud est 1.
+---
 
-Quel serait le tableau (liste de Python) associé à cet arbre et quelle en serait sa hauteur ?
 
-**Attention** : pas tableau de tableaux… !!
 
-**<H3 STYLE="COLOR:red;">Exercice n°3 : Dessiner des arbres**</H3>
 
-Dessinez chacun des arbres ci-dessous. Donner pour chaque arbre, sa taille, sa hauteur et son nombre de feuilles. Δ représente l’arbre vide. On rappelle que la hauteur d’un arbre est définie comme la profondeur maximale des nœuds de l’arbre.
 
-a.	(1, ∆, ∆)
 
-b.	(2, (4, Δ, (1, (5, Δ, (3, Δ, (2, Δ, Δ))), Δ)), Δ)
+## <H2 STYLE="COLOR:BLUE;">🧠 <a name="_toc149141408"></a>**7. Exercices**</H2>
 
-c.	(3, (6, Δ, (2, Δ, Δ)), (1, (5, Δ, Δ), (4, Δ, Δ)))
 
-d.	(4, (3, (6, ∆, ∆), (1, ∆, ∆)), (5, (7, ∆, ∆), (2, ∆, ∆)))
+!!! abstract "Exercice n°1 : <a name="_hlk52886978"></a>Ordre préfixe**"
 
-**<H3 STYLE="COLOR:red;">Exercice n°4 : méthode d’Eytzinger**</H3>
+    On considère l’arbre suivant :
 
-La méthode d’Eytzinger consiste à stocker un arbre dans une liste unique dans laquelle le fils gauche d’un nœud i est rangé dans la case 2i+1 et son fils droit dans la case 2i+2.
+    ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.060.png){width=40%; : .center }
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.063.png){: .center }
+    On parcourt cet arbre en profondeur avec un ordre préfixe.
 
-1\.	Représenter l’arbre défini par la liste [5, 2, 6, 1, 4, Δ, 7].
+    1. Quel est le résultat de l'opération obtenue si l'on tient compte des priorités opératoires, c'est-à-dire du fait que la multiplication et la division sont prioritaires sur l'addition et la soustraction? 
 
-2\.	Quelle liste représente cet arbre ?
+    1. Implémenter cet arbre avec la méthode de Huffman (avec les deux classe) créer une méthode qui permette d’afficher l’arbre et retrouver le résultat de la question précédente à l'aide d’une méthode qui parcourt l’arbre en profondeur (avec ordre préfixe). La méthode aura pour prototype : parcoursprofondeur(self, file = [] ) -> list.
 
-**<H3 STYLE="COLOR:red;">Exercice n°5 : encadrements**</H3>
+    Et l’**algorithme du parcours en profondeur est** : 
 
-1\.	La hauteur d’un arbre binaire est égale à 4.
+    ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.061.png){: .center }
 
-a.	Encadrer son nombre de feuilles.
+!!! abstract "Exercice n°2 : autre définition de hauteur**"
 
-b.	Encadrer sa taille.
+    On considère **l’arbre binaire complet** suivant :
 
-2\.	Mêmes questions avec un arbre de hauteur h.
+    ![Les arbres.](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.062.jpeg){: .center }
 
-3\.	Quelle peut être la hauteur d’un arbre binaire de taille 10 ? de taille 100 ? de taille t ?
+    Dans cet exercice, on utilisera la convention suivante : la hauteur d’un arbre binaire ne comportant qu’un nœud est 1.
 
-**<H3 STYLE="COLOR:red;">Exercice n°6 : parcours**</H3>
+    Quel serait le tableau (liste de Python) associé à cet arbre et quelle en serait sa hauteur ?
 
-On affiche les sommets de l’arbre de l’exercice 5 en suivant un parcours en profondeur. Dans quel ordre vont-ils s’afficher :
+    **Attention** : pas tableau de tableaux… !!
 
-a.	Avec un parcours infixe ?
+!!! abstract "Exercice n°3 : Dessiner des arbres**"
 
-b.	Avec un parcours préfixe ?
+    Dessinez chacun des arbres ci-dessous. Donner pour chaque arbre, sa taille, sa hauteur et son nombre de feuilles. Δ représente l’arbre vide. On rappelle que la hauteur d’un arbre est définie comme la profondeur maximale des nœuds de l’arbre.
 
-c.	Avec un parcours suffixe ?
+    a.	(1, ∆, ∆)
 
-**<H3 STYLE="COLOR:red;">Exercice n°7 : parcours infixe**</H3>
+    b.	(2, (4, Δ, (1, (5, Δ, (3, Δ, (2, Δ, Δ))), Δ)), Δ)
 
-Construire cinq arbres différents de taille 3, dont les nœuds contiennent les valeurs a, b, c pour lesquels le parcours infixe affiche à chaque fois a – b – c dans cet ordre.
+    c.	(3, (6, Δ, (2, Δ, Δ)), (1, (5, Δ, Δ), (4, Δ, Δ)))
 
-**<H3 STYLE="COLOR:red;">Exercice n°8 : compléter des arbres**</H3>
+    d.	(4, (3, (6, ∆, ∆), (1, ∆, ∆)), (5, (7, ∆, ∆), (2, ∆, ∆)))
 
-1. Recopier et compléter l’arbre ci-dessous pour que son parcours suffixe affiche dans l’ordre les lettres 
+!!! abstract "Exercice n°4 : méthode d’Eytzinger**"
 
-   I N G E N I E U R.
+    La méthode d’Eytzinger consiste à stocker un arbre dans une liste unique dans laquelle le fils gauche d’un nœud i est rangé dans la case 2i+1 et son fils droit dans la case 2i+2.
 
-   ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.064.png)
+    ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.063.png){: .center }
 
-1. Construire de même un arbre dont le parcours infixe affiche G A U F F R E.
-1. Construire un arbre dont le parcours préfixe affiche É P E R V I E R.
+    1\.	Représenter l’arbre défini par la liste [5, 2, 6, 1, 4, Δ, 7].
 
-**<H3 STYLE="COLOR:red;">Exercice n°9 : le compte est bon**</H3>
+    2\.	Quelle liste représente cet arbre ?
 
-On utilise des arbres pour représenter des expressions arithmétiques, par exemple pour programmer un solveur du jeu « le compte est bon ».
+!!! abstract "Exercice n°5 : encadrements**"
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.065.png){: .center }
+    1\.	La hauteur d’un arbre binaire est égale à 4.
 
-Donner l’affichage produit par chacun des trois parcours en profondeur.
+    a.	Encadrer son nombre de feuilles.
 
-Quel parcours renvoie un affichage de l’expression sous sa forme habituelle, en rajoutant si besoin des parenthèses ?  
+    b.	Encadrer sa taille.
 
-Les deux autres affichages correspondent à la notation polonaise et à la notation polonaise inversée. Ces notations permettent de représenter des expressions arithmétiques sans parenthèses.
+    2\.	Mêmes questions avec un arbre de hauteur h.
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc149141409"></a>**8. Projets**</H2>
+    3\.	Quelle peut être la hauteur d’un arbre binaire de taille 10 ? de taille 100 ? de taille t ?
 
-**<H3 STYLE="COLOR:red;">Exercice n°1 : arbre binaire :**</H3>
+!!! abstract "Exercice n°6 : parcours**"
 
-=> **CAPYTALE Le code vous sera donné par votre enseignant**
+    On affiche les sommets de l’arbre de l’exercice 5 en suivant un parcours en profondeur. Dans quel ordre vont-ils s’afficher :
 
-Commençons par étudier les arbres binaires, en utilisant une définition récursive : un arbre binaire est
+    a.	Avec un parcours infixe ?
 
-- soit un arbre vide (que l’on codera par None en Python)
-- soit un nœud ayant une étiquette, et deux arbres qu’on appelle enfant gauche et enfant droit.
+    b.	Avec un parcours préfixe ?
 
-On choisit d’implémenter de tels arbres binaires à l’aide de la classe suivante, où on utilise des valeurs par défaut dans le constructeur pour les deux enfants :
+    c.	Avec un parcours suffixe ?
 
-```python
-class BinaryTree:
-    def __init__(self, label : str, left_child=None, right_child=None):
-        self.__label = str(label)
-        self.__left  = left_child		# None ou un arbre de la classe BinaryTree
-        self.__right = right_child	# None ou un arbre de la classe BinaryTree
-```
+!!! abstract "Exercice n°7 : parcours infixe**"
 
-1\. Sur Thonny : Créer un fichier Python binaryTree.py.
+    Construire cinq arbres différents de taille 3, dont les nœuds contiennent les valeurs a, b, c pour lesquels le parcours infixe affiche à chaque fois a – b – c dans cet ordre.
 
-2\. Utiliser cette classe pour stocker les arbres t1, t2 et t3 suivants :
+!!! abstract "Exercice n°8 : compléter des arbres**"
 
-|t1|t2|t3|
-| :-: | :-: | :-: |
-|![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.066.png)|![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.067.png)|![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.068.png)|
+    1. Recopier et compléter l’arbre ci-dessous pour que son parcours suffixe affiche dans l’ordre les lettres 
 
-3\. Ajouter une méthode publique is\_leaf() testant si l’arbre est une feuille dont le prototype est is\_leaf(self) -> bool.
+    I N G E N I E U R.
 
-4\. La question du parcours de l’ensemble des nœuds d’un arbre est cruciale, en particulier pour l’affichage. Rajouter la méthode \_\_repr\_\_ d’affichage de l’ensemble des informations stockées dans l’arbre qui associe par exemple à l’arbre t3 ci-dessus la chaîne : <3,<4,<>,<2>>,<7,<6>,<5,<1>,<0>>>>.
-```python
-def is_leaf(self):
-    """ fonction testant si l'arbre est une feuille"""
-    return not self.__left and not self.__right
+    ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.064.png)
 
-def __repr__(self):
-    if self.is_leaf():
-        return "<" + str(self.__label) + ">"
+    1. Construire de même un arbre dont le parcours infixe affiche G A U F F R E.
+    1. Construire un arbre dont le parcours préfixe affiche É P E R V I E R.
 
-    left  = "<>" if self.__left is None else self.__left.__repr__()
-    right = "<>" if self.__right is None else self.__right.__repr__()
-    return "<{0},{1},{2}>".format(self.__label, left, right)
-```
+!!! abstract "Exercice n°9 : le compte est bon**"
 
-Tester la méthode précédente avec l’arbre t3.
+    On utilise des arbres pour représenter des expressions arithmétiques, par exemple pour programmer un solveur du jeu « le compte est bon ».
 
-5\. Valider les tests unitaires suivants, pour les arbres t1 et t3 donnés respectivement ci-dessus :
-```python
-str(t1) == "<3,<4>,<7>>"
-str(t3) == "<3,<4,<>,<2>>,<7,<6>,<5,<1>,<0>>>>"
-```
-6\. Ajouter une méthode publique height() renvoyant la hauteur de l’arbre.
+    ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.065.png){: .center }
 
-7\. Valider les tests unitaires suivants, pour les arbres t1, t2 et t3 donnés respectivement ci-dessus.
-```python
-t1.height() == 1
-t2.height() == 2
-t3.height() == 3
-```
-8\. Ajouter une méthode publique prefix\_traversal() qui renvoie un parcours en profondeur préfixé de l’arbre.
+    Donner l’affichage produit par chacun des trois parcours en profondeur.
 
-9\. Valider le test unitaire suivant, pour l’arbre t3.
-```python
-t3.prefix_traversal()  == ['3', '4', '2', '7', '6', '5', '1', '0']
-```
-10\. Ajouter une méthode publique infix\_traversal() qui renvoie un parcours en profondeur infixé de l’arbre.
+    Quel parcours renvoie un affichage de l’expression sous sa forme habituelle, en rajoutant si besoin des parenthèses ?  
 
-11\. Valider le test unitaire suivant, pour l’arbre t3.
-```python
-t3.infix_traversal()   == ['4', '2', '3', '6', '7', '1', '5', '0']
-```
-12\. Ajouter une méthode publique postfix\_traversal() qui renvoie un parcours en profondeur postfixé de l’arbre.
+    Les deux autres affichages correspondent à la notation polonaise et à la notation polonaise inversée. Ces notations permettent de représenter des expressions arithmétiques sans parenthèses.
 
-13\. Valider le test unitaire suivant, pour l’arbre t3.
-```python
-t3.postfix_traversal() == ['2', '4', '6', '1', '0', '5', '7', '3']
-```
-14\. Ajouter méthode publique width\_traversal() qui renvoie un parcours en largeur de l’arbre.
+## <H2 STYLE="COLOR:BLUE;">🚧 <a name="_toc149141409"></a>**8. Projets**</H2>
 
-15\. Valider le test unitaire suivant, pour l’arbre t3.
-```python
-t3.width_traversal()   == ['3', '4', '7', '2', '6', '5', '1', '0']
-```
+!!! abstract "Projet n°1 : arbre binaire :**"
 
-**<H3 STYLE="COLOR:red;">Exercice n°2 : Notation RPN :**</H3>
+    => **CAPYTALE Le code vous sera donné par votre enseignant**
 
-=> **CAPYTALE Le code vous sera donné par votre enseignant**
+    Commençons par étudier les arbres binaires, en utilisant une définition récursive : un arbre binaire est
 
-Le parcours en profondeur infixe permet de modéliser des expressions arithmétiques au prix de l’absence de parenthèses (voir cours).
+    - soit un arbre vide (que l’on codera par None en Python)
+    - soit un nœud ayant une étiquette, et deux arbres qu’on appelle enfant gauche et enfant droit.
 
-On peut cependant se passer de parenthèses en changeant l’ordre d’apparition des éléments de l’expression arithmétique. On parle alors de notation polonaise inversée, qui correspond en fait à un parcours postfixe (ou suffixe) de l’arbre binaire : on imprime l’étiquette du nœud après avoir imprimé l’enfant gauche puis l’enfant droit.
+    On choisit d’implémenter de tels arbres binaires à l’aide de la classe suivante, où on utilise des valeurs par défaut dans le constructeur pour les deux enfants :
 
-1\. Sur Thonny : Créer un fichier Python rpn.py.
+    ```python
+    class BinaryTree:
+        def __init__(self, label : str, left_child=None, right_child=None):
+            self.__label = str(label)
+            self.__left  = left_child		# None ou un arbre de la classe BinaryTree
+            self.__right = right_child	# None ou un arbre de la classe BinaryTree
+    ```
 
-2\. Sur Thonny : On importera le fichier binaryTree de l’exercice précédent.
+    1\. Sur Thonny : Créer un fichier Python binaryTree.py.
 
-Aide si le fichier est sur le bureau: 
-```python
-import sys
-sys.path.append("C:\\Documents and Settings\\Administrateur\\Bureau")
-from mon_module_qui_est_sur_le_bureau import * 
-# ou import mon_module_qui_est_sur_le_bureau
-```
+    2\. Utiliser cette classe pour stocker les arbres t1, t2 et t3 suivants :
 
-ou on recopiera le code du fichier de l'exercice précédent.
+    |t1|t2|t3|
+    | :-: | :-: | :-: |
+    |![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.066.png)|![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.067.png)|![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.068.png)|
 
-3\. Créer une classe RPN avec :
+    3\. Ajouter une méthode publique is\_leaf() testant si l’arbre est une feuille dont le prototype est is\_leaf(self) -> bool.
 
-- un constructeur \_\_init\_\_() initialisant **l’attribut privé pile** qui est initialisée avec la chaîne du parcours **postfixe de l’arbre binaire passée en paramètre** au constructeur. Le prototype de la méthode est \_\_init\_\_(self, expression : object).
+    4\. La question du parcours de l’ensemble des nœuds d’un arbre est cruciale, en particulier pour l’affichage. Rajouter la méthode \_\_repr\_\_ d’affichage de l’ensemble des informations stockées dans l’arbre qui associe par exemple à l’arbre t3 ci-dessus la chaîne : <3,<4,<>,<2>>,<7,<6>,<5,<1>,<0>>>>.
+    ```python
+    def is_leaf(self):
+        """ fonction testant si l'arbre est une feuille"""
+        return not self.__left and not self.__right
 
-- une méthode spéciale \_\_repr\_\_() qui affiche les étiquettes séparées par des espaces pour améliorer la lisibilité : par exemple, l’expression arithmétique (5+4)×(3−(2+1)) s’affichera sous la forme “5 4 + 3 2 1 + - ×”.
+    def __repr__(self):
+        if self.is_leaf():
+            return "<" + str(self.__label) + ">"
 
-  **Astuce** : on pourra utiliser la méthode strip().
+        left  = "<>" if self.__left is None else self.__left.__repr__()
+        right = "<>" if self.__right is None else self.__right.__repr__()
+        return "<{0},{1},{2}>".format(self.__label, left, right)
+    ```
 
-Voici l’arbre qui permet d’implémenter l’expression arithmétique : (5+4)×(3−(2+1)).
+    Tester la méthode précédente avec l’arbre t3.
 
-![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.069.png){: .center }
+    5\. Valider les tests unitaires suivants, pour les arbres t1 et t3 donnés respectivement ci-dessus :
+    ```python
+    str(t1) == "<3,<4>,<7>>"
+    str(t3) == "<3,<4,<>,<2>>,<7,<6>,<5,<1>,<0>>>>"
+    ```
+    6\. Ajouter une méthode publique height() renvoyant la hauteur de l’arbre.
 
-4\. Créer l’arbre qui implémentera l’expression arithmétique (5+4)×(3−(2+1)).
+    7\. Valider les tests unitaires suivants, pour les arbres t1, t2 et t3 donnés respectivement ci-dessus.
+    ```python
+    t1.height() == 1
+    t2.height() == 2
+    t3.height() == 3
+    ```
+    8\. Ajouter une méthode publique prefix\_traversal() qui renvoie un parcours en profondeur préfixé de l’arbre.
 
-5\. Vérifier que l’on obtient bien ['5', '4', '+', '3', '2', '1', '+', '-', 'x'].
+    9\. Valider le test unitaire suivant, pour l’arbre t3.
+    ```python
+    t3.prefix_traversal()  == ['3', '4', '2', '7', '6', '5', '1', '0']
+    ```
+    10\. Ajouter une méthode publique infix\_traversal() qui renvoie un parcours en profondeur infixé de l’arbre.
 
-Les calculatrices Hewlett-Packard proposaient à leurs utilisateurs d’entrer les expressions arithmétiques à calculer à l’aide de la notation polonaise inversée.
+    11\. Valider le test unitaire suivant, pour l’arbre t3.
+    ```python
+    t3.infix_traversal()   == ['4', '2', '3', '6', '7', '1', '5', '0']
+    ```
+    12\. Ajouter une méthode publique postfix\_traversal() qui renvoie un parcours en profondeur postfixé de l’arbre.
+
+    13\. Valider le test unitaire suivant, pour l’arbre t3.
+    ```python
+    t3.postfix_traversal() == ['2', '4', '6', '1', '0', '5', '7', '3']
+    ```
+    14\. Ajouter méthode publique width\_traversal() qui renvoie un parcours en largeur de l’arbre.
+
+    15\. Valider le test unitaire suivant, pour l’arbre t3.
+    ```python
+    t3.width_traversal()   == ['3', '4', '7', '2', '6', '5', '1', '0']
+    ```
+
+!!! abstract "Projet n°2 : Notation RPN :**"
+
+    => **CAPYTALE Le code vous sera donné par votre enseignant**
+
+    Le parcours en profondeur infixe permet de modéliser des expressions arithmétiques au prix de l’absence de parenthèses (voir cours).
+
+    On peut cependant se passer de parenthèses en changeant l’ordre d’apparition des éléments de l’expression arithmétique. On parle alors de notation polonaise inversée, qui correspond en fait à un parcours postfixe (ou suffixe) de l’arbre binaire : on imprime l’étiquette du nœud après avoir imprimé l’enfant gauche puis l’enfant droit.
+
+    1\. Sur Thonny : Créer un fichier Python rpn.py.
+
+    2\. Sur Thonny : On importera le fichier binaryTree de l’exercice précédent.
+
+    Aide si le fichier est sur le bureau: 
+    ```python
+    import sys
+    sys.path.append("C:\\Documents and Settings\\Administrateur\\Bureau")
+    from mon_module_qui_est_sur_le_bureau import * 
+    # ou import mon_module_qui_est_sur_le_bureau
+    ```
+
+    ou on recopiera le code du fichier de l'exercice précédent.
+
+    3\. Créer une classe RPN avec :
+
+    - un constructeur \_\_init\_\_() initialisant **l’attribut privé pile** qui est initialisée avec la chaîne du parcours **postfixe de l’arbre binaire passée en paramètre** au constructeur. Le prototype de la méthode est \_\_init\_\_(self, expression : object).
+
+    - une méthode spéciale \_\_repr\_\_() qui affiche les étiquettes séparées par des espaces pour améliorer la lisibilité : par exemple, l’expression arithmétique (5+4)×(3−(2+1)) s’affichera sous la forme “5 4 + 3 2 1 + - ×”.
+
+    **Astuce** : on pourra utiliser la méthode strip().
+
+    Voici l’arbre qui permet d’implémenter l’expression arithmétique : (5+4)×(3−(2+1)).
+
+    ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.069.png){: .center }
+
+    4\. Créer l’arbre qui implémentera l’expression arithmétique (5+4)×(3−(2+1)).
+
+    5\. Vérifier que l’on obtient bien ['5', '4', '+', '3', '2', '1', '+', '-', 'x'].
+
+    Les calculatrices Hewlett-Packard proposaient à leurs utilisateurs d’entrer les expressions arithmétiques à calculer à l’aide de la notation polonaise inversée.
