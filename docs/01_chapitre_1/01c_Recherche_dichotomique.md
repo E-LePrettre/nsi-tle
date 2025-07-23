@@ -118,7 +118,7 @@ $$
 
 Donc, **le nombre d’itérations** est **log₂(n)** dans le pire des cas.
 
-2 Complexité en notation Big-O
+2 Complexité en notation O
 
 * Chaque étape fait **un test et une division du tableau**, soit une **opération constante O(1)**.
 * Et on répète cela **log₂(n)** fois.
@@ -131,8 +131,6 @@ $$
 
 
 
-
-➡️ On répète cette opération **log₂(N)** fois.
 
 | Taille de la liste | 1 | 2 | 4 | 8 | 16 | 32 | 64 | 128 |
 | ------------------ | - | - | - | - | -- | -- | -- | --- |
