@@ -1125,7 +1125,7 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 ### <span style="color:green;">🔍 **6.4. Requêtes de sélection imbriquées**</span>
 
 
-???+ question "🧠 Activité n°1 : Requête imbriquée simple"
+???+ question "🧠 Activité n°52 : Requête imbriquée simple"
 
     🔎 **Objectif :** Extraire le titre des films dont le réalisateur est de nationalité **italienne**, en utilisant une **requête imbriquée**.
 
@@ -1187,7 +1187,7 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 ---
 
 
-???+ question "🧠 Activité n°2 : Requête imbriquée avec tri"
+???+ question "🧠 Activité n°53 : Requête imbriquée avec tri"
 
 
     🔎 **Objectif :** Afficher les **titres des films** du **genre 'drame'** sortis **après l’an 2000**, et dont le réalisateur est **français**, triés par ordre alphabétique.
@@ -1240,7 +1240,7 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
 ---
 
-???+ question "🧠 Activité n°3 : Requête imbriquée avec double jointure implicite"
+???+ question "🧠 Activité n°54 : Requête imbriquée avec double jointure implicite"
 
     🔎 **Objectif :** Trouver les **réalisateurs** (nom + prénom) qui ont réalisé **au moins un film** du **même genre** qu’un film intitulé **"Inception"**.
 
