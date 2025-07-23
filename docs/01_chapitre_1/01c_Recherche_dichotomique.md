@@ -90,10 +90,47 @@ Non, car à chaque étape :
 
 ### <H3 style="color:green;">🔢 Nombre d’étapes</H3>
 
-Prenons une liste de `N` éléments.
-À chaque étape, on divise la taille par 2 :
 
-> `N → N/2 → N/4 → ... → 1`
+1. Taille du problème à chaque étape
+
+* Supposons un tableau de `n` éléments.
+* À chaque itération, on coupe le tableau en **deux**.
+* Donc, la taille du sous-tableau devient :
+
+  * après 1 étape : `n / 2`
+  * après 2 étapes : `n / 4`
+  * après 3 étapes : `n / 8`
+  * etc.
+
+Au bout de `k` étapes, on a un sous-tableau de taille `n / 2^k`.
+
+On s’arrête quand le tableau est de taille 1, donc :
+
+$$
+\frac{n}{2^k} = 1
+$$
+
+On résout cette équation :
+
+$$
+n = 2^k \quad \Rightarrow \quad k = \log_2(n)
+$$
+
+Donc, **le nombre d’itérations** est **log₂(n)** dans le pire des cas.
+
+2 Complexité en notation Big-O
+
+* Chaque étape fait **un test et une division du tableau**, soit une **opération constante O(1)**.
+* Et on répète cela **log₂(n)** fois.
+* Donc la complexité en **temps** est :
+
+$$
+\boxed{\mathcal{O}(\log_2 n)}
+$$
+
+
+
+
 
 ➡️ On répète cette opération **log₂(N)** fois.
 
