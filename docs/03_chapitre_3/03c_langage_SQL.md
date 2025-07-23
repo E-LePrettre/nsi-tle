@@ -1122,6 +1122,183 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
 ---
 
+### <span style="color:green;">🔍 **6.4. Requêtes de sélection imbriquées**</span>
+
+
+???+ question "🧠 Activité n°1 : Requête imbriquée simple"
+
+    🔎 **Objectif :** Extraire le titre des films dont le réalisateur est de nationalité **italienne**, en utilisant une **requête imbriquée**.
+
+    > 🔁 Deux étapes à faire :
+    > - 1. Trouver les identifiants des réalisateurs de nationalité italienne.
+    > - 2. Sélectionner les films réalisés par ces réalisateurs.
+
+    **Comment faire ?**
+
+    🧱 Étape 1 : Identifier les tables utiles
+
+    * `film` : contient les titres et les `id_realisateur_film`
+    * `realisateur` : contient les `id_nationalite_realisateur`
+    * `nationalite` : contient les noms de nationalité
+
+    🧩 Étape 2 : Formuler le raisonnement
+
+    1. Trouver les ID des réalisateurs français :
+
+    ```sql
+    SELECT id_realisateur
+    FROM realisateur
+    WHERE id_nationalite_realisateur = (
+        SELECT id_nationalite
+        FROM nationalite
+        WHERE nom_nationalite = 'Française'
+    )
+    ```
+
+    2. Trouver les titres des films réalisés par ces réalisateurs :
+
+    ```sql
+    SELECT titre_film
+    FROM film
+    WHERE id_realisateur_film IN (
+        ... sous-requête précédente ...
+    )
+    ```
+
+    ❓ **Écrivez la requête SQL correspondante.**
+
+    ??? success "📤 Solution"
+
+        ```sql
+        SELECT titre_film
+        FROM film
+        WHERE id_realisateur_film IN (
+            SELECT id_realisateur
+            FROM realisateur
+            WHERE id_nationalite_realisateur IN (
+                SELECT id_nationalite
+                FROM nationalite
+                WHERE nom_nationalite = 'italienne'
+            )
+        );
+        ```
+
+
+---
+
+
+???+ question "🧠 Activité n°2 : Requête imbriquée avec tri"
+
+
+    🔎 **Objectif :** Afficher les **titres des films** du **genre 'drame'** sortis **après l’an 2000**, et dont le réalisateur est **français**, triés par ordre alphabétique.
+
+    **Comment trouver les films ayant le même genre qu’un film intitulé "Inception"**
+
+    🧱 Étape 1 : Identifier les tables utiles
+
+    * `film` : contient les titres, genres, et réalisateurs
+    * `genre` : donne les noms associés aux ID
+
+    🧩 Étape 2 : Formuler le raisonnement
+
+    1. Identifier le genre de "Inception" 
+
+    2. Lister tous les films de ce genre 
+
+    🧠 Astuce pédagogique
+
+    | Étape   | But                                             | Type de requête       |
+    | ------- | ----------------------------------------------- | --------------------- |
+    | Étape 1 | Identifier une condition (genre ou nationalité) | **SELECT simple**     |
+    | Étape 2 | Utiliser ce résultat comme filtre               | **Requête imbriquée** |
+
+    ❓ **Écrivez une requête imbriquée avec filtre et tri.**
+
+    ??? success "📤 Solution"
+
+    ```sql
+    SELECT titre_film
+    FROM film
+    WHERE id_genre_film = (
+        SELECT id_genre
+        FROM genre
+        WHERE nom_genre = 'drame'
+    )
+    AND EXTRACT(YEAR FROM annee_film) > 2000
+    AND id_realisateur_film IN (
+        SELECT id_realisateur
+        FROM realisateur
+        WHERE id_nationalite_realisateur = (
+            SELECT id_nationalite
+            FROM nationalite
+            WHERE nom_nationalite = 'française'
+        )
+    )
+    ORDER BY titre_film ASC;
+    ```
+
+
+---
+
+???+ question "🧠 Activité n°3 : Requête imbriquée avec double jointure implicite"
+
+    🔎 **Objectif :** Trouver les **réalisateurs** (nom + prénom) qui ont réalisé **au moins un film** du **même genre** qu’un film intitulé **"Inception"**.
+
+    > 💡 On cherche tous les réalisateurs ayant au moins un film **dans le même genre** que celui d’"Inception", sans nécessairement avoir réalisé ce film.
+
+    🧠 **Comment faire ?**
+
+
+    🧱 Étape 1 : Identifier les tables utiles
+
+    * `film` : contient les titres, genres (`id_genre_film`) et réalisateurs (`id_realisateur_film`)
+    * `realisateur` : contient les noms et prénoms des réalisateurs
+    * `genre` : pour savoir à quoi correspond un `id_genre`
+
+    Mais ici, comme on ne veut **que récupérer des `id_genre_film` et `id_realisateur_film`**, on peut tout faire **à partir de la table `film`**, puis utiliser `realisateur` pour les noms.
+
+
+    🧩 Étape 2 : Décomposer le raisonnement
+
+    1. Trouver le genre du film **"Inception"** 
+
+    2. Trouver les films qui ont ce **même genre** 
+
+    3. Trouver les **noms des réalisateurs** qui ont ces **ID** 
+
+    🪄 Astuce
+
+    🧩 On peut voir la requête comme un **puzzle de conditions** imbriquées :
+
+    * On part du **critère le plus spécifique** (le genre d’un film donné),
+    * Puis on **remonte** pour lister les films qui y correspondent,
+    * Et enfin on **récupère les auteurs** (réalisateurs) de ces films.
+
+
+
+    ❓ **Écrivez une requête SQL avec une requête imbriquée dans la clause `WHERE`.**
+
+    ??? success "📤 Solution"
+
+    ```sql
+    SELECT nom_realisateur, prenom_realisateur
+    FROM realisateur
+    WHERE id_realisateur IN (
+        SELECT id_realisateur_film
+        FROM film
+        WHERE id_genre_film = (
+            SELECT id_genre_film
+            FROM film
+            WHERE titre_film = 'Inception'
+        )
+    );
+    ```
+
+---
+
+
+
+
 
 
 ## <H2 STYLE="COLOR:BLUE;"><a name="_toc173365587">📝 </a>**7. Exercices**</H2>
