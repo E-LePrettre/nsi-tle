@@ -221,6 +221,24 @@ PK : (id_étudiant, id_cours)
 🔁 Redondance = Risque d’erreurs → ❌
 ✅ Solution : séparer en plusieurs tables et lier par identifiants
 
+![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.010.png)
+
+Il y a beaucoup d’informations **dupliquées**.
+
+![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.011.png)
+
+Dans une table, ces duplications sont à proscrire, car si l’on doit corriger une valeur, il faut apporter autant de fois la correction qu’il y a d’enregistrements.
+
+Il faut donc utiliser deux tables au lieu d’une seule et créer un lien, (ou association), une relation, entre ces deux tables. 
+Dans l’exemple, on créer une table film et on modifie l’attribut realisateur en id_realisateur avec un simple entier.
+
+![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.012.png)
+
+L’attribut id_realisateur de la relation film permet de créer un lien avec la relation realisateur 
+
+![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.013.png)
+
+![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.014.png)
 ---
 
 #### <H4 STYLE="COLOR:MAGENTA;">**2.3.5. Clé étrangère</H4>**
