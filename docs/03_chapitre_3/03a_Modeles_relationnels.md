@@ -257,6 +257,20 @@ L’attribut id_realisateur de la relation film permet de créer un lien avec la
 2. 🆔 **Clé primaire** unique et non nulle
 3. 🔗 **Clé étrangère** cohérente et existante
 
+
+
+**Contrainte de domaine** : le type de données de chaque attribut doit être respecté et vérifié.
+
+**Contrainte de relation** : chaque enregistrement d’une relation doit pouvoir être identifié de manière unique par une clé primaire, qui doit être non nulle.
+
+**Contrainte de référence** : lorsque des relations sont liées, il est indispensable que les trois règles suivantes soient respectées :
+
+1. Une clé étrangère doit correspondre à la clé primaire de la relation à laquelle la table est liée.
+2. Un enregistrement de la table primaire ne peut pas être supprimé s’il possède des enregistrements liés dans une autre table.
+3. La valeur d’une clé primaire ne peut pas être modifiée dans la table primaire si des enregistrements y sont liés dans une autre table.
+
+
+
 ---
 
 #### <H4 STYLE="COLOR:MAGENTA;">**2.3.7. Schéma relationnel</H4>**
@@ -266,6 +280,14 @@ L’attribut id_realisateur de la relation film permet de créer un lien avec la
 * Tables
 * Champs + types
 * Liens (PK / FK)
+
+Exemple:
+
+![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.019.png)
+
+Schéma relationnel
+livres(code : entier (clé primaire),titre : texte,auteur : texte,éditeur : texte,ISBN : texte)
+
 
 ---
 
