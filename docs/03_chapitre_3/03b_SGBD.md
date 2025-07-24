@@ -1,4 +1,4 @@
-﻿---
+---
 author: ELP  
 title: 03b SGBD  
 ---
@@ -8,7 +8,7 @@ title: 03b SGBD
 -  [1.🧩 Les grands principes](#_toc144548611)
 -  [2.🧱 Les principaux SGBD](#_toc144548612)
 -  [3.🖥️ Architecture](#_toc144548615)
--  [4.🧪 Utilisation de DB Browser SQLite : création d’une base](#_toc144548616)
+
 
 **Compétences évaluables :**
 
@@ -18,13 +18,19 @@ title: 03b SGBD
 
 ## <H2 STYLE="COLOR:BLUE;">🧩 <a name="_toc144548611"></a>**1. Les grands principes**</H2>
 
-Les SGBD (**systèmes de gestion de bases de données**) permettent la **lecture**, l’**écriture**, la **modification** des informations, mais aussi la **gestion des autorisations d’accès** à une base de données. Ces opérations sont souvent désignées par l’acronyme **CRUD** : *Create*, *Read*, *Update*, *Delete*.
 
-Les fichiers de bases de données étant stockés sur des **disques durs de serveurs**, ils peuvent être vulnérables aux **pannes**. C’est pourquoi les SGBD assurent aussi la **duplication** et la **maintenance** des différentes copies de la base.
 
-Lorsque **plusieurs utilisateurs** accèdent simultanément aux données et tentent de les modifier en même temps, des conflits peuvent apparaître. On parle alors de **gestion des accès concurrents**, également prise en charge par les SGBD.
+Les **SGBD** (Systèmes de Gestion de Bases de Données) permettent la **lecture**, l’**écriture** et la **modification** des informations, ainsi que la **gestion des autorisations d’accès** à une base de données.
+Ces opérations fondamentales sont souvent désignées par l’acronyme **CRUD** : *Create* (créer), *Read* (lire), *Update* (mettre à jour) et *Delete* (supprimer).
+
+Les fichiers des bases de données étant stockés sur des serveurs (souvent sur des disques durs), ils peuvent être vulnérables aux **pannes matérielles** ou **pertes de données**.
+Pour cette raison, les SGBD assurent également la **sauvegarde**, la **duplication** et la **maintenance** des différentes copies de la base (mécanismes de réplication, journaux de transactions, etc.).
+
+Lorsque plusieurs utilisateurs accèdent **simultanément** aux données et tentent de les **modifier en même temps**, des **conflits** peuvent apparaître.
+On parle alors de **gestion de la concurrence**, également prise en charge par les SGBD, grâce à des mécanismes comme les **verrous (locks)** ou les **transactions**.
 
 ---
+
 
 ## <H2 STYLE="COLOR:BLUE;">🧱 <a name="_toc144548612"></a>**2. Les principaux SGBD**</H2>
 
@@ -80,44 +86,4 @@ Dans une **architecture trois-tiers (3-tier)**, un **serveur applicatif** interm
 - Meilleure **sécurité**
 - Meilleure **modularité**
 - Meilleure **répartition des charges**
-
----
-
-## <H2 STYLE="COLOR:BLUE;">🧪 <a name="_toc144548616"></a>**4. Utilisation de DB Browser SQLite : création d’une base**</H2>
-
-![](Aspose.Words.10238efa-453b-4349-9c41-3b829de74025.004.png){ width=50%; : .center }
-
-🎯 **Objectif** : créer une base de données nommée `Base_Film` dans `Documents/BD`
-
-**Création de la table `realisateur`**
-
-- `id_realisateur` : **entier**, **non nul**, **clé primaire**, **auto-incrémentée**, **unique**
-- `nom_realisateur` : **texte**, **non nul**
-
-![](Aspose.Words.10238efa-453b-4349-9c41-3b829de74025.005.png){ width=50%; : .center }
-![](Aspose.Words.10238efa-453b-4349-9c41-3b829de74025.006.png){ width=50%; : .center }
-
-**Création de la table `film`**
-
-- `id_film` : entier, NN, CP, IA, U  
-- `titre_film` : texte, NN  
-- `annee_film` : entier, NN  
-- `id_realisateur_film` : entier, NN → **clé étrangère** vers `realisateur(id_realisateur)`  
-- `nationalite_film`, `genre_film` : texte (VARCHAR), NN
-
-**Saisie de données**
-
-![](Aspose.Words.10238efa-453b-4349-9c41-3b829de74025.007.png){ width=50%; : .center }
-
-1. Ajouter un réalisateur : `Lurnet`  
-2. Ajouter un film :
-   - Titre : **Le Crime de l’Orient-Express**
-   - Année : **1974**
-   - id\_realisateur\_film : **1**
-   - Nationalité : **États-Unis**
-   - Genre : **Policier**
-
-📌 Pour chaque attribut d’une relation, on définit un **domaine**, c’est-à-dire un **ensemble de valeurs admissibles** (ex. : année > 1895, genre ∈ {drame, comédie, policier, ...}).
-
----
 
