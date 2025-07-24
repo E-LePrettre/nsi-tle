@@ -147,7 +147,6 @@ L’algorithme **divise le problème par 2 à chaque appel**, ce qui réduit **l
 Exemple : `49⁵`
 
 
-$49^5$
 
 5 = 5 $\text{//}$ 2 + 5 $\text{//}2$ + 1
 
@@ -197,6 +196,32 @@ Prenons `n = 8` :
 * **Phase de remontée** :
   À chaque appel récursif, **une seule multiplication** est effectuée (soit `y*y`, soit `a*y*y`)
 
+
+
+**Fonction d'exponentiation rapide : `exp3(n, a)`**
+
+| Cas de `n`       | Décomposition de `exp3(n, a)`                                                                                       |
+|------------------|---------------------------------------------------------------------------------------------------------------------|
+| \( n \text{ pair} \)   | \( \text{exp3}(4, a) \rightarrow \text{exp3}(2, a) * \text{exp3}(2, a) \)                                        |
+| \( n \text{ pair} \)   | \( \text{exp3}(2, a) \rightarrow \text{exp3}(1, a) * \text{exp3}(1, a) \)                                        |
+| \( n \text{ pair} \)   | \( \text{exp3}(1, a) = a \)                                                                                      |
+| \( n \text{ impair} \) | \( a * \text{exp3}(3, a) = a * (\text{exp3}(1, a) * \text{exp3}(1, a)) \rightarrow a * a * a \)                 |
+
+
+
+**Étapes de calcul de `exp3(8, a)`**
+
+1. \( \text{exp3}(8, a) \rightarrow \text{exp3}(4, a) * \text{exp3}(4, a) \)
+2. \( \text{exp3}(4, a) \rightarrow \text{exp3}(2, a) * \text{exp3}(2, a) \)
+3. \( \text{exp3}(2, a) \rightarrow \text{exp3}(1, a) * \text{exp3}(1, a) \)
+4. \( \text{exp3}(1, a) = a \)
+5. En remontant :
+   - \( \text{exp3}(2, a) = a * a = a^2 \)
+   - \( \text{exp3}(4, a) = a^2 * a^2 = a^4 \)
+   - \( \text{exp3}(8, a) = a^4 * a^4 = a^8 \)
+
+
+
 🌳 **Représentation en arbre** :
 
 * `exp3(0, a)` → retourne `1`
@@ -204,6 +229,9 @@ Prenons `n = 8` :
 * `exp3(2, a)` → `a * a`
 * `exp3(4, a)` → `a² * a²`
 * `exp3(8, a)` → `a⁴ * a⁴`
+
+
+
 
 📈 **Nombre d’opérations** :
 Le nombre d’étapes est le nombre de fois qu’on peut diviser `n` par `2`, c’est-à-dire :
