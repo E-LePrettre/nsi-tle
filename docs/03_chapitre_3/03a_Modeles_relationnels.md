@@ -286,7 +286,13 @@ Exemple:
 ![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.019.png)
 
 Schéma relationnel
-livres(code : entier (clé primaire),titre : texte,auteur : texte,éditeur : texte,ISBN : texte)
+livres(
+    code : entier (clé primaire),
+    titre : texte,
+    auteur : texte,
+    éditeur : texte,
+    ISBN : texte
+    )
 
 
 ---
