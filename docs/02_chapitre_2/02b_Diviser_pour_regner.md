@@ -1,4 +1,4 @@
-﻿---
+---
 author: ELP
 title: 02b Méthode diviser pour régner
 ---
@@ -70,7 +70,7 @@ La capitaine appelle 2 joueuses → chacune appelle 2 autres → etc.
 
 ![arbre binaire des appels](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.002.png)
 
-⏱️ **Temps t₂ ≈ log₂(n) × 5 min**  
+⏱️ **Temps t₂ ≈ log₂(n) × 5 min ≈ 19,5 min**  
 📈 Complexité en **O(log n)**
 
 ---
@@ -145,6 +145,17 @@ Même raisonnement : **O(n)** (n appels récursifs)
 L’algorithme **divise le problème par 2 à chaque appel**, ce qui réduit **le nombre total d’appels récursifs**.
 
 Exemple : `49⁵`
+
+
+$49^5$
+
+5 = 5\ $\text{//}$ 2 + 5\ $\text{//}2$ + 1
+
+$49^5$ = 49 $\times$ $49^2$ $\times$ $49^2$
+
+
+Cette notation est adaptée à un rendu Markdown avec prise en charge de LaTeX pour les formules mathématiques, comme sur certaines plateformes (Jupyter Notebook, certains éditeurs Markdown, etc.). Si tu veux une version sans LaTeX, je peux aussi la fournir.
+
 
 🪜 À chaque appel, on divise `n` par 2  
 🧵 On combine les résultats avec :
