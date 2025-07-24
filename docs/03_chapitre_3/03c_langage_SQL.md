@@ -1,4 +1,4 @@
-﻿---
+---
 author: ELP
 title: 03c Langage SQL
 ---
@@ -60,25 +60,11 @@ SQL permet de :
 ### <span style="color:green"><a name="_toc173365561"></a>**2.1. Création**</span>
 
 ???+ question "🎬 Activité n° 1 : Création de la base"
-    Crée la base de données `film.db` et enregistre-la dans ton dossier **DOCUMENTS**.
-
-    Ensuite, clique sur l’onglet **Exécuter le SQL** pour accéder à la zone de saisie :
-
-    ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.006.png){ width=50%; : .center }
- 
+    => Capytale
 
 ---
 
 ???+ question "🧱 Activité n° 2 : Création d’une table"
-    Tape la commande suivante dans la fenêtre SQL :
-
-
-    ```sql
-    CREATE TABLE realisateur
-    ```
-
-    Puis ajoute les champs entre parenthèses. N’oublie pas le **point-virgule `;`** à la fin pour valider la requête.
-
 
 ---
 
@@ -87,7 +73,7 @@ SQL permet de :
 
     ```sql
     CREATE TABLE "realisateur" (
-        "id_realisateur"	INT NOT NULL UNIQUE,
+        "id_realisateur"	INTEGER NOT NULL UNIQUE,
         "nom_realisateur"	VARCHAR(255) NOT NULL,
         "prenom_realisateur"	VARCHAR(255) NOT NULL,
         "date_naissance_realisateur"	date,
@@ -96,36 +82,40 @@ SQL permet de :
     );
     ```
 
-    ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.007.png){ width=30%; : .center }
+    Exécute la requête  => vous ne voyez rien c'est normal
 
-    Exécute la requête avec l’icône :  
-    ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.009.png){ width=50%; : .center }
+    Ajouter une case code et vérifier que la table existe avec :
 
-    🔍 Vérifie dans l’onglet **Structure** que la table a bien été créée.
-
-
+    ```sql
+    SELECT *
+    FROM realisateur
+    ```
 ---
 
 ### <span style="color:green"><a name="_toc173365562"></a>**2.2. Suppression**</span>
 
 ???+ question "🧱 Activité n° 4 : Création de la table `film`"
-    On crée une table simple avec deux champs :
+    Ajouter une case code et créer une table simple avec deux champs :
 
     ```sql
     CREATE TABLE film (
-        id_film INT NOT NULL,
+        id_film INTEGER NOT NULL,
         titre_film VARCHAR(255) NOT NULL
     );
     ```
 
-    ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.007.png){ width=30%; : .center }
-
     Remarque : les **guillemets autour des noms de champs sont facultatifs**.
 
+    Ajouter une case code et vérifier que la table apparait avec :
 
+    ```sql
+    SELECT *
+    FROM film
 ---
 
 ???+ question "🗑️ Activité n° 5 : Suppression de la table"
+    Ajouter une case code
+    
     Pour supprimer une table (ici, `film`), tape :
 
     ```sql
