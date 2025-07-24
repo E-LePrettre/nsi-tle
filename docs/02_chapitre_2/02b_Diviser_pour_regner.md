@@ -193,6 +193,7 @@ Prenons `n = 8` :
 
 * **Phase de descente** :
   `exp3(8, a)` → `exp3(4, a)` → `exp3(2, a)` → `exp3(1, a)` → `exp3(0, a)`
+
 * **Phase de remontée** :
   À chaque appel récursif, **une seule multiplication** est effectuée (soit `y*y`, soit `a*y*y`)
 
@@ -202,10 +203,10 @@ Prenons `n = 8` :
 
 | Cas de `n`       | Décomposition de `exp3(n, a)`                                                                                       |
 |------------------|---------------------------------------------------------------------------------------------------------------------|
-| \( n \text{ pair} \)   | \( \text{exp3}(4, a) \rightarrow \text{exp3}(2, a) * \text{exp3}(2, a) \)                                        |
-| \( n \text{ pair} \)   | \( \text{exp3}(2, a) \rightarrow \text{exp3}(1, a) * \text{exp3}(1, a) \)                                        |
-| \( n \text{ pair} \)   | \( \text{exp3}(1, a) = a \)                                                                                      |
-| \( n \text{ impair} \) | \( a * \text{exp3}(3, a) = a * (\text{exp3}(1, a) * \text{exp3}(1, a)) \rightarrow a * a * a \)                 |
+|  n $\text{ pair}$    |  $\text{exp3}(4, a)$ $\rightarrow$ $\text{exp3}(2, a) * \text{exp3}(2, a)$                                        |
+| n $\text{ pair}$   | \( \text{exp3}(2, a) \rightarrow \text{exp3}(1, a) * \text{exp3}(1, a) \)                                        |
+| n $\text{ pair}$   | \( \text{exp3}(1, a) = a \)                                                                                      |
+| n $\text{ impair}$ | \( a * \text{exp3}(3, a) = a * (\text{exp3}(1, a) * \text{exp3}(1, a)) \rightarrow a * a * a \)                 |
 
 
 
