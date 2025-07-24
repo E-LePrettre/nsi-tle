@@ -295,6 +295,8 @@ livres(code : entier (clé primaire),titre : texte,auteur : texte,éditeur :
 
 📊 Représentation visuelle des relations
 
+![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.021.png)
+
 📎 Outils utiles :
 
 * [dbdiagram.io](https://dbdiagram.io)
@@ -312,6 +314,44 @@ livres(code : entier (clé primaire),titre : texte,auteur : texte,éditeur :
 * ✏️ Anomalie de mise à jour
 * 🗑️ Anomalie de suppression
 * ➕ Anomalie d’insertion
+
+Exemple :
+
+![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.022.png)
+
+Quels sont les problèmes de cette modélisation ?
+
+??? success "Solution"
+    **1 Anomalies de redondance**
+
+    ![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.023.png)
+    
+    * **Duplication d’informations sur les étudiants** :
+
+    * L’étudiant **Jean** (id = 124, Paris) apparaît **deux fois**.
+    * L’étudiant **Paul** (id = 789, Marseille) apparaît **deux fois**.
+    * **Duplication d’informations sur les cours** :
+
+    * Le cours **Philo I** (cnum = F234) est répété pour deux étudiants.
+    * Le cours **Analyse I** (cnum = M321) est répété pour deux étudiants.
+
+    **2 Anomalies de mise à jour**
+
+    * Si l’adresse de **Jean** change, il faudra la mettre à jour **dans toutes les lignes** où il apparaît.
+    → Risque d’incohérences si on oublie de modifier une des lignes.
+
+    **3 Anomalies d’insertion**
+
+    ![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.026.png)
+
+    * Impossible d’ajouter un **nouvel étudiant** sans qu’il ait suivi un cours (on ne peut pas insérer de ligne avec des attributs de cours vides).
+    * Impossible d’ajouter un **nouveau cours** sans qu’un étudiant y soit inscrit.
+
+    **4 Anomalies de suppression**
+
+    * Si on supprime la ligne `(456, Emma, Lyon, F234, Philo I, B)`, et qu’Emma est la **dernière étudiante** inscrite à "Philo I", **l’information sur le cours "Philo I" sera perdue** (car elle n’est stockée que dans cette table).
+
+
 
 ---
 
