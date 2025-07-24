@@ -212,14 +212,14 @@ Prenons `n = 8` :
 
 **Étapes de calcul de `exp3(8, a)`**
 
-1. \( \text{exp3}(8, a) \rightarrow \text{exp3}(4, a) * \text{exp3}(4, a) \)
-2. \( \text{exp3}(4, a) \rightarrow \text{exp3}(2, a) * \text{exp3}(2, a) \)
-3. \( \text{exp3}(2, a) \rightarrow \text{exp3}(1, a) * \text{exp3}(1, a) \)
-4. \( \text{exp3}(1, a) = a \)
+1. $\text{exp3}(8, a) \rightarrow \text{exp3}(4, a) * \text{exp3}(4, a)$
+2. $\text{exp3}(4, a) \rightarrow \text{exp3}(2, a) * \text{exp3}(2, a)$
+3. $\text{exp3}(2, a) \rightarrow \text{exp3}(1, a) * \text{exp3}(1, a)$
+4. $\text{exp3}(1, a)$ = a
 5. En remontant :
-   - \( \text{exp3}(2, a) = a * a = a^2 \)
-   - \( \text{exp3}(4, a) = a^2 * a^2 = a^4 \)
-   - \( \text{exp3}(8, a) = a^4 * a^4 = a^8 \)
+   - $\text{exp3}(2, a)$ = a * a = $a^2$
+   - $\text{exp3}(4, a)$ = $a^2 * a^2$ = $a^4$
+   - $\text{exp3}(8, a)$ = $a^4 * a^4$ = $a^8$
 
 
 
