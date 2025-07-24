@@ -243,7 +243,7 @@ L’attribut id_realisateur de la relation film permet de créer un lien avec la
 
 #### <H4 STYLE="COLOR:MAGENTA;">**2.3.5. Clé étrangère</H4>**
 
-🔗 Une **clé étrangère** fait référence à une clé primaire d’une autre table.
+🔗 Une **clé étrangère** (foreign key ou FK) fait référence à une clé primaire d’une autre table.
 
 💡 Recommandé pour les données récurrentes, à lier via des **jointures**
 
