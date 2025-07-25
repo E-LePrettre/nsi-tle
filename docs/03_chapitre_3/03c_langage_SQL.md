@@ -1346,11 +1346,69 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
     Vous allez interroger une base de données relationnelles dont le schéma est le suivant :
 
-    - individu(Num\_Ind, Nom, Prenom)
-    - jouer(#Num\_Ind, #Num\_Film, Role)
-    - film(Num\_Film, #Num\_Ind, Titre, Genre, Annee)
-    - projection(#Num\_Cine, #Num\_Film, Dates)
-    - cinema(Num\_Cine, Nom, Adresse)
+
+    1. **Table `individu`**
+
+    ```sql
+    individu(*Num_Ind, Nom, Prenom)
+    ```
+
+    * **Clé primaire (PK)** : `Num_Ind`
+
+    ---
+
+    2 **Table `jouer`**
+
+    ```sql
+    jouer(#Num_Ind, #Num_Film, Role)
+    ```
+
+    * **Clé primaire (PK)** : **(Num\_Ind, Num\_Film)** (clé composée car un individu peut jouer dans plusieurs films et un film peut avoir plusieurs acteurs).
+    * **Clés étrangères (FK)** :
+
+        * `Num_Ind` → `individu(Num_Ind)`
+        * `Num_Film` → `film(Num_Film)`
+
+    ---
+
+    3 **Table `film`**
+
+    ```sql
+    film(*Num_Film, #Num_Ind, Titre, Genre, Annee)
+    ```
+
+    * **Clé primaire (PK)** : `Num_Film`
+    * **Clé étrangère (FK)** :
+
+        * `Num_Ind` → `individu(Num_Ind)` (probablement le réalisateur du film).
+
+    ---
+
+    4 **Table `projection`**
+
+    ```sql
+    projection(#Num_Cine, #Num_Film, Dates)
+    ```
+
+    * **Clé primaire (PK)** : **(Num\_Cine, Num\_Film, Dates)** (un même film peut être projeté plusieurs fois dans un cinéma à différentes dates).
+    * **Clés étrangères (FK)** :
+
+        * `Num_Cine` → `cinema(Num_Cine)`
+        * `Num_Film` → `film(Num_Film)`
+
+    ---
+
+    5 **Table `cinema`**
+
+    ```sql
+    cinema(*Num_Cine, Nom, Adresse)
+    ```
+
+    * **Clé primaire (PK)** : `Num_Cine`
+
+
+    ---
+
 
     Et voici le contenu de la base :
 
