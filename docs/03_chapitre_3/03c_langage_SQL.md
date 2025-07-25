@@ -922,7 +922,6 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
 ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.020.png){width=80%; : .center }
 
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.019.png){width=30%; : .center }
 
 📌 La table `film` est liée à plusieurs autres tables (`realisateur`, `genre`, `nationalite`) par des **clés étrangères**.
 📌 Pour **afficher des données de plusieurs tables**, il faut utiliser une **jointure** (`JOIN`).
