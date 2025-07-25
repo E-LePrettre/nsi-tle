@@ -155,6 +155,8 @@ SQL permet de :
 
 ## 🧩 <span style="color:blue"><a name="_toc173365563"></a>**3. Insertion de données**</span>
 
+![](insert.png)
+
 ???+ question "🧾 Activité n° 5 : Insertion dans la table `realisateur`"
 
     On utilise la commande `INSERT INTO`, suivie du **nom de la table**, puis entre parenthèses la **liste des champs**.
