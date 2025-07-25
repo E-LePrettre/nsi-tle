@@ -54,7 +54,7 @@ SQL permet de :
 
 ---
 
-=> Capytale
+!!!info "Capytale"
 
 ## 🏗️ <span style="color:blue"><a name="_toc173365560"></a>**2. Création d’une base de données**</span>
 
