@@ -986,8 +986,11 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
     ```
 
     ✅ Vérifie :
+
     - que la table `film` contient maintenant `id_genre_film` et non plus `genre_film`,
+    
     - que la table `realisateur` contient `id_nationalite_realisateur` et non plus `nationalite_realisateur`,
+    
     - que la table `genre` est bien remplie avec les différents genres.
 
 
@@ -1258,13 +1261,51 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
 !!! abstract "**Exercice 1 : Copains de classe**"
 
+
     On veut créer une petite base de données permettant de garder le contact avec nos copains de classe. On supposera qu'ils sont tous domiciliés en France, qu'ils n'ont qu'un numéro de téléphone, mais éventuellement plusieurs adresses. On veut stocker les renseignements suivants : nom, prénom, sexe, date de naissance, numéro de téléphone, rue, numéro postal, ville, département et région.
 
     - copains(id, nom, prenom, sexe, date\_naissance, no\_tel)
     - habite(#id\_copain, #no\_postal)
     - ville(no\_postal, nom\_ville, département, rue, région)
 
-    1. Créer la base de données database.db et les tables décrites ci-dessus (# étant pour les clés étrangères).
+    cela signifie:
+
+    **Table `copains`**
+
+    ```sql
+    copains(id, nom, prenom, sexe, date_naissance, no_tel)
+    ```
+
+    * **Clé primaire (PK)** : `id`
+
+    ---
+
+    **Table `habite`**
+
+    ```sql
+    habite(#id_copain, #no_postal)
+    ```
+
+    * **Clé primaire (PK)** : **(id\_copain, no\_postal)** (clé primaire composée, car un copain peut habiter plusieurs adresses).
+    * **Clés étrangères (FK)** :
+
+        * `id_copain` → `copains(id)`
+        * `no_postal` → `ville(no_postal)`
+
+    ---
+
+    **Table `ville`**
+
+    ```sql
+    ville(no_postal, nom_ville, département, rue, région)
+    ```
+
+    * **Clé primaire (PK)** : `no_postal`
+
+
+    1. Créer la base de données et les tables décrites ci-dessus.
+    
+
 
     Entrer dans la base de données les informations ci-dessous :
 
@@ -1282,7 +1323,7 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
     |Maillard|Colin|H|1994-12-31|0324669912|Route de Varandin 9|05110|Lettret|PACA|
     |Nord|Paul|H|1996-01-21|0324661762|Route de Montancy 332|32200|Villars-sur-Fontenais|MIDI-PY|
 
-    **Astuce** : utiliser un tableur pour travailler sur les colonnes. Le no\_postal est un id. 
+    **Astuce** : Le no\_postal est un id. Les numéros de télephone sont des varchars 
 
     **Aide** : on se mettra en auto-incrément sur les clés primaires et les dates de naissance sont entre guillemets. ATTENTION pas de doublons dans la table !
 
