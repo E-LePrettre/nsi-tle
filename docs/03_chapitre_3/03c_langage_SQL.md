@@ -54,21 +54,15 @@ SQL permet de :
 
 ---
 
+=> Capytale
 
 ## 🏗️ <span style="color:blue"><a name="_toc173365560"></a>**2. Création d’une base de données**</span>
 
 ### <span style="color:green"><a name="_toc173365561"></a>**2.1. Création**</span>
 
-???+ question "🎬 Activité n° 1 : Création de la base"
-    => Capytale
 
----
 
-???+ question "🧱 Activité n° 2 : Création d’une table"
-
----
-
-???+ question "🧱 Activité n° 3 : Création des différents champs"
+???+ question "🧱 Activité n° 1 : Création des différents champs"
     Voici le code SQL complet pour créer la table `realisateur` :
 
     ```sql
@@ -84,7 +78,7 @@ SQL permet de :
 
     Exécute la requête  => vous ne voyez rien c'est normal
 
-    Ajouter une case code et vérifier que la table existe avec :
+    Dans une nouvelle case code, vérifier que la table existe avec :
 
     ```sql
     SELECT *
@@ -94,8 +88,8 @@ SQL permet de :
 
 ### <span style="color:green"><a name="_toc173365562"></a>**2.2. Suppression**</span>
 
-???+ question "🧱 Activité n° 4 : Création de la table `film`"
-    Ajouter une case code et créer une table simple avec deux champs :
+???+ question "🧱 Activité n° 2 : Création de la table `film`"
+    Créer une table simple avec deux champs :
 
     ```sql
     CREATE TABLE film (
@@ -106,37 +100,41 @@ SQL permet de :
 
     Remarque : les **guillemets autour des noms de champs sont facultatifs**.
 
-    Ajouter une case code et vérifier que la table apparait avec :
+    Dans une nouvelle case de code vérifier que la table apparait avec :
 
     ```sql
     SELECT *
     FROM film
+    ```
 ---
 
-???+ question "🗑️ Activité n° 5 : Suppression de la table"
-    Ajouter une case code
-    
+???+ question "🗑️ Activité n° 3 : Suppression de la table"
+     
     Pour supprimer une table (ici, `film`), tape :
 
     ```sql
     DROP TABLE film ;
     ```
 
-    🔎 Vérifie que la table a bien disparu de l’onglet **Structure**.
+    🔎 Vérifie que la table a bien disparu en ajoutant dans une nouvelle case code
 
+    ```sql
+    SELECT *
+    FROM film
+    ```
 
 ---
 
-???+ question "🎥 Activité n° 6 : Création de la vraie table `film`"
+???+ question "🎥 Activité n° 4 : Création de la vraie table `film`"
     Voici la version complète de la table avec une **clé étrangère** vers la table `realisateur` :
 
 
     ```sql
     CREATE TABLE film (
-        id_film INT NOT NULL,
+        id_film INTEGER NOT NULL,
         titre_film VARCHAR(255) NOT NULL,
         annee_film date,
-        id_realisateur_film INT NOT NULL,
+        id_realisateur_film INTEGER NOT NULL,
         nationalite_film VARCHAR(255) NOT NULL,
         genre_film VARCHAR(255) NOT NULL,
         PRIMARY KEY (id_film AUTOINCREMENT),
@@ -145,15 +143,20 @@ SQL permet de :
     );
     ```
 
-    ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.007.png){ width=30%; : .center }
+    Dans une nouvelle case code, vérifier que la table apparait avec :
 
+    ```sql
+    SELECT *
+    FROM film
+    ```
 
+    
 ---
 
 ## 🧩 <span style="color:blue"><a name="_toc173365563"></a>**3. Insertion de données**</span>
 
-???+ question "🧾 Activité n° 7 : Insertion dans la table `realisateur`"
-    
+???+ question "🧾 Activité n° 5 : Insertion dans la table `realisateur`"
+
     On utilise la commande `INSERT INTO`, suivie du **nom de la table**, puis entre parenthèses la **liste des champs**.
     Ensuite, après le mot-clé `VALUES`, on indique les **valeurs correspondantes** à insérer :
 
@@ -176,15 +179,18 @@ SQL permet de :
     ;
     ```
 
-    🧪 **Exécute la requête** et vérifie dans l’onglet **Parcourir** que les réalisateurs ont bien été enregistrés :
+    Dans une nouvelle case code, vérifier que la table apparait avec :
 
-    ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.014.png){ width=50%; : .center }
-
+    ```sql
+    SELECT *
+    FROM realisateur
+    ```
+    
 
 ---
 
-???+ question "🎞️ Activité n° 8 : Insertion dans la table `film`"
-    
+???+ question "🎞️ Activité n° 6 : Insertion dans la table `film`"
+
     On commence par tenter une insertion **incomplète** volontairement, sans renseigner la clé étrangère `id_realisateur_film` :
 
     ```sql
@@ -196,6 +202,8 @@ SQL permet de :
 
     ⚠️ Cette requête échoue : la colonne `id_realisateur_film` est **NOT NULL**, elle doit donc obligatoirement être renseignée.
 
+    Dans une nouvelle case code :
+    
     On essaie alors une **insertion complète** :
 
     ```sql
@@ -210,9 +218,9 @@ SQL permet de :
 
 ---
 
-???+ question "🧾 Activité n° 9 : Insertion générale de la table film" 
-
-    insérer et exécuter :
+???+ question "🧾 Activité n° 7 : Insertion générale de la table film" 
+    Ajouter une case code
+    
     ```sql
     INSERT INTO film
     (titre_film, annee_film, id_realisateur_film, nationalite_film, genre_film)
@@ -245,6 +253,13 @@ SQL permet de :
     ;
     ```
 
+    Dans une nouvelle case code vérifier que la table apparait avec :
+
+    ```sql
+    SELECT *
+    FROM film
+    ```
+
 💡 Remarque : les apostrophes en SQL
 Dans SQL, pour inclure une apostrophe à l'intérieur d'une chaîne de caractères, **on la double**.
 Exemple :
@@ -252,17 +267,12 @@ Exemple :
 
 ---
 
-???+ question "📁 Activité n° 10 : Enregistrer dans vos DOCUMENTS"
-    Enregistrez votre travail actuel dans le dossier `DOCUMENTS`.
 
-    ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.015.png){ width=50%; : .center }
-    
-
----
 
 ### 🗑️ <span style="color:green;"><a name="_toc173365565"></a>**3.2. Suppression**</span>
 
-???+ question "🗑️ Activité n° 11 : Ajout et suppression d’une donnée"
+???+ question "🗑️ Activité n° 8 : Ajout et suppression d’une donnée"
+
     Exécute d’abord cette insertion dans la table `film` :
 
 
@@ -272,7 +282,13 @@ Exemple :
     VALUES
     ('Star Wars, épisode XXI : L''Espoir Ultime', 2040, 7, 'Etats-Unis', 'Science fiction')
     ```
+    Dans une nouvelle case code, vérifier que la modification apparait avec :
 
+    ```sql
+    SELECT *
+    FROM film
+    ```
+    Dans une nouvelle case code :
     Ensuite, supprime cet enregistrement (ici avec l’ID 26) :
 
     ```sql
@@ -280,8 +296,12 @@ Exemple :
     WHERE id_film = 26 ;
     ```
 
-    🔎 Vérifie dans l’onglet **Parcourir** que le film a bien été supprimé.
+    Dans une nouvelle case code, vérifier que la modification apparait avec :
 
+    ```sql
+    SELECT *
+    FROM film
+    ```
 
 ---
 
@@ -300,7 +320,9 @@ Exemple :
 
 ### 🧾 <span style="color:green;"><a name="_toc173365567"></a>**4.1. Affichage simple**</span>
 
-???+ question "🎬 Activité n° 12 : Affichage par numéro d'identifiant"
+???+ question "🎬 Activité n° 9 : Affichage par numéro d'identifiant"
+ 
+
     Affiche le **titre**, l’**année** et la **nationalité** d’un film dont on connaît l’identifiant :
 
 
@@ -315,7 +337,8 @@ Exemple :
 
 ---
 
-???+ question "🎬 Activité n° 13 : Affichage par intervalle d'identifiants"
+???+ question "🎬 Activité n° 10 : Affichage par intervalle d'identifiants"
+    
     Affiche plusieurs films dont l’identifiant est **supérieur à 14** :
 
 
@@ -330,7 +353,8 @@ Exemple :
 
 ---
 
-???+ question "🎬 Activité n° 14 : Affichage par année"
+???+ question "🎬 Activité n° 11 : Affichage par année"
+
     Affiche tous les films sortis en **2019**, avec leurs informations principales :
 
 
@@ -345,7 +369,7 @@ Exemple :
 
 ---
 
-???+ question "🎬 Activité n° 15 : Affichage par intervalle d’années"
+???+ question "🎬 Activité n° 12 : Affichage par intervalle d’années"
     Affiche les films sortis **entre 2010 et 2020** (exclus) :
 
 
@@ -364,7 +388,7 @@ Exemple :
 
 ### 🧾 <span style="color:green;"> 🔼 **4.2. Affichage et tri ascendant** <a name="_toc173365568"></a></span>
 
-???+ question "🔢 Activité n°16 : Tri par année croissante"
+???+ question "🔢 Activité n°13 : Tri par année croissante"
     Afficher les films sortis entre 2010 et 2020, triés par **année croissante** :
 
 
@@ -375,10 +399,10 @@ Exemple :
     ORDER BY annee_film;
     ```
 
-📝 On peut ajouter `ASC` pour expliciter le tri croissant (optionnel).
+📝 On peut ajouter `ASC` pour expliciter le tri croissant (optionnel par défaut c'est ascendant).
 
 
-???+ question "🧮 Activité n°17 : Tri croissant multi-critères"
+???+ question "🧮 Activité n°14 : Tri croissant multi-critères"
     Même chose que précédemment, mais les films sont triés **par année**, puis **par ordre alphabétique de titre** :
 
 
@@ -396,7 +420,7 @@ Exemple :
 
 ### 🧾 <span style="color:green;">🔍 **4.3. Affichage avec partie d’une chaîne de caractères** <a name="_toc173365569"></a>
 
-???+ question "🔡 Activité n°18 : Titre exact"
+???+ question "🔡 Activité n°15 : Titre exact"
     Afficher les films dont le **titre est exactement** "WarGames" :
 
 
@@ -407,7 +431,7 @@ Exemple :
     ```
 
 
-???+ question "🔎 Activité n°19 : Partie de titre"
+???+ question "🔎 Activité n°16 : Partie de titre"
     Afficher les titres commençant par **Star Wars** :
 
 
@@ -428,7 +452,7 @@ On peut aussi trier avec `ORDER BY annee_film`.
 
 ### 🧾 <span style="color:green;"> ⚖️ **4.4. Affichage avec une condition OU une autre** <a name="_toc173365570"></a></span>
 
-???+ question "🔀 Activité n°20 : OU logique"
+???+ question "🔀 Activité n°17 : OU logique"
     Afficher les films de 2017 **ou** de genre 'Science fiction' :
 
 
@@ -443,7 +467,7 @@ On peut aussi trier avec `ORDER BY annee_film`.
 
 ### 🧾 <span style="color:green;"> 📋 **4.5. Affichage avec critère dans une liste** <a name="_toc173365571"></a></span>
 
-???+ question "📑 Activité n°21 : Genre dans une liste"
+???+ question "📑 Activité n°18 : Genre dans une liste"
     Afficher les films de genre **'Science fiction'** ou **'Policier'** :
 
 
@@ -454,7 +478,7 @@ On peut aussi trier avec `ORDER BY annee_film`.
     ```
 
 
-???+ question "🚫 Activité n°22 : Exclusion de genres"
+???+ question "🚫 Activité n°19 : Exclusion de genres"
     Exclure les films des genres **'Science fiction'** ou **'Policier'** :
 
 
@@ -465,7 +489,7 @@ On peut aussi trier avec `ORDER BY annee_film`.
     ```
 
 
-???+ question "⛔ Activité n°23 : Limiter les résultats"
+???+ question "⛔ Activité n°20 : Limiter les résultats"
     Même requête, mais limitée aux **5 premiers résultats** :
 
 
@@ -481,7 +505,7 @@ On peut aussi trier avec `ORDER BY annee_film`.
 
 ### 🧾 <span style="color:green;"> 🔽 **4.6. Affichage et tri descendant** <a name="_toc173365572"></a></span>
 
-???+ question "📉 Activité n°24 : Tri par année décroissante"
+???+ question "📉 Activité n°21 : Tri par année décroissante"
     Trier les films (hors science fiction et policiers) par **année décroissante** :
 
 
@@ -497,7 +521,7 @@ On peut aussi trier avec `ORDER BY annee_film`.
 
 ### 🧾 <span style="color:green;"> 🔗 **4.7. Affichage avec concaténation** <a name="_toc173365573"></a></span>
 
-???+ question "🔤 Activité n°25 : Concaténation prénom + nom"
+???+ question "🔤 Activité n°22 : Concaténation prénom + nom"
     Afficher le **prénom + nom** de chaque réalisateur sur une seule ligne :
 
 
@@ -513,7 +537,7 @@ On peut aussi trier avec `ORDER BY annee_film`.
 
 ### 🧾 <span style="color:green;"> 🔀 **4.8. Affichage avec deux requêtes (UNION)** <a name="_toc173365574"></a></span>
 
-???+ question "🧩 Activité n°26 : UNION de deux requêtes"
+???+ question "🧩 Activité n°23 : UNION de deux requêtes"
     Afficher la **nationalité** :
     \- des réalisateurs dont le **nom commence par L**
     \- des films dont le **titre commence par S**
@@ -531,12 +555,35 @@ On peut aussi trier avec `ORDER BY annee_film`.
 
 ⚠️ `UNION` supprime les doublons. Les deux sous-requêtes doivent retourner **le même nombre de colonnes** avec **types compatibles**.
 
+L’intérêt de UNION est de réunir en un seul tableau des informations similaires, mais provenant de sources différentes :
+
+Ici, tu veux lister les nationalités, qu’elles viennent :
+
+- des réalisateurs dont le nom commence par "L",
+
+- ou des films dont le titre commence par "S".
+
+Au lieu de faire deux requêtes séparées et d’avoir deux résultats distincts, UNION te permet d’avoir un seul résultat global.
+
+
+Imagine que tu as deux listes :
+
+- Liste A (réalisateurs) : [Française, Américaine, Italienne]
+
+- Liste B (films) : [Anglaise, Italienne, Française]
+
+Si tu fais un UNION, tu obtiens :
+Résultat final : [Française, Américaine, Italienne, Anglaise]
+→ Les doublons (Française, Italienne) ont été supprimés.
+
+
+
 
 ---
 
 ### 🧾 <span style="color:green;"> 🔢 **4.9. Affichage et fonctions d’agrégation** <a name="_toc173365575"></a></span>
 
-???+ question "🔢 Activité n°27 : Compter"
+???+ question "🔢 Activité n°24 : Compter"
     Nombre total de réalisateurs :
 
 
@@ -546,7 +593,7 @@ On peut aussi trier avec `ORDER BY annee_film`.
     ```
 
 
-???+ question "🔡 Activité n°28 : Compter avec condition"
+???+ question "🔡 Activité n°25 : Compter avec condition"
     Nombre de réalisateurs dont le nom commence par **L** :
 
 
@@ -557,7 +604,7 @@ On peut aussi trier avec `ORDER BY annee_film`.
     ```
 
 
-???+ question "➕ Activité n°29 : Somme (à faire plus tard)"
+???+ question "➕ Activité n°26 : Somme (à faire plus tard)"
     Exemple de syntaxe pour sommer :
 
 
@@ -567,7 +614,7 @@ On peut aussi trier avec `ORDER BY annee_film`.
     ```
 
 
-???+ question "➗ Activité n°30 : Moyenne (à faire plus tard)"
+???+ question "➗ Activité n°27 : Moyenne (à faire plus tard)"
     Exemple de syntaxe pour une moyenne :
 
 
@@ -584,19 +631,11 @@ On peut aussi trier avec `ORDER BY annee_film`.
 
 
 
-Voici la **suite du cours** (section 5) avec le **relooking complet**, incluant :
 
-* Icônes pour les grands titres 🧩
-* Reformulation légère pour plus de fluidité ✍️
-* Format d’activités interactives `???+ question` 🎯
-* Bloc `NOTE` lorsque nécessaire
-* Respect total de ta structure GitHub (aucune altération technique)
-
----
 
 ### 🧾 <span style="color:green;"> 🗂️ **4.10. Afficher tous les champs** <a name="_toc173365576"></a></span>
 
-???+ question "📜 Activité n°31 : Affichage complet de la table `film`"
+???+ question "📜 Activité n°28 : Affichage complet de la table `film`"
     
     Exécute la requête suivante pour afficher **tous les champs** et toutes les lignes de la table `film` :
 
@@ -625,7 +664,7 @@ Une requête de mise à jour s’écrit en trois parties :
 
 ### <span style="color:green;">🧱 **5.2. Ajouter un attribut dans une table** <a name="_toc173365579"></a></span>
 
-???+ question "➕ Activité n°32 : Ajouter une colonne"
+???+ question "➕ Activité n°29 : Ajouter une colonne"
     Ajouter un **nouvel attribut** `nbfilms_realisateur` (type entier) dans la table `realisateur` :
 
 
@@ -641,7 +680,7 @@ Une requête de mise à jour s’écrit en trois parties :
 
 ### <span style="color:green;"> ✏️ **5.3. Modifier une donnée dans une table**</span>
 
-???+ question "🖊️ Activité n°33 : Modifier une donnée"
+???+ question "🖊️ Activité n°30 : Modifier une donnée"
     Modifier la **nationalité** du réalisateur `Lumet` :
 
 
@@ -660,6 +699,7 @@ Une requête de mise à jour s’écrit en trois parties :
     WHERE nom_realisateur = 'Lumet';
     ```
 
+    🧪 Vérifie le changement.
 
 ---
 
@@ -667,7 +707,7 @@ Une requête de mise à jour s’écrit en trois parties :
 
 ### <span style="color:green;">📥 **5.4. Remplir des données dans une nouvelle colonne**</span>
 
-???+ question "🔢 Activité n°34 : Mise à jour de valeurs"
+???+ question "🔢 Activité n°31 : Mise à jour de valeurs"
 
 
     Mettre à jour la colonne `nbfilms_realisateur` pour tous les réalisateurs **américains** :
@@ -686,7 +726,7 @@ Une requête de mise à jour s’écrit en trois parties :
 
 
 
-???+ question "🎯 Activité n°35 : Modifier plusieurs champs en même temps"
+???+ question "🎯 Activité n°32 : Modifier plusieurs champs en même temps"
 
 
     Modifier le nombre de film et la nationalité du réalisateur. Exécuter :
@@ -703,27 +743,26 @@ Une requête de mise à jour s’écrit en trois parties :
 
 ---
 
-???+ question "🏗️ Activité n°36 : Création de table"
+???+ question "🏗️ Activité n°33 : Création de table"
 
 
     Création de la table `nationalite` :
 
     ```sql
     CREATE TABLE nationalite (
-    id_nationalite INT NOT NULL,
+    id_nationalite INTEGER NOT NULL,
     nom_nationalite VARCHAR(255) NOT NULL,
     PRIMARY KEY ("id_nationalite" AUTOINCREMENT)
     );
     ```
 
-    ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.007.png){ width=30%; : .center }
 
     ✅ Vérifie que la table est créée.
 
 
 ---
 
-???+ question "👀 Activité n°37 : Affichage avec doublons"
+???+ question "👀 Activité n°34 : Affichage avec doublons"
 
 
     Afficher la nationalité des films :
@@ -738,7 +777,7 @@ Une requête de mise à jour s’écrit en trois parties :
 
 ---
 
-???+ question "🧹 Activité n°38 : Affichage sans doublons"
+???+ question "🧹 Activité n°35 : Affichage sans doublons"
 
 
     Afficher les différentes nationalités des films :
@@ -753,7 +792,7 @@ Une requête de mise à jour s’écrit en trois parties :
 
 ---
 
-???+ question "📤 Activité n°39 : Insertion de données extraites"
+???+ question "📤 Activité n°36 : Insertion de données extraites"
 
 
     Exécuter la requête suivante :
@@ -771,7 +810,7 @@ Une requête de mise à jour s’écrit en trois parties :
 
 ---
 
-???+ question "➕ Activité n°40 : Ajouter un attribut"
+???+ question "➕ Activité n°37 : Ajouter un attribut"
 
 
     Ajouter l’attribut `id_nationalite_film` à la table `film` :
@@ -781,10 +820,12 @@ Une requête de mise à jour s’écrit en trois parties :
     ADD COLUMN id_nationalite_film INTEGER;
     ```
 
+    ✅ Vérifie
+
 
 ---
 
-???+ question "🔗 Activité n°41 : Lier une colonne avec une autre table"
+???+ question "🔗 Activité n°38 : Lier une colonne avec une autre table"
 
 
     Exécuter :
@@ -805,10 +846,10 @@ Une requête de mise à jour s’écrit en trois parties :
 
     ✅ Vérifie que le champ `id_nationalite_film` est bien rempli.
 
-
+    on note `film.___`  pour dire que l’on va chercher le champ dans la table film. Cette nationalité dans la table film doit être égale à la nationalité dans la table nationalité d’où le `nationalite.____` 
 ---
 
-???+ question "🗑️ Activité n°42 : Suppression d’un attribut devenu inutile"
+???+ question "🗑️ Activité n°39 : Suppression d’un attribut devenu inutile"
 
 
     Supprimer l’attribut `nationalite_film` :
@@ -828,7 +869,7 @@ Une requête de mise à jour s’écrit en trois parties :
 
 ### <span style="color:green;"> 🔠 **5.5. Mise en majuscule d’un attribut**</span>
 
-???+ question "🆙 Activité n°43 : Mise en majuscule d’un attribut"
+???+ question "🆙 Activité n°40 : Mise en majuscule d’un attribut"
 
 
     Modifier le nom du réalisateur en le passant en **majuscules** :
@@ -845,7 +886,7 @@ Une requête de mise à jour s’écrit en trois parties :
 
 ---
 
-???+ question "🔠🔡 Activité n°44 : Mise en majuscule/minuscule d’un attribut"
+???+ question "🔠 Activité n°41 : Mise en majuscule/minuscule d’un attribut"
 
 
     Modifier le nom du réalisateur pour avoir la **1ʳᵉ lettre en majuscule**, le reste en **minuscule** :
@@ -888,7 +929,7 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
 ---
 
-???+ question "🛠️ Activité n°45 : Mise à jour de la base pour respecter le schéma relationnel"
+???+ question "🛠️ Activité n°42 : Mise à jour de la base pour respecter le schéma relationnel"
 
 
     Met à jour les tables pour correspondre au **modèle relationnel**. Exécute ces requêtes dans l’ordre :
@@ -901,7 +942,7 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
     /* Création de la table genre */
     CREATE TABLE genre (
-    id_genre INT NOT NULL,
+    id_genre INTEGER NOT NULL,
     nom_genre VARCHAR(255) NOT NULL,
     PRIMARY KEY ("id_GENRE" AUTOINCREMENT));
 
@@ -913,7 +954,7 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
     /* Ajout colonne id_genre_film */
     ALTER TABLE film 
-    ADD COLUMN id_genre_film INT;
+    ADD COLUMN id_genre_film INTEGER;
 
     /* Mise à jour id_genre_film */
     UPDATE film
@@ -928,7 +969,7 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
     /* Ajout de l’attribut id_nationalite_realisateur */
     ALTER TABLE realisateur 
-    ADD COLUMN id_nationalite_realisateur INT;
+    ADD COLUMN id_nationalite_realisateur INTEGER;
 
     /* Mise à jour de la clé étrangère */
     UPDATE realisateur
@@ -959,14 +1000,13 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
 ### <span style="color:green;">🔍 **6.3. Requêtes de sélection avec jointures**</span>
 
-???+ question "🎥 Activité n°46 : Afficher le titre du film avec son genre (2 tables)"
+???+ question "🎥 Activité n°43 : Afficher le titre du film avec son genre (2 tables)"
 
 
     Exécuter :
 
     ```sql
-    SELECT titre_film, 
-    nom_genre AS genre_film
+    SELECT titre_film, nom_genre AS genre_film
     FROM film
     JOIN genre
     ON genre.id_genre = film.id_genre_film
@@ -974,27 +1014,24 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
     ```
 
     📌 On récupère le titre du film (table `film`) et son genre (table `genre`) avec `JOIN`.  
+    On renomme l'attribut nom_genre en genre_film sur la vue
     ✅ Vérifie que seuls les films de genre "Science fiction" sont affichés.
 
 
 ---
 
-???+ question "🌍 Activité n°47 : Afficher le titre du film, son genre et sa nationalité (3 tables)"
+???+ question "🌍 Activité n°44 : Afficher le titre du film, son genre et sa nationalité (3 tables)"
 
 
     Exécuter :
 
     ```sql
-    SELECT titre_film, 
-    nom_genre AS genre_film, 
-    nom_nationalite as nationalite_film
-    FROM film
-    JOIN genre
-    ON genre.id_genre = film.id_genre_film
-    JOIN nationalite
-    ON nationalite.id_nationalite = film.id_nationalite_film
-    WHERE genre.nom_genre = 'Science fiction' 
-    ORDER BY nationalite_film;
+    SELECT titre_film, nom_genre AS genre_film, nom_nationalite as nationalite_film 
+    FROM film 
+    JOIN genre ON genre.id_genre = film.id_genre_film 
+    JOIN nationalite ON nationalite.id_nationalite = film.id_nationalite_film 
+    WHERE genre.nom_genre = 'Science fiction'  
+    ORDER BY nationalite_film; 
     ```
 
     📌 On ajoute la **nationalité du film** en reliant une 3ᵉ table.  
@@ -1003,24 +1040,18 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
 ---
 
-???+ question "🎬 Activité n°48 : Ajouter le réalisateur (4 tables)"
+???+ question "🎬 Activité n°45 : Ajouter le réalisateur (4 tables)"
 
 
     Exécuter :
 
     ```sql
-    SELECT titre_film, 
-    nom_genre AS genre_film, 
-    nom_nationalite as nationalite_film, 
-    nom_realisateur as realisateur_film
-    FROM film
-    JOIN genre
-    ON genre.id_genre = film.id_genre_film
-    JOIN nationalite
-    ON nationalite.id_nationalite = film.id_nationalite_film
-    JOIN realisateur
-    ON realisateur.id_realisateur = film.id_realisateur_film
-    WHERE genre.nom_genre = 'Science fiction' 
+    SELECT titre_film, nom_genre AS genre_film, nom_nationalite as nationalite_film, nom_realisateur as realisateur_film 
+    FROM film 
+    JOIN genre ON genre.id_genre = film.id_genre_film 
+    JOIN nationalite ON nationalite.id_nationalite = film.id_nationalite_film 
+    JOIN realisateur ON realisateur.id_realisateur = film.id_realisateur_film 
+    WHERE genre.nom_genre = 'Science fiction'  
     ORDER BY nationalite_film;
     ```
 
@@ -1030,27 +1061,19 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
 ---
 
-???+ question "🧾 Activité n°49 : Afficher le film, le genre, les deux nationalités, et le réalisateur (avec alias)"
+???+ question "🧾 Activité n°46 : Afficher le film, le genre, les deux nationalités, et le réalisateur (avec alias)"
 
 
     Exécuter :
 
     ```sql
-    SELECT titre_film, 
-    nom_genre AS genre_film, 
-    nationalite.nom_nationalite as nationalite_film, 
-    nom_realisateur as realisateur_film, 
-    nat_real.nom_nationalite as natio_real 
-    FROM film
-    JOIN genre
-    ON genre.id_genre = film.id_genre_film
-    JOIN nationalite
-    ON nationalite.id_nationalite = film.id_nationalite_film
-    JOIN realisateur
-    ON realisateur.id_realisateur = film.id_realisateur_film
-    JOIN nationalite AS nat_real
-    ON nat_real.id_nationalite = realisateur.id_nationalite_realisateur
-    WHERE genre.nom_genre = 'Science fiction' 
+    SELECT titre_film, nom_genre AS genre_film, nationalite.nom_nationalite as nationalite_film, nom_realisateur as realisateur_film, nat_real.nom_nationalite as natio_real  
+    FROM film 
+    JOIN genre ON genre.id_genre = film.id_genre_film 
+    JOIN nationalite ON nationalite.id_nationalite = film.id_nationalite_film 
+    JOIN realisateur ON realisateur.id_realisateur = film.id_realisateur_film 
+    JOIN nationalite AS nat_real ON nat_real.id_nationalite = realisateur.id_nationalite_realisateur 
+    WHERE genre.nom_genre = 'Science fiction'  
     ORDER BY nationalite_film;
     ```
 
@@ -1060,28 +1083,20 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
 ---
 
-???+ question "🎯 Activité n°50 : Afficher seulement les films dont la nationalité ≠ à celle du réalisateur"
+???+ question "🎯 Activité n°47 : Afficher seulement les films dont la nationalité ≠ à celle du réalisateur"
 
 
     Exécuter :
 
     ```sql
-    SELECT titre_film, 
-    nom_genre AS genre_film, 
-    nationalite.nom_nationalite as nationalite_film, 
-    nom_realisateur as realisateur_film, 
-    nat_real.nom_nationalite as natio_real 
-    FROM film
-    INNER JOIN genre
-    ON genre.id_genre = film.id_genre_film
-    JOIN nationalite
-    ON nationalite.id_nationalite = film.id_nationalite_film
-    JOIN realisateur
-    ON realisateur.id_realisateur = film.id_realisateur_film
-    JOIN nationalite AS nat_real
-    ON nat_real.id_nationalite = realisateur.id_nationalite_realisateur
-    WHERE nat_real.id_nationalite <> nationalite.id_nationalite
-    ORDER BY nationalite_film;
+    SELECT titre_film, nom_genre AS genre_film, nationalite.nom_nationalite as nationalite_film, nom_realisateur as realisateur_film, nat_real.nom_nationalite as natio_real  
+    FROM film 
+    JOIN genre ON genre.id_genre = film.id_genre_film 
+    JOIN nationalite ON nationalite.id_nationalite = film.id_nationalite_film 
+    JOIN realisateur ON realisateur.id_realisateur = film.id_realisateur_film 
+    JOIN nationalite AS nat_real ON nat_real.id_nationalite = realisateur.id_nationalite_realisateur 
+    WHERE nat_real.id_nationalite <> nationalite.id_nationalite 
+    ORDER BY nationalite_film; 
     ```
 
     📌 La condition `<>` permet de filtrer uniquement les films dont la **nationalité du réalisateur est différente** de celle du film.  
@@ -1090,7 +1105,7 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
 ---
 
-???+ question "📑 Activité n°51 : Afficher le titre du film et le réalisateur avec deux conditions"
+???+ question "📑 Activité n°48 : Afficher le titre du film et le réalisateur avec deux conditions"
 
 
     Exécuter :
@@ -1098,8 +1113,7 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
     ```sql
     SELECT titre_film, nom_realisateur
     FROM realisateur
-    JOIN film
-    ON film.id_realisateur_film = realisateur.id_realisateur
+    JOIN film ON film.id_realisateur_film = realisateur.id_realisateur
     WHERE nom_realisateur = 'Lucas' AND titre_film LIKE 'S%'
     ORDER BY nom_realisateur, prenom_realisateur;
     ```
@@ -1115,9 +1129,9 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 ### <span style="color:green;">🔍 **6.4. Requêtes de sélection imbriquées**</span>
 
 
-???+ question "🧠 Activité n°52 : Requête imbriquée simple"
+???+ question "🧠 Activité n°49 : Requête imbriquée simple"
 
-    🔎 **Objectif :** Extraire le titre des films dont le réalisateur est de nationalité **italienne**, en utilisant une **requête imbriquée**.
+    🔎 **Objectif :** Extraire le titre des films dont le réalisateur est de nationalité **française**, en utilisant une **requête imbriquée**.
 
     > 🔁 Deux étapes à faire :
     > - 1. Trouver les identifiants des réalisateurs de nationalité italienne.
@@ -1141,7 +1155,7 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
     WHERE id_nationalite_realisateur = (
         SELECT id_nationalite
         FROM nationalite
-        WHERE nom_nationalite = 'Française'
+        WHERE nom_nationalite = 'France'
     )
     ```
 
@@ -1168,73 +1182,23 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
             WHERE id_nationalite_realisateur IN (
                 SELECT id_nationalite
                 FROM nationalite
-                WHERE nom_nationalite = 'italienne'
+                WHERE nom_nationalite = 'France'
             )
         );
         ```
 
-
----
-
-
-???+ question "🧠 Activité n°53 : Requête imbriquée avec tri"
-
-
-    🔎 **Objectif :** Afficher les **titres des films** du **genre 'drame'** sortis **après l’an 2000**, et dont le réalisateur est **français**, triés par ordre alphabétique.
-
-    **Comment trouver les films ayant le même genre qu’un film intitulé "Inception"**
-
-    🧱 Étape 1 : Identifier les tables utiles
-
-    * `film` : contient les titres, genres, et réalisateurs
-    * `genre` : donne les noms associés aux ID
-
-    🧩 Étape 2 : Formuler le raisonnement
-
-    1. Identifier le genre de "Inception" 
-
-    2. Lister tous les films de ce genre 
-
-    🧠 Astuce pédagogique
-
-    | Étape   | But                                             | Type de requête       |
-    | ------- | ----------------------------------------------- | --------------------- |
-    | Étape 1 | Identifier une condition (genre ou nationalité) | **SELECT simple**     |
-    | Étape 2 | Utiliser ce résultat comme filtre               | **Requête imbriquée** |
-
-    ❓ **Écrivez une requête imbriquée avec filtre et tri.**
-
-    ??? success "📤 Solution"
-
-    ```sql
-    SELECT titre_film
-    FROM film
-    WHERE id_genre_film = (
-        SELECT id_genre
-        FROM genre
-        WHERE nom_genre = 'drame'
-    )
-    AND EXTRACT(YEAR FROM annee_film) > 2000
-    AND id_realisateur_film IN (
-        SELECT id_realisateur
-        FROM realisateur
-        WHERE id_nationalite_realisateur = (
-            SELECT id_nationalite
-            FROM nationalite
-            WHERE nom_nationalite = 'française'
-        )
-    )
-    ORDER BY titre_film ASC;
-    ```
+        ✅ Vérifie
 
 
 ---
 
-???+ question "🧠 Activité n°54 : Requête imbriquée avec double jointure implicite"
 
-    🔎 **Objectif :** Trouver les **réalisateurs** (nom + prénom) qui ont réalisé **au moins un film** du **même genre** qu’un film intitulé **"Inception"**.
 
-    > 💡 On cherche tous les réalisateurs ayant au moins un film **dans le même genre** que celui d’"Inception", sans nécessairement avoir réalisé ce film.
+???+ question "🧠 Activité n°50 : Requête imbriquée avec double jointure implicite"
+
+    🔎 **Objectif :** Trouver les **réalisateurs** (nom + prénom) qui ont réalisé **au moins un film** du **même genre** qu’un film intitulé **"Pulp Fiction"**.
+
+    > 💡 On cherche tous les réalisateurs ayant au moins un film **dans le même genre** que celui d’"Pulp Fiction", sans nécessairement avoir réalisé ce film.
 
     🧠 **Comment faire ?**
 
@@ -1250,7 +1214,7 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
     🧩 Étape 2 : Décomposer le raisonnement
 
-    1. Trouver le genre du film **"Inception"** 
+    1. Trouver le genre du film **"Pulp Fiction"** 
 
     2. Trouver les films qui ont ce **même genre** 
 
