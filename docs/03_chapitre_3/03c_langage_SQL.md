@@ -1516,7 +1516,10 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
     Avec des commandes SQL faire les requêtes suivantes :
 
-    1. reconstituez la base de données (faire apparaitre le tableau ci-dessus) ci-dessus que l’on appellera database.sql.
+    1. reconstituez la base de données
+
+        Faire apparaitre le tableau ci-dessus
+
     2. Quels sont les titres des films dont le genre est Drame ?
     3. Quels films sont projetés au cinéma Le Fontenelle ?
     4. Quels sont les noms et prénoms des réalisateurs ?
@@ -1574,7 +1577,7 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
     **Aide** : vous pouvez vous aider de <https://dbdiagram.io/>  
 
-    2 Créez la base de données database.db et les tables décrites ci-dessus.
+    2 Créez la base de données et les tables décrites ci-dessus.
 
     **Aide** : si vous créez la base de données à partir de l’import de ce qui a été fait sur <https://dbdiagram.io/>, la création de clés étrangères de fonctionne pas sur sqlite avec la même syntaxe que dans mysql. Il faudra donc créer les clés étrangères en modifiant chacune des tables dans l’onglet structure de la base de données. 
 
@@ -1769,7 +1772,10 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
     Avec des commandes SQL :
 
-    2 Reconstituer la base de données database.db (faire apparaitre le tableau ci-dessus)
+    2 Reconstituer la base de données
+
+       Faire apparaitre le tableau ci-dessus
+       
     3 Qui (nom et prénom) organise le colloque Nourrir l'Humanité ?
     4 Quels sont les titres des exposés du colloque Nourrir l'Humanité ?
     5 Combien d'exposés sont présentés par Jeanne Darc ?
