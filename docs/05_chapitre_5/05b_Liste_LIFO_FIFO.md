@@ -1075,6 +1075,7 @@ On va créer une méthode `returnFinalValue` qui :
 ![Lecture récursive](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.018.png){width=50%; : .center }
 
 Si on part ici de la tête qui contient le string "Lundi", on devrait lire la séquence des jours et renvoyer la référence de la dernière cellule, celle qui contient "Dimanche".
+
 ---
 
 ???+ question "🧠 **Activité n°16 : Création de la méthode `returnFinalValue`**"
