@@ -19,7 +19,7 @@ extra:
 
 # Éventuellement à modifier avec votre thème de couleurs
 theme:
-    favicon: assets/favicon.ico
+    favicon: assets/images/favicon.png
     icon:
       logo: material/application-variable
     custom_dir: my_theme_customizations/
