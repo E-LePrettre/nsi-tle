@@ -155,3 +155,4 @@ On utilise un **raisonnement par récurrence** :
 ✅ À la fin, la liste complète est triée.
 
 
+Pour s'entrainer : [CODEX](https://codex.forge.apps.education.fr/exercices/tri_selection/)

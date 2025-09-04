@@ -153,3 +153,4 @@ Propriété `P(i)` : « La sous-liste `l[0:i]` est triée. »
 ✅ C’est donc un **invariant de boucle** : à chaque itération, la liste partielle est bien triée.
 
 
+Pour s'entrainer : [CODEX](https://codex.forge.apps.education.fr/exercices/tri_insertion/)
