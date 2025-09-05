@@ -184,20 +184,30 @@ Il est défini entre accolades `{}`.
 
 
 
-Pour s'entrainer sur la Construction de dictionnaires : 
+Pour s'entrainer sur la Construction de dictionnaires :
+
 - [CODEX : Valeurs extrêmes](https://codex.forge.apps.education.fr/exercices/dict_extremes/)
+
 - [CODEX : Dictionnaire d'occurrences](https://codex.forge.apps.education.fr/exercices/dico_occurrences/)
+
 - [CODEX : Dictionnaire des antécédents](https://codex.forge.apps.education.fr/exercices/antecedents/)
 
 Pour s'entrainer sur l'utilisation des dictionnaires:
+
 - [CODEX : Anniversaires](https://codex.forge.apps.education.fr/exercices/anniversaires/)
+
 - [CODEX : Couleurs](https://codex.forge.apps.education.fr/exercices/couleurs/)
+
 - [CODEX : L-système](https://codex.forge.apps.education.fr/exercices/lsystem/)
+
 - [CODEX : Top-like](https://codex.forge.apps.education.fr/exercices/top_like/)
 
 Pour s'entrainer sur plusieurs dictionnaires :
+
 - [CODEX : Union de dictionnaires](https://codex.forge.apps.education.fr/exercices/union_dictionnaires/)
+
 - [CODEX : Concours de l'Eurovision](https://codex.forge.apps.education.fr/exercices/eurovision/)
+
 - [CODEX : Jointure de dictionnaires](https://codex.forge.apps.education.fr/exercices/jointure_dictionnaires/)
 
 

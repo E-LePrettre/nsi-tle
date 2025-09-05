@@ -75,10 +75,17 @@ Un système de pièces est dit **canonique** si l’algorithme glouton donne **t
 Mais ce n’est pas toujours le cas ! Certains ensembles de pièces **non classiques** peuvent piéger l’algorithme glouton.
 
 Pour s'entrainer par ordre de dificulté croissante : 
+
 - [CODEX : rendu de monnaie](https://codex.forge.apps.education.fr/exercices/rendu_monnaie_3p/)
+
 - [CODEX : Livraisons à Manhattan](https://codex.forge.apps.education.fr/exercices/manhattan/)
+
 - [CODEX : Mises en boîtes](https://codex.forge.apps.education.fr/en_travaux/mise_en_boites/)
+
 - [CODEX : Nombre minimal de quais](https://codex.forge.apps.education.fr/exercices/nombre_quais/)
+
 - [CODEX : partition équilibrée](https://codex.forge.apps.education.fr/exercices/partition_equilibree_1/)
+
 - [CODEX : Jouons au golf!](https://codex.forge.apps.education.fr/en_travaux/golf/)
+
 - [CODEX : Numération Shadock](https://codex.forge.apps.education.fr/exercices/numeration_shadock/)

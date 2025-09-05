@@ -154,13 +154,21 @@ title: 01e Fiche méthode - Recherche dans un tableau
 
 
 Pour s'entrainer par ordre de dificulté croissante : 
+
 - [CODEX : Recadrer les mesures d'un tableau](https://codex.forge.apps.education.fr/exercices/recadrer/)
+
 - [CODEX : indice du minimum](https://codex.forge.apps.education.fr/exercices/ind_min/)
+
 - [CODEX : Maximum](https://codex.forge.apps.education.fr/exercices/maximum_nombres/)
+
 - [CODEX : Valeur et indice du maximum](https://codex.forge.apps.education.fr/exercices/val_ind_max/)
+
 - [CODEC : Indice de la première occurrence](https://codex.forge.apps.education.fr/exercices/ind_prem_occ/)
+
 - [CODEC : Dernière occurrence](https://codex.forge.apps.education.fr/exercices/derniere_occurrence/)
+
 - [CODEC : Nombre de répétitions](https://codex.forge.apps.education.fr/exercices/repetitions/)
+
 - [CODEX : Le plus proche](https://codex.forge.apps.education.fr/exercices/plus_proche/)
 
 

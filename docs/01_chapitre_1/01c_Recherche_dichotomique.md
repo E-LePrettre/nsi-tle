@@ -205,5 +205,7 @@ Si tu dois faire plusieurs recherches, mieux vaut **trier une fois la liste**, p
 
 
 Pour s'entrainer : 
+
 - [CODEX: recherche dichotomique (booléen)](https://codex.forge.apps.education.fr/exercices/dichotomie/)
+
 - [CODEX: recherche dichotomique (indice)](https://codex.forge.apps.education.fr/exercices/dichotomie_iteratif/)
