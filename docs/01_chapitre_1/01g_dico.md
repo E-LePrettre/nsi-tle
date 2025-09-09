@@ -27,11 +27,13 @@ Il est défini entre accolades `{}`.
 
     - classe : "Terminale"
 
+    ```python
+    etudiant = {"nom": "Dupont", "age": 17, "classe": "Terminale"}
+    print(etudiant)
+    ```
+
     ??? success "Python"
-        ```python
-        etudiant = {"nom": "Dupont", "age": 17, "classe": "Terminale"}
-        print(etudiant)
-        ```
+        {{ IDE() }} 
 
     ??? success "Explication"
         Le dictionnaire est créé avec trois paires **clé-valeur**.  
@@ -54,12 +56,16 @@ Il est défini entre accolades `{}`.
 
     - une clé inexistante avec une valeur par défaut
 
+
+    ```python
+    etudiant = {"nom": "Dupont", "age": 17, "classe": "Terminale"}
+    print(etudiant["nom"])
+    print(etudiant.get("age"))
+    print(etudiant.get("adresse", "Clé non trouvée"))
+    ```
+
     ??? success "Python"
-        ```python
-        print(etudiant["nom"])
-        print(etudiant.get("age"))
-        print(etudiant.get("adresse", "Clé non trouvée"))
-        ```
+        {{ IDE() }} 
 
     ??? success "Résultat"
         ```
@@ -78,11 +84,14 @@ Il est défini entre accolades `{}`.
 
     Modifie l'âge de l'étudiant en le passant à 18.
 
+    ```python
+    etudiant = {"nom": "Dupont", "age": 17, "classe": "Terminale"}
+    etudiant["age"] = 18
+    print(etudiant)
+    ```
+    
     ??? success "Python"
-        ```python
-        etudiant["age"] = 18
-        print(etudiant)
-        ```
+        {{ IDE() }} 
 
 ➡️ On remplace simplement la valeur associée à la clé `"age"`.
 
@@ -94,11 +103,14 @@ Il est défini entre accolades `{}`.
 
     Ajoute une nouvelle clé `"adresse"` avec la valeur `"Paris"`.
 
+    ```python
+    etudiant = {"nom": "Dupont", "age": 17, "classe": "Terminale"}
+    etudiant["adresse"] = "Paris"
+    print(etudiant)
+    ```
+    
     ??? success "Python"
-        ```python
-        etudiant["adresse"] = "Paris"
-        print(etudiant)
-        ```
+        {{ IDE() }} 
 
 ➡️ Si la clé n'existe pas, elle est ajoutée automatiquement.
 
@@ -110,13 +122,17 @@ Il est défini entre accolades `{}`.
 
     Supprime la clé `"classe"` avec `del` et la clé `"age"` avec `.pop()`.
 
+    ```python
+    etudiant = {"nom": "Dupont", "age": 17, "classe": "Terminale"}
+    del etudiant["classe"]
+    print(etudiant)
+    age = etudiant.pop("age")
+    print(etudiant)
+    print("Âge supprimé :", age)
+    ```
+    
     ??? success "Python"
-        ```python
-        del etudiant["classe"]
-        age = etudiant.pop("age")
-        print(etudiant)
-        print("Âge supprimé :", age)
-        ```
+        {{ IDE() }} 
 
 🧠 `del` supprime sans retour ; `.pop()` supprime et renvoie la valeur.
 
@@ -134,17 +150,24 @@ Il est défini entre accolades `{}`.
     
     - les couples clé-valeur
 
+
+    ```python
+    for cle in etudiant.keys():
+        print("Clé :", cle)
+
+    #on peut faire aussi sans keys()
+    for cle in etudiant:
+        print("Clé :", cle)
+
+    for valeur in etudiant.values():
+        print("Valeur :", valeur)
+
+    for cle, valeur in etudiant.items():
+        print(f"{cle}: {valeur}")
+    ```
+    
     ??? success "Python"
-        ```python
-        for cle in etudiant:
-            print("Clé :", cle)
-
-        for valeur in etudiant.values():
-            print("Valeur :", valeur)
-
-        for cle, valeur in etudiant.items():
-            print(f"{cle}: {valeur}")
-        ```
+        {{ IDE() }} 
 
 
 🧠 Utilise `.values()` ou `.items()` selon ce que tu veux parcourir.
@@ -170,15 +193,18 @@ Il est défini entre accolades `{}`.
 
     Crée un dictionnaire représentant une classe contenant deux élèves avec nom et âge.
 
-    ??? success "Python"
-        ```python
-        classe = {
-            "eleve1": {"nom": "Dupont", "age": 17},
-            "eleve2": {"nom": "Martin", "age": 18}
-        }
 
-        print(classe["eleve1"]["nom"])  # Affiche "Dupont"
-        ```
+    ```python
+    classe = {
+        "eleve1": {"nom": "Dupont", "age": 17},
+        "eleve2": {"nom": "Martin", "age": 18}
+    }
+
+    print(classe["eleve1"]["nom"])  # Affiche "Dupont"
+    ```
+    
+    ??? success "Python"
+        {{ IDE() }} 
 
 🧠 Les dictionnaires peuvent contenir **d'autres dictionnaires**. On accède alors aux valeurs avec plusieurs crochets `[ ]`.
 
