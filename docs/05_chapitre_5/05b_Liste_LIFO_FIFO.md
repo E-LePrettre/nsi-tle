@@ -1003,7 +1003,7 @@ Chaque cellule (Node) de la liste chaînée est représentée par une **classe `
     ??? success "📤 Solution :"
         ```
         [35 | ●] → [25 | ●] → [15 | ●] → [5 | ∅]
-  c4          c3         c2        c1
+        c4          c3         c2        c1
         ```
 
 ---
