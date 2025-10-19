@@ -2310,7 +2310,7 @@ La version à une classe est plus simple, elle peut être suffisante, mais les p
             pass
     ```
 
-        ??? success "✅❇️ Solution :"
+    ??? success "✅❇️ Solution :"
 
         ```python
         class Node:
