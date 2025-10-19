@@ -2801,8 +2801,8 @@ mais :
                     valeur = self.file[0]
                     self.file[:] = self.file[1:] # ou del self.file[0] qui est plus performant
                     return valeur
-        else:
-            return 'File vide'
+                else:
+                    return 'File vide'
 
         # Programme principal
         if __name__ == '__main__':
