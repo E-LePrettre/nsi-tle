@@ -516,12 +516,15 @@ Implémenter une structure de données à travers une structure existante c’es
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc145779694"></a>🧮 **3.1. Tableau**</H3>
 
 📘 **Définition : Tableau**
+
 Un **tableau** est une **structure de données** à **taille fixe** dans laquelle **chaque case est indexée**.
+
 On peut **accéder à une case** en connaissant son **index**.
 
 ---
 
 🧠 **Propriété 9 : Accès à une valeur d’un tableau**
+
 Pour accéder à une valeur d’indice `i` dans un tableau `T`, on écrit :
 
 ```
@@ -537,8 +540,11 @@ T[i] = nouvelle_valeur
 ---
 
 🔎 **Exemple**
+
 Ce tableau a une **longueur maximale de 7**.
+
 `T[1] = 15`
+
 `T[5]` est vide.
 
 ![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.027.png){width=50%; : .center }
@@ -769,7 +775,7 @@ defiler(F):
 
 On dispose de la file de l'exemple précédent :
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.036.png){width=50%; : .center }
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.041.png){width=50%; : .center }
 
 
 
@@ -787,19 +793,19 @@ Si on lance ```defiler(F)```, on obtient :
 
 	![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.036.png){width=50%; : .center }
 
-	1. Qu'obtient-on si on lance successivement :
+	1 Qu'obtient-on si on lance successivement :
 
 	```
 	defiler(F), defiler(F), defiler(F), defiler(F)
 	```
 
-	2. Qu'obtient-on si on lance successivement :
+	2 Qu'obtient-on si on lance successivement :
 
 	```
 	defiler(F), defiler(F), defiler(F), defiler(F), defiler(F)
 	```
 
-	3. Qu'obtient-on si on lance successivement :
+	3 Qu'obtient-on si on lance successivement :
 
 	```
 	enfiler(3,F), enfiler(5,F), defiler(F)
