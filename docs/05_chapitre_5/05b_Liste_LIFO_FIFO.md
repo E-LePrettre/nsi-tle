@@ -524,6 +524,7 @@ Nous aimerions maintenant accéder à **n'importe quelle valeur** de la liste, e
 ![Interface de lecture par position](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.012.png){width=50%; : .center }
 
 ✅ **Avantage** : cette implémentation suit fidèlement la logique (tête, queue)
+
 ⚠️ **Inconvénient** : certaines opérations deviennent plus coûteuses.
 
 ---
