@@ -3131,7 +3131,6 @@ Cette implémentation est très peu efficace
 
     ??? success "✅ Solution :"
         ```python
-        #"""
         def __str__(self):
             ### version enfiler par la queue et défiler par la tete
             if self.head is None:
@@ -3143,9 +3142,8 @@ Cette implémentation est très peu efficace
                 currentNode = currentNode.n
             return str(result)
             
-            
-            """
-            def __str__(self):  # on peut mettre __repr__ à la place pour éviter de taper print
+
+        def __str__(self):  # on peut mettre __repr__ à la place pour éviter de taper print
                 if self.head is None:
                     raise IndexError("File vide")
                 else:
@@ -3155,7 +3153,6 @@ Cette implémentation est très peu efficace
                         result =  str(next_node.v)+" - "  +result
                         next_node = next_node.n
                     return result
-            """
         ```
 
     🎯 Compléter les deux méthodes suivantes : `taille()` et `sommet()`
