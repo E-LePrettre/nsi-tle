@@ -1514,8 +1514,11 @@ Avant d'insérer la nouvelle Cellule en position 2, il faut mémoriser les ident
         ```
 
         ligne 5 on part de la tête
+
         ligne 6 effectuer position-1 saut vers la cellule suivante
+
         ligne 7 mémoriser l'identifiant de cette cellule dans predecesseur
+        
         ligne 8 predecesseur sera la Cellule en position position - 1
 
 ---
