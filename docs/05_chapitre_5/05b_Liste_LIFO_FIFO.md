@@ -843,15 +843,16 @@ return reponse.insert(position, x)
         L = supprimerPosition(L, 2)
         print(L)
         ```
+
 ⚠️ **À ne pas faire :**
 
-    ```python
-    reponse = [element for element in L]
-    return reponse.pop(position)
-    ```
+```python
+reponse = [element for element in L]
+return reponse.pop(position)
+```
 
-    ❌ Cela retourne l'élément supprimé, **pas la nouvelle liste**.
----
+❌ Cela retourne l'élément supprimé, **pas la nouvelle liste**.
+
 
 ???+ question "🧪 Activité n° 12 : structure liste avec des `lists` – fonction `afficherListe`"
 
