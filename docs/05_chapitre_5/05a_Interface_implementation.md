@@ -195,6 +195,8 @@ empiler(Luke, P)
 
 produit la pile :
 
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.009.jpeg){width=25%; : .center }
+
 ```
 (Luke, (Anakin, (Boba Fett, (Dark Vador, (Han Solo, (Yoda, vide()))))))
 ```
