@@ -1518,7 +1518,7 @@ Avant d'insérer la nouvelle Cellule en position 2, il faut mémoriser les ident
         ligne 6 effectuer position-1 saut vers la cellule suivante
 
         ligne 7 mémoriser l'identifiant de cette cellule dans predecesseur
-        
+
         ligne 8 predecesseur sera la Cellule en position position - 1
 
 ---
@@ -1894,9 +1894,11 @@ Soit une pile P composée des éléments suivants :
     📌 Elles permettent respectivement de :
 
     * retourner la **taille de la pile** (**sans utiliser `len`** ❌)
+
     * retourner le **sommet de la pile** (**sans utiliser les indices** ❌)
 
     💡 On n'utilisera que les fonctions primitives précédentes (`empiler`, `depiler`, etc.)
+    
     📦 On pourra s’aider d’une **pile auxiliaire** pour restaurer l’état initial.
 
     ```python
