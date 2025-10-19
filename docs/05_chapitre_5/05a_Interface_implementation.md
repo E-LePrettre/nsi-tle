@@ -290,14 +290,14 @@ Anakin
 
 
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc145779690"></a>📦 **2.2. Interface d’une structure de données : définition**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc145779690"></a>📦 **2.3. Interface d’une structure de données : définition**</H3>
 
 🧠 **Définition :**
 L’**interface d’une structure de données abstraite** est l’ensemble des opérateurs nécessaires à la manipulation de cette structure.
 
 ---
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc145779691"></a>🔧 **2.3. Interface de la pile**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc145779691"></a>🔧 **2.4. Interface de la pile**</H3>
 
 📌 **Exemple :**
 L’interface minimale de la structure pile est constituée des opérateurs suivants :
@@ -354,7 +354,7 @@ L’objectif est de fournir une interface la plus réduite possible tout en éta
 
 ---
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc145779692"></a>📨 **2.4. L’interface de la file**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc145779692"></a>📨 **2.5. L’interface de la file**</H3>
 
 🧠 **Définition :**
 Une **file** est une structure :
@@ -412,7 +412,7 @@ Opérateur récursif :
 * queue : `a`
 * troisième champ : `enfiler(troisième champ de F, queue de F)`
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.020.png){width=25%; : .center }
+
 
 
 ✅ Exemple :
@@ -427,7 +427,7 @@ est la file :
 
 ```F=(Anakin,Luke,(BobaFett,DarkVador,HanSolo,Yoda)))```
 
-
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.020.png){width=25%; : .center }
 
 ---
 
@@ -443,17 +443,16 @@ La fonction **transforme F** et **renvoie la tête** de F.
 
 ✅ Exemple :
 
-En reprenant l’exemple précédent où 
-
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.022.png){width=25%; : .center }
+En reprenant l’exemple précédent 
 
 ```F=(Anakin,Yoda,(BobaFett,DarkVador,HanSolo))) ```
+
 
 La commande de ```defiler(F)``` transforme la file *F* en :
 
 ```BobaFett,Yoda,(DarkVador,HanSolo)))```
 
-
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.022.png){width=25%; : .center }
 
 ---
 
