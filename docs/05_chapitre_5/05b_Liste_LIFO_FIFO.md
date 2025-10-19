@@ -1052,7 +1052,7 @@ Chaque cellule (Node) de la liste chaînée est représentée par une **classe `
 
     ??? success "📤 Solution :"
 
-        💥 La documentation n'a rien à voir dans cette histoire. Erreur sur la dernière ligne :
+        💥 Erreur sur la dernière ligne :
 
         `'Louis XVI'` est une **chaîne de caractères**, pas une **instance de Node**.
 
