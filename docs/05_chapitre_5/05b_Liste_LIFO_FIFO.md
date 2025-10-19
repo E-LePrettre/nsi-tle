@@ -471,7 +471,7 @@ Ils peuvent être parcourus via des **boucles `for`**.
 
 
 
-???+ question "🎯 Activité n° 6 : structure liste avec des tuples – fonction `afficherListe`"
+???+ question "🎯 Activité n° 6 : `afficherListe`"
 
     Il nous manque encore une fonctionnalité pratique (mais non obligatoire dans l’interface) : **une représentation lisible** de notre liste sans en montrer l’implémentation réelle.
 
