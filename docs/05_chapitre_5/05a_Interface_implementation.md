@@ -762,7 +762,7 @@ defiler(F):
 
 On dispose de la file de l'exemple précédent :
 
-![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.042.png){width=50%; : .center }
+![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.036.png){width=50%; : .center }
 
 
 
