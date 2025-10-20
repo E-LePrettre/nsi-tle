@@ -305,7 +305,7 @@ Ils peuvent être parcourus via des **boucles `for`**.
 
 
 
-???+ question "🧪 Activité n° 3 : `insererTete`"
+???+ question "🧪 Activité n° 3 : **structure liste avec des tuples fonction** `insererTete`"
 
     📌 **Objectif** : Créer la fonction d'interface suivante :
 
@@ -347,7 +347,7 @@ Ils peuvent être parcourus via des **boucles `for`**.
 
 ---
 
-???+ question "🧪 Activité n° 4 : `supprimerTete`"
+???+ question "🧪 Activité n° 4 : structure liste avec des tuples fonction `supprimerTete`"
 
     📌 **Objectif** : Créer une fonction d’interface pour **supprimer la tête** d’une liste.
 
@@ -386,6 +386,8 @@ Ils peuvent être parcourus via des **boucles `for`**.
         pass
     ```
 
+    Tester avec :
+
     ```
     >>> a = nouvelleListe()
     >>> b = supprimerTete(a)
@@ -420,7 +422,7 @@ Ils peuvent être parcourus via des **boucles `for`**.
 
 ---
 
-???+ question "🧪 Activité n° 5 : `lireTete`"
+???+ question "🧪 Activité n° 5 : structure liste avec des tuples fonction  `lireTete`"
 
     📌 **Objectif** : Créer la fonction permettant de **lire la tête** d’une liste sans la modifier.
 
@@ -442,6 +444,8 @@ Ils peuvent être parcourus via des **boucles `for`**.
         '''Renvoie la tête de la liste, sans toucher à la liste elle-même'''
         pass
     ```
+
+    Tester avec :
 
     ```
     >>> a = insererTete(5, nouvelleListe())
@@ -471,7 +475,7 @@ Ils peuvent être parcourus via des **boucles `for`**.
 
 
 
-???+ question "🎯 Activité n° 6 : `afficherListe`"
+???+ question "🎯 Activité n° 6 :structure liste avec des tuples fonction `afficherListe`"
 
     Il nous manque encore une fonctionnalité pratique (mais non obligatoire dans l’interface) : **une représentation lisible** de notre liste sans en montrer l’implémentation réelle.
 
@@ -529,7 +533,7 @@ Nous aimerions maintenant accéder à **n'importe quelle valeur** de la liste, e
 
 ---
 
-???+ question "🧪 Activité n° 7 : fonction `lireElement`"
+???+ question "🧪 Activité n° 7 : **structure liste avec des tuples fonction** `lireElement`"
 
     Créer la fonction `lireElement` en **réutilisant les fonctions précédentes**.
     On devra **supprimer la tête autant de fois que nécessaire** jusqu'à atteindre la position visée, puis la lire.
@@ -553,7 +557,7 @@ Nous aimerions maintenant accéder à **n'importe quelle valeur** de la liste, e
         pass
     ```
 
-    Exemples :
+    Tester avec  :
 
     ```python
     >>> a = insererTete(20, (15, (5, nouvelleListe())))
@@ -589,7 +593,7 @@ Nous aimerions maintenant accéder à **n'importe quelle valeur** de la liste, e
 
     ---
 
-???+ question "🧪 Activité n° 8 : fonction `insererElement`"
+???+ question "🧪 Activité n° 8 : structure liste avec des tuples fonction `insererElement`"
 
     Créer la fonction suivante :
 
@@ -612,7 +616,7 @@ Nous aimerions maintenant accéder à **n'importe quelle valeur** de la liste, e
         pass
     ```
 
-    Exemples :
+    Tester avec :
 
     ```python
     >>> a = insererTete(20, (15, (5, nouvelleListe())))
@@ -690,7 +694,9 @@ Nous aimerions maintenant accéder à **n'importe quelle valeur** de la liste, e
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667924"></a>**3.4. ❤️2<sup>ème</sup> implémentation de la structure liste (chaînée) avec les `lists` de Python❤️**</H3>
 
 🧠 Si le type natif `list` se nomme ainsi, c'est bien qu'il permet l'**implémentation de Liste**.
+
 ⚙️ En interne, il s'agit d’un **tableau dynamique** qui possède plus de fonctions d'interface que le type abstrait **TABLEAU DYNAMIQUE**.
+
 🔁 La structure de données `list` est donc un **savoureux mélange de fonctionnalités** issues des **tableaux** et des **listes**.
 
 ---
@@ -949,7 +955,7 @@ Chaque cellule (Node) de la liste chaînée est représentée par une **classe `
 
 #### <H4 STYLE="COLOR:MAGENTA;"> **3.5.1. Création de la cellule `Node`**</H4>
 
-???+ question "📝 **Activité 13 : Création de la classe Cellule (`Node`)**"
+???+ question "📝 **Activité 13 : structure liste avec de la POO, Création de la classe Cellule (`Node`)**"
 
     Chaque cellule est constituée d’une **tête** et d’un **pointeur**.
     Crée une classe `Node` avec un constructeur qui accepte deux paramètres (`value`, `next`) et les stocke dans les attributs `v` et `n`.
@@ -996,7 +1002,7 @@ Chaque cellule (Node) de la liste chaînée est représentée par une **classe `
 
 
 
-???+ question "📝 **Activité n°14 : Représentation de la structure chaînée**"
+???+ question "📝 **Activité n°14 : structure liste avec de la POO, Représentation de la structure chaînée**"
 
     Représenter sur **feuille** la **structure séquentielle linéaire** (schéma des cellules) créée par les instructions précédentes.
 
@@ -1008,7 +1014,7 @@ Chaque cellule (Node) de la liste chaînée est représentée par une **classe `
 
 ---
 
-???+ question "📝 **Activité n°14bis : Programmation défensive**"
+???+ question "📝 **Activité n°14bis : structure liste avec de la POO, Programmation défensive**"
 
     Notre cellule possède encore un léger problème :
     On pourrait lui transmettre **n’importe quoi** dans `next`, pas obligatoirement un objet `Node` ou `None`.
@@ -1080,7 +1086,7 @@ Si on part ici de la tête qui contient le string "Lundi", on devrait lire la s
 
 ---
 
-???+ question "🧠 **Activité n°16 : Création de la méthode `returnFinalValue`**"
+???+ question "🧠 **Activité n°16 : structure liste avec de la POO, Création de la méthode `returnFinalValue`**"
 
     **Prototype :**
 
@@ -1097,7 +1103,9 @@ Si on part ici de la tête qui contient le string "Lundi", on devrait lire la s
     **Questions associées :**
 
     1. Quelle est la condition d’arrêt ?
+
     2. Quel est le cas de base ?
+
     3. Comment la fonction progresse-t-elle dans la liste ?
 
     ??? success "📤 Solution :"
@@ -1152,7 +1160,7 @@ Si on part ici de la tête qui contient le string "Lundi", on devrait lire la s
 
 🖨️ **Affichage de la liste entière**
 
-???+ question "📺 **Activité n°17 : méthode `__str__` pour l’affichage**"
+???+ question "📺 **Activité n°17 : structure liste avec de la POO, création méthode `__str__` pour l’affichage**"
 
     Tester l'affichage de 
     - lu
@@ -1230,7 +1238,7 @@ Si on part ici de la tête qui contient le string "Lundi", on devrait lire la s
 
 #### <H4 STYLE="COLOR:MAGENTA;">🧱 **3.5.2. Création de la Liste Chaînée `Liste`**</H4>
 
-???+ question "🔧 **Activité n°18 : Création de la classe Liste**"
+???+ question "🔧 **Activité n°18 : structure liste avec de la POO, Création de la classe Liste**"
 
     Créer une **classe Liste** qui représentera la liste chaînée complète. Elle contient :
 
@@ -1339,7 +1347,7 @@ reponse peut alors être représentée par 15.
 
 ---
 
-???+ question "📥 **Activité n°19 : Méthode `isEmpty`**"
+???+ question "📥 **Activité n°19 : structure liste avec de la POO, Création de la Méthode `isEmpty`**"
 
     Créer une méthode d’interface `isEmpty()` qui retourne `True` si la liste est vide, `False` sinon.
 
@@ -1371,7 +1379,7 @@ reponse peut alors être représentée par 15.
 
 
 
-???+ question "📥 Activité n° 20 :structure liste avec de la POO, Création de la structure méthode `insertHead` :"
+???+ question "📥 **Activité n° 20 : structure liste avec de la POO, Création de la structure méthode `insertHead`** :"
 
     🧠 Créer une méthode d’interface `insertHead`. La solution est :
 
@@ -1448,7 +1456,7 @@ Avant d'insérer la nouvelle Cellule en position 2, il faut mémoriser les ident
 
 ---
 
-???+ question "📥 Activité 21 :structure liste avec de la POO, Création de la structure méthode `insertPosition` :"
+???+ question "📥 **Activité 21 :structure liste avec de la POO, Création de la structure méthode `insertPosition` :**"
 
     Voici une méthode d'interface `insertPosition` :
 
@@ -1526,7 +1534,7 @@ Avant d'insérer la nouvelle Cellule en position 2, il faut mémoriser les ident
 
 
 
-???+ question "🧩 Activité n° 22 :Structure liste avec de la POO, Analyse du coût d'insertion"
+???+ question "🧩 **Activité n° 22 :Structure liste avec de la POO, Analyse du coût d'insertion**"
 
     💡 L'insertion pure ne concerne que les lignes suivantes :
 
@@ -1586,11 +1594,11 @@ On parle alors de **concaténation de listes**, comme avec les chaînes de carac
 
    ![Création d'un nouveau tableau](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.022.png){width=60%; : .center }
 
-2. Copier les 20 000 éléments du premier tableau :
+2 Copier les 20 000 éléments du premier tableau :
 
    ![Déplacement des éléments de A](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.023.png){width=60%; : .center }
 
-3. Copier ensuite les 20 000 éléments du deuxième tableau :
+3 Copier ensuite les 20 000 éléments du deuxième tableau :
 
    ![Déplacement des éléments de B](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.024.png){width=60%; : .center }
 
@@ -1615,7 +1623,7 @@ On parle alors de **concaténation de listes**, comme avec les chaînes de carac
 
 ---
 
-???+ question "🧪 Activité n° 23 :Créer une structure fonction `afficherListe` et `recupererValeur`"
+???+ question "🧪 **Activité n° 23 : structure liste avec de la POO, Création de la fonction `afficherListe` et `recupererValeur`**"
 
     🔍 En utilisant l’interface, l’utilisateur peut-il se douter que les données sont stockées sous forme de **liste chaînée** composée d’objets ?
 
@@ -1654,7 +1662,7 @@ On parle alors de **concaténation de listes**, comme avec les chaînes de carac
 
 ---
 
-???+ question "🧹 Activité n° 24 : Créer la méthode `delPosition` pour supprimer un élément"
+???+ question "🧹 **Activité n° 24 : Créer la méthode `delPosition` pour supprimer un élément**"
 
     🛠️ Compléter la méthode :
 
@@ -1695,7 +1703,7 @@ On parle alors de **concaténation de listes**, comme avec les chaînes de carac
 ---
 
 
-???+ question "🧠 Activité n° 25 : structure liste avec de la POO, Création de la structure autres méthodes"
+???+ question "🧠 **Activité n° 25 : structure liste avec de la POO, Création de la structure autres méthodes**"
 
     🧩 Réaliser maintenant la méthode d'interface de lecture des valeurs. Voici le prototype :
 
@@ -1782,7 +1790,7 @@ Soit une pile P composée des éléments suivants :
 
 ---
 
-???+ question "🔧 Activité n° 26 : Structure pile avec les listes"
+???+ question "🔧 **Activité n° 26 : Structure pile avec les listes**"
 
     ✍️ Compléter la **structure de base** suivante :
 
@@ -1888,7 +1896,7 @@ Soit une pile P composée des éléments suivants :
 
 
 
-???+ question "🧱 Activité n° 27 : Structure pile avec les listes"
+???+ question "🧱 **Activité n° 27 : Structure pile avec les listes**"
 
     🎯 On va rajouter à la structure de base précédente deux fonctions : `taille` et `sommet`
     📌 Elles permettent respectivement de :
@@ -1898,7 +1906,7 @@ Soit une pile P composée des éléments suivants :
     * retourner le **sommet de la pile** (**sans utiliser les indices** ❌)
 
     💡 On n'utilisera que les fonctions primitives précédentes (`empiler`, `depiler`, etc.)
-    
+
     📦 On pourra s’aider d’une **pile auxiliaire** pour restaurer l’état initial.
 
     ```python
@@ -1946,7 +1954,7 @@ Soit une pile P composée des éléments suivants :
 
 ---
 
-???+ question "🏗️ Activité n° 28 : Structure pile avec la POO et les lists de Python"
+???+ question "🏗️ **Activité n° 28 : Structure pile avec la POO et les lists de Python**"
 
     Créer une classe `Pile` qui construit une liste vide, puis compléter les autres méthodes de la classe :
 
@@ -2023,7 +2031,7 @@ Soit une pile P composée des éléments suivants :
 
 ---
 
-???+ question "📐 Activité n° 29 : Méthodes `taille` et `sommet` en POO"
+???+ question "📐 **Activité n° 29 : Structure pile avec la POO et les lists de Python : Méthodes `taille` et `sommet` en POO**"
 
     On va rajouter à la structure de base précédente deux méthodes de la classe `Pile` :
 
@@ -2079,7 +2087,7 @@ Soit une pile P composée des éléments suivants :
 🧠 Ici, **tous les coûts d’exécution sont unitaires.**
 ---
 
-???+ question "🖨️ Activité n° 30 : Affichage d’une pile (POO + liste)"
+???+ question "🖨️ **Activité n° 30 : Affichage d’une pile (POO + liste)**"
 
     On va rajouter à la structure une méthode de la classe `Pile` :
     🔎 `afficher` → permet d’**afficher (retourner) la pile** sous forme de **liste**
@@ -2120,7 +2128,7 @@ La version à une classe est plus simple, elle peut être suffisante, mais les p
 
 ---
 
-???+ question "📘 Activité n° 31 : Structure pile avec la POO et les listes chainée version 1 classe"
+???+ question "📘 **Activité n° 31 : Structure pile avec la POO et les listes chainée version 1 classe**"
 
     Créer une classe `Pile` qui peut recevoir deux paramètres lors de l'appel du constructeur : un paramètre `value` et un paramètre `next`.
 
@@ -2278,7 +2286,7 @@ La version à une classe est plus simple, elle peut être suffisante, mais les p
 
 ---
 
-???+ question "🧱 Activité n° 32 : Structure pile avec la POO et les listes chainée version 2 classes"
+???+ question "🧱 **Activité n° 32 : Structure pile avec la POO et les listes chainée version 2 classes**"
 
     Créer une classe `Node` qui peut recevoir deux paramètres lors de l'appel du constructeur :
 
@@ -2310,7 +2318,7 @@ La version à une classe est plus simple, elle peut être suffisante, mais les p
             pass
     ```
 
-    ??? success "✅❇️ Solution :"
+        ??? success "✅❇️ Solution :"
 
         ```python
         class Node:
@@ -2401,7 +2409,7 @@ La version à une classe est plus simple, elle peut être suffisante, mais les p
 
 
 
-???+ question "📘 Activité n° 33 : Structure pile avec la POO et les listes chaînées version 2 classes – méthodes `taille` et `sommet`"
+???+ question "📘 **Activité n° 33 : Structure pile avec la POO et les listes chaînées version 2 classes – méthodes `taille` et `sommet`**"
 
     🧩 Rajouter aux structures précédentes deux méthodes :
 
@@ -2452,7 +2460,7 @@ La version à une classe est plus simple, elle peut être suffisante, mais les p
 
 ---
 
-???+ question "📘 Activité : Structure pile avec la POO et les listes chaînées version 2 classes – fonctions `taille2` et `sommet2`"
+???+ question "📘 **Activité 33bis: Structure pile avec la POO et les listes chaînées version 2 classes – fonctions `taille2` et `sommet2`**"
 
     🧪 Rajouter aux structures précédentes deux **fonctions externes** :
 
@@ -2493,6 +2501,7 @@ La version à une classe est plus simple, elle peut être suffisante, mais les p
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667932"></a>**5.1. Généralités**</H3>
 
 En informatique, une **file** (*queue* en anglais) est une structure de données basée sur le principe :
+
 ➡️ **Premier entré, premier sorti** (**FIFO : First In, First Out**)
 
 ![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.033.png){width=30%; : .center }
@@ -2541,7 +2550,7 @@ mais :
 
 ---
 
-???+ question "📘 Activité n° 34 : Structure file avec les listes"
+???+ question "📘 **Activité n° 34 : Structure file avec les listes**"
 
     🧩 Compléter la **structure de base** suivante :
 
@@ -2650,7 +2659,7 @@ mais :
 
 ---
 
-???+ question "📘 Activité n° 35 : Fonctions `taille` et `sommet` pour les files"
+???+ question "📘 **Activité n° 35 : Structure file avec les listes : Fonctions `taille` et `sommet` pour les files**"
 
     🎯 Rajouter deux fonctions à la structure précédente :
 
@@ -2712,7 +2721,7 @@ mais :
 
 
 
-???+ question "📘 Activité n° 36 : Structure file avec la POO et les listes de Python"
+???+ question "📘 **Activité n° 36 : Structure file avec la POO et les listes de Python**"
 
     Créer une classe `File` qui construit une **liste vide**, puis compléter les autres méthodes :
 
@@ -2801,8 +2810,8 @@ mais :
                     valeur = self.file[0]
                     self.file[:] = self.file[1:] # ou del self.file[0] qui est plus performant
                     return valeur
-                else:
-                    return 'File vide'
+        else:
+            return 'File vide'
 
         # Programme principal
         if __name__ == '__main__':
@@ -2820,7 +2829,7 @@ mais :
 
 ---
 
-???+ question "📘 Activité n° 37 : Méthodes `taille` et `sommet` (POO – file avec listes)"
+???+ question "📘 **Activité n° 37 : Méthodes `taille` et `sommet` (POO – file avec listes)**"
 
     On rajoute à la classe `File` deux méthodes :
 
@@ -2886,7 +2895,7 @@ mais :
 
 ---
 
-???+ question "📘 Activité n° 38 : Méthode `afficher` de la file (POO + liste)"
+???+ question "📘 **Activité n° 38 : Méthode `afficher` de la file (POO + liste)**"
 
     🎯 Ajouter une méthode `afficher` dans la classe `File`, qui retourne la file sous forme de **liste Python**.
 
@@ -2914,7 +2923,7 @@ Cette implémentation est très peu efficace
 
 ---
 
-???+ question "📘 Activité : Fonctions `taille2` et `sommet2` (version fonctionnelle)"
+???+ question "📘 **Activité 38bis: Fonctions `taille2` et `sommet2` (version fonctionnelle)**"
 
     🎯 Ajouter deux **fonctions** externes à la classe `File` :
 
@@ -2955,7 +2964,7 @@ Cette implémentation est très peu efficace
 
 
 
-???+ question "📘 Activité n° 39 : Structure pile avec la POO et les listes chainées"
+???+ question "📘 **Activité n° 39 : Structure pile avec la POO et les listes chainées**"
 
     ```python
     '''Implémentation de type abstrait File avec la POO et les listes chainées et deux classes'''
@@ -3131,6 +3140,7 @@ Cette implémentation est très peu efficace
 
     ??? success "✅ Solution :"
         ```python
+        #"""
         def __str__(self):
             ### version enfiler par la queue et défiler par la tete
             if self.head is None:
@@ -3142,8 +3152,9 @@ Cette implémentation est très peu efficace
                 currentNode = currentNode.n
             return str(result)
             
-        """
-        def __str__(self):  # on peut mettre __repr__ à la place pour éviter de taper print
+            
+            """
+            def __str__(self):  # on peut mettre __repr__ à la place pour éviter de taper print
                 if self.head is None:
                     raise IndexError("File vide")
                 else:
@@ -3153,7 +3164,7 @@ Cette implémentation est très peu efficace
                         result =  str(next_node.v)+" - "  +result
                         next_node = next_node.n
                     return result
-        """
+            """
         ```
 
     🎯 Compléter les deux méthodes suivantes : `taille()` et `sommet()`
@@ -3289,7 +3300,7 @@ On va améliorer l'efficacité avec **2 pointeurs** : l'un vers la **tête** et 
  
 ---
 
-???+ question "📘 Activité n° 39bis : Optimisation de la file avec 2 pointeurs (tête et queue)"
+???+ question "📘 **Activité n° 39bis : Optimisation de la file avec 2 pointeurs (tête et queue)**"
 
     🧠 La file implémentée précédemment n’est **pas très efficace** car il faut la parcourir entièrement pour enfiler un élément.
 
@@ -3665,7 +3676,7 @@ Les **piles** et **files** sont des structures fondamentales.
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667937"></a>**5.6. 🔁 Piles vs Files :**</H3>
 
-|                                         🧱 **Pile**                                         |                                       🚦 **File**                                       |
+|                      🧱 **Pile**                                         |                                       🚦 **File**                                       |
 | :-----------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------: |
 |               📍 Les objets sont insérés et supprimés à **1 seule extrémité**               |                🔄 Les objets sont insérés et retirés aux **2 extrémités**               |
 | 📌 Dans les piles, un **seul pointeur** est utilisé. Il pointe vers le **haut** de la pile. | 📌 Dans les files, **deux pointeurs** sont utilisés : vers la **tête** et la **queue**. |
@@ -3756,7 +3767,7 @@ La fonction `hash()` de Python **ne garantit pas** une empreinte identique entre
 
 
 #### <H4 STYLE="COLOR:MAGENTA;"> **6.4.2. Quelques utilisations du hachage**</H4>
-⚓︎  
+  
 
 **Stockage sécurisé des mots de passe**  
 
@@ -3808,7 +3819,7 @@ print(hash_file("monFichier.txt"))
 ---
 
 #### <H4 STYLE="COLOR:MAGENTA;"> **6.4.3. Table de hachage** </H4>
-⚓︎  
+  
 
 Une table de hachage est une structure de données clé-valeur qui permet un accès rapide aux éléments.  
 
@@ -3958,7 +3969,7 @@ print(sha256_hash)  # Exemple d'empreinte : 9e31b9c8c694b1616dfd28481f54741a421d
 
 ---
 
-???+ question "🔎 Activité n° 42 : Itérer sur les éléments d’un dictionnaire"
+???+ question "🔎 **Activité n° 42 : Itérer sur les éléments d’un dictionnaire**"
 
     🦁 Au zoo de Beauval, on recense différents animaux :
 
