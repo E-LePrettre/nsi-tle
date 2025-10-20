@@ -218,6 +218,7 @@ Exemple pour l'expression `(y/2 - t) × (75 + z)` :
         > * La racine `*` indique une multiplication.
         > * Le sous-arbre gauche est une soustraction `2 - 6`.
         > * Le sous-arbre droit est la constante `5`.
+        >
         >   👉 L’expression est donc : **(2 − 6) × 5**
 
 ---
@@ -1324,7 +1325,7 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
 
 !!! info "🧠 Capytale : arbre\_binaire\_dictionnaire"
 
-Parfait ! Voici la **suite du cours** avec une **présentation harmonisée**, respectant tes consignes de style (activités bien encadrées, icônes, mise en forme pédagogique, et aucune suppression de contenu explicatif) :
+
 
 ---
 
