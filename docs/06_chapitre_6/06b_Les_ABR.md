@@ -4,10 +4,6 @@ title: 06b Arbre binaire de recherche
 ---
 
 
-
-
-# 🌳 **Les arbres binaires de recherche (ABR)**
-
 ---
 
 ## 🗂️ **Table des matières**
