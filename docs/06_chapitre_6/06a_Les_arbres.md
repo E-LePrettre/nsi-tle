@@ -1,4 +1,4 @@
-﻿---
+---
 author: ELP
 title: 06a Les arbres
 ---
@@ -2008,7 +2008,7 @@ A = {
 ???+ question "**🧠 Activité n° 38 : Arbre binaire et parcours en largeur (POO v2)**"
 
 
-    Implémente la fonction de parcours en largeur dans `arbre_binaire_POO_v2_parcours.py`, en utilisant la structure d’arbre objet avec interface.
+    Implémente la fonction de parcours en largeur, en utilisant la structure d’arbre objet avec interface.
 
     ??? success "✅ Solution"
         ```python
