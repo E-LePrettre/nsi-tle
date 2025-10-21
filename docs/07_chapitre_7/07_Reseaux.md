@@ -52,8 +52,7 @@ Cette expérience marque **la naissance de l’Internet.**
 
 ###  <H3 STYLE="COLOR:GREEN;">**2.2. 🌍 La couche Application**</H3>
 
-| 🧠 **Couche Application** |
-|:--|
+
 | <div style="border:2px solid #4CAF50; border-radius:10px; padding:10px; background-color:#f9fff9;">  
 La **couche application** a pour rôle de **déterminer le mode de communication** entre programmes.  
 Elle repose sur des **protocoles standards** comme **HTTP**, **HTTPS**, **FTP**, **SMTP**, etc.  
