@@ -25,7 +25,7 @@ title: 06b Arbre binaire de recherche
 
 ---
 
-## 🔰 <H2 STYLE="COLOR:BLUE;">1. Introduction</H2>
+## <H2 STYLE="COLOR:BLUE;">1. 🔰 Introduction</H2>
 
 Le **parcours infixe** des arbres ci-dessous :
 
@@ -40,7 +40,7 @@ C’est ce type d’arbre que l’on appelle un **arbre binaire de recherche (AB
 
 ---
 
-## 🧾 <H2 STYLE="COLOR:BLUE;">2. Définition</H2>
+## <H2 STYLE="COLOR:BLUE;">2.🧾  Définition</H2>
 
 Un **arbre binaire de recherche (ABR)** (*Binary Search Tree*, BST) est une structure hiérarchique composée de **nœuds**.
 Chaque nœud possède au maximum **deux enfants**, ordonnés selon cette règle :
@@ -52,9 +52,9 @@ Chaque nœud possède au maximum **deux enfants**, ordonnés selon cette règle 
 🌱 Le premier élément inséré devient **la racine**.
 On place ensuite les **valeurs plus petites à gauche**, et les **plus grandes à droite.**
 
----
 
-## ⚡ <H2 STYLE="COLOR:BLUE;">3. Est-ce performant ?</H2>
+
+## <H2 STYLE="COLOR:BLUE;">3. ⚡ Est-ce performant ?</H2>
 
 Un ABR permet des recherches **rapides**.
 Prenons l’exemple suivant :
@@ -78,7 +78,7 @@ C’est donc **bien plus performant** qu’un parcours linéaire d’une liste.
 
 
 
-## 🧩 <H2 STYLE="COLOR:BLUE;">4. Exemples</H2>
+##  <H2 STYLE="COLOR:BLUE;">4. 🧩 Exemples</H2>
 
 **Exemple :**
 La séquence `{8, 3, 10, 1, 6, 14, 4, 7, 13}` donne l’arbre suivant :
@@ -159,11 +159,11 @@ La séquence `{8, 3, 10, 1, 6, 14, 4, 7, 13}` donne l’arbre suivant :
 
 
 
-## 🛠️ <H2 STYLE="COLOR:BLUE;">5. Les algorithmes et les implémentations en Python</H2>
+##  <H2 STYLE="COLOR:BLUE;">5. 🛠️ Les algorithmes et les implémentations en Python</H2>
 
 
 
-### 🧱 <H3 STYLE="COLOR:GREEN;">5.1. Créer un ABR</H3>
+###  <H3 STYLE="COLOR:GREEN;">5.1. 🧱 Créer un ABR</H3>
 
 Un ABR est composé de **nœuds**.
 Chaque nœud contient :
@@ -176,7 +176,7 @@ Chaque nœud contient :
 
 ???+ question "💻 **Activité n° 5 : Création d’un ABR en Python**"
 
-    Implémenter la classe suivante dans un fichier `ABR.py` :
+    Implémenter la classe suivante :
 
     ```python
     class Node:
@@ -222,7 +222,7 @@ Chaque nœud contient :
 
 
 
-### ❤️ <H3 STYLE="COLOR:GREEN;">5.2. Insérer dans un ABR</H3>
+### <H3 STYLE="COLOR:GREEN;">5.2. ❤️ Insérer dans un ABR</H3>
 
 
 
@@ -401,7 +401,7 @@ On peut représenter visuellement un ABR avec la bibliothèque **Graphviz**, qui
 
 
 
-### 🔍 <H3 STYLE="COLOR:GREEN;">5.3. ❤️ Recherche d’une clé dans un ABR ❤️</H3>
+###  <H3 STYLE="COLOR:GREEN;">5.3. 🔍 ❤️ Recherche d’une clé dans un ABR ❤️</H3>
 
 Pour **rechercher une clé donnée**, on applique la même logique que pour l’insertion :
 
@@ -432,7 +432,7 @@ Pour **rechercher une clé donnée**, on applique la même logique que pour l’
                 return rechercher(T.right, cle)
         ```
 
-        ✅ Recherche dichotomique :  
+        ✅ Recherche  :  
         - 7 → trouvée  
         - 188 → non trouvée
 
@@ -465,7 +465,7 @@ Pour **rechercher une clé donnée**, on applique la même logique que pour l’
 
 
 
-### 🌿 <H3 STYLE="COLOR:GREEN;">5.4. Parcours infixe</H3>
+### <H3 STYLE="COLOR:GREEN;">5.4. 🌿  Parcours infixe</H3>
 
 Le **parcours infixe** consiste à :
 
