@@ -367,7 +367,11 @@ Considérons deux ordinateurs **A** et **B**.
 * À la réception, **B** envoie un **accusé de réception (ACK)** en **inversant** le drapeau (1 si la trame reçue avait 0, et inversement).
 
 **Règle :**
-La **première trame** envoyée par **A** porte le **drapeau 0**. À réception, **B** répond avec **ACK/1** (ce **1** signifie : « la **prochaine trame** que A m’enverra devra avoir **1** »).
+
+La **première trame** envoyée par **A** porte le **drapeau 0**. 
+
+À réception, **B** répond avec **ACK/1** (ce **1** signifie : « la **prochaine trame** que A m’enverra devra avoir **1** »).
+
 Dès que **A** reçoit **ACK/1**, il envoie la **2e trame** avec **drapeau 1**, etc.
 
 ```
@@ -380,6 +384,7 @@ A<-----ACK/1--------B
 ```
 
 ⏱️ **Temporisation (timeout)** : côté émetteur, un **chronomètre** démarre à chaque envoi.
+
 Si **aucun ACK correct** (avec le bon drapeau) n’est reçu **avant l’expiration**, **la trame est considérée perdue** et **renvoyée**.
 
 **Exemple 1 — Perte de la trame :**
@@ -405,7 +410,13 @@ A<-----ACK/1--------B
 
 ⚠️ **Limites** : dans certaines situations, ce protocole **ne récupère pas** toutes les pertes (ex. duplications/ambiguïtés), d’où son remplacement par des protocoles plus **efficaces et robustes** (mais plus complexes).
 
-> Tu gardes tes schémas « données définitivement perdues » et **conclusion** tels quels 👍.
+Un exemple de données définitivement perdues : 
+
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.028.png)
+
+En conclusion :
+
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.029.png)
 
 ---
 
