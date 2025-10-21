@@ -670,8 +670,12 @@ Destination réseau    Masque réseau  Adr. passerelle   Adr. interface Métriqu
 2. **/24** (255.255.255.0) → le réseau local
 3. **/0**  (0.0.0.0) → **route par défaut** (si rien d’autre ne correspond)
 
+D'où 
+
 * Destinataire = **192.168.1.138/32** → même machine (**On-link** = pas de passerelle).
+
 * Destinataire ∈ **192.168.1.0/24** → réseau local (toujours **On-link**).
+
 * Sinon → **0.0.0.0/0** : on sort via la **passerelle** `192.168.1.254` (route par défaut).
 
 ℹ️ **“On-link”** signifie « atteignable directement sur le lien local (pas de passerelle) ».
