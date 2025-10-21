@@ -414,7 +414,6 @@ Pour **rechercher une clé donnée**, on applique la même logique que pour l’
 ???+ question "🧠 **Activité n° 10 : Recherche dans un ABR (fonction)**"
 
     Créer une **fonction** `rechercher(T, cle)` selon l’algorithme ci-dessus.  
-    (Vous pouvez mettre la représentation graphique en commentaire.)
 
     Tester avec la clé `7` puis `188`.
 
