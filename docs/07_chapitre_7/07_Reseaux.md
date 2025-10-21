@@ -702,12 +702,22 @@ Destination réseau    Masque réseau  Adr. passerelle   Adr. interface Métriqu
 
 ### <H3 STYLE="COLOR:GREEN;">📐 5.2. La métrique d’OSPF</H3>
 
-* **Bande passante** (capacité max) vs **débit** (réel observé).
-* **Formule classique** (rappelée dans l’énoncé) :
-  [
-  \textbf{Coût OSPF} = \left\lfloor \frac{10^8}{\text{débit (b/s)}} \right\rfloor
-  ]
-  (Arrondi **entier**, plage 1…65535)
+
+**Bande passante** (capacité max) vs **débit** (réel observé).
+
+
+* La **bande passante** caractérise la valeur maximale d'une communication entre deux ordinateurs, exprimée en bit.$s^{-1}$.
+
+* Le **débit** caractérise lui la valeur réelle de cette capacité de transmission. Le débit est donc inférieur à la bande passante.
+
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.043.png)
+
+**Métrique OSPF** : OSPF (Open Shortest Path First) utilise le coût entre deux routeurs comme paramètre de sa métrique : plus la liaison est rapide, plus la valeur utilisée sera petite
+
+* **Formule classique**  :
+
+ $\text{Coût} = \frac{10^8}{\text{débit}~(b/s)}$
+
 
 > ⚠️ Toujours **suivre la formule donnée par l’énoncé** (certaines implémentations personnalisent la référence).
 
