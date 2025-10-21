@@ -428,33 +428,34 @@ On a un **paquet IP** avec **IP source** et **IP destination** :
 
 ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.030.png){: .center}
 
-On ne peut l’envoyer **qu’à un voisin direct**. Il faut donc choisir **l’intermédiaire** (passerelle/routeur) approprié pour **approcher** la destination.
+On ne peut l’envoyer **qu’à un voisin direct**. 
 
-| La **couche RÉSEAU (IP)** décide **qui** doit gérer le paquet **ensuite** : **quelle passerelle** est le **prochain saut** (*next hop*). |
-| ---------------------------------------------------------------------------------------------------------------------------------------- |
+
+La difficulté est qu'on ne peut donner le message qu'à un autre ordinateur avec qui on est en liaison directe. Nous allons donc voir à quel intermédiaire de communication (ou passerelle) transférer ce paquet IP pour qu'il parvienne à destination.
+
+La **couche RÉSEAU (IP)** décide **qui** doit gérer le paquet **ensuite** : **quelle passerelle** est le **prochain saut** (*next hop*). 
 
 ---
 
 ### <H3 STYLE="COLOR:GREEN;">3.2. 📋 Les tables de routage</H3>
 
-| **Structure type d’une table de routage :**
+**Structure type d’une table de routage :**
 
 1. **Destination** : réseau/masque de la cible (permet d’identifier le **réseau de destination**).
 2. **Passerelle (Gateway)** : **IP du routeur voisin** à qui **confier** le paquet **si** la destination n’est **pas** dans notre sous-réseau (peut être vide si réseau directement connecté).
-3. **Interface (Sortie)** : **IP locale** (ou nom d’interface) **par laquelle** le paquet **sort**. **Toujours** renseignée. |
-   | - |
+3. **Interface (Sortie)** : **IP locale** (ou nom d’interface) **par laquelle** le paquet **sort**. **Toujours** renseignée. 
+
 
 ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.035.png){: .center}
 
-**Exemple (scénario du schéma)** :
+**Exemple** :
 
 * La machine **192.168.0.5** veut joindre **10.7.3.8**.
 * Ce n’est **pas** dans le sous-réseau **F (192.168.0.0/24)**, donc la requête est **envoyée au routeur** via sa **passerelle** dans F (**192.168.0.254**).
 * Le routeur regarde si **10.7.3.8** appartient à l’un de ses **réseaux directement connectés** (A, E…) → **non**.
 * Il consulte alors sa **table de routage** :
-
-  * si **C** y figure, il choisit le **meilleur voisin** (ex. **R3**) comme **passerelle**.
-  * sinon, il utilise la **route par défaut** (panneau « **toutes directions** »).
+  - si **C** y figure, il choisit le **meilleur voisin** (ex. **R3**) comme **passerelle**.
+  - sinon, il utilise la **route par défaut** (panneau « **toutes directions** »).
 
 **Exemple — Table de R1**
 
