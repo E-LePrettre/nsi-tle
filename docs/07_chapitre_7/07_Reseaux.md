@@ -828,6 +828,21 @@ Objectif : trouver le **chemin de coût minimal** entre deux sommets d’un grap
 
 💡 Résultat : tableau des **distances minimales** + **prédécesseurs** → reconstitution du chemin.
 
+On souhaite aller de la ville A à la ville G en empruntant le plus court chemin :
+
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.045.png)
+
+| A | B  | C  | D  | E  | F  | G  | Étapes |
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| 0 | 1A | 2A |    |    |    |    | 1 |
+| x | 1A |    | 3B |    | 4B |    | 2 |
+| x | x  | 2A | 5C | 6C |    |    | 3 |
+| x | x  | x  | 3B | 5D | 6D | 6D | 4 |
+| x | x  | x  | x  |    | 4B | 8F | 5 |
+| x | x  | x  | x  | 5D | x  | 10E | 6 |
+| x | x  | x  | x  | x  | x  | 6D | 7 |
+
+
 [Voir l’exemple animé (lien donné)](https://ladigitale.dev/digiview/#/v/66c13a448a875)
 
 ---
