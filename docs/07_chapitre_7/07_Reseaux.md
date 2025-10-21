@@ -855,10 +855,33 @@ On souhaite aller de la ville A à la ville G en empruntant le plus court chemin
     ![image](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.046.png){: .center}
 
     ??? success "❇️ Solution :"
-        En suivant la logique de Dijkstra (ou en testant les chemins raisonnables) :
-        - Exemple de route typique : **E → D → B → A → C → F** (selon les coûts fournis dans l’énoncé/référence).  
-        - **À l’évaluation**, le chemin minimal dépend **strictement** des **pondérations exactes** de ton graphe.  
-        👉 Pour ton sujet, applique Dijkstra et additionne les coûts affichés sur **chaque arête** ; choisis la somme **minimale** (et donne la **suite de sommets** correspondante).
+        Voici Dijkstra de E vers F (poids en bleu sur le graphe).
+        Hypothèses lues sur l’image :
+        E est relié à A(30), D(10), C(40) ; A–D(10), A–B(40), A–C(10) ; D–B(10), D–C(40) ; B–C(20), B–F(20) ; C–F(70).
+
+        Initialisation
+
+        S (validés) = ∅
+
+        Distances tentatives depuis E :
+        E=0 ; A=30(E) ; D=10(E) ; C=40(E) ; B=∞ ; F=∞
+
+        Itérations
+        Étape	Nœud validé	A	D	C	B	F
+        0	—	30(E)	10(E)	40(E)	∞	∞
+        1	D	20(D)	10	40	20(D)	∞
+        2	A	20	10	30(A)	20	∞
+        3	B	20	10	30	20	40(B)
+        4	C	20	10	30	20	40
+        5	F	20	10	30	20	40
+
+        À chaque ligne, une amélioration est indiquée en gras avec son prédécesseur entre parenthèses.
+
+        Résultat
+
+        Plus court chemin E → F : E → D → B → F
+
+        Coût total : 10 + 10 + 20 = 40
 
 
 ---
