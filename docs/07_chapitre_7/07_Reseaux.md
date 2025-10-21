@@ -254,15 +254,17 @@ Un **serveur DNS** traduit ce nom en **adresse IP** correspondante.
 
 ## <H4 STYLE="COLOR:MAGENTA;">2.4.6. 📦 Qu’est-ce qu’un paquet IP ?</H4>
 
-| La couche **RÉSEAU** reçoit des **segments TCP/UDP** de la couche TRANSPORT et leur ajoute un **en-tête IP** pour indiquer l’**IP source**, l’**IP destination**, le **TTL/Hop Limit**, etc. |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|<div style="border:2px solid #4CAF50; border-radius:10px; padding:10px; background-color:#f9fff9;"> 
+La couche **RÉSEAU** reçoit des **segments TCP/UDP** de la couche TRANSPORT et leur ajoute un **en-tête IP** pour indiquer l’**IP source**, l’**IP destination**, le **TTL/Hop Limit**, etc. 
+</div>|
 
-| **Que contient l’en-tête IP (extraits utiles)**
+**Que contient l’en-tête IP (extraits utiles)**
 
 * **IP destination** (IPv4 : 4 octets, IPv6 : 16 octets)
 * **IP source** (idem)
-* **TTL** (IPv4) / **Hop Limit** (IPv6) : décrémente à chaque routeur, évite les boucles |
-  | ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.021.png) |
+* **TTL** (IPv4) / **Hop Limit** (IPv6) : décrémente à chaque routeur, évite les boucles 
+
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.021.png) 
 
 > On symbolise un paquet IP par un bloc « En-tête IP + Segment ».
 
