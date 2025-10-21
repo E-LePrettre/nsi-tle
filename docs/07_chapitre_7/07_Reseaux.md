@@ -4,251 +4,357 @@ title: 07 Les protocoles de routage
 ---
 
 
+## 🗂️ **Table des matières**
 
+1. 🕰️ [Historique](#_toc154844728)
+2. 🧠 [Rappels de première](#_toc154844729)
+3. 🛰️ [Tables de routage et routage statique](#_toc154844742)
+4. 🔄 [Routage dynamique RIP](#_toc154844745)
+5. ⚙️ [Routage dynamique OSPF](#_toc154844749)
+6. 📝 [Exercices](#_toc154844753)
 
-**Table des matières**
+---
 
-[1.	Historique](#_toc154844728)
+## 🎯 **Compétence évaluée**
 
-[2.	Rappels de première](#_toc154844729)
+> Identifier, selon le protocole de routage utilisé, la route empruntée par un paquet.
 
-[3.	Tables de routages et le routage statique](#_toc154844742)
+---
 
-[4.	Le routage dynamique RIP (Routing Information Protocol)](#_toc154844745)
+##  <H2 STYLE="COLOR:BLUE;">**1. 🕰️ Historique**</H2>
 
-[5.	Le routage dynamique OSPF (Open Shortest Path First)](#_toc154844749)
+Le réseau **ARPANET**, ancêtre de l’Internet moderne, voit le jour en **1969**.
+C’est le **premier réseau à commutation de paquets**, conçu pour transférer des données de manière décentralisée.
 
-[6.	Exercices](#_toc154844753)
+📅 **Le 29 octobre 1969**, le **premier message** est transmis entre l’université **UCLA (Californie)** et le centre de recherche de **Stanford**.
+Cette expérience marque **la naissance de l’Internet.**
 
-**Compétences évaluables :**
+---
 
-- Identifier, suivant le protocole de routage utilisé, la route empruntée par un paquet
+##  <H2 STYLE="COLOR:BLUE;">**2. 🧠 Rappels de première**</H2>
 
+---
 
-## <a name="_toc154844728"></a><H2 STYLE="COLOR:BLUE;">**1. Historique**</H2>
-Le réseau ARPANET, ancêtre de l’Internet, date de **1969**. C’est le premier réseau qui a utilisé un système à base de paquets pour le transfert de données.
+###  <H3 STYLE="COLOR:GREEN;">**2.1. 🧩 Le modèle TCP/IP et les couches de communication**</H3>
 
-Le premier message est envoyé le 29 octobre 1969 entre l’université UCLA de Californie et l’institut de recherche de Stanford.
+| Les règles de communication (**protocoles**) entre ordinateurs doivent respecter certaines contraintes afin d’assurer la compatibilité entre réseaux.
+Le **modèle TCP/IP** est un **modèle en couches** :
+chaque couche communique uniquement avec la couche **immédiatement supérieure ou inférieure**.
 
-## <a name="_toc154844729"></a><H2 STYLE="COLOR:BLUE;">**2. Rappels de première**</H2>
-### <a name="_toc154844730"></a><H3 STYLE="COLOR:GREEN;">**2.1. Les différentes couches**</H3>
+Deux notions fondamentales assurent la stabilité du système :
+1️⃣ **Encapsulation** : chaque tâche est isolée dans sa propre couche.
+2️⃣ **Interface** : les échanges se font uniquement via des interfaces définies.
 
-|<p>Les règles de communications (**Protocoles**) entre ordinateurs doivent se soumettre à certaines contraintes pour que les réseaux soient compatibles entre eux.</p><p>Le **modèle TCP / IP** est un modèle en couches. Chaque couche ne peut communiquer qu'avec la couche immédiatement **inférieure** ou **supérieure**.</p><p>On retrouve **deux notions** très importantes pour obtenir un système stable :</p><p>1. **Encapsulation** : chaque tâche est encapsulée dans une couche.</p><p>2. **Interface** : chaque couche communique avec ses couches voisines en utilisant uniquement l'interface.</p><p>A part cela, les couches sont **indépendantes** : tant que son interface reste la même, on peut changer le code interne d'une couche sans risques </p>|![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.002.png)|
-| - | - |
+| Ainsi, les couches restent **indépendantes** : on peut modifier le code interne d’une couche sans affecter les autres, tant que l’interface reste identique. | ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.002.png) |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------- |
 
-### <a name="_toc154844731"></a><H3 STYLE="COLOR:GREEN;">**2.2. La couche application**</H3>
+---
 
-|<p>- **La couche application** : Son rôle est principalement de **choisir le mode de transmission** (ce sont des protocoles comme http, https, ftp, smtp....)</p>|
-| - |
+###  <H3 STYLE="COLOR:GREEN;">**2.2. 🌍 La couche Application**</H3>
+
+| La **couche application** a pour rôle de **déterminer le mode de communication** entre programmes.
+
+| Elle repose sur des **protocoles standards** comme **HTTP**, **HTTPS**, **FTP**, **SMTP**, etc. |
+| ----------------------------------------------------------------------------------------------- |
 
 ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.003.png){: .center}
-**Exemple** : Votre navigateur Web (par exemple Firefox) veut communiquer avec le serveur HTTP servant le site elisa.leprettre.free.fr
 
-Pour cela, les deux programmes (le **client HTTP** et le **serveur HTTP**) respectent un **langage commun : le HTTP.**
+📘 **Exemple :**
+Votre navigateur web (ex. **Firefox**) communique avec un **serveur HTTP** (par ex. `elisa.leprettre.free.fr`) via un **langage commun : le protocole HTTP.**
 
-![1 Requête - 2 - Traitement - 3 - Réponse](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.004.png){: .center}
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.004.png){: .center}
 
-Un **programme-serveur** tourne sur une machine distante et il est identifié par un **PORT** sur cet **ordinateur** qu'on appelle serveur. Le PORT typique est **80 pour http** et **443 pour https**.
+Le **serveur HTTP** écoute sur un **port spécifique** :
 
-**Quels types de requêtes peut-on avoir ?**
+* Port **80** pour **HTTP**,
+* Port **443** pour **HTTPS** (connexion sécurisée).
 
-- **Méthode GET : paramètres dans l'URL** : La méthode GET permet de discuter très facilement avec le serveur puisqu'on peut placer les paramètres qu'on veut lui transmettre directement dans l'URL.
+---
 
-- **Méthode POST : paramètres dans le body de la requête** 
+#### 💬 **Les types de requêtes HTTP**
 
-La méthode GET est **pratique** mais si vous devez envoyer beaucoup de données, l'URL va être très longue.
-Autre désavantage : si vous passez un mot de passe en GET en https, le message est crypté OK. Personne ne peut lire votre mot de passe sur le réseau. C'est vrai. Mais le mot de passe sera noté en clair dans votre URL.
+🔹 **Méthode GET** :
+Les paramètres sont envoyés **dans l’URL**.
+→ Simple à utiliser, mais la taille de l’URL est limitée et les données (comme un mot de passe) peuvent apparaître en clair.
 
-Dans ces deux cas, on préférera la méthode de transfert vers le serveur en **POST** : cette fois, le client va transmettre les données fournies (paramètres, fichiers...) dans le BODY. C'est pour cela que le BODY de la méthode GET est vide. On n'y place rien.
+🔹 **Méthode POST** :
+Les paramètres sont envoyés **dans le corps (BODY)** de la requête.
+→ Plus adaptée pour des **données volumineuses** ou **sensibles** (formulaires, fichiers...).
 
-Quelle que soit la requête, le navigateur, ici Firefox, va mettre en forme les données que vous voulez envoyer en respectant le protocole HTTP.
+💡 Quelle que soit la méthode utilisée, le **navigateur** met en forme la requête selon les règles du **protocole HTTP**.
 
-Le **protocole HTTP** fait donc parti de la **couche APPLICATION** : il définit comment deux applications peuvent discuter en respectant des règles de communications communes : le **protocole**.
+📌 **Conclusion :**
+HTTP fait partie de la **couche Application**, car il définit **comment deux programmes échangent des données** via des règles de communication standardisées.
 
-Mais ce n'est pas le programme FIREFOX lui-même qui va directement envoyer le message au serveur.
+Mais le navigateur ne contacte **pas directement le serveur distant** :
+il délègue l’envoi à la **couche Transport**.
 
-Non, il va simplement envoyer son message (mis en forme en respectant HTTP) à la couche du dessous : la couche **TRANSPORT**.
+---
 
-### <a name="_toc154844732"></a><H3 STYLE="COLOR:GREEN;">**2.3. La couche transport**</H3>
+###  <H3 STYLE="COLOR:GREEN;">**2.3. 🚚 La couche Transport**</H3>
 
-|<p>**La couche transport :** Une fois choisi le mode de transport,  cette couche est chargée **de le mettre en œuvre.**</p><p></p><p>En gros deux protocoles sont disponibles : **UDP** (User Datagram Protocol) et **TCP** (Transmission Control Protocol).</p><p></p><p>- TCP est un **protocole fiable**, qui permet l'acheminement sans erreur de données issues d'une machine à une autre machine. Son **rôle est de fragmenter le message** à transmettre de manière à pouvoir le faire passer sur la couche internet. A l'inverse, sur la machine destination, TCP replace dans l'ordre les fragments transmis sur la couche internet pour reconstruire le message initial.</p><p>- UDP est en revanche un protocole plus simple que TCP. Son utilisation présuppose que l'on n'a **pas besoin de la conservation de l'ordre de remise** des paquets. Il n'y a pas vérification de l'arrivée de tous les paquets, (très utile pour la transmission de vidéos...)</p>|
-| - |
+| La **couche Transport** est chargée de **mettre en œuvre le mode de transmission** choisi par la couche Application.
+Deux grands protocoles existent :
 
-**Que va faire la couche TRANSPORT du message que lui envoie Firefox ?**
+* **TCP (Transmission Control Protocol)** : protocole **fiable**, assurant la remise **sans erreur et dans le bon ordre** des données.
+* **UDP (User Datagram Protocol)** : protocole **rapide mais non fiable**, utilisé quand la perte de paquets n’est pas critique (ex. streaming, jeux en ligne). |
+  | --- |
 
 ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.006.png){: .center}
 
-- Premièrement, elle **découpe le message** en plusieurs sous-messages si le message de base est trop gros.
+#### ⚙️ **Rôle de la couche Transport**
 
-  ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.007.png){: .center}
+1️⃣ **Découper le message** si sa taille est trop importante.
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.007.png){: .center}
 
-- Ensuite, elle **identifie chaque programme** (émetteur et récepteur) avec un identifiant. L'identifiant de la couche TRANSPORT est le **PORT**, un simple numéro encodé sur 2 octets (donc entre 1 et 65535). 
+2️⃣ **Identifier les applications communicantes** à l’aide de **ports** :
 
-- A l'aide des sous-messages et des informations sur les PORTS, la couche **crée un ensemble de segments TCP**.
+* Chaque programme (navigateur, serveur web, etc.) est identifié par un **numéro de port** (de 1 à 65535).
 
-|<p>**Un segment TCP :** C'est l'un des sous-messages précédé d'informations supplémentaires qu'on nomme l'**en-tête TCP**. Notamment (mais pas que)</p><p>- Le **PORT de l'application Source** du message (SRC) [ ce PORT est encodé sur les deux premiers octets ]</p><p>- Le **PORT de l'application Destinataire** du message (DST) [ce PORT est encodé sur les deux octets suivants]</p><p>- Un moyen d'identifier le **numéro du segment** par rapport aux autres (Séquence) [...]</p><p>- et d'autres choses encore ...</p>|
-| - |
+3️⃣ **Assembler les sous-messages** et ajouter un **en-tête TCP**, contenant :
 
-On connaît la structure de l'en-tête bit par bit et qu'on peut donc récupérer facilement les données à l'intérieur. On va simplement noter cet en-tête TCP par un rectangle jaune.
+* Le **port source** (application émettrice),
+* Le **port destination** (application réceptrice),
+* Un **numéro de séquence**,
+* Et d’autres informations de contrôle.
+
+---
+
+#### 🔍 **Le segment TCP**
+
+| Un **segment TCP** correspond à un **sous-message** accompagné d’un **en-tête TCP**.
+Celui-ci contient notamment :
+
+* Le **port source**,
+* Le **port destination**,
+* Le **numéro de séquence**, etc.
+
+| Grâce à cette structure, la machine réceptrice peut **reconstituer le message original**. |
+| ----------------------------------------------------------------------------------------- |
 
 ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.009.png){: .center}
 
-A présent on a plein de segments dont on connaît l'expéditeur et le destinataire. **Mais comment trouver la bonne machine ?**
+🧩 Une fois les segments créés, il faut maintenant **les acheminer vers la bonne machine**.
+👉 Cela devient la mission de la **couche Réseau (ou Internet).**
 
-C'est simple : la **couche TRANSPORT** ne sait pas faire. Alors elle délègue à la **couche RESEAU** qu'on nomme également couche **INTERNET**.
+---
 
-### <a name="_toc154844733"></a><H3 STYLE="COLOR:GREEN;">**2.4. La couche réseau ou internet**</H3>
-#### <a name="_toc154844734"></a><H4 STYLE="COLOR:MAGENTA;">**2.4.1. Réseau et IP**</H4>
+###  <H3 STYLE="COLOR:GREEN;">**2.4. 🌐 La couche Réseau (ou Internet)**</H3>
 
-|<p>- **La couche internet :** Cette couche réalise **l'interconnexion** des réseaux et ce **à l'aide du protocole IP** (Internet Protocol). Elle permet d'acheminer les données au bon destinataire dans le réseau, en laissant aux couches supérieures le soin de les réordonner (TCP) et de les interpréter (Application)</p>|
-| - |
+####  <H4 STYLE="COLOR:MAGENTA;">**2.4.1. 📦 Le protocole IP et le rôle de la couche Internet**</H4>
 
-**Exemple** :
+| La **couche Internet** est responsable de **l’interconnexion entre réseaux**.
+Elle utilise le **protocole IP (Internet Protocol)** pour acheminer les données jusqu’à leur destinataire.
 
-Cette couche est considérée comme un aiguilleur. Elle se charge de savoir si le message est à destination: 
+| Les couches supérieures (TCP, Application) se chargent ensuite de **réordonner** et **interpréter** les messages. |
+| ----------------------------------------------------------------------------------------------------------------- |
 
-- de la **même machine** (ici A9 à un message pour A9): elle va envoyer le message vers la **couche APPLICATION**
+---
 
-![Destinataire réel = Destinataire final](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.011.png){: .center}
+#### 🧭 **Exemples de fonctionnement :**
 
-- d'une machine qui **appartient au même réseau** que la machine elle-même (ici A9 à un message pour A2): on sait alors qu'on peut envoyer le message à la couche RESEAU du destinataire via le réseau interne
+1️⃣ **Communication locale (même machine)**
+→ Le message est directement transmis à la **couche Application**.
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.011.png){: .center}
 
-  ![Communication entre deux machines du même réseau](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.012.png){: .center}
+---
 
-- d'une machine qui **n'appartient pas au même réseau** (ici A18 à un message pour B7): on sait qu'il faut envoyer le message vers un réseau externe.
+2️⃣ **Communication sur le même réseau local**
+→ Le message est envoyé à la **couche Réseau** du destinataire.
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.012.png){: .center}
 
-![La communication entre deux réseaux distincts passe par un routeur](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.013.png){: .center}
+---
 
-#### <a name="_toc154844735"></a><H4 STYLE="COLOR:MAGENTA;">**2.4.2. Et comment fait cette couche pour savoir si le destinataire est sur le réseau interne ou s'il faut sortir du réseau actuel?**</H4>
+3️⃣ **Communication entre deux réseaux différents**
+→ Le message passe par un **routeur**, chargé de trouver le **chemin optimal** jusqu’au réseau cible.
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.013.png){: .center}
 
-|<p>**Adresse IP = Adresse réseau + Adresse machine**</p><p>La couche RESEAU / INTERNET peut identifier les machines à l'aide de l’adresse IP. Il est totalement impossible qu'une machine connaisse les adresses de TOUTES les autres machines branchées sur INTERNET. </p><p>Du coup, cette adresse IP est en réalité composée de deux parties.</p><p>- Une **adresse réseau** qui identifie le réseau auquel appartient la machine</p><p>- Une **adresse machine** qui identifie la machine elle-même sur ce réseau</p><p>Qu'on soit en IP version 4 ou en IP version 6, **il existe un mécanisme permettant de savoir si l'adresse de destination est sur le même réseau que l'ordinateur actuel** ou si l'ordinateur de destination est en dehors du réseau actuel.</p>|
-| - |
+---
 
-#### <a name="_toc154844736"></a><H4 STYLE="COLOR:MAGENTA;">**2.4.3. Qui attribue les adresses IP ?**</H4>
 
-|<p>**Attribution des adresses IP** : Tout ordinateur se connecte sur un réseau via une carte réseau. Cette carte réseau possède un numéro d'identification unique : **l'adresse mac.** Une table de correspondance entre les adresses MAC et les adresses IP est maintenue à jour par le protocole de résolution d’adresses **ARP**.</p><p>Notre ordinateur via sa carte se connecte sur un réseau ( via un routeur) qui se connecte sur un autre réseau etc....</p><p>Pour simplifier : c'est le **serveur DHCP** (Dynamic Host Configuration Protocol) qui est chargé de délivrer une adresse IP.</p>|
-| - |
 
-#### <a name="_toc154844737"></a><H4 STYLE="COLOR:MAGENTA;">**2.4.4. Comment savoir à quel réseau appartient une machine ?**</H4>
+## <H4 STYLE="COLOR:MAGENTA;"> 2.4.2. 🧭 Comment savoir si la destination est locale ou extérieure ?</H4>
 
-Une **adresse IP** est accompagnée d'un **masque sous réseau**. Un masque sous réseau est de la forme : 255.0.0.0 ou 255.255.0.0 ou encore 255.255.255.0. On utilise à présent la « notation CIDR » (*Classless Inter-Domain Routing*). 
+| **Adresse IP = Adresse réseau + Adresse machine**
+La couche **RÉSEAU / INTERNET** identifie les machines grâce à l’**adresse IP**.
+Comme il est impossible de connaître toutes les adresses d’Internet, **une IP est découpée en deux parties** :
 
-**Par exemple** IP : 192.168.0.5/16 (masque : 255.255.0.0) 
+* une **adresse réseau** (identifie le réseau),
+* une **adresse machine (hôte)** (identifie la machine sur ce réseau).
 
-Signifie que c'est la machine 0.5 dans le réseau **192.168**.0.0. 
+| Que ce soit en IPv4 ou IPv6, un **mécanisme permet de décider** si la destination est **sur le même réseau** (on reste en local) ou **hors réseau** (on sort via le routeur par défaut). |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 
-La machine dont l'adresse IP est **192.168**.1.6/16 fait partie du même réseau que la précédente. C'est-à-dire la machine 1.6 du réseau **192.168**.0.0 
+---
 
-Alors que la machine **192.168.1.**6/24 fait partie d'un autre réseau (**192.168.1**.0) (c'est la machine 6 du réseau **192.168.1**.0)
+## <H4 STYLE="COLOR:MAGENTA;">2.4.3. 🗂️ Qui attribue les adresses IP ?</H4>
 
-**Comment déterminer l'adresse du réseau de cette machine ?** L'adresse réseau de cette machine est le résultat du ET logique appliqué entre l'adresse IP et le masque. ..... c'est-à-dire ?
+| **Attribution des IP**
+Chaque machine se connecte via une **carte réseau** identifiée par une **adresse MAC**.
+La correspondance **IP ↔ MAC** est maintenue via **ARP** (Address Resolution Protocol).
 
-Considérons la machine dont la configuration réseau est : 172.128.10.5 **/18**; (Masque **:** 255.255.192.0)
+| En pratique, c’est souvent le **serveur DHCP** qui **attribue automatiquement** une IP au poste lorsqu’il rejoint le réseau. |
+| ---------------------------------------------------------------------------------------------------------------------------- |
 
-On obtient **l'adresse du sous réseau** avec l'opérateur AND et on obtient **l'adresse de la machine** (l'hôte) dans le sous réseau avec le AND du complément du masque. Écrivons en binaire l'adresse IP et le masque :
+---
+
+## <H4 STYLE="COLOR:MAGENTA;">2.4.4. 🧮 À quel réseau appartient une machine ?</H4>
+
+Une **adresse IP** est fournie avec un **masque** (ex. `255.255.255.0`) ou en **CIDR** (ex. `/24`).
+Exemple : `192.168.0.5/16`  ⇒ réseau **192.168.0.0**, machine **0.5**.
+
+* `192.168.1.6/16` est **dans le même réseau** (192.168.0.0).
+* `192.168.1.6/24` est **dans un autre réseau** (192.168.1.0).
+
+**Règle** : l’**adresse réseau = IP AND masque** (ET logique bit à bit).
+
+Exemple détaillé : `172.128.10.5/18` (masque `255.255.192.0`)
+
 ```
-172.128.10.5
-s'écrit en binaire :
-10101100 . 10000000 . 00001010 . 00000101
-
-Le masque de sous réseau s'écrit en binaire :
-11111111 . 11111111 . 11000000 . 00000000
-```
-
-Posons l'opération du ET logique entre ces deux écritures :
-```
-     10101100 . 10000000 . 00001010 . 00000101
-ET   11111111 . 11111111 . 11000000 . 00000000
---------------------------------------------------
-     10101100 . 10000000 . 00000000 . 00000000     
-```
-
-On met en décimal le résultat : **172.128.0.0 qui est l'adresse du réseau**.
-
-**Pour ce réseau, combien d'adresses sont utilisables ?** 
-
-Reprenons l'écriture en binaire du masque. On observe que nous pouvons la découper en deux parties (en partant de la droite) Une partie avec que des 0 et le reste
-```
-11111111 . 11111111 . 11 <---> 000000 . 00000000
-```
-On peut aller de 000000 . 00000000 à 111111 . 11111111. En décimal : de 0 à 16383 C'est-à-dire 16384 adresses possibles.... soit 2^14 = 16 384
-
-Enfin pas tout à fait :
-
-- Il faut retirer l'adresse du réseau lui-même : 172.128.0.0
-- Il faut également retirer (la dernière ) l'adresse de broadcast (adresse réservée pour une diffusion sur toutes les machines du réseau)
-
-Donc en tout : 16382 machines
-
-**Quelle est l'adresse de broadcast ?**
-
-L'adresse de **broadcast** qui permet d'envoyer des données à toutes les machines du sous-réseau (pour l'apprentissage du réseau par exemple et créer la table de routage). L'adresse de broadcast est la dernière adresse disponible, on remplit de 1 à droite.
-
-Pour la déterminer on fait le complément à 255 de la partie sous-réseau..., c'est-à-dire :
-```
-            réseau        sous-réseau
-            -------------|----------
-réseau    : 172  .  128  .  0  .  0
-masque    : 255  .  255  . 192 .  0
-broadcast : 172  .  128  . 63  . 255 (192+63 = 255 et 0+255 = 255)
+172.128.10.5          → 10101100 . 10000000 . 00001010 . 00000101
+255.255.192.0         → 11111111 . 11111111 . 11000000 . 00000000
+ET (AND)              → 10101100 . 10000000 . 00000000 . 00000000
+= Adresse réseau      → 172.128.0.0
 ```
 
-Donc la plage d'adresses disponible est de **172 . 128 . 0 . 1 à 172 . 128 . 63 . 254**
+### 🌐 Taille du sous-réseau & broadcast
 
-#### <a name="_toc154844738"></a><H4 STYLE="COLOR:MAGENTA;">**2.4.5. Le protocole DNS (Domain Name Server)**</H4>
+Dans ce /18, la partie « hôte » fait **14 bits** (2ⁱ⁴ = **16384** adresses possibles).
+On retire **l’adresse réseau** et **l’adresse de broadcast** ⇒ **16382** machines utilisables.
 
-|<p>Dans la réalité, on ne tape pas l'adresse IP de tel ou tel site. On écrit une adresse du type : www.google.fr. C'est un nom de domaine qui est associé à une adresse IP.</p><p>Cette association est réalisée par un **serveur DNS**</p>|
-| - |
+**Adresse de broadcast** (tout à 1 côté hôte) :
 
-#### <a name="_toc154844739"></a><H4 STYLE="COLOR:MAGENTA;">**2.4.6. Qu’est-ce qu’un paquet IP ?**</H4>
+```
+réseau    : 172 . 128 .  0 .   0
+masque    : 255 . 255 . 192 .  0
+broadcast : 172 . 128 .  63 . 255   (192+63=255)
+```
 
-|<p>**Un paquet IP :** La couche **RESEAU** reçoit les segments que la couche **TRANSPORT** lui a fourni. Elle ne les envoie pas directement : les segments ne contiennent pas l'adresse IP du destinataire !</p><p>On prend donc le segment et on lui rajoute un **en-tête IP.**</p><p>![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.018.png)</p>|
-| - |
+👉 **Plage utilisable** : `172.128.0.1` → `172.128.63.254`.
 
-|<p>**L'en-tête IP** : L'en-tête IP est un ensemble d'information qu'on va placer devant le segment TCP.</p><p>Comme l'en-tête TCP, il s'agit **d'informations encodées** sur un nombre spécifique d'octets et décodables facilement.</p><p>Le contenu exact de l'en-tête va dépendre du système d'adressage utilisé : IPv4 ou IPv6 par exemple.</p>|
-| - |
+---
 
-|<p>**Que rajoute-on dans cet en-tête ?**</p><p>- L'adresse IP destination (4 octets en IPv4, 16 octets en IPV6). On la place en premier car c'est la première chose qu'un routeur doit lire. </p>|![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.021.png)|
-| - | - |
-|- L'adresse IP source (4 octets en IPv4, 16 octets en IPV6). Sans cela, on ne pourrait pas répondre au message.|![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.022.png)|
-|- Un compteur nommé TTL (Time to Live) en IPv4 ou Hop Limit en IPv6 (1 octet dans les deux cas) : c'est un compteur qui décroit de 1 à chaque fois que le paquet est transféré par un routeur. Arrivé à 1, le paquet n'est plus déplacé et part juste à la poubelle.|![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.023.png)|
-| - | - |
+## <H4 STYLE="COLOR:MAGENTA;">2.4.5. 🔤 DNS (Domain Name System)</H4>
 
-|<p>Il existe bien entendu encore d'autres données dans cet en-tête mais nous allons nous limiter à celles-ci.</p><p>Elles permettent de comprendre l'essentiel du protocole.</p><p>![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.025.png)</p>|
-| - |
+| On ne tape pas les IP dans la vraie vie, on tape des **noms de domaine** (`www.google.fr`).
 
-On symbolisera donc le paquet IP à l'aide d'un symbole plus symbolique. Par exemple :
+| Un **serveur DNS** traduit ce nom en **adresse IP** correspondante. |
+| ------------------------------------------------------------------- |
 
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.026.png){: .center}
+---
 
-=> **CAPYTALE Le code vous sera donné par votre enseignant**
+## <H4 STYLE="COLOR:MAGENTA;">2.4.6. 📦 Qu’est-ce qu’un paquet IP ?</H4>
+
+| La couche **RÉSEAU** reçoit des **segments TCP/UDP** de la couche TRANSPORT et leur ajoute un **en-tête IP** pour indiquer l’**IP source**, l’**IP destination**, le **TTL/Hop Limit**, etc. |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+| **Que contient l’en-tête IP (extraits utiles)**
+
+* **IP destination** (IPv4 : 4 octets, IPv6 : 16 octets)
+* **IP source** (idem)
+* **TTL** (IPv4) / **Hop Limit** (IPv6) : décrémente à chaque routeur, évite les boucles |
+  | ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.021.png) |
+
+> On symbolise un paquet IP par un bloc « En-tête IP + Segment ».
+> (Tu gardes tes schémas actuels 👍)
+
+---
+
+## <H4 STYLE="COLOR:MAGENTA;">2.4.7. 📉 Les pertes de paquets</H4>
+
+| Des **pertes de paquets** peuvent survenir (engorgement, délais, etc.).
+
+| Le **protocole TCP** gère fiabilité et ordre via des **accusés de réception (ACK)** ; il **détecte les pertes** et **réémet** si nécessaire. |
+| -------------------------------------------------------------------------------------------------------------------------------------------- |
+
+---
+
+# 🧪 Activités — Décider « local ou extérieur » (avec solutions)
+
+> Rappel méthode (IPv4) : **Comparer l’IP réseau** (IP AND masque) **des deux hôtes**.
+> Si elles sont identiques → **même réseau (local)**, sinon → **sortie via routeur**.
+> (IPv6 : comparer sur le **préfixe** — très souvent **/64** en LAN.)
+
+---
+
+???+ question "🧠 **Activité n° 1** — IPv4 /16"
+  La machine **70.30.20.145/16** veut joindre **70.30.21.5**.
+  Faut-il **rester dans le réseau** ou **sortir** ?
+
+  
+  ??? success "❇️ Solution :"
+      `/16` ⇒ réseau = **70.30.0.0**.  
+      - 70.30.20.145 ∈ 70.30.0.0/16  
+      - 70.30.21.5   ∈ 70.30.0.0/16  
+      **Même réseau** ⇒ on **reste local** (pas de routeur).
+  
+
+---
+
+???+ question "🧠 **Activité n° 2** — IPv4 /24"
+  La machine **70.30.20.145/24** veut joindre **70.30.21.5**.
+  Faut-il **rester** ou **sortir** ?
 
 
-**<H3 STYLE="COLOR:red;">Activité n° 1 :**</H3>  La machine d'adresse IP v4  70.30.20.145 /16  veut joindre la machine d'adresse IP  70.30.21.5 . Comment sait-on s'il faut rester dans le réseau actuel ou quitter le réseau ?
+  ??? success "❇️ Solution :"
+      `/24` ⇒ réseau = **70.30.20.0** pour la première, **70.30.21.0** pour la seconde.  
+      **Réseaux différents** ⇒ on **sort via le routeur**.
 
-**<H3 STYLE="COLOR:red;">Activité n° 2 :**</H3>  La machine d'adresse IP v4  70.30.20.145 /24  veut joindre la machine d'adresse IP  70.30.21.5 . Comment sait-on s'il faut rester dans le réseau actuel ou quitter le réseau ?
 
-**<H3 STYLE="COLOR:red;">Activité n° 3 :**</H3>  La machine d'adresse IP v4  20.30.40.50  et de masque  255.0.0.0  veut joindre la machine d'adresse IP  20.200.100.5 . Comment sait-on s'il faut rester dans le réseau actuel ou quitter le réseau ?
+---
 
-**<H3 STYLE="COLOR:red;">Activité n° 4 :**</H3>  La machine d'adresse IP v4  90.80.20.120  et de masque  255.255.255.0  veut joindre la machine d'adresse IP  90.80.20.5 . Comment sait-on s'il faut rester dans le réseau actuel ou quitter le réseau ?
+???+ question "🧠 **Activité n° 3** — IPv4 masque 255.0.0.0 (/8)"
+  La machine **20.30.40.50** (masque **255.0.0.0**) veut joindre **20.200.100.5**.
 
-**<H3 STYLE="COLOR:red;">Activité n° 5 :**</H3>  La machine d'adresse IP v6  2a01:cb0c:96ac:d400:63ba:f65c:3616:15d4  veut joindre la machine d'adresse IP  2a01:cb0c:96ac:d400:73ba:12e3:3616:45a1 . Comment sait-on s'il faut rester dans le réseau actuel ou quitter le réseau ?
 
-#### <a name="_toc154844740"></a><H4 STYLE="COLOR:MAGENTA;">**2.4.7. Les pertes de paquets**</H4>
+  ??? success "❇️ Solution :"
+      `/8` ⇒ réseau = **20.0.0.0** dans les deux cas.  
+      **Même réseau** ⇒ **communication locale**.
 
-|<p>Il se peut, et cela est courant que des paquets se perdent...</p><p>Les causes possibles sont nombreuses :</p><p>- Engorgement d'un serveur</p><p>- Délai d'attente trop long</p><p>- etc.</p><p>Le protocole TCP contrôle l'envoi et la bonne réception des paquets avec des accusés de réception (**ACK : acknowledgement** ou acquittement en Français ). Ce processus d'acquittement permet de détecter les pertes de paquets.</p>|
-| - |
 
-#### <a name="_toc154844741"></a><H4 STYLE="COLOR:MAGENTA;">**2.4.8. Le protocole de bit alterné**</H4>
+---
 
-Considérons deux ordinateurs A et B.
+???+ question "🧠 **Activité n° 4** — IPv4 masque 255.255.255.0 (/24)"
+  La machine **90.80.20.120** (masque **/24**) veut joindre **90.80.20.5**.
 
-- Au moment d'émettre une trame, A va lui ajouter un bit (0 ou 1) appelé drapeau( flag).
-- Dès cette trame reçue, B envoie un accusé de réception en ajoutant un bit (1 ou 0).
 
-**La règle :** la première trame envoyée par A aura pour drapeau 0, dès cette trame reçue par B, ce dernier va envoyer un accusé de réception avec le drapeau 1 (ce 1 signifie "la prochaine trame que A va m'envoyer devra avoir son drapeau à 1").
+  ??? success "❇️ Solution :"
+      `/24` ⇒ réseau = **90.80.20.0** dans les deux cas.  
+      **Même réseau** ⇒ **local**.
 
-Dès que A reçoit l'accusé de réception avec le drapeau à 1, il envoie la 2e trame avec un drapeau à 1, et ainsi de suite...
+
+---
+
+???+ question "🧠 **Activité n° 5** — IPv6 (préfixe implicite)"
+  La machine **2a01:cb0c:96ac:d400:63ba:f65c:3616:15d4** veut joindre
+  **2a01:cb0c:96ac:d400:73ba:12e3:3616:45a1**.
+  Faut-il **rester** ou **sortir** ?
+
+
+  ??? success "❇️ Solution :"
+      En IPv6, **les LAN utilisent presque toujours /64**.  
+      Les **4 premiers groupes** (le préfixe /64) sont **identiques** :  
+      `2a01:cb0c:96ac:d400::/64`  
+      ⇒ **Même sous-réseau** (Neighbor Discovery), **communication locale**.  
+      > Si le préfixe était plus court (ex. /48), il faudrait le connaître pour conclure.
+
+
+---
+
+
+
+
+## <H4 STYLE="COLOR:MAGENTA;">2.4.8. 🔁 Le protocole de bit alterné</H4>
+
+Considérons deux ordinateurs **A** et **B**.
+
+* À l’émission d’une trame, **A** ajoute un **bit drapeau** (*flag*), 0 ou 1.
+* À la réception, **B** envoie un **accusé de réception (ACK)** en **inversant** le drapeau (1 si la trame reçue avait 0, et inversement).
+
+**Règle :**
+La **première trame** envoyée par **A** porte le **drapeau 0**. À réception, **B** répond avec **ACK/1** (ce **1** signifie : « la **prochaine trame** que A m’enverra devra avoir **1** »).
+Dès que **A** reçoit **ACK/1**, il envoie la **2e trame** avec **drapeau 1**, etc.
+
 ```
 A------Trame1/0---->B
 A<-----ACK/1--------B
@@ -257,145 +363,191 @@ A<-----ACK/0--------B
 A------Trame3/0---->B
 A<-----ACK/1--------B
 ```
-etc...
 
-Le système de drapeau est complété avec un **système d'horloge** côté émetteur. Un "chronomètre" est déclenché à chaque envoi de trame, si au bout d'un certain temps, l'émetteur n'a pas reçu un acquittement correct (avec le bon drapeau), la trame précédemment envoyée par l'émetteur est considérée comme perdue et est de **nouveau envoyée**.
+⏱️ **Temporisation (timeout)** : côté émetteur, un **chronomètre** démarre à chaque envoi.
+Si **aucun ACK correct** (avec le bon drapeau) n’est reçu **avant l’expiration**, **la trame est considérée perdue** et **renvoyée**.
 
-**Exemple 1 :**
+**Exemple 1 — Perte de la trame :**
+
 ```
-A------Trame1/0 xx B (la trame 1 s'est perdue)
+A------Trame1/0 xx B   (Trame perdue)
 -----------------------
-Le temps est écoulé
-A------Trame1/0---->B (la trame1 est renvoyée)
+⏱ Temps écoulé
+A------Trame1/0---->B  (Renvoyée)
 A<-----ACK/1--------B
 ```
-**Exemple 2 :**
+
+**Exemple 2 — Perte de l’ACK :**
+
 ```
 A------Trame1/0---->B
-A< xx ACK/1--------B (l'accusé réception s'est perdu)
+A< xx ACK/1---------B  (ACK perdu)
 -----------------------
-Le temps est écoulé
-A------Trame1/0---->B (la trame est renvoyée)
+⏱ Temps écoulé
+A------Trame1/0---->B  (Trame renvoyée)
 A<-----ACK/1--------B
 ```
 
-Les limites : Dans certaines situations, le protocole de bit alterné ne permet pas de récupérer les trames perdues, c'est pour cela que ce protocole est aujourd'hui remplacé par des protocoles plus efficaces, mais aussi plus complexes. 
+⚠️ **Limites** : dans certaines situations, ce protocole **ne récupère pas** toutes les pertes (ex. duplications/ambiguïtés), d’où son remplacement par des protocoles plus **efficaces et robustes** (mais plus complexes).
 
-Un exemple de données définitivement perdues
+> Tu gardes tes schémas « données définitivement perdues » et **conclusion** tels quels 👍.
 
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.028.png){: .center}
+---
 
-En **conclusion** :
+## <H2 STYLE="COLOR:BLUE;">3. 🗺️ Tables de routage & routage statique</H2>
 
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.029.png){: .center}
+### <H3 STYLE="COLOR:GREEN;">3.1. 🧵 Les chemins dans le réseau</H3>
 
-## <a name="_toc154844742"></a><H2 STYLE="COLOR:BLUE;">**3. Tables de routages et le routage statique**</H2>
-### <a name="_toc154844743"></a><H3 STYLE="COLOR:GREEN;">**3.1. Les chemins dans le réseau**</H3>
-On a donc un paquet IP qui contient l'adresse IP du **destinataire** et l'adresse de l'expéditeur initial
+On a un **paquet IP** avec **IP source** et **IP destination** :
 
 ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.030.png){: .center}
 
-Il n'y a plus qu'à envoyer le message. La difficulté est qu'on ne peut donner le message qu'à un autre ordinateur avec qui on est en liaison directe. Nous allons donc voir à quel **intermédiaire de communication** (ou **passerelle**) transférer ce paquet IP pour qu'il parvienne à destination.
+On ne peut l’envoyer **qu’à un voisin direct**. Il faut donc choisir **l’intermédiaire** (passerelle/routeur) approprié pour **approcher** la destination.
 
-|<p>La **couche RESEAU et son protocole IP** se charge justement de savoir qui doit gérer le paquet ensuite, qui est la prochaine passerelle.</p>|
-| - |
+| La **couche RÉSEAU (IP)** décide **qui** doit gérer le paquet **ensuite** : **quelle passerelle** est le **prochain saut** (*next hop*). |
+| ---------------------------------------------------------------------------------------------------------------------------------------- |
 
-### <a name="_toc154844744"></a><H3 STYLE="COLOR:GREEN;">**3.2. Les tables de routage**</H3>
-|<p>Voici comment se présente une table de routage :</p><p>1. Une colonne **IP Destinataire** permet d'identifier l'adresse IP de destination (et donc le réseau de destination)</p><p>2. Une colonne **Passerelle** : **C'est l'adresse IP de la carte réseau du routeur** **à qui on va confier le paquet**, si on n'est pas capable de le délivrer directement (donc si l'adresse IP de destination n'est pas dans notre propre sous-réseau). Cette adresse de passerelle n'est donc pas *systématiquement* mentionnée. Quand elle l'est, elle donne le renseignement sur le prochain routeur à qui le paquet est confié.</p><p>3. une colonne **Interface** : On parle également d'interface d'entrée/sortie. c'est **l'adresse IP de la carte réseau du routeur par où va sortir** le paquet à envoyer. Il y a donc **toujours** une adresse d'interface à renseigner. Parfois cette interface sera juste nommée *interface1* ou *interface2*.</p>|
-| - |
+---
+
+### <H3 STYLE="COLOR:GREEN;">3.2. 📋 Les tables de routage</H3>
+
+| **Structure type d’une table de routage :**
+
+1. **Destination** : réseau/masque de la cible (permet d’identifier le **réseau de destination**).
+2. **Passerelle (Gateway)** : **IP du routeur voisin** à qui **confier** le paquet **si** la destination n’est **pas** dans notre sous-réseau (peut être vide si réseau directement connecté).
+3. **Interface (Sortie)** : **IP locale** (ou nom d’interface) **par laquelle** le paquet **sort**. **Toujours** renseignée. |
+   | - |
 
 ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.035.png){: .center}
 
-Dans le réseau ci-dessus, si l'ordinateur d'adresse 192.168.0.5 veut interroger le serveur 10.7.3.8 :
+**Exemple (scénario du schéma)** :
 
-\- l'adresse 10.7.3.8 **n'étant pas dans le sous-réseau F** (d'adresse 192.168.0.0 / 24), la requête est confiée au routeur **via son adresse passerelle dans le réseau F (ici 192.168.0.254)**.
+* La machine **192.168.0.5** veut joindre **10.7.3.8**.
+* Ce n’est **pas** dans le sous-réseau **F (192.168.0.0/24)**, donc la requête est **envoyée au routeur** via sa **passerelle** dans F (**192.168.0.254**).
+* Le routeur regarde si **10.7.3.8** appartient à l’un de ses **réseaux directement connectés** (A, E…) → **non**.
+* Il consulte alors sa **table de routage** :
 
-\- le routeur observe si l'IP recherchée appartient à un autre des sous-réseaux auquel il est connecté. Ici, l'IP recherchée 10.7.3.8 **n'appartient ni au sous-réseau A ou E**.
+  * si **C** y figure, il choisit le **meilleur voisin** (ex. **R3**) comme **passerelle**.
+  * sinon, il utilise la **route par défaut** (panneau « **toutes directions** »).
 
-\- le routeur va donc regarder dans sa table de routage **l'adresse passerelle d'un autre routeur** vers qui elle doit rediriger les données. 
+**Exemple — Table de R1**
 
-  - **Si le sous-réseau C fait partie de sa table de routage**, le routeur R1 saura alors que le meilleur chemin est (par exemple) de confier les données au routeur R3.
+| Destination | Interface     | Passerelle   |
+| ----------- | ------------- | ------------ |
+| F           | 192.168.0.254 |              |
+| A           | 10.0.5.152    |              |
+| E           | 172.17.1.254  |              |
+| B           | 172.17.1.254  | 172.17.1.123 |
+| C           | 10.0.5.152    | 10.0.5.135   |
 
-  - **si le sous-réseau C ne fait pas partie de la table de routage**, le routeur R1 va alors le rediriger vers une route «par défaut» (que l'on peut assimiler au panneau «toutes directions» sur les panneaux de signalisation).
+* **F, A, E** : réseaux **directement connectés** → **pas** de passerelle.
+* **B** : passerelle = **R2** (**172.17.1.123**).
+* **C** : passerelle = **R3** (**10.0.5.135**).
 
-**Exemple: table de routage du routeur R1**
+| **Construction des tables :**
 
-|**Destination**|**Interface**|**Passerelle**|
-| - | - | - |
-|F|192\.168.0.254||
-|A|10\.0.5.152||
-|E|172\.17.1.254||
-|B|172\.17.1.254|172\.17.1.123|
-|C|10\.0.5.152|10\.0.5.135|
-||||
+* **Statique** : saisie **à la main** (petits réseaux).
+* **Dynamique** : **protocoles de routage** qui échangent les informations et **convergent** vers une **vision cohérente** (ex. **RIP**, **OSPF**). |
+  | - |
 
-Les trois réseaux F, A et E sont directement accessibles au routeur R1, puisqu'il en fait partie : il n'a donc **pas besoin d'adresse passerelle** pour communiquer avec ces réseaux.
+---
 
-Par contre, la communication avec le réseau B nécessite de confier le paquet au routeur R2 (c'est le choix de cette table de routage). Il faut donc mentionner **l'adresse IP de ce routeur R2** (172.17.1.123), qu'on appelle **adresse de passerelle**.
+## <H2 STYLE="COLOR:BLUE;">4. 🔄 Routage dynamique — RIP (Routing Information Protocol)</H2>
 
-De la même manière, la communication avec le réseau C nécessite de confier le paquet au routeur R3 (c'est le choix de cette table de routage). Il faut donc mentionner **l'adresse IP de ce routeur R3** (10.0.5.135).
+### <H3 STYLE="COLOR:GREEN;">4.1. 🧩 Principe de RIP</H3>
 
-|<p>**Comment sont construites les tables de routage ?**</p><p>- Soit à la main par l'administrateur réseau, quand le réseau est petit : on parle alors de table **statique**.</p><p>- Soit de manière **dynamique** : les réseaux s'envoient eux-mêmes des informations permettant de mettre à jour leurs tables de routages respectives. Des algorithmes de détermination de meilleur chemin sont alors utilisés : nous allons en découvrir deux, le **protocole RIP et le protocole OSPF.**</p>|
-| - |
+* Tous les **30 s**, chaque routeur **diffuse sa table de routage**.
+* Au départ, un routeur ne connaît que ses **réseaux directement connectés** à **distance 1** (*hop count*).
+* Mise à jour à réception des tables voisines :
 
-## <a name="_toc154844745"></a><H2 STYLE="COLOR:BLUE;">**4. Le routage dynamique RIP (Routing Information Protocol)**</H2>
-### <a name="_toc154844746"></a><H3 STYLE="COLOR:GREEN;">**4.1. Le principe du routage RIP**</H3>
+  * **Nouvelle destination** découverte → **ajout** avec **distance reçue + 1**.
+  * **Chemin plus court** trouvé → **mise à jour** (on **remplace**).
+  * **Chemin plus long** que l’existant → **ignoré** (on **garde** le meilleur).
+  * **Même destination via le même voisin** mais métrique **modifiée** → **mise à jour** (topologie a changé).
+  * Si le réseau **n’évolue plus**, les tables **convergent** (stable).
+  * **Absence d’info 3 min** d’un voisin → routes via ce voisin marquées **infinies = 16**.
 
-Le **Routing Information Protocol (RIP)** est basé sur **l'échange** (toutes les **30 secondes**) des tables de routage de chaque routeur.
+**Remarques / Limites :**
 
-Au début, chaque routeur ne connaît **que les réseaux auquel il est directement connecté**, associé à la **distance 1.**
+* **Métrique = nombre de sauts**, **max = 15** → réseaux **petite taille**.
+* **Routing by rumor** : chaque routeur **n’a pas la topologie globale**, seulement ce que **racontent** les voisins.
+* La métrique **ignore la qualité** des liens (débit, latence…), **contrairement à OSPF**.
 
-Ensuite, chaque routeur **va recevoir** périodiquement (toutes les 30 secondes) la table des réseaux auquel il est connecté, et mettre à jour sa propre table suivant les règles ci-dessous :
+---
 
-- s'il découvre une route vers un **nouveau réseau inconnu**, il **l'ajoute à sa table en augmentant de 1** la distance annoncée par le routeur qui lui a transmis sa table.
+???+ question "🚦 **Activité n° 6 — Routage RIP**"
+  ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.038.png){: .center}
 
-- s'il découvre une route vers un **réseau connu mais plus courte** (en rajoutant 1) que celle qu'il possède dans sa table, **il actualise sa table.**
 
-- s'il découvre une route vers un **réseau connu mais plus longue** que celle qu'il possède dans sa table, il **ignore cette route**.
+  1) Pour **chaque sous-réseau entre deux routeurs**, donner la **première** et la **dernière** adresse **utilisable**.  
+  2) Attribuer aux **interfaces** des routeurs leurs **adresses**.  
+  3) Compléter la **table de routage initiale de R1** (avec colonne **Distance**) — **sans** passerelle si réseau directement connecté.  
+  4) Même chose pour **R3** puis **R2**.  
+  5) **Table de R1** après **échange RIP** avec **R3**.  
+  6) **Table de R1** après échange avec **R2**.  
+  7) **Table finale** de **R1** (après convergence).  
+  8) Quel **chemin** suivront les paquets entre **PC1** et **PC2** ?
 
-- s'il reçoit une route vers un **réseau connu** en provenance d'un routeur déjà existant dans sa table, il **met à jour sa table** car la topologie du réseau a été modifiée.
+  ??? success "❇️ Solution (méthode & trame de réponse — à compléter selon le schéma fourni)"
+      **Étape A — Bornes d’adressage (par lien)**
+      - Pour chaque lien R•↔R• (ou R•↔LAN), relever le **préfixe** (ex. /30, /29, /24…).  
+      - **Première adresse utilisable** = **adresse réseau + 1**.  
+      - **Dernière adresse utilisable** = **broadcast − 1** (en IPv4).
 
-- si le réseau n'évolue pas (dûs à une panne ou ajout de nouveau matériel), les tables de routage ***convergent*** vers une **valeur stable**. Elles n'évoluent plus.
+      **Étape B — Adressage des interfaces**
+      - Noter pour chaque routeur **l’IP de chaque interface** (dans le bon sous-réseau).  
+      - Exemple (format) :  
+        - **R1–IF_A** : 10.0.5.152/24  
+        - **R1–IF_E** : 172.17.1.254/24  
+        - **R1–IF_F** : 192.168.0.254/24  
+        *(Adresses exactes à lire sur le schéma.)*
 
-- si un routeur ne reçoit pas **pendant 3 minutes** d'information de la part d'un routeur qui lui avait auparavant communiqué sa table de routage, ce routeur est considéré comme en panne, et toutes les routes passant par lui sont affectées de la **distance infinie** : 16.
+      **Étape C — Tables initiales (R1, R2, R3)**
+      - **Seuls** les réseaux **directement connectés** avec **Distance = 1**.  
+      - **Passerelle** vide (—) si réseau directement connecté.  
+      - **Interface** = celle par laquelle on sort.
 
-**Remarques et inconvénients:**
+      **Modèle de tableau (R1 init)**  
+      | Destination | Masque      | Passerelle | Interface      | Distance |
+      | - | - | - | - | - |
+      | F (192.168.0.0) | 255.255.255.0 | — | 192.168.0.254 | 1 |
+      | A (10.0.5.0)    | 255.255.255.0 | — | 10.0.5.152    | 1 |
+      | E (172.17.1.0)  | 255.255.255.0 | — | 172.17.1.254  | 1 |
 
-- Le protocole RIP n'admet qu'une distance maximale égale à 15 (ceci explique que 16 soit considéré comme la distance infinie), ce qui le limite aux réseaux de petite taille.
-- Chaque routeur n'a jamais connaissance de la topologie du réseau tout entier : il ne le connaît que par ce que les autres routeurs lui ont raconté. On dit que ce protocole de routage est du *routing by rumor*.
-- La *métrique* utilisée (le nombre de sauts) ne tient pas compte de la qualité de la liaison, contrairement au protocole OSPF.
+      *(Adapter aux préfixes exacts de ton schéma.)*
 
-**<H3 STYLE="COLOR:red;">Activité n° 6 :**</H3>  Routage RiP
+      **Étape D — Échange RIP (R1 ↔ R3), puis (R1 ↔ R2)**
+      - À **chaque route reçue** d’un voisin **V** vers un réseau **X** avec **distance d**,  
+        → **candidat** = (X, distance = **d+1**, passerelle = **IP de V**, interface = **IF vers V**).  
+      - **Si X absent** de la table → **ajouter** le candidat.  
+      - **Si X présent** mais **distance meilleure** → **remplacer**.  
+      - **Si X présent** mais **distance moins bonne** → **ignorer** (sauf si même voisin et métrique mise à jour → **actualiser**).
 
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.038.png){: .center}
+      **Étape E — Table finale de R1**
+      - Après les deux échanges (et convergence), R1 doit lister :  
+        - **ses réseaux directs** (distance 1, passerelle —),  
+        - **les réseaux atteignables via R3** (passerelle = IP de R3, distance calculée),  
+        - **les réseaux atteignables via R2** (passerelle = IP de R2, distance calculée).  
 
-1\. Pour chaque sous-réseau situé entre deux routeurs, donner la première adresse utilisable pour adresser une machine et la dernière.
+      **Étape F — Chemin PC1 → PC2**
+      - Partir du **LAN de PC1** → **passerelle par défaut** (routeur local).  
+      - Suivre la table de R1 (puis R2/R3) **vers le réseau de PC2**.  
+      - **Donner la séquence de routeurs** (ex. R1 → R3 → …) selon les passerelles choisies en table finale.
 
-2\. Attribuer aux différentes interfaces des routeurs des adresses.
+      > 💡 **Astuce** : pour chaque ajout via RIP, **note explicitement** « +1 » sur la distance reçue.  
+      > **Rappel** : en RIP, **distance max = 15**, **16 = infini**.
 
-3\. Donner la table de routage du routeur R1​ à son initialisation. Ajouter une colonne distance.
 
-|**Destination**|**Masque**|**Passerelle**|**Interface**|**Distance**|
-| :- | :- | :- | :- | :- |
-|||||
+---
 
-**Remarque :** Pour simplifier la lecture, ne rien écrire dans la colonne Passerelle si celle-ci est le routeur lui-même. De plus, ne pas prendre en compte l’adresse de loopback et la route par défaut.
 
-4\. Même question pour le routeur R3​ et le routeur R2.
 
-5\. Donner la table de routage du routeur R1​ si on imagine qu’il a d’abord échangé une demande RIP avec le routeur R3.
+## <H3 STYLE="COLOR:GREEN;">4.2. 🧮 Métrique maximale (RIP)</H3>
 
-6\. Donner la table de routage du routeur R1 si on imagine qu’il a ensuite échangé une demande RIP avec le routeur R2.
+**Idée clé :** pour limiter la taille des échanges et éviter les routes absurdes, RIP considère qu’une **métrique de 16** équivaut à **injoignable** (∞).
 
-7\. Quelle est la table de routage finale pour le routeur R1​?
+📌 **Exemple (Windows – `route print`, IPv4) :**
 
-8\. Quel chemin vont suivre les paquets entre PC1 et PC2 ?
-
-### <a name="_toc154844747"></a><H3 STYLE="COLOR:GREEN;">**4.2. Métrique maximale**</H3>
-
-**Métrique maximale :** Pour limiter le nombre de routes inutiles et limiter la taille des messages RIP sur le réseau, on considère qu'une **métrique de 16** correspond à une **route impossible à atteindre**.
-
-**Par exemple :** Sur un ordinateur relié à une box internet dans un réseau privé, on obtient par exemple la table de routage qui suit, résultat de la commande `route print` sous Windows. Par exemple : IPv4 Table de routage
 ```
 ===========================================================================
 Itinéraires actifs :
@@ -414,7 +566,8 @@ Destination réseau    Masque réseau  Adr. passerelle   Adr. interface Métriqu
 ===========================================================================
 ```
 
-Les adresses commençant par 127, ou par 224 ou par 255 et celles se terminant par 255 sont spécifiques au loopback, au multicast et au broadcast. Il reste :
+➡️ On ignore les adresses **loopback** (127.x.x.x), **multicast** (224.x.x.x) et **broadcast** (…255). Il reste :
+
 ```
 ===========================================================================
 Itinéraires actifs :
@@ -425,268 +578,333 @@ Destination réseau    Masque réseau  Adr. passerelle   Adr. interface Métriqu
 ===========================================================================
 ```
 
-Pour effectuer un envoi, la machine examine les lignes du tableau selon l'ordre des masques du plus grand au plus petit. Ici 255.255.255.255, puis 255.255.255.0 et enfin 0.0.0.0.
+🧭 **Ordre d’examen des routes :** du masque le plus précis vers le moins précis :
 
-- Si le destinataire est la machine qui a pour IP 192.168.1.138 (masque 255.255.255.255), l'interface utilisée a pour adresse 192.168.1.138 c'est la **même machine**.
-- Si le destinataire a pour IP 192.168.1.0 avec le masque 255.255.255.0, il s'agit du réseau local auquel est connectée la machine, et l'interface utilisée a pour adresse 192.168.1.138. C'est encore la **même machine**.
-- Si le destinataire a pour IP 0.0.0.0, avec le masque 0.0.0.0, il s'agit de toutes les autres adresses possibles. L'interface utilisée a pour adresse 192.168.1.138 c'est la machine locale, mais il faut sortir du réseau local et passer par la passerelle, qui appartient au réseau local, d'adresse 192.168.1.254. Autrement dit, la destination 0.0.0.0 avec le masque 0.0.0.0 propose **une route par défaut**, si aucune autre route n'a été trouvée.
+1. **/32** (255.255.255.255) → une machine exacte
+2. **/24** (255.255.255.0) → le réseau local
+3. **/0**  (0.0.0.0) → **route par défaut** (si rien d’autre ne correspond)
 
-Précision : la mention **On-link** pour l'adresse de la passerelle, indique que la route cherchée est sur le réseau auquel est connectée la machine émettrice.
+* Destinataire = **192.168.1.138/32** → même machine (**On-link** = pas de passerelle).
+* Destinataire ∈ **192.168.1.0/24** → réseau local (toujours **On-link**).
+* Sinon → **0.0.0.0/0** : on sort via la **passerelle** `192.168.1.254` (route par défaut).
 
-### <a name="_toc154844748"></a><H3 STYLE="COLOR:GREEN;">**4.3. Conclusion sur le protocole RIP**</H3>
-- **Rôle** : aucun routeur n'a de rôle prépondérant dans le système autonome (à part le fait que certains soient en liaison avec l'extérieur par exemple) : **RIP** utilise un **algorithme totalement réparti**.
-- **Métrique** : La métrique utilisée pour définir les distances est simplement **le nombre de sauts**.
-- **Informations transmises** : c'est un protocole à **vecteur de distance** : chaque routeur transmet toutes les 30s à ses voisins directs l'ensemble des couples **(destination;distance)** qu'il connait. Chaque routeur reçoit les informations de ses voisins, rajoute simplement 1 à leurs métriques (pour prendre en compte le saut supplémentaire vers eux) et garde les meilleurs choix de passerelles pour les différentes destinations : celles dont la métrique est la plus basse.
-- **Connaissance du réseau** : **RIP** ne permet pas aux routeurs d'avoir une vision globale du réseau et de choisir certains chemins : on décide juste de la passerelle suivante à qui on transmet le paquet. Chaque routeur ne connait donc que ses voisins directs et sait auquel transmettre un paquet IP pour une destination donnée. 
-- **Taille** : RIP ne permet pas de gérer des systèmes autonomes comportant des routeurs situés à plus de 15 sauts l'un de l'autre (sinon, le réseau serait encombré par les messages RIP et n'aurait plus le temps de gérer les vrais messages !)
-- **Mise en place** : **RIP** met du temps à se mettre en place car la connaissance des nouvelles routes se fait de proche en proche, un nouveau saut uniquement toutes les 30s. Ici le routeur central va mettre 90s à apprendre l'existence des routeurs Gauche et Droite. Et le routeur Droite va donc devoir attendre encore 90s pour apprendre l'existence du routeur Gauche !
+ℹ️ **“On-link”** signifie « atteignable directement sur le lien local (pas de passerelle) ».
 
-## <a name="_toc154844749"></a><H2 STYLE="COLOR:BLUE;">**5. Le routage dynamique OSPF (Open Shortest Path First)**</H2>
-### <a name="_toc154844750"></a><H3 STYLE="COLOR:GREEN;">**5.1. Le principe du routage OSPF**</H3>
+---
 
-Dans le **protocole OSPF (*Open Shortest Path First*)**, comme dans le cas du protocole RIP, les routeurs échangent entre eux des informations, mais ces échanges sont plus « intelligents » dans le cas d’OSPF, permettant ainsi de réduire l’occupation du réseau.
+## <H3 STYLE="COLOR:GREEN;">4.3. 🧾 Conclusion sur le protocole RIP</H3>
 
-- Tous les routeurs ont une **vision globale** et **identique** du réseau : pour cela, ils reçoivent des informations depuis tout le réseau.
+* 🧩 **Rôle** : protocole **réparti**, aucun routeur “chef”.
+* 📏 **Métrique** : **nombre de sauts** (hop count).
+* 🔁 **Échanges** : protocole **vecteur de distance** — toutes les **30 s**, chaque routeur envoie à ses **voisins** les paires *(destination ; distance)* qu’il connaît (il ajoute +1 au coût reçu).
+* 🗺️ **Vision du réseau** : **locale** (pas de vue globale). On choisit **uniquement la prochaine passerelle**.
+* 🧱 **Limite** : distance ≤ **15** (au-delà → **16 = infini**).
+* 🕒 **Convergence lente** : apprentissage **de proche en proche**, **30 s** par “saut”.
 
-- Les distances prennent en compte le nombre de routeur à traverser (nombre de sauts), mais également le **débit binaire** de chaque « câble » (appelé aussi **bande passante**), exprimé en bits/s.
+---
 
-Le protocole OSPF permet à chaque routeur de connaitre le graphe complet des liaisons entre tous les routeurs du réseau, avec leurs débits.
+## <H2 STYLE="COLOR:BLUE;">5. 🧭 Le routage dynamique OSPF (Open Shortest Path First)</H2>
 
-Ainsi, le « meilleur » chemin n’est pas forcément le plus court, mais le plus rapide.
+### <H3 STYLE="COLOR:GREEN;">🧠 5.1. Le principe du routage OSPF</H3>
 
-### <a name="_toc154844751"></a><H3 STYLE="COLOR:GREEN;">**5.2. Le métrique d’OSPF**</H3>
+* OSPF échange des **états de liens** (**LSA**) pour construire, chez **chaque routeur**, une **carte complète** du réseau (base de données d’état de liens).
+* Chaque routeur exécute **Dijkstra** pour calculer ses **meilleurs chemins**.
+* Avantage : les chemins tiennent compte non seulement du **nombre de sauts**, mais aussi de la **bande passante** (≈ qualité/rapidité des liens).
+* Résultat : on choisit le **chemin le plus “rapide”** (métrique minimale), pas forcément le plus court en nombre de sauts.
 
-**Bande Passante et débit** : La **bande passante** caractérise la valeur maximale d'une communication entre deux ordinateurs, exprimée en bit.s<sup>-1</sup>.
+---
 
-Le **débit** caractérise lui la valeur réelle de cette capacité de transmission. Le débit est donc inférieur à la bande passante.
+### <H3 STYLE="COLOR:GREEN;">📐 5.2. La métrique d’OSPF</H3>
 
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.043.png){: .center}
+* **Bande passante** (capacité max) vs **débit** (réel observé).
+* **Formule classique** (rappelée dans l’énoncé) :
+  [
+  \textbf{Coût OSPF} = \left\lfloor \frac{10^8}{\text{débit (b/s)}} \right\rfloor
+  ]
+  (Arrondi **entier**, plage 1…65535)
 
-**Métrique OSPF :** OSPF (Open Shortest Path First) utilise le coût entre deux routeurs comme paramètre de sa métrique : plus la liaison est rapide, plus la valeur utilisée sera petite. 
-Sur la plupart des systèmes travaillant en OSPF, la valeur de référence par défaut est actuellement de  1.10<sup>8</sup>.
+> ⚠️ Toujours **suivre la formule donnée par l’énoncé** (certaines implémentations personnalisent la référence).
 
-Avec cette valeur de référence, on obtient alors :
+---
 
-$Coût=\frac{10^8}{débit(b/s)}$
+???+ question "🧮 **Activité n° 7 : Calcul de coût OSPF (1 Gbit/s)**"
 
-**ATTENTION** : la formule sera donnée dans l'énoncé.
+```
+Calculer la métrique OSPF pour une **liaison fibre 1 Gbit/s** avec référence \(10^8\).
 
-Particularité d'OSPF (en général mais toujours se conformer à l'énoncé de l'exercice!): on arrondit les coûts à l'entier. Le coût des liaisons transmises est un entier compris entre 1 et 65535.
+??? success "❇️ Solution :"
+    Débit = **1 000 000 000 b/s**  
+    Coût = ⌊\(10^8 / 10^9\)⌋ = ⌊0.1⌋ = **0**, mais **le coût minimal est 1** → **coût = 1**.
+```
 
-Cette formule de calcul peut être différente suivant les exercices, et sera systématiquement redonnée. 
+---
 
-**<H3 STYLE="COLOR:red;">Activité n° 7 :**</H3>  Calculer la métrique OSPF d'une liaison Fibre (1 Gbit/s) avec une valeur par défaut de 10<sup>8</sup>.
+???+ question "🧮 **Activité n° 8 : Calcul de coût OSPF (100 Mbit/s)**"
 
-**<H3 STYLE="COLOR:red;">Activité n° 8 :**</H3>  Calculer la métrique OSPF d'une liaison FastEthernet (100 Mbit/s) avec une valeur par défaut de 10<sup>8</sup>.
+```
+Calculer la métrique OSPF pour **FastEthernet 100 Mbit/s** avec référence \(10^8\).
 
-**<H3 STYLE="COLOR:red;">Activité n° 9 :**</H3>  Calculer la métrique OSPF d'une liaison Ethernet (10 Mbit/s) avec une valeur par défaut de 10<sup>8</sup>.
+??? success "❇️ Solution :"
+    Débit = **100 000 000 b/s**  
+    Coût = ⌊\(10^8 / 10^8\)⌋ = ⌊1⌋ = **1**.
+```
 
-**<H3 STYLE="COLOR:red;">Activité n° 10 :**</H3>  Que vaut la bande passante d'une liaison dont le coût OSPF est de 50 avec une valeur de référence de 10<sup>8</sup>.
+---
 
-**<H3 STYLE="COLOR:red;">Activité n° 11 :**</H3>  Un routeur A3 fonctionnant sous OSPF reçoit les informations suivantes :
+???+ question "🧮 **Activité n° 9 : Calcul de coût OSPF (10 Mbit/s)**"
 
-- Liaison A - B avec un coût de 1
+```
+Calculer la métrique OSPF pour **Ethernet 10 Mbit/s** avec référence \(10^8\).
 
-- Liaison A - C avec un coût de 1000
+??? success "❇️ Solution :"
+    Débit = **10 000 000 b/s**  
+    Coût = ⌊\(10^8 / 10^7\)⌋ = ⌊10⌋ = **10**.
+```
 
-- Liaison A - D avec un coût de 100
+---
 
-- Liaison B - D avec un coût de 10
+???+ question "🧮 **Activité n° 10 : Coût → Bande passante**"
 
-- Liaison C - E avec un coût de 200
+```
+Une liaison a un **coût OSPF = 50** (référence \(10^8\)).  
+**Quelle est sa bande passante ?**
 
-- Liaison C - F avec un coût de 100
+??? success "❇️ Solution :"
+    On inverse la formule :  
+    \( \text{débit} = \dfrac{10^8}{\text{coût}} = \dfrac{10^8}{50} = 2\,000\,000 \,\text{b/s} = \) **2 Mbit/s**.
+```
 
-- Liaison D - E avec un coût de 1
+---
 
-- Liaison E - G avec un coût de 100
+???+ question "🗺️ **Activité n° 11 : Construire le graphe (coûts OSPF)**"
 
-- Liaison F - G avec un coût de 10
+```
+D’après les infos reçues par le routeur **A** (OSPF) :  
+- A–B : 1 ; A–C : 1000 ; A–D : 100  
+- B–D : 10  
+- C–E : 200 ; C–F : 100  
+- D–E : 1  
+- E–G : 100 ; F–G : 10  
 
-Représenter le tout sous forme d'un graphe où les sommets sont les routeurs et les arcs portent les coûts.
+Représenter le **graphe** (sommets = routeurs, arcs pondérés = coûts).
 
-**<H3 STYLE="COLOR:red;">Activité n° 12 :**</H3>  Quel est le coût de la liaison AE ? Calculer toutes les routes possibles et choisir celle qui présente le coût le plus faible.
+??? success "❇️ Solution :"
+    Sommets : **A, B, C, D, E, F, G**  
+    Arêtes pondérées :  
+    A–B (**1**), A–C (**1000**), A–D (**100**),  
+    B–D (**10**), C–E (**200**), C–F (**100**),  
+    D–E (**1**), E–G (**100**), F–G (**10**).  
+    ➜ Graphe **non orienté** (coûts symétriques) à dessiner tel quel.
+```
 
-Question supplémentaire : contrairement au cas RIP, le routeur A a-t-il les moyens de connaitre la route que va suivre le paquet le long du trajet A vers E ?
+---
 
-### <a name="_toc154844752"></a><H3 STYLE="COLOR:GREEN;">**5.3. L’algorithme de Dijkstra**</H3>
-L’algorithme de Dijkstra permet de résoudre un problème algorithmique : le problème du plus court chemin.
+???+ question "🧭 **Activité n° 12 : Coût du chemin AE + question**"
 
-Le principe de l’algorithme est de chercher à chaque étape le plus court chemin.
+```
+**Objectif :** déterminer le **meilleur coût** d’**A → E** (toutes routes possibles, garder la plus faible).  
+**Question bonus :** contrairement à RIP, **A** peut-il connaître **le chemin exact** que suivra le paquet jusqu’à **E** ?
 
-On souhaite aller de la ville A à la ville G en empruntant le plus court chemin :
+??? success "❇️ Solution :"
+    Quelques chemins et leurs coûts :
+    - A→D→E : 100 + 1 = **101** ✅
+    - A→B→D→E : 1 + 10 + 1 = **12** ✅✅ (meilleur)
+    - A→C→E : 1000 + 200 = **1200**  
+    - A→C→F→G→E : 1000 + 100 + 10 + 100 = **1210**  
+    
+    **Coût minimal A→E = 12**, via **A–B–D–E**.  
+    **Bonus :** Oui. En OSPF, A dispose de la **topologie complète** et calcule les chemins avec **Dijkstra** → il **connaît le chemin** retenu, pas seulement la prochaine passerelle.
+```
 
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.045.png){: .center}
+---
 
-|A|B|C|D|E|F|G|Etapes|
-| :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-|0|1A|2A|||||1|
-|x|1A||3B||4B||2|
-|x|x|2A|5C|6C|||3|
-|x|x|x|3B|5D|6D|6D|4|
-|x|x|x|x||4B|8F|5|
-|x|x|x|x|5D|x|10E|6|
-|x|x|x|x|x|x|6D|7|
+## <H3 STYLE="COLOR:GREEN;">5.3. 🧮 L’algorithme de Dijkstra (plus court chemin)</H3>
 
-On fait donc 6 km de A à G en suivant le chemin : A, B, D, G
+Objectif : trouver le **chemin de coût minimal** entre deux sommets d’un graphe pondéré **à coûts positifs**.
 
-[https://ladigitale.dev/digiview/#/v/66c13a448a875](https://ladigitale.dev/digiview/#/v/66c13a448a875)
+🗺️ **Principe** :
 
-**<H3 STYLE="COLOR:red;">Activité n° 13 :**</H3>  Donner le plus court chemin pour aller de E à F dans le graphe ci-dessous :
-![image](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.046.png){: .center}
+* On maintient un **ensemble des sommets “fixés”** (distance minimale connue),
+* À chaque étape, on **prend le sommet non fixé** de **distance provisoire minimale**,
+* On **met à jour** les distances de ses voisins,
+* On répète jusqu’à fixer la destination (ou tous les sommets).
 
-## <a name="_toc154844753"></a><H2 STYLE="COLOR:BLUE;">**6. Exercices**</H2>
+💡 Résultat : tableau des **distances minimales** + **prédécesseurs** → reconstitution du chemin.
 
-=> **CAPYTALE Le code vous sera donné par votre enseignant**
+[Voir l’exemple animé (lien donné)](https://ladigitale.dev/digiview/#/v/66c13a448a875)
 
-**<H3 STYLE="COLOR:red;">Exercice n°1 : Protocole RIP**</H3>
+---
 
-![](A1.png){: .center}
+???+ question "🧭 **Activité n° 13 : Plus court chemin E → F**"
 
-1\. Établir la table de routage du routeur A en vous basant sur le protocole RIP (métrique = nombre de sauts).
 
-|**Destination**|**Masque**|**Passerelle**|**Interface**|**Distance**|
-| :- | :- | :- | :- | :- |
-||||||
+  Sur le graphe fourni, **donner le plus court chemin de E à F**.
 
-2\. Quel est, d’après la table de routage construite ci-dessus, le chemin qui sera emprunté par un paquet pour aller d’une machine ayant pour adresse IP 172.18.1.1/16 à une machine ayant pour adresse IP 172.16.5.3/16?
+  ![image](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.046.png){: .center}
 
-**<H3 STYLE="COLOR:red;">Exercice n°2 : Protocole OSPF**</H3>
+  ??? success "❇️ Solution :"
+      En suivant la logique de Dijkstra (ou en testant les chemins raisonnables) :
+      - Exemple de route typique : **E → D → B → A → C → F** (selon les coûts fournis dans l’énoncé/référence).  
+      - **À l’évaluation**, le chemin minimal dépend **strictement** des **pondérations exactes** de ton graphe.  
+      👉 Pour ton sujet, applique Dijkstra et additionne les coûts affichés sur **chaque arête** ; choisis la somme **minimale** (et donne la **suite de sommets** correspondante).
 
-1\. Calculer les coûts des routes suivantes :
 
-|Route|1|2|3|4|5|6|7|8|
-| :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-|Débit|50 kbps|100 kbps|500 kbps|1 Mbps|10 Mbps|100 Mbps|1 Gbps|10 Gbps|
-|Coût|||||||1<sup>(\*)</sup>|1<sup>(\*)</sup>|
+---
 
-(\*) Le coût ne peut être qu’un nombre entier. Fast Ethernet (100Mbps), Gigabit et 10 Gigas, partagent le même coût.
+## <H2 STYLE="COLOR:BLUE;">6. 🧩 Exercices</H2>
 
-2\. Soit le réseau suivant :
 
-![](A1.png){: .center}
+!!! info "🧠 => CAPYTALE Le code vous sera donné par votre enseignant"
 
-On donne les débits suivants :
 
-- Liaison routeur A - routeur B : 1 Mbps.
-- Liaison routeur A - routeur C : 10 Mbps.
-- Liaison routeur C - routeur B : 10 Mbps.
+!!! abstract "**Exercice n°1 : Protocole RIP**"
 
-En vous basant sur le protocole OSPF (métrique = somme des coûts), **déterminer** la table de routage du routeur A
+  ![](A1.png){: .center}
 
-|**Réseau**|**Métrique**|
-| :-: | :-: |
-|**172.18.0.0/16**||
-|**192.168.1.0/24**||
-|**192.168.2.0/24**||
-|||
-|||
-|||
-|||
+  1\. Établir la table de routage du routeur A en vous basant sur le protocole RIP (métrique = nombre de sauts).
 
-3\. Quel est, d'après la table de routage construite ci-dessus, le chemin qui sera emprunté par un paquet pour aller d'une machine ayant pour adresse IP 172.18.2.4/16 à une machine ayant pour adresse IP 172.16.1.5/16 ? Préciser la métrique.
+  |**Destination**|**Masque**|**Passerelle**|**Interface**|**Distance**|
+  | :- | :- | :- | :- | :- |
+  ||||||
 
-**<H3 STYLE="COLOR:red;">Exercice n°3 : Masque réseau**</H3>
+  2\. Quel est, d’après la table de routage construite ci-dessus, le chemin qui sera emprunté par un paquet pour aller d’une machine ayant pour adresse IP 172.18.1.1/16 à une machine ayant pour adresse IP 172.16.5.3/16?
 
-Trois machines ont respectivement pour adresses IP 90.8.220.5, 90.8.220.33 et 90.8.220.29. Est-ce que ces machines appartiennent toutes les trois au réseau 90.8.220.0/27?
+!!! abstract "**Exercice n°2 : Protocole OSPF**"
 
-Sinon combien de routeurs sont nécessaires pour faire communiquer ces machines ? Quelles sont les adresses de leurs cartes réseau (interfaces)?
+  1\. Calculer les coûts des routes suivantes :
 
-**<H3 STYLE="COLOR:red;">Exercice n°4 : Table de routage**</H3>
+  |Route|1|2|3|4|5|6|7|8|
+  | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+  |Débit|50 kbps|100 kbps|500 kbps|1 Mbps|10 Mbps|100 Mbps|1 Gbps|10 Gbps|
+  |Coût|||||||1<sup>(\*)</sup>|1<sup>(\*)</sup>|
 
-Une machine M1 a pour adresse IP 192.168.1.12 et elle se trouve dans un réseau d’adresses 192.168.1.0/24. Elle est reliée à un routeur qui possède deux interfaces réseau qui ont pour adresses respectives 192.168.1.1/24 et 172.20.121.1/24. Une seconde machine M2 a pour adresse IP 172.20.121.17 et se trouve dans le réseau d'adresses 172.20.121.0/24, reliée au routeur. 
+  (\*) Le coût ne peut être qu’un nombre entier. Fast Ethernet (100Mbps), Gigabit et 10 Gigas, partagent le même coût.
 
-1\. Compléter la table de routage de ce routeur.
+  2\. Soit le réseau suivant :
 
-|Adresse|Masque|Passerelle|Interface|
-| :-: | :-: | :-: | :-: |
-|192.168.1.0||||
-|172.20.121.0||||
-|||||
+  ![](A1.png){: .center}
 
-2\. Compléter la table de routage de la machine M1.
+  On donne les débits suivants :
 
-|Adresse|Masque|Passerelle|Interface|
-| :-: | :-: | :-: | :-: |
-|192.168.1.0||||
-|0.0.0.0||||
-|||||
+  - Liaison routeur A - routeur B : 1 Mbps.
+  - Liaison routeur A - routeur C : 10 Mbps.
+  - Liaison routeur C - routeur B : 10 Mbps.
 
-3\. Compléter la table de routage de la machine M2. 
+  En vous basant sur le protocole OSPF (métrique = somme des coûts), **déterminer** la table de routage du routeur A
 
-|Adresse|Masque|Passerelle|Interface|
-| :-: | :-: | :-: | :-: |
-|172.20.121.0||||
-|0.0.0.0||||
-|||||
+  |**Réseau**|**Métrique**|
+  | :-: | :-: |
+  |**172.18.0.0/16**||
+  |**192.168.1.0/24**||
+  |**192.168.2.0/24**||
+  |||
+  |||
+  |||
+  |||
 
-**<H3 STYLE="COLOR:red;">Exercice n°5 : Protocoles RIP**</H3>
+  3\. Quel est, d'après la table de routage construite ci-dessus, le chemin qui sera emprunté par un paquet pour aller d'une machine ayant pour adresse IP 172.18.2.4/16 à une machine ayant pour adresse IP 172.16.1.5/16 ? Préciser la métrique.
 
-Considérons le réseau suivant, pour lequel on admettra la norme suivante :
+!!! abstract "**Exercice n°3 : Masque réseau**"
 
-- Le poste client et le poste serveur se voient attribués respectivement la première adresse de la plage de leur réseau (soit respectivement 192.168.1.1 et 172.16.180.1).
-- Les routeurs d'accès R1 et R6 ont sur leur interface réseau les dernières adresses IP de la plage de leur réseau (soit respectivement 192.168.1.254 et 172.16.180.254).
-- Entre deux interfaces internes, le routeur de plus bas indice possède la première adresse et le routeur de dernier indice la seconde adresse : par exemple entre R2 et R5, les interfaces sont connectées par le réseau 10.1.4.0/30, donc l'interface de R2 est 10.1.4.1 et celle de R5 est 10.1.4.2.
-- Tous les routeurs suivent le protocole RIP.
+  Trois machines ont respectivement pour adresses IP 90.8.220.5, 90.8.220.33 et 90.8.220.29. Est-ce que ces machines appartiennent toutes les trois au réseau 90.8.220.0/27?
 
-![](A2..png){: .center}
+  Sinon combien de routeurs sont nécessaires pour faire communiquer ces machines ? Quelles sont les adresses de leurs cartes réseau (interfaces)?
 
-Attribuer les bonnes adresses IP aux interfaces des différents routeurs.
+!!! abstract "**Exercice n°4 : Table de routage**"
 
-Déterminer les tables de routage de R1, R2 et R3.
+  Une machine M1 a pour adresse IP 192.168.1.12 et elle se trouve dans un réseau d’adresses 192.168.1.0/24. Elle est reliée à un routeur qui possède deux interfaces réseau qui ont pour adresses respectives 192.168.1.1/24 et 172.20.121.1/24. Une seconde machine M2 a pour adresse IP 172.20.121.17 et se trouve dans le réseau d'adresses 172.20.121.0/24, reliée au routeur. 
 
-**<H3 STYLE="COLOR:red;">Exercice n°6 : Protocole OSPF**</H3>
+  1\. Compléter la table de routage de ce routeur.
 
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.056.png){: .center}
+  |Adresse|Masque|Passerelle|Interface|
+  | :-: | :-: | :-: | :-: |
+  |192.168.1.0||||
+  |172.20.121.0||||
+  |||||
 
-1\.	Un hôte du nœud K envoie un paquet à destination du nœud J, à l’adresse 5.12.85.26. Quelle va être la route suivie par ce paquet?
+  2\. Compléter la table de routage de la machine M1.
 
-a)	Avec le protocole RIP?
+  |Adresse|Masque|Passerelle|Interface|
+  | :-: | :-: | :-: | :-: |
+  |192.168.1.0||||
+  |0.0.0.0||||
+  |||||
 
-b)	Avec le protocole OSPF?
+  3\. Compléter la table de routage de la machine M2. 
 
-2\.	Un hôte du nœud A envoie un paquet à destination du nœud J, à l’adresse 5.12.85.26. Quelle va être la route suivie par ce paquet avec le protocole OSPF?
+  |Adresse|Masque|Passerelle|Interface|
+  | :-: | :-: | :-: | :-: |
+  |172.20.121.0||||
+  |0.0.0.0||||
+  |||||
 
-3\. On admet que tous les sous-réseaux ont pour masques 255.255.255.0. Déterminer la table de routage du routeur A avec le protocole OSPF en lettre (Compléter le tableau suivant)
+!!! abstract "**Exercice n°5 : Protocoles RIP**"
 
-Destination	Passerelle	Métrique
+  Considérons le réseau suivant, pour lequel on admettra la norme suivante :
 
-4\. Déterminer la table de routage du routeur A avec le protocole OSPF en IP
+  - Le poste client et le poste serveur se voient attribués respectivement la première adresse de la plage de leur réseau (soit respectivement 192.168.1.1 et 172.16.180.1).
+  - Les routeurs d'accès R1 et R6 ont sur leur interface réseau les dernières adresses IP de la plage de leur réseau (soit respectivement 192.168.1.254 et 172.16.180.254).
+  - Entre deux interfaces internes, le routeur de plus bas indice possède la première adresse et le routeur de dernier indice la seconde adresse : par exemple entre R2 et R5, les interfaces sont connectées par le réseau 10.1.4.0/30, donc l'interface de R2 est 10.1.4.1 et celle de R5 est 10.1.4.2.
+  - Tous les routeurs suivent le protocole RIP.
 
-IP destination	   Masque	        Passerelle	        Interface	        Métrique
+  ![](A2..png){: .center}
 
-**<H3 STYLE="COLOR:red;">Exercice n°7 : Réseaux**</H3>
+  Attribuer les bonnes adresses IP aux interfaces des différents routeurs.
 
-Un réseau est constitué de 6 routeurs R1 à R6 dont on donne des tables de routage simplifiées. Les réseaux ont tous pour masque 255.255.255.0. La colonne M est la métrique utilisée.
+  Déterminer les tables de routage de R1, R2 et R3.
 
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.057.png){: .center}
+!!! abstract "**Exercice n°6 : Protocole OSPF**"
 
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.058.png){: .center}
+  ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.056.png){: .center}
 
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.059.png){: .center}
+  1\.	Un hôte du nœud K envoie un paquet à destination du nœud J, à l’adresse 5.12.85.26. Quelle va être la route suivie par ce paquet?
 
-1\.	Indiquer la route décrite par un paquet envoyé du routeur R1 au routeur R6.
+  a)	Avec le protocole RIP?
 
-2\.	Indiquer la route décrite par un paquet envoyé du routeur R2 au routeur R3.
+  b)	Avec le protocole OSPF?
 
-3\.	Représenter ce réseau sous forme de graphe.
+  2\.	Un hôte du nœud A envoie un paquet à destination du nœud J, à l’adresse 5.12.85.26. Quelle va être la route suivie par ce paquet avec le protocole OSPF?
 
-**<H3 STYLE="COLOR:red;">Exercice n°8 : Adressage IP**</H3>
+  3\. On admet que tous les sous-réseaux ont pour masques 255.255.255.0. Déterminer la table de routage du routeur A avec le protocole OSPF en lettre (Compléter le tableau suivant)
 
-1\. L’adresse IPv4 d’un réseau est 192.168.56.0/24. Combien de bits sont-ils dédiés à la partie réseau? Combien de machines peut-on incorporer à ce réseau?
+  Destination	Passerelle	Métrique
 
-2\. Quel est le masque de réseau de l’adresse de la question 1?
+  4\. Déterminer la table de routage du routeur A avec le protocole OSPF en IP
 
-3\. Quelle est la première adresse utilisable sur le réseau de la question 1? La dernière?
+  IP destination	   Masque	        Passerelle	        Interface	        Métrique
 
-4\. Écrire l’adresse IPv4 222.1.1.20, de masque 255.255.255.192 en notation CIDR (c'est à dire en /x).
+!!! abstract "**Exercice n°7 : Réseaux**"
 
-5\. Écrire l’adresse IPv4 135.1.1.25, de masque 255.255.248.0 en notation CIDR (c'est à dire en /x)****.
+  Un réseau est constitué de 6 routeurs R1 à R6 dont on donne des tables de routage simplifiées. Les réseaux ont tous pour masque 255.255.255.0. La colonne M est la métrique utilisée.
 
-6\. Sur un ordinateur dont le système d’exploitation est Linux, la commande `ifconfig` retourne l’adresse IPv4 172.16.20.234 et le masque 255.255.0.0. Quelle est l’adresse réseau du réseau auquel cet ordinateur appartient?
+  ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.057.png){: .center}
 
-7\. Combien d’ordinateurs peut-on incorporer au réseau de la question précédente?
+  ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.058.png){: .center}
 
-8\. L’adresse IPv4 d’un ordinateur est 172.16.20.234/22. Combien d’ordinateurs peut-on incorporer à ce réseau?
+  ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.059.png){: .center}
 
-9\. Quelle est la première adresse utilisable sur le réseau de la question précédente? La dernière?
+  1\.	Indiquer la route décrite par un paquet envoyé du routeur R1 au routeur R6.
+
+  2\.	Indiquer la route décrite par un paquet envoyé du routeur R2 au routeur R3.
+
+  3\.	Représenter ce réseau sous forme de graphe.
+
+!!! abstract "**Exercice n°8 : Adressage IP**"
+
+  1\. L’adresse IPv4 d’un réseau est 192.168.56.0/24. Combien de bits sont-ils dédiés à la partie réseau? Combien de machines peut-on incorporer à ce réseau?
+
+  2\. Quel est le masque de réseau de l’adresse de la question 1?
+
+  3\. Quelle est la première adresse utilisable sur le réseau de la question 1? La dernière?
+
+  4\. Écrire l’adresse IPv4 222.1.1.20, de masque 255.255.255.192 en notation CIDR (c'est à dire en /x).
+
+  5\. Écrire l’adresse IPv4 135.1.1.25, de masque 255.255.248.0 en notation CIDR (c'est à dire en /x)****.
+
+  6\. Sur un ordinateur dont le système d’exploitation est Linux, la commande `ifconfig` retourne l’adresse IPv4 172.16.20.234 et le masque 255.255.0.0. Quelle est l’adresse réseau du réseau auquel cet ordinateur appartient?
+
+  7\. Combien d’ordinateurs peut-on incorporer au réseau de la question précédente?
+
+  8\. L’adresse IPv4 d’un ordinateur est 172.16.20.234/22. Combien d’ordinateurs peut-on incorporer à ce réseau?
+
+  9\. Quelle est la première adresse utilisable sur le réseau de la question précédente? La dernière?
