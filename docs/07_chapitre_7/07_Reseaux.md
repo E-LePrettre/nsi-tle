@@ -37,7 +37,7 @@ Cette expérience marque **la naissance de l’Internet.**
 
 ###  <H3 STYLE="COLOR:GREEN;">**2.1. 🧩 Le modèle TCP/IP et les couches de communication**</H3>
 
-| Les règles de communication (**protocoles**) entre ordinateurs doivent respecter certaines contraintes afin d’assurer la compatibilité entre réseaux.
+ Les règles de communication (**protocoles**) entre ordinateurs doivent respecter certaines contraintes afin d’assurer la compatibilité entre réseaux.
 Le **modèle TCP/IP** est un **modèle en couches** :
 chaque couche communique uniquement avec la couche **immédiatement supérieure ou inférieure**.
 
@@ -55,7 +55,6 @@ Deux notions fondamentales assurent la stabilité du système :
 ###  <H3 STYLE="COLOR:GREEN;">**2.2. 🌍 La couche Application**</H3>
 
 | La **couche application** a pour rôle de **déterminer le mode de communication** entre programmes.
-
 | Elle repose sur des **protocoles standards** comme **HTTP**, **HTTPS**, **FTP**, **SMTP**, etc. |
 | ----------------------------------------------------------------------------------------------- |
 
