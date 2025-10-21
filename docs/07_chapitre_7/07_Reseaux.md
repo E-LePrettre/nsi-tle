@@ -137,14 +137,14 @@ Deux grands protocoles existent :
 
 #### 🔍 **Le segment TCP**
 
-<div style="border:2px solid #4CAF50; border-radius:10px; padding:10px; background-color:#f9fff9;"> 
+|<div style="border:2px solid #4CAF50; border-radius:10px; padding:10px; background-color:#f9fff9;"> 
 Un **segment TCP** correspond à un **sous-message** accompagné d’un **en-tête TCP**.
 Celui-ci contient notamment :
 
 * Le **port source**,
 * Le **port destination**,
 * Le **numéro de séquence**, etc.
-</div>
+</div>|
 
 Grâce à cette structure, la machine réceptrice peut **reconstituer le message original**. 
 
@@ -159,11 +159,12 @@ Grâce à cette structure, la machine réceptrice peut **reconstituer le message
 
 ####  <H4 STYLE="COLOR:MAGENTA;">**2.4.1. 📦 Le protocole IP et le rôle de la couche Internet**</H4>
 
-| La **couche Internet** est responsable de **l’interconnexion entre réseaux**.
+|<div style="border:2px solid #4CAF50; border-radius:10px; padding:10px; background-color:#f9fff9;"> 
+La **couche Internet** est responsable de **l’interconnexion entre réseaux**.
 Elle utilise le **protocole IP (Internet Protocol)** pour acheminer les données jusqu’à leur destinataire.
 
-| Les couches supérieures (TCP, Application) se chargent ensuite de **réordonner** et **interpréter** les messages. |
-| ----------------------------------------------------------------------------------------------------------------- |
+Les couches supérieures (TCP, Application) se chargent ensuite de **réordonner** et **interpréter** les messages. 
+</div>|
 
 ---
 
@@ -191,26 +192,28 @@ Elle utilise le **protocole IP (Internet Protocol)** pour acheminer les données
 
 ## <H4 STYLE="COLOR:MAGENTA;"> 2.4.2. 🧭 Comment savoir si la destination est locale ou extérieure ?</H4>
 
-| **Adresse IP = Adresse réseau + Adresse machine**
+|<div style="border:2px solid #4CAF50; border-radius:10px; padding:10px; background-color:#f9fff9;"> 
+**Adresse IP = Adresse réseau + Adresse machine**
 La couche **RÉSEAU / INTERNET** identifie les machines grâce à l’**adresse IP**.
 Comme il est impossible de connaître toutes les adresses d’Internet, **une IP est découpée en deux parties** :
 
 * une **adresse réseau** (identifie le réseau),
 * une **adresse machine (hôte)** (identifie la machine sur ce réseau).
 
-| Que ce soit en IPv4 ou IPv6, un **mécanisme permet de décider** si la destination est **sur le même réseau** (on reste en local) ou **hors réseau** (on sort via le routeur par défaut). |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+Que ce soit en IPv4 ou IPv6, un **mécanisme permet de décider** si la destination est **sur le même réseau** (on reste en local) ou **hors réseau** (on sort via le routeur par défaut).
+</div>|
 
 ---
 
 ## <H4 STYLE="COLOR:MAGENTA;">2.4.3. 🗂️ Qui attribue les adresses IP ?</H4>
 
-| **Attribution des IP**
+|<div style="border:2px solid #4CAF50; border-radius:10px; padding:10px; background-color:#f9fff9;"> 
+**Attribution des IP**
 Chaque machine se connecte via une **carte réseau** identifiée par une **adresse MAC**.
 La correspondance **IP ↔ MAC** est maintenue via **ARP** (Address Resolution Protocol).
 
-| En pratique, c’est souvent le **serveur DHCP** qui **attribue automatiquement** une IP au poste lorsqu’il rejoint le réseau. |
-| ---------------------------------------------------------------------------------------------------------------------------- |
+En pratique, c’est souvent le **serveur DHCP** qui **attribue automatiquement** une IP au poste lorsqu’il rejoint le réseau. 
+</div>|
 
 ---
 
@@ -252,10 +255,11 @@ broadcast : 172 . 128 .  63 . 255   (192+63=255)
 
 ## <H4 STYLE="COLOR:MAGENTA;">2.4.5. 🔤 DNS (Domain Name System)</H4>
 
-| On ne tape pas les IP dans la vraie vie, on tape des **noms de domaine** (`www.google.fr`).
+|<div style="border:2px solid #4CAF50; border-radius:10px; padding:10px; background-color:#f9fff9;"> 
+On ne tape pas les IP dans la vraie vie, on tape des **noms de domaine** (`www.google.fr`).
 
-| Un **serveur DNS** traduit ce nom en **adresse IP** correspondante. |
-| ------------------------------------------------------------------- |
+Un **serveur DNS** traduit ce nom en **adresse IP** correspondante. 
+</div>|
 
 ---
 
@@ -272,7 +276,7 @@ broadcast : 172 . 128 .  63 . 255   (192+63=255)
   | ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.021.png) |
 
 > On symbolise un paquet IP par un bloc « En-tête IP + Segment ».
-> (Tu gardes tes schémas actuels 👍)
+
 
 ---
 
