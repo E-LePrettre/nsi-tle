@@ -499,7 +499,7 @@ Il permet d’obtenir les valeurs **dans l’ordre croissant**.
 
 
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc149153671"></a>**6. Exercices**</H2>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc149153671"></a>**6. 🔍 Exercices**</H2>
 
 !!! info "🧠 => **CAPYTALE Le code vous sera donné par votre enseignant**"
 
@@ -523,7 +523,7 @@ Il permet d’obtenir les valeurs **dans l’ordre croissant**.
     4. Écrire une fonction nom\_du\_parcours(abr, lst\_triee) prenant en argument un ABR et une liste vide, et ajoutant les clés de l’ABR à la liste dans l’ordre. 
     5. Écrire la fonction tri\_abr(lst) renvoyant une copie triée de la liste lst en utilisant un ABR.
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc149153672"></a>**7. Projet**</H2>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc149153672"></a>**7. 🌿 Projet**</H2>
 
 !!! info "🧠 => **CAPYTALE Le code vous sera donné par votre enseignant**"
 
