@@ -105,14 +105,14 @@ il délègue l’envoi à la **couche Transport**.
 
 ###  <H3 STYLE="COLOR:GREEN;">**2.3. 🚚 La couche Transport**</H3>
 
-<div style="border:2px solid #4CAF50; border-radius:10px; padding:10px; background-color:#f9fff9;"> 
+|<div style="border:2px solid #4CAF50; border-radius:10px; padding:10px; background-color:#f9fff9;"> 
 La **couche Transport** est chargée de **mettre en œuvre le mode de transmission** choisi par la couche Application.
 Deux grands protocoles existent :
 
 * **TCP (Transmission Control Protocol)** : protocole **fiable**, assurant la remise **sans erreur et dans le bon ordre** des données.
 
 * **UDP (User Datagram Protocol)** : protocole **rapide mais non fiable**, utilisé quand la perte de paquets n’est pas critique (ex. streaming, jeux en ligne). 
-</div>
+</div>|
 
 
 #### ⚙️ **Rôle de la couche Transport**
