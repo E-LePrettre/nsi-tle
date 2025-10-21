@@ -509,8 +509,9 @@ La **couche RÉSEAU (IP)** décide **qui** doit gérer le paquet **ensuite** : *
     1) Pour **chaque sous-réseau entre deux routeurs**, donner la **première** et la **dernière** adresse **utilisable**.  
     2) Attribuer aux **interfaces** des routeurs leurs **adresses**.  
     3) Compléter la **table de routage initiale de R1** (avec colonne **Distance**) — **sans** passerelle si réseau directement connecté. 
-    | Destination |	Masque |	Passerelle	| Interface	| Distance |
-    | --- | --- | --- | --- | --- |
+
+    | Destination |	Masque | Passerelle	| Interface	| Distance |
+    | ----------- | ------ | ---------- | --------- | -------- |
  
     4) Même chose pour **R3** puis **R2**.  
     5) **Table de R1** après **échange RIP** avec **R3**.  
@@ -586,7 +587,7 @@ La **couche RÉSEAU (IP)** décide **qui** doit gérer le paquet **ensuite** : *
 
         6) **R1** après échange RIP **avec R2**
 
-        (s’ajout de ce que R2 connaît directement)
+        (ajout de ce que R2 connaît directement)
 
         | Destination | Masque        |                            Passerelle | Distance |
         | ----------- | ------------- | ------------------------------------: | -------: |
@@ -614,7 +615,7 @@ La **couche RÉSEAU (IP)** décide **qui** doit gérer le paquet **ensuite** : *
         | 70.0.0.0    | 255.0.0.0     |                     **10.0.0.2** |    **1** | Via R3→R5                                                            |
         | 192.168.2.0 | 255.255.255.0 |                     **10.0.0.2** |    **2** | Meilleur chemin : R1→R3→R5 (2 sauts) ; l’autre (R1→R2→R4→R5) coûte 3 |
 
-        > Si vous souhaitez n’afficher **qu’une** route quand il y a égalité (ECMP non activé), conservez la première apprise (souvent via R3 pour 30/8) — le résultat reste correct fonctionnellement.
+
 
         8) Chemin des paquets **PC1 → PC2**
 
