@@ -99,8 +99,8 @@ il délègue l’envoi à la **couche Transport**.
 Deux grands protocoles existent :
 
 * **TCP (Transmission Control Protocol)** : protocole **fiable**, assurant la remise **sans erreur et dans le bon ordre** des données.
-* **UDP (User Datagram Protocol)** : protocole **rapide mais non fiable**, utilisé quand la perte de paquets n’est pas critique (ex. streaming, jeux en ligne). |
-  | --- |
+
+* **UDP (User Datagram Protocol)** : protocole **rapide mais non fiable**, utilisé quand la perte de paquets n’est pas critique (ex. streaming, jeux en ligne). 
 
 ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.006.png){: .center}
 
