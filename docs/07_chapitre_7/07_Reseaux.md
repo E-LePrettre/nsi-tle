@@ -850,15 +850,15 @@ On souhaite aller de la ville A à la ville G en empruntant le plus court chemin
 ???+ question "🧭 **Activité n° 13 : Plus court chemin E → F**"
 
 
-  Sur le graphe fourni, **donner le plus court chemin de E à F**.
+    Sur le graphe fourni, **donner le plus court chemin de E à F**.
 
-  ![image](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.046.png){: .center}
+    ![image](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.046.png){: .center}
 
-  ??? success "❇️ Solution :"
-      En suivant la logique de Dijkstra (ou en testant les chemins raisonnables) :
-      - Exemple de route typique : **E → D → B → A → C → F** (selon les coûts fournis dans l’énoncé/référence).  
-      - **À l’évaluation**, le chemin minimal dépend **strictement** des **pondérations exactes** de ton graphe.  
-      👉 Pour ton sujet, applique Dijkstra et additionne les coûts affichés sur **chaque arête** ; choisis la somme **minimale** (et donne la **suite de sommets** correspondante).
+    ??? success "❇️ Solution :"
+        En suivant la logique de Dijkstra (ou en testant les chemins raisonnables) :
+        - Exemple de route typique : **E → D → B → A → C → F** (selon les coûts fournis dans l’énoncé/référence).  
+        - **À l’évaluation**, le chemin minimal dépend **strictement** des **pondérations exactes** de ton graphe.  
+        👉 Pour ton sujet, applique Dijkstra et additionne les coûts affichés sur **chaque arête** ; choisis la somme **minimale** (et donne la **suite de sommets** correspondante).
 
 
 ---
@@ -871,152 +871,152 @@ On souhaite aller de la ville A à la ville G en empruntant le plus court chemin
 
 !!! abstract "**Exercice n°1 : Protocole RIP**"
 
-  ![](A1.png){: .center}
+    ![](A1.png){: .center}
 
-  1\. Établir la table de routage du routeur A en vous basant sur le protocole RIP (métrique = nombre de sauts).
+    1\. Établir la table de routage du routeur A en vous basant sur le protocole RIP (métrique = nombre de sauts).
 
-  |**Destination**|**Masque**|**Passerelle**|**Interface**|**Distance**|
-  | :- | :- | :- | :- | :- |
-  ||||||
+    |**Destination**|**Masque**|**Passerelle**|**Interface**|**Distance**|
+    | :- | :- | :- | :- | :- |
+    ||||||
 
-  2\. Quel est, d’après la table de routage construite ci-dessus, le chemin qui sera emprunté par un paquet pour aller d’une machine ayant pour adresse IP 172.18.1.1/16 à une machine ayant pour adresse IP 172.16.5.3/16?
+    2\. Quel est, d’après la table de routage construite ci-dessus, le chemin qui sera emprunté par un paquet pour aller d’une machine ayant pour adresse IP 172.18.1.1/16 à une machine ayant pour adresse IP 172.16.5.3/16?
 
 !!! abstract "**Exercice n°2 : Protocole OSPF**"
 
-  1\. Calculer les coûts des routes suivantes :
+    1\. Calculer les coûts des routes suivantes :
 
-  |Route|1|2|3|4|5|6|7|8|
-  | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-  |Débit|50 kbps|100 kbps|500 kbps|1 Mbps|10 Mbps|100 Mbps|1 Gbps|10 Gbps|
-  |Coût|||||||1<sup>(\*)</sup>|1<sup>(\*)</sup>|
+    |Route|1|2|3|4|5|6|7|8|
+    | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+    |Débit|50 kbps|100 kbps|500 kbps|1 Mbps|10 Mbps|100 Mbps|1 Gbps|10 Gbps|
+    |Coût|||||||1<sup>(\*)</sup>|1<sup>(\*)</sup>|
 
-  (\*) Le coût ne peut être qu’un nombre entier. Fast Ethernet (100Mbps), Gigabit et 10 Gigas, partagent le même coût.
+    (\*) Le coût ne peut être qu’un nombre entier. Fast Ethernet (100Mbps), Gigabit et 10 Gigas, partagent le même coût.
 
-  2\. Soit le réseau suivant :
+    2\. Soit le réseau suivant :
 
-  ![](A1.png){: .center}
+    ![](A1.png){: .center}
 
-  On donne les débits suivants :
+    On donne les débits suivants :
 
-  - Liaison routeur A - routeur B : 1 Mbps.
-  - Liaison routeur A - routeur C : 10 Mbps.
-  - Liaison routeur C - routeur B : 10 Mbps.
+    - Liaison routeur A - routeur B : 1 Mbps.
+    - Liaison routeur A - routeur C : 10 Mbps.
+    - Liaison routeur C - routeur B : 10 Mbps.
 
-  En vous basant sur le protocole OSPF (métrique = somme des coûts), **déterminer** la table de routage du routeur A
+    En vous basant sur le protocole OSPF (métrique = somme des coûts), **déterminer** la table de routage du routeur A
 
-  |**Réseau**|**Métrique**|
-  | :-: | :-: |
-  |**172.18.0.0/16**||
-  |**192.168.1.0/24**||
-  |**192.168.2.0/24**||
-  |||
-  |||
-  |||
-  |||
+    |**Réseau**|**Métrique**|
+    | :-: | :-: |
+    |**172.18.0.0/16**||
+    |**192.168.1.0/24**||
+    |**192.168.2.0/24**||
+    |||
+    |||
+    |||
+    |||
 
-  3\. Quel est, d'après la table de routage construite ci-dessus, le chemin qui sera emprunté par un paquet pour aller d'une machine ayant pour adresse IP 172.18.2.4/16 à une machine ayant pour adresse IP 172.16.1.5/16 ? Préciser la métrique.
+    3\. Quel est, d'après la table de routage construite ci-dessus, le chemin qui sera emprunté par un paquet pour aller d'une machine ayant pour adresse IP 172.18.2.4/16 à une machine ayant pour adresse IP 172.16.1.5/16 ? Préciser la métrique.
 
 !!! abstract "**Exercice n°3 : Masque réseau**"
 
-  Trois machines ont respectivement pour adresses IP 90.8.220.5, 90.8.220.33 et 90.8.220.29. Est-ce que ces machines appartiennent toutes les trois au réseau 90.8.220.0/27?
+    Trois machines ont respectivement pour adresses IP 90.8.220.5, 90.8.220.33 et 90.8.220.29. Est-ce que ces machines appartiennent toutes les trois au réseau 90.8.220.0/27?
 
-  Sinon combien de routeurs sont nécessaires pour faire communiquer ces machines ? Quelles sont les adresses de leurs cartes réseau (interfaces)?
+    Sinon combien de routeurs sont nécessaires pour faire communiquer ces machines ? Quelles sont les adresses de leurs cartes réseau (interfaces)?
 
 !!! abstract "**Exercice n°4 : Table de routage**"
 
-  Une machine M1 a pour adresse IP 192.168.1.12 et elle se trouve dans un réseau d’adresses 192.168.1.0/24. Elle est reliée à un routeur qui possède deux interfaces réseau qui ont pour adresses respectives 192.168.1.1/24 et 172.20.121.1/24. Une seconde machine M2 a pour adresse IP 172.20.121.17 et se trouve dans le réseau d'adresses 172.20.121.0/24, reliée au routeur. 
+    Une machine M1 a pour adresse IP 192.168.1.12 et elle se trouve dans un réseau d’adresses 192.168.1.0/24. Elle est reliée à un routeur qui possède deux interfaces réseau qui ont pour adresses respectives 192.168.1.1/24 et 172.20.121.1/24. Une seconde machine M2 a pour adresse IP 172.20.121.17 et se trouve dans le réseau d'adresses 172.20.121.0/24, reliée au routeur. 
 
-  1\. Compléter la table de routage de ce routeur.
+    1\. Compléter la table de routage de ce routeur.
 
-  |Adresse|Masque|Passerelle|Interface|
-  | :-: | :-: | :-: | :-: |
-  |192.168.1.0||||
-  |172.20.121.0||||
-  |||||
+    |Adresse|Masque|Passerelle|Interface|
+    | :-: | :-: | :-: | :-: |
+    |192.168.1.0||||
+    |172.20.121.0||||
+    |||||
 
-  2\. Compléter la table de routage de la machine M1.
+    2\. Compléter la table de routage de la machine M1.
 
-  |Adresse|Masque|Passerelle|Interface|
-  | :-: | :-: | :-: | :-: |
-  |192.168.1.0||||
-  |0.0.0.0||||
-  |||||
+    |Adresse|Masque|Passerelle|Interface|
+    | :-: | :-: | :-: | :-: |
+    |192.168.1.0||||
+    |0.0.0.0||||
+    |||||
 
-  3\. Compléter la table de routage de la machine M2. 
+    3\. Compléter la table de routage de la machine M2. 
 
-  |Adresse|Masque|Passerelle|Interface|
-  | :-: | :-: | :-: | :-: |
-  |172.20.121.0||||
-  |0.0.0.0||||
-  |||||
+    |Adresse|Masque|Passerelle|Interface|
+    | :-: | :-: | :-: | :-: |
+    |172.20.121.0||||
+    |0.0.0.0||||
+    |||||
 
 !!! abstract "**Exercice n°5 : Protocoles RIP**"
 
-  Considérons le réseau suivant, pour lequel on admettra la norme suivante :
+    Considérons le réseau suivant, pour lequel on admettra la norme suivante :
 
-  - Le poste client et le poste serveur se voient attribués respectivement la première adresse de la plage de leur réseau (soit respectivement 192.168.1.1 et 172.16.180.1).
-  - Les routeurs d'accès R1 et R6 ont sur leur interface réseau les dernières adresses IP de la plage de leur réseau (soit respectivement 192.168.1.254 et 172.16.180.254).
-  - Entre deux interfaces internes, le routeur de plus bas indice possède la première adresse et le routeur de dernier indice la seconde adresse : par exemple entre R2 et R5, les interfaces sont connectées par le réseau 10.1.4.0/30, donc l'interface de R2 est 10.1.4.1 et celle de R5 est 10.1.4.2.
-  - Tous les routeurs suivent le protocole RIP.
+    - Le poste client et le poste serveur se voient attribués respectivement la première adresse de la plage de leur réseau (soit respectivement 192.168.1.1 et 172.16.180.1).
+    - Les routeurs d'accès R1 et R6 ont sur leur interface réseau les dernières adresses IP de la plage de leur réseau (soit respectivement 192.168.1.254 et 172.16.180.254).
+    - Entre deux interfaces internes, le routeur de plus bas indice possède la première adresse et le routeur de dernier indice la seconde adresse : par exemple entre R2 et R5, les interfaces sont connectées par le réseau 10.1.4.0/30, donc l'interface de R2 est 10.1.4.1 et celle de R5 est 10.1.4.2.
+    - Tous les routeurs suivent le protocole RIP.
 
-  ![](A2..png){: .center}
+    ![](A2..png){: .center}
 
-  Attribuer les bonnes adresses IP aux interfaces des différents routeurs.
+    Attribuer les bonnes adresses IP aux interfaces des différents routeurs.
 
-  Déterminer les tables de routage de R1, R2 et R3.
+    Déterminer les tables de routage de R1, R2 et R3.
 
 !!! abstract "**Exercice n°6 : Protocole OSPF**"
 
-  ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.056.png){: .center}
+    ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.056.png){: .center}
 
-  1\.	Un hôte du nœud K envoie un paquet à destination du nœud J, à l’adresse 5.12.85.26. Quelle va être la route suivie par ce paquet?
+    1\.	Un hôte du nœud K envoie un paquet à destination du nœud J, à l’adresse 5.12.85.26. Quelle va être la route suivie par ce paquet?
 
-  a)	Avec le protocole RIP?
+    a)	Avec le protocole RIP?
 
-  b)	Avec le protocole OSPF?
+    b)	Avec le protocole OSPF?
 
-  2\.	Un hôte du nœud A envoie un paquet à destination du nœud J, à l’adresse 5.12.85.26. Quelle va être la route suivie par ce paquet avec le protocole OSPF?
+    2\.	Un hôte du nœud A envoie un paquet à destination du nœud J, à l’adresse 5.12.85.26. Quelle va être la route suivie par ce paquet avec le protocole OSPF?
 
-  3\. On admet que tous les sous-réseaux ont pour masques 255.255.255.0. Déterminer la table de routage du routeur A avec le protocole OSPF en lettre (Compléter le tableau suivant)
+    3\. On admet que tous les sous-réseaux ont pour masques 255.255.255.0. Déterminer la table de routage du routeur A avec le protocole OSPF en lettre (Compléter le tableau suivant)
 
-  Destination	Passerelle	Métrique
+    Destination	Passerelle	Métrique
 
-  4\. Déterminer la table de routage du routeur A avec le protocole OSPF en IP
+    4\. Déterminer la table de routage du routeur A avec le protocole OSPF en IP
 
-  IP destination	   Masque	        Passerelle	        Interface	        Métrique
+    IP destination	   Masque	        Passerelle	        Interface	        Métrique
 
 !!! abstract "**Exercice n°7 : Réseaux**"
 
-  Un réseau est constitué de 6 routeurs R1 à R6 dont on donne des tables de routage simplifiées. Les réseaux ont tous pour masque 255.255.255.0. La colonne M est la métrique utilisée.
+    Un réseau est constitué de 6 routeurs R1 à R6 dont on donne des tables de routage simplifiées. Les réseaux ont tous pour masque 255.255.255.0. La colonne M est la métrique utilisée.
 
-  ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.057.png){: .center}
+    ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.057.png){: .center}
 
-  ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.058.png){: .center}
+    ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.058.png){: .center}
 
-  ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.059.png){: .center}
+    ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.059.png){: .center}
 
-  1\.	Indiquer la route décrite par un paquet envoyé du routeur R1 au routeur R6.
+    1\.	Indiquer la route décrite par un paquet envoyé du routeur R1 au routeur R6.
 
-  2\.	Indiquer la route décrite par un paquet envoyé du routeur R2 au routeur R3.
+    2\.	Indiquer la route décrite par un paquet envoyé du routeur R2 au routeur R3.
 
-  3\.	Représenter ce réseau sous forme de graphe.
+    3\.	Représenter ce réseau sous forme de graphe.
 
 !!! abstract "**Exercice n°8 : Adressage IP**"
 
-  1\. L’adresse IPv4 d’un réseau est 192.168.56.0/24. Combien de bits sont-ils dédiés à la partie réseau? Combien de machines peut-on incorporer à ce réseau?
+    1\. L’adresse IPv4 d’un réseau est 192.168.56.0/24. Combien de bits sont-ils dédiés à la partie réseau? Combien de machines peut-on incorporer à ce réseau?
 
-  2\. Quel est le masque de réseau de l’adresse de la question 1?
+    2\. Quel est le masque de réseau de l’adresse de la question 1?
 
-  3\. Quelle est la première adresse utilisable sur le réseau de la question 1? La dernière?
+    3\. Quelle est la première adresse utilisable sur le réseau de la question 1? La dernière?
 
-  4\. Écrire l’adresse IPv4 222.1.1.20, de masque 255.255.255.192 en notation CIDR (c'est à dire en /x).
+    4\. Écrire l’adresse IPv4 222.1.1.20, de masque 255.255.255.192 en notation CIDR (c'est à dire en /x).
 
-  5\. Écrire l’adresse IPv4 135.1.1.25, de masque 255.255.248.0 en notation CIDR (c'est à dire en /x)****.
+    5\. Écrire l’adresse IPv4 135.1.1.25, de masque 255.255.248.0 en notation CIDR (c'est à dire en /x)****.
 
-  6\. Sur un ordinateur dont le système d’exploitation est Linux, la commande `ifconfig` retourne l’adresse IPv4 172.16.20.234 et le masque 255.255.0.0. Quelle est l’adresse réseau du réseau auquel cet ordinateur appartient?
+    6\. Sur un ordinateur dont le système d’exploitation est Linux, la commande `ifconfig` retourne l’adresse IPv4 172.16.20.234 et le masque 255.255.0.0. Quelle est l’adresse réseau du réseau auquel cet ordinateur appartient?
 
-  7\. Combien d’ordinateurs peut-on incorporer au réseau de la question précédente?
+    7\. Combien d’ordinateurs peut-on incorporer au réseau de la question précédente?
 
-  8\. L’adresse IPv4 d’un ordinateur est 172.16.20.234/22. Combien d’ordinateurs peut-on incorporer à ce réseau?
+    8\. L’adresse IPv4 d’un ordinateur est 172.16.20.234/22. Combien d’ordinateurs peut-on incorporer à ce réseau?
 
-  9\. Quelle est la première adresse utilisable sur le réseau de la question précédente? La dernière?
+    9\. Quelle est la première adresse utilisable sur le réseau de la question précédente? La dernière?
