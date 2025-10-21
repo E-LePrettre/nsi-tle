@@ -770,7 +770,7 @@ D'où
 
     ??? success "❇️ Solution :"
         On inverse la formule :  
-        $\\text{débit}$= $\dfrac{10^8}{\text{coût}}$ = $\dfrac{10^8}{50}$ = $2 000 000$  $\text{b/s}$ =  **2 Mbit/s**.
+        $\text{débit}$= $\dfrac{10^8}{\text{coût}}$ = $\dfrac{10^8}{50}$ = $2 000 000$  $\text{b/s}$ =  **2 Mbit/s**.
 
 
 ---
