@@ -503,66 +503,66 @@ La **couche RÉSEAU (IP)** décide **qui** doit gérer le paquet **ensuite** : *
 ---
 
 ???+ question "🚦 **Activité n° 6 — Routage RIP**"
-  ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.038.png){: .center}
+    ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.038.png){: .center}
 
 
-  1) Pour **chaque sous-réseau entre deux routeurs**, donner la **première** et la **dernière** adresse **utilisable**.  
-  2) Attribuer aux **interfaces** des routeurs leurs **adresses**.  
-  3) Compléter la **table de routage initiale de R1** (avec colonne **Distance**) — **sans** passerelle si réseau directement connecté.  
-  4) Même chose pour **R3** puis **R2**.  
-  5) **Table de R1** après **échange RIP** avec **R3**.  
-  6) **Table de R1** après échange avec **R2**.  
-  7) **Table finale** de **R1** (après convergence).  
-  8) Quel **chemin** suivront les paquets entre **PC1** et **PC2** ?
+    1) Pour **chaque sous-réseau entre deux routeurs**, donner la **première** et la **dernière** adresse **utilisable**.  
+    2) Attribuer aux **interfaces** des routeurs leurs **adresses**.  
+    3) Compléter la **table de routage initiale de R1** (avec colonne **Distance**) — **sans** passerelle si réseau directement connecté.  
+    4) Même chose pour **R3** puis **R2**.  
+    5) **Table de R1** après **échange RIP** avec **R3**.  
+    6) **Table de R1** après échange avec **R2**.  
+    7) **Table finale** de **R1** (après convergence).  
+    8) Quel **chemin** suivront les paquets entre **PC1** et **PC2** ?
 
-  ??? success "❇️ Solution (méthode & trame de réponse — à compléter selon le schéma fourni)"
-      **Étape A — Bornes d’adressage (par lien)**
-      - Pour chaque lien R•↔R• (ou R•↔LAN), relever le **préfixe** (ex. /30, /29, /24…).  
-      - **Première adresse utilisable** = **adresse réseau + 1**.  
-      - **Dernière adresse utilisable** = **broadcast − 1** (en IPv4).
+    ??? success "❇️ Solution (méthode & trame de réponse — à compléter selon le schéma fourni)"
+        **Étape A — Bornes d’adressage (par lien)**
+        - Pour chaque lien R•↔R• (ou R•↔LAN), relever le **préfixe** (ex. /30, /29, /24…).  
+        - **Première adresse utilisable** = **adresse réseau + 1**.  
+        - **Dernière adresse utilisable** = **broadcast − 1** (en IPv4).
 
-      **Étape B — Adressage des interfaces**
-      - Noter pour chaque routeur **l’IP de chaque interface** (dans le bon sous-réseau).  
-      - Exemple (format) :  
-        - **R1–IF_A** : 10.0.5.152/24  
-        - **R1–IF_E** : 172.17.1.254/24  
-        - **R1–IF_F** : 192.168.0.254/24  
-        *(Adresses exactes à lire sur le schéma.)*
+        **Étape B — Adressage des interfaces**
+        - Noter pour chaque routeur **l’IP de chaque interface** (dans le bon sous-réseau).  
+        - Exemple (format) :  
+          - **R1–IF_A** : 10.0.5.152/24  
+          - **R1–IF_E** : 172.17.1.254/24  
+          - **R1–IF_F** : 192.168.0.254/24  
+          *(Adresses exactes à lire sur le schéma.)*
 
-      **Étape C — Tables initiales (R1, R2, R3)**
-      - **Seuls** les réseaux **directement connectés** avec **Distance = 1**.  
-      - **Passerelle** vide (—) si réseau directement connecté.  
-      - **Interface** = celle par laquelle on sort.
+        **Étape C — Tables initiales (R1, R2, R3)**
+        - **Seuls** les réseaux **directement connectés** avec **Distance = 1**.  
+        - **Passerelle** vide (—) si réseau directement connecté.  
+        - **Interface** = celle par laquelle on sort.
 
-      **Modèle de tableau (R1 init)**  
-      | Destination | Masque      | Passerelle | Interface      | Distance |
-      | - | - | - | - | - |
-      | F (192.168.0.0) | 255.255.255.0 | — | 192.168.0.254 | 1 |
-      | A (10.0.5.0)    | 255.255.255.0 | — | 10.0.5.152    | 1 |
-      | E (172.17.1.0)  | 255.255.255.0 | — | 172.17.1.254  | 1 |
+        **Modèle de tableau (R1 init)**  
+        | Destination | Masque      | Passerelle | Interface      | Distance |
+        | - | - | - | - | - |
+        | F (192.168.0.0) | 255.255.255.0 | — | 192.168.0.254 | 1 |
+        | A (10.0.5.0)    | 255.255.255.0 | — | 10.0.5.152    | 1 |
+        | E (172.17.1.0)  | 255.255.255.0 | — | 172.17.1.254  | 1 |
 
-      *(Adapter aux préfixes exacts de ton schéma.)*
+        *(Adapter aux préfixes exacts de ton schéma.)*
 
-      **Étape D — Échange RIP (R1 ↔ R3), puis (R1 ↔ R2)**
-      - À **chaque route reçue** d’un voisin **V** vers un réseau **X** avec **distance d**,  
-        → **candidat** = (X, distance = **d+1**, passerelle = **IP de V**, interface = **IF vers V**).  
-      - **Si X absent** de la table → **ajouter** le candidat.  
-      - **Si X présent** mais **distance meilleure** → **remplacer**.  
-      - **Si X présent** mais **distance moins bonne** → **ignorer** (sauf si même voisin et métrique mise à jour → **actualiser**).
+        **Étape D — Échange RIP (R1 ↔ R3), puis (R1 ↔ R2)**
+        - À **chaque route reçue** d’un voisin **V** vers un réseau **X** avec **distance d**,  
+          → **candidat** = (X, distance = **d+1**, passerelle = **IP de V**, interface = **IF vers V**).  
+        - **Si X absent** de la table → **ajouter** le candidat.  
+        - **Si X présent** mais **distance meilleure** → **remplacer**.  
+        - **Si X présent** mais **distance moins bonne** → **ignorer** (sauf si même voisin et métrique mise à jour → **actualiser**).
 
-      **Étape E — Table finale de R1**
-      - Après les deux échanges (et convergence), R1 doit lister :  
-        - **ses réseaux directs** (distance 1, passerelle —),  
-        - **les réseaux atteignables via R3** (passerelle = IP de R3, distance calculée),  
-        - **les réseaux atteignables via R2** (passerelle = IP de R2, distance calculée).  
+        **Étape E — Table finale de R1**
+        - Après les deux échanges (et convergence), R1 doit lister :  
+          - **ses réseaux directs** (distance 1, passerelle —),  
+          - **les réseaux atteignables via R3** (passerelle = IP de R3, distance calculée),  
+          - **les réseaux atteignables via R2** (passerelle = IP de R2, distance calculée).  
 
-      **Étape F — Chemin PC1 → PC2**
-      - Partir du **LAN de PC1** → **passerelle par défaut** (routeur local).  
-      - Suivre la table de R1 (puis R2/R3) **vers le réseau de PC2**.  
-      - **Donner la séquence de routeurs** (ex. R1 → R3 → …) selon les passerelles choisies en table finale.
+        **Étape F — Chemin PC1 → PC2**
+        - Partir du **LAN de PC1** → **passerelle par défaut** (routeur local).  
+        - Suivre la table de R1 (puis R2/R3) **vers le réseau de PC2**.  
+        - **Donner la séquence de routeurs** (ex. R1 → R3 → …) selon les passerelles choisies en table finale.
 
-      > 💡 **Astuce** : pour chaque ajout via RIP, **note explicitement** « +1 » sur la distance reçue.  
-      > **Rappel** : en RIP, **distance max = 15**, **16 = infini**.
+        > 💡 **Astuce** : pour chaque ajout via RIP, **note explicitement** « +1 » sur la distance reçue.  
+        > **Rappel** : en RIP, **distance max = 15**, **16 = infini**.
 
 
 ---
