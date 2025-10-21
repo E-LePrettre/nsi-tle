@@ -518,108 +518,108 @@ La **couche RÉSEAU (IP)** décide **qui** doit gérer le paquet **ensuite** : *
     7) **Table finale** de **R1** (après convergence).  
     8) Quel **chemin** suivront les paquets entre **PC1** et **PC2** ?
 
-    ??? success "❇️ Solution (méthode & trame de réponse — à compléter selon le schéma fourni)"
-      1) Première et dernière adresse utilisable (pour chaque lien inter-routeurs)
+    ??? success "❇️ Solution"
+        1) Première et dernière adresse utilisable (pour chaque lien inter-routeurs)
 
-      * **10.0.0.0/8** : 1ʳᵉ **10.0.0.1** – dernière **10.255.255.254**
-      * **20.0.0.0/8** : 1ʳᵉ **20.0.0.1** – dernière **20.255.255.254**
-      * **30.0.0.0/8** : 1ʳᵉ **30.0.0.1** – dernière **30.255.255.254**
-      * **40.0.0.0/8** : 1ʳᵉ **40.0.0.1** – dernière **40.255.255.254**
-      * **50.0.0.0/8** : 1ʳᵉ **50.0.0.1** – dernière **50.255.255.254**
-      * **60.0.0.0/8** : 1ʳᵉ **60.0.0.1** – dernière **60.255.255.254**
-      * **70.0.0.0/8** : 1ʳᵉ **70.0.0.1** – dernière **70.255.255.254**
+        * **10.0.0.0/8** : 1ʳᵉ **10.0.0.1** – dernière **10.255.255.254**
+        * **20.0.0.0/8** : 1ʳᵉ **20.0.0.1** – dernière **20.255.255.254**
+        * **30.0.0.0/8** : 1ʳᵉ **30.0.0.1** – dernière **30.255.255.254**
+        * **40.0.0.0/8** : 1ʳᵉ **40.0.0.1** – dernière **40.255.255.254**
+        * **50.0.0.0/8** : 1ʳᵉ **50.0.0.1** – dernière **50.255.255.254**
+        * **60.0.0.0/8** : 1ʳᵉ **60.0.0.1** – dernière **60.255.255.254**
+        * **70.0.0.0/8** : 1ʳᵉ **70.0.0.1** – dernière **70.255.255.254**
 
-      2) Adresses de chaque interface routeur (proposition cohérente)
+        2) Adresses de chaque interface routeur (proposition cohérente)
 
-      * **R1 – R3 (10/8)** : R1 = **10.0.0.1/8**, R3 = **10.0.0.2/8**
-      * **R1 – R2 (20/8)** : R1 = **20.0.0.1/8**, R2 = **20.0.0.2/8**
-      * **R3 – R2 (30/8)** : R3 = **30.0.0.1/8**, R2 = **30.0.0.2/8**
-      * **R2 – R4 (40/8)** : R2 = **40.0.0.1/8**, R4 = **40.0.0.2/8**
-      * **R3 – R4 (50/8)** : R3 = **50.0.0.1/8**, R4 = **50.0.0.2/8**
-      * **R4 – R5 (60/8)** : R4 = **60.0.0.1/8**, R5 = **60.0.0.2/8**
-      * **R3 – R5 (70/8)** : R3 = **70.0.0.1/8**, R5 = **70.0.0.2/8**
-      * **LAN PC1** : R1-Fa0 = **192.168.1.254/24**
-      * **LAN PC2** : R5-Fa3 = **192.168.2.254/24**
+        * **R1 – R3 (10/8)** : R1 = **10.0.0.1/8**, R3 = **10.0.0.2/8**
+        * **R1 – R2 (20/8)** : R1 = **20.0.0.1/8**, R2 = **20.0.0.2/8**
+        * **R3 – R2 (30/8)** : R3 = **30.0.0.1/8**, R2 = **30.0.0.2/8**
+        * **R2 – R4 (40/8)** : R2 = **40.0.0.1/8**, R4 = **40.0.0.2/8**
+        * **R3 – R4 (50/8)** : R3 = **50.0.0.1/8**, R4 = **50.0.0.2/8**
+        * **R4 – R5 (60/8)** : R4 = **60.0.0.1/8**, R5 = **60.0.0.2/8**
+        * **R3 – R5 (70/8)** : R3 = **70.0.0.1/8**, R5 = **70.0.0.2/8**
+        * **LAN PC1** : R1-Fa0 = **192.168.1.254/24**
+        * **LAN PC2** : R5-Fa3 = **192.168.2.254/24**
 
-      > Convention RIP : distance (= métrique) 0 pour les réseaux directement connectés ; +1 par saut sinon.
-      > Dans les tables ci-dessous, « Passerelle » = next-hop. Pour les réseaux connectés, on laisse vide.
+        > Convention RIP : distance (= métrique) 0 pour les réseaux directement connectés ; +1 par saut sinon.
+        > Dans les tables ci-dessous, « Passerelle » = next-hop. Pour les réseaux connectés, on laisse vide.
 
-      3) Table de routage initiale de **R1**
+        3) Table de routage initiale de **R1**
 
-      | Destination | Masque        | Passerelle | Distance |
-      | ----------- | ------------- | ---------: | -------: |
-      | 192.168.1.0 | 255.255.255.0 |            |        0 |
-      | 10.0.0.0    | 255.0.0.0     |            |        0 |
-      | 20.0.0.0    | 255.0.0.0     |            |        0 |
+        | Destination | Masque        | Passerelle | Distance |
+        | ----------- | ------------- | ---------: | -------: |
+        | 192.168.1.0 | 255.255.255.0 |            |        0 |
+        | 10.0.0.0    | 255.0.0.0     |            |        0 |
+        | 20.0.0.0    | 255.0.0.0     |            |        0 |
 
-      4) Tables initiales **R3** puis **R2**
+        4) Tables initiales **R3** puis **R2**
 
-      **R3**
+        **R3**
 
-      | Destination | Masque    | Passerelle | Distance |
-      | ----------- | --------- | ---------: | -------: |
-      | 10.0.0.0    | 255.0.0.0 |            |        0 |
-      | 30.0.0.0    | 255.0.0.0 |            |        0 |
-      | 50.0.0.0    | 255.0.0.0 |            |        0 |
-      | 70.0.0.0    | 255.0.0.0 |            |        0 |
+        | Destination | Masque    | Passerelle | Distance |
+        | ----------- | --------- | ---------: | -------: |
+        | 10.0.0.0    | 255.0.0.0 |            |        0 |
+        | 30.0.0.0    | 255.0.0.0 |            |        0 |
+        | 50.0.0.0    | 255.0.0.0 |            |        0 |
+        | 70.0.0.0    | 255.0.0.0 |            |        0 |
 
-      **R2**
+        **R2**
 
-      | Destination | Masque    | Passerelle | Distance |
-      | ----------- | --------- | ---------: | -------: |
-      | 20.0.0.0    | 255.0.0.0 |            |        0 |
-      | 30.0.0.0    | 255.0.0.0 |            |        0 |
-      | 40.0.0.0    | 255.0.0.0 |            |        0 |
+        | Destination | Masque    | Passerelle | Distance |
+        | ----------- | --------- | ---------: | -------: |
+        | 20.0.0.0    | 255.0.0.0 |            |        0 |
+        | 30.0.0.0    | 255.0.0.0 |            |        0 |
+        | 40.0.0.0    | 255.0.0.0 |            |        0 |
 
-      5) **R1** après échange RIP **avec R3 seulement**
+        5) **R1** après échange RIP **avec R3 seulement**
 
-      (s’ajout de ce que R3 connaît directement)
+        (s’ajout de ce que R3 connaît directement)
 
-      | Destination | Masque        |   Passerelle | Distance |
-      | ----------- | ------------- | -----------: | -------: |
-      | 192.168.1.0 | 255.255.255.0 |              |        0 |
-      | 10.0.0.0    | 255.0.0.0     |              |        0 |
-      | 20.0.0.0    | 255.0.0.0     |              |        0 |
-      | 30.0.0.0    | 255.0.0.0     | **10.0.0.2** |        1 |
-      | 50.0.0.0    | 255.0.0.0     | **10.0.0.2** |        1 |
-      | 70.0.0.0    | 255.0.0.0     | **10.0.0.2** |        1 |
+        | Destination | Masque        |   Passerelle | Distance |
+        | ----------- | ------------- | -----------: | -------: |
+        | 192.168.1.0 | 255.255.255.0 |              |        0 |
+        | 10.0.0.0    | 255.0.0.0     |              |        0 |
+        | 20.0.0.0    | 255.0.0.0     |              |        0 |
+        | 30.0.0.0    | 255.0.0.0     | **10.0.0.2** |        1 |
+        | 50.0.0.0    | 255.0.0.0     | **10.0.0.2** |        1 |
+        | 70.0.0.0    | 255.0.0.0     | **10.0.0.2** |        1 |
 
-      6) **R1** après échange RIP **avec R2**
+        6) **R1** après échange RIP **avec R2**
 
-      (s’ajout de ce que R2 connaît directement)
+        (s’ajout de ce que R2 connaît directement)
 
-      | Destination | Masque        |                            Passerelle | Distance |
-      | ----------- | ------------- | ------------------------------------: | -------: |
-      | 192.168.1.0 | 255.255.255.0 |                                       |        0 |
-      | 10.0.0.0    | 255.0.0.0     |                                       |        0 |
-      | 20.0.0.0    | 255.0.0.0     |                                       |        0 |
-      | 30.0.0.0    | 255.0.0.0     | **20.0.0.2** *(= ECMP avec 10.0.0.2)* |        1 |
-      | 40.0.0.0    | 255.0.0.0     |                          **20.0.0.2** |        1 |
-      | 50.0.0.0    | 255.0.0.0     |                          **10.0.0.2** |        1 |
-      | 70.0.0.0    | 255.0.0.0     |                          **10.0.0.2** |        1 |
+        | Destination | Masque        |                            Passerelle | Distance |
+        | ----------- | ------------- | ------------------------------------: | -------: |
+        | 192.168.1.0 | 255.255.255.0 |                                       |        0 |
+        | 10.0.0.0    | 255.0.0.0     |                                       |        0 |
+        | 20.0.0.0    | 255.0.0.0     |                                       |        0 |
+        | 30.0.0.0    | 255.0.0.0     | **20.0.0.2** *(= ECMP avec 10.0.0.2)* |        1 |
+        | 40.0.0.0    | 255.0.0.0     |                          **20.0.0.2** |        1 |
+        | 50.0.0.0    | 255.0.0.0     |                          **10.0.0.2** |        1 |
+        | 70.0.0.0    | 255.0.0.0     |                          **10.0.0.2** |        1 |
 
-      7) **Table finale de R1 (après convergence complète)**
+        7) **Table finale de R1 (après convergence complète)**
 
-      (Avec R4 et R5 appris via R2/R3. On note les égalités de coût si votre RIP accepte l’ECMP.)
+        (Avec R4 et R5 appris via R2/R3. On note les égalités de coût si votre RIP accepte l’ECMP.)
 
-      | Destination | Masque        |                       Passerelle | Distance | Remarque                                                             |
-      | ----------- | ------------- | -------------------------------: | -------: | -------------------------------------------------------------------- |
-      | 192.168.1.0 | 255.255.255.0 |                                  |    **0** | LAN local PC1                                                        |
-      | 10.0.0.0    | 255.0.0.0     |                                  |    **0** | Lien R1–R3                                                           |
-      | 20.0.0.0    | 255.0.0.0     |                                  |    **0** | Lien R1–R2                                                           |
-      | 30.0.0.0    | 255.0.0.0     |      10.0.0.2 **et/ou** 20.0.0.2 |    **1** | Deux chemins de coût égal                                            |
-      | 40.0.0.0    | 255.0.0.0     |                     **20.0.0.2** |    **1** | Via R2→R4                                                            |
-      | 50.0.0.0    | 255.0.0.0     |                     **10.0.0.2** |    **1** | Via R3→R4                                                            |
-      | 60.0.0.0    | 255.0.0.0     | **20.0.0.2** **ou** **10.0.0.2** |    **2** | R1→R2→R4 ou R1→R3→R5 (coût égal)                                     |
-      | 70.0.0.0    | 255.0.0.0     |                     **10.0.0.2** |    **1** | Via R3→R5                                                            |
-      | 192.168.2.0 | 255.255.255.0 |                     **10.0.0.2** |    **2** | Meilleur chemin : R1→R3→R5 (2 sauts) ; l’autre (R1→R2→R4→R5) coûte 3 |
+        | Destination | Masque        |                       Passerelle | Distance | Remarque                                                             |
+        | ----------- | ------------- | -------------------------------: | -------: | -------------------------------------------------------------------- |
+        | 192.168.1.0 | 255.255.255.0 |                                  |    **0** | LAN local PC1                                                        |
+        | 10.0.0.0    | 255.0.0.0     |                                  |    **0** | Lien R1–R3                                                           |
+        | 20.0.0.0    | 255.0.0.0     |                                  |    **0** | Lien R1–R2                                                           |
+        | 30.0.0.0    | 255.0.0.0     |      10.0.0.2 **et/ou** 20.0.0.2 |    **1** | Deux chemins de coût égal                                            |
+        | 40.0.0.0    | 255.0.0.0     |                     **20.0.0.2** |    **1** | Via R2→R4                                                            |
+        | 50.0.0.0    | 255.0.0.0     |                     **10.0.0.2** |    **1** | Via R3→R4                                                            |
+        | 60.0.0.0    | 255.0.0.0     | **20.0.0.2** **ou** **10.0.0.2** |    **2** | R1→R2→R4 ou R1→R3→R5 (coût égal)                                     |
+        | 70.0.0.0    | 255.0.0.0     |                     **10.0.0.2** |    **1** | Via R3→R5                                                            |
+        | 192.168.2.0 | 255.255.255.0 |                     **10.0.0.2** |    **2** | Meilleur chemin : R1→R3→R5 (2 sauts) ; l’autre (R1→R2→R4→R5) coûte 3 |
 
-      > Si vous souhaitez n’afficher **qu’une** route quand il y a égalité (ECMP non activé), conservez la première apprise (souvent via R3 pour 30/8) — le résultat reste correct fonctionnellement.
+        > Si vous souhaitez n’afficher **qu’une** route quand il y a égalité (ECMP non activé), conservez la première apprise (souvent via R3 pour 30/8) — le résultat reste correct fonctionnellement.
 
-      8) Chemin des paquets **PC1 → PC2**
+        8) Chemin des paquets **PC1 → PC2**
 
-      * **Meilleur chemin RIP (2 sauts)** : **PC1 → R1 → R3 → R5 → PC2**
-        (retour symétrique : PC2 → R5 → R3 → R1 → PC1)
+        * **Meilleur chemin RIP (2 sauts)** : **PC1 → R1 → R3 → R5 → PC2**
+          (retour symétrique : PC2 → R5 → R3 → R1 → PC1)
 
 
 
