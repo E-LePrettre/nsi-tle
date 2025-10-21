@@ -454,8 +454,8 @@ La **couche RÉSEAU (IP)** décide **qui** doit gérer le paquet **ensuite** : *
 * Ce n’est **pas** dans le sous-réseau **F (192.168.0.0/24)**, donc la requête est **envoyée au routeur** via sa **passerelle** dans F (**192.168.0.254**).
 * Le routeur regarde si **10.7.3.8** appartient à l’un de ses **réseaux directement connectés** (A, E…) → **non**.
 * Il consulte alors sa **table de routage** :
-  - si **C** y figure, il choisit le **meilleur voisin** (ex. **R3**) comme **passerelle**.
-  - sinon, il utilise la **route par défaut** (panneau « **toutes directions** »).
+    - si **C** y figure, il choisit le **meilleur voisin** (ex. **R3**) comme **passerelle**.
+    - sinon, il utilise la **route par défaut** (panneau « **toutes directions** »).
 
 **Exemple — Table de R1**
 
