@@ -52,8 +52,9 @@ Cette expérience marque **la naissance de l’Internet.**
       🔹 <b>Interface</b> : les échanges se font uniquement via des interfaces définies.<br><br>
       Ainsi, les couches restent <b>indépendantes</b> : on peut modifier le code interne d’une couche sans affecter les autres, tant que l’interface reste identique.
     </td>
-    <td style="text-align:center;">
-      <img src="Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.002.png" alt="Modèle TCP/IP" width="250">
+    <td style="text-align:center; vertical-align:middle;">
+      <img src="Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.002.png" alt="Modèle TCP/IP" width="280">
+      <p><i>Modèle TCP/IP</i></p>
     </td>
   </tr>
 </table>
