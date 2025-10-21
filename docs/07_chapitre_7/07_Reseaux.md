@@ -102,9 +102,11 @@ Deux grands protocoles existent :
 
 * **UDP (User Datagram Protocol)** : protocole **rapide mais non fiable**, utilisé quand la perte de paquets n’est pas critique (ex. streaming, jeux en ligne). 
 
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.006.png){: .center}
+
 
 #### ⚙️ **Rôle de la couche Transport**
+
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.006.png){: .center}
 
 1️⃣ **Découper le message** si sa taille est trop importante.
 ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.007.png){: .center}
