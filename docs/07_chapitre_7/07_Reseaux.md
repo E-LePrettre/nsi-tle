@@ -573,7 +573,7 @@ La **couche RÉSEAU (IP)** décide **qui** doit gérer le paquet **ensuite** : *
 
         5) **R1** après échange RIP **avec R3 seulement**
 
-        (s’ajout de ce que R3 connaît directement)
+        (ajout de ce que R3 connaît directement)
 
         | Destination | Masque        |   Passerelle | Distance |
         | ----------- | ------------- | -----------: | -------: |
