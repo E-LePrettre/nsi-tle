@@ -471,11 +471,11 @@ La **couche RÉSEAU (IP)** décide **qui** doit gérer le paquet **ensuite** : *
 * **B** : passerelle = **R2** (**172.17.1.123**).
 * **C** : passerelle = **R3** (**10.0.5.135**).
 
-| **Construction des tables :**
+| **Construction des tables :** |
+| --- |
+| * **Statique** : saisie **à la main** (petits réseaux). |
+| * **Dynamique** : **protocoles de routage** qui échangent les informations et **convergent** vers une **vision cohérente** (ex. **RIP**, **OSPF**). |
 
-* **Statique** : saisie **à la main** (petits réseaux).
-* **Dynamique** : **protocoles de routage** qui échangent les informations et **convergent** vers une **vision cohérente** (ex. **RIP**, **OSPF**). |
-  | - |
 
 ---
 
