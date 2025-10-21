@@ -4,7 +4,7 @@ title: 07 Les protocoles de routage
 ---
 
 
-## 🗂️ **Table des matières**
+🗂️ **Table des matières**
 
 1. 🕰️ [Historique](#_toc154844728)
 2. 🧠 [Rappels de première](#_toc154844729)
@@ -15,7 +15,7 @@ title: 07 Les protocoles de routage
 
 ---
 
-## 🎯 **Compétence évaluée**
+🎯 **Compétence évaluée**
 
 > Identifier, selon le protocole de routage utilisé, la route empruntée par un paquet.
 
@@ -179,7 +179,7 @@ Les couches supérieures (TCP, Application) se chargent ensuite de **réordonner
 
 
 
-## <H4 STYLE="COLOR:MAGENTA;"> 2.4.2. 🧭 Comment savoir si la destination est locale ou extérieure ?</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> 2.4.2. 🧭 Comment savoir si la destination est locale ou extérieure ?</H4>
 
 |<div style="border:2px solid #4CAF50; border-radius:10px; padding:10px; background-color:#f9fff9;"> 
 **Adresse IP = Adresse réseau + Adresse machine**
@@ -194,7 +194,7 @@ Que ce soit en IPv4 ou IPv6, un **mécanisme permet de décider** si la destinat
 
 ---
 
-## <H4 STYLE="COLOR:MAGENTA;">2.4.3. 🗂️ Qui attribue les adresses IP ?</H4>
+#### <H4 STYLE="COLOR:MAGENTA;">2.4.3. 🗂️ Qui attribue les adresses IP ?</H4>
 
 |<div style="border:2px solid #4CAF50; border-radius:10px; padding:10px; background-color:#f9fff9;"> 
 **Attribution des IP**
@@ -206,7 +206,7 @@ En pratique, c’est souvent le **serveur DHCP** qui **attribue automatiquement*
 
 ---
 
-## <H4 STYLE="COLOR:MAGENTA;">2.4.4. 🧮 À quel réseau appartient une machine ?</H4>
+#### <H4 STYLE="COLOR:MAGENTA;">2.4.4. 🧮 À quel réseau appartient une machine ?</H4>
 
 Une **adresse IP** est fournie avec un **masque** (ex. `255.255.255.0`) ou en **CIDR** (ex. `/24`).
 Exemple : `192.168.0.5/16`  ⇒ réseau **192.168.0.0**, machine **0.5**.
@@ -225,7 +225,7 @@ ET (AND)              → 10101100 . 10000000 . 00000000 . 00000000
 = Adresse réseau      → 172.128.0.0
 ```
 
-### 🌐 Taille du sous-réseau & broadcast
+#### 🌐 Taille du sous-réseau & broadcast
 
 Dans ce /18, la partie « hôte » fait **14 bits** ($2^{14}$ = **16384** adresses possibles).
 On retire **l’adresse réseau** et **l’adresse de broadcast** ⇒ **16382** machines utilisables.
@@ -242,7 +242,7 @@ broadcast : 172 . 128 .  63 . 255   (192+63=255)
 
 ---
 
-## <H4 STYLE="COLOR:MAGENTA;">2.4.5. 🔤 DNS (Domain Name System)</H4>
+#### <H4 STYLE="COLOR:MAGENTA;">2.4.5. 🔤 DNS (Domain Name System)</H4>
 
 |<div style="border:2px solid #4CAF50; border-radius:10px; padding:10px; background-color:#f9fff9;"> 
 On ne tape pas les IP dans la vraie vie, on tape des **noms de domaine** (`www.google.fr`).
@@ -252,7 +252,7 @@ Un **serveur DNS** traduit ce nom en **adresse IP** correspondante.
 
 ---
 
-## <H4 STYLE="COLOR:MAGENTA;">2.4.6. 📦 Qu’est-ce qu’un paquet IP ?</H4>
+#### <H4 STYLE="COLOR:MAGENTA;">2.4.6. 📦 Qu’est-ce qu’un paquet IP ?</H4>
 
 |<div style="border:2px solid #4CAF50; border-radius:10px; padding:10px; background-color:#f9fff9;"> 
 La couche **RÉSEAU** reçoit des **segments TCP/UDP** de la couche TRANSPORT et leur ajoute un **en-tête IP** pour indiquer l’**IP source**, l’**IP destination**, le **TTL/Hop Limit**, etc. 
@@ -282,7 +282,7 @@ On symbolisera donc le paquet IP à l'aide d'un symbole plus symbolique. Par exe
 
 ---
 
-## <H4 STYLE="COLOR:MAGENTA;">2.4.7. 📉 Les pertes de paquets</H4>
+#### <H4 STYLE="COLOR:MAGENTA;">2.4.7. 📉 Les pertes de paquets</H4>
 
 Des **pertes de paquets** peuvent survenir (engorgement, délais, etc.).
 
@@ -359,7 +359,7 @@ Le **protocole TCP** gère fiabilité et ordre via des **accusés de réception 
 
 
 
-## <H4 STYLE="COLOR:MAGENTA;">2.4.8. 🔁 Le protocole de bit alterné</H4>
+#### <H4 STYLE="COLOR:MAGENTA;">2.4.8. 🔁 Le protocole de bit alterné</H4>
 
 Considérons deux ordinateurs **A** et **B**.
 
@@ -569,7 +569,7 @@ La **couche RÉSEAU (IP)** décide **qui** doit gérer le paquet **ensuite** : *
 
 
 
-## <H3 STYLE="COLOR:GREEN;">4.2. 🧮 Métrique maximale (RIP)</H3>
+### <H3 STYLE="COLOR:GREEN;">4.2. 🧮 Métrique maximale (RIP)</H3>
 
 **Idée clé :** pour limiter la taille des échanges et éviter les routes absurdes, RIP considère qu’une **métrique de 16** équivaut à **injoignable** (∞).
 
@@ -619,7 +619,7 @@ Destination réseau    Masque réseau  Adr. passerelle   Adr. interface Métriqu
 
 ---
 
-## <H3 STYLE="COLOR:GREEN;">4.3. 🧾 Conclusion sur le protocole RIP</H3>
+### <H3 STYLE="COLOR:GREEN;">4.3. 🧾 Conclusion sur le protocole RIP</H3>
 
 * 🧩 **Rôle** : protocole **réparti**, aucun routeur “chef”.
 * 📏 **Métrique** : **nombre de sauts** (hop count).
@@ -745,7 +745,7 @@ Représenter le **graphe** (sommets = routeurs, arcs pondérés = coûts).
 
 ---
 
-## <H3 STYLE="COLOR:GREEN;">5.3. 🧮 L’algorithme de Dijkstra (plus court chemin)</H3>
+### <H3 STYLE="COLOR:GREEN;">5.3. 🧮 L’algorithme de Dijkstra (plus court chemin)</H3>
 
 Objectif : trouver le **chemin de coût minimal** entre deux sommets d’un graphe pondéré **à coûts positifs**.
 
