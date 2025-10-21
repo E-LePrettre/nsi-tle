@@ -290,74 +290,68 @@ Le **protocole TCP** gère fiabilité et ordre via des **accusés de réception 
 
 ---
 
-# 🧪 Activités — Décider « local ou extérieur » (avec solutions)
 
-> Rappel méthode (IPv4) : **Comparer l’IP réseau** (IP AND masque) **des deux hôtes**.
-> Si elles sont identiques → **même réseau (local)**, sinon → **sortie via routeur**.
-> (IPv6 : comparer sur le **préfixe** — très souvent **/64** en LAN.)
-
----
 
 ???+ question "🧠 **Activité n° 1** — IPv4 /16"
-  La machine **70.30.20.145/16** veut joindre **70.30.21.5**.
-  Faut-il **rester dans le réseau** ou **sortir** ?
+    La machine **70.30.20.145/16** veut joindre **70.30.21.5**.
+    Faut-il **rester dans le réseau** ou **sortir** ?
 
-  
-  ??? success "❇️ Solution :"
-      `/16` ⇒ réseau = **70.30.0.0**.  
-      - 70.30.20.145 ∈ 70.30.0.0/16  
-      - 70.30.21.5   ∈ 70.30.0.0/16  
-      **Même réseau** ⇒ on **reste local** (pas de routeur).
+    
+    ??? success "❇️ Solution :"
+        `/16` ⇒ réseau = **70.30.0.0**.  
+        - 70.30.20.145 ∈ 70.30.0.0/16  
+        - 70.30.21.5   ∈ 70.30.0.0/16  
+        **Même réseau** ⇒ on **reste local** (pas de routeur).
   
 
 ---
 
 ???+ question "🧠 **Activité n° 2** — IPv4 /24"
-  La machine **70.30.20.145/24** veut joindre **70.30.21.5**.
-  Faut-il **rester** ou **sortir** ?
+    La machine **70.30.20.145/24** veut joindre **70.30.21.5**.
+    Faut-il **rester** ou **sortir** ?
 
 
-  ??? success "❇️ Solution :"
-      `/24` ⇒ réseau = **70.30.20.0** pour la première, **70.30.21.0** pour la seconde.  
-      **Réseaux différents** ⇒ on **sort via le routeur**.
+    ??? success "❇️ Solution :"
+        `/24` ⇒ réseau = **70.30.20.0** pour la première, **70.30.21.0** pour la seconde.  
+        **Réseaux différents** ⇒ on **sort via le routeur**.
 
 
 ---
 
 ???+ question "🧠 **Activité n° 3** — IPv4 masque 255.0.0.0 (/8)"
-  La machine **20.30.40.50** (masque **255.0.0.0**) veut joindre **20.200.100.5**.
+    La machine **20.30.40.50** (masque **255.0.0.0**) veut joindre **20.200.100.5**.
 
 
-  ??? success "❇️ Solution :"
-      `/8` ⇒ réseau = **20.0.0.0** dans les deux cas.  
-      **Même réseau** ⇒ **communication locale**.
+    ??? success "❇️ Solution :"
+        `/8` ⇒ réseau = **20.0.0.0** dans les deux cas.  
+        **Même réseau** ⇒ **communication locale**.
 
 
 ---
 
 ???+ question "🧠 **Activité n° 4** — IPv4 masque 255.255.255.0 (/24)"
-  La machine **90.80.20.120** (masque **/24**) veut joindre **90.80.20.5**.
+    La machine **90.80.20.120** (masque **/24**) veut joindre **90.80.20.5**.
 
 
-  ??? success "❇️ Solution :"
-      `/24` ⇒ réseau = **90.80.20.0** dans les deux cas.  
-      **Même réseau** ⇒ **local**.
+    ??? success "❇️ Solution :"
+        `/24` ⇒ réseau = **90.80.20.0** dans les deux cas.  
+        **Même réseau** ⇒ **local**.
 
 
 ---
 
 ???+ question "🧠 **Activité n° 5** — IPv6 (préfixe implicite)"
-  La machine **2a01:cb0c:96ac:d400:63ba:f65c:3616:15d4** veut joindre
-  **2a01:cb0c:96ac:d400:73ba:12e3:3616:45a1**.
-  Faut-il **rester** ou **sortir** ?
+    La machine **2a01:cb0c:96ac:d400:63ba:f65c:3616:15d4** veut joindre
+    **2a01:cb0c:96ac:d400:73ba:12e3:3616:45a1**.
+    Faut-il **rester** ou **sortir** ?
 
 
-  ??? success "❇️ Solution :"
-      En IPv6, **les LAN utilisent presque toujours /64**.  
-      Les **4 premiers groupes** (le préfixe /64) sont **identiques** :  
-      `2a01:cb0c:96ac:d400::/64`  
-      ⇒ **Même sous-réseau** (Neighbor Discovery), **communication locale**.  
-      > Si le préfixe était plus court (ex. /48), il faudrait le connaître pour conclure.
+    ??? success "❇️ Solution :"
+        En IPv6, **les LAN utilisent presque toujours /64**.  
+        Les **4 premiers groupes** (le préfixe /64) sont **identiques** :  
+        `2a01:cb0c:96ac:d400::/64`  
+        ⇒ **Même sous-réseau** (Neighbor Discovery), **communication locale**.  
+        > Si le préfixe était plus court (ex. /48), il faudrait le connaître pour conclure.
 
 
 ---
