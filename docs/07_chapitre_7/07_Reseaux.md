@@ -508,7 +508,10 @@ La **couche RÉSEAU (IP)** décide **qui** doit gérer le paquet **ensuite** : *
 
     1) Pour **chaque sous-réseau entre deux routeurs**, donner la **première** et la **dernière** adresse **utilisable**.  
     2) Attribuer aux **interfaces** des routeurs leurs **adresses**.  
-    3) Compléter la **table de routage initiale de R1** (avec colonne **Distance**) — **sans** passerelle si réseau directement connecté.  
+    3) Compléter la **table de routage initiale de R1** (avec colonne **Distance**) — **sans** passerelle si réseau directement connecté. 
+    | Destination |	Masque |	Passerelle	| Interface	| Distance |
+    | --- | --- | --- | --- | --- |
+ 
     4) Même chose pour **R3** puis **R2**.  
     5) **Table de R1** après **échange RIP** avec **R3**.  
     6) **Table de R1** après échange avec **R2**.  
