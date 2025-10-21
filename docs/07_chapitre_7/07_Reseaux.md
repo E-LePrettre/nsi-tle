@@ -37,28 +37,28 @@ Cette expérience marque **la naissance de l’Internet.**
 
 ###  <H3 STYLE="COLOR:GREEN;">**2.1. 🧩 Le modèle TCP/IP et les couches de communication**</H3>
 
-|Les règles de communication (**protocoles**) entre ordinateurs doivent respecter certaines contraintes afin d’assurer la compatibilité entre réseaux.|
-|Le **modèle TCP/IP** est un **modèle en couches** :|
-|chaque couche communique uniquement avec la couche **immédiatement supérieure ou inférieure**.|
-||
-|Deux notions fondamentales assurent la stabilité du système :|
-||
-|1️⃣ **Encapsulation** : chaque tâche est isolée dans sa propre couche.|
-||
-|2️⃣ **Interface** : les échanges se font uniquement via des interfaces définies.|
-||
+| 🧩 **Texte explicatif** | 🖼️ **Illustration** |
+|:--|:--:|
+| Les règles de communication (**protocoles**) entre ordinateurs doivent respecter certaines contraintes afin d’assurer la compatibilité entre réseaux. |  |
+| Le **modèle TCP/IP** est un **modèle en couches** : |  |
+| Chaque couche communique uniquement avec la couche **immédiatement supérieure ou inférieure**. |  |
+| Deux notions fondamentales assurent la stabilité du système : |  |
+| 1️⃣ **Encapsulation** : chaque tâche est isolée dans sa propre couche. |  |
+| 2️⃣ **Interface** : les échanges se font uniquement via des interfaces définies. |  |
 | Ainsi, les couches restent **indépendantes** : on peut modifier le code interne d’une couche sans affecter les autres, tant que l’interface reste identique. | ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.002.png) |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------- |
+
 
 ---
 
 ###  <H3 STYLE="COLOR:GREEN;">**2.2. 🌍 La couche Application**</H3>
 
-| La **couche application** a pour rôle de **déterminer le mode de communication** entre programmes.
-| Elle repose sur des **protocoles standards** comme **HTTP**, **HTTPS**, **FTP**, **SMTP**, etc. |
-| ----------------------------------------------------------------------------------------------- |
+| 🧠 **Couche Application** |
+|:--|
+| <div style="border:2px solid #4CAF50; border-radius:10px; padding:10px; background-color:#f9fff9;">  
+La **couche application** a pour rôle de **déterminer le mode de communication** entre programmes.  
+Elle repose sur des **protocoles standards** comme **HTTP**, **HTTPS**, **FTP**, **SMTP**, etc.  
+</div> |
 
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.003.png){: .center}
 
 📘 **Exemple :**
 Votre navigateur web (ex. **Firefox**) communique avec un **serveur HTTP** (par ex. `elisa.leprettre.free.fr`) via un **langage commun : le protocole HTTP.**
