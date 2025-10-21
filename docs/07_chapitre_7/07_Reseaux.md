@@ -267,8 +267,18 @@ La couche **RÉSEAU** reçoit des **segments TCP/UDP** de la couche TRANSPORT et
 |* **IP source** (idem) ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.022.png) |
 |* **TTL** (IPv4) / **Hop Limit** (IPv6) : compteur qui décrémente à chaque routeur, évite les boucles ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.023.png) |
 
+
 > On symbolise un paquet IP par un bloc « En-tête IP + Segment ».
 
+Il existe bien entendu encore d'autres données dans cet en-tête mais nous allons nous limiter à celles-ci.
+
+Elles permettent de comprendre l'essentiel du protocole.
+
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.025.png)
+
+On symbolisera donc le paquet IP à l'aide d'un symbole plus symbolique. Par exemple :
+
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.026.png)
 
 ---
 
