@@ -227,7 +227,7 @@ ET (AND)              → 10101100 . 10000000 . 00000000 . 00000000
 
 ### 🌐 Taille du sous-réseau & broadcast
 
-Dans ce /18, la partie « hôte » fait **14 bits** (2ⁱ⁴ = **16384** adresses possibles).
+Dans ce /18, la partie « hôte » fait **14 bits** ($2^{14}$ = **16384** adresses possibles).
 On retire **l’adresse réseau** et **l’adresse de broadcast** ⇒ **16382** machines utilisables.
 
 **Adresse de broadcast** (tout à 1 côté hôte) :
