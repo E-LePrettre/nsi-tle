@@ -136,15 +136,16 @@ Deux grands protocoles existent :
 
 #### 🔍 **Le segment TCP**
 
-| Un **segment TCP** correspond à un **sous-message** accompagné d’un **en-tête TCP**.
+<div style="border:2px solid #4CAF50; border-radius:10px; padding:10px; background-color:#f9fff9;"> 
+Un **segment TCP** correspond à un **sous-message** accompagné d’un **en-tête TCP**.
 Celui-ci contient notamment :
 
 * Le **port source**,
 * Le **port destination**,
 * Le **numéro de séquence**, etc.
+</div>
 
-| Grâce à cette structure, la machine réceptrice peut **reconstituer le message original**. |
-| ----------------------------------------------------------------------------------------- |
+Grâce à cette structure, la machine réceptrice peut **reconstituer le message original**. 
 
 ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.009.png){: .center}
 
