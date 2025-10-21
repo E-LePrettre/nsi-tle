@@ -53,7 +53,7 @@ Cette expérience marque **la naissance de l’Internet.**
       Ainsi, les couches restent <b>indépendantes</b> : on peut modifier le code interne d’une couche sans affecter les autres, tant que l’interface reste identique.
     </td>
     <td style="text-align:center;">
-      <img src="5e665507-231c-415e-a463-97b8bf1b70cb.png" alt="Modèle TCP/IP" width="250">
+      <img src="Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.002.png" alt="Modèle TCP/IP" width="250">
     </td>
   </tr>
 </table>
