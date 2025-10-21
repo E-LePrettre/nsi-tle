@@ -42,7 +42,9 @@ Le **modèle TCP/IP** est un **modèle en couches** :
 chaque couche communique uniquement avec la couche **immédiatement supérieure ou inférieure**.
 
 Deux notions fondamentales assurent la stabilité du système :
+
 1️⃣ **Encapsulation** : chaque tâche est isolée dans sa propre couche.
+
 2️⃣ **Interface** : les échanges se font uniquement via des interfaces définies.
 
 | Ainsi, les couches restent **indépendantes** : on peut modifier le code interne d’une couche sans affecter les autres, tant que l’interface reste identique. | ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.002.png) |
