@@ -261,14 +261,11 @@ La couche **RÉSEAU** reçoit des **segments TCP/UDP** de la couche TRANSPORT et
 ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.018.png) 
 
 
-**Que contient l’en-tête IP (extraits utiles)**
-
-* **IP destination** (IPv4 : 4 octets, IPv6 : 16 octets)
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.021.png) 
-* **IP source** (idem)
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.022.png) 
-* **TTL** (IPv4) / **Hop Limit** (IPv6) : compteur qui décrémente à chaque routeur, évite les boucles 
-![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.023.png) 
+|**Que contient l’en-tête IP (extraits utiles)**|
+|-------------------\
+|* **IP destination** (IPv4 : 4 octets, IPv6 : 16 octets) ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.021.png) |
+|* **IP source** (idem) ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.022.png) |
+|* **TTL** (IPv4) / **Hop Limit** (IPv6) : compteur qui décrémente à chaque routeur, évite les boucles ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.023.png) |
 
 > On symbolise un paquet IP par un bloc « En-tête IP + Segment ».
 
