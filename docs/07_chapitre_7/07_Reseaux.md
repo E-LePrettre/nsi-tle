@@ -729,92 +729,89 @@ D'où
 
 ???+ question "🧮 **Activité n° 7 : Calcul de coût OSPF (1 Gbit/s)**"
 
-```
-Calculer la métrique OSPF pour une **liaison fibre 1 Gbit/s** avec référence \(10^8\).
 
-??? success "❇️ Solution :"
-    Débit = **1 000 000 000 b/s**  
-    Coût = ⌊\(10^8 / 10^9\)⌋ = ⌊0.1⌋ = **0**, mais **le coût minimal est 1** → **coût = 1**.
-```
+    Calculer la métrique OSPF pour une **liaison fibre 1 Gbit/s** avec référence \(10^8\).
+
+    ??? success "❇️ Solution :"
+        Débit = **1 000 000 000 b/s**  
+        Coût = $\(10^8 / 10^9\)$ = $0.1$ = **0**, mais **le coût minimal est 1** → **coût = 1**.
+
 
 ---
 
 ???+ question "🧮 **Activité n° 8 : Calcul de coût OSPF (100 Mbit/s)**"
 
-```
-Calculer la métrique OSPF pour **FastEthernet 100 Mbit/s** avec référence \(10^8\).
 
-??? success "❇️ Solution :"
-    Débit = **100 000 000 b/s**  
-    Coût = ⌊\(10^8 / 10^8\)⌋ = ⌊1⌋ = **1**.
-```
+    Calculer la métrique OSPF pour **FastEthernet 100 Mbit/s** avec référence \(10^8\).
+
+    ??? success "❇️ Solution :"
+        Débit = **100 000 000 b/s**  
+        Coût = $\(10^8 / 10^8\)$ =  **1**.
+
 
 ---
 
 ???+ question "🧮 **Activité n° 9 : Calcul de coût OSPF (10 Mbit/s)**"
 
-```
-Calculer la métrique OSPF pour **Ethernet 10 Mbit/s** avec référence \(10^8\).
 
-??? success "❇️ Solution :"
-    Débit = **10 000 000 b/s**  
-    Coût = ⌊\(10^8 / 10^7\)⌋ = ⌊10⌋ = **10**.
-```
+    Calculer la métrique OSPF pour **Ethernet 10 Mbit/s** avec référence \(10^8\).
+
+    ??? success "❇️ Solution :"
+        Débit = **10 000 000 b/s**  
+        Coût = $\(10^8 / 10^7\)$ = $10$ = **10**.
+
 
 ---
 
 ???+ question "🧮 **Activité n° 10 : Coût → Bande passante**"
 
-```
-Une liaison a un **coût OSPF = 50** (référence \(10^8\)).  
-**Quelle est sa bande passante ?**
+    Une liaison a un **coût OSPF = 50** (référence \(10^8\)).  
+    **Quelle est sa bande passante ?**
 
-??? success "❇️ Solution :"
-    On inverse la formule :  
-    \( \text{débit} = \dfrac{10^8}{\text{coût}} = \dfrac{10^8}{50} = 2\,000\,000 \,\text{b/s} = \) **2 Mbit/s**.
-```
+    ??? success "❇️ Solution :"
+        On inverse la formule :  
+        $\\text{débit}$= $\dfrac{10^8}{\text{coût}}$ = $\dfrac{10^8}{50}$ = $2 000 000$  $\text{b/s}$ =  **2 Mbit/s**.
+
 
 ---
 
 ???+ question "🗺️ **Activité n° 11 : Construire le graphe (coûts OSPF)**"
 
-```
-D’après les infos reçues par le routeur **A** (OSPF) :  
-- A–B : 1 ; A–C : 1000 ; A–D : 100  
-- B–D : 10  
-- C–E : 200 ; C–F : 100  
-- D–E : 1  
-- E–G : 100 ; F–G : 10  
+    D’après les infos reçues par le routeur **A** (OSPF) :  
+    - A–B : 1 ; A–C : 1000 ; A–D : 100  
+    - B–D : 10  
+    - C–E : 200 ; C–F : 100  
+    - D–E : 1  
+    - E–G : 100 ; F–G : 10  
 
-Représenter le **graphe** (sommets = routeurs, arcs pondérés = coûts).
+    Représenter le **graphe** (sommets = routeurs, arcs pondérés = coûts).
 
-??? success "❇️ Solution :"
-    Sommets : **A, B, C, D, E, F, G**  
-    Arêtes pondérées :  
-    A–B (**1**), A–C (**1000**), A–D (**100**),  
-    B–D (**10**), C–E (**200**), C–F (**100**),  
-    D–E (**1**), E–G (**100**), F–G (**10**).  
-    ➜ Graphe **non orienté** (coûts symétriques) à dessiner tel quel.
-```
+    ??? success "❇️ Solution :"
+        Sommets : **A, B, C, D, E, F, G**  
+        Arêtes pondérées :  
+        A–B (**1**), A–C (**1000**), A–D (**100**),  
+        B–D (**10**), C–E (**200**), C–F (**100**),  
+        D–E (**1**), E–G (**100**), F–G (**10**).  
+        ➜ Graphe **non orienté** (coûts symétriques) à dessiner tel quel.
+
 
 ---
 
 ???+ question "🧭 **Activité n° 12 : Coût du chemin AE + question**"
 
-```
-**Objectif :** déterminer le **meilleur coût** d’**A → E** (toutes routes possibles, garder la plus faible).  
-**Question bonus :** contrairement à RIP, **A** peut-il connaître **le chemin exact** que suivra le paquet jusqu’à **E** ?
+    **Objectif :** déterminer le **meilleur coût** d’**A → E** (toutes routes possibles, garder la plus faible).  
+    **Question bonus :** contrairement à RIP, **A** peut-il connaître **le chemin exact** que suivra le paquet jusqu’à **E** ?
 
-??? success "❇️ Solution :"
-    Quelques chemins et leurs coûts :
-    - A→D→E : 100 + 1 = **101** ✅
-    - A→B→D→E : 1 + 10 + 1 = **12** ✅✅ (meilleur)
-    - A→C→E : 1000 + 200 = **1200**  
-    - A→C→F→G→E : 1000 + 100 + 10 + 100 = **1210**  
-    
-    **Coût minimal A→E = 12**, via **A–B–D–E**.  
-    **Bonus :** Oui. En OSPF, A dispose de la **topologie complète** et calcule les chemins avec **Dijkstra** → il **connaît le chemin** retenu, pas seulement la prochaine passerelle.
-```
+    ??? success "❇️ Solution :"
+        Quelques chemins et leurs coûts :
+        - A→D→E : 100 + 1 = **101** ✅
+        - A→B→D→E : 1 + 10 + 1 = **12** ✅✅ (meilleur)
+        - A→C→E : 1000 + 200 = **1200**  
+        - A→C→F→G→E : 1000 + 100 + 10 + 100 = **1210**  
+        
+        **Coût minimal A→E = 12**, via **A–B–D–E**.  
+        **Bonus :** Oui. En OSPF, A dispose de la **topologie complète** et calcule les chemins avec **Dijkstra** → il **connaît le chemin** retenu, pas seulement la prochaine passerelle.
+
 
 ---
 
