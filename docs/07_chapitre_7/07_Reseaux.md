@@ -37,27 +37,16 @@ Cette expérience marque **la naissance de l’Internet.**
 
 ###  <H3 STYLE="COLOR:GREEN;">**2.1. 🧩 Le modèle TCP/IP et les couches de communication**</H3>
 
-<table>
-  <tr>
-    <th>🧩 <b>Texte explicatif</b></th>
-    <th>🖼️ <b>Illustration</b></th>
-  </tr>
-  <tr>
-    <td>
-      Les règles de communication (<b>protocoles</b>) entre ordinateurs doivent respecter certaines contraintes afin d’assurer la compatibilité entre réseaux.<br><br>
-      Le <b>modèle TCP/IP</b> est un <b>modèle en couches</b> :<br><br>
-      Chaque couche communique uniquement avec la couche <b>immédiatement supérieure ou inférieure</b>.<br><br>
-      Deux notions fondamentales assurent la stabilité du système :<br><br>
-      🔹 <b>Encapsulation</b> : chaque tâche est isolée dans sa propre couche.<br>
-      🔹 <b>Interface</b> : les échanges se font uniquement via des interfaces définies.<br><br>
-      Ainsi, les couches restent <b>indépendantes</b> : on peut modifier le code interne d’une couche sans affecter les autres, tant que l’interface reste identique.
-    </td>
-    <td style="text-align:center; vertical-align:middle;">
-      <img src="Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.002.png" alt="Modèle TCP/IP" width="280">
-      <p><i>Modèle TCP/IP</i></p>
-    </td>
-  </tr>
-</table>
+
+| 🧩 **Texte explicatif** | 🖼️ **Illustration** |
+|---|---|
+| - Les règles de communication (**protocoles**) entre ordinateurs doivent respecter certaines contraintes afin d’assurer la compatibilité entre réseaux.  
+  - Le **modèle TCP/IP** est un **modèle en couches**.  
+  - Chaque couche communique uniquement avec la couche **immédiatement supérieure ou inférieure**.  
+  - Deux notions fondamentales assurent la stabilité du système :  
+    - **Encapsulation** : chaque tâche est isolée dans sa propre couche.  
+    - **Interface** : les échanges se font uniquement via des interfaces définies.  
+  - Ainsi, les couches restent **indépendantes** : on peut modifier le code interne d’une couche sans affecter les autres, tant que l’interface reste identique. | ![Modèle TCP/IP](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.002.png) |
 
 
 ---
