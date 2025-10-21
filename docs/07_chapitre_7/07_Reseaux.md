@@ -258,13 +258,17 @@ Un **serveur DNS** traduit ce nom en **adresse IP** correspondante.
 La couche **RÉSEAU** reçoit des **segments TCP/UDP** de la couche TRANSPORT et leur ajoute un **en-tête IP** pour indiquer l’**IP source**, l’**IP destination**, le **TTL/Hop Limit**, etc. 
 </div>|
 
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.018.png) 
+
+
 **Que contient l’en-tête IP (extraits utiles)**
 
 * **IP destination** (IPv4 : 4 octets, IPv6 : 16 octets)
-* **IP source** (idem)
-* **TTL** (IPv4) / **Hop Limit** (IPv6) : décrémente à chaque routeur, évite les boucles 
-
 ![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.021.png) 
+* **IP source** (idem)
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.022.png) 
+* **TTL** (IPv4) / **Hop Limit** (IPv6) : compteur qui décrémente à chaque routeur, évite les boucles 
+![](Aspose.Words.a894dc14-e18c-4929-ab9b-fb06ded469b5.023.png) 
 
 > On symbolise un paquet IP par un bloc « En-tête IP + Segment ».
 
@@ -273,10 +277,9 @@ La couche **RÉSEAU** reçoit des **segments TCP/UDP** de la couche TRANSPORT et
 
 ## <H4 STYLE="COLOR:MAGENTA;">2.4.7. 📉 Les pertes de paquets</H4>
 
-| Des **pertes de paquets** peuvent survenir (engorgement, délais, etc.).
+Des **pertes de paquets** peuvent survenir (engorgement, délais, etc.).
 
-| Le **protocole TCP** gère fiabilité et ordre via des **accusés de réception (ACK)** ; il **détecte les pertes** et **réémet** si nécessaire. |
-| -------------------------------------------------------------------------------------------------------------------------------------------- |
+Le **protocole TCP** gère fiabilité et ordre via des **accusés de réception (ACK)** ; il **détecte les pertes** et **réémet** si nécessaire. 
 
 ---
 
