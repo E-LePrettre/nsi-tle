@@ -315,6 +315,7 @@ C’est l’**ordonnanceur** (*scheduler*) qui décide quel processus passe à q
 
     ??? success "❇️ Solution :" (Round Robin, exemple avec q = 2)"
         **Arrivées :**  
+        
         P1 @ 0 (3)      P3 @ 1 (4)      P2 @ 2 (2)      P4 @ 3 (3)
 
         **Gantt (q = 2)**  
