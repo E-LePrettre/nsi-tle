@@ -161,178 +161,183 @@ C’est l’**ordonnanceur** (*scheduler*) qui décide quel processus passe à q
 
 !!! info "🧠 **Capytale : Activités**" 
 
+???+ question "🧮 **Activité n° 1 : temps de terminaison**"
+    Compléter la ligne « temps de terminaison » du **tableau précédent**.
+    
+    Rappel utile :
+    
+    - **Temps de terminaison** d’un processus *P* = instant où *P* **se termine** (depuis t = 0).
 
-???+ question "🧮 **Activité n° 1 : temps de terminaison**"  
-   Compléter la ligne « temps de terminaison » du **tableau précédent**.
+    - On le lit directement sur le **diagramme de Gantt** (fin de la dernière tranche d’exécution de *P*).
 
-   Rappel utile :
+    
+    ??? success "❇️ Solution :"
+        - Méthode : repérer sur la frise temporelle l’instant où se termine chaque processus.
 
-   - **Temps de terminaison** d’un processus *P* = instant où *P* **se termine** (depuis t = 0).
-
-   - On le lit directement sur le **diagramme de Gantt** (fin de la dernière tranche d’exécution de *P*).
-
-   ??? success "❇️ Solution :"
-      - Méthode : repérer sur la frise temporelle l’instant où se termine chaque processus.
-
-      - Notation : `Tfin(P)`.
-
-      - Exemple de calcul (générique) :
-
+        - Notation : `Tfin(P)`.
+        
+        - Exemple de calcul (générique) :
+        
          * Si P commence à t = 3, s’exécute 2 unités, puis reprend à t = 8 pour 1 unité, alors `Tfin(P) = 9`.
+  
 
 
 ---
 
 ???+ question "⏱️ **Activité n° 2 : temps d’exécution (temps de séjour)**"
-   Compléter la ligne « temps d’exécution / temps de séjour » du **tableau précédent**.
+    Compléter la ligne « temps d’exécution / temps de séjour » du **tableau précédent**.
 
-   Définition :
+    Définition :
 
-   - **Temps de séjour** (aussi appelé **temps d’exécution** dans ce contexte) :
-   $T_{\text{séjour}}(P)$ = $T_{\text{fin}}(P) - T_{\text{arrivée}}(P)$
+    - **Temps de séjour** (aussi appelé **temps d’exécution** dans ce contexte) :
+   
+    $T_{\text{séjour}}(P)$ = $T_{\text{fin}}(P) - T_{\text{arrivée}}(P)$
 
-   ??? success "❇️ Solution :"
-      - Calcul : `T_séjour(P) = Tfin(P) - Tarr(P)`.
+    ??? success "❇️ Solution :"
+        - Calcul : `T_séjour(P) = Tfin(P) - Tarr(P)`.
 
-      - Interprétation : durée totale passée dans le système (file d’attente + processeur).
+        - Interprétation : durée totale passée dans le système (file d’attente + processeur).
 
-      - Exemple :
+        - Exemple :
 
-         * Si `Tarr(P)=1` et `Tfin(P)=9`, alors `T_séjour(P)=8`.
+           * Si `Tarr(P)=1` et `Tfin(P)=9`, alors `T_séjour(P)=8`.
 
 
 ---
 
 ???+ question "🕓 **Activité n° 3 : temps d’attente**"
-   Compléter la ligne « temps d’attente » du **tableau précédent**.
+    Compléter la ligne « temps d’attente » du **tableau précédent**.
 
-   Définition :
-   - **Temps d’attente** (dans la file, **hors** CPU) :
-   $T_{\text{attente}}(P)$ = $T_{\text{séjour}}(P) - \text{Durée}(P)$
+    Définition :
+   
+    - **Temps d’attente** (dans la file, **hors** CPU) :
+   
+    $T_{\text{attente}}(P)$ = $T_{\text{séjour}}(P) - \text{Durée}(P)$
 
-   ??? success "❇️ Solution :"
-      - Calcul en deux étapes :
+    ??? success "❇️ Solution :"
+        - Calcul en deux étapes :
 
-         1) `T_séjour(P) = Tfin(P) - Tarr(P)`
+           1) `T_séjour(P) = Tfin(P) - Tarr(P)`
 
-         2) `T_attente(P) = T_séjour(P) - Durée(P)`
+           2) `T_attente(P) = T_séjour(P) - Durée(P)`
 
-      - Exemple : Si `Durée(P)=3`, `Tarr(P)=2`, `Tfin(P)=10`
+        - Exemple : Si `Durée(P)=3`, `Tarr(P)=2`, `Tfin(P)=10`
 
-         → `T_séjour=8`
+           → `T_séjour=8`
 
-         → `T_attente=8-3=5`.
+           → `T_attente=8-3=5`.
 
 
 
 
 
 ???+ question "📋 **Activité n° 4 : Ordonnancement FIFO ou FCFS**"
-   Compléter le tableau pour l’ordonnancement **FIFO/FCFS** et **schématiser** l’algorithme (diagramme de Gantt).
+    Compléter le tableau pour l’ordonnancement **FIFO/FCFS** et **schématiser** l’algorithme (diagramme de Gantt).
 
-   | Processus         | P1 | P2 | P3 | P4 |
-   |-------------------|:--:|:--:|:--:|:--:|
-   | **Durée**         |  3 |  2 |  4 |  3 |
-   | **Date d’arrivée**|  0 |  2 |  1 |  3 |
-   | **Temps d’attente** |    |    |    |    |
-   | **Temps d’exécution** *(séjour)* |    |    |    |    |
+    | Processus         | P1 | P2 | P3 | P4 |
+    |-------------------|:--:|:--:|:--:|:--:|
+    | **Durée**         |  3 |  2 |  4 |  3 |
+    | **Date d’arrivée**|  0 |  2 |  1 |  3 |
+    | **Temps d’attente** |    |    |    |    |
+    | **Temps d’exécution** *(séjour)* |    |    |    |    |
 
-   Rappel FIFO : on exécute les processus **dans l’ordre d’arrivée** (en cas d’égalité, on garde l’ordre d’apparition).
+    Rappel FIFO : on exécute les processus **dans l’ordre d’arrivée** (en cas d’égalité, on garde l’ordre d’apparition).
 
-   ??? success "❇️ Solution : (FIFO/FCFS)"
-      **Ordre d’exécution** (par arrivée) :  
-      P1 (t=0) → P3 (arrivé à 1) → P2 (arrivé à 2) → P4 (arrivé à 3)
+    ??? success "❇️ Solution : (FIFO/FCFS)"
+        **Ordre d’exécution** (par arrivée) :  
+      
+        P1 (t=0) → P3 (arrivé à 1) → P2 (arrivé à 2) → P4 (arrivé à 3)
 
-      **Gantt (en unités de temps)**  
-      `|--P1--|------P3------|--P2--|---P4---|`
-      `0      3             7      9        12`
+        **Gantt (en unités de temps)**  
+        `|--P1--|------P3------|--P2--|---P4---|`
+        `0      3             7      9        12`
 
-      **Temps de fin**
-      - P1 : 3
-      - P3 : 7
-      - P2 : 9
-      - P4 : 12
+        **Temps de fin**
+        - P1 : 3
+        - P3 : 7
+        - P2 : 9
+        - P4 : 12
 
-      **Temps d’exécution (séjour) = Tfin − Tarr**
-      - P1 : 3 − 0 = **3**
-      - P3 : 7 − 1 = **6**
-      - P2 : 9 − 2 = **7**
-      - P4 : 12 − 3 = **9**
+        **Temps d’exécution (séjour) = Tfin − Tarr**
+        - P1 : 3 − 0 = **3**
+        - P3 : 7 − 1 = **6**
+        - P2 : 9 − 2 = **7**
+        - P4 : 12 − 3 = **9**
 
-      **Temps d’attente = Séjour − Durée**
-      - P1 : 3 − 3 = **0**
-      - P3 : 6 − 4 = **2**
-      - P2 : 7 − 2 = **5**
-      - P4 : 9 − 3 = **6**
+        **Temps d’attente = Séjour − Durée**
+        - P1 : 3 − 3 = **0**
+        - P3 : 6 − 4 = **2**
+        - P2 : 7 − 2 = **5**
+        - P4 : 9 − 3 = **6**
 
-      **Tableau complété**
+        **Tableau complété**
 
-      | Processus         | P1 | P2 | P3 | P4 |
-      |-------------------|:--:|:--:|:--:|:--:|
-      | **Durée**         |  3 |  2 |  4 |  3 |
-      | **Date d’arrivée**|  0 |  2 |  1 |  3 |
-      | **Temps d’attente** | 0 | 5 | 2 | 6 |
-      | **Temps d’exécution (séjour)** | 3 | 7 | 6 | 9 |
+        | Processus         | P1 | P2 | P3 | P4 |
+        |-------------------|:--:|:--:|:--:|:--:|
+        | **Durée**         |  3 |  2 |  4 |  3 |
+        | **Date d’arrivée**|  0 |  2 |  1 |  3 |
+        | **Temps d’attente** | 0 | 5 | 2 | 6 |
+        | **Temps d’exécution (séjour)** | 3 | 7 | 6 | 9 |
 
 
 
 ---
 
 ???+ question "📋 **Activité n° 5 : Ordonnancement Round Robin**"
-   Compléter le tableau pour l’ordonnancement **Round Robin** et **schématiser** l’algorithme.
+    Compléter le tableau pour l’ordonnancement **Round Robin** et **schématiser** l’algorithme.
 
-   👉 Préciser un **quantum** (ex. `q = 2` unités de temps).
+    👉 Préciser un **quantum** (ex. `q = 2` unités de temps).
 
-   | Processus                         |  P1 |  P2 |  P3 |  P4 |
-   | :-------------------------------- | :-: | :-: | :-: | :-: |
-   | **Durée**                         |  3  |  2  |  4  |  3  |
-   | **Date d’arrivée**                |  0  |  2  |  1  |  3  |
-   | **Temps d’attente**               |     |     |     |     |
-   | **Temps d’exécution *(séjour)* ** |     |     |     |     |
+    | Processus                         |  P1 |  P2 |  P3 |  P4 |
+    | :-------------------------------- | :-: | :-: | :-: | :-: |
+    | **Durée**                         |  3  |  2  |  4  |  3  |
+    | **Date d’arrivée**                |  0  |  2  |  1  |  3  |
+    | **Temps d’attente**               |     |     |     |     |
+    | **Temps d’exécution *(séjour)* ** |     |     |     |     |
 
-   🔁 **Rappel Round Robin :**
+    🔁 **Rappel Round Robin :**
 
-   Chaque processus actif reçoit le CPU pendant **q unités** ; s’il n’a pas terminé, il retourne **en fin de file**.
+    Chaque processus actif reçoit le CPU pendant **q unités** ; s’il n’a pas terminé, il retourne **en fin de file**.
 
-??? success "❇️ Solution :" (Round Robin, exemple avec q = 2)"
-      **Arrivées :**  
-      P1 @ 0 (3)      P3 @ 1 (4)      P2 @ 2 (2)      P4 @ 3 (3)
+    ??? success "❇️ Solution :" (Round Robin, exemple avec q = 2)"
+        **Arrivées :**  
+        P1 @ 0 (3)      P3 @ 1 (4)      P2 @ 2 (2)      P4 @ 3 (3)
 
-      **Gantt (q = 2)**  
-      - t = 0 .. 2 : P1 (reste 1)  
-      - t = 2 .. 4 : P3 (reste 2)  
-      - t = 4 .. 6 : P2 (termine)  
-      - t = 6 .. 7 : P1 (termine)  
-      - t = 7 .. 9 : P4 (reste 1)  
-      - t = 9 .. 11 : P3 (termine)  
-      - t = 11 .. 12 : P4 (termine)
+        **Gantt (q = 2)**  
+        - t = 0 .. 2 : P1 (reste 1)  
+        - t = 2 .. 4 : P3 (reste 2)  
+        - t = 4 .. 6 : P2 (termine)  
+        - t = 6 .. 7 : P1 (termine)  
+        - t = 7 .. 9 : P4 (reste 1)  
+        - t = 9 .. 11 : P3 (termine)  
+        - t = 11 .. 12 : P4 (termine)
 
-      **Temps de fin :**  
-      - P2 : **6**  
-      - P1 : **7**  
-      - P3 : **11**  
-      - P4 : **12**
+        **Temps de fin :**  
+        - P2 : **6**  
+        - P1 : **7**  
+        - P3 : **11**  
+        - P4 : **12**
 
-      **Temps d’exécution (séjour) = Tfin − Tarr :**  
-      - P1 : 7 − 0 = **7**  
-      - P2 : 6 − 2 = **4**  
-      - P3 : 11 − 1 = **10**  
-      - P4 : 12 − 3 = **9**
+        **Temps d’exécution (séjour) = Tfin − Tarr :**  
+        - P1 : 7 − 0 = **7**  
+        - P2 : 6 − 2 = **4**  
+        - P3 : 11 − 1 = **10**  
+        - P4 : 12 − 3 = **9**
 
-      **Temps d’attente = Séjour − Durée :**  
-      - P1 : 7 − 3 = **4**  
-      - P2 : 4 − 2 = **2**  
-      - P3 : 10 − 4 = **6**  
-      - P4 : 9 − 3 = **6**
+        **Temps d’attente = Séjour − Durée :**  
+        - P1 : 7 − 3 = **4**  
+        - P2 : 4 − 2 = **2**  
+        - P3 : 10 − 4 = **6**  
+        - P4 : 9 − 3 = **6**
 
-      **✅ Tableau complété (q = 2)**
+        **✅ Tableau complété (q = 2)**
 
-      | Processus | P1 | P2 | P3 | P4 |
-      |:-----------|:--:|:--:|:--:|:--:|
-      | **Durée** | 3 | 2 | 4 | 3 |
-      | **Date d’arrivée** | 0 | 2 | 1 | 3 |
-      | **Temps d’attente** | 4 | 2 | 6 | 6 |
-      | **Temps d’exécution (séjour)** | 7 | 4 | 10 | 9 |
+        | Processus | P1 | P2 | P3 | P4 |
+        |:-----------|:--:|:--:|:--:|:--:|
+        | **Durée** | 3 | 2 | 4 | 3 |
+        | **Date d’arrivée** | 0 | 2 | 1 | 3 |
+        | **Temps d’attente** | 4 | 2 | 6 | 6 |
+        | **Temps d’exécution (séjour)** | 7 | 4 | 10 | 9 |
 
 > ℹ️ Si votre quantum diffère, **rejouez le Gantt** (Le diagramme de Gantt représente la chronologie d’exécution des processus) avec votre valeur : les formules de séjour/attente restent identiques.
 
@@ -424,70 +429,78 @@ Sous Linux, plusieurs commandes permettent de **visualiser et analyser les proce
 ---
 
 ???+ question "🧩 **Activité n° 6 : commande `ps -aef`**"
+    1️⃣ Ouvrir un terminal.
+    2️⃣ Taper la commande :
 
-   1️⃣ Ouvrir un terminal.
-   2️⃣ Taper la commande :
+    ```bash
+    ps -aef
+    ```
 
-   ```bash
-   ps -aef
-   ```
+    Vous obtiendrez une **liste détaillée** des processus en cours :
+    
+    PID, PPID, utilisateur, état, etc.
 
-   Vous obtiendrez une **liste détaillée** des processus en cours :
-   PID, PPID, utilisateur, état, etc.
+    ![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.028.png){: .center}
 
-   ![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.028.png){: .center}
+    👉 Pour afficher l’**arbre des processus**, utilisez :
 
-   👉 Pour afficher l’**arbre des processus**, utilisez :
+    ```bash
+    pstree
+    ```
 
-   ```bash
-   pstree
-   ```
+    ![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.029.png){: .center}
 
-   ![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.029.png){: .center}
+    ??? success "❇️ Solution : / Explications**"
+        - `ps` : affiche les processus actifs.  
 
-   ??? success "❇️ Solution : / Explications**"
-      - `ps` : affiche les processus actifs.  
+        - Options :
 
-      - Options :
-
-         * `-a` → affiche tous les processus (pas seulement ceux du terminal courant)
+           * `-a` → affiche tous les processus (pas seulement ceux du terminal courant)
          
-         * `-e` → inclut tous les utilisateurs
+           * `-e` → inclut tous les utilisateurs
 
-         * `-f` → affiche les informations complètes  
+           * `-f` → affiche les informations complètes  
 
-      - Exemple ciblé :
-         ```bash
-         ps -e -o pid,ppid,stat,command
-         ```
-         ➜ permet de sélectionner précisément les colonnes affichées.  
+        - Exemple ciblé :
+           ```bash
+           ps -e -o pid,ppid,stat,command
+           ```
+           ➜ permet de sélectionner précisément les colonnes affichées.  
 
-      - `pstree` : affiche les processus **sous forme d’arborescence hiérarchique** (relations père/fils).
+        - `pstree` : affiche les processus **sous forme d’arborescence hiérarchique** (relations père/fils).
 
 
 ---
 
 ???+ question "🧩 **Activité n° 7 : commande `top`**"
-   1️⃣ Dans un terminal, taper la commande :
+    1️⃣ Dans un terminal, taper la commande :
 
-   ```bash
-   top
-   ```
+    ```bash
+    top
+    ```
 
-   ![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.031.png){: .center}
+    ![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.031.png){: .center}
 
-   2️⃣ Pour quitter le mode interactif, appuyer sur **`q`**.
+    2️⃣ Pour quitter le mode interactif, appuyer sur **`q`**.
 
-   ??? success "❇️ Solution : / Explications"
-      - `top` affiche en **temps réel** la liste des processus (mise à jour dynamique).  
-         Contrairement à `ps`, qui donne un **état figé**.  
-      - Cette commande permet de surveiller :
-         - la **charge CPU (%)**  
-         - la **mémoire utilisée**  
-         - l’**état des processus** (`R` = running, `S` = sleeping, etc.)  
-      - Pour quitter `top`, tapez `q`.  
-      - Tous les processus ont pour ancêtre ultime le **PID 0** :
-         - Ses fils directs sont `init` et `kthreadd`.
+    ??? success "❇️ Solution : / Explications"
+        - `top` affiche en **temps réel** la liste des processus (mise à jour dynamique).  
+
+           Contrairement à `ps`, qui donne un **état figé**. 
+
+        - Cette commande permet de surveiller :
+
+           * la **charge CPU (%)**  
+         
+           * la **mémoire utilisée**  
+         
+           * l’**état des processus** (`R` = running, `S` = sleeping, etc.)  
+
+        - Pour quitter `top`, tapez `q`.  
+      
+        - Tous les processus ont pour ancêtre ultime le **PID 0** :
+           
+           * Ses fils directs sont `init` et `kthreadd`.
 
 
 ---
@@ -515,26 +528,32 @@ Les plus courants sont :
 ---
 
 ???+ question "🧩 **Activité n° 8 : commande `kill`**"
-   1️⃣ Lancer `top` dans un terminal pour observer les processus.
-   2️⃣ Relevez le **PID** du processus `top` dans la liste.
-   3️⃣ Dans un autre terminal, exécutez :
+    1️⃣ Lancer `top` dans un terminal pour observer les processus.
+   
+    2️⃣ Relevez le **PID** du processus `top` dans la liste.
+    
+    3️⃣ Dans un autre terminal, exécutez :
 
-   ```bash
-   kill -15 <PID>
-   ```
+    ```bash
+    kill -15 <PID>
+    ```
 
-   4️⃣ Revenez sur le premier terminal.
-   ❓ Que constatez-vous ?
+    4️⃣ Revenez sur le premier terminal.
+   
+    ❓ Que constatez-vous ?
 
-   ??? success "❇️ Solution : / Explications"
-      - Après `kill -15 <PID>`, le processus `top` reçoit un **signal SIGTERM** → il se ferme proprement.  
-      - Si vous relancez `ps` ou `pstree`, `top` **n’apparaît plus** dans la liste.  
-      - Sur la console où `top` tournait : le programme s’arrête automatiquement.  
-      - Si un processus refuse de s’arrêter :
-         ```bash
-         kill -9 <PID>
-         ```
-         → **SIGKILL** : arrêt immédiat, sans nettoyage (⚠️ à utiliser avec prudence).
+    ??? success "❇️ Solution : / Explications"
+        - Après `kill -15 <PID>`, le processus `top` reçoit un **signal SIGTERM** → il se ferme proprement.  
+      
+        - Si vous relancez `ps` ou `pstree`, `top` **n’apparaît plus** dans la liste.  
+      
+        - Sur la console où `top` tournait : le programme s’arrête automatiquement.  
+        
+        - Si un processus refuse de s’arrêter :
+           ```bash
+           kill -9 <PID>
+           ```
+           → **SIGKILL** : arrêt immédiat, sans nettoyage (⚠️ à utiliser avec prudence).
 
 
 ---
