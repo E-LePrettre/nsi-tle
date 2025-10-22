@@ -58,6 +58,10 @@ SQL permet de :
 
 ## 🏗️ <span style="color:blue"><a name="_toc173365560"></a>**2. Création d’une base de données**</span>
 
+Nous allons créer ces 2 tables :
+
+![](table1.png){width=30%; : .center }
+
 ### <span style="color:green"><a name="_toc173365561"></a>**2.1. Création**</span>
 
 
@@ -652,6 +656,10 @@ Résultat final : [Française, Américaine, Italienne, Anglaise]
 
 ## <span style="color:blue;"> 🧩 **5. Requête de mise à jour** <a name="_toc173365577"></a></span>
 
+On va modifier la base de donnée de telle sorte que le nouveau diagramme soit celui-ci :
+
+![](table2.png){width=30%; : .center }
+
 ### <span style="color:green;"> 🛠️ **5.1. Syntaxe d’une requête UPDATE** <a name="_toc173365578"></a></span>
 
 ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.016.png){ width=30%; : .center }
@@ -905,7 +913,7 @@ Une requête de mise à jour s’écrit en trois parties :
 
 ---
 
-## <span style="color:blue;">🔗 6. Jointures de tables<a name="_toc173365583"></a></span>
+## <span style="color:blue;">🔗 6. Jointures de tables</span>
 
 Les requêtes avec les jointures tiennent compte des **liens entre les tables**, via le **schéma relationnel**.
 
@@ -920,9 +928,9 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
 ### <span style="color:green;"> 🧩 6.2. Les grands principes</span>
 
-🧱 Schéma relationnel : **Modèle Physique de Données (MPD)**
+🧱 Diagramme :
 
-![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.020.png){width=80%; : .center }
+![](table3.png){width=95%; : .center }
 
 
 📌 La table `film` est liée à plusieurs autres tables (`realisateur`, `genre`, `nationalite`) par des **clés étrangères**.
@@ -1138,9 +1146,7 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
     🔎 **Objectif :** Extraire le titre des films dont le réalisateur est de nationalité **française**, en utilisant une **requête imbriquée**.
 
     > 🔁 Deux étapes à faire :
-    >
     > - 1. Trouver les identifiants des réalisateurs de nationalité italienne.
-    >
     > - 2. Sélectionner les films réalisés par ces réalisateurs.
 
     **Comment faire ?**
