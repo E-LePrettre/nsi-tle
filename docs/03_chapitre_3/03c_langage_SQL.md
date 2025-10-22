@@ -905,7 +905,7 @@ Une requête de mise à jour s’écrit en trois parties :
 
 ---
 
-## <span style="color:blue;">🔗 6. Jointures de tables</span>
+## <span style="color:blue;">🔗 6. Jointures de tables<a name="_toc173365583"></a></span>
 
 Les requêtes avec les jointures tiennent compte des **liens entre les tables**, via le **schéma relationnel**.
 
@@ -1138,7 +1138,9 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
     🔎 **Objectif :** Extraire le titre des films dont le réalisateur est de nationalité **française**, en utilisant une **requête imbriquée**.
 
     > 🔁 Deux étapes à faire :
+    >
     > - 1. Trouver les identifiants des réalisateurs de nationalité italienne.
+    >
     > - 2. Sélectionner les films réalisés par ces réalisateurs.
 
     **Comment faire ?**
