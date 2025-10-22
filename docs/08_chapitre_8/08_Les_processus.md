@@ -252,7 +252,7 @@ C’est l’**ordonnanceur** (*scheduler*) qui décide quel processus passe à q
 
         `|--P1--|------P3------|--P2--|---P4---|`
 
-        `0      3             7      9        12`
+        `0------3--------------7------9-------12`
 
         **Temps de fin**
 
@@ -360,7 +360,7 @@ C’est l’**ordonnanceur** (*scheduler*) qui décide quel processus passe à q
         - P2 : 4 − 2 = **2**  
 
         - P3 : 10 − 4 = **6**  
-        
+
         - P4 : 9 − 3 = **6**
 
         **✅ Tableau complété (q = 2)**
