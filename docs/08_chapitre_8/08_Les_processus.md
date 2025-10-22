@@ -249,7 +249,9 @@ C’est l’**ordonnanceur** (*scheduler*) qui décide quel processus passe à q
         P1 (t=0) → P3 (arrivé à 1) → P2 (arrivé à 2) → P4 (arrivé à 3)
 
         **Gantt (en unités de temps)**  
+        
         `|--P1--|------P3------|--P2--|---P4---|`
+
         `0      3             7      9        12`
 
         **Temps de fin**
