@@ -60,7 +60,7 @@ SQL permet de :
 
 Nous allons créer ces 2 tables :
 
-![](table1.png){width=30%; : .center }
+![](table1.png){width=80%; : .center }
 
 ### <span style="color:green"><a name="_toc173365561"></a>**2.1. Création**</span>
 
@@ -658,7 +658,7 @@ Résultat final : [Française, Américaine, Italienne, Anglaise]
 
 On va modifier la base de donnée de telle sorte que le nouveau diagramme soit celui-ci :
 
-![](table2.png){width=30%; : .center }
+![](table2.png){width=80%; : .center }
 
 ### <span style="color:green;"> 🛠️ **5.1. Syntaxe d’une requête UPDATE** <a name="_toc173365578"></a></span>
 
@@ -930,7 +930,7 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
 🧱 Diagramme :
 
-![](table3.png){width=95%; : .center }
+![](table3.png){width=98%; : .center }
 
 
 📌 La table `film` est liée à plusieurs autres tables (`realisateur`, `genre`, `nationalite`) par des **clés étrangères**.
