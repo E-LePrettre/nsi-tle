@@ -249,27 +249,39 @@ C’est l’**ordonnanceur** (*scheduler*) qui décide quel processus passe à q
         P1 (t=0) → P3 (arrivé à 1) → P2 (arrivé à 2) → P4 (arrivé à 3)
 
         **Gantt (en unités de temps)**  
-        
+
         `|--P1--|------P3------|--P2--|---P4---|`
 
         `0      3             7      9        12`
 
         **Temps de fin**
+
         - P1 : 3
+
         - P3 : 7
+
         - P2 : 9
+
         - P4 : 12
 
         **Temps d’exécution (séjour) = Tfin − Tarr**
+
         - P1 : 3 − 0 = **3**
+
         - P3 : 7 − 1 = **6**
+
         - P2 : 9 − 2 = **7**
+
         - P4 : 12 − 3 = **9**
 
         **Temps d’attente = Séjour − Durée**
+
         - P1 : 3 − 3 = **0**
+
         - P3 : 6 − 4 = **2**
+
         - P2 : 7 − 2 = **5**
+
         - P4 : 9 − 3 = **6**
 
         **Tableau complété**
@@ -306,30 +318,49 @@ C’est l’**ordonnanceur** (*scheduler*) qui décide quel processus passe à q
         P1 @ 0 (3)      P3 @ 1 (4)      P2 @ 2 (2)      P4 @ 3 (3)
 
         **Gantt (q = 2)**  
-        - t = 0 .. 2 : P1 (reste 1)  
-        - t = 2 .. 4 : P3 (reste 2)  
-        - t = 4 .. 6 : P2 (termine)  
-        - t = 6 .. 7 : P1 (termine)  
-        - t = 7 .. 9 : P4 (reste 1)  
-        - t = 9 .. 11 : P3 (termine)  
+
+        - t = 0 .. 2 : P1 (reste 1) 
+
+        - t = 2 .. 4 : P3 (reste 2) 
+
+        - t = 4 .. 6 : P2 (termine) 
+
+        - t = 6 .. 7 : P1 (termine) 
+
+        - t = 7 .. 9 : P4 (reste 1) 
+
+        - t = 9 .. 11 : P3 (termine)
+
         - t = 11 .. 12 : P4 (termine)
 
         **Temps de fin :**  
+
         - P2 : **6**  
+
         - P1 : **7**  
+
         - P3 : **11**  
+
         - P4 : **12**
 
         **Temps d’exécution (séjour) = Tfin − Tarr :**  
+
         - P1 : 7 − 0 = **7**  
+
         - P2 : 6 − 2 = **4**  
+
         - P3 : 11 − 1 = **10**  
+
         - P4 : 12 − 3 = **9**
 
         **Temps d’attente = Séjour − Durée :**  
+
         - P1 : 7 − 3 = **4**  
+
         - P2 : 4 − 2 = **2**  
+
         - P3 : 10 − 4 = **6**  
+        
         - P4 : 9 − 3 = **6**
 
         **✅ Tableau complété (q = 2)**
