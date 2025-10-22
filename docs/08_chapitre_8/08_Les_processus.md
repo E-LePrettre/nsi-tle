@@ -133,8 +133,11 @@ C’est l’**ordonnanceur** (*scheduler*) qui décide quel processus passe à q
 **Explication du déroulement :**
 
 1️⃣ P1 arrive en premier → s’exécute immédiatement.
+
 2️⃣ P2 arrive ensuite → s’exécute après P1.
+
 3️⃣ P3, P4, P5 arrivent pendant l’exécution de P2.
+
 4️⃣ L’algorithme choisit le plus court (P5), puis P4, puis P3.
 
 ![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.007.png){: .center}
