@@ -1321,1382 +1321,1382 @@ Merci à Gilles Lassus et Mireille Coilhac
 ---
 
 
-**<H3 STYLE="COLOR:red;">Exercice n° 02 : chiffrement RSA</H3>**
+!!! abstract "🧩 **Exercice n° 02 : chiffrement RSA**"
 
-**Sur THONNY**
+    **SUR THONNY**
 
-**1 - PRINCIPE DU CRYPTAGE ASYMÉTRIQUE**
+    **1 - PRINCIPE DU CRYPTAGE ASYMÉTRIQUE**
 
-Il y a eu plusieurs types de systèmes de chiffrement asymétrique. Nous ne verrons que la version qui correspond à la version actuelle de ce type de système : le système **RSA**.
+    Il y a eu plusieurs types de systèmes de chiffrement asymétrique. Nous ne verrons que la version qui correspond à la version actuelle de ce type de système : le système **RSA**.
 
-Il comporte un **clé Publique** et une **clé Privée** dont voici le principe.
+    Il comporte un **clé Publique** et une **clé Privée** dont voici le principe.
 
-- La clé Publique ne permet pas de décrypter les messages cryptés avec la clé Publique.
-- La clé Privée ne permet pas de décrypter les messages cryptés avec la clé Privée.
-- On peut décrypter avec la clé Privée les messages cryptés à l'aide de la clé Publique.
-- On peut décrypter avec la clé Publique les messages cryptés à l'aide de la clé Privée.
+    - La clé Publique ne permet pas de décrypter les messages cryptés avec la clé Publique.
+    - La clé Privée ne permet pas de décrypter les messages cryptés avec la clé Privée.
+    - On peut décrypter avec la clé Privée les messages cryptés à l'aide de la clé Publique.
+    - On peut décrypter avec la clé Publique les messages cryptés à l'aide de la clé Privée.
 
-![principe du chiffrement asymétrique](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.034.png){: .center}
+    ![principe du chiffrement asymétrique](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.034.png){: .center}
 
-L'une des conditions de l'utilisation d'un tel chiffrement : qu'on ne puisse pas retrouver la valeur de la clé privée connaissant la valeur de la clé privée ou d'un message crypté quelconque. Il faut que cela soit trop compliqué et demande trop de temps ou qu'il existe beaucoup de valeurs possibles par exemple.
+    L'une des conditions de l'utilisation d'un tel chiffrement : qu'on ne puisse pas retrouver la valeur de la clé privée connaissant la valeur de la clé privée ou d'un message crypté quelconque. Il faut que cela soit trop compliqué et demande trop de temps ou qu'il existe beaucoup de valeurs possibles par exemple.
 
-RSA est basé sur le principe des **fonctions à sens unique** : connaissant le message m, il est facile de chiffrer le message en calculant f(m) mais connaissant f(m) il est "difficile" de retrouver m. La notion de complexité algorithmique donne un moyen de quantifier la notion sinon floue de "difficile".
+    RSA est basé sur le principe des **fonctions à sens unique** : connaissant le message m, il est facile de chiffrer le message en calculant f(m) mais connaissant f(m) il est "difficile" de retrouver m. La notion de complexité algorithmique donne un moyen de quantifier la notion sinon floue de "difficile".
 
-![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.035.png){: .center}
+    ![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.035.png){: .center}
 
 
 
-En outre, **RSA** utilise des **fonctions à sens unique possédant une brèche** : connaissant la clé de déchiffrement, il devient "facile" de retrouver m connaissant f(m).
+    En outre, **RSA** utilise des **fonctions à sens unique possédant une brèche** : connaissant la clé de déchiffrement, il devient "facile" de retrouver m connaissant f(m).
 
-![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.036.png){: .center}
+    ![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.036.png){: .center}
 
-Là où c'est compliqué à mettre en place, c'est que trouver la brèche doit s'avérer "impossible" en un temps raisonnable.
+    Là où c'est compliqué à mettre en place, c'est que trouver la brèche doit s'avérer "impossible" en un temps raisonnable.
 
-**2 - RSA**
+    **2 - RSA**
 
-Le chiffrement  **RSA**  date de **1977** et doit son nom aux initiales de ses trois inventeurs  :
+    Le chiffrement  **RSA**  date de **1977** et doit son nom aux initiales de ses trois inventeurs  :
 
-- [Ronald Rivest](https://fr.wikipedia.org/wiki/Ronald_Rivest "https://fr.wikipedia.org/wiki/Ronald_Rivest") (né en 1947, cryptologue américain)
-- [Adi Shamir](https://www.infoforall.fr/act/archi/projet-chiffrement-rsa/) (né en 1962, mathématicien et cryptologue israélien)
-- [Leonard Adleman](https://www.infoforall.fr/act/archi/projet-chiffrement-rsa/) (né en 1945, chercheur américain en informatique théorique, et en informatique-biologie moléculaire)
+    - [Ronald Rivest](https://fr.wikipedia.org/wiki/Ronald_Rivest "https://fr.wikipedia.org/wiki/Ronald_Rivest") (né en 1947, cryptologue américain)
+    - [Adi Shamir](https://www.infoforall.fr/act/archi/projet-chiffrement-rsa/) (né en 1962, mathématicien et cryptologue israélien)
+    - [Leonard Adleman](https://www.infoforall.fr/act/archi/projet-chiffrement-rsa/) (né en 1945, chercheur américain en informatique théorique, et en informatique-biologie moléculaire)
 
-**RSA** a été breveté par le **MIT** (Massachusetts Institute of Technology) en **1983** aux États-Unis.
+    **RSA** a été breveté par le **MIT** (Massachusetts Institute of Technology) en **1983** aux États-Unis.
 
-Le brevet a expiré le 21 septembre **2000**.
+    Le brevet a expiré le 21 septembre **2000**.
 
-Le cryptage RSA utilise de grands nombres premiers et le petit théorème de Fermat (lié à la division entière et à la congruence).
+    Le cryptage RSA utilise de grands nombres premiers et le petit théorème de Fermat (lié à la division entière et à la congruence).
 
-La facilité du cryptage et la difficulté du décryptage sont liées au fait qu'il est facile de calculer le produit  **n = p\*q**  de deux nombres premiers **p** et **q** mais qu'il est difficile de retrouver **p** et **q** si on ne connaît que **n**.
+    La facilité du cryptage et la difficulté du décryptage sont liées au fait qu'il est facile de calculer le produit  **n = p\*q**  de deux nombres premiers **p** et **q** mais qu'il est difficile de retrouver **p** et **q** si on ne connaît que **n**.
 
-![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.037.png){: .center}
+    ![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.037.png){: .center}
 
-Vous allez donc comprendre l'intérêt qu'on porte aux nombres premiers et aux diviseurs communs.
+    Vous allez donc comprendre l'intérêt qu'on porte aux nombres premiers et aux diviseurs communs.
 
-**Division entière ou euclidienne**
+    **Division entière ou euclidienne**
 
-Nous avons déjà vu la **division euclidienne et la notion de reste**.
+    Nous avons déjà vu la **division euclidienne et la notion de reste**.
 
-Si  **a = b\*q + r**  alors
+    Si  **a = b\*q + r**  alors
 
-- La division euclidienne de a par b donne q :  **a // b = q** .
-- Le reste de cette division entière est alors r :  **a % b = r**  avec r dans  **[0;b[** .
+    - La division euclidienne de a par b donne q :  **a // b = q** .
+    - Le reste de cette division entière est alors r :  **a % b = r**  avec r dans  **[0;b[** .
 
-**Exemple**
+    **Exemple**
 
-Si on prend 15, on peut écrire que  15 = 2\*6 + 3 .
+    Si on prend 15, on peut écrire que  15 = 2\*6 + 3 .
 
-La division euclidienne de 15 par 6 donne 2 :  15 // 6 = 2 .
+    La division euclidienne de 15 par 6 donne 2 :  15 // 6 = 2 .
 
-Le reste de cette division est de 3 :  15 % 6 = 3 .
+    Le reste de cette division est de 3 :  15 % 6 = 3 .
 
-**Congruence**
+    **Congruence**
 
-La notion de **congruence** (hors programme en NSI, on ne l'aborde ici qu'en terme de culture générale) est liée à ce reste.
+    La notion de **congruence** (hors programme en NSI, on ne l'aborde ici qu'en terme de culture générale) est liée à ce reste.
 
-**Exemples sans définition exacte**
+    **Exemples sans définition exacte**
 
-0, 6, 12, 18, 24, 30... sont congrus modulo 6 entre eux car le reste de leur division euclidienne par 6 donne un reste de 0 à chaque fois.
+    0, 6, 12, 18, 24, 30... sont congrus modulo 6 entre eux car le reste de leur division euclidienne par 6 donne un reste de 0 à chaque fois.
 
-1, 7, 13, 19, 25, 31... sont congrus modulo 6 entre eux car le reste de leur division euclidienne par 6 donne un reste de 1 à chaque fois.
+    1, 7, 13, 19, 25, 31... sont congrus modulo 6 entre eux car le reste de leur division euclidienne par 6 donne un reste de 1 à chaque fois.
 
-2, 8, 14, 20, 26, 32... sont congrus modulo 6 entre eux car le reste de leur division euclidienne par 6 donne un reste de 2 à chaque fois.
+    2, 8, 14, 20, 26, 32... sont congrus modulo 6 entre eux car le reste de leur division euclidienne par 6 donne un reste de 2 à chaque fois.
 
-etc. ...
+    etc. ...
 
-**Définition**
+    **Définition**
 
-Soient
+    Soient
 
-- **n**  un entier naturel non nul et,
-- **a**  et  **b**  deux entiers relatifs.
+    - **n**  un entier naturel non nul et,
+    - **a**  et  **b**  deux entiers relatifs.
 
-On dit que  **a  et  b  sont congrus modulo  n**  s'ils ont le même reste dans une division euclidienne par n.
+    On dit que  **a  et  b  sont congrus modulo  n**  s'ils ont le même reste dans une division euclidienne par n.
 
-En Python, on peut donc écrire  **a % n == b % n** .
+    En Python, on peut donc écrire  **a % n == b % n** .
 
-On dit aussi que  **a  est congru à  b  modulo  n** .
+    On dit aussi que  **a  est congru à  b  modulo  n** .
 
-**Notation mathématique**
+    **Notation mathématique**
 
-La notation mathématique est **a ≡ b (mod n)** pour signaler que  **a  et  b  sont congrus modulo  n** .
+    La notation mathématique est **a ≡ b (mod n)** pour signaler que  **a  et  b  sont congrus modulo  n** .
 
-**Exemple**
+    **Exemple**
 
-- 156 = 17\*9 + 3 . Donc  156 % 17  donne un reste de  3 .
-- 105 = 17\*6 + 3 . Donc  105 % 17  donne un reste de  3 .
-- On peut donc écrire que  **156 ≡ 105 (mod 17)**  pour dire que 156 est congru à 105 modulo 17.
+    - 156 = 17\*9 + 3 . Donc  156 % 17  donne un reste de  3 .
+    - 105 = 17\*6 + 3 . Donc  105 % 17  donne un reste de  3 .
+    - On peut donc écrire que  **156 ≡ 105 (mod 17)**  pour dire que 156 est congru à 105 modulo 17.
 
-**Conséquence**
+    **Conséquence**
 
-On remarquera que **a ≡ b (mod n)** implique que (a-b) est divisible par n :
+    On remarquera que **a ≡ b (mod n)** implique que (a-b) est divisible par n :
 
-En Python :  **(a-b) % n == 0** 
+    En Python :  **(a-b) % n == 0** 
 
-Ou encore :  **(a-b) // n == k**  avec k entier.
+    Ou encore :  **(a-b) // n == k**  avec k entier.
 
-156 ≡ 105 (mod 17)  implique que (156-105) / 17 donne un résultat entier.
+    156 ≡ 105 (mod 17)  implique que (156-105) / 17 donne un résultat entier.
 
-En Python :  (156-105) / 17 = 51 / 17 = 3.0 
+    En Python :  (156-105) / 17 = 51 / 17 = 3.0 
 
-**Exemple d'utilisation**
+    **Exemple d'utilisation**
 
-La **Clé Publique** est un n-uplet  **cpub = (n, e)**  contenant deux informations notées **n** et **e**.
+    La **Clé Publique** est un n-uplet  **cpub = (n, e)**  contenant deux informations notées **n** et **e**.
 
-Sur notre exemple, nous prendrons  **cpub = (2159, 437)** 
+    Sur notre exemple, nous prendrons  **cpub = (2159, 437)** 
 
-Si **m** est un bout du message à chiffrer, on obtient le message chiffré **mc** correspondant en utilisant cette formule :
+    Si **m** est un bout du message à chiffrer, on obtient le message chiffré **mc** correspondant en utilisant cette formule :
 
-<b>mc = (m<sup>e</sup>) % n</b> 
+    <b>mc = (m<sup>e</sup>) % n</b> 
 
-- **n** se nomme le **module de chiffrement** car il sert à faire un modulo et
-- **e** est l'**exposant de chiffrement** car on l'utilise en tant que mise à la puissance du message.
+    - **n** se nomme le **module de chiffrement** car il sert à faire un modulo et
+    - **e** est l'**exposant de chiffrement** car on l'utilise en tant que mise à la puissance du message.
 
-En Python, ça donnera :
+    En Python, ça donnera :
 
-**mc = (m\*\*e) % n** 
+    **mc = (m\*\*e) % n** 
 
-La **Clé Privée** est un n-uplet  **cpri = (n, d)**  contenant
+    La **Clé Privée** est un n-uplet  **cpri = (n, d)**  contenant
 
-- le **module de chiffrement** **n** et
-- l'**exposant de déchiffrement** **d**.
+    - le **module de chiffrement** **n** et
+    - l'**exposant de déchiffrement** **d**.
 
-Si **mc** est un bout du message chiffré, on obtient le message déchiffré **md** correspondant en utilisant cette formule :
+    Si **mc** est un bout du message chiffré, on obtient le message déchiffré **md** correspondant en utilisant cette formule :
 
-<b>md = (mc<sup>d</sup>) % n</b> 
+    <b>md = (mc<sup>d</sup>) % n</b> 
 
-Bien entendu, si les valeurs sont correctes, on aura **md** = **m** !
+    Bien entendu, si les valeurs sont correctes, on aura **md** = **m** !
 
-Pour notre exemple, nous prendrons (pas par hasard !)  **cpri = (2159, 1181)** .
+    Pour notre exemple, nous prendrons (pas par hasard !)  **cpri = (2159, 1181)** .
 
-On la gardera secrète de façon à être le seul à pouvoir déchiffrer les messages chiffrés avec la Clé Publique.
+    On la gardera secrète de façon à être le seul à pouvoir déchiffrer les messages chiffrés avec la Clé Publique.
 
-2.1. On désire transmettre par exemple 500 et 1000 de façon cryptée. Calculer les deux messages **mc** à envoyer après application basique du chiffrement sur 500 et 1000 avec  **cpub = (2159, 437)** .
+    2.1. On désire transmettre par exemple 500 et 1000 de façon cryptée. Calculer les deux messages **mc** à envoyer après application basique du chiffrement sur 500 et 1000 avec  **cpub = (2159, 437)** .
 
-**mc = (m\*\*e) % n** 
+    **mc = (m\*\*e) % n** 
 
-2.2. Que va donner le chiffrement d'un message valant 6000 ?
+    2.2. Que va donner le chiffrement d'un message valant 6000 ?
 
-2.3. La personne ayant émis la clé publique reçoit le message suivant : **504** - **1746** - **900**. Sa clé privée (tenue secrète) est  **cpri = (2159, 1181)** .
+    2.3. La personne ayant émis la clé publique reçoit le message suivant : **504** - **1746** - **900**. Sa clé privée (tenue secrète) est  **cpri = (2159, 1181)** .
 
-Comment retrouver le message déchiffré ?
+    Comment retrouver le message déchiffré ?
 
-**Limitation du message chiffré par rapport au module de chiffrement n**
+    **Limitation du message chiffré par rapport au module de chiffrement n**
 
-La valeur de **n** permet d'obtenir la plage des valeurs qui seront déchiffrables : les valeurs **m** à chiffrer doivent impérativement être dans l'intervalle **[0,n[** ou **[0,n-1]**, sinon on ne peut parviendra pas à déchiffrer correctement la valeur initiale.
+    La valeur de **n** permet d'obtenir la plage des valeurs qui seront déchiffrables : les valeurs **m** à chiffrer doivent impérativement être dans l'intervalle **[0,n[** ou **[0,n-1]**, sinon on ne peut parviendra pas à déchiffrer correctement la valeur initiale.
 
-Ici puisque  **n = 2159**, cela veut dire qu'on ne peut chiffrer que des valeurs comprises entre 0 et 2158.
+    Ici puisque  **n = 2159**, cela veut dire qu'on ne peut chiffrer que des valeurs comprises entre 0 et 2158.
 
-Attention, certaines valeurs ont un chiffrement assez problématique :
+    Attention, certaines valeurs ont un chiffrement assez problématique :
 
-Les deux premières valeurs (0 et 1) et la dernière valeur (2158) posent problème :
-```
->>> (0**437) % 2159
-0        Un peu inutile car on retrouve le message de base...
- 
->>> (2159**437) % 2159
-0        Inutile car on obtiendra 0 en déchiffrant !
- 
+    Les deux premières valeurs (0 et 1) et la dernière valeur (2158) posent problème :
+    ```
+    >>> (0**437) % 2159
+    0        Un peu inutile car on retrouve le message de base...
+    
+    >>> (2159**437) % 2159
+    0        Inutile car on obtiendra 0 en déchiffrant !
+    
 
->>> (1**437) % 2159
-1        Pas vraiment un chiffrement...
- 
->>> (2158**437) % 2159
-2158        Pas vraiment un chiffrement...
-```
+    >>> (1**437) % 2159
+    1        Pas vraiment un chiffrement...
+    
+    >>> (2158**437) % 2159
+    2158        Pas vraiment un chiffrement...
+    ```
 
-Entre 2 et 2157, ça fonctionne correctement :
-```
->>> (2**437) % 2159
-389
- 
->>> (2157**437) % 2159
-1770
-```
+    Entre 2 et 2157, ça fonctionne correctement :
+    ```
+    >>> (2**437) % 2159
+    389
+    
+    >>> (2157**437) % 2159
+    1770
+    ```
 
 
-**Principe d'un vrai chiffrement**
+    **Principe d'un vrai chiffrement**
 
-Le vrai chiffrement se fait **sur un bloc d'octets** en réalité sinon, on transforme simplement une valeur comprise entre 0 et 255. C'est problématique dans le cas d'un texte car il suffit alors de connaître la fréquence du "e" dans la langue utilisée, et on pourrait retrouver assez facilement la valeur chiffrée du "e".
+    Le vrai chiffrement se fait **sur un bloc d'octets** en réalité sinon, on transforme simplement une valeur comprise entre 0 et 255. C'est problématique dans le cas d'un texte car il suffit alors de connaître la fréquence du "e" dans la langue utilisée, et on pourrait retrouver assez facilement la valeur chiffrée du "e".
 
-On considère donc plutôt un encodage basé sur un ensemble d'octets et pas un octet unique.
+    On considère donc plutôt un encodage basé sur un ensemble d'octets et pas un octet unique.
 
-On pourrait par exemple vouloir transmettre le string "AB" qui va se retrouver encodé en deux octets YZ: Y = 65 suivi de Z = 66 en ASCII.
+    On pourrait par exemple vouloir transmettre le string "AB" qui va se retrouver encodé en deux octets YZ: Y = 65 suivi de Z = 66 en ASCII.
 
-On va alors considérer que le message **m** à envoyer est 65\*256 + 66, soit 16706.
+    On va alors considérer que le message **m** à envoyer est 65\*256 + 66, soit 16706.
 
-Dans ce cas, il faut donc que **n** soit supérieur à 255\*256 + 255, 65535. Il faut donc un module de chiffrement **n** au moins égal à 65536...
+    Dans ce cas, il faut donc que **n** soit supérieur à 255\*256 + 255, 65535. Il faut donc un module de chiffrement **n** au moins égal à 65536...
 
-C'est logique, 2 octets correspondent à 16 bits, 2<sup>16</sup> possibilités, donc 2<sup>16</sup> - 1 pour la valeur maximale en entier naturel.
+    C'est logique, 2 octets correspondent à 16 bits, 2<sup>16</sup> possibilités, donc 2<sup>16</sup> - 1 pour la valeur maximale en entier naturel.
 
-Puisque **n** = **p** \* **q**, les nombres premiers **p** et **q** ne doivent donc pas être trop petits à cause de cela également.
+    Puisque **n** = **p** \* **q**, les nombres premiers **p** et **q** ne doivent donc pas être trop petits à cause de cela également.
 
-Une autre technique courante consiste à utiliser des permutations d'octets par exemple. Mais le but ici n'est pas de faire un exposé sur les implémentations réelles de RSA.
+    Une autre technique courante consiste à utiliser des permutations d'octets par exemple. Mais le but ici n'est pas de faire un exposé sur les implémentations réelles de RSA.
 
-2.4. Quelle doit être la valeur minimale du module de chiffrement si on veut envoyer des blocs chiffrés de 4 octets ?
+    2.4. Quelle doit être la valeur minimale du module de chiffrement si on veut envoyer des blocs chiffrés de 4 octets ?
 
-2.5. Peut-on utiliser des blocs de deux octets avec nos clés ?
+    2.5. Peut-on utiliser des blocs de deux octets avec nos clés ?
 
-2.6. Envoyer le message "Bonjour à tous" en utilisant simplement UNICODE : on chiffre chaque caractère directement par sa valeur unicode.
+    2.6. Envoyer le message "Bonjour à tous" en utilisant simplement UNICODE : on chiffre chaque caractère directement par sa valeur unicode.
 
-On utilisera les clés fournies dans cette activité.
+    On utilisera les clés fournies dans cette activité.
 
-On peut trouver les valeurs unicode des caractères en utilisant la fonction native de Python **ord** :
-```
->>> ord('A')
-65
- 
->>> chr(65)
-'A'
-```
+    On peut trouver les valeurs unicode des caractères en utilisant la fonction native de Python **ord** :
+    ```
+    >>> ord('A')
+    65
+    
+    >>> chr(65)
+    'A'
+    ```
 
 
-Attention à l'espace, qui est bien un caractère en lui-même.
+    Attention à l'espace, qui est bien un caractère en lui-même.
 
-Créer une fonction Python pour trouver la valeur UNICODE et une fonction Python pour renvoyer la valeur chiffrée pourrait vous simplifier la vie...
+    Créer une fonction Python pour trouver la valeur UNICODE et une fonction Python pour renvoyer la valeur chiffrée pourrait vous simplifier la vie...
 
-**3 - DÉTERMINATION DES CLÉS RSA**
+    **3 - DÉTERMINATION DES CLÉS RSA**
 
-Le principe de l'utilisation étant posé, regardons comment déterminer les clés.
+    Le principe de l'utilisation étant posé, regardons comment déterminer les clés.
 
-**Etape 1 : choisir deux nombres entiers p et q**
+    **Etape 1 : choisir deux nombres entiers p et q**
 
-Assez facile.
+    Assez facile.
 
-Pour notre exemple, nous prendrons par exemple  **p = 17**  et  **q = 127** .
+    Pour notre exemple, nous prendrons par exemple  **p = 17**  et  **q = 127** .
 
-Attention, pour obtenir des clés réellement utilisables, il faut prendre de très grands nombres premiers !
+    Attention, pour obtenir des clés réellement utilisables, il faut prendre de très grands nombres premiers !
 
-**Etape 2 : calculer le module de chiffrement n**
+    **Etape 2 : calculer le module de chiffrement n**
 
-Facile, c'est une multiplication.
+    Facile, c'est une multiplication.
 
-**n = p \* q** 
+    **n = p \* q** 
 
-Cette valeur sera transmise à la fois dans la clé publique et la clé privée.
+    Cette valeur sera transmise à la fois dans la clé publique et la clé privée.
 
-La valeur de **n** n'est donc pas d'une donnée secrète. Par contre, les valeurs de **p** et **q** devront être dissimulées.
+    La valeur de **n** n'est donc pas d'une donnée secrète. Par contre, les valeurs de **p** et **q** devront être dissimulées.
 
-Avec nos valeurs de test, on obtient  n = 17 \* 127 , soit  **n = 2159** .
+    Avec nos valeurs de test, on obtient  n = 17 \* 127 , soit  **n = 2159** .
 
-Ce nombre n'est pas un nombre premier, puisqu'il est décomposable.
+    Ce nombre n'est pas un nombre premier, puisqu'il est décomposable.
 
-Néanmoins, c'est bien de là que vient la "difficulté" du retour en arrière : si on vous donne un n très grand, on ne pourra pas retrouver p et q en un temps raisonnable.
+    Néanmoins, c'est bien de là que vient la "difficulté" du retour en arrière : si on vous donne un n très grand, on ne pourra pas retrouver p et q en un temps raisonnable.
 
-Avec  **n = 2159** , ce n'est pas très difficile ok.
+    Avec  **n = 2159** , ce n'est pas très difficile ok.
 
-Avec  **n = 35823194494940926873** , c'est déjà plus diffile, non ?
+    Avec  **n = 35823194494940926873** , c'est déjà plus diffile, non ?
 
-Et encore, ce nombre n'est pas si grand que cela puisqu'il ne nécessite que 65 bits pour être encodé :
-```
->>> n = p*q
->>> n
-35823194494940926873
- 
->>> bin(n)[2:]
-'11111000100100101100011011001011111111110101011101101001110011001'
- 
->>> len(_)
-65
- 
->>> p
-3875804809
- 
->>> q
-9242775697
-```
+    Et encore, ce nombre n'est pas si grand que cela puisqu'il ne nécessite que 65 bits pour être encodé :
+    ```
+    >>> n = p*q
+    >>> n
+    35823194494940926873
+    
+    >>> bin(n)[2:]
+    '11111000100100101100011011001011111111110101011101101001110011001'
+    
+    >>> len(_)
+    65
+    
+    >>> p
+    3875804809
+    
+    >>> q
+    9242775697
+    ```
 
 
-Si on prend un nombre n beaucoup plus grand, cela va forcément être encore plus diffile. Pour information, le nombre de bits de n est directement lié aux nombres de bits de p et q :
+    Si on prend un nombre n beaucoup plus grand, cela va forcément être encore plus diffile. Pour information, le nombre de bits de n est directement lié aux nombres de bits de p et q :
 
-```
->>> len(bin(p)[2:])
-32
- 
->>> len(bin(q)[2:])
-34
-```
+    ```
+    >>> len(bin(p)[2:])
+    32
+    
+    >>> len(bin(q)[2:])
+    34
+    ```
 
 
-Prendre des nombres p et q de 1000 bits chacun, et tout de suite ça vous donne une idée de la difficulté à retrouver p et q connaissant n.
+    Prendre des nombres p et q de 1000 bits chacun, et tout de suite ça vous donne une idée de la difficulté à retrouver p et q connaissant n.
 
 
-**Taille de la clé asymétrique**
+    **Taille de la clé asymétrique**
 
-Actuellement (2021), on considère que les clés asymétriques basées sur un nombre n de 2048 bits sont valables en terme de sécurité jusqu'en 2030. Au delà, on conseille d'augmenter le nombre de bits car la puissance de calculs aura bien évolué. Est-ce à dire que les clés asymétriques de 1024 bits ne sont plus sécurisées ? Tout dépends de ce que voulez protéger. Augmenter le nombre de bits, augmente en effet le temps d'exécution du chiffrement/déchiffrement.
+    Actuellement (2021), on considère que les clés asymétriques basées sur un nombre n de 2048 bits sont valables en terme de sécurité jusqu'en 2030. Au delà, on conseille d'augmenter le nombre de bits car la puissance de calculs aura bien évolué. Est-ce à dire que les clés asymétriques de 1024 bits ne sont plus sécurisées ? Tout dépends de ce que voulez protéger. Augmenter le nombre de bits, augmente en effet le temps d'exécution du chiffrement/déchiffrement.
 
-En effet, contrairement au cas symétrique (où avec 128 bits, on a vraiment presque 2<sup>128</sup> valeurs possibles), une clé asymétrique de 128 bits ne présente qu'une seule factorisation possible. Cela restreint fortement le nombre de possibilités à tester. Il faut donc augmenter la taille de la clé.
+    En effet, contrairement au cas symétrique (où avec 128 bits, on a vraiment presque 2<sup>128</sup> valeurs possibles), une clé asymétrique de 128 bits ne présente qu'une seule factorisation possible. Cela restreint fortement le nombre de possibilités à tester. Il faut donc augmenter la taille de la clé.
 
-**Comment obtenir un nombre n sur 2048 bits**
+    **Comment obtenir un nombre n sur 2048 bits**
 
-Le plus simple est d'avoir deux nombres premiers **p** et **q** de 1024 bits chacun.
+    Le plus simple est d'avoir deux nombres premiers **p** et **q** de 1024 bits chacun.
 
-**Etape 3 : calculer indicatrice d'Euler φ**
+    **Etape 3 : calculer indicatrice d'Euler φ**
 
-Etape facile, c'est un simple calcul.
+    Etape facile, c'est un simple calcul.
 
-**φ = (p-1) \* (q-1)** 
+    **φ = (p-1) \* (q-1)** 
 
-Ici, on obtient  φ = (17-1) \* (127-1) , soit  **φ = 2016** .
+    Ici, on obtient  φ = (17-1) \* (127-1) , soit  **φ = 2016** .
 
-**Etape 4 : choisir l'exposant de chiffrement e**
+    **Etape 4 : choisir l'exposant de chiffrement e**
 
-Cette étape est plus délicate à réaliser. Nous allons voir qu'il va falloir utiliser l'**algorithme d'Euclide**.
+    Cette étape est plus délicate à réaliser. Nous allons voir qu'il va falloir utiliser l'**algorithme d'Euclide**.
 
-Sans un bon algorithme, cette simple recherche peut prendre du temps.
+    Sans un bon algorithme, cette simple recherche peut prendre du temps.
 
-Ce exposant de chiffrement **e** doit être
+    Ce exposant de chiffrement **e** doit être
 
-1\. un entier inférieur à **φ**
-2\. premier avec **φ** : **e** ne doit pas partager de diviseur commun avec **φ** , d'où l'algorithme d'Euclide.
+    1\. un entier inférieur à **φ**
+    2\. premier avec **φ** : **e** ne doit pas partager de diviseur commun avec **φ** , d'où l'algorithme d'Euclide.
 
-Ici, on a  **φ = 2016**  et on ne pourrait pas prendre  **e = 2014**  car 2016 et 2014 sont divisibles par 2.
+    Ici, on a  **φ = 2016**  et on ne pourrait pas prendre  **e = 2014**  car 2016 et 2014 sont divisibles par 2.
 
-On peut décomposer 2016 de cette façon :  2016 = 2<sup>5</sup> \* 3<sup>2</sup> \* 7  : 2, 3 et 7 sont donc les diviseurs à ne pas prendre pour **e**.
+    On peut décomposer 2016 de cette façon :  2016 = 2<sup>5</sup> \* 3<sup>2</sup> \* 7  : 2, 3 et 7 sont donc les diviseurs à ne pas prendre pour **e**.
 
-Il suffit donc de prendre un nombre **e** qui ne soit divisible ni par 2, ni par 3, ni par 7.
+    Il suffit donc de prendre un nombre **e** qui ne soit divisible ni par 2, ni par 3, ni par 7.
 
-Prenons par exemple  e = 19 \* 23 , soit  **e = 437** .
+    Prenons par exemple  e = 19 \* 23 , soit  **e = 437** .
 
-Il existe donc de nombreuses valeurs admissibles de **e**. Ces valeurs dépendent de **φ** et donc uniquement indirectement de p et **q**. Le principe est de ne pas permettre à quelqu'un connaissant la clé publique (donc **e**) d'obtenir d'indice supplémentaire sur les valeurs possibles de **p** et **q**.
+    Il existe donc de nombreuses valeurs admissibles de **e**. Ces valeurs dépendent de **φ** et donc uniquement indirectement de p et **q**. Le principe est de ne pas permettre à quelqu'un connaissant la clé publique (donc **e**) d'obtenir d'indice supplémentaire sur les valeurs possibles de **p** et **q**.
 
-**Etape 5 : trouver l'exposant de déchiffrement d (connaissant e et φ)**
+    **Etape 5 : trouver l'exposant de déchiffrement d (connaissant e et φ)**
 
-Ce exposant de déchiffrement **d** doit être l'inverse de **e** modulo **φ**.
+    Ce exposant de déchiffrement **d** doit être l'inverse de **e** modulo **φ**.
 
-Cela veut dire qu'il faut respecter cette condition : le reste de la division entière de (e\*d) par φ vaut 1.
+    Cela veut dire qu'il faut respecter cette condition : le reste de la division entière de (e\*d) par φ vaut 1.
 
-**(e \* d) % φ = 1** 
+    **(e \* d) % φ = 1** 
 
-D'où la notion d'inverse "e = 1 / d".
+    D'où la notion d'inverse "e = 1 / d".
 
-Dans le cas de notre exemple :
+    Dans le cas de notre exemple :
 
-- Indicatrice d'Euler  **φ = 2016** 
-- Exposant de chiffrement  **e = 437** 
-- on détermine que l'exposant de déchiffrement est  **d = 1181** 
+    - Indicatrice d'Euler  **φ = 2016** 
+    - Exposant de chiffrement  **e = 437** 
+    - on détermine que l'exposant de déchiffrement est  **d = 1181** 
 
-Vérification avec Python :
-```
->>> e = 437
->>> d = 1181
->>> phi = 2016
->>> (e*d) % phi
-1
-```
+    Vérification avec Python :
+    ```
+    >>> e = 437
+    >>> d = 1181
+    >>> phi = 2016
+    >>> (e*d) % phi
+    1
+    ```
 
 
-Cette fois, il faudra utiliser l'algorithme d'Euclide étendu. Sinon, encore une fois, cela prendrait un temps énorme pour p et q de grande taille.
+    Cette fois, il faudra utiliser l'algorithme d'Euclide étendu. Sinon, encore une fois, cela prendrait un temps énorme pour p et q de grande taille.
 
-**Trouver d ?**
+    **Trouver d ?**
 
-Pour déterminer **d**, il faut connaître **e** (facile, c'est dans la clé publique) et **φ** (non connue car cette valeur n'est pas publiée). Or pour connaître **φ**, il faut parvenir à retrouver **p** et **q** à partir de **n** ! C'est donc difficile algorithmiquement.
+    Pour déterminer **d**, il faut connaître **e** (facile, c'est dans la clé publique) et **φ** (non connue car cette valeur n'est pas publiée). Or pour connaître **φ**, il faut parvenir à retrouver **p** et **q** à partir de **n** ! C'est donc difficile algorithmiquement.
 
-On vient donc bien de dire que connaître la clé publique (**n** ,**e**) ne permet pas de trouver facilement la clé privée ou secrète (**n**, **d**).
+    On vient donc bien de dire que connaître la clé publique (**n** ,**e**) ne permet pas de trouver facilement la clé privée ou secrète (**n**, **d**).
 
-**4 - TP PYTHON - VÉRIFIER LA PRIMALITÉ D'UN ENTIER**
+    **4 - TP PYTHON - VÉRIFIER LA PRIMALITÉ D'UN ENTIER**
 
-Le but de cette activité est d'automatiser tout cela pour générer une clé privée et une clé publique automatiquement.
+    Le but de cette activité est d'automatiser tout cela pour générer une clé privée et une clé publique automatiquement.
 
-Il ne s'agit pas de réaliser une véritable implémentation de RSA permettant de générer une clé de 2048 bits ! Juste de manipuler un peu le système pour voir qu'il fonctionne et que manipuler des grands nombres nécessite de faire attention à nos algorithmes, sinon c'est looooooooooong.
+    Il ne s'agit pas de réaliser une véritable implémentation de RSA permettant de générer une clé de 2048 bits ! Juste de manipuler un peu le système pour voir qu'il fonctionne et que manipuler des grands nombres nécessite de faire attention à nos algorithmes, sinon c'est looooooooooong.
 
-4.7. Installer **matplotlib**.
+    4.7. Installer **matplotlib**.
 
-Nous allons devoir trouver deux nombres premiers.
+    Nous allons devoir trouver deux nombres premiers.
 
-Il va donc falloir vérifier qu'un entier donné est un nombre premier ou pas. Une tâche pas trop compliqué si ce nombre est petit mais un calcul qui devient de plus en plus long lorsque le nombre devient important.
+    Il va donc falloir vérifier qu'un entier donné est un nombre premier ou pas. Une tâche pas trop compliqué si ce nombre est petit mais un calcul qui devient de plus en plus long lorsque le nombre devient important.
 
-**Nombre premier**
+    **Nombre premier**
 
-**Définition** : un nombre premier est un nombre entier naturel qui n'est divisible que par 1 et par lui-même.
+    **Définition** : un nombre premier est un nombre entier naturel qui n'est divisible que par 1 et par lui-même.
 
-**Exemples** :
+    **Exemples** :
 
-- 5 est premier car il n'est divisible que par 1 et 5.
-- 6 n'est pas premier car il est divisible par 1, 2, 3 et 6.
-- 7 est premier car il n'est divisible que par 1 et 7.
-- 8 n'est pas premier car il est divisible par 1, 2, 4 et 8.
+    - 5 est premier car il n'est divisible que par 1 et 5.
+    - 6 n'est pas premier car il est divisible par 1, 2, 3 et 6.
+    - 7 est premier car il n'est divisible que par 1 et 7.
+    - 8 n'est pas premier car il est divisible par 1, 2, 4 et 8.
 
-Les nombres premiers inferieurs à 100 sont : 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61,67,71, 73, 79, 83, 89 et 97.
+    Les nombres premiers inferieurs à 100 sont : 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61,67,71, 73, 79, 83, 89 et 97.
 
-Jusque là, tout va bien.
+    Jusque là, tout va bien.
 
-Mais comment faire pour un nombre de grande taille, disons 170141183460469231731687303715884105727 ?
+    Mais comment faire pour un nombre de grande taille, disons 170141183460469231731687303715884105727 ?
 
-Une version naïve d'une fonction vérifiant si un nombre est premier est donc de vérifier qu'il ne soit pas divisible par l'un des entiers qui lui sont strictement inférieurs (à part 1).
+    Une version naïve d'une fonction vérifiant si un nombre est premier est donc de vérifier qu'il ne soit pas divisible par l'un des entiers qui lui sont strictement inférieurs (à part 1).
 
-**Algorithme le plus brute et naïf qui soit**
+    **Algorithme le plus brute et naïf qui soit**
 
-On tente de diviser **x** un par un par tous les nombres entiers dans **[2;x[**.
+    On tente de diviser **x** un par un par tous les nombres entiers dans **[2;x[**.
 
-La version avec un **while** :
-```python 
-def est_premier_v1(x):
-    '''Fonction très naïve qui recherche si un nombre est premier par force brute'''
-    assert type(x) == int
-    d = 2
-    while x % d != 0:  # tant que d n'est pas un diviseur de x
-        d = d + 1
-    if d < x:  # on a rencontré un diviseur avant d'atteindre x
-        reponse = False
-    else:
-        reponse = True
-    return reponse
-```
-
-
-La version avec un **for** :
-```python
-def est_premier_v1(x):
-    '''Fonction très naïve qui recherche si un nombre est premier par force brute'''
-    assert type(x) == int
-    for d in range(2, x, 1):
-        if x % d == 0:  # si d est un diviseur de x
-            return False  # On vient de rencontrer un diviseur
-    return True  # Nous n'avons pas rencontré de diviseur
-```
-
-
-Prenons le cas de 18. On voit bien que pour tester la primalité, il suffira de le diviser par deux et c'est plié : le reste est nul.
-
-4.8**. Première question** : un nombre (et donc pair) peut-il être divisible par 4, 8, 16... sans être divisible par 2 ?
-
-**Deuxième question** : une fois qu'on a vérifié la division par 2, quels sont les prochains diviseurs à tester ?
-
-4.9. Fichier est\_premier.py ! Version avec un peu d'algorithmique : modifier la fonction (version avec while) de façon à ce qu'elle renvoie bien la bonne réponse mais en utilisant le petit truc de la parité :
-
-- Si x est égal à 2 : on renvoie True.
-- Sinon si x est pair : on renvoie False.
-- Sinon : on effectue la boucle TANT QUE mais cette fois, on commence à 3 et on augmente de 2 pour ne prendre que les nombres impairs.
-
-Prenons le cas de 100. Voici les différentes façons de décomposer 100 (qui n'est pas premier) 
-
-- 100 = 1 \* 100
-- 100 = 2 \* 50
-- 100 = 4 \* 25
-- 100 = 5 \* 20
-- 100 = 10 \* 10.
-
-Au delà de la racine de 100, 10, on va donc retrouver les mêmes valeurs mais en inversant leur ordre :
-
-- 100 = 20 \*5
-- 100 = 25 \* 4
-- 100 = 50 \* 2
-- 100 = 100 \* 1
-
-Prenons le cas de 103. Sa racine vaut approximativement 10.14889156509222. Pour savoir s'il est premier, il est inutile de chercher un diviseur éventuel supérieur à 10 :
-
--\ soit on trouve un diviseur inférieur à 10 et on saura que 103 n'est pas premier.
-
-  - **103 % 2 = 1** car 103 = 2 \* 51 + 1
-
-  - **103 % 3 = 1** car 103 = 3 \* 34 + 1
-
-  - **103 % 5 = 3** car 103 = 5 \* 20 + 3
-
-  - **103 % 7 = 5** car 103 = 7 \* 14 + 5
-
-  - **103 % 9 = 4** car 103 = 9 \* 11 + 4
-
--\ il est inutile de continuer : il faudrait écrire 11 \* quelque chose de supérieur à 10 sinon nous l'aurions trouvé avant ! Or, même 10\*11 donne 110 donc quelque chose de supérieur à 103...
-
-**Trouver un diviseur avec la racine**
-
-Pour un nombre x, s'il existe un diviseur supérieur à la racine de x, c'est qu'il existe nécessairement un diviseur inférieur à la racine de x.
-
-**x** = **a** \* **b**
-
-- S'il existe a plus grand que la racine de x, c'est que b est plus petit que la racine de x
-- S'il existe a plus petit que la racine de x, c'est que b est plus grand que la racine de x.
-
-Moralité : si on cherche les diviseurs du plus grand ou plus petit, on finira pas tomber d'abord sur le plus petit : inutile de continuer après la racine si on n'a pas trouver avant la racine.
-
-4.10. Considérons un nombre **x** et notons **r** sa racine carrée. Montrer par l'absurde qu'on ne peut pas écrire **x** = **a** \* **b** avec **a** **et** **b** supérieurs à **r**.
-
-4.11. Programmation et bugs : Quelqu'un veut créer un programme en utilisant cette notion de **a** **et** **b** supérieurs à **r**. Voici l'un de ses tests. Que teste-on réellement ici ?
-```
-if a and b > r:
-```
-Que faut-il écrire pour réellement tester **a** **et** **b** supérieurs à **r** ?
-
-4.12. >Utiliser la (mauvaise) fonction booléenne **est\_premier\_v1(x)** pour vérifier qu'elle renvoie bien **True** si **x** est premier et **False** sinon.
-
-Cette fonction va au-delà de la racine et est donc assez mal codée.
-
-La fonction gère déjà le cas 2 ou pair. Le TANT QUE doit gérer le cas d'un diviseur supérieur ou égal à 3 puisqu'on commence à diviser **x** par 3. Il faut continuer à modifier **d** dans la boucle non bornée TANT QUE la division euclidienne de **x** par **d** ne donne par un reste nul et que **d** est inférieur à **x**.
-```
->>> est_premier_v1(13)
-True
- 
->>> est_premier_v1(8191)
-True
- 
->>> est_premier_v1(131071)
-True
- 
->>> est_premier_v1(524287)
-True
- 
->>> est_premier_v1(1008001)
-True
- 
->>> est_premier_v1(10003199)
-True
- 
->>> est_premier_v1(100003679)
-True
-```
-
-
-La fonction a l'air de fonctionner mais...
-
-4.13. Programmation et bugs : Pourquoi la fonction ne fonctionne-t-elle pas pour 2 alors qu'elle ne provoque pas d'erreur et qu'elle semble fonctionner pour les valeurs supérieures à deux ?
-
-Modifier la fonction pour qu'elle fonctionne, même pour 2.
-```
->>> est_premier_v1(2)
-False
-```
-
-4.14. Programmation et bugs° Aidez ce pauvre programmeur qui ne comprend pas pourquoi sa propre fonction ne fonctionne pas alors qu'il a bien fait ce qu'on lui demande : on divise par les entiers de 3 jusqu'à l'entier **x** dont on veut tester la primalité. Il a pourtant "presque" la même chose que nous... Et c'est ce "presque" qui pose problème.
-```
->>> est_premier_v1(13)
-False
-```
-
-Voici sa fonction :
-```python
-def est_premier_v1(x):
-    '''Fonction naïve qui recherche si un nombre est premier par force brute'''
-    assert type(x) == int
-    if x == 2:  # si x vaut 2, on renvoie True
-        reponse = True
-    elif x % 2 == 0:  # sinon si x est pair, on renvoie False
-        reponse = False
-    else:  # sinon, il faut chercher
-        d = 3
+    La version avec un **while** :
+    ```python 
+    def est_premier_v1(x):
+        '''Fonction très naïve qui recherche si un nombre est premier par force brute'''
+        assert type(x) == int
+        d = 2
         while x % d != 0:  # tant que d n'est pas un diviseur de x
-            d = d + 2
-        if d <= x:  # on est sorti avant d'avoir atteint x
+            d = d + 1
+        if d < x:  # on a rencontré un diviseur avant d'atteindre x
             reponse = False
         else:
             reponse = True
-    return reponse
-
-```
-
-
-4.15. Fichier rsa.py. Mettre le code en mémoire. Il comporte 5 fonctions :
-
-1. la fonction booléenne **est\_premier\_v1**(**x**) qui teste naïvement si **x** est premier en allant au delà de la racine
-1. la fonction booléenne **est\_premier\_v2**(**x**) qui teste naïvement si **x** est premier en allant uniquement jusqu'à racine de x.
-1. la fonction **duree\_v1**(**x**, **nb\_essais**=10) qui renvoie un float correspondant au nombre de secondes pour que la fonction **est\_premier\_v1** réponde, sur une moyenne de 10 essais par défaut.
-1. la fonction **duree\_v2**(**x**, **nb\_essais**=10) fait la même chose mais pour **est\_premier\_v2**.
-1. la fonction **trace\_duree**(**t**, **nb\_essais**=10) qui trace un graphique correspondant aux durées moyennes pour répondre à la primalité des entiers contenus dans le tableau t, entier par entier. Elle ne renvoie rien, c'est une fonction-procédure d'interface créant un simple affichage.
-
-4.16. Tester la rapidité des deux fonctions en utilisant les nombres premiers stockés dans **NBP**, le tableau de **N**om**B**res **P**remiers.
-```
-NBP = [3, 7, 13, 29, 47, 127, 179, 257, 521, 1039, 2111]
->>> duree_v1(NBP[0])
-1.8533000911702402e-06
- 
->>> duree_v1(NBP[1])
-3.363799987710081e-06
- 
->>> duree_v1(NBP[2])
-4.335299854574259e-06
- 
->>> duree_v1(NBP[3])
-6.7793998823617585e-06
- 
->>> duree_v1(NBP[4])
-1.0627700066834223e-05
- 
->>> duree_v1(NBP[5])
-1.2311300088185817e-05
- 
->>> duree_v1(NBP[6])
-1.2284100012038835e-05
- 
->>> duree_v1(NBP[7])
-4.099059988220688e-05
- 
->>> duree_v1(NBP[8])
-5.155100006959401e-05
- 
->>> duree_v1(NBP[9])
-0.00012017009994451655
- 
->>> duree_v1(NBP[10])
-0.000294514900087961
-```
+        return reponse
+    ```
 
 
-**Question** : que constate-t-on au niveau des temps de réponses lorsque le nombre premier devient de plus en plus grand ? A quoi est-ce dû ?
-
-4.17. Comparer plusieurs durées d'exécution pour un même nombre premier en fournissant un seul essai à chaque fois. Pourquoi a-t-on de telles différentes ?
-```
->>> duree_v1(2111, 1)
-0.0002949560002889484
- 
->>> duree_v1(2111, 1)
-0.00023148800028138794
- 
->>> duree_v1(2111, 1)
-0.00027341500026523136
- 
->>> duree_v1(2111, 1)
-0.0007015280007180991
-```
+    La version avec un **for** :
+    ```python
+    def est_premier_v1(x):
+        '''Fonction très naïve qui recherche si un nombre est premier par force brute'''
+        assert type(x) == int
+        for d in range(2, x, 1):
+            if x % d == 0:  # si d est un diviseur de x
+                return False  # On vient de rencontrer un diviseur
+        return True  # Nous n'avons pas rencontré de diviseur
+    ```
 
 
-4.18. Pour obtenir un temps d'exécution moyen, on peut donc demander à notre fonction d'évaluer cette durée non pas sur un seul essai mais sur plusieurs milliers par exemple.
-```
->>> duree_v1(2111, 1000)
-0.00017470132400012516
- 
->>> duree_v1(2111, 1000)
-0.0001734132050005428
- 
->>> duree_v1(2111, 1000)
-0.0001750983299989457
- 
->>> duree_v1(2111, 1000)
-0.00017563680700004625
+    Prenons le cas de 18. On voit bien que pour tester la primalité, il suffira de le diviser par deux et c'est plié : le reste est nul.
 
-```
+    4.8**. Première question** : un nombre (et donc pair) peut-il être divisible par 4, 8, 16... sans être divisible par 2 ?
 
-Que vaut cette durée ici avec un seul nombre significatif  ?
+    **Deuxième question** : une fois qu'on a vérifié la division par 2, quels sont les prochains diviseurs à tester ?
 
-4.19. Comparer les temps d'exécution pour notre deuxième fonction de recherche, celle qui ne cherche les diviseurs que jusqu'à la racine carré de **x**.
+    4.9. Fichier est\_premier.py ! Version avec un peu d'algorithmique : modifier la fonction (version avec while) de façon à ce qu'elle renvoie bien la bonne réponse mais en utilisant le petit truc de la parité :
 
-```
->>> duree_v2(2111, 1000)
-4.331548000563634e-06
-```
+    - Si x est égal à 2 : on renvoie True.
+    - Sinon si x est pair : on renvoie False.
+    - Sinon : on effectue la boucle TANT QUE mais cette fois, on commence à 3 et on augmente de 2 pour ne prendre que les nombres impairs.
 
+    Prenons le cas de 100. Voici les différentes façons de décomposer 100 (qui n'est pas premier) 
 
-Exprimer les durées des questions 18 et 19 en puissance de 10<sup>-6</sup> puis comparer les durées moyennes d'exécution des questions 16 et 17.
+    - 100 = 1 \* 100
+    - 100 = 2 \* 50
+    - 100 = 4 \* 25
+    - 100 = 5 \* 20
+    - 100 = 10 \* 10.
 
-4.20. La durée est liée aux nombres de diviseurs à vérifier (nombre de fois où on effectue la boucle), à la taille (en octets) du nombre x par rapport aux nombres d'octets ainsi qu'à la taille (en octets) du diviseur...
+    Au delà de la racine de 100, 10, on va donc retrouver les mêmes valeurs mais en inversant leur ordre :
 
-```
->>> duree_v2(1008001, 10000)
-8.181419499996992e-05
- 
->>> duree_v2(1008003, 10000)
-1.609260599980189e-06
- 
->>> duree_v2(1008005, 10000)
-1.8608375999974668e-06
- 
->>> duree_v2(1008002, 10000)
-6.398853001883253e-07
-```
+    - 100 = 20 \*5
+    - 100 = 25 \* 4
+    - 100 = 50 \* 2
+    - 100 = 100 \* 1
 
+    Prenons le cas de 103. Sa racine vaut approximativement 10.14889156509222. Pour savoir s'il est premier, il est inutile de chercher un diviseur éventuel supérieur à 10 :
 
-**Questions**
+    -\ soit on trouve un diviseur inférieur à 10 et on saura que 103 n'est pas premier.
 
-- Pourquoi les temps de réponses pour 1008003, 1008005 et 108002 (ces 3 nombres ne sont pas premiers) sont-ils bien plus bas que pour le nombre premier 1008001 ?
-- Pourquoi la réponse pour 108002 est-elle encore plus rapide ?
-- Que devrait faire cette durée pour vérifier de vrais nombres premiers de plus en plus grands ?
+    - **103 % 2 = 1** car 103 = 2 \* 51 + 1
 
-4.21. Utiliser les appels suivants qui vont permettre de comparer les durées mais également les allures des coûts. Gagne-t-on simplement en temps en utilisant la limite de la racine carrée ?
+    - **103 % 3 = 1** car 103 = 3 \* 34 + 1
 
-```
->>> trace_duree(NBP, duree_v1, 1000)
- 
->>> trace_duree(NBP, duree_v2, 100000)
-```
+    - **103 % 5 = 3** car 103 = 5 \* 20 + 3
 
+    - **103 % 7 = 5** car 103 = 7 \* 14 + 5
 
-**Complexité de l'algorithme naïf**
+    - **103 % 9 = 4** car 103 = 9 \* 11 + 4
 
-Nous avons vu qu'avec un peu d'algorithmique (on teste uniquement les entiers impairs) et de mathématique (on teste uniquement les diviseurs jusq'à la racine carrée), on était parvenu à améliorer la rapidité de la réponse pour un entier premier.
-```
->>> trace_duree(NBP2, duree_v2, 100000)
-```
+    -\ il est inutile de continuer : il faudrait écrire 11 \* quelque chose de supérieur à 10 sinon nous l'aurions trouvé avant ! Or, même 10\*11 donne 110 donc quelque chose de supérieur à 103...
 
-![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.038.png){: .center}
+    **Trouver un diviseur avec la racine**
 
-Réfléchissons un peu au coût d'une réponse sur un nombre premier **x**.
+    Pour un nombre x, s'il existe un diviseur supérieur à la racine de x, c'est qu'il existe nécessairement un diviseur inférieur à la racine de x.
 
-Avec 2 bits b, on peut écrire des nombres de 0 à 3.
+    **x** = **a** \* **b**
 
-Avec 3 bits b, on peut écrire des nombres de 0 à 7.
+    - S'il existe a plus grand que la racine de x, c'est que b est plus petit que la racine de x
+    - S'il existe a plus petit que la racine de x, c'est que b est plus grand que la racine de x.
 
-Avec 4 bits b, on peut écrire des nombres de 0 à 15.
+    Moralité : si on cherche les diviseurs du plus grand ou plus petit, on finira pas tomber d'abord sur le plus petit : inutile de continuer après la racine si on n'a pas trouver avant la racine.
 
-Avec b bits, on peut écrire des nombres de 0 à 2<sup>b</sup>-1.
+    4.10. Considérons un nombre **x** et notons **r** sa racine carrée. Montrer par l'absurde qu'on ne peut pas écrire **x** = **a** \* **b** avec **a** **et** **b** supérieurs à **r**.
 
-Le lien entre n et b est donc de type <b>2<sup>b</sup></b>.
+    4.11. Programmation et bugs : Quelqu'un veut créer un programme en utilisant cette notion de **a** **et** **b** supérieurs à **r**. Voici l'un de ses tests. Que teste-on réellement ici ?
+    ```
+    if a and b > r:
+    ```
+    Que faut-il écrire pour réellement tester **a** **et** **b** supérieurs à **r** ?
 
-Cela veut donc dire que le lien entre b et n est de type **log2(n)**.
+    4.12. >Utiliser la (mauvaise) fonction booléenne **est\_premier\_v1(x)** pour vérifier qu'elle renvoie bien **True** si **x** est premier et **False** sinon.
 
-Si on en revient à notre algorithme :
+    Cette fonction va au-delà de la racine et est donc assez mal codée.
 
-1. Au pire, on doit faire autant de tours de boucle que la racine carrée de **x**. La complexité semble donc liée à ceci :
-
-![coût de l'algorithme naïf](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.039.png)
-
-1. On pourrait croire que le coût de l'algorithme est lié à la racine carré mais en réalité la difficulté du travail demandé dépend du nombre de bits nécessaires à l'encodage du nombre.
-
-![coût de l'algorithme naïf](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.040.png)
-
-1. Or, puisque la racine carré n'est rien d'autres que la mise à la puisance 1/2, on peut donc écrire que :
-1. Le coût de la recherche de primalité d'un nombre quelconque s'exprimant avec b bits est en <b>O(2<sup>b/2</sup>)</b>
-1. Le coût de la recherche de primalité d'un nombre premier s'exprimant avec b bits est en <b>Θ(2<sup>b/2</sup>)</b>
-
-Conclusion : on ne pourra pas utiliser cet algorithme pour créer des nombres premiers de 512 bits au moins.
-
-Déçu ? Eh oui. Il va falloir cette fois abandonner les méthodes de résolution purement informatique et sortir l'arsenal des mathématiques. Mais ce n'est pas pour tout de suite, ni pour cette année. Nous allons donc nous limiter à des recherches sur des nombres premiers d'une vingtaine de bits chacune. C'est déjà pas mal. Ca permettra de créer des clés de 40 bits.
-
-En prenant quelques minutes, on pourrait rajouter quelques bits supplémentaires mais rien qui permettent de vraiment d'atteindre 1024 bits ou plus. Pour cela, il va falloir gagner quelques niveaux en mathématiques d'abord.
-
-4.22. Décommenter la ligne 111. Vous allez pouvoir obtenir la comparaison entre la courbe réelle des durées d'exécution et la courbe théorique exponentielle.
-
-![coût de l'algorithme naïf](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.041.png){: .center}
-
-```python
-# Création du graphique
-plt.plot(axe_x, axe_y, label="Temps de recherche 1er essai", color='red')
-plt.plot(axe_x, [2**(b/2)/((2**(axe_x[-1]/2))/axe_y[-1]) for b in axe_x], color='blue', label="Temps de recherche théorique")
-```
-
-
-
-
-Pour finir avec cette partie, voici l'allure des durées de traitement pour déterminer la primalité des entiers jusqu'à 1 million (à peine 20 bits donc) 
-
-On peut voir que la durée évolue à peine dans le cas d'un nombre non-premier (le bas de la courbe) mais qu'il devient de plus en plus long d'estimer si un grand nombre premier est premier.
-
-![durées pour prouver la primalité](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.042.png){: .center}
-
-
-4.23. programmation et bugs Dernière chose : quelqu'un propose une dernière implémentation de la fonction. Plutôt que d'utiliser un while pour implémenter le TANT QUE, il est passé par un for associé au fait qu'on sorte de la fonction après avoir rencontré un return.
-
-**Questions** :
-
-1. qu'est-ce qui provoque l'exécution des exemples du docstring (qui normalement ne sont que des exemples présents dans la documentation ?
-1. Pourquoi les exemples ne font-ils pas se lancer automatiquement si on importe le module et qu'on le lance depuis un autre script ?
-1. Pourrait-on la ligne vide 21 ?
-1. où se trouve l'erreur ? Modifier le code pour qu'elle fonctionne.
-
-```python
-def est_premier_v3(x: int) -> bool:
-    '''Fonction naïve qui recherche si un nombre est premier par force brute
-    :: param x(int)   :: un entier positif
-    :: return (bool)  :: True si x est premier, False sinon
-    .. ATTENTION : cette version disfonctionne si elle n'est pas modifée
-
-    :: exemples ::
-    >>> est_premier_v3(7)
+    La fonction gère déjà le cas 2 ou pair. Le TANT QUE doit gérer le cas d'un diviseur supérieur ou égal à 3 puisqu'on commence à diviser **x** par 3. Il faut continuer à modifier **d** dans la boucle non bornée TANT QUE la division euclidienne de **x** par **d** ne donne par un reste nul et que **d** est inférieur à **x**.
+    ```
+    >>> est_premier_v1(13)
     True
-    >>> est_premier_v3(5)
+    
+    >>> est_premier_v1(8191)
     True
-    >>> est_premier_v3(25)
-    False
-    >>> est_premier_v3(4)
-    False
-    >>> est_premier_v3(11)
+    
+    >>> est_premier_v1(131071)
     True
-    >>> est_premier_v3(15)
+    
+    >>> est_premier_v1(524287)
+    True
+    
+    >>> est_premier_v1(1008001)
+    True
+    
+    >>> est_premier_v1(10003199)
+    True
+    
+    >>> est_premier_v1(100003679)
+    True
+    ```
+
+
+    La fonction a l'air de fonctionner mais...
+
+    4.13. Programmation et bugs : Pourquoi la fonction ne fonctionne-t-elle pas pour 2 alors qu'elle ne provoque pas d'erreur et qu'elle semble fonctionner pour les valeurs supérieures à deux ?
+
+    Modifier la fonction pour qu'elle fonctionne, même pour 2.
+    ```
+    >>> est_premier_v1(2)
     False
+    ```
 
-    '''
+    4.14. Programmation et bugs° Aidez ce pauvre programmeur qui ne comprend pas pourquoi sa propre fonction ne fonctionne pas alors qu'il a bien fait ce qu'on lui demande : on divise par les entiers de 3 jusqu'à l'entier **x** dont on veut tester la primalité. Il a pourtant "presque" la même chose que nous... Et c'est ce "presque" qui pose problème.
+    ```
+    >>> est_premier_v1(13)
+    False
+    ```
 
-    if x == 2:
+    Voici sa fonction :
+    ```python
+    def est_premier_v1(x):
+        '''Fonction naïve qui recherche si un nombre est premier par force brute'''
+        assert type(x) == int
+        if x == 2:  # si x vaut 2, on renvoie True
+            reponse = True
+        elif x % 2 == 0:  # sinon si x est pair, on renvoie False
+            reponse = False
+        else:  # sinon, il faut chercher
+            d = 3
+            while x % d != 0:  # tant que d n'est pas un diviseur de x
+                d = d + 2
+            if d <= x:  # on est sorti avant d'avoir atteint x
+                reponse = False
+            else:
+                reponse = True
+        return reponse
+
+    ```
+
+
+    4.15. Fichier rsa.py. Mettre le code en mémoire. Il comporte 5 fonctions :
+
+    1. la fonction booléenne **est\_premier\_v1**(**x**) qui teste naïvement si **x** est premier en allant au delà de la racine
+    1. la fonction booléenne **est\_premier\_v2**(**x**) qui teste naïvement si **x** est premier en allant uniquement jusqu'à racine de x.
+    1. la fonction **duree\_v1**(**x**, **nb\_essais**=10) qui renvoie un float correspondant au nombre de secondes pour que la fonction **est\_premier\_v1** réponde, sur une moyenne de 10 essais par défaut.
+    1. la fonction **duree\_v2**(**x**, **nb\_essais**=10) fait la même chose mais pour **est\_premier\_v2**.
+    1. la fonction **trace\_duree**(**t**, **nb\_essais**=10) qui trace un graphique correspondant aux durées moyennes pour répondre à la primalité des entiers contenus dans le tableau t, entier par entier. Elle ne renvoie rien, c'est une fonction-procédure d'interface créant un simple affichage.
+
+    4.16. Tester la rapidité des deux fonctions en utilisant les nombres premiers stockés dans **NBP**, le tableau de **N**om**B**res **P**remiers.
+    ```
+    NBP = [3, 7, 13, 29, 47, 127, 179, 257, 521, 1039, 2111]
+    >>> duree_v1(NBP[0])
+    1.8533000911702402e-06
+    
+    >>> duree_v1(NBP[1])
+    3.363799987710081e-06
+    
+    >>> duree_v1(NBP[2])
+    4.335299854574259e-06
+    
+    >>> duree_v1(NBP[3])
+    6.7793998823617585e-06
+    
+    >>> duree_v1(NBP[4])
+    1.0627700066834223e-05
+    
+    >>> duree_v1(NBP[5])
+    1.2311300088185817e-05
+    
+    >>> duree_v1(NBP[6])
+    1.2284100012038835e-05
+    
+    >>> duree_v1(NBP[7])
+    4.099059988220688e-05
+    
+    >>> duree_v1(NBP[8])
+    5.155100006959401e-05
+    
+    >>> duree_v1(NBP[9])
+    0.00012017009994451655
+    
+    >>> duree_v1(NBP[10])
+    0.000294514900087961
+    ```
+
+
+    **Question** : que constate-t-on au niveau des temps de réponses lorsque le nombre premier devient de plus en plus grand ? A quoi est-ce dû ?
+
+    4.17. Comparer plusieurs durées d'exécution pour un même nombre premier en fournissant un seul essai à chaque fois. Pourquoi a-t-on de telles différentes ?
+    ```
+    >>> duree_v1(2111, 1)
+    0.0002949560002889484
+    
+    >>> duree_v1(2111, 1)
+    0.00023148800028138794
+    
+    >>> duree_v1(2111, 1)
+    0.00027341500026523136
+    
+    >>> duree_v1(2111, 1)
+    0.0007015280007180991
+    ```
+
+
+    4.18. Pour obtenir un temps d'exécution moyen, on peut donc demander à notre fonction d'évaluer cette durée non pas sur un seul essai mais sur plusieurs milliers par exemple.
+    ```
+    >>> duree_v1(2111, 1000)
+    0.00017470132400012516
+    
+    >>> duree_v1(2111, 1000)
+    0.0001734132050005428
+    
+    >>> duree_v1(2111, 1000)
+    0.0001750983299989457
+    
+    >>> duree_v1(2111, 1000)
+    0.00017563680700004625
+
+    ```
+
+    Que vaut cette durée ici avec un seul nombre significatif  ?
+
+    4.19. Comparer les temps d'exécution pour notre deuxième fonction de recherche, celle qui ne cherche les diviseurs que jusqu'à la racine carré de **x**.
+
+    ```
+    >>> duree_v2(2111, 1000)
+    4.331548000563634e-06
+    ```
+
+
+    Exprimer les durées des questions 18 et 19 en puissance de 10<sup>-6</sup> puis comparer les durées moyennes d'exécution des questions 16 et 17.
+
+    4.20. La durée est liée aux nombres de diviseurs à vérifier (nombre de fois où on effectue la boucle), à la taille (en octets) du nombre x par rapport aux nombres d'octets ainsi qu'à la taille (en octets) du diviseur...
+
+    ```
+    >>> duree_v2(1008001, 10000)
+    8.181419499996992e-05
+    
+    >>> duree_v2(1008003, 10000)
+    1.609260599980189e-06
+    
+    >>> duree_v2(1008005, 10000)
+    1.8608375999974668e-06
+    
+    >>> duree_v2(1008002, 10000)
+    6.398853001883253e-07
+    ```
+
+
+    **Questions**
+
+    - Pourquoi les temps de réponses pour 1008003, 1008005 et 108002 (ces 3 nombres ne sont pas premiers) sont-ils bien plus bas que pour le nombre premier 1008001 ?
+    - Pourquoi la réponse pour 108002 est-elle encore plus rapide ?
+    - Que devrait faire cette durée pour vérifier de vrais nombres premiers de plus en plus grands ?
+
+    4.21. Utiliser les appels suivants qui vont permettre de comparer les durées mais également les allures des coûts. Gagne-t-on simplement en temps en utilisant la limite de la racine carrée ?
+
+    ```
+    >>> trace_duree(NBP, duree_v1, 1000)
+    
+    >>> trace_duree(NBP, duree_v2, 100000)
+    ```
+
+
+    **Complexité de l'algorithme naïf**
+
+    Nous avons vu qu'avec un peu d'algorithmique (on teste uniquement les entiers impairs) et de mathématique (on teste uniquement les diviseurs jusq'à la racine carrée), on était parvenu à améliorer la rapidité de la réponse pour un entier premier.
+    ```
+    >>> trace_duree(NBP2, duree_v2, 100000)
+    ```
+
+    ![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.038.png){: .center}
+
+    Réfléchissons un peu au coût d'une réponse sur un nombre premier **x**.
+
+    Avec 2 bits b, on peut écrire des nombres de 0 à 3.
+
+    Avec 3 bits b, on peut écrire des nombres de 0 à 7.
+
+    Avec 4 bits b, on peut écrire des nombres de 0 à 15.
+
+    Avec b bits, on peut écrire des nombres de 0 à 2<sup>b</sup>-1.
+
+    Le lien entre n et b est donc de type <b>2<sup>b</sup></b>.
+
+    Cela veut donc dire que le lien entre b et n est de type **log2(n)**.
+
+    Si on en revient à notre algorithme :
+
+    1. Au pire, on doit faire autant de tours de boucle que la racine carrée de **x**. La complexité semble donc liée à ceci :
+
+    ![coût de l'algorithme naïf](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.039.png)
+
+    1. On pourrait croire que le coût de l'algorithme est lié à la racine carré mais en réalité la difficulté du travail demandé dépend du nombre de bits nécessaires à l'encodage du nombre.
+
+    ![coût de l'algorithme naïf](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.040.png)
+
+    1. Or, puisque la racine carré n'est rien d'autres que la mise à la puisance 1/2, on peut donc écrire que :
+    1. Le coût de la recherche de primalité d'un nombre quelconque s'exprimant avec b bits est en <b>O(2<sup>b/2</sup>)</b>
+    1. Le coût de la recherche de primalité d'un nombre premier s'exprimant avec b bits est en <b>Θ(2<sup>b/2</sup>)</b>
+
+    Conclusion : on ne pourra pas utiliser cet algorithme pour créer des nombres premiers de 512 bits au moins.
+
+    Déçu ? Eh oui. Il va falloir cette fois abandonner les méthodes de résolution purement informatique et sortir l'arsenal des mathématiques. Mais ce n'est pas pour tout de suite, ni pour cette année. Nous allons donc nous limiter à des recherches sur des nombres premiers d'une vingtaine de bits chacune. C'est déjà pas mal. Ca permettra de créer des clés de 40 bits.
+
+    En prenant quelques minutes, on pourrait rajouter quelques bits supplémentaires mais rien qui permettent de vraiment d'atteindre 1024 bits ou plus. Pour cela, il va falloir gagner quelques niveaux en mathématiques d'abord.
+
+    4.22. Décommenter la ligne 111. Vous allez pouvoir obtenir la comparaison entre la courbe réelle des durées d'exécution et la courbe théorique exponentielle.
+
+    ![coût de l'algorithme naïf](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.041.png){: .center}
+
+    ```python
+    # Création du graphique
+    plt.plot(axe_x, axe_y, label="Temps de recherche 1er essai", color='red')
+    plt.plot(axe_x, [2**(b/2)/((2**(axe_x[-1]/2))/axe_y[-1]) for b in axe_x], color='blue', label="Temps de recherche théorique")
+    ```
+
+
+
+
+    Pour finir avec cette partie, voici l'allure des durées de traitement pour déterminer la primalité des entiers jusqu'à 1 million (à peine 20 bits donc) 
+
+    On peut voir que la durée évolue à peine dans le cas d'un nombre non-premier (le bas de la courbe) mais qu'il devient de plus en plus long d'estimer si un grand nombre premier est premier.
+
+    ![durées pour prouver la primalité](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.042.png){: .center}
+
+
+    4.23. programmation et bugs Dernière chose : quelqu'un propose une dernière implémentation de la fonction. Plutôt que d'utiliser un while pour implémenter le TANT QUE, il est passé par un for associé au fait qu'on sorte de la fonction après avoir rencontré un return.
+
+    **Questions** :
+
+    1. qu'est-ce qui provoque l'exécution des exemples du docstring (qui normalement ne sont que des exemples présents dans la documentation ?
+    1. Pourquoi les exemples ne font-ils pas se lancer automatiquement si on importe le module et qu'on le lance depuis un autre script ?
+    1. Pourrait-on la ligne vide 21 ?
+    1. où se trouve l'erreur ? Modifier le code pour qu'elle fonctionne.
+
+    ```python
+    def est_premier_v3(x: int) -> bool:
+        '''Fonction naïve qui recherche si un nombre est premier par force brute
+        :: param x(int)   :: un entier positif
+        :: return (bool)  :: True si x est premier, False sinon
+        .. ATTENTION : cette version disfonctionne si elle n'est pas modifée
+
+        :: exemples ::
+        >>> est_premier_v3(7)
+        True
+        >>> est_premier_v3(5)
+        True
+        >>> est_premier_v3(25)
+        False
+        >>> est_premier_v3(4)
+        False
+        >>> est_premier_v3(11)
+        True
+        >>> est_premier_v3(15)
+        False
+
+        '''
+
+        if x == 2:
+            return True
+        elif x % 2 == 0:
+            return False
+        else:
+            limite = math.floor(math.sqrt(x))
+            for d in range(3, limite, 2):
+                if x % d == 0:
+                    return False
         return True
-    elif x % 2 == 0:
-        return False
-    else:
-        limite = math.floor(math.sqrt(x))
-        for d in range(3, limite, 2):
-            if x % d == 0:
-                return False
-    return True
 
 
-if __name__ == '__main__':
-    import doctest
-    doctest.testmod()
-```
+    if __name__ == '__main__':
+        import doctest
+        doctest.testmod()
+    ```
 
 
-```python
-**********************************************************************
-File "activite_prog_rsa.py", line 31, in __main__.est_premier_v3
-Failed example:
-    est_premier_v3(25)
-Expected:
-    False
-Got:
+    ```python
+    **********************************************************************
+    File "activite_prog_rsa.py", line 31, in __main__.est_premier_v3
+    Failed example:
+        est_premier_v3(25)
+    Expected:
+        False
+    Got:
+        True
+    **********************************************************************
+    File "activite_prog_rsa.py", line 37, in __main__.est_premier_v3
+    Failed example:
+        est_premier_v3(15)
+    Expected:
+        False
+    Got:
+        True
+    **********************************************************************
+    1 items had failures:
+    2 of   6 in __main__.est_premier_v3
+    ***Test Failed*** 2 failures.
+    ```
+
+
+    **5 - ETAPES 1-2-3**
+
+    Maintenant que nous savons déterminer (avec un algorithme assez peu performant) si un entier est premier ou pas, nous allons pouvoir réaliser les trois premières étapes de RSA :
+
+    **Etape 1 : choisir deux nombres entiers p et q de b bits.**
+
+    **Etape 2 : calculer le module de chiffrement n.**
+
+    **n = p \* q** 
+
+    **Etape 3 : calculer indicatrice d'Euler φ**
+
+    **φ = (p-1) \* (q-1)** 
+
+    Commençons par nous souvenir qu'avec <b>b</b> bits, on peut encoder un entier naturel dont la valeur varie de  <b>0</b>  à  <b>2<sup>b</sup> - 1</b> , soit  <b>2<sup>b</sup></b>  entiers au total.
+
+    On veut créer un nombre qui nécessite vraiment b bits et qui ne soit pas zéro : il faut donc que le bit de poids fort et le bit de poids faible ne soient pas 0 :  **1-------1** .
+
+    - Au minimum : seuls ces deux bits sont à 1. On a alors  <b>2<sup>b-1</sup> + 1</b> .
+    - Au maximum : tous les bits sont à 1. On a alors la valeur maximale  <b>2<sup>b</sup> - 1</b> 
+
+    Si on désire créer un nombre premier aléatoire de **b** bits, il suffit **naïvement** d'utiliser cet algorithme (on ne considèrera pas le cas où 2 est un premier possible, puisqu'on désire générer des grands nombres):
+
+    La fonction **trouver\_premier**(**b**)
+
+    - Calcule le plus petit et le plus grand nombre possible
+    - Tire un nombre aléatoire IMPAIR entre ces deux nombres
+    - Renvoie le premier nombre premier qu'on trouve à partir de ce nombre IMPAIR
+
+    5.24. programmation et bugs : Fichier rsa\_v2.py. Mettre ce programme en mémoire.
+
+    Lancer l'appel suivant puis corriger l'erreur qui apparaît.
+    ```
+    >>> est_premier_v2(13)
     True
-**********************************************************************
-File "activite_prog_rsa.py", line 37, in __main__.est_premier_v3
-Failed example:
-    est_premier_v3(15)
-Expected:
-    False
-Got:
+    
+    >>> est_premier_v2(23)
     True
-**********************************************************************
-1 items had failures:
-   2 of   6 in __main__.est_premier_v3
-***Test Failed*** 2 failures.
-```
+    
+    >>> nombre_impair(13, 23)
+        while x % 2 == 0 or x < minimum or x > maximum:
+    UnboundLocalError: local variable 'x' referenced before assignment
+    ```
 
 
-**5 - ETAPES 1-2-3**
 
-Maintenant que nous savons déterminer (avec un algorithme assez peu performant) si un entier est premier ou pas, nous allons pouvoir réaliser les trois premières étapes de RSA :
+    Finalisons.
 
-**Etape 1 : choisir deux nombres entiers p et q de b bits.**
+    **Algorithme pour obtenir un nombre premier au hasard**
 
-**Etape 2 : calculer le module de chiffrement n.**
+    Remarque : l'algorithme utilise
 
-**n = p \* q** 
+    1. la fonction **est\_premier**, ici dans sa version 2.
+    1. la fonction **nombre\_impair**(**minimum**, **maximum**) qui renvoie un nombre impair aléatoire dans l'intervalle [minimum, maximum]
 
-**Etape 3 : calculer indicatrice d'Euler φ**
+    **Description de l'algorithme de recherche** **renvoyer\_premier**(**b**)
+    ```
+        minimum ← le plus petit nombre IMPAIR voulu (2b-1 + 1)
+        maximum ← le plus grand nombre IMPAIR voulu (2b - 1)
+        x ← nombre_impair(minimum, maximum)
+        TANT QUE NON est_premier_v2(x)
+            x ← x + 2
+            SI x > maximum
+                x ← minimum
+            Fin SI
+        Fin TANT QUE
+        Renvoyer x
+    ```
 
-**φ = (p-1) \* (q-1)** 
+    5.25. Réaliser l'implémentation de la fonction **renvoyer\_premier**.
 
-Commençons par nous souvenir qu'avec <b>b</b> bits, on peut encoder un entier naturel dont la valeur varie de  <b>0</b>  à  <b>2<sup>b</sup> - 1</b> , soit  <b>2<sup>b</sup></b>  entiers au total.
+    Ouf. Presque fini avec l'étape 1, 2 et 3 :
 
-On veut créer un nombre qui nécessite vraiment b bits et qui ne soit pas zéro : il faut donc que le bit de poids fort et le bit de poids faible ne soient pas 0 :  **1-------1** .
+    **Structure d'un programme ou d'un module**
 
-- Au minimum : seuls ces deux bits sont à 1. On a alors  <b>2<sup>b-1</sup> + 1</b> .
-- Au maximum : tous les bits sont à 1. On a alors la valeur maximale  <b>2<sup>b</sup> - 1</b> 
+    On place les éléments dans un ordre précis et en séparant clairement les parties :
 
-Si on désire créer un nombre premier aléatoire de **b** bits, il suffit **naïvement** d'utiliser cet algorithme (on ne considèrera pas le cas où 2 est un premier possible, puisqu'on désire générer des grands nombres):
+    -\ les importations
 
-La fonction **trouver\_premier**(**b**)
+    -\ les CONSTANTES éventuelles
 
-- Calcule le plus petit et le plus grand nombre possible
-- Tire un nombre aléatoire IMPAIR entre ces deux nombres
-- Renvoie le premier nombre premier qu'on trouve à partir de ce nombre IMPAIR
+    -\ les déclarations de Classes
 
-5.24. programmation et bugs : Fichier rsa\_v2.py. Mettre ce programme en mémoire.
+    -\ les déclarations de fonctions en séparant si possible :
 
-Lancer l'appel suivant puis corriger l'erreur qui apparaît.
-```
->>> est_premier_v2(13)
-True
- 
->>> est_premier_v2(23)
-True
- 
->>> nombre_impair(13, 23)
-    while x % 2 == 0 or x < minimum or x > maximum:
-UnboundLocalError: local variable 'x' referenced before assignment
-```
+    - les fonctions internes (pas d'appel depuis l'extérieur)
 
+    - les fonctions d'interface (utilisables)
 
+    -\ le programme qu'on veut voir s'exécuter uniquement en cas d'appel direct
 
-Finalisons.
+    Voici ci-dessous le programme permettant de (presque) gérer les étapes 1, 2 et 3.
 
-**Algorithme pour obtenir un nombre premier au hasard**
+    5.26. Fichier rsa3.py : Observer la fonction **creer\_cles** puis lancer le programme. Observer les erreurs d'exécution fournies par le module **doctest**.
 
-Remarque : l'algorithme utilise
+    **Questions**
 
-1. la fonction **est\_premier**, ici dans sa version 2.
-1. la fonction **nombre\_impair**(**minimum**, **maximum**) qui renvoie un nombre impair aléatoire dans l'intervalle [minimum, maximum]
+    1. Où se trouve l'appel de la fonction **creer\_cles** ?
+    1. Sous quelle condition cet appel ne se fera-t-il pas ?
 
-**Description de l'algorithme de recherche** **renvoyer\_premier**(**b**)
-```
- 	minimum ← le plus petit nombre IMPAIR voulu (2b-1 + 1)
- 	maximum ← le plus grand nombre IMPAIR voulu (2b - 1)
-    x ← nombre_impair(minimum, maximum)
-    TANT QUE NON est_premier_v2(x)
- 		x ← x + 2
- 	    SI x > maximum
- 		    x ← minimum
- 	    Fin SI
-    Fin TANT QUE
-    Renvoyer x
-```
+    **6 - TESTER**
 
-5.25. Réaliser l'implémentation de la fonction **renvoyer\_premier**.
+    Avant de continuer, voyons comment vérifier le bon déroulement du programme **même si un utilisateur envoie un mauvais argument à l'une des fonctions d'interface.**
 
-Ouf. Presque fini avec l'étape 1, 2 et 3 :
+    Nous allons revoir qu'on gère différemment
 
-**Structure d'un programme ou d'un module**
+    - les **fonctions d'interface** : l'utilisateur a potentiellement envoyé n'importe quoi, il convient donc de vérifier les paramètres avant de demander aux fonctions internes de travailler sur ces données.
+    - les **fonctions internes** : normalement, ces fonctions ont été testées et validées avant utilisation, si on leur transmet de bons arguments, pas de raison qu'elles dysfonctionnent.
 
-On place les éléments dans un ordre précis et en séparant clairement les parties :
+    **Tester les fonctions avec des assertions**
 
--\ les importations
+    Première façon de faire : on stoppe l'exécution du programme
 
--\ les CONSTANTES éventuelles
+    - si l'une des préconditions est fausse (conditions sur les paramètres d'ENTREES)
+    - si l'une des postconditions est fausse (conditions sur la réponse en SORTIE)
 
--\ les déclarations de Classes
+    Avantage : on surveille tout et on détecte tous les dysfonctionnements qu'on peut tenter de gérer ensuite
 
--\ les déclarations de fonctions en séparant si possible :
+    Désavantage : ça coupe tout au moindre problème et ça ralentit le tout à cause du nombre importants de tests.
 
-  - les fonctions internes (pas d'appel depuis l'extérieur)
+    On peut voir cela comme de la programmation "défensive" : on accepte de travailler qu'avec des données valides et on refuse de continuer au moindre problème. Ca peut être bien sur certaines applications où les problèmes engendrés peuvent être pires qu'une simple interruption.
 
-  - les fonctions d'interface (utilisables)
+    6.27. On va étudier deux fonctions supplémentaires. Lancer le fichier rsa4.py.
 
--\ le programme qu'on veut voir s'exécuter uniquement en cas d'appel direct
+    En vous aidant de la première, créer des assertions pour la seconde fonction :
 
-Voici ci-dessous le programme permettant de (presque) gérer les étapes 1, 2 et 3.
+    1\. les préconditions AVANT de commencer à calculer phi.
 
-5.26. Fichier rsa3.py : Observer la fonction **creer\_cles** puis lancer le programme. Observer les erreurs d'exécution fournies par le module **doctest**.
+    2\. vérifiez les deux postconditions suivantes APRES avec calculer phi mais avant de faire répondre la fonction :
 
-**Questions**
+    - phi est bien un entier et
 
-1. Où se trouve l'appel de la fonction **creer\_cles** ?
-1. Sous quelle condition cet appel ne se fera-t-il pas ?
+    - phi < p\*q
 
-**6 - TESTER**
+    6.28. Tester si **p** et **q** sont premiers est-il rapide ou lent ?
 
-Avant de continuer, voyons comment vérifier le bon déroulement du programme **même si un utilisateur envoie un mauvais argument à l'une des fonctions d'interface.**
+    Est-ce bien utile d'ailleurs pour une fonction qui est juste censée renvoyer une multiplication ?
 
-Nous allons revoir qu'on gère différemment
+    **Conclusion sur l'utilisation des assertions**
 
-- les **fonctions d'interface** : l'utilisateur a potentiellement envoyé n'importe quoi, il convient donc de vérifier les paramètres avant de demander aux fonctions internes de travailler sur ces données.
-- les **fonctions internes** : normalement, ces fonctions ont été testées et validées avant utilisation, si on leur transmet de bons arguments, pas de raison qu'elles dysfonctionnent.
+    Tout vérifier est contre-productif. Il faut vérifier ce qui est important pour la fonction en elle-même, sans oublier qu'elle s'insère dans un ensemble.
 
-**Tester les fonctions avec des assertions**
+    ![déroulement des appels](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.043.png){: .center}
 
-Première façon de faire : on stoppe l'exécution du programme
+    6.29. Pourquoi n'est-ce pas la peine de vérifier la primalité de **p** et **q** dans **calculer\_module** si on a bien vérifié la fonction **renvoyer\_premier** ?
 
-- si l'une des préconditions est fausse (conditions sur les paramètres d'ENTREES)
-- si l'une des postconditions est fausse (conditions sur la réponse en SORTIE)
+    Habituellement (sauf exception), on va donc supprimer une bonne partie des exceptions après la phase de développement. En garder quelques-unes bien choisies permet de détecter plus facilement les dysfonctionnements pour une cause non prévue si on n’a pas montrer la correction de toutes les fonctions.
 
-Avantage : on surveille tout et on détecte tous les dysfonctionnements qu'on peut tenter de gérer ensuite
+    Une fois toutes les fonctions internes validées, il ne reste qu'à bien filtrer les arguments envoyés aux fonctions d'interface.
 
-Désavantage : ça coupe tout au moindre problème et ça ralentit le tout à cause du nombre importants de tests.
+    **Filtrer les paramètres des fonctions d'interface (hors programme, simple présentation de culture générale)**
+    Avec les fonctions d'interface, c'est plus compliqué : le contenu des paramètres est potentiellement mauvais.
 
-On peut voir cela comme de la programmation "défensive" : on accepte de travailler qu'avec des données valides et on refuse de continuer au moindre problème. Ca peut être bien sur certaines applications où les problèmes engendrés peuvent être pires qu'une simple interruption.
+    1. Soit on met des assertions : tant pis pour l'utilisateur qui fait n'importe quoi (on protège les données). Mais ça fait stopper le système.
 
-6.27. On va étudier deux fonctions supplémentaires. Lancer le fichier rsa4.py.
+    ```python
+    def creer_cles(b: int) -> tuple:
+        '''Renvoie un tuple contenant la clé publique et la clé privée ou None
 
-En vous aidant de la première, créer des assertions pour la seconde fonction :
+        :: param b(int)        :: le nombre de bits voulus pour les entiers premiers
+        :: return (tuple|None) :: un tuple contenant les clés ou None en cas de problème
 
-1\. les préconditions AVANT de commencer à calculer phi.
+        '''
 
-2\. vérifiez les deux postconditions suivantes APRES avec calculer phi mais avant de faire répondre la fonction :
+        assert type(b) == int, "b n'est pas un entier"
+        assert b > 0
 
-   - phi est bien un entier et
+        ..code
+        normal..
+    ```
 
-   - phi < p\*q
 
-6.28. Tester si **p** et **q** sont premiers est-il rapide ou lent ?
+    1. Soit on fait des tests d'erreurs (avec des **if**) sur les erreurs d'entrée qu'on peut prévoir, et on réalise autre chose que la séquence normale si c'est le cas. Il faut penser à tout et dire à l'utilisateur qu'on va renvoyer un mauvais résultat s'il envoie n'importe quoi... Est-ce mieux ?
+    ```python
+    def creer_cles(b: int) -> tuple:
+        '''Renvoie un tuple contenant la clé publique et la clé privée ou None
 
-Est-ce bien utile d'ailleurs pour une fonction qui est juste censée renvoyer une multiplication ?
+        :: param b(int)        :: le nombre de bits voulus pour les entiers premiers
+        :: return (tuple|None) :: un tuple contenant les clés ou None en cas de problème
 
-**Conclusion sur l'utilisation des assertions**
+        '''
 
-Tout vérifier est contre-productif. Il faut vérifier ce qui est important pour la fonction en elle-même, sans oublier qu'elle s'insère dans un ensemble.
+        if type(b) == int and b > 0:
 
-![déroulement des appels](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.043.png){: .center}
+            ...
+            code
+            normal...
 
-6.29. Pourquoi n'est-ce pas la peine de vérifier la primalité de **p** et **q** dans **calculer\_module** si on a bien vérifié la fonction **renvoyer\_premier** ?
+        else:
 
-Habituellement (sauf exception), on va donc supprimer une bonne partie des exceptions après la phase de développement. En garder quelques-unes bien choisies permet de détecter plus facilement les dysfonctionnements pour une cause non prévue si on n’a pas montrer la correction de toutes les fonctions.
+            return None
 
-Une fois toutes les fonctions internes validées, il ne reste qu'à bien filtrer les arguments envoyés aux fonctions d'interface.
+    ```
 
-**Filtrer les paramètres des fonctions d'interface (hors programme, simple présentation de culture générale)**
-Avec les fonctions d'interface, c'est plus compliqué : le contenu des paramètres est potentiellement mauvais.
 
-1. Soit on met des assertions : tant pis pour l'utilisateur qui fait n'importe quoi (on protège les données). Mais ça fait stopper le système.
+    1. Soit on tente de faire fonctionner le système (avec des **try**) et en cas déclenchement d'une erreur, on prévoit autre chose (avec des **except**). Mais on n'en parlera pas plus que ça, ce n'est pas au programme et il faut faire attention à ce qu'on fait aussi : si on envoie un flottant, ça passera ici ! Je n'en parle qu'en terme de culture générale, pour que vous sachiez ce que cela fait si vous tombez sur un tel code. On en parlera plus ensuite.
+    ```python
+    def creer_cles(b: int) -> tuple:
+        '''Renvoie un tuple contenant la clé publique et la clé privée ou None
 
-```python
-def creer_cles(b: int) -> tuple:
-    '''Renvoie un tuple contenant la clé publique et la clé privée ou None
+        :: param b(int)        :: le nombre de bits voulus pour les entiers premiers
+        :: return (tuple) :: un tuple contenant les clés
+        .. on utilisera des premiers sur 20 bits en cas de problème quelconque
 
-    :: param b(int)        :: le nombre de bits voulus pour les entiers premiers
-    :: return (tuple|None) :: un tuple contenant les clés ou None en cas de problème
+        '''
 
-    '''
+        try:
+            b = int(b)
+        except:
+            b = 20
 
-    assert type(b) == int, "b n'est pas un entier"
-    assert b > 0
+        if not b > 0:
+            b = 20
 
-    ..code
-    normal..
-```
+        ..code
+        normal..
 
+    ```
 
-1. Soit on fait des tests d'erreurs (avec des **if**) sur les erreurs d'entrée qu'on peut prévoir, et on réalise autre chose que la séquence normale si c'est le cas. Il faut penser à tout et dire à l'utilisateur qu'on va renvoyer un mauvais résultat s'il envoie n'importe quoi... Est-ce mieux ?
-```python
-def creer_cles(b: int) -> tuple:
-    '''Renvoie un tuple contenant la clé publique et la clé privée ou None
 
-    :: param b(int)        :: le nombre de bits voulus pour les entiers premiers
-    :: return (tuple|None) :: un tuple contenant les clés ou None en cas de problème
+    Le problème des méthodes 2 et 3 : il n'y pas toujours facile de retrouver la raison initiale d'une erreur à un moment si on a modifier les 'mauvaises' données envoyées par l'utilisateur. Bref, comme vous le voyez c'est un vrai sujet qui mérite des heures de formation.
 
-    '''
 
-    if type(b) == int and b > 0:
+    **A retenir pour cette année :**
 
-        ...
-        code
-        normal...
+    On distinguera 3 grands types d'erreur :
 
-    else:
+    1. les **erreurs de syntaxe** : facile à détecter par l'interpréteur (on a oublié un :, on a écrit dec plutôt que def...)
+    1. les **erreurs d'exécution** : le code est "propre" mais l'un des contenus n'est pas du bon type ou ne contient pas ce qu'il faut. Il faut vérifier le contenu des variables pour savoir d'où vient le problème. Et si on a trop filtrer les arguments, il est possible que cela soit encore plus difficile !
+    1. Les **erreurs logiques ou sémantiques** : le code a l'air propre mais l'algorithme est faux. Cela ne déclenche pas d'erreur mais renvoie de mauvaises réponses. Comme elles ne déclenchent pas d'erreur en elles-même, ces erreurs sont compliquées à gérer. C'est l'un qu'un bon choix d'assertions permet de couper le programme à l'endroit où les préconditions ou postconditions ne sont plus bonnes.
 
-        return None
+    Quelques bonnes pratiques pour limiter le nombre d'erreurs :
 
-```
+    1. Faire de petites fonctions ET les tester avant de passer à autre chose : c'est l'intéret des jeux de tests
+    1. Placer des assertions permettant de vérifer les préconditions et les postconditions (cela coupe le déroulement du processus lorsqu'on détecte un problème)
+    1. Choisir judicieusement les assertions en prenant en compte la position de la fonction dans le programme ou le module (fonction d'interface, fonction interne...)
+    1. Le filtrage des paramètres est possible mais nécessite des précautions et n'est pas une solution miracle non plus : cela peut même compliquer la recherche de la source d'un bug.
 
+    **7 - DÉTERMINER L'EXPOSANT E DE CHIFFREMENT**
 
-1. Soit on tente de faire fonctionner le système (avec des **try**) et en cas déclenchement d'une erreur, on prévoit autre chose (avec des **except**). Mais on n'en parlera pas plus que ça, ce n'est pas au programme et il faut faire attention à ce qu'on fait aussi : si on envoie un flottant, ça passera ici ! Je n'en parle qu'en terme de culture générale, pour que vous sachiez ce que cela fait si vous tombez sur un tel code. On en parlera plus ensuite.
-```python
-def creer_cles(b: int) -> tuple:
-    '''Renvoie un tuple contenant la clé publique et la clé privée ou None
 
-    :: param b(int)        :: le nombre de bits voulus pour les entiers premiers
-    :: return (tuple) :: un tuple contenant les clés
-    .. on utilisera des premiers sur 20 bits en cas de problème quelconque
 
-    '''
+    Rappel :
 
-    try:
-        b = int(b)
-    except:
-        b = 20
+    **Etape 4 : choisir l'exposant de chiffrement e**
 
-    if not b > 0:
-        b = 20
+    Cette étape est plus délicate à réaliser. Nous allons voir qu'il va falloir utiliser l'**algorithme d'Euclide**.
 
-    ..code
-    normal..
+    Sans un bon algorithme, cette simple recherche peut prendre du temps.
 
-```
+    Ce exposant de chiffrement **e** doit être
 
+    1. un entier inférieur à **φ**
+    1. premier avec **φ** : **e** ne doit pas partager de diviseur commun avec **φ** , d'où l'algorithme d'Euclide.
 
-Le problème des méthodes 2 et 3 : il n'y pas toujours facile de retrouver la raison initiale d'une erreur à un moment si on a modifier les 'mauvaises' données envoyées par l'utilisateur. Bref, comme vous le voyez c'est un vrai sujet qui mérite des heures de formation.
+    Ici, on a  **φ = 2016**  et on décompose 2106 de cette façon :  2016 = 2<sup>5</sup> \* 3<sup>2</sup> \* 7  : 2, 3 et 7 sont donc les diviseurs à ne pas prendre pour **e**.
 
+    Il suffit donc de prendre un nombre **e** qui ne soit divisible ni par 2, ni par 3, ni par 7.
 
-**A retenir pour cette année :**
+    **Le plus grand commun diviseur de deux nombres premiers entre eux est donc ... 1 !**
 
-On distinguera 3 grands types d'erreur :
+    Il existe donc de nombreuses valeurs admissibles de **e**. Ces valeurs dépendent uniquement de **φ** (et donc indirectement de **p** et **q**).
 
-1. les **erreurs de syntaxe** : facile à détecter par l'interpréteur (on a oublié un :, on a écrit dec plutôt que def...)
-1. les **erreurs d'exécution** : le code est "propre" mais l'un des contenus n'est pas du bon type ou ne contient pas ce qu'il faut. Il faut vérifier le contenu des variables pour savoir d'où vient le problème. Et si on a trop filtrer les arguments, il est possible que cela soit encore plus difficile !
-1. Les **erreurs logiques ou sémantiques** : le code a l'air propre mais l'algorithme est faux. Cela ne déclenche pas d'erreur mais renvoie de mauvaises réponses. Comme elles ne déclenchent pas d'erreur en elles-même, ces erreurs sont compliquées à gérer. C'est l'un qu'un bon choix d'assertions permet de couper le programme à l'endroit où les préconditions ou postconditions ne sont plus bonnes.
+    Commençons par voir comment fonctionne **l'algorithme d'Euclide** qui permet de déterminer le plus grand commun diviseur (PGCD) entre deux entiers.
 
-Quelques bonnes pratiques pour limiter le nombre d'erreurs :
+    Le principe est de diviser un dividende par un diviseur pour trouver le reste.
 
-1. Faire de petites fonctions ET les tester avant de passer à autre chose : c'est l'intéret des jeux de tests
-1. Placer des assertions permettant de vérifer les préconditions et les postconditions (cela coupe le déroulement du processus lorsqu'on détecte un problème)
-1. Choisir judicieusement les assertions en prenant en compte la position de la fonction dans le programme ou le module (fonction d'interface, fonction interne...)
-1. Le filtrage des paramètres est possible mais nécessite des précautions et n'est pas une solution miracle non plus : cela peut même compliquer la recherche de la source d'un bug.
+    Le diviseur devient alors le dividende et le reste devient le diviseur.
 
-**7 - DÉTERMINER L'EXPOSANT E DE CHIFFREMENT**
+    Si avant de faire la division, on voit que le diviseur est 0, on renvoie le dividende et il s'agit alors du PGCD.
 
+    Cherchons le plus grand commun diviseur de 20 et 12 :
 
+    ![euclide_1](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.044.png){: .center}
 
-Rappel :
+    Le reste (qui est devenu le diviseur 8 maintenant) n'est pas nul, on continue.
 
-**Etape 4 : choisir l'exposant de chiffrement e**
+    ![euclide_2](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.045.png){: .center}
 
-Cette étape est plus délicate à réaliser. Nous allons voir qu'il va falloir utiliser l'**algorithme d'Euclide**.
+    Le reste (qui est devenu le diviseur 4 maintenant) n'est pas nul, on continue.
 
-Sans un bon algorithme, cette simple recherche peut prendre du temps.
+    ![euclide_3](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.046.png){: .center}
 
-Ce exposant de chiffrement **e** doit être
+    Le reste (qui est devenu le diviseur 0 maintenant) est nul : on arrête et on renvoie le nouveau dividende qui est le ... dernier diviseur non nul.
 
-1. un entier inférieur à **φ**
-1. premier avec **φ** : **e** ne doit pas partager de diviseur commun avec **φ** , d'où l'algorithme d'Euclide.
+    ![euclide_4](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.047.png){: .center}
 
-Ici, on a  **φ = 2016**  et on décompose 2106 de cette façon :  2016 = 2<sup>5</sup> \* 3<sup>2</sup> \* 7  : 2, 3 et 7 sont donc les diviseurs à ne pas prendre pour **e**.
+    C'est bien la bonne réponse puisque 20 = 4 \* 5 et que 12 = 3 \* 4. 4 est bien le Plus Grand Commun Diviseur.
 
-Il suffit donc de prendre un nombre **e** qui ne soit divisible ni par 2, ni par 3, ni par 7.
+    Notez bien qu'avec Python, ce sera simple à coder puisqu'on peut obtenir le reste directement.
 
-**Le plus grand commun diviseur de deux nombres premiers entre eux est donc ... 1 !**
 
-Il existe donc de nombreuses valeurs admissibles de **e**. Ces valeurs dépendent uniquement de **φ** (et donc indirectement de **p** et **q**).
 
-Commençons par voir comment fonctionne **l'algorithme d'Euclide** qui permet de déterminer le plus grand commun diviseur (PGCD) entre deux entiers.
 
-Le principe est de diviser un dividende par un diviseur pour trouver le reste.
+    ```
+    >>> 20 % 12
+    8
+    
+    >>> 12 % 8
+    4
+    
+    >>> 8 % 4
+    0
+    ```
 
-Le diviseur devient alors le dividende et le reste devient le diviseur.
 
-Si avant de faire la division, on voit que le diviseur est 0, on renvoie le dividende et il s'agit alors du PGCD.
+    Le principe de l'algorithme est simple à appliquer (je ne parlerai pas des justifications, et démonstration ici)
 
-Cherchons le plus grand commun diviseur de 20 et 12 :
+    **Algorithme d'Euclide**
 
-![euclide_1](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.044.png){: .center}
+    ![Euclide](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.048.jpeg)
 
-Le reste (qui est devenu le diviseur 8 maintenant) n'est pas nul, on continue.
+    Gravure d'Euclide (depuis <https://fr.wikipedia.org/wiki/Euclide#/media/Fichier:Euklid-von-Alexandria_1.jpg>) - Domaine Public
 
-![euclide_2](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.045.png){: .center}
+    **BUT**
 
-Le reste (qui est devenu le diviseur 4 maintenant) n'est pas nul, on continue.
+    Renvoyer le plus grand commun diviseur de deux nombres entiers.
 
-![euclide_3](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.046.png){: .center}
+    Si on travaille avec :
 
-Le reste (qui est devenu le diviseur 0 maintenant) est nul : on arrête et on renvoie le nouveau dividende qui est le ... dernier diviseur non nul.
+    - **1614915** qu'on peut décomposer sous cette forme **5 \* 9 \* 17 \* 2111** de multiplication d'entiers et
+    - **25455706711** dont la décomposition est **23 \* 2111 \* 524287**
+    - le plus grand commun diviseur est **2111**
 
-![euclide_4](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.047.png){: .center}
+    **ENTREES**
 
-C'est bien la bonne réponse puisque 20 = 4 \* 5 et que 12 = 3 \* 4. 4 est bien le Plus Grand Commun Diviseur.
+    Deux nombres **a** et **b**
 
-Notez bien qu'avec Python, ce sera simple à coder puisqu'on peut obtenir le reste directement.
+    **Préconditions** 
 
+    - Ce sont bien des entiers
+    - Si **a** < **b**, on rajoute juste une étape supplémentaire : l'algorithme parvient automatiquement à inverser a et b !
 
+    **Description de l'algorithme**
+    ```
+        dividende ← a
+        diviseur ← b
+        TANT QUE diviseur est différent de 0
+                reste ← dividende % diviseur
+                dividende ← diviseur
+                    on remplace le dividence par l'ancien diviseur
+                diviseur ← reste
+                    on remplace le diviseur par le reste obtenu
+        Fin TANT QUE
+        Renvoyer dividende
+    ```
 
 
-```
->>> 20 % 12
-8
- 
->>> 12 % 8
-4
- 
->>> 8 % 4
-0
-```
+    on renvoie donc le diviseur ayant mené à un reste nul
 
+    7.30. Fichier rsa5.py : Réaliser l'implémentation de l'algorithme via la fonction **pgcd** en ligne 116 : quelqu'un vous a déjà tapé deux lignes de code pour récupérer a et b. Il vous suffit donc de remplacer le **pass** par l'implémentation du **while**.
 
-Le principe de l'algorithme est simple à appliquer (je ne parlerai pas des justifications, et démonstration ici)
+    Votre fonction doit passer les tests.
 
-**Algorithme d'Euclide**
+    Attention, une faute d'inattention se cache dans les quelques lignes déjà tapées. Mais les jeux de tests devraient vous dire clairement ce qui ne va pas.
 
-![Euclide](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.048.jpeg)
+    **Bug typique**
 
-Gravure d'Euclide (depuis <https://fr.wikipedia.org/wiki/Euclide#/media/Fichier:Euklid-von-Alexandria_1.jpg>) - Domaine Public
+    Il s'agissait donc ici d'un mauvais nommage de variables
 
-**BUT**
+    D'où l'intérêt d'utiliser les propositions automatiques qui s'affichent sur les bons éditeurs de code.
 
-Renvoyer le plus grand commun diviseur de deux nombres entiers.
+    7.31. Observer **euclide\_bis**. Les noms ne sont pas explicites cette fois : certaines préfèrent de telles versions "épurées" avec des noms courts. Le problème vient de la compréhension du code quelques semaines, mois ou années plus tard.
 
-Si on travaille avec :
+    7.32. Votre fonction renvoie le plus grand commun diviseur. Quel doit être le PGCD de deux nombres premiers entre eux (tels que **e** et **φ**) ?
 
-- **1614915** qu'on peut décomposer sous cette forme **5 \* 9 \* 17 \* 2111** de multiplication d'entiers et
-- **25455706711** dont la décomposition est **23 \* 2111 \* 524287**
-- le plus grand commun diviseur est **2111**
+    **8 - DÉTERMINER L'EXPOSANT D DE DÉCHIFFREMENT**
 
-**ENTREES**
+    Voici le code si vous redemarrez à partir d'ici pendant une nouvelle séance et que vous n'êtes plus certain d'avoir un code valide : fichier rsa6.py
 
-Deux nombres **a** et **b**
+    **Etape 5 : trouver l'exposant de déchiffrement d (connaissant e et φ)**
 
-**Préconditions** 
+    Ce exposant de déchiffrement **d** doit être l'inverse de **e** modulo **φ**.
 
-- Ce sont bien des entiers
-- Si **a** < **b**, on rajoute juste une étape supplémentaire : l'algorithme parvient automatiquement à inverser a et b !
+    Cela veut dire qu'il faut respecter cette condition : le reste de la division entière de (e\*d) par φ vaut 1.
 
-**Description de l'algorithme**
-```
-    dividende ← a
-    diviseur ← b
-    TANT QUE diviseur est différent de 0
-            reste ← dividende % diviseur
-            dividende ← diviseur
-                on remplace le dividence par l'ancien diviseur
-            diviseur ← reste
-                on remplace le diviseur par le reste obtenu
-    Fin TANT QUE
-    Renvoyer dividende
-```
+    **(e \* d) % φ = 1** 
 
+    D'où la notion d'inverse "e = 1 / d".
 
-on renvoie donc le diviseur ayant mené à un reste nul
+    Dans le cas de notre exemple :
 
-7.30. Fichier rsa5.py : Réaliser l'implémentation de l'algorithme via la fonction **pgcd** en ligne 116 : quelqu'un vous a déjà tapé deux lignes de code pour récupérer a et b. Il vous suffit donc de remplacer le **pass** par l'implémentation du **while**.
+    - Indicatrice d'Euler  **φ = 2016** 
+    - Exposant de chiffrement  **e = 437** 
+    - on détermine que l'exposant de déchiffrement est  **d = 1181** 
 
-Votre fonction doit passer les tests.
+    Vérification avec Python :
+    ```
+    >>> e = 437
+    >>> d = 1181
+    >>> phi = 2016
+    >>> (e*d) % phi
+    1
+    ```
 
-Attention, une faute d'inattention se cache dans les quelques lignes déjà tapées. Mais les jeux de tests devraient vous dire clairement ce qui ne va pas.
 
-**Bug typique**
+    Cette fois, il faudra utiliser **l'algorithme d'Euclide étendu**. Sinon, encore une fois, cela prendrait un temps énorme pour p et q de grande taille.
 
-Il s'agissait donc ici d'un mauvais nommage de variables
+    Nous n'allons pas l'étudier, il est déjà codé et fonctionnel ici.
 
-D'où l'intérêt d'utiliser les propositions automatiques qui s'affichent sur les bons éditeurs de code.
+    Par contre, vous aller créer une fonction qui fait la même chose mais en version naïve et nous verrons que notre RSA maison ne fonctionnera plus trop bien sur cette dernière étape : trop lent pour de grandes clés.
 
-7.31. Observer **euclide\_bis**. Les noms ne sont pas explicites cette fois : certaines préfèrent de telles versions "épurées" avec des noms courts. Le problème vient de la compréhension du code quelques semaines, mois ou années plus tard.
+    8.33. <a name="_hlk73132516"></a>Coder la fonction **calculer\_d\_naif** pour qu'elle renvoie la valeur de d en respectant cette technique 
 
-7.32. Votre fonction renvoie le plus grand commun diviseur. Quel doit être le PGCD de deux nombres premiers entre eux (tels que **e** et **φ**) ?
+    Connaissant **e et φ**, tester toutes les valeurs possibles de d jusqu'à trouver celle qui répond à :
 
-**8 - DÉTERMINER L'EXPOSANT D DE DÉCHIFFREMENT**
+    **(e \* d) % φ = 1** 
 
-Voici le code si vous redemarrez à partir d'ici pendant une nouvelle séance et que vous n'êtes plus certain d'avoir un code valide : fichier rsa6.py
+    Prenons le premier exemple du cours :
 
-**Etape 5 : trouver l'exposant de déchiffrement d (connaissant e et φ)**
+    - p = 17
+    - q = 127
+    - n = 2159
+    - φ = 2016
+    - e = 437
 
-Ce exposant de déchiffrement **d** doit être l'inverse de **e** modulo **φ**.
+    La valeur de d est alors 1181.
 
-Cela veut dire qu'il faut respecter cette condition : le reste de la division entière de (e\*d) par φ vaut 1.
+    8.34. Tester ceci pour voir que les deux fonctions fonctionnent :
+    ```
+    >>> e = 437
+    >>> φ = 2016
+    >>> calculer_d(e,φ)
+    1181
+    
+    >>> calculer_d_naif(e,φ)
+    1181
+    ```
 
-**(e \* d) % φ = 1** 
 
-D'où la notion d'inverse "e = 1 / d".
+    Voilà, vous avez codé de bout en bout la génération de clés RSA. Même la fin visiblement. Les oiseaux chantent, un arc-en-ciel apparâit, tout va bien dans le meilleur des mondes.
 
-Dans le cas de notre exemple :
+    Prenons cet exemple :
 
-- Indicatrice d'Euler  **φ = 2016** 
-- Exposant de chiffrement  **e = 437** 
-- on détermine que l'exposant de déchiffrement est  **d = 1181** 
+    - p = 703837
+    - q = 844127
+    - n = 594127815299
+    - φ = 594126267336
+    - e = 135478415797
 
-Vérification avec Python :
-```
->>> e = 437
->>> d = 1181
->>> phi = 2016
->>> (e*d) % phi
-1
-```
+    La valeur de d est alors 378707856781.
 
+    8.35. Tester ceci pour voir que les deux fonctions fonctionnent, ou de façon problématique pour l'une d'entre elles, devinez laquelle ;o) :
+    ```
+    >>> e = 135478415797
+    >>> φ = 594126267336
+    >>> calculer_d(e,φ)
+    378707856781
+    
+    >>> calculer_d_naif(e,φ)
+    378707856781
+    ```
 
-Cette fois, il faudra utiliser **l'algorithme d'Euclide étendu**. Sinon, encore une fois, cela prendrait un temps énorme pour p et q de grande taille.
 
-Nous n'allons pas l'étudier, il est déjà codé et fonctionnel ici.
 
-Par contre, vous aller créer une fonction qui fait la même chose mais en version naïve et nous verrons que notre RSA maison ne fonctionnera plus trop bien sur cette dernière étape : trop lent pour de grandes clés.
 
-8.33. <a name="_hlk73132516"></a>Coder la fonction **calculer\_d\_naif** pour qu'elle renvoie la valeur de d en respectant cette technique 
+    **9 - ET AVEC UN VRAI FICHIER ?**
 
-Connaissant **e et φ**, tester toutes les valeurs possibles de d jusqu'à trouver celle qui répond à :
+    Maintenant que vous avez un moyen de générer de (petites) clés RSA, il est tenté de partager une clé publique avec quelqu'un que vous connaissez pour qu'il puisse vous transmettre des fichiers cryptés.
 
-**(e \* d) % φ = 1** 
+    8.36. Documentation et programmation° Fichier rsa7.py : Placer le gros programme suivant en mémoire. Ensuite, taper ceci dans la console pour comprendre comment fonctionne le chiffrement et le déchiffrement d'un fichier quelconque.
 
-Prenons le premier exemple du cours :
+    ```
+    >>> cpub, cpri = creer_cles(20)
+    >>> cpub
+    (524019377303, 89243442031)
+    
+    >>> cpri
+    (524019377303, 453869594791)
+    
+    >>> help(chiffrer_fichier)
+    
+    >>> help(dechiffrer_fichier)
+    ```
 
-- p = 17
-- q = 127
-- n = 2159
-- φ = 2016
-- e = 437
 
-La valeur de d est alors 1181.
+    Voici un exemple d'utilisation :
 
-8.34. Tester ceci pour voir que les deux fonctions fonctionnent :
-```
->>> e = 437
->>> φ = 2016
->>> calculer_d(e,φ)
-1181
- 
->>> calculer_d_naif(e,φ)
-1181
-```
+    ```
+    >>> cpub, cpri = creer_cles(20)
+    >>> cpub
+    (501751207679, 233074674377)
+    
+    >>> cpri
+    (501751207679, 316864673033)
+    >>> chiffrer_fichier(cpub, "test.png", "chiffre.png")
+    
+    Chiffrement en cours...
+    50 ko - 100 ko - 150 ko - 200 ko -
+    Chiffrement terminé
 
+    >>> dechiffrer_fichier(cpri, "chiffre.png", "dechiffre.png")
+    
+    Déchiffrement en cours...
+    50 ko - 100 ko - 150 ko - 200 ko - 250 ko -
+    Déchiffrement réalisé
+    ```
 
-Voilà, vous avez codé de bout en bout la génération de clés RSA. Même la fin visiblement. Les oiseaux chantent, un arc-en-ciel apparâit, tout va bien dans le meilleur des mondes.
 
-Prenons cet exemple :
 
-- p = 703837
-- q = 844127
-- n = 594127815299
-- φ = 594126267336
-- e = 135478415797
 
-La valeur de d est alors 378707856781.
+    8.37. Générer deux clés. Gardez les valeurs de la privées. Envoyer via l'ENT ou par mail la clé publique à vos destinataires.
 
-8.35. Tester ceci pour voir que les deux fonctions fonctionnent, ou de façon problématique pour l'une d'entre elles, devinez laquelle ;o) :
-```
->>> e = 135478415797
->>> φ = 594126267336
->>> calculer_d(e,φ)
-378707856781
- 
->>> calculer_d_naif(e,φ)
-378707856781
-```
+    8.38. Demander à cette personne de créer un fichier (texte, musique, pdf, video...) et de vous l'envoyer après l'avoir crypté avec la clé publique.
 
+    Il ne restera qu'à la décrypter avec la clé privée.
 
+    Attention : ça peut être long. C'est pour cela qu'on préférera utiliser un chiffrement symétrique une fois le canal sécurisé par le système asymétrique.
 
+    Enfin, le chiffrement et le déchiffrement sont moins gourmands en temps avec un système symétrique.
 
-**9 - ET AVEC UN VRAI FICHIER ?**
+    **10 - FAQ**
 
-Maintenant que vous avez un moyen de générer de (petites) clés RSA, il est tenté de partager une clé publique avec quelqu'un que vous connaissez pour qu'il puisse vous transmettre des fichiers cryptés.
+    **Petit théorème de Fermat (hors programme)**
 
-8.36. Documentation et programmation° Fichier rsa7.py : Placer le gros programme suivant en mémoire. Ensuite, taper ceci dans la console pour comprendre comment fonctionne le chiffrement et le déchiffrement d'un fichier quelconque.
+    **Enoncé**
 
-```
->>> cpub, cpri = creer_cles(20)
->>> cpub
-(524019377303, 89243442031)
- 
->>> cpri
-(524019377303, 453869594791)
- 
->>> help(chiffrer_fichier)
- 
->>> help(dechiffrer_fichier)
-```
+    Si  **p**  est un nombre premier et
+    si  **a**  est un entier **non divisible par  p** ,
 
+    alors  <b>a<sup>p–1</sup> – 1</b>  est un multiple de <b>p</b>.
 
-Voici un exemple d'utilisation :
+    On pourrait donc écrire  <b>a<sup>p–1</sup> – 1 = k*p</b> .
 
-```
->>> cpub, cpri = creer_cles(20)
->>> cpub
-(501751207679, 233074674377)
- 
->>> cpri
-(501751207679, 316864673033)
->>> chiffrer_fichier(cpub, "test.png", "chiffre.png")
- 
-Chiffrement en cours...
-50 ko - 100 ko - 150 ko - 200 ko -
-Chiffrement terminé
+    Ou on peut aussi écrire  <b>a<sup>p–1</sup> = k*p + 1</b> .
 
->>> dechiffrer_fichier(cpri, "chiffre.png", "dechiffre.png")
- 
-Déchiffrement en cours...
-50 ko - 100 ko - 150 ko - 200 ko - 250 ko -
-Déchiffrement réalisé
-```
+    Or, le reste de la division de 1 par n'importe quel nombre donne bien un reste de 1. On peut donc écrire :
 
+    <b>a<sup>p–1</sup> % p == 1 % p</b> 
 
+    **Conséquence**
 
+    Version 1  <b>a<sup>p–1</sup> ≡ 1 (mod p)</b> 
 
-8.37. Générer deux clés. Gardez les valeurs de la privées. Envoyer via l'ENT ou par mail la clé publique à vos destinataires.
 
-8.38. Demander à cette personne de créer un fichier (texte, musique, pdf, video...) et de vous l'envoyer après l'avoir crypté avec la clé publique.
 
-Il ne restera qu'à la décrypter avec la clé privée.
 
-Attention : ça peut être long. C'est pour cela qu'on préférera utiliser un chiffrement symétrique une fois le canal sécurisé par le système asymétrique.
+    Version 2  <b>a<sup>p</sup> ≡ a (mod p)</b>  (en multipliant par a de chaque côté)
 
-Enfin, le chiffrement et le déchiffrement sont moins gourmands en temps avec un système symétrique.
+    **Exemple**
 
-**10 - FAQ**
+    Prenons le nombre premier p = 17.
 
-**Petit théorème de Fermat (hors programme)**
-
-**Enoncé**
-
-Si  **p**  est un nombre premier et
-si  **a**  est un entier **non divisible par  p** ,
-
-alors  <b>a<sup>p–1</sup> – 1</b>  est un multiple de <b>p</b>.
-
-On pourrait donc écrire  <b>a<sup>p–1</sup> – 1 = k*p</b> .
-
-Ou on peut aussi écrire  <b>a<sup>p–1</sup> = k*p + 1</b> .
-
-Or, le reste de la division de 1 par n'importe quel nombre donne bien un reste de 1. On peut donc écrire :
-
-<b>a<sup>p–1</sup> % p == 1 % p</b> 
-
-**Conséquence**
-
-Version 1  <b>a<sup>p–1</sup> ≡ 1 (mod p)</b> 
-
-
-
-
-Version 2  <b>a<sup>p</sup> ≡ a (mod p)</b>  (en multipliant par a de chaque côté)
-
-**Exemple**
-
-Prenons le nombre premier p = 17.
-
-Prenons le nombre entier a = 50, non divisible par 17 : 50 / 17 =
-```
->>> p = 17
->>> a = 50
- 
->>> (a**(p-1)) % p == 1 % p
-True
- 
->>> (a**p) % p == a % p
-True
-```
+    Prenons le nombre entier a = 50, non divisible par 17 : 50 / 17 =
+    ```
+    >>> p = 17
+    >>> a = 50
+    
+    >>> (a**(p-1)) % p == 1 % p
+    True
+    
+    >>> (a**p) % p == a % p
+    True
+    ```
