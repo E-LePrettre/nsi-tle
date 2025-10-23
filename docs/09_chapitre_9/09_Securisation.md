@@ -810,505 +810,516 @@ Merci à Gilles Lassus et Mireille Coilhac
 
 ## <H2 STYLE="COLOR:BLUE;">**7. 🔎 Projet**<a name="_toc174920510"></a></H2>
 
-**<H3 STYLE="COLOR:red;">Exercice n°01 : clé symétrique :**</H3>
 
 
+!!! abstract "**Exercice n°01 : clé symétrique :**"
 
-**La situation** : Alice veut établir une liaison sécurisée avec Bob en chiffrement symétrique avec la clef kfinale. Mais comment transmettre cette clef à Bob sans que celle-ci ne soit interceptée ?
+    **La situation** : Alice veut établir une liaison sécurisée avec Bob en chiffrement symétrique avec la clef kfinale. Mais comment transmettre cette clef à Bob sans que celle-ci ne soit interceptée ?
 
-**Etapes du processus :**  Voici comment Alice et Bob vont procéder :
+    **Etapes du processus :** Voici comment Alice et Bob vont procéder :
 
-La clef ne sera jamais "transmise", mais elle sera créée par Bob, et retrouvée par Alice.
+    La clef ne sera jamais "transmise", mais elle sera créée par Bob, et retrouvée par Alice.
 
-- **1er temps** : Alice génère une clef publique (notée kpub) et l'envoie à Bob. Cette clef peut être interceptée mais ce n'est pas grave.
+    - **1er temps** : Alice génère une clef publique (notée kpub) et l'envoie à Bob. Cette clef peut être interceptée mais ce n'est pas grave.
 
-En même temps que la clef publique, elle génère une clef privée (notée kpriv). Les deux clefs sont liées, nous verrons un peu plus tard comment.
+    En même temps que la clef publique, elle génère une clef privée (notée kpriv). Les deux clefs sont liées, nous verrons un peu plus tard comment.
 
-- **2ème temps** : Bob génère une clef kfinale qu'il garde secrète et qui servira à chiffrer les échanges avec Alice. Il chiffre cette clef qui devient kFinaleChiffree grâce à kpub qu'il a reçu d'Alice. Il envoie kFinaleChiffree à Alice.
-- **3ème temps** : Alice déchiffre kFinaleChiffree avec sa clef privée et trouve kfinale.
+    - **2ème temps** : Bob génère une clef kfinale qu'il garde secrète et qui servira à chiffrer les échanges avec Alice. Il chiffre cette clef qui devient kFinaleChiffree grâce à kpub qu'il a reçu d'Alice. Il envoie kFinaleChiffree à Alice.
+    - **3ème temps** : Alice déchiffre kFinaleChiffree avec sa clef privée et trouve kfinale.
 
-kfinale est donc maintenant connue d'Alice et de Bob qui vont pouvoir l'utiliser pour communiquer en chiffrement symétrique.
+    kfinale est donc maintenant connue d'Alice et de Bob qui vont pouvoir l'utiliser pour communiquer en chiffrement symétrique.
 
-**Lien entre clef publique et clé privée :** Notons  𝑓(kpub, m)  le message m chiffré avec la clef publique, et  𝑓(kpriv, m)  le message m chiffré avec la clef privée.
+    **Lien entre clef publique et clé privée :** Notons  𝑓(kpub, m)  le message m chiffré avec la clef publique, et  𝑓(kpriv, m)  le message m chiffré avec la clef privée.
 
-kpub et kpriv obéissent à :
-```
-𝑓(kpriv, 𝑓(kpub, m)) = 𝑓(kpub,  𝑓(kpriv, m)) = m
-```
-En d'autres termes, si Bob chiffre avec la clef publique, Alice saura déchiffrer avec sa clef privée connue d'elle seule. Le système exige aussi que la connaissance de la clef publique ne permette pas de déchiffrer le message envoyé par Bob. C'est le cas quand on chiffre avec des fonctions de hashage, mais ici, pour comprendre le principe, nous allons simplifier et utiliser un chiffrement proche de celui de Vigenère.
+    kpub et kpriv obéissent à :
+    ```
 
-Nous admettrons, pour l'exemple, que l'on ne peut pas décrypter le message de Bob avec la clef publique, ni découvrir la clef privée à partir de la clef publique.
+    𝑓(kpriv, 𝑓(kpub, m)) = 𝑓(kpub,  𝑓(kpriv, m)) = m
 
-1\. 1<sup>er</sup> temps : Créer la clé publique
-
-Dans notre exemple, on va utiliser un code proche du codage de Vigenere
-
-- On génère 10 nombres aléatoire entre 0 et 36 qui seront les décalages à appliquer
-- On convertit ces nombres en hexa de longueur 2
-- On concatène pour créer une clef de longueur 20 (mais elle serait très simple à casser !)
-
-nous allons utiliser un alphabet de 36 lettres : [0-9] et [A-Z].
-
-Vous pourrez utiliser la fonction suivante qui convertit un entier (entre 0 et 255) en une chaine hexadécimale de 2 chiffres.
-```python
-def d2H(n: int) -> str:
-    """
-    convertit un nombre décimal compris entre 0 et 255 en un hexadécimal à 2 chiffres
-    :param n: entier à convertir en base 16
-    :return: une chaine de caractère représentant le nombre en base 16 sur deux caractères
-    >>> d2H(10)
-    '0a'
-    >>> d2H(100)
-    '64'
-    """
-    h = hex(n)[2:]
-    if len(h)<2 :
-        h = "0" + h
-    return h
-
-assert d2H(10) == '0a'
-assert d2H(100) == '64'
-```
-
-1.1. La fonction creCle()
-
-💻 Ajouter et compléter la fonction creCle()
-
-Voici son fonctionnement :
-
-- On génère 10 nombres aléatoires entre 0 et 255.
-- On convertit ces nombres en hexadécimal de longueur 2, en utilisant la fonction d2H
-- On concatène pour créer une clef de longueur 20. Les lettres devront être converties en majuscules.
-
-Cette clef serait très simple à casser, mais nous étudions ici seulement le principe.
-```python
-from random import randint
-
-def creClef() -> str:
-    """ Crée un clef de chiffrement composée de 20 caractères 
-    parmi ceux-ci : 0, 1, 2, ..., 9, A, B, C, D, E, F
-    :return: renvoie 20 caractères de 0, 1, 2, ..., 9, A, B, C, D, E, F
-    Par exemple : 'C5D71484F8CF9BF4B76F'
-    C5 représente 197, D7 représente 215 etc...
-    """
-    pass
-
-
-print(creClef())
-```
-
-Aide : on pourra utiliser **join()** et **upper()**
-
-Créez quelques clefs pour voir …
-```python
-for _ in range(3) :
-    print(creClef())
-```
-
-1.2. Approfondissement sur le module random :
-
-🤔 Pour tester notre fonction, comment obtenir des nombres "aléatoires" toujours identiques?
-En fait random crée des nombres "pseudos-aléatoires". Si on lui donne une initialisation a avec seed(a) , les nombres générés seront toujours identiques.
-
-**Tester ci-dessous** **en dehors du fichier** echange\_cle.py
-
-Sans initialisation du générateur, on obtient 5 listes différentes.
-
-Par défaut l'initialisation se fait avec la date actuelle, qui change tout le temps ..
-```python
-for i in range(5):
-    print([randint(0, 255) for i in range(10)])
-```
-
-On utilise une initialisation, par exemple seed(0)
-```python
-from random import seed
-for i in range(5):
-    seed(0)
-    print([randint(0, 255) for i in range(10)])
-```
-
-Nous aurions pu en choisir une autre, par exemple seed(42)
-```python
-from random import seed
-for i in range(5):
-    seed(42)
-    print([randint(0, 255) for i in range(10)])
-```
-
-Que remarquez vous ?
-
-😀 Nous pouvons donc tester notre fonction !
-
-Ajouter au fichier echange\_cle.py
-```python
-from random import seed
-seed(0)
-assert creClef() == 'C5D71484F8CF9BF4B76F'
-```
-
-2\. 1<sup>er</sup> temps : Créer la clé privée
-
-🔑 Il faut aussi créer une clef privée, liée à la clef publique. Dans notre exemple, le processus de création de la clef est très simple, et la conversion en hexadécimal est totalement factice. Il ne s'agit, comme dans le chiffrement de Vigenère, que d'appliquer un décalage variable des lettres. Pour les 10 premières lettres, le décalage est codé dans la clef, pour la 11ème on reprend le décalage de la 1ere, et ainsi de suite.... c'est ce qu'avait imaginé Vigenère.
-
-❓ Comment faire ?
-
-Pour créer une clef qui permette de respecter :
-
-```
-𝑓(kpriv, 𝑓(kpub, m)) = 𝑓(kpub,  𝑓(kpriv, m)) = m
-```
-
-il suffit de créer les décalages qui compensent.
-
-Rappelons que nous allons utiliser un alphabet de 36 lettres :
-
-```
-ALPHA = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-```
-
-Par exemple, si on décale vers la droite de 12 (%36), il suffit de décaler encore de 36 - 12 = 24, en bouclant au début de l'alphabet, pour "retomber" sur le même caractère.
-
-On pourrait donc choisir un décalage dPriv = 36 - dPub % 36 .
-
-Pour "compliquer", on peut choisir également comme décalage dPriv = 36 - dPub % 36 + randint(1, 6) \* 36
-En effet, cela ne changera rien d'ajouter un décalage d'un nombre entier de fois 36. (On se limite à randint(1,6) pour que le nombre soit possible à coder en hexadécimal sur deux caractères).
-
-Voilà comment procéder pour créer la clef privée :
-
-```
-pour chaque décalage dPub de la clef publique :
-    dPriv = 36 - dPub % 36 + randint(1, 6) * 36 
-    coder dPriv en hexa2
-concaténer les hexa2(dPriv) en une chaine 
-```
-
-💻 Ajouter et compléter la fonction creClef()
-
-Attention, elle doit renvoyer un tuple (clef publique, clef privée)
-```python
-def creClef() -> tuple :
-    """
-    creClef doit renvoyer un tuple avec les 2 clefs: la publique et la privée
-    Exemple renvoyé:
-    ('47904730804B9E3225A9', '91D82584A08DCAEE6BBF')
-    """
-    pass
-
-
-print(creeClef())
-```
-
-3\. Comment utiliser les clés ?
-
-**Tester ci-dessous** **en dehors du fichier** echange\_cle.py
-
-Prenons un exemple kpub = '48E52E29A3FA379A953F'
-
-Le premier décalage est codé par les deux premiers caractères 48, qui en décimal et modulo 36 sera :
-```python
-int('48', 16) % 36
-```
-Le second est E5
-```python
-int('E5', 16) % 36
-```
-Si la clef privé est kpriv = 'D883116D359FEC5CED375', les deux premiers décalages sont :
-```python
-print('D8 -> d = ',int('D8',16) % 36)
-print('83 -> d = ',int('83',16) % 36)
-```
-Dans l'exemple ci-dessus, la somme des décalages
-
-- pour le 1er caractère vaut : 0 + 0 = 0
-- pour le 2ème caractère vaut : 13 + 23 = 36
-- On pourrait ainsi vérifier que pour n'importe quel caractère, la somme des décalages est égale à 0 ou à 36, ce qui, modulo 36, fait toujours 0.
-
-L'application de kpriv compensera donc l'application de kpub, ce qui assure la condition !
-
-**Ajouter** le script suivant au fichier echange\_cle.py.
-
-Pour bien comprendre, voici comment retrouver les décalages en lisant les clés :
-```python
-# le code ci-dessous vous montre comment retrouver les décalages en lisant les clefs
-# la fonction decal(clef, i) convertit la tranche clef[i:i+2] en décimal
-(kpub, kpriv) = creClef()
-print('clef publique :', kpub, '\t clef privée :', kpriv)
-
-def decimal_tranche_i(clef, i):
-    return int(clef[i:i + 2], 16)
-
-for i in range(0, 20, 2):
-    dPub = kpub[i:i + 2]
-    dPriv = kpriv[i:i + 2]
-    dPub_dec = decimal_tranche_i(kpub, i)
-    dPriv_dec = decimal_tranche_i(kpriv, i)
-    print('décalages hexa public privé:', dPub, dPriv, \
-          '\t -> \tdécalages décimaux public privé:', dPub_dec, dPriv_dec, \
-          '\t total = ', dPub_dec + dPriv_dec)
-
-    assert (dPub_dec + dPriv_dec) % 36 == 0
-```
-
-4\. 2<sup>ème</sup> temps : Créer puis chiffrer une clé qui sera utilisée pour le chiffrement symétrique
-
-💻 Ajouter et compléter la fonction qui va être utilisée pour créer une clef de chiffrement symétrique kfinale
-```python
-# Bob crée la clef finale
-def creeKFinale() -> str:
-    """
-    crée un mot de 20 lettres en piochant 20 fois avec remise dans ALPHA
-    :return: par exemple 'KFIBCB2GU458925YPXHX'
-    """
-    pass
-
-
-print(creeKFinale())
-```
-
-Vérification 
-```python
-# Vérification
-seed(0)
-assert creeKFinale() == 'OQ2GWVPJUMDW8I86GY9J'
-```
-Bob doit maintenant chiffrer cette clef finale avec la clef publique d’Alice.
-
-Il nous faut donc une fonction f(k, m) qui chiffre un message m avec une clef k.
-
-Nous aurons besoin de la fonction ci-dessous à ajouter au fichier :
-```python
-def decal(clef: str) -> list:
-    """
-    :param clef: chaîne de 20 caractères parmi 0, 1, 2, ..., 9, A, B, C, D, E, F
-    Par exemple : 'C5D71484F8CF9BF4B76F'
-    :return: liste de 10 entiers qui correspondent aux décalages en décimal à 
-    appliquer dans le chiffrement modulo 36
-    >>> decal('C5D71484F8CF9BF4B76F')
-    [17, 35, 20, 24, 32, 27, 11, 28, 3, 3]
-    En effet C5 correspond à 197 en décimal, et 197 % 36 = 17
-    """
-    return [int(clef[i:i+2], 16) % 36 for i in range(0, len(clef), 2)]
-```
-
-Principe de la fonction f(k, m) :
-
-Cette fonction chiffre le message m par le principe du chiffrement de Vigenère avec la clef k.
-```
-f respecte f(kpriv, f(kpub,m)) = m.
-```
-Elle est cependant très basique : elle effetue un décalage des lettres conforme à la clef... C'est un décodage de Vigenère dont la clef serait publique donc trivialement cassée.
-
-💻 Ajouter et compléter la fonction avec :
-
--\ On définit ALPHA : chaîne des caractères possibles utilisés.
-
--\ On convertit la clef en une liste de décalages avec la fonction decal
-
--\ On initialise m\_chiffre = ""
-
--\ pour chaque ième caractère de m :
-
-   - déterminer son rang dans ALPHA : rang = ALPHA.index(lettre)
-
-   - déterminer decaler\_dele decalage à appliquer à rang. Il s'obtient pour la lettre de rang i de la clef. La clef étant plus courte que m, on boucle sur la clef. Le décalage est donc pour le rang i : decaler\_de = decalages[i % len(decalages)]
-
-   - déterminer idx qui est l'indice dans ALPHA du caractère chiffré.
-
--\ idx = (rang + decaler\_de) % 36
-
-    - ajouter à m\_chiffre le caractère chiffré correspondant à idx
-
--\ renvoyer m\_chiffre
-
-```python
-# Bob chiffre la clef finale
-def f(k: str, m: str) -> str:
-    """
-    Cette fonction chiffre le message m par le principe du chiffrement de 
-    Vigenère avec la clef k.
-    :param k: clef qui sert au chiffrement (on boucle la clef sur la longueur de m)
-    :param m: message à chiffrer
-    :return: le message chiffré
-    >>> f("00000000000000000000", "CLE2CHIFFRER")
-    'CLE2CHIFFRER'
-    >>> f("C5D71484F8CF9BF4B76F", "CLE2CHIFFRER")
-    'TKYQ88T7IUVQ'
-    """
-    pass
+    ```
     
+    En d'autres termes, si Bob chiffre avec la clef publique, Alice saura déchiffrer avec sa clef privée connue d'elle seule. Le système exige aussi que la connaissance de la clef publique ne permette pas de déchiffrer le message envoyé par Bob. C'est le cas quand on chiffre avec des fonctions de hashage, mais ici, pour comprendre le principe, nous allons simplifier et utiliser un chiffrement proche de celui de Vigenère.
 
-assert f("C5D71484F8CF9BF4B76F", "CLE2CHIFFRER") == 'TKYQ88T7IUVQ'
-```
+    Nous admettrons, pour l'exemple, que l'on ne peut pas décrypter le message de Bob avec la clef publique, ni découvrir la clef privée à partir de la clef publique.
 
-5\. Scénario complet de la création et transmission de clef
+    1\. 1<sup>er</sup> temps : Créer la clé publique
 
-💻 Ajouter et compléter le scénario :
+    Dans notre exemple, on va utiliser un code proche du codage de Vigenere
 
-😀 Nous avons maintenant tout ce qu'il nous faut, l'échange peut avoir lieu.
+    - On génère 10 nombres aléatoire entre 0 et 36 qui seront les décalages à appliquer
+    - On convertit ces nombres en hexa de longueur 2
+    - On concatène pour créer une clef de longueur 20 (mais elle serait très simple à casser !)
 
-📅 Nous allons reprendre nos 3 temps expliqués dans les étapes du processus au début de ce TP.
+    nous allons utiliser un alphabet de 36 lettres : [0-9] et [A-Z].
 
-🧗 Le déroulé est donné ci-dessous, les seules information qui peuvent être interceptées sont présentées décalées à droite :
+    Vous pourrez utiliser la fonction suivante qui convertit un entier (entre 0 et 255) en une chaine hexadécimale de 2 chiffres.
 
-<b>1<sup>er</sup> temps :</b>
+    📌 Imports & utilitaires
 
-```python
-# Création des clef publique et privée
-(kpub,kpriv) = creClef()
-print('Alice crée (et envoie à Bob) une clef publique : \t\t\t\tK_pub_Alice :', ❓)
-print('clef privée associée secrète:  \t', ❓)
-```
+    ```python
+    from random import randint, seed
 
-<b>2<sup>ème</sup> temps :</b> 
+    ALPHA = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
-```python
-print('Alice demande a Bob de créer la clef kfinale et ')
-print('de la chiffrer en utilisant la clef publique.')
-kfinale = ❓
-print('Bob crée la clef kfinale et la garde secrète : ', kfinale)
-kFinaleChiffree = ❓
-print("Il envoie kFinaleChiffree chiffrée avec la clé publique d'Alice \t\tkFinaleChiffree:", kFinaleChiffree)
-```
+    def d2H(n: int) -> str:
+        """
+        convertit un nombre décimal compris entre 0 et 255 en un hexadécimal à 2 chiffres
+        :param n: entier à convertir en base 16
+        :return: une chaine de caractère représentant le nombre en base 16 sur deux caractères
+        >>> d2H(10)
+        '0a'
+        >>> d2H(100)
+        '64'
+        """
+        h = hex(n)[2:]
+        if len(h) < 2:
+            h = "0" + h
+        return h
 
-<b>3<sup>ème</sup> temps :</b>
+    # Vérifications demandées
+    assert d2H(10) == '0a'
+    assert d2H(100) == '64'
+    ```
 
-```python
-print("Alice déchiffre kFinaleChiffree avec sa clef privée")
-print("Elle obtient :", ❓
-print("Cela correspond bien à la clef kfinale créée par Bob et tenue secrète.")
-```
-😀 Notez bien, la clef publique ne permet pas de décoder le mot
-```python
-print("On obtiendrait :", ❓)
-```
-😀 Le tour est joué ! Alice et Bob connaissent la clef kFinale, il vont pouvoir communiquer en utilisant un chiffrement symétrique !
 
-6/. Alice et Bob communiquent !
 
-Maintenant Alice et Bob vont communiquer avec cette clef échangée kfinale.
+    📌 1.1 : création de clé publique — À COMPLÉTER 
 
-Ajouter les scripts suivants. Ils vont utiliser le chiffrement symétrique de Vigenère du TP précédent, dont on donne ci-dessous un script :
-```python
-def chiffrement_Vigenere(k: str, m: str, sens: int) -> str:
-    """
-    Chiffre ou déchiffre le message m avec la clef k
-    :param k: la clef de chiffrement
-    :param m:  le texte à chiffrer
-    :param sens: sens = 1 pour le chiffrage et sens = -1 pour le déchiffrage
-    :return: la fonction renvoie le texte chiffré ou déchiffré suivant le sens choisi: type str.
-    Par exemple :
-    >>> chiffrement_Vigenere('bizare', 'abominable', 1)
-    'ucgfskucdx'
-    >>> chiffrement_Vigenere('bizare','ucgfskucdx', -1)
-    'abominable'
-    """
-    m_chiffre = ""
-    for i in range(len(m)):
-        code = ord(m[i])
-        decal = sens * ord(k[i % len(k)])
-        if 65 <= code <= 90:
-            code = ((code + decal) - 65) % 26 + 65
-        elif 97 <= code and code <= 122:
-            code = ((code + decal) - 97) % 26 + 97
-        elif 32 <= code and code <= 64:
-            code = ((code + decal) - 32) % 33 + 32
-        m_chiffre += chr(code)
-    return m_chiffre
-```
+    💻 Ajouter et compléter la fonction creCle()
 
-Alice veut demander à Bob son mot de passe (qui est "bRa1cAPStp3").
+    Voici son fonctionnement :
 
-Bob chiffre donc son mot de passe avec kfinale qu'ils connaissent maintenant tous les deux, puis l'envoie :
-```python
-mdp_chiffre = chiffrement_Vigenere(kfinale,'bRa1cAPStp3',1)
-print("Bob envoie 'bRa1cAPStp3' chiffré avec kFinale -> ", mdp_chiffre)
-```
-Alice déchiffre le mdp reçu avec kfinale:
-```python
-mdp_clair = chiffrement\_Vigenere(kfinale,mdp_chiffre,-1)
-print('Alice déchiffre avec kfinale ->', mdp_clair)
-```
-🌞 Mission réussie !
+    - On génère 10 nombres aléatoires entre 0 et 255.
+    - On convertit ces nombres en hexadécimal de longueur 2, en utilisant la fonction d2H
+    - On concatène pour créer une clef de longueur 20. Les lettres devront être converties en majuscules.
 
-7\. Jimmy bad boy entre en scène…
+    Cette clef serait très simple à casser, mais nous étudions ici seulement le principe.
 
-Alice et Bob sont habitués à procéder comme nous venons de le voir. Bob va donc créer kFinale qui va leur servir pour communiquer en chiffrement symétrique.
+    ```python
+    from random import randint
 
-💣 Mais Jimmy va un peu changer les données du problème. Pour communiquer, Alice et Bob envoient des paquets qui transitent sur de nombreux routeurs. L'un d'eux appartient à Jimmy....
+    def creClef() -> str:
+        """ Version 1 : renvoie une seule clé publique (20 caractères hex en MAJ) 
+        Crée un clef de chiffrement composée de 20 caractères 
+        parmi ceux-ci : 0, 1, 2, ..., 9, A, B, C, D, E, F
+        :return: renvoie 20 caractères de 0, 1, 2, ..., 9, A, B, C, D, E, F
+        Par exemple : 'C5D71484F8CF9BF4B76F'
+        C5 représente 197, D7 représente 215 etc...
+        """
+        pass  # ← compléter ici
 
-🦸‍♂️ Dans ce qui suit, vous êtes Jimmy.
+    print(creClef())
+    ```
 
-💻 Ajouter et compléter le scénario :
+    Aide : on pourra utiliser **join()** et **upper()**
 
-1) 👩 Tout commence comme d'habitude : Alice crée une clef publique et une clef privée :
-```python
-# # créez les clef publiques et privées d'Alice :
-(kpubAlice, kprivAlice) = creClef()
 
-print("clé publique de Alice :", ❓)
-print("clé privée de Alice :", ❓)
-```
-2) 👩 Alice envoie à Bob la clé publique
-Du moins, c'est ce qu'elle pense. Elle ignore votre présence ...
+    Tests aléatoires ― À COMPLÉTER
 
-3) 🦸‍♂️ Mais\.\.\. Vous intervenez \.\.\.
-Vous interceptez l'envoi. Vous n'allez pas envoyer cette clef à Bob mais une autre : la votre !
-```python
-# créez votre clef publique et votre clef privée associée
-(kpubJimmy, kprivJimmy) = creClef()
+    ```python
+    for _ in range(3):
+        print(creClef())
+    ```
 
-print('clé publique de Jimmy :', ❓)
-print('clé privée de Jimmy :', ❓)
-```
-Vous avez une clef publique et une clef privée. Vous envoyez votre clef publique à Bob, qui pensera qu'il s'agit de la clef publique d'Alice.
+    📌 1.2. Vérification avec `seed()` :
 
-4) 👨 Bob ne se doute de rien !
+    🤔 Pour tester notre fonction, comment obtenir des nombres "aléatoires" toujours identiques?
+    En fait random crée des nombres "pseudos-aléatoires". Si on lui donne une initialisation a avec seed(a) , les nombres générés seront toujours identiques.
 
-Bob chiffre kFinale (la clé finale) avec cette clé publique qu'il vient de recevoir, et envoie cette clé chiffrée à Alice (où du moins, c'est ce qu'il pense. Mais vous êtes là...)
 
-La clé finale crée par Bob est : **'0VLFK4CEF9YS55KWV6JZ'**
+    Par défaut l'initialisation se fait avec la date actuelle, qui change tout le temps ..
+    ```python
+    for i in range(5):
+        print([randint(0, 255) for i in range(10)])
+    ```
 
-Créez la clé finale chiffrée avec votre clé publique (celle que Bob imagine être la clé de Alice)
-```python
-kFinale = "0VLFK4CEF9YS55KWV6JZ"
-# codez cette clef avec la clé publique de Jimmy (Bob croit qu'il s'agit de celle de Alice)
-kfinaleChiffreBob = ❓
-print('Bob envoie sa clé privé chiffrée avec la clé publique de Jimmy :', kfinaleChiffreBob)
-```
-5) 🦸‍♂️ Vous interceptez cette clef !
+    On utilise une initialisation, par exemple seed(0)
+    ```python
+    from random import seed
+    for i in range(5):
+        seed(0)
+        print([randint(0, 255) for i in range(10)])
+    ```
 
-Vous déchiffrez cette clef interceptée grâce à votre clef privée :
+    Nous aurions pu en choisir une autre, par exemple seed(42)
+    ```python
+    from random import seed
+    for i in range(5):
+        seed(42)
+        print([randint(0, 255) for i in range(10)])
+    ```
 
-Vous obtenez donc kFinale\_decryptee.
-```python
-kFinale_decryptee = ❓
-print(kFinale_decryptee)
-```
-🦸‍♂️ Sans surprise, **vous voyez que vous détenez bien la clé finale**.
+    Que remarquez vous ?
 
-En effet kFinale\_decryptee que vous avez reconstituée est bien égale à kFinale créée par Bob.
+    😀 Nous pouvons donc tester notre fonction !
 
-6)🦸‍♂️ Vous faites comme si vous étiez Bob !
+    Ajouter 
+    ```python
+    from random import seed
+    seed(0)
+    assert creClef() == 'C5D71484F8CF9BF4B76F'
+    ```
 
-Vous allez maintenant chiffrer kFinale\_decryptee avec la clé publique d' Alice, et lui envoyer.
-```python
-# Créez la clé finale chiffrée avec la clé d'Alice :
-kfinaleChiffreAlice = ❓
 
-print("Jimmy envoie la clé privée de Bob chiffrée avec la vraie clé publique d'Alice :", kfinaleChiffreAlice)
-```
-7) 👩 Alice reçoit cette clef et la déchiffre avec sa clé privée\.
-```python
-print(f(kprivAlice, kfinaleChiffreAlice))
-```
-Elle obtient kFinale la bonne clé créée par Bob, et ils vont l'utiliser pour communiquer.
 
-8) 👩🦸‍♂️👨Tous les échanges ultérieurs seront interceptés et décryptés par Jimmy !
+    📌 Partie 2 : création de (clé publique, clé privée) 
 
-Ni Alice ni Bob ne se doute que Jimmy bad boy connait aussi la clé kFinale...
+    🔑 Il faut aussi créer une clef privée, liée à la clef publique. Dans notre exemple, le processus de création de la clef est très simple, et la conversion en hexadécimal est totalement factice. Il ne s'agit, comme dans le chiffrement de Vigenère, que d'appliquer un décalage variable des lettres. Pour les 10 premières lettres, le décalage est codé dans la clef, pour la 11ème on reprend le décalage de la 1ere, et ainsi de suite.... c'est ce qu'avait imaginé Vigenère.
 
-👍 Bravo, vous avez réussi **une attaque par l'homme du milieu**.
+    ❓ Comment faire ?
+
+    Pour créer une clef qui permette de respecter :
+
+    ```
+    𝑓(kpriv, 𝑓(kpub, m)) = 𝑓(kpub,  𝑓(kpriv, m)) = m
+    ```
+
+    il suffit de créer les décalages qui compensent.
+
+    Rappelons que nous allons utiliser un alphabet de 36 lettres :
+
+    ```
+    ALPHA = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    ```
+
+    Par exemple, si on décale vers la droite de 12 (%36), il suffit de décaler encore de 36 - 12 = 24, en bouclant au début de l'alphabet, pour "retomber" sur le même caractère.
+
+    On pourrait donc choisir un décalage dPriv = 36 - dPub % 36 .
+
+    Pour "compliquer", on peut choisir également comme décalage dPriv = 36 - dPub % 36 + randint(1, 6) \* 36
+    En effet, cela ne changera rien d'ajouter un décalage d'un nombre entier de fois 36. (On se limite à randint(1,6) pour que le nombre soit possible à coder en hexadécimal sur deux caractères).
+
+    Voilà comment procéder pour créer la clef privée :
+
+    ```
+    pour chaque décalage dPub de la clef publique :
+        dPriv = 36 - dPub % 36 + randint(1, 6) * 36 
+        coder dPriv en hexa2
+    concaténer les hexa2(dPriv) en une chaine 
+    ```
+
+    💻 Ajouter et compléter la fonction creClef()
+
+    Attention, elle doit renvoyer un tuple (clef publique, clef privée)
+
+    ```python
+    def creClef() -> tuple:
+        """
+        creClef doit renvoyer un tuple avec les 2 clefs: la publique et la privée
+        Exemple renvoyé:
+        ('47904730804B9E3225A9', '91D82584A08DCAEE6BBF')
+        """
+        pass  # ← compléter ici
+
+    print(creClef())
+    ```
+
+
+
+    📌 Partie 3 — Lecture des décalages 
+
+    **Tester ci-dessous** 
+
+    Prenons un exemple kpub = '48E52E29A3FA379A953F'
+
+    Le premier décalage est codé par les deux premiers caractères 48, qui en décimal et modulo 36 sera :
+    ```python
+    int('48', 16) % 36
+    ```
+    Le second est E5
+    ```python
+    int('E5', 16) % 36
+    ```
+    Si la clef privé est kpriv = 'D883116D359FEC5CED375', les deux premiers décalages sont :
+    ```python
+    print('D8 -> d = ',int('D8',16) % 36)
+    print('83 -> d = ',int('83',16) % 36)
+    ```
+    Dans l'exemple ci-dessus, la somme des décalages
+
+    - pour le 1er caractère vaut : 0 + 0 = 0
+    - pour le 2ème caractère vaut : 13 + 23 = 36
+    - On pourrait ainsi vérifier que pour n'importe quel caractère, la somme des décalages est égale à 0 ou à 36, ce qui, modulo 36, fait toujours 0.
+
+    L'application de kpriv compensera donc l'application de kpub, ce qui assure la condition !
+
+    **Ajouter** le script suivant au fichier echange\_cle.py.
+
+    Pour bien comprendre, voici comment retrouver les décalages en lisant les clés :
+    ```python
+    # le code ci-dessous vous montre comment retrouver les décalages en lisant les clefs
+    # la fonction decal(clef, i) convertit la tranche clef[i:i+2] en décimal
+    (kpub, kpriv) = creClef()
+    print('clef publique :', kpub, '\t clef privée :', kpriv)
+
+    def decimal_tranche_i(clef, i):
+        return int(clef[i:i + 2], 16)
+
+    for i in range(0, 20, 2):
+        dPub = kpub[i:i + 2]
+        dPriv = kpriv[i:i + 2]
+        dPub_dec = decimal_tranche_i(kpub, i)
+        dPriv_dec = decimal_tranche_i(kpriv, i)
+        print(dPub, dPriv, dPub_dec, dPriv_dec)
+        assert (dPub_dec + dPriv_dec) % 36 == 0
+    ```
+
+
+    📌 Partie 4 — Clé symétrique de Bob 
+
+    💻 Ajouter et compléter la fonction qui va être utilisée pour créer une clef de chiffrement symétrique kfinale
+
+    ```python
+    def creeKFinale() -> str:
+        """
+        crée un mot de 20 lettres dans ALPHA (chiffrement symétrique)
+        :return: par exemple 'KFIBCB2GU458925YPXHX'
+        """
+        pass  # ← compléter
+
+    print(creeKFinale())
+
+    seed(0)
+    assert creeKFinale() == 'OQ2GWVPJUMDW8I86GY9J'
+    ```
+
+    Bob doit maintenant chiffrer cette clef finale avec la clef publique d’Alice.
+
+📌 Partie 5  — Calcul des décalages 
+
+    Il nous faut donc une fonction f(k, m) qui chiffre un message m avec une clef k.
+
+    Nous aurons besoin de la fonction ci-dessous à ajouter au fichier :
+    ```python
+    def decal(clef: str) -> list:
+        """
+        :param clef: chaîne de 20 caractères parmi 0, 1, 2, ..., 9, A, B, C, D, E, F
+        Par exemple : 'C5D71484F8CF9BF4B76F'
+        :return: liste de 10 entiers qui correspondent aux décalages en décimal à 
+        appliquer dans le chiffrement modulo 36
+        >>> decal('C5D71484F8CF9BF4B76F')
+        [17, 35, 20, 24, 32, 27, 11, 28, 3, 3]
+        En effet C5 correspond à 197 en décimal, et 197 % 36 = 17
+        """
+        return [int(clef[i:i+2], 16) % 36 for i in range(0, len(clef), 2)]
+    ```
+
+
+
+    📌 Parie 6  — Fonction `f(k, m)` 
+
+    Principe de la fonction f(k, m) :
+
+    Cette fonction chiffre le message m par le principe du chiffrement de Vigenère avec la clef k.
+    ```
+    f respecte f(kpriv, f(kpub,m)) = m.
+    ```
+    Elle est cependant très basique : elle effetue un décalage des lettres conforme à la clef... C'est un décodage de Vigenère dont la clef serait publique donc trivialement cassée.
+
+    💻 Ajouter et compléter la fonction avec :
+
+    -\ On définit ALPHA : chaîne des caractères possibles utilisés.
+
+    -\ On convertit la clef en une liste de décalages avec la fonction decal
+
+    -\ On initialise m\_chiffre = ""
+
+    -\ pour chaque ième caractère de m :
+
+    - déterminer son rang dans ALPHA : rang = ALPHA.index(lettre)
+
+    - déterminer decaler\_dele decalage à appliquer à rang. Il s'obtient pour la lettre de rang i de la clef. La clef étant plus courte que m, on boucle sur la clef. Le décalage est donc pour le rang i : decaler\_de = decalages[i % len(decalages)]
+
+    - déterminer idx qui est l'indice dans ALPHA du caractère chiffré.
+
+    -\ idx = (rang + decaler\_de) % 36
+
+        - ajouter à m\_chiffre le caractère chiffré correspondant à idx
+
+    -\ renvoyer m\_chiffre
+
+    ```python
+    # Bob chiffre la clef finale
+    def f(k: str, m: str) -> str:
+        """
+        Cette fonction chiffre le message m par le principe du chiffrement de 
+        Vigenère avec la clef k.
+        :param k: clef qui sert au chiffrement (on boucle la clef sur la longueur de m)
+        :param m: message à chiffrer
+        :return: le message chiffré
+        >>> f("00000000000000000000", "CLE2CHIFFRER")
+        'CLE2CHIFFRER'
+        >>> f("C5D71484F8CF9BF4B76F", "CLE2CHIFFRER")
+        'TKYQ88T7IUVQ'
+        """
+        pass  # ← compléter ici
+
+    assert f("00000000000000000000", "CLE2CHIFFRER") == 'CLE2CHIFFRER'
+    assert f("C5D71484F8CF9BF4B76F", "CLE2CHIFFRER") == 'TKYQ88T7IUVQ'
+    ```
+
+
+
+    📌 Partie 7  — Scénario Alice ↔ Bob 
+
+    💻 Ajouter et compléter le scénario :
+
+    😀 Nous avons maintenant tout ce qu'il nous faut, l'échange peut avoir lieu.
+
+    📅 Nous allons reprendre nos 3 temps expliqués dans les étapes du processus au début de ce TP.
+
+    🧗 Le déroulé est donné ci-dessous, les seules information qui peuvent être interceptées sont présentées décalées à droite :
+
+    <b>1<sup>er</sup> temps :</b>
+
+    ```python
+    # Création des clef publique et privée
+    (kpub,kpriv) = creClef()
+    print('Alice crée une clef publique :', kpub)
+    print('clef privée associée :', kpriv)
+
+    kfinale = ???  # ← compléter
+    kFinaleChiffree = ???  # ← compléter
+
+    print("Alice obtient :", ???)  # ← compléter
+    assert ??? == kfinale  # ← compléter
+    ```
+    😀 Le tour est joué ! Alice et Bob connaissent la clef kFinale, il vont pouvoir communiquer en utilisant un chiffrement symétrique !
+
+
+    📌 Partie 8  — Chiffrement symétrique 
+
+    Maintenant Alice et Bob vont communiquer avec cette clef échangée kfinale.
+
+    Ajouter les scripts suivants. Ils vont utiliser le chiffrement symétrique de Vigenère du TP précédent, dont on donne ci-dessous un script :
+    ```python
+    def chiffrement_Vigenere(k: str, m: str, sens: int) -> str:
+        """
+        Chiffre ou déchiffre le message m avec la clef k
+        :param k: la clef de chiffrement
+        :param m:  le texte à chiffrer
+        :param sens: sens = 1 pour le chiffrage et sens = -1 pour le déchiffrage
+        :return: la fonction renvoie le texte chiffré ou déchiffré suivant le sens choisi: type str.
+        Par exemple :
+        >>> chiffrement_Vigenere('bizare', 'abominable', 1)
+        'ucgfskucdx'
+        >>> chiffrement_Vigenere('bizare','ucgfskucdx', -1)
+        'abominable'
+        """
+        m_chiffre = ""
+        for i in range(len(m)):
+            code = ord(m[i])
+            decal = sens * ord(k[i % len(k)])
+            if 65 <= code <= 90:
+                code = ((code + decal) - 65) % 26 + 65
+            elif 97 <= code <= 122:
+                code = ((code + decal) - 97) % 26 + 97
+            elif 32 <= code <= 64:
+                code = ((code + decal) - 32) % 33 + 32
+            m_chiffre += chr(code)
+        return m_chiffre
+
+    ```
+
+    Alice veut demander à Bob son mot de passe (qui est "bRa1cAPStp3").
+
+    Bob chiffre donc son mot de passe avec kfinale qu'ils connaissent maintenant tous les deux, puis l'envoie :
+    ```python
+    mdp_chiffre = chiffrement_Vigenere(kfinale,'bRa1cAPStp3',1)
+    print("Bob envoie 'bRa1cAPStp3' chiffré avec kFinale -> ", mdp_chiffre)
+    ```
+    Alice déchiffre le mdp reçu avec kfinale:
+    ```python
+    mdp_clair = chiffrement\_Vigenere(kfinale,mdp_chiffre,-1)
+    print('Alice déchiffre avec kfinale ->', mdp_clair)
+    ```
+    🌞 Mission réussie !
+ 
+
+
+
+    📌 Partie 9 — Attaque MITM (Jimmy) 
+
+    Alice et Bob sont habitués à procéder comme nous venons de le voir. Bob va donc créer kFinale qui va leur servir pour communiquer en chiffrement symétrique.
+
+    💣 Mais Jimmy va un peu changer les données du problème. Pour communiquer, Alice et Bob envoient des paquets qui transitent sur de nombreux routeurs. L'un d'eux appartient à Jimmy....
+
+    🦸‍♂️ Dans ce qui suit, vous êtes Jimmy.
+
+    💻 Ajouter et compléter le scénario :
+
+    1) 👩 Tout commence comme d'habitude : Alice crée une clef publique et une clef privée :
+    ```python
+    # # créez les clef publiques et privées d'Alice :
+    (kpubAlice, kprivAlice) = creClef()
+
+    print("clé publique de Alice :", ❓)
+    print("clé privée de Alice :", ❓)
+    ```
+    2) 👩 Alice envoie à Bob la clé publique
+    Du moins, c'est ce qu'elle pense. Elle ignore votre présence ...
+
+    3) 🦸‍♂️ Mais\.\.\. Vous intervenez \.\.\.
+    Vous interceptez l'envoi. Vous n'allez pas envoyer cette clef à Bob mais une autre : la votre !
+    ```python
+    # créez votre clef publique et votre clef privée associée
+    (kpubJimmy, kprivJimmy) = creClef()
+
+    print('clé publique de Jimmy :', ❓)
+    print('clé privée de Jimmy :', ❓)
+    ```
+    Vous avez une clef publique et une clef privée. Vous envoyez votre clef publique à Bob, qui pensera qu'il s'agit de la clef publique d'Alice.
+
+    4) 👨 Bob ne se doute de rien !
+
+    Bob chiffre kFinale (la clé finale) avec cette clé publique qu'il vient de recevoir, et envoie cette clé chiffrée à Alice (où du moins, c'est ce qu'il pense. Mais vous êtes là...)
+
+    La clé finale crée par Bob est : **'0VLFK4CEF9YS55KWV6JZ'**
+
+    Créez la clé finale chiffrée avec votre clé publique (celle que Bob imagine être la clé de Alice)
+    ```python
+    kFinale = "0VLFK4CEF9YS55KWV6JZ"
+    # codez cette clef avec la clé publique de Jimmy (Bob croit qu'il s'agit de celle de Alice)
+    kfinaleChiffreBob = ❓
+    print('Bob envoie sa clé privé chiffrée avec la clé publique de Jimmy :', kfinaleChiffreBob)
+    ```
+    5) 🦸‍♂️ Vous interceptez cette clef !
+
+    Vous déchiffrez cette clef interceptée grâce à votre clef privée :
+
+    Vous obtenez donc kFinale\_decryptee.
+    ```python
+    kFinale_decryptee = ❓
+    print(kFinale_decryptee)
+    ```
+    🦸‍♂️ Sans surprise, **vous voyez que vous détenez bien la clé finale**.
+
+    En effet kFinale\_decryptee que vous avez reconstituée est bien égale à kFinale créée par Bob.
+
+    6)🦸‍♂️ Vous faites comme si vous étiez Bob !
+
+    Vous allez maintenant chiffrer kFinale\_decryptee avec la clé publique d' Alice, et lui envoyer.
+    ```python
+    # Créez la clé finale chiffrée avec la clé d'Alice :
+    kfinaleChiffreAlice = ❓
+
+    print("Jimmy envoie la clé privée de Bob chiffrée avec la vraie clé publique d'Alice :", kfinaleChiffreAlice)
+    ```
+    7) 👩 Alice reçoit cette clef et la déchiffre avec sa clé privée\.
+    ```python
+    print(f(kprivAlice, kfinaleChiffreAlice))
+    ```
+    Elle obtient kFinale la bonne clé créée par Bob, et ils vont l'utiliser pour communiquer.
+
+    8) 👩🦸‍♂️👨Tous les échanges ultérieurs seront interceptés et décryptés par Jimmy !
+
+    Ni Alice ni Bob ne se doute que Jimmy bad boy connait aussi la clé kFinale...
+
+    👍 Bravo, vous avez réussi **une attaque par l'homme du milieu**.
+
+
+---
+
 
 **<H3 STYLE="COLOR:red;">Exercice n° 02 : chiffrement RSA</H3>**
 
