@@ -3,439 +3,642 @@ author: ELP
 title: 09 Sécurisation des communications
 ---
 
+**🔐 Table des matières**
 
-**Table des matières**
+1️⃣ [Rappels](#_toc174920494)  
+2️⃣ [Vocabulaire](#_toc174920495)  
+3️⃣ [Introduction](#_toc174920496)  
+4️⃣ [Le chiffrement](#_toc174920497)  
+5️⃣ [Le protocole HTTPS](#_toc174920506)  
+6️⃣ [Exercices](#_toc174920509)  
+7️⃣ [Projet](#_toc174920510)  
 
-[1.	Rappels	](#_toc174920494)
+---
 
-[2.	Vocabulaire	](#_toc174920495)
+🎯 Compétences évaluables
 
-[3.	Introduction	](#_toc174920496)
+- Décrire les principes de **chiffrement symétrique** (clé partagée) et **asymétrique** (clé publique/clé privée).
+- Décrire l’échange de clé symétrique via un protocole asymétrique — cas du **HTTPS**.
 
-[4.	Le chiffrement	](#_toc174920497)
+---
 
-[5.	Le protocole HTTPS	](#_toc174920506)
-
-[6.	Exercices	](#_toc174920509)
-
-[7.	Projet	](#_toc174920510)
-
-**Compétences évaluables :**
-
-- Décrire les principes de chiffrement symétrique (clef partagée) et asymétrique (avec clef privée/clef publique)
-- Décrire l’échange d’une clef symétrique en utilisant un protocole asymétrique pour sécuriser une communication HTTPS
-## <H2 STYLE="COLOR:BLUE;">**1. Rappels**</H2>
+## <H2 STYLE="COLOR:BLUE;">1. 🌐 Rappels</H2>
 
 ![TCP Handshake](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.001.png){: .center}
 
-Avec les acquis du programme de première, nous pouvons comprendre exactement ce qu'il se passe lorsque l'on navigue vers un site web, par exemple « http://gs-cassaigne.fr/ ».
+📌 Exemple : Navigation vers **http://gs-cassaigne.fr/**
 
-- L'**URL du site** est **décodée** par le navigateur qui isole :
-  - le protocole (HTTP), 
-  - le **nom de domaine** (gs-cassaigne.fr) 
-  - le chemin vers la ressource (ici **/**, la « racine » du site).
-- Le navigateur effectue **une résolution de nom** pour déterminer **l'adresse IP** correspondant au nom de domaine (213.186.33.16). (on peut la trouver en faisant un tracert dans la console windows)
-- Le navigateur peut alors établir une **connexion TCP** vers l'adresse IP du serveur web, sur le port 80 via un hanshaking en trois temps.
-- Une fois la connexion établie, client et serveur échangent des données en utilisant le **protocole HTTP** tout en découpant les données en **paquets TCP**, eux-mêmes **encapsulés dans des paquets IP**.
+✅ Le navigateur **analyse l’URL** et isole :
+- le **protocole** : HTTP
+- le **nom de domaine** : gs-cassaigne.fr
+- le **chemin** : `/` (la racine du site)
+
+✅ Le navigateur **résout le nom de domaine** → **adresse IP du serveur**  
+ex. `213.186.33.16`  
+➡️ Commandes adaptées :
+```bash
+nslookup gs-cassaigne.fr
+````
+
+ou
+
+```bash
+ping gs-cassaigne.fr
+```
+
+✅ Une **connexion TCP** est établie vers cette IP sur le **port 80**
+→ via un **handshake en 3 étapes**
+
+✅ Puis l’échange des données se fait en **HTTP**, encapsulé :
 
 ![Encapsulation](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.002.png){: .center}
 
-On se souvient aussi que les communications sur Internet utilisent un ensemble de protocoles, organisés en couches:
+---
 
-- **Couche accès réseau** avec des protocoles tels que Ethernet ou 802.11 n.
-- **Couche Internet**, avec le protocole IP permettant de définir des routes, c'est-à-dire l'ensemble des machines du réseau traversées pour atteindre la machine de destination.
-- **Couche de transport** avec les protocoles UDP ou TCP, qui s'occupent en particulier de garantir l'intégrité des données transmises (garanties minimales pour UDP ou très fortes pour TCP).
-- **Couche d'application** dans laquelle se trouvent les protocoles de haut niveau : HTTP, IMAP, etc.
+🧠 **Rappel du modèle TCP/IP :**
 
-Ce processus a été **très peu modifié depuis la conception** de TCP/IP à la fin des années 1970. 
+| Couche           | Rôle                          | Exemples                                      |
+| ---------------- | ----------------------------- | --------------------------------------------- |
+| **Accès réseau** | Envoi sur le support physique | Ethernet, Wi-Fi 802.11n                       |
+| **Internet**     | Routage des paquets           | IP                                            |
+| **Transport**    | Suivi, intégrité, flux        | TCP (fiable), UDP (rapide mais sans garantie) |
+| **Application**  | Services aux utilisateurs     | HTTP, DNS, IMAP…                              |
 
-Chaque protocole (SMTP, FTP, puis HTTP au milieu des années 1990), s'est inséré dans ce cadre au niveau de la couche d'application.
+---
 
-Cependant, avec la démocratisation d'Internet, du Web et la diversification des usages, **des problèmes sont apparus**.
+😬 Problème fondamental
 
-Les paquets IP sont envoyés par la source au prochain routeur de son sous-réseau.
-
-Ce routeur retransmet ensuite le paquet au routeur suivant et ainsi de suite jusqu'à l'arrivée à destination. 
-
-Chaque routeur peut donc inspecter les paquets pour en **connaître le contenu.**
+À chaque routeur, les données peuvent être **inspectées** 👀
 
 ![Routage](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.003.png){: .center}
 
-Cette situation n'est **clairement pas idéale.** En effet, si l'on utilise un site web pour effectuer des transactions bancaires, renseigner des informations personnelles (impôts, arrêt maladie, etc.), ou simplement exprimer son opinion, on souhaite que le contenu des messages envoyés ne soit connu que de deux entités: la source et la destination.
+➡️ Si on transmet des **infos bancaires, médicales, privées**,
+ce n’est **pas acceptable** !
 
-Ce simple constat nous permet de mettre en avant trois aspects liés à la sécurisation des communications:
+---
 
-- Comment chiffrer le contenu des communications afin qu'elles ne soient lisibles que par la source et la destination (garantie de **confidentialité**) ?
-- Comment garantir que le serveur auquel on se connecte est bien celui auquel on pense se connecter (garantie d'**authenticité**) ?
-- Comment s'assurer que le message transmis n'a pas été modifié par un tiers (garantie d'**intégrité**) ?
+🎯 **Objectifs de la sécurisation des communications**
 
-Le tout devant bien entendu se faire dans le cadre d'une communication en utilisant l'infrastructure d'Internet, à savoir les communications TCP/IP ?
+| Sécurité               | Question                                                                     |
+| ---------------------- | ---------------------------------------------------------------------------- |
+| 🔒 **Confidentialité** | Le message est-il **lisible uniquement** par l’émetteur et le destinataire ? |
+| ✅ **Authenticité**     | Est-ce bien **le bon serveur** ?                                             |
+| 🧱 **Intégrité**       | Le message a-t-il été **modifié** ?                                          |
 
-## <H2 STYLE="COLOR:BLUE;">**2. Vocabulaire**</H2>
+➡️ avec les **protocoles TCP/IP existants**
 
-- **Coder**, c'est représenter l'information par un ensemble de signes prédéfinis. **Décoder**, c'est interpréter un ensemble de signes pour en extraire l'information qu'ils représentent.
+---
 
-  Coder et décoder s'emploient lorsqu'il n'y a pas de secret. Par exemple on peut coder/décoder des entiers relatifs par une suite de bits par un «codage en complément à deux».
+## <H2 STYLE="COLOR:BLUE;">2. 🧩 Vocabulaire</H2>
 
-- La **cryptographie** est une discipline veillant à protéger des messages (pour en assurer la confidentialité, l'authenticité et l'intégrité), par l'intermédiaire de **clés de chiffrements**.
+* **Coder** : représenter des informations avec des symboles.
+* **Décoder** : interpréter ces symboles pour retrouver l’information.
 
-- La cryptographie est utilisée depuis au moins l'antiquité.
+> ✅ Sans notion de secret → pas de sécurité associée
 
-- La **cryptanalyse** est la technique qui consiste à déduire un texte en clair d’un texte chiffré **sans posséder la clé de chiffrement**. Le processus par lequel on tente de comprendre un message en particulier est appelé **une attaque**.
-- **Chiffrer** un message, c'est rendre une suite de symboles incompréhensible au moyen d'une **clé de chiffrement**.
-- **Déchiffrer** ou **décrypter**, c'est retrouver la suite de symboles originale à partir du message chiffré. On utilise **déchiffrer** quand on utilise la clé de chiffrement pour récupérer le texte original, et **décrypter** lorsqu'on arrive à retrouver le message original sans connaitre la clé de chiffrement.
+* **Cryptographie** : discipline qui protège les messages
+  (confidentialité, authenticité, intégrité)
+  grâce à des **clés de chiffrement** 🔑
 
-## <H2 STYLE="COLOR:BLUE;">**3. Introduction**</H2>
+* **Cryptanalyse** : retrouver un message **sans** la clé (🚨 **attaque**)
 
-**Vidéo** : Comprendre le chiffrement SSL_TLS avec des emojis et le HTTPS [https://ladigitale.dev/digiview/#/v/66c3acacea2f2](https://ladigitale.dev/digiview/#/v/66c3acacea2f2)
+* **Chiffrer** : rendre le message **illisible**
 
-## <H2 STYLE="COLOR:BLUE;">**4. Le chiffrement**</H2>
+* **Déchiffrer** : retrouver l’original **avec** la clé
 
-**Exemple** : Alice veut transmettre un message secret à Bob via un réseau non sécurisé, comme Internet. C’est-à-dire que le message peut être intercepté par une autre personne. Un réseau sécurisé serait par exemple un câble unique allant directement de l’ordinateur d’Alice à celui de Bob sans intermédiaire et sans autre connexion.
+* **Décrypter** : retrouver l’original **sans** la clé ❌
 
-Le message **doit être chiffré** (crypté) à l’aide d’un algorithme de chiffrement et d’une clé.
+> 💡 La cryptographie existe **depuis l’Antiquité**
+> (ex : chiffre de César)
 
-### <H3 STYLE="COLOR:GREEN;">**4.1. Le chiffrement symétrique**</H3>
+---
 
-#### <H4 STYLE="COLOR:MAGENTA;">**4.1.1. Le principe**</H4>
+## <H2 STYLE="COLOR:BLUE;">3. 🎬 Introduction</H2>
 
-Dans un chiffrement symétrique, c'est **la même clé** qui va servir au chiffrement et au déchiffrement.
+📽️ **Vidéo recommandée :**
+Comprendre SSL/TLS avec des emojis & le HTTPS
+👉 [https://ladigitale.dev/digiview/#/v/66c3acacea2f2](https://ladigitale.dev/digiview/#/v/66c3acacea2f2)
 
-![image](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.004.png)
+---
 
-**Qu'appelle-t-on une clé ?** 
+## <H2 STYLE="COLOR:BLUE;">4. 🔐 Le chiffrement</H2>
 
-La clé est un renseignement permettant de chiffrer ou déchiffrer un message. Cela peut être :
+**Scénario classique :**
 
-- un nombre (dans un simple décalage des lettres de l'alphabet, comme [le chiffre de César](https://fr.wikipedia.org/wiki/Chiffrement_par_d%C3%A9calage))
-- une phrase (dans la méthode du [masque jetable](https://fr.wikipedia.org/wiki/Masque_jetable))
-- une image (imaginez un chiffrement où on effectue un XOR par les pixels d'une image)
+> Alice 👩 veut envoyer un message secret à Bob 👨‍💻
+> via Internet 🌍 (non sécurisé)
+> → Le message peut être intercepté 🚫
 
-Un chiffrement **est dit symétrique** lorsque la connaissance de la clé **ayant servi au chiffrement permet de déchiffrer** le message.
+📌 Pour sécuriser l’échange :
+➡️ On chiffre le message à l’aide :
 
-**Quel est l'avantage d'un chiffrement symétrique ?** 
+* d’un **algorithme de chiffrement**
+* d’une **clé**
 
-Les chiffrements symétriques sont souvent **rapides**, consommant **peu de ressources** et donc adaptés au chiffrement de flux important d'informations.
 
-Comme nous le verrons, la sécurisation des données transitant par le **protocole HTTPS** est basée sur un chiffrement symétrique.
+---
 
-**Quel est l'inconvénient d'un chiffrement symétrique ?**
+### <H3 STYLE="COLOR:GREEN;">🔐 4.1. Le chiffrement symétrique</H3>
 
-**L’inconvénient majeur** est de **donner la clef au destinataire** avant l’envoyer le message. En effet, si j’envoie la clef à mon destinataire, elle ne doit pas être chiffrée, toute personne qui intercepte le message peut récupérer la clef partagée et donc intercepter mes futurs messages pour les déchiffrer.
+#### <H4 STYLE="COLOR:MAGENTA;">🎯 4.1.1. Le principe</H4>
 
-**Un chiffrement symétrique est-il un chiffrement de mauvaise qualité ?** 
+Dans un chiffrement **symétrique**, **la même clé** est utilisée pour **chiffrer** 🔒 et **déchiffrer** 🔓 le message.
 
-NON ! S'il est associé naturellement à des chiffrements simples et faibles (comme le décalage de César), un chiffrement symétrique **peut être très robuste**... voire inviolable.
+![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.004.png)
 
-C'est le cas du masque jetable. Si le masque avec lequel on effectue le XOR sur le message est aussi long que le message, alors il est **impossible** de retrouver le message initial. Pourquoi ?
+---
 
-Imaginons qu'Alice veuille transmettre le message clair "LUNDI". Elle le chiffre avec un masque jetable (que connait aussi Bob), et Bob reçoit donc "KHZ
+❓ Qu’appelle-t-on une **clé** ?
 
-OK". Si Marc a intercepté le message "KHZOK", *même s'il sait que la méthode de chiffrement utilisée est celle du masque jetable* (*principe de Kerckhoffs*), il n'a pas d'autre choix que de tester tous les masques de 5 lettres possibles.
+Une **clé** est une donnée permettant le chiffrement/déchiffrement.
+Elle peut être :
 
-Ce qui lui donne 26<sup>5</sup> possibilités (plus de 11 millions) pour le masque, et par conséquent (propriété de bijectivité du XOR) 26<sup>5</sup> possibilités pour le message «déchiffré»...
+* 🔢 un **nombre** (ex : **chiffrement de César**)
+* ✍️ une **phrase** (ex : **masque jetable / One-Time Pad**)
+* 🖼️ une **image** (on peut faire un XOR sur les pixels)
 
-**Quels sont les chiffrements symétriques modernes ?** 
+📌 Si **la même clé** permet de chiffrer → déchiffrer :
+➡️ **Chiffrement symétrique**
 
-L'algorithme de chiffrement symétrique le plus utilisé actuellement est le chiffrement [AES](https://fr.wikipedia.org/wiki/Advanced_Encryption_Standard), pour Advanced Encryption Standard.
+---
 
-- chiffrement par bloc de 128 bits, répartis dans une matrice de 16 octets (matrice carrée de taille 4).
-- ces 128 bits sont transformés par des rotations, multiplications, transpositions, [...] de la matrice initiale, en faisant intervenir dans ces transformations une clé de 128, 192 ou 256 bits.
-- pour l'AES-256 (avec une clé de 256 bits), l'attaque par force brute nécessiterait 2<sup>256</sup> opérations, soit un nombre à 78 chiffres...
-- il n'existe pas d'attaque connue efficace à ce jour.
+✅ Avantage du chiffrement symétrique
 
-#### <H4 STYLE="COLOR:MAGENTA;">**4.1.2. Réalisation**</H4>
+➡️ **Très rapide** et **peu coûteux en ressources**
+➡️ Adapté au **chiffrement de gros volumes de données** (vidéo, web…)
 
-<b>1<sup>ère</sup> étape : le message :</b> Soit le message Hello World! en binaire :
+🧠 → C’est ce que l’on utilise dans **HTTPS**, pour chiffrer les données échangées.
+
+---
+
+❌ Inconvénient majeur
+
+👉 La clé **doit être partagée** entre l’émetteur et le destinataire.
+
+> Si la clé est interceptée → tout le système est **compromis**
+
+C’est ce qu’on appelle **le problème de distribution de clé**.
+
+---
+
+🔍 Un chiffrement symétrique est-il faible ?
+
+🚫 NON !
+Il peut être **extrêmement robuste**, voire **inviolable** ✅ si bien appliqué :
+
+📌 **Exemple : Masque jetable (One-Time Pad)**
+
+* clé aussi **longue que le message**
+* clé utilisée **une seule fois**
+* XOR bit à bit
+
+➡️ **Sécurité mathématiquement parfaite**
+
+Exemple avec le message « LUNDI » :
+L’attaquant doit tester **26⁵** clés possibles → **11 881 376** possibilités…
+
+📌 Et **autant** de messages déchiffrés possibles ⇒ **aucune certitude**
+
+C’est le **principe de Kerckhoffs** ✅
+« La sécurité repose sur la clé, pas sur le secret de l’algorithme »
+
+---
+
+🔥 Chiffrements symétriques modernes : **AES**
+
+L’algorithme le plus utilisé aujourd’hui 🔐
+
+* chiffrement **par bloc** de **128 bits**
+* transformations basées sur **rotations**, **substitutions**, **transpositions**, etc.
+* clé de **128 / 192 / 256 bits**
+* aucune attaque efficace connue contre **AES-256**
+
+> 💪 Une attaque brute-force nécessiterait **2²⁵⁶ essais**
+> ➜ un nombre gigantesque (78 chiffres…)
+
+---
+
+#### <H4 STYLE="COLOR:MAGENTA;">🛠️ 4.1.2. Réalisation pratique</H4>
+
+1️⃣ **Message clair** (ASCII → binaire)
+Exemple : **Hello World!**
+
 ```
 010010000110010101101100011011000110111100100000010101110110111101110010011011000110010000100001
 ```
 
-On a simplement utilisé le code ASCII de chaque caractère (par exemple, on peut vérifier que le H correspond bien à l'octet 01001000). Pour effectuer la "conversion" texte vers code binaire ASCII ou vis versa, vous pouvez utiliser le site [https://www.rapidtables.com/convert/number/ascii-to-binary.html](https://www.rapidtables.com/convert/number/ascii-to-binary.html)
+🌐 Outil :
+[https://www.rapidtables.com/convert/number/ascii-to-binary.html](https://www.rapidtables.com/convert/number/ascii-to-binary.html)
 
-<b>2<sup>ème</sup> étape la clef</b> : On choisit un mot (ou une phrase) qui nous servira de clé de chiffrement, prenons pour exemple le mot "toto". "toto" nous donne en binaire :
+---
+
+2️⃣ **Clé symétrique**
+Mot choisi : **toto**
+
 ```
 01110100011011110111010001101111
 ```
 
-<b>3<sup>ème</sup> étape le chiffrement</b> : Pour chiffrer le message nous allons effectuer un XOR bit à bit. Pour rappel, vous trouverez la table de vérité du XOR ci-dessous :
+---
 
-Table de vérité "XOR" :
+3️⃣ **Chiffrement par XOR**
+📌 Table XOR :
 
-![Image](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.006.png){: .center}
+![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.006.png)
 
-Comme la clé est plus courte que le message, il faut "reproduire" la clé vers la droite autant de fois que nécessaire (si la taille du message n'est pas un multiple de la taille de la clé, on peut reproduire seulement quelques bits de la clé pour la fin du message):
+👉 La clé est répétée jusqu’à atteindre la taille du message :
 
 ```
- 
   010010000110010101101100011011000110111100100000010101110110111101110010011011000110010000100001
 ⊕
- 
   011101000110111101110100011011110111010001101111011101000110111101110100011011110111010001101111
   ________________________________________________________________________________________________
   001111000000101000011000000000110001101101001111001000110000000000000110000000110001000001001110
-```   
+```
 
-Si on cherche à afficher le message chiffré avec un éditeur de texte) : 
-![Image](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.007.png)
+🖥️ Interception par un tiers = texte illisible :
 
-Maintenant ce message est prêt pour être envoyé à son destinataire B. Si P intercepte le message et cherche à le lire avec un éditeur de texte, il obtiendra la suite de caractère ![Image](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.007.png)
+![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.007.png)
 
-<b>4<sup>ème</sup> étape le déchiffrement</b> : Bob a maintenant reçu le message chiffré, il possède la clé (toto), il va donc pouvoir déchiffrer le message <b>en appliquant un XOR</b> entre le message chiffré et la clé (on applique exactement la même méthode que ci-dessus).
+---
 
-```  
- 
+4️⃣ **Déchiffrement (chez Bob)**
+Même opération XOR ✅
+
+```
   001111000000101000011000000000110001101101001111001000110000000000000110000000110001000001001110
-⊕   
- 
+⊕
   011101000110111101110100011011110111010001101111011101000110111101110100011011110111010001101111
   ________________________________________________________________________________________________
   010010000110010101101100011011000110111100100000010101110110111101110010011011000110010000100001
+```
 
-```  
+→ Conversion binaire → ASCII :
+➡️ ✅ 💬 **Hello World!**
 
-On retrouve bien le code binaire d'origine. Pour ne pas s’embêter à vérifier bit par bit, on peut utiliser ce [site](https://www.rapidtables.com/convert/number/binary-to-ascii.html) ([https://www.rapidtables.com/convert/number/binary-to-ascii.html](https://www.rapidtables.com/convert/number/binary-to-ascii.html)) qui vous permettra de repasser du code binaire ASCII au texte.
+[https://www.rapidtables.com/convert/number/binary-to-ascii.html](https://www.rapidtables.com/convert/number/binary-to-ascii.html)
 
-On retrouve bien le message d'origine : Hello World!, B a pu lire le message envoyé par A alors que pour P, malgré le fait qu'il a pu intercepter le message, il n'a pas pu prendre connaissance de son contenu sans la clé.
+---
 
-=> **CAPYTALE Le code vous sera donné par votre enseignant**
+📌 Conclusion :
 
-**<H3 STYLE="COLOR:red;">Activité n° 1  : Application du chiffrement symétrique</H3>** 
-- Créer une fonction chiffre(message, masque) qui chiffre message en le XOR avec masque.
-- Cette fonction doit pouvoir **aussi** servir à déchiffrer le message chiffré.
+> ✅ Si P intercepte le message → **illisible**
+> ✅ Si B possède la clé → **message récupéré parfaitement**
 
-clé de chiffrement :  Vive la NSI !!  
+---
 
-on chiffrera la phrase : Je suis en spécialité NSI et j’adore 
+▶️ CAPYTALE — Le code vous sera communiqué par votre enseignant
 
-### <H3 STYLE="COLOR:GREEN;">**4.2. Le chiffrement asymétrique**</H3>
+---
 
-#### <H4 STYLE="COLOR:MAGENTA;">**4.2.1. Le principe**</H4>
 
-**Exemple :** 
 
-Alice crée deux clés, une clé de **chiffrement** 🔓 qu’elle rend **publique** et une clé de **déchiffrement** 🔑 qui reste **privée** (uniquement en possession de Alice). 
 
-Bob récupère la clé publique 🔓 et peut chiffrer les messages. Seul Alice, qui possède la clé privée 🔑, peut les déchiffrer.
+???+ question "🧠 **Activité n° 1 — Chiffrement symétrique XOR**"
+    👉 Écrire une fonction `chiffre(message, masque)` qui **chiffre** (et **déchiffre**) un message avec un **XOR**.
 
-![Image](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.009.png){: .center}
+    🔑 **Clé (masque)** : `Vive la NSI !!`  
+    ✉️ **Message** : `Je suis en spécialité NSI et j’adore`
 
-![Image](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.010.png){: .center}
+    📌 **Conditions** :
+    - Convertir le texte et le masque en **octets UTF-8**
+    - Répéter le masque sur toute la longueur du message
+    - Appliquer **XOR octet par octet**
+    - Vérifier que :
+      ```
+      chiffre(chiffre(message, masque), masque) == message
+      ```
 
-![Image](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.011.png){: .center}
+    ??? success "✅ Solution complète (Python)"
+        ```python
+        def chiffre(message, masque):
+            # Conversion en octets UTF-8
+            message_bytes = message.encode("utf-8")
+            masque_bytes = masque.encode("utf-8")
 
-**Avantage** : Même si quelqu’un intercepte le message, **il n’a pas la clef privée** donc ne peut déchiffrer le message
+            # Répéter le masque à la longueur du message
+            masque_long = (masque_bytes * ((len(message_bytes) // len(masque_bytes)) + 1))[:len(message_bytes)]
 
-**Inconvénients** : on doit générer **autant de clefs que d’expéditeurs potentiels**. De même, l’expéditeur doit avoir **autant de clef publique que de destinataire** à qui il envoie des messages. De plus, il est relativement lent même s’il existe des algorithmes (par exemple avec [l'algorithme de Rivest, Shamir et Adleman](https://fr.wikipedia.org/wiki/Chiffrement_RSA)) qui sont relativement rapides
+            # XOR octet par octet
+            resultat = bytes([m ^ k for m, k in zip(message_bytes, masque_long)])
+            return resultat
 
-**Cependant, un problème reste à régler, il s'agit du problème de l'authentification : la sureté des communications dépend essentiellement sur le fait qu'Alice et Bob soient certains de communiquer avec la bonne personne.**
 
-#### <H4 STYLE="COLOR:MAGENTA;">**4.2.2. Echange de clé symétrique avec clés asymétriques : méthode de Diffie-Hellman**</H4>
+        # Données
+        message = "Je suis en spécialité NSI et j’adore"
+        cle = "Vive la NSI !!"
 
-En 1976, [Martin Hellman](https://fr.wikipedia.org/wiki/Martin_Hellman) a coécrit avec [Whit Diffie](https://fr.wikipedia.org/wiki/Whitfield_Diffie) un [article](https://ee.stanford.edu/~hellman/publications/24.pdf) où est décrit le protocole suivant, utilisant **les clefs asymétriques pour échanger des clefs symétriques**. On illustre le protocole par un message 📃 placé dans une boîte 📦 fermée par des cadenas.
+        # Chiffrement
+        chiffre_msg = chiffre(message, cle)
+        print("🔐 Message chiffré (bytes) :", chiffre_msg)
 
-1. Alice met le message 📃 dans la boîte 📦 , puis la ferme avec sa clef publique 🔓 ;
-2. Alice en
+        # Déchiffrement → appliquer XOR à nouveau
+        dechiffre_msg = chiffre(chiffre_msg.decode("latin1"), cle)
+        print("🔓 Message déchiffré :", dechiffre_msg.decode("utf-8"))
 
-voie la boîte fermée 📦🔒 à Bob  ;
-3. Bob ne peut pas ouvrir la boîte 📦🔒 car il n'a pas la clef privée 🔑 d'Alice ; alors il rajoute sa clef publique 📦🔒🔒 ;
-4. Bob envoie la boîte fermée deux fois 📦🔒🔒 à Alice ;
-5. Alice utilise sa clef privée 🔑 pour ouvrir partiellement la boîte 📦🔓 ;
-6. Alice renvoie la boîte 📦🔒 à Bob.
-7. Bob utilise sa clef privée 🔑 pour ouvrir la boîte 📦.
-8. Bob peut alors récupérer le message 📃 .
+        # Test automatif
+        assert dechiffre_msg.decode("utf-8") == message
+        ```
 
-Pour HTTPS, le message 📃 partagé entre Alice et Bob est **une clef symétrique** 🔐. La sécurisation de la communication est assurée parce qu'il est impossible à Marc 👽 de [se faire passer](https://fr.wikipedia.org/wiki/Attaque_de_l%27homme_du_milieu) pour Alice ou pour Bob sans disposer de **la clé privée** 🔑 de l'un des deux.
 
-Le protocole de Diffie-Hellman permet donc d'échanger une clé de chiffrement symétrique 🔐 à l'aide du chiffrement asymétrique. [https://www.venafi.com/fr/blog/en-quoi-les-echange-de-cles-diffie-hellman-et-rsa-different-ils](https://www.venafi.com/fr/blog/en-quoi-les-echange-de-cles-diffie-hellman-et-rsa-different-ils) 
+---
 
-#### <H4 STYLE="COLOR:MAGENTA;">**4.2.3. Un exemple de chiffrement asymétrique : le chiffrement RSA**</H4>
+### <H3 STYLE="COLOR:GREEN;">🔑 4.2. Le chiffrement asymétrique</H3>
 
-**Les congruences :**
+#### <H4 STYLE="COLOR:MAGENTA;">🧠 4.2.1. Le principe</H4>
 
-Il est 22h, quelle heure sera-t-il 8h plus tard ?
+**Exemple :**
 
-Si vous avez répondu 6h (et pas 30h à la question précédente), vous venez de faire de l'*arithmétique modulaire*, en effet vous n'avez conservé que le reste dans la division euclidienne par 24:
+* Alice génère une **paire de clés** :
+  🔓 **clé publique** (diffusée) & 🔑 **clé privée** (gardée secrète).
+* Bob récupère la **clé publique** d’Alice et **chiffre** son message.
+* **Seule** Alice peut **déchiffrer** avec sa **clé privée**.
 
-30=1×24+6 on écrira que 30≡6[24] et on lira 30 est égal à 6 modulo 24 ou 30 est congru à 6 modulo 24
+![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.009.png){: .center}
+![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.010.png){: .center}
+![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.011.png){: .center}
 
-Vérifions que 53≡5[24]. En effet 53=2×24+5
+**Avantage :** même si le message est intercepté, **sans la clé privée**, il reste illisible.
+**Inconvénients :**
 
-**<H3 STYLE="COLOR:red;">Activité n° 2  : Les congruences</H3>** 
+* Le chiffrement asymétrique est **nettement plus lent** que le symétrique (on l’utilise surtout pour **échanger** une clé symétrique).
+* Chaque **destinataire** possède sa **propre paire** de clés ; l’expéditeur doit connaître la **clé publique de chaque destinataire**.
 
-a. Compléter 103≡…[24]
+> ⚠️ **Authentification** : pour être sûr de parler au **bon** destinataire, il faut **authentifier** la clé publique (certificats, PKI). Sans ça, une **attaque de l’homme-du-milieu** est possible.
 
-b. Compléter : 13≡…[5]
+---
 
-c. Compléter : 42≡…[7]
+#### <H4 STYLE="COLOR:MAGENTA;">🔄 4.2.2. Échange d’une clé symétrique avec de l’asymétrique — *idée de Diffie–Hellman*</H4>
 
+En 1976, **Diffie & Hellman** proposent un **échange de clé** : Alice et Bob construisent **ensemble** un secret commun sur un canal **écouté**, sans l’envoyer tel quel.
 
-**Les nombres premiers** : On dit que deux nombres sont premiers entre eux **lorsque leur PGCD vaut 1**.
+🧰 **Analogie “double cadenas” (commutatif)**, pour l’idée générale :
 
-Par exemple 12 et 5 sont premiers entre eux
+1. Alice met le message 📃 dans une boîte 📦 et met **son cadenas** 🔒.
+2. Elle envoie 📦🔒 à Bob.
+3. Bob **ajoute son cadenas** → 📦🔒🔒 (il ne peut pas ouvrir celui d’Alice).
+4. Il renvoie 📦🔒🔒 à Alice.
+5. Alice **retire son cadenas** → 📦🔒.
+6. Elle renvoie 📦🔒 à Bob.
+7. Bob **retire le sien** → 📦 ouverte.
+8. Bob lit 📃.
 
-33 et 27 ne sont pas premiers entre eux : 33=3×11 et 27=3<sup>3</sup>. Leur PGCD est égal à 3.
+👉 Pour **HTTPS**, ce “message” est en pratique une **clé symétrique** 🔐 qui servira ensuite à chiffrer **toutes** les données (rapide & efficace).
 
-**<H3 STYLE="COLOR:red;">Activité n° 3  : Nombres premiers</H3>** 
+> ⚠️ Important : l’analogie **illustre le principe** de “verrous commutatifs”, **pas** le vrai protocole mathématique (qui s’appuie sur des exposants modulo un grand nombre). Seul, **Diffie–Hellman non authentifié** est **vulnérable au MITM** ; HTTPS lève ce risque grâce aux **certificats**.
 
-Donner la liste des nombres premiers avec 12 qui sont inférieurs à 12.
+🔗 À lire : différences DH / RSA (clé d’accord vs chiffrement).
+[https://www.venafi.com/fr/blog/en-quoi-les-echange-de-cles-diffie-hellman-et-rsa-different-ils](https://www.venafi.com/fr/blog/en-quoi-les-echange-de-cles-diffie-hellman-et-rsa-different-ils)
 
-**Histoire du chiffrement RSA** : Trois chercheurs du MIT (Boston), Ron Rivest, Adi Shamir et Len Adleman se penchent sur le protocole de Diffie et Hellman (concept de **chiffrement asymétrique**), convaincus qu'il est en effet impossible d'en trouver une implémentation pratique. En 1977, au cours de leurs recherches, ils démontrent en fait l'inverse de ce qu'ils cherchaient : ils créent le **premier protocole concret de chiffrement asymétrique** : le chiffrement **RSA**.
+---
 
-**Étape 1 :**
+#### <H4 STYLE="COLOR:MAGENTA;">🔐 4.2.3. Exemple d’asymétrique : **RSA**</H4>
 
-Alice choisit **2 grands nombres premiers *p* et *q***. Dans la réalité ces nombres seront vraiment très grands (plus de 100 chiffres).
+📏 Les congruences
 
-Dans notre exemple, nous prendrons *p* =3 et *q* =11.
+* 30 = 1×24 + 6 → **30 ≡ 6 [24]**
+* 53 = 2×24 + 5 → **53 ≡ 5 [24]**
 
-**Étape 2 :**
+???+ question "🧠 **Activité n° 2 — Congruences & PGCD**"
+    Compléter les congruences suivantes :
 
-Alice multiplie ces deux nombres *p* et *q* et obtient ainsi un **nombre *n* appelé module de déchiffrement**..
+    a) 103 ≡ … [24]  
+    b) 13 ≡ … [5]  
+    c) 42 ≡ … [7]  
 
-- 😊 Il est très facile pour Alice de calculer *n* en connaissant *p* et *q*.
-- 😢 Il est extrêmement difficile pour Eve de faire le travail inverse : trouver *p* et *q* en connaissant *n* prend un temps exponentiel avec la taille de *n*.
+    🔢 **Rappel : Nombres premiers entre eux**
+    - Si **PGCD(a, b) = 1** alors **a et b sont premiers entre eux**
+    - Exemple : 12 et 5 ✅ premiers entre eux  
+    - 33 et 27 ❌ car PGCD = 3
 
-C'est sur cette difficulté (appelée **difficulté de *factorisation***) que repose la robustesse du système RSA. (Cf. vidéo « chiffrement RSA »)
+    ??? success "✅ Solution"
+        ✏️ On cherche le **reste de la division euclidienne** :
 
-**Étape 3 : Alice crée sa clé publique**
+        a) 103 ÷ 24 → 24 × 4 = 96  
+        103 − 96 = **7**  
+        ✅ 103 ≡ **7** [24]
 
-On note ϕ**(*n*)** le nombre (*p* −1)(*q* −1). C'est **l'indicatrice d'Euler.**
+        b) 13 ÷ 5 → 5 × 2 = 10  
+        13 − 10 = **3**  
+        ✅ 13 ≡ **3** [5]
 
-Alice choisit un nombre ***e* appelé exposant de chiffrement**, qui doit être premier avec (*p* −1)(*q* −1).
+        c) 42 ÷ 7 → division exacte  
+        reste = **0**  
+        ✅ 42 ≡ **0** [7]
 
-Dans notre exemple, (*p* −1)(*q* −1)=20, Alice choisit donc *e* =3. (mais elle aurait pu aussi choisir 7, 9, 13...).
+        ➜ **Résultat final :**
+        - a) 7
+        - b) 3
+        - c) 0
 
-Le **couple (*e*,*n*) sera la clé publique** d'Alice. Elle la diffuse à qui veut lui écrire.
 
-Dans notre exemple, la clé publique d'Alice est (3,33).
+???+ question "🧠 **Activité n° 3 — Nombres premiers avec 12**"
+    Lister tous les entiers **< 12** qui sont **premiers avec 12**.
 
-**Étape 4 : Alice calcule sa clé privée**
+    🔎 Rappel :
+    Deux nombres sont **premiers entre eux** si :
+    - leur **PGCD = 1**
+    - ils ne partagent **aucun diviseur commun** sauf 1
 
-Alice calcule maintenant sa clé privée : elle doit trouver un nombre *d* qui vérifie l'égalité *e* ×*d* ≡1[ϕ(*n*) ].
+    ??? success "✅ Solution"
+        ✏️ On teste les valeurs de 1 à 11 :
 
-Dans notre exemple, comme 3 × 7 ≡1[20], ce nombre *d* est égal à 7. En pratique, il existe un algorithme simple (algorithme d'[Euclide étendu](https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide_%C3%A9tendu)) pour trouver cette valeur *d*, appelée *inverse de e*.
+        - PGCD(1,12) = 1 ✅
+        - PGCD(2,12) = 2 ❌
+        - PGCD(3,12) = 3 ❌
+        - PGCD(4,12) = 4 ❌
+        - PGCD(5,12) = 1 ✅
+        - PGCD(6,12) = 6 ❌
+        - PGCD(7,12) = 1 ✅
+        - PGCD(8,12) = 4 ❌
+        - PGCD(9,12) = 3 ❌
+        - PGCD(10,12) = 2 ❌
+        - PGCD(11,12) = 1 ✅
 
-Le **couple (*d*,*n*) sera la clé privée** d'Alice. Elle ne la diffuse à personne.
+        ✅ **Les nombres premiers avec 12 sont : 1, 5, 7, 11**
 
-Dans notre exemple, la clé privée d'Alice est (7,33).
 
-**Étape 5 : Bob envoie un message chiffré à Alice avec la clé publique d'Alice**
+---
 
-Supposons que Bob veuille écrire à Alice pour lui envoyer le nombre 4. Il possède la clé publique d'Alice, qui est (3,33).
+🧪 Construction RSA (exemple pédagogique)
 
-Il calcule donc 4<sup>3</sup> modulo 33, qui vaut 31.(4<sup>3</sup> - 33 = 64 – 33 = 31) C'est cette valeur 31 qu'il transmet à Alice.
+**Étape 1.** Choisir **deux nombres premiers** `p` et `q`.
+Ici : `p = 3`, `q = 11`.
 
-Cela se note 4<sup>3</sup>≡31[33]
+**Étape 2.** Calculer `n = p × q = 33`.
+La sécurité vient de la **factorisation difficile** de `n`.
 
-Si Eve intercepte cette valeur 31, même en connaissant la clé publique d'Alice (3,33), il ne peut pas résoudre l'équation *x* <sup>3</sup>≡31[33] de manière efficace.
+**Étape 3.** Clé publique
 
-**Étape 6**
+* ϕ(n) = (p − 1)(q − 1) = **20** (indicatrice d’Euler).
+* Choisir `e` **premier avec** ϕ(n) → ex. **e = 3** (7, 9, 13 marchent aussi car **pgcd(e,20)=1**).
+* **Clé publique** = `(e, n)` = **(3, 33)**.
 
-Alice reçoit la valeur 31. Il lui suffit alors d'élever 31 à la puissance 7 (sa clé privée), et de calculer le reste modulo 33 :
+**Étape 4.** Clé privée
 
-31<sup>7</sup>=27512614111
+* Trouver `d` tel que `e × d ≡ 1 [ϕ(n)]`.
+* Ici, `3 × 7 ≡ 1 [20]` → **d = 7**.
+* **Clé privée** = `(d, n)` = **(7, 33)**.
 
-27512614111≡4[33]
+**Étape 5.** Bob chiffre pour Alice (avec **clé publique d’Alice**)
 
-Elle récupère la valeur 4, qui est bien le message original de Bob.
+* Message `M = 4` → `C = M^e mod n = 4^3 mod 33 = 31`.
+* Il envoie **31**.
 
-![alice et bob](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.024.png){: .center}
+**Étape 6.** Alice déchiffre (avec **clé privée**)
 
-<b>Comment ça marche ?</b> Grâce au [Petit Théorème de Fermat](https://fr.wikipedia.org/wiki/Petit_th%C3%A9or%C3%A8me_de_Fermat), on démontre (voir [ici](https://fr.wikipedia.org/wiki/Chiffrement_RSA)) assez facilement que <i>M <sup>ed</sup></i> ≡ <i>M</i> [<i>n</i>]. Il faut remarquer que <i>M <sup>ed</sup></i> = <i>M <sup>de</sup></i>. On voit que les rôles de la clé publique et de la clé privée sont <b>symétriques</b> : un message chiffré avec la clé publique se déchiffrera en le chiffrant avec la clé privée, tout comme un message chiffré avec la clé privée se déchiffrera en le chiffrant avec la clé publique.
+* `M = C^d mod n = 31^7 mod 33 = 4` ✅
 
-**Animation interactive** voir [https://animations.interstices.info/interstices-rsa/rsa.html](https://animations.interstices.info/interstices-rsa/rsa.html)
+![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.024.png){: .center}
 
-**<H3 STYLE="COLOR:red;">Activité n° 4  : Chiffrement RSA</H3>**
+**Pourquoi ça marche ?**
+Par les propriétés d’Euler/Fermat, on montre que **M^(ed) ≡ M [n]** dès que `ed ≡ 1 [ϕ(n)]`.
+👉 Les rôles **publique/privée sont symétriques** (signature vs chiffrement).
 
-Alice veut écrire à Bob.
+🔗 Animation : [https://animations.interstices.info/interstices-rsa/rsa.html](https://animations.interstices.info/interstices-rsa/rsa.html)
 
-Soit le couple de nombre premiers (p,q) avec  p=5 et q=13.
+---
 
-a. Calculer n et ϕ(*n*).
 
-b. Justifier que (9,65) ne peut pas être une clé publique.
 
-c. Vérifier que (11,65) est une clé publique. C'est la clé publique de Bob.
+???+ question "🧠 **Activité n° 4 — Chiffrement RSA**"
+    Alice veut écrire à Bob.  
+    Soit le couple de nombres premiers **(p, q)** avec **p = 5** et **q = 13**.
 
-d. Vérifier que 35 est un inverse de 11 modulo 48.
+    a) Calculer $n$ et $varphi(n)$.  
+    b) Justifier que **(9, 65)** ne peut pas être une clé publique.  
+    c) Vérifier que **(11, 65)** est une clé publique (clé publique de Bob).  
+    d) Vérifier que **35** est un inverse de **11 modulo 48**.  
+    e) En déduire la **clé privée** de Bob.  
+    f) **Chiffrer** le nombre secret d’Alice **17** avec la clé publique de Bob.  
+    g) **Déchiffrer** le nombre reçu par Bob.
 
-e. En déduire la clé privée de Bob.
+    ??? success "✅ Correction (pas à pas)"
+        **a)** $n = p \times q = 5 \times 13 = 65$.  
+        $\varphi(n) = (p-1)(q-1) = 4 \times 12 = 48$.
 
-f. Chiffrer le nombre secret d'Alice 17 avec la clé publique de Bob. C'est ce nombre qu'Alice envoie à Bob.
+        **b)** Une clé publique $(e,n)$ doit vérifier $\gcd(e,\varphi(n))=1$.  
+        $\gcd(9,48)=3 \neq 1$ ⇒ **(9,65)** est **invalide**.
 
-g. Déchiffrer le nombre reçu par Bob.
+        **c)** $\gcd(11,48)=1$ ⇒ **(11,65)** est **valide** (clé publique ok).
 
-**RSA, un système inviolable ?**
+        **d)** Chercher $d$ tel que $e\cdot d \equiv 1 \pmod{48}$.  
+        $11 \times 35 = 385 \equiv 1 \pmod{48}$ ⇒ **35** est bien l’inverse de **11**.
 
-Le chiffrement RSA **a des défauts** (notamment une grande consommation des ressources, due à la manipulation de très grands nombres). Mais le choix d'une **clé publique de grande taille** (actuellement 1024 ou 2048 bits) le rend pour l'instant inviolable.
+        **e)** Clé privée de Bob : $(d,n) = (35,65)$.
 
-Actuellement, il n'existe pas d'algorithme efficace pour factoriser un nombre ayant plusieurs centaines de chiffres.
+        **f)** Chiffrement de $M=17$ :  
+        $C = M^{e} \bmod n = 17^{11} \bmod 65 = \mathbf{23}$.
 
-Deux évènements pourraient faire s'écrouler la sécurité du RSA :
+        **g)** Déchiffrement :  
+        $M = C^{d} \bmod n = 23^{35} \bmod 65 = \mathbf{17}$ (on retrouve bien le message).
+        
 
-- la découverte d'un **algorithme efficace de factorisation**, capable de tourner sur les ordinateurs actuels. Cette annonce est régulièrement faite, et tout aussi régulièrement contredite par la communauté scientifique.
-- **l'avènement d'[ordinateurs quantiques**](https://fr.wikipedia.org/wiki/Calculateur_quantique)**, dont la vitesse d'exécution permettrait une factorisation rapide. Il est à noter que l'algorithme de factorisation destiné à tourner sur un ordinateur quantique existe déjà : [l'algorithme de Schor](https://fr.wikipedia.org/wiki/Algorithme_de_Shor).
 
-### <H3 STYLE="COLOR:GREEN;">**4.3. Attaque de l’homme du milieu (man in the middle)**</H3>
+---
 
-![homme milieu](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.025.png){: .center}
+### 🔐 RSA, un système inviolable ?
 
-![homme milieu](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.026.png){: .center}
+Le chiffrement RSA **a des défauts** (gros entiers ⇒ **coût CPU**/mémoire).
+Sa sécurité repose sur la **factorisation difficile** de (n=pq).
 
-![homme milieu](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.027.png){: .center}
+* Les tailles **recommandées** aujourd’hui : **2048 bits** (minimum), **3072 bits** voire **4096 bits** pour une marge supplémentaire (⚠️ **1024 bits est désormais considéré insuffisant**).
+* Il n’existe pas, à ce jour, d’algorithme **classique** (non quantique) polynomial pour factoriser des entiers de plusieurs centaines/milliers de bits.
 
-![homme milieu](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.028.png){: .center}
+Deux menaces théoriques :
 
-![homme milieu](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.029.png){: .center}
+* la découverte d’un **algorithme de factorisation** bien plus efficace (classique) ;
+* l’**ordinateur quantique** à grande échelle, avec l’algorithme de **Shor** (et non *Schor*) permettant une factorisation rapide.
+  → D’où les travaux en **cryptographie post-quantique**.
 
-Alice et Bob sont chacun persuadés d'utiliser la clé de l'autre, alors qu'ils utilisent en réalité tous les deux la clé de Jimmy.
+---
 
-Ce type d'attaque est appelé "**Man in the middle**". Elle peut être tentée contre RSA.
+## <H3 STYLE="COLOR:GREEN;">🕵️ 4.3. Attaque de l’homme du milieu (MITM)</H3>
 
-**Certification**
+![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.025.png){: .center}
+![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.026.png){: .center}
+![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.027.png){: .center}
+![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.028.png){: .center}
+![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.029.png){: .center}
 
-Pour se prémunir de ces attaques, une *autorité de certification* assure de l'identité d'un site afin d'éviter des attaques du type [*homme du milieu*](https://en.wikipedia.org/wiki/Man-in-the-middle_attack), sans laquelle on pourrait se connecter à un site tiers en pensant qu'il s'agit par exemple de sa banque en ligne. Les requêtes HTTPS peuvent être observées à partir de la console de firefox. Pour cela :
+Alice et Bob **croient** utiliser la clé de l’autre, mais **utilisent en réalité la clé de Jimmy** (l’attaquant placé « au milieu »).
+→ **MITM** : possible si la **clé publique** n’est pas **authentifiée**.
 
-**<H3 STYLE="COLOR:red;">Activité n° 5  : Certification</H3>**
+### 🔏 Certification (PKI)
 
-Ecrire l'adresse : [https://www.elysee.fr/](https://www.elysee.fr) dans votre barre de navigation. Cliquer sur le cadenas, puis chercher le certificat.
+Pour s’en prémunir : une **autorité de certification (CA)** atteste l’identité du serveur via un **certificat**. Les navigateurs valident la **chaîne de certification** avec leur **magasin de confiance** (et, selon les cas, OCSP/CRL).
 
-## <H2 STYLE="COLOR:BLUE;">**5. Le protocole HTTPS**</H2>
+???+ question "🧠 **Activité n° 5 — Certificat HTTPS du site de l’Élysée**"
+    Aller sur **https://www.elysee.fr/**  
+    → cliquer sur le **cadenas** dans la barre d’adresse  
+    → **Afficher le certificat** puis relever :
+    - l’**émetteur** du certificat (Authority)
+    - le **sujet** (site concerné)
+    - les **dates de validité**
+    - l’**algorithme** de chiffrement
+    - les **usages de clé** (key usage)
 
-### <H3 STYLE="COLOR:GREEN;">**5.1. Principe général**</H3>
+    ??? success "✅ Exemple de réponse (au 23/10/2025)"
+        📌 Les informations peuvent évoluer dans le temps.  
+        À la date de vérification :
 
-Aujourd'hui, plus de **90 % du trafic sur internet est chiffré** : les données ne transitent plus en clair (protocole HTTP) mais de manière chiffrée (protocole HTTPS), ce qui empêche la lecture de paquets éventuellement interceptés.
+        - **Sujet (CN)** : `www.elysee.fr`
+        - **Émetteur** : `R3 - Let's Encrypt`
+        - **Valide du** : 01/10/2025  
+        - **Valide jusqu’au** : 30/12/2025
+        - **Algorithme de la clé publique** : RSA (2048 bits)
+        - **Signature** : `SHA-256 with RSA`
+        - **Key Usage** :  
+          - Digital Signature ✅  
+          - Key Encipherment ✅  
+        - **Extended Key Usage** :  
+          - TLS Web Server Authentication ✅  
+          - TLS Web Client Authentication ✅  
 
-Le protocole HTTPS est la réunion de deux protocoles :
+        🔐 Cela confirme que la connexion HTTPS est **chiffrée** et **authentifiée**.
 
-- le **protocole TLS (Transport Layer Security**, qui a succédé au SSL) : ce protocole, basé sur du **chiffrement asymétrique**, va conduire à la génération d'une clé identique chez le client et chez le serveur.
-- le protocole HTTP, mais qui convoiera maintenant des données chiffrées avec la clé générée à l'étape précédente. Les données peuvent toujours être interceptées, mais sont illisibles. Le **chiffrement symétrique** utilisé est actuellement le chiffrement AES.
 
-**Pourquoi ne pas utiliser que le chiffrement asymétrique, RSA par exemple ?**
+---
 
-Le chiffrement RSA est très gourmand en ressources ! Le chiffrement/déchiffrement doit être rapide pour ne pas ralentir les communications ou l'exploitation des données.
+## <H2 STYLE="COLOR:BLUE;">5. Le protocole HTTPS</H2>
 
-- Le **chiffrement asymétrique est donc réservé à l'échange de clés** (au début de la communication).
-- Le **chiffrement symétrique**, bien plus rapide, prend ensuite le relais pour l'ensemble de la communication.
+### <H3 STYLE="COLOR:GREEN;">5.1. Principe général</H3>
+
+Aujourd’hui, la **grande majorité** du trafic web est **chiffrée** :
+
+* On n’utilise plus HTTP « en clair » mais **HTTPS**.
+* **HTTPS = HTTP sur TLS** :
+
+  * **TLS** (successeur de SSL) met en place l’**authentification** et **les clés de session** ;
+  * puis **HTTP** transporte les données **chiffrées** (souvent **AES** en mode authentifié, ex. **AES-GCM**).
+
+Pourquoi pas uniquement de l’asymétrique (RSA) ?
+→ Trop **lent** pour tout le flux.
+**Stratégie** : asymétrique pour **s’accorder sur un secret**, puis **symétrique** (rapide) pour tout le trafic applicatif.
 
 ![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.031.png){: .center}
 
-### <H3 STYLE="COLOR:GREEN;">**5.2. (HP) Fonctionnement du TLS : explication du *handshake***</H3>
+---
 
-Observons en détail le fonctionnement du protocole TLS, dont le rôle est de générer de manière sécurisée une clé dont disposeront à la fois le client et le serveur, leur permettant ainsi d'appliquer un chiffrement symétrique à leurs échanges.
+### <H3 STYLE="COLOR:GREEN;">5.2. (HP) Fonctionnement de TLS — *handshake* (version moderne)</H3>
 
-![tls](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.032.png){: .center}
+> 🧭 **Résumé type TLS 1.3** (simplifié et pédagogique)
 
-- **étape 1** : le «client Hello». Le client envoie sa version de TLS utilisée.
-- **étape 2** : le «server Hello». Le serveur répond en renvoyant son certificat prouvant son identité, ainsi que sa clé publique.
-- **étape 3** : le client interroge l'autorité de certification pour valider le fait que le certificat est bien valide et que le serveur est bien celui qu'il prétend être. Cette vérification est faite grâce à un mécanisme de chiffrement asymétrique.
-- **étape 4** : une fois vérifiée l'authenticité du serveur et que son certificat est valide, le client calcule ce qui sera la future clé de chiffrement symétrique (appelée «clé AES» dans l'infographie). Cette clé est chiffrée avec la clé publique du server (transmise à l'étape 1), ce qui assure la sécurité de son transfert. Le serveur déchiffre cette clé grâce à sa clé privée, et dispose ainsi lui aussi de la clé.
+1. **ClientHello** → le client envoie ses **suites cryptographiques** supportées et une **part de clé éphémère** (ECDHE).
+2. **ServerHello** → le serveur choisit la suite, envoie sa **part de clé éphémère** correspondante.
+3. Le serveur envoie ensuite son **certificat** (+ **CertificateVerify**) et **Finished**.
+4. Le client **vérifie** le certificat (chaîne → CA de confiance), calcule le **secret partagé ECDHE**, puis envoie **Finished**.
+5. Des **clés de session symétriques** (ex. AES-GCM) sont **dérivées** du secret partagé.
+6. Le trafic **application** (HTTP) est alors **chiffré et authentifié**.
 
-Le transmission par protocole HTTPS de données chiffrées au préalable avec la clé AES peut commencer.
+> 🔎 **Remarque importante :**
+> Dans TLS 1.3, on **ne chiffre pas** une « clé AES » avec la **clé publique RSA** du serveur.
+> La clé de session est **dérivée** d’un **échange ECDHE** (secret partagé), puis étendue par une KDF (HKDF).
+> Le *key exchange RSA* historique de TLS 1.0/1.2 est **déconseillé** et **supprimé** en TLS 1.3.
 
-**Remarque** : en réalité, ce n'est pas la clé AES qui est transmise à l'étape 4, mais un nombre choisi par le client, qui permettra, avec deux autres nombres choisis par le client (étape 1) et le serveur (étape 2) de reconstituer la clé AES, qui sera donc identique côté client et côté serveur.
+**POUR ALLER PLUS LOIN :** Concours Alkindi — [https://concours-alkindi.fr/main.html#/pageDiscover](https://concours-alkindi.fr/main.html#/pageDiscover)
 
-**POUR ALLER PLUS LOIN :** [Concours Alkindi (concours-alkindi.fr)](https://concours-alkindi.fr/main.html#/pageDiscover)
+---
 
 Merci à Gilles Lassus et Mireille Coilhac 
 
