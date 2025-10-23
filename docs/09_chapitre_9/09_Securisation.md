@@ -22,7 +22,7 @@ title: 09 Sécurisation des communications
 
 ---
 
-## <H2 STYLE="COLOR:BLUE;">1. 🌐 Rappels</H2>
+## <H2 STYLE="COLOR:BLUE;">**1. 🌐 Rappels**<a name="_toc174920494"></a></H2>
 
 ![TCP Handshake](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.001.png){: .center}
 
@@ -89,7 +89,7 @@ ce n’est **pas acceptable** !
 
 ---
 
-## <H2 STYLE="COLOR:BLUE;">2. 🧩 Vocabulaire</H2>
+## <H2 STYLE="COLOR:BLUE;">**2. 🧩 Vocabulaire**<a name="_toc174920495"></a></H2>
 
 * **Coder** : représenter des informations avec des symboles.
 * **Décoder** : interpréter ces symboles pour retrouver l’information.
@@ -113,7 +113,7 @@ ce n’est **pas acceptable** !
 
 ---
 
-## <H2 STYLE="COLOR:BLUE;">3. 🎬 Introduction</H2>
+## <H2 STYLE="COLOR:BLUE;">**3. 🎬 Introduction**<a name="_toc174920496"></a></H2>
 
 📽️ **Vidéo recommandée :**
 Comprendre SSL/TLS avec des emojis & le HTTPS
@@ -121,7 +121,7 @@ Comprendre SSL/TLS avec des emojis & le HTTPS
 
 ---
 
-## <H2 STYLE="COLOR:BLUE;">4. 🔐 Le chiffrement</H2>
+## <H2 STYLE="COLOR:BLUE;">**4. 🔐 Le chiffrement**<a name="_toc174920497"></a></H2>
 
 **Scénario classique :**
 
@@ -138,9 +138,9 @@ Comprendre SSL/TLS avec des emojis & le HTTPS
 
 ---
 
-### <H3 STYLE="COLOR:GREEN;">🔐 4.1. Le chiffrement symétrique</H3>
+### <H3 STYLE="COLOR:GREEN;">**4.1.🔐  Le chiffrement symétrique**</H3>
 
-#### <H4 STYLE="COLOR:MAGENTA;">🎯 4.1.1. Le principe</H4>
+#### <H4 STYLE="COLOR:MAGENTA;">**4.1.1.🎯  Le principe**</H4>
 
 Dans un chiffrement **symétrique**, **la même clé** est utilisée pour **chiffrer** 🔒 et **déchiffrer** 🔓 le message.
 
@@ -218,7 +218,7 @@ L’algorithme le plus utilisé aujourd’hui 🔐
 
 ---
 
-#### <H4 STYLE="COLOR:MAGENTA;">🛠️ 4.1.2. Réalisation pratique</H4>
+#### <H4 STYLE="COLOR:MAGENTA;">**4.1.2. 🛠️ Réalisation pratique**</H4>
 
 1️⃣ **Message clair** (ASCII → binaire)
 Exemple : **Hello World!**
@@ -287,7 +287,7 @@ Même opération XOR ✅
 
 ---
 
-▶️ CAPYTALE — Le code vous sera communiqué par votre enseignant
+!!! info "🧠 **Capytale activités : Le code sera fourni par votre enseignant.**" 
 
 ---
 
@@ -389,9 +389,9 @@ Même opération XOR ✅
 
 ---
 
-### <H3 STYLE="COLOR:GREEN;">🔑 4.2. Le chiffrement asymétrique</H3>
+### <H3 STYLE="COLOR:GREEN;">**4.2. 🔑 Le chiffrement asymétrique**</H3>
 
-#### <H4 STYLE="COLOR:MAGENTA;">🧠 4.2.1. Le principe</H4>
+#### <H4 STYLE="COLOR:MAGENTA;">**4.2.1. 🧠 Le principe**</H4>
 
 **Exemple :**
 
@@ -414,7 +414,7 @@ Même opération XOR ✅
 
 ---
 
-#### <H4 STYLE="COLOR:MAGENTA;">🔄 4.2.2. Échange d’une clé symétrique avec de l’asymétrique — *idée de Diffie–Hellman*</H4>
+#### <H4 STYLE="COLOR:MAGENTA;">**4.2.2. 🔄 Échange d’une clé symétrique avec de l’asymétrique —** *idée de Diffie–Hellman*</H4>
 
 En 1976, **Diffie & Hellman** proposent un **échange de clé** : Alice et Bob construisent **ensemble** un secret commun sur un canal **écouté**, sans l’envoyer tel quel.
 
@@ -438,7 +438,7 @@ En 1976, **Diffie & Hellman** proposent un **échange de clé** : Alice et Bob c
 
 ---
 
-#### <H4 STYLE="COLOR:MAGENTA;">🔐 4.2.3. Exemple d’asymétrique : **RSA**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;">**4.2.3. 🔐 Exemple d’asymétrique :** **RSA**</H4>
 
 📏 Les congruences
 
@@ -506,7 +506,7 @@ En 1976, **Diffie & Hellman** proposent un **échange de clé** : Alice et Bob c
 
 ---
 
-🧪 Construction RSA (exemple pédagogique)
+🧪 **Construction RSA** (exemple pédagogique)
 
 **Étape 1.** Choisir **deux nombres premiers** `p` et `q`.
 Ici : `p = 3`, `q = 11`.
@@ -577,7 +577,7 @@ Par les propriétés d’Euler/Fermat, on montre que **M^(ed) ≡ M [n]** dès q
         **e)** Clé privée de Bob : $(d,n) = (35,65)$.
 
         **f)** Chiffrement de $M=17$ : 
-         
+
         $C = M^{e} \bmod n = 17^{11} \bmod 65 = \mathbf{23}$.
 
         **g)** Déchiffrement :  
@@ -587,7 +587,7 @@ Par les propriétés d’Euler/Fermat, on montre que **M^(ed) ≡ M [n]** dès q
 
 ---
 
-### 🔐 RSA, un système inviolable ?
+🔐 **RSA, un système inviolable ?**
 
 Le chiffrement RSA **a des défauts** (gros entiers ⇒ **coût CPU**/mémoire).
 Sa sécurité repose sur la **factorisation difficile** de (n=pq).
@@ -603,7 +603,7 @@ Deux menaces théoriques :
 
 ---
 
-## <H3 STYLE="COLOR:GREEN;">🕵️ 4.3. Attaque de l’homme du milieu (MITM)</H3>
+## <H3 STYLE="COLOR:GREEN;">**4.3. 🕵️ Attaque de l’homme du milieu (MITM)**</H3>
 
 ![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.025.png){: .center}
 ![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.026.png){: .center}
@@ -614,7 +614,7 @@ Deux menaces théoriques :
 Alice et Bob **croient** utiliser la clé de l’autre, mais **utilisent en réalité la clé de Jimmy** (l’attaquant placé « au milieu »).
 → **MITM** : possible si la **clé publique** n’est pas **authentifiée**.
 
-### 🔏 Certification (PKI)
+🔏 **Certification (PKI)**
 
 Pour s’en prémunir : une **autorité de certification (CA)** atteste l’identité du serveur via un **certificat**. Les navigateurs valident la **chaîne de certification** avec leur **magasin de confiance** (et, selon les cas, OCSP/CRL).
 
@@ -650,41 +650,50 @@ Pour s’en prémunir : une **autorité de certification (CA)** atteste l’iden
 
 ---
 
-## <H2 STYLE="COLOR:BLUE;">5. Le protocole HTTPS</H2>
+## <H2 STYLE="COLOR:BLUE;">**5. 🔐 Le protocole HTTPS**<a name="_toc174920506"></a></H2>
 
-### <H3 STYLE="COLOR:GREEN;">5.1. Principe général</H3>
+### <H3 STYLE="COLOR:GREEN;">**5.1. 🌍 Principe général**</H3>
 
-Aujourd’hui, la **grande majorité** du trafic web est **chiffrée** :
+Aujourd’hui, la **grande majorité** du trafic web est **chiffrée** 🔒 :
 
-* On n’utilise plus HTTP « en clair » mais **HTTPS**.
-* **HTTPS = HTTP sur TLS** :
+* ❌ On n’utilise plus HTTP **en clair**
+* ✅ On utilise **HTTPS**
+* 🔁 **HTTPS = HTTP sur TLS**
+  * 🛡️ **TLS** (successeur de SSL) assure l’**authentification** + **l’échange sécurisé des clés**
+  * 📡 **HTTP** transporte ensuite les données **chiffrées** (souvent **AES** en mode authentifié, ex. **AES-GCM**)
 
-  * **TLS** (successeur de SSL) met en place l’**authentification** et **les clés de session** ;
-  * puis **HTTP** transporte les données **chiffrées** (souvent **AES** en mode authentifié, ex. **AES-GCM**).
+---
 
-Pourquoi pas uniquement de l’asymétrique (RSA) ?
-→ Trop **lent** pour tout le flux.
-**Stratégie** : asymétrique pour **s’accorder sur un secret**, puis **symétrique** (rapide) pour tout le trafic applicatif.
+❓ *Pourquoi pas chiffrer tout en RSA ?*  
+➡️ 🔓 Trop **lent**, trop **coûteux** sur de gros flux
+
+✅ **Stratégie hybride** :
+- 🔑 **Asymétrique** → accord sur un secret commun (clé de session)
+- 🚀 **Symétrique** → chiffrer tout le trafic applicatif **rapidement**
 
 ![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.031.png){: .center}
 
 ---
 
-### <H3 STYLE="COLOR:GREEN;">5.2. (HP) Fonctionnement de TLS — *handshake* (version moderne)</H3>
+### <H3 STYLE="COLOR:GREEN;">**5.2. 🤝 (HP) Fonctionnement de TLS — Handshake (moderne)**</H3>
 
-> 🧭 **Résumé type TLS 1.3** (simplifié et pédagogique)
+> 🧭 **Résumé pédagogique TLS 1.3**
 
-1. **ClientHello** → le client envoie ses **suites cryptographiques** supportées et une **part de clé éphémère** (ECDHE).
-2. **ServerHello** → le serveur choisit la suite, envoie sa **part de clé éphémère** correspondante.
-3. Le serveur envoie ensuite son **certificat** (+ **CertificateVerify**) et **Finished**.
-4. Le client **vérifie** le certificat (chaîne → CA de confiance), calcule le **secret partagé ECDHE**, puis envoie **Finished**.
-5. Des **clés de session symétriques** (ex. AES-GCM) sont **dérivées** du secret partagé.
-6. Le trafic **application** (HTTP) est alors **chiffré et authentifié**.
+1. 💬 **ClientHello** → suites chiffrement + **clé éphémère** (ECDHE)
+2. 📨 **ServerHello** → choix suite + **clé éphémère**
+3. 🪪 Envoi du **certificat** + preuve de possession (**CertificateVerify**) + **Finished**
+4. ✅ Le client **vérifie** le certificat + calcule le **secret partagé ECDHE** → envoie **Finished**
+5. 🔑 **Clés symétriques** dérivées du secret (HKDF)
+6. 🔒 Le trafic **HTTP** devient **chiffré & authentifié** (AES-GCM)
 
-> 🔎 **Remarque importante :**
-> Dans TLS 1.3, on **ne chiffre pas** une « clé AES » avec la **clé publique RSA** du serveur.
-> La clé de session est **dérivée** d’un **échange ECDHE** (secret partagé), puis étendue par une KDF (HKDF).
-> Le *key exchange RSA* historique de TLS 1.0/1.2 est **déconseillé** et **supprimé** en TLS 1.3.
+---
+
+> 🔎 **Important :**
+> En TLS 1.3, on **ne chiffre pas** directement une clé AES avec la clé publique RSA ❌  
+> → la clé de session est issue d’un **secret partagé ECDHE** → **KDF** → **clés AES**
+>
+> 📉 *Key exchange RSA* historique → **déprécié** / **supprimé** ✅
+
 
 **POUR ALLER PLUS LOIN :** Concours Alkindi — [https://concours-alkindi.fr/main.html#/pageDiscover](https://concours-alkindi.fr/main.html#/pageDiscover)
 
@@ -692,101 +701,118 @@ Pourquoi pas uniquement de l’asymétrique (RSA) ?
 
 Merci à Gilles Lassus et Mireille Coilhac 
 
-## <H2 STYLE="COLOR:BLUE;">**6. Exercices**</H2>
+## <H2 STYLE="COLOR:BLUE;">**6. 🔎 Exercices**<a name="_toc174920509"></a></H2>
 
-=> **CAPYTALE Le code vous sera donné par votre enseignant**
-
-**<H3 STYLE="COLOR:red;">Exercice n°1 : chiffre\_xor</H3>**
-
-Écrire en Python une fonction chiffre\_xor(msg, cle) qui prend en arguments deux chaînes d'octets (type bytes) et qui renvoie le chiffrement XOR du message avec la clé, sous forme d'une liste.
-
-L'opérateur XOR en python est «^».
-
-Vérifions les tables de vérité avec la fonction xor du cours et l’opérateur «^»
-```
->>> xor(0,0)
-0
->>> 0^0
-0
->>> xor(1,0)
-1
->>> 1^0
-1
->>> xor(0,1)
-1
->>> 0^1
-1
->>> xor(1,1)
-0
->>> 1^1
-0
-```
-
-Comme on va utiliser les lettres accentuées, on devra utiliser la méthode encode() qui permet d’encoder en utf-8.
-
-Par exemple :
-```
->>> m = "je suis un élève".encode()
->>> print(m)
-b'je suis un \xc3\xa9l\xc3\xa8ve'
-```
-
-On utilisera l’opérateur bytes dans le return de la liste codée. Il renvoie un objet bytes qui est une séquence immuable (ne peut pas être modifiée) d'entiers dans la plage 0 <=x < 256.
-
-Par exemple :
-```
->>> bytes([65, 66, 67])
-b'ABC'
-```
-
-Indication : On rappelle que pour un chiffrement XOR, la clé doit être «étendue» de façon à avoir la même taille que le message. On pourra faire une utilisation judicieuse de l'opérateur «%» dans une compréhension de liste….
-
-Test : 
-```python
-m = "L'informatique c'est super".encode()
-c = "NSI
-
-".encode()
-assert chiffre_xor(m, c) == b"\x02t  5&<>(::8;6i-t,='i=&9+!"
-assert chiffre_xor(b"\x02t  5&<>(::8;6i-t,='i=&9+!", c) == b"L'informatique c'est super"
-```
-
-**<H3 STYLE="COLOR:red;">Exercice n°2 : dechiffre\_xor</H3>**
-
-Comme expliqué dans le cours, un chiffrement XOR simple n'apporte pas une grande sécurité. 
-
-On va montrer qu'en connaissant quelques informations on peut facilement retrouver la clé si cette dernière est trop courte.
-
-Soit la chaîne d'octets chiffrée:
-```
-b'\x0c7,)x8,=#z,+5-/\x99\xf1y69y8774=y(\x9b\xf0\*77)=x'
-```
-On sait que les 4 derniers caractères du message en clair sont "nse!". 
-
-On utilisera la méthode endswith() pour tester la terminaison 
-
-[https://www.w3schools.com/python/ref_string_endswith.asp](https://www.w3schools.com/python/ref_string_endswith.asp)
-
-Par exemple ici :
-```python
-mon_test.endswith(b"nse!")
-```
-On sait aussi que la clé fait exactement 3 caractères et que ce sont des lettres majuscules sans accent.
-
-Écrire un programme Python (fonction dechiffre\_xor), en important la fonction chiffre\_xor de l’exercice précédent, qui essaye toutes les combinaisons de clé jusqu'à trouver la bonne. 
-
-Mesurer le temps d'exécution. 
-
-On pourra utiliser la fonction time.time() du module time pour connaître l'heure courante, en nombre de secondes depuis une date de référence non spécifiée.
+!!! info "🧠 **Capytale : Le code sera fourni par votre enseignant.**" 
 
 
-## <H2 STYLE="COLOR:BLUE;">**7. Projet**</H2>
+
+!!! abstract "🧩 **Exercice n°1 : chiffre_xor**"
+    ✍️ **Objectif :**  
+    Écrire en Python une fonction `chiffre_xor(msg, cle)` qui prend **deux chaînes d’octets** (`bytes`) en argument  
+    et qui renvoie le chiffrement **XOR** du message avec la clé, **sous forme d’un objet bytes**.
+
+    ⚙️ **Rappel technique :**
+    - L’opérateur XOR en Python est **`^`**
+    - Le XOR fonctionne **bit par bit**
+    - Pour gérer les lettres **accentuées**, il faut encoder en **UTF-8** avec `.encode()`
+
+    🧪 **Vérification du XOR avec le cours :**
+    ```
+    >>> xor(0,0)
+    0
+    >>> 0^0
+    0
+    >>> xor(1,0)
+    1
+    >>> 1^0
+    1
+    >>> xor(0,1)
+    1
+    >>> 0^1
+    1
+    >>> xor(1,1)
+    0
+    >>> 1^1
+    0
+    ```
+
+    🔡 **Encodage UTF-8** :
+    ```
+    >>> m = "je suis un élève".encode()
+    >>> print(m)
+    b'je suis un \xc3\xa9l\xc3\xa8ve'
+    ```
+
+    📌 **Utilisation de `bytes`** :
+    ```
+    >>> bytes([65, 66, 67])
+    b'ABC'
+    ```
+
+    🔑 **Indication importante :**  
+    Pour un chiffrement XOR, la **clé doit être étendue** à la longueur du message.  
+    On pourra utiliser intelligemment l’opérateur **`%`** dans une **compréhension de liste**.
+
+    ✅ **Test automatique à réussir :**
+    ```python
+    m = "L'informatique c'est super".encode()
+    c = "NSI\n".encode()
+
+    assert chiffre_xor(m, c) == b"\x02t  5&<>(::8;6i-t,='i=&9+!"
+    assert chiffre_xor(b"\x02t  5&<>(::8;6i-t,='i=&9+!", c) == b"L'informatique c'est super"
+    ```
+
+
+!!! abstract "🧩 **Exercice n°2 : dechiffre_xor**"
+    🔐 Comme expliqué dans le cours :  
+    un chiffrement XOR simple **n’est pas sécurisé** si la clé est **courte** ➜ on peut facilement la retrouver.
+
+    📌 On dispose d’un message **déjà chiffré** :
+    ```
+    b'\x0c7,)x8,=#z,+5-/\x99\xf1y69y8774=y(\x9b\xf0*77)=x'
+    ```
+
+    ✅ On sait que :
+    - la clé fait **exactement 3 caractères**
+    - ce sont des **lettres majuscules** sans accent (`A` → `Z`)
+    - les **4 derniers caractères** du message **en clair** sont :  
+      ```
+      b"nse!"
+      ```
+      👉 tester avec :  
+      ```python
+      mon_test.endswith(b"nse!")
+      ```
+
+    🛠️ **Travail demandé** :
+    - importer la fonction `chiffre_xor` de l’exercice précédent
+    - **essayer toutes les clés possibles** (brute force)
+    - arrêter **dès que la bonne clé est trouvée**
+    - **afficher** :
+      - ✅ la clé trouvée
+      - ✅ le message déchiffré
+      - ✅ le **temps d’exécution**
+
+    ⏱️ **Indication pour mesurer le temps** :
+    ```python
+    import time
+    debut = time.time()
+    # code…
+    print(time.time() - debut, "secondes")
+    ```
+
+    🎯 Objectif pédagogique :
+    → Montrer qu'un XOR avec une clé **trop courte** = ❌ **attaque triviale**
+
+
+!!! info "🧠 **Capytale : Le code sera fourni par votre enseignant.**" 
+
+## <H2 STYLE="COLOR:BLUE;">**7. 🔎 Projet**<a name="_toc174920510"></a></H2>
 
 **<H3 STYLE="COLOR:red;">Exercice n°01 : clé symétrique :**</H3>
 
-=> **CAPYTALE Le code vous sera donné par votre enseignant**
 
-sur Thonny : On utilisera un fichier echange\_cle.py.
 
 **La situation** : Alice veut établir une liaison sécurisée avec Bob en chiffrement symétrique avec la clef kfinale. Mais comment transmettre cette clef à Bob sans que celle-ci ne soit interceptée ?
 
