@@ -1085,7 +1085,7 @@ Merci à Gilles Lassus et Mireille Coilhac
 
     Bob doit maintenant chiffrer cette clef finale avec la clef publique d’Alice.
 
-📌 Partie 5  — Calcul des décalages 
+    📌 Partie 5  — Calcul des décalages 
 
     Il nous faut donc une fonction f(k, m) qui chiffre un message m avec une clef k.
 
