@@ -356,7 +356,7 @@ Même opération XOR ✅
         #########################################
         # pour aller plus loin : XOR sur octets UTF-8
         # version qui gère les accents proprement (base64)
-        
+
         def chiffre(message, masque):
             # Conversion en octets UTF-8
             message_bytes = message.encode("utf-8")
@@ -561,19 +561,23 @@ Par les propriétés d’Euler/Fermat, on montre que **M^(ed) ≡ M [n]** dès q
 
     ??? success "✅ Correction (pas à pas)"
         **a)** $n = p \times q = 5 \times 13 = 65$.  
+
         $\varphi(n) = (p-1)(q-1) = 4 \times 12 = 48$.
 
-        **b)** Une clé publique $(e,n)$ doit vérifier $\gcd(e,\varphi(n))=1$.  
-        $\gcd(9,48)=3 \neq 1$ ⇒ **(9,65)** est **invalide**.
+        **b)** Une clé publique $(e,n)$ doit vérifier $\pgcd(e,\varphi(n))=1$.
 
-        **c)** $\gcd(11,48)=1$ ⇒ **(11,65)** est **valide** (clé publique ok).
+        $\pgcd(9,48)=3 \neq 1$ ⇒ **(9,65)** est **invalide**.
+
+        **c)** $\pgcd(11,48)=1$ ⇒ **(11,65)** est **valide** (clé publique ok).
 
         **d)** Chercher $d$ tel que $e\cdot d \equiv 1 \pmod{48}$.  
+
         $11 \times 35 = 385 \equiv 1 \pmod{48}$ ⇒ **35** est bien l’inverse de **11**.
 
         **e)** Clé privée de Bob : $(d,n) = (35,65)$.
 
-        **f)** Chiffrement de $M=17$ :  
+        **f)** Chiffrement de $M=17$ : 
+         
         $C = M^{e} \bmod n = 17^{11} \bmod 65 = \mathbf{23}$.
 
         **g)** Déchiffrement :  
