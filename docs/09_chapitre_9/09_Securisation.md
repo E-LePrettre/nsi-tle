@@ -311,6 +311,52 @@ Même opération XOR ✅
 
     ??? success "✅ Solution complète (Python)"
         ```python
+        # version simple 
+        # Fonction XOR bit par bit sur deux caractères
+        def xor_char(c1, c2):
+            # Conversion en codes ASCII
+            b1 = ord(c1)
+            b2 = ord(c2)
+
+            # XOR bit par bit (avec opérateur ^)
+            xr = b1 ^ b2
+
+            # Conversion inverse vers caractère
+            return chr(xr)
+
+
+        def chiffre(message, masque):
+            resultat = ""
+
+            # Répéter la clé
+            masque_long = (masque * ((len(message) // len(masque)) + 1))[:len(message)]
+
+            # XOR caractère par caractère
+            for c1, c2 in zip(message, masque_long):
+                resultat += xor_char(c1, c2)
+
+            return resultat
+
+
+        # Données
+        message = "Je suis en spécialité NSI et j’adore"
+        cle = "Vive la NSI !!"
+
+        # Chiffrement
+        chiffre_msg = chiffre(message, cle)
+        print("🔐 Chiffré :", chiffre_msg)
+
+        # Déchiffrement → appliquer XOR une 2e fois
+        dechiffre_msg = chiffre(chiffre_msg, cle)
+        print("🔓 Déchiffré :", dechiffre_msg)
+
+        # Vérification du principe involutif
+        assert dechiffre_msg == message
+
+        #########################################
+        # pour aller plus loin : XOR sur octets UTF-8
+        # version qui gère les accents proprement (base64)
+        
         def chiffre(message, masque):
             # Conversion en octets UTF-8
             message_bytes = message.encode("utf-8")
