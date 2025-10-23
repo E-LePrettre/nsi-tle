@@ -564,11 +564,11 @@ Par les propriétés d’Euler/Fermat, on montre que **M^(ed) ≡ M [n]** dès q
 
         $\varphi(n) = (p-1)(q-1) = 4 \times 12 = 48$.
 
-        **b)** Une clé publique $(e,n)$ doit vérifier $\pgcd(e,\varphi(n))=1$.
+        **b)** Une clé publique $(e,n)$ doit vérifier $pgcd$ $(e,\varphi(n))=1$.
 
-        $\pgcd(9,48)=3 \neq 1$ ⇒ **(9,65)** est **invalide**.
+        $pgcd$ $(9,48)=3 \neq 1$ ⇒ **(9,65)** est **invalide**.
 
-        **c)** $\pgcd(11,48)=1$ ⇒ **(11,65)** est **valide** (clé publique ok).
+        **c)** $pgcd$ $(11,48)=1$ ⇒ **(11,65)** est **valide** (clé publique ok).
 
         **d)** Chercher $d$ tel que $e\cdot d \equiv 1 \pmod{48}$.  
 
