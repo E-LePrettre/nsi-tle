@@ -1,4 +1,4 @@
-﻿---
+---
 author: ELP
 title: 04 La P.O.O.
 ---
@@ -174,18 +174,18 @@ Un constructeur porte le nom `__init__`.
 
     ```python
     class Personne:
-    """Classe définissant une personne caractérisée par :
-    - son nom
-    - son prénom
-    - son âge"""
+        """Classe définissant une personne caractérisée par :
+        - son nom
+        - son prénom
+        - son âge"""
 
-    def __init__(self, nom : str, prenom : str):   # le constructeur
-        """ Pour l'instant, on ne va définir que 3 attributs """
-        # Dans le constructeur, on crée des variables self.nom, self.prenom et self.age 
-        # que l’on initialise avec les paramètres passés au constructeur lors de l’instanciation.
-        self.nom = nom
-        self.prenom = prenom
-        self.age = 33
+        def __init__(self, nom : str, prenom : str):   # le constructeur
+            """ Pour l'instant, on ne va définir que 3 attributs """
+            # Dans le constructeur, on crée des variables self.nom, self.prenom et self.age 
+            # que l’on initialise avec les paramètres passés au constructeur lors de l’instanciation.
+            self.nom = nom
+            self.prenom = prenom
+            self.age = 33
 
     gollum = Personne('Dupont', 'Jean')
     # on va utiliser la méthode format() pour mettre en forme
@@ -249,19 +249,19 @@ Il est appelé :
 
     ```python
     class Personne:
-    """Classe définissant une personne caractérisée par :
-    - son nom
-    - son prénom
-    - son âge"""
+        """Classe définissant une personne caractérisée par :
+        - son nom
+        - son prénom
+        - son âge"""
 
-    def __init__(self, nom : str, prenom : str):   # le constructeur
-        self.nom = nom
-        self.prenom = prenom
-        self.age = 33
-        print("Voici {0} {1}".format(self.prenom, self.nom))
+        def __init__(self, nom : str, prenom : str):   # le constructeur
+            self.nom = nom
+            self.prenom = prenom
+            self.age = 33
+            print("Voici {0} {1}".format(self.prenom, self.nom))
 
-    def __del__(self): # le destructeur
-        print("décédé(e) à {0} ans". format(self.age))
+        def __del__(self): # le destructeur
+            print("décédé(e) à {0} ans". format(self.age))
 
     moi = Personne('Dupont', 'Jean')
     print("Je suis {0} {1}.".format(moi.prenom, moi.nom))
@@ -294,26 +294,27 @@ Créer une **méthode d'instance**, revient à **créer une fonction** ayant com
 
     ```python
     class Personne:
-    """Classe définissant une personne caractérisée par :
-    - son nom
-    - son prénom
-    - son âge
-    - son lieu de résidence"""
-    def __init__(self, nom : str, prenom : str):   # le constructeur
-        """ on ajoute un attribut lieu de résidence... """
-        self.nom = nom
-        self.prenom = prenom
-        self.age = 33
-        self.residence = "Paris"
-
-    def ma_residence(self):
-        """ ...et la méthode associée au lieu de résidence """
-        return "J'habite {0}.".format(self.residence)
+        """Classe définissant une personne caractérisée par :
+        - son nom
+        - son prénom
+        - son âge
+        - son lieu de résidence"""
         
-    def vieillissement(self):
-        """méthode qui agit sur l'attribut age"""
-        self.age += 1
-        return self.age  
+        def __init__(self, nom : str, prenom : str):   # le constructeur
+            """ on ajoute un attribut lieu de résidence... """
+            self.nom = nom
+            self.prenom = prenom
+            self.age = 33
+            self.residence = "Paris"
+
+        def ma_residence(self):
+            """ ...et la méthode associée au lieu de résidence """
+            return "J'habite {0}.".format(self.residence)
+            
+        def vieillissement(self):
+            """méthode qui agit sur l'attribut age"""
+            self.age += 1
+            return self.age  
 
     qui = Personne('Dupont', 'Jean')
     print("Je suis {0} {1}, j'ai {2} ans.".format(qui.prenom, qui.nom, qui.age))
