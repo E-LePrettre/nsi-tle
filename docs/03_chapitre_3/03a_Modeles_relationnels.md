@@ -266,7 +266,7 @@ L’attribut id_realisateur de la relation film permet de créer un lien avec la
 **Contrainte de référence** : lorsque des relations sont liées, il est indispensable que les trois règles suivantes soient respectées :
 
 1. Une clé étrangère doit correspondre à la clé primaire de la relation à laquelle la table est liée.
-2. Un enregistrement de la table primaire ne peut pas être supprimé s’il possède des enregistrements liés dans une autre table.
+2. Un enregistrement d'une table ne peut pas être supprimé s’il possède des enregistrements liés dans une autre table.
 3. La valeur d’une clé primaire ne peut pas être modifiée dans la table primaire si des enregistrements y sont liés dans une autre table.
 
 
