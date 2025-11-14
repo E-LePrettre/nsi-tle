@@ -1,4 +1,4 @@
-﻿---
+---
 author: ELP
 title: 03a Modèles relationnels
 ---
@@ -70,7 +70,7 @@ Un SGBD est un **logiciel spécialisé** permettant de manipuler des bases de do
 
 - 🔢 **Degré** = nombre de champs
 
-- #️⃣ **Cardinalité** = nombre de lignes
+-  **Cardinalité** = nombre de lignes
 
 - 📋 Les tuples sont **uniques** et **non ordonnés**
 
