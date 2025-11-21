@@ -959,18 +959,18 @@ Le constructeur `property()` attend jusqu’à **quatre paramètres optionnels**
 
     ```python
     class Personne:
-    """ Classe représentant une personne """
-    def __init__(self, nom : str, prenom : str, age=33):
-        self.nom = nom
-        self.prenom = prenom
-        self.__age    = age
+        """ Classe représentant une personne """
+        def __init__(self, nom : str, prenom : str, age=33):
+            self.nom = nom
+            self.prenom = prenom
+            self.__age    = age
 
-    def __get_age(self):
-        return self.__age
+        def __get_age(self):
+            return self.__age
 
-    def __set_age(self, age : int):
-        if age > 18:
-            self.__age = age
+        def __set_age(self, age : int):
+            if age > 18:
+                self.__age = age
 
     age = property(__get_age, __set_age)
 
