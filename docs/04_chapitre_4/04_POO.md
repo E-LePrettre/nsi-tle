@@ -1497,6 +1497,168 @@ ma_fonction = nom_du_decorateur(ma_fonction)
         24
         ```
 
+    ??? success "Explication :"
+
+        En Python, lorsqu’on définit une fonction ou une méthode, on peut utiliser deux paramètres particuliers :
+
+        ✅ **`*args` : arguments positionnels multiples**
+
+        `*args` permet de **récupérer tous les arguments positionnels** passés à une fonction, **même si on ne connaît pas leur nombre à l’avance**.
+
+        Cela crée un **tuple** contenant :
+
+        * arg1
+        * arg2
+        * arg3
+        etc.
+
+        📌 Exemple :
+
+        ```python
+        def test(*args):
+            print(args)
+
+        test(1, 2, 3)
+        ```
+
+        Affiche :
+
+        ```
+        (1, 2, 3)
+        ```
+
+        ✅ **`**kwargs` : arguments nommés multiples**
+
+        `**kwargs` permet de **récupérer tous les arguments nommés** (avec un nom de paramètre) sous forme de **dictionnaire**.
+
+        📌 Exemple :
+
+        ```python
+        def test(**kwargs):
+            print(kwargs)
+
+        test(a=1, b=2)
+        ```
+
+        Affiche :
+
+        ```
+        {'a': 1, 'b': 2}
+        ```
+
+        🔎 **Pourquoi on utilise `*args` et `**kwargs` dans un décorateur ?**
+
+        Un décorateur doit pouvoir fonctionner avec **n’importe quelle fonction**, même si :
+
+        * elle a 0 paramètre
+        * ou 1 paramètre
+        * ou plusieurs
+        * ou des paramètres nommés
+
+        Sans `*args` et `**kwargs`, le décorateur ne pourrait décorer **que des fonctions ayant exactement les mêmes paramètres** que ceux définis dans `__call__`.
+
+        👉 Grâce à `*args, **kwargs`, le décorateur devient **universel**.
+
+
+
+        🧩 **Application au décorateur `Debug`**
+
+        Voici le code :
+
+        ```python
+        class Debug:
+            def __init__(self, fonction):
+                self.call = 0
+                self.fonction = fonction
+
+            def __call__(self, *args, **kwargs):
+                self.call += 1
+                print("appel de la fonction {0}".format(self.call))
+                return self.fonction(*args, **kwargs)
+        ```
+
+        **Ce qu’il se passe** :
+
+        1️⃣ `@Debug` transforme la fonction en objet Debug
+
+        Quand on écrit :
+
+        ```python
+        @Debug
+        def factoriel(n):
+        ```
+
+        C’est équivalent à :
+
+        ```python
+        factoriel = Debug(factoriel)
+        ```
+
+        Donc `factoriel` devient une **instance de la classe `Debug`**.
+
+        2️⃣ Appeler `factoriel(4)` revient à appeler `Debug.__call__`
+
+        Donc Python exécute automatiquement :
+
+        ```
+        Debug.__call__(factoriel, 4)
+        ```
+
+        C’est là qu’interviennent `*args` et `**kwargs`.
+
+        3️⃣ Dans `__call__` :
+
+        * `args = (4,)`  → un tuple contenant les arguments positionnels
+        * `kwargs = {}`   → car aucun argument nommé
+
+        Puis la méthode appelle réellement la fonction originale :
+
+        ```python
+        return self.fonction(*args, **kwargs)
+        ```
+
+        Cela équivaut à :
+
+        ```python
+        return factoriel_original(4)
+        ```
+
+
+
+        📘 **Résumé simple**
+
+        | Élément                       | Rôle                                                                                        |
+        | ----------------------------- | ------------------------------------------------------------------------------------------- |
+        | `*args`                       | récupère tous les arguments positionnels → tuple                                            |
+        | `**kwargs`                    | récupère tous les arguments nommés → dictionnaire                                           |
+        | Pourquoi dans un décorateur ? | rendre le décorateur compatible avec **toutes les fonctions**, peu importe leurs paramètres |
+        | Dans le code                 | `*args, **kwargs` permettent de transmettre les arguments à la fonction décorée             |
+
+
+
+        🧠 **Exemple supplémentaire pour bien comprendre** :
+
+        ```python
+        @Debug
+        def exemple(a, b, c=10):
+            print(a, b, c)
+
+        exemple(1, 2, c=30)
+        ```
+
+        Alors, dans `__call__` :
+
+        * `args = (1, 2)`
+        * `kwargs = {'c': 30}`
+
+        Et on fait :
+
+        ```python
+        self.fonction(1, 2, c=30)
+        ```
+
+
+
 
 > 🛠️ Cette version **compte le nombre d'appels** grâce à l'attribut `self.call` de la classe décoratrice.
 
