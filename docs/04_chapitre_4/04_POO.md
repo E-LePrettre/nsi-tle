@@ -414,6 +414,7 @@ Certaines méthodes spéciales permettent de personnaliser la **représentation 
     La méthode spéciale `__str__` est utilisée lorsqu’on appelle **`print(objet)`**. Elle permet d'afficher une version lisible et personnalisée de l'objet.
 
     Par défaut :
+
     ```python
     class Personne:
         """Classe représentant une personne"""

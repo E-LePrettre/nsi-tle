@@ -14,7 +14,7 @@ title: 10 Les graphes
 [6. Exercices](#_toc161063596)  
 [7. Projet](#_toc161063597)
 
-**Compétences évaluables :**
+**🎯 Compétences évaluables :**
 
 - Modéliser des situations sous forme de graphes
 - Écrire les implémentations correspondantes d’un graphe : matrice d’adjacence, liste de successeurs/de prédécesseurs
