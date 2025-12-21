@@ -6,13 +6,13 @@ title: 10 Les graphes
 
 **Table des matières**
 
-[1. Introduction et notion de base](#_toc161063570)  
-[2. Modélisations d’un graphe](#_toc161063576)  
-[3. Visualiser un graphe](#_toc161063584)  
-[4. ❤️Création d’une class Graphe❤️](#_toc161063587)  
-[5. Les parcours](#_toc161063590)  
-[6. Exercices](#_toc161063596)  
-[7. Projet](#_toc161063597)
+1️⃣ [Introduction et notion de base](#_toc161063570)  
+2️⃣ [Modélisations d’un graphe](#_toc161063576)  
+3️⃣ [Visualiser un graphe](#_toc161063584)  
+4️⃣ [❤️Création d’une class Graphe❤️](#_toc161063587)  
+5️⃣ [Les parcours](#_toc161063590)  
+6️⃣ [Exercices](#_toc161063596)  
+7️⃣ [Projet](#_toc161063597)
 
 **🎯 Compétences évaluables :**
 
@@ -23,120 +23,209 @@ title: 10 Les graphes
 - Repérer la présence d’un cycle dans un graphe
 - Chercher un chemin dans un graphe
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063570"></a>**1. Introduction et notion de base**</H2>  
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063571"></a>**1.1. Qu’est ce qu’un graphe ?**</H3>
 
-Un graphe est une structure de données qui représente **des relations entre des objets.** Les objets sont représentés par des **sommets** (également appelés nœuds) et les relations entre eux sont représentées par des **arêtes** ou **arc**.
+
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063570"></a>**🟦 1. Introduction et notion de base**</H2>
+
+
+
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063571"></a>**🟢 1.1. Qu’est ce qu’un graphe ?**</H3>
+
+📌 **Définition**
+
+Un **graphe** est une structure de données qui permet de représenter **des relations entre des objets**.
+Les objets sont représentés par des **sommets** (également appelés *nœuds*) et les relations entre eux par des **arêtes** ou des **arcs**.
 
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.001.png){: .center}
 
-Il y a donc zéro ou une arête entre une paire de sommets.
+🔎 Il y a donc **zéro ou une arête** entre une paire de sommets.
 
-Le nombre de sommets d’un graphe s’appelle l’**ordre du graphe.**
+📐 Le nombre de sommets d’un graphe s’appelle **l’ordre du graphe**.
 
-Le graphe précédent est d’ordre ????????????????.
+➡️ Le graphe précédent est d’ordre : **????????????????**
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063572"></a>**1.2. A quoi sert un graphe ?**</H3>  
-Il sert à représenter des **relations** entre des éléments. 
 
-Par exemple, il peut représenter un **réseau social** :
+
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063572"></a>**🟢 1.2. À quoi sert un graphe ?**</H3>
+
+🧠 Un graphe sert à représenter **des relations** entre des éléments.
+
+📱 **Exemple 1 : un réseau social**
 
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.004.png){: .center}
 
-Ou un **réseau de transport**
+🚗 **Exemple 2 : un réseau de transport**
 
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.005.png){: .center}
 
-Ou un **réseau informatique**
+🖧 **Exemple 3 : un réseau informatique**
 
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.006.png){: .center}
 
-Les graphes servent aussi à représenter **des relations entre des données**, des **objets** ou pour faire du **routage dans les réseaux**.
+📊 Plus généralement, les graphes permettent de représenter :
 
-**<H3 STYLE="COLOR:red;">Activité n° 1 : Graphe social :**</H3>  
-Construisez un graphe de réseau social à partir des informations suivantes :
+* des **relations entre des données**,
+* des **objets interconnectés**,
+* ou encore de réaliser du **routage dans les réseaux**.
 
-- A est ami avec B et E
-- B est ami avec A et C
-- C est ami avec B,F et D
-- D est ami avec C,F et E
-- E est ami avec A,D et F
-- F est ami avec C, D et E
+---
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063573"></a>**1.3. Vocabulaire**</H3>  
-On dit que deux sommets A et B sont **voisins** s’ils sont reliés par une arête : ils sont aussi dits **adjacents.**
+???+ question "🧠 **Activité n° 1 — Graphe social**"
+    👉 Construire un **graphe de réseau social** à partir des informations suivantes :
 
-Le **degré d’un sommet** c’est le nombre d’arêtes issues de ce sommet.
+    - A est ami avec B et E  
+    - B est ami avec A et C  
+    - C est ami avec B, F et D  
+    - D est ami avec C, F et E  
+    - E est ami avec A, D et F  
+    - F est ami avec C, D et E  
 
-Une **chaîne** est **une suite d'arêtes consécutives dans un graphe**, un peu comme si on se promenait sur le graphe.
+    📌 **Consigne** :
+    - Représenter chaque personne par un **sommet**
+    - Représenter chaque relation d’amitié par une **arête**
+    - Le graphe est **non orienté** (l’amitié est réciproque)
 
-On la désigne par **les lettres des sommets** qu'elle comporte.
+    ??? success "✅ Solution possible (schéma + analyse)"
+        **Sommets du graphe :**  
+        A, B, C, D, E, F  
 
-Un **cycle** est **une chaîne qui commence et se termine au même sommet**.
+        **Arêtes du graphe :**
+        - A — B  
+        - A — E  
+        - B — C  
+        - C — F  
+        - C — D  
+        - D — F  
+        - D — E  
+        - E — F  
 
-**<H3 STYLE="COLOR:red;">Activité n° 2 : Question vocabulaire**</H3>  
-Soit le graphe suivant :
+        🔎 **Remarque :**
+        - Chaque relation apparaît une seule fois
+        - Le graphe est **connexe** (on peut atteindre tous les sommets)
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.008.png){: .center}
 
-- Donner l’ordre de ce graphe
-- Donner le degré de chaque sommet de ce graphe
-- Donner deux sommets adjacents
-- Donner deux sommets non adjacents
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063574"></a>**1.4. Les différents types de graphes**</H3>  
-**Premier exemple :**
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063573"></a>**🟢 1.3. Vocabulaire**</H3>
 
-Soit les lieux suivants : A, B, C, D, E, F et G.
+📘 **Notions essentielles**
 
-![graphe_2](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.009.png){: .center}
+* Deux sommets A et B sont dits **voisins** (ou **adjacents**) s’ils sont reliés par une arête.
+* Le **degré d’un sommet** correspond au **nombre d’arêtes issues de ce sommet**.
+* Une **chaîne** est une **suite d’arêtes consécutives dans un graphe**, comme un chemin que l’on parcourt.
+* Une chaîne est désignée par **la suite des sommets** qu’elle traverse.
+* Un **cycle** est une chaîne **qui commence et se termine au même sommet**.
 
-Les différents lieux sont reliés par les routes suivantes :
 
-- il existe une route entre A et C
-- il existe une route entre A et B
-- il existe une route entre A et D
-- il existe une route entre B et F
-- il existe une route entre B et E
-- il existe une route entre B et G
-- il existe une route entre D et G
-- il existe une route entre E et F
 
-**Problème :**  
-Avec cette représentation du réseau routier sous forme de graphe, il est **impossible de tenir compte des routes en sens unique**. (par exemple, il est possible d'aller de A vers D mais pas de D vers A)
 
-**Deuxième exemple :**
 
-Voici de nouvelles contraintes :
+???+ question "🧠 **Activité n° 2 — Vocabulaire des graphes**"
+    👉 On considère le graphe suivant :
+
+    ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.008.png){: .center}
+
+
+    📌 **Questions** :
+    - Donner **l’ordre** de ce graphe  
+    - Donner le **degré de chaque sommet**  
+    - Donner **deux sommets adjacents**  
+    - Donner **deux sommets non adjacents**
+
+    ??? success "✅ Solution"
+        🔹 **Ordre du graphe**  
+        L’ordre du graphe correspond au **nombre total de sommets**.  
+        → Il y a **X sommets**, donc l’ordre du graphe est **X**.
+
+        🔹 **Degré de chaque sommet**  
+        Le degré d’un sommet correspond au **nombre d’arêtes qui lui sont incidentes**.
+
+        - degré(A) = …  
+        - degré(B) = …  
+        - degré(C) = …  
+        - degré(D) = …  
+        *(à compléter en observant le graphe)*
+
+        🔹 **Deux sommets adjacents**  
+        Deux sommets sont adjacents s’ils sont reliés par une arête.  
+        → Exemple : **A et B**
+
+        🔹 **Deux sommets non adjacents**  
+        Deux sommets non adjacents ne sont reliés par **aucune arête**.  
+        → Exemple : **A et D**
+
+
+
+
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063574"></a>**🟢 1.4. Les différents types de graphes**</H3>
+
+
+
+#### 🔹 Premier exemple :
+
+Soient les lieux suivants : **A, B, C, D, E, F et G**.
+
+![graphe\_2](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.009.png){: .center}
+
+🛣️ Les routes existantes sont :
+
+* A ↔ C
+* A ↔ B
+* A ↔ D
+* B ↔ F
+* B ↔ E
+* B ↔ G
+* D ↔ G
+* E ↔ F
+
+⚠️ **Problème**
+
+Avec cette représentation, il est **impossible de prendre en compte des routes à sens unique**.
+Par exemple : on peut aller de **A vers D**, mais pas forcément de **D vers A**.
+
+
+
+#### 🔹 Deuxième exemple : graphes orientés
+
+De nouvelles contraintes apparaissent :
 
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.010.png){: .center}
 
-- il existe une route entre A et C (double sens)
-- il existe une route entre A et B (sens unique B->A)
-- il existe une route entre A et D (sens unique A->D)
-- il existe une route entre B et F (sens unique B->F)
-- il existe une route entre B et E (sens unique E->B)
-- il existe une route entre B et G (double sens)
-- il existe une route entre D et G (double sens)
-- il existe une route entre E et F (double)
+* A ↔ C (double sens)
+* B → A (sens unique)
+* A → D (sens unique)
+* B → F (sens unique)
+* E → B (sens unique)
+* B ↔ G (double sens)
+* D ↔ G (double sens)
+* E ↔ F (double sens)
 
-Dans un graphe **orienté**, chaque arête ne peut être parcourue que dans un seul sens indiqué par une flèche. L’arête s’appelle alors un **arc**.
+➡️ Dans un **graphe orienté**, chaque arête possède **un sens**.
+On parle alors **d’arc**, représenté par une flèche.
 
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.011.png){: .center}
 
-**Troisième exemple :**
 
-Parfois, il est intéressant **d'associer aux arrêtes ou aux arcs des valeurs**, on parle alors de **graphes pondérés.**
+
+#### 🔹 Troisième exemple : graphes pondérés
+
+📏 Il est parfois utile **d’associer une valeur aux arêtes ou aux arcs**.
+On parle alors de **graphe pondéré**.
 
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.012.png){: .center}
 
-Si nous revenons à notre "graphe cartographique", il est possible **d'associer à chaque arête la distance en km entre les 2 lieux** :
+🗺️ Dans un graphe cartographique, on peut par exemple associer :
 
-![graphe_4](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.013.png){: .center}
+* la **distance (en km)** entre deux lieux
+* ou la **durée du trajet**
 
-Il est aussi possible **d'associer à chaque arête la durée du trajet entre 2 points :**
+![graphe\_4](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.013.png){: .center}
 
-En fonction du choix fait par le conducteur (trajet le plus court "en distance" ou trajet le plus court "en temps").
+🧭 En fonction du choix fait par le conducteur
+*(trajet le plus court en **distance** ou trajet le plus court en **temps**).*
+
+
+
+
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063575"></a>**1.5. Applications courantes des graphes**</H3>  
 Les graphes sont utilisés dans de nombreuses applications courantes, notamment :
