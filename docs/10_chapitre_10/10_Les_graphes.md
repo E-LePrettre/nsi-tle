@@ -40,6 +40,9 @@ Les objets sont représentés par des **sommets** (également appelés *nœuds*)
 
 🔎 Il y a donc **zéro ou une arête** entre une paire de sommets.
 
+📌 Autrement dit, dans les graphes étudiés ici, deux sommets sont soit reliés, soit non reliés, mais on ne considère pas plusieurs arêtes différentes entre les mêmes sommets.
+
+
 📐 Le nombre de sommets d’un graphe s’appelle **l’ordre du graphe**.
 
 ➡️ Le graphe précédent est d’ordre : **????????????????**
@@ -81,8 +84,11 @@ Les objets sont représentés par des **sommets** (également appelés *nœuds*)
     - F est ami avec C, D et E  
 
     📌 **Consigne** :
+
     - Représenter chaque personne par un **sommet**
+
     - Représenter chaque relation d’amitié par une **arête**
+
     - Le graphe est **non orienté** (l’amitié est réciproque)
 
     ??? success "✅ Solution possible (schéma + analyse)"
@@ -100,8 +106,14 @@ Les objets sont représentés par des **sommets** (également appelés *nœuds*)
         - E — F  
 
         🔎 **Remarque :**
+
         - Chaque relation apparaît une seule fois
+
         - Le graphe est **connexe** (on peut atteindre tous les sommets)
+
+
+📘 Un graphe est dit **connexe** lorsqu’il est possible de relier n’importe quel sommet à n’importe quel autre en suivant des arêtes.
+
 
 
 
@@ -110,9 +122,14 @@ Les objets sont représentés par des **sommets** (également appelés *nœuds*)
 📘 **Notions essentielles**
 
 * Deux sommets A et B sont dits **voisins** (ou **adjacents**) s’ils sont reliés par une arête.
+
 * Le **degré d’un sommet** correspond au **nombre d’arêtes issues de ce sommet**.
-* Une **chaîne** est une **suite d’arêtes consécutives dans un graphe**, comme un chemin que l’on parcourt.
+
+* Une **chaîne** est une **suite d’arêtes consécutives dans un graphe**, comme un chemin que l’on parcourt. Les chaînes servent à décrire un **parcours possible** dans un graphe, par exemple pour aller d’un sommet à un autre.
+
 * Une chaîne est désignée par **la suite des sommets** qu’elle traverse.
+
+
 * Un **cycle** est une chaîne **qui commence et se termine au même sommet**.
 
 
@@ -126,9 +143,13 @@ Les objets sont représentés par des **sommets** (également appelés *nœuds*)
 
 
     📌 **Questions** :
+
     - Donner **l’ordre** de ce graphe  
+
     - Donner le **degré de chaque sommet**  
+
     - Donner **deux sommets adjacents**  
+
     - Donner **deux sommets non adjacents**
 
     ??? success "✅ Solution"
@@ -160,7 +181,7 @@ Les objets sont représentés par des **sommets** (également appelés *nœuds*)
 
 
 
-#### 🔹 Premier exemple :
+##### 🔹 Premier exemple :
 
 Soient les lieux suivants : **A, B, C, D, E, F et G**.
 
@@ -184,7 +205,7 @@ Par exemple : on peut aller de **A vers D**, mais pas forcément de **D vers A**
 
 
 
-#### 🔹 Deuxième exemple : graphes orientés
+##### 🔹 Deuxième exemple : graphes orientés
 
 De nouvelles contraintes apparaissent :
 
@@ -202,11 +223,15 @@ De nouvelles contraintes apparaissent :
 ➡️ Dans un **graphe orienté**, chaque arête possède **un sens**.
 On parle alors **d’arc**, représenté par une flèche.
 
+📌 Dans un graphe orienté, il est possible d’aller de A vers B
+sans pouvoir revenir de B vers A.
+
+
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.011.png){: .center}
 
 
 
-#### 🔹 Troisième exemple : graphes pondérés
+##### 🔹 Troisième exemple : graphes pondérés
 
 📏 Il est parfois utile **d’associer une valeur aux arêtes ou aux arcs**.
 On parle alors de **graphe pondéré**.
@@ -227,70 +252,158 @@ On parle alors de **graphe pondéré**.
 
 
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063575"></a>**1.5. Applications courantes des graphes**</H3>  
+
+
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063575"></a>**1.5. 🧩 Applications courantes des graphes**</H3>
+
 Les graphes sont utilisés dans de nombreuses applications courantes, notamment :
 
-- **Réseaux sociaux** : les réseaux sociaux peuvent être modélisés en utilisant des graphes où les sommets représentent les utilisateurs et les arêtes représentent les relations entre les utilisateurs (amis, abonnements, etc.).
-- **Mappage de routes** : les systèmes de navigation peuvent utiliser des graphes pour trouver les itinéraires les plus rapides entre les points d'intérêt en utilisant les informations sur les distances et les temps de parcours.
-- **Optimisation de la production** : les graphes peuvent être utilisés pour planifier la production en utilisant des informations sur les dépendances entre les tâches et les ressources.
-- **Science des données** : les graphes peuvent être utilisés pour explorer et visualiser les relations entre les données.
-- **Analyse de réseau** : les graphes peuvent être utilisés pour étudier les réseaux complexes, tels que les réseaux de diffusion de l'information, les réseaux économiques, les réseaux biologiques, etc.
-- **Jeux** : les graphes peuvent être utilisés pour implémenter des algorithmes de jeu, tels que l'algorithme minimax utilisé dans les jeux d'échecs et d'autres jeux à deux joueurs.
-- **Réseau électrique** : les graphes peuvent être utilisés pour modéliser les réseaux électriques en
+* 🌐 **Réseaux sociaux** : les sommets représentent les utilisateurs et les arêtes les relations (amis, abonnements, etc.).
+* 🗺️ **Mappage de routes** : les systèmes de navigation utilisent des graphes pour calculer des itinéraires optimaux selon la distance ou le temps.
+* 🏭 **Optimisation de la production** : planification des tâches en tenant compte des dépendances.
+* 📊 **Science des données** : exploration et visualisation de relations complexes entre données.
+* 📡 **Analyse de réseau** : étude de réseaux de diffusion, économiques ou biologiques.
+* 🎮 **Jeux** : implémentation d’algorithmes de décision (ex. minimax).
+* ⚡ **Réseaux électriques** : modélisation des lignes et nœuds électriques.
+* 🤖 **Intelligence artificielle** : recherche de chemin (algorithme A* par exemple).
 
- utilisant des sommets pour représenter les nœuds et des arêtes pour représenter les lignes électriques.
-- **Recherche en intelligence artificielle** : les graphes peuvent être utilisés pour implémenter des algorithmes d'IA, tels que l'algorithme A\* pour la recherche de chemin.
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063576"></a>**2. Modélisations d’un graphe**</H2>  
-Il existe **deux méthodes** permettant d'implémenter un graphe : les **listes d’adjacence et les matrices d'adjacences**.
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063577"></a>**2.1. Représentation par matrice d’adjacence**</H3>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063576"></a>**2. Modélisations d’un graphe**</H2>
 
-- On **classe les sommets** (en les numérotant, ou par ordre alphabétique).
-- On représente les arêtes (ou les arcs) **dans une matrice**, c'est-à-dire un tableau à deux dimensions où on inscrit un 1 en ligne i et colonne j si les sommets de rang i et de rang j sont **voisins** (dits aussi **adjacents**).
+Il existe **deux méthodes principales** pour implémenter un graphe :
 
-Ce tableau s'appelle une **matrice d'adjacence** (on aurait très bien pu l'appeler aussi **matrice de voisinage**).
+* 🧮 **la matrice d’adjacence**
+* 📋 **la liste d’adjacence**
+
+
+
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063577"></a>**2.1. 🧮 Représentation par matrice d’adjacence**</H3>
+
+Principe :
+
+* On **classe les sommets** (numéros ou lettres).
+* On utilise un **tableau à deux dimensions**.
+* On place :
+
+  * `1` si deux sommets sont voisins,
+  * `0` sinon.
+
+Ce tableau est appelé **matrice d’adjacence**.
+
+
 
 #### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063578"></a>**2.1.1. Graphe non orienté**</H4>
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.016.png){: .center} 
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.016.png){: .center}
 
-Dans ce graphe non orienté, comme B est voisin de C, C est aussi voisin de B, ce qui signifie que l'arête qui relie B et C va donner lieu à deux "1" dans la matrice, situé de part et d'autre de la diagonale descendante (un mathématicien parlera de matrice *symétrique*).
+➡️ Si B est voisin de C, alors **C est voisin de B**
+➡️ La matrice est **symétrique** par rapport à la diagonale.
+
+**Explication :**
+
+Dans un graphe non orienté, une relation fonctionne dans les deux sens.  
+
+Si le sommet B est relié au sommet C, alors C est aussi relié à B.
+
+Cela se traduit dans la matrice par :
+- un `1` en ligne B, colonne C
+- **et** un `1` en ligne C, colonne B
+
+C’est cette double présence qui rend la matrice **symétrique**.
+
+
+
 
 #### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063579"></a>**2.1.2. Graphe orienté**</H4>
 
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.017.png){: .center}
 
+➡️ La présence d’un `1` en ligne *i*, colonne *j* signifie un **arc i → j**.
+
+📌 **Attention** :  
+Dans un graphe orienté, les relations ne sont **pas forcément réciproques**.
+
+Un `1` en ligne *i*, colonne *j* signifie :
+➡️ il existe un **arc allant de i vers j**  
+➡️ mais cela **n’implique pas** qu’il existe un arc de j vers i
+
+La matrice d’un graphe orienté n’est donc **pas forcément symétrique**.
+
+
+
 #### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063580"></a>**2.1.3. Graphe pondéré**</H4>
 
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.018.png){: .center}
 
-**<H3 STYLE="COLOR:red;">Activité n° 3 :**</H3>  
-Soit un ensemble d'amis connectés sur un réseau social quelconque. Voici les interactions qu'on a recensées:
+➡️ Les valeurs dans la matrice représentent un **poids** (distance, durée, coût…).
 
-- André est ami avec Béa, Charles, Estelle et Fabrice,
-- Béa est amie avec André, Charles, Denise et Héloïse,
-- Charles est ami avec André, Béa, Denise, Estelle, Fabrice et Gilbert,
-- Denise est amie avec Béa, Charles et Estelle,
-- Estelle est amie avec André, Charles et Denise,
-- Fabrice est ami avec André, Charles et Gilbert,
-- Gilbert est ami avec Charles et Fabrice,
-- Héloïse est amie avec Béa.
+📌 Le **poids** peut représenter selon le contexte :
 
-1\. **Sur une feuille** : Représenter le graphe des relations dans ce réseau social (on désignera chaque individu par l'initiale de son prénom). Il est possible de faire en sorte que les arêtes ne se croisent pas !
+- une distance (en km),
 
-2\. Donner la matrice d'adjacence de ce graphe.
+- un temps (en minutes),
 
-**<H3 STYLE="COLOR:red;">Activité n° 4 :**</H3>  
-Sur feuille : Construire les graphes correspondants aux matrices d'adjacence suivantes:
+- un coût (en euros),
 
-1. ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.019.png){: .center}
-2. ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.020.png){: .center}
-3. ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.021.png){: .center}
+- une consommation d’énergie, etc.
 
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063581"></a>**2.1.4. ❤️Implémentation Python des matrices d’adjacence❤️**</H4>  
-Une matrice se représente naturellement par une liste de listes.
+Un graphe pondéré permet donc de modéliser des situations réelles où toutes les relations n’ont pas la même importance.
 
+
+???+ question "🧠 **Activité n° 3 — Réseau social et matrice d’adjacence**"
+    👉 On considère les relations suivantes entre amis.
+    
+    - André est ami avec Béa, Charles, Estelle et Fabrice,
+    
+    - Béa est amie avec André, Charles, Denise et Héloïse,
+
+    -Charles est ami avec André, Béa, Denise, Estelle, Fabrice et Gilbert, 
+    
+    -Denise est amie avec Béa, Charles et Estelle,
+    
+    -Estelle est amie avec André, Charles et Denise,
+    
+    -Fabrice est ami avec André, Charles et Gilbert,
+    
+    -Gilbert est ami avec Charles et Fabrice,
+    
+    -Héloïse est amie avec Béa.
+
+    📌 **Travail demandé** :
+    1. Représenter le graphe sur une feuille (initiales des prénoms).
+    2. Donner la **matrice d’adjacence** correspondante.
+
+    ??? success "✅ Solution (méthode attendue)"
+        ✔️ Chaque personne est représentée par un sommet  
+        ✔️ Une amitié correspond à une arête  
+        ✔️ La matrice contient `1` si deux personnes sont amies, `0` sinon
+
+
+
+???+ question "🧠 **Activité n° 4 — Graphes à partir de matrices**"
+    👉 Construire les graphes correspondant aux matrices suivantes (sur une feuille).
+
+    1. ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.019.png){: .center}
+
+    2. ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.020.png){: .center}
+
+    3. ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.021.png){: .center}
+
+    📌 **Méthode** :
+    - Un `1` indique une arête
+    - Une valeur non nulle indique un poids
+
+    ??? success "✅ Solution (principe)"
+        ✔️ Identifier les sommets
+        ✔️ Tracer une arête pour chaque valeur non nulle
+        ✔️ Ajouter le poids si le graphe est pondéré
+
+
+
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063581"></a>**2.1.4. ❤️ Implémentation Python des matrices d’adjacence ❤️**</H4>
+
+Une matrice est représentée en Python par une **liste de listes**.
 **Exemple :** La matrice
 
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.019.png){: .center}
@@ -303,603 +416,1247 @@ sera représentée par la variable G suivante :
 
 ```python
 G = [[0, 1, 1, 1, 1],
-      [1, 0, 1, 0, 0],
-      [1, 1, 0, 1, 0],
-      [1, 0, 1, 0, 1],
-      [1, 0, 0, 1, 0]]
+     [1, 0, 1, 0, 0],
+     [1, 1, 0, 1, 0],
+     [1, 0, 1, 0, 1],
+     [1, 0, 0, 1, 0]]
 ```
 
-**Complexité en mémoire et temps d'accès :**
+🔍 **Complexité** :
 
-- Pour un graphe à n sommets, la complexité en mémoire (appelée aussi **complexité spatiale**) de la représentation matricielle est **en O(n²).**
-- Tester si un **sommet est isolé** (ou connaître ses voisins) est **en O(n)** puisqu'il faut parcourir une ligne, mais tester si deux sommets **sont adjacents** (voisins) est **en O(1),** c'est un simple accès au tableau.
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063582"></a>**2.2. ❤️Représentation par les listes d’adjacence❤️**</H3>
+- **Mémoire : O(n²)**  
+  La matrice contient n lignes et n colonnes, même si peu de sommets sont reliés.
 
-- On associe à chaque sommet **sa liste des voisins** (c'est-à-dire les sommets adjacents). On utilise pour cela un **dictionnaire** dont les clés sont les sommets et les valeurs les listes des voisins.
-- Dans le cas d'un **graphe orienté** on associe à chaque sommet **la liste des *successeurs*** (ou bien des *prédécesseurs*, au choix).
+- **Tester si deux sommets sont adjacents : O(1)**  
+  Il suffit de lire une seule case de la matrice.
+
+- **Connaître les voisins d’un sommet : O(n)**  
+  Il faut parcourir toute la ligne correspondant au sommet.
+
+
+
+
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063582"></a>**2.2. ❤️ Représentation par listes d’adjacence**❤️</H3>
+
+Principe :
+
+* À chaque sommet, on associe la **liste de ses voisins**.
+* On utilise un **dictionnaire** Python.
+*-* Dans le cas d'un **graphe orienté** on associe à chaque sommet **la liste des *successeurs*** (ou bien des *prédécesseurs*, au choix).
 
 Par exemple, le graphe
 
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.022.png){: .center}
 
 sera représenté par le dictionnaire :
-
 ```python
 G = {'A': ['B', 'C', 'D', 'E'],
      'B': ['A', 'C'],
      'C': ['A', 'B', 'D'],
      'D': ['A', 'C', 'E'],
-     'E': ['A', 'D']
+     'E': ['A', 'D']}
+```
+
+📌 Cette représentation est particulièrement adaptée lorsque :
+- le nombre de sommets est élevé,
+- mais que chaque sommet a peu de voisins.
+
+On évite ainsi de stocker de nombreuses valeurs inutiles (les `0`), contrairement à la matrice d’adjacence.
+
+
+🔍 **Complexité** :
+
+
+- **Mémoire : O(n + m)**  
+  On stocke uniquement les sommets et les arêtes existantes.
+
+- **Connaître les voisins d’un sommet : O(1)**  
+  Ils sont directement accessibles via le dictionnaire.
+
+- **Tester si deux sommets sont adjacents : O(n)**  
+  Il faut parcourir la liste des voisins.
+
+
+
+???+ question "🧠 **Activité n° 5 — Graphes à partir de listes d’adjacence**"
+    👉 Construire les graphes correspondant aux dictionnaires fournis (sur une feuille).
+
+    1.
+
+    ```python
+    G1 = {
+    'A': ['B', 'C'],
+    'B': ['A', 'C', 'E', 'F'],
+    'C': ['A', 'B', 'D'],
+    'D': ['C', 'E'],
+    'E': ['B', 'D', 'F'],
+    'F': ['B', 'E']
+        }
+    ```
+
+    2.
+
+    ```python
+    G2 = {
+    'A': ['B'],
+    'B': ['C', 'E'],
+    'C': ['B', 'D'],
+    'D': [],
+    'E': ['A']
+        }
+    ```
+
+    📌 **Méthode** :
+
+    - Chaque clé est un sommet
+
+    - Chaque élément de la liste est un voisin
+
+    ??? success "✅ Solution (méthode attendue)"
+
+        ✔️ Tracer les sommets
+
+        ✔️ Relier chaque sommet à ses voisins
+
+        ✔️ Vérifier la cohérence des arêtes
+
+
+
+
+
+
+
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063583"></a>**2.3. ❤️ Passage d’une représentation à l’autre ❤️**</H3>
+
+Dans la pratique, un même graphe peut être représenté **de plusieurs façons** :
+
+* par une **matrice d’adjacence**,
+* par un **dictionnaire de voisins**.
+
+Il est donc essentiel de savoir **passer d’une représentation à une autre**, notamment en Python.
+
+
+👉 **CAPYTALE** : le code vous sera fourni par votre enseignant.
+
+
+???+ question "🧠 **Activité n° 6 — De la matrice au dictionnaire**"
+    👉 Écrire une fonction
+    `python
+        matrice2dico(sommets, matrice)
+        `
+    qui :
+    - prend en paramètre :
+
+    - une **liste de sommets**
+
+    - une **matrice d’adjacence**
+
+    - renvoie le **dictionnaire des voisins** correspondant.
+
+    
+    📌 **Rappel** :
+
+    - si la valeur de la matrice est **non nulle**, alors il existe une arête (ou un arc)
+
+    - dans le cas pondéré, la valeur correspond au **poids**
+
+    ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.019.png){: .center}  
+    ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.020.png){: .center}  
+    ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.021.png){: .center}
+
+    Tester la fonction avec les matrices **M1, M2 et M3**.
+
+    ```python
+    # Matrice M1
+    M1 = [
+        [0, 1, 1, 1, 1],
+        [1, 0, 1, 0, 0],
+        [1, 1, 0, 1, 0],
+        [1, 0, 1, 0, 1],
+        [1, 0, 0, 1, 0]
+    ]
+
+    # Matrice M2
+    M2 = [
+        [0, 1, 1, 0, 1],
+        [0, 0, 1, 0, 0],
+        [0, 0, 0, 1, 0],
+        [1, 0, 0, 0, 1],
+        [0, 0, 0, 0, 0]
+    ]
+
+    # Matrice M3 (pondérée)
+    M3 = [
+        [0, 5, 10, 50, 12],
+        [5, 0, 10, 0, 0],
+        [10, 10, 0, 8, 0],
+        [50, 0, 8, 0, 100],
+        [12, 0, 0, 100, 0]
+    ]
+
+    sommets = ['A', 'B', 'C', 'D', 'E']
+    
+
+    ??? success "✅ Solution — matrice → dictionnaire"
+        ```python
+        def matrice2dico(sommets, matrice):
+            dico = {}
+            n = len(sommets)
+
+            for i in range(n):
+                voisins = []
+                for j in range(n):
+                    if matrice[i][j] != 0:
+                        voisins.append(sommets[j])
+                dico[sommets[i]] = voisins
+
+            return dico
+        ```
+
+        🔎 **Principe** :
+
+        - on parcourt chaque ligne de la matrice
+
+        - chaque valeur non nulle indique un voisin
+
+        - l’indice de colonne permet d’identifier le sommet correspondant
+    
+
+
+
+???+ question "🧠 **Activité n° 7 — Du dictionnaire à la matrice**"
+
+    👉 Écrire une fonction
+    `python
+        dico2matrice(graphe_dico)
+        `
+    qui :
+    - prend en paramètre un **dictionnaire de voisins**
+    - renvoie :
+    - la **liste des sommets**
+    - la **matrice d’adjacence** correspondante
+
+    ```python
+    G1 = {
+        'A': ['B', 'C', 'D', 'E'],
+        'B': ['A', 'C'],
+        'C': ['A', 'B', 'D'],
+        'D': ['A', 'C', 'E'],
+        'E': ['A', 'D']
     }
-```
 
-**Complexité en mémoire et temps d'accès :**
-
-- Pour un graphe à n sommets et m arêtes, la complexité spatiale de la représentation en liste d'adjacence est **en O(n+m)**. C'est beaucoup mieux qu'une matrice d'adjacence lorsque le graphe comporte peu d'arêtes (i.e. beaucoup de 0 dans la matrice, non stockés avec des listes).
-- Tester si un **sommet est isolé** (ou connaître ses voisins) est **en O(1)** puisqu'on y accède immédiatement, mais tester si **deux sommets sont adjacents** (voisins) est **en O(n)** car il faut parcourir la liste.
-
-**<H3 STYLE="COLOR:red;">Activité n° 5 : Sur feuille :**</H3>  
-Construire les graphes correspondants aux listes d'adjacence suivantes :
-
-1.
-
-```python
-G1 = {
-'A': ['B', 'C'],
-'B': ['A', 'C', 'E', 'F'],
-'C': ['A', 'B', 'D'],
-'D': ['C', 'E'],
-'E': ['B', 'D', 'F'],
-'F': ['B', 'E']
-     }
-```
-
-2.
-
-```python
-G2 = {
-'A': ['B'],
-'B': ['C', 'E'],
-'C': ['B', 'D'],
-'D': [],
-'E': ['A']
-     }
-```
-
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063583"></a>**2.3. ❤️Passage d’une représentation à l’autre❤️**</H3>  
-Dans THONNY : dans un fichier **graphe.py**
-
-=> **CAPYTALE Le code vous sera donné par votre enseignant**
-
-**<H3 STYLE="COLOR:red;">Activité n° 6 : Représentation par une matrice :**</H3>  
-Passage d’une représentation à l’autre : Ecrire une fonction `matrice2dico(sommets, matrice)` qui prend un graphe représenté par une liste de sommets et une matrice d’adjacence et renvoie le graphe équivalent représenté par un dictionnaire.
-
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.019.png){: .center}  
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.020.png){: .center}  
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.021.png){: .center}
-
-Tester avec M1, M2 et M3.
-
-```python
-# Matrice M1
-M1 = [
-    [0, 1, 1, 1, 1],
-    [1, 0, 1, 0, 0],
-    [1, 1, 0, 1, 0],
-    [1, 0, 1, 0, 1],
-    [1, 0, 0, 1, 0]
-]
-
-# Matrice M2
-M2 = [
-    [0, 1, 1, 0, 1],
-    [0, 0, 1, 0, 0],
-    [0, 0, 0, 1, 0],
-    [1, 0, 0, 0, 1],
-    [0, 0, 0, 0, 0]
-]
-
-# Matrice M3
-M3 = [
-    [0, 5, 10, 50, 12],
-    [5, 0, 10, 0, 0],
-    [10, 10, 0, 8, 0],
-    [50, 0, 8, 0, 100],
-    [12, 0, 0, 100, 0]
-]
-
-sommets = ['A', 'B', 'C', 'D', 'E']
-```
-
-**<H3 STYLE="COLOR:red;">Activité n° 7 : Représentation par dictionnaire :**</H3>  
-Passage d’une représentation à l’autre : Ecrire une fonction `dico2matrice(graphe_dico)` qui prend un graphe représenté par un dictionnaire et qui renvoie une liste de sommets et une matrice d’adjacence.
-
-```python
-G1 = {'A': ['B', 'C', 'D', 'E'],
-     'B': ['A', 'C'],
-     'C': ['A', 'B', 'D'],
-     'D': ['A', 'C', 'E'],
-     'E': ['A', 'D']
+    G2 = {
+        'A': ['B', 'C'],
+        'B': ['A', 'C', 'E', 'F'],
+        'C': ['A', 'B', 'D'],
+        'D': ['C', 'E'],
+        'E': ['B', 'D', 'F'],
+        'F': ['B', 'E']
     }
 
-G2 = {
-'A': ['B', 'C'],
-'B': ['A', 'C', 'E', 'F'],
-'C': ['A', 'B', 'D'],
-'D': ['C', 'E'],
-'E': ['B', 'D', 'F'],
-'F': ['B', 'E']
-     }
+    G3 = {
+        'A': ['B'],
+        'B': ['C', 'E'],
+        'C': ['B', 'D'],
+        'D': [],
+        'E': ['A']
+    }
+    ```
 
-G3 = {
-'A': ['B'],
-'B': ['C', 'E'],
-'C': ['B', 'D'],
-'D': [],
-'E': ['A']
-     }
-```
+    Tester la fonction avec **G1, G2 et G3**.
 
-Tester avec G1, G2 et G3.
+    ??? success "✅ Solution — dictionnaire → matrice"
+        ```python
+        def dico2matrice(graphe_dico):
+            sommets = list(graphe_dico.keys())
+            n = len(sommets)
+            indice = {sommets[i]: i for i in range(n)}
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063584"></a>**3. Visualiser un graphe**</H2>  
+            matrice = [[0]*n for _ in range(n)]
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063585"></a>**3.1. Avec le module networkx**</H3>  
-Pour visualiser ce graphe, nous allons utiliser les bibliothèques networkx et matplotlib. Pensez à vérifier que les deux bibliothèques sont installées.
+            for sommet in graphe_dico:
+                i = indice[sommet]
+                for voisin in graphe_dico[sommet]:
+                    j = indice[voisin]
+                    matrice[i][j] = 1
 
-**<H3 STYLE="COLOR:red;">Activité n° 8 : Représentation avec networkx :**</H3>  
-```python
-import matplotlib.pyplot as plt
-import networkx as nx
+            return sommets, matrice
+        ```
 
-def cree_graphe_non_oriente_nx(dictionnaire: dict) -> nx.Graph:
-    """
-    Cette fonction premet de transformer une représentation en dictionnaire en
-    une représentation «complexe» d'un objet graphe orienté.
+        🔎 **Principe** :
 
-    - Précondition : l'entrée est un dictionnaire
-    - Postcondition : la sortie est un graphe orienté (Graph) de Networkx
-    """
-    Gnx = nx.Graph() 
-    for sommets in dictionnaire.keys():
-        Gnx.add_node(sommets) # Creation des sommets
-    for sommet in dictionnaire.keys():
-        for sommets_adjacents in dictionnaire[sommet]:
-            Gnx.add_edge(sommet, sommets_adjacents) # Creation des arcs
-    return Gnx
+        - on associe chaque sommet à un indice
 
-plt.cla()# Pour effacer les figures précédentes
-dico = {0:[1, 2], 1:[0, 2, 3], 2 : [0, 1, 3], 3: [1,2]}
-G = cree_graphe_non_oriente_nx(dico)
-# nx.draw_circular(G, with_labels=True)
-nx.draw(G,with_labels = True) # Pour une representation classique
-plt.show()
-```
+        - on initialise une matrice remplie de 0
 
-**<H3 STYLE="COLOR:red;">Activité n° 9 : Représentation avec networkx :**</H3>  
-Tester avec G1, G2 et G3 de la partie 2.2.
-
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063586"></a>**3.2. Avec le module graphviz**</H3>  
-Dans Thonny : Vérifiez que la bibliothèque graphviz est installée.
-
-**<H3 STYLE="COLOR:red;">Activité n° 10 : Représentation avec graphviz d’un graphe orienté**</H3>  
-```python
-import graphviz
-
-# Création du graphe orienté avec sortie au format SVG
-graphe_oriente = graphviz.Digraph(format='svg')
-
-# Ajout des nœuds
-graphe_oriente.node("A")
-graphe_oriente.node("B")
-graphe_oriente.node("C")
-
-# Ajout des arcs
-graphe_oriente.edge("A", "B")
-graphe_oriente.edge("A", "C")
-
-# Affichage du graphe
-# graphviz.Source(graphe_oriente) # pour le télécharger
-# #graphe_non_oriente.view()
-from graphviz import Source
-Source(graphe_oriente.source)
-```
-
-**<H3 STYLE="COLOR:red;">Activité n° 11 : Représentation avec graphviz d’un graphe orienté :**</H3>  
-Tester avec G3.
-
-**<H3 STYLE="COLOR:red;">Activité n° 12 : Représentation avec graphviz d’un graphe non orienté**</H3>  
-```python
-import graphviz
-graphe_non_oriente = graphviz.Graph()
-
-#Ajout des noeuds avec la méthode node
-graphe_non_oriente.node("A")
-graphe_non_oriente.node("B")
-graphe_non_oriente.node("C")
-
-#Ajout des arcs avec la méthode edge
-graphe_non_oriente.edge("A","B")
-graphe_non_oriente.edge("A","C")
-
-#Affichage du graphe
-# graphviz.Source(graphe_non_oriente) # pour le télécharger
-# graphe_non_oriente.view()
-from graphviz import Source
-Source(graphe_non_oriente.source)
-```
-
-**<H3 STYLE="COLOR:red;">Activité n° 13 : Représentation avec graphviz d’un graphe non orienté :**</H3>  
-Tester avec G1.
-
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063587"></a>**4. ❤️Création d’une class Graphe❤️**</H2>  
-
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063588"></a>**4.1. Interface**</H3>  
-Dans THONNY : Dans un fichier **graphe_POO.py**
-
-=> **CAPYTALE Le code vous sera donné par votre enseignant**
-
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.022.png){: .center}
-
-Nous voulons que le graphe puisse être créé grâce aux instructions suivantes :
-
-- constructeur(s : liste de Sommets) -> Graphe: renvoie le graphe (S, Δ) où Δ est une liste vide d’arêtes
-- ajouter_arete(g : Graphe, s1 : Sommet, s2 : Sommet) -> graphe: à partir du graphe g = (S, A) et de deux sommets s1 et s2 appartenant à S renvoie le graphe (S, A ∪ {(s1, s2)})
-- voisins(g : Graphe, s : Sommets) -> liste de Sommets: renvoie la liste des sommets voisins de s dans le graphe g. Cette fonction est remplacée par une fonction successeurs et/ou predecesseurs dans le cas d’un graphe orienté.
-- sont_voisins(g : Graphe, s1 : Sommet, s2 : Sommet) -> bool: à partir du graphe g et de deux sommets s1 et s2 renvoie si s1 et voisin de s2
-- get_dictionnaire(g : Graphe) -> dict : à partir du graphe renvoie le dictionnaire donnant la liste d’adjacence
-
-L'objet de type Graphe aura comme attributs :
-
-- une liste `liste_sommets` (donnée en paramètre dans la liste `liste_sommets`)
-- un dictionnaire `adjacents`, où chaque sommet se verra attribuer une liste vide `[]`.
-
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063589"></a>**4.2. Implémentation**</H3> 
- **<H3 STYLE="COLOR:red;">Activité n° 14 :  Implémentation du graphe en POO :**</H3>  Compléter les méthodes suivantes
-```python
-class Graphe:
-    def __init__(self, liste_sommets):
-        self.liste_sommets = liste_sommets
-        self.adjacents = {sommet : [] for sommet in liste_sommets}
-
-    def ajouter_arete(self, s1, s2):
-        pass
-
-    def voisins(self, s):
-        pass
-
-    def sont_voisins(self, s1, s2):
-        pass
-
-    def get_dictionnaire(self):
-        pass
-
-
-#################################### Pour réaliser l'affichage #########################
-import matplotlib.pyplot as plt
-import networkx as nx
-
-def cree_graphe_non_oriente_nx(dictionnaire: dict) -> nx.Graph:
-    Gnx = nx.Graph()
-    for sommets in dictionnaire.keys():
-        Gnx.add_node(sommets) # Creation des sommets
-    for sommet in dictionnaire.keys():
-        for sommets_adjacents in dictionnaire[sommet]:
-            Gnx.add_edge(sommet, sommets_adjacents) # Creation des arcs
-    return Gnx
+        - chaque voisin entraîne un `1` dans la matrice
 
 
 
-if __name__ == '__main__':
-    g = Graphe(['A', 'B', 'C', 'D', 'E'])
-    g.ajouter_arete('A', 'B')
-    g.ajouter_arete('A', 'C')
-    g.ajouter_arete('A', 'D')
-    g.ajouter_arete('A', 'E')
-    g.ajouter_arete('B', 'C')
-    g.ajouter_arete('C', 'D')
-    g.ajouter_arete('D', 'E')
-    assert g.sont_voisins('E', 'A') == True
-    assert g.sont_voisins('E', 'B') == False
-    assert g.voisins('C') == ['A', 'B', 'D']
-    dict_2 = g.get_dictionnaire()
-    print(dict_2)
+
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063584"></a>**3. Visualiser un graphe**</H2>
+
+Visualiser un graphe permet de :
+
+* mieux comprendre sa structure,
+* vérifier une implémentation,
+* interpréter plus facilement les parcours.
+
+
+
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063585"></a>**3.1. Avec le module networkx**</H3>
+
+Nous allons utiliser les bibliothèques :
+
+* **networkx** : pour manipuler des graphes,
+* **matplotlib** : pour les afficher.
+
+📌 Pensez à vérifier que ces bibliothèques sont installées.
+
+---
+
+???+ question "🧠 **Activité n° 8 — Visualisation avec NetworkX**"
+    👉 Compléter et exécuter le programme suivant afin de visualiser un graphe
+    à partir d’un dictionnaire de voisins.
+
+
+    ```python
+    import matplotlib.pyplot as plt
+    import networkx as nx
+
+    def cree_graphe_non_oriente_nx(dictionnaire: dict) -> nx.Graph:
+        """
+        Transforme une représentation en dictionnaire
+        en un graphe NetworkX non orienté.
+        """
+        Gnx = nx.Graph()
+
+        # Création des sommets
+        for sommet in dictionnaire.keys():
+            Gnx.add_node(sommet)
+
+        # Création des arêtes
+        for sommet in dictionnaire.keys():
+            for voisin in dictionnaire[sommet]:
+                Gnx.add_edge(sommet, voisin)
+
+        return Gnx
+
     plt.cla()
-    G2 = cree_graphe_non_oriente_nx(dict_2)
-    nx.draw_circular(G2, with_labels=True)
+    dico = {0: [1, 2], 1: [0, 2, 3], 2: [0, 1, 3], 3: [1, 2]}
+    G = cree_graphe_non_oriente_nx(dico)
+
+    nx.draw(G, with_labels=True)
     plt.show()
-```
+    ```
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063590"></a>**5. Les parcours**</H2>  
-Un parcours de graphe est un algorithme consistant à **explorer les sommets d'un graphe de proche en proche** à partir d'un sommet initial.
+    ??? success "✅ Explication"
+        ✔️ Chaque clé du dictionnaire correspond à un **sommet**  
+        ✔️ Chaque voisin entraîne la création d’une **arête**  
+        ✔️ NetworkX se charge automatiquement de la disposition graphique  
 
-Parcourir simplement le dictionnaire ou la matrice d’un graphe comme on peut le faire pour effectuer une copie du graphe n’est pas considéré comme un parcours de graphe.
 
-Tous les parcours suivent plus ou moins le même algorithme de base :
 
--\ On visite un sommet s1. On crée une structure S qui contiendra l’ensemble des voisins de s1.
 
--\ Tant que S n’est pas vide :
+???+ question "🧠 **Activité n° 9 — Visualisation avec NetworkX**"
+    👉 Représenter graphiquement les graphes **G1, G2 et G3** (définis en partie 2.2)
 
-  - on choisit un sommet s de S
+    à l’aide du module **networkx**.
 
-  - on visite s
-  
-  - on ajoute à S tous les voisins de s pas encore visités
+    
+    📌 **Consigne** :
+    - réutiliser la fonction `cree_graphe_non_oriente_nx`
+    - afficher successivement chaque graphe
 
-**Attention : sommets visités :**
+    ??? success "✅ Solution (exemple)"
+        ```python
+        import matplotlib.pyplot as plt
+        import networkx as nx
 
-Contrairement à un parcours d'arbre, où les fils d'un nœud ne peuvent pas avoir été visités avant le nœud, **un voisin d'un sommet peut avoir déjà été visité** en tant que voisin d'un sommet précédent...
+        def cree_graphe_non_oriente_nx(dictionnaire):
+            Gnx = nx.Graph()
+            for sommet in dictionnaire:
+                Gnx.add_node(sommet)
+            for sommet in dictionnaire:
+                for voisin in dictionnaire[sommet]:
+                    Gnx.add_edge(sommet, voisin)
+            return Gnx
 
-Il est donc nécessaire **de mémoriser les sommets déjà visités** ou découverts (on dira qu'un sommet est découvert lorsqu'on l'ajoute à S).
+        graphes = [G1, G2, G3]
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063591"></a>**5.1. ❤️Parcours en largeur ❤️**</H3>  
+        for i, dico in enumerate(graphes, start=1):
+            plt.cla()
+            G = cree_graphe_non_oriente_nx(dico)
+            nx.draw(G, with_labels=True)
+            plt.title(f"Graphe G{i}")
+            plt.show()
+        ```
 
-**Cf : Video [https://ladigitale.dev/digiview/#/v/66c66c81c573a](https://ladigitale.dev/digiview/#/v/66c66c81c573a)**
+        🔎 **Remarque** :
+        
+        NetworkX gère automatiquement la disposition des sommets, ce qui permet une visualisation rapide et lisible.
 
-Si on utilise une **file** (FIFO) pour S, les sommets enregistrés dans S en premier vont être visités les premiers. On va donc visiter d'abord les sommets les plus proches de s<sub>1</sub> (ceux à distance 1, puis ceux à distance 2, puis 3…). C’est un **parcours en largeur (BFS, Breadth First Search)**.
 
-On va utiliser ce parcours pour trouver :
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063586"></a>**3.2. Avec le module Graphviz**</H3>
 
-- le **sommet le plus près** de s<sub>1</sub> vérifiant une condition donnée
-- le **chemin le plus court** entre s<sub>1</sub> et un autre sommet.
+Le module **graphviz** permet de produire des graphes :
+
+* plus **structurés visuellement**,
+
+* exportables en **SVG ou PDF**,
+
+* particulièrement adaptés aux **graphes orientés**.
+
+
+
+
+???+ question "🧠 **Activité n° 10 — Graphe orienté avec Graphviz**"
+
+    👉 Représenter un **graphe orienté simple** avec Graphviz.
+
+    
+    ```python
+    import graphviz
+
+    graphe_oriente = graphviz.Digraph(format='svg')
+
+    graphe_oriente.node("A")
+    graphe_oriente.node("B")
+    graphe_oriente.node("C")
+
+    graphe_oriente.edge("A", "B")
+    graphe_oriente.edge("A", "C")
+
+    # Affichage du graphe
+    # graphviz.Source(graphe_oriente) # pour le télécharger
+    # #graphe_non_oriente.view()
+    from graphviz import Source
+    Source(graphe_oriente.source)
+    ```
+
+    ??? success "✅ Explication"
+
+        ✔️ `Digraph` permet de créer un graphe **orienté**  
+
+        ✔️ `node()` ajoute un sommet  
+
+        ✔️ `edge(A, B)` crée un **arc A → B**  
+        
+        ✔️ Le rendu est exportable au format SVG  
+
+
+
+
+???+ question "🧠 **Activité n° 11 — Graphe orienté à partir de G3**"
+    👉 Adapter le code précédent pour représenter le graphe **G3**
+    (défini sous forme de dictionnaire).
+
+    
+    ??? success "✅ Solution (adaptation)"
+        ```python
+        import graphviz
+        from graphviz import Source
+
+        G3 = {
+            'A': ['B'],
+            'B': ['C', 'E'],
+            'C': ['B', 'D'],
+            'D': [],
+            'E': ['A']
+        }
+
+        graphe_oriente = graphviz.Digraph(format='svg')
+
+        for sommet in G3:
+            graphe_oriente.node(sommet)
+
+        for sommet in G3:
+            for voisin in G3[sommet]:
+                graphe_oriente.edge(sommet, voisin)
+
+        #Affichage du graphe
+        # graphviz.Source(graphe_oriente) # pour le télécharger
+        # graphe_oriente.view()
+        from graphviz import Source
+        Source(graphe_oriente.source)
+        ```
+
+        🔎 **Principe** :
+
+        chaque clé représente un sommet,
+        
+        chaque voisin entraîne la création d’un **arc orienté**.
+
+
+
+
+???+ question "🧠 **Activité n° 12 — Graphe non orienté avec Graphviz**"
+    👉 Représenter un **graphe non orienté simple** avec Graphviz.
+
+    
+    ```python
+    import graphviz
+    from graphviz import Source
+
+    graphe_non_oriente = graphviz.Graph()
+
+    graphe_non_oriente.node("A")
+    graphe_non_oriente.node("B")
+    graphe_non_oriente.node("C")
+
+    graphe_non_oriente.edge("A", "B")
+    graphe_non_oriente.edge("A", "C")
+
+    #Affichage du graphe
+    # graphviz.Source(graphe_non_oriente) # pour le télécharger
+    # graphe_non_oriente.view()
+    from graphviz import Source
+    Source(graphe_non_oriente.source)
+    ```
+
+    ??? success "✅ Explication"
+        ✔️ `Graph()` crée un graphe **non orienté**  
+        ✔️ Les arêtes sont **sans flèches**  
+        ✔️ Le rendu est plus structuré qu’avec NetworkX  
+
+
+
+
+???+ question "🧠 **Activité n° 13 — Graphe non orienté à partir de G1**"
+    👉 Adapter le code précédent pour représenter le graphe **G1**.
+
+
+    ??? success "✅ Solution"
+        ```python
+        import graphviz
+        from graphviz import Source
+
+        graphe = graphviz.Graph()
+
+        for sommet in G1:
+            graphe.node(sommet)
+
+        for sommet in G1:
+            for voisin in G1[sommet]:
+                graphe.edge(sommet, voisin)
+
+        #Affichage du graphe
+        # graphviz.Source(graphe) # pour le télécharger
+        # graphe.view()
+        from graphviz import Source
+        Source(graphe.source)
+        ```
+
+
+
+
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063587"></a>**4. ❤️ Création d’une classe Graphe ❤️**</H2>
+
+Nous allons maintenant **implémenter un graphe en Programmation Orientée Objet**, afin de regrouper les données et les méthodes associées dans une même structure.
+
+
+👉 **CAPYTALE** : le squelette du code est fourni par l’enseignant.
+
+
+Jusqu’à présent, les graphes ont été représentés à l’aide :
+
+* de **matrices d’adjacence**,
+* de **dictionnaires de voisins**.
+
+Nous allons maintenant regrouper **les données** et **les opérations associées** à un graphe
+dans une **classe Python**, en utilisant la **Programmation Orientée Objet (POO)**.
+
+📌 **Objectif** :
+Créer un objet `Graphe` capable de :
+
+* mémoriser les sommets et les arêtes,
+* fournir des méthodes pour manipuler le graphe,
+* garantir une utilisation cohérente des opérations.
+
+
+
+##### 🔹 Interface attendue
+
+On appelle **interface** l’ensemble des **méthodes accessibles**
+permettant d’utiliser un objet sans connaître son implémentation interne.
+
+Un objet de type `Graphe` devra permettre les opérations suivantes :
+
+* **constructeur**
+  `Graphe(liste_sommets)`
+  → crée un graphe dont les sommets sont donnés, sans arêtes au départ
+
+* **ajouter_arete(g, s1, s2) → Graphe**
+  → ajoute une arête entre les sommets `s1` et `s2`
+
+* **voisins(g, s) → liste de Sommets**
+  → renvoie la liste des sommets adjacents à `s`
+  *(dans un graphe orienté, cette méthode serait remplacée par `successeurs` et/ou `predecesseurs`)*
+
+* **sont_voisins(g, s1, s2) → bool**
+  → indique si `s1` et `s2` sont directement reliés
+
+* **get_dictionnaire(g) → dict**
+  → renvoie la représentation du graphe sous forme de dictionnaire d’adjacence
+
+
+
+##### 🔹 Attributs internes de la classe
+
+L’objet `Graphe` possèdera les attributs suivants :
+
+* `liste_sommets` :
+  liste contenant l’ensemble des sommets du graphe
+
+* `adjacents` :
+  dictionnaire associant à chaque sommet la liste de ses voisins
+  *(initialement vide pour chaque sommet)*
+
+📌 **Remarque importante** :
+L’utilisateur de la classe n’a **pas besoin de modifier directement ces attributs** ;
+il interagit uniquement via les **méthodes de l’interface**.
+
+
+
+
+
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063589"></a>**4.2. Implémentation en POO**</H3>
+
+???+ question "🧠 **Activité n° 14 — Implémentation de la classe Graphe**"
+    👉 Compléter les méthodes de la classe suivante.
+
+
+    ```python
+    class Graphe:
+        def __init__(self, liste_sommets):
+            self.liste_sommets = liste_sommets
+            self.adjacents = {sommet: [] for sommet in liste_sommets}
+
+        def ajouter_arete(self, s1, s2):
+            pass
+
+        def voisins(self, s):
+            pass
+
+        def sont_voisins(self, s1, s2):
+            pass
+
+        def get_dictionnaire(self):
+            pass
+
+    #################################### Pour réaliser l'affichage #########################
+    import matplotlib.pyplot as plt
+    import networkx as nx
+
+    def cree_graphe_non_oriente_nx(dictionnaire: dict) -> nx.Graph:
+        Gnx = nx.Graph()
+        for sommets in dictionnaire.keys():
+            Gnx.add_node(sommets) # Creation des sommets
+        for sommet in dictionnaire.keys():
+            for sommets_adjacents in dictionnaire[sommet]:
+                Gnx.add_edge(sommet, sommets_adjacents) # Creation des arcs
+        return Gnx
+
+
+
+    if __name__ == '__main__':
+        g = Graphe(['A', 'B', 'C', 'D', 'E'])
+        g.ajouter_arete('A', 'B')
+        g.ajouter_arete('A', 'C')
+        g.ajouter_arete('A', 'D')
+        g.ajouter_arete('A', 'E')
+        g.ajouter_arete('B', 'C')
+        g.ajouter_arete('C', 'D')
+        g.ajouter_arete('D', 'E')
+        assert g.sont_voisins('E', 'A') == True
+        assert g.sont_voisins('E', 'B') == False
+        assert g.voisins('C') == ['A', 'B', 'D']
+        dict_2 = g.get_dictionnaire()
+        print(dict_2)
+        plt.cla()
+        G2 = cree_graphe_non_oriente_nx(dict_2)
+        nx.draw_circular(G2, with_labels=True)
+        plt.show()
+
+    ```
+
+    ??? success "✅ Solution complète"
+        ```python
+        class Graphe:
+            def __init__(self, liste_sommets):
+                self.liste_sommets = liste_sommets
+                self.adjacents = {sommet: [] for sommet in liste_sommets}
+
+            def ajouter_arete(self, s1, s2):
+                if s2 not in self.adjacents[s1]:
+                    self.adjacents[s1].append(s2)
+                if s1 not in self.adjacents[s2]:
+                    self.adjacents[s2].append(s1)
+
+            def voisins(self, s):
+                return self.adjacents[s]
+
+            def sont_voisins(self, s1, s2):
+                return s2 in self.adjacents[s1]
+
+            def get_dictionnaire(self):
+                return self.adjacents
+        ```
+
+        🔎 **Remarques importantes** :
+
+        - le graphe est **non orienté**
+
+        - chaque arête est ajoutée dans les deux sens
+
+        - aucune duplication d’arêtes
+    
+
+
+
+
+
+
+
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063590"></a>**5. Les parcours**</H2>
+
+Un **parcours de graphe** est un algorithme qui consiste à **explorer les sommets d’un graphe de proche en proche** à partir d’un sommet initial.
+
+⚠️ **Attention**
+
+Parcourir simplement une matrice ou un dictionnaire (par exemple pour copier un graphe) **n’est pas un parcours de graphe**.
+
+
+
+##### 🔁 Principe général d’un parcours
+
+Tous les parcours reposent sur le même schéma général :
+
+* On **visite un sommet initial** ( s_1 )
+
+* On crée une structure ( S ) contenant ses voisins
+
+* Tant que ( S ) n’est pas vide :
+
+  * on choisit un sommet ( s ) dans ( S )
+
+  * on visite ( s )
+
+  * on ajoute à ( S ) les voisins de ( s ) **non encore visités**
+
+📌 **Gestion des sommets visités**
+
+Contrairement à un arbre, un sommet d’un graphe peut être rencontré **plusieurs fois** par des chemins différents.
+
+👉 Il est donc **indispensable de mémoriser** :
+
+* les sommets **déjà visités**
+
+* les sommets **déjà découverts** (ajoutés à la structure ( S ))
+
+
+
+# <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063591"></a>**5.1. ❤️ Parcours en largeur ❤️ (BFS)**</H3>
+
+📺 *Vidéo de référence* :
+[https://ladigitale.dev/digiview/#/v/66c66c81c573a](https://ladigitale.dev/digiview/#/v/66c66c81c573a)
+
+---
+
+##### 🧠 Principe du BFS
+
+Si la structure ( S ) est une **file (FIFO)** :
+
+* les sommets ajoutés **en premier** sont visités **en premier**
+
+* on explore d’abord les sommets à distance 1, puis 2, puis 3…
+
+👉 On parle de **parcours en largeur** (*Breadth First Search*).
+
+📌 Le BFS est utilisé pour :
+
+* trouver le **sommet le plus proche** vérifiant une condition
+
+* trouver le **chemin le plus court** entre deux sommets (graphe non pondéré)
 
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.029.png){: .center}
 
-Sur ce graphe A-B-C-F-E-D-G est un parcours en largeur au départ de A.
+Exemples :
 
-B-A-C-E-F-D-G et B-A-F-E-C-G-D sont des parcours en largeur au départ de B.
+* depuis A : `A – B – C – F – E – D – G`
 
-**<H3 STYLE="COLOR:red;">Activité n° 15 : Parcours en largeur :**</H3>  
-Appliquez l'algorithme du parcours en largeur au graphe ci-dessous.
+* depuis B : `B – A – C – E – F – D – G`
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.030.png){: .center}
 
-Le 'point de départ' de notre parcours (le sommet s dans l'algorithme), sera le sommet A.
 
-Vous noterez les sommets atteints à chaque étape ainsi que les sommets présents dans la file f.
+???+ question "🧠 **Activité n° 15 — Parcours en largeur à la main**"
+    👉 Appliquer l’algorithme du **parcours en largeur** au graphe ci-dessous.
 
-Vous pourrez aussi, à chaque étape, donner les changements de couleur des sommets.
 
-Dans Thonny : dans **le** fichier **graphe.py**
+    ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.030.png){: .center}
+
+    📌 **Consignes** :
+
+    - sommet de départ : **A**
+
+    - noter à chaque étape :
+
+        - les sommets visités
+
+        - le contenu de la file
+
+    - indiquer les changements de couleur éventuels
+
+    ??? success "✅ Méthode attendue"
+
+        - Initialiser la file avec `A`
+
+        - Marquer `A` comme découvert
+
+        - Dépiler un sommet, ajouter ses voisins non découverts
+
+        - Répéter jusqu’à ce que la file soit vide
 
 => **CAPYTALE Le code vous sera donné par votre enseignant**
 
-**L’algorithme du BFS** :
+##### 🧩 Algorithme du BFS
 
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.031.png){: .center}
 
-On marque les sommets découverts afin que chaque sommet ne soit enfilé qu’une fois. Ainsi, lorsqu’on défile un sommet, on sait qu’il n’a pas encore été visité.
+📌 Chaque sommet est **enfilé une seule fois** grâce à la liste `decouverts`,puis **défilé exactement une fois**.
 
-**Aide :**
+**Aide Python** :
 
 ```python
-# les voisins de tmp: G[tmp]
+# voisins du sommet tmp
+G[tmp]
 ```
 
-Le test SI voisin n est pas dans découverts permet donc de ne pas mettre en file d'attente un voisin qui est (ou a été) déjà en file d'attente.
 
-**Que contient la file en_attente :**
 
-À chaque instant, la file en_attente contient des sommets à la distance k+1 et à la distance k du point de départ :
+##### 📦 Que contient la file `en_attente` ?
 
-![image](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.032.png){: .center}
+À tout instant, la file contient :
 
-**Rappels sur les files**
+* des sommets à distance ( k )
 
-- 1er cas : Utiliser une file déjà codée
-- 2ème cas: liste de python
+* puis à distance ( k+1 )
+
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.032.png){: .center}
+
+
+
+##### 🔁 Rappels sur les files
+
 ```python
-file = [ ]
-file.append(…)
+# avec une liste
+file = []
+file.append(x)
 file.pop(0)
 ```
-- 3ème cas : avec module queue
+
 ```python
+# avec queue
 from queue import Queue
 file = Queue()
 file.empty() 
-file.put(…)
+file.put(x)
 file.get()
 ```
-- 4<sup>ème</sup> cas : avec module collections
+
 ```python
+# avec deque (recommandé)
 from collections import deque
 file = deque()
-file.append(…)
+file.append(x)
 file.popleft()
 if file : # => si la file n’est pas vide
 ```
 
-**<H3 STYLE="COLOR:red;">Activité n° 16 : Parcours en largeur :**</H3>  
-Implémenter l'algorithme du parcours en largeur .
 
-```python
-#importer une file !!
 
-def parcours_largeur_i(G, s):
-    decouverts=[]
-    en_attente = File()
-    pass
+???+ question "🧠 **Activité n° 16 — Implémentation du BFS**"
+    👉 Implémenter le parcours en largeur en Python.
 
-print(parcours_largeur({"A": ("B", "D", "E"), "B": ("A", "C"), "C": ("B", "D"),
+
+    ```python
+    from collections import deque
+
+    def parcours_largeur(G, s):
+        decouverts = []
+        en_attente = deque()
+        pass
+
+    print(parcours_largeur({"A": ("B", "D", "E"), "B": ("A", "C"), "C": ("B", "D"),
                             "D": ("A", "C", "E"), "E": ("A", "D", "F", "G"), 
                             "F": ("E", "G"), "G": ("E", "F", "H"),
                             "H": ("G")}, "A"))
-```
+    ```
 
-**<H3 STYLE="COLOR:red;">Activité n° 17 : Parcours en largeur :**</H3>  
-Implémenter l'algorithme du parcours en largeur .
+    ??? success "✅ Solution — BFS itératif"
+        ```python
+        from collections import deque
 
-Voici le graphe :
+        def parcours_largeur(G, s):
+            decouverts = [s]
+            en_attente = deque([s])
 
-![image](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.033.png){: .center}
+            ordre = []
 
-```python
-graphe= {'A': ['B', 'C'], 'B': ['A', 'D', 'E'], 'C': ['A', 'D'], 'D': ['B', 'C', 'E'], 'E': ['B', 'D', 'F', 'G'], 'F': ['E', 'G'], 'G': ['E', 'F', 'H'], 'H': ['G']} 
-```
+            while en_attente:
+                sommet = en_attente.popleft()
+                ordre.append(sommet)
 
-1. Donner le parcours en largeur de g grâce à l'algorithme BFS, si le sommet de départ est B.  
-2. Deviner le parcours en largeur de départ D, puis de départ G.  
-3. Vérifier grâce à votre algorithme.
+                for voisin in G[sommet]:
+                    if voisin not in decouverts:
+                        decouverts.append(voisin)
+                        en_attente.append(voisin)
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063592"></a>**5.2. ❤️Parcours en profondeur ❤️**</H3>  
+            return ordre
+        ```
 
-**Cf : Video [https://ladigitale.dev/digiview/#/v/66c672b885a2a](https://ladigitale.dev/digiview/#/v/66c672b885a2a)**
 
-Si on utilise une **pile** (LIFO) pour S, les sommets enregistrés en dernier vont être visités en premier : on parcourt le graphe en visitant à chaque fois un voisin du dernier sommet, sauf si celui-ci n’a pas de voisin non visité, auquel cas on remonte au dernier sommet ayant un voisin non visité. C’est un **parcours en profondeur (DFS, Depth First Search)**.
 
-C’est le parcours utilisé naturellement par une personne qui explore **un labyrinthe**.
 
-![image](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.029.png){: .center}
+???+ question "🧠 **Activité n° 17 — Analyse de parcours BFS**"
+    👉 On considère le graphe suivant :
 
-Sur le graphe précédent, A-B-C-D-E-F-G et F-B-C-D-G-E-A sont des parcours en profondeur.
 
-F-B-C-D-G-A-E n’en est pas un (E a été empilé après A, donc sera dépilé avant).
+    ![image](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.033.png){: .center}
 
-**<H3 STYLE="COLOR:red;">Activité n° 18 : Parcours en profondeur :**</H3>  
-Appliquez l'algorithme du parcours en profondeur au graphe ci-dessous.
 
-![image](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.030.png){: .center}
+    ```python
+    graphe = {
+        'A': ['B', 'C'],
+        'B': ['A', 'D', 'E'],
+        'C': ['A', 'D'],
+        'D': ['B', 'C', 'E'],
+        'E': ['B', 'D', 'F', 'G'],
+        'F': ['E', 'G'],
+        'G': ['E', 'F', 'H'],
+        'H': ['G']
+    }
+    ```
 
-**L’algorithme du DFS en version itérative**
+    1. Donner le parcours BFS depuis **B**
 
-Dans Thonny : dans **le** fichier **graphe.py**
+    2. Deviner le parcours depuis **D**, puis **G**
+
+    3. Vérifier avec votre fonction
+
+    ??? success "✅ Solution (exemple)"
+        ```python
+        parcours_largeur(graphe, 'B')
+        parcours_largeur(graphe, 'D')
+        parcours_largeur(graphe, 'G')
+        ```
+
+
+
+
+
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063592"></a>**5.2. ❤️ Parcours en profondeur ❤️ (DFS)**</H3>
+
+📺 *Vidéo de référence* :
+[https://ladigitale.dev/digiview/#/v/66c672b885a2a](https://ladigitale.dev/digiview/#/v/66c672b885a2a)
+
+
+
+##### 🧠 Principe du DFS
+
+Si la structure ( S ) est une **pile (LIFO)** :
+
+* on explore un chemin **le plus loin possible**
+
+* lorsqu’un sommet n’a plus de voisin non visité, on **revient en arrière**
+
+👉 C’est le **parcours en profondeur** (*Depth First Search*).
+
+🧭 Ce parcours est analogue à l’exploration d’un **labyrinthe**.
+
+![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.029.png){: .center}
+
+Exemples :
+
+* `A – B – C – D – E – F – G`
+
+* `F – B – C – D – G – E – A`
+
+🚫 `F – B – C – D – G – A – E` **n’est pas un DFS valide**
+(car `E` a été empilé après `A` et doit être dépilé avant)
+
+
+
+
+???+ question "🧠 **Activité n° 18 — Parcours en profondeur à la main**"
+    👉 Appliquer l’algorithme du **parcours en profondeur** au graphe ci-dessous.
+
+    
+    ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.030.png){: .center}
+
+    📌 **Consigne** :
+
+    - choisir un sommet de départ
+
+    - noter l’ordre de visite des sommets
+
+    - indiquer les retours en arrière lorsqu’un sommet n’a plus de voisin non visité
+
+    
+
+    ??? success "✅ Méthode attendue"
+        - Visiter le sommet de départ
+        - Empiler un voisin non visité
+        - Continuer tant que possible
+        - Dépiler lorsqu’aucun voisin n’est disponible
+    
+
+
+
+##### 🧩 Algorithme du DFS — version itérative
+
+
 
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.035.png){: .center}
 
-**Rappels sur les piles**
 
-- 1er cas : Utiliser une pile déjà codée
-- 2ème cas: liste de python
+📌 Dans un parcours en profondeur, le choix d’une **pile (LIFO)** impose
+une exploration en allant le plus loin possible avant de revenir en arrière.
+
+
+##### 🔁 Rappels sur les piles
+
 ```python
-pile = [ ]
-pile.append(…)
+# avec une liste Python
+pile = []
+pile.append(x)
 pile.pop()
 ```
 
-- 3<sup>ème</sup> cas : avec module collections
 ```python
+# avec deque (recommandé)
 from collections import deque
 pile = deque()
-pile.appendleft(…) # ou append()
-pile.popleft()     #ou pop()
-if pile : #=> si la pile n’est pas vide
+pile.append(x)
+pile.pop()
+if pile:
+    pass
 ```
 
-**<H3 STYLE="COLOR:red;">Activité n° 19 : Parcours en profondeur en version itérative :**</H3>  
-Implémenter l'algorithme du parcours en profondeur.
 
-```python
-# Importer une pile
 
-def parcours_profondeur(G, s):
-    decouverts=[]
-    en_attente = Pile()
-    pass
+???+ question "🧠 **Activité n° 19 — DFS itératif**"
+    👉 Implémenter le parcours en profondeur **en version itérative**.
 
-print(parcours_profondeur({"A": ("B", "D", "E"), "B": ("A", "C"), "C": ("B", "D"),
+
+    ```python
+    from collections import deque
+
+    def parcours_profondeur(G, s):
+        decouverts = []
+        pile = deque()
+        pass
+    
+    print(parcours_profondeur({"A": ("B", "D", "E"), "B": ("A", "C"), "C": ("B", "D"),
                          "D": ("A", "C", "E"), "E": ("A", "D", "F", "G"),
                          "F": ("E", "G"), "G": ("E", "F", "H"),
                          "H": ("G")}, "A") )
-```
+    ```
 
-**<H3 STYLE="COLOR:red;">Activité n° 20 : Parcours en profondeur :**</H3>  
-Implémenter l'algorithme du parcours en largeur .
+    ??? success "✅ Solution — DFS itératif"
+        ```python
+        from collections import deque
 
-Voici le graphe :
+        def parcours_profondeur(G, s):
+            decouverts = [s]
+            pile = deque([s])
+            ordre = []
 
-![image](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.029.png){: .center}
+            while pile:
+                sommet = pile.pop()
+                ordre.append(sommet)
 
-```python
-graphe= {'A': ['B', 'C'], 'B': ['A', 'D', 'E'], 'C': ['A', 'D'], 'D': ['B', 'C', 'E'], 'E': ['B', 'D', 'F', 'G'], 'F': ['E', 'G'], 'G': ['E', 'F', 'H'], 'H': ['G']}
-```
+                for voisin in G[sommet]:
+                    if voisin not in decouverts:
+                        decouverts.append(voisin)
+                        pile.append(voisin)
 
-1. Donner le parcours en profondeur de g grâce à l'algorithme DFS, si le sommet de départ est B.  
-2. Deviner le parcours en largeur de départ D, puis de départ G.  
-3. Vérifier grâce à votre algorithme.
+            return ordre
+        ```
 
-**L’algorithme du DFS en version récursive :**
+        🔎 **Remarque importante** :  
+        L’ordre dépend de l’ordre des voisins dans le dictionnaire.
+
+
+
+
+???+ question "🧠 **Activité n° 20 — Analyse d’un DFS**"
+    👉 On considère le graphe suivant :
+
+
+    ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.029.png){: .center}
+
+    ```python
+    graphe = {
+        'A': ['B', 'C'],
+        'B': ['A', 'D', 'E'],
+        'C': ['A', 'D'],
+        'D': ['B', 'C', 'E'],
+        'E': ['B', 'D', 'F', 'G'],
+        'F': ['E', 'G'],
+        'G': ['E', 'F', 'H'],
+        'H': ['G']
+    }
+    ```
+
+    1. Donner le parcours DFS depuis **B**
+
+    2. Deviner le **parcours en profondeur (DFS)** depuis D, puis depuis G
+
+
+    3. Vérifier avec votre algorithme
+
+    ??? success "✅ Vérification"
+        ```python
+        parcours_profondeur(graphe, 'B')
+        parcours_profondeur(graphe, 'D')
+        parcours_profondeur(graphe, 'G')
+        ```
+
+
+
+
+##### 🧠 DFS — version récursive
 
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.037.png){: .center}
 
-**Remarque :** En récursif il y a un petit souci : le fait de relancer la fonction `parcours_profondeur_recur` n’efface pas réellement la liste précédente => elle apparaitra sur l’appel pour le graphe suivant… Donc **relancer la console avant chaque test !** ou passer une liste vide en paramètre.
+📌 **Remarque importante (Python)**
+Une liste utilisée comme paramètre par défaut est **partagée entre les appels**.
 
-**<H3 STYLE="COLOR:red;">Activité n° 21 : Parcours en profondeur en version récursive :**</H3>  
-Implémenter l'algorithme du parcours en profondeur.
+👉 Il faut donc **initialiser explicitement la liste des sommets découverts**.
 
-```python
-def parcours_profondeur_r (G, s,decouverts = [] ):
-    pass
 
-print(parcours_profondeur_r({"A": ("B", "D", "E"), "B": ("A", "C"), "C": ("B", "D"),
+???+ question "🧠 **Activité n° 21 — DFS récursif**"
+    👉 Implémenter le parcours en profondeur **en version récursive**.
+
+
+    ```python
+    def parcours_profondeur_r(G, s, decouverts=None):
+        pass
+
+
+    print(parcours_profondeur_r({"A": ("B", "D", "E"), "B": ("A", "C"), "C": ("B", "D"),
                      "D": ("A", "C", "E"), "E": ("A", "D", "F", "G"),
                      "F": ("E", "G"), "G": ("E", "F", "H"),
                      "H": ("G")}, "A") )
-```
+    ```
 
-On remarque que l’on n’obtient pas le même parcours en profondeur.
+    ??? success "✅ Solution — DFS récursif"
+        ```python
+        def parcours_profondeur_r(G, s, decouverts=None):
+            if decouverts is None:
+                decouverts = []
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063593"></a>**5.3. Application des parcours**</H3>  
-#### <H4 STYLE="COLOR:MAGENTA;"><a name="_toc161063594"></a>**5.3.1. Le BFS et le chemin le plus court (Dijkstra)**</H4>
+            decouverts.append(s)
+
+            for voisin in G[s]:
+                if voisin not in decouverts:
+                    parcours_profondeur_r(G, voisin, decouverts)
+
+            return decouverts
+        ```
+
+        🔎 **Remarque** :
+        Le parcours obtenu peut différer de la version itérative
+        selon l’ordre des voisins.
+
+
+
+
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063593"></a>**5.3. ❤️ Applications des parcours ❤️**</H3>
+
+
+
+#### <H4 STYLE="COLOR:MAGENTA;"><a name="_toc161063594"></a>**5.3.1. BFS et chemin le plus court — Dijkstra**</H4>
 
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.038.png){: .center}
 
-**Cf : Video [https://ladigitale.dev/digiview/#/v/66c675d32ad85](https://ladigitale.dev/digiview/#/v/66c675d32ad85)**
+📺 *Vidéo de référence* :
+[https://ladigitale.dev/digiview/#/v/66c675d32ad85](https://ladigitale.dev/digiview/#/v/66c675d32ad85)
 
-Cette implémentation utilise 
+📌 **Attention importante** :  
+- Le parcours en largeur (BFS) permet de trouver le plus court chemin
+  **uniquement dans un graphe non pondéré**.
+- Dans un graphe pondéré, on utilise un algorithme dédié :
+  **l’algorithme de Dijkstra**.
 
-- **un dictionnaire** `distance` pour stocker les distances des nœuds à partir de la source.
-- **tableau unvisited** pour stocker les nœuds qui n'ont pas encore été visités.
 
-À chaque itération, nous trouvons le nœud le plus proche de la source en utilisant la fonction **min()** et en utilisant la fonction de clé **key=lambda x: distances[x]**. Une fois que le nœud a été visité, nous l'enlevons du tableau **unvisited**.
+### 🧠 Principe de l’algorithme de Dijkstra
 
-Cette implémentation est simple, mais peut-être moins performante pour de grandes entrées en raison de la nécessité de trouver le nœud le plus proche à chaque itération en parcourant le tableau complet.
+L’algorithme utilise :
 
- **<H3 STYLE="COLOR:red;">Activité n° 22 :  Le chemin le plus court:**</H3>  Tester :
-```python
-def dijkstra(graph, start, end):
-    distances = {node: float('inf') for node in graph}
-    distances[start] = 0
-    unvisited = list(distances.keys()) # ou [key for key in graph.keys()]
-    while unvisited:
-        current_node = min(unvisited, key=lambda x: distances[x])
-        unvisited.remove(current_node)
-        for neighbor, weight in graph[current_node].items():
-            distance = distances[current_node] + weight
-            if distance < distances[neighbor]:
-                distances[neighbor] = distance
-    return distances[end]
+* un **dictionnaire `distances`** : distance minimale depuis la source
+* une liste **`unvisited`** : sommets non encore traités
 
-graph = {'A': {'B': 1, 'C': 4},'B': {'A': 1, 'C': 2, 'D': 5},'C': {'A': 4, 'B': 2, 'D': 1},'D': {'B': 5, 'C': 1},}
+À chaque étape :
 
-print(dijkstra(graph, 'A', 'D'))  # Output: 4
-```
+* on choisit le sommet non visité **le plus proche**
+* on met à jour les distances de ses voisins
 
-Explication :
 
-- **distances = {node: float('inf') for node in graph}** : ce bloc de code initialise un dictionnaire **distances** qui contiendra **les distances minimales depuis le noeud de départ pour chaque noeud dans le graphe.** Tous les éléments du dictionnaire sont initialisés à **float('inf')**, qui représente l'infini.
-- **distances[start] = 0** : ce bloc de code définit la distance du nœud de départ à lui-même à 0.
-- **unvisited = list(distances.keys())** : ce bloc de code crée un tableau **unvisited** qui contiendra les noeuds qui n'ont pas encore été visités.
-- **while unvisited:** : ce bloc de code définit une boucle qui s'exécutera tant qu'il reste des noeuds non visités.
-- **current_node = min(unvisited, key=lambda x: distances[x])** : ce bloc de code trouve **le noeud dans unvisited avec la distance minimale à partir du nœud de départ** et le définit comme le noeud actuel. Plus précisément, **lambda x: distances[x]** est une fonction qui prend un nœud x comme entrée et renvoie la distance de ce nœud à partir du nœud de départ (comme stocké dans le dictionnaire distances). 
-- **unvisited.remove(current_node)** : ce bloc de code **retire le nœud actuel** de la liste **unvisited** pour marquer qu'il a été visité.
-- **for neighbor, weight in graph[current_node].items():** : ce bloc de code définit une **boucle qui parcourt les voisins** du nœud actuel.
-- **distance = distances[current_node] + weight** : ce bloc de **code calcule la distance minimale pour le voisin** en ajoutant le poids de l'arc qui relie le nœud actuel au voisin.
-- **if distance < distances[neighbor]:** : ce bloc de code vérifie si la distance minimale pour le voisin est plus petite que la valeur actuelle dans le dictionnaire **distances**.
-- **distances[neighbor] = distance** : ce bloc de code met à jour la distance minimale pour le voisin dans le dictionnaire **distances** si elle est plus petite que la valeur actuelle.
-- **return distances[end]** : ce bloc de code retourne la distance minimale pour le noeud de destination depuis le nœud de départ.
 
-**Aide :**
+???+ question "🧠 **Activité n° 22 — Le chemin le plus court (Dijkstra)**"
+    👉 Tester l’algorithme suivant.
 
-La ligne 
 
-```python
-current_node = min(unvisited, key=lambda x: distances[x])
-```
+    ```python
+    def dijkstra(graph, start, end):
+        distances = {node: float('inf') for node in graph}
+        distances[start] = 0
+        unvisited = list(distances.keys())
 
-peut être remplacée par :
+        while unvisited:
+            current_node = min(unvisited, key=lambda x: distances[x])
+            unvisited.remove(current_node)
+
+            for neighbor, weight in graph[current_node].items():
+                distance = distances[current_node] + weight
+                if distance < distances[neighbor]:
+                    distances[neighbor] = distance
+
+        return distances[end]
+    ```
+
+    ```python
+    graph = {
+        'A': {'B': 1, 'C': 4},
+        'B': {'A': 1, 'C': 2, 'D': 5},
+        'C': {'A': 4, 'B': 2, 'D': 1},
+        'D': {'B': 5, 'C': 1}
+    }
+
+    print(dijkstra(graph, 'A', 'D'))
+    ```
+
+    ??? success "✅ Résultat attendu"
+        ```
+        4
+        ```
+
+
+
+
+##### 🔎 Décomposition de l’algorithme
+
+* initialisation des distances à l’infini
+* choix du sommet le plus proche avec `min`
+* mise à jour des distances
+* répétition jusqu’à traitement complet
+
+---
+
+##### 🔧 Variante sans `min`
 
 ```python
 min_distance = float('inf')
@@ -910,215 +1667,353 @@ for node in unvisited:
         current_node = node
 ```
 
-C’est moins efficace (complexité temporelle plus grande due à l’absence de la fonction `min` qui est plus efficace que notre code) mais il fait la même chose : Pour chaque sommet appelé `node` non visité, on garde le `node` qui a la distance minimale du départ.
+📌 Cette version est **moins efficace**, mais **plus explicite**.
 
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063595"></a>**5.3.2. Parcourir un labyrinthe**</H4>  
-**Considérons le problème suivant :**
+
+
+
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063595"></a>**5.3.2. ❤️ Parcourir un labyrinthe ❤️**</H4>
+
+##### 🧠 Problème posé
 
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.039.gif){: .center}
 
-Rechercher le chemin le plus long entre deux stations dans le métro. Indépendamment de l'aspect ludique, c'est en fait un problème difficile qu'on aurait bien du mal à résoudre de façon raisonnable sur un gros graphe comme celui du métro. Pour simplifier, nous allons donc considérer des labyrinthes.
+On cherche à **rechercher un chemin dans un graphe complexe**, par exemple :
 
-**Les labyrinthes**
+> le chemin le plus long entre deux stations de métro.
 
-Voici l'image d'un labyrinthe :
+Sur un graphe réel (comme un réseau de métro), ce problème est **très difficile à résoudre efficacement**.
+
+👉 Pour simplifier, nous allons travailler sur un **labyrinthe**, qui est une forme particulière de graphe.
+
+
+
+##### 🧩 Les labyrinthes comme graphes
+
+Voici un labyrinthe :
 
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.040.gif){: .center}
 
-Ce labyrinthe correspond au graphe suivant :
+Chaque **case** du labyrinthe correspond à un **sommet** du graphe.
+Les **arêtes** relient deux cases voisines **lorsque le passage est possible**.
 
-**Implémentation du labyrinthe**
+📌 **Règle importante** :
 
-Implémentons ce labyrinthe avec un graphe. Vous utiliserez l'implémentation de graphe fournie ci-dessous.
+* s’il y a un mur → **pas d’arête**
 
-Vous nommerez les sommets (1, 1) (1, 2) .. etc.
+* s’il n’y a pas de mur → **arête entre les deux sommets**
 
-Les arêtes relient les cases voisines quand le passage est possible. Si une paroi empêche de passer on ne met pas l'arête.
 
-Par exemple il n'y a pas d'arête entre les sommets (1, 1) et (1, 2) mais il y en a une entre (1, 1) et (2, 1).
 
-Dans THONNY : Ouvrir le fichier **TP_labyrinthe.py**
+##### 🧱 Implémentation du labyrinthe
 
-=> **CAPYTALE Le code vous sera donné par votre enseignant**
+On modélise le labyrinthe par un graphe :
 
-1. vérifier que l’implémentation est bonne
-2. vérifier la liste d’adjacence de 3,6
+* les sommets sont notés sous la forme `(ligne, colonne)`
+  ex. `(1,1)`, `(1,2)`, `(2,1)`…
 
-**Dessin de votre labyrinthe**
+* deux sommets sont voisins **si les cases sont adjacentes et sans mur**
 
-Pour voir le labyrinthe que vous avez créé, vous allez avoir besoin des fonctions ci-dessous.
+📌 **Exemple** :
 
-Vous n'avez pas besoin de les regarder, la seule chose dont vous avez besoin c'est de dessiner avec `show_Labyrinthe(cote, nli, ncol)` avec :
+* pas d’arête entre `(1,1)` et `(1,2)` (mur)
 
-- `cote` est un entier qui code la longueur des côtés des cases (mettez 40)
-- `nli` et `ncol` sont les nombres de lignes et colonnes de votre labyrinthe, donc ici 4 et 8
+* arête entre `(1,1)` et `(2,1)` (passage libre)
 
-**Promenade dans le labyrinthe**
 
-1. commencez par implémenter les deux parcours en largeur (BFS) et en profondeur (DFS), en partant de la case (1, 1).
+👉 **CAPYTALE** : le code est fourni par l’enseignant.
 
-**Parcours en largeur : BFS** compléter le code.
 
-**Parcours en profondeur DFS** compléter le code.
 
-2. On souhaite tracer les chemins, et non plus seulement les sommets visités.
+???+ question "🧠 **Activité n° 23 — Vérification de l’implémentation du labyrinthe**"
+    👉 Vérifier que le graphe du labyrinthe est correctement construit.
 
-Il va donc maintenant falloir garder en mémoire, pour chaque sommet, le parent associé (d'où l'on venait).
 
-Pour cela recopiez la fonction DFS faite précédemment et modifiez là comme suit :
+    📌 **Travail demandé** :
 
-1\. Avant la boucle créez une liste vide `chemin` et un dictionnaire vide `parent`.
-2\. Toujours avant la boucle, pour chaque sommet `s` dans `a_voir`, définir son parent égal à (1, 1) : `parent[s] = (1, 1)`
+    1. Vérifier que l’implémentation correspond bien au labyrinthe
 
-    - A chaque fois qu'on ajoute un sommet dans `a_voir`, il faut définir son parent dans le dictionnaire `parent`.
+    2. Donner la **liste d’adjacence du sommet (3, 6)**
+
+    ??? success "✅ Attendu"
+        - Les sommets correspondent bien aux cases du labyrinthe
+        - Les arêtes existent uniquement lorsque le passage est possible
+        - La liste d’adjacence de `(3,6)` ne contient que des cases accessibles
+
+
+
+
+##### 🎨 Dessin du labyrinthe
+
+Pour visualiser le labyrinthe, vous disposez de fonctions déjà écrites.
+
+👉 Vous **n’avez pas besoin de comprendre leur code**.
+
+📌 Utiliser simplement :
+
+```python
+show_Labyrinthe(cote, nli, ncol)
+```
+
+avec :
+
+* `cote = 40`
+* `nli = 4`
+* `ncol = 8`
+
+
+
+##### 🚶‍♂️ Promenade dans le labyrinthe
+
+On souhaite maintenant **explorer le labyrinthe** à partir de l’entrée `(1,1)`.
+
+
+???+ question "🧠 **Activité n° 24 — Parcours du labyrinthe**"
+    👉 Implémenter les deux parcours suivants :
+
+
+    1. **Parcours en largeur (BFS)** à partir de `(1,1)`
+
+    2. **Parcours en profondeur (DFS)** à partir de `(1,1)`
+
+    📌 **Objectif** :
+
+    - obtenir la liste des cases visitées
+
+    - comparer les comportements de BFS et DFS
+
+    ??? success "✅ Rappel"
+        - BFS explore d’abord les cases les plus proches
+        - DFS explore un chemin le plus loin possible avant de revenir en arrière
+
+
+
+
+##### 🧵 Tracer un chemin dans le labyrinthe
+
+Jusqu’à présent, nous avons uniquement mémorisé **les sommets visités**.
+
+👉 Pour **reconstruire un chemin**, il faut mémoriser **d’où l’on vient**.
+
+
+
+##### 🧠 Principe du dictionnaire `parent`
+
+On associe à chaque sommet **son parent**, c’est-à-dire :
+
+> le sommet depuis lequel il a été découvert.
+
+Cela permet ensuite de **reconstruire le chemin**.
+
+
+
+???+ question "🧠 **Activité n° 25 — Tracer le chemin (DFS)**"
+    👉 Modifier votre **parcours en profondeur** afin de mémoriser le chemin parcouru.
+
+
+    📌 **Consignes détaillées** :
+
+    1. Avant la boucle :
+    - créer une liste vide `chemin`
+    - créer un dictionnaire vide `parent`
+
+    2. Initialiser :
+    ```python
+    parent[(1,1)] = None
+    ```
+
+    3. À chaque ajout d’un sommet `s` dans `a_voir`(a_voir désigne ici la pile ou la file utilisée) :
+    ```python
+    parent[s] = sommet_courant
+    ```
+
+    4. À chaque sommet ajouté dans `vus` :
+    ```python
+    chemin.append((parent[sommet], sommet))
+    ```
+
+    ??? success "✅ Principe attendu"
+        - `parent` mémorise l’origine de chaque sommet
+        - `chemin` contient les arêtes du parcours
+        - le chemin peut être reconstruit en remontant les parents
+
+
+📌 Remarque : le chemin obtenu dépend de l’algorithme utilisé
+(DFS ne donne pas forcément le chemin le plus court).
+
+##### 🚪 Arrêt dès la sortie trouvée (optimisation)
+
+L’entrée du labyrinthe est `(1,1)`
+La sortie est `(4,8)`
+
+👉 Il est inutile de parcourir tout le labyrinthe une fois la sortie atteinte.
+
+
+
+???+ question "🧠 **Activité n° 26 — Arrêt anticipé**"
+    👉 Modifier votre boucle `while` pour **s’arrêter dès que la sortie est trouvée**.
+
     
-    - A chaque fois qu'on ajoute un sommet dans `vus` on doit ajouter dans chemin un tuple `(parent[sommet], sommet)`.
+    📌 **Consigne** :
 
-Compléter le code.
+    - ajouter une condition dans le `while`
 
-**Ouverture possible :** puisqu'on entre en (1, 1) et que la sortie est en (4, 8), autant s'arrêter dès qu'on a trouvé la sortie, modifier le code en ajoutant une condition dans le `while` pour éviter un `break`.
+    - ne pas utiliser `break`
+
+    ??? success "✅ Idée clé"
+        - la condition d’arrêt est intégrée dans le `while`
+        - le parcours s’arrête dès que `(4,8)` est découvert
+    
+
+
 
 Merci à Gilles Lassus, Cédric Gouyou, Jean-Louis Thirot, et Mireille Coilhac
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063596"></a>**6. Exercices**</H2>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063596"></a>**6.🔎 Exercices**</H2>
 
-**<H3 STYLE="COLOR:red;">Exercice n°1 : Implémentation avec matrice d’adjacence**</H3>
 
-=> **CAPYTALE Le code vous sera donné par votre enseignant**
+!!! info "🧠 **Capytale : Les codes seront fournis par votre enseignant.**" 
 
-**<H3 STYLE="COLOR:red;">Exercice n°2 : Implémentation POO**</H3>
 
-=> **CAPYTALE Le code vous sera donné par votre enseignant**
 
-**<H3 STYLE="COLOR:red;">Exercice n°3 : Parcours de graphe**</H3>
+!!! abstract "🧩 **Exercice n°1 : Implémentation avec matrice d’adjacence**"
 
-=> **CAPYTALE Le code vous sera donné par votre enseignant**
+!!! abstract "🧩 **Exercice n°2 : Implémentation POO**"
 
-**<H3 STYLE="COLOR:red;">Exercice n°4 : plus court chemin**</H3>
+!!! abstract "🧩 **Exercice n°3 : Parcours de graphe**"
 
-=> **CAPYTALE Le code vous sera donné par votre enseignant**
+!!! abstract "🧩 **Exercice n°4 : plus court chemin**"
 
-## <H2 STYLE="COLOR:BLUE;"> **7. Projet**</H2>  
-**<H3 STYLE="COLOR:red;">Exercice n°1 Utiliser Dijkstra pour :**</H3>
+!!! info "🧠 **Capytale : Les codes seront fournis par votre enseignant.**" 
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.050.png){: .center}
+## <H2 STYLE="COLOR:BLUE;"> **7. 🔎 Projet**</H2>  
 
-- **et les chemins qui mènent à Rome**
+!!! abstract "🧩 **Exercice n°1 : Utiliser Dijkstra pour :**"
 
-Tous les chemins mènent à Rome, mais pour un parmesan (un habitant de Parme !).
 
-**Appliquer le programme** précédent pour déterminer
+    ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.050.png){: .center}
 
-- Quel est le moins long ?
-- Le plus rapide ?
-- Le moins cher ?
+    - **et les chemins qui mènent à Rome**
 
-- **les chemins mènent aussi aux routeurs…**
+    Tous les chemins mènent à Rome, mais pour un parmesan (un habitant de Parme !).
 
-La distance entre différents routeurs est donnée dans le tableau suivant. Le symbole ∞ signifie que deux routeurs ne sont pas reliés.
+    **Appliquer le programme** précédent pour déterminer
 
-|**Routeur1**|**Routeur2**|**Routeur3**|**Routeur4**|**Routeur5**|**Routeur6**|
-|:-:|:-:|:-:|:-:|:-:|:-:|
-|∞|1km|10km|∞|∞|∞|
-|1km|∞|∞|22km|∞|∞|
-|10km|∞|∞|3km|1km|1km|
-|∞|22km|3km|∞|4km|∞|
-|∞|1km|4km|∞|1km||
-|∞|∞|1km|∞|1km|∞|
+    - Quel est le moins long ?
+    - Le plus rapide ?
+    - Le moins cher ?
 
-Un réseau peut se représenter à l’aide d’un graphe. Chaque nœud (sommet) est un routeur. Chaque lien (arête) est le support qui véhicule l’information que l’on pondère avec la distance à parcourir. Ainsi, le poids du lien entre les routeur 3 et 5 est de 1 km. C’est un graphe pondéré.
+    - **les chemins mènent aussi aux routeurs…**
 
-![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.051.png){: .center}
+    La distance entre différents routeurs est donnée dans le tableau suivant. Le symbole ∞ signifie que deux routeurs ne sont pas reliés.
 
-*figure* 
+    |**Routeur1**|**Routeur2**|**Routeur3**|**Routeur4**|**Routeur5**|**Routeur6**|
+    |:-:|:-:|:-:|:-:|:-:|:-:|
+    |∞|1km|10km|∞|∞|∞|
+    |1km|∞|∞|22km|∞|∞|
+    |10km|∞|∞|3km|1km|1km|
+    |∞|22km|3km|∞|4km|∞|
+    |∞|1km|4km|∞|1km||
+    |∞|∞|1km|∞|1km|∞|
 
-1. Compléter à la main la figure , en donnant la distance à la source et le prédécesseur sur chaque sommet (on considère que la source est le Routeur 1 et la destination le Routeur 6).
-2. Modifier votre programme en donnant le graphe descriptif correspondant à la figure 2.
+    Un réseau peut se représenter à l’aide d’un graphe. Chaque nœud (sommet) est un routeur. Chaque lien (arête) est le support qui véhicule l’information que l’on pondère avec la distance à parcourir. Ainsi, le poids du lien entre les routeur 3 et 5 est de 1 km. C’est un graphe pondéré.
 
-NB : on donnera comme étiquette au sommet R1 pour Routeur1, R2 pour Routeur2, etc...
+    ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.051.png){: .center}
 
-3. Vérifier que
+    *figure* 
 
- le programme donne le résultat attendu.
-4. Donner comme source R2 et non plus R1. Relancer le programme et conclure.
+    1. Compléter à la main la figure , en donnant la distance à la source et le prédécesseur sur chaque sommet (on considère que la source est le Routeur 1 et la destination le Routeur 6).
+    2. Modifier votre programme en donnant le graphe descriptif correspondant à la figure 2.
 
-**<H3 STYLE="COLOR:red;">Exercice n° 02 : projet ouvert Dijkstra**</H3>
+    NB : on donnera comme étiquette au sommet R1 pour Routeur1, R2 pour Routeur2, etc...
 
-Coder l’algorithme de Dijkstra pour déterminer le plus court chemin entre deux villes sur le graphe du réseau routier (en km ou en temps au choix).
+    3. Vérifier que
 
-**<H3 STYLE="COLOR:red;">Exercice n° 03 : projet ouvert Coloriage d’un parcours**</H3>
+    le programme donne le résultat attendu.
+    4. Donner comme source R2 et non plus R1. Relancer le programme et conclure.
 
-Reprendre les parcours de graphe mais à chaque étape du parcours, plutôt que d’afficher juste le sommet courant, afficher le graphe complet en coloriant les sommets au fur et à mesure du parcours.
+!!! abstract "🧩 **Exercice n°2 : projet ouvert Dijkstra:**"
 
-On pourra colorier dans deux couleurs différentes les sommets découverts et les sommets visités.
 
-Plutôt que d’afficher le graphe à chaque étape, on peut enregistrer les différentes étapes sur disque puis créer un gif.
 
-**<H3 STYLE="COLOR:red;">Exercice n°04 : projet ouvert Simulation d’un réseau de routeurs suivant le protocole RIP**</H3>
+    Coder l’algorithme de Dijkstra pour déterminer le plus court chemin entre deux villes sur le graphe du réseau routier (en km ou en temps au choix).
 
-On créera des classes `TableRoutage`, `Routeur` et `Reseau`.
+!!! abstract "🧩 **Exercice n°3 : projet ouvert Coloriage d’un parcours**"
 
-La classe `TableRoutage` contient notamment les méthodes :
 
-- `__init__(self, ip_list)`: à l’initialisation, la table de routage contient uniquement les adresses IP du routeur (une par réseau auquel il est connecté).
-- `envoyer(self)`: renvoie la liste des lignes de la table ne correspondant pas aux adresses locales.
-- `recevoir(self, iphote, ipdest, table_etrangere)`: permet de recevoir la table d’un autre routeur, d’adresse ipdest accessible via l’interface iphote.
+    Reprendre les parcours de graphe mais à chaque étape du parcours, plutôt que d’afficher juste le sommet courant, afficher le graphe complet en coloriant les sommets au fur et à mesure du parcours.
 
-La classe `Routeur` possède les attributs `nom`, `ip_list`, `table_routage` et `voisins`, liste dans laquelle sont enregistrés les routeurs voisins, avec leur adresse ip et l’interface permettant de les joindre. 
+    On pourra colorier dans deux couleurs différentes les sommets découverts et les sommets visités.
 
-Elle dispose notamment des méthodes suivantes :
+    Plutôt que d’afficher le graphe à chaque étape, on peut enregistrer les différentes étapes sur disque puis créer un gif.
 
-- `get_table(self)`: renvoie la table de routage.
-- `ajouter_voisin(self, r2, …)`: ajoute un routeur voisin à la liste de voisins.
-- `recevoir_table_routage(self, iphote, ipdest, table)`: reçoit la table du retour d’ip ipdest accessible via l’interface iphost et lance la mise à jour de la table de routage.
-- `envoyer_table_routage(self)`.
+!!! abstract "🧩 **Exercice n°4 : projet ouvert Simulation d’un réseau de routeurs suivant le protocole RIP**"
 
-La classe `Reseau` représente le graphe des routeurs. Elle est initialisée avec une liste des routeurs. À l’initialisation, elle compare les adresses IP des routeurs pour voir lesquels sont sur le même réseau et crée les arêtes entre ces routeurs. Pour simplifier, on pourra supposer que tous les réseaux ont un masque de 255.255.255.0.
 
-Elle contient quatre méthodes :
+    On créera des classes `TableRoutage`, `Routeur` et `Reseau`.
 
-- `__init__(self, routeurs)`
-- `creation_aretes(self)`: méthode appelée à l’initialisation pour créer les arêtes du graphe entre routeurs voisins, mettre à jour la liste des voisins de chaque routeurs, et rajouter les destinations vers ces voisins dans les tables de routage.
-- `rip(self)`: lorsqu’on appelle cette méthode, les routeurs s’échangent les tables de routage jusqu’à ce que celles-ci n’évoluent plus.
-- `montrer(self)`: permet d’afficher le graphe des routeurs avec les adresses réseaux écrites sur les arêtes à l’aide de graphviz par exemple.
+    La classe `TableRoutage` contient notamment les méthodes :
 
-**<H3 STYLE="COLOR:red;">Exercice n°05 : projet ouvert Labyrinthe**</H3>
+    - `__init__(self, ip_list)`: à l’initialisation, la table de routage contient uniquement les adresses IP du routeur (une par réseau auquel il est connecté).
+    - `envoyer(self)`: renvoie la liste des lignes de la table ne correspondant pas aux adresses locales.
+    - `recevoir(self, iphote, ipdest, table_etrangere)`: permet de recevoir la table d’un autre routeur, d’adresse ipdest accessible via l’interface iphote.
 
-On considère un labyrinthe défini comme une grille de cellules. Chaque cellule possède un mur droit et un mur bas, et chaque mur peut être ouvert, ce qui revient à dire qu’il n’y a un passage, ou pas de mur, ou fermé. Le passage entre deux cellules adjacentes est possible :
+    La classe `Routeur` possède les attributs `nom`, `ip_list`, `table_routage` et `voisins`, liste dans laquelle sont enregistrés les routeurs voisins, avec leur adresse ip et l’interface permettant de les joindre. 
 
-- horizontalement si la cellule de gauche à un mur droit ouvert.
-- verticalement si la cellule du haut à un mur bas ouvert.
+    Elle dispose notamment des méthodes suivantes :
 
-Le labyrinthe est encadré de murs (pas de passage vers le haut sur la première ligne…).
+    - `get_table(self)`: renvoie la table de routage.
+    - `ajouter_voisin(self, r2, …)`: ajoute un routeur voisin à la liste de voisins.
+    - `recevoir_table_routage(self, iphote, ipdest, table)`: reçoit la table du retour d’ip ipdest accessible via l’interface iphost et lance la mise à jour de la table de routage.
+    - `envoyer_table_routage(self)`.
 
-Le labyrinthe est créé avec tous les murs « fermés » (aucun passage entre les cellules), puis une méthode *generation* permet d’ouvrir des murs afin qu’il existe toujours un chemin entre deux cellules du labyrinthe. L’algorithme utilisé est décrit ici :
+    La classe `Reseau` représente le graphe des routeurs. Elle est initialisée avec une liste des routeurs. À l’initialisation, elle compare les adresses IP des routeurs pour voir lesquels sont sur le même réseau et crée les arêtes entre ces routeurs. Pour simplifier, on pourra supposer que tous les réseaux ont un masque de 255.255.255.0.
 
-[](https://fr.wikipedia.org/wiki/Mod%C3%A9lisation_math%C3%A9matique_de_labyrinthe)
+    Elle contient quatre méthodes :
 
-```python
-class Cellule:
-    def __init__(self):
-        self.mur_bas = True       	# True signifie que le mur est fermé
-        self.mur_droit = True    	# False signifie que le mur est ouvert
+    - `__init__(self, routeurs)`
+    - `creation_aretes(self)`: méthode appelée à l’initialisation pour créer les arêtes du graphe entre routeurs voisins, mettre à jour la liste des voisins de chaque routeurs, et rajouter les destinations vers ces voisins dans les tables de routage.
+    - `rip(self)`: lorsqu’on appelle cette méthode, les routeurs s’échangent les tables de routage jusqu’à ce que celles-ci n’évoluent plus.
+    - `montrer(self)`: permet d’afficher le graphe des routeurs avec les adresses réseaux écrites sur les arêtes à l’aide de graphviz par exemple.
 
-class Labyrinthe:
-    def __init__(self, largeur, hauteur):
-        self.hauteur = hauteur
-        self.largeur = largeur
-        self.grille = [[Cellule() for j in range(largeur)] for i in range(hauteur)]
-        self.generation()
+!!! abstract "🧩 **Exercice n°5 : projet ouvert Labyrinthe**"
 
-    def solution(self, depart_ligne, depart_colonne, arrivee_ligne, arrivee_colonne):
-        """
-        Renvoie la liste de directions à suivre pour se rendre de la cellule
-        (depart_ligne, depart_colonne) à la cellule (arrivee_ligne, arrivee_colonne).
-        Exemple de retour : ['n', 'e', 'e', 's', 'o']
-        """
-```
 
-**Travail à faire**
+    On considère un labyrinthe défini comme une grille de cellules. Chaque cellule possède un mur droit et un mur bas, et chaque mur peut être ouvert, ce qui revient à dire qu’il n’y a un passage, ou pas de mur, ou fermé. Le passage entre deux cellules adjacentes est possible :
 
-Écrire la méthode solution renvoyant un chemin permettant de se rendre d’une cellule de départ à une cellule d’arrivée.
+    - horizontalement si la cellule de gauche à un mur droit ouvert.
+    - verticalement si la cellule du haut à un mur bas ouvert.
 
-Dans Thonny : Vous testerez votre code dans le fichier `labyrinthe.py`.
+    Le labyrinthe est encadré de murs (pas de passage vers le haut sur la première ligne…).
+
+    Le labyrinthe est créé avec tous les murs « fermés » (aucun passage entre les cellules), puis une méthode *generation* permet d’ouvrir des murs afin qu’il existe toujours un chemin entre deux cellules du labyrinthe. L’algorithme utilisé est décrit ici :
+
+    [](https://fr.wikipedia.org/wiki/Mod%C3%A9lisation_math%C3%A9matique_de_labyrinthe)
+
+    ```python
+    class Cellule:
+        def __init__(self):
+            self.mur_bas = True       	# True signifie que le mur est fermé
+            self.mur_droit = True    	# False signifie que le mur est ouvert
+
+    class Labyrinthe:
+        def __init__(self, largeur, hauteur):
+            self.hauteur = hauteur
+            self.largeur = largeur
+            self.grille = [[Cellule() for j in range(largeur)] for i in range(hauteur)]
+            self.generation()
+
+        def solution(self, depart_ligne, depart_colonne, arrivee_ligne, arrivee_colonne):
+            """
+            Renvoie la liste de directions à suivre pour se rendre de la cellule
+            (depart_ligne, depart_colonne) à la cellule (arrivee_ligne, arrivee_colonne).
+            Exemple de retour : ['n', 'e', 'e', 's', 'o']
+            """
+    ```
+
+    **Travail à faire**
+
+    Écrire la méthode solution renvoyant un chemin permettant de se rendre d’une cellule de départ à une cellule d’arrivée.
+
+    
 
