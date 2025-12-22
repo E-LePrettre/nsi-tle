@@ -319,7 +319,7 @@ On maintient une file des prêts (ready queue).
     | **Durée**                         |  3  |  2  |  4  |  3  |
     | **Date d’arrivée**                |  0  |  2  |  1  |  3  |
     | **Temps d’attente**               |     |     |     |     |
-    | **Temps d’exécution *(séjour)* ** |     |     |     |     |
+    | **Temps d’exécution *(séjour)*** |     |     |     |     |
 
     🔁 **Rappel Round Robin :**
 
