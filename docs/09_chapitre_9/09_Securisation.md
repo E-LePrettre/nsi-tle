@@ -1,4 +1,4 @@
-﻿---
+---
 author: ELP
 title: 09 Sécurisation des communications
 ---
@@ -22,19 +22,31 @@ title: 09 Sécurisation des communications
 
 ---
 
-## <H2 STYLE="COLOR:BLUE;">**1. 🌐 Rappels**<a name="_toc174920494"></a></H2>
+
+## <H2 STYLE="COLOR:BLUE;">**1. 🌐 Rappels : que se passe-t-il quand on tape une URL ?**<a name="_toc174920494"></a></H2>
 
 ![TCP Handshake](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.001.png){: .center}
 
-📌 Exemple : Navigation vers **http://gs-cassaigne.fr/**
+📌 Exemple : navigation vers **http://gs-cassaigne.fr/**
 
-✅ Le navigateur **analyse l’URL** et isole :
-- le **protocole** : HTTP
-- le **nom de domaine** : gs-cassaigne.fr
-- le **chemin** : `/` (la racine du site)
+---
 
-✅ Le navigateur **résout le nom de domaine** → **adresse IP du serveur**  
-ex. `213.186.33.16`  
+### ✅ Étape 1 — Le navigateur analyse l’URL
+Le navigateur découpe l’URL en 3 parties :
+
+- **protocole** : `http` (ou `https`)
+- **nom de domaine** : `gs-cassaigne.fr`
+- **chemin** : `/` (la racine du site)
+
+> 📌 Le chemin désigne la ressource demandée : `/index.html`, `/images/logo.png`, etc.
+
+---
+
+### ✅ Étape 2 — Résolution DNS : du nom de domaine vers une adresse IP
+Pour envoyer des données sur Internet, il faut une **adresse IP**.
+
+Le navigateur (via le système) interroge le **DNS** pour obtenir l’IP correspondant au nom de domaine.
+
 ➡️ Commandes adaptées :
 ```bash
 nslookup gs-cassaigne.fr
@@ -46,70 +58,105 @@ ou
 ping gs-cassaigne.fr
 ```
 
-✅ Une **connexion TCP** est établie vers cette IP sur le **port 80**
-→ via un **handshake en 3 étapes**
+> ⚠️ Remarque : l’adresse IP peut varier (plusieurs serveurs, répartition de charge, CDN…).
 
-✅ Puis l’échange des données se fait en **HTTP**, encapsulé :
+---
+
+### ✅ Étape 3 — Connexion : TCP et le « 3-way handshake »
+
+Une fois l’IP obtenue, le navigateur établit une connexion vers le serveur :
+
+* **HTTP** → **port 80**
+* **HTTPS** → **port 443**
+
+Pour TCP, la connexion commence par un **handshake en 3 étapes** :
+
+1. Client → Serveur : **SYN**
+2. Serveur → Client : **SYN-ACK**
+3. Client → Serveur : **ACK**
+
+➡️ Une fois ce handshake réalisé, la connexion TCP est ouverte (communication fiable).
+
+---
+
+### ✅ Étape 4 — Échange de données : HTTP au-dessus de TCP/IP
+
+Une fois la connexion établie, le navigateur envoie une requête HTTP (ex. « donne-moi `/` »).
+Le serveur répond avec :
+
+* du **HTML**
+* puis souvent d’autres ressources : **CSS, JavaScript, images, polices**, etc.
+
+📦 Tout cela est encapsulé en couches :
 
 ![Encapsulation](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.002.png){: .center}
 
----
-
-🧠 **Rappel du modèle TCP/IP :**
-
-| Couche           | Rôle                          | Exemples                                      |
-| ---------------- | ----------------------------- | --------------------------------------------- |
-| **Accès réseau** | Envoi sur le support physique | Ethernet, Wi-Fi 802.11n                       |
-| **Internet**     | Routage des paquets           | IP                                            |
-| **Transport**    | Suivi, intégrité, flux        | TCP (fiable), UDP (rapide mais sans garantie) |
-| **Application**  | Services aux utilisateurs     | HTTP, DNS, IMAP…                              |
+* HTTP = contenu applicatif (page web)
+* TCP = transport fiable (segments, accusés de réception)
+* IP = routage (trajet réseau)
+* Ethernet/Wi-Fi = transport sur le réseau local (trames)
 
 ---
 
-😬 Problème fondamental
+### 🧠 Rappel du modèle TCP/IP
 
-À chaque routeur, les données peuvent être **inspectées** 👀
+| Couche           | Rôle                          | Exemples                                       |
+| ---------------- | ----------------------------- | ---------------------------------------------- |
+| **Accès réseau** | Envoi sur le support physique | Ethernet, Wi-Fi (802.11…)                      |
+| **Internet**     | Routage des paquets           | IP                                             |
+| **Transport**    | Fiabilité, flux, ports        | TCP (fiable), UDP (rapide, moins de garanties) |
+| **Application**  | Services aux utilisateurs     | HTTP(S), DNS, IMAP, SMTP…                      |
+
+---
+
+## 😬 Problème : Internet n’est pas “privé”
+
+Les paquets IP passent de routeur en routeur jusqu’à destination.
 
 ![Routage](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.003.png){: .center}
 
-➡️ Si on transmet des **infos bancaires, médicales, privées**,
-ce n’est **pas acceptable** !
+👉 Sur le trajet, des intermédiaires peuvent voir au minimum :
+
+* les **adresses IP** source/destination
+* les **ports** utilisés
+* et si la communication n’est pas chiffrée (HTTP), le **contenu** peut être lu
+
+➡️ Si on transmet des **infos bancaires, médicales, identifiants, données privées**, ce n’est **pas acceptable**.
 
 ---
 
-🎯 **Objectifs de la sécurisation des communications**
+## 🎯 Objectifs de la sécurisation des communications
 
-| Sécurité               | Question                                                                     |
-| ---------------------- | ---------------------------------------------------------------------------- |
-| 🔒 **Confidentialité** | Le message est-il **lisible uniquement** par l’émetteur et le destinataire ? |
-| ✅ **Authenticité**     | Est-ce bien **le bon serveur** ?                                             |
-| 🧱 **Intégrité**       | Le message a-t-il été **modifié** ?                                          |
+Avant d’aborder le chiffrement, on retient que sécuriser une communication vise à garantir :
 
-➡️ avec les **protocoles TCP/IP existants**
+| Sécurité               | Question                                                                 |
+| ---------------------- | ------------------------------------------------------------------------ |
+| 🔒 **Confidentialité** | Le message est-il lisible uniquement par l’émetteur et le destinataire ? |
+| ✅ **Authenticité**     | Est-ce bien le serveur (ou l’interlocuteur) attendu ?                    |
+| 🧱 **Intégrité**       | Le message a-t-il été modifié pendant le transport ?                     |
 
 ---
 
 ## <H2 STYLE="COLOR:BLUE;">**2. 🧩 Vocabulaire**<a name="_toc174920495"></a></H2>
 
-* **Coder** : représenter des informations avec des symboles.
+* **Coder** : représenter une information avec des symboles selon des règles.
 * **Décoder** : interpréter ces symboles pour retrouver l’information.
 
-> ✅ Sans notion de secret → pas de sécurité associée
+> ✅ Sans notion de secret : ce n’est pas une technique de sécurité.
 
-* **Cryptographie** : discipline qui protège les messages
-  (confidentialité, authenticité, intégrité)
-  grâce à des **clés de chiffrement** 🔑
+* **Cryptographie** : discipline qui protège les messages (confidentialité, authenticité, intégrité).
 
-* **Cryptanalyse** : retrouver un message **sans** la clé (🚨 **attaque**)
+* **Cryptanalyse** : retrouver un message **sans** information secrète (c’est une **attaque**).
 
-* **Chiffrer** : rendre le message **illisible**
+* **Chiffrer** : rendre le message **illisible** à un observateur non autorisé.
 
-* **Déchiffrer** : retrouver l’original **avec** la clé
+* **Déchiffrer** : retrouver le message original (dans un cadre légitime).
 
-* **Décrypter** : retrouver l’original **sans** la clé ❌
+* **Décrypter** : retrouver le message original **sans** disposer des éléments nécessaires (sens “attaque”).
 
-> 💡 La cryptographie existe **depuis l’Antiquité**
-> (ex : chiffre de César)
+> 💡 La cryptographie existe depuis l’Antiquité (ex : chiffre de César).
+
+
 
 ---
 
