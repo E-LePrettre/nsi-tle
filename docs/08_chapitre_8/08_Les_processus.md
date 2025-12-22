@@ -179,9 +179,11 @@ C’est l’**ordonnanceur** (*scheduler*) qui décide quel processus passe à q
 
         - Notation : `Tfin(P)`.
         
-        - Exemple de calcul (générique) :
         
-         * Si P commence à t = 3, s’exécute 2 unités, puis reprend à t = 8 pour 1 unité, alors `Tfin(P) = 9`.
+        |                      | P1 | P2      | P3             | P4           | P5        |
+        |----------------------|----|---------|----------------|--------------|-----------|
+        | Temps de terminaison | 3  | 3+6 = 9 | 3+6+1+2+4 = 16 | 3+6+1+2 = 12 | 3+6+1 = 10 |
+
   
 
 
