@@ -203,9 +203,10 @@ C’est l’**ordonnanceur** (*scheduler*) qui décide quel processus passe à q
 
         - Interprétation : durée totale passée dans le système (file d’attente + processeur).
 
-        - Exemple :
+        |                   | P1     | P2     | P3       | P4     | P5      |
+        |-------------------|--------|--------|----------|--------|---------|
+        | Temps d'exécution | 3-0 = 3 | 9-1 = 8 | 16-4 = 12 | 12-6 = 6 | 10-7 = 3 |
 
-           * Si `Tarr(P)=1` et `Tfin(P)=9`, alors `T_séjour(P)=8`.
 
 
 ---
@@ -226,11 +227,10 @@ C’est l’**ordonnanceur** (*scheduler*) qui décide quel processus passe à q
 
            2) `T_attente(P) = T_séjour(P) - Durée(P)`
 
-        - Exemple : Si `Durée(P)=3`, `Tarr(P)=2`, `Tfin(P)=10`
+        |                | P1     | P2     | P3        | P4     | P5     |
+    |----------------|--------|--------|-----------|--------|--------|
+    | Temps d'attente | 3-3 = 0 | 8-6 = 2 | 12-4 = 8 | 6-2 = 4 | 3-1 = 2 |
 
-           → `T_séjour=8`
-
-           → `T_attente=8-3=5`.
 
 
 
@@ -332,15 +332,15 @@ On maintient une file des prêts (ready queue).
         
         P1 @ 0 (3)      P3 @ 1 (4)      P2 @ 2 (2)      P4 @ 3 (3)
 
-        À t = 0 Arrive : P1
+        **À t = 0** Arrive : P1
 
-        ➡️ File à t=0 : [P1, P1, P1]
+        ➡️ **File à t=0 : [P1, P1, P1]**
 
         À t=1, P3 arrive → il va en fin de file (mais P1 continue, on ne préempte pas au milieu du quantum)
         
-        ➡️ File à t=1 : [P1, P1, P3, P3, P3, P3]
+        ➡️ **File à t=1 : [P1, P1, P3, P3, P3, P3]**
 
-        À t=2, fin de tranche de P1 :
+        **À t=2**, fin de tranche de P1 :
         
         - P2 arrive juste à ce moment là File : [P1, P1, P3, P3, P3, P3, P2, P2]
         
@@ -352,31 +352,31 @@ On maintient une file des prêts (ready queue).
         
         - Puis P1 qui revient en fin (car pas fini)
         
-        ➡️ File à t=2 : [P3, P3, P3, P3, P2, P2, P1]
+        ➡️ **File à t=2 : [P3, P3, P3, P3, P2, P2, P1]**
         
-        À t =3, P4 arrive → il est ajouté en fin de file (P3 continue jusqu’à t=4) juste à ce moment là File : [P3, P3, P3, P3, P2, P2, P1, P4, P4, P4]
+        **À t =3**, P4 arrive → il est ajouté en fin de file (P3 continue jusqu’à t=4) juste à ce moment là File : [P3, P3, P3, P3, P2, P2, P1, P4, P4, P4]
         
         P3 n’est pas fini → il retourne en fin de file
         
         Puis P3 revient en fin
         
-        ➡️ File à t=4 : [P2, P2, P1, P4, P4, P4, P3, P3]
+        ➡️ **File à t=4 : [P2, P2, P1, P4, P4, P4, P3, P3]**
        
-        À t = 4
+        **À t = 4**
         
         P2 avait 2, il reste 0 → P2 termine à t=6
         
-        ➡️ File à t=6 : [P1, P4, P4, P4, P3, P3]
+        ➡️ **File à t=6 : [P1, P4, P4, P4, P3, P3]**
         
-        À t = 6
+        **À t = 6**
         
         CPU prend le premier : P1.
         
         Attention : P1 a reste = 1, donc il ne prendra pas tout le quantum, il prend 1 unité seulement. P1 termine à t=7
         
-        ➡️ File à t=7 : [P4, P4, P4, P3, P3]
+        ➡️ **File à t=7 : [P4, P4, P4, P3, P3]**
        
-        À t = 7
+        **À t = 7**
         
         CPU prend P4 de t=7 à t=9 (quantum 2)
         
@@ -386,9 +386,9 @@ On maintient une file des prêts (ready queue).
         
         P4 revient en fin
         
-        ➡️ File à t=9 : [P3, P3, P4]
+        ➡️ **File à t=9 : [P3, P3, P4]**
        
-        À t = 9
+        **À t = 9**
         
         CPU prend P3 (reste 2) de t=9 à t=11
         
@@ -396,7 +396,7 @@ On maintient une file des prêts (ready queue).
         
         P3 termine à t=11
         
-        ➡️ File à t=11 : [P4]
+        ➡️ **File à t=11 : [P4]**
        
         À t = 11
         

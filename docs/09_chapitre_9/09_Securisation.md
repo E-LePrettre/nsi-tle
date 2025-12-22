@@ -358,47 +358,33 @@ Même opération XOR ✅
 
     ??? success "✅ Solution complète (Python)"
         ```python
-        # version simple 
-        # Fonction XOR bit par bit sur deux caractères
-        def xor_char(c1, c2):
-            # Conversion en codes ASCII
-            b1 = ord(c1)
-            b2 = ord(c2)
-
-            # XOR bit par bit (avec opérateur ^)
-            xr = b1 ^ b2
-
-            # Conversion inverse vers caractère
-            return chr(xr)
-
+        def xor(caractere_message, caractere_masque):
+            return ord(caractere_message) ^ ord(caractere_masque)
 
         def chiffre(message, masque):
             resultat = ""
-
-            # Répéter la clé
-            masque_long = (masque * ((len(message) // len(masque)) + 1))[:len(message)]
-
-            # XOR caractère par caractère
-            for c1, c2 in zip(message, masque_long):
-                resultat += xor_char(c1, c2)
-
+            taille_masque = len(masque)
+            
+            for i in range(len(message)):
+                caractere_message = message[i]
+                caractere_masque = masque[i % taille_masque]  
+                
+                caractere_code = xor(caractere_message, caractere_masque)
+                
+                resultat += chr(caractere_code)
+                
             return resultat
 
+        masque = "Vive la NSI !!"
+        message_clair = "Je suis en spécialité NSI et j’adore"
 
-        # Données
-        message = "Je suis en spécialité NSI et j’adore"
-        cle = "Vive la NSI !!"
 
-        # Chiffrement
-        chiffre_msg = chiffre(message, cle)
-        print("🔐 Chiffré :", chiffre_msg)
+        print("Message chiffré :", chiffre(message_clair, masque))
 
-        # Déchiffrement → appliquer XOR une 2e fois
-        dechiffre_msg = chiffre(chiffre_msg, cle)
-        print("🔓 Déchiffré :", dechiffre_msg)
+        message_chiffre = chiffre(message_clair, masque)
+        print("Message déchiffré :", chiffre(message_chiffre, masque))
 
-        # Vérification du principe involutif
-        assert dechiffre_msg == message
+
 
         #########################################
         # pour aller plus loin : XOR sur octets UTF-8
