@@ -553,34 +553,66 @@ En 1976, **Diffie & Hellman** proposent un **échange de clé** : Alice et Bob c
 
 ---
 
-🧪 **Construction RSA** (exemple pédagogique)
+🧪 **Construction RSA** 
 
-**Étape 1.** Choisir **deux nombres premiers** `p` et `q`.
+**Étape 1.** Alice choisit  **deux nombres premiers** `p` et `q`.
 Ici : `p = 3`, `q = 11`.
+
+Dans la réalité ces nombres seront vraiment très grands (plus de 100 chiffres).
 
 **Étape 2.** Calculer `n = p × q = 33`.
 La sécurité vient de la **factorisation difficile** de `n`.
 
+Alice multiplie ces deux nombres p et q et obtient ainsi un nombre n appelé module de déchiffrement..
+
+😊 Il est très facile pour Alice de calculer n en connaissant p et q.
+
+😢 Il est extrêmement difficile pour Eve de faire le travail inverse : trouver p et q en connaissant n prend un temps exponentiel avec la taille de n.
+
+C'est sur cette difficulté (appelée difficulté de factorisation) que repose la robustesse du système RSA. (Cf. vidéo « chiffrement RSA »)
+
+
 **Étape 3.** Clé publique
 
 * ϕ(n) = (p − 1)(q − 1) = **20** (indicatrice d’Euler).
-* Choisir `e` **premier avec** ϕ(n) → ex. **e = 3** (7, 9, 13 marchent aussi car **pgcd(e,20)=1**).
+
+* Alice choisit un nombre e appelé exposant de chiffrement, qui doit être premier avec  𝝓(n) c'est-à-dire pgcd(e,𝝓(n))=1.
+
+  Dans notre exemple, (p −1)(q −1)=20, Alice choisit donc e =3. (mais elle aurait pu aussi choisir 7, 9, 13...).
+
+  Le couple (e,n) sera la clé publique d'Alice. Elle la diffuse à qui veut lui écrire.
+
 * **Clé publique** = `(e, n)` = **(3, 33)**.
 
 **Étape 4.** Clé privée
 
-* Trouver `d` tel que `e × d ≡ 1 [ϕ(n)]`.
+* Alice calcule maintenant sa clé privée : elle doit trouver un nombre d qui vérifie l'égalité  `e × d ≡ 1 [ϕ(n)]`.
 * Ici, `3 × 7 ≡ 1 [20]` → **d = 7**.
 * **Clé privée** = `(d, n)` = **(7, 33)**.
 
+En pratique, il existe un algorithme simple ([algorithme d'Euclide étendu](https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide_%C3%A9tendu)) pour trouver cette valeur d, appelée inverse de e.
+
+
 **Étape 5.** Bob chiffre pour Alice (avec **clé publique d’Alice**)
 
-* Message `M = 4` → `C = M^e mod n = 4^3 mod 33 = 31`.
+* Message `M = 4` 
+* clé publique d'Alice : (3,33)
+→ `C =` $M^e$ `mod n soit` $4^3$ `mod 33 = 31`.
+
+Cela se note $4^3$≡31[33]
+
 * Il envoie **31**.
+
+Si Eve intercepte cette valeur 31, même en connaissant la clé publique d'Alice (3,33), elle ne peut pas résoudre l'équation 
+$x^3$≡31[33] de manière efficace.
 
 **Étape 6.** Alice déchiffre (avec **clé privée**)
 
-* `M = C^d mod n = 31^7 mod 33 = 4` ✅
+Clé privée = (d, n) = (7, 33).
+
+* `M =` $C^d$ `mod n` 
+
+soit $31^7$ `mod 33 = 4` ✅
 
 ![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.024.png){: .center}
 
