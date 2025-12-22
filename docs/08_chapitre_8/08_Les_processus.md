@@ -143,7 +143,7 @@ C’est l’**ordonnanceur** (*scheduler*) qui décide quel processus passe à q
 
 4️⃣ L’algorithme choit le plus court (P5), puis P4, puis P3.
 
-![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.007.png){: .center}
+![](télécharger.png){: .center}
 
 ---
 
