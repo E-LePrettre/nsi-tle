@@ -1,4 +1,4 @@
-﻿---
+---
 author: ELP
 title: 08 Les processus
 ---
@@ -300,6 +300,15 @@ C’est l’**ordonnanceur** (*scheduler*) qui décide quel processus passe à q
 
 ---
 
+Règle Round Robin (file FIFO)
+On maintient une file des prêts (ready queue).
+
+- Le processus en tête prend le CPU pendant min(q, temps restant).
+
+- S’il n’a pas fini : il retourne en fin de file.
+
+- Les nouveaux processus arrivent et sont ajoutés en fin de file dès qu’ils arrivent (au moment où on les “voit”, typiquement aux frontières d’unités de temps, et surtout au moment où le CPU se libère / qu’on choisit qui exécuter ensuite).
+
 ???+ question "📋 **Activité n° 5 : Ordonnancement Round Robin**"
     Compléter le tableau pour l’ordonnancement **Round Robin** et **schématiser** l’algorithme.
 
@@ -320,6 +329,81 @@ C’est l’**ordonnanceur** (*scheduler*) qui décide quel processus passe à q
         **Arrivées :**  
         
         P1 @ 0 (3)      P3 @ 1 (4)      P2 @ 2 (2)      P4 @ 3 (3)
+
+        À t = 0 Arrive : P1
+
+        ➡️ File à t=0 : [P1, P1, P1]
+
+        À t=1, P3 arrive → il va en fin de file (mais P1 continue, on ne préempte pas au milieu du quantum)
+        
+        ➡️ File à t=1 : [P1, P1, P3, P3, P3, P3]
+
+        À t=2, fin de tranche de P1 :
+        
+        - P2 arrive juste à ce moment là File : [P1, P1, P3, P3, P3, P3, P2, P2]
+        
+        - P1 n’est pas fini → il retourne en fin de file
+        
+        - Ceux qui attendaient : P3 est déjà là
+        
+        - Nouvel arrivant : P2
+        
+        - Puis P1 qui revient en fin (car pas fini)
+        
+        ➡️ File à t=2 : [P3, P3, P3, P3, P2, P2, P1]
+        
+        À t =3, P4 arrive → il est ajouté en fin de file (P3 continue jusqu’à t=4) juste à ce moment là File : [P3, P3, P3, P3, P2, P2, P1, P4, P4, P4]
+        
+        P3 n’est pas fini → il retourne en fin de file
+        
+        Puis P3 revient en fin
+        
+        ➡️ File à t=4 : [P2, P2, P1, P4, P4, P4, P3, P3]
+       
+        À t = 4
+        
+        P2 avait 2, il reste 0 → P2 termine à t=6
+        
+        ➡️ File à t=6 : [P1, P4, P4, P4, P3, P3]
+        
+        À t = 6
+        
+        CPU prend le premier : P1.
+        
+        Attention : P1 a reste = 1, donc il ne prendra pas tout le quantum, il prend 1 unité seulement. P1 termine à t=7
+        
+        ➡️ File à t=7 : [P4, P4, P4, P3, P3]
+       
+        À t = 7
+        
+        CPU prend P4 de t=7 à t=9 (quantum 2)
+        
+        CPU : 7→9 : P4 exécute 2 unités
+        
+        P4 avait 3, il reste 1
+        
+        P4 revient en fin
+        
+        ➡️ File à t=9 : [P3, P3, P4]
+       
+        À t = 9
+        
+        CPU prend P3 (reste 2) de t=9 à t=11
+        
+        CPU : 9→11 : P3 exécute 2 unités
+        
+        P3 termine à t=11
+        
+        ➡️ File à t=11 : [P4]
+       
+        À t = 11
+        
+        CPU prend P4 (reste 1) de t=11 à t=12
+        
+        CPU : 11→12 : P4 exécute 1 unité
+        
+        P4 termine à t=12
+
 
         **Gantt (q = 2)**  
 
@@ -463,54 +547,62 @@ Sous Linux, plusieurs commandes permettent de **visualiser et analyser les proce
 
 🔗 [MOOC Bash interactif – Université de La Réunion](https://moocbash.univ-reunion.fr/?cpu=asm&n=1)
 
+
 ---
 
-???+ question "🧩 **Activité n° 6 : commande `ps -aef`**"
+???+ question "🧩 **Activité n° 6 : commande `ps`**"
     1️⃣ Ouvrir un terminal.
     2️⃣ Taper la commande :
 
     ```bash
-    ps -aef
+    ps -ef
     ```
 
-    Vous obtiendrez une **liste détaillée** des processus en cours :
-    
-    PID, PPID, utilisateur, état, etc.
+    Vous obtiendrez une **liste détaillée** des processus en cours (format complet) :
+
+    PID, PPID, utilisateur, état, commande, etc.
 
     ![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.028.png){: .center}
+
+    👉 Pour afficher uniquement certaines colonnes, utilisez :
+
+    ```bash
+    ps -eo pid,ppid,stat,cmd
+    ```
+
+    ➜ permet de sélectionner précisément les colonnes affichées.
 
     👉 Pour afficher l’**arbre des processus**, utilisez :
 
     ```bash
-    pstree
+    pstree -p
     ```
 
     ![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.029.png){: .center}
 
-    ??? success "❇️ Solution : / Explications**"
-        - `ps` : affiche les processus actifs.  
+    ??? success "❇️ Solution : / Explications"
+        - `ps` : affiche un **instantané** (photo à un instant donné) des processus.  
 
         - Options :
-
-           * `-a` → affiche tous les processus (pas seulement ceux du terminal courant)
-         
-           * `-e` → inclut tous les utilisateurs
-
-           * `-f` → affiche les informations complètes  
+        * `-e` → affiche **tous** les processus  
+        * `-f` → affiche le format **complet** (informations détaillées)
 
         - Exemple ciblé :
-           ```bash
-           ps -e -o pid,ppid,stat,command
-           ```
-           ➜ permet de sélectionner précisément les colonnes affichées.  
+        ```bash
+        ps -eo pid,ppid,stat,cmd
+        ```
+        ➜ affiche uniquement : PID, PPID, état, commande.
 
-        - `pstree` : affiche les processus **sous forme d’arborescence hiérarchique** (relations père/fils).
-
+        - `pstree -p` : affiche les processus **sous forme d’arborescence** (relations père/fils) et ajoute les PID.
+        
+        - ⚠️ Remarque : selon la distribution, `pstree` peut nécessiter l’installation d’un paquet (souvent `psmisc`).
+   
 
 ---
 
 ???+ question "🧩 **Activité n° 7 : commande `top`**"
     1️⃣ Dans un terminal, taper la commande :
+
 
     ```bash
     top
@@ -518,26 +610,21 @@ Sous Linux, plusieurs commandes permettent de **visualiser et analyser les proce
 
     ![](Aspose.Words.1361c803-fbec-488b-944e-f896249bb67b.031.png){: .center}
 
-    2️⃣ Pour quitter le mode interactif, appuyer sur **`q`**.
+    2️⃣ Pour quitter le mode interactif, appuyer sur **`q`** (ou `Ctrl+C`).
 
     ??? success "❇️ Solution : / Explications"
         - `top` affiche en **temps réel** la liste des processus (mise à jour dynamique).  
-
-           Contrairement à `ps`, qui donne un **état figé**. 
+        Contrairement à `ps`, qui donne un **état figé**.
 
         - Cette commande permet de surveiller :
+        * la **charge CPU (%)**  
+        * la **mémoire utilisée**  
+        * l’**état des processus** (`R` = running, `S` = sleeping, etc.)
 
-           * la **charge CPU (%)**  
-         
-           * la **mémoire utilisée**  
-         
-           * l’**état des processus** (`R` = running, `S` = sleeping, etc.)  
-
-        - Pour quitter `top`, tapez `q`.  
-      
-        - Tous les processus ont pour ancêtre ultime le **PID 0** :
-           
-           * Ses fils directs sont `init` et `kthreadd`.
+        - Sur Linux, repères importants :
+        * **PID 1** : `init` ou le plus souvent **`systemd`** (ancêtre de la majorité des processus utilisateurs)
+        * **PID 2** : souvent `kthreadd` (ancêtre de nombreux threads/processus noyau)
+        * **PID 0** : tâche spéciale du noyau (idle task), **pas** un processus “classique”
 
 
 ---
@@ -554,6 +641,8 @@ kill <PID>
 
 où `<PID>` correspond au numéro du processus à terminer.
 
+📌 Par défaut, `kill <PID>` envoie le signal **SIGTERM (15)**.
+
 Lorsqu’un processus est "tué", il reçoit un **signal** de terminaison.
 Les plus courants sont :
 
@@ -564,33 +653,50 @@ Les plus courants sont :
 
 ---
 
-???+ question "🧩 **Activité n° 8 : commande `kill`**"
-    1️⃣ Lancer `top` dans un terminal pour observer les processus.
-   
-    2️⃣ Relevez le **PID** du processus `top` dans la liste.
-    
-    3️⃣ Dans un autre terminal, exécutez :
+???+ question "🧩 **Activité n° 8 : commande `kill` (avec `sleep`)**"
+    🎯 Objectif : lancer un processus simple, récupérer son PID, puis l’arrêter avec un signal.
+
+
+    1️⃣ Lancer un processus “inoffensif” en arrière-plan :
 
     ```bash
-    kill -15 <PID>
+    sleep 1000 &
     ```
 
-    4️⃣ Revenez sur le premier terminal.
-   
-    ❓ Que constatez-vous ?
+    2️⃣ Récupérer son PID :
+
+    ```bash
+    pgrep -a sleep
+    ```
+
+    (Alternative si `pgrep` n’est pas disponible) :
+
+    ```bash
+    ps -ef | grep sleep
+    ```
+
+    3️⃣ Envoyer un signal de terminaison (SIGTERM par défaut) :
+
+    ```bash
+    kill <PID>
+    ```
+
+    4️⃣ Vérifier qu’il a disparu :
+
+    ```bash
+    pgrep -a sleep
+    ```
 
     ??? success "❇️ Solution : / Explications"
-        - Après `kill -15 <PID>`, le processus `top` reçoit un **signal SIGTERM** → il se ferme proprement.  
-      
-        - Si vous relancez `ps` ou `pstree`, `top` **n’apparaît plus** dans la liste.  
-      
-        - Sur la console où `top` tournait : le programme s’arrête automatiquement.  
-        
-        - Si un processus refuse de s’arrêter :
-           ```bash
-           kill -9 <PID>
-           ```
-           → **SIGKILL** : arrêt immédiat, sans nettoyage (⚠️ à utiliser avec prudence).
+        - `sleep 1000 &` lance un processus qui “attend” 1000 secondes, en arrière-plan.  
+        - `pgrep -a sleep` affiche les PID et les commandes correspondant à `sleep`.  
+        - `kill <PID>` envoie **SIGTERM (15)** : le processus se ferme proprement.  
+        - Si un processus refuse de s’arrêter (cas rares) :
+        ```bash
+        kill -9 <PID>
+        ```
+        → **SIGKILL (9)** : arrêt immédiat, sans nettoyage (⚠️ à utiliser avec prudence).  
+        - ⚠️ Remarque : si vous n’avez pas les droits (processus d’un autre utilisateur), `kill` peut échouer.
 
 
 ---
@@ -605,9 +711,19 @@ Sous Linux, la création d’un processus s’effectue via l’appel système **
 
 Le fils peut remplacer son programme par un autre grâce à **`exec()`**, qui charge un **nouveau programme** dans son espace mémoire.
 
-> 💡 C’est le cœur du fonctionnement multitâche de Linux : chaque commande lancée crée un nouveau processus, issu du terminal ou d’un parent.
+> 💡 C’est le cœur du fonctionnement multitâche : lorsqu’on lance une commande, un nouveau processus est créé et s’exécute, généralement en tant que descendant de `init` / `systemd` (PID 1).
+
 
 ---
+
+
+
+
+
+
+
+
+
 
 !!! info "🧠 **Capytale : Le code sera fourni par votre enseignant.**" 
 
