@@ -735,19 +735,24 @@ Pour s’en prémunir : une **autorité de certification (CA)** atteste l’iden
 
 Aujourd’hui, la **grande majorité** du trafic web est **chiffrée** 🔒 :
 
-* ❌ On n’utilise plus HTTP **en clair**
+* ❌ On évite HTTP **en clair** (contenu lisible/modifiable sur le trajet)
 * ✅ On utilise **HTTPS**
 * 🔁 **HTTPS = HTTP sur TLS**
-  * 🛡️ **TLS** (successeur de SSL) assure l’**authentification** + **l’échange sécurisé des clés**
-  * 📡 **HTTP** transporte ensuite les données **chiffrées** (souvent **AES** en mode authentifié, ex. **AES-GCM**)
+  * 🛡️ **TLS** (successeur de SSL) assure :
+    * ✅ l’**authentification** du serveur (certificat)
+    * 🔒 la **confidentialité**
+    * 🧱 l’**intégrité** des échanges
+    * 🔑 l’**établissement d’un secret** de session (accord de clé)
+  * 📡 **HTTP** transporte ensuite les données **chiffrées et authentifiées** via un chiffrement **symétrique AEAD**
+    (souvent **AES-GCM** ou **ChaCha20-Poly1305**)
 
 ---
 
-❓ *Pourquoi pas chiffrer tout en RSA ?*  
-➡️ 🔓 Trop **lent**, trop **coûteux** sur de gros flux
+❓ *Pourquoi ne pas tout chiffrer en RSA ?*  
+➡️ 🔓 L’asymétrique est trop **lent** et trop **coûteux** pour chiffrer de gros flux
 
 ✅ **Stratégie hybride** :
-- 🔑 **Asymétrique** → accord sur un secret commun (clé de session)
+- 🔑 **Asymétrique** → authentification + accord sur un **secret de session**
 - 🚀 **Symétrique** → chiffrer tout le trafic applicatif **rapidement**
 
 ![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.031.png){: .center}
@@ -756,22 +761,25 @@ Aujourd’hui, la **grande majorité** du trafic web est **chiffrée** 🔒 :
 
 ### <H3 STYLE="COLOR:GREEN;">**5.2. 🤝 (HP) Fonctionnement de TLS — Handshake (moderne)**</H3>
 
-> 🧭 **Résumé pédagogique TLS 1.3**
+> 🧭 **Résumé TLS 1.3**
 
-1. 💬 **ClientHello** → suites chiffrement + **clé éphémère** (ECDHE)
-2. 📨 **ServerHello** → choix suite + **clé éphémère**
-3. 🪪 Envoi du **certificat** + preuve de possession (**CertificateVerify**) + **Finished**
-4. ✅ Le client **vérifie** le certificat + calcule le **secret partagé ECDHE** → envoie **Finished**
-5. 🔑 **Clés symétriques** dérivées du secret (HKDF)
-6. 🔒 Le trafic **HTTP** devient **chiffré & authentifié** (AES-GCM)
+1. 💬 **ClientHello**
+   → versions/suites + paramètres (extensions) + **clé éphémère** (ECDHE, `key_share`)
+2. 📨 **ServerHello**
+   → choix des paramètres + **clé éphémère** du serveur (ECDHE)
+3. 🪪 Authentification du serveur (messages typiques)
+   → `Certificate` (certificat) + `CertificateVerify` (signature) + `Finished`
+4. ✅ Le client **vérifie** le certificat, calcule le **secret partagé ECDHE** puis envoie `Finished`
+5. 🔑 **Clés symétriques** dérivées du secret via **HKDF**
+6. 🔒 Le trafic **HTTP** devient **chiffré & authentifié** (AEAD : **AES-GCM** / **ChaCha20-Poly1305**)
 
 ---
 
 > 🔎 **Important :**
-> En TLS 1.3, on **ne chiffre pas** directement une clé AES avec la clé publique RSA ❌  
-> → la clé de session est issue d’un **secret partagé ECDHE** → **KDF** → **clés AES**
+> En **TLS 1.3**, on **ne chiffre pas** directement une “clé AES” avec la clé publique RSA ❌  
+> → les clés de session sont **dérivées** d’un **secret partagé ECDHE** → **HKDF/KDF** → clés symétriques ✅  
 >
-> 📉 *Key exchange RSA* historique → **déprécié** / **supprimé** ✅
+> 📉 L’échange de clé RSA (historique) est **déprécié** / **supprimé** en TLS 1.3 ✅
 
 
 **POUR ALLER PLUS LOIN :** Concours Alkindi — [https://concours-alkindi.fr/main.html#/pageDiscover](https://concours-alkindi.fr/main.html#/pageDiscover)
