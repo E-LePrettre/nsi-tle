@@ -1658,24 +1658,26 @@ if pile:
         from collections import deque
 
         def parcours_profondeur(G, s):
-            decouverts = [s]
-            pile = deque([s])
-            ordre = []
+            decouverts=[]
+            en_attente = deque()
+            en_attente.append(s)
+            while en_attente :
+                tmp = en_attente.pop()
+                if tmp not in decouverts:
+                    decouverts.append(tmp)
+                    for v in G[tmp]:
+                        en_attente.append(v)
+            return decouverts
 
-            while pile:
-                sommet = pile.pop()
-                ordre.append(sommet)
-
-                for voisin in G[sommet]:
-                    if voisin not in decouverts:
-                        decouverts.append(voisin)
-                        pile.append(voisin)
-
-            return ordre
+        print(parcours_profondeur({"A": ("B", "D", "E"), "B": ("A", "C"), "C": ("B", "D"),
+                                "D": ("A", "C", "E"), "E": ("A", "D", "F", "G"),
+                                "F": ("E", "G"), "G": ("E", "F", "H"),
+                                "H": ("G")}, "A") )
         ```
 
-        🔎 **Remarque importante** :  
-        L’ordre dépend de l’ordre des voisins dans le dictionnaire.
+🔎 **Remarque importante** :  
+
+L’ordre dépend de l’ordre des voisins dans le dictionnaire.
 
 
 
@@ -1701,12 +1703,21 @@ if pile:
 
     1. Donner le parcours DFS depuis **B**
 
-    2. Deviner le **parcours en profondeur (DFS)** depuis D, puis depuis G
+    2. **Deviner le **parcours en profondeur (DFS) depuis **D**, puis depuis **G****
 
 
     3. Vérifier avec votre algorithme
 
     ??? success "✅ Vérification"
+        1. et 2.
+
+        ['B', 'E', 'G', 'H', 'F', 'D', 'C', 'A']
+
+        ['D', 'E', 'G', 'H', 'F', 'B', 'A', 'C']
+
+        ['G', 'H', 'F', 'E', 'D', 'C', 'A', 'B']
+
+        3.
         ```python
         parcours_profondeur(graphe, 'B')
         parcours_profondeur(graphe, 'D')
@@ -1731,7 +1742,7 @@ Une liste utilisée comme paramètre par défaut est **partagée entre les appel
 
 
     ```python
-    def parcours_profondeur_r(G, s, decouverts=None):
+    def parcours_profondeur_r(G, s,decouverts = [] ):
         pass
 
 
@@ -1743,22 +1754,22 @@ Une liste utilisée comme paramètre par défaut est **partagée entre les appel
 
     ??? success "✅ Solution — DFS récursif"
         ```python
-        def parcours_profondeur_r(G, s, decouverts=None):
-            if decouverts is None:
-                decouverts = []
-
-            decouverts.append(s)
-
-            for voisin in G[s]:
-                if voisin not in decouverts:
-                    parcours_profondeur_r(G, voisin, decouverts)
-
+        def parcours_profondeur_r (G, s,decouverts = [] ):
+            if s not in decouverts:
+                decouverts.append(s)
+                for v in G[s]:
+                    parcours_profondeur_r(G, v, decouverts)
             return decouverts
+
+        print(parcours_profondeur_r({"A": ("B", "D", "E"), "B": ("A", "C"), "C": ("B", "D"),
+                            "D": ("A", "C", "E"), "E": ("A", "D", "F", "G"),
+                            "F": ("E", "G"), "G": ("E", "F", "H"),
+                            "H": ("G")}, "A") )
         ```
 
-        🔎 **Remarque** :
-        Le parcours obtenu peut différer de la version itérative
-        selon l’ordre des voisins.
+🔎 **Remarque** :
+
+Le parcours obtenu peut différer de la version itérative selon l’ordre des voisins.
 
 
 
@@ -2002,27 +2013,135 @@ L’algorithme utilise :
 
 
 
-##### 🔎 Décomposition de l’algorithme
 
-* initialisation des distances à l’infini
-* choix du sommet le plus proche avec `min`
-* mise à jour des distances
-* répétition jusqu’à traitement complet
+##### 🔎 Explication détaillée de l’algorithme
+
+🟦 1️⃣ Initialisation des distances
+
+```python
+distances = {node: float('inf') for node in graph}
+```
+
+👉 On crée un dictionnaire `distances` qui stocke
+**la distance minimale depuis le sommet de départ** vers chaque sommet.
+
+* Toutes les distances sont initialisées à **∞ (infini)**
+* Cela signifie : *« on ne connaît encore aucun chemin »*
+
+🟦 2️⃣ Distance du sommet de départ
+
+```python
+distances[start] = 0
+```
+
+👉 La distance du sommet de départ à lui-même est **0**
+(car on est déjà dessus).
+
+🟦 3️⃣ Sommets non visités
+
+```python
+unvisited = list(distances.keys())
+```
+
+👉 On crée la liste des sommets **non encore traités**.
+Au départ : **tous les sommets sont non visités**.
+
+🟦 4️⃣ Boucle principale
+
+```python
+while unvisited:
+```
+
+👉 Tant qu’il reste des sommets à explorer, on continue l’algorithme.
+
+🟦 5️⃣ Choix du sommet le plus proche
+
+```python
+current_node = min(unvisited, key=lambda x: distances[x])
+```
+
+👉 On choisit **le sommet non visité dont la distance est minimale**.
+
+📌 **Rôle du `lambda`** :
+
+```python
+lambda x: distances[x]
+```
+
+* prend un sommet `x`
+* renvoie sa distance depuis le départ
+* permet à `min()` de comparer les sommets correctement
+
+🟦 6️⃣ Marquer le sommet comme visité
+
+```python
+unvisited.remove(current_node)
+```
+
+👉 Le sommet est maintenant **traité définitivement**
+(on ne reviendra plus dessus).
+
+🟦 7️⃣ Mise à jour des voisins (relaxation)
+
+```python
+for neighbor, weight in graph[current_node].items():
+```
+
+👉 On parcourt **tous les voisins** du sommet courant.
+
+```python
+distance = distances[current_node] + weight
+```
+
+👉 On calcule la distance en passant par le sommet courant.
+
+```python
+if distance < distances[neighbor]:
+    distances[neighbor] = distance
+```
+
+👉 Si ce nouveau chemin est **plus court**,
+on met à jour la distance minimale du voisin.
+
+🟦 8️⃣ Résultat final
+
+```python
+return distances[end]
+```
+
+👉 On renvoie la **distance minimale** entre le sommet de départ
+et le sommet d’arrivée.
+
+⚠️ **Attention importante**
+
+🚫 **L’algorithme de Dijkstra ne fonctionne pas**
+si le graphe contient des **poids négatifs**.
+
+👉 Dans ce cas, on utilisera **Bellman-Ford**.
 
 
 
-##### 🔧 Variante sans `min`
+##### 🔧 Variante sans `min()` (plus explicite)
 
 ```python
 min_distance = float('inf')
 current_node = None
+
 for node in unvisited:
     if distances[node] < min_distance:
         min_distance = distances[node]
         current_node = node
 ```
 
-📌 Cette version est **moins efficace**, mais **plus explicite**.
+📌 Cette version :
+
+* est **moins efficace**
+* mais **plus facile à comprendre**
+* fait **exactement la même chose**
+
+
+
+
 
 
 
@@ -2133,20 +2252,103 @@ Un **cycle de poids négatif** est un cycle dont la somme des poids est négativ
 
 
 
-##### 🔎 Décomposition de l’algorithme
+##### 🔎 Explication détaillée ligne par ligne
 
-* initialisation des distances à l’infini
-* répétition des mises à jour sur **toutes les arêtes**
-* chaque passage peut améliorer certaines distances
-* après `n − 1` itérations, les distances sont optimales (s’il n’y a pas de cycle négatif)
+🟦 1️⃣ Initialisation des distances
+
+```python
+distances = {sommet: float('inf') for sommet in graph}
+```
+
+👉 On crée un dictionnaire `distances` :
+
+* chaque sommet a une distance initiale de **∞ (infini)**
+* cela signifie : *« on ne connaît encore aucun chemin »*
+
+🟦 2️⃣ Distance du sommet de départ
+
+```python
+distances[start] = 0
+```
+
+👉 La distance du sommet de départ à lui-même est **0**.
+
+🟦 3️⃣ Nombre de répétitions (n − 1)
+
+```python
+for _ in range(len(graph) - 1):
+```
+
+👉 Pourquoi **n − 1** fois ?
+
+* un graphe de `n` sommets
+* un plus court chemin simple utilise **au maximum n − 1 arêtes**
+
+📌 Chaque passage permet d’améliorer progressivement les distances.
+
+🟦 4️⃣ Parcours de toutes les arêtes
+
+```python
+for u in graph:
+    for v, poids in graph[u].items():
+```
+
+👉 On parcourt :
+
+* chaque sommet `u`
+* chacune de ses arêtes `(u → v)` avec son **poids**
+
+📌 Contrairement à Dijkstra :
+
+* **aucun sommet n’est “verrouillé”**
+* on revisite toutes les arêtes à chaque itération
+
+🟦 5️⃣ Relaxation d’une arête
+
+```python
+if distances[u] + poids < distances[v]:
+    distances[v] = distances[u] + poids
+```
+
+👉 On vérifie :
+
+> Passer par `u` permet-il d’atteindre `v` avec un chemin plus court ?
+
+* si oui → on met à jour la distance de `v`
+* sinon → on ne change rien
+
+📌 C’est **le cœur de l’algorithme**.
+
+🟦 6️⃣ Résultat final
+
+```python
+return distances
+```
+
+👉 On renvoie :
+
+* la distance minimale depuis le sommet de départ
+* vers **tous les autres sommets**
 
 
-##### 🚨 Détection d’un cycle de poids négatif (optionnel)
 
-Après les `n − 1` itérations :
 
-👉 s’il est encore possible d’améliorer une distance,
-alors **un cycle de poids négatif existe**.
+
+
+#### 🚨 Détection d’un cycle de poids négatif 
+
+
+Après avoir appliqué l’algorithme de **Bellman-Ford** pendant **`n − 1` itérations** (où `n` est le nombre de sommets) :
+
+👉 **si une distance peut encore être améliorée**, alors **il existe un cycle de poids négatif dans le graphe**.
+
+📌 En effet, un plus court chemin simple ne peut pas contenir plus de `n − 1` arêtes.
+
+Une amélioration supplémentaire signifie donc que l’on **tourne en rond en gagnant du poids**, ce qui caractérise un **cycle négatif**.
+
+
+
+🧩 **Implémentation en Python**
 
 ```python
 def contient_cycle_negatif(graph, distances):
@@ -2157,8 +2359,34 @@ def contient_cycle_negatif(graph, distances):
     return False
 ```
 
-📌 Cette étape est **fondamentale en algorithmique avancée**,
-mais **hors exigence bac** (culture algorithmique).
+
+
+🔎 **Explication du code**
+
+* On parcourt **toutes les arêtes du graphe**
+* On vérifie si une **relaxation est encore possible**
+* Si oui :
+
+  * cela signifie qu’une distance peut diminuer indéfiniment
+  * donc qu’un **cycle de poids négatif existe**
+
+👉 La fonction renvoie :
+
+* `True` : cycle négatif détecté
+* `False` : aucun cycle négatif
+
+
+
+⚠️ **Pourquoi est-ce un problème ?**
+
+Un cycle de poids négatif signifie que :
+
+> il n’existe **pas de plus court chemin**
+> (on peut toujours faire un tour de plus pour réduire le coût)
+
+📌 Dans ce cas, les résultats de Bellman-Ford **n’ont plus de sens** pour le calcul de chemins minimaux.
+
+
 
 
 
@@ -2176,7 +2404,9 @@ mais **hors exigence bac** (culture algorithmique).
 
 
 
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063595"></a>**5.3.3. ❤️ Parcourir un labyrinthe ❤️**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063595"></a>**5.3.3.  Parcourir un labyrinthe**</H4>
+
+👉 **CAPYTALE** : le code est fourni par l’enseignant.
 
 ##### 🧠 Problème posé
 
@@ -2225,24 +2455,112 @@ On modélise le labyrinthe par un graphe :
 * arête entre `(1,1)` et `(2,1)` (passage libre)
 
 
-👉 **CAPYTALE** : le code est fourni par l’enseignant.
+
 
 
 
 ???+ question "🧠 **Activité n° 26 — Vérification de l’implémentation du labyrinthe**"
     👉 Vérifier que le graphe du labyrinthe est correctement construit.
 
+    ```python
+    class Graph():
+    def __init__(self):
+        self.lst_adj = {}
+
+    def __str__(self):
+        return str(self.lst_adj)
+
+    def add_sommet(self, sommet):
+        self.lst_adj[sommet] = []
+
+    def add_arete(self, a, b):
+        self.lst_adj[a].append(b)
+        self.lst_adj[b].append(a)
+
+
+    ##################################################Implémentation du labyrinthe###################################
+    labyrinthe = Graph()
+    for i in range(1, 5):
+        for j in range(1, 9):
+            labyrinthe.add_sommet((i, j))
+    labyrinthe.add_arete((1, 1), (2, 1))
+    labyrinthe.add_arete((2, 1), (2, 2))
+    labyrinthe.add_arete((2, 2), (2, 3))
+    labyrinthe.add_arete((2, 2), (3, 2))
+    labyrinthe.add_arete((2, 3), (1, 3))
+    labyrinthe.add_arete((1, 3), (1, 4))
+    labyrinthe.add_arete((1, 4), (1, 5))
+    labyrinthe.add_arete((1, 4), (2, 4))
+    labyrinthe.add_arete((1, 5), (2, 5))
+    labyrinthe.add_arete((2, 4), (3, 4))
+    labyrinthe.add_arete((2, 5), (2, 6))
+    labyrinthe.add_arete((2, 6), (1, 6))
+    labyrinthe.add_arete((2, 6), (3, 6))
+    labyrinthe.add_arete((2, 7), (3, 7))
+    labyrinthe.add_arete((1, 6), (1, 7))
+    labyrinthe.add_arete((2, 6), (2, 7))
+    labyrinthe.add_arete((1, 7), (1, 8))
+    labyrinthe.add_arete((1, 8), (2, 8))
+    labyrinthe.add_arete((3, 2), (4, 2))
+    labyrinthe.add_arete((4, 2), (4, 3))
+    labyrinthe.add_arete((4, 3), (4, 4))
+    labyrinthe.add_arete((3, 4), (3, 5))
+    labyrinthe.add_arete((3, 5), (3, 6))
+    labyrinthe.add_arete((3, 6), (4, 6))
+    labyrinthe.add_arete((3, 6), (3, 7))
+    labyrinthe.add_arete((4, 6), (4, 5))
+    labyrinthe.add_arete((3, 7), (4, 7))
+    labyrinthe.add_arete((4, 7), (4, 8))
+    labyrinthe.add_arete((4, 8), (3, 8))
+    labyrinthe.add_arete((2, 8), (3, 8))
+
+    ##################################################vérification du l'implémentation#############################
+    #print(labyrinthe)
+
+
+    ```
 
     📌 **Travail demandé** :
 
     1. Vérifier que l’implémentation correspond bien au labyrinthe
 
+
     2. Donner la **liste d’adjacence du sommet (3, 6)**
 
-    ??? success "✅ Attendu"
-        - Les sommets correspondent bien aux cases du labyrinthe
-        - Les arêtes existent uniquement lorsque le passage est possible
-        - La liste d’adjacence de `(3,6)` ne contient que des cases accessibles
+    ??? success "✅ Solution"
+
+        2\.
+
+        🔍 Étape 1 — Repérer toutes les arêtes impliquant (3, 6)
+
+        On parcourt ton code et on relève toutes les lignes où (3, 6) apparaît.
+
+        Voici les arêtes concernées :
+        labyrinthe.add_arete((2, 6), (3, 6))
+        labyrinthe.add_arete((3, 5), (3, 6))
+        labyrinthe.add_arete((3, 6), (4, 6))
+        labyrinthe.add_arete((3, 6), (3, 7))
+
+
+        ⚠️ Le graphe est non orienté, donc chaque arête compte dans les deux sens.
+
+        📌 Étape 2 — Liste des voisins de (3, 6)
+
+        Les sommets directement reliés à (3, 6) sont donc :
+
+        (2, 6) → au-dessus
+
+        (3, 5) → à gauche
+
+        (4, 6) → en dessous
+
+        (3, 7) → à droite
+
+        ✅ Réponse attendue (liste d’adjacence)
+        [(2, 6), (3, 5), (4, 6), (3, 7)]
+
+
+        👉 L’ordre peut varier selon l’ordre d’ajout des arêtes, mais le contenu doit être exactement celui-ci.
 
 
 
@@ -2277,8 +2595,45 @@ On souhaite maintenant **explorer le labyrinthe** à partir de l’entrée `(1,1
 
 
     1. **Parcours en largeur (BFS)** à partir de `(1,1)`
+    
+    ```python
+    #####################################################Promenade dans le labyrinthe###############################
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ BFS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # A COMPLETER
+    sommet = (1, 1)
+    vus = [sommet]
+    a_voir = list(labyrinthe.lst_adj[(1, 1)])  # Copie de la liste pour qu'elle ne soit pas modifiée
+    # print(a_voir)
+    while a_voir != ... :
+        sommet = a_voir.pop(...)
+        vus.append(...)
+        voisins = labyrinthe.lst_adj[...]
+        for s in voisins :
+            if s not in ... and s not in ... :
+                a_voir.append(s)
+
+    #print('BFS',vus)
+    ```
 
     2. **Parcours en profondeur (DFS)** à partir de `(1,1)`
+
+    ```python
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ DFS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # A COMPLETER
+    sommet = (1, 1)
+    vus = [sommet]
+    a_voir = list(labyrinthe.lst_adj[(1, 1)])  # Copie de la liste pour qu'elle ne soit pas modifiée
+    # print(a_voir)
+    while a_voir != [] :
+        sommet = a_voir.pop()
+        vus.append(...)
+        voisins = labyrinthe.lst_adj[...]
+        for s in voisins :
+            if s not in ... and s not in ... :
+                a_voir.append(...)
+    #print('DFS',vus)
+    ```
+
 
     📌 **Objectif** :
 
@@ -2293,47 +2648,83 @@ On souhaite maintenant **explorer le labyrinthe** à partir de l’entrée `(1,1
 
 
 
-##### 🧵 Tracer un chemin dans le labyrinthe
+##### 🧵 Tracer un chemin dans le labyrinthe — Parcours en profondeur (DFS)
 
-Jusqu’à présent, nous avons uniquement mémorisé **les sommets visités**.
+Jusqu’à présent, le parcours en profondeur permettait uniquement d’obtenir **la liste des sommets visités**.
 
-👉 Pour **reconstruire un chemin**, il faut mémoriser **d’où l’on vient**.
+👉 Nous allons maintenant **tracer le chemin parcouru**, c’est-à-dire mémoriser **les arêtes empruntées** lors du parcours.
+
+Pour cela, il est nécessaire de mémoriser **d’où l’on vient** lorsqu’un sommet est découvert.
 
 
 
-##### 🧠 Principe du dictionnaire `parent`
+##### 🧠 🧠 Principe du dictionnaire `parent`
 
 On associe à chaque sommet **son parent**, c’est-à-dire :
 
 > le sommet depuis lequel il a été découvert.
 
-Cela permet ensuite de **reconstruire le chemin**.
+Ce dictionnaire permet ensuite de reconstruire le chemin sous la forme d’une **suite d’arêtes**.
 
 
 
 ???+ question "🧠 **Activité n° 28 — Tracer le chemin (DFS)**"
-    👉 Modifier votre **parcours en profondeur** afin de mémoriser le chemin parcouru.
+    
+    🎯 Objectifs
 
+    * Modifier un parcours DFS existant
 
-    📌 **Consignes détaillées** :
+    * Mémoriser les **arêtes parcourues**
 
-    1. Avant la boucle :
-    - créer une liste vide `chemin`
-    - créer un dictionnaire vide `parent`
+    * Préparer l’affichage graphique du chemin
+    
+    📌 Travail demandé
 
-    2. Initialiser :
+    1️⃣ **Avant la boucle de parcours** :
+
+    * créer une liste vide `chemin`
+    * créer un dictionnaire vide `parent`
+
+    2️⃣ **Initialisation** :
+
+    * le sommet de départ est `(1,1)`
+    * tous les sommets initialement empilés dans `a_voir` ont pour parent `(1,1)`
+
+    3️⃣ **Pendant le parcours DFS** :
+
+    * à chaque fois qu’un sommet est ajouté dans `a_voir`, mémoriser son parent
+    * à chaque fois qu’un sommet est ajouté dans `vus`, ajouter l’arête correspondante dans `chemin`
+
+    🧪 Code à compléter
+
     ```python
-    parent[(1,1)] = None
-    ```
+    ################################################ Tracer les chemins ################################################
+    # DFS avec mémorisation du chemin
 
-    3. À chaque ajout d’un sommet `s` dans `a_voir`(a_voir désigne ici la pile ou la file utilisée) :
-    ```python
-    parent[s] = sommet_courant
-    ```
+    sommet = (1, 1)
+    vus = [sommet]
 
-    4. À chaque sommet ajouté dans `vus` :
-    ```python
-    chemin.append((parent[sommet], sommet))
+    a_voir = list(labyrinthe.lst_adj[(1, 1)])  # pile (copie)
+    chemin = ...
+    parent = ...
+
+    # Initialisation des parents
+    for s in a_voir:
+        ...
+
+    while a_voir != []:
+        sommet = a_voir.pop()
+        vus.append(...)
+        chemin.append((parent[sommet], ...))
+
+        voisins = labyrinthe.lst_adj[...]
+        #print(voisins)
+        for s in voisins:
+            if s not in ... and s not in ...:
+                a_voir.append(...)
+                parent[s] = ...
+
+    #print('DFS chemin', chemin)
     ```
 
     ??? success "✅ Principe attendu"
@@ -2345,29 +2736,61 @@ Cela permet ensuite de **reconstruire le chemin**.
 📌 Remarque : le chemin obtenu dépend de l’algorithme utilisé
 (DFS ne donne pas forcément le chemin le plus court).
 
-##### 🚪 Arrêt dès la sortie trouvée (optimisation)
-
-L’entrée du labyrinthe est `(1,1)`
-La sortie est `(4,8)`
-
-👉 Il est inutile de parcourir tout le labyrinthe une fois la sortie atteinte.
 
 
 
-???+ question "🧠 **Activité n° 29 — Arrêt anticipé**"
-    👉 Modifier votre boucle `while` pour **s’arrêter dès que la sortie est trouvée**.
-
+???+ question "🧠 **Activité n° 29 — Arrêt anticipé du parcours**"
     
-    📌 **Consigne** :
+    Lorsqu’on cherche un chemin dans un labyrinthe :
 
-    - ajouter une condition dans le `while`
+    * l’entrée est `(1,1)`
+    * la sortie est `(4,8)`
 
-    - ne pas utiliser `break`
+    👉 Il est inutile de poursuivre le parcours une fois la sortie atteinte.
+
+    🎯 Objectif
+
+    Optimiser l’algorithme en **arrêtant le DFS dès que la sortie est trouvée**, sans utiliser `break`.
+
+    📌 Travail demandé
+
+    1️⃣ Modifier la condition de la boucle `while` afin que :
+
+    * le parcours s’arrête lorsque la pile est vide
+    * **ou** lorsque le sommet courant est `(4,8)`
+
+    2️⃣ Vérifier que :
+
+    * le chemin obtenu mène bien jusqu’à la sortie
+    * le parcours est plus court que sans arrêt anticipé
+
+    -🧪 Code à adapter
+
+    ```python
+    while a_voir != [] and sommet != (4, 8):
+        ...
+    ```
+    
 
     ??? success "✅ Idée clé"
         - la condition d’arrêt est intégrée dans le `while`
         - le parcours s’arrête dès que `(4,8)` est découvert
-    
+
+
+
+
+📌 **Remarque importante** 
+
+> ⚠️ Le chemin obtenu dépend de l’ordre d’exploration du DFS.
+> Un parcours en profondeur **ne garantit pas** le chemin le plus court.
+
+➡️ Pour le plus court chemin :
+
+* graphe non pondéré → **BFS**
+* graphe pondéré → **Dijkstra / Bellman-Ford**
+
+
+
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063595"></a>**6.🔎 Synthèse**</H2>
 
