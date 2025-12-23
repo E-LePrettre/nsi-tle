@@ -2900,9 +2900,11 @@ Merci à Gilles Lassus, Cédric Gouyou, Jean-Louis Thirot, et Mireille Coilhac
 
 !!! abstract "🧩 **Exercice n°4 : plus court chemin**"
 
-!!! info "🧠 **Capytale : Les codes seront fournis par votre enseignant.**" 
+
 
 ## <H2 STYLE="COLOR:BLUE;"> **8. 🔎 Projet**</H2>  
+
+!!! info "🧠 **Capytale : Les codes seront fournis par votre enseignant.**" 
 
 !!! abstract "🧩 **Exercice n°1 : Utiliser Dijkstra pour :**"
 
