@@ -2197,6 +2197,30 @@ La sortie est `(4,8)`
 
 ##### 📌 Carte conceptuelle des graphes et de leurs algorithmes 
 
+flowchart TB
+    A[GRAPHE<br/>Sommets / Arêtes]
+
+    A --> B[Représentation<br/>Matrice / Liste]
+    A --> C[Visualisation<br/>NetworkX / Graphviz]
+
+    B --> D[PARCOURS<br/>BFS / DFS]
+
+    D --> E[BFS<br/>(File)]
+    D --> F[DFS<br/>(Pile / récursion)]
+    D --> G[Détection de cycles]
+    D --> H[Chemin le plus court]
+
+    G --> I[DFS avec états<br/>(non visité / en cours / terminé)]
+    I --> J[Cycle détecté]
+
+    H --> K[Graphe non pondéré]
+    K --> L[BFS<br/>Plus court chemin]
+
+    H --> M[Graphe pondéré]
+    M --> N[Dijkstra<br/>(pas de poids négatif)]
+    N --> O[Bellman-Ford<br/>(poids négatifs possibles)]
+
+
 ```
               ┌───────────────┐
               │    GRAPHE     │
