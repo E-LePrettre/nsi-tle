@@ -11,8 +11,9 @@ title: 10 Les graphes
 3️⃣ [Visualiser un graphe](#_toc161063584)  
 4️⃣ [❤️Création d’une class Graphe❤️](#_toc161063587)  
 5️⃣ [Les parcours](#_toc161063590)  
-6️⃣ [Exercices](#_toc161063596)  
-7️⃣ [Projet](#_toc161063597)
+6️⃣ [Synthèse](#_toc161063595)  
+7️⃣ [Exercices](#_toc161063596)  
+8️⃣ [Projet](#_toc161063597)
 
 **🎯 Compétences évaluables :**
 
@@ -2182,7 +2183,7 @@ La sortie est `(4,8)`
         - le parcours s’arrête dès que `(4,8)` est découvert
     
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063596"></a>**6.🔎 Synthèse**</H2>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063595"></a>**6.🔎 Synthèse**</H2>
 
 
 
