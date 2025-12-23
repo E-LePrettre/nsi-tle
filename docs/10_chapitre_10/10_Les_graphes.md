@@ -718,6 +718,7 @@ Nous allons utiliser les bibliothèques :
 ---
 
 ???+ question "🧠 **Activité n° 8 — Visualisation avec NetworkX**"
+
     👉 Compléter et exécuter le programme suivant afin de visualiser un graphe
     à partir d’un dictionnaire de voisins.
 
@@ -772,31 +773,28 @@ Nous allons utiliser les bibliothèques :
 
     ??? success "✅ Solution (exemple)"
         ```python
-        import matplotlib.pyplot as plt
-        import networkx as nx
+        plt.cla()# Pour effacer les figures précédentes
+        G = cree_graphe_non_oriente_nx(G1)
+        # nx.draw_circular(G, with_labels=True)
+        nx.draw(G,with_labels = True) # Pour une representation classique
+        plt.show()
 
-        def cree_graphe_non_oriente_nx(dictionnaire):
-            Gnx = nx.Graph()
-            for sommet in dictionnaire:
-                Gnx.add_node(sommet)
-            for sommet in dictionnaire:
-                for voisin in dictionnaire[sommet]:
-                    Gnx.add_edge(sommet, voisin)
-            return Gnx
+        plt.cla()# Pour effacer les figures précédentes
+        G = cree_graphe_non_oriente_nx(G2)
+        # nx.draw_circular(G, with_labels=True)
+        nx.draw(G,with_labels = True) # Pour une representation classique
+        plt.show()
 
-        graphes = [G1, G2, G3]
-
-        for i, dico in enumerate(graphes, start=1):
-            plt.cla()
-            G = cree_graphe_non_oriente_nx(dico)
-            nx.draw(G, with_labels=True)
-            plt.title(f"Graphe G{i}")
-            plt.show()
+        plt.cla()# Pour effacer les figures précédentes
+        G = cree_graphe_non_oriente_nx(G3)
+        # nx.draw_circular(G, with_labels=True)
+        nx.draw(G,with_labels = True) # Pour une representation classique
+        plt.show()
         ```
 
-        🔎 **Remarque** :
+🔎 **Remarque** :
         
-        NetworkX gère automatiquement la disposition des sommets, ce qui permet une visualisation rapide et lisible.
+NetworkX gère automatiquement la disposition des sommets, ce qui permet une visualisation rapide et lisible.
 
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063586"></a>**3.2. Avec le module Graphviz**</H3>
@@ -820,15 +818,18 @@ Le module **graphviz** permet de produire des graphes :
     ```python
     import graphviz
 
+    # Création du graphe orienté avec sortie au format SVG
     graphe_oriente = graphviz.Digraph(format='svg')
 
+    # Ajout des nœuds
     graphe_oriente.node("A")
     graphe_oriente.node("B")
     graphe_oriente.node("C")
 
+    # Ajout des arcs
     graphe_oriente.edge("A", "B")
     graphe_oriente.edge("A", "C")
-
+   
     # Affichage du graphe
     # graphviz.Source(graphe_oriente) # pour le télécharger
     # #graphe_non_oriente.view()
@@ -850,6 +851,7 @@ Le module **graphviz** permet de produire des graphes :
 
 
 ???+ question "🧠 **Activité n° 11 — Graphe orienté à partir de G3**"
+    
     👉 Adapter le code précédent pour représenter le graphe **G3**
     (défini sous forme de dictionnaire).
 
@@ -893,6 +895,7 @@ Le module **graphviz** permet de produire des graphes :
 
 
 ???+ question "🧠 **Activité n° 12 — Graphe non orienté avec Graphviz**"
+
     👉 Représenter un **graphe non orienté simple** avec Graphviz.
 
     
@@ -902,10 +905,12 @@ Le module **graphviz** permet de produire des graphes :
 
     graphe_non_oriente = graphviz.Graph()
 
+    #Ajout des noeuds avec la méthode node
     graphe_non_oriente.node("A")
     graphe_non_oriente.node("B")
     graphe_non_oriente.node("C")
 
+    #Ajout des arcs avec la méthode edge
     graphe_non_oriente.edge("A", "B")
     graphe_non_oriente.edge("A", "C")
 
@@ -933,20 +938,20 @@ Le module **graphviz** permet de produire des graphes :
         import graphviz
         from graphviz import Source
 
-        graphe = graphviz.Graph()
+        graphe_non_oriente = graphviz.Graph()
 
         for sommet in G1:
-            graphe.node(sommet)
+            graphe_non_oriente.node(sommet)
 
         for sommet in G1:
             for voisin in G1[sommet]:
-                graphe.edge(sommet, voisin)
+                graphe_non_oriente.edge(sommet, voisin)
 
         #Affichage du graphe
-        # graphviz.Source(graphe) # pour le télécharger
-        # graphe.view()
+        # graphviz.Source(graphe_non_oriente) # pour le télécharger
+        # graphe_non_oriente.view()
         from graphviz import Source
-        Source(graphe.source)
+        Source(graphe_non_oriente.source)
         ```
 
 
@@ -963,19 +968,21 @@ Nous allons maintenant **implémenter un graphe en Programmation Orientée Objet
 Jusqu’à présent, les graphes ont été représentés à l’aide :
 
 * de **matrices d’adjacence**,
+
 * de **dictionnaires de voisins**.
 
-Nous allons maintenant regrouper **les données** et **les opérations associées** à un graphe
-dans une **classe Python**, en utilisant la **Programmation Orientée Objet (POO)**.
+Nous allons maintenant regrouper **les données** et **les opérations associées** à un graphe dans une **classe Python**, en utilisant la **Programmation Orientée Objet (POO)**.
 
 📌 **Objectif** :
 Créer un objet `Graphe` capable de :
 
 * mémoriser les sommets et les arêtes,
+
 * fournir des méthodes pour manipuler le graphe,
+
 * garantir une utilisation cohérente des opérations.
 
-
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063588"></a>**4.1. Interface**</H3>  
 
 ##### 🔹 Interface attendue
 
@@ -1015,8 +1022,8 @@ L’objet `Graphe` possèdera les attributs suivants :
   *(initialement vide pour chaque sommet)*
 
 📌 **Remarque importante** :
-L’utilisateur de la classe n’a **pas besoin de modifier directement ces attributs** ;
-il interagit uniquement via les **méthodes de l’interface**.
+
+L’utilisateur de la classe n’a **pas besoin de modifier directement ces attributs** ; il interagit uniquement via les **méthodes de l’interface**.
 
 
 
@@ -1213,15 +1220,134 @@ Exemples :
 
     ??? success "✅ Méthode attendue"
 
-        - Initialiser la file avec `A`
+        - `file` : file FIFO contenant les sommets à visiter (dans l’ordre d’arrivée)
 
-        - Marquer `A` comme découvert
+        - `découverts` : liste des sommets déjà visités (dans l’ordre de découverte)
 
-        - Dépiler un sommet, ajouter ses voisins non découverts
 
-        - Répéter jusqu’à ce que la file soit vide
+        ###  **Initialisation**
 
-=> **CAPYTALE Le code vous sera donné par votre enseignant**
+        - `découverts = [A]`
+
+        - `file = [A]`
+
+
+        ### Étape 1 : Traitement de `A`
+
+        - Voisins de `A` : B, F
+
+        - On ajoute B et F dans `découverts` et dans `file`  
+
+        (nouvel ordre dans `file` : en fin de file)
+
+        - `découverts = [A, B, F]`
+
+        - `file = [B, F]`
+
+
+        ### Étape 2 : Traitement de `B`
+
+        - Voisins de `B` : A, C, D, G
+
+        - A déjà découvert → ignoré
+
+        - C, D, G sont ajoutés
+
+        - `découverts = [A, B, F, C, D, G]`
+
+        - `file = [F, C, D, G]`
+
+
+        ### Étape 3 : Traitement de `F`
+
+        - Voisins de `F` : A, G, H
+
+        - A et G déjà découverts → ignorés
+
+        - H est ajouté
+
+        - `découverts = [A, B, F, C, D, G, H]`
+
+        - `file = [C, D, G, H]`
+
+
+        ### Étape 4 : Traitement de `C`
+
+        - Voisins de `C` : B, E
+
+        - B déjà découvert → ignoré
+
+        - E est ajouté
+
+        - `découverts = [A, B, F, C, D, G, H, E]`
+
+        - `file = [D, G, H, E]`
+
+
+        ### Étape 5 : Traitement de `D`
+
+        - Voisins de `D` : B, I
+
+        - B déjà découvert → ignoré
+
+        - I est ajouté
+
+        - `découverts = [A, B, F, C, D, G, H, E, I]`
+
+        - `file = [G, H, E, I]`
+
+
+        ### Étape 6 : Traitement de `G`
+
+        - Voisins de `G` : B, F, I
+
+        - Tous déjà découverts → rien à faire
+
+        - `découverts = [A, B, F, C, D, G, H, E, I]`
+
+        - `file = [H, E, I]`
+
+
+        ### Étape 7 : Traitement de `H`
+
+        - Voisins de `H` : F
+
+        - F déjà découvert → rien à faire
+
+        - `découverts = [A, B, F, C, D, G, H, E, I]`
+
+        - `file = [E, I]`
+
+
+        ### Étape 8 : Traitement de `E`
+
+        - Voisins de `E` : C, I
+
+        - Déjà découverts → rien à faire
+
+        - `découverts = [A, B, F, C, D, G, H, E, I]`
+
+        - `file = [I]`
+
+
+        ### Étape 9 : Traitement de `I`
+
+        - Voisins de `I` : D, E, G
+
+        - Déjà découverts → rien à faire
+
+        - `découverts = [A, B, F, C, D, G, H, E, I]`
+
+        - `file = []`
+
+
+        ###  **Fin du parcours**
+
+        - **Ordre de découverte des sommets** :  
+
+        `A → B → F → C → D → G → H → E → I`
+
+
 
 ##### 🧩 Algorithme du BFS
 
@@ -1302,21 +1428,21 @@ if file : # => si la file n’est pas vide
         from collections import deque
 
         def parcours_largeur(G, s):
-            decouverts = [s]
-            en_attente = deque([s])
+            decouverts=[]
+            en_attente = deque()
+            en_attente.append(s)
+            while en_attente :
+                tmp = en_attente.popleft()
+                if tmp not in decouverts:
+                    decouverts.append(tmp)
+                    for v in G[tmp]:
+                        en_attente.append(v)
+            return decouverts
 
-            ordre = []
-
-            while en_attente:
-                sommet = en_attente.popleft()
-                ordre.append(sommet)
-
-                for voisin in G[sommet]:
-                    if voisin not in decouverts:
-                        decouverts.append(voisin)
-                        en_attente.append(voisin)
-
-            return ordre
+        print(parcours_largeur({"A": ("B", "D", "E"), "B": ("A", "C"), "C": ("B", "D"),
+                                    "D": ("A", "C", "E"), "E": ("A", "D", "F", "G"), 
+                                    "F": ("E", "G"), "G": ("E", "F", "H"),
+                                    "H": ("G")}, "A"))
         ```
 
 
@@ -1349,6 +1475,17 @@ if file : # => si la file n’est pas vide
     3. Vérifier avec votre fonction
 
     ??? success "✅ Solution (exemple)"
+        
+        1. et 2.
+
+        ['B', 'A', 'D', 'E', 'C', 'F', 'G', 'H']
+
+        ['D', 'B', 'C', 'E', 'A', 'F', 'G', 'H']
+
+        ['G', 'E', 'F', 'H', 'B', 'D', 'A', 'C']
+
+        3.
+        
         ```python
         parcours_largeur(graphe, 'B')
         parcours_largeur(graphe, 'D')
@@ -1413,6 +1550,55 @@ Exemples :
         - Empiler un voisin non visité
         - Continuer tant que possible
         - Dépiler lorsqu’aucun voisin n’est disponible
+
+
+        🔁 Déroulement du DFS (pas à pas)
+
+        On utilise une **pile (LIFO)** et on va **le plus loin possible**.
+
+        **Étapes :**
+
+        1. **A**
+        → voisin non visité : **B**
+
+        2. **B**
+        → voisin non visité : **C**
+
+        3. **C**
+        → voisin non visité : **E**
+
+        4. **E**
+        → voisin non visité : **I**
+
+        5. **I**
+        → voisin non visité : **D**
+
+        6. **D**
+        → aucun voisin non visité
+        ↩️ retour en arrière vers **I**
+
+        7. **I**
+        → voisin non visité : **G**
+
+        8. **G**
+        → voisin non visité : **F**
+
+        9. **F**
+        → voisin non visité : **H**
+
+        10. **H**
+            → aucun voisin non visité
+            ↩️ retour en arrière successif jusqu’à épuisement
+
+        
+
+        📋 **Ordre de visite DFS**
+
+        ```text
+        A – B – C – E – I – D – G – F – H
+        ```
+
+
     
 
 
