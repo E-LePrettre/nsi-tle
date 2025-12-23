@@ -2198,93 +2198,9 @@ La sortie est `(4,8)`
 
 ##### 📌 Carte conceptuelle des graphes et de leurs algorithmes 
 
-digraph Graphe {
-    rankdir=TB;
-    node [shape=box, style="rounded,filled", fillcolor="#E8EEF7"];
-
-    A [label="GRAPHE\nSommets / Arêtes"];
-
-    B [label="Représentation\nMatrice / Liste"];
-    C [label="Visualisation\nNetworkX / Graphviz"];
-
-    D [label="PARCOURS\nBFS / DFS"];
-
-    E [label="BFS\n(File)"];
-    F [label="DFS\n(Pile / récursion)"];
-    G [label="Détection de cycles"];
-    H [label="Chemin le plus court"];
-
-    I [label="DFS avec états\n(non visité / en cours / terminé)"];
-    J [label="Cycle détecté"];
-
-    K [label="Graphe non pondéré"];
-    L [label="BFS\nPlus court chemin"];
-
-    M [label="Graphe pondéré"];
-    N [label="Dijkstra\n(pas de poids négatif)"];
-    O [label="Bellman-Ford\n(poids négatifs possibles)"];
-
-    A -> B;
-    A -> C;
-
-    B -> D;
-
-    D -> E;
-    D -> F;
-    D -> G;
-    D -> H;
-
-    G -> I;
-    I -> J;
-
-    H -> K;
-    K -> L;
-
-    H -> M;
-    M -> N;
-    N -> O;
-}
 
 
-```
-              ┌───────────────┐
-              │    GRAPHE     │
-              │ sommets/arêtes│
-              └───────┬───────┘
-                      │
-          ┌───────────┴───────────┐
-          │                       │
-      Représentation          Visualisation
-  (matrice / liste)      (NetworkX / Graphviz)
-          │
-          ▼
-   ┌────────────────┐
-   │   PARCOURS     │
-   │  BFS / DFS     │
-   └───────┬────────┘
-           │
- ┌─────────┼───────────┬─────────────┐
- │         │           │             │
- ▼         ▼           ▼             ▼
-BFS       DFS     Détection        Chemin
-(file)   (pile)    de cycles      le + court
- │         │           │             │
- │         │           │             │
- │         │      DFS + états        │
- │         │    (non/en cours)       │
- │         │                         │
- │         └──────────────┐          │
- │                        ▼          ▼
- │                  Cycle détecté  Graphe pondéré
- │                                   │
- ▼                                   ▼
-Plus court chemin              Dijkstra
-(graphe non pondéré)           (pas de poids négatif)
-                                   │
-                                   ▼
-                             Bellman-Ford
-                      (cycles négatifs possibles)
-```
+![schema](schema.png)
 
 
 
