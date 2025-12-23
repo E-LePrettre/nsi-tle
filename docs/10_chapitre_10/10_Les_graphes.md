@@ -2197,28 +2197,52 @@ La sortie est `(4,8)`
 
 ##### 📌 Carte conceptuelle des graphes et de leurs algorithmes 
 
-flowchart TB
-    A[GRAPHE<br/>Sommets / Arêtes]
+digraph Graphe {
+    rankdir=TB;
+    node [shape=box, style="rounded,filled", fillcolor="#E8EEF7"];
 
-    A --> B[Représentation<br/>Matrice / Liste]
-    A --> C[Visualisation<br/>NetworkX / Graphviz]
+    A [label="GRAPHE\nSommets / Arêtes"];
 
-    B --> D[PARCOURS<br/>BFS / DFS]
+    B [label="Représentation\nMatrice / Liste"];
+    C [label="Visualisation\nNetworkX / Graphviz"];
 
-    D --> E[BFS<br/>(File)]
-    D --> F[DFS<br/>(Pile / récursion)]
-    D --> G[Détection de cycles]
-    D --> H[Chemin le plus court]
+    D [label="PARCOURS\nBFS / DFS"];
 
-    G --> I[DFS avec états<br/>(non visité / en cours / terminé)]
-    I --> J[Cycle détecté]
+    E [label="BFS\n(File)"];
+    F [label="DFS\n(Pile / récursion)"];
+    G [label="Détection de cycles"];
+    H [label="Chemin le plus court"];
 
-    H --> K[Graphe non pondéré]
-    K --> L[BFS<br/>Plus court chemin]
+    I [label="DFS avec états\n(non visité / en cours / terminé)"];
+    J [label="Cycle détecté"];
 
-    H --> M[Graphe pondéré]
-    M --> N[Dijkstra<br/>(pas de poids négatif)]
-    N --> O[Bellman-Ford<br/>(poids négatifs possibles)]
+    K [label="Graphe non pondéré"];
+    L [label="BFS\nPlus court chemin"];
+
+    M [label="Graphe pondéré"];
+    N [label="Dijkstra\n(pas de poids négatif)"];
+    O [label="Bellman-Ford\n(poids négatifs possibles)"];
+
+    A -> B;
+    A -> C;
+
+    B -> D;
+
+    D -> E;
+    D -> F;
+    D -> G;
+    D -> H;
+
+    G -> I;
+    I -> J;
+
+    H -> K;
+    K -> L;
+
+    H -> M;
+    M -> N;
+    N -> O;
+}
 
 
 ```
