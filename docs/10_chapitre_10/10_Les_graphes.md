@@ -568,7 +568,7 @@ Il est donc essentiel de savoir **passer d’une représentation à une autre**,
     Tester la fonction avec les matrices **M1, M2 et M3**.
 
     ```python
-    # Matrice M1
+    
     M1 = [
         [0, 1, 1, 1, 1],
         [1, 0, 1, 0, 0],
@@ -577,7 +577,7 @@ Il est donc essentiel de savoir **passer d’une représentation à une autre**,
         [1, 0, 0, 1, 0]
     ]
 
-    # Matrice M2
+   
     M2 = [
         [0, 1, 1, 0, 1],
         [0, 0, 1, 0, 0],
@@ -586,7 +586,7 @@ Il est donc essentiel de savoir **passer d’une représentation à une autre**,
         [0, 0, 0, 0, 0]
     ]
 
-    # Matrice M3 (pondérée)
+    
     M3 = [
         [0, 5, 10, 50, 12],
         [5, 0, 10, 0, 0],
