@@ -1023,6 +1023,8 @@ il interagit uniquement via les **méthodes de l’interface**.
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063589"></a>**4.2. Implémentation en POO**</H3>
 
+Cette classe implémente un **graphe non orienté simple**.
+
 ???+ question "🧠 **Activité n° 14 — Implémentation de la classe Graphe**"
     👉 Compléter les méthodes de la classe suivante.
 
@@ -1578,7 +1580,173 @@ Une liste utilisée comme paramètre par défaut est **partagée entre les appel
 
 
 
-#### <H4 STYLE="COLOR:MAGENTA;"><a name="_toc161063594"></a>**5.3.1. BFS et chemin le plus court — Dijkstra**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"><a name="_toc161063594_cycle"></a>**5.3.1. ❤️ Détection de cycles dans un graphe ❤️**</H4>
+
+
+
+##### 🧠 Problème posé
+
+Dans de nombreuses situations, il est important de savoir si un graphe contient un **cycle** :
+
+* dépendances circulaires entre tâches,
+* boucle dans un réseau,
+* erreur de conception dans un graphe de relations.
+
+📌 **Rappel** :
+Un **cycle** est un chemin qui **commence et se termine au même sommet**, en parcourant **au moins une arête**.
+
+
+
+##### 🧩 Pourquoi détecter les cycles ?
+
+👉 La présence d’un cycle peut :
+
+* empêcher un ordonnancement (ex. tâches),
+* rendre certains algorithmes invalides,
+* indiquer une anomalie logique.
+
+📌 Exemple :
+
+* un graphe de prérequis scolaires **ne doit pas contenir de cycle**
+* un graphe routier **peut** contenir des cycles
+
+
+
+##### 🧠 Principe général (avec DFS)
+
+La détection de cycles repose sur un **parcours en profondeur (DFS)**.
+
+📌 Idée clé :
+
+> Lors d’un DFS, si l’on rencontre un sommet **déjà en cours d’exploration** alors un **cycle existe**.
+
+
+
+##### 🔁 États des sommets
+
+Chaque sommet peut être dans **trois états** :
+
+| État           | Signification                           |
+| -------------- | --------------------------------------- |
+| **non visité** | le sommet n’a jamais été rencontré      |
+| **en cours**   | le sommet est dans la pile de récursion |
+| **terminé**    | tous ses voisins ont été explorés       |
+
+👉 **Un cycle est détecté si :**
+
+* on rencontre un sommet **en cours d’exploration**
+
+
+
+##### 🧠 Cas étudié en Terminale 
+
+📌 On se place dans le cas :
+
+* d’un **graphe orienté**
+* représenté par un **dictionnaire de successeurs**
+
+
+
+???+ question "🧠 **Activité n° 22 — Détection de cycle (principe)**"
+    👉 Observer le graphe suivant et indiquer s’il contient un cycle.
+
+
+    - A → B
+    - B → C
+    - C → A
+
+    📌 Question :
+    - pourquoi ce graphe pose-t-il problème pour un ordonnancement ?
+
+    ??? success "✅ Réponse attendue"
+        - A dépend de B
+        - B dépend de C
+        - C dépend de A
+        → dépendance circulaire ⇒ **cycle**
+
+
+
+
+##### 🧩 Algorithme de détection de cycle (DFS récursif)
+
+
+
+
+???+ question "🧠 **Activité n° 23 — Tester la détection de cycle**"
+    👉 Tester la fonction sur les graphes suivants.
+
+    ```python
+    def contient_cycle(graphe):
+        etat = {sommet: "non_visité" for sommet in graphe}
+
+        def dfs(s):
+            etat[s] = "en_cours"
+
+            for voisin in graphe[s]:
+                if etat[voisin] == "en_cours":
+                    return True
+                if etat[voisin] == "non_visité":
+                    if dfs(voisin):
+                        return True
+
+            etat[s] = "terminé"
+            return False
+
+        for sommet in graphe:
+            if etat[sommet] == "non_visité":
+                if dfs(sommet):
+                    return True
+
+        return False
+
+    G1 = {
+        'A': ['B'],
+        'B': ['C'],
+        'C': ['A']
+    }
+
+    G2 = {
+        'A': ['B'],
+        'B': ['C'],
+        'C': []
+    }
+
+    print(contient_cycle(G1))
+    print(contient_cycle(G2))
+    ```
+
+    ??? success "✅ Résultat attendu"
+
+        ```
+        True
+        False
+        ```
+
+
+
+##### 🔎 Explication pas à pas
+
+* un sommet passe à l’état **en_cours** quand on entre dans le DFS
+* s’il est rencontré **avant d’être terminé**, il est dans la pile
+* cela signifie que l’on revient sur un sommet déjà engagé → **cycle**
+
+
+
+##### 📌 Cas d’un graphe non orienté (culture)
+
+📌 Dans un graphe **non orienté**, la détection est légèrement différente
+(car chaque arête existe dans les deux sens).
+
+👉 Ce cas est **hors exigence bac**, mais repose aussi sur DFS
+(en ignorant le sommet parent).
+
+
+
+
+
+
+
+#### <H4 STYLE="COLOR:MAGENTA;"><a name="_toc161063594"></a>**5.3.2. BFS et chemin le plus court — Dijkstra**</H4>
 
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.038.png){: .center}
 
@@ -1592,7 +1760,7 @@ Une liste utilisée comme paramètre par défaut est **partagée entre les appel
   **l’algorithme de Dijkstra**.
 
 
-### 🧠 Principe de l’algorithme de Dijkstra
+##### 🧠 Principe de l’algorithme de Dijkstra
 
 L’algorithme utilise :
 
@@ -1606,7 +1774,7 @@ L’algorithme utilise :
 
 
 
-???+ question "🧠 **Activité n° 22 — Le chemin le plus court (Dijkstra)**"
+???+ question "🧠 **Activité n° 24 — Le chemin le plus court (Dijkstra)**"
     👉 Tester l’algorithme suivant.
 
 
@@ -1654,7 +1822,7 @@ L’algorithme utilise :
 * mise à jour des distances
 * répétition jusqu’à traitement complet
 
----
+
 
 ##### 🔧 Variante sans `min`
 
@@ -1672,7 +1840,156 @@ for node in unvisited:
 
 
 
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063595"></a>**5.3.2. ❤️ Parcourir un labyrinthe ❤️**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063596"></a>**5.3.3. Chemin le plus court avec poids négatifs — Bellman-Ford**</H4>
+
+📌 **Problème rencontré avec Dijkstra**
+
+L’algorithme de **Dijkstra** fonctionne **uniquement si tous les poids sont positifs ou nuls**.
+
+👉 S’il existe des **poids négatifs**, Dijkstra peut donner un **résultat faux**.
+
+➡️ On utilise alors un autre algorithme :
+**l’algorithme de Bellman-Ford**.
+
+
+
+##### 🧠 Principe de l’algorithme de Bellman-Ford
+
+Bellman-Ford permet de :
+
+* calculer le **plus court chemin** depuis un sommet source,
+* dans un graphe **pondéré**,
+* **même si certaines arêtes ont un poids négatif**.
+
+📌 Idée centrale :
+
+> On améliore progressivement les distances en testant **toutes les arêtes**, plusieurs fois.
+
+
+
+##### 🔁 Fonctionnement général
+
+L’algorithme repose sur le principe suivant :
+
+* initialiser toutes les distances à l’infini
+* fixer la distance de la source à 0
+* répéter **(nombre de sommets − 1) fois** :
+
+  * pour chaque arête `(u, v)` :
+
+    * tenter d’améliorer la distance de `v` via `u`
+
+📌 Pourquoi `n − 1` répétitions ?
+
+➡️ Dans un graphe sans cycle, le plus long chemin simple contient au maximum `n − 1` arêtes.
+
+
+
+##### ⚠️ Détection des cycles de poids négatif
+
+Un **cycle de poids négatif** est un cycle dont la somme des poids est négative.
+
+👉 Dans ce cas :
+
+* il est possible de **réduire indéfiniment la distance**
+* le problème du plus court chemin **n’a pas de solution**
+
+📌 Bellman-Ford permet de **détecter ces cycles**, contrairement à Dijkstra.
+
+
+
+##### 🧠 Comparaison Dijkstra / Bellman-Ford
+
+| Algorithme   | Poids négatifs | Détection de cycles négatifs | Complexité             |
+| ------------ | -------------- | ---------------------------- | ---------------------- |
+| BFS          | ❌              | ❌                            | O(n + m)               |
+| Dijkstra     | ❌              | ❌                            | O(n²) (version simple) |
+| Bellman-Ford | ✅              | ✅                            | O(n × m)               |
+
+
+
+???+ question "🧠 **Activité n° 25 — Algorithme de Bellman-Ford**"
+    👉 Tester l’algorithme suivant sur un graphe pondéré pouvant contenir des poids négatifs.
+
+    ```python
+    def bellman_ford(graph, start):
+        # Initialisation
+        distances = {sommet: float('inf') for sommet in graph}
+        distances[start] = 0
+
+        # Relaxation des arêtes (n - 1 fois)
+        for _ in range(len(graph) - 1):
+            for u in graph:
+                for v, poids in graph[u].items():
+                    if distances[u] + poids < distances[v]:
+                        distances[v] = distances[u] + poids
+
+        return distances
+    ```
+
+    ```python
+    graph = {
+        'A': {'B': 4, 'C': 2},
+        'B': {'C': -3, 'D': 2},
+        'C': {'D': 3},
+        'D': {}
+    }
+
+    print(bellman_ford(graph, 'A'))
+    ```
+
+    ??? success "✅ Résultat attendu"
+
+        ```
+        {'A': 0, 'B': 4, 'C': 1, 'D': 4}
+        ```
+
+
+
+##### 🔎 Décomposition de l’algorithme
+
+* initialisation des distances à l’infini
+* répétition des mises à jour sur **toutes les arêtes**
+* chaque passage peut améliorer certaines distances
+* après `n − 1` itérations, les distances sont optimales (s’il n’y a pas de cycle négatif)
+
+
+##### 🚨 Détection d’un cycle de poids négatif (optionnel)
+
+Après les `n − 1` itérations :
+
+👉 s’il est encore possible d’améliorer une distance,
+alors **un cycle de poids négatif existe**.
+
+```python
+def contient_cycle_negatif(graph, distances):
+    for u in graph:
+        for v, poids in graph[u].items():
+            if distances[u] + poids < distances[v]:
+                return True
+    return False
+```
+
+📌 Cette étape est **fondamentale en algorithmique avancée**,
+mais **hors exigence bac** (culture algorithmique).
+
+
+
+##### 📌 Bilan
+
+* **Dijkstra** est rapide mais limité
+* **Bellman-Ford** est plus lent mais plus général
+* le choix de l’algorithme dépend :
+
+  * du type de graphe
+  * des contraintes sur les poids
+
+👉 **Toujours analyser le problème avant de choisir l’algorithme**.
+
+
+
+
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063595"></a>**5.3.3. ❤️ Parcourir un labyrinthe ❤️**</H4>
 
 ##### 🧠 Problème posé
 
@@ -1725,7 +2042,7 @@ On modélise le labyrinthe par un graphe :
 
 
 
-???+ question "🧠 **Activité n° 23 — Vérification de l’implémentation du labyrinthe**"
+???+ question "🧠 **Activité n° 26 — Vérification de l’implémentation du labyrinthe**"
     👉 Vérifier que le graphe du labyrinthe est correctement construit.
 
 
@@ -1768,7 +2085,7 @@ avec :
 On souhaite maintenant **explorer le labyrinthe** à partir de l’entrée `(1,1)`.
 
 
-???+ question "🧠 **Activité n° 24 — Parcours du labyrinthe**"
+???+ question "🧠 **Activité n° 27 — Parcours du labyrinthe**"
     👉 Implémenter les deux parcours suivants :
 
 
@@ -1807,7 +2124,7 @@ Cela permet ensuite de **reconstruire le chemin**.
 
 
 
-???+ question "🧠 **Activité n° 25 — Tracer le chemin (DFS)**"
+???+ question "🧠 **Activité n° 28 — Tracer le chemin (DFS)**"
     👉 Modifier votre **parcours en profondeur** afin de mémoriser le chemin parcouru.
 
 
@@ -1850,7 +2167,7 @@ La sortie est `(4,8)`
 
 
 
-???+ question "🧠 **Activité n° 26 — Arrêt anticipé**"
+???+ question "🧠 **Activité n° 29 — Arrêt anticipé**"
     👉 Modifier votre boucle `while` pour **s’arrêter dès que la sortie est trouvée**.
 
     
@@ -1865,11 +2182,136 @@ La sortie est `(4,8)`
         - le parcours s’arrête dès que `(4,8)` est découvert
     
 
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063596"></a>**6.🔎 Synthèse**</H2>
+
+
+
+##### 🧠 Schémas — *Les graphes*
+
+![Image](https://media.geeksforgeeks.org/wp-content/uploads/20240216084522/bfs-vs-dfs-%281%29.png)
+
+![Image](https://static-assets.codecademy.com/Courses/CS102-Data-Structures-And-Algorithms/Breadth-First-Search-And-Depth-First-Search/Depth-First-Tree-Traversal.gif)
+
+
+
+
+##### 📌 Carte conceptuelle des graphes et de leurs algorithmes 
+
+```
+              ┌───────────────┐
+              │    GRAPHE     │
+              │ sommets/arêtes│
+              └───────┬───────┘
+                      │
+          ┌───────────┴───────────┐
+          │                       │
+      Représentation          Visualisation
+  (matrice / liste)      (NetworkX / Graphviz)
+          │
+          ▼
+   ┌────────────────┐
+   │   PARCOURS     │
+   │  BFS / DFS     │
+   └───────┬────────┘
+           │
+ ┌─────────┼───────────┬─────────────┐
+ │         │           │             │
+ ▼         ▼           ▼             ▼
+BFS       DFS     Détection        Chemin
+(file)   (pile)    de cycles      le + court
+ │         │           │             │
+ │         │           │             │
+ │         │      DFS + états        │
+ │         │    (non/en cours)       │
+ │         │                         │
+ │         └──────────────┐          │
+ │                        ▼          ▼
+ │                  Cycle détecté  Graphe pondéré
+ │                                   │
+ ▼                                   ▼
+Plus court chemin              Dijkstra
+(graphe non pondéré)           (pas de poids négatif)
+                                   │
+                                   ▼
+                             Bellman-Ford
+                      (cycles négatifs possibles)
+```
+
+
+
+##### 🧩 La démarche logique pour travailler sur un graphe
+
+1️⃣ **On commence toujours par un graphe**
+
+* Sommets = objets
+* Arêtes = relations
+* Orienté / non orienté
+* Pondéré / non pondéré
+
+
+
+2️⃣ **On choisit une représentation**
+
+* Matrice d’adjacence → rapide pour tester une arête
+* Liste d’adjacence → économique en mémoire
+
+
+
+3️⃣ **On explore : les parcours**
+
+| Algorithme | Structure        | Idée                     |
+| ---------- | ---------------- | ------------------------ |
+| **BFS**    | File             | On explore par distance  |
+| **DFS**    | Pile / récursion | On explore en profondeur |
+
+
+
+4️⃣ **Applications directes des parcours**
+
+🔁** Détection de cycle**
+
+* Basée sur **DFS**
+* Si on revient sur un sommet **en cours** → cycle
+
+🧭 **Recherche de chemin**
+
+* BFS → plus court chemin **non pondéré**
+* DFS → chemin quelconque (pas optimal)
+
+
+
+5️⃣ **Graphes pondérés : on change d’algorithme**
+
+| Situation      | Algorithme                        |
+| -------------- | --------------------------------- |
+| Poids positifs | **Dijkstra**                      |
+| Poids négatifs | **Bellman-Ford**                  |
+| Cycle négatif  | **Bellman-Ford détecte l’erreur** |
+
+
+
+6️⃣ **Cas concret final : le labyrinthe**
+
+* Graphe en grille
+* BFS / DFS pour explorer
+* `parent` pour reconstruire le chemin
+* Arrêt anticipé quand sortie trouvée
+
+
+
+
+
+> *Un graphe se modélise, se représente, se parcourt.*
+> *Les parcours permettent de détecter des cycles et de chercher des chemins.*
+> *Le choix de l’algorithme dépend du type de graphe.*
+
+
 
 
 Merci à Gilles Lassus, Cédric Gouyou, Jean-Louis Thirot, et Mireille Coilhac
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063596"></a>**6.🔎 Exercices**</H2>
+
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063596"></a>**7.🔎 Exercices**</H2>
 
 
 !!! info "🧠 **Capytale : Les codes seront fournis par votre enseignant.**" 
@@ -1886,7 +2328,7 @@ Merci à Gilles Lassus, Cédric Gouyou, Jean-Louis Thirot, et Mireille Coilhac
 
 !!! info "🧠 **Capytale : Les codes seront fournis par votre enseignant.**" 
 
-## <H2 STYLE="COLOR:BLUE;"> **7. 🔎 Projet**</H2>  
+## <H2 STYLE="COLOR:BLUE;"> **8. 🔎 Projet**</H2>  
 
 !!! abstract "🧩 **Exercice n°1 : Utiliser Dijkstra pour :**"
 
