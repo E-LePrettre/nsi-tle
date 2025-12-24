@@ -631,11 +631,9 @@ Il est donc essentiel de savoir **passer d’une représentation à une autre**,
     ]
 
     sommets = ['A', 'B', 'C', 'D', 'E']
-    
 
     ??? success "✅ Solution — matrice → dictionnaire"
-        
-        ```python
+        ```python   
         def matrice2dico(sommets, matrice):
             dico = {}
             n = len(sommets)
