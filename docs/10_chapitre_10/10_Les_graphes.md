@@ -664,8 +664,7 @@ Il est donc essentiel de savoir **passer d’une représentation à une autre**,
                     if matrice[i][j] != 0:
                         voisins.append((sommets[j],matrice[i][j]))
                 dico[sommets[i]] = voisins
-            return dico
-            
+            return dico   
         ```
 
         🔎 **Principe** :
