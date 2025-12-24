@@ -380,6 +380,9 @@ Un graphe pondéré permet donc de modéliser des situations réelles où toutes
         ✔️ Une amitié correspond à une arête  
         ✔️ La matrice contient `1` si deux personnes sont amies, `0` sinon
 
+        ![](Image1.png)
+        ![](image2.png)
+
 
 
 ???+ question "🧠 **Activité n° 4 — Graphes à partir de matrices**"
@@ -1167,7 +1170,7 @@ Contrairement à un arbre, un sommet d’un graphe peut être rencontré **plusi
 
 
 
-# <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063591"></a>**5.1. ❤️ Parcours en largeur ❤️ (BFS)**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063591"></a>**5.1. ❤️ Parcours en largeur ❤️ (BFS)**</H3>
 
 📺 *Vidéo de référence* :
 [https://ladigitale.dev/digiview/#/v/66c66c81c573a](https://ladigitale.dev/digiview/#/v/66c66c81c573a)
