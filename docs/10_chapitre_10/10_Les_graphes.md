@@ -726,18 +726,22 @@ Il est donc essentiel de savoir **passer d’une représentation à une autre**,
     ??? success "✅ Solution — dictionnaire → matrice"
         ```python
         def dico2matrice(graphe_dico):
-            sommets = list(graphe_dico.keys())
+            sommets = [v for v in graphe_dico.keys()]   
+
+            matrice = [[0]*len(sommets) for i in range(len(sommets))]
+            for i in range(len(sommets)):
+                for j in range(len(sommets)):
+                    s1, s2 = sommets[i], sommets[j]
+                    if s2 in graphe_dico[s1]:
+                        matrice[i][j] = 1
+            return sommets, matrice
+
+
+        def dico2matrice2(graphe_dico):
+            sommets = [v for v in graphe_dico.keys()]   
             n = len(sommets)
-            indice = {sommets[i]: i for i in range(n)}
-
-            matrice = [[0]*n for _ in range(n)]
-
-            for sommet in graphe_dico:
-                i = indice[sommet]
-                for voisin in graphe_dico[sommet]:
-                    j = indice[voisin]
-                    matrice[i][j] = 1
-
+            matrice=[[1 if sommets[j] in graphe_dico[sommets[i]] else 0 for j in range(n)] for i in range(n)]
+            #attention si if et else il faut mettre le for à la fin
             return sommets, matrice
         ```
 
