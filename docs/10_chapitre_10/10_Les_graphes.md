@@ -376,8 +376,11 @@ Un graphe pondéré permet donc de modéliser des situations réelles où toutes
     2. Donner la **matrice d’adjacence** correspondante.
 
     ??? success "✅ Solution (méthode attendue)"
+
         ✔️ Chaque personne est représentée par un sommet  
+
         ✔️ Une amitié correspond à une arête  
+
         ✔️ La matrice contient `1` si deux personnes sont amies, `0` sinon
 
         ![](Image1.png)
@@ -399,8 +402,11 @@ Un graphe pondéré permet donc de modéliser des situations réelles où toutes
     - Une valeur non nulle indique un poids
 
     ??? success "✅ Solution (principe)"
+
         ✔️ Identifier les sommets
+
         ✔️ Tracer une arête pour chaque valeur non nulle
+
         ✔️ Ajouter le poids si le graphe est pondéré
 
         ![](image3.png)
@@ -488,6 +494,7 @@ On évite ainsi de stocker de nombreuses valeurs inutiles (les `0`), contraireme
 
 
 ???+ question "🧠 **Activité n° 5 — Graphes à partir de listes d’adjacence**"
+    
     👉 Construire les graphes correspondant aux dictionnaires fournis (sur une feuille).
 
     1.
