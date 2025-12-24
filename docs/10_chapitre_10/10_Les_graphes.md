@@ -403,6 +403,10 @@ Un graphe pondéré permet donc de modéliser des situations réelles où toutes
         ✔️ Tracer une arête pour chaque valeur non nulle
         ✔️ Ajouter le poids si le graphe est pondéré
 
+        ![](image3.png)
+        ![](image4.png)
+        ![](image5.png)
+
 
 
 #### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063581"></a>**2.1.4. ❤️ Implémentation Python des matrices d’adjacence ❤️**</H4>
