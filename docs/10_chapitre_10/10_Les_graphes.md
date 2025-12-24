@@ -529,6 +529,10 @@ On évite ainsi de stocker de nombreuses valeurs inutiles (les `0`), contraireme
 
         ✔️ Vérifier la cohérence des arêtes
 
+        ![](image6.png)
+
+        ![](image7.png)
+
 
 
 
