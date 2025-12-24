@@ -584,7 +584,23 @@ Il est donc essentiel de savoir **passer d’une représentation à une autre**,
     ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.020.png){: .center}  
     ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.021.png){: .center}
 
-    Tester la fonction avec les matrices **M1, M2 et M3**.
+    Tester la fonction avec les matrices **M1, M2**
+    
+    Pour **M3**, écrire une fonction
+    `python
+        matrice2dico3(sommets, matrice)
+        `
+    qui :
+    - prend en paramètre :
+
+    - une **liste de sommets**
+
+    - une **matrice d’adjacence pondérée**
+
+    - renvoie le **dictionnaire des voisins** correspondant. Chaque sommet est une clé du dictionnaire et la valeur associée est une liste de couples (voisin, poids), représentant les sommets adjacents et le poids de l’arête qui les relie.
+
+    Tester la fonction avec **M3**
+
 
     ```python
     
@@ -632,6 +648,24 @@ Il est donc essentiel de savoir **passer d’une représentation à une autre**,
                 dico[sommets[i]] = voisins
 
             return dico
+
+        # ou plus simplement
+        def matrice2dico2(sommets, matrice):    
+            n = len(sommets)
+            return {sommets[i]:[sommets[j] for j in range(n) if matrice[i][j] != 0] for i in range(n)}
+
+        #### pour M3 il y a les poids il faut donc faire différemment
+        def matrice2dico_poids(sommets, matrice):
+            dico = {}
+            n = len(sommets)
+            for i in range(n):
+                voisins = []
+                for j in range(n):
+                    if matrice[i][j] != 0:
+                        voisins.append((sommets[j],matrice[i][j]))
+                dico[sommets[i]] = voisins
+            return dico
+            
         ```
 
         🔎 **Principe** :
