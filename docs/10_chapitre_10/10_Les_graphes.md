@@ -645,10 +645,14 @@ Il est donc essentiel de savoir **passer d’une représentation à une autre**,
         dico2matrice(graphe_dico)
         `
     qui :
+
     - prend en paramètre un **dictionnaire de voisins**
+    
     - renvoie :
-    - la **liste des sommets**
-    - la **matrice d’adjacence** correspondante
+    
+        - la **liste des sommets**
+        
+        - la **matrice d’adjacence** correspondante
 
     ```python
     G1 = {
