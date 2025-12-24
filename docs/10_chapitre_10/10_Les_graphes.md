@@ -611,6 +611,7 @@ Il est donc essentiel de savoir **passer d’une représentation à une autre**,
     
 
     ??? success "✅ Solution — matrice → dictionnaire"
+        
         ```python
         def matrice2dico(sommets, matrice):
             dico = {}
