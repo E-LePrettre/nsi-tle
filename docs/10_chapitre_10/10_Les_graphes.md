@@ -2238,10 +2238,14 @@ Bellman-Ford permet de :
 L’algorithme repose sur le principe suivant :
 
 * initialiser toutes les distances à l’infini
+
 * fixer la distance de la source à 0
+
 * répéter **(nombre de sommets − 1) fois** :
 
-  * pour chaque arête `(u, v)` :
+
+  - pour chaque arête `(u, v)` :
+
 
     * tenter d’améliorer la distance de `v` via `u`
 
