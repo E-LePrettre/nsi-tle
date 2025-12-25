@@ -1,4 +1,4 @@
-﻿---
+---
 author: ELP
 title: 10 Les graphes
 ---
@@ -7,10 +7,10 @@ title: 10 Les graphes
 **Table des matières**
 
 1️⃣ [Introduction et notion de base](#_toc161063570)  
-2️⃣ [Modélisations d’un graphe](#_toc161063576)  
+2️⃣ [❤️Modélisations d’un graphe❤️](#_toc161063576)  
 3️⃣ [Visualiser un graphe](#_toc161063584)  
 4️⃣ [❤️Création d’une class Graphe❤️](#_toc161063587)  
-5️⃣ [Les parcours](#_toc161063590)  
+5️⃣ [❤️Les parcours❤️](#_toc161063590)  
 6️⃣ [Synthèse](#_toc161063595)  
 7️⃣ [Exercices](#_toc161063596)  
 8️⃣ [Projet](#_toc161063597)
@@ -270,7 +270,7 @@ Les graphes sont utilisés dans de nombreuses applications courantes, notamment 
 
 
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063576"></a>**2. Modélisations d’un graphe**</H2>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063576"></a>**2. ❤️ Modélisations d’un graphe ❤️**</H2>
 
 Il existe **deux méthodes principales** pour implémenter un graphe :
 
