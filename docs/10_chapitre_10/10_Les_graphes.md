@@ -2179,7 +2179,7 @@ si le graphe contient des **poids négatifs**.
 
 👉 Dans ce cas, on utilisera **Bellman-Ford**.
 
-
+---
 
 ##### 🔧 Variante sans `min()` (plus explicite)
 
@@ -2217,7 +2217,7 @@ L’algorithme de **Dijkstra** fonctionne **uniquement si tous les poids sont po
 ➡️ On utilise alors un autre algorithme :
 **l’algorithme de Bellman-Ford**.
 
-
+---
 
 ##### 🧠 Principe de l’algorithme de Bellman-Ford
 
@@ -2231,7 +2231,7 @@ Bellman-Ford permet de :
 
 > On améliore progressivement les distances en testant **toutes les arêtes**, plusieurs fois.
 
-
+---
 
 ##### 🔁 Fonctionnement général
 
@@ -2249,7 +2249,7 @@ L’algorithme repose sur le principe suivant :
 
 ➡️ Dans un graphe sans cycle, le plus long chemin simple contient au maximum `n − 1` arêtes.
 
-
+---
 
 ##### ⚠️ Détection des cycles de poids négatif
 
@@ -2262,7 +2262,7 @@ Un **cycle de poids négatif** est un cycle dont la somme des poids est négativ
 
 📌 Bellman-Ford permet de **détecter ces cycles**, contrairement à Dijkstra.
 
-
+---
 
 ##### 🧠 Comparaison Dijkstra / Bellman-Ford
 
@@ -2392,7 +2392,7 @@ return distances
 
 
 
-
+---
 
 
 #### 🚨 Détection d’un cycle de poids négatif 
@@ -2448,7 +2448,7 @@ Un cycle de poids négatif signifie que :
 
 
 
-
+---
 
 ##### 📌 Bilan
 
