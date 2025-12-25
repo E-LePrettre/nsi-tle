@@ -631,6 +631,8 @@ Il est donc essentiel de savoir **passer d’une représentation à une autre**,
     ]
 
     sommets = ['A', 'B', 'C', 'D', 'E']
+    ```
+
 
     ??? success "✅ Solution — matrice → dictionnaire"
         ```python   
@@ -777,7 +779,7 @@ Nous allons utiliser les bibliothèques :
 
 ???+ question "🧠 **Activité n° 8 — Visualisation avec NetworkX**"
 
-    👉 Compléter et exécuter le programme suivant afin de visualiser un graphe
+    👉 Exécuter le programme suivant afin de visualiser un graphe
     à partir d’un dictionnaire de voisins.
 
 
