@@ -831,7 +831,7 @@ Nous allons utiliser les bibliothèques :
     - réutiliser la fonction `cree_graphe_non_oriente_nx`
     - afficher successivement chaque graphe
 
-    ??? success "✅ Solution (exemple)"
+    ??? success "✅ Solution"
         ```python
         plt.cla()# Pour effacer les figures précédentes
         G = cree_graphe_non_oriente_nx(G1)
