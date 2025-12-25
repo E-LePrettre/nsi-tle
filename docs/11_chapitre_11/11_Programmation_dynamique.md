@@ -204,115 +204,228 @@ il suffit de changer l'ordre de parcours ; au lieu de diminuer de `n` à `1` et 
 
 
 
-### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507079"></a>**2.3. La suite de Fibonacci : avec mémoïsation (top down)**</H3>
 
-Ici :
+### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507079"></a>**2.3. La suite de Fibonacci : avec mémoïsation (top-down)**</H3>
 
-- l'écriture d'un **algorithme récursif naïf** (donné au début dans cet exemple) afin de résoudre d'abord les cas simples (ceux de la condition d'arrêt) pour pouvoir traiter ensuite les cas plus compliqués.
-- **utiliser un tableau (ou un dictionnaire) servant à mémoriser les résultats** déjà calculés pour ne pas les recalculer afin de réduire le coût en temps de calcul,
-- **transformer un algorithme récursif en itératif** en raisonnant dans l'ordre inverse de celui des appels récursifs afin de finir l'optimisation (élément effectué en même temps que le précédent dans cet exemple).
+🧠 Dans cette partie, on améliore l’algorithme récursif naïf en appliquant le principe de **mémoïsation**.
 
-**<H3 STYLE="COLOR:red;">Activité n° 3: Suite de fibonacci avec mémoïsation avec un tableau :top-down**</H3>  
-Etude de la mémoïsation
-```python
-# initialisation d'un tableau contenant des -1
-F = [-1]*101
+👉 L’idée est de :
 
-def fibonacci_mem(n):
-    pass
-```
-Tester avec n =6, 10, 100,… y a-t-il un problème ?
+- ✏️ partir d’un **algorithme récursif naïf** (comme précédemment),
+- 💾 **mémoriser les résultats** déjà calculés dans une structure (liste ou dictionnaire),
+- 🚀 **réduire drastiquement le temps de calcul**,
+- 🔁 tendre vers une transformation du raisonnement récursif en **approche optimisée**.
 
-[lien](https://www.recursionvisualizer.com/?function_definition=F%20%3D%20%5B-1%5D*101%0A%0Adef%20fibonacci_mem%28n%29%3A%0A%20%20%20%20if%20n%20%3D%3D%200%20or%20n%20%3D%3D%201%20%3A%0A%20%20%20%20%20%20%20%20return%20n%0A%20%20%20%20else%20%3A%0A%20%20%20%20%20%20%20%20if%20F%5Bn%5D%20%3D%3D%20-1%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20F%5Bn%5D%20%3D%20fibonacci_mem%28n-1%29%2Bfibonacci_mem%28n-2%29%0A%20%20%20%20%20%20%20%20return%20F%5Bn%5D%0A%0A&function_call=fibonacci_mem%286%29)
+---
 
-![image](Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.004.png)
+???+ question "🧠 **Activité n° 3 — Fibonacci avec mémoïsation (liste, top-down)**"
+    👉 Étudier le principe de la **mémoïsation**.
 
-**Pourquoi est-ce du top-down ?**
+    ```python
+    # initialisation d'un tableau contenant des -1
+    F = [-1] * 101
 
-Parce que :
+    def fibonacci_mem(n):
+        pass
+    ```
 
-- La fonction fibonacci_mem(n) **appelle récursivement** ``fibonacci_mem(n-1)`` et ``fibonacci_mem(n-2)``.
+    🧪 Tester avec `n = 6`, `n = 10`, `n = 100`  
+    ❓ Y a-t-il encore un problème de performance ?
 
-- On part donc du **problème global** (n) et on le décompose en **sous-problèmes plus petits**, jusqu’aux cas de base (n == 0 ou n == 1).
+    🔗 Visualisation des appels récursifs :  
+    https://www.recursionvisualizer.com/?function_definition=F%20%3D%20%5B-1%5D*101%0A%0Adef%20fibonacci_mem%28n%29%3A%0A%20%20%20%20if%20n%20%3D%3D%200%20or%20n%20%3D%3D%201%20%3A%0A%20%20%20%20%20%20%20%20return%20n%0A%20%20%20%20else%20%3A%0A%20%20%20%20%20%20%20%20if%20F%5Bn%5D%20%3D%3D%20-1%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20F%5Bn%5D%20%3D%20fibonacci_mem%28n-1%29%2Bfibonacci_mem%28n-2%29%0A%20%20%20%20%20%20%20%20return%20F%5Bn%5D%0A%0A&function_call=fibonacci_mem%286%29
 
-- À chaque appel, on **mémorise** le résultat dans la liste F pour **éviter de recalculer** les mêmes valeurs.
+    ??? success "✅ Solution (méthode attendue)"
+        ```python
+        F = [-1] * 101
 
-C’est exactement la définition de l’approche **top-down avec mémoïsation**.
+        def fibonacci_mem(n):
+            if n == 0 or n == 1:
+                return n
+            if F[n] == -1:
+                F[n] = fibonacci_mem(n-1) + fibonacci_mem(n-2)
+            return F[n]
+        ```
 
-On peut bien sûr intégrer la création de la liste dans la fonction pour un code **plus élégant.** 
+        ✔️ Les résultats sont désormais **mémorisés** dans la liste `F`.
 
-**<H3 STYLE="COLOR:red;">Activité n° 4 : Suite de fibonacci avec mémoïsation avec un tableau: top-down**</H3>
-```python
-def fibonacci_mem2(n, F=[0,1]):
-    if n >= len(F):
-        F.append(fibonacci_mem2(n-1, F)+fibonacci_mem2(n-2, F))
-    return F[n]
-```
+        ✔️ Chaque valeur de Fibonacci est calculée **une seule fois**.
 
-Tester avec n =6, 10, 100,… y a-t-il un problème ?
+        ✔️ Les performances sont **très fortement améliorées**, même pour `n = 100`.
 
-![image](Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.005.png)
+---
 
-**<H3 STYLE="COLOR:red;">Activité n° 5 : Suite de fibonacci avec mémoïsation avec un dictionnaire: top-down**</H3>  
-```python
-def fibonacci_mem3(n, F={0:0, 1:1}):
-    pass
-```
-Tester avec n =6, 10, 100,… y a-t-il un problème ?
+#### 🔼 **Pourquoi parle-t-on d’approche **top-down** ?**
 
-![image](Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.006.png)
+On parle d’approche **top-down** parce que :
 
-L’accès à un élément d’un dictionnaire est en **O(1)** en moyenne, grâce à l’utilisation d’une table de hachage.
-Pour une liste, l’accès à un élément par son indice (L[i]) est aussi en **O(1)**. En revanche, rechercher une valeur sans connaître son indice (x in L) est en **O(n)**.
+- 🔹 La fonction `fibonacci_mem(n)` **appelle récursivement**  
+  `fibonacci_mem(n-1)` et `fibonacci_mem(n-2)`.
 
-Dans le cas de Fibonacci en programmation dynamique, on accède aux éléments par indice connu, donc la complexité d’accès est **O(1)** dans les **deux cas.**
+- 🔹 On part du **problème global** (calculer le terme `n`)  
+  et on le décompose en **sous-problèmes de plus en plus petits**,  
+  jusqu’aux **cas de base** (`n == 0` ou `n == 1`).
 
-On pourrait s’attendre à ce que le dictionnaire soit plus efficace grâce à sa **flexibilité**, et que la liste soit moins performante, mais la différence n’est pas aussi marquée dans la pratique. Pourquoi ?
+- 🔹 À chaque appel récursif, on **mémorise** le résultat dans la structure `F`,  
+  afin **d’éviter de recalculer** plusieurs fois les mêmes valeurs.
 
-Parce qu’on accède toujours aux deux derniers éléments calculés dans la liste. Le processeur les garde à portée de main… **en cache** ! Cela permet un traitement très rapide, malgré les apparences.
+👉 Cela correspond exactement à la définition de la **programmation dynamique top-down avec mémoïsation**.
 
-On observe alors une complexité qui reste **pseudo-linéaire dans les deux cas**. La liste semble moins souple, mais elle profite pleinement de la mémoire cache, ce qui la rend **très compétitive en pratique**.
+💡 **Remarque** :  
+On peut bien sûr intégrer la création de la structure de mémoïsation directement dans la fonction,  
+afin d’obtenir un code **plus élégant** et plus autonome.
 
-### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507080"></a>**2.4. La suite de Fibonacci : approche de bas en haut**</H3>
+---
 
-**<H3 STYLE="COLOR:red;">Activité n° 6 : Suite de fibonacci approche de bas en haut (bottom to up):**</H3>  
-```python
-def fiboMonte(n) :
-    fib=[0 for _ in range(n + 2)]
-    fib[1] = 1
-    for i in range(2, n+1) :
-        fib[i] = fib[i - 1] + fib[i - 2]
-    return fib[n]
-```
-Tester avec n =6, 10, 100,… y a-t-il un problème ?
+???+ question "🧠 **Activité n° 4 — Fibonacci avec mémoïsation intégrée (liste, top-down)**"
+    👉 Observer une version plus compacte et plus élégante.
 
-![image](Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.007.png)
+    ```python
+    def fibonacci_mem2(n, F=[0, 1]):
+        if n >= len(F):
+            F.append(fibonacci_mem2(n-1, F) + fibonacci_mem2(n-2, F))
+        return F[n]
+    ```
 
-Exemple d’exécution  avec fiboMonte(5)
+    🧪 Tester avec `n = 6`, `n = 10`, `n = 100`  
+    ❓ Y a-t-il un problème ?
 
-Initialisation : fib = [0, 1, 0, 0, 0, 0, 0]
+    ??? success "✅ Solution (analyse attendue)"
+        ✔️ Cette version est **correcte** et très efficace.
 
-Boucle :
+        ⚠️ Attention toutefois :
+        - l’argument `F` est une **liste mutable par défaut**
+        - son contenu est **conservé entre deux appels successifs**
 
-- i = 2 → fib[2] = 1 + 0 = 1
+        👉 Ce comportement est acceptable ici, mais doit être **maîtrisé**.
 
-- i = 3 → fib[3] = 1 + 1 = 2
+---
 
-- i = 4 → fib[4] = 2 + 1 = 3
+???+ question "🧠 **Activité n° 5 — Fibonacci avec mémoïsation (dictionnaire, top-down)**"
+    👉 Comparer la mémoïsation avec une **liste** et avec un **dictionnaire**.
 
-- i = 5 → fib[5] = 3 + 2 = 5
+    ```python
+    def fibonacci_mem3(n, F={0: 0, 1: 1}):
+        pass
+    ```
 
-Retourne : fib[5] = 5 
+    🧪 Tester avec `n = 6`, `n = 10`, `n = 100`
+
+    ??? success "✅ Solution (méthode attendue)"
+        ```python
+        def fibonacci_mem3(n, F={0: 0, 1: 1}):
+            if n not in F:
+                F[n] = fibonacci_mem3(n-1, F) + fibonacci_mem3(n-2, F)
+            return F[n]
+        ```
+
+        ✔️ L’accès à un élément du dictionnaire est en **O(1)** en moyenne.
+
+        ✔️ L’accès à un élément d’une liste par indice est aussi en **O(1)**.
+
+        👉 Dans ce problème précis, **les performances sont comparables**.
+
+---
+
+#### 🧠 **Liste ou dictionnaire : quel impact sur les performances ?**
+
+L’accès à un élément d’un **dictionnaire** se fait en **O(1) en moyenne**, grâce à l’utilisation d’une **table de hachage**.
+
+Pour une **liste**, l’accès à un élément par son indice (`L[i]`) est également en **O(1)**.  
+En revanche, rechercher une valeur sans connaître son indice (`x in L`) est en **O(n)**, car il faut parcourir la liste.
+
+Dans le cas de la suite de Fibonacci en **programmation dynamique**, on accède toujours aux éléments **par indice connu**.  
+👉 La complexité d’accès est donc **O(1) dans les deux cas** (liste ou dictionnaire).
+
+On pourrait s’attendre à ce que le dictionnaire soit plus efficace grâce à sa **flexibilité**, et que la liste soit moins performante.  
+En pratique, la différence n’est pas aussi marquée. Pourquoi ?
+
+🔍 **Explication** :
+
+- Dans l’algorithme de Fibonacci, on accède **toujours aux deux dernières valeurs calculées**.
+- Ces valeurs sont stockées dans des emplacements mémoire **contigus** dans le cas d’une liste.
+- Le processeur exploite alors la **mémoire cache**, qui conserve à portée immédiate les données récemment utilisées.
+
+👉 Cette **localité mémoire** permet un traitement très rapide, malgré la simplicité apparente de la liste.
+
+📈 **Bilan sur la complexité** :
+
+On observe ainsi, **en pratique**, un temps de calcul **proportionnel à n dans les deux cas**  
+(cette situation est parfois qualifiée de **complexité pseudo-linéaire**).
+
+➡️ La liste, bien que moins souple qu’un dictionnaire, profite pleinement de la mémoire cache, ce qui la rend **très compétitive en pratique** pour ce type d’algorithme.
+
+🧩 **À retenir** :
+- Liste et dictionnaire offrent ici des performances **comparables**
+- Le **contexte d’utilisation** est plus important que la structure elle-même
+- La programmation dynamique repose autant sur la **stratégie algorithmique** que sur le **choix de la structure de données**
+
+---
+
+### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507080"></a>**2.4. La suite de Fibonacci : approche de bas en haut (bottom-up)**</H3>
+
+🧱 Cette fois, on change complètement de stratégie.
+
+➡️ On ne part plus du problème global, mais des **cas de base**, que l’on combine progressivement.
+
+---
+
+???+ question "🧠 **Activité n° 6 — Fibonacci approche bottom-up**"
+    👉 Implémenter la version **ascendante** de Fibonacci.
+
+    ```python
+    def fiboMonte(n):
+        fib = [0 for _ in range(n + 2)]
+        fib[1] = 1
+        for i in range(2, n + 1):
+            fib[i] = fib[i - 1] + fib[i - 2]
+        return fib[n]
+    ```
+
+    🧪 Tester avec `n = 6`, `n = 10`, `n = 100`
+
+    ??? success "✅ Solution (analyse attendue)"
+        ✔️ Cette version est **itérative**.
+
+        ✔️ Chaque valeur est calculée **une seule fois**.
+
+        ✔️ Il n’y a **aucun appel récursif**, donc aucun surcoût.
+
+        ✔️ La complexité est **O(n)** en temps et **O(n)** en mémoire.
+
+---
+
+#### 🔍 **Exemple d’exécution : `fiboMonte(5)`**
+
+- Initialisation : `fib = [0, 1, 0, 0, 0, 0, 0]`
+
+- Boucle :
+  - `i = 2` → `fib[2] = 1`
+  - `i = 3` → `fib[3] = 2`
+  - `i = 4` → `fib[4] = 3`
+  - `i = 5` → `fib[5] = 5`
+
+- Résultat retourné : **5**
+
+---
+
+#### 🔽 **L’approche **bottom-up** (de bas en haut)**
 
 L’approche **bottom-up** consiste à :
 
-- Résoudre d’abord les **plus petits sous-problèmes**, souvent les cas de base.
+- 🔹 **Résoudre d’abord les plus petits sous-problèmes**, souvent les **cas de base**  
+  (par exemple `fibo(0)` et `fibo(1)`).
 
-- **Construire progressivement** la solution finale en remontant vers le problème global.
+- 🔹 **Construire progressivement la solution finale**  
+  en remontant pas à pas vers le problème global.
 
-- Utiliser une structure **itérative** (une boucle) plutôt que la récursion.
+- 🔹 Utiliser une structure **itérative**  
+  (généralement une **boucle**) plutôt que la récursion.
 
-- **Éviter** les appels multiples et coûteux de fonctions **récursives**.
+- 🔹 **Éviter** les appels multiples et coûteux de fonctions **récursives**,  
+  ce qui améliore fortement les performances.
+
+
 
 
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507081"></a>**2.5. La suite de Fibonacci : version pythonesque**</H3>
