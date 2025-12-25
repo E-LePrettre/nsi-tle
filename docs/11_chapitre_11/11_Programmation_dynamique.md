@@ -5,115 +5,204 @@ title: 11 Programmation dynamique
 
 
 
-**Table des matières**
+## 📌 Compétences évaluables
 
-[1.	Paradigmes algorithmiques](#_toc159507072)
+- Utiliser la **programmation dynamique** pour écrire un algorithme
 
-[2.	Programmation dynamique de la suite de Fibonacci](#_toc159507076)
+---
 
-[3.	L’optimisation du problème du rendu de monnaie](#_toc159507082)
+## 📑 Table des matières
 
-[4.	Exercices :](#_toc159507090)
+1. [Paradigmes algorithmiques](#_toc159507072)  
+2. [Programmation dynamique de la suite de Fibonacci](#_toc159507076)  
+3. [L’optimisation du problème du rendu de monnaie](#_toc159507082)  
+4. [Exercices](#_toc159507090)  
+5. [Projet : le triangle de Pascal](#_toc159507091)  
 
-[5.	Projet : le triangle de Pascal	](#_toc159507091)
-
-**Compétences évaluables :**
-
-- Utiliser la programmation dynamique pour écrire un algorithme
+---
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc159507072"></a>**1. Paradigmes algorithmiques**</H2>
 
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507073"></a>**1.1. L’algorithme glouton**</H3>
 
-Lorsque l’on utilise un algorithme glouton, on applique le **paradigme** de l’algorithme glouton. Ce paradigme se concentre sur les **problèmes d’optimisation**. Voici quelques caractéristiques importantes de la programmation d’un algorithme glouton :
+🧠 Lorsque l’on utilise un algorithme glouton, on applique le **paradigme glouton**.  
+Ce paradigme est très utilisé pour les **problèmes d’optimisation**.
 
-- **Construction incrémentale** : L’algorithme glouton construit une solution étape par étape. À chaque étape, il choisit **la direction la plus prometteuse** en se basant sur des règles simples et en considérant une seule donnée à la fois.
-- **Optimalité locale** : Le choix effectué à **chaque étape est localement optimal**, mais cela ne garantit **pas une solution globalement optimale**. Cependant, dans certains cas, l’optimalité locale conduit à l’optimalité globale.
-- **Heuristique** : Dans certains cas, l’algorithme glouton est simplement une heuristique (**méthode de résolution** qui privilégie des **solutions approximatives)** qui fournit **une solution sous-optimale.** Cependant, lorsque nous ne connaissons pas d’algorithme exact efficace, cette approche peut être utilisée.
+🔎 **Caractéristiques importantes :**
+
+- 🧱 **Construction incrémentale**  
+  La solution est construite **étape par étape**.  
+  À chaque étape, on choisit **la meilleure option immédiate** (la plus prometteuse) selon une règle simple.
+
+- 🎯 **Optimalité locale**  
+  Le choix est **optimal localement**, mais cela ne garantit **pas** une solution optimale au final.  
+  👉 Cependant, dans certains problèmes, l’optimalité locale suffit.
+
+- 🧭 **Heuristique**  
+  L’algorithme glouton peut être une **heuristique**  (méthode de résolution qui privilégie des solutions **approximatives**) :  
+  une méthode qui donne parfois une solution **approchée** (sous-optimale), mais rapide.
+
+???+ question "🧠 Mini-question — Comprendre le glouton"
+    👉 Pourquoi dit-on que l’algorithme glouton fait des choix « localement optimaux » ?
+
+    ??? success "✅ Réponse attendue"
+        Parce qu’à **chaque étape**, il choisit la meilleure option **sur le moment**, sans garantir que ce choix mène à la meilleure solution **globale**.
+
+---
 
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507074"></a>**1.2. Diviser pour régner**</H3>
 
-Il **divise** un problème en sous-problèmes indépendants (qui ne se chevauchent pas), **résout** chaque sous-problème, et **combine** les solutions des sous-problèmes pour former une solution du problème initial.
+✂️ Ce paradigme consiste à :
+
+1. **Diviser** le problème en sous-problèmes **indépendants** (qui ne se chevauchent pas)
+2. **Résoudre** chaque sous-problème
+3. **Combiner** les solutions pour obtenir la solution finale
+
+💡 **Exemples classiques :**
+- tri fusion
+- recherche dichotomique
+
+---
 
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507075"></a>**1.3. La programmation dynamique**</H3>
 
-La **programmation dynamique** est un **paradigme algorithmique** qui permet de résoudre des problèmes **d’optimisation** en les décomposant en **sous-problèmes** et en stockant les résultats intermédiaires pour éviter de recalculer les mêmes valeurs. Voici quelques points importants concernant la programmation dynamique :
+🧩 La **programmation dynamique** est un paradigme algorithmique adapté aux **problèmes d’optimisation**.  
+Elle repose sur une idée clé : **éviter de recalculer plusieurs fois les mêmes sous-problèmes**.
 
-1\. **Décomposition en sous-problèmes** : L’idée centrale de la programmation dynamique est de diviser un problème complexe en **sous-problèmes plus simples**. Chaque sous-problème est résolu indépendamment.
+✅ Points essentiels :
 
-2\. **Stockage des résultats** : Plutôt que de recalculer les mêmes valeurs à plusieurs reprises, la programmation dynamique **mémoïse les résultats** des sous-problèmes dans une structure de données (généralement un tableau ou une matrice).
+1. 🧱 **Décomposition en sous-problèmes**  
+   On découpe un problème en sous-problèmes **plus simples**.
 
-3\. **Optimalité de Bellman** : La programmation dynamique s’appuie sur le **principe d’optimalité de Bellman**. Selon ce principe, une solution optimale d’un problème global peut être construite en combinant des solutions optimales de sous-problèmes.
+2. 💾 **Stockage des résultats (mémoïsation)**  
+   On conserve les résultats intermédiaires dans un **tableau** ou une **matrice**.
 
-4\. **Deux approches** :
+3. 🏁 **Principe d’optimalité de Bellman**  
+   Une solution optimale peut être construite en assemblant des solutions optimales de sous-problèmes.
 
-   1. **Ascendante** : On commence par résoudre **les sous-problèmes les plus petits** et on remonte progressivement vers le problème initial. Les résultats sont stockés dans un tableau.
-   1. **Descendante** : On part du problème global et on le décompose en sous-problèmes. On résout **chaque sous-problème en utilisant les résultats déjà calculés**.
+4. 🔼🔽 **Deux approches**
+
+   - 🔼 **Approche ascendante**  
+     On part des cas simples (**petits n**) et on remonte jusqu’au problème final.
+
+   - 🔽 **Approche descendante**  
+     On part du problème final et on calcule les sous-problèmes en mémorisant.
+
+???+ question "🧠 Mini-question — Identifier la programmation dynamique"
+    👉 Quel est le *but principal* de la programmation dynamique ?
+
+    ??? success "✅ Réponse attendue"
+        Le but est d’**éviter les recalculs**, en mémorisant les résultats des sous-problèmes déjà résolus.
+
+---
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc159507076"></a>**2. Programmation dynamique de la suite de Fibonacci**</H2>
 
-Toutes les activités de cette partie du cours seront effectuées dans un seul fichier nommé **fibonacci.py**
+👉 **CAPYTALE** : le code vous sera fourni par votre enseignant.
 
-La suite de Fibonacci est définie par :
+📌 Définition mathématique :
+
+```text
+Fn = 0              si n = 0
+     1              si n = 1
+     F(n−1)+F(n−2)   si n > 1
 ```
-Fn= 0,              si n=0
-    1,              si n=1
-    Fn-1+F(n-2),    si n>1
-```
 
-### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507077"></a>**2.1. La suite de Fibonacci : algorithme itératif**</H3>
+---
 
-La version itérative a déjà été vu en première.
+### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507077"></a>**2.1. Fibonacci : algorithme itératif**</H3>
 
-**<H3 STYLE="COLOR:red;">Activité n° 1 : Suite de Fibonacci avec l’algorithme itératif :**</H3>  
-Tester le pour n = 6
-```python
-def fibonacci_iteractif(n):
-    u, v = 0, 1
-    for i in range(n-1) :
-        u, v = v, u+v
-    return v
-```
-Tester avec n =10, 100,… y a-t-il un problème ?
+🧠 La version itérative a déjà été vue en première.
+Elle est rapide car elle calcule les valeurs **une seule fois**.
 
-### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507078"></a>**2.2. La suite de Fibonacci : algorithme récursif**</H3>
+???+ question "🧠 **Activité n° 1 — Fibonacci (version itérative)**"
+    👉 Tester la fonction suivante pour `n = 6`.
 
-La version récursive est plus proche de la définition.
 
-**<H3 STYLE="COLOR:red;">Activité n° 2 : Suite de Fibonacci avec l’algorithme récursif dit naïf :**</H3>  
-Tester le pour n = 6
-```python
-def fibonacci_recursif(n) :
-    if n == 0 or n == 1 :
-        return n
-    else :
-        return fibonacci_recursif(n-1)+fibonacci_recursif(n-2)
-```
-Tester avec n =10, 100,… y a-t-il un problème ?
+    ```python
+    def fibonacci_iteractif(n):
+        u, v = 0, 1
+        for i in range(n-1):
+            u, v = v, u+v
+        return v
+    ```
 
-Cette fonction est **très peu performante.** 
+    🧪 Tester ensuite avec `n = 10`, `n = 100`, …  
+    ❓ Y a-t-il un problème ?
 
-En effet, nous avons vu avec la suite de Fibonacci que programmer récursivement cette suite est contre-productif, car elle nécessite de résoudre plusieurs fois le **même sous-problème** (un même terme). Elle ne mémorise pas les termes déjà calculés pour s’en resservir.
+    ??? success "✅ Solution (méthode attendue)"
+        ✔️ Pour `n = 6` → **8**  
+        ✔️ Pour `n = 10` → **55**
 
-Pour n = 6, il est possible d’illustrer le fonctionnement de ce programme avec le graphe des appels récursifs suivant :
+        ✅ Pour `n = 100`, ça reste **rapide** car :
+        - on fait une boucle de taille `n` → complexité **O(n)**
+        - Python gère les grands entiers automatiquement
+
+        ✅ Conclusion : la version itérative est **efficace**.
+    
+
+---
+
+### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507078"></a>**2.2. Fibonacci : algorithme récursif (naïf)**</H3>
+
+🧠 La version récursive suit directement la définition, mais elle est souvent **très inefficace**.
+
+???+ question "🧠 **Activité n° 2 — Fibonacci (récursif naïf)**"
+    👉 Tester la fonction suivante pour `n = 6`.
+
+    ```python
+    def fibonacci_recursif(n):
+        if n == 0 or n == 1:
+            return n
+        else:
+            return fibonacci_recursif(n-1) + fibonacci_recursif(n-2)
+    ```
+
+    🧪 Tester ensuite avec `n = 10`, `n = 30`, `n = 40`, …  
+    ❓ Que constates-tu ?
+
+    ??? success "✅ Solution (méthode attendue)"
+        ✔️ Pour `n = 6`, on obtient **8** (même résultat que l’itératif).
+
+        ⚠️ Mais dès que `n` devient grand :
+        - le programme devient **très lent**
+        - on a l’impression que ça “bloque” (souvent dès `n ≈ 35-40`)
+
+        ✅ Explication :
+        - la fonction recalculent plusieurs fois les mêmes valeurs (ex : `fib(2)`, `fib(3)`, etc.)
+        - le nombre d’appels augmente de manière **exponentielle**
+
+        👉 Conclusion : il faut **mémoriser** les résultats → programmation dynamique.
+    
+
+---
+
+Cette fonction est **très peu performante.**
+
+En effet, programmer récursivement cette suite est contre-productif, car elle nécessite de résoudre plusieurs fois le **même sous-problème** (un même terme). Elle ne mémorise pas les termes déjà calculés pour s’en resservir.
+
+Pour `n = 6`, il est possible d’illustrer le fonctionnement de ce programme avec le graphe des appels récursifs suivant :
 
 [lien](https://www.recursionvisualizer.com/?function_definition=def%20fib%28n%29%20%3A%0A%20%20%20%20if%20n%20%3D%3D%200%20or%20n%20%3D%3D%201%20%3A%0A%20%20%20%20%20%20%20%20return%20n%0A%20%20%20%20else%20%3A%0A%20%20%20%20%20%20%20%20return%20fib%28n-1%29%2Bfib%28n-2%29%0A&function_call=fib%286%29)
 
 ![image](Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.001.png)
 
-On voit bien que certaines valeurs sont **calculées plusieurs fois.** 
+On voit bien que certaines valeurs sont **calculées plusieurs fois.**
 
-Et les appels augmentent de manière exponentielle comme on peut le voir dans l’arbre des appels de fib(8).
+Et les appels augmentent de manière exponentielle comme on peut le voir dans l’arbre des appels de `fib(8)` :
 
 [lien](https://www.recursionvisualizer.com/?function_definition=def%20fib%28n%29%20%3A%0A%20%20%20%20if%20n%20%3D%3D%200%20or%20n%20%3D%3D%201%20%3A%0A%20%20%20%20%20%20%20%20return%20n%0A%20%20%20%20else%20%3A%0A%20%20%20%20%20%20%20%20return%20fib%28n-1%29%2Bfib%28n-2%29%0A&function_call=fib%288%29)
 
 ![image](Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.002.png)
 
-Il faut donc **mémoriser ces valeurs** : on va donc utiliser une **matrice (tableau de tableaux).** 
+Il faut donc **mémoriser ces valeurs** : on va utiliser une **matrice (tableau de tableaux).**
 
-De plus, l'utilisation de ce tableau va permettre de transformer cet **algorithme récursif en un itératif** : il suffit de changer l'ordre de parcours ; au lieu de diminuer de n à 1 et 0 comme dans l'algorithme récursif, il suffit d'augmenter dans le tableau de 0 et 1 à n.
+De plus, l'utilisation de ce tableau va permettre de transformer cet **algorithme récursif en un itératif** :
+il suffit de changer l'ordre de parcours ; au lieu de diminuer de `n` à `1` et `0` comme dans l'algorithme récursif, il suffit d'augmenter dans le tableau de `0` et `1` à `n`.
 
 ![image](Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.003.png)
+
+
 
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507079"></a>**2.3. La suite de Fibonacci : avec mémoïsation (top down)**</H3>
 
