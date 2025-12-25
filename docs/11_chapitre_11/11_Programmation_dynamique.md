@@ -5,13 +5,8 @@ title: 11 Programmation dynamique
 
 
 
-## 📌 Compétences évaluables
 
-- Utiliser la **programmation dynamique** pour écrire un algorithme
-
----
-
-## 📑 Table des matières
+**Table des matières**
 
 1. [Paradigmes algorithmiques](#_toc159507072)  
 2. [Programmation dynamique de la suite de Fibonacci](#_toc159507076)  
@@ -19,11 +14,17 @@ title: 11 Programmation dynamique
 4. [Exercices](#_toc159507090)  
 5. [Projet : le triangle de Pascal](#_toc159507091)  
 
+
+**🎯 Compétences évaluables :**
+
+- Utiliser la **programmation dynamique** pour écrire un algorithme
+
 ---
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc159507072"></a>**1. Paradigmes algorithmiques**</H2>
 
-### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507073"></a>**1.1. L’algorithme glouton**</H3>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc159507072"></a>**🧵 1. Paradigmes algorithmiques**</H2>
+
+### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507073"></a>**✨ 1.1. L’algorithme glouton**</H3>
 
 🧠 Lorsque l’on utilise un algorithme glouton, on applique le **paradigme glouton**.  
 Ce paradigme est très utilisé pour les **problèmes d’optimisation**.
@@ -50,7 +51,7 @@ Ce paradigme est très utilisé pour les **problèmes d’optimisation**.
 
 ---
 
-### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507074"></a>**1.2. Diviser pour régner**</H3>
+### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507074"></a>**🪁 1.2. Diviser pour régner**</H3>
 
 ✂️ Ce paradigme consiste à :
 
@@ -64,7 +65,7 @@ Ce paradigme est très utilisé pour les **problèmes d’optimisation**.
 
 ---
 
-### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507075"></a>**1.3. La programmation dynamique**</H3>
+### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507075"></a>**🧩 1.3. La programmation dynamique**</H3>
 
 🧩 La **programmation dynamique** est un paradigme algorithmique adapté aux **problèmes d’optimisation**.  
 Elle repose sur une idée clé : **éviter de recalculer plusieurs fois les mêmes sous-problèmes**.
@@ -96,7 +97,7 @@ Elle repose sur une idée clé : **éviter de recalculer plusieurs fois les mêm
 
 ---
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc159507076"></a>**2. Programmation dynamique de la suite de Fibonacci**</H2>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc159507076"></a>**🛡️ 2. Programmation dynamique de la suite de Fibonacci**</H2>
 
 👉 **CAPYTALE** : le code vous sera fourni par votre enseignant.
 
@@ -110,7 +111,7 @@ Fn = 0              si n = 0
 
 ---
 
-### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507077"></a>**2.1. Fibonacci : algorithme itératif**</H3>
+### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507077"></a>**🧫 2.1. Fibonacci : algorithme itératif**</H3>
 
 🧠 La version itérative a déjà été vue en première.
 Elle est rapide car elle calcule les valeurs **une seule fois**.
@@ -143,7 +144,7 @@ Elle est rapide car elle calcule les valeurs **une seule fois**.
 
 ---
 
-### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507078"></a>**2.2. Fibonacci : algorithme récursif (naïf)**</H3>
+### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507078"></a>**🎯 2.2. Fibonacci : algorithme récursif (naïf)**</H3>
 
 🧠 La version récursive suit directement la définition, mais elle est souvent **très inefficace**.
 
@@ -205,7 +206,7 @@ il suffit de changer l'ordre de parcours ; au lieu de diminuer de `n` à `1` et 
 
 
 
-### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507079"></a>**2.3. La suite de Fibonacci : avec mémoïsation (top-down)**</H3>
+### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507079"></a>**🎭 2.3. La suite de Fibonacci : avec mémoïsation (top-down)**</H3>
 
 🧠 Dans cette partie, on améliore l’algorithme récursif naïf en appliquant le principe de **mémoïsation**.
 
@@ -362,7 +363,7 @@ On observe ainsi, **en pratique**, un temps de calcul **proportionnel à n dans 
 
 ---
 
-### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507080"></a>**2.4. La suite de Fibonacci : approche de bas en haut (bottom-up)**</H3>
+### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507080"></a>**🪁 2.4. La suite de Fibonacci : approche de bas en haut (bottom-up)**</H3>
 
 🧱 Cette fois, on change complètement de stratégie.
 
@@ -426,7 +427,7 @@ L’approche **bottom-up** consiste à :
   ce qui améliore fortement les performances.
 
 
-### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507081"></a>**2.5. La suite de Fibonacci : version pythonesque**</H3>
+### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507081"></a>**✨ 2.5. La suite de Fibonacci : version pythonesque**</H3>
 
 🧠 Jusqu’ici, nous avons vu plusieurs versions de Fibonacci en programmation dynamique.  
 Il existe une version encore plus efficace, très compacte, qui exploite parfaitement les
@@ -527,7 +528,7 @@ L’approche pythonesque :
 - Les détails d’implémentation comptent
 - Python gère des entiers arbitrairement grands → impact réel sur les performances
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc159507082"></a>**3. L’optimisation du problème du rendu de monnaie**</H2>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc159507082"></a>**🎯 3. L’optimisation du problème du rendu de monnaie**</H2>
 
 🧠 La **programmation dynamique** consiste à résoudre un problème en le :
 
@@ -555,7 +556,7 @@ c’est-à-dire avec le **nombre minimal de pièces et de billets** ?
 
 ---
 
-### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507083"></a>**3.1. Le rendu de monnaie en force brute**</H3>
+### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507083"></a>**📀 3.1. Le rendu de monnaie en force brute**</H3>
 
 🔍 L’approche de **force brute** pour le problème du rendu de monnaie consiste à :
 
@@ -614,7 +615,7 @@ car **les mêmes sous-problèmes sont recalculés plusieurs fois**.
 
 
 
-### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507084"></a>**3.2. Application classique avec les algorithmes gloutons**</H3>
+### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507084"></a>**🧮 3.2. Application classique avec les algorithmes gloutons**</H3>
 
 🧠 Un **algorithme glouton** résout un problème en faisant, à chaque étape,
 le **meilleur choix local possible**, sans jamais revenir en arrière.
@@ -692,7 +693,7 @@ Dans le cas du **rendu de monnaie**, cela consiste à :
 qui permet de garantir une solution optimale **sans explorer inutilement tous les cas**.
 
 
-### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507085"></a>**3.3. Approche récursive**</H3>
+### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507085"></a>**🔎 3.3. Approche récursive**</H3>
 
 🧠 Avant d’introduire la programmation dynamique pour le rendu de monnaie,
 on commence par une **approche récursive naïve**.
@@ -801,7 +802,7 @@ de la **programmation dynamique**, avec **mémoïsation**,
 dans la partie suivante.
 
 
-### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507086"></a>**3.4. Programmation dynamique**</H3>
+### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507086"></a>**💡 3.4. Programmation dynamique**</H3>
 
 🧠 Pour **optimiser** le problème du rendu de monnaie, on utilise la
 **programmation dynamique**, selon deux approches possibles :
@@ -837,7 +838,7 @@ fin fonction
 
 ---
 
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc159507087"></a>**3.4.1. Première approche : à la main**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc159507087"></a>**📗 3.4.1. Première approche : à la main**</H4>
 
 ???+ question "🧠 **Activité n° 12 — Programmation dynamique du rendu de monnaie (à la main)**"
     👉 On exécute l’instruction suivante :  
@@ -859,7 +860,7 @@ fin fonction
 
 ---
 
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc159507088"></a>**3.4.2. Implémentation**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc159507088"></a>**📔 3.4.2. Implémentation**</H4>
 
 ???+ question "🧠 **Activité n° 13 — Implémentation de l’algorithme dynamique**"
     👉 
@@ -884,7 +885,7 @@ fin fonction
 
 ---
 
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc159507089"></a>**3.4.3. Deuxième approche : pour aller plus loin**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc159507089"></a>**🖌️ 3.4.3. Deuxième approche : pour aller plus loin**</H4>
 
 🧠 Dans l’implémentation précédente, on obtient uniquement le **nombre minimal de pièces**.
 

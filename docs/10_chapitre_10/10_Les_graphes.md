@@ -756,7 +756,7 @@ Il est donc essentiel de savoir **passer d’une représentation à une autre**,
 
 
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063584"></a>**3. Visualiser un graphe**</H2>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063584"></a>**🔗 3. Visualiser un graphe**</H2>
 
 Visualiser un graphe permet de :
 

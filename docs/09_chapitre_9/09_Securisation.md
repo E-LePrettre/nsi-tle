@@ -23,7 +23,7 @@ title: 09 Sécurisation des communications
 ---
 
 
-## <H2 STYLE="COLOR:BLUE;">**1. 🌐 Rappels : que se passe-t-il quand on tape une URL ?**<a name="_toc174920494"></a></H2>
+## <H2 STYLE="COLOR:BLUE;">**🌐 1. Rappels : que se passe-t-il quand on tape une URL ?**<a name="_toc174920494"></a></H2>
 
 ![TCP Handshake](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.001.png){: .center}
 
@@ -31,7 +31,7 @@ title: 09 Sécurisation des communications
 
 ---
 
-### ✅ Étape 1 — Le navigateur analyse l’URL
+#### ✅ **Étape 1 — Le navigateur analyse l’URL**
 Le navigateur découpe l’URL en 3 parties :
 
 - **protocole** : `http` (ou `https`)
@@ -42,7 +42,7 @@ Le navigateur découpe l’URL en 3 parties :
 
 ---
 
-### ✅ Étape 2 — Résolution DNS : du nom de domaine vers une adresse IP
+#### ✅ **Étape 2 — Résolution DNS : du nom de domaine vers une adresse IP**
 Pour envoyer des données sur Internet, il faut une **adresse IP**.
 
 Le navigateur (via le système) interroge le **DNS** pour obtenir l’IP correspondant au nom de domaine.
@@ -62,7 +62,7 @@ ping gs-cassaigne.fr
 
 ---
 
-### ✅ Étape 3 — Connexion : TCP et le « 3-way handshake »
+#### ✅ **Étape 3 — Connexion : TCP et le « 3-way handshake »**
 
 Une fois l’IP obtenue, le navigateur établit une connexion vers le serveur :
 
@@ -79,7 +79,7 @@ Pour TCP, la connexion commence par un **handshake en 3 étapes** :
 
 ---
 
-### ✅ Étape 4 — Échange de données : HTTP au-dessus de TCP/IP
+#### ✅ **Étape 4 — Échange de données : HTTP au-dessus de TCP/IP**
 
 Une fois la connexion établie, le navigateur envoie une requête HTTP (ex. « donne-moi `/` »).
 Le serveur répond avec :
@@ -98,7 +98,7 @@ Le serveur répond avec :
 
 ---
 
-### 🧠 Rappel du modèle TCP/IP
+#### 🧠 **Rappel du modèle TCP/IP**
 
 | Couche           | Rôle                          | Exemples                                       |
 | ---------------- | ----------------------------- | ---------------------------------------------- |
@@ -109,7 +109,7 @@ Le serveur répond avec :
 
 ---
 
-## 😬 Problème : Internet n’est pas “privé”
+#### 😬 **Problème : Internet n’est pas “privé”**
 
 Les paquets IP passent de routeur en routeur jusqu’à destination.
 
@@ -125,7 +125,7 @@ Les paquets IP passent de routeur en routeur jusqu’à destination.
 
 ---
 
-## 🎯 Objectifs de la sécurisation des communications
+#### 🎯 **Objectifs de la sécurisation des communications**
 
 Avant d’aborder le chiffrement, on retient que sécuriser une communication vise à garantir :
 
@@ -137,7 +137,7 @@ Avant d’aborder le chiffrement, on retient que sécuriser une communication vi
 
 ---
 
-## <H2 STYLE="COLOR:BLUE;">**2. 🧩 Vocabulaire**<a name="_toc174920495"></a></H2>
+## <H2 STYLE="COLOR:BLUE;">**🧩 2. Vocabulaire**<a name="_toc174920495"></a></H2>
 
 * **Coder** : représenter une information avec des symboles selon des règles.
 * **Décoder** : interpréter ces symboles pour retrouver l’information.
@@ -160,7 +160,7 @@ Avant d’aborder le chiffrement, on retient que sécuriser une communication vi
 
 ---
 
-## <H2 STYLE="COLOR:BLUE;">**3. 🎬 Introduction**<a name="_toc174920496"></a></H2>
+## <H2 STYLE="COLOR:BLUE;">**🎬 3. Introduction**<a name="_toc174920496"></a></H2>
 
 📽️ **Vidéo recommandée :**
 Comprendre SSL/TLS avec des emojis & le HTTPS
@@ -168,7 +168,7 @@ Comprendre SSL/TLS avec des emojis & le HTTPS
 
 ---
 
-## <H2 STYLE="COLOR:BLUE;">**4. 🔐 Le chiffrement**<a name="_toc174920497"></a></H2>
+## <H2 STYLE="COLOR:BLUE;">**🔐 4. Le chiffrement**<a name="_toc174920497"></a></H2>
 
 **Scénario classique :**
 
@@ -185,9 +185,9 @@ Comprendre SSL/TLS avec des emojis & le HTTPS
 
 ---
 
-### <H3 STYLE="COLOR:GREEN;">**4.1.🔐  Le chiffrement symétrique**</H3>
+### <H3 STYLE="COLOR:GREEN;">**🔐 4.1.Le chiffrement symétrique**</H3>
 
-#### <H4 STYLE="COLOR:MAGENTA;">**4.1.1.🎯  Le principe**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;">**🎯 4.1.1.Le principe**</H4>
 
 Dans un chiffrement **symétrique**, **la même clé** est utilisée pour **chiffrer** 🔒 et **déchiffrer** 🔓 le message.
 
@@ -265,7 +265,7 @@ L’algorithme le plus utilisé aujourd’hui 🔐
 
 ---
 
-#### <H4 STYLE="COLOR:MAGENTA;">**4.1.2. 🛠️ Réalisation pratique**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;">**🛠️ 4.1.2. Réalisation pratique**</H4>
 
 1️⃣ **Message clair** (ASCII → binaire)
 Exemple : **Hello World!**
@@ -422,9 +422,9 @@ Même opération XOR ✅
 
 ---
 
-### <H3 STYLE="COLOR:GREEN;">**4.2. 🔑 Le chiffrement asymétrique**</H3>
+### <H3 STYLE="COLOR:GREEN;">**🔑 4.2. Le chiffrement asymétrique**</H3>
 
-#### <H4 STYLE="COLOR:MAGENTA;">**4.2.1. 🧠 Le principe**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;">**🧠 4.2.1. Le principe**</H4>
 
 **Exemple :**
 
@@ -447,7 +447,7 @@ Même opération XOR ✅
 
 ---
 
-#### <H4 STYLE="COLOR:MAGENTA;">**4.2.2. 🔄 Échange d’une clé symétrique avec de l’asymétrique —** *idée de Diffie–Hellman*</H4>
+#### <H4 STYLE="COLOR:MAGENTA;">**🔄 4.2.2. Échange d’une clé symétrique avec de l’asymétrique —** *idée de Diffie–Hellman*</H4>
 
 En 1976, **Diffie & Hellman** proposent un **échange de clé** : Alice et Bob construisent **ensemble** un secret commun sur un canal **écouté**, sans l’envoyer tel quel.
 
@@ -471,7 +471,7 @@ En 1976, **Diffie & Hellman** proposent un **échange de clé** : Alice et Bob c
 
 ---
 
-#### <H4 STYLE="COLOR:MAGENTA;">**4.2.3. 🔐 Exemple d’asymétrique :** **RSA**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;">**🔐 4.2.3. Exemple d’asymétrique :** **RSA**</H4>
 
 📏 Les congruences
 
@@ -668,7 +668,7 @@ Deux menaces théoriques :
 
 ---
 
-## <H3 STYLE="COLOR:GREEN;">**4.3. 🕵️ Attaque de l’homme du milieu (MITM)**</H3>
+## <H3 STYLE="COLOR:GREEN;">**🕵️ 4.3. Attaque de l’homme du milieu (MITM)**</H3>
 
 ![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.025.png){: .center}
 ![](Aspose.Words.5bd2e875-ac10-4ba8-af1a-e3d7ad787223.026.png){: .center}
@@ -715,9 +715,9 @@ Pour s’en prémunir : une **autorité de certification (CA)** atteste l’iden
 
 ---
 
-## <H2 STYLE="COLOR:BLUE;">**5. 🔐 Le protocole HTTPS**<a name="_toc174920506"></a></H2>
+## <H2 STYLE="COLOR:BLUE;">**🔐 5. Le protocole HTTPS**<a name="_toc174920506"></a></H2>
 
-### <H3 STYLE="COLOR:GREEN;">**5.1. 🌍 Principe général**</H3>
+### <H3 STYLE="COLOR:GREEN;">**🌍 5.1. Principe général**</H3>
 
 Aujourd’hui, la **grande majorité** du trafic web est **chiffrée** 🔒 :
 
@@ -745,7 +745,7 @@ Aujourd’hui, la **grande majorité** du trafic web est **chiffrée** 🔒 :
 
 ---
 
-### <H3 STYLE="COLOR:GREEN;">**5.2. 🤝 (HP) Fonctionnement de TLS — Handshake (moderne)**</H3>
+### <H3 STYLE="COLOR:GREEN;">**🤝 5.2. (HP) Fonctionnement de TLS — Handshake (moderne)**</H3>
 
 > 🧭 **Résumé TLS 1.3**
 
@@ -774,7 +774,7 @@ Aujourd’hui, la **grande majorité** du trafic web est **chiffrée** 🔒 :
 
 Merci à Gilles Lassus et Mireille Coilhac 
 
-## <H2 STYLE="COLOR:BLUE;">**6. 🔎 Exercices**<a name="_toc174920509"></a></H2>
+## <H2 STYLE="COLOR:BLUE;">**🔎 6. Exercices**<a name="_toc174920509"></a></H2>
 
 !!! info "🧠 **Capytale : Le code sera fourni par votre enseignant.**" 
 
@@ -881,7 +881,7 @@ Merci à Gilles Lassus et Mireille Coilhac
 
 !!! info "🧠 **Capytale : Le code sera fourni par votre enseignant.**" 
 
-## <H2 STYLE="COLOR:BLUE;">**7. 🔎 Projet**<a name="_toc174920510"></a></H2>
+## <H2 STYLE="COLOR:BLUE;">**🔎 7. Projet**<a name="_toc174920510"></a></H2>
 
 
 
