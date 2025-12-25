@@ -2437,7 +2437,7 @@ Sur un graphe réel (comme un réseau de métro), ce problème est **très diffi
 
 👉 Pour simplifier, nous allons travailler sur un **labyrinthe**, qui est une forme particulière de graphe.
 
-
+---
 
 ##### 🧩 Les labyrinthes comme graphes
 
@@ -2454,7 +2454,7 @@ Les **arêtes** relient deux cases voisines **lorsque le passage est possible**.
 
 * s’il n’y a pas de mur → **arête entre les deux sommets**
 
-
+---
 
 ##### 🧱 Implémentation du labyrinthe
 
@@ -2600,7 +2600,7 @@ avec :
 * `nli = 4`
 * `ncol = 8`
 
-
+---
 
 ##### 🚶‍♂️ Promenade dans le labyrinthe
 
@@ -2673,7 +2673,7 @@ Jusqu’à présent, le parcours en profondeur permettait uniquement d’obtenir
 
 Pour cela, il est nécessaire de mémoriser **d’où l’on vient** lorsqu’un sommet est découvert.
 
-
+---
 
 ##### 🧠 🧠 Principe du dictionnaire `parent`
 
