@@ -1189,7 +1189,7 @@ Cette classe implémente un **graphe non orienté simple**.
 
 
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063590"></a>**5. Les parcours**</H2>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063590"></a>**5. 🌐 Les parcours**</H2>
 
 Un **parcours de graphe** est un algorithme qui consiste à **explorer les sommets d’un graphe de proche en proche** à partir d’un sommet initial.
 
@@ -2809,7 +2809,7 @@ Ce dictionnaire permet ensuite de reconstruire le chemin sous la forme d’une *
 
 
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063595"></a>**6.🔎 Synthèse**</H2>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063595"></a>**6. 🧩 Synthèse**</H2>
 
 
 
