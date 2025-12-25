@@ -2399,69 +2399,22 @@ return distances
 ---
 
 
-#### 🚨 Détection d’un cycle de poids négatif 
-
-
-Après avoir appliqué l’algorithme de **Bellman-Ford** pendant **`n − 1` itérations** (où `n` est le nombre de sommets) :
-
-👉 **si une distance peut encore être améliorée**, alors **il existe un cycle de poids négatif dans le graphe**.
-
-📌 En effet, un plus court chemin simple ne peut pas contenir plus de `n − 1` arêtes.
-
-Une amélioration supplémentaire signifie donc que l’on **tourne en rond en gagnant du poids**, ce qui caractérise un **cycle négatif**.
 
 
 
-🧩 **Implémentation en Python**
 
-```python
-def contient_cycle_negatif(graph, distances):
-    for u in graph:
-        for v, poids in graph[u].items():
-            if distances[u] + poids < distances[v]:
-                return True
-    return False
-```
-
-
-
-🔎 **Explication du code**
-
-* On parcourt **toutes les arêtes du graphe**
-* On vérifie si une **relaxation est encore possible**
-* Si oui :
-
-  * cela signifie qu’une distance peut diminuer indéfiniment
-  * donc qu’un **cycle de poids négatif existe**
-
-👉 La fonction renvoie :
-
-* `True` : cycle négatif détecté
-* `False` : aucun cycle négatif
-
-
-
-⚠️ **Pourquoi est-ce un problème ?**
-
-Un cycle de poids négatif signifie que :
-
-> il n’existe **pas de plus court chemin**
-> (on peut toujours faire un tour de plus pour réduire le coût)
-
-📌 Dans ce cas, les résultats de Bellman-Ford **n’ont plus de sens** pour le calcul de chemins minimaux.
-
-
-
----
 
 ##### 📌 Bilan
 
 * **Dijkstra** est rapide mais limité
+
 * **Bellman-Ford** est plus lent mais plus général
+
 * le choix de l’algorithme dépend :
 
-  * du type de graphe
-  * des contraintes sur les poids
+  - du type de graphe
+
+  - des contraintes sur les poids
 
 👉 **Toujours analyser le problème avant de choisir l’algorithme**.
 
