@@ -50,7 +50,7 @@ Les objets sont représentés par des **sommets** (également appelés *nœuds*)
 
 
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063572"></a>**🟢 1.2. À quoi sert un graphe ?**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063572"></a>**🕹️ 1.2. À quoi sert un graphe ?**</H3>
 
 🧠 Un graphe sert à représenter **des relations** entre des éléments.
 
@@ -118,7 +118,7 @@ Les objets sont représentés par des **sommets** (également appelés *nœuds*)
 
 
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063573"></a>**🟢 1.3. Vocabulaire**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063573"></a>**🪅 1.3. Vocabulaire**</H3>
 
 📘 **Notions essentielles**
 
@@ -178,7 +178,7 @@ Les objets sont représentés par des **sommets** (également appelés *nœuds*)
 
 
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063574"></a>**🟢 1.4. Les différents types de graphes**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063574"></a>**🧫 1.4. Les différents types de graphes**</H3>
 
 
 
@@ -255,7 +255,7 @@ On parle alors de **graphe pondéré**.
 
 
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063575"></a>**1.5. 🧩 Applications courantes des graphes**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063575"></a>**🧩 1.5. Applications courantes des graphes**</H3>
 
 Les graphes sont utilisés dans de nombreuses applications courantes, notamment :
 
@@ -270,7 +270,7 @@ Les graphes sont utilisés dans de nombreuses applications courantes, notamment 
 
 
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063576"></a>**2. ❤️ Modélisations d’un graphe ❤️**</H2>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063576"></a>**🧣 2. ❤️ Modélisations d’un graphe ❤️**</H2>
 
 Il existe **deux méthodes principales** pour implémenter un graphe :
 
@@ -279,7 +279,7 @@ Il existe **deux méthodes principales** pour implémenter un graphe :
 
 
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063577"></a>**2.1. 🧮 Représentation par matrice d’adjacence**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063577"></a>**🧮 2.1. Représentation par matrice d’adjacence**</H3>
 
 Principe :
 
@@ -294,7 +294,7 @@ Ce tableau est appelé **matrice d’adjacence**.
 
 
 
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063578"></a>**2.1.1. Graphe non orienté**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063578"></a>**📊 2.1.1. Graphe non orienté**</H4>
 
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.016.png){: .center}
 
@@ -316,7 +316,7 @@ C’est cette double présence qui rend la matrice **symétrique**.
 
 
 
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063579"></a>**2.1.2. Graphe orienté**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063579"></a>**⛓️‍💥 2.1.2. Graphe orienté**</H4>
 
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.017.png){: .center}
 
@@ -333,7 +333,7 @@ La matrice d’un graphe orienté n’est donc **pas forcément symétrique**.
 
 
 
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063580"></a>**2.1.3. Graphe pondéré**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063580"></a>**🎐 2.1.3. Graphe pondéré**</H4>
 
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.018.png){: .center}
 
@@ -415,7 +415,7 @@ Un graphe pondéré permet donc de modéliser des situations réelles où toutes
 
 
 
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063581"></a>**2.1.4. ❤️ Implémentation Python des matrices d’adjacence ❤️**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063581"></a>**🛡️ 2.1.4. ❤️ Implémentation Python des matrices d’adjacence ❤️**</H4>
 
 Une matrice est représentée en Python par une **liste de listes**.
 **Exemple :** La matrice
@@ -451,7 +451,7 @@ G = [[0, 1, 1, 1, 1],
 
 
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063582"></a>**2.2. ❤️ Représentation par listes d’adjacence**❤️</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063582"></a>**🎲 2.2. ❤️ Représentation par listes d’adjacence**❤️</H3>
 
 Principe :
 
@@ -546,7 +546,7 @@ On évite ainsi de stocker de nombreuses valeurs inutiles (les `0`), contraireme
 
 
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063583"></a>**2.3. ❤️ Passage d’une représentation à l’autre ❤️**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063583"></a>**🎞️ 2.3. ❤️ Passage d’une représentation à l’autre ❤️**</H3>
 
 Dans la pratique, un même graphe peut être représenté **de plusieurs façons** :
 
@@ -766,7 +766,7 @@ Visualiser un graphe permet de :
 
 
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063585"></a>**3.1. Avec le module networkx**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063585"></a>**🪄 3.1. Avec le module networkx**</H3>
 
 Nous allons utiliser les bibliothèques :
 
@@ -857,7 +857,7 @@ Nous allons utiliser les bibliothèques :
 NetworkX gère automatiquement la disposition des sommets, ce qui permet une visualisation rapide et lisible.
 
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063586"></a>**3.2. Avec le module Graphviz**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063586"></a>**🎏 3.2. Avec le module Graphviz**</H3>
 
 Le module **graphviz** permet de produire des graphes :
 
@@ -1017,7 +1017,7 @@ Le module **graphviz** permet de produire des graphes :
 
 
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063587"></a>**4. ❤️ Création d’une classe Graphe ❤️**</H2>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063587"></a>**🎍 4. ❤️ Création d’une classe Graphe ❤️**</H2>
 
 Nous allons maintenant **implémenter un graphe en Programmation Orientée Objet**, afin de regrouper les données et les méthodes associées dans une même structure.
 
@@ -1042,7 +1042,7 @@ Créer un objet `Graphe` capable de :
 
 * garantir une utilisation cohérente des opérations.
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063588"></a>**4.1. Interface**</H3>  
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063588"></a>**🎗️ 4.1. Interface**</H3>  
 
 ##### 🔹 Interface attendue
 
@@ -1089,7 +1089,7 @@ L’utilisateur de la classe n’a **pas besoin de modifier directement ces attr
 
 
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063589"></a>**4.2. Implémentation en POO**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063589"></a>**🕹️ 4.2. Implémentation en POO**</H3>
 
 Cette classe implémente un **graphe non orienté simple**.
 
@@ -1189,7 +1189,7 @@ Cette classe implémente un **graphe non orienté simple**.
 
 
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063590"></a>**5. 🌐 Les parcours**</H2>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063590"></a>**🌐 5. Les parcours**</H2>
 
 Un **parcours de graphe** est un algorithme qui consiste à **explorer les sommets d’un graphe de proche en proche** à partir d’un sommet initial.
 
@@ -1227,7 +1227,7 @@ Contrairement à un arbre, un sommet d’un graphe peut être rencontré **plusi
 
 
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063591"></a>**5.1. ❤️ Parcours en largeur ❤️ (BFS)**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063591"></a>**🎨 5.1. ❤️ Parcours en largeur ❤️ (BFS)**</H3>
 
 📺 *Vidéo de référence* :
 [https://ladigitale.dev/digiview/#/v/66c66c81c573a](https://ladigitale.dev/digiview/#/v/66c66c81c573a)
@@ -1556,7 +1556,7 @@ if file : # => si la file n’est pas vide
 
 
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063592"></a>**5.2. ❤️ Parcours en profondeur ❤️ (DFS)**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063592"></a>**🛡️ 5.2. ❤️ Parcours en profondeur ❤️ (DFS)**</H3>
 
 📺 *Vidéo de référence* :
 [https://ladigitale.dev/digiview/#/v/66c672b885a2a](https://ladigitale.dev/digiview/#/v/66c672b885a2a)
@@ -1834,11 +1834,11 @@ Le parcours obtenu peut différer de la version itérative selon l’ordre des v
 
 
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063593"></a>**5.3. ❤️ Applications des parcours ❤️**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc161063593"></a>**⚙️ 5.3. ❤️ Applications des parcours ❤️**</H3>
 
 
 
-#### <H4 STYLE="COLOR:MAGENTA;"><a name="_toc161063594_cycle"></a>**5.3.1. ❤️ Détection de cycles dans un graphe ❤️**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"><a name="_toc161063594_cycle"></a>**🖌️ 5.3.1. ❤️ Détection de cycles dans un graphe ❤️**</H4>
 
 
 
@@ -2004,7 +2004,7 @@ Chaque sommet peut être dans **trois états** :
 
 
 
-#### <H4 STYLE="COLOR:MAGENTA;"><a name="_toc161063594"></a>**5.3.2. BFS et chemin le plus court — Dijkstra**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"><a name="_toc161063594"></a>**📔 5.3.2. BFS et chemin le plus court — Dijkstra**</H4>
 
 ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.038.png){: .center}
 
@@ -2206,7 +2206,7 @@ for node in unvisited:
 
 
 
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063596"></a>**5.3.3. Chemin le plus court avec poids négatifs — Bellman-Ford**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063596"></a>**🪁 5.3.3. Chemin le plus court avec poids négatifs — Bellman-Ford**</H4>
 
 📌 **Problème rencontré avec Dijkstra**
 
@@ -2421,7 +2421,7 @@ return distances
 
 
 
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063595"></a>**5.3.3.  Parcourir un labyrinthe**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063595"></a>**🧮 5.3.4.  Parcourir un labyrinthe**</H4>
 
 👉 **CAPYTALE** : le code est fourni par l’enseignant.
 
@@ -2809,7 +2809,7 @@ Ce dictionnaire permet ensuite de reconstruire le chemin sous la forme d’une *
 
 
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063595"></a>**6. 🧩 Synthèse**</H2>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063595"></a>**🧩 6. Synthèse**</H2>
 
 
 
@@ -2902,7 +2902,7 @@ Ce dictionnaire permet ensuite de reconstruire le chemin sous la forme d’une *
 Merci à Gilles Lassus, Cédric Gouyou, Jean-Louis Thirot, et Mireille Coilhac
 
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063596"></a>**7.🔎 Exercices**</H2>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc161063596"></a>**🔎 7.Exercices**</H2>
 
 
 !!! info "🧠 **Capytale : Les codes seront fournis par votre enseignant.**" 
@@ -2919,7 +2919,7 @@ Merci à Gilles Lassus, Cédric Gouyou, Jean-Louis Thirot, et Mireille Coilhac
 
 
 
-## <H2 STYLE="COLOR:BLUE;"> **8. 🔎 Projet**</H2>  
+## <H2 STYLE="COLOR:BLUE;"> **🔎 8. Projet**</H2>  
 
 !!! info "🧠 **Capytale : Les codes seront fournis par votre enseignant.**" 
 
