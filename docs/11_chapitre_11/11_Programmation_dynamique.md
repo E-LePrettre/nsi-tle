@@ -306,7 +306,7 @@ afin d’obtenir un code **plus élégant** et plus autonome.
         ⚠️ Attention toutefois :
 
         - l’argument `F` est une **liste mutable par défaut**
-        
+
         - son contenu est **conservé entre deux appels successifs**
 
         👉 Ce comportement est acceptable ici, mais doit être **maîtrisé**.
@@ -372,8 +372,11 @@ On parle parfois de pseudo-linéaire car le nombre d’opérations dépend aussi
 ➡️ La liste, bien que moins souple qu’un dictionnaire, profite pleinement de la mémoire cache, ce qui la rend **très compétitive en pratique** pour ce type d’algorithme.
 
 🧩 **À retenir** :
+
 - Liste et dictionnaire offrent ici des performances **comparables**
+
 - Le **contexte d’utilisation** est plus important que la structure elle-même
+
 - La programmation dynamique repose autant sur la **stratégie algorithmique** que sur le **choix de la structure de données**
 
 ---
@@ -417,10 +420,14 @@ On parle parfois de pseudo-linéaire car le nombre d’opérations dépend aussi
 - Initialisation : `fib = [0, 1, 0, 0, 0, 0, 0]`
 
 - Boucle :
-  - `i = 2` → `fib[2] = 1`
-  - `i = 3` → `fib[3] = 2`
-  - `i = 4` → `fib[4] = 3`
-  - `i = 5` → `fib[5] = 5`
+
+    * `i = 2` → `fib[2] = 1`
+    
+    * `i = 3` → `fib[3] = 2`
+    
+    * `i = 4` → `fib[4] = 3`
+    
+    * `i = 5` → `fib[5] = 5`
 
 - Résultat retourné : **5**
 
