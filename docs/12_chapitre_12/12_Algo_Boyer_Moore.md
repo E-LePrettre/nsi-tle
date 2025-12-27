@@ -92,7 +92,9 @@ print(texte.index("pomme"))  # ValueError
   texte[i:i+len(motif)] == motif
   ```
 
-On compare toujours une fenêtre du texte de même longueur que le motif, que l’on décale progressivement dans le texte.
+On compare toujours une fenêtre du texte de même longueur que le motif, que l’on décale progressivement dans le texte
+(dans le cas des algorithmes de recherche implémentés).
+
 
 ➡️ La recherche devient plus complexe lorsqu’on cherche un **motif** plutôt qu’un seul caractère.
 
@@ -323,6 +325,8 @@ Le **A** ne correspond pas → décalage.
 la complexité est proportionnelle au produit de la taille du texte et du motif,
 
 $O(n^2)$
+
+
 
 Dans le cadre du lycée, on retient l’ordre de grandeur $O(n^2)$, sans distinguer précisément la taille du texte et celle du motif.
 
