@@ -877,143 +877,145 @@ fin fonction
 
 ---
 
-## 🧠 **Initialisation**
+???+ question ""
+    ??? success "🧠 **Explication pas à pas**"
+        #### 🧠 **Initialisation**
 
-On crée un tableau `nb` de taille `somme_à_rendre + 1` (ici de 0 à 5) :
+        On crée un tableau `nb` de taille `somme_à_rendre + 1` (ici de 0 à 5) :
 
-```python
-nb = [0, ∞, ∞, ∞, ∞, ∞]
-```
+        ```python
+        nb = [0, ∞, ∞, ∞, ∞, ∞]
+        ```
 
-* `nb[0] = 0` : il faut **0 pièce** pour rendre la somme 0.
-* Les autres cases sont initialisées à l’infini (ou une grande valeur), car le nombre minimal de pièces n’est pas encore connu.
+        * `nb[0] = 0` : il faut **0 pièce** pour rendre la somme 0.
+        * Les autres cases sont initialisées à l’infini (ou une grande valeur), car le nombre minimal de pièces n’est pas encore connu.
 
----
+        ---
 
-## 🔁 **Remplissage du tableau (approche bottom-up)**
+        #### 🔁 **Remplissage du tableau (approche bottom-up)**
 
-On calcule progressivement `nb[s]` pour `s` allant de 1 à 5.
+        On calcule progressivement `nb[s]` pour `s` allant de 1 à 5.
 
-À chaque étape, on applique la formule :
-[
-nb[s] = \min_{p \le s}(1 + nb[s - p])
-]
+        À chaque étape, on applique la formule :
+        [
+        nb[s] = \min_{p \le s}(1 + nb[s - p])
+        ]
 
----
+        ---
 
-### 🔹 Étape **s = 1**
+        ##### 🔹 Étape **s = 1**
 
-* Pièce `1` :
+        * Pièce `1` :
 
-  * `1 ≤ 1` → `nb[1] = min(∞, 1 + nb[0]) = 1`
+        * `1 ≤ 1` → `nb[1] = min(∞, 1 + nb[0]) = 1`
 
-Résultat :
+        Résultat :
 
-```python
-nb = [0, 1, ∞, ∞, ∞, ∞]
-```
+        ```python
+        nb = [0, 1, ∞, ∞, ∞, ∞]
+        ```
 
-👉 Il faut **1 pièce de 1 €** pour rendre 1.
+        👉 Il faut **1 pièce de 1 €** pour rendre 1.
 
----
+        ---
 
-### 🔹 Étape **s = 2**
+        ##### 🔹 Étape **s = 2**
 
-* Pièce `1` :
+        * Pièce `1` :
 
-  * `1 + nb[1] = 2`
-* Pièce `2` :
+        * `1 + nb[1] = 2`
+        * Pièce `2` :
 
-  * `1 + nb[0] = 1` ✅
+        * `1 + nb[0] = 1` ✅
 
-Résultat :
+        Résultat :
 
-```python
-nb = [0, 1, 1, ∞, ∞, ∞]
-```
+        ```python
+        nb = [0, 1, 1, ∞, ∞, ∞]
+        ```
 
-👉 Il faut **1 pièce de 2 €** pour rendre 2.
+        👉 Il faut **1 pièce de 2 €** pour rendre 2.
 
----
+        ---
 
-### 🔹 Étape **s = 3**
+        ##### 🔹 Étape **s = 3**
 
-* Pièce `1` :
+        * Pièce `1` :
 
-  * `1 + nb[2] = 2`
-* Pièce `2` :
+        * `1 + nb[2] = 2`
+        * Pièce `2` :
 
-  * `1 + nb[1] = 2`
+        * `1 + nb[1] = 2`
 
-Résultat :
+        Résultat :
 
-```python
-nb = [0, 1, 1, 2, ∞, ∞]
-```
+        ```python
+        nb = [0, 1, 1, 2, ∞, ∞]
+        ```
 
-👉 Il faut **2 pièces** (2 + 1) pour rendre 3.
+        👉 Il faut **2 pièces** (2 + 1) pour rendre 3.
 
----
+        ---
 
-### 🔹 Étape **s = 4**
+        ##### 🔹 Étape **s = 4**
 
-* Pièce `1` :
+        * Pièce `1` :
 
-  * `1 + nb[3] = 3`
-* Pièce `2` :
+        * `1 + nb[3] = 3`
+        * Pièce `2` :
 
-  * `1 + nb[2] = 2` ✅
+        * `1 + nb[2] = 2` ✅
 
-Résultat :
+        Résultat :
 
-```python
-nb = [0, 1, 1, 2, 2, ∞]
-```
+        ```python
+        nb = [0, 1, 1, 2, 2, ∞]
+        ```
 
-👉 Il faut **2 pièces de 2 €** pour rendre 4.
+        👉 Il faut **2 pièces de 2 €** pour rendre 4.
 
----
+        ---
 
-### 🔹 Étape **s = 5**
+        ##### 🔹 Étape **s = 5**
 
-* Pièce `1` :
+        * Pièce `1` :
 
-  * `1 + nb[4] = 3`
-* Pièce `2` :
+        * `1 + nb[4] = 3`
+        * Pièce `2` :
 
-  * `1 + nb[3] = 3`
+        * `1 + nb[3] = 3`
 
-Résultat final :
+        Résultat final :
 
-```python
-nb = [0, 1, 1, 2, 2, 3]
-```
+        ```python
+        nb = [0, 1, 1, 2, 2, 3]
+        ```
 
-👉 Il faut **3 pièces** (2 + 2 + 1) pour rendre 5.
+        👉 Il faut **3 pièces** (2 + 2 + 1) pour rendre 5.
 
----
+        ---
 
-## ✅ **Résultat final**
+        #### ✅ **Résultat final**
 
-La fonction renvoie :
+        La fonction renvoie :
 
-```python
-nb[5] = 3
-```
+        ```python
+        nb[5] = 3
+        ```
 
-👉 **Le nombre minimal de pièces nécessaires pour rendre la somme 5 est donc 3.**
+        👉 **Le nombre minimal de pièces nécessaires pour rendre la somme 5 est donc 3.**
 
----
+        ---
 
-## 🔚 **Résumé**
+        #### 🔚 **Résumé**
 
-| Somme `s` | Meilleure solution | Nombre minimal de pièces |
-| --------- | ------------------ | ------------------------ |
-| 1         | 1                  | 1                        |
-| 2         | 2                  | 1                        |
-| 3         | 2 + 1              | 2                        |
-| 4         | 2 + 2              | 2                        |
-| 5         | 2 + 2 + 1          | 3                        |
+        | Somme `s` | Meilleure solution | Nombre minimal de pièces |
+        | --------- | ------------------ | ------------------------ |
+        | 1         | 1                  | 1                        |
+        | 2         | 2                  | 1                        |
+        | 3         | 2 + 1              | 2                        |
+        | 4         | 2 + 2              | 2                        |
+        | 5         | 2 + 2 + 1          | 3                        |
 
 
 --- 
