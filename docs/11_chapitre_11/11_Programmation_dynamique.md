@@ -1218,7 +1218,7 @@ assert rendu_monnaie_dyna_combi(1, [9, 3, 2]) == [-1]
 
 
 
-## <H2 STYLE="COLOR:BLUE;"> **5. 🔎 Exercices :**</H2>
+## <H2 STYLE="COLOR:BLUE;"> **4. 🔎 Exercices :**</H2>
 
 !!! info "🧠 **Capytale : Les codes seront fournis par votre enseignant.**"
 
