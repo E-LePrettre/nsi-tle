@@ -24,13 +24,13 @@ title: 12 Algorithme de Boyer - Moore
 ---
 
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc159537143"></a>**1. Les fonctions déjà implémentées dans Python**</H2>
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc159537143"></a>**🪅 1. Les fonctions déjà implémentées dans Python**</H2>
 
 !!! info "🧠 **Capytale : Le code vous sera fourni par votre enseignant**"
 
 ---
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc159537144"></a>**1.1. La méthode `index()`**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc159537144"></a>**🎲 1.1. La méthode `index()`**</H3>
 
 La méthode `index()` permet de rechercher une **sous-chaîne** dans une chaîne de caractères.
 
@@ -49,38 +49,43 @@ print(texte.index("pomme"))  # ValueError
 ---
 
 ???+ question "🧠 **Activité n°1 — Utiliser la méthode `index()`**"
-👉 Écrire une fonction `trouve_lettre(c, texte)` qui :
+    👉 Écrire une fonction `trouve_lettre(c, texte)` qui :
 
-* renvoie l’indice de la **première occurrence** de `c` dans `texte`
-* renvoie `None` si la lettre n’est pas présente
+    * renvoie l’indice de la **première occurrence** de `c` dans `texte`
 
-📌 **Indice** : utiliser `try / except`
+    * renvoie `None` si la lettre n’est pas présente
 
-```python
-def trouve_lettre(c, texte):
-    """Renvoie l'indice de la première occurrence de c dans texte
-    ou None si la lettre n'est pas trouvée"""
-    pass
+    📌 **Indice** : utiliser `try / except`
 
-assert trouve_lettre('j', 'bonjour') == 3
-assert trouve_lettre('j', 'alphabet') is None
-```
+    ```python
+    def trouve_lettre(c, texte):
+        """Renvoie l'indice de la première occurrence de c dans texte
+        ou None si la lettre n'est pas trouvée"""
+        pass
 
-??? success "✅ Solution"
+    assert trouve_lettre('j', 'bonjour') == 3
+    assert trouve_lettre('j', 'alphabet') is None
+    ```
 
-```python
-def trouve_lettre(c, texte):
-    try:
-        return texte.index(c)
-    except ValueError:
-        return None
-```
+    ??? success "✅ Solution"
+
+        ```python
+        def trouve_lettre(c, texte):
+            try:
+                return texte.index(c)
+            except ValueError:
+                return None
+
+        assert trouve_lettre('j', 'bonjour') == 3
+        assert trouve_lettre('j', 'alphabet') is None
+        ```
 
 ---
 
-### 🔎 Vocabulaire essentiel
+#### 🔎 Vocabulaire essentiel
 
 * **Motif** : chaîne de caractères recherchée
+
 * **Occurrence** : position `i` telle que
 
   ```python
@@ -91,11 +96,12 @@ def trouve_lettre(c, texte):
 
 ---
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc159537145"></a>**1.2. La méthode `find()`**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc159537145"></a>**🛡️ 1.2. La méthode `find()`**</H3>
 
 Contrairement à `index()` :
 
 * `find()` **ne lève pas d’exception**
+
 * elle renvoie `-1` si le motif n’est pas trouvé
 
 Exemple :
@@ -110,194 +116,257 @@ print(texte.find("pomme"))   # -1
 ---
 
 ???+ question "🧠 **Activité n°2 — Recherche dans un texte long**"
-📖 Télécharger le roman *Le Rouge et le Noir* :
+    📖 Télécharger le roman *Le Rouge et le Noir* :
 
-🔗 [https://www.gutenberg.org/ebooks/798.txt.utf-8](https://www.gutenberg.org/ebooks/798.txt.utf-8)
-➡️ Renommer le fichier : `rougenoir.txt`
+    🔗 [https://www.gutenberg.org/ebooks/798.txt.utf-8](https://www.gutenberg.org/ebooks/798.txt.utf-8)
 
-👉 Vérifier :
+    ➡️ Renommer le fichier : `rougenoir.txt`
 
-* si le motif **"Julien"** apparaît dans le texte
-* trouver une **deuxième occurrence**
+    👉 Vérifier :
 
-```python
-fichier = open('rougenoir.txt', 'r', encoding='utf-8')
-stendhal = fichier.read()
-fichier.close()
+    * si le motif **"Julien"** apparaît dans le texte
 
-print(stendhal.find('Julien'))
-print(stendhal.find('Julien', 25378))
-```
+    * trouver une **deuxième occurrence**
 
-??? success "✅ Solution"
+    ```python
+    fichier = open('rougenoir.txt', 'r', encoding='utf-8')
+    stendhal = fichier.read()
+    fichier.close()
 
-* Le premier `find` renvoie l’indice de la **première occurrence**
-* Le second permet de rechercher **après une position donnée**, donc une autre occurrence
+    print(stendhal.find('Julien'))
+    print(stendhal.find('Julien', 25378))
+    ```
+
+    ??? success "✅ Solution"
+
+        * Le premier `find` renvoie l’indice de la **première occurrence**
+
+        * Le second permet de rechercher **après une position donnée**, donc une autre occurrence
 
 ---
 
 ???+ question "🧠 **Activité n°3 — Compter les occurrences**"
-👉 Compléter la fonction `nb_occurrences(texte, motif)`
-Elle renvoie le **nombre total d’occurrences** du motif dans le texte.
+    👉 Compléter la fonction `nb_occurrences(texte, motif)`
+    Elle renvoie le **nombre total d’occurrences** du motif dans le texte.
 
-```python
-def nb_occurrences(texte, motif):
-    """Renvoie le nombre de fois où motif apparaît dans texte"""
-    pass
+    ```python
+    def nb_occurrences(texte, motif):
+        """Renvoie le nombre de fois où motif apparaît dans texte"""
+        pass
 
-assert nb_occurrences('bonjour monsieur gaboriot votre abonnement est fini', 'bo') == 3
-assert nb_occurrences(stendhal, 'Julien') == 1908
-assert nb_occurrences(stendhal, 'amour') == 225
-assert nb_occurrences(stendhal, 'informatique') == 0
-```
+    assert nb_occurrences('bonjour monsieur gaboriot votre abonnement est fini', 'bo') == 3
+    assert nb_occurrences(stendhal, 'Julien') == 1908
+    assert nb_occurrences(stendhal, 'amour') == 225
+    assert nb_occurrences(stendhal, 'informatique') == 0
+    ```
 
-??? success "✅ Solution"
+    ??? success "✅ Solution"
 
-```python
-def nb_occurrences(texte, motif):
-    count = 0
-    pos = texte.find(motif)
+        ```python
+        def nb_occurrences(texte, motif):
+            count = 0
+            pos = texte.find(motif)
 
-    while pos != -1:
-        count += 1
-        pos = texte.find(motif, pos + 1)
+            while pos != -1:
+                count += 1
+                pos = texte.find(motif, pos + 1)
 
-    return count
-```
+            return count
+        
+        assert nb_occurrences('bonjour monsieur gaboriot votre abonnement est fini', 'bo') == 3
+        assert nb_occurrences(stendhal, 'Julien') == 1908
+        assert nb_occurrences(stendhal, 'amour') == 225
+        assert nb_occurrences(stendhal, 'informatique') == 0
+        ```
 
 ---
 
 ???+ question "🧠 **Activité n°4 — Version récursive**"
-👉 Écrire une version **récursive** de la fonction précédente.
+    👉 Compléter la fonction `nb_occurrences(texte, motif)`.
 
-```python
-import sys
-sys.setrecursionlimit(2000)
-
-def nb_occurrences_rec(texte, motif, i=0):
-    occurence = texte.find(motif, i)
-    if occurence == -1:
+    ```python
+    def nb_occurrences(texte, motif):
+        """renvoie le nombre de fois où motif apparaît dans texte """
         pass
-    else:
-        pass
-```
 
-??? success "✅ Solution"
+    assert nb_occurrences('bonjour monsieur gaboriot votre abonnement est fini', 'bo') == 3
+    assert nb_occurrences(stendhal, 'Julien') == 1908
+    assert nb_occurrences(stendhal, 'amour') == 225
+    assert nb_occurrences(stendhal, 'informatique') == 0
+    ```
 
-```python
-def nb_occurrences_rec(texte, motif, i=0):
-    pos = texte.find(motif, i)
-    if pos == -1:
-        return 0
-    else:
-        return 1 + nb_occurrences_rec(texte, motif, pos + 1)
-```
+    ??? success "✅ Solution"
 
----
+        ```python
+        def nb_occurrences(texte, motif):
+            compteur = 0
+            i = texte.find(motif)
 
-## ✅ Bilan intermédiaire
+            while i != -1:
+                compteur += 1
+                i = texte.find(motif, i + 1)
 
-À ce stade, vous savez :
+            return compteur
 
-✔ utiliser `index()` et `find()`
-✔ comprendre la notion de **motif / occurrence**
-✔ compter des occurrences de manière **itérative et récursive**
-
-➡️ **Limite** : ces méthodes parcourent le texte **caractère par caractère**, ce qui peut être lent sur de grands textes.
+        assert nb_occurrences('bonjour monsieur gaboriot votre abonnement est fini', 'bo') == 3
+        assert nb_occurrences(stendhal, 'Julien') == 1908
+        assert nb_occurrences(stendhal, 'amour') == 225
+        assert nb_occurrences(stendhal, 'informatique') == 0
+        ```
 
 ---
 
 
 
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc159537146"></a>**2. La recherche textuelle naïve**</H2>
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc159537147"></a>**2.1. L’algorithme**</H3>
 
-**[Vidéo (6 premières minutes) : recherche Boyer Moore](https://ladigitale.dev/digiview/#/v/66c903de43b5c)**
+## <H2 STYLE="COLOR:BLUE;">🔎 <a name="_toc159537146"></a>**2. La recherche textuelle naïve**</H2>
 
-La **recherche naïve** ou de **force brute** parcourt l’ensemble de la chaîne caractère après caractère. À chaque caractère, on réalise une comparaison afin de vérifier que la clé de recherche correspond au caractère suivant de la chaîne. Le traitement est long mais sûr.
+---
 
-Exemple :
+### <H3 STYLE="COLOR:GREEN;">⚙️ <a name="_toc159537147"></a>**2.1. L’algorithme**</H3>
+
+🎥 **Vidéo (6 premières minutes) : Recherche Boyer-Moore**
+[https://ladigitale.dev/digiview/#/v/66c903de43b5c](https://ladigitale.dev/digiview/#/v/66c903de43b5c)
+
+La **recherche naïve** (ou **force brute**) parcourt l’ensemble de la chaîne caractère après caractère.
+À chaque position, on compare les lettres du motif avec celles du texte.
+
+Le traitement est **simple**, **fiable**, mais **coûteux en temps**.
+
+---
+
+🖼️ **Illustrations**
 
 ![image](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.001.png)
 
-On compare chaque lettre de la clé à la chaîne. Le A correspond, mais le T non. Donc on effectue un décalage.
+On compare chaque lettre du motif au texte.
+Le **A** correspond, mais le **T** non → décalage.
 
 ![image](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.002.png)
 
-Le A correspond mais le C non. Donc on décale.
+Le **A** correspond mais le **C** non → décalage.
 
 ![image](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.003.png)
 
-Le C ne correspond pas. On décale.
+Le **C** ne correspond pas → décalage.
 
 ![image](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.004.png)
 
-Le A correspond, le T correspond mais le G ne correspond pas. On décale.
+Le **A** et le **T** correspondent, mais le **G** non → décalage.
 
 ![image](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.005.png)
 
-Le A ne correspond pas, on décale.
-
-Etc,
+Le **A** ne correspond pas → décalage.
 
 ![image](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.006.png)
 
-Le temps de traitement est **assez long** car il faut décaler à chaque fois d’un indice, car on parcourt l’ensemble de la chaîne en comparant caractère après caractère. Dès qu’un caractère ne correspond pas, il faut décaler d’un indice et recommencer.
+➡️ À chaque échec, on décale d’**un seul caractère** et on recommence.
 
-On relève l’indice du texte où débute le motif reconnu et on peut recommencer la recherche.
+---
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc159537148"></a>**2.2. Implémentation**</H3>
+### <H3 STYLE="COLOR:GREEN;">🧪 <a name="_toc159537148"></a>**2.2. Implémentation**</H3>
 
-**<H3 STYLE="COLOR:red;">Activité n° 5  : Algorithme naïf :**</H3> Implémenter l’algorithme précédent en Python
-```python
-def recherche_naive(chaine, cle):
-    long_txt = len(chaine)
-    long_cle = len(cle)
+???+ question "🧠 **Activité n°5 — Implémenter la recherche naïve**"
+    👉 Implémenter l’algorithme précédent en Python.
 
-    # Parcourir la chaîne de caractères
-    pass
-        # Tant que j est inférieur à la longueur de la clé et que le caractère à la position i+j dans la chaîne est égal au caractère à la position j dans la clé
+    ```python
+    def recherche_naive(chaine, cle):
+        long_txt = len(chaine)
+        long_cle = len(cle)
+
+        # Parcourir la chaîne de caractères
         pass
-        ## Si j est égal à la longueur de la clé (ce qui signifie que tous les caractères de la clé ont été trouvés dans la chaîne à partir de la position i)
-        pass
+            # Tant que j est inférieur à la longueur de la clé et que
+            # le caractère à la position i+j dans la chaîne est égal
+            # au caractère à la position j dans la clé
+            pass
+            # Si j est égal à la longueur de la clé
+            pass
 
-    return -1
+        return -1
 
 
-texte = 'CAATGTCTGCACCAAGAC'
-motif = 'CAAG'
-assert(recherche_naive(texte, motif) == 12)
-assert(recherche_naive(texte, 'BB') == -1)
-```
+    texte = 'CAATGTCTGCACCAAGAC'
+    motif = 'CAAG'
+    assert recherche_naive(texte, motif) == 12
+    assert recherche_naive(texte, 'BB') == -1
+    ```
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc159537149"></a>**2.3. Complexité**</H3>
-- Pour chaque position dans le texte (il y en a N-n+1), nous comparons le motif à la sous-chaîne du texte de la même longueur.
-- Chaque comparaison prend n opérations dans le pire des cas (quand le motif est présent à la position courante ou diffère seulement par le dernier caractère).
-- Donc, dans le pire des cas, nous effectuons (N-n) \* n comparaisons, d’où la complexité en **O(n²)**.
+    ??? success "✅ Solution"
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc159537150"></a>**2.4. Mesure du temps**</H3>
+        ```python
+        def recherche_naive(chaine, cle):
+            long_txt = len(chaine)
+            long_cle = len(cle)
 
-On va reprendre ici le texte du roman *Le rouge et le noir* utilisé à la partie 1, et comparer les temps de recherche entre la fonction intégrée find de Python et notre fonction cherche.
+            for i in range(long_txt - long_cle + 1):
+                j = 0
+                while j < long_cle and chaine[i + j] == cle[j]:
+                    j += 1
+                if j == long_cle:
+                    return i
 
-**<H3 STYLE="COLOR:red;">Activité n° 6  : temps :**</H3> Tester
-```python
-from timeit import timeit
-def recherche_find(livre, texte):
-    return livre.find(texte)
+            return -1
 
-def recherche_naif(livre, texte):
-    return recherche_naive(livre, texte )
 
-livre = stendhal
-texte = 'Mme de Rênal fut fidèle à sa promesse'
-temps_find = time
+        texte = 'CAATGTCTGCACCAAGAC'
+        motif = 'CAAG'
+        assert recherche_naive(texte, motif) == 12
+        assert recherche_naive(texte, 'BB') == -1
+        ```
 
-it("recherche_find(livre, texte)", number=10, globals=globals())
-temps_naif = timeit("recherche_naif(livre, texte)", number=10, globals=globals())
-print("Temps en utilisant find : ",temps_find)
-print("Temps en utilisant l'algorithme naif : ",temps_naif)
-```
+---
+
+### <H3 STYLE="COLOR:GREEN;">📈 <a name="_toc159537149"></a>**2.3. Complexité**</H3>
+
+* Le texte contient **N** caractères
+* Le motif contient **n** caractères
+* Il y a **N − n + 1** positions possibles
+* Chaque comparaison peut nécessiter jusqu’à **n** tests
+
+➡️ **Complexité dans le pire des cas :**
+
+$O(n^2)$
+
+---
+
+### <H3 STYLE="COLOR:GREEN;">⏱️ <a name="_toc159537150"></a>**2.4. Mesure du temps**</H3>
+
+???+ question "🧠 **Activité n°6 — Comparer les temps d’exécution**"
+    👉 Comparer la méthode intégrée `find()` et l’algorithme naïf.
+
+    ```python
+    from timeit import timeit
+
+    def recherche_find(livre, texte):
+        return livre.find(texte)
+
+    def recherche_naif(livre, texte):
+        return recherche_naive(livre, texte)
+
+    livre = stendhal
+    texte = 'Mme de Rênal fut fidèle à sa promesse'
+
+    temps_find = timeit("recherche_find(livre, texte)", number=10, globals=globals())
+    temps_naif = timeit("recherche_naif(livre, texte)", number=10, globals=globals())
+
+    print("Temps en utilisant find :", temps_find)
+    print("Temps en utilisant l'algorithme naïf :", temps_naif)
+    ```
+
+    ??? success "✅ Solution / Interprétation"
+
+        * `find()` est **beaucoup plus rapide**
+
+        * La recherche naïve devient **inefficace sur de grands textes**
+        
+        * ➜ **Besoin d’un algorithme optimisé**
+
+---
+
+
+
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc159537151"></a>**3. Application de l’algorithme de Boyer-Moore**</H2>
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc159537152"></a>**3.1. Un cas concret**</H3>
