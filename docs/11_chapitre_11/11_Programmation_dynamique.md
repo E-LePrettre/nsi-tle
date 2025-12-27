@@ -301,6 +301,7 @@ afin d’obtenir un code **plus élégant** et plus autonome.
         👉 Ce comportement est acceptable ici, mais doit être **maîtrisé**.
 
 ---
+![Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.005.png](attachment:Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.005.png)
 
 ???+ question "🧠 **Activité n° 5 — Fibonacci avec mémoïsation (dictionnaire, top-down)**"
     👉 Comparer la mémoïsation avec une **liste** et avec un **dictionnaire**.
@@ -327,6 +328,7 @@ afin d’obtenir un code **plus élégant** et plus autonome.
         👉 Dans ce problème précis, **les performances sont comparables**.
 
 ---
+![Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.006.png](attachment:Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.006.png)
 
 #### 🧠 **Liste ou dictionnaire : quel impact sur les performances ?**
 
@@ -397,6 +399,7 @@ On parle parfois de pseudo-linéaire car le nombre d’opérations dépend aussi
         ✔️ La complexité est **O(n)** en temps et **O(n)** en mémoire.
 
 ---
+![Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.007.png](attachment:Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.007.png)
 
 #### 🔍 **Exemple d’exécution : `fiboMonte(5)`**
 
@@ -708,7 +711,7 @@ Elle permet de bien comprendre le problème… mais aussi ses limites.
 ---
 
 ???+ question "🧠 **Activité n° 10 — Rendu de monnaie (approche récursive)**"
-    👉 Dans un fichier `rendu_monnaie.py`, écrire une fonction récursive
+    👉 Tester la fonction récursive suivante
     qui **renvoie le nombre minimal de pièces** nécessaires pour rendre une somme donnée.
 
     ```python
@@ -848,23 +851,172 @@ fin fonction
 
 ???+ question "🧠 **Activité n° 12 — Programmation dynamique du rendu de monnaie (à la main)**"
     👉 On exécute l’instruction suivante :  
-    `rendu_monnaie_dyna(5, [2, 4])`
+    `rendu_monnaie_dyna(5, [1, 2])`
 
     1. Quelle est la **somme à rendre** ?  
     2. Quel est le **système monétaire utilisé** ?  
     3. Décrire les **différentes étapes** de l’algorithme.
 
     ??? success "✅ Solution attendue"
-        1. La somme à rendre est **5**.
-        2. Le système monétaire est composé des pièces **2 € et 4 €**.
-        3. L’algorithme :
-           - calcule successivement le nombre minimal de pièces pour les sommes 1, 2, 3, 4 puis 5 ;
-           - teste, pour chaque somme, toutes les pièces possibles ;
-           - conserve la meilleure solution trouvée.
+        1. Somme à rendre :
+        👉 La somme à rendre est 5.
 
-        ⚠️ Certaines sommes (comme 1, 3 ou 5) ne peuvent pas être rendues avec ce système.
+        2\. Système monétaire utilisé :
+        👉 Le système monétaire est composé des pièces de 1 € et 2 €.
+
+        3\. Principe de l’algorithme :
+        L’algorithme de programmation dynamique :
+
+        - calcule successivement le nombre minimal de pièces nécessaires pour rendre les sommes de 1 jusqu’à la somme demandée ;
+
+        - pour chaque somme intermédiaire, il teste toutes les pièces disponibles ;
+
+        - il conserve, pour chaque somme, la meilleure solution trouvée (celle qui utilise le moins de pièces).
+
+        👉 La présence de la pièce de 1 € garantit que toutes les sommes peuvent être rendues, ce qui permet à l’algorithme de fonctionner sans cas impossible.
 
 ---
+
+## 🧠 **Initialisation**
+
+On crée un tableau `nb` de taille `somme_à_rendre + 1` (ici de 0 à 5) :
+
+```python
+nb = [0, ∞, ∞, ∞, ∞, ∞]
+```
+
+* `nb[0] = 0` : il faut **0 pièce** pour rendre la somme 0.
+* Les autres cases sont initialisées à l’infini (ou une grande valeur), car le nombre minimal de pièces n’est pas encore connu.
+
+---
+
+## 🔁 **Remplissage du tableau (approche bottom-up)**
+
+On calcule progressivement `nb[s]` pour `s` allant de 1 à 5.
+
+À chaque étape, on applique la formule :
+[
+nb[s] = \min_{p \le s}(1 + nb[s - p])
+]
+
+---
+
+### 🔹 Étape **s = 1**
+
+* Pièce `1` :
+
+  * `1 ≤ 1` → `nb[1] = min(∞, 1 + nb[0]) = 1`
+
+Résultat :
+
+```python
+nb = [0, 1, ∞, ∞, ∞, ∞]
+```
+
+👉 Il faut **1 pièce de 1 €** pour rendre 1.
+
+---
+
+### 🔹 Étape **s = 2**
+
+* Pièce `1` :
+
+  * `1 + nb[1] = 2`
+* Pièce `2` :
+
+  * `1 + nb[0] = 1` ✅
+
+Résultat :
+
+```python
+nb = [0, 1, 1, ∞, ∞, ∞]
+```
+
+👉 Il faut **1 pièce de 2 €** pour rendre 2.
+
+---
+
+### 🔹 Étape **s = 3**
+
+* Pièce `1` :
+
+  * `1 + nb[2] = 2`
+* Pièce `2` :
+
+  * `1 + nb[1] = 2`
+
+Résultat :
+
+```python
+nb = [0, 1, 1, 2, ∞, ∞]
+```
+
+👉 Il faut **2 pièces** (2 + 1) pour rendre 3.
+
+---
+
+### 🔹 Étape **s = 4**
+
+* Pièce `1` :
+
+  * `1 + nb[3] = 3`
+* Pièce `2` :
+
+  * `1 + nb[2] = 2` ✅
+
+Résultat :
+
+```python
+nb = [0, 1, 1, 2, 2, ∞]
+```
+
+👉 Il faut **2 pièces de 2 €** pour rendre 4.
+
+---
+
+### 🔹 Étape **s = 5**
+
+* Pièce `1` :
+
+  * `1 + nb[4] = 3`
+* Pièce `2` :
+
+  * `1 + nb[3] = 3`
+
+Résultat final :
+
+```python
+nb = [0, 1, 1, 2, 2, 3]
+```
+
+👉 Il faut **3 pièces** (2 + 2 + 1) pour rendre 5.
+
+---
+
+## ✅ **Résultat final**
+
+La fonction renvoie :
+
+```python
+nb[5] = 3
+```
+
+👉 **Le nombre minimal de pièces nécessaires pour rendre la somme 5 est donc 3.**
+
+---
+
+## 🔚 **Résumé**
+
+| Somme `s` | Meilleure solution | Nombre minimal de pièces |
+| --------- | ------------------ | ------------------------ |
+| 1         | 1                  | 1                        |
+| 2         | 2                  | 1                        |
+| 3         | 2 + 1              | 2                        |
+| 4         | 2 + 2              | 2                        |
+| 5         | 2 + 2 + 1          | 3                        |
+
+
+--- 
 
 #### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc159507088"></a>**📔 3.4.2. Implémentation**</H4>
 
@@ -874,22 +1026,88 @@ fin fonction
     2. Exécuter :  
        `rendu_monnaie_dyna(10, [9, 3, 2])`
 
-    ❓ La réponse est-elle correcte ?  
-    ❓ Pourquoi ce résultat apparaît-il ?  
-    ❓ Comment pourrait-on corriger ce comportement ?
 
     ??? success "✅ Analyse attendue"
-        ✔️ une implémentation naïve de la programmation dynamique peut retourner un mauvais résultat
+        ```python
+        def rendu_monnaie_dyna(somme_a_rendre, systeme):
+            # Initialisation du tableau : +∞ sauf pour la somme 0
+            nb = [float('inf')] * (somme_a_rendre + 1)  # ou from math import inf
+            nb[0] = 0  # Il faut 0 pièce pour rendre 0
 
-        ❌ Cela se produit lorsque :
-        - le tableau `nb` est **mal initialisé** ;
-        - les **cas impossibles** ne sont pas correctement traités.
+            for s in range(1, somme_a_rendre + 1):
+                for p in systeme:
+                    if p <= s:
+                        nb[s] = min(nb[s], 1 + nb[s - p])
 
-        👉 Il faut :
-        - initialiser les valeurs impossibles avec une valeur très grande (`inf`) ;
-        - vérifier explicitement si une somme est réalisable.
+            return nb[somme_a_rendre]
+
+
+        assert rendu_monnaie_dyna(5, [2, 1]) == 3
+        ```
+
 
 ---
+
+
+#### ✅ **La réponse est-elle correcte ?**
+
+👉 **Oui, le résultat renvoyé par l’algorithme est correct**, même s’il peut paraître surprenant.
+
+En effet, avec les pièces **9, 3 et 2**, **il est impossible de rendre la somme 10**.
+Aucune combinaison de ces pièces ne permet d’obtenir exactement 10.
+
+L’algorithme renvoie donc une valeur spéciale (`∞`, ou une grande valeur), ce qui signifie :
+
+> *« La somme demandée n’est pas atteignable avec ce système de pièces. »*
+
+---
+
+### ✅ **Pourquoi ce résultat apparaît-il ?**
+
+La programmation dynamique repose sur le principe suivant :
+
+> Pour pouvoir calculer correctement une somme `s`, **il faut que toutes les sous-sommes `s - p` soient atteignables**.
+
+Dans ce cas :
+
+* `10 - 9 = 1` ❌ impossible
+* `10 - 3 = 7` ❌ impossible
+* `10 - 2 = 8` ❌ impossible
+
+Aucune sous-somme nécessaire n’est atteignable, donc :
+
+* la case `nb[10]` **ne peut jamais être mise à jour**
+* elle conserve sa valeur initiale (`∞`)
+
+👉 **L’algorithme ne se trompe pas : il signale une impossibilité.**
+
+---
+
+### ✅ **Comment corriger ou améliorer ce comportement ?**
+
+Il ne s’agit pas de corriger l’algorithme, mais **d’améliorer son interface** pour gérer explicitement ce cas.
+
+On peut par exemple :
+
+* tester si la valeur finale est `∞`
+* renvoyer une valeur spéciale (ex. `-1`) ou un message explicite
+
+```python
+def rendu_monnaie_dyna(somme, pieces):
+    nb = [float('inf')] * (somme + 1)
+    nb[0] = 0
+
+    for s in range(1, somme + 1):
+        for p in pieces:
+            if p <= s:
+                nb[s] = min(nb[s], 1 + nb[s - p])
+
+    if nb[somme] == float('inf'):
+        return -1  # somme impossible à rendre
+    return nb[somme]
+```
+
+
 
 #### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc159507089"></a>**🖌️ 3.4.3. Deuxième approche : pour aller plus loin**</H4>
 
@@ -929,22 +1147,67 @@ assert rendu_monnaie_dyna_combi(1, [9, 3, 2]) == [-1]
 ---
 
 ???+ question "🧠 **Activité n° 14 — Analyse d’un algorithme dynamique avancé**"
+
     1. Expliquer la **ligne 7**.
     2. Expliquer le **test de la ligne 11**.
     3. Que renvoie la fonction pour le système `[9, 3, 2]` et la somme `10` ? Pourquoi ?
 
+    ??? success "✅ Analyse attendue"
+        #### 1️⃣ **Expliquer la ligne 7**
 
-    ??? success "✅ Réponses attendues"
-        1. La ligne 7 initialise un tableau de combinaisons pour toutes les sommes
-        de `0` à `somme_à_rendre`.
+        ```python
+        combi = [[0 for k in range(s)] for s in range(0, somme_à_rendre + 1)]
+        ```
 
-        2. Le test de la ligne 11 permet de détecter si la somme est **impossible**
-        à rendre avec le système de pièces.
+        👉 Cette ligne initialise un tableau `combi` tel que :
 
-        3. La fonction renvoie `[2, 2, 3, 3]` :
-        - somme = 10
-        - nombre minimal de pièces = 4
-        - combinaison optimale trouvée grâce à la programmation dynamique.
+        * `combi[s]` contient **une combinaison de pièces** permettant de rendre la somme `s` ;
+        * la présence du nombre `0` dans une combinaison signifie que **la somme n’est pas encore atteignable**.
+
+        Ainsi :
+
+        * `combi[0] = []` (rendre 0 est possible sans pièce)
+        * pour les autres sommes, la combinaison contient au départ des `0`, servant de **sentinelle d’impossibilité**.
+
+
+
+        #### 2️⃣ **Expliquer le test de la ligne 11**
+
+        ```python
+        if 0 in combi[somme_à_rendre]:
+        ```
+
+        👉 Ce test permet de vérifier si **aucune combinaison valide n’a été trouvée** pour la somme demandée.
+
+        * Si `0` est encore présent dans `combi[somme_à_rendre]`, cela signifie que :
+
+        * aucune mise à jour n’a permis de construire une combinaison valide ;
+        * la somme est **impossible à rendre** avec le système de pièces donné.
+
+        La fonction renvoie alors `[-1]`.
+
+
+
+        #### 3️⃣ **Résultat pour le système `[9, 3, 2]` et la somme `10`**
+
+        La fonction renvoie :
+
+        ```python
+        [2, 2, 3, 3]
+        ```
+
+        👉 Explication :
+
+        * la somme `10` est atteignable avec les pièces `[9, 3, 2]` ;
+        * la combinaison optimale utilise **4 pièces** :
+        ( 2 + 2 + 3 + 3 = 10 ) ;
+        * aucune combinaison utilisant moins de pièces n’existe ;
+        * la programmation dynamique garantit donc une solution **optimale**.
+
+
+
+
+
 
 
 🙏 Merci à Charles Poulmaire.
