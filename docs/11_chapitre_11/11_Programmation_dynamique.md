@@ -179,7 +179,7 @@ Elle est rapide car elle calcule les valeurs **une seule fois**.
         ✅ Explication :
 
         - la fonction recalculent plusieurs fois les mêmes valeurs (ex : `fib(2)`, `fib(3)`, etc.)
-        
+
         - le nombre d’appels augmente de manière **exponentielle**
 
         👉 Conclusion : il faut **mémoriser** les résultats → programmation dynamique.
@@ -304,7 +304,9 @@ afin d’obtenir un code **plus élégant** et plus autonome.
         ✔️ Cette version est **correcte** et très efficace.
 
         ⚠️ Attention toutefois :
+
         - l’argument `F` est une **liste mutable par défaut**
+        
         - son contenu est **conservé entre deux appels successifs**
 
         👉 Ce comportement est acceptable ici, mais doit être **maîtrisé**.
