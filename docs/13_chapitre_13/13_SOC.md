@@ -19,9 +19,7 @@ title: 13 Les SOC
 
 🎯 **Objectif de cette partie**
 
-Comprendre comment l’évolution technologique des composants électroniques  
-a conduit à l’intégration massive de fonctions matérielles sur une seule puce,  
-préfigurant l’apparition des **System on a Chip (SoC)**.
+Comprendre comment l’évolution technologique des composants électroniques a conduit à l’intégration massive de fonctions matérielles sur une seule puce, préfigurant l’apparition des **System on a Chip (SoC)**.
 
 ---
 
@@ -31,9 +29,13 @@ préfigurant l’apparition des **System on a Chip (SoC)**.
 - 🌍 [Vidéo en anglais – YouTube](https://youtu.be/NKfW8ijmRQ4)
 
 📝 *Astuce pour activer les sous-titres en français sur YouTube* :
+
 - Cliquer sur **Paramètres**
+
 - Sélectionner **Sous-titres**
+
 - Choisir **Traduire automatiquement**
+
 - Sélectionner **Français**
 
 ---
@@ -42,17 +44,17 @@ préfigurant l’apparition des **System on a Chip (SoC)**.
 
 En 1965, **Gordon Moore**, cofondateur d’Intel, postule que le **nombre de transistors présents sur une puce de microprocesseur double environ tous les deux ans**.
 
-Cette prédiction s’est révélée remarquablement juste (à quelques variations près) et explique pourquoi,  
-depuis plusieurs décennies, les équipements électroniques deviennent :
+Cette prédiction s’est révélée remarquablement juste (à quelques variations près) et explique pourquoi, depuis plusieurs décennies, les équipements électroniques deviennent :
 
 - 🚀 plus performants  
+
 - 📉 plus compacts  
+
 - 🔋 plus économes en énergie  
 
 ![image](Aspose.Words.f2a0a75b-c8c4-40af-be2d-a8e1a2e320ed.001.png){: .center}
 
-👉 **La loi de Moore explique pourquoi il est devenu possible  
-d’intégrer toujours plus de composants sur une même puce.**
+👉 **La loi de Moore explique pourquoi il est devenu possible d’intégrer toujours plus de composants sur une même puce.**
 
 ---
 
@@ -76,27 +78,30 @@ d’intégrer toujours plus de composants sur une même puce.**
 
 #### 🔬 Le rôle crucial de la taille des transistors
 
-Comme l’avait anticipé Moore, c’est la capacité à **réduire la taille des transistors**  
-et à en **augmenter le nombre sur une puce** qui a guidé l’évolution de l’informatique :
+Comme l’avait anticipé Moore, c’est la capacité à **réduire la taille des transistors** et à en **augmenter le nombre sur une puce** qui a guidé l’évolution de l’informatique :
 
 ![image](Aspose.Words.f2a0a75b-c8c4-40af-be2d-a8e1a2e320ed.004.png){: .center}
 
 Cette miniaturisation permet non seulement :
+
 - d’augmenter la puissance de calcul,
+
 - mais aussi de **regrouper plusieurs fonctions matérielles sur un même circuit intégré**.
 
 ---
 
 #### 🔌 Le transistor : composant fondamental
 
-Le **transistor** est un composant électronique essentiel :  
-il permet de **laisser passer ou non un courant électrique**.
+Le **transistor** est un composant électronique essentiel : il permet de **laisser passer ou non un courant électrique**.
 
 ![image](Aspose.Words.f2a0a75b-c8c4-40af-be2d-a8e1a2e320ed.005.png){: .center}
 
 Dans un processeur, les transistors servent notamment à :
+
 - réaliser des **opérations logiques et arithmétiques**,
+
 - stocker temporairement des informations,
+
 - contrôler l’exécution des instructions.
 
 ---
@@ -104,11 +109,9 @@ Dans un processeur, les transistors servent notamment à :
 🧩 **Conclusion**
 
 L’évolution de l’informatique est directement liée à la miniaturisation des transistors.  
-Cette progression technologique a rendu possible l’intégration de composants autrefois séparés  
-au sein d’un **même circuit intégré**.
+Cette progression technologique a rendu possible l’intégration de composants autrefois séparés au sein d’un **même circuit intégré**.
 
-➡️ Cette logique d’intégration conduit naturellement au concept de  
-**System on a Chip (SoC)**, au cœur des systèmes modernes comme les smartphones.
+➡️ Cette logique d’intégration conduit naturellement au concept de **System on a Chip (SoC)**, au cœur des systèmes modernes comme les smartphones.
 
 ---
 
@@ -117,36 +120,33 @@ au sein d’un **même circuit intégré**.
 
 
 
----
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc162874818"></a>🧩 **2.1. Composition d’un PC moderne**</H3>
 
-Dans un ordinateur « classique » tel qu’un **PC de bureau**, le matériel (*hardware*)  
-est organisé autour de **quatre éléments principaux** :
+Dans un ordinateur « classique » tel qu’un **PC de bureau**, le matériel (*hardware*) est organisé autour de **quatre éléments principaux** :
 
 - 🧠 **Le processeur (CPU – Central Processing Unit)**  
-  Il réalise les calculs nécessaires à l’exécution des programmes  
-  (système d’exploitation, navigateur web, logiciels…).
+  Il réalise les calculs nécessaires à l’exécution des programmes (système d’exploitation, navigateur web, logiciels…).
 
 - 🧠 **La mémoire vive (RAM – Random Access Memory)**  
-  Elle stocke **temporairement** les données utilisées par le processeur  
-  afin d’y accéder rapidement.
+  Elle stocke **temporairement** les données utilisées par le processeur afin d’y accéder rapidement.
 
 - 🎮 **La carte graphique (GPU – Graphics Processing Unit)**  
-  Elle calcule et affiche les images, en **2D ou en 3D**  
-  (jeux vidéo, vidéos, interfaces graphiques).
+  Elle calcule et affiche les images, en **2D ou en 3D** (jeux vidéo, vidéos, interfaces graphiques).
 
 - 🧩 **La carte mère (Motherboard)**  
-  Elle assure la **communication entre tous les composants**  
-  (CPU, RAM, GPU, stockage, réseau…) via des **bus**.
+  Elle assure la **communication entre tous les composants** (CPU, RAM, GPU, stockage, réseau…) via des **bus**.
 
 ![image](Aspose.Words.f2a0a75b-c8c4-40af-be2d-a8e1a2e320ed.006.jpeg){: .center}
 
 📌 **Principaux éléments visibles sur la carte mère** :
 
 1. CPU (surmonté d’un dissipateur thermique)
+
 2. Barrettes de RAM
+
 3. Carte graphique (GPU)
+
 4. Carte mère
 
 ![tour](Aspose.Words.f2a0a75b-c8c4-40af-be2d-a8e1a2e320ed.007.jpeg){: .center}
@@ -155,14 +155,13 @@ est organisé autour de **quatre éléments principaux** :
 
 📝 **À retenir**
 
-👉 Dans un PC classique, **chaque composant est séparé physiquement**  
-et relié aux autres par des **liaisons matérielles** (bus, pistes, câbles).
+👉 Dans un PC classique, **chaque composant est séparé physiquement** et relié aux autres par des **liaisons matérielles** (bus, pistes, câbles).
 
 ---
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc162874819"></a>🔁 **2.2. Révisions – Architecture matérielle (1ʳᵉ NSI)**</H3>
 
----
+
 
 #### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc162874820"></a>❤️ **2.2.1. L’architecture de Von Neumann**</H4>
 
@@ -176,25 +175,32 @@ Dans l’architecture de **John von Neumann**, mathématicien et informaticien, 
 
 - 🔄 **L’unité de contrôle**  
   Elle :
-  - récupère l’instruction à exécuter depuis la mémoire,
-  - la décode,
-  - pilote son exécution.
+
+   * récupère l’instruction à exécuter depuis la mémoire,
+
+   * la décode,
+
+   * pilote son exécution.
 
 - ➕ **L’unité arithmétique et logique (ALU)**  
   Elle effectue :
-  - des calculs arithmétiques (addition, multiplication…),
-  - des opérations logiques (ET, OU…),
-  - des comparaisons.
 
-Les données manipulées sont stockées dans des **registres**,  
-des mémoires internes **très rapides**.
+   * des calculs arithmétiques (addition, multiplication…),
+  
+   * des opérations logiques (ET, OU…),
+  
+   * des comparaisons.
+
+Les données manipulées sont stockées dans des **registres**, des mémoires internes **très rapides**.
 
 ---
 
 💾 **La mémoire**
 
 Elle stocke :
+
 - les **programmes**,
+
 - les **données** utilisées par le processeur.
 
 ---
@@ -202,9 +208,13 @@ Elle stocke :
 🔗 **Les bus**
 
 Ce sont des ensembles de fils permettant de transporter :
+
 - les **adresses**,
+
 - les **données**,
+
 - les **commandes**  
+
 entre le processeur, la mémoire et les périphériques.
 
 ---
@@ -212,17 +222,20 @@ entre le processeur, la mémoire et les périphériques.
 🔌 **Les dispositifs d’entrées/sorties**
 
 Ils permettent la communication avec l’extérieur :
+
 - clavier, souris,
+
 - écran,
+
 - réseau,
+
 - stockage.
 
 ---
 
 🧠 **Caractéristique essentielle**
 
-👉 Dans le modèle de Von Neumann, le processeur exécute  
-les instructions **une par une**, **de manière séquentielle**.
+👉 Dans le modèle de Von Neumann, le processeur exécute les instructions **une par une**, **de manière séquentielle**.
 
 ---
 
@@ -232,20 +245,22 @@ On entend souvent dire que les **smartphones sont de véritables ordinateurs**.
 C’est exact.
 
 ➡️ Un smartphone doit donc contenir :
+
 - un CPU,
+
 - de la RAM,
+
 - un GPU,
+
 - des interfaces réseau.
 
-Mais contrairement à un PC, il serait **impossible** de placer  
-tous ces composants **séparément** dans un appareil aussi compact.
+Mais contrairement à un PC, il serait **impossible** de placer tous ces composants **séparément** dans un appareil aussi compact.
 
 ---
 
 🧩 **La solution technologique**
 
-➡️ Regrouper **tous les composants sur une seule puce**,  
-d’une surface de quelques centaines de mm² :
+➡️ Regrouper **tous les composants sur une seule puce**, d’une surface de quelques centaines de mm² :
 
 ![puce](Aspose.Words.f2a0a75b-c8c4-40af-be2d-a8e1a2e320ed.009.png){: .center}
 
@@ -255,9 +270,13 @@ Ces puces sont appelées :
 > ou **SoC** (système sur puce)
 
 Elles intègrent notamment :
+
 - le processeur,
+
 - la mémoire,
+
 - le processeur graphique,
+
 - les interfaces réseau.
 
 ---
@@ -265,11 +284,9 @@ Elles intègrent notamment :
 🧩 **Conclusion**
 
 Un PC est composé de **composants séparés** reliés par des bus.  
-À l’inverse, les appareils mobiles ont conduit à une **intégration extrême**  
-de ces composants sur **une seule puce**.
+À l’inverse, les appareils mobiles ont conduit à une **intégration extrême** de ces composants sur **une seule puce**.
 
-➡️ Cette intégration constitue le principe fondamental des **SoC**,  
-que nous allons étudier dans la partie suivante.
+➡️ Cette intégration constitue le principe fondamental des **SoC**, que nous allons étudier dans la partie suivante.
 
 ---
 
@@ -277,41 +294,49 @@ que nous allons étudier dans la partie suivante.
 
 
 
----
+
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc162874823"></a>🧠 **3.1. Les composants intégrés sur une puce**</H3>
 
 ![Samsung Announces Exynos 2100 SoC: A New Restart on 5nm with X1 Cores](Aspose.Words.f2a0a75b-c8c4-40af-be2d-a8e1a2e320ed.010.jpeg){: .center}
 
-Un **System on Chip (SoC)** est un **circuit intégré unique** qui regroupe,  
-sur **une seule puce**, l’ensemble des composants nécessaires au fonctionnement  
-d’un système informatique complet.
+Un **System on Chip (SoC)** est un **circuit intégré unique** qui regroupe, sur **une seule puce**, l’ensemble des composants nécessaires au fonctionnement d’un système informatique complet.
 
-👉 On retrouve dans un SoC des éléments qui, dans un PC classique,  
-sont **physiquement séparés**.
+👉 On retrouve dans un SoC des éléments qui, dans un PC classique, sont **physiquement séparés**.
 
 ---
 
 🧩 **Un SoC intègre généralement :**
 
 - 🧠 **Des processeurs**
-  - CPU (processeur principal)
-  - GPU (processeur graphique)
+
+   * CPU (processeur principal)
+  
+   * GPU (processeur graphique)
 
 - 💾 **Des mémoires**
-  - RAM
-  - mémoire flash
+  
+   * RAM
+  
+   * mémoire flash
 
 - 📡 **Des interfaces et périphériques**
-  - Wi-Fi
-  - Bluetooth
-  - NFC
-  - GPS
+  
+   * Wi-Fi
+  
+   * Bluetooth
+  
+   * NFC
+  
+   * GPS
 
 - 📷 **Des processeurs spécialisés**
-  - traitement d’image
-  - traitement du son
-  - intelligence artificielle
+  
+   * traitement d’image
+  
+   * traitement du son
+  
+   * intelligence artificielle
 
 ---
 
@@ -332,16 +357,23 @@ On y trouve :
 
 - 📡 **Le modem**  
   Gère :
-  - le Wi-Fi,
-  - le Bluetooth,
-  - le NFC,
-  - les réseaux mobiles (3G, 4G, 5G).
+
+   * le Wi-Fi,
+  
+   * le Bluetooth,
+  
+   * le NFC,
+  
+   * les réseaux mobiles (3G, 4G, 5G).
 
 - 🎵 **Le processeur de signal numérique (DSP – Digital Signal Processor)**  
   Spécialisé dans :
-  - le traitement audio,
-  - la vidéo,
-  - la compression et le filtrage des signaux.
+
+   * le traitement audio,
+  
+   * la vidéo,
+  
+   * la compression et le filtrage des signaux.
 
 - 📷 **Le processeur d’image (ISP – Image Signal Processor)**  
   En charge du traitement des images issues des caméras.
@@ -353,10 +385,14 @@ On y trouve :
 
 - 🔐 **Le processeur de sécurité (SPU – Secure Processing Unit)**  
   Véritable **coffre-fort matériel**, il stocke :
-  - données biométriques,
-  - informations bancaires,
-  - clés de chiffrement,
-  - données de la carte SIM.
+  
+   * données biométriques,
+  
+   * informations bancaires,
+  
+   * clés de chiffrement,
+  
+   * données de la carte SIM.
 
   👉 Son alimentation est **indépendante** pour garantir la sécurité.
 
@@ -369,21 +405,21 @@ On y trouve :
 
 📝 **À retenir**
 
-👉 Un SoC est un **ordinateur complet miniaturisé** sur une seule puce,  
-optimisé pour la **performance**, la **consommation énergétique**  
-et la **sécurité**.
+👉 Un SoC est un **ordinateur complet miniaturisé** sur une seule puce, optimisé pour la **performance**, la **consommation énergétique** et la **sécurité**.
 
 ---
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc162874824"></a>⚖️ **3.2. Avantages et inconvénients des SoC**</H3>
 
 😀 Les SoC sont omniprésents dans :
+
 - les **smartphones**,
+
 - les **tablettes**,
+
 - les **systèmes embarqués** (voitures, objets connectés, robots…).
 
-Ils sont **nettement plus puissants** que les microcontrôleurs  
-et disposent de périphériques de haut niveau.
+Ils sont **nettement plus puissants** que les microcontrôleurs et disposent de périphériques de haut niveau.
 
 ---
 
@@ -397,12 +433,13 @@ et disposent de périphériques de haut niveau.
 
 - 🔐 **Sécurité renforcée**  
   L’intégration matérielle empêche :
-  - l’ajout de composants non autorisés,
-  - la modification physique du système.
+
+   * l’ajout de composants non autorisés,
+  
+   * la modification physique du système.
 
 - 🚀 **Performances élevées**  
-  Les échanges entre composants sont très rapides  
-  car ils sont situés sur la même puce.
+  Les échanges entre composants sont très rapides car ils sont situés sur la même puce.
 
 ---
 
@@ -410,21 +447,25 @@ et disposent de périphériques de haut niveau.
 
 - 🔧 **Maintenance impossible**  
   Contrairement à un PC :
-  - un composant défectueux ne peut pas être remplacé,
-  - toute la puce doit être changée.
+
+   * un composant défectueux ne peut pas être remplacé,
+  
+   * toute la puce doit être changée.
 
 ---
 
 🧩 **Conclusion**
 
-Les **SoC** représentent l’aboutissement de la miniaturisation informatique :  
-ils intègrent sur une seule puce l’ensemble des composants nécessaires  
-au fonctionnement d’un système moderne.
+Les **SoC** représentent l’aboutissement de la miniaturisation informatique : ils intègrent sur une seule puce l’ensemble des composants nécessaires au fonctionnement d’un système moderne.
 
 👉 Cette intégration explique pourquoi les smartphones sont à la fois :
+
 - puissants,
+
 - compacts,
+
 - économes en énergie,
+
 - mais peu réparables.
 
 ---
@@ -486,9 +527,13 @@ au fonctionnement d’un système moderne.
 Sur l’image d’un SoC, on peut lire les dénominations suivantes :
 
 - **Adreno 630**  
+
 - **Hexagon 685**  
+
 - **Kryo 385**  
+
 - **X20 LTE**  
+
 - **Spectra 280**
 
 👉 Associer chaque dénomination au **composant correspondant du SoC**  
@@ -498,14 +543,18 @@ Sur l’image d’un SoC, on peut lire les dénominations suivantes :
 
 ### <H3 STYLE="COLOR:red;">🔍 **Exercice n°4 — Identification sur schéma**</H3>
 
-Expliquez brièvement le rôle de chacun des composants suivants  
-dans un **System on Chip** :
+Expliquez brièvement le rôle de chacun des composants suivants dans un **System on Chip** :
 
-- CPU (*Central Processing Unit*)  
-- GPU (*Graphics Processing Unit*)  
-- RAM (*Random Access Memory*)  
-- Interface réseau  
-- Mémoire flash  
+- CPU (*Central Processing Unit*) 
+
+- GPU (*Graphics Processing Unit*) 
+
+- RAM (*Random Access Memory*) 
+
+- Interface réseau 
+
+- Mémoire flash
+
 - Module de gestion de l’énergie (**PMIC**)
 
 ---
@@ -513,19 +562,22 @@ dans un **System on Chip** :
 ### <H3 STYLE="COLOR:red;">⚙️ **Exercice n°5 — Analyse de l’intégration**</H3>
 
 Un concepteur de circuits hésite entre :
+
 - un **SoC**,
+
 - un assemblage de **composants séparés** pour un smartphone.
 
 👉 Justifiez le choix d’un SoC en répondant aux questions suivantes :
 
 1. Comparer la **vitesse d’exécution** entre :
+
    - un SoC intégrant CPU, GPU et RAM,
    - un système où ces composants sont séparés.
 
-2. Expliquer en quoi l’intégration des composants dans un SoC permet de  
-   **réduire la consommation énergétique**.
+2. Expliquer en quoi l’intégration des composants dans un SoC permet de **réduire la consommation énergétique**.
 
 3. Discuter les **avantages et inconvénients** de l’intégration du point de vue :
+
    - de la maintenance,
    - des mises à jour matérielles.
 
