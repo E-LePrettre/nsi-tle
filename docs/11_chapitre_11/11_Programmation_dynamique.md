@@ -141,7 +141,7 @@ Elle est rapide car elle calcule les valeurs **une seule fois**.
         ✅ Pour `n = 100`, ça reste **rapide** car :
 
         - on fait une boucle de taille `n` → complexité **O(n)**
-        
+
         - Python gère les grands entiers automatiquement
 
         ✅ Conclusion : la version itérative est **efficace**.
@@ -171,11 +171,15 @@ Elle est rapide car elle calcule les valeurs **une seule fois**.
         ✔️ Pour `n = 6`, on obtient **8** (même résultat que l’itératif).
 
         ⚠️ Mais dès que `n` devient grand :
+
         - le programme devient **très lent**
+
         - on a l’impression que ça “bloque” (souvent dès `n ≈ 35-40`)
 
         ✅ Explication :
+
         - la fonction recalculent plusieurs fois les mêmes valeurs (ex : `fib(2)`, `fib(3)`, etc.)
+        
         - le nombre d’appels augmente de manière **exponentielle**
 
         👉 Conclusion : il faut **mémoriser** les résultats → programmation dynamique.
