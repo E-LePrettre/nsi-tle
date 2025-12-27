@@ -5,7 +5,7 @@ title: 12 Algorithme de Boyer - Moore
 
 
 
-**Table des matières**
+📚 **Table des matières**
 
 [1.	Les fonctions déjà implémentées dans python	](#_toc159537143)
 
@@ -15,87 +15,134 @@ title: 12 Algorithme de Boyer - Moore
 
 
 
-**Compétences évaluables :**
+🎯 **Compétences évaluables**
 
 - Etudier l’algorithme de Boyer-Moore pour la recherche d’un motif dans un texte
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc159537143"></a>**1. Les fonctions déjà implémentées dans python**</H2>
 
-=> **CAPYTALE Le code vous sera donné par votre enseignant**
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc159537144"></a>**1.1. La méthode index()**</H3>
+---
 
-**<H3 STYLE="COLOR:red;">Activité n° 1  : index() :**</H3> 
 
-Ecrivez une fonction trouve\_lettre(c, texte) qui renvoie le premier indice où l'on a trouvé la lettre c dans la chaîne de caractères texte, et qui renvoie None si la lettre cherchée ne s'y trouve pas.
+## <H2 STYLE="COLOR:BLUE;"> <a name="_toc159537143"></a>**1. Les fonctions déjà implémentées dans Python**</H2>
 
-On utilisera la méthode `index()` qui retourne l’index de la première occurrence de la sous-chaîne recherchée, mais lève une exception ValueError si elle n’est pas trouvée.
+!!! info "🧠 **Capytale : Le code vous sera fourni par votre enseignant**"
 
-Par exemple : 
+---
+
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc159537144"></a>**1.1. La méthode `index()`**</H3>
+
+La méthode `index()` permet de rechercher une **sous-chaîne** dans une chaîne de caractères.
+
+* Elle renvoie l’**indice de la première occurrence**
+* Elle **lève une exception `ValueError`** si la sous-chaîne n’est pas trouvée
+
+Exemple :
+
 ```python
 texte = "Bonjour tout le monde"
 
-print(texte.index("tout"))  # Résultat : 7
-print(texte.index("pomme")) # Lève : ValueError: substring not found
+print(texte.index("tout"))   # 7
+print(texte.index("pomme"))  # ValueError
 ```
+
+---
+
+???+ question "🧠 **Activité n°1 — Utiliser la méthode `index()`**"
+👉 Écrire une fonction `trouve_lettre(c, texte)` qui :
+
+* renvoie l’indice de la **première occurrence** de `c` dans `texte`
+* renvoie `None` si la lettre n’est pas présente
+
+📌 **Indice** : utiliser `try / except`
 
 ```python
 def trouve_lettre(c, texte):
-    """renvoie l'indice de la première occurrence de c dans texte
-    ou renvoie None par convention sinon"""
+    """Renvoie l'indice de la première occurrence de c dans texte
+    ou None si la lettre n'est pas trouvée"""
     pass
 
 assert trouve_lettre('j', 'bonjour') == 3
 assert trouve_lettre('j', 'alphabet') is None
 ```
 
-Le problème est plus difficile quand il faut chercher non plus un seul caractère mais un **mot** dans le texte.
+??? success "✅ Solution"
 
-**Vocabulaire** :
+```python
+def trouve_lettre(c, texte):
+    try:
+        return texte.index(c)
+    except ValueError:
+        return None
+```
 
-- on ne parlera pas de 'mot' mais de **motif**, ce qui est plus général.
-- quand on trouve le motif cherché à un endroit du texte, on dira qu'il s'agit d'une **occurrence** du motif dans le texte : cela désignera l'indice i tel que texte[i:i+1] == motif
+---
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc159537145"></a>**1.2. La méthode find()**</H3>
+### 🔎 Vocabulaire essentiel
 
-**<H3 STYLE="COLOR:red;">Activité n° 2  : find() :**</H3> 
+* **Motif** : chaîne de caractères recherchée
+* **Occurrence** : position `i` telle que
 
-Le livre qui est utilisé dans cette partie est  
+  ```python
+  texte[i:i+len(motif)] == motif
+  ```
 
-ICI : [https://www.gutenberg.org/ebooks/798.txt.utf-8](https://www.gutenberg.org/ebooks/798.txt.utf-8)
+➡️ La recherche devient plus complexe lorsqu’on cherche un **motif** plutôt qu’un seul caractère.
 
-renommer le 'rougenoir.txt'
+---
 
-et chercher ensuite si le motif 'Julien’ apparaît quelque part dans le roman et trouver une deuxième occurrence du mot ‘Julien’
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc159537145"></a>**1.2. La méthode `find()`**</H3>
 
-On utilisera la méthode `find()` qui retourne l’index de la première occurrence de la sous-chaîne recherchée, ou -1 si elle n’est pas trouvée.
+Contrairement à `index()` :
 
-Par exemple 
+* `find()` **ne lève pas d’exception**
+* elle renvoie `-1` si le motif n’est pas trouvé
+
+Exemple :
 
 ```python
 texte = "Bonjour tout le monde"
 
-print(texte.find("tout"))   # Résultat : 7
-print(texte.find("pomme"))  # Résultat : -1
+print(texte.find("tout"))    # 7
+print(texte.find("pomme"))   # -1
 ```
-Tester ce code :
+
+---
+
+???+ question "🧠 **Activité n°2 — Recherche dans un texte long**"
+📖 Télécharger le roman *Le Rouge et le Noir* :
+
+🔗 [https://www.gutenberg.org/ebooks/798.txt.utf-8](https://www.gutenberg.org/ebooks/798.txt.utf-8)
+➡️ Renommer le fichier : `rougenoir.txt`
+
+👉 Vérifier :
+
+* si le motif **"Julien"** apparaît dans le texte
+* trouver une **deuxième occurrence**
 
 ```python
-fichier = open('rougenoir.txt', 'r', encoding = 'utf-8')
+fichier = open('rougenoir.txt', 'r', encoding='utf-8')
 stendhal = fichier.read()
 fichier.close()
 
 print(stendhal.find('Julien'))
 print(stendhal.find('Julien', 25378))
-
 ```
 
+??? success "✅ Solution"
 
+* Le premier `find` renvoie l’indice de la **première occurrence**
+* Le second permet de rechercher **après une position donnée**, donc une autre occurrence
 
-**<H3 STYLE="COLOR:red;">Activité n° 3  : find() :**</H3> Complétez ci-dessous le code de la fonction nb\_occurrences(texte, motif)
+---
+
+???+ question "🧠 **Activité n°3 — Compter les occurrences**"
+👉 Compléter la fonction `nb_occurrences(texte, motif)`
+Elle renvoie le **nombre total d’occurrences** du motif dans le texte.
+
 ```python
 def nb_occurrences(texte, motif):
-    """renvoie le nombre de fois où motif apparaît dans texte """
+    """Renvoie le nombre de fois où motif apparaît dans texte"""
     pass
 
 assert nb_occurrences('bonjour monsieur gaboriot votre abonnement est fini', 'bo') == 3
@@ -104,25 +151,64 @@ assert nb_occurrences(stendhal, 'amour') == 225
 assert nb_occurrences(stendhal, 'informatique') == 0
 ```
 
-Autre réponse possible avec une fonction récursive.
+??? success "✅ Solution"
 
-**<H3 STYLE="COLOR:red;">Activité n° 4  : find() :**</H3> Complétez ci-dessous le code de la fonction nb\_occurrences\_rec(texte, motif)
+```python
+def nb_occurrences(texte, motif):
+    count = 0
+    pos = texte.find(motif)
+
+    while pos != -1:
+        count += 1
+        pos = texte.find(motif, pos + 1)
+
+    return count
+```
+
+---
+
+???+ question "🧠 **Activité n°4 — Version récursive**"
+👉 Écrire une version **récursive** de la fonction précédente.
+
 ```python
 import sys
 sys.setrecursionlimit(2000)
 
 def nb_occurrences_rec(texte, motif, i=0):
     occurence = texte.find(motif, i)
-    if occurence == -1 :
+    if occurence == -1:
         pass
-    else :
+    else:
         pass
-
-assert nb_occurrences_rec('bonjour monsieur gaboriot votre abonnement est fini', 'bo') == 3
-assert nb_occurrences_rec(stendhal, 'Julien') == 1908
-assert nb_occurrences_rec(stendhal, 'amour') ==225
-assert nb_occurrences_rec(stendhal, 'informatique') == 0
 ```
+
+??? success "✅ Solution"
+
+```python
+def nb_occurrences_rec(texte, motif, i=0):
+    pos = texte.find(motif, i)
+    if pos == -1:
+        return 0
+    else:
+        return 1 + nb_occurrences_rec(texte, motif, pos + 1)
+```
+
+---
+
+## ✅ Bilan intermédiaire
+
+À ce stade, vous savez :
+
+✔ utiliser `index()` et `find()`
+✔ comprendre la notion de **motif / occurrence**
+✔ compter des occurrences de manière **itérative et récursive**
+
+➡️ **Limite** : ces méthodes parcourent le texte **caractère par caractère**, ce qui peut être lent sur de grands textes.
+
+---
+
+
+
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc159537146"></a>**2. La recherche textuelle naïve**</H2>
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc159537147"></a>**2.1. L’algorithme**</H3>

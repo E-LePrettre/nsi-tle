@@ -6,7 +6,7 @@ title: 11 Programmation dynamique
 
 
 
-**Table des matières**
+📚 **Table des matières**
 
 1. [Paradigmes algorithmiques](#_toc159507072)  
 2. [Programmation dynamique de la suite de Fibonacci](#_toc159507076)  
@@ -102,7 +102,7 @@ Elle repose sur une idée clé : **éviter de recalculer plusieurs fois les mêm
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc159507076"></a>**🛡️ 2. Programmation dynamique de la suite de Fibonacci**</H2>
 
-👉 **CAPYTALE** : le code vous sera fourni par votre enseignant.
+!!! info "🧠 **Capytale : Le code vous sera fourni par votre enseignant**"
 
 📌 Définition mathématique :
 
