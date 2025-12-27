@@ -301,7 +301,7 @@ afin d’obtenir un code **plus élégant** et plus autonome.
         👉 Ce comportement est acceptable ici, mais doit être **maîtrisé**.
 
 ---
-![Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.005.png](attachment:Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.005.png)
+![Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.005.png](Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.005.png)
 
 ???+ question "🧠 **Activité n° 5 — Fibonacci avec mémoïsation (dictionnaire, top-down)**"
     👉 Comparer la mémoïsation avec une **liste** et avec un **dictionnaire**.
@@ -328,7 +328,7 @@ afin d’obtenir un code **plus élégant** et plus autonome.
         👉 Dans ce problème précis, **les performances sont comparables**.
 
 ---
-![Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.006.png](attachment:Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.006.png)
+![Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.006.png](Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.006.png)
 
 #### 🧠 **Liste ou dictionnaire : quel impact sur les performances ?**
 
@@ -399,7 +399,7 @@ On parle parfois de pseudo-linéaire car le nombre d’opérations dépend aussi
         ✔️ La complexité est **O(n)** en temps et **O(n)** en mémoire.
 
 ---
-![Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.007.png](attachment:Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.007.png)
+![Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.007.png](Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.007.png)
 
 #### 🔍 **Exemple d’exécution : `fiboMonte(5)`**
 
