@@ -556,7 +556,7 @@ Dans la pratique, un même graphe peut être représenté **de plusieurs façons
 Il est donc essentiel de savoir **passer d’une représentation à une autre**, notamment en Python.
 
 
-👉 **CAPYTALE** : le code vous sera fourni par votre enseignant.
+!!! info "🧠 **Capytale : Le code vous sera fourni par votre enseignant**"
 
 
 ???+ question "🧠 **Activité n° 6 — De la matrice au dictionnaire**"
@@ -1022,7 +1022,7 @@ Le module **graphviz** permet de produire des graphes :
 Nous allons maintenant **implémenter un graphe en Programmation Orientée Objet**, afin de regrouper les données et les méthodes associées dans une même structure.
 
 
-👉 **CAPYTALE** : le squelette du code est fourni par l’enseignant.
+!!! info "🧠 **Capytale : Le code vous sera fourni par votre enseignant**"
 
 
 Jusqu’à présent, les graphes ont été représentés à l’aide :
@@ -2423,7 +2423,7 @@ return distances
 
 #### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc161063595"></a>**🧮 5.3.4.  Parcourir un labyrinthe**</H4>
 
-👉 **CAPYTALE** : le code est fourni par l’enseignant.
+!!! info "🧠 **Capytale : Le code vous sera fourni par votre enseignant**"
 
 ##### 🧠 Problème posé
 
