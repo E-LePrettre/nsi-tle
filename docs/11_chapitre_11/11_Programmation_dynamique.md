@@ -60,7 +60,9 @@ Ce paradigme est très utilisé pour les **problèmes d’optimisation**.
 3. **Combiner** les solutions pour obtenir la solution finale
 
 💡 **Exemples classiques :**
+
 - tri fusion
+
 - recherche dichotomique
 
 ---
@@ -130,6 +132,7 @@ Elle est rapide car elle calcule les valeurs **une seule fois**.
     ```
 
     🧪 Tester ensuite avec `n = 10`, `n = 100`, …  
+
     ❓ Y a-t-il un problème ?
 
     ??? success "✅ Solution (méthode attendue)"
@@ -165,6 +168,7 @@ Elle est rapide car elle calcule les valeurs **une seule fois**.
     ```
 
     🧪 Tester ensuite avec `n = 10`, `n = 30`, `n = 40`, …  
+
     ❓ Que constates-tu ?
 
     ??? success "✅ Solution (méthode attendue)"
@@ -282,8 +286,8 @@ On parle d’approche **top-down** parce que :
 👉 Cela correspond exactement à la définition de la **programmation dynamique top-down avec mémoïsation**.
 
 💡 **Remarque** :  
-On peut bien sûr intégrer la création de la structure de mémoïsation directement dans la fonction,  
-afin d’obtenir un code **plus élégant** et plus autonome.
+
+On peut bien sûr intégrer la création de la structure de mémoïsation directement dans la fonction, afin d’obtenir un code **plus élégant** et plus autonome.
 
 ---
 
@@ -515,11 +519,11 @@ il faut simplement **un peu de patience**.
 🔁 Dans l’approche bottom-up **avec liste** (vue précédemment), Python doit :
 
 - accéder à **deux cases mémoire** (`i-1` et `i-2`) à chaque itération ;
+
 - gérer une **structure dynamique** (la liste), ce qui introduit un léger surcoût
   lorsque la liste devient grande.
 
-Même si chaque accès est en **O(1)**,  
-la **latence mémoire** et la gestion de la structure peuvent provoquer des **ralentissements**.
+Même si chaque accès est en **O(1)**, la **latence mémoire** et la gestion de la structure peuvent provoquer des **ralentissements**.
 
 ---
 
@@ -531,8 +535,7 @@ la **latence mémoire** et la gestion de la structure peuvent provoquer des **ra
 - Les entiers Python ont une **taille variable**.
 - Additionner deux très grands entiers **n’est plus une opération constante**.
 
-📌 Le temps d’exécution dépend donc aussi de la **taille des nombres manipulés**,  
-et pas uniquement du nombre d’itérations.
+📌 Le temps d’exécution dépend donc aussi de la **taille des nombres manipulés**, et pas uniquement du nombre d’itérations.
 
 ---
 
@@ -551,8 +554,11 @@ L’approche pythonesque :
 - 👉 C’est pourquoi elle est **nettement plus rapide en pratique**.
 
 🧩 **À retenir** :
+
 - Complexité théorique ≠ temps mesuré
+
 - Les détails d’implémentation comptent
+
 - Python gère des entiers arbitrairement grands → impact réel sur les performances
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc159507082"></a>**🎯 3. L’optimisation du problème du rendu de monnaie**</H2>
@@ -565,21 +571,21 @@ L’approche pythonesque :
 
 Cette approche permet d’aboutir efficacement à une solution **optimale**, en explorant **tous les cas possibles**, mais de manière **structurée et non redondante**.
 
-👉 À l’inverse, la **force brute** explore également tous les cas,  
-mais **sans mémorisation** ni stratégie, ce qui la rend très coûteuse en temps.
+👉 À l’inverse, la **force brute** explore également tous les cas, mais **sans mémorisation** ni stratégie, ce qui la rend très coûteuse en temps.
 
 🟡 Les **algorithmes gloutons**, quant à eux, procèdent différemment :
+
 - ils font des **choix successifs immédiats** selon un critère **local** (le “meilleur choix à court terme”),
+
 - ils sont souvent **rapides**,
+
 - mais ils **ne garantissent pas toujours** une solution optimale.
 
 ---
 
 #### 🪙 **Énoncé du problème**
 
-📌 Étant donné un système de monnaie (billets et pièces),  
-comment rendre une somme de façon **optimale**,  
-c’est-à-dire avec le **nombre minimal de pièces et de billets** ?
+📌 Étant donné un système de monnaie (billets et pièces), comment rendre une somme de façon **optimale**, c’est-à-dire avec le **nombre minimal de pièces et de billets** ?
 
 ---
 
@@ -591,11 +597,10 @@ c’est-à-dire avec le **nombre minimal de pièces et de billets** ?
 🔍 L’approche de **force brute** pour le problème du rendu de monnaie consiste à :
 
 - **tester toutes les combinaisons possibles** de pièces,
+
 - jusqu’à trouver **toutes les solutions valides**.
 
-👉 Cette méthode est simple à comprendre,  
-mais elle devient **très lente** lorsque la somme à rendre augmente,  
-car **les mêmes sous-problèmes sont recalculés plusieurs fois**.
+👉 Cette méthode est simple à comprendre, mais elle devient **très lente** lorsque la somme à rendre augmente, car **les mêmes sous-problèmes sont recalculés plusieurs fois**.
 
 ---
 
@@ -620,15 +625,20 @@ car **les mêmes sous-problèmes sont recalculés plusieurs fois**.
     ```
 
     🧪 **Travail demandé** :
+
     - comprendre ce que représente chaque liste de résultats,
+
     - vérifier que toutes les combinaisons possibles sont bien présentes.
 
     ??? success "✅ Solution (principe attendu)"
         ✔️ L’algorithme explore **toutes les possibilités**.
 
         ✔️ Chaque solution correspond à une combinaison de pièces :
+
         - `[0, 2, 0]` → 2 pièces de 3 €
+
         - `[2, 0, 1]` → 2 pièces de 1 € et 1 pièce de 4 €
+
         - etc.
 
         ⚠️ Les mêmes sous-problèmes sont recalculés plusieurs fois.
@@ -647,18 +657,18 @@ car **les mêmes sous-problèmes sont recalculés plusieurs fois**.
 
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507084"></a>**🧮 3.2. Application classique avec les algorithmes gloutons**</H3>
 
-🧠 Un **algorithme glouton** résout un problème en faisant, à chaque étape,
-le **meilleur choix local possible**, sans jamais revenir en arrière.
+🧠 Un **algorithme glouton** résout un problème en faisant, à chaque étape, le **meilleur choix local possible**, sans jamais revenir en arrière.
 
 Dans le cas du **rendu de monnaie**, cela consiste à :
+
 - prendre **la plus grande pièce possible**,
+
 - puis recommencer jusqu’à ce que toute la somme soit rendue.
 
 ✔️ Cette approche est **simple** et souvent **rapide**.  
 ❌ Mais elle **ne garantit pas toujours une solution optimale**.
 
-👉 Elle fonctionne correctement lorsque le système de monnaie est **canonique**
-(c’est le cas des euros), mais peut échouer pour d’autres systèmes.
+👉 Elle fonctionne correctement lorsque le système de monnaie est **canonique** (c’est le cas des euros), mais peut échouer pour d’autres systèmes.
 
 ---
 
@@ -691,23 +701,32 @@ Dans le cas du **rendu de monnaie**, cela consiste à :
     ```
 
     🧪 **Travail demandé** :
+
     - exécuter le programme,
+
     - interpréter le résultat obtenu,
+
     - comparer avec la solution optimale.
 
     ??? success "✅ Analyse et résultat attendus"
         ✔️ L’algorithme glouton retourne :
+
         - `[1, 0, 2]` → 1 pièce de 4 € et 2 pièces de 1 €  
+
         👉 soit **3 pièces** au total.
 
         ❌ Or, la solution **optimale** est :
+
         - 2 pièces de 3 € → **2 pièces** seulement.
 
         ✔️ L’algorithme glouton trouve donc une solution,
+
         ❌ mais **pas la meilleure possible**.
 
         📌 Explication :
+
         - le système de monnaie `[1, 3, 4]` **n’est pas canonique**,
+
         - une fois une pièce choisie, l’algorithme **ne peut pas revenir en arrière**.
 
 ---
@@ -719,15 +738,13 @@ Dans le cas du **rendu de monnaie**, cela consiste à :
 - 🔁 Une décision prise est **définitive**.
 - 📈 Pour le rendu de monnaie, la complexité de l’algorithme glouton est **linéaire** par rapport à la somme rendue.
 
-👉 Ce constat motive l’utilisation de la **programmation dynamique**,
-qui permet de garantir une solution optimale **sans explorer inutilement tous les cas**.
+👉 Ce constat motive l’utilisation de la **programmation dynamique**, qui permet de garantir une solution optimale **sans explorer inutilement tous les cas**.
 
 !!! info "🧠 **Capytale : Les codes seront fournis par votre enseignant : TNSI_11_Programmation dynamique - rendu de monnaie**"
 
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507085"></a>**🔎 3.3. Approche récursive**</H3>
 
-🧠 Avant d’introduire la programmation dynamique pour le rendu de monnaie,
-on commence par une **approche récursive naïve**.
+🧠 Avant d’introduire la programmation dynamique pour le rendu de monnaie, on commence par une **approche récursive naïve**.
 Elle permet de bien comprendre le problème… mais aussi ses limites.
 
 ---
@@ -768,12 +785,15 @@ Elle permet de bien comprendre le problème… mais aussi ses limites.
         ✔️ La fonction est **récursive**.
 
         ✔️ Cas simple :
-        - si la somme correspond exactement à une pièce disponible,
-          une seule pièce suffit → on retourne `1`.
+
+        - si la somme correspond exactement à une pièce disponible, une seule pièce suffit → on retourne `1`.
 
         ✔️ Sinon :
+
         - la fonction essaie **toutes les pièces possibles**,
+
         - elle appelle récursivement la fonction pour la somme restante,
+
         - elle conserve la solution utilisant le **moins de pièces**.
 
         ✔️ À la fin, la fonction retourne le **minimum** parmi toutes les possibilités testées.
@@ -817,10 +837,10 @@ effectués par la fonction `rendre_monnaie_rec([1,3,4], 6)` :
 - ❌ Certains chemins mènent à une **impasse** (somme impossible à rendre).
 - 🔁 Les **mêmes sous-problèmes** sont recalculés plusieurs fois.
 - 📉 La **profondeur minimale** de l’arbre est **2** :
-  - solution optimale : `3 + 3`.
 
-D’autres solutions valides comme `(1, 1, 4)` ou `(4, 1, 1)`
-utilisent **3 pièces**, donc sont moins bonnes.
+   * solution optimale : `3 + 3`.
+
+D’autres solutions valides comme `(1, 1, 4)` ou `(4, 1, 1)` utilisent **3 pièces**, donc sont moins bonnes.
 
 ---
 
@@ -828,17 +848,15 @@ utilisent **3 pièces**, donc sont moins bonnes.
 
 ❗ Le principal problème de cette méthode est qu’elle **répète les mêmes calculs**.
 
-👉 C’est exactement cette inefficacité qui va motiver l’utilisation
-de la **programmation dynamique**, avec **mémoïsation**,
-dans la partie suivante.
+👉 C’est exactement cette inefficacité qui va motiver l’utilisation de la **programmation dynamique**, avec **mémoïsation**, dans la partie suivante.
 
 
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507086"></a>**💡 3.4. Programmation dynamique**</H3>
 
-🧠 Pour **optimiser** le problème du rendu de monnaie, on utilise la
-**programmation dynamique**, selon deux approches possibles :
+🧠 Pour **optimiser** le problème du rendu de monnaie, on utilise la **programmation dynamique**, selon deux approches possibles :
 
 - 💾 **Mémoïsation (top-down)** : on mémorise les résultats intermédiaires ;
+
 - 🔁 **Approche itérative (bottom-up)** : on élimine la récursion et on accélère fortement les calculs.
 
 Dans les deux cas, l’objectif est le même :
@@ -863,8 +881,11 @@ fin fonction
 ```
 
 📌 Cet algorithme :
-- résout d’abord les **plus petites sommes**,
+
+- résout d’abord les **plus petites sommes**, 
+
 - construit progressivement la solution optimale,
+
 - garantit une solution **optimale** si elle existe.
 
 ---
@@ -876,17 +897,22 @@ fin fonction
     `rendu_monnaie_dyna(5, [1, 2])`
 
     1. Quelle est la **somme à rendre** ?  
-    2. Quel est le **système monétaire utilisé** ?  
+
+    2. Quel est le **système monétaire utilisé** ? 
+
     3. Décrire les **différentes étapes** de l’algorithme.
 
     ??? success "✅ Solution attendue"
         1. Somme à rendre :
+
         👉 La somme à rendre est 5.
 
         2\. Système monétaire utilisé :
+
         👉 Le système monétaire est composé des pièces de 1 € et 2 €.
 
         3\. Principe de l’algorithme :
+
         L’algorithme de programmation dynamique :
 
         - calcule successivement le nombre minimal de pièces nécessaires pour rendre les sommes de 1 jusqu’à la somme demandée ;
@@ -897,9 +923,7 @@ fin fonction
 
         👉 La présence de la pièce de 1 € garantit que toutes les sommes peuvent être rendues, ce qui permet à l’algorithme de fonctionner sans cas impossible.
 
----
 
-???+ question ""
     ??? success "🧠 **Explication pas à pas**"
         #### 🧠 **Initialisation**
 
@@ -910,6 +934,7 @@ fin fonction
         ```
 
         * `nb[0] = 0` : il faut **0 pièce** pour rendre la somme 0.
+
         * Les autres cases sont initialisées à l’infini (ou une grande valeur), car le nombre minimal de pièces n’est pas encore connu.
 
         ---
@@ -1047,6 +1072,7 @@ fin fonction
 ???+ question "🧠 **Activité n° 13 — Implémentation de l’algorithme dynamique**"
     👉 
     1. Implémenter l’algorithme `rendu_monnaie_dyna`.
+
     2. Exécuter :  
        `rendu_monnaie_dyna(10, [9, 3, 2])`
 
@@ -1095,12 +1121,15 @@ La programmation dynamique repose sur le principe suivant :
 Dans ce cas :
 
 * `10 - 9 = 1` ❌ impossible
+
 * `10 - 3 = 7` ❌ impossible
+
 * `10 - 2 = 8` ❌ impossible
 
 Aucune sous-somme nécessaire n’est atteignable, donc :
 
 * la case `nb[10]` **ne peut jamais être mise à jour**
+
 * elle conserve sa valeur initiale (`∞`)
 
 👉 **L’algorithme ne se trompe pas : il signale une impossibilité.**
@@ -1114,6 +1143,7 @@ Il ne s’agit pas de corriger l’algorithme, mais **d’améliorer son interfa
 On peut par exemple :
 
 * tester si la valeur finale est `∞`
+
 * renvoyer une valeur spéciale (ex. `-1`) ou un message explicite
 
 ```python
@@ -1137,8 +1167,7 @@ def rendu_monnaie_dyna(somme, pieces):
 
 🧠 Dans l’implémentation précédente, on obtient uniquement le **nombre minimal de pièces**.
 
-➡️ L’objectif est maintenant de retrouver **la combinaison exacte des pièces utilisées**  
-et de gérer explicitement le cas où le rendu est **impossible**.
+➡️ L’objectif est maintenant de retrouver **la combinaison exacte des pièces utilisées** et de gérer explicitement le cas où le rendu est **impossible**.
 
 ```python
 def rendu_monnaie_dyna_combi(somme_à_rendre, système):
@@ -1173,7 +1202,9 @@ assert rendu_monnaie_dyna_combi(1, [9, 3, 2]) == [-1]
 ???+ question "🧠 **Activité n° 14 — Analyse d’un algorithme dynamique avancé**"
 
     1. Expliquer la **ligne 7**.
+
     2. Expliquer le **test de la ligne 11**.
+
     3. Que renvoie la fonction pour le système `[9, 3, 2]` et la somme `10` ? Pourquoi ?
 
     ??? success "✅ Analyse attendue"
@@ -1223,9 +1254,11 @@ assert rendu_monnaie_dyna_combi(1, [9, 3, 2]) == [-1]
         👉 Explication :
 
         * la somme `10` est atteignable avec les pièces `[9, 3, 2]` ;
+
         * la combinaison optimale utilise **4 pièces** :
         ( 2 + 2 + 3 + 3 = 10 ) ;
         * aucune combinaison utilisant moins de pièces n’existe ;
+
         * la programmation dynamique garantit donc une solution **optimale**.
 
 
