@@ -133,11 +133,15 @@ Elle est rapide car elle calcule les valeurs **une seule fois**.
     ❓ Y a-t-il un problème ?
 
     ??? success "✅ Solution (méthode attendue)"
+
         ✔️ Pour `n = 6` → **8**  
+
         ✔️ Pour `n = 10` → **55**
 
         ✅ Pour `n = 100`, ça reste **rapide** car :
+
         - on fait une boucle de taille `n` → complexité **O(n)**
+        
         - Python gère les grands entiers automatiquement
 
         ✅ Conclusion : la version itérative est **efficace**.
