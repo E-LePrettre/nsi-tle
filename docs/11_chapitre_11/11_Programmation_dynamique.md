@@ -83,10 +83,11 @@ Elle repose sur une idée clé : **éviter de recalculer plusieurs fois les mêm
 
 4. 🔼🔽 **Deux approches**
 
-   - 🔼 **Approche ascendante**  
+
+    - 🔼 **Approche ascendante**  
      On part des cas simples (**petits n**) et on remonte jusqu’au problème final.
 
-   - 🔽 **Approche descendante**  
+    - 🔽 **Approche descendante**  
      On part du problème final et on calcule les sous-problèmes en mémorisant.
 
 ???+ question "🧠 Mini-question — Identifier la programmation dynamique"
