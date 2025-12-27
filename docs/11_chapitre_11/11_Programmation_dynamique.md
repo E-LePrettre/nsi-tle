@@ -301,7 +301,8 @@ On peut bien sûr intégrer la création de la structure de mémoïsation direct
         return F[n]
     ```
 
-    🧪 Tester avec `n = 6`, `n = 10`, `n = 100`  
+    🧪 Tester avec `n = 6`, `n = 10`, `n = 100` 
+
     ❓ Y a-t-il un problème ?
 
     ??? success "✅ Solution (analyse attendue)"
@@ -457,8 +458,7 @@ L’approche **bottom-up** consiste à :
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507081"></a>**✨ 2.5. La suite de Fibonacci : version pythonesque**</H3>
 
 🧠 Jusqu’ici, nous avons vu plusieurs versions de Fibonacci en programmation dynamique.  
-Il existe une version encore plus efficace, très compacte, qui exploite parfaitement les
-capacités du langage Python.
+Il existe une version encore plus efficace, très compacte, qui exploite parfaitement les capacités du langage Python.
 
 ---
 
@@ -480,6 +480,7 @@ capacités du langage Python.
     - Puis tester avec des valeurs **beaucoup plus grandes**
 
     ❓ **Question** :  
+
     Observe-t-on un problème ? Le temps d’exécution évolue-t-il comme prévu ?
 
     ??? success "✅ Analyse et réponse attendues"
@@ -502,8 +503,7 @@ capacités du langage Python.
 #### 📈 **Une impression trompeuse : « on dirait du O(n²) »**
 
 On a montré que l’algorithme est **linéaire**.  
-Pourtant, lorsqu’on observe les temps d’exécution pour de très grandes valeurs de `n`,
-la courbe **semble se courber**, donnant l’impression d’un comportement en **O(n²)**.
+Pourtant, lorsqu’on observe les temps d’exécution pour de très grandes valeurs de `n`, la courbe **semble se courber**, donnant l’impression d’un comportement en **O(n²)**.
 
 ⏳ On peut explorer des valeurs très grandes de `n`…  
 il faut simplement **un peu de patience**.
@@ -605,8 +605,7 @@ Cette approche permet d’aboutir efficacement à une solution **optimale**, en 
 ---
 
 ???+ question "🧠 **Activité n° 8 — Rendu de monnaie en force brute**"
-    👉 Dans un fichier `rendu_monnaie.py`, écrire un programme permettant de trouver  
-    **toutes les combinaisons possibles** pour rendre une somme de **6 €**.
+    👉 Dans un fichier `rendu_monnaie.py`, écrire un programme permettant de trouver **toutes les combinaisons possibles** pour rendre une somme de **6 €**.
 
     ```python
     def rendre_monnaie_brute(monnaie, somme):
@@ -666,6 +665,7 @@ Dans le cas du **rendu de monnaie**, cela consiste à :
 - puis recommencer jusqu’à ce que toute la somme soit rendue.
 
 ✔️ Cette approche est **simple** et souvent **rapide**.  
+
 ❌ Mais elle **ne garantit pas toujours une solution optimale**.
 
 👉 Elle fonctionne correctement lorsque le système de monnaie est **canonique** (c’est le cas des euros), mais peut échouer pour d’autres systèmes.
@@ -673,7 +673,6 @@ Dans le cas du **rendu de monnaie**, cela consiste à :
 ---
 
 ???+ question "🧠 **Activité n° 9 — Rendu de monnaie avec un algorithme glouton**"
-    👉 Dans un fichier `rendu_monnaie.py`, implémenter l’algorithme glouton suivant.  
     Tester le programme avec une somme de **6 €**.
 
     ```python
@@ -750,8 +749,7 @@ Elle permet de bien comprendre le problème… mais aussi ses limites.
 ---
 
 ???+ question "🧠 **Activité n° 10 — Rendu de monnaie (approche récursive)**"
-    👉 Tester la fonction récursive suivante
-    qui **renvoie le nombre minimal de pièces** nécessaires pour rendre une somme donnée.
+    👉 Tester la fonction récursive suivante qui **renvoie le nombre minimal de pièces** nécessaires pour rendre une somme donnée.
 
     ```python
     def rendre_monnaie_rec(monnaie, somme):
@@ -798,8 +796,7 @@ Elle permet de bien comprendre le problème… mais aussi ses limites.
 
         ✔️ À la fin, la fonction retourne le **minimum** parmi toutes les possibilités testées.
 
-        ⚠️ Si la somme ne peut pas être rendue (cas non traité explicitement ici),
-        la fonction retourne `float('inf')`, représentant un **pire cas**.
+        ⚠️ Si la somme ne peut pas être rendue (cas non traité explicitement ici), la fonction retourne `float('inf')`, représentant un **pire cas**.
 
 ---
 
@@ -821,8 +818,7 @@ Elle permet de bien comprendre le problème… mais aussi ses limites.
 
 #### 🌳 **Arbre des appels récursifs**
 
-Le schéma suivant représente **tous les appels récursifs**
-effectués par la fonction `rendre_monnaie_rec([1,3,4], 6)` :
+Le schéma suivant représente **tous les appels récursifs** effectués par la fonction `rendre_monnaie_rec([1,3,4], 6)` :
 
 ![image](Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.009.png)
 
@@ -860,6 +856,7 @@ D’autres solutions valides comme `(1, 1, 4)` ou `(4, 1, 1)` utilisent **3 piè
 - 🔁 **Approche itérative (bottom-up)** : on élimine la récursion et on accélère fortement les calculs.
 
 Dans les deux cas, l’objectif est le même :
+
 👉 **éviter de recalculer plusieurs fois les mêmes sous-problèmes**.
 
 ---
@@ -944,9 +941,9 @@ fin fonction
         On calcule progressivement `nb[s]` pour `s` allant de 1 à 5.
 
         À chaque étape, on applique la formule :
-        [
-        nb[s] = \min_{p \le s}(1 + nb[s - p])
-        ]
+        
+        $nb[s] = \min_{p \le s}(1 + nb[s - p])$
+        
 
         ---
 
@@ -971,6 +968,7 @@ fin fonction
         * Pièce `1` :
 
         * `1 + nb[1] = 2`
+
         * Pièce `2` :
 
         * `1 + nb[0] = 1` ✅
@@ -990,6 +988,7 @@ fin fonction
         * Pièce `1` :
 
         * `1 + nb[2] = 2`
+
         * Pièce `2` :
 
         * `1 + nb[1] = 2`
@@ -1009,6 +1008,7 @@ fin fonction
         * Pièce `1` :
 
         * `1 + nb[3] = 3`
+
         * Pièce `2` :
 
         * `1 + nb[2] = 2` ✅
@@ -1028,6 +1028,7 @@ fin fonction
         * Pièce `1` :
 
         * `1 + nb[4] = 3`
+
         * Pièce `2` :
 
         * `1 + nb[3] = 3`
@@ -1217,11 +1218,13 @@ assert rendu_monnaie_dyna_combi(1, [9, 3, 2]) == [-1]
         👉 Cette ligne initialise un tableau `combi` tel que :
 
         * `combi[s]` contient **une combinaison de pièces** permettant de rendre la somme `s` ;
+
         * la présence du nombre `0` dans une combinaison signifie que **la somme n’est pas encore atteignable**.
 
         Ainsi :
 
         * `combi[0] = []` (rendre 0 est possible sans pièce)
+
         * pour les autres sommes, la combinaison contient au départ des `0`, servant de **sentinelle d’impossibilité**.
 
 
@@ -1237,6 +1240,7 @@ assert rendu_monnaie_dyna_combi(1, [9, 3, 2]) == [-1]
         * Si `0` est encore présent dans `combi[somme_à_rendre]`, cela signifie que :
 
         * aucune mise à jour n’a permis de construire une combinaison valide ;
+
         * la somme est **impossible à rendre** avec le système de pièces donné.
 
         La fonction renvoie alors `[-1]`.
@@ -1257,6 +1261,7 @@ assert rendu_monnaie_dyna_combi(1, [9, 3, 2]) == [-1]
 
         * la combinaison optimale utilise **4 pièces** :
         ( 2 + 2 + 3 + 3 = 10 ) ;
+        
         * aucune combinaison utilisant moins de pièces n’existe ;
 
         * la programmation dynamique garantit donc une solution **optimale**.
