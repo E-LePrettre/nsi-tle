@@ -352,7 +352,9 @@ En pratique, la différence n’est pas aussi marquée. Pourquoi ?
 📈 **Bilan sur la complexité** :
 
 On observe ainsi, **en pratique**, un temps de calcul **proportionnel à n dans les deux cas**  
-(cette situation est parfois qualifiée de **complexité pseudo-linéaire**).
+(cette situation est parfois qualifiée de **complexité pseudo-linéaire**). 
+
+On parle parfois de pseudo-linéaire car le nombre d’opérations dépend aussi de la taille des nombres manipulés
 
 ➡️ La liste, bien que moins souple qu’un dictionnaire, profite pleinement de la mémoire cache, ce qui la rend **très compétitive en pratique** pour ce type d’algorithme.
 
