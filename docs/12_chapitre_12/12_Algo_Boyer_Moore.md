@@ -360,165 +360,213 @@ $O(n^2)$
         * `find()` est **beaucoup plus rapide**
 
         * La recherche naïve devient **inefficace sur de grands textes**
-        
+
         * ➜ **Besoin d’un algorithme optimisé**
 
 ---
 
 
 
+## <H2 STYLE="COLOR:BLUE;">🚀 <a name="_toc159537151"></a>**3. Application de l’algorithme de Boyer-Moore**</H2>
 
-## <H2 STYLE="COLOR:BLUE;"> <a name="_toc159537151"></a>**3. Application de l’algorithme de Boyer-Moore**</H2>
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc159537152"></a>**3.1. Un cas concret**</H3>
+---
 
-L’algorithme : 
+### <H3 STYLE="COLOR:GREEN;">🧩 <a name="_toc159537152"></a>**3.1. Un cas concret**</H3>
 
-1\. On examine la chaîne, en partant du **bout de la clé**, et **en remontant les caractères de la clé un par un jusqu’à trouver une discordance**.
+L’algorithme de **Boyer-Moore** repose sur une idée clé :
 
-2\. Si la lettre de la chaîne examinée est identique à celle de la clé, **on remonte la clé**.
+> 👉 **Ne pas comparer inutilement tous les caractères**
+> 👉 Exploiter les **discordances** pour effectuer des **sauts intelligents**
 
-3\. Sinon on regarde si cette lettre existe dans la clé :
+#### 🔎 Principe général
 
-   1. Si elle n’existe pas : on peut faire un **saut maximal**.
-   2. Sinon : on réalise un saut jusqu’à **sa position**.
+1. On compare le motif au texte **en partant de la fin du motif**
+2. Tant que les caractères correspondent, on remonte dans le motif
+3. Dès qu’il y a une discordance :
 
-**Animation**
+   * soit la lettre **n’existe pas dans le motif** → saut maximal
+   * soit elle **existe** → saut jusqu’à sa position
 
-<b>1<sup>er</sup> cas</b> :  la lettre n’est pas présente dans la clé.
+---
+
+### 🎞️ Animations (IMAGES CONSERVÉES)
+
+#### ▶️ 1ᵉʳ cas : la lettre n’est **pas présente** dans la clé
 
 ![image](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.008.png)
 
-On positionne la clé en début de la chaîne et on parcourt la chaîne à partir du dernier élément de la clé. E ne correspond pas au A et **il n’y a pas de E dans la clé.** On **décale la clé de la longueur de celle-ci** c’est-à-dire de 6 indices.
+La lettre **E** ne correspond pas au **A** de la clé
+👉 **E n’est pas dans la clé** → saut maximal (longueur de la clé)
 
 ![image](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.009.png)
 
-<b>2<sup>ème</sup> cas</b> : La lettre est présente dans la clé.
+---
+
+#### ▶️ 2ᵉ cas : la lettre est **présente** dans la clé
 
 ![image](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.014.png)
 
-Le X est non concordant avec le A de la clé par contre **il est présent dans la clé à l’indice 1**.
+La lettre **X** ne correspond pas, mais **elle existe dans la clé** à l’indice 1
+👉 On décale jusqu’à cette position
 
 ![image](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.015.png)
 
-On décale alors **de 4 indices**.
-
 ![image](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.016.png)
 
-Et on continue.
+---
 
-<b>3<sup>ème</sup> cas</b> : une lettre présente dans la clé après quelques coïncidences.
+#### ▶️ 3ᵉ cas : discordance après plusieurs correspondances
 
 ![image](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.017.png)
 
-A est en correspondance, G est en correspondance mais X n’est pas en correspondance mais **il se trouve dans la clé**.
+**A** et **G** correspondent, mais **X** ne correspond pas
+👉 **X est dans la clé**
 
 ![image](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.018.png)
 
-On décale **de deux indices**.
+On décale de **2 positions**
 
 ![image](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.019.png)
 
-Et on continue.
+---
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc159537153"></a>**3.2. Prétraitement du motif**</H3>
+### <H3 STYLE="COLOR:GREEN;">🛠️ <a name="_toc159537153"></a>**3.2. Prétraitement du motif**</H3>
 
-**Intérêt du prétraitement :** 
+#### 🎯 Pourquoi un prétraitement ?
 
--\ l’algorithme connait les caractères qui se trouvent dans la clé.
+Avant de rechercher le motif dans le texte, on construit une **table de sauts** :
 
--\ Avant de lancer l’algorithme il faut créer une table de saut pour chaque caractère de la clé.
+* pour chaque lettre du motif
+* indiquant de combien on peut **décaler la fenêtre**
 
-  - Ecart minimal entre une lettre de la clé et la fin de la clé.
-  - La dernière lettre est traitée à part : écart maximal si elle n’est pas présente ailleurs dans la clé.
+👉 Plus le motif est long, **plus les sauts sont grands**, donc plus l’algorithme est rapide.
 
-Les sauts effectués lors du traitement permettent de réduire sa durée. Plus la clé est longue plus l’algorithme est efficace pour la trouver car les sauts sont en moyenne plus grands.
+---
 
-Pour construire la table de sauts pour TARTEMPION, l’algorithme teste d’abord le 10<sup>ème</sup> caractère de ce texte. Si c’est un N, il regarde si le 9<sup>ème</sup> caractère est un O, puis le 8<sup>ème</sup> ,…jusqu’au 1<sup>er</sup>.
+#### 📋 Exemple : motif `TARTEMPION`
 
-Si le caractère lu est E il faut décaler de 5 positions.
+Table de sauts obtenue :
 
-On obtient ainsi la table de sauts suivante selon les lettres lues :
+|  A  |  R  |  T  |  E  |  M  |  P  |  I  |  O  | Autre |
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :---: |
+|  +8 |  +7 |  +6 |  +5 |  +4 |  +3 |  +2 |  +1 |  +10  |
 
-|A|R|T|E|M|P|I|O|Autre|
-| :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-|+8|+7|+6|+5|+4|+3|+2|+1|+10|
+---
 
-À chaque lecture d’une lettre, si la lettre correspond à la lettre recherchée, on compare les lettres précédentes pour vérifier s’il s’agit du motif cherché. Sinon, on utilise la table de sauts pour décaler la fenêtre de recherche.
+???+ question "🧠 **Activité n°7 — Prétraitement du motif**"
+    👉 Implémenter la fonction `pre_traitement(mot)` qui :
 
-**<H3 STYLE="COLOR:red;">Activité n° 7  : Algorithme pré-traitement :**</H3> Implémenter l’algorithme précédent en Python 
-```python
-def pre_traitement(mot):
-    """Renvoie un dictionnaire avec pour clé la lettre et pour valeur le décalage"""
-    decalages = {}
-    n = len(mot)
+    * renvoie un **dictionnaire**
+    * associe chaque lettre du motif à son **décalage**
 
-    pass
+    ```python
+    def pre_traitement(mot):
+        """Renvoie un dictionnaire avec pour clé la lettre et pour valeur le décalage"""
+        decalages = {}
+        n = len(mot)
 
-assert pre_traitement("dab") == {'d': 2, 'a': 1}
-assert pre_traitement("maman") == {'m': 2, 'a': 1}
-```
+        pass
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc159537154"></a>**3.3. L’algorithme**</H3>
+    assert pre_traitement("dab") == {'d': 2, 'a': 1}
+    assert pre_traitement("maman") == {'m': 2, 'a': 1}
+    ```
 
-La **première étape** est de réaliser le **pré-traitement c’est-à-dire la table de sauts**.
+    ??? success "✅ Solution"
 
-À chaque examen jusqu’à la fin de la chaîne (-longueur de la clé) : 
+        ```python
+        def pre_traitement(mot):
+            decalages = {}
+            n = len(mot)
 
--\ Vérifier les **correspondances des caractères** en partant de la fin de la clé.
+            for i in range(n - 1):
+                decalages[mot[i]] = n - 1 - i
 
--\ Si correspondance, on remonte **la clé à l’envers**, lettre après lettre.
-
--\ Sinon, **on regarde dans la table de saut** si la lettre est présente :
-
-  - Si la lettre est présente on fait le saut correspondant.
-  - Si la lettre est non présente on fait le saut maximal.
-
-**<H3 STYLE="COLOR:red;">Activité n° 8  : Algorithme boyer\_moore : Rajouter:**</H3>
-
-Nous implémenterons une version qui retourne True si le mot est trouvé et False sinon
- 
-```python
-def recherche_boyer(texte, mot):
-    """Recherche un mot dans un texte avec l'algo de boyer-moore    """
-    N = len(texte)
-    n = len(mot)
-
-    # création de notre dictionnaire de décalages
-    decalages = pre_traitement(mot)
-
-    # on commence à la fin du mot
-    i = …
-    
-    while i < N:
-        lettre = … # on récupère la lettre à la position i dans le texte
-        if lettre == … # si la lettre est la dernière du mot
-
-            # On vérifie que le mot est là avec un slice sur texte
-            if …
-                return True
-        # on décale
-        if lettre in …:
-            i += …
-        else:
-            i += …
-
-    return False
+            return decalages
 
 
-assert recherche_boyer('abracadabra', 'dab')
-assert recherche_boyer('abracadabra', 'abra')
-assert recherche_boyer('abracadabra', 'obra') is False
-assert recherche_boyer('abracadabra', 'bara') is False
-assert recherche_boyer('maman est là', 'maman')
-assert recherche_boyer('bonjour maman', 'maman')
-assert recherche_boyer('bonjour maman', 'papa') is False
-```
+        assert pre_traitement("dab") == {'d': 2, 'a': 1}
+        assert pre_traitement("maman") == {'m': 2, 'a': 1}
+        ```
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc159537155"></a>**3.4. Comparaison des temps**</H3>
+---
 
-**<H3 STYLE="COLOR:red;">Activité n° 9  : Algorithme boyer\_moore : Rajouter:**</H3>
-```python
-temps_boyer = timeit("recherche_boyer(livre, texte)", number=10, globals=globals())
-print("Temps en utilisant find : ",temps_naif)
-print("Temps en utilisant l'algorithme Boyer-Moore : ",temps_boyer)
-```
+### <H3 STYLE="COLOR:GREEN;">⚙️ <a name="_toc159537154"></a>**3.3. L’algorithme de Boyer-Moore**</H3>
+
+#### 🧠 Rappel du fonctionnement
+
+À chaque étape :
+
+- on compare **depuis la fin du motif**
+- si discordance :
+
+  * on consulte la **table de sauts**
+  * on effectue un **décalage intelligent**
+
+---
+
+???+ question "🧠 **Activité n°8 — Implémenter Boyer-Moore**"
+    👉 Implémenter une version qui :
+
+    * renvoie `True` si le mot est trouvé
+    * renvoie `False` sinon
+
+    ```python
+    def recherche_boyer(texte, mot):
+        """Recherche un mot dans un texte avec l'algo de Boyer-Moore"""
+        N = len(texte)
+        n = len(mot)
+
+        decalages = pre_traitement(mot)
+        i = n - 1
+
+        while i < N:
+            lettre = texte[i]
+            if lettre == mot[-1]:
+                if texte[i - n + 1:i + 1] == mot:
+                    return True
+            if lettre in decalages:
+                i += decalages[lettre]
+            else:
+                i += n
+
+        return False
+
+
+    assert recherche_boyer('abracadabra', 'dab')
+    assert recherche_boyer('abracadabra', 'abra')
+    assert recherche_boyer('abracadabra', 'obra') is False
+    assert recherche_boyer('abracadabra', 'bara') is False
+    assert recherche_boyer('maman est là', 'maman')
+    assert recherche_boyer('bonjour maman', 'maman')
+    assert recherche_boyer('bonjour maman', 'papa') is False
+    ```
+
+    ??? success "✅ Solution validée"
+        ✔ Tous les tests passent
+        ✔ Les sauts évitent les comparaisons inutiles
+        ✔ L’algorithme est **nettement plus rapide** que le naïf
+
+---
+
+### <H3 STYLE="COLOR:GREEN;">⏱️ <a name="_toc159537155"></a>**3.4. Comparaison des temps**</H3>
+
+???+ question "🧠 **Activité n°9 — Comparer les performances**"
+    👉 Comparer les temps d’exécution entre :
+
+    * la recherche naïve
+    * l’algorithme de Boyer-Moore
+
+    ```python
+    temps_boyer = timeit("recherche_boyer(livre, texte)", number=10, globals=globals())
+    print("Temps en utilisant l'algorithme naïf :", temps_naif)
+    print("Temps en utilisant l'algorithme Boyer-Moore :", temps_boyer)
+    ```
+
+    ??? success "✅ Interprétation"
+
+        * Boyer-Moore est **beaucoup plus rapide**
+        * Les **sauts intelligents** font toute la différence
+        * L’écart se creuse quand le texte devient long
+
+---
+
