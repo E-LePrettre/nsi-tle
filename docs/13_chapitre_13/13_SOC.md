@@ -174,6 +174,7 @@ Dans l’architecture de **John von Neumann**, mathématicien et informaticien, 
 🧠 **L’Unité Centrale de Traitement (CPU)** est composée de deux sous-unités :
 
 - 🔄 **L’unité de contrôle**  
+  
   Elle :
 
    * récupère l’instruction à exécuter depuis la mémoire,
@@ -183,6 +184,7 @@ Dans l’architecture de **John von Neumann**, mathématicien et informaticien, 
    * pilote son exécution.
 
 - ➕ **L’unité arithmétique et logique (ALU)**  
+  
   Elle effectue :
 
    * des calculs arithmétiques (addition, multiplication…),
@@ -356,6 +358,7 @@ On y trouve :
   (reconnaissance faciale, photo, traduction, assistants vocaux…).
 
 - 📡 **Le modem**  
+  
   Gère :
 
    * le Wi-Fi,
@@ -367,6 +370,7 @@ On y trouve :
    * les réseaux mobiles (3G, 4G, 5G).
 
 - 🎵 **Le processeur de signal numérique (DSP – Digital Signal Processor)**  
+  
   Spécialisé dans :
 
    * le traitement audio,
@@ -384,6 +388,7 @@ On y trouve :
 
 
 - 🔐 **Le processeur de sécurité (SPU – Secure Processing Unit)**  
+  
   Véritable **coffre-fort matériel**, il stocke :
   
    * données biométriques,
@@ -432,6 +437,7 @@ Ils sont **nettement plus puissants** que les microcontrôleurs et disposent de 
   La forte intégration favorise l’automatisation industrielle.
 
 - 🔐 **Sécurité renforcée**  
+  
   L’intégration matérielle empêche :
 
    * l’ajout de composants non autorisés,
