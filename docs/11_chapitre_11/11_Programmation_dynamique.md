@@ -558,6 +558,9 @@ c’est-à-dire avec le **nombre minimal de pièces et de billets** ?
 
 ---
 
+!!! info "🧠 **Capytale : Les codes seront fournis par votre enseignant : TNSI_11_méthode gloutonne et programmation dynamique_TD.**"
+
+
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507083"></a>**📀 3.1. Le rendu de monnaie en force brute**</H3>
 
 🔍 L’approche de **force brute** pour le problème du rendu de monnaie consiste à :
@@ -694,6 +697,7 @@ Dans le cas du **rendu de monnaie**, cela consiste à :
 👉 Ce constat motive l’utilisation de la **programmation dynamique**,
 qui permet de garantir une solution optimale **sans explorer inutilement tous les cas**.
 
+!!! info "🧠 **Capytale : Les codes seront fournis par votre enseignant : TNSI_11_Programmation dynamique - rendu de monnaie**
 
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507085"></a>**🔎 3.3. Approche récursive**</H3>
 
@@ -949,9 +953,9 @@ assert rendu_monnaie_dyna_combi(1, [9, 3, 2]) == [-1]
 
 ---
 
+## <H2 STYLE="COLOR:BLUE;">🧠 4. Activité de synthèse — Comparer les paradigmes algorithmiques</H2>
 
-
-## <H2 STYLE="COLOR:BLUE;"> **4. 🔎 Exercices :**</H2>
+## <H2 STYLE="COLOR:BLUE;"> **5. 🔎 Exercices :**</H2>
 
 !!! info "🧠 **Capytale : Les codes seront fournis par votre enseignant.**"
 
