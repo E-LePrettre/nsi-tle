@@ -1447,9 +1447,12 @@ assert rendu_monnaie_dyna_combi(1, [9, 3, 2]) == [-1]
     Dans le triangle ci-dessous, cela signifie :
 
     1\. qu’on remplit les lignes une par une,
+
     2\. qu’on ajoute deux valeurs voisine d’une même ligne pour obtenir celle sous la valeur de droite.
 
     Par exemple le *3* est obtenu en faisant *1 + 2 = 3* (ses voisins du dessus)
+
+    On rappelle que les coefficients situés aux bords du triangle de Pascal valent toujours 1.
 
     1\. Compléter le triangle de Pascal suivant
 
@@ -1478,7 +1481,7 @@ assert rendu_monnaie_dyna_combi(1, [9, 3, 2]) == [-1]
 
     3\. Ecrire une fonction récursive binome\_rec(n, k) qui calcule le coefficient binomial avec le deuxième formule
 
-    4\. Affichage de tous les coefficient binomiaux pour une valeur de n donnée : écrire une fonction pascal(n)  qui prend en paramètre la valeur de n et qui retourne tous les coefficients binomiaux de n = 0 à n = 9 et de k = 0 à k = 9
+    4\. Affichage de tous les coefficient binomiaux pour une valeur de n donnée : écrire une fonction `pascal(n)`  qui prend en paramètre la valeur de n et qui retourne les coefficients binomiaux pour toutes les lignes de 0 à n et les colonnes de 0 à n.
 
     Test :
     ```
