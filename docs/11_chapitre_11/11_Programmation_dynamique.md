@@ -605,7 +605,7 @@ Cette approche permet d’aboutir efficacement à une solution **optimale**, en 
 ---
 
 ???+ question "🧠 **Activité n° 8 — Rendu de monnaie en force brute**"
-    👉 Dans un fichier `rendu_monnaie.py`, écrire un programme permettant de trouver **toutes les combinaisons possibles** pour rendre une somme de **6 €**.
+    👉 Ecrire un programme permettant de trouver **toutes les combinaisons possibles** pour rendre une somme de **6 €**.
 
     ```python
     def rendre_monnaie_brute(monnaie, somme):
