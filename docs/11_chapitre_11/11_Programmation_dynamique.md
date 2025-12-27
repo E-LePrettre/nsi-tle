@@ -470,7 +470,9 @@ capacités du langage Python.
     ```
 
     🧪 **Travail demandé** :
+
     - Tester la fonction pour `n = 6`, `n = 10`, `n = 100`
+
     - Puis tester avec des valeurs **beaucoup plus grandes**
 
     ❓ **Question** :  
@@ -480,14 +482,16 @@ capacités du langage Python.
         ✔️ La fonction est correcte et renvoie les bonnes valeurs.
 
         ✔️ Elle utilise une approche **bottom-up** :
+
         - pas de récursion
+
         - une simple boucle
+
         - seulement **deux variables**
 
         ✔️ En nombre d’itérations, la complexité est bien **O(n)**.
 
-        ⚠️ Cependant, pour de très grandes valeurs de `n`,  
-        le temps d’exécution **augmente plus vite qu’on ne l’imaginait**.
+        ⚠️ Cependant, pour de très grandes valeurs de `n`, le temps d’exécution **augmente plus vite qu’on ne l’imaginait**.
 
 ---
 
