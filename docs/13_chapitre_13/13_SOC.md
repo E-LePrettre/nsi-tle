@@ -173,7 +173,7 @@ Dans l’architecture de **John von Neumann**, mathématicien et informaticien, 
 
 🧠 **L’Unité Centrale de Traitement (CPU)** est composée de deux sous-unités :
 
-- 🔄 **L’unité de contrôle**  
+🔄 **L’unité de contrôle**  
   
   Elle :
 
@@ -183,7 +183,7 @@ Dans l’architecture de **John von Neumann**, mathématicien et informaticien, 
 
   * pilote son exécution.
 
-- ➕ **L’unité arithmétique et logique (ALU)**  
+➕ **L’unité arithmétique et logique (ALU)**  
   
   Elle effectue :
 
@@ -310,19 +310,19 @@ Un **System on Chip (SoC)** est un **circuit intégré unique** qui regroupe, su
 
 🧩 **Un SoC intègre généralement :**
 
-- 🧠 **Des processeurs**
+🧠 **Des processeurs**
 
   * CPU (processeur principal)
   
   * GPU (processeur graphique)
 
-- 💾 **Des mémoires**
+💾 **Des mémoires**
   
   * RAM
   
   * mémoire flash
 
-- 📡 **Des interfaces et périphériques**
+📡 **Des interfaces et périphériques**
   
   * Wi-Fi
   
@@ -332,7 +332,7 @@ Un **System on Chip (SoC)** est un **circuit intégré unique** qui regroupe, su
   
   * GPS
 
-- 📷 **Des processeurs spécialisés**
+📷 **Des processeurs spécialisés**
   
   * traitement d’image
   
@@ -347,17 +347,17 @@ Un **System on Chip (SoC)** est un **circuit intégré unique** qui regroupe, su
 
 On y trouve :
 
-- 🧠 **Le processeur (CPU)**  
+🧠 **Le processeur (CPU)**  
   Responsable de l’exécution générale des programmes.
 
-- 🎮 **La carte graphique (GPU)**  
+🎮 **La carte graphique (GPU)**  
   En charge de l’affichage et des calculs graphiques.
 
-- 🤖 **La puce neuronale (NPU – Neural Processing Unit)**  
+🤖 **La puce neuronale (NPU – Neural Processing Unit)**  
   Dédiée aux calculs liés à l’**intelligence artificielle**  
   (reconnaissance faciale, photo, traduction, assistants vocaux…).
 
-- 📡 **Le modem**  
+📡 **Le modem**  
   
   Gère :
 
@@ -369,7 +369,7 @@ On y trouve :
   
   * les réseaux mobiles (3G, 4G, 5G).
 
-- 🎵 **Le processeur de signal numérique (DSP – Digital Signal Processor)**  
+🎵 **Le processeur de signal numérique (DSP – Digital Signal Processor)**  
   
   Spécialisé dans :
 
@@ -379,7 +379,7 @@ On y trouve :
   
   * la compression et le filtrage des signaux.
 
-- 📷 **Le processeur d’image (ISP – Image Signal Processor)**  
+📷 **Le processeur d’image (ISP – Image Signal Processor)**  
   En charge du traitement des images issues des caméras.
 
   ![qualcomm-snapdragon-clearsight-1](Aspose.Words.f2a0a75b-c8c4-40af-be2d-a8e1a2e320ed.011.jpeg){: .center}
@@ -387,7 +387,7 @@ On y trouve :
   Exemple : le module **Spectra** développé par **Qualcomm**.
 
 
-- 🔐 **Le processeur de sécurité (SPU – Secure Processing Unit)**  
+🔐 **Le processeur de sécurité (SPU – Secure Processing Unit)**  
   
   Véritable **coffre-fort matériel**, il stocke :
   
@@ -401,7 +401,7 @@ On y trouve :
 
   👉 Son alimentation est **indépendante** pour garantir la sécurité.
 
-- 💾 **La mémoire**  
+💾 **La mémoire**  
   (non toujours représentée sur les schémas)
 
 ![Samsung's Exynos 2100 Chip Edges Snapdragon 888 - On Paper](Aspose.Words.f2a0a75b-c8c4-40af-be2d-a8e1a2e320ed.012.jpeg){: .center}
@@ -451,7 +451,7 @@ Ils sont **nettement plus puissants** que les microcontrôleurs et disposent de 
 
 ❌ **Inconvénient majeur**
 
-- 🔧 **Maintenance impossible**  
+🔧 **Maintenance impossible**  
   Contrairement à un PC :
 
   * un composant défectueux ne peut pas être remplacé,
