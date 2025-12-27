@@ -484,108 +484,110 @@ Les **SoC** représentent l’aboutissement de la miniaturisation informatique :
 
 ---
 
-### <H3 STYLE="COLOR:red;">🧪 **Exercice n°1 — Compréhension générale**</H3>
 
-👉 Répondre aux questions suivantes :
 
-1. Qu’est-ce qu’un **SoC** ?  
-2. Quels types d’appareils utilisent des SoC ?  
-3. Au niveau **hardware**, qu’est-ce qui différencie fondamentalement un SoC  
-   des composants d’un ordinateur classique ?  
-4. Pourquoi les CPU d’un SoC embarquent-ils **plusieurs cœurs** ?  
-5. Donner un **ordre de grandeur** de la fréquence du CPU d’un SoC.  
-6. Sur quel paramètre influe la fréquence du CPU d’un SoC ?  
-7. Qu’est-ce qu’un **thread** ?  
-8. Qu’est-ce que la **mémoire cache** d’un CPU ?  
-9. Dans un SoC, à quoi sert le **GPU** ?  
-10. Dans un SoC, quel élément est chargé du traitement des **photos** prises par la (les) caméra(s) ?  
-11. Dans un SoC, quel élément permet de lire de l’**audio** ou de la **vidéo** ?  
-12. Dans un SoC, à quoi sert le **SPU** ?  
-13. Quel élément d’un SoC permet à un smartphone de **communiquer** avec d’autres machines ?  
-14. Quels sont les **principaux avantages** d’un SoC ?  
-15. Citer le **principal inconvénient** d’un SoC.  
-16. Pour les modèles 2019–2020 de smartphones, quelle est la **finesse de gravure** des SoC ?  
-17. Quel est l’ordre de grandeur de la **surface** d’un SoC ?  
-18. Quel est l’ordre de grandeur du **nombre de transistors** présents sur un SoC ?  
-19. Quel est l’ordre de grandeur de la **densité moyenne de transistors** par mm² ?  
-20. Quelle sera la **finesse de gravure** des SoC pour la prochaine génération de smartphones ?  
-21. Quelle est aujourd’hui la **principale difficulté technologique** rencontrée par les concepteurs de SoC ?
+!!! abstract "🧪 **Exercice n°1 — Compréhension générale**"
 
----
+    👉 Répondre aux questions suivantes :
 
-### <H3 STYLE="COLOR:red;">📊 **Exercice n°2 — Étude comparative de SoC**</H3>
-
-![soc_raspberry](Aspose.Words.f2a0a75b-c8c4-40af-be2d-a8e1a2e320ed.015.png){: .center}
-
-À partir de l’article du site  
-🔗 https://www.elektormagazine.fr/news/un-soc-combine-pour-dynamiser-les-performances-du-raspberry-pi-3-modele-b  
-
-👉 Une **copie de l’article** est disponible dans le dossier *ressources*.
-
-1. Relever les **caractéristiques techniques** du SoC du **Raspberry Pi 3 modèle B+**.  
-2. Comparer ces caractéristiques avec celles du **SoC du Raspberry Pi 4**.  
-3. Identifier les **évolutions majeures** expliquant le gain de performances.
+    1. Qu’est-ce qu’un **SoC** ?  
+    2. Quels types d’appareils utilisent des SoC ?  
+    3. Au niveau **hardware**, qu’est-ce qui différencie fondamentalement un SoC  
+      des composants d’un ordinateur classique ?  
+    4. Pourquoi les CPU d’un SoC embarquent-ils **plusieurs cœurs** ?  
+    5. Donner un **ordre de grandeur** de la fréquence du CPU d’un SoC.  
+    6. Sur quel paramètre influe la fréquence du CPU d’un SoC ?  
+    7. Qu’est-ce qu’un **thread** ?  
+    8. Qu’est-ce que la **mémoire cache** d’un CPU ?  
+    9. Dans un SoC, à quoi sert le **GPU** ?  
+    10. Dans un SoC, quel élément est chargé du traitement des **photos** prises par la (les) caméra(s) ?  
+    11. Dans un SoC, quel élément permet de lire de l’**audio** ou de la **vidéo** ?  
+    12. Dans un SoC, à quoi sert le **SPU** ?  
+    13. Quel élément d’un SoC permet à un smartphone de **communiquer** avec d’autres machines ?  
+    14. Quels sont les **principaux avantages** d’un SoC ?  
+    15. Citer le **principal inconvénient** d’un SoC.  
+    16. Pour les modèles 2019–2020 de smartphones, quelle est la **finesse de gravure** des SoC ?  
+    17. Quel est l’ordre de grandeur de la **surface** d’un SoC ?  
+    18. Quel est l’ordre de grandeur du **nombre de transistors** présents sur un SoC ?  
+    19. Quel est l’ordre de grandeur de la **densité moyenne de transistors** par mm² ?  
+    20. Quelle sera la **finesse de gravure** des SoC pour la prochaine génération de smartphones ?  
+    21. Quelle est aujourd’hui la **principale difficulté technologique** rencontrée par les concepteurs de SoC ?
 
 ---
 
-### <H3 STYLE="COLOR:red;">🧩 **Exercice n°3 — Identifier les composants d’un SoC**</H3>
+!!! abstract "📊 **Exercice n°2 — Étude comparative de SoC**"
 
-Sur l’image d’un SoC, on peut lire les dénominations suivantes :
+    ![soc_raspberry](Aspose.Words.f2a0a75b-c8c4-40af-be2d-a8e1a2e320ed.015.png){: .center}
 
-- **Adreno 630**  
+    À partir de l’article du site  
+    🔗 https://www.elektormagazine.fr/news/un-soc-combine-pour-dynamiser-les-performances-du-raspberry-pi-3-modele-b  
 
-- **Hexagon 685**  
+    👉 Une **copie de l’article** est disponible dans le dossier *ressources*.
 
-- **Kryo 385**  
-
-- **X20 LTE**  
-
-- **Spectra 280**
-
-👉 Associer chaque dénomination au **composant correspondant du SoC**  
-(CPU, GPU, DSP, modem, ISP, etc.).
+    1. Relever les **caractéristiques techniques** du SoC du **Raspberry Pi 3 modèle B+**.  
+    2. Comparer ces caractéristiques avec celles du **SoC du Raspberry Pi 4**.  
+    3. Identifier les **évolutions majeures** expliquant le gain de performances.
 
 ---
 
-### <H3 STYLE="COLOR:red;">🔍 **Exercice n°4 — Identification sur schéma**</H3>
+!!! abstract "🧩 **Exercice n°3 — Identifier les composants d’un SoC**"
 
-Expliquez brièvement le rôle de chacun des composants suivants dans un **System on Chip** :
+    Sur l’image d’un SoC, on peut lire les dénominations suivantes :
 
-- CPU (*Central Processing Unit*) 
+    - **Adreno 630**  
 
-- GPU (*Graphics Processing Unit*) 
+    - **Hexagon 685**  
 
-- RAM (*Random Access Memory*) 
+    - **Kryo 385**  
 
-- Interface réseau 
+    - **X20 LTE**  
 
-- Mémoire flash
+    - **Spectra 280**
 
-- Module de gestion de l’énergie (**PMIC**)
+    👉 Associer chaque dénomination au **composant correspondant du SoC**  
+    (CPU, GPU, DSP, modem, ISP, etc.).
 
 ---
 
-### <H3 STYLE="COLOR:red;">⚙️ **Exercice n°5 — Analyse de l’intégration**</H3>
+!!! abstract "🔍 **Exercice n°4 — Identification sur schéma**"
 
-Un concepteur de circuits hésite entre :
+    Expliquez brièvement le rôle de chacun des composants suivants dans un **System on Chip** :
 
-- un **SoC**,
+    - CPU (*Central Processing Unit*) 
 
-- un assemblage de **composants séparés** pour un smartphone.
+    - GPU (*Graphics Processing Unit*) 
 
-👉 Justifiez le choix d’un SoC en répondant aux questions suivantes :
+    - RAM (*Random Access Memory*) 
 
-1. Comparer la **vitesse d’exécution** entre :
+    - Interface réseau 
 
-   - un SoC intégrant CPU, GPU et RAM,
-   - un système où ces composants sont séparés.
+    - Mémoire flash
 
-2. Expliquer en quoi l’intégration des composants dans un SoC permet de **réduire la consommation énergétique**.
+    - Module de gestion de l’énergie (**PMIC**)
 
-3. Discuter les **avantages et inconvénients** de l’intégration du point de vue :
+---
 
-   - de la maintenance,
-   - des mises à jour matérielles.
+!!! abstract "⚙️ **Exercice n°5 — Analyse de l’intégration**"
+
+    Un concepteur de circuits hésite entre :
+
+    - un **SoC**,
+
+    - un assemblage de **composants séparés** pour un smartphone.
+
+    👉 Justifiez le choix d’un SoC en répondant aux questions suivantes :
+
+    1. Comparer la **vitesse d’exécution** entre :
+
+      - un SoC intégrant CPU, GPU et RAM,
+      - un système où ces composants sont séparés.
+
+    2. Expliquer en quoi l’intégration des composants dans un SoC permet de **réduire la consommation énergétique**.
+
+    3. Discuter les **avantages et inconvénients** de l’intégration du point de vue :
+
+      - de la maintenance,
+      - des mises à jour matérielles.
 
 ---
 
