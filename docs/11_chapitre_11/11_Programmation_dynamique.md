@@ -1062,7 +1062,7 @@ L’algorithme renvoie donc une valeur spéciale (`∞`, ou une grande valeur), 
 
 ---
 
-### ✅ **Pourquoi ce résultat apparaît-il ?**
+#### ✅ **Pourquoi ce résultat apparaît-il ?**
 
 La programmation dynamique repose sur le principe suivant :
 
@@ -1083,7 +1083,7 @@ Aucune sous-somme nécessaire n’est atteignable, donc :
 
 ---
 
-### ✅ **Comment corriger ou améliorer ce comportement ?**
+#### ✅ **Comment corriger ou améliorer ce comportement ?**
 
 Il ne s’agit pas de corriger l’algorithme, mais **d’améliorer son interface** pour gérer explicitement ce cas.
 
