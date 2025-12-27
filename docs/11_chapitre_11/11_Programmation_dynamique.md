@@ -1074,8 +1074,7 @@ fin fonction
     👉 
     1. Implémenter l’algorithme `rendu_monnaie_dyna`.
 
-    2. Exécuter :  
-       `rendu_monnaie_dyna(10, [9, 3, 2])`
+    2. Exécuter :  `rendu_monnaie_dyna(10, [9, 3, 2])`
 
 
     ??? success "✅ Analyse attendue"
