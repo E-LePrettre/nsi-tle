@@ -700,7 +700,7 @@ Dans le cas du **rendu de monnaie**, cela consiste à :
 👉 Ce constat motive l’utilisation de la **programmation dynamique**,
 qui permet de garantir une solution optimale **sans explorer inutilement tous les cas**.
 
-!!! info "🧠 **Capytale : Les codes seront fournis par votre enseignant : TNSI_11_Programmation dynamique - rendu de monnaie**
+!!! info "🧠 **Capytale : Les codes seront fournis par votre enseignant : TNSI_11_Programmation dynamique - rendu de monnaie**"
 
 ### <H3 STYLE="COLOR:GREEN;"><a name="_toc159507085"></a>**🔎 3.3. Approche récursive**</H3>
 
