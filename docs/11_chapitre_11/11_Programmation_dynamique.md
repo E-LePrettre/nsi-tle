@@ -953,7 +953,7 @@ assert rendu_monnaie_dyna_combi(1, [9, 3, 2]) == [-1]
 
 ---
 
-## <H2 STYLE="COLOR:BLUE;">🧠 4. Activité de synthèse — Comparer les paradigmes algorithmiques</H2>
+
 
 ## <H2 STYLE="COLOR:BLUE;"> **5. 🔎 Exercices :**</H2>
 
