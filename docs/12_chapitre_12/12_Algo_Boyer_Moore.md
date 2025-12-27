@@ -548,8 +548,11 @@ Le prétraitement est la clé de l’efficacité de Boyer-Moore : il permet de d
     ```
 
     ??? success "✅ Solution validée"
+
         ✔ Tous les tests passent
+
         ✔ Les sauts évitent les comparaisons inutiles
+        
         ✔ L’algorithme est **nettement plus rapide** que le naïf
 
 ---
