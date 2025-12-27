@@ -92,6 +92,8 @@ print(texte.index("pomme"))  # ValueError
   texte[i:i+len(motif)] == motif
   ```
 
+On compare toujours une fenêtre du texte de même longueur que le motif, que l’on décale progressivement dans le texte.
+
 ➡️ La recherche devient plus complexe lorsqu’on cherche un **motif** plutôt qu’un seul caractère.
 
 ---
@@ -145,9 +147,23 @@ print(texte.find("pomme"))   # -1
 
 ---
 
-???+ question "🧠 **Activité n°3 — Compter les occurrences**"
-    👉 Compléter la fonction `nb_occurrences(texte, motif)`
-    Elle renvoie le **nombre total d’occurrences** du motif dans le texte.
+
+
+
+???+ question "🧠 **Activité n°3 — Compter les occurrences d’un motif (version itérative)**"
+    👉 Dans cette activité, on cherche à compter le **nombre total d’occurrences** d’un **motif** dans un texte.
+
+    📌 **Objectif**  
+    
+    Cette activité se déroule en deux étapes :
+    
+    1. Comprendre comment la méthode `find()` permet de localiser **une occurrence** d’un motif.
+    
+    2. Utiliser une **boucle** pour répéter cette recherche et compter **toutes les occurrences** du motif.
+
+    👉 Compléter la fonction `nb_occurrences(texte, motif)` qui :
+    - renvoie le **nombre total d’occurrences** du motif dans le texte ;
+    - renvoie `0` si le motif n’apparaît pas.
 
     ```python
     def nb_occurrences(texte, motif):
@@ -172,41 +188,6 @@ print(texte.find("pomme"))   # -1
                 pos = texte.find(motif, pos + 1)
 
             return count
-        
-        assert nb_occurrences('bonjour monsieur gaboriot votre abonnement est fini', 'bo') == 3
-        assert nb_occurrences(stendhal, 'Julien') == 1908
-        assert nb_occurrences(stendhal, 'amour') == 225
-        assert nb_occurrences(stendhal, 'informatique') == 0
-        ```
-
----
-
-???+ question "🧠 **Activité n°4 — Version récursive**"
-    👉 Compléter la fonction `nb_occurrences(texte, motif)`.
-
-    ```python
-    def nb_occurrences(texte, motif):
-        """renvoie le nombre de fois où motif apparaît dans texte """
-        pass
-
-    assert nb_occurrences('bonjour monsieur gaboriot votre abonnement est fini', 'bo') == 3
-    assert nb_occurrences(stendhal, 'Julien') == 1908
-    assert nb_occurrences(stendhal, 'amour') == 225
-    assert nb_occurrences(stendhal, 'informatique') == 0
-    ```
-
-    ??? success "✅ Solution"
-
-        ```python
-        def nb_occurrences(texte, motif):
-            compteur = 0
-            i = texte.find(motif)
-
-            while i != -1:
-                compteur += 1
-                i = texte.find(motif, i + 1)
-
-            return compteur
 
         assert nb_occurrences('bonjour monsieur gaboriot votre abonnement est fini', 'bo') == 3
         assert nb_occurrences(stendhal, 'Julien') == 1908
@@ -214,8 +195,20 @@ print(texte.find("pomme"))   # -1
         assert nb_occurrences(stendhal, 'informatique') == 0
         ```
 
+📝 **À retenir**
+La méthode `find()` ne permet de trouver **qu’une occurrence à la fois** ;
+c’est la **boucle** qui permet de détecter et de compter **toutes les occurrences** du motif.
+
+
+
+
 ---
 
+
+
+**Conclusion** : index() et find() reposent sur des algorithmes similaires ; la différence porte uniquement sur la gestion de l’erreur (exception ou valeur -1).
+
+Dans la suite du chapitre, nous n’utiliserons plus les méthodes intégrées, mais nous implémenterons nous-mêmes des algorithmes de recherche.
 
 
 
@@ -267,7 +260,7 @@ Le **A** ne correspond pas → décalage.
 
 ### <H3 STYLE="COLOR:GREEN;">🧪 <a name="_toc159537148"></a>**2.2. Implémentation**</H3>
 
-???+ question "🧠 **Activité n°5 — Implémenter la recherche naïve**"
+???+ question "🧠 **Activité n°4 — Implémenter la recherche naïve**"
     👉 Implémenter l’algorithme précédent en Python.
 
     ```python
@@ -327,13 +320,17 @@ Le **A** ne correspond pas → décalage.
 
 ➡️ **Complexité dans le pire des cas :**
 
+la complexité est proportionnelle au produit de la taille du texte et du motif,
+
 $O(n^2)$
+
+Dans le cadre du lycée, on retient l’ordre de grandeur $O(n^2)$, sans distinguer précisément la taille du texte et celle du motif.
 
 ---
 
 ### <H3 STYLE="COLOR:GREEN;">⏱️ <a name="_toc159537150"></a>**2.4. Mesure du temps**</H3>
 
-???+ question "🧠 **Activité n°6 — Comparer les temps d’exécution**"
+???+ question "🧠 **Activité n°5 — Comparer les temps d’exécution**"
     👉 Comparer la méthode intégrée `find()` et l’algorithme naïf.
 
     ```python
@@ -389,9 +386,9 @@ L’algorithme de **Boyer-Moore** repose sur une idée clé :
 
 ---
 
-### 🎞️ Animations (IMAGES CONSERVÉES)
+#### 🎞️ Animations 
 
-#### ▶️ 1ᵉʳ cas : la lettre n’est **pas présente** dans la clé
+##### ▶️ 1ᵉʳ cas : la lettre n’est **pas présente** dans la clé
 
 ![image](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.008.png)
 
@@ -402,7 +399,7 @@ La lettre **E** ne correspond pas au **A** de la clé
 
 ---
 
-#### ▶️ 2ᵉ cas : la lettre est **présente** dans la clé
+##### ▶️ 2ᵉ cas : la lettre est **présente** dans la clé
 
 ![image](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.014.png)
 
@@ -415,7 +412,7 @@ La lettre **X** ne correspond pas, mais **elle existe dans la clé** à l’indi
 
 ---
 
-#### ▶️ 3ᵉ cas : discordance après plusieurs correspondances
+##### ▶️ 3ᵉ cas : discordance après plusieurs correspondances
 
 ![image](Aspose.Words.f7b0f1fb-05ce-44b0-ae07-c4f0af4f4ed2.017.png)
 
@@ -451,9 +448,14 @@ Table de sauts obtenue :
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :---: |
 |  +8 |  +7 |  +6 |  +5 |  +4 |  +3 |  +2 |  +1 |  +10  |
 
+Si la lettre rencontrée n’apparaît pas dans la table, on effectue le saut maximal correspondant à la longueur du motif.
+
 ---
 
-???+ question "🧠 **Activité n°7 — Prétraitement du motif**"
+Le prétraitement est la clé de l’efficacité de Boyer-Moore : il permet de décider rapidement de la taille du saut à effectuer.
+
+
+???+ question "🧠 **Activité n°6 — Prétraitement du motif**"
     👉 Implémenter la fonction `pre_traitement(mot)` qui :
 
     * renvoie un **dictionnaire**
@@ -504,7 +506,7 @@ Table de sauts obtenue :
 
 ---
 
-???+ question "🧠 **Activité n°8 — Implémenter Boyer-Moore**"
+???+ question "🧠 **Activité n°7 — Implémenter Boyer-Moore**"
     👉 Implémenter une version qui :
 
     * renvoie `True` si le mot est trouvé
@@ -550,7 +552,7 @@ Table de sauts obtenue :
 
 ### <H3 STYLE="COLOR:GREEN;">⏱️ <a name="_toc159537155"></a>**3.4. Comparaison des temps**</H3>
 
-???+ question "🧠 **Activité n°9 — Comparer les performances**"
+???+ question "🧠 **Activité n°8 — Comparer les performances**"
     👉 Comparer les temps d’exécution entre :
 
     * la recherche naïve
@@ -570,3 +572,5 @@ Table de sauts obtenue :
 
 ---
 
+> L’algorithme effectue des sauts dans le texte, ce qui réduit fortement le nombre de positions testées.
+> Boyer-Moore n’est pas plus rapide parce qu’il compare mieux, mais parce qu’il évite des comparaisons inutiles.
