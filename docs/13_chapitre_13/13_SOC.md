@@ -177,21 +177,21 @@ Dans l’architecture de **John von Neumann**, mathématicien et informaticien, 
   
   Elle :
 
-   * récupère l’instruction à exécuter depuis la mémoire,
+  * récupère l’instruction à exécuter depuis la mémoire,
 
-   * la décode,
+  * la décode,
 
-   * pilote son exécution.
+  * pilote son exécution.
 
 - ➕ **L’unité arithmétique et logique (ALU)**  
   
   Elle effectue :
 
-   * des calculs arithmétiques (addition, multiplication…),
+  * des calculs arithmétiques (addition, multiplication…),
   
-   * des opérations logiques (ET, OU…),
+  * des opérations logiques (ET, OU…),
   
-   * des comparaisons.
+  * des comparaisons.
 
 Les données manipulées sont stockées dans des **registres**, des mémoires internes **très rapides**.
 
@@ -312,33 +312,33 @@ Un **System on Chip (SoC)** est un **circuit intégré unique** qui regroupe, su
 
 - 🧠 **Des processeurs**
 
-   * CPU (processeur principal)
+  * CPU (processeur principal)
   
-   * GPU (processeur graphique)
+  * GPU (processeur graphique)
 
 - 💾 **Des mémoires**
   
-   * RAM
+  * RAM
   
-   * mémoire flash
+  * mémoire flash
 
 - 📡 **Des interfaces et périphériques**
   
-   * Wi-Fi
+  * Wi-Fi
   
-   * Bluetooth
+  * Bluetooth
   
-   * NFC
+  * NFC
   
-   * GPS
+  * GPS
 
 - 📷 **Des processeurs spécialisés**
   
-   * traitement d’image
+  * traitement d’image
   
-   * traitement du son
+  * traitement du son
   
-   * intelligence artificielle
+  * intelligence artificielle
 
 ---
 
@@ -361,23 +361,23 @@ On y trouve :
   
   Gère :
 
-   * le Wi-Fi,
+  * le Wi-Fi,
   
-   * le Bluetooth,
+  * le Bluetooth,
   
-   * le NFC,
+  * le NFC,
   
-   * les réseaux mobiles (3G, 4G, 5G).
+  * les réseaux mobiles (3G, 4G, 5G).
 
 - 🎵 **Le processeur de signal numérique (DSP – Digital Signal Processor)**  
   
   Spécialisé dans :
 
-   * le traitement audio,
+  * le traitement audio,
   
-   * la vidéo,
+  * la vidéo,
   
-   * la compression et le filtrage des signaux.
+  * la compression et le filtrage des signaux.
 
 - 📷 **Le processeur d’image (ISP – Image Signal Processor)**  
   En charge du traitement des images issues des caméras.
@@ -391,13 +391,13 @@ On y trouve :
   
   Véritable **coffre-fort matériel**, il stocke :
   
-   * données biométriques,
+  * données biométriques,
   
-   * informations bancaires,
+  * informations bancaires,
   
-   * clés de chiffrement,
+  * clés de chiffrement,
   
-   * données de la carte SIM.
+  * données de la carte SIM.
 
   👉 Son alimentation est **indépendante** pour garantir la sécurité.
 
@@ -440,9 +440,9 @@ Ils sont **nettement plus puissants** que les microcontrôleurs et disposent de 
   
   L’intégration matérielle empêche :
 
-   * l’ajout de composants non autorisés,
+  * l’ajout de composants non autorisés,
   
-   * la modification physique du système.
+  * la modification physique du système.
 
 - 🚀 **Performances élevées**  
   Les échanges entre composants sont très rapides car ils sont situés sur la même puce.
@@ -454,9 +454,9 @@ Ils sont **nettement plus puissants** que les microcontrôleurs et disposent de 
 - 🔧 **Maintenance impossible**  
   Contrairement à un PC :
 
-   * un composant défectueux ne peut pas être remplacé,
+  * un composant défectueux ne peut pas être remplacé,
   
-   * toute la puce doit être changée.
+  * toute la puce doit être changée.
 
 ---
 
