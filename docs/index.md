@@ -1,19 +1,25 @@
-# NSI Tle au lycée Jean Cassaigne
+# 🧠 NSI – Terminale  
+_Lycée Jean Cassaigne_
+
 ---
 
-1. Révisions de 1re
-2. Récursivité et Méthode diviser pour régner
-3. Base de données
-4. La P.O.O.
-5. Liste Pile File Dictionnaire
-6. Les arbres
-7. Les réseaux
-8. Les processus
-9. Sécurisation des communications
-10. Les graphes
-11. Programmation dynamique
-12. Algorithme Boyer - Moore
-13. Les SOCs
-14. Calculabilité - Décidabilité
+## 📘 Chapitres du programme
 
-*Elisabeth Le Prettre*
+1️⃣ **Révisions de Première**  
+2️⃣ **Récursivité et méthode « Diviser pour régner »**  
+3️⃣ **Bases de données**  
+4️⃣ **Programmation Orientée Objet (P.O.O.)**  
+5️⃣ **Listes, Piles, Files et Dictionnaires**  
+6️⃣ **Les arbres**  
+7️⃣ **Les réseaux**  
+8️⃣ **Les processus**  
+9️⃣ **Sécurisation des communications**  
+🔟 **Les graphes**  
+1️⃣1️⃣ **Programmation dynamique**  
+1️⃣2️⃣ **Algorithme de Boyer–Moore**  
+1️⃣3️⃣ **Les SOCs**  
+1️⃣4️⃣ **Calculabilité et décidabilité**
+
+---
+
+✍️ *Elisabeth Le Prettre*
