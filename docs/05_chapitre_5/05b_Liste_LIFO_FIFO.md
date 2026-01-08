@@ -699,7 +699,7 @@ Nous aimerions maintenant accéder à **n'importe quelle valeur** de la liste, e
 
 🔁 La structure de données `list` est donc un **savoureux mélange de fonctionnalités** issues des **tableaux** et des **listes**.
 
-> Bien que l’interface abstraite de la structure Liste reste inchangée, son implémentation repose ici sur une liste Python stockée en mémoire <span STYLE="COLOR:red;">sous la forme [elt1, elt2, …]</span>, exploitant ainsi un tableau dynamique déjà optimisé par le langage.
+> Bien que l’interface abstraite de la structure Liste reste inchangée, son implémentation repose ici sur une liste Python stockée en mémoire <b><span STYLE="COLOR:red;">sous la forme [elt1, elt2, …]</span></b>, exploitant ainsi un tableau dynamique déjà optimisé par le langage.
 
 ---
 
