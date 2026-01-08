@@ -455,7 +455,7 @@ Ils peuvent être parcourus via des **boucles `for`**.
 
     >>> b = nouvelleListe()
     >>> lireTete(b)
-    None
+    None #ou rien
     ```
 
     ??? success "📤 Solution :"
@@ -698,6 +698,8 @@ Nous aimerions maintenant accéder à **n'importe quelle valeur** de la liste, e
 ⚙️ En interne, il s'agit d’un **tableau dynamique** qui possède plus de fonctions d'interface que le type abstrait **TABLEAU DYNAMIQUE**.
 
 🔁 La structure de données `list` est donc un **savoureux mélange de fonctionnalités** issues des **tableaux** et des **listes**.
+
+> Bien que l’interface abstraite de la structure Liste reste inchangée, son implémentation repose ici sur une liste Python stockée en mémoire <span STYLE="COLOR:red;">sous la forme [elt1, elt2, …]</span>, exploitant ainsi un tableau dynamique déjà optimisé par le langage.
 
 ---
 
