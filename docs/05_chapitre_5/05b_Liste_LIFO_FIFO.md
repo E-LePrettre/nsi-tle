@@ -1281,6 +1281,8 @@ Si on part ici de la tête qui contient le string "Lundi", on devrait lire la s
 
     💬 Initialement, la liste est vide, donc `head = None`. Ensuite, chaque cellule pointe vers la suivante jusqu’à la dernière dont le `next` est `None`.
 
+
+
     ```python
     class Node:
         '''Classe permettant de créer des cellules-maillons basiques'''
@@ -1338,6 +1340,8 @@ Si on part ici de la tête qui contient le string "Lundi", on devrait lire la s
         → `list1.head.n.v`
 
         → `list1.head.n.n.v`
+
+        ⚠️ Si la liste est vide (head=None), alors list1.head.v est impossible.
 
 🧠 Le constructeur utilise `type()` au lieu de `isinstance()` pour montrer qu’il existe deux façons de vérifier le type d’un objet.
 
