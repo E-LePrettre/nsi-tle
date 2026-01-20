@@ -1745,7 +1745,7 @@ On parle alors de **concaténation de listes**, comme avec les chaînes de carac
 
     🛠️ Compléter la méthode :
 
-    On suppose que la position sera comprise entre 0 et la longueur de la liste
+    On suppose que la position sera comprise entre 0 et la longueur de la liste.
 
     ```python
     def delPosition(self, position):
@@ -1799,6 +1799,8 @@ On parle alors de **concaténation de listes**, comme avec les chaînes de carac
         pass
     ```
 
+    On suppose que la position sera comprise entre 0 et la longueur de la liste.
+    
     🧪 Tester :
 
     ```python
