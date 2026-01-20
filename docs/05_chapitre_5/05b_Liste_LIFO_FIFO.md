@@ -1354,28 +1354,28 @@ Si on part ici de la tête qui contient le string "Lundi", on devrait lire la s
 Voici les **méthodes prévues** dans notre interface :
 
 
-1. ```nouvelleList()``` correspond au constructeur `__init__() -> Liste` : on crée une nouvelle liste vide. 
+1\. ```nouvelleList()``` correspond au constructeur `__init__() -> Liste` : on crée une nouvelle liste vide. 
 
-1. ```isEmpty(L:Liste) -> bool``` : renvoie un booléen qui vaut True si la liste L transmise est une liste vide.
+2\. ```isEmpty(L:Liste) -> bool``` : renvoie un booléen qui vaut True si la liste L transmise est une liste vide.
 ```
 listeA = Liste()
 isEmpty(listeA) va donc renvoyer l'équivalent de True.
 ```
-3 ```insertPosition(x:Elt, L:Liste, position:int) -> None``` : on **modifie sur place** la liste : l'élément fourni x est maintenant l'élément de la liste situé en position position. On prendra ici un système de position lié à un index commençant à 0.
+3\. ```insertPosition(x:Elt, L:Liste, position:int) -> None``` : on **modifie sur place** la liste : l'élément fourni x est maintenant l'élément de la liste situé en position position. On prendra ici un système de position lié à un index commençant à 0.
 ```
 listeA peut être représentée par (12, 15, 18, 4)
 
 insertPosition(5, listeA, 2)
 listeA peut alors être représentée par (12, 15, 5, 18, 4).
 ```
-4 ```delPosition(L:Liste, position:int) -> None``` : on **modifie sur place** la liste : l'élément en position position est supprimé, rendant la liste moins longue.
+4\. ```delPosition(L:Liste, position:int) -> None``` : on **modifie sur place** la liste : l'élément en position position est supprimé, rendant la liste moins longue.
 ```
 listeA peut être représentée par (12, 15, 18, 4)
 
 delPosition(listeA, 1)
 listeA peut alors être représentée par (12, 18, 4).
 ```
-5 ```readPosition(L:Liste, position:int) -> Elt``` : on **renvoie** l'élément stocké en position position
+5\. ```readPosition(L:Liste, position:int) -> Elt``` : on **renvoie** l'élément stocké en position position
 ```
 listeA peut être représentée par (12, 15, 18, 4)
 
