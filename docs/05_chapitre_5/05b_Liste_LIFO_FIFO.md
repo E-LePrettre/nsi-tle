@@ -1041,7 +1041,7 @@ Chaque cellule (Node) de la liste chaînée est représentée par une **classe `
     class Node:
         '''Classe permettant de créer des cellules-maillons basiques'''
         def __init__(self, value, next=None):
-            assert isinstance(next, ...) or next == ...
+            assert isinstance(next, ...) or next is ...
             # ce que vous avez écrit précédemment 
     ```
 
@@ -1060,6 +1060,15 @@ Chaque cellule (Node) de la liste chaînée est représentée par une **classe `
 
 **Remarque** : assert peut être désactivé si Python est lancé en mode optimisé.
 Ce n’est pas bloquant, mais si on veut “contrainte toujours active”, il faudrait un if + raise TypeError.
+
+Par exemple : 
+```python
+class Node:
+    def __init__(self, value, next=None):
+        if not (isinstance(next, Node) or next is None):
+            raise TypeError("next doit être un Node ou None")
+        pass
+```
 
 ---
 
@@ -1246,6 +1255,12 @@ Si on part ici de la tête qui contient le string "Lundi", on devrait lire la s
                 return str(self.v) + '-' + str(self.n)
             else :
                 return str(self.v)
+        
+        # version 2 plus élégante
+        def __str__(self):
+            if self.n is not None:
+                return f"{self.v}-{self.n}"
+            return str(self.v)
         ```
 
         ✅ On obtient une chaîne lisible représentant **toute la séquence** de maillons depuis le nœud initial.
@@ -1281,7 +1296,7 @@ Si on part ici de la tête qui contient le string "Lundi", on devrait lire la s
     class Liste:
         '''Classe implémenter une Liste sous forme Liste chaînée '''
         def __init__(self, head = None):
-            assert type(head) == ... or head == ...
+            assert isinstance(...) or next is ...
             pass
     
     # Programme principal
@@ -1302,7 +1317,7 @@ Si on part ici de la tête qui contient le string "Lundi", on devrait lire la s
         class Liste:
             '''Classe pour implémenter une Liste sous forme de liste chaînée'''
             def __init__(self, head=None):
-                assert type(head) == Node or head is None
+                assert isinstance(next, Node) or next is None
                 self.head = head
         ```
 
