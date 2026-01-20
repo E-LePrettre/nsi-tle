@@ -1561,13 +1561,23 @@ Avant d'insérer la nouvelle Cellule en position 2, il faut mémoriser les ident
                 previousNode.n = Node(newData, previousNode.n)
         ```
 
-        ligne 5 on part de la tête
+        **Action 1** (partir de la tête et avancer jusqu’au prédécesseur) :
 
-        ligne 6 effectuer position-1 saut vers la cellule suivante
+        previousNode = self.head
+        for i in range(position-1):
+            previousNode = previousNode.n
 
-        ligne 7 mémoriser l'identifiant de cette cellule dans predecesseur
 
-        ligne 8 predecesseur sera la Cellule en position position - 1
+        **Action 2** (mémoriser le successeur) : dans ton code, ce n’est pas explicite, mais c’est l’expression previousNode.n
+
+        **Action 3** (créer la nouvelle cellule pointant vers successeur) :
+
+        Node(newData, previousNode.n)
+
+
+        **Action 4** (faire pointer le prédécesseur vers la nouvelle) :
+
+        previousNode.n = Node(newData, previousNode.n)
 
 ---
 
