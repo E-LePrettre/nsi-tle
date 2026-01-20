@@ -1051,10 +1051,15 @@ Chaque cellule (Node) de la liste chaînée est représentée par une **classe `
         class Node:
             '''Classe permettant de créer des cellules-maillons basiques'''
             def __init__(self, value, next=None):
-                assert isinstance(next, Node) or next == None
+                assert isinstance(next, Node) or next is None
                 self.v = value
                 self.n = next
         ```
+
+---
+
+**Remarque** : assert peut être désactivé si Python est lancé en mode optimisé.
+Ce n’est pas bloquant, mais si on veut “contrainte toujours active”, il faudrait un if + raise TypeError.
 
 ---
 
@@ -1123,8 +1128,8 @@ Si on part ici de la tête qui contient le string "Lundi", on devrait lire la s
     3. Comment la fonction progresse-t-elle dans la liste ?
 
     ??? success "📤 Solution :"
-        1. if self.n == None:
-        2. self # self.v est possible mais ce n’est pas demandé
+        1. if self.n is None:
+        2. self.v 
         3. self.n.fonction
 
     Voici le squelette à compléter :
@@ -1161,7 +1166,7 @@ Si on part ici de la tête qui contient le string "Lundi", on devrait lire la s
         ```python
         class Node:
             def __init__(self, value, next=None):
-                assert isinstance(next, Node) or next == None
+                assert isinstance(next, Node) or next is None
                 self.v = value
                 self.n = next
 
