@@ -876,7 +876,19 @@ return reponse.pop(position)
 
     📎 On affiche la structure comme une **séquence immuable**, ce qui est plus lisible que la syntaxe brute d’une `list`.
 
+---
 
+Ici on montrer l’interface d'une liste chainée et la manipulation fonctionnelle.
+
+⚠️ Mais ce n’est pas une liste chaînée au sens “nœuds + pointeurs” :
+
+- ajouterTete([x] + L) copie la liste ⇒ O(n)
+
+- supprimerTete(L[1:]) copie ⇒ O(n)
+
+donc les opérations “façon chaînée” ne gardent pas les coûts typiques (ajout/suppression en tête en O(1)) d’une vraie liste chaînée.
+
+**Conclusion** : On conserve l’interface d’une liste chaînée (tête, suppression/ajout en tête), mais l’implémentation utilise des list Python : ce n’est donc pas une vraie structure chaînée (coûts différents).
 
 ---
 
