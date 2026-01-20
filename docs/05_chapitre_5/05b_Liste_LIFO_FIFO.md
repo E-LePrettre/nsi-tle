@@ -1354,7 +1354,7 @@ Si on part ici de la tête qui contient le string "Lundi", on devrait lire la s
 Voici les **méthodes prévues** dans notre interface :
 
 
-1\. ```nouvelleList()``` correspond au constructeur `__init__() -> Liste` : on crée une nouvelle liste vide. 
+1\. ```nouvelleListe()``` correspond au constructeur `__init__() -> Liste` : on crée une nouvelle liste vide. 
 
 2\. ```isEmpty(L:Liste) -> bool``` : renvoie un booléen qui vaut True si la liste L transmise est une liste vide.
 ```
