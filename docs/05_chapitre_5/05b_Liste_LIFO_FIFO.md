@@ -1528,6 +1528,8 @@ Avant d'insérer la nouvelle Cellule en position 2, il faut mémoriser les ident
         pass
     ```
 
+    👉 on supposera que position sera compris entre 0 et la longeur de la liste (évidemment)
+
 
     ❓ **Question** :
     Analyser le code pour parvenir à identifier les lignes où sont effectuées précisément les actions **1 à 4** précédentes.
