@@ -1800,7 +1800,7 @@ On parle alors de **concaténation de listes**, comme avec les chaînes de carac
     ```
 
     On suppose que la position sera comprise entre 0 et la longueur de la liste.
-    
+
     🧪 Tester :
 
     ```python
@@ -1895,7 +1895,7 @@ Soit une pile P composée des éléments suivants :
 
     - L'expression pile + [element] crée une nouvelle liste en concaténant pile et [element].
 
-    - L'affectation pile = ... fait alors pointer le nom pile vers ce nouvel objet. Mais si la variable pile est passée à la fonction par référence (comme c'est souvent le cas avec les objets mutables en Python), cela coupe le lien avec l'objet original.
+    - L'affectation pile = ... fait alors pointer le nom pile vers ce nouvel objet. Mais si la variable pile est transmise comme objet mutable : si on réaffecte, on ne modifie pas l’objet original (comme c'est souvent le cas avec les objets mutables en Python), cela coupe le lien avec l'objet original.
 
     ```python
     '''Implémentation de type abstrait Pile en utilisant les listes de Python'''
@@ -1956,7 +1956,7 @@ Soit une pile P composée des éléments suivants :
                 
                 # 2ème façon
                 val = pile[-1]  
-                pile[:] = pile[:-1]   # ou del pile[-1] qui est plus performant
+                del pile[-1]   # ou pile[:] = pile[:-1]  qui est moins performant
                 return val
             return 'Pile vide'
 
@@ -1973,6 +1973,9 @@ Soit une pile P composée des éléments suivants :
             assert depiler(ma_pile) == 'Lundi'
             assert depiler(ma_pile) == 'Pile vide'
         ```
+
+
+        pile[:] = = pile[:-1] garde le même objet liste (donc pas de rupture de référence), mais ça fait une copie de presque toute la liste → coût O(n).
 
 ---
 
@@ -2023,7 +2026,7 @@ Soit une pile P composée des éléments suivants :
             return compteur
 
         def sommet(pile):
-            assert pile, "La pile est vide" 
+            assert not estVide(pile), "La pile est vide" 
             temporary = depiler(pile)
             empiler(pile, temporary)
             return temporary
