@@ -1586,41 +1586,69 @@ Avant d'insérer la nouvelle Cellule en position 2, il faut mémoriser les ident
 
 ???+ question "🧩 **Activité n° 22 :Structure liste avec de la POO, Analyse du coût d'insertion**"
 
-    💡 L'insertion pure ne concerne que les lignes suivantes :
+    On a écrit la méthode `insertPosition(newData, position)` qui **insère un nouvel élément** dans une liste chaînée.
+
+    **Objectif :** comprendre **pourquoi l’insertion n’est pas toujours en O(1)**, même si une liste chaînée évite les décalages d’un tableau.
+
+    ---
+
+    🔎 1) Insertion “pure” : coût constant si le prédécesseur est connu
+
+    Supposons que l’on **connaisse déjà** la cellule **prédécesseur** (celle située juste avant la position d’insertion).
+
+    Alors l’insertion consiste uniquement à :
+
+    1. mémoriser le **successeur**,
+    2. créer la **nouvelle cellule**,
+    3. relier le prédécesseur à la nouvelle.
 
     ```python
-    # nextNode = previousNode.n  # on mémorise la cellule qu'il faudra "déplacer"
-    # newNode = Node(newData, nextNode)
-    # previousNode.n = newNode
-    # qui se résume par
-    self.head = Node(newData, self.head)
+    successeur = predecesseur.n      # 1) on mémorise l'ancien lien
+    nouvelle = Node(newData, successeur)  # 2) la nouvelle cellule pointe vers le successeur
+    predecesseur.n = nouvelle        # 3) on relie le prédécesseur à la nouvelle
     ```
 
-    📌 Ici le coût est bien **constant**.
+    Ces 3 opérations ne dépendent pas de la taille de la liste :  
+    ➜ **coût constant : O(1)**
 
-    Mais que peut-on dire du coût de la **recherche** de la Cellule `predecesseur` dans le pire des cas ?
+    ---
 
-    ??? success "❇️ Solution :"
-        Cependant, pour insérer un élément à une position donnée (autre que le début de la liste), il faut d'abord identifier son prédécesseur dans la liste. La recherche du prédécesseur nécessite un parcours séquentiel des nœuds à partir de la tête jusqu'à atteindre la position voulue.
+    🧭 2) Mais trouver le prédécesseur coûte cher…
 
-        Dans le pire des cas, cette recherche implique de traverser toute la liste, c'est-à-dire n−1 nœuds pour une liste de taille 
-        n. Le coût est donc linéaire, soit O(n).
+    Dans notre méthode, on ne connaît pas directement `predecesseur`.
+
+    On doit donc **le chercher** en partant de la tête :
 
     ```python
-    previousNode = self.head
-    for etape in range(1, position):  # On avance jusqu’à (position - 1) pour trouver previous
-        previousNode = previousNode.n
+    predecesseur = self.head
+    for _ in range(position - 1):   # on avance jusqu’à la cellule (position - 1)
+        predecesseur = predecesseur.n
     ```
 
-    ❓ **Au total**, que peut-on alors dire du coût de l'insertion ?
+    ❓ **Question 1 :**
+    Quel est le coût de cette recherche dans le pire des cas (si `position` est proche de la fin) ?
 
     ??? success "❇️ Solution :"
+        On doit parcourir la liste **maillon par maillon** depuis la tête.
 
-        Si l’on insère en tête de liste, on n’a pas besoin de chercher le prédécesseur, donc le coût est constant : O(1).
+        Dans le pire des cas, on traverse presque toute la liste : environ **n** maillons pour une liste de taille **n**.
 
-        En revanche, pour une insertion à une position quelconque, il faut souvent trouver le prédécesseur, ce qui coûte O(n) dans le pire des cas.
+        ➜ Le coût de la recherche est donc **linéaire : O(n)**.
 
-        ➡️ Donc, le coût total de l’insertion dans une liste chaînée est en général O(n), à cause de la recherche du prédécesseur.
+    ---
+
+    🧮 3) Conclusion : coût total de l’insertion
+
+    ❓ **Question 2 :**
+    Quel est alors le coût total d’une insertion en position quelconque dans une liste chaînée ?
+
+    ??? success "❇️ Solution :"
+        - **Insertion en tête (position 0)** : on ne cherche pas de prédécesseur → **O(1)**  
+        - **Insertion à une position quelconque** : il faut d’abord trouver le prédécesseur → **O(n)** dans le pire des cas.
+
+        ✅ Donc, le coût total d’une insertion dans une liste chaînée est généralement **O(n)** (à cause de la recherche),  
+        même si l’opération de liaison elle-même est en **O(1)**.
+
 
 
     
