@@ -888,7 +888,7 @@ Ici on montre **l’interface** d'une liste chainée et la **manipulation foncti
 
 donc les opérations “façon chaînée” ne gardent pas les coûts typiques (ajout/suppression en tête en O(1)) d’une vraie liste chaînée.
 
-**Conclusion** : On conserve l’interface d’une liste chaînée (tête, suppression/ajout en tête), mais l’implémentation utilise des list Python : ce n’est donc pas une vraie structure chaînée (coûts différents).
+**Conclusion** : On conserve l’interface d’une liste chaînée (tête, suppression/ajout en tête), mais l’implémentation utilise des list Python : **ce n’est donc pas une vraie structure chaînée (coûts différents)**.
 
 ---
 
