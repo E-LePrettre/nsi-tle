@@ -878,9 +878,9 @@ return reponse.pop(position)
 
 ---
 
-Ici on montrer l’interface d'une liste chainée et la manipulation fonctionnelle.
+Ici on montre **l’interface** d'une liste chainée et la **manipulation fonctionnelle.**
 
-⚠️ Mais ce n’est pas une liste chaînée au sens “nœuds + pointeurs” :
+⚠️ Mais ce **n’est pas une liste chaînée** au sens “nœuds + pointeurs” :
 
 - ajouterTete([x] + L) copie la liste ⇒ O(n)
 
