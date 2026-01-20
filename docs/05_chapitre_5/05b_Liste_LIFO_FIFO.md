@@ -1713,10 +1713,11 @@ On parle alors de **concaténation de listes**, comme avec les chaînes de carac
         return str(tuple(tableau))
 
     def recupererValeur(cellule):
-        if cellule.n == None:
+        if cellule is None:
+            return []
+        if cellule.n is None:
             return [cellule.v]
-        else:
-            return [cellule.v] + recupererValeur(cellule.n)
+        return [cellule.v] + recupererValeur(cellule.n)
 
     # Programme principal
     di = Node("Dimanche")
@@ -1743,6 +1744,8 @@ On parle alors de **concaténation de listes**, comme avec les chaînes de carac
 ???+ question "🧹 **Activité n° 24 : Créer la méthode `delPosition` pour supprimer un élément**"
 
     🛠️ Compléter la méthode :
+
+    On suppose que la position sera comprise entre 0 et la longueur de la liste
 
     ```python
     def delPosition(self, position):
