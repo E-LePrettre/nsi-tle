@@ -3756,61 +3756,6 @@ Les **piles** et **files** sont des structures fondamentales.
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667937"></a>**5.6. 🔁 Piles vs Files :**</H3>
 
-Ta section **5.6 Piles vs Files** est **très bonne** : elle est juste, lisible, et les oppositions LIFO/FIFO sont bien posées.
-
-Je te propose seulement **3 micro-corrections / améliorations** (sans changer ton esprit).
-
----
-
-## ✅ Ce qui est correct
-
-* **Pile** : insertion + suppression à **une extrémité** ✅
-* **File** : insertion à une extrémité + suppression à l’autre ✅
-* **LIFO / FIFO** ✅
-* Opérations **empiler/dépiler** vs **enfiler/défiler** ✅
-* Visualisation verticale/horizontale : pédagogique, ça parle aux élèves ✅
-
----
-
-## ⚠️ Ajustements conseillés
-
-### 1) Ligne “2 pointeurs” : vrai… mais dépend de l’implémentation
-
-Ta ligne :
-
-> “Dans les files, deux pointeurs sont utilisés : vers la tête et la queue.”
-
-✅ C’est **vrai pour une implémentation optimisée** (tête + queue).
-⚠️ Mais si tu implémentes une file **avec une simple liste Python**, tu n’as pas explicitement deux pointeurs.
-
-👉 Formulation plus solide (sans alourdir) :
-
-* **Pile** : “un seul accès utile : le sommet”
-* **File** : “souvent deux accès utiles : tête et queue (surtout en liste chaînée optimisée / deque)”
-
-### 2) “Insérés et retirés aux 2 extrémités” peut être mal interprété
-
-Une file “classique” n’insère pas *n’importe où* :
-
-* insertion **en queue**
-* retrait **en tête**
-
-Ta phrase est correcte dans l’idée, mais certains élèves peuvent comprendre “on peut retirer/ajouter des deux côtés librement” (ce serait plutôt une **deque**).
-
-👉 Petite précision :
-
-> “insérés en queue et retirés en tête”
-
-### 3) Ajouter 1 ligne “cas concret”
-
-Ça verrouille la compréhension :
-
-* pile = “assiette” / “annuler une action”
-* file = “imprimante” / “file d’attente”
-
----
-
-## ✅ Proposition de version finale (quasi identique, juste plus béton)
 
 |                            🧱 **Pile**                            |                                          🚦 **File**                                         |
 | :---------------------------------------------------------------: | :------------------------------------------------------------------------------------------: |
