@@ -2480,10 +2480,12 @@ La version à une classe est plus simple, elle peut être suffisante, mais les p
         return str(tuple(tableau))
 
     def recupererValeur(cellule):
-        if cellule.n == None:
+        if cellule is None:
+            return []
+        if cellule.n is None:
             return [cellule.v]
-        else:
-            return [cellule.v] + recupererValeur(cellule.n)
+        return [cellule.v] + recupererValeur(cellule.n)
+
     ```
 
     ??? success "✅❇️ Solution :"
@@ -2496,10 +2498,10 @@ La version à une classe est plus simple, elle peut être suffisante, mais les p
         def recupererValeur(cellule):
             if cellule is None:
                 return []
-            if cellule.n == None:
+            if cellule.n is None:
                 return [cellule.v]
-            else:
-                return [cellule.v] + recupererValeur(cellule.n)
+            return [cellule.v] + recupererValeur(cellule.n)
+
         p = Pile()
         p.empiler('Lundi')
         p.empiler('Mardi')
@@ -2631,11 +2633,11 @@ En informatique, une **file** (*queue* en anglais) est une structure de données
 
 🎯 **Exemple** :
 
-Soit une file `F` composée de `12, 14, 8, 7, 19, 22`
-(➡️ Premier élément : **22** ; Dernier élément : **12**)
+Soit une file `F` composée de `22, 19, 7, 8, 14, 12, 42`
+(➡️ Premier élément : **12** ; Dernier élément : **222**)
 
-* `enfiler(F,42)` → devient : `42, 12, 14, 8, 7, 19, 22`
-* `defiler(F)` → devient : `12, 14, 8, 7, 19`
+* `enfiler(F,42)` → devient : `22, 19, 7, 8, 14, 12`
+* `defiler(F)` renvoie `22` → devient : `19, 7, 8, 14, 12`
 * `defiler(F)` x6 → `estVide(F)` renvoie **True**
 
 ---
@@ -2647,9 +2649,10 @@ Soit une file `F` composée de `12, 14, 8, 7, 19, 22`
 On peut utiliser une implémentation similaire à celle des piles,
 mais :
 
-* `defiler()` retire l’élément **en tête**
+* `defiler()` retire l’élément **en tête** 
+  → coût linéaire O(n) (décalage des éléments)
 * `enfiler()` ajoute un élément **en queue**
-  → donc en **temps linéaire** (il faut parcourir toute la file)
+  → O(1) amorti
 
 ---
 
@@ -2682,7 +2685,8 @@ mais :
     **file = file[1:]** crée une nouvelle liste et réaffecte la variable file localement dans la fonction. Cela ne modifie pas l'objet d'origine si vous utilisez la liste en dehors de la fonction (par exemple, une liste passée en argument). Pour corriger cela, vous devez modifier la liste en place.
 
     ```python
-    '''Implémentation de type abstrait File en utilisant les listes de Python'''
+    '''Implémentation de type abstrait File en utilisant les listes de Python
+    Tête à gauche'''
 
     def fileVide():
         pass
@@ -2741,7 +2745,7 @@ mais :
                 
                 # 2ème façon      
                 valeur = file[0]
-                file[:] = file[1:] # ou del file[0] qui est plus performant
+                del file[0] # ou file[:] = file[1:]  qui est moins performant
                 return valeur
             else:
                 return 'File vide'
@@ -2811,7 +2815,11 @@ mais :
             while not estVide(q):
                 enfiler(file, defiler(q))
             return temporary
+
+        # version très robuste (elle restaure toujours, même s’il y a des doublons).  
         ```
+
+Ici, `taille()` est coûteuse avec une list car elle appelle defiler() (O(n)) un grand nombre de fois : coût global souvent O(n²).
 
 ---
 
@@ -2853,7 +2861,8 @@ mais :
     **file = file[1:]** crée une nouvelle liste et réaffecte la variable file localement dans la fonction. Cela ne modifie pas l'objet d'origine si vous utilisez la liste en dehors de la fonction (par exemple, une liste passée en argument). Pour corriger cela, vous devez modifier la liste en place.
 
     ```python
-    '''Implémentation 3 de type abstrait Liste en utilisant la POO et les listes de Python'''
+    '''Implémentation 3 de type abstrait Liste en utilisant la POO et les listes de Python
+    Tête à gauche'''
 
     class File:
         '''Classe permettant de créer des files'''
@@ -2911,10 +2920,10 @@ mais :
                 
                     # 2ème façon
                     valeur = self.file[0]
-                    self.file[:] = self.file[1:] # ou del self.file[0] qui est plus performant
+                    del self.file[0] # ou self.file[:] = self.file[1:] qui est moins performant
                     return valeur
-        else:
-            return 'File vide'
+                else:
+                    return 'File vide'
 
         # Programme principal
         if __name__ == '__main__':
@@ -2994,7 +3003,9 @@ mais :
             assert ma_file.sommet() == 'Lundi'
         ```
 
-📎 Tous les **coûts d’exécution sont unitaires.**
+
+📎 Les coûts ne sont pas unitaires : avec une `list`, `defiler()` en tête coûte O(n) (décalage). Les méthodes `taille()` et `sommet()` qui enchaînent des defiler/enfiler pour restaurer la file ont donc un coût élevé (souvent O(n²)).
+✅ Pour une file efficace, on préfère `collections.deque` (tête et queue en O(1)).
 
 ---
 
@@ -3010,7 +3021,7 @@ mais :
     🔧 Dans le programme principal :
 
     ```python
-    assert ma_file.afficher() == ['Mardi', 'Mercredi', 'Lundi']
+    assert ma_file.afficher() == ['Lundi', 'Mardi', 'Mercredi']
     ```
 
     💡 Cette implémentation est **peu efficace**, mais fonctionnelle.
@@ -3051,8 +3062,13 @@ Cette implémentation est très peu efficace
 
         def sommet2(file):
             assert not file.estVide(), "File vide"
+            temp = File()
             premier = file.defiler()
-            file.enfiler(premier)
+            temp.enfiler(premier)
+            while not file.estVide():
+                temp.enfiler(file.defiler())
+            while not temp.estVide():
+                file.enfiler(temp.defiler())
             return premier
         ```
 
@@ -3144,7 +3160,7 @@ Cette implémentation est très peu efficace
                         self.head = None
                         return val
                         
-                    while not newNode.n.n == None: # on s'arrête à l'avant dernier
+                    while newNode.n.n is not None: # on s'arrête à l'avant dernier
                         newNode = newNode.n
                     val = newNode.n.v
                     newNode.n = None
@@ -3243,31 +3259,29 @@ Cette implémentation est très peu efficace
 
     ??? success "✅ Solution :"
         ```python
-        #"""
         def __str__(self):
             ### version enfiler par la queue et défiler par la tete
             if self.head is None:
                 return "[]"
             result=[]
             currentNode = self.head
-            while not currentNode == None:
+            while currentNode is not None:
                 result.append(str(currentNode.v))
                 currentNode = currentNode.n
             return str(result)
             
-            
-            """
-            def __str__(self):  # on peut mettre __repr__ à la place pour éviter de taper print
-                if self.head is None:
-                    raise IndexError("File vide")
-                else:
-                    result = str(self.head.v)
-                    next_node = self.head.n
-                    while next_node is not None:
-                        result =  str(next_node.v)+" - "  +result
-                        next_node = next_node.n
-                    return result
-            """
+        """    
+        def __str__(self):  # on peut mettre __repr__ à la place pour éviter de taper print
+            if self.head is None:
+                raise IndexError("File vide")
+            else:
+                result = str(self.head.v)
+                next_node = self.head.n
+                while next_node is not None:
+                    result =  str(next_node.v)+" - "  +result
+                    next_node = next_node.n
+                return result
+        """
         ```
 
     🎯 Compléter les deux méthodes suivantes : `taille()` et `sommet()`
@@ -3393,12 +3407,10 @@ Cette implémentation est très peu efficace
         ```
 
 
+📎 Avec un seul pointeur head, l’une des deux opérations (enfiler ou defiler) devient forcément linéaire O(n) selon l’endroit où on insère/supprime.
+🚀 Pour obtenir enfiler et defiler en O(1), on ajoute un second pointeur queue.
 
 
-
-La file implémentée de la sorte n'est **pas très efficace** car il faut entièrement la la parcourir pour enfiler un élément!!
-    
-On va améliorer l'efficacité avec **2 pointeurs** : l'un vers la **tête** et l'autre vers la **queue**!
 
  
 ---
@@ -3416,46 +3428,59 @@ On va améliorer l'efficacité avec **2 pointeurs** : l'un vers la **tête** et 
 
     ```python
     class Node:
-        def __init__(self, value=None, next=None):
-            # Initialisation d'un nœud avec une valeur et un pointeur vers le nœud suivant
-            pass
+    def __init__(self, value=None, next=None):
+        # Initialisation d'un nœud avec une valeur et un pointeur vers le nœud suivant
+        pass
 
 
     class File:
         def __init__(self, c=None):
             # Initialisation de la file avec une tête et une queue
             self.head = c...    # Pointeur vers le premier élément de la file
-            self.queue = ...    # Pointeur vers le dernier élément de la file
+            self.queue = ...   # Pointeur vers le dernier élément de la file
 
         def estVide(self):
             # Vérifie si la file est vide
             pass
 
         def enfiler(self, element):
-            """Ajoute un élément au début de la file."""
-            ...
+            ### version enfiler par la queue et défiler par la tete
+            """Ajoute en queue (O(1))."""
+            ...          # Création d'un nouveau nœud
+            if ...:      # Si la file est vide
+                ...      # Le nœud devient la tête et la queue
+            else:
+                ...      # L'ancien dernier nœud pointe vers le nouveau
+                ...      # Mise à jour de la queue avec le nouveau nœud
+
 
         def defiler(self):
-            """Retire un élément à la fin de la file."""
-            ...
-
-        def enfiler2(self, element):
-            """Ajoute un élément à la fin de la file."""
-            ...
-
-        def defiler2(self):
-            """Retire un élément au début de la file."""
-            ...
+            ### version enfiler par la queue et défiler par la tete
+            """Retire en tête (O(1))."""
+            if ...:      # Si la file est vide
+                ...      # On renvoie "File vide"
+            ...          # Sauvegarde la valeur de la tête
+            ...          # Passe au nœud suivant
+            if ...:      # Si la tête devient None (on a retiré le dernier)
+                ...      # Alors la queue devient aussi None
+            ...          # Retourne la valeur supprimée
 
         def __str__(self):
-            """Affiche les éléments de la file sous forme d'une chaîne."""
-            ...
-    ```
+            # Affiche la file sous forme de liste Python : ['Lundi', 'Mardi', ...]
+            if self.head is None:
+                return "[]"
 
-    🧪 **Tester le comportement de la file :**
+            result = ...              # liste qui contiendra les valeurs
+            currentNode = ...         # on commence par la tête
 
-    ```python
-    f = File()
+            while ...:                # tant qu'on n'est pas à la fin (None)
+                result.append(...)    # ajouter la valeur du nœud courant
+                currentNode = ...     # avancer vers le nœud suivant
+
+            return ...                # convertir la liste en chaîne
+
+
+    f=File()
     assert f.estVide() == True
     f.enfiler('Lundi')
     f.enfiler('Mardi')
@@ -3465,13 +3490,6 @@ On va améliorer l'efficacité avec **2 pointeurs** : l'un vers la **tête** et 
     assert f.defiler() == 'Mardi'
     assert f.defiler() == 'Mercredi'
     assert f.defiler() == 'File vide'
-    f.enfiler2('Lundi')
-    f.enfiler2('Mardi')
-    f.enfiler2('Mercredi')
-    print(f)
-    assert f.defiler2() == 'Lundi'
-    assert f.defiler2() == 'Mardi'
-    assert f.defiler2() == 'Mercredi'
     ```
 
 
@@ -3479,110 +3497,69 @@ On va améliorer l'efficacité avec **2 pointeurs** : l'un vers la **tête** et 
 
         ```python
         class Node:
-            def __init__(self, value=None, next=None):
+            def __init__(self, value = None, next = None):
                 self.v = value
                 self.n = next
 
-
         class File:
-            def __init__(self, c=None):
-                self.head = c
-                self.queue = c
-
+            def __init__(self):
+                self.head = None
+                self.queue = None
+                        
             def estVide(self):
                 return self.head is None
-
+            
             def enfiler(self, element):
-                ### version enfiler par la tête et défiler par la queue
+                ### version enfiler par la queue et défiler par la tete
+                """Ajoute en queue (O(1))."""
                 newNode = Node(element)
                 if self.estVide():
                     self.head = self.queue = newNode
                 else:
-                    newNode.n = self.head
-                    self.head = newNode
+                    self.queue.n = newNode
+                    self.queue = newNode
 
             def defiler(self):
-                ### version enfiler par la tête et défiler par la queue
+                ### version enfiler par la queue et défiler par la tete
+                """Retire en tête (O(1))."""
                 if self.estVide():
-                    return 'File vide'
-                
-                if self.head == self.queue: # Si la file n'a qu'un seul élément
-                    val = self.head.v
-                    self.head = None
+                    return "File vide"
+                val = self.head.v
+                self.head = self.head.n
+                if self.head is None:   # si on a retiré le dernier élément
                     self.queue = None
-                    return val
-                # Sinon, on doit parcourir la liste pour trouver l'avant-dernier nœud
-                currentNode = self.head
-                while currentNode.n != self.queue:
-                    currentNode = currentNode.n
-                val = self.queue.v
-                currentNode.n = None
-                self.queue = currentNode
                 return val
 
-            def enfiler2(self, element):
-                nouveau = Node(element)
-                if self.estVide():
-                    self.head = nouveau
-                    self.queue = nouveau
-                else:
-                    self.queue.n = nouveau
-                    self.queue = nouveau
-
-            def enfiler2(self, element):
-                ### version enfiler par la queue et défiler par la tete
-                newNode = Node(element) 
-                if self.estVide():
-                    self.head = self.queue = newNode
-                else:
-                    self.queue.n = newNode  # L'ancien dernier nœud pointe vers le nouveau nœud
-                    self.queue = newNode    # La queue est mise à jour pour pointer vers le nouveau nœud
-
-            def defiler2(self):
-                ### version enfiler par la queue et défiler par la tete
-                if not self.estVide():
-                    val = self.head.v
-                    self.head = self.head.n
-                    if self.head is None:  # Si la tête devient vide, la file est vide
-                        self.queue = None
-                    return val
-                else:
-                    raise IndexError("File vide")
-
-            #"""
             def __str__(self):
-                ### version enfiler par la queue et défiler par la tete
                 if self.head is None:
                     return "[]"
-                result=[]
+                result = []
                 currentNode = self.head
-                while not currentNode == None:
+                while currentNode is not None:
                     result.append(str(currentNode.v))
                     currentNode = currentNode.n
                 return str(result)
-    
        
-    
-            """        
-            def __str__(self):  # on peut mettre __repr__ à la place pour éviter de taper print
-                if self.head is None:
-                    raise IndexError("File vide")
-                else:
-                    result = str(self.head.v)
-                    next_node = self.head.n
-                    while next_node is not None:
-                        result += " - " + str(next_node.v)
-                        next_node = next_node.n
-                    return result
-            """
-        
+
+
+        f = File()
+        assert f.estVide() == True
+        f.enfiler('Lundi')
+        f.enfiler('Mardi')
+        f.enfiler('Mercredi')
+        assert f.estVide() == False
+        assert f.defiler() == 'Lundi'
+        assert f.defiler() == 'Mardi'
+        assert f.defiler() == 'Mercredi'
+        assert f.defiler() == 'File vide'
         ```
 
 ---
 
 
+📎 Grâce aux deux pointeurs (head et queue), on peut enfiler en queue et défiler en tête en temps constant O(1). C’est l’implémentation standard d’une file FIFO efficace.
 
-
+---
 
 !!! info "Capytale : Utilisation de deque (activite_deque)"
 
@@ -3779,14 +3756,71 @@ Les **piles** et **files** sont des structures fondamentales.
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667937"></a>**5.6. 🔁 Piles vs Files :**</H3>
 
-|                      🧱 **Pile**                                         |                                       🚦 **File**                                       |
-| :-----------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------: |
-|               📍 Les objets sont insérés et supprimés à **1 seule extrémité**               |                🔄 Les objets sont insérés et retirés aux **2 extrémités**               |
-| 📌 Dans les piles, un **seul pointeur** est utilisé. Il pointe vers le **haut** de la pile. | 📌 Dans les files, **deux pointeurs** sont utilisés : vers la **tête** et la **queue**. |
-|                 📦 Le **dernier objet inséré** est le **premier à sortir**.                 |               🚪 Le **premier objet inséré** est le **premier à sortir**.               |
-|                          🔃 Ordre : **LIFO** (*Last In First Out*)                          |                        🔁 Ordre : **FIFO** (*First In First Out*)                       |
-|                         🛠️ Opérations : « Empiler » et « Dépiler »                         |                       🛠️ Opérations : « Enfiler » et « Défiler »                       |
-|                         🧊 Visualisation : **collection verticale**                         |                      📏 Visualisation : **collection horizontale**                      |
+Ta section **5.6 Piles vs Files** est **très bonne** : elle est juste, lisible, et les oppositions LIFO/FIFO sont bien posées.
+
+Je te propose seulement **3 micro-corrections / améliorations** (sans changer ton esprit).
+
+---
+
+## ✅ Ce qui est correct
+
+* **Pile** : insertion + suppression à **une extrémité** ✅
+* **File** : insertion à une extrémité + suppression à l’autre ✅
+* **LIFO / FIFO** ✅
+* Opérations **empiler/dépiler** vs **enfiler/défiler** ✅
+* Visualisation verticale/horizontale : pédagogique, ça parle aux élèves ✅
+
+---
+
+## ⚠️ Ajustements conseillés
+
+### 1) Ligne “2 pointeurs” : vrai… mais dépend de l’implémentation
+
+Ta ligne :
+
+> “Dans les files, deux pointeurs sont utilisés : vers la tête et la queue.”
+
+✅ C’est **vrai pour une implémentation optimisée** (tête + queue).
+⚠️ Mais si tu implémentes une file **avec une simple liste Python**, tu n’as pas explicitement deux pointeurs.
+
+👉 Formulation plus solide (sans alourdir) :
+
+* **Pile** : “un seul accès utile : le sommet”
+* **File** : “souvent deux accès utiles : tête et queue (surtout en liste chaînée optimisée / deque)”
+
+### 2) “Insérés et retirés aux 2 extrémités” peut être mal interprété
+
+Une file “classique” n’insère pas *n’importe où* :
+
+* insertion **en queue**
+* retrait **en tête**
+
+Ta phrase est correcte dans l’idée, mais certains élèves peuvent comprendre “on peut retirer/ajouter des deux côtés librement” (ce serait plutôt une **deque**).
+
+👉 Petite précision :
+
+> “insérés en queue et retirés en tête”
+
+### 3) Ajouter 1 ligne “cas concret”
+
+Ça verrouille la compréhension :
+
+* pile = “assiette” / “annuler une action”
+* file = “imprimante” / “file d’attente”
+
+---
+
+## ✅ Proposition de version finale (quasi identique, juste plus béton)
+
+|                            🧱 **Pile**                            |                                          🚦 **File**                                         |
+| :---------------------------------------------------------------: | :------------------------------------------------------------------------------------------: |
+| 📍 Insertion et suppression à **une seule extrémité** (le sommet) |                     🔄 Insertion **en queue** et suppression **en tête**                     |
+|               📌 Un seul accès utile : **le sommet**              | 📌 Deux accès utiles : **tête** et **queue** (surtout en implémentation optimisée / `deque`) |
+|        📦 Le **dernier** inséré est le **premier** à sortir       |                     🚪 Le **premier** inséré est le **premier** à sortir                     |
+|                        🔃 Ordre : **LIFO**                        |                                      🔁 Ordre : **FIFO**                                     |
+|                     🛠️ `empiler` / `depiler`                     |                                   🛠️ `enfiler` / `defiler`                                  |
+|              🧊 Image mentale : **pile d’assiettes**              |                      📏 Image mentale : **file d’attente / imprimante**                      |
+
 
 ---
 
