@@ -2369,6 +2369,8 @@ La version à une classe est plus simple, elle peut être suffisante, mais les p
                     return val
 
             def __str__(self): # on peut mettre __repr__ à la place pour éviter de taper print
+                if self.n is None :
+                    return str(self.v)
                 return str(self.v) + "-" + str(self.n)
 
             def taille(self):
@@ -2443,7 +2445,7 @@ La version à une classe est plus simple, elle peut être suffisante, mais les p
                 else:
                     val = self.cellule.v
                     self.cellule = self.cellule.n
-                    return vaL
+                    return val
         ```
 
     🖥️ Que faut-il écrire dans la console pour :
