@@ -2095,12 +2095,16 @@ Soit une pile P composée des éléments suivants :
             def estVide(self):
                 return self.pile == []
 
-            def empiler(self, element):
-                self.pile.append(element)
-                # ou : self.pile += [element]
+            def empiler(self, element) :
+                # 1ère version
+                # self.pile.append(element)
+                # 2ème version
+                self.pile += [element]
 
             def depiler(self):
                 assert not self.estVide(),"Pile vide"
+                # ou if self.estVide(): return "Pile vide"
+
                 # 1ère version
                 # return self.pile.pop() # ou self.pile.pop(-1)
                 
@@ -2164,13 +2168,18 @@ Soit une pile P composée des éléments suivants :
 
         def sommet(self):
             assert not self.estVide(), "Pile vide"
+            # ou if self.estVide(): return "Pile vide"
             temporary = self.depiler()
             self.empiler(temporary)
             return temporary
 
         ```
 
-🧠 Ici, **tous les coûts d’exécution sont unitaires.**
+🧠 Ici, 
+- `empiler` et `depiler` sont en O(1) 
+- `sommet` est en O(1).
+- `taille` est en O(n) car on parcourt toute la pile.
+
 ---
 
 ???+ question "🖨️ **Activité n° 30 : Affichage d’une pile (POO + liste)**"
@@ -2187,7 +2196,7 @@ Soit une pile P composée des éléments suivants :
 
     ```python
     >>> p.afficher()
-    [0, 2, 4, 6, 8]
+    [0, 2, 4, 6]
     ```
 
     ??? success "✅ Solution :"
@@ -2195,7 +2204,13 @@ Soit une pile P composée des éléments suivants :
         ```python
         def afficher(self):
             return self.pile
+
+        # idéalement 
+        def afficher(self):
+            return self.pile.copy()
         ```
+
+        cela évitera des commandes utilisateur : p.afficher().append("hack")
 
 ---
 
@@ -2286,7 +2301,7 @@ La version à une classe est plus simple, elle peut être suffisante, mais les p
         p = Pile()
         p.estVide()
 
-        P.empiler('Lundi')
+        p.empiler('Lundi')
         p.empiler('Mardi')
         p.empiler('Mercredi')
 
