@@ -4041,7 +4041,7 @@ Une **table de hachage** est une structure qui stocke des couples **(clé → va
 
     ---
 
-    ✅ **La phrase expliquée en une seule ligne :**  
+    ✅ **Donc**  
     On implémente souvent les dictionnaires avec des tables de hachage car cela permet de retrouver une valeur à partir d’une clé **en moyenne en temps constant O(1)**, sans parcourir tous les éléments.
 
     ---
