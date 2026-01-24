@@ -4017,7 +4017,7 @@ Une **table de hachage** est une structure qui stocke des couples **(clé → va
     **Exemple d’idée** (sans rentrer dans les détails) :
 
     \[
-    \text{indice} = h(\text{clé}) \bmod m
+    \text{indice} = h(clé) \bmod m
     \]
 
     Donc `"Mardi"` est envoyé directement à **une case** du tableau.
