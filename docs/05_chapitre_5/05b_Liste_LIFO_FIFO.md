@@ -3085,17 +3085,12 @@ Cette implémentation est très peu efficace
 
 ???+ question "📘 **Activité n° 39 : Structure pile avec la POO et les listes chainées**"
 
-    ```python
-    '''Implémentation de type abstrait File avec la POO et les listes chainées et deux classes'''
+On va remplacer un tableau/liste par une structure chaînée, où chaque élément “pointe” vers le suivant.
 
-    class Node:
-        def __init__(self, value = None, next = None):
-            pass
-    ```
 
-    Compléter le constructeur de la classe `File`
+    Compléter 
 
-    💡 **Attention** : pour améliorer l’implémentation, il nous faudra un attribut `queue`.
+    
 
     ```python
     class Node:
@@ -3117,6 +3112,7 @@ Cette implémentation est très peu efficace
 
         class File:
             def __init__(self, c=None):
+                assert isinstance(c, Node) or c == None
                 self.head = c
         ```
 
@@ -3125,6 +3121,21 @@ Cette implémentation est très peu efficace
     ```python
     f = File()
     ```
+    
+    On implémente deux stratégies (et on compare) : 
+
+    ✅ **Stratégie 1** : enfiler() en tête / defiler() en queue (plus compliqué) :
+
+    - enfiler() en tête : On insère au début (nouveau head).Donc c’est O(1) : pas de parcours.
+
+    - defiler() en queue : Pour enlever la queue, on est obligé de parcourir toute la liste jusqu’à l’avant-dernier. Donc defiler() est O(n).
+
+    ✅ **Stratégie 2** : enfiler2() en queue / defiler2() en tête (plus simple) :
+
+    - enfiler2() en queue : Pour ajouter en queue, tu parcours jusqu’au dernier. Donc enfiler2() est O(n).
+
+    - defiler2() en tête : Retirer en tête est O(1) : on “avance” le pointeur head.
+
 
     Compléter les 3 méthodes :
 
@@ -3141,6 +3152,7 @@ Cette implémentation est très peu efficace
 
         class File:
             def __init__(self, c=None):
+                assert isinstance(c, Node) or c == None
                 self.head = c
 
             def estVide(self):
@@ -3151,22 +3163,22 @@ Cette implémentation est très peu efficace
                 ### version enfiler par la tête et défiler par la queue
                 self.head = Node(element, self.head)
 
-            def defiler(self):
-                ### version enfiler par la tête et défiler par la queue
-                if not self.estVide():
-                    newNode = self.head
-                    if newNode.n == None: # cas d'une seule valeur
-                        val = newNode.v 
+                def defiler(self):
+                    ### version enfiler par la tête et défiler par la queue
+                    if not self.estVide():
+                        return 'File vide'
+                    
+                    if self.head.n == None: # cas d'une seule valeur
+                        val = self.head.v 
                         self.head = None
                         return val
-                        
+                    
+                    newNode = self.head
                     while newNode.n.n is not None: # on s'arrête à l'avant dernier
                         newNode = newNode.n
                     val = newNode.n.v
                     newNode.n = None
                     return val
-                else:
-                    return 'File vide'
             
             def enfiler2(self, element):
                 ### version enfiler par la queue et défiler par la tete
@@ -3178,14 +3190,13 @@ Cette implémentation est très peu efficace
                         tmp = tmp.n
                     tmp.n = Node(element)
             
-            def defiler2(self):
-                ### version enfiler par la queue et défiler par la tete
-                if not self.estVide():
+                def defiler2(self):
+                    ### version enfiler par la queue et défiler par la tete
+                    if not self.estVide():
+                        return 'File vide'
                     val = self.head.v
                     self.head = self.head.n
                     return val
-                else:
-                    return 'File vide'
         ```
 
     🧪 Tester :
@@ -3209,6 +3220,18 @@ Cette implémentation est très peu efficace
     assert f.defiler2() == 'Mercredi'
     assert f.defiler2() == 'File vide'
     ```
+
+    👉 Mais à quoi ressemble la liste dans la mémoire ?
+
+    ✅ **Stratégie 1** : enfiler() en tête / defiler() en queue (plus compliqué):
+
+    ![Schéma de la liste chainée après enfiler()](schema_enfiler.png)
+
+    ✅ **Stratégie 2** : enfiler2() en queue / defiler2() en tête (plus simple) :
+
+    ![Schéma de la liste chainée après enfiler2()](schema_enfiler2.png)
+    
+
 
     🎯 Compléter la méthode `__str__`.
     On peut utiliser une liste pour enregistrer les valeurs lues sur la file afin de les présenter dans l’ordre :
@@ -3259,6 +3282,7 @@ Cette implémentation est très peu efficace
 
     ??? success "✅ Solution :"
         ```python
+        # version avec affichage sous forme de liste
         def __str__(self):
             ### version enfiler par la queue et défiler par la tete
             if self.head is None:
@@ -3266,11 +3290,12 @@ Cette implémentation est très peu efficace
             result=[]
             currentNode = self.head
             while currentNode is not None:
-                result.append(str(currentNode.v))
+                result.append(currentNode.v)
                 currentNode = currentNode.n
             return str(result)
             
-        """    
+        """
+        # autre version ici avec une sortie du type 'Lundi-Mardi-...'    
         def __str__(self):  # on peut mettre __repr__ à la place pour éviter de taper print
             if self.head is None:
                 raise IndexError("File vide")
@@ -3285,7 +3310,8 @@ Cette implémentation est très peu efficace
         ```
 
     🎯 Compléter les deux méthodes suivantes : `taille()` et `sommet()`
-    (On utilisera `enfiler2()` et `defiler2()` → version plus simple)
+
+    On utilisera la version enfiler par la queue et défiler par la tête
 
     ```python
     class Node:
@@ -3348,8 +3374,9 @@ Cette implémentation est très peu efficace
 
 
 
-    🎯 Ajouter deux fonctions hors classe : `taille(file)` et `sommet(file)`
-    (utiliser également `enfiler2()` et `defiler2()`)
+    🎯 Ajouter deux fonctions hors classe : `taille2(file)` et `sommet2(file)`
+    
+    On utilisera la version enfiler par la queue et défiler par la tête
 
     ??? success "✅ Solution :"
         ```python
@@ -3370,7 +3397,7 @@ Cette implémentation est très peu efficace
 
 
 
-    🎯 Ajouter une fonction `afficherFile(file)`
+    🎯 Ajouter une fonction `afficherFile(file)`, l'équivalent de la méthode __str__()
 
     🧪 Tester
 
@@ -3393,6 +3420,7 @@ Cette implémentation est très peu efficace
                 return result
 
         """
+        #version en str
         def afficherFile(file):
             if file.head is None:
                 return "File vide"
@@ -3408,7 +3436,10 @@ Cette implémentation est très peu efficace
 
 
 📎 Avec un seul pointeur head, l’une des deux opérations (enfiler ou defiler) devient forcément linéaire O(n) selon l’endroit où on insère/supprime.
-🚀 Pour obtenir enfiler et defiler en O(1), on ajoute un second pointeur queue.
+
+😭 c'est très **décevant**
+
+🚀 Pour obtenir enfiler et defiler en O(1), on ajoute un second pointeur queue. On a donc une **liste doublement chainée**
 
 
 
@@ -3941,6 +3972,85 @@ print(hash_file("monFichier.txt"))
 Une **table de hachage** est une structure qui stocke des couples **(clé → valeur)** et permet un accès **très rapide** à la valeur à partir de la clé.
 
 ---
+
+???+ note "✅ Pourquoi on dit : « Les dictionnaires sont le plus souvent implémentés avec des tables de hachage »"
+
+    #### 1) Ce qu’on veut quand on utilise un dictionnaire
+
+    Quand on écrit :
+
+    ```python
+    d = {"Lundi": 1, "Mardi": 2, "Mercredi": 3}
+    print(d["Mardi"])
+    ```
+
+    on veut que :
+
+    - retrouver la valeur associée à une clé soit **très rapide**
+    - même si le dictionnaire contient **10**, **10 000** ou **1 million** de clés
+
+    ➡️ L’idéal : que le temps de recherche **ne dépend pas** du nombre d’éléments.
+
+    ---
+
+    #### 2) Le problème si on stocke ça “bêtement”
+
+    Si on stockait les couples (clé, valeur) dans une liste :
+
+    ```python
+    [("Lundi", 1), ("Mardi", 2), ("Mercredi", 3)]
+    ```
+
+    Pour trouver `"Mardi"`, il faudrait chercher **un par un** jusqu’à tomber dessus.
+
+    ➡️ Temps en moyenne : **O(n)** (plus le dictionnaire est grand, plus c’est long).
+
+    ---
+
+    #### 3) La solution : la table de hachage
+
+    Une table de hachage, c’est :
+
+    - un **grand tableau** (des cases numérotées 0, 1, 2, 3, …)
+    - une **fonction de hachage** qui transforme une clé en un numéro de case
+
+    **Exemple d’idée** (sans rentrer dans les détails) :
+
+    \[
+    \text{indice} = h(\text{clé}) \bmod m
+    \]
+
+    Donc `"Mardi"` est envoyé directement à **une case** du tableau.
+
+    ➡️ Résultat : on peut aller **directement** au bon endroit **sans parcourir tout**.
+
+    ✅ Temps moyen : **O(1)**
+
+    ---
+
+    #### 4) Et si deux clés tombent sur la même case ? (collision)
+
+    Ça arrive forcément : on appelle ça une **collision**.
+
+    Le dictionnaire a alors une stratégie pour gérer ça, par exemple :
+
+    - chercher une autre case libre (**adressage ouvert**)
+    - ou mettre plusieurs éléments dans une petite liste au même indice (**chaînage**)
+
+    ➡️ Dans la plupart des cas, ça reste très rapide.
+
+    ---
+
+    ✅ **La phrase expliquée en une seule ligne :**  
+    On implémente souvent les dictionnaires avec des tables de hachage car cela permet de retrouver une valeur à partir d’une clé **en moyenne en temps constant O(1)**, sans parcourir tous les éléments.
+
+    ---
+
+    **Exemple “très parlant”** :
+
+    - liste de couples : « je cherche une aiguille dans une botte de foin » → **O(n)**
+    - table de hachage : « je connais directement le casier » → **O(1)**
+
 
 **Principe** :
 
