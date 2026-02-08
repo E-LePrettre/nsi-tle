@@ -647,18 +647,18 @@ Nous aimerions maintenant accéder à **n'importe quelle valeur** de la liste, e
         ```python
         # version itérative
         def insererElement(x, L, position):
-        '''Renvoie une représentation de la Liste sous forme d'une séquence commençant par la tête '''
-        L1= nouvelleListe()
-        for i in range(position):
-            a = lireTete(L)
-            L = supprimerTete(L) 
-            L1 = insererTete(a,L1)
-        L = insererTete(x,L)
-        while not estVide(L1):
-            a = lireTete(L1)
-            L1 = supprimerTete(L1)
-            L = insererTete(a,L)
-        return L 
+            '''Renvoie une représentation de la Liste sous forme d'une séquence commençant par la tête '''
+            L1= nouvelleListe()
+            for i in range(position):
+                a = lireTete(L)
+                L = supprimerTete(L) 
+                L1 = insererTete(a,L1)
+            L = insererTete(x,L)
+            while not estVide(L1):
+                a = lireTete(L1)
+                L1 = supprimerTete(L1)
+                L = insererTete(a,L)
+            return L 
 
         # version récursive
         def insererElement(x, L, position):
@@ -679,8 +679,8 @@ Nous aimerions maintenant accéder à **n'importe quelle valeur** de la liste, e
 
 | Opération   | Coût (Θ) |
 | ----------- | -------- |
-| Lecture     | Θ(n)     |
-| Insertion   | Θ(n)     |
+| Lecture     | Θ(n) dans le pire des cas     |
+| Insertion   | Θ(n)  dans le pire des cas   |
 | Suppression | Θ(n)     |
 
 ---
@@ -1319,7 +1319,7 @@ Si on part ici de la tête qui contient le string "Lundi", on devrait lire la s
         class Liste:
             '''Classe pour implémenter une Liste sous forme de liste chaînée'''
             def __init__(self, head=None):
-                assert isinstance(next, Node) or next is None
+                assert isinstance(head, Node) or head is None
                 self.head = head
         ```
 
@@ -2110,8 +2110,11 @@ Soit une pile P composée des éléments suivants :
                 
                 # 2ème version
                 val = self.pile[-1]
-                self.pile = self.pile[:-1]
+                del self.pile[-1]   # O(1)
                 return val
+
+
+                
 
         if __name__ == '__main__':
             p = Pile()
