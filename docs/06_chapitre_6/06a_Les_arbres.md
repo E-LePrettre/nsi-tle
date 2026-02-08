@@ -69,10 +69,10 @@ Exemple pour l'expression `(y/2 - t) × (75 + z)` :
     ??? success "✔️ Solution"
 
         ```
-            -
-        /   \
-        +    13
-        / \
+             -
+           /  \
+          +   13
+         / \
         3   73
         ```
 
@@ -171,6 +171,7 @@ Exemple pour l'expression `(y/2 - t) × (75 + z)` :
 ???+ question "🔢 Activité n°3 : Arbres binaires et indexation dans un tableau"
 
     > Quelle propriété ont les indices des fils gauches et droits dans un **tableau représentant un arbre binaire** ?
+    > par exemple pour l'arbre précédent ['a', 'c', 'e', 'g', 'b', None, 'f']
 
     ??? success "🧠 Solution"
 
