@@ -740,7 +740,7 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
 
 
 
-???+ question "🔧 Activité n° 16 : Arbres binaires et POO – Méthode de Huffman simplifiée"
+???+ question "🔧 Activité n° 16 : Arbres binaires et POO"
 
 
     Implémenter la structure ARBRE avec une seule classe :
@@ -844,8 +844,8 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
 
     ```python
     def affiche(arbre):
-    if arbre != None:
-        return (arbre.valeur,affiche(arbre.g),affiche(arbre.d))
+        if arbre != None:
+            return (arbre.valeur,affiche(arbre.g),affiche(arbre.d))
     ```
 
     Cette fonction renvoie une série de tuples de la forme (valeur,arbre\_gauche, arbre\_droite), comme "arbre\_gauche" et "arbre\_droite" seront eux-mêmes affichés sous forme de tuples, on aura donc un affichage qui ressemblera à :
@@ -934,7 +934,7 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
     ??? success "❇️ Solution :"
 
         ```python
-        def hauteur2(self):
+            def hauteur2(self):
                 """
                 Méthode calculant la hauteur de l'arbre.
                 """
@@ -982,16 +982,16 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
     ??? success "❇️ Solution :"
 
         ```python
-        def taille2(self):
-        """
-        Méthode calculant le nombre total de nœuds de l'arbre.
-        """
-        if self is None or self.estVide():  # Vérifie si l'arbre est vide
-            return 0
-        else:
-            taille_gauche = self.g.taille2() if self.g else 0
-            taille_droite = self.d.taille2() if self.d else 0
-            return 1 + taille_gauche + taille_droite
+            def taille2(self):
+                """
+                Méthode calculant le nombre total de nœuds de l'arbre.
+                """
+                if self is None or self.estVide():  # Vérifie si l'arbre est vide
+                    return 0
+                else:
+                    taille_gauche = self.g.taille2() if self.g else 0
+                    taille_droite = self.d.taille2() if self.d else 0
+                    return 1 + taille_gauche + taille_droite
         ```
 
 ---
