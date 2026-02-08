@@ -2636,11 +2636,11 @@ En informatique, une **file** (*queue* en anglais) est une structure de données
 
 🎯 **Exemple** :
 
-Soit une file `F` composée de `22, 19, 7, 8, 14, 12, 42`
-(➡️ Premier élément : **12** ; Dernier élément : **222**)
+Soit une file `F` composée de `22, 19, 7, 8, 14, 12`
+(➡️ Premier élément : **22** ; Dernier élément : **12**)
 
-* `enfiler(F,42)` → devient : `22, 19, 7, 8, 14, 12`
-* `defiler(F)` renvoie `22` → devient : `19, 7, 8, 14, 12`
+* `enfiler(F,42)` → devient : `22, 19, 7, 8, 14, 12, 42`
+* `defiler(F)` renvoie `22` → devient : `19, 7, 8, 14, 12, 42`
 * `defiler(F)` x6 → `estVide(F)` renvoie **True**
 
 ---
@@ -2681,7 +2681,7 @@ mais :
 
     - L'expression file + [element] crée une nouvelle liste en concaténant file et [element].
 
-    - L'affectation file = ... fait alors pointer le nom pile vers ce nouvel objet. Mais si la variable pile est passée à la fonction par référence (comme c'est souvent le cas avec les objets mutables en Python), cela coupe le lien avec l'objet original.
+    - L'affectation file = ... fait alors pointer le nom file vers ce nouvel objet. Mais si la variable file est passée à la fonction par référence (comme c'est souvent le cas avec les objets mutables en Python), cela coupe le lien avec l'objet original.
 
     De la même manière
 
@@ -2857,7 +2857,7 @@ Ici, `taille()` est coûteuse avec une list car elle appelle defiler() (O(n)) un
 
     - L'expression file + [element] crée une nouvelle liste en concaténant file et [element].
 
-    - L'affectation file = ... fait alors pointer le nom pile vers ce nouvel objet. Mais si la variable pile est passée à la fonction par référence (comme c'est souvent le cas avec les objets mutables en Python), cela coupe le lien avec l'objet original.
+    - L'affectation file = ... fait alors pointer le nom file vers ce nouvel objet. Mais si la variable file est passée à la fonction par référence (comme c'est souvent le cas avec les objets mutables en Python), cela coupe le lien avec l'objet original.
 
     De la même manière
 
@@ -3086,7 +3086,7 @@ Cette implémentation est très peu efficace
 
 
 
-???+ question "📘 **Activité n° 39 : Structure pile avec la POO et les listes chainées**"
+???+ question "📘 **Activité n° 39 : Structure file avec la POO et les listes chainées**"
 
 On va remplacer un tableau/liste par une structure chaînée, où chaque élément “pointe” vers le suivant.
 
@@ -3166,22 +3166,22 @@ On va remplacer un tableau/liste par une structure chaînée, où chaque éléme
                 ### version enfiler par la tête et défiler par la queue
                 self.head = Node(element, self.head)
 
-                def defiler(self):
-                    ### version enfiler par la tête et défiler par la queue
-                    if not self.estVide():
-                        return 'File vide'
-                    
-                    if self.head.n == None: # cas d'une seule valeur
-                        val = self.head.v 
-                        self.head = None
-                        return val
-                    
-                    newNode = self.head
-                    while newNode.n.n is not None: # on s'arrête à l'avant dernier
-                        newNode = newNode.n
-                    val = newNode.n.v
-                    newNode.n = None
+            def defiler(self):
+                ### version enfiler par la tête et défiler par la queue
+                if not self.estVide():
+                    return 'File vide'
+                
+                if self.head.n == None: # cas d'une seule valeur
+                    val = self.head.v 
+                    self.head = None
                     return val
+                
+                newNode = self.head
+                while newNode.n.n is not None: # on s'arrête à l'avant dernier
+                    newNode = newNode.n
+                val = newNode.n.v
+                newNode.n = None
+                return val
             
             def enfiler2(self, element):
                 ### version enfiler par la queue et défiler par la tete
@@ -3193,13 +3193,13 @@ On va remplacer un tableau/liste par une structure chaînée, où chaque éléme
                         tmp = tmp.n
                     tmp.n = Node(element)
             
-                def defiler2(self):
-                    ### version enfiler par la queue et défiler par la tete
-                    if not self.estVide():
-                        return 'File vide'
-                    val = self.head.v
-                    self.head = self.head.n
-                    return val
+            def defiler2(self):
+                ### version enfiler par la queue et défiler par la tete
+                if not self.estVide():
+                    return 'File vide'
+                val = self.head.v
+                self.head = self.head.n
+                return val
         ```
 
     🧪 Tester :
@@ -3617,38 +3617,35 @@ On va remplacer un tableau/liste par une structure chaînée, où chaque éléme
 
     ##########################################################
     # Vérifier si la pile est vide
-
+    def est_vide(pile) :
+        pass
 
     print("La pile est vide ?", est_vide(pile))
 
-    ##########################################################
+    ########################################################## 
     # Empiler des éléments 10, 20 puis 30 
-    #à compléter
+    
 
 
-
+    
     print("Pile après empilage:", pile)
 
     ##########################################################
     # Dépiler un élément
-    # à compléter
-
-
-
+    element = ...
     print("Élément dépilé:", element)
 
     #########################################################
     # Regarder l'élément au sommet sans le dépiler
-    # à compléter
-
-
+    if ...
+        sommet = ...
+    else :
+        ...
     print("Élément au sommet:", sommet)
 
     #########################################################
     # Déterminer la taille de la pile 
-    # à compléter
-
-
+    taille = ...
     print("La taille de la pile:", taille)
     ```
 
@@ -3667,6 +3664,7 @@ On va remplacer un tableau/liste par une structure chaînée, où chaque éléme
 
         print("La pile est vide ?", est_vide(pile))
 
+
         # Empiler des éléments
         pile.append(10)
         pile.append(20)
@@ -3679,7 +3677,10 @@ On va remplacer un tableau/liste par une structure chaînée, où chaque éléme
         print("Élément dépilé:", element)
 
         # Regarder le sommet
-        sommet = pile[-1]
+        if not est_vide(pile):
+            sommet = pile[-1]
+        else:
+            print("pile vide")
         print("Élément au sommet:", sommet)
 
         # Taille de la pile
@@ -3704,7 +3705,8 @@ On va remplacer un tableau/liste par une structure chaînée, où chaque éléme
 
     ##########################################################
     # Vérifier si la file est vide
-
+    def est_vide(file):
+        pass
 
     print("La file est vide ?", est_vide(file))
 
@@ -3720,21 +3722,24 @@ On va remplacer un tableau/liste par une structure chaînée, où chaque éléme
     # Défiler un élément
     # à compléter
 
-
+    element = ...
 
     print("Élément défilé:", element)
 
     #########################################################
     # Regarder l'élément au sommet sans le défiler
     # à compléter
-
+    if ...
+        sommet = ...
+    else:
+        ...
 
     print("Élément au sommet:", sommet)
 
     #########################################################
     # Déterminer la taille de la file 
-    # à compléter
-
+    
+    taille = ...
 
     print("La taille de la file:", taille)
     ```
