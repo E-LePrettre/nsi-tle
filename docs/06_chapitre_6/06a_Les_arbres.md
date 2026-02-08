@@ -1076,6 +1076,7 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
                 """
                 if self.noeud:
                     return Arbre(self.noeud.g)
+                return None
                 #version 2 return self.noeud.g mais
                 # Vous accédez directement au sous-noeud gauche ou droit, sans 
                 # le "remettre dans un objet Arbre". Cela brise un peu l'encapsulation 
@@ -1088,6 +1089,7 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
                 """
                 if self.noeud:
                     return Arbre(self.noeud.d)
+                return None
                 # meme remarque que précédement
         ```
     
@@ -1154,7 +1156,7 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
     Ajouter la **méthode** suivante à la classe `Noeud` :
     ```python
     def __repr__(self):
-        return self.valeur + str(self.g).replace("None", ".") + str(self.d).replace("None", ".")
+        return str(self.valeur) + str(self.g).replace("None", ".") + str(self.d).replace("None", ".")
     ```
 
     Ajouter la **méthode** suivante à la classe `Arbre` :
@@ -1171,7 +1173,7 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
         class Noeud:
         ...
         def __repr__(self):
-            return self.valeur + str(self.g).replace("None", ".") + str(self.d).replace("None", ".")
+            return str(self.valeur) + str(self.g).replace("None", ".") + str(self.d).replace("None", ".")
         
         class Arbre:
             ...
@@ -1207,7 +1209,7 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
             """
             Fonction récursive qui calcule la hauteur d'un arbre binaire.
             """
-            if arbre is None :  # Si l'arbre est vide, la hauteur est 0
+            if arbre is None or arbre.estVide() :  # Si l'arbre est vide, la hauteur est 0
                 return 0
             else:
                 return 1 + max(hauteur(arbre.get_gauche()) if arbre.get_gauche() else 0, hauteur(arbre.get_droit()) if arbre.get_droit() else 0)
@@ -1360,7 +1362,7 @@ A = {
 
     💡 Rappel :
 
-    * La **hauteur** correspond au **plus grand nombre d’arêtes** entre la racine et une feuille.
+    * La **hauteur** correspond au **plus grand nombre de noeuds** entre la racine et une feuille.
     * La **taille** correspond au **nombre total de nœuds** de l’arbre.
 
     ??? success "❇️ Solution :"
@@ -1811,7 +1813,7 @@ A = {
     ??? success "✅ Solution"
 
         Le parcours en largeur donné par l'algorithme doit retourner la **liste** suivante :
-        `['r', 'a', 'b', 'c', 'd', 'e', 'f', 'h', 'i', 'j', 'k', 'l']`
+        `['r', 'a', 'b', 'c', 'd', 'e', 'f', 'h', 'i', 'j', 'k', 'l', 'm"]`
 
 
 ---
@@ -1859,7 +1861,7 @@ A = {
         ```
 
 
-???+ question "**🧠 Activité n° 36 : Arbre binaire et parcours en largeur (tuples)**"
+???+ question "**🧠 Activité n° 36bis : Arbre binaire et parcours en largeur (tuples)**"
 
 
     Implémente la fonction de parcours en largeur en utilisant la file ci-dessus.
@@ -1940,7 +1942,7 @@ A = {
                 return file.popleft()
         ```
 
-???+ question "**🧠 Activité n° 37 : Arbre binaire et parcours en largeur (POO v1)**"
+???+ question "**🧠 Activité n° 37bis : Arbre binaire et parcours en largeur (POO v1)**"
 
 
     Implémente la fonction de parcours en largeur (fonction classique, pas méthode) .
@@ -1961,7 +1963,7 @@ A = {
         ```
 
         Comme précédemment, on doit obtenir la liste :
-        `['r', 'a', 'b', 'c', 'd', 'e', 'f', 'h', 'i', 'j', 'k', 'l']`
+        `['r', 'a', 'b', 'c', 'd', 'e', 'f', 'h', 'i', 'j', 'k', 'l', 'm']`
 
 ---
 
@@ -2007,7 +2009,7 @@ A = {
                 return file.popleft()
         ```
 
-???+ question "**🧠 Activité n° 38 : Arbre binaire et parcours en largeur (POO v2)**"
+???+ question "**🧠 Activité n° 38bis : Arbre binaire et parcours en largeur (POO v2)**"
 
 
     Implémente la fonction de parcours en largeur, en utilisant la structure d’arbre objet avec interface.
@@ -2017,17 +2019,20 @@ A = {
         def parcours_largeur(T):
             f = file_vide()
             enfiler(f, T)
+
             while not est_vide(f):
                 tmp = defiler(f)
-                print(tmp.get_valeur(), end=' ')
-                if tmp.get_gauche():
-                    enfiler(f, tmp.get_gauche())
-                if tmp.get_droit():
-                    enfiler(f, tmp.get_droit())
+                print(tmp.noeud.valeur, end=' ')
+
+                if tmp.noeud.g is not None:
+                    enfiler(f, Arbre(tmp.noeud.g))
+                if tmp.noeud.d is not None:
+                    enfiler(f, Arbre(tmp.noeud.d))
+
         print(parcours_largeur(arbre))
         ```
         Le parcours attendu reste :
-        `['r', 'a', 'b', 'c', 'd', 'e', 'f', 'h', 'i', 'j', 'k', 'm']`
+        `['r', 'a', 'b', 'c', 'd', 'e', 'f', 'h', 'i', 'j', 'k']`
 
 
 
