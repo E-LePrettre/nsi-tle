@@ -317,6 +317,7 @@ Deux conventions sont admises (elles seront **indiquées au BAC**) :
 ???+ question "🧠 Activité n°7 : Taille, hauteur, arêtes, profondeur"
 
     Fournir la taille, la hauteur, le nombre d’arêtes de cet arbre, et la profondeur du nœud **C** :
+    On supposera que la racine est au niveau 0.
     
     ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.023.png){width=30%; .center}
 
@@ -325,7 +326,7 @@ Deux conventions sont admises (elles seront **indiquées au BAC**) :
         > 1. 🌳 **Taille** : 7 nœuds (A, B, C, D, E, F, G)
         > 2. 📏 **Hauteur** : la racine est au niveau 0 ; les feuilles (D, E, F, G) sont au niveau 2 → **Hauteur = 2**
         > 3. 🧩 **Nombre d’arêtes** = 7 – 1 = **6**
-        > 4. 🧮 **Profondeur du nœud C** = **1**
+        > 4. 🧮 **Profondeur du nœud C** = **1** 
         >
         > 🧠 Cet arbre est **complet** car tous les niveaux sont remplis jusqu'à la hauteur maximale, et toutes les feuilles sont au **même niveau**.
 
@@ -341,7 +342,7 @@ Deux conventions sont admises (elles seront **indiquées au BAC**) :
         > 1. 🌳 **Taille** : 7 nœuds
         > 2. 📏 **Hauteur** : le dernier nœud G est au niveau 6 → **Hauteur = 6**
         > 3. 🧩 **Nombre d’arêtes** = 6
-        > 4. 🧮 **Profondeur du nœud C** = 2
+        > 4. 🧮 **Profondeur du nœud C** = 2 
         >
         > ⚠️ Cet arbre est **filiforme** (ou **dégénéré**) car il se comporte comme une **liste chaînée** : un seul chemin.
 
