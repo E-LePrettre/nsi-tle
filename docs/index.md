@@ -3,7 +3,7 @@ _Lycée Jean Cassaigne_
 
 ---
 
-## 📘 Chapitres du programme
+### 📘 Chapitres du programme
 
 1️⃣ **Révisions de Première**  
 2️⃣ **Récursivité et méthode « Diviser pour régner »**  
