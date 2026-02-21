@@ -1,1 +1,1 @@
-Rendu du site : [https://eleprettre.forge.apps.education.fr/nsi-tle/](https://eleprettre.forge.apps.education.fr/nsi-tle/)
+Rendu du site : https://e-leprettre.github.io/nsi-tle/
