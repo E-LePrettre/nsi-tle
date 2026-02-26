@@ -673,7 +673,7 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
         ```python
         arbre = noeud("A",
                     noeud("B", noeud("D"), noeud("E")),
-                    noeud("C", None, noeud("F")))
+                    noeud("C", None, None))
         ```
 
 
