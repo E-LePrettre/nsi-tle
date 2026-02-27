@@ -1291,7 +1291,7 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
 
         ✅ Test :
         ```python
-        print(taille(arbre))  # 4
+        print(taille(arbre))  # 5
         print(taille(T))      # 7
         ```
 
@@ -1322,9 +1322,9 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
 
         ✅ Test :
         ```python
-        print(arbre.taille2())  # 4
+        print(arbre.taille2())  # 5
         print(T.taille2())      # 7
-    ```
+        ```
 
 
 !!! info "🧠 Capytale : arbre\_binaire\_dictionnaire"
