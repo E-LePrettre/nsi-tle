@@ -1,4 +1,4 @@
-﻿---
+---
 author: ELP
 title: 11 Programmation dynamique
 ---
@@ -467,9 +467,9 @@ Il existe une version encore plus efficace, très compacte, qui exploite parfait
 
     ```python
     def fiboMonte2(n):
-        a = b = 1
-        for i in range(3, n + 1):
-            a, b = a + b, a
+        a, b = 0, 1
+        for i in range(n):
+            a, b = b, a + b
         return a
     ```
 
@@ -484,7 +484,16 @@ Il existe une version encore plus efficace, très compacte, qui exploite parfait
     Observe-t-on un problème ? Le temps d’exécution évolue-t-il comme prévu ?
 
     ??? success "✅ Analyse et réponse attendues"
-        ✔️ La fonction est correcte et renvoie les bonnes valeurs.
+        ✔️ La fonction est correcte et renvoie les bonnes valeurs, cohérentes avec la définition
+
+        `F(0) = 0, F(1) = 1` utilisée dans tout le chapitre.
+
+        | n  | résultat attendu |
+        |----|-----------------|
+        | 0  | 0               |
+        | 1  | 1               |
+        | 6  | 8               |
+        | 10 | 55              |
 
         ✔️ Elle utilise une approche **bottom-up** :
 
@@ -801,18 +810,39 @@ Elle permet de bien comprendre le problème… mais aussi ses limites.
 ---
 
 ???+ question "🧠 **Activité n° 11 — Analyse de l’approche récursive**"
-    👉 Expliquer en quoi cette méthode est une application du paradigme  
-    **« diviser pour régner »**.
+    👉 Expliquer en quoi cette méthode **ne relève pas** du paradigme  
+    **« diviser pour régner »**, mais plutôt d'une approche par **force brute récursive**.
+
 
     ??? success "✅ Réponse attendue"
-        ✔️ Le problème global (rendre une somme) est **divisé** en sous-problèmes :
-        rendre `somme - pièce`.
+        ✔️ À première vue, la fonction **ressemble** au diviser pour régner :
+        elle décompose le problème (rendre `somme`) en sous-problèmes plus petits
+        (rendre `somme - pièce`).
 
-        ✔️ Chaque sous-problème est **résolu indépendamment** par récursion.
+        ❌ Mais ce n'est **pas** du diviser pour régner, pour une raison essentielle :
 
-        ✔️ Les solutions partielles sont ensuite **comparées** pour choisir la meilleure.
+        👉 Dans le diviser pour régner (vu en section 1.2), les sous-problèmes sont
+        **indépendants** : résoudre l'un ne nécessite pas de résoudre l'autre.
 
-        👉 C’est exactement le principe du **diviser pour régner**.
+        👉 Ici, les sous-problèmes **se chevauchent** : la même somme intermédiaire
+        (par exemple `somme = 2`) peut être recalculée de nombreuses fois par
+        différentes branches de l'arbre récursif.
+
+        ✔️ C'est exactement cette propriété — des **sous-problèmes qui se chevauchent**
+        — qui distingue les problèmes relevant de la **programmation dynamique**
+        de ceux relevant du diviser pour régner.
+
+        📌 **Bilan :**
+
+        | Paradigme            | Sous-problèmes      | Mémorisation |
+        |----------------------|---------------------|--------------|
+        | Diviser pour régner  | Indépendants        | Non nécessaire |
+        | Programmation dynamique | Qui se chevauchent | Indispensable |
+
+        👉 Cette méthode est donc une **force brute récursive** : elle explore
+        tous les chemins possibles sans mémoriser les résultats intermédiaires,
+        ce qui la rend très inefficace et motive directement l'utilisation de
+        la **programmation dynamique** dans la partie suivante.
 
 ---
 
@@ -1081,7 +1111,7 @@ fin fonction
         ```python
         def rendu_monnaie_dyna(somme_a_rendre, systeme):
             # Initialisation du tableau : +∞ sauf pour la somme 0
-            nb = [float('inf')] * (somme_a_rendre + 1)  # ou from math import inf
+            nb = [float('inf')] * (somme_a_rendre + 1)
             nb[0] = 0  # Il faut 0 pièce pour rendre 0
 
             for s in range(1, somme_a_rendre + 1):
@@ -1089,10 +1119,16 @@ fin fonction
                     if p <= s:
                         nb[s] = min(nb[s], 1 + nb[s - p])
 
+            if nb[somme_a_rendre] == float('inf'):
+                return -1  # somme impossible à rendre
             return nb[somme_a_rendre]
 
 
-        assert rendu_monnaie_dyna(5, [2, 1]) == 3
+        # Tests
+        assert rendu_monnaie_dyna(5, [2, 1]) == 3   # 2 + 2 + 1
+        assert rendu_monnaie_dyna(6, [1, 3, 4]) == 2 # 3 + 3
+        assert rendu_monnaie_dyna(10, [9, 3, 2]) == 4 # 2 + 2 + 3 + 3
+        assert rendu_monnaie_dyna(1, [9, 3, 2]) == -1 # impossible
         ```
 
 
