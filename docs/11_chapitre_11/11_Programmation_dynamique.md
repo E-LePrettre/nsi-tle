@@ -1319,65 +1319,85 @@ assert rendu_monnaie_dyna_combi(1, [9, 3, 2]) == [-1]
 
 !!! info "🧠 **Capytale : Les codes seront fournis par votre enseignant.**"
 
+
 !!! abstract "🧩 **Exercice n°1 : le pb du sac à dos**"
 
-    On rappelle le problème du sac à dos déjà vu en première : on dispose de *n* objets assimilables à des couples (valeur, poids) et d’un sac à dos qui peut porter un poids maximum *w*. L’objectif est de maximiser la valeur des objets contenus dans le sac.
 
-    Nous avons vu deux stratégies en première :
+    On rappelle le problème du sac à dos déjà vu en première : on dispose de *n* objets assimilables à des couples (valeur, poids) et d'un sac à dos qui peut porter un poids maximum *w*. L'objectif est de maximiser la valeur des objets contenus dans le sac.
 
-    - force brute : tester toutes les combinaisons possibles, envisageable avec 20 objets par exemple, mais pas avec 60 objets.
-    - algorithmes gloutons :
-    - glouton 1 : on prend d’abord les objets de valeurs maximales.
-    - glouton 2 : on prend d’abord les objets maximisant le rapport valeur/poids.
+    Nous avons vu deux stratégies en première :
 
-    Les algorithmes gloutons sont très rapides, en O(<i>n log<sub>2</sub></i>(<i>n</i>)) si on trie les objets suivant le critère choisi avec un bon algorithme de tri, mais ne garantissent pas d’obtenir la meilleure solution.
+    - force brute : tester toutes les combinaisons possibles, envisageable avec 20 objets par exemple, mais pas avec 60 objets.
+
+    - algorithmes gloutons :
+
+        - glouton 1 : on prend d'abord les objets de valeurs maximales.
+        - glouton 2 : on prend d'abord les objets maximisant le rapport valeur/poids.
+
+    Les algorithmes gloutons sont très rapides, en O(*n log₂*(*n*)) si on trie les objets suivant le critère choisi avec un bon algorithme de tri, mais ne garantissent pas d'obtenir la meilleure solution.
 
     **Résolution par programmation dynamique**
 
-    On peut construire une solution optimale du problème à *i* objets à partir d’une résolution du problème à *i* – 1 objets.
+    On peut construire une solution optimale du problème à *i* objets à partir d'une résolution du problème à *i* – 1 objets.
 
-    Supposons qu’on a résolu le problème à *i* – 1 objets pour un poids maximal *p* allant de 0 à *w*.
+    Supposons qu'on a résolu le problème à *i* – 1 objets pour un poids maximal *p* allant de 0 à *w*.
 
-    On rajoute un <i>i</i>-ème objet (<i>v<sub>i</sub></i>, <i>p<sub>i</sub></i>). Alors, une solution optimale du problème à <i>i</i> objets avec un poids maximal de <i>w</i> est :
+    On rajoute un *i*-ème objet (*vᵢ*, *pᵢ*). Alors, une solution optimale du problème à *i* objets avec un poids maximal de *w* est :
 
     - soit une solution optimale du problème à *i* – 1 objets avec le poids maximal *w*,
-    - soit une solution optimale du problème à <i>i</i> – 1 objets avec le poids maximal <i>w</i> – <i>p<sub>i</sub></i> à laquelle on ajoute le <i>i</i>-ème objet.
 
-    On résout donc successivement les problèmes à 1 objet, 2 objets, 3 objets, … pour les poids allant de 0 à *w*. On présente les solutions dans un tableau. Le contenu du tableau dépend de l’ordre des objets mais pas la dernière ligne.
+    - soit une solution optimale du problème à *i* – 1 objets avec le poids maximal  *w* – *pᵢ* à laquelle on ajoute le *i*-ème objet.
+
+    On résout donc successivement les problèmes à 1 objet, 2 objets, 3 objets, … pour les poids allant de 0 à *w*. On présente les solutions dans un tableau. Le contenu du tableau dépend de l'ordre des objets mais pas la dernière ligne.
 
     **Exemple**
 
-    Résolution du problème du sac à dos avec la liste objets = [(3, 2), (8, 10), (2, 2), (8, 1), (4, 6), (6, 6)] et le poids maximal *w* = 10 kg. Les objets sont au format (valeur, poids).
+    Résolution du problème du sac à dos avec la liste 
+    `objets = [(3, 2), (8, 10), (2, 2), (8, 1), (4, 6), (6, 6)]` 
+    et le poids maximal *w* = 10 kg. Les objets sont au format (valeur, poids).
 
+    | Objets\Poids | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+    |---|---|---|---|---|---|---|---|---|---|---|---|
+    | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+    | 1 (3,2) | 0 | 0 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 |
+    | 2 (8,10) | 0 | 0 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 3 | 8 |
+    | 3 (2,2) | 0 | 0 | 3 | 3 | 5 | 5 | 5 | 5 | 5 | 5 | 8 |
+    | 4 (8,1) | 0 | 8 | 8 | 11 | 11 | 13 | 13 | 13 | 13 | 13 | 13 |
+    | 5 (4,6) | 0 | 8 | 8 | 11 | 11 | 13 | 13 | 13 | 13 | 15 | 15 |
+    | 6 (6,6) | 0 | 8 | 8 | 11 | 11 | 13 | 13 | 14 | 14 | 17 | 17 |
 
+    La valeur maximale est **17**, atteinte avec un poids de **9 kg**.
 
-    | Objets\Poids | 0  | 1  | 2  | 3  | 4  | 5  | 6  | 7  | 8  | 9  | 10 |
-    |--------------|----|----|----|----|----|----|----|----|----|----|----|
-    | 0            | 0  | 0  | 0  | 0  | 0  | 0  | 0  | 0  | 0  | 0  | 0  |
-    | 1            | 0  | 0  | 3  | 3  | 3  | 3  | 3  | 3  | 3  | 3  | 3  |
-    | 2            | 0  | 0  | 3  | 3  | 3  | 3  | 3  | 3  | 3  | 3  | 8  |
-    | 3            | 0  | 0  | 3  | 3  | 5  | 5  | 5  | 5  | 5  | 5  | 8  |
-    | 4            | 0  | 8  | 8  | 11 | 11 | 13 | 13 | 13 | 13 | 13 | 13 |
-    | 5            | 0  | 8  | 8  | 11 | 11 | 13 | 13 | 13 | 13 | 15 | 15 |
-    | 6            | 0  | 8  | 8  | 11 | 11 | 13 | 13 | 14 | 14 | 17 | 17 |
+    **Remontée pour retrouver les objets choisis :**
 
+    - La valeur 17 (ligne 6, poids 9) diffère de la ligne 5 → on a pris l'**objet 6** (valeur 6, poids 6). Poids restant : 9 – 6 = 3, on remonte à la ligne 5.
 
+    - La valeur à (ligne 5, poids 3) = 11, identique à (ligne 4, poids 3) → on n'a **pas pris l'objet 5**. On remonte à la ligne 4.
 
-    La valeur maximale est 17, atteinte avec un poids de 9 kg. Puisque cette valeur n’est pas atteinte avec 5 objets, on a pris l’objet n°6, qui pèse 6 kg, donc il reste 9 – 6 = 3 kg pour 5 objets. Pour 5 objets, la valeur maximale atteinte avec 3 kg est égale à 11, c’est la même avec 4 objets. On n’a donc pas pris l’objet n°5, mais on a pris l’objet n°4 qui pèse 1 kg, donc il reste 2 kg pour 3 objets, ce qui permet une valeur égale à 3, déjà atteinte avec l’objet n°1.
+    - La valeur à (ligne 4, poids 3) = 11 diffère de (ligne 3, poids 3) = 3 → on a pris l'**objet 4** (valeur 8, poids 1). Poids restant : 3 – 1 = 2, on remonte à la ligne 3.
 
-    On obtient donc la valeur optimale de 17 avec les objets 1, 4, 6.
+    - La valeur à (ligne 3, poids 2) = 3, identique à (ligne 2, poids 2) = 3 → on n'a **pas pris l'objet 3**. On remonte à la ligne 2.
+
+    - La valeur à (ligne 2, poids 2) = 3, identique à (ligne 1, poids 2) = 3 → on n'a **pas pris l'objet 2**. On remonte à la ligne 1.
+
+    - La valeur à (ligne 1, poids 2) = 3 diffère de (ligne 0, poids 2) = 0 → on a pris l'**objet 1** (valeur 3, poids 2).
+
+    👉 Solution optimale : **objets 1, 4 et 6** — valeur totale = 3 + 8 + 6 = **17**, 
+    poids total = 2 + 1 + 6 = **9 kg** ✅
+
+    ---
 
     **Exercice**
 
     Même exercice avec
 
-    objets = [(5, 3), (9, 2), (10, 5), (6, 4), (7, 1), (9, 3)]** et** *w* = 10.
+    `objets = [(5, 3), (9, 2), (10, 5), (6, 4), (7, 1), (9, 3)]` et *w* = 10.
 
     **Algorithme**
 
-    1\. Écrire l’algorithme en langage naturel permettant, à partir d’une liste d’objets au format (valeur, poids) et d’un poids maximal *w* de construire le tableau des solutions du problème du sac à dos comme ci-dessus.
+    1\. Écrire l'algorithme en langage naturel permettant, à partir d'une liste d'objets au format (valeur, poids) et d'un poids maximal *w*, de construire le tableau des solutions du problème du sac à dos comme ci-dessus.
 
-    2\. Écrire l’algorithme renvoyant une solution optimale à partir du tableau précédent.
+    2\. Écrire l'algorithme renvoyant une solution optimale à partir du tableau précédent.
 
     ***ou***
 
@@ -1387,15 +1407,15 @@ assert rendu_monnaie_dyna_combi(1, [9, 3, 2]) == [-1]
 
     **Programmation**
 
-    Ouvrir le fichier sacados\_eleve.py.
+    Ouvrir le fichier `sacados_eleve.py`.
 
-    1\. Écrire la fonction tableau\_kp\_dynamique(objets, w) qui renvoie le tableau donnant les solutions optimales pour 0 à len(objets) objets et des poids de 0 à w.
+    4\. Écrire la fonction `tableau_kp_dynamique(objets, w)` qui renvoie le tableau donnant les solutions optimales pour 0 à `len(objets)` objets et des poids de 0 à *w*.
 
     Exécuter le code pour tester votre fonction.
 
-    2\. Écrire la fonction kp\_dynamique(objets, w), qui utilise la fonction tableau\_kp\_dynamique(objets, w) et renvoie la valeur maximale et une liste d’objets réalisant cette valeur. 
+    5\. Écrire la fonction `kp_dynamique(objets, w)`, qui utilise la fonction  `tableau_kp_dynamique(objets, w)` et renvoie la valeur maximale et une liste d'objets réalisant cette valeur.
 
-    Exécuter la fonction test\_dynamique() pour tester votre fonction.
+    Exécuter la fonction `test_dynamique()` pour tester votre fonction.
 
 
 
@@ -1405,17 +1425,25 @@ assert rendu_monnaie_dyna_combi(1, [9, 3, 2]) == [-1]
 
     Voici le prix moyen des planches qu'elle peut vendre actuellement en fonction de la longueur de la planche :
 
-    |Longueur (m)|1|2|3|4|5|6|7|8|9|10|
-    | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-    |Prix|1|5|8|9|10|17|17|20|24|30|
+    | Longueur (m) | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
+    |---|---|---|---|---|---|---|---|---|---|---|
+    | Prix | 1 | 5 | 8 | 9 | 10 | 17 | 17 | 20 | 24 | 30 |
 
-    1. Quelle est la meilleure découpe à faire pour des planches de 2 mètres ?
-    1. Quelle est la meilleure découpe à faire pour des planches de 3 mètres ? Utilisez le résultat de la question précédente pour connaître la découpe optimale pour moins de 3 mètres.
-    1. Quelle est la meilleure découpe à faire pour des planches de 4 mètres ? Utilisez les résultats des questions précédentes pour connaître la découpe optimale pour moins de 4 mètres.
-    1. Quelle est la meilleure découpe à faire pour des planches de 5 mètres ? Utilisez les résultats des questions précédentes pour connaître la découpe optimale pour moins de 5 mètres.
-    1. Quelle est la meilleure découpe à faire pour des planches de 6 mètres ? Utilisez les résultats des questions précédentes pour connaître la découpe optimale pour moins de 6 mètres.
-    1. Quelle est la meilleure découpe à faire pour des planches de 7 mètres ? Utilisez les résultats des questions précédentes pour connaître la découpe optimale pour moins de 7 mètres.
-    1. Expliquer comment fonctionne l'appel decoupe\_optimale(prix, 7)
+    Pour chaque question, on note `m[i]` le prix optimal pour une planche de longueur `i`.
+
+    1\. Quelle est la meilleure découpe pour une planche de **2 mètres** ?
+
+    2\. Quelle est la meilleure découpe pour une planche de **3 mètres** ?
+
+    3\. Quelle est la meilleure découpe pour une planche de **4 mètres** ?
+
+    4\. Quelle est la meilleure découpe pour une planche de **5 mètres** ?
+
+    5\. Quelle est la meilleure découpe pour une planche de **6 mètres** ?
+
+    6\. Quelle est la meilleure découpe pour une planche de **7 mètres** ?
+
+    7\. Expliquer comment fonctionne l'appel `decoupe_optimale(prix, 7)`.
 
     ```python
     def decoupe_optimale(p, lg_max):
@@ -1445,22 +1473,21 @@ assert rendu_monnaie_dyna_combi(1, [9, 3, 2]) == [-1]
 
 
 
-
 ## <H2 STYLE="COLOR:BLUE;"><a name="_toc159507091"></a>**5. 🔎 Projet </h2>**
 
 !!! info "🧠 **Capytale : Les codes seront fournis par votre enseignant.**"
 
 !!! abstract "🧩 **le triangle de Pascal**"
 
-    **Principe :** 
+    **Principe :** 
 
-    En mathématiques, le triangle de Pascal est une présentation des coefficients binomiaux dans un triangle. Il fut nommé ainsi en l’honneur du mathématicien français Blaise Pascal. Il est connu sous l’appellation « triangle de Pascal » en Occident, bien qu’il fût étudié par d’autres mathématiciens, parfois plusieurs siècles avant lui.
+    En mathématiques, le triangle de Pascal est une présentation des coefficients binomiaux dans un triangle. Il fut nommé ainsi en l'honneur du mathématicien français Blaise Pascal. Il est connu sous l'appellation « triangle de Pascal » en Occident, bien qu'il fût étudié par d'autres mathématiciens, parfois plusieurs siècles avant lui.
 
     ![triangle de Pascal](Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.010.jpeg)
 
     [premières lignes du triangle de Pascal](https://commons.wikimedia.org/w/index.php?curid=3105222)
 
-    Cette figure permet de calculer les coefficients binomiaux d’un polynôme (x+y) à la puissance n:
+    Cette figure permet de calculer les coefficients binomiaux d'un polynôme (x+y) à la puissance n :
 
     $n=2,\left(x+y\right)^2=\ x^2+2xy+y^2$
 
@@ -1468,13 +1495,14 @@ assert rendu_monnaie_dyna_combi(1, [9, 3, 2]) == [-1]
 
     $n=4,\left(x+y\right)^4=\ x^4+4x^3y+6x^2y^2+4xy^3+y^4$
 
-    voir compléments sur la page wikipedia : [Lien](https://fr.wikipedia.org/wiki/Triangle_de_Pascal)
+    voir compléments sur la page wikipedia : [Lien](https://fr.wikipedia.org/wiki/Triangle_de_Pascal)
 
-    **Propriétés :** 
+    **Propriétés :** 
 
-    - Il est possible de calculer directement un coefficient binomial à l’aide de cette formule
+    - Il est possible de calculer directement un coefficient binomial à l'aide de cette formule :
     $C\left(\begin{matrix}n\\k\\\end{matrix}\right)=\frac{n!}{k!\left(n-k\right)!}$
-    - Un coefficient quelconque du triangle, situé à la ligne i et à la colonne j est calculé à partir de la formule de récurrence : (i et j supérieurs à 1)
+
+    - Un coefficient quelconque du triangle, situé à la ligne i et à la colonne j est calculé à partir de la formule de récurrence (i et j supérieurs à 1) :
 
     $C\left(\begin{matrix}i\\j\\\end{matrix}\right)=C\left(\begin{matrix}i-1\\j-1\\\end{matrix}\right)+C\left(\begin{matrix}i-1\\j\\\end{matrix}\right)$
 
@@ -1482,65 +1510,110 @@ assert rendu_monnaie_dyna_combi(1, [9, 3, 2]) == [-1]
 
     Dans le triangle ci-dessous, cela signifie :
 
-    1\. qu’on remplit les lignes une par une,
+    1\. qu'on remplit les lignes une par une,
+    
+    2\. qu'on ajoute deux valeurs voisines d'une même ligne pour obtenir celle sous la valeur de droite.
 
-    2\. qu’on ajoute deux valeurs voisine d’une même ligne pour obtenir celle sous la valeur de droite.
-
-    Par exemple le *3* est obtenu en faisant *1 + 2 = 3* (ses voisins du dessus)
+    Par exemple le *3* est obtenu en faisant *1 + 2 = 3* (ses voisins du dessus).
 
     On rappelle que les coefficients situés aux bords du triangle de Pascal valent toujours 1.
 
-    1\. Compléter le triangle de Pascal suivant
+    ---
 
-    |**n\k**|**0**|**1**|**2**|**3**|**4**|**5**|**6**|**7**|
-    | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-    |0|1||||||||
-    |1|1|1|||||||
-    |2|**1**|**2**|1||||||
-    |3|1|**3**|||||||
-    |4|||||||||
-    |5|||||||||
-    |6|||||||||
-    |7|||||||||
+    **1\. Compléter le triangle de Pascal suivant :**
 
-    2\. Ecrire des fonctions factorielle(n) et binome(n,k) qui permettent de calculer respectivement n ! et Cnk avec la première formule. Il faudra tenir compte des cas k =0 et k>n (dans ce cas là le coefficient binomial vaut 0)
+    | **n\k** | **0** | **1** | **2** | **3** | **4** | **5** | **6** | **7** |
+    |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+    | 0 | 1 | | | | | | | |
+    | 1 | 1 | 1 | | | | | | |
+    | 2 | 1 | 2 | 1 | | | | | |
+    | 3 | | | | | | | | |
+    | 4 | | | | | | | | |
+    | 5 | | | | | | | | |
+    | 6 | | | | | | | | |
+    | 7 | | | | | | | | |
 
-    Test :
+    ---
+
+    **2\. Écrire les fonctions `factorielle(n)` et `binome(n, k)`**
+    ```python
+    def factorielle(n):
+        pass
+
+    def binome(n, k):
+        pass
     ```
-    >>> binome(3,2)
+
+    Tests :
+    ```
+    >>> binome(3, 2)
     3
-    >>> binome(2,3)
+    >>> binome(2, 3)
     0
-    >>> binome(3,0)
+    >>> binome(3, 0)
     1
     ```
 
-    3\. Ecrire une fonction récursive binome\_rec(n, k) qui calcule le coefficient binomial avec le deuxième formule
+    ---
 
-    4\. Affichage de tous les coefficient binomiaux pour une valeur de n donnée : écrire une fonction `pascal(n)`  qui prend en paramètre la valeur de n et qui retourne les coefficients binomiaux pour toutes les lignes de 0 à n et les colonnes de 0 à n.
+    **3\. Écrire une fonction récursive `binome_rec(n, k)`**
+    ```python
+    def binome_rec(n, k):
+        pass
+    ```
 
-    Test :
+
+     ---
+
+    **4\. Écrire une fonction `pascal(n)`**
+    ```python
+    def pascal(n):
+        pass
+    ```
+
+    Test :
     ```
     >>> pascal(9)
     [[1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-    [1, 2, 1, 0, 0, 0, 0, 0, 0, 0],
-    [1, 3, 3, 1, 0, 0, 0, 0, 0, 0],
-    [1, 4, 6, 4, 1, 0, 0, 0, 0, 0],
-    [1, 5, 10, 10, 5, 1, 0, 0, 0, 0],
-    [1, 6, 15, 20, 15, 6, 1, 0, 0, 0],
-    [1, 7, 21, 35, 35, 21, 7, 1, 0, 0],
-    [1, 8, 28, 56, 70, 56, 28, 8, 1, 0],
-    [1, 9, 36, 84, 126, 126, 84, 36, 9, 1]]
+     [1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+     [1, 2, 1, 0, 0, 0, 0, 0, 0, 0],
+     [1, 3, 3, 1, 0, 0, 0, 0, 0, 0],
+     [1, 4, 6, 4, 1, 0, 0, 0, 0, 0],
+     [1, 5, 10, 10, 5, 1, 0, 0, 0, 0],
+     [1, 6, 15, 20, 15, 6, 1, 0, 0, 0],
+     [1, 7, 21, 35, 35, 21, 7, 1, 0, 0],
+     [1, 8, 28, 56, 70, 56, 28, 8, 1, 0],
+     [1, 9, 36, 84, 126, 126, 84, 36, 9, 1]]
     ```
 
-    On remarque que l’on calcule souvent les mêmes coefficients binomiaux :
+    ---
+
+    On remarque que l'on calcule souvent les mêmes coefficients binomiaux :
 
     ![arbre de calculs binomiaux](Aspose.Words.d2343c7e-0520-403f-a4d8-58e22a8d8fb5.012.png)
 
-    arbre de calcul des coefficients pour n=4 p=2
+    arbre de calcul des coefficients pour n=4, k=2
 
-    La mémoïsation consistera alors à stocker dans un tableau les solutions pour les sous-problèmes afin de ne pas les recalculer…
+    La mémoïsation consistera alors à stocker dans un tableau les solutions 
+    pour les sous-problèmes afin de ne pas les recalculer…
 
-    5\. Écrire une fonction pascal\_dyn(n) utilisant la programmation dynamique qui calcule et affiche les coefficient binomiaux pour une valeur de n entrée en paramètre
+    ---
+
+    **5\. Écrire une fonction `pascal_dyn(n)` utilisant la programmation dynamique**
+    ```python
+    def pascal_dyn(n):
+        pass
+    ```
+
+
+
+
+   
+
+   
+    
+
+
+
+     
 
