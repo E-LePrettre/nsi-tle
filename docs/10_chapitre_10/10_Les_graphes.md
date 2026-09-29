@@ -1,5 +1,5 @@
 ---
-author: ELP
+author: Elisabeth Le Prettre (LePrettre)
 title: 10 Les graphes
 ---
 
@@ -173,7 +173,7 @@ Les objets sont représentés par des **sommets** (également appelés *nœuds*)
 
         🔹 **Deux sommets non adjacents**  
         Deux sommets non adjacents ne sont reliés par **aucune arête**.  
-        → Exemple : **A et D**
+        → Exemple : **A et C**
 
 
 
@@ -1746,7 +1746,7 @@ L’ordre dépend de l’ordre des voisins dans le dictionnaire.
     👉 On considère le graphe suivant :
 
 
-    ![](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.029.png){: .center}
+    ![image](Aspose.Words.8c5294cc-4794-40b4-b86e-e5b8e2c35888.033.png){: .center}
 
     ```python
     graphe = {

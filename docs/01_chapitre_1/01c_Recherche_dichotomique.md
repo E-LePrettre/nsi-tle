@@ -1,5 +1,5 @@
 ---
-author: ELP
+author: Elisabeth Le Prettre (LePrettre)
 title: 01c Fiche méthode - Recherche dichotomique
 ---
 

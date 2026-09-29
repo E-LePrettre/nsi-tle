@@ -1,5 +1,5 @@
 ---
-author: ELP
+author: Elisabeth Le Prettre (LePrettre)
 title: 01b Fiche méthode - Tri par insertion
 ---
 
@@ -23,15 +23,15 @@ Ce tri fonctionne un peu comme si tu voulais **classer tes cartes en main** dans
 ### <H3 style="color:green;">💻 Script Python</H3>
 
 ```python
-def tri_insertion(l):
-    for i in range(1, len(l)):
+def tri_insertion(T):
+    for i in range(1, len(T)):
         j = i
-        val = l[i]
-        while j > 0 and val < l[j - 1]:
-            l[j] = l[j - 1]
+        val = T[i]
+        while j > 0 and val < T[j - 1]:
+            T[j] = T[j - 1]
             j = j - 1
-        l[j] = val
-    return l
+        T[j] = val
+    return T
 ```
 
 ### <H3 style="color:green;">🧪 Vérification</H3>
@@ -61,7 +61,7 @@ import time
 
 somme_des_durees = 0
 for i in range(5):
-    a = [k for k in range(100 - 1)]
+    a = [k for k in range(100 - 1, -1, -1)]
     start_time = time.time()
     tri_insertion(a)
     somme_des_durees += time.time() - start_time
@@ -70,7 +70,7 @@ print("Temps d'exécution pour 100 : %s secondes ---" % moyenne)
 
 somme_des_durees = 0
 for i in range(5):
-    b = [k for k in range(1_000 - 1)]
+    b = [k for k in range(1_000 - 1, -1, -1)]
     start_time = time.time()
     tri_insertion(b)
     somme_des_durees += time.time() - start_time
@@ -87,8 +87,8 @@ print("Temps d'exécution pour 1_000 : %s secondes ---" % moyenne)
 
 📊 Résultats constatés :
 
-* Pour 1 000 : \~0.058 s
-* Pour 10 000 : \~5.96 s
+* Pour 1 000 : \~0.011 s
+* Pour 10 000 : \~1.09 s
 
 💡 Une liste 10× plus longue prend 100× plus de temps → complexité **quadratique**.
 
@@ -142,15 +142,15 @@ La variable `j` est un **variant de boucle** : elle garantit que la boucle ne to
 
 ### <H3 style="color:green;">✅ Preuve de la correction</H3>
 
-📘 On raisonne par **récurrence** :
-Propriété `P(i)` : « La sous-liste `l[0:i]` est triée. »
+On utilise un **raisonnement par récurrence** :
 
-* **Initialisation** : pour `i = 0`, `l[0]` est triée.
-* **Hérédité** : si `l[0:i-1]` est triée, on insère `l[i]` à la bonne place → `l[0:i]` est triée.
+🧩 Propriété : « Au début de l’itération d’indice `i`, le sous-tableau `T[ : i]` est trié. »
 
-➡️ La propriété est vraie pour tous les `i` entre 1 et `n-1`.
+🎯 Cette propriété est un **invariant de boucle**, elle reste vraie à chaque étape.
 
-✅ C’est donc un **invariant de boucle** : à chaque itération, la liste partielle est bien triée.
+* Initialisation : pour `i = 1`, `T[ : 1]` contient seulement le premier élément, il est donc trié.
+* Hérédité : on mémorise `T[i]`, on décale vers la droite les éléments précédents qui lui sont supérieurs, puis on l’insère à la bonne place. Le sous-tableau `T[ : i+1]` devient alors trié.
+* Terminaison : la dernière itération correspond à `i = n-1`. Après cette itération, `T[ : n]`, c’est-à-dire tout le tableau, est trié.
 
 
 Pour s'entrainer : [CODEX](https://codex.forge.apps.education.fr/exercices/tri_insertion/)

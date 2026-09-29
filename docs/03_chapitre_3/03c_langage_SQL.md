@@ -1,18 +1,18 @@
 ---
-author: ELP
+author: Elisabeth Le Prettre (LePrettre)
 title: 03c Langage SQL
 ---
 
 📚 **Table des matières**
 
-- [1. 🧠 Introduction](#_toc173365561)
-- [2. 🏗️ Création d’une base de données](#_toc173365560)
-- [3. 🧩 Insertion de données](#_toc173365563)
-- [4. 🔍 Interrogation de la base de données](#_toc173365566)
-- [5. ✏️ Requête de mise à jour](#_toc173365577)
-- [6. 🔗 Jointures de tables](#_toc173365583)
-- [7. 📝 Exercices](#_toc173365587)
-- [8. 🧪 Projet (démarche d’investigation)](#_toc173365588)
+- [1. 🧠 Introduction](#introduction)
+- [2. 🏗️ Création d'une base de données](#creation)
+- [3. 🧩 Insertion et suppression de données](#insertion)
+- [4. 🔍 Interrogation de la base de données](#interrogation)
+- [5. ✏️ Requêtes de mise à jour](#mise-a-jour)
+- [6. 🔗 Jointures de tables](#jointures)
+- [7. 📝 Exercices](#exercices)
+- [8. 🧪 Projets (démarche d'investigation)](#projets)
 
 🎯 **Compétences évaluables**
 
@@ -23,14 +23,15 @@ title: 03c Langage SQL
 
 ---
 
-##  <span style="color:blue"><a name="_toc173365561">🧠 </a>**1. Introduction**</span>
+
+## <span style="color:blue">🧠 1. Introduction</span> { #introduction }
 
 Pour manipuler des données dans une base relationnelle, on utilise le **langage SQL** (*Structured Query Language*), un langage universel adapté aux bases de données relationnelles.
 
 SQL permet de :
 
 * 🏗 **Créer**, modifier ou supprimer des tables (structure de la base) ;
-* 🧩 **Insérer**, **mettre à jour** ou **supprimer** des enregistrements (appelés **t-uplets**) ;
+* 🧩 **Insérer**, **mettre à jour** ou **supprimer** des enregistrements (appelés **n-uplets**) ;
 * 🔍 **Interroger** la base avec des filtres et des conditions ;
 * 📋 **Lister** les résultats selon des critères précis.
 
@@ -54,15 +55,17 @@ SQL permet de :
 
 ---
 
-!!!info "Capytale"
+!!! info "Travailler dans Capytale"
 
-## 🏗️ <span style="color:blue"><a name="_toc173365560"></a>**2. Création d’une base de données**</span>
+    Les activités de ce chapitre se font dans le notebook SQL Capytale dont le code vous est donné par votre enseignant. Chaque requête s'écrit dans une cellule de code et s'exécute avec `Maj + Entrée`.
+
+## <span style="color:blue">🏗️ 2. Création d'une base de données</span> { #creation }
 
 Nous allons créer ces 2 tables :
 
 ![](table1.png){width=80%; : .center }
 
-### <span style="color:green"><a name="_toc173365561"></a>**2.1. Création**</span>
+### <span style="color:green">2.1. Création</span>03a
 
 
 
@@ -82,6 +85,8 @@ Nous allons créer ces 2 tables :
 
     Exécute la requête  => vous ne voyez rien c'est normal
 
+    📌 `PRIMARY KEY (... AUTOINCREMENT)` : le SGBD attribue lui-même un numéro à chaque nouvelle ligne.
+
     Dans une nouvelle case code, vérifier que la table existe avec :
 
     ```sql
@@ -90,7 +95,7 @@ Nous allons créer ces 2 tables :
     ```
 ---
 
-### <span style="color:green"><a name="_toc173365562"></a>**2.2. Suppression**</span>
+
 
 ???+ question "🧱 Activité n° 2 : Création de la table `film`"
     Créer une table simple avec deux champs :
@@ -112,6 +117,8 @@ Nous allons créer ces 2 tables :
     ```
 ---
 
+### <span style="color:green">2.2. Suppression d'une table</span>
+
 ???+ question "🗑️ Activité n° 3 : Suppression de la table"
      
     Pour supprimer une table (ici, `film`), tape :
@@ -120,7 +127,7 @@ Nous allons créer ces 2 tables :
     DROP TABLE film ;
     ```
 
-    🔎 Vérifie que la table a bien disparu en ajoutant dans une nouvelle case code
+    🔎 Vérifie que la table a bien disparu en ajoutant dans une nouvelle case code (un message d'erreur *no such table* est attendu)
 
     ```sql
     SELECT *
@@ -128,6 +135,8 @@ Nous allons créer ces 2 tables :
     ```
 
 ---
+
+### <span style="color:green">2.3. Création d'une table avec clé étrangère</span>
 
 ???+ question "🎥 Activité n° 4 : Création de la vraie table `film`"
     Voici la version complète de la table avec une **clé étrangère** vers la table `realisateur` :
@@ -137,7 +146,7 @@ Nous allons créer ces 2 tables :
     CREATE TABLE film (
         id_film INTEGER NOT NULL,
         titre_film VARCHAR(255) NOT NULL,
-        annee_film date,
+        annee_film INTEGER,
         id_realisateur_film INTEGER NOT NULL,
         nationalite_film VARCHAR(255) NOT NULL,
         genre_film VARCHAR(255) NOT NULL,
@@ -146,6 +155,8 @@ Nous allons créer ces 2 tables :
         REFERENCES realisateur (id_realisateur)
     );
     ```
+
+    📌 La ligne `FOREIGN KEY ... REFERENCES ...` déclare la **clé étrangère** : chaque `id_realisateur_film` devra correspondre à un `id_realisateur` existant (contrainte de référence).
 
     Dans une nouvelle case code, vérifier que la table apparait avec :
 
@@ -157,7 +168,9 @@ Nous allons créer ces 2 tables :
     
 ---
 
-## 🧩 <span style="color:blue"><a name="_toc173365563"></a>**3. Insertion de données**</span>
+## <span style="color:blue">🧩 3. Insertion et suppression de données</span> { #insertion }
+
+### <span style="color:green">3.1. Insertion</span>
 
 ![](insert.png)
 
@@ -171,19 +184,23 @@ Nous allons créer ces 2 tables :
     INSERT INTO realisateur
     (nom_realisateur, prenom_realisateur, date_naissance_realisateur, nationalite_realisateur)
     VALUES
-    ('Abrams', 'Jeffrey Jacob', 1966-06-27, 'Etats-Unis'),
-    ('Badham', 'John', 1939-08-25, 'Royaume-Uni'),
-    ('Besson', 'Luc', 1959-03-18, 'France'),
-    ('Branagh', 'Kenneth', 1960-12-10, 'Royaume-Uni'),
-    ('Johnson', 'Rian', 1973-12-17, 'Etats-Unis'),
-    ('Kershner', 'Irvin', 1923-04-29, 'Etats-Unis'),
-    ('Lucas', 'George', 1944-05-14, 'Etats-Unis'),
-    ('Marquand', 'Richard', 1937-09-22, 'Royaume-Uni'),
-    ('Spielberg', 'Steven', 1946-12-18, 'Etats-Unis'),
-    ('Tarantino', 'Quentin', 1963-03-27, 'Etats-Unis'),
-    ('Lumet', 'Sydney', 1924-06-25, 'Etats-Unis')
+    ('Abrams', 'Jeffrey Jacob', '1966-06-27', 'Etats-Unis'),
+    ('Badham', 'John', '1939-08-25', 'Royaume-Uni'),
+    ('Besson', 'Luc', '1959-03-18', 'France'),
+    ('Branagh', 'Kenneth', '1960-12-10', 'Royaume-Uni'),
+    ('Johnson', 'Rian', '1973-12-17', 'Etats-Unis'),
+    ('Kershner', 'Irvin', '1923-04-29', 'Etats-Unis'),
+    ('Lucas', 'George', '1944-05-14', 'Etats-Unis'),
+    ('Marquand', 'Richard', '1937-09-22', 'Royaume-Uni'),
+    ('Spielberg', 'Steven', '1946-12-18', 'Etats-Unis'),
+    ('Tarantino', 'Quentin', '1963-03-27', 'Etats-Unis'),
+    ('Lumet', 'Sidney', '1924-06-25', 'Etats-Unis')
     ;
     ```
+
+    ⚠️ Les dates s'écrivent **entre apostrophes**, au format `'AAAA-MM-JJ'`. Sans apostrophes, `1966-06-27` serait compris comme une **soustraction** et donnerait… 1933 !
+
+    📌 On ne donne pas de valeur à `id_realisateur` : il est attribué automatiquement (1 pour Abrams, 2 pour Badham, etc.).
 
     Dans une nouvelle case code, vérifier que la table apparait avec :
 
@@ -203,7 +220,7 @@ Nous allons créer ces 2 tables :
     INSERT INTO film
     (titre_film, nationalite_film, genre_film)
     VALUES
-    ('StarWares', 'Etats-Unis', 'Science fiction');
+    ('StarWars', 'Etats-Unis', 'Science fiction');
     ```
 
     ⚠️ Cette requête échoue : la colonne `id_realisateur_film` est **NOT NULL**, elle doit donc obligatoirement être renseignée.
@@ -219,7 +236,10 @@ Nous allons créer ces 2 tables :
     ('StarWars', 44, 'Etats-Unis', 'Science fiction');
     ```
 
-    ❌ Cette requête échoue également : le **réalisateur n°44 n’existe pas** dans la table `realisateur`, ce qui viole la **contrainte de clé étrangère** (`FOREIGN KEY`).
+    ❌ Cette requête échoue également : le **réalisateur n°44 n’existe pas** dans la table `realisateur`, ce qui viole la **contrainte de référence** (`FOREIGN KEY constraint failed`).
+
+    ⚠️ Si cette requête **réussit**, c'est que la vérification des clés étrangères n'est pas activée : exécute `PRAGMA foreign_keys = ON;`, puis supprime la ligne insérée par erreur avec `DELETE FROM film WHERE titre_film = 'StarWars';`.
+
 
 
 ---
@@ -232,14 +252,14 @@ Nous allons créer ces 2 tables :
     (titre_film, annee_film, id_realisateur_film, nationalite_film, genre_film)
     VALUES
     ('Star Wars, épisode IV : Un nouvel espoir', 1977, 7, 'Etats-Unis', 'Science fiction'),
-    ('Star Wars, épisode V : L''Empire contre_attaque', 1980, 6, 'Etats-Unis', 'Science fiction'),
+    ('Star Wars, épisode V : L''Empire contre-attaque', 1980, 6, 'Etats-Unis', 'Science fiction'),
     ('Star Wars, épisode VI : Le retour du Jedi', 1983, 8, 'Etats-Unis', 'Science fiction'),
     ('Star Wars, épisode I : La menace fantôme', 1999, 7, 'Etats-Unis', 'Science fiction'),
     ('Star Wars, épisode II : L''attaque des clones', 2002, 7, 'Etats-Unis', 'Science fiction'),
     ('Star Wars, épisode III : La Revanche des Sith', 2005, 7, 'Etats-Unis', 'Science fiction'),
     ('Star Wars, épisode VII : Le Réveil de la Force', 2015, 1, 'Etats-Unis', 'Science fiction'),
     ('Star Wars, épisode VIII : Les Derniers Jedi', 2017, 5, 'Etats-Unis', 'Science fiction'),
-    ('Star Wars, épisode IX : L''ascension de Skywalker', 2018, 1, 'Etats-Unis', 'Science fiction'),
+    ('Star Wars, épisode IX : L''ascension de Skywalker', 2019, 1, 'Etats-Unis', 'Science fiction'),
     ('Indiana Jones et les Aventuriers de l''arche perdue', 1981, 9, 'Etats-Unis', 'Aventure'),
     ('Indiana Jones et le Temple maudit', 1984, 9, 'Etats-Unis', 'Aventure'),
     ('WarGames', 1983, 2, 'Etats-Unis', 'Science fiction'),
@@ -250,7 +270,7 @@ Nous allons créer ces 2 tables :
     ('Once Upon a Time in Hollywood', 2019, 10, 'Etats-Unis', 'Comédie dramatique'),
     ('Django Unchained', 2012, 10, 'Etats-Unis', 'Western'),
     ('Pulp Fiction', 1994, 10, 'Etats-Unis', 'Policier'),
-    ('Mort sur le Nil', 2020, 4, 'Etats-Unis', 'Policier'),
+    ('Mort sur le Nil', 2022, 4, 'Etats-Unis', 'Policier'),
     ('Le Crime de l''Orient-Express', 2017, 4, 'Royaume-Uni', 'Policier'),
     ('Thor', 2011, 4, 'Etats-Unis', 'Super-Heros'),
     ('Henry V', 1989, 4, 'Royaume-Uni', 'Film historique'),
@@ -275,7 +295,7 @@ Exemple :
 
 
 
-### 🗑️ <span style="color:green;"><a name="_toc173365565"></a>**3.2. Suppression**</span>
+### <span style="color:green">🗑️ 3.2. Suppression d'une ligne</span>
 
 ???+ question "🗑️ Activité n° 8 : Ajout et suppression d’une donnée"
 
@@ -294,13 +314,14 @@ Exemple :
     SELECT *
     FROM film
     ```
-    Dans une nouvelle case code :
-    Ensuite, supprime cet enregistrement (ici avec l’ID 26) :
+    Relève l'identifiant (`id_film`) attribué à ce film, puis, dans une nouvelle case code, supprime cet enregistrement (ici l'identifiant 26 si toutes les insertions précédentes se sont bien passées) :
 
     ```sql
-    DELETE FROM film 
-    WHERE id_film = 26 ;
+    DELETE FROM film
+    WHERE id_film = 26;
     ```
+
+    ⚠️ Sans `WHERE`, `DELETE FROM film;` supprime **toutes** les lignes de la table !
 
     Dans une nouvelle case code, vérifier que la modification apparait avec :
 
@@ -311,7 +332,7 @@ Exemple :
 
 ---
 
-## 🎯 <span style="color:blue;"><a name="_toc173365566"></a>**4. Interrogation de la base de données**</span>
+## <span style="color:blue">🎯 4. Interrogation de la base de données</span> { #interrogation }
 
 ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.012.png){ width=50%; : .center }
 
@@ -324,7 +345,7 @@ Exemple :
 
 ---
 
-### 🧾 <span style="color:green;"><a name="_toc173365567"></a>**4.1. Affichage simple**</span>
+### <span style="color:green">🧾 4.1. Affichage simple</span>
 
 ???+ question "🎬 Activité n° 9 : Affichage par numéro d'identifiant"
  
@@ -339,7 +360,6 @@ Exemple :
     ```
 
     🧪 Le film n°14 s’affiche avec les champs demandés.
-
 
 ---
 
@@ -391,8 +411,7 @@ Exemple :
 ---
 
 
-
-### 🧾 <span style="color:green;"> 🔼 **4.2. Affichage et tri ascendant** <a name="_toc173365568"></a></span>
+### <span style="color:green">🧾 🔼 4.2. Affichage et tri ascendant</span>
 
 ???+ question "🔢 Activité n°13 : Tri par année croissante"
     Afficher les films sortis entre 2010 et 2020, triés par **année croissante** :
@@ -424,7 +443,7 @@ Exemple :
 
 ---
 
-### 🧾 <span style="color:green;">🔍 **4.3. Affichage avec partie d’une chaîne de caractères** <a name="_toc173365569"></a>
+### <span style="color:green">🧾 🔍 4.3. Affichage avec partie d’une chaîne de caractères</span>
 
 ???+ question "🔡 Activité n°15 : Titre exact"
     Afficher les films dont le **titre est exactement** "WarGames" :
@@ -456,7 +475,7 @@ On peut aussi trier avec `ORDER BY annee_film`.
 
 ---
 
-### 🧾 <span style="color:green;"> ⚖️ **4.4. Affichage avec une condition OU une autre** <a name="_toc173365570"></a></span>
+### <span style="color:green">🧾 ⚖️ 4.4. Affichage avec une condition OU une autre</span>
 
 ???+ question "🔀 Activité n°17 : OU logique"
     Afficher les films de 2017 **ou** de genre 'Science fiction' :
@@ -471,7 +490,7 @@ On peut aussi trier avec `ORDER BY annee_film`.
 
 ---
 
-### 🧾 <span style="color:green;"> 📋 **4.5. Affichage avec critère dans une liste** <a name="_toc173365571"></a></span>
+### <span style="color:green">🧾 📋 4.5. Affichage avec critère dans une liste</span>
 
 ???+ question "📑 Activité n°18 : Genre dans une liste"
     Afficher les films de genre **'Science fiction'** ou **'Policier'** :
@@ -509,7 +528,7 @@ On peut aussi trier avec `ORDER BY annee_film`.
 
 ---
 
-### 🧾 <span style="color:green;"> 🔽 **4.6. Affichage et tri descendant** <a name="_toc173365572"></a></span>
+### <span style="color:green">🧾 🔽 4.6. Affichage et tri descendant</span>
 
 ???+ question "📉 Activité n°21 : Tri par année décroissante"
     Trier les films (hors science fiction et policiers) par **année décroissante** :
@@ -525,7 +544,7 @@ On peut aussi trier avec `ORDER BY annee_film`.
 
 ---
 
-### 🧾 <span style="color:green;"> 🔗 **4.7. Affichage avec concaténation** <a name="_toc173365573"></a></span>
+### <span style="color:green">🧾 🔗 4.7. Affichage avec concaténation</span>
 
 ???+ question "🔤 Activité n°22 : Concaténation prénom + nom"
     Afficher le **prénom + nom** de chaque réalisateur sur une seule ligne :
@@ -541,7 +560,7 @@ On peut aussi trier avec `ORDER BY annee_film`.
 
 ---
 
-### 🧾 <span style="color:green;"> 🔀 **4.8. Affichage avec deux requêtes (UNION)** <a name="_toc173365574"></a></span>
+### <span style="color:green">🧾 🔀 4.8. Affichage avec deux requêtes (UNION)</span>
 
 ???+ question "🧩 Activité n°23 : UNION de deux requêtes"
     Afficher la **nationalité** :
@@ -587,7 +606,7 @@ Résultat final : [Française, Américaine, Italienne, Anglaise]
 
 ---
 
-### 🧾 <span style="color:green;"> 🔢 **4.9. Affichage et fonctions d’agrégation** <a name="_toc173365575"></a></span>
+### <span style="color:green">🧾 🔢 4.9. Affichage et fonctions d’agrégation</span>
 
 ???+ question "🔢 Activité n°24 : Compter"
     Nombre total de réalisateurs :
@@ -610,26 +629,30 @@ Résultat final : [Française, Américaine, Italienne, Anglaise]
     ```
 
 
-???+ question "➕ Activité n°26 : Somme (à faire plus tard)"
-    Exemple de syntaxe pour sommer :
-
+???+ question "➕ Activité n°26 : Moyenne, minimum, maximum"
+    Année moyenne de sortie des films, puis année du film le plus ancien et du plus récent :
 
     ```sql
-    SELECT SUM(...)
-    FROM realisateur;
+    SELECT AVG(annee_film)
+    FROM film;
+    ```
+
+    ```sql
+    SELECT MIN(annee_film), MAX(annee_film)
+    FROM film;
     ```
 
 
-???+ question "➗ Activité n°27 : Moyenne (à faire plus tard)"
-    Exemple de syntaxe pour une moyenne :
-
+???+ question "➗ Activité n°27 : Somme"
+    Somme des années de sortie des films de Luc Besson (id 3) : l'exemple n'a pas de sens concret, mais il montre la syntaxe.
 
     ```sql
-    SELECT AVG(...)
-    FROM realisateur;
+    SELECT SUM(annee_film)
+    FROM film
+    WHERE id_realisateur_film = 3;
     ```
 
-👉 On peut aussi utiliser `MAX(...)` et `MIN(...)`.
+👉 Les fonctions d'agrégation `COUNT`, `SUM`, `AVG`, `MIN`, `MAX` renvoient **une seule valeur** calculée sur toutes les lignes sélectionnées.
 
 
 ---
@@ -638,8 +661,7 @@ Résultat final : [Française, Américaine, Italienne, Anglaise]
 
 
 
-
-### 🧾 <span style="color:green;"> 🗂️ **4.10. Afficher tous les champs** <a name="_toc173365576"></a></span>
+### <span style="color:green">🧾 🗂️ 4.10. Afficher tous les champs</span>
 
 ???+ question "📜 Activité n°28 : Affichage complet de la table `film`"
     
@@ -651,16 +673,31 @@ Résultat final : [Française, Américaine, Italienne, Anglaise]
     FROM film;
     ```
 
+!!! abstract "📌 Structure d'une requête d'interrogation"
+
+    Les clauses s'écrivent **toujours dans cet ordre** (seules `SELECT` et `FROM` sont obligatoires) :
+
+    ```sql
+    SELECT DISTINCT colonnes      -- ce que l'on affiche
+    FROM table                    -- où on le cherche
+    JOIN autre_table ON ...       -- (partie 6) tables liées
+    WHERE condition               -- quelles lignes on garde
+    ORDER BY colonne DESC         -- dans quel ordre
+    LIMIT n;                      -- combien de lignes au maximum
+    ```
+
+    Dans `WHERE` : `=`, `<>`, `<`, `<=`, `>`, `>=`, `AND`, `OR`, `NOT`, `IN (...)`, `LIKE`.
+
 
 ---
 
-## <span style="color:blue;"> 🧩 **5. Requête de mise à jour** <a name="_toc173365577"></a></span>
+## <span style="color:blue">✏️ 5. Requêtes de mise à jour</span> { #mise-a-jour }
 
 On va modifier la base de donnée de telle sorte que le nouveau diagramme soit celui-ci :
 
 ![](table2.png){width=80%; : .center }
 
-### <span style="color:green;"> 🛠️ **5.1. Syntaxe d’une requête UPDATE** <a name="_toc173365578"></a></span>
+### <span style="color:green">🛠️ 5.1. Syntaxe d’une requête UPDATE</span>
 
 ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.016.png){ width=30%; : .center }
 
@@ -672,7 +709,7 @@ Une requête de mise à jour s’écrit en trois parties :
 
 ---
 
-### <span style="color:green;">🧱 **5.2. Ajouter un attribut dans une table** <a name="_toc173365579"></a></span>
+### <span style="color:green">🧱 5.2. Ajouter un attribut dans une table</span>
 
 ???+ question "➕ Activité n°29 : Ajouter une colonne"
     Ajouter un **nouvel attribut** `nbfilms_realisateur` (type entier) dans la table `realisateur` :
@@ -688,7 +725,7 @@ Une requête de mise à jour s’écrit en trois parties :
 
 ---
 
-### <span style="color:green;"> ✏️ **5.3. Modifier une donnée dans une table**</span>
+### <span style="color:green">✏️ 5.3. Modifier une donnée dans une table</span>
 
 ???+ question "🖊️ Activité n°30 : Modifier une donnée"
     Modifier la **nationalité** du réalisateur `Lumet` :
@@ -715,7 +752,7 @@ Une requête de mise à jour s’écrit en trois parties :
 
 
 
-### <span style="color:green;">📥 **5.4. Remplir des données dans une nouvelle colonne**</span>
+### <span style="color:green">📥 5.4. Remplir des données dans une nouvelle colonne</span>
 
 ???+ question "🔢 Activité n°31 : Mise à jour de valeurs"
 
@@ -729,6 +766,9 @@ Une requête de mise à jour s’écrit en trois parties :
     ```
 
     ✅ Vérifie que tous les réalisateurs américains ont maintenant **nbfilms = 1** dans la colonne ajoutée.
+
+    ⚠️ Sans `WHERE`, **toutes** les lignes de la table seraient modifiées : vérifie toujours ta condition avant d'exécuter un `UPDATE`.
+
 
 
 ---
@@ -843,8 +883,8 @@ Une requête de mise à jour s’écrit en trois parties :
     ```sql
     UPDATE film
     SET id_nationalite_film = (
-    SELECT id_nationalite 
-    FROM nationalite 
+    SELECT id_nationalite
+    FROM nationalite
     WHERE film.nationalite_film = nationalite.nom_nationalite
     );
     ```
@@ -856,7 +896,8 @@ Une requête de mise à jour s’écrit en trois parties :
 
     ✅ Vérifie que le champ `id_nationalite_film` est bien rempli.
 
-    on note `film.___`  pour dire que l’on va chercher le champ dans la table film. Cette nationalité dans la table film doit être égale à la nationalité dans la table nationalité d’où le `nationalite.____` 
+    📌 On écrit `film.nationalite_film` pour préciser que la colonne est celle de la table `film`, et `nationalite.nom_nationalite` pour celle de la table `nationalite`.
+
 ---
 
 ???+ question "🗑️ Activité n°39 : Suppression d’un attribut devenu inutile"
@@ -871,13 +912,15 @@ Une requête de mise à jour s’écrit en trois parties :
 
     ✅ La colonne `nationalite_film` est maintenant supprimée car elle est redondante avec la clé étrangère `id_nationalite_film`.
 
+    ℹ️ `DROP COLUMN` nécessite une version de SQLite postérieure à 2021 (3.35). En cas d'erreur, signale-le à ton enseignant.
+
 
 ---
 
 
 
 
-### <span style="color:green;"> 🔠 **5.5. Mise en majuscule d’un attribut**</span>
+### <span style="color:green">🔠 5.5. Mise en majuscule d’un attribut</span>
 
 ???+ question "🆙 Activité n°40 : Mise en majuscule d’un attribut"
 
@@ -913,20 +956,21 @@ Une requête de mise à jour s’écrit en trois parties :
 
 ---
 
-## <span style="color:blue;">🔗 6. Jointures de tables</span>
+## <span style="color:blue">🔗 6. Jointures de tables</span> { #jointures }
 
 Les requêtes avec les jointures tiennent compte des **liens entre les tables**, via le **schéma relationnel**.
 
-### <span style="color:green;"> 🔄 6.1. La syntaxe</span>
+### <span style="color:green">🔄 6.1. La syntaxe</span>
 
 ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.018.png){width=30%; : .center }
 
-📌 Le mot-clé `JOIN` (ou `INNER JOIN`) permet de relier **deux tables** via une **clé étrangère** et une **clé primaire**.
-📌 Le mot `INNER` est optionnel.
+📌 Le mot `INNER` est optionnel. Une ligne n'apparaît dans le résultat que si elle a une correspondance dans l'autre table.
+
+📌 Quand deux tables ont une colonne de même nom, on la préfixe par le nom de la table : `film.id_film`.
 
 ---
 
-### <span style="color:green;"> 🧩 6.2. Les grands principes</span>
+### <span style="color:green">🧩 6.2. Les grands principes</span>
 
 🧱 Diagramme :
 
@@ -953,23 +997,23 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
     CREATE TABLE genre (
     id_genre INTEGER NOT NULL,
     nom_genre VARCHAR(255) NOT NULL,
-    PRIMARY KEY ("id_GENRE" AUTOINCREMENT));
+    PRIMARY KEY (id_genre AUTOINCREMENT));
 
     /* Insertion des genres distincts */
-    INSERT INTO genre 
+    INSERT INTO genre
     (nom_genre)
     SELECT DISTINCT genre_film
     FROM film;
 
     /* Ajout colonne id_genre_film */
-    ALTER TABLE film 
+    ALTER TABLE film
     ADD COLUMN id_genre_film INTEGER;
 
     /* Mise à jour id_genre_film */
     UPDATE film
     SET id_genre_film = (
-    SELECT id_genre 
-    FROM genre 
+    SELECT id_genre
+    FROM genre
     WHERE film.genre_film = genre.nom_genre);
 
     /* Suppression de l’attribut texte genre_film */
@@ -977,14 +1021,14 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
     DROP COLUMN genre_film;
 
     /* Ajout de l’attribut id_nationalite_realisateur */
-    ALTER TABLE realisateur 
+    ALTER TABLE realisateur
     ADD COLUMN id_nationalite_realisateur INTEGER;
 
     /* Mise à jour de la clé étrangère */
     UPDATE realisateur
     SET id_nationalite_realisateur = (
-    SELECT id_nationalite 
-    FROM nationalite 
+    SELECT id_nationalite
+    FROM nationalite
     WHERE realisateur.nationalite_realisateur = nationalite.nom_nationalite);
 
     /* Suppression des anciens champs devenus redondants */
@@ -998,19 +1042,17 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
     ✅ Vérifie :
 
     - que la table `film` contient maintenant `id_genre_film` et non plus `genre_film`,
-    
-    - que la table `realisateur` contient `id_nationalite_realisateur` et non plus `nationalite_realisateur`,
-    
-    - que la table `genre` est bien remplie avec les différents genres.
 
+    - que la table `realisateur` contient `id_nationalite_realisateur` et non plus `nationalite_realisateur`,
+
+    - que la table `genre` est bien remplie avec les différents genres.
 
 ---
 
 
  
 
-
-### <span style="color:green;">🔍 **6.3. Requêtes de sélection avec jointures**</span>
+### <span style="color:green">🔍 6.3. Requêtes de sélection avec jointures</span>
 
 ???+ question "🎥 Activité n°43 : Afficher le titre du film avec son genre (2 tables)"
 
@@ -1138,7 +1180,7 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
 ---
 
-### <span style="color:green;">🔍 **6.4. Requêtes de sélection imbriquées**</span>
+### <span style="color:green">🔍 6.4. Requêtes de sélection imbriquées</span>
 
 
 ???+ question "🧠 Activité n°49 : Requête imbriquée simple"
@@ -1146,8 +1188,8 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
     🔎 **Objectif :** Extraire le titre des films dont le réalisateur est de nationalité **française**, en utilisant une **requête imbriquée**.
 
     > 🔁 Deux étapes à faire :
-    > - 1. Trouver les identifiants des réalisateurs de nationalité italienne.
-    > - 2. Sélectionner les films réalisés par ces réalisateurs.
+    > 1. Trouver les identifiants des réalisateurs de nationalité française.
+    > 2. Sélectionner les films réalisés par ces réalisateurs.
 
     **Comment faire ?**
 
@@ -1199,11 +1241,19 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
         );
         ```
 
-        ✅ Vérifie
+        ✅ On doit obtenir les 4 films de Luc Besson.
 
+        📌 On peut obtenir le même résultat avec deux jointures :
+
+        ```sql
+        SELECT titre_film
+        FROM film
+        JOIN realisateur ON realisateur.id_realisateur = film.id_realisateur_film
+        JOIN nationalite ON nationalite.id_nationalite = realisateur.id_nationalite_realisateur
+        WHERE nom_nationalite = 'France';
+        ```
 
 ---
-
 
 
 ???+ question "🧠 Activité n°50 : Requête imbriquée avec double jointure implicite"
@@ -1226,11 +1276,11 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
     🧩 Étape 2 : Décomposer le raisonnement
 
-    1. Trouver le genre du film **"Pulp Fiction"** 
+    1. Trouver le genre du film **"Pulp Fiction"**
 
-    2. Trouver les films qui ont ce **même genre** 
+    2. Trouver les films qui ont ce **même genre**
 
-    3. Trouver les **noms des réalisateurs** qui ont ces **ID** 
+    3. Trouver les **noms des réalisateurs** qui ont ces **ID**
 
     🪄 Astuce
 
@@ -1246,23 +1296,40 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
     ??? success "📤 Solution"
 
-    ```sql
-    SELECT nom_realisateur, prenom_realisateur
-    FROM realisateur
-    WHERE id_realisateur IN (
-        SELECT id_realisateur_film
-        FROM film
-        WHERE id_genre_film = (
-            SELECT id_genre_film
+        ```sql
+        SELECT nom_realisateur, prenom_realisateur
+        FROM realisateur
+        WHERE id_realisateur IN (
+            SELECT id_realisateur_film
             FROM film
-            WHERE titre_film = 'Inception'
-        )
-    );
-    ```
+            WHERE id_genre_film = (
+                SELECT id_genre_film
+                FROM film
+                WHERE titre_film = 'Pulp Fiction'
+            )
+        );
+        ```
+
+        ✅ On obtient Branagh, Lumet et Tarantino (réalisateurs de films policiers).
 
 ---
 
 
+!!! abstract "📌 À retenir absolument"
+
+    | Action | Requête |
+    |---|---|
+    | Créer / supprimer une table | `CREATE TABLE t (...);` / `DROP TABLE t;` |
+    | Ajouter des lignes | `INSERT INTO t (col1, col2) VALUES (v1, v2), (v3, v4);` |
+    | Modifier des lignes | `UPDATE t SET col = valeur WHERE condition;` |
+    | Supprimer des lignes | `DELETE FROM t WHERE condition;` |
+    | Interroger | `SELECT colonnes FROM t WHERE condition ORDER BY col;` |
+    | Relier deux tables | `FROM t1 JOIN t2 ON t2.cle_primaire = t1.cle_etrangere` |
+
+    - Les chaînes et les dates s'écrivent entre **apostrophes** ; une apostrophe dans une chaîne se **double**.
+    - `UPDATE` et `DELETE` **sans `WHERE`** agissent sur **toutes** les lignes.
+    - `DISTINCT` supprime les doublons ; `COUNT`, `SUM`, `AVG`, `MIN`, `MAX` calculent une valeur unique.
+    - Le SGBD refuse les requêtes qui violent une contrainte d'intégrité (clé primaire en double, clé étrangère inexistante…).
 
 
 ## <H2 STYLE="COLOR:BLUE;"><a name="_toc173365587">📝 </a>**7. Exercices**</H2>
@@ -1271,85 +1338,54 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
 !!! abstract "**Exercice 1 : Copains de classe**"
 
+    On veut créer une petite base de données permettant de garder le contact avec nos copains de classe. On suppose qu'ils sont tous domiciliés en France et qu'ils n'ont qu'un seul numéro de téléphone, mais qu'ils peuvent avoir **plusieurs adresses**. On veut stocker : nom, prénom, sexe, date de naissance, téléphone, rue, code postal, ville, département et région.
 
-    On veut créer une petite base de données permettant de garder le contact avec nos copains de classe. On supposera qu'ils sont tous domiciliés en France, qu'ils n'ont qu'un numéro de téléphone, mais éventuellement plusieurs adresses. On veut stocker les renseignements suivants : nom, prénom, sexe, date de naissance, numéro de téléphone, rue, numéro postal, ville, département et région.
+    On utilise le schéma relationnel suivant :
 
-    - copains(id, nom, prenom, sexe, date\_naissance, no\_tel)
-    - habite(#id\_copain, #no\_postal)
-    - ville(no\_postal, nom\_ville, département, rue, région)
+    - copains(<u>id_copain</u>, nom, prenom, sexe, date_naissance, telephone)
+    - ville(<u>id_ville</u>, code_postal, nom_ville, departement, region)
+    - adresse(<u>id_adresse</u>, rue, #id_ville)
+    - habite(<u>#id_copain</u>, <u>#id_adresse</u>)
 
-    cela signifie:
+    **1.** Pourquoi la clé primaire de `habite` est-elle composée de deux attributs ? Pourquoi `code_postal` ne peut-il pas être la clé primaire de `ville` (regarder les données) ? Pourquoi la rue n'est-elle pas un attribut de `ville` ?
 
-    **Table `copains`**
+    **2.** Créer les quatre tables avec leurs clés primaires et leurs clés étrangères (identifiants en auto-incrément).
 
-    ```sql
-    copains(id, nom, prenom, sexe, date_naissance, no_tel)
-    ```
+    **3.** Entrer dans la base les informations ci-dessous (données fictives) :
 
-    * **Clé primaire (PK)** : `id`
+    | Nom | Prénom | Sexe | Naissance | Téléphone | Rue | Code postal | Ville | Dépt | Région |
+    |---|---|---|---|---|---|---|---|---|---|
+    | Ochon | Paul | H | 1995-08-08 | 0324661155 | Place des Peupliers 3 | 13210 | Porrentruy | 13 | PACA |
+    | Ochon | Eric | H | 1995-08-09 | 0324661155 | Place des Peupliers 3 | 13210 | Porrentruy | 13 | PACA |
+    | Gross | Jean | H | 1995-03-24 | 0324668341 | La condemène 78 | 04110 | Courgenay | 04 | PACA |
+    | Fonfec | Sophie | F | 1994-12-14 | 0324711230 | Rue du Général-Comman 26 | 04110 | Courgenay | 04 | PACA |
+    | Camé | Léon | H | 1995-01-02 | 0273956619 | Rue de la Scierie 1 | 12120 | Savièse | 12 | Occitanie |
+    | Darc | Jeanne | F | 1995-01-31 | 0273224614 | Rue de Condémines 22 | 81500 | Sion | 81 | Occitanie |
+    | Sapin | Noëlle | F | 1996-03-14 | 0219635678 | Promenade des Pêcheurs 6 | 38400 | Montreux | 38 | Auvergne-Rhône-Alpes |
+    | Fonfec | Sophie | F | 1994-12-14 | 0324711230 | Av. Alsace Lorraine 20 | 38000 | Grenoble | 38 | Auvergne-Rhône-Alpes |
+    | Sud | Paul | F | 1995-01-18 | 0324666391 | Vieille Rue 2 | 05110 | Tallard | 05 | PACA |
+    | Maillard | Colin | H | 1994-12-31 | 0324669912 | Route de Varandin 9 | 05110 | Lettret | 05 | PACA |
+    | Nord | Paul | H | 1996-01-21 | 0324661762 | Route de Montancy 332 | 32200 | Villars-sur-Fontenais | 32 | Occitanie |
 
-    ---
+    **Aide** : les dates, les codes postaux et les numéros de téléphone sont des **chaînes de caractères** (entre apostrophes : sinon le 0 initial disparaît). Attention : Sophie Fonfec a **deux** adresses, mais ne doit apparaître qu'**une fois** dans la table `copains`.
 
-    **Table `habite`**
+    **4.** Écrire les requêtes SQL donnant :
 
-    ```sql
-    habite(#id_copain, #no_postal)
-    ```
+    1. les noms de famille de tous les Paul ;
+    2. le numéro de téléphone de Sophie Fonfec ;
+    3. les noms et prénoms de tous ceux nés avant 1995 ;
+    4. les noms et prénoms de tous ceux nés en janvier 1995 ;
+    5. les noms et prénoms de tous ceux qui habitent Porrentruy ;
+    6. le nombre de copains qui n'habitent pas en Occitanie ;
+    7. les noms et prénoms de tous ceux qui habitent en Auvergne-Rhône-Alpes.
 
-    * **Clé primaire (PK)** : **(id\_copain, no\_postal)** (clé primaire composée, car un copain peut habiter plusieurs adresses).
-    * **Clés étrangères (FK)** :
+    **5.** Paul Sud a été enregistré avec le sexe « F » par erreur. Corriger avec une requête `UPDATE`.
 
-        * `id_copain` → `copains(id)`
-        * `no_postal` → `ville(no_postal)`
+    **6.** Colin Maillard ne fait plus partie de la classe. Le supprimer de la base. Dans quel ordre faut-il effectuer les suppressions ? Pourquoi ?
 
-    ---
+## <span style="color:blue">🧪 8. Projets (démarche d'investigation)</span> { #projets }
 
-    **Table `ville`**
-
-    ```sql
-    ville(no_postal, nom_ville, département, rue, région)
-    ```
-
-    * **Clé primaire (PK)** : `no_postal`
-
-
-    1. Créer la base de données et les tables décrites ci-dessus.
-    
-
-
-    Entrer dans la base de données les informations ci-dessous :
-
-    |**Nom**|**Prénom**|**sexe**|**Date naissance**|**téléphone**|**rue**|**dept**|**ville**|**région**|
-    | - | - | - | - | - | - | - | - | - |
-    |Ochon|Paul|H|1995-08-08|0324661155|Place des Peupliers 3|13210|Porrentruy|PACA|
-    |Ochon|Eric|H|1995-08-09|0324661155|Place des Peupliers 3|13210|Porrentruy|PACA|
-    |Gross|Jean|H|1995-03-24|0324668341|La condemène 78|04110|Courgenay|PACA|
-    |Fonfec|Sophie|F|1994-12-14|0324711230|Rue du Général-Comman 26|04110|Courgenay|PACA|
-    |Camé|Léon|H|1995-01-02|0273956619|Rue de la Scierie 1|12120|Savièse|MIDI-PY|
-    |Darc|Jeanne|F|1995-01-31|0273224614|Rue de Condémines 22|81500|Sion|MIDI-PY|
-    |Sapin|Noëlle|F|1996-03-14|0219635678|Promenade des Pêcheurs 6|38400|Montreux|RHONE-ALPES|
-    |Fonfec|Sophie|F|1992-12-14|0324123456|Av. Alsace Lorraine 20|38000|Grenoble|RHONE-ALPES|
-    |Sud|Paul|F|1995-01-18|0324666391|Vieille Rue 2|05110|Tallard|PACA|
-    |Maillard|Colin|H|1994-12-31|0324669912|Route de Varandin 9|05110|Lettret|PACA|
-    |Nord|Paul|H|1996-01-21|0324661762|Route de Montancy 332|32200|Villars-sur-Fontenais|MIDI-PY|
-
-    **Astuce** : Le no\_postal est un id. Les numéros de télephone sont des varchars 
-
-    **Aide** : on se mettra en auto-incrément sur les clés primaires et les dates de naissance sont entre guillemets. ATTENTION pas de doublons dans la table !
-
-    2. Avec des commandes SQL faire les requêtes suivantes :
-
-    - les noms de famille de tous les Paul ;
-    - le numéro de téléphone de Sophie Fonfec ;
-    - les noms et prénoms de tous ceux nés avant 1995 ;
-    - les noms et prénoms de tous ceux qui sont nés en janvier 1995 ;
-    - les noms et prénoms de tous ceux qui habitent Porrentruy ;
-    - le nombre de non-midi pyrénéens ;
-    - les noms et prénoms de toutes les Rhone-Alpins.
-
-## <H2 STYLE="COLOR:BLUE;"><a name="_toc173365588">🧪 </a>**8. Projet (démarche d’investigation)**</H2>
-
-=> **CAPYTALE Le code vous sera donné par votre enseignant**
+💡 **À faire dans CAPYTALE** — le code vous sera donné par votre enseignant.
 
 
 !!! abstract "**Projet 1 : Le coin du cinéphile**"
@@ -1360,14 +1396,14 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
     1. **Table `individu`**
 
     ```sql
-    individu(*Num_Ind, Nom, Prenom)
+    individu(Num_Ind, Nom, Prenom)
     ```
 
     * **Clé primaire (PK)** : `Num_Ind`
 
     ---
 
-    2 **Table `jouer`**
+    2. **Table `jouer`**
 
     ```sql
     jouer(#Num_Ind, #Num_Film, Role)
@@ -1381,20 +1417,20 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
     ---
 
-    3 **Table `film`**
+    3. **Table `film`**
 
     ```sql
-    film(*Num_Film, #Num_Ind, Titre, Genre, Annee)
+    film(Num_Film, #Num_Ind, Titre, Genre, Annee)
     ```
 
     * **Clé primaire (PK)** : `Num_Film`
     * **Clé étrangère (FK)** :
 
-        * `Num_Ind` → `individu(Num_Ind)` (probablement le réalisateur du film).
+        * `Num_Ind` → `individu(Num_Ind)` : c'est le **réalisateur** du film.
 
     ---
 
-    4 **Table `projection`**
+    4. **Table `projection`**
 
     ```sql
     projection(#Num_Cine, #Num_Film, Dates)
@@ -1408,10 +1444,10 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
     ---
 
-    5 **Table `cinema`**
+    5. **Table `cinema`**
 
     ```sql
-    cinema(*Num_Cine, Nom, Adresse)
+    cinema(Num_Cine, Nom, Adresse)
     ```
 
     * **Clé primaire (PK)** : `Num_Cine`
@@ -1458,7 +1494,7 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
     (3, 'Watson', 'Emily'),
     (4, 'Skarsgard', 'Stellan'),
     (5, 'Travolta', 'John'),
-    (6, 'L.Jackson', 'Samuel'),
+    (6, 'L. Jackson', 'Samuel'),
     (7, 'Willis', 'Bruce'),
     (8, 'Irons', 'Jeremy'),
     (9, 'Spader', 'James'),
@@ -1498,8 +1534,8 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
     (10, 1, 'Helen Remington'),
     (11, 1, 'Gabrielle'),
     (4, 5, 'Chuck'),
-    (16, 7, 'May Day'),
-    (12, 7, 'agent007');
+    (17, 7, 'May Day'),
+    (12, 6, 'Davy Crockett');
     ```
 
     Base projection
@@ -1524,37 +1560,35 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
     (4, 6, '2002-08-01');
     ```
 
-    Avec des commandes SQL faire les requêtes suivantes :
+    Avec des commandes SQL :
 
-    1. reconstituez la base de données
+    **1.** Créer les tables et y insérer les données, puis écrire la requête qui fait apparaître le tableau ci-dessus.
 
-        Faire apparaitre le tableau ci-dessus
+    **2.** Quels sont les titres des films dont le genre est Drame ?
 
-    2. Quels sont les titres des films dont le genre est Drame ?
-    3. Quels films sont projetés au cinéma Le Fontenelle ?
-    4. Quels sont les noms et prénoms des réalisateurs ?
+    **3.** Quels films sont projetés au cinéma Le Fontenelle ?
 
-    **Aide** : ils se trouvent dans la base individu mais ils ont réalisé des films : dans la base film
+    **4.** Quels sont les noms et prénoms des réalisateurs ? (*Aide* : ils se trouvent dans la table `individu`, mais ce sont ceux qui apparaissent dans la table `film`.)
 
-    5 Quels sont les noms et prénoms des acteurs ?
+    **5.** Quels sont les noms et prénoms des acteurs ? (*Aide* : ce sont les individus qui apparaissent dans la table `jouer`.)
 
-    **Aide** : ils se trouvent dans la base individu mais ils sont dans la base jouer
+    **6.** Quels sont les noms et prénoms des acteurs qui sont également réalisateurs ?
 
-    6 Quels sont les noms et prénoms des acteurs qui sont également réalisateurs ?
-    7 Quels films (titres) ont été projetés en 2002 ?
-    8 Donnez le titre des films réalisés par von Trier.
-    9 Quels sont les réalisateurs qui ont réalisé des films d’épouvante et des films dramatiques ?
-    10 Quels sont les titres des films où Nicole Kidman a joué un rôle et qui ont été projetés au cinéma Le Fontenelle ?
+    **7.** Quels films (titres) ont été projetés en 2002 ?
 
-    **Aide** : le #Num\_Ind de la base film correspond aux réalisateurs, les conditions doivent être mises dans une seule ligne
+    **8.** Donner le titre des films réalisés par von Trier.
 
-    11 Quels sont les individus qui n’ont pas joué dans des films dramatiques ?
-    12 Quels sont les noms et prénoms des individus dont le prénom est à la fois celui d’un acteur et celui d’un réalisateur sans qu’il s’agisse de la même personne ?
+    **9.** Quels sont les réalisateurs qui ont réalisé des films d'épouvante **et** des films dramatiques ? (*Aide* : deux sous-requêtes avec `IN`.)
 
-    **Aide** : utiliser AS ; différent : <>
+    **10.** Quels sont les titres des films où Nicole Kidman a joué un rôle et qui ont été projetés au cinéma Le Fontenelle ? (*Aide* : dans la table `film`, `Num_Ind` désigne le réalisateur ; les acteurs sont dans `jouer`.)
 
-    13 Quels acteurs a-t-on pu voir au cinéma Le Fontenelle depuis l’an 2000 ?
-    14 Quels sont les films qui ont encore été à l’affiche 5 années après leur sortie ?
+    **11.** Quels sont les individus qui n'ont pas joué dans des films dramatiques ? (*Aide* : `NOT IN`.)
+
+    **12.** Quels sont les noms et prénoms des acteurs dont le prénom est aussi celui d'un réalisateur, sans qu'il s'agisse de la même personne ? (*Aide* : utiliser deux fois la table `individu` avec `AS` ; « différent » s'écrit `<>`.)
+
+    **13.** Quels acteurs a-t-on pu voir au cinéma Le Fontenelle depuis l'an 2000 ?
+
+    **14.** Quels sont les films qui ont encore été à l'affiche 5 années ou plus après leur sortie ? (*Aide* : `SUBSTR(Dates, 1, 4)` extrait l'année d'une date.)
 
 !!! abstract "**Projet 2 : La société canine Botoutou**"
 
@@ -1570,7 +1604,7 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
     ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.024.png)
 
-    1,n : 
+    1,n :
 
     - 1 propriétaire peut avoir n chiens
     - 1 race peut avoir n chiens
@@ -1579,84 +1613,85 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
     - PROPRIO = (idProprio, Nom, Adresse)
     - RACE = (idRace, intitule, description)
-    - CONCOURS = (idConcours, ville, dates, nbPrimes, nbParticipants)
-    - CHIEN = (idChien, #idProprio, #idRace, nom, date naissance, sexe, date acquis)
+    - CONCOURS = (idConcours, ville, date_concours, nbParticipants, nbPrimes)
+    - CHIEN = (idChien, #idProprio, #idRace, nom, date_naissance, sexe, date_acquis)
     - PARTICIPATION = (#idChien, #idConcours, classement)
 
-    1 Donner le MPD (modèle physique de données)  
+    **1.** Donner le schéma relationnel complet (types, clés primaires soulignées, clés étrangères précédées de #). *Aide* : vous pouvez vous aider de <https://dbdiagram.io/>.
 
-    **Aide** : vous pouvez vous aider de <https://dbdiagram.io/>  
+    **2.** Créer la base de données et les tables décrites ci-dessus.
 
-    2 Créez la base de données et les tables décrites ci-dessus.
-
-    **Aide** : si vous créez la base de données à partir de l’import de ce qui a été fait sur <https://dbdiagram.io/>, la création de clés étrangères de fonctionne pas sur sqlite avec la même syntaxe que dans mysql. Il faudra donc créer les clés étrangères en modifiant chacune des tables dans l’onglet structure de la base de données. 
+    *Aide* : le code SQL exporté par dbdiagram.io est écrit pour MySQL ; avec SQLite, les clés étrangères se déclarent dans le `CREATE TABLE` (`FOREIGN KEY (...) REFERENCES ...`).
 
     Les tables contiennent les données suivantes :
 
-    - Base RACE :
+    Table RACE :
+
     ```sql
-    INSERT INTO `RACE` VALUES
-    (1,"labrador", "blablabla"),
-    (2,"carlin", "blablabla"),
-    (3,"husky", "blablabla"),
-    (4,"beagle", "blablabla"),
-    (5,"bulldog", "blablabla");
+    INSERT INTO RACE VALUES
+    (1, 'labrador', 'blablabla'),
+    (2, 'carlin', 'blablabla'),
+    (3, 'husky', 'blablabla'),
+    (4, 'beagle', 'blablabla'),
+    (5, 'bulldog', 'blablabla');
     ```
 
-    Base PROPRIO :
+    Table PROPRIO :
+
     ```sql
-    INSERT INTO `PROPRIO` VALUES
-    (1,"Nathan Barber", 'Place des Peupliers 3'),
-    (2,"Scott Villarreal",'La condemène 78'),
-    (3,"John Harris",'Rue du Général-Comman 26'),
-    (4,"Oscar Paul",'Rue de la Scierie 1'),
-    (5,"Merritt Garcia",'Rue de Condémines 22'),
-    (6,"Marshall Mccoy",'Promenade des Pêcheurs 6'),
-    (7,"Marsden Todd",'Av. Alsace Lorraine 20'),
-    (8,"Alfonso Fuentes",'Vieille Rue 2'),
-    (9,"Fritz Dennis",'Route de Varandin 9'),
-    (10,"Tucker Patton", 'Route de Montancy 332');
+    INSERT INTO PROPRIO VALUES
+    (1, 'Nathan Barber', 'Place des Peupliers 3'),
+    (2, 'Scott Villarreal', 'La condemène 78'),
+    (3, 'John Harris', 'Rue du Général-Comman 26'),
+    (4, 'Oscar Paul', 'Rue de la Scierie 1'),
+    (5, 'Merritt Garcia', 'Rue de Condémines 22'),
+    (6, 'Marshall Mccoy', 'Promenade des Pêcheurs 6'),
+    (7, 'Marsden Todd', 'Av. Alsace Lorraine 20'),
+    (8, 'Alfonso Fuentes', 'Vieille Rue 2'),
+    (9, 'Fritz Dennis', 'Route de Varandin 9'),
+    (10, 'Tucker Patton', 'Route de Montancy 332');
     ```
 
-    Base CHIEN :
+    Table CHIEN :
+
     ```sql
-    INSERT INTO `chiens` VALUES
-    (1,1,3,"Brianna","2019-01-30","F","2019-06-26"),
-    (2,3,1,"Hoyt","2019-02-12","M","2019-07-11"),
-    (3,2,3,"Wendy","2019-02-17","F","2019-07-13"),
-    (4,4,2,"Kelsie","2019-03-12","F","2019-07-13"),
-    (5,4,4,"Jonas","2019-04-23","M","2019-08-10"),
-    (6,10,2,"Yuri","2019-05-22","M","2019-08-18"),
-    (7,5,1,"Indigo","2019-06-16","M","2019-08-19"),
-    (8,8,5,"Kimberley","2019-06-16","F","2019-08-28"),
-    (9,7,3,"Avye","2019-06-16","F","2017-01-30"),
-    (10,1,5,"Bianca","2019-06-26","F","2018-01-30");
+    INSERT INTO CHIEN VALUES
+    (1, 1, 3, 'Brianna', '2019-01-30', 'F', '2019-06-26'),
+    (2, 3, 1, 'Hoyt', '2019-02-12', 'M', '2019-07-11'),
+    (3, 2, 3, 'Wendy', '2019-02-17', 'F', '2019-07-13'),
+    (4, 4, 2, 'Kelsie', '2019-03-12', 'F', '2019-07-13'),
+    (5, 4, 4, 'Jonas', '2019-04-23', 'M', '2019-08-10'),
+    (6, 10, 2, 'Yuri', '2019-05-22', 'M', '2019-08-18'),
+    (7, 5, 1, 'Indigo', '2019-06-16', 'M', '2019-08-19'),
+    (8, 8, 5, 'Kimberley', '2019-06-16', 'F', '2019-08-28'),
+    (9, 7, 3, 'Avye', '2019-06-16', 'F', '2019-09-30'),
+    (10, 1, 5, 'Bianca', '2019-06-26', 'F', '2019-10-30');
     ```
 
-    Base Concours :
+    Table CONCOURS :
+
     ```sql
-    INSERT INTO `concours` VALUES
-    (1,"Paris","2019-01-30",20,3),
-    (2,"Brest","2019-02-12",32,5),
-    (3,"Le Mans","2019-02-17",19,2),
-    (4,"Poitiers","2019-03-12",55,6),
-    (5,"Paris","2019-04-23",88,5),
-    (6,"Grenoble","2019-05-22",28,2),
-    (7,"Lyon","2019-06-16",44,5),
-    (8,"Nantes","2019-06-16",39,4);
+    INSERT INTO CONCOURS VALUES
+    (1, 'Paris', '2020-01-30', 20, 3),
+    (2, 'Brest', '2020-02-12', 32, 5),
+    (3, 'Le Mans', '2020-02-17', 19, 2),
+    (4, 'Poitiers', '2020-03-12', 55, 6),
+    (5, 'Paris', '2020-04-23', 88, 5),
+    (6, 'Grenoble', '2020-05-22', 28, 2),
+    (7, 'Lyon', '2020-06-16', 44, 5),
+    (8, 'Nantes', '2020-06-16', 39, 4);
     ```
 
-    Base PARTICIPATION :
+    Table PARTICIPATION :
+
     ```sql
-
-
-    INSERT INTO `inscriptions` VALUES
-    (1,1, 0),(1,2, 2),(1,4, 0),(1,5, 1),(2,1, 3),(2,3, 1),(2,5, 2),(3,1, 0),(3,6, 3),(3,2, 0),(3,8, 2),
-    (3,7, 0),(4,7, 0),(4,8, 2),(4,6, 0),(4,5, 3),(8,3, 0),(6,1, 0),(6,3, 0),(6,4, 3),(6,6, 0),(6,8, 2),
-    (10,2, 2),(10,4, 3);
+    INSERT INTO PARTICIPATION VALUES
+    (1, 1, 0), (1, 2, 2), (1, 4, 0), (1, 5, 1), (2, 1, 3), (2, 3, 1), (2, 5, 2), (3, 1, 0),
+    (3, 6, 3), (3, 2, 0), (3, 8, 2), (3, 7, 0), (4, 7, 0), (4, 8, 3), (4, 6, 0), (4, 5, 3),
+    (8, 3, 0), (6, 1, 0), (6, 3, 0), (6, 4, 2), (6, 6, 0), (6, 8, 4), (10, 2, 3), (10, 4, 3);
     ```
 
-    Contenu la base de données :
+    Contenu de la base de données :
 
     |**propriétaire**|**nom**|**race**|**sexe**|**naissance**|
     | - | - | - | :-: | - |
@@ -1673,26 +1708,36 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
     Avec des commandes SQL :
 
-    3 Reconstituer la base de données (faire apparaitre le tableau ci-dessus)
-    4 Rechercher les nombres de chiens 
+    **3.** Écrire la requête qui fait apparaître le tableau ci-dessus.
 
-    Pour aller plus loin on peut trouver le nombre de chien par race en rajoutant la commande : group by CHIEN.idRace en ayant fait une jointure avec la table RACE.
+    **4.** Combien y a-t-il de chiens ?
 
-    5 Rechercher les nombres de femelles 
+    **5.** Combien y a-t-il de femelles ?
 
-    De même on peut le regrouper par race.
+    **6.** Quels sont les chiens mâles âgés de plus d'un an ? Nous considérons que nous sommes le 15 septembre 2020.
 
-    6 Rechercher les chiens mâles âgés de plus de 1 an ; nous considérons que nous sommes le 15 septembre 2020.
-    7 Rechercher les propriétaires des chiens de race husky.
-    8 Rechercher les propriétaires et le nom des chiens qui ont été primés à un concours (classement différent de zéro).
-    9 Rechercher les propriétaires et le nom des chiens qui ont terminés 1er à un concours.
-    10 Rechercher les chiens qui n’ont jamais participé à un concours (utiliser not in).
+    **7.** Quels sont les propriétaires des chiens de race husky ?
+
+    **8.** Quels sont les propriétaires et le nom des chiens qui ont été primés à un concours (classement différent de zéro) ?
+
+    **9.** Quels sont les propriétaires et le nom des chiens qui ont terminé 1er à un concours ?
+
+    **10.** Quels sont les chiens qui n'ont jamais participé à un concours ? (*Aide* : `NOT IN`.)
+
+    *Pour aller plus loin (hors programme)* : on peut compter les chiens **par race** avec `GROUP BY` :
+
+    ```sql
+    SELECT intitule, COUNT(*)
+    FROM CHIEN
+    JOIN RACE ON RACE.idRace = CHIEN.idRace
+    GROUP BY intitule;
+    ```
 
 !!! abstract "**Projet 3 : Le cycle de colloques**"
 
     On désire informatiser l'organisation d'un cycle de colloques universitaires.
 
-    - Les différents **colloques** se déroulent dans des universités différentes à des dates différentes et sont organisés par une personne différente à chaque fois. Chaque **colloque** a un **nom spécifique** et est constitué d'un ensemble d'**exposés**. L'université dans laquelle il a lieu et la date sont aussi fixées.
+    - Les différents **colloques** se déroulent dans des universités différentes à des dates différentes. Chaque colloque est organisé par **une** personne (qui peut en organiser plusieurs). Chaque **colloque** a un **nom spécifique** et est constitué d'un ensemble d'**exposés**. L'université dans laquelle il a lieu et la date sont aussi fixées.
     - Chaque **exposé** est identifié par un **titre**. Il est accompagné d'un **résumé**. Le même exposé peut être présenté dans plusieurs colloques.
     - Un **exposé** est présenté par un seul **conférencier** dans un **colloque**. Par contre, un **conférencier** peut faire plusieurs **exposés**. Un **conférencier** peut aussi être un **organisateur** de colloque.
     - On souhaite garder la trace des participants à ces colloques (qui peuvent aussi être conférenciers et/ou organisateurs). Chaque **participant** est identifié par un numéro et décrit par son **nom**, son **prénom** et son **email**.
@@ -1712,94 +1757,89 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
     |SVT : former le citoyen du XXIème siècle|2019-01-31|Université Marie Curie|Le microbe rampant|Chaud|
     |SVT : former le citoyen du XXIème siècle|2019-01-31|Université Marie Curie|Les formes de vie évoluées|Gross|
 
-    Base participant :
+    Table participant :
+
     ```sql
-    INSERT INTO `participant` VALUES
-    (NULL, 'Ochon', 'Paul', "dictum@ornareFuscemollis.ca"),
-    (NULL, 'Chaud', 'Arti', "Curabitur.egestas.nunc@luctusetultrices.ca"),
-    (NULL, 'Gross', 'Jean', "blandit.Nam@ipsumCurabiturconsequat.com"),
-    (NULL, 'Fonfec', 'Sophie', "lorem@posuere.net"),
-    (NULL, 'Camé', 'Léon', "odio@ligula.co.uk"),
-    (NULL, 'Darc', 'Jeanne', "nec.enim.Nunc@tellusAenean.com"),
-    (NULL, 'Sapin', 'Noëlle', "dui.Fusce.diam@Fuscefermentumfermentum.org"),
-    (NULL, 'Sud', 'Paul', "nunc.nulla.vulputate@ideratEtiam.com"),
-    (NULL, 'Maillard', 'Colin', "feugiat.metus@quis.net"),
-    (NULL, 'Nord', 'Paul', "non.leo.Vivamus@tortor.co.uk");
+    INSERT INTO participant VALUES
+    (NULL, 'Ochon', 'Paul', 'dictum@ornareFuscemollis.ca'),
+    (NULL, 'Chaud', 'Arti', 'Curabitur.egestas.nunc@luctusetultrices.ca'),
+    (NULL, 'Gross', 'Jean', 'blandit.Nam@ipsumCurabiturconsequat.com'),
+    (NULL, 'Fonfec', 'Sophie', 'lorem@posuere.net'),
+    (NULL, 'Camé', 'Léon', 'odio@ligula.co.uk'),
+    (NULL, 'Darc', 'Jeanne', 'nec.enim.Nunc@tellusAenean.com'),
+    (NULL, 'Sapin', 'Noëlle', 'dui.Fusce.diam@Fuscefermentumfermentum.org'),
+    (NULL, 'Sud', 'Paul', 'nunc.nulla.vulputate@ideratEtiam.com'),
+    (NULL, 'Maillard', 'Colin', 'feugiat.metus@quis.net'),
+    (NULL, 'Nord', 'Paul', 'non.leo.Vivamus@tortor.co.uk');
     ```
 
-    Base colloques :
+    Table colloques (le 2e champ est l'identifiant de l'organisateur) :
+
     ```sql
-    INSERT INTO `colloques` VALUES
-    (NULL, 2, "SVT : former le citoyen du XXIème siècle", "Université Marie Curie", "2019-01-31"),
-    (NULL, 1, "Microbes et interactions", "Université Joseph Fourier", "2018-12-05"),
-    (NULL, 2, "La génomique, 15 ans après le séquençage du génome", "Université de Lausanne", "2017-11-06"),
-    (NULL, 5, "Les végétaux revisités", "Université Paris-Dauphine", "2019-03-20"),
-    (NULL, 2, "Nourrir l'Humanité", "ESPCI", "2018-06-11");
+    INSERT INTO colloques VALUES
+    (NULL, 2, 'SVT : former le citoyen du XXIème siècle', 'Université Marie Curie', '2019-01-31'),
+    (NULL, 1, 'Microbes et interactions', 'Université Joseph Fourier', '2018-12-05'),
+    (NULL, 2, 'La génomique, 15 ans après le séquençage', 'Université de Lausanne', '2017-11-06'),
+    (NULL, 5, 'Les végétaux revisités', 'Université Paris-Dauphine', '2019-03-20'),
+    (NULL, 2, 'Nourrir l''Humanité', 'ESPCI', '2018-06-11');
     ```
 
-    Base exposes :
+    Table exposes (le 2e champ est l'identifiant du speaker) :
+
     ```sql
-    INSERT INTO `exposes` VALUES
-    (NULL, 2, "Le microbe rampant", "blablabla..."),
-    (NULL, 3, "Les formes de vie évoluées", "blablabla..."),
-    (NULL, 2, "Vie et mort d'un virus", "blablabla..."),
-    (NULL, 1, "Ebola forever", "blablabla..."),
-    (NULL, 4, "Les labos P4", "blablabla..."),
-    (NULL, 1, "Les extrèmophiles", "blablabla..."),
-    (NULL, 1, "La vie sous les océans", "blablabla..."),
-    (NULL, 6, "Les êtres symbiotiques", "blablabla..."),
-    (NULL, 5, "Champignons et microbes", "blablabla..."),
-    (NULL, 8, "La vie sur Mars", "blablabla...");
+    INSERT INTO exposes VALUES
+    (NULL, 2, 'Le microbe rampant', 'blablabla...'),
+    (NULL, 3, 'Les formes de vie évoluées', 'blablabla...'),
+    (NULL, 2, 'Vie et mort d''un virus', 'blablabla...'),
+    (NULL, 1, 'Ebola forever', 'blablabla...'),
+    (NULL, 4, 'Les labos P4', 'blablabla...'),
+    (NULL, 1, 'Les extrémophiles', 'blablabla...'),
+    (NULL, 1, 'La vie sous les océans', 'blablabla...'),
+    (NULL, 6, 'Les êtres symbiotiques', 'blablabla...'),
+    (NULL, 5, 'Champignons et microbes', 'blablabla...'),
+    (NULL, 8, 'La vie sur Mars', 'blablabla...');
     ```
 
-    Base organisations (lien entre colloque et participant)
-    ```sql
-    INSERT INTO `organisations` VALUES
-    (1, 2),
-    (2, 1),
-    (3, 2),
-    (4, 5),
-    (5, 2);
-    ```
+    Table inscriptions (lien entre participant et exposé) :
 
-    Base inscriptions (lien entre participant et exposes)
     ```sql
-    INSERT INTO `inscriptions` VALUES
-    (1, 1),(10, 2),(2, 7),(8, 10),(5, 3),(6, 8),(9, 4),(1, 2),(7, 10),(6, 4),(4, 9),(10, 5),(3, 6),(2, 3),
-    (7, 1),(5, 4),(9, 7),(10, 10),(6, 9),(7, 8),(1, 4),(4, 6),(9, 5),(10, 3),(7, 9),(1, 5),(8, 5),(6, 10),
+    INSERT INTO inscriptions VALUES
+    (1, 1), (10, 2), (2, 7), (8, 10), (5, 3), (6, 8), (9, 4), (1, 2), (7, 10), (6, 4), (4, 9), (10, 5), (3, 6), (2, 3),
+    (7, 1), (5, 4), (9, 7), (10, 10), (6, 9), (7, 8), (1, 4), (4, 6), (9, 5), (10, 3), (7, 9), (1, 5), (8, 5), (6, 10),
     (9, 2);
     ```
 
-    Base presentations (lien entre exposes et colloques)
+    Table presentations (lien entre exposé et colloque) :
+
     ```sql
-    INSERT INTO `presentations` VALUES
-    (1, 1),(2, 1),(3, 2),(4, 2),(5, 3),(6, 3),(7, 4),(8, 4),(9, 5),(10, 5);
+    INSERT INTO presentations VALUES
+    (1, 1), (2, 1), (3, 2), (4, 2), (5, 3), (6, 3), (7, 4), (8, 4), (9, 5), (10, 5);
     ```
 
-    1 Donner le MPD (modèle physique de données)  
-
-    **Aide** : vous pouvez vous aider de <https://dbdiagram.io/>  
+    **1.** Donner le schéma relationnel complet. *Aide* : vous pouvez vous aider de <https://dbdiagram.io/>.
 
     Avec des commandes SQL :
 
-    2 Reconstituer la base de données
+    **2.** Créer la base, puis écrire la requête qui fait apparaître le tableau ci-dessus.
 
-       Faire apparaitre le tableau ci-dessus
-       
-    3 Qui (nom et prénom) organise le colloque Nourrir l'Humanité ?
-    4 Quels sont les titres des exposés du colloque Nourrir l'Humanité ?
-    5 Combien d'exposés sont présentés par Jeanne Darc ?
-    6 Combien de personnes sont inscrites au(x) colloque(s) de l'Université Joseph Fourier ?
-    7 Qui est à la fois organisateur et speaker ?
+    **3.** Qui (nom et prénom) organise le colloque « Nourrir l'Humanité » ?
+
+    **4.** Quels sont les titres des exposés du colloque « Nourrir l'Humanité » ?
+
+    **5.** Combien d'exposés sont présentés par Jeanne Darc ?
+
+    **6.** Combien de personnes différentes sont inscrites au colloque de l'Université Joseph Fourier ? (*Aide* : `COUNT(DISTINCT ...)`.)
+
+    **7.** Qui est à la fois organisateur et speaker ?
 
 !!! abstract "**Projet 4 : PHP et SQL**"
 
 
-    **Étape 1 :** Installer un serveur en local et portable 
+    **Étape 1 :** Installer un serveur en local et portable
 
-    Nous utiliserons : UwAmp  pour ce TP
+    Nous utiliserons **UwAmp** pour ce TP (serveur web portable pour Windows ; il n'est plus mis à jour, mais il suffit pour un usage local en classe).
 
-    - Le télécharger [ici ](https://www.uwamp.com/fr/?page=download).
+    - Le télécharger [ici](https://www.uwamp.com/fr/?page=download).
     - Le décompresser sur une clé USB (ou dans vos documents de votre session)
     - Le lancer
 
@@ -1816,7 +1856,7 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
     On entre dans le vif du sujet : Supposons que je sois un collectionneur de BD et que je souhaite les répertorier dans une base de données (ce n’est qu’un exemple, on peut imaginer une inscription à un site ou la mise en ligne d’objets à vendre..)
 
-    Comment répertorier ces BD : Le genre, l’auteur, l’année de publication, le nombre de tome, le titre, un commentaire.. 
+    Comment répertorier ces BD : Le genre, l’auteur, l’année de publication, le nombre de tome, le titre, un commentaire..
 
     Donc nous allons créer cette table avec 7 colonnes, dans cette base de données le premier champ id nous servira à identifier de façon unique un enregistrement (il sera auto-incrémenté).
 
@@ -1829,9 +1869,9 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
     ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.029.png){ width=50%; : .center }
 
 
-    **Réaliser quelques autres enregistrements1**
+    **Réaliser quelques autres enregistrements.**
 
-    C’est déjà pas mal, mais ce serait mieux si on pouvait faire la même chose à partir d’un formulaire** 
+    C'est déjà pas mal, mais ce serait mieux si on pouvait faire la même chose à partir d'un **formulaire**.
 
 
     **Étape 3 : Mise en place de l’espace de travail**
@@ -1871,9 +1911,9 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
     Si maintenant vous cliquez sur form.php vous verrez s’afficher une page web (très basique)
 
-    **Étape 4 : Nous allons maintenant fabriquer un formulaire qui permettra via une requête d’alimenter notre base avec de nouveaux enregistrements.** 
+    **Étape 4 : Nous allons maintenant fabriquer un formulaire qui permettra via une requête d’alimenter notre base avec de nouveaux enregistrements.**
 
-    Complétez le fichier form.php comme suit (avec VisualStudio) 
+    Complétez le fichier form.php comme suit (avec VisualStudio)
 
     ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.040.png){ width=80%; : .center }
 
@@ -1882,7 +1922,7 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
     ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.041.png){ width=80%; : .center }
 
-    Nous allons écrire le script php qui permet d’enregistrer la fiche dans la base de données. 
+    Nous allons écrire le script php qui permet d’enregistrer la fiche dans la base de données.
 
     Compléter la suite **du fichier form.php** comme suit
 
@@ -1890,9 +1930,9 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
     Quelques remarques :
 
-    - En php, une ligne de commentaire se signale avec un double slash (comme en java)
+    - En PHP, une ligne de commentaire commence par un double slash `//` (comme en JavaScript)
     - Ce script n’est lancé que si l’on a cliqué sur le bouton ‘OK’ ( if(…))
-    - Attention à la syntaxe 
+    - Attention à la syntaxe
 
     Pour cette requête il faut bien respecter l’ordre des champs de votre base de données.
 
@@ -1932,9 +1972,9 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
             <section>
                 <?php
                 $db = new SQLite3('MaBase.db');
-        
+
                 // On prépare la requête qui va mettre dans un tableau tout ce qui concerne l’auteur Jando
-                $req = $db->query('SELECT * FROM BD WHERE auteur="Jando"');
+                $req = $db->query("SELECT * FROM BD WHERE auteur = 'Jando'");
 
                 //on organise $req en tableau associatif $data['champ']
                 //en scannant chaque enregistrement récupéré
@@ -1945,7 +1985,7 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
                 while ($data = $req->fetchArray()) {
                 // on affiche les résultats
                 echo 'Titre :<strong>'.$data['titre'].'</strong><br/>';
-                echo 'Référencé sous le n° : <strong>'.$data['id'].'</strong><br/>'; 
+                echo 'Référencé sous le n° : <strong>'.$data['id'].'</strong><br/>';
                 echo 'Genre :'.$data['genre'].'<br/>';
                 echo 'Année :'.$data['annee'].'<br/>';
                 echo 'Nombre de tome :'.$data['nombre_tome'].'<br/>';
@@ -1959,12 +1999,12 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
     ```
 
 
-    **Étape 7 :** Dans une nouvelle page nous allons faire afficher des 
+    **Étape 7 :** Dans une nouvelle page nous allons faire afficher des
 
     enregistrements suivant des critères
 
 
-    Créer un nouveau fichier sous le **nom recherche.php** et copiez-collez 
+    Créer un nouveau fichier sous le **nom recherche.php** et copiez-collez
 
     ce qu’il faut pour…
 
@@ -2008,7 +2048,7 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
     //On ferme le select
     ?>
     </select>
-    Entrez votre critère de sélection sur ce champ : 
+    Entrez votre critère de sélection sur ce champ :
     <input type="text" name="critere"/>
     <input type="submit" name="Valider" value="OK"/>
     </form>
@@ -2018,42 +2058,63 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
     -->
 
     <?php
-    //On traite le formulaire 
+    //On traite le formulaire
     if(isset($_POST['Valider'])){
         $champ=$_POST['champ'];
         $critere=$_POST['critere'];
 
         // On prépare la requête
         //requête différente selon qu'on veut tout le champ
-        //ou un champ avec une condition 
+        //ou un champ avec une condition
         if(($critere=='')||($critere==NULL)){
             $sql = $db->query("SELECT * FROM BD");
         }
         else{
             $sql = $db->query("SELECT * FROM BD WHERE $champ = '$critere'");
-            
+
         }
-        
-        //Affichage du résultat 
+
+        //Affichage du résultat
         echo'<h2>Résultat</h2>';
-        
+
 
         while ($data = $sql->fetchArray()) {
         // on affiche les résultats
         echo 'Titre :<strong>'.$data['titre'].'</strong><br/>';
-        echo 'Référencé sous le n° : <strong>'.$data['id'].'</strong><br/>'; 
+        echo 'Référencé sous le n° : <strong>'.$data['id'].'</strong><br/>';
         echo 'Genre :'.$data['genre'].'<br/>';
         echo 'Année :'.$data['annee'].'<br/>';
         echo 'Nombre de tome :'.$data['nombre_tome'].'<br/>';
         echo 'Commentaire :'.$data['commentaire'].'<br/><br/><br/>';
         }
-    } 
+    }
 
     $db->close();
     ?>
     ```
 
     Testez cette page…
+
+    !!! danger "⚠️ Faille de sécurité : l'injection SQL"
+
+        La ligne `$db->query("SELECT * FROM BD WHERE $champ = '$critere'")` recopie **tel quel** ce que l'utilisateur a tapé dans la requête. Essayez de saisir comme critère : `x' OR '1'='1` … toute la table s'affiche ! Un pirate pourrait de la même façon lire ou détruire des données (voir chapitre 03b).
+
+        La bonne pratique est une **requête préparée** : le critère est transmis **séparément** et ne peut jamais être interprété comme du SQL. Le nom de colonne, lui, est vérifié dans la liste des colonnes réelles :
+
+        ```php
+        // le champ choisi doit être une vraie colonne de la table
+        $colonnes = [];
+        $res = $db->query("PRAGMA table_info(BD)");
+        while ($row = $res->fetchArray(SQLITE3_NUM)) { $colonnes[] = $row[1]; }
+
+        if (in_array($champ, $colonnes, true)) {
+            $stmt = $db->prepare("SELECT * FROM BD WHERE $champ = :critere");
+            $stmt->bindValue(':critere', $critere, SQLITE3_TEXT);
+            $sql = $stmt->execute();
+        }
+        ```
+
+        De même, on protège l'affichage avec `htmlspecialchars($data['titre'])` pour qu'un titre contenant du code HTML ou JavaScript ne soit pas exécuté par le navigateur.
 
     **Étape 8 :** Il ne reste plus qu’à construire une page index. html qui appelle ces différentes pages en php…
 
@@ -2063,9 +2124,6 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
     Il existe sur internet beaucoup de tutoriel sur ce sujet plus ou moins abordable suivant vos connaissances (ce TP vous donne déjà une première approche) .
 
-    Je me suis moi-même inspiré des tutoriels sur : **https://php.developpez.com/cours/**
-
-
-
+    Je me suis moi-même inspirée des tutoriels de <https://php.developpez.com/cours/>.
 
 

@@ -1,5 +1,5 @@
 ---
-author: ELP
+author: Elisabeth Le Prettre (LePrettre)
 title: 01a Fiche méthode - Tri par sélection
 ---
 
@@ -22,15 +22,18 @@ On part de l’indice du premier élément et on considère que cet élément es
 ### <H3 style="color:green;">💻 Script Python</h3>
 
 ```python
-def tri_selection(l):
-    for i in range(0, len(l)):
+def tri_selection(T):
+    for i in range(len(T) - 1):
         mini = i
-        for j in range(i + 1, len(l)):
-            if l[j] < l[mini]:
+
+        for j in range(i + 1, len(T)):
+            if T[j] < T[mini]:
                 mini = j
+
         if mini != i:
-            l[i], l[mini] = l[mini], l[i]
-    return l
+            T[i], T[mini] = T[mini], T[i]
+
+    return T # non nécessaire
 ```
 
 ### <H3 style="color:green;">🔎 Vérification</h3>
@@ -61,7 +64,7 @@ import time
 
 somme_des_durees = 0
 for i in range(5):
-    a = [k for k in range(100 - 1)]
+    a = [k for k in range(100)]
     start_time = time.time()
     tri_selection(a)
     somme_des_durees += time.time() - start_time
@@ -70,7 +73,7 @@ print("Temps pour 100 : %s sec ---" % moyenne)
 
 somme_des_durees = 0
 for i in range(5):
-    b = [k for k in range(1_000 - 1)]
+    b = [k for k in range(1_000)]
     start_time = time.time()
     tri_selection(b)
     somme_des_durees += time.time() - start_time
@@ -99,7 +102,7 @@ print("Temps pour 1_000 : %s sec ---" % moyenne)
 Dans le pire des cas, pour une liste de taille `n` :
 
 * boucle `for` extérieure : `n-1` tours
-* boucle intérieure : $1 + 2 + ... + (n-1)$ = $\frac{n(n-1)}{2}$
+* boucle intérieure : $(n-1)+(n-2)+\dots+1$ = $\frac{n(n-1)}{2}$
 
 ✅ Confirme que le tri par sélection est en **𝑂(n²)**.
 
@@ -145,14 +148,14 @@ Donc le programme **se termine toujours**.
 
 On utilise un **raisonnement par récurrence** :
 
-🧩 Propriété : « À chaque étape `k`, la sous-liste `l[0:k]` est triée. »
-
-* Initialisation : pour `k = 0`, on place le plus petit élément au début → c’est trié.
-* Hérédité : si les `k` premiers sont triés, l’algorithme place ensuite le plus petit élément restant à la bonne place (`k+1`), donc la sous-liste est toujours triée.
+🧩 Propriété : « Au début de l’itération d’indice `i`, le sous-tableau `T[ : i]` est trié et contient les `i` plus petits éléments du tableau. »
 
 🎯 Cette propriété est un **invariant de boucle**, elle reste vraie à chaque étape.
 
-✅ À la fin, la liste complète est triée.
+* Initialisation : avant l’itération `i = 0`, `T[ : 0]` est vide, donc trié.
+* Hérédité : l’algorithme cherche le minimum de `T[i : ]`, puis le place à l’indice `i`. Ainsi, `T[ : i+1]` est triée et contient les `i+1` plus petits éléments.
+* Terminaison : après le traitement de l’avant-dernière position, le dernier élément restant est nécessairement le plus grand. Tout le tableau est donc trié.
+
 
 
 Pour s'entrainer : [CODEX](https://codex.forge.apps.education.fr/exercices/tri_selection/)

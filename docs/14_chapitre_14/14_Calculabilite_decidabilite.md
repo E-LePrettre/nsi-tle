@@ -1,5 +1,5 @@
 ﻿---
-author: ELP
+author: Elisabeth Le Prettre (LePrettre)
 title: 14 Calculabilité – Décidabilité
 ---
 

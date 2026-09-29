@@ -1,5 +1,5 @@
 ﻿---
-author: ELP
+author: Elisabeth Le Prettre (LePrettre)
 title: 06b Arbre binaire de recherche
 ---
 

@@ -1,5 +1,5 @@
 ﻿---
-author: ELP
+author: Elisabeth Le Prettre (LePrettre)
 title: 12 Algorithme de Boyer - Moore
 ---
 
@@ -42,7 +42,7 @@ Exemple :
 ```python
 texte = "Bonjour tout le monde"
 
-print(texte.index("tout"))   # 7
+print(texte.index("tout"))   # 8
 print(texte.index("pomme"))  # ValueError
 ```
 
@@ -92,11 +92,10 @@ print(texte.index("pomme"))  # ValueError
   texte[i:i+len(motif)] == motif
   ```
 
-On compare toujours une fenêtre du texte de même longueur que le motif, que l’on décale progressivement dans le texte
-(dans le cas des algorithmes de recherche implémentés).
+Dans les algorithmes de recherche de motif, on compare une portion du texte de même longueur que le motif, appelée parfois « fenêtre », que l’on décale progressivement dans le texte.
 
+➡️ La recherche devient plus complexe lorsqu’on cherche un motif plutôt qu’un seul caractère.
 
-➡️ La recherche devient plus complexe lorsqu’on cherche un **motif** plutôt qu’un seul caractère.
 
 ---
 
@@ -113,7 +112,7 @@ Exemple :
 ```python
 texte = "Bonjour tout le monde"
 
-print(texte.find("tout"))    # 7
+print(texte.find("tout"))    # 8
 print(texte.find("pomme"))   # -1
 ```
 

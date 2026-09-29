@@ -1,5 +1,5 @@
 ﻿---
-author: ELP
+author: Elisabeth Le Prettre (LePrettre)
 title: 02a Récursivité
 ---
 
@@ -35,7 +35,7 @@ title: 02a Récursivité
             n -= 1
         print("fin")
 
-    print(decompte_i(5))
+    decompte_i(5)
     ```
         
     ??? success "Python"
@@ -50,10 +50,19 @@ title: 02a Récursivité
             print(n)
             decompte_r(n - 1)
 
-    print(decompte_r(5))
+    decompte_r(5)
     ```
     ??? success "Python"
         {{ IDE() }}
+
+    ??? tip "💡 Pourquoi écrit-on `decompte_i(5)` et non `print(decompte_i(5))` ?"
+
+        Ces deux fonctions **affichent** mais ne **renvoient rien** : elles renvoient donc
+        implicitement `None`. Écrire `print(decompte_i(5))` ferait apparaître un `None`
+        parasite après le décompte. On retiendra la distinction :
+
+        - `print(...)` → **affiche** à l’écran, mais ne produit aucune valeur réutilisable ;
+        - `return ...` → **renvoie** une valeur que l’on peut stocker dans une variable.
 
 ---
 
@@ -63,15 +72,34 @@ title: 02a Récursivité
 
     ✅ **Itératif :**
     
-    <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20decompte_i%28n%29%3A%0A%20%20%20%20while%20n%20%3E%200%3A%0A%20%20%20%20%20%20%20%20print%28n%29%0A%20%20%20%20%20%20%20%20n%20-%3D%201%0A%20%20%20%20print%28%22fin%22%29%0A%0Aprint%28decompte_i%285%29%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+    <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20decompte_i%28n%29%3A%0A%20%20%20%20while%20n%20%3E%200%3A%0A%20%20%20%20%20%20%20%20print%28n%29%0A%20%20%20%20%20%20%20%20n%20-%3D%201%0A%20%20%20%20print%28%22fin%22%29%0A%0Adecompte_i%285%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
 
     ✅ **Récursif :**
 
-    <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20decompte_r%28n%29%3A%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20print%28%22fin%22%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20print%28n%29%0A%20%20%20%20%20%20%20%20decompte_r%28n%20-%201%29%0A%0Aprint%28decompte_r%285%29%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+    <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20decompte_r%28n%29%3A%0A%20%20%20%20if%20n%20%3D%3D%200%3A%0A%20%20%20%20%20%20%20%20print%28%22fin%22%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20print%28n%29%0A%20%20%20%20%20%20%20%20decompte_r%28n%20-%201%29%0A%0Adecompte_r%285%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+
+    👀 **À observer dans la version récursive :** le panneau de droite se remplit de
+    **plusieurs cadres `decompte_r` empilés**, alors que la version itérative n’en
+    affiche qu’**un seul**. C’est toute la différence entre les deux approches.
 
 🧠 Une fonction qui s’appelle elle-même est dite **récursive**.
 
 La récursivité est une méthode de résolution de problème qui **découpe un problème complexe en versions plus simples de lui-même**, jusqu’à arriver à un cas **facile à résoudre**.
+
+---
+
+#### <H4 style="color:magenta;">🌍 La récursivité autour de nous</H4>
+
+Avant d’être une technique de programmation, la récursivité est une **façon de décrire les choses**.
+
+| Exemple | Structure récursive | Cas de base |
+|---|---|---|
+| 🪆 **Les poupées russes** | ouvrir une poupée, c’est trouver… une poupée plus petite | la dernière, qui ne s’ouvre pas |
+| 📁 **L’arborescence de fichiers** | la taille d’un dossier = la somme des tailles de ce qu’il contient, **dont d’autres dossiers** | un dossier vide, ou un fichier |
+| 🌿 **Les fractales** | dans un arbre, chaque branche est elle-même un arbre plus petit | on arrête à un niveau fixé |
+| 📖 **Une définition du dictionnaire** | « un ancêtre est un parent, **ou un ancêtre d’un parent** » | le parent direct |
+
+➡️ **Point commun** : l’objet est défini à partir d’une **version plus petite de lui-même**, et il existe toujours un **cas le plus simple** où l’on s’arrête.
 
 ---
 
@@ -94,7 +122,355 @@ def fonction(arguments):
 
 ---
 
-### <H3 style="color:green;">📐 1.3. Application à la fonction puissance</H3>
+!!! tip "🧭 Méthode : les 3 questions à se poser"
+
+    Avant d’écrire la moindre ligne, réponds à ces trois questions **dans l’ordre** :
+
+    **1️⃣ Quel est le cas le plus simple ?**  
+    → c’est le **cas de base** : on donne la réponse directement, sans appel récursif.
+
+    **2️⃣ Comment se ramener à un cas plus petit ?**  
+    → c’est l’**appel récursif**. On *suppose* qu’il donne la bonne réponse : c’est ce qu’on appelle « **faire confiance à la récursion** ».
+
+    **3️⃣ Que faire du résultat de cet appel ?**  
+    → c’est la ligne qui **combine**, par exemple `return n * factorielle(n - 1)`.
+
+    ✅ **Dernière vérification :** à chaque appel, l’argument se rapproche-t-il **strictement** du cas de base ? Si oui, la fonction s’arrête.
+
+    ---
+
+    **Exemple d’application** sur `somme(n) = 0 + 1 + 2 + ... + n` :
+
+    | Question | Réponse |
+    |---|---|
+    | ① cas de base | `somme(0)` vaut `0` |
+    | ② cas plus petit | `somme(n - 1)` |
+    | ③ combinaison | `n + somme(n - 1)` |
+
+    ```python
+    def somme(n):
+        if n == 0:
+            return 0
+        return n + somme(n - 1)
+    ```
+
+---
+
+!!! warning "❌ Les 5 erreurs les plus fréquentes"
+
+    | Erreur | Ce que l’on observe | Correction |
+    |---|---|---|
+    | Pas de cas de base, ou cas de base jamais atteint | `RecursionError: maximum recursion depth exceeded` | Écrire le `if` d’arrêt et vérifier qu’on l’atteint |
+    | Oubli du `return` devant l’appel récursif | La fonction renvoie `None` | `return f(n - 1)` et non `f(n - 1)` |
+    | L’argument ne décroît pas : `f(n)` au lieu de `f(n - 1)` | `RecursionError` à nouveau | Chaque appel doit se rapprocher **strictement** du cas de base |
+    | Le cas de base ne renvoie rien | `TypeError` : impossible de multiplier `None` | Le cas de base doit **renvoyer une valeur** |
+    | `print` à la place de `return` | L’affichage est correct, mais `x = f(3)` vaut `None` | Renvoyer la valeur ; l’affichage se fait au moment de l’appel |
+
+    🔎 **Réflexe de débogage** : un `RecursionError` ne signifie presque jamais « mon
+    problème est trop gros » — il signifie « **mon cas de base n’est jamais atteint** ».
+
+---
+
+### <H3 style="color:green;">🧪 1.3. Quand le cas récursif contient un test</H3>
+
+Jusqu'ici, le cas récursif était **toujours le même** : `puissance(x, n-1)`, `factorielle(n-1)`…
+Mais très souvent, **ce qu'on fait dépend de l'élément qu'on regarde** : *combien y a-t-il de nombres pairs ?*, *quel est le plus grand ?*, *tous les éléments sont-ils positifs ?*
+
+Il faut alors un **test à l'intérieur du cas récursif**. Voici comment s'y prendre.
+
+---
+
+#### 🛠️ La méthode en 4 questions
+
+Prenons `nb_pairs(tab)` : combien le tableau `tab` contient-il de nombres pairs ?
+
+| # | Question | Réponse pour `nb_pairs` |
+| --- | --- | --- |
+| 1️⃣ | **Quel est le cas de base ?** | Le tableau vide : il contient `0` nombre pair. |
+| 2️⃣ | **Quel est le sous-problème ?** | Le même problème sur `tab[1:]`, le tableau privé de sa 1ʳᵉ case. |
+| 3️⃣ | **Que me donne l'appel récursif ?** | Le nombre de pairs dans **tout le reste**. |
+| 4️⃣ | **Comment combiner `tab[0]` avec ce résultat ?** | 👉 **C'est ici qu'intervient le test** : si `tab[0]` est pair, j'ajoute 1, sinon j'ajoute 0. |
+
+```python
+def nb_pairs(tab):
+    if tab == []:                        # 1️⃣ cas de base
+        return 0
+    if tab[0] % 2 == 0:                  # 4️⃣ le test
+        return 1 + nb_pairs(tab[1:])
+    else:
+        return 0 + nb_pairs(tab[1:])
+```
+
+🔑 **L'appel récursif est présent dans les deux branches.** Seule change la valeur ajoutée. Une branche qui ne rappelle pas la fonction (hors cas de base) laisse la fin du tableau **jamais examinée**.
+
+---
+
+#### 🚨 La règle d'or
+
+???+ question "🎯 Activité n°3 : Pourquoi ce code ne marche-t-il pas ?"
+
+    Un élève veut écrire une fonction qui renvoie **le plus grand élément d'un tableau**. Il propose :
+
+    ```python
+    def maximum(tab):
+        return maximum(tab[1:]) if tab[0] > tab[1] else tab[0]
+
+    print(maximum([3, 9, 2, 7]))
+    print(maximum([5, 4, 3, 2, 1]))
+    ```
+    ??? success "Python"
+        {{ IDE() }}
+
+    1. Que renvoie ce code pour `[3, 9, 2, 7]` ? Pour `[9, 3, 2, 7]` ? Que se passe-t-il avec `[5, 4, 3, 2, 1]` ?
+    2. Combien de cas de base cette fonction possède-t-elle ?
+    3. Repère **trois** erreurs différentes dans cette seule ligne.
+
+    ??? success "Solution"
+         **1. Résultats :**
+
+        * `[3, 9, 2, 7]` → **3** car `3 > 9` est faux.
+        * `[9, 3, 2, 7]` → **2** après plusieurs appels récursifs.
+        * `[5, 4, 3, 2, 1]` → **erreur `IndexError`** lorsque `tab` ne contient plus que `[1]`.
+
+        **2. Cas de base :**
+
+        Aucun cas de base : la récursion ne peut pas s’arrêter correctement.
+
+        **3. Trois erreurs :**
+
+        1. Il manque un cas de base.
+        2. Si `tab[0] > tab[1]`, le code supprime `tab[0]`, qui pourrait être le maximum.
+        3. Sinon, il renvoie `tab[0]`, alors que `tab[1]` est plus grand.
+
+        **Code corrigé :**
+
+        ```python
+        def maximum(tab):
+            if len(tab) == 1:
+                return tab[0]
+
+            maxi_reste = maximum(tab[1:])
+            return tab[0] if tab[0] > maxi_reste else maxi_reste
+        ```
+
+
+    ??? tip "🔍 Les trois erreurs"
+
+        | ❌ | Explication |
+        | --- | --- |
+        | **Pas de cas de base** | Rien n'arrête la récursion : quand il ne reste qu'un élément, `tab[1]` n'existe plus → `IndexError` |
+        | **`tab[0]` comparé à `tab[1]`** | On compare **deux éléments du tableau entre eux**, au lieu de comparer `tab[0]` au **résultat de l'appel récursif** |
+        | **La branche `else` ne rappelle pas la fonction** | `return tab[0]` s'arrête net : la fin du tableau n'est **jamais** examinée |
+
+        ✏️ **À toi de l'écrire correctement** : c'est l'exercice 10.3 (`plus_grand_element`). Applique les 4 questions.
+
+!!! danger "🔑 La règle d'or"
+
+    Dans une fonction récursive, on ne compare **jamais** `tab[0]` avec `tab[1]`.
+    On combine `tab[0]` avec **le résultat de l'appel récursif**, c'est-à-dire avec la réponse pour **tout le reste**.
+
+    🧠 Le réflexe qui sauve : donne un **nom** au résultat de l'appel, sur une ligne à part.
+
+    ```python
+    m = maximum(tab[1:])   # le maximum de tout le reste
+    ...                    # maintenant tu vois à quoi comparer tab[0]
+    ```
+
+---
+
+#### 📝 Écrire un `if` et un `return` sur une seule ligne
+
+L'élève de l'activité n°3 utilisait une écriture qu'on n'a pas encore vue : un `if` **au milieu** d'un `return`. Ce n'était pas là son erreur — cette écriture existe bel et bien, elle s'appelle une **expression conditionnelle**.
+
+##### 🔬 Le squelette
+
+```python
+return ce_qu_on_renvoie_si_la_condition_est_vraie if condition else ce_qu_on_renvoie_si_la_condition_est_fausse
+```
+
+| Position | Morceau | Rôle |
+| --- | --- | --- |
+| ① | `ce_qu_on_renvoie_si_la_condition_est_vraie` | la valeur renvoyée **si le test réussit** |
+| ② | `if condition` | le test |
+| ③ | `else ce_qu_on_renvoie_si_la_condition_est_fausse` | la valeur renvoyée **si le test échoue** |
+
+🗣️ **Lis-la à voix haute, ça tombe juste :** « renvoie `tab[0]` ^^si^^ `tab[0] > m`, ^^sinon^^ renvoie `m` ».
+
+⚠️ **L'ordre d'écriture n'est pas l'ordre d'exécution** : Python évalue d'abord ② la condition, puis ① **ou** ③ — jamais les deux.
+
+##### ⚖️ C'est équivalent à la version en blocs
+
+Sur un `return`, ces deux écritures font **exactement la même chose** :
+
+```python
+if tab[0] > m:              # ⟺     return tab[0] if tab[0] > m else m
+    return tab[0]
+else:
+    return m
+```
+
+💡 Écris d'abord la version en blocs, teste-la, **puis** condense si tu veux. Une ligne courte et fausse ne vaut pas mieux qu'une ligne longue et juste.
+
+##### 🚫 Les deux erreurs de syntaxe
+
+!!! failure "❌ `return tab[0] if tab[0] > m`"
+
+    `SyntaxError: expected 'else' after 'if' expression`
+
+    Le `else` est **obligatoire** : un `return` doit **toujours** avoir une valeur à renvoyer. Pas de `else` possible ? Alors il te faut un `if` en blocs.
+
+!!! failure "❌ `return if condition: a else: b`"
+
+    `SyntaxError: invalid syntax`
+
+    Les deux écritures ont été mélangées. Python a **deux `if` différents** :
+
+    | | `if` **instruction** (en blocs) | `if` **expression** (sur une ligne) |
+    | --- | --- | --- |
+    | Forme | `if condition:` puis un bloc indenté | `a if condition else b` |
+    | Les `:` | obligatoires | ❌ **interdits** |
+    | Le `else` | facultatif | ✅ **obligatoire** |
+    | Ça vaut… | **rien**, ça *fait* quelque chose | **une valeur**, comme `3 + 4` |
+
+##### ❓ Alors pourquoi ne pas toujours écrire en blocs ?
+
+Tant que le test décide de **tout** ce qu'on renvoie, les deux écritures se valent : reste en blocs si tu préfères.
+
+**Mais dès que le choix ne porte que sur un *morceau* de ce qu'on renvoie, le `if` en blocs ne passe plus.** Reprenons `nb_pairs` :
+
+```python
+return (1 if tab[0] % 2 == 0 else 0) + nb_pairs(tab[1:])
+```
+
+Le test ne choisit pas la valeur renvoyée : il choisit **le nombre qu'on ajoute**, qui part ensuite dans une addition. Or un bloc `if:` / `else:` est une **instruction** : impossible de la glisser au milieu d'un calcul, entre des parenthèses.
+
+```python
+return (if tab[0] % 2 == 0: 1 else: 0) + nb_pairs(tab[1:])   # ❌ SyntaxError
+```
+
+Le seul contournement consiste à **recopier** tout l'appel récursif dans les deux branches — c'est ce qu'on a fait plus haut, et c'est acceptable sur une ligne courte.
+
+🔑 **À retenir :** l'expression conditionnelle devient **obligatoire** dès que le choix est *à l'intérieur* d'une expression — un calcul, une liste en compréhension (`[x if x > 0 else 0 for x in t]`), une f-string, un `lambda`.
+
+---
+
+#### 🌳 Quand l'élément est lui-même une liste
+
+Voici une **liste imbriquée** — une liste qui contient des listes :
+
+```python
+l1 = [1, [2, [3, 4], 5], 6, [7, 8]]
+```
+
+Regarde-la case par case : la 1ʳᵉ contient `1`, un **nombre** ; la 2ᵉ contient `[2, [3, 4], 5]`, une **liste**. Deux natures différentes dans le même tableau. Le test ne porte donc plus sur la **valeur** de `l[0]`, mais sur son **type**.
+
+???+ question "🎯 Activité n°4 : Compter les nombres d'une structure imbriquée"
+
+    Exécute cette fonction, qui compte tous les nombres contenus dans la structure :
+
+    ```python
+    def compte_nombres(l):
+        if l == []:                                       # cas de base
+            return 0
+        elif isinstance(l[0], list):                      # l[0] est une sous-liste
+            return compte_nombres(l[0]) + compte_nombres(l[1:])
+        else:                                             # l[0] est un nombre
+            return 1 + compte_nombres(l[1:])
+
+    print(compte_nombres([1, [2, [3, 4], 5], 6, [7, 8]]))   # 8
+    print(compte_nombres([1, [2, [3, [4, [5]]]]]))          # 5
+    ```
+    ??? success "Python"
+        {{ IDE() }}
+
+    1. Dans la branche `elif`, à quoi sert `compte_nombres(l[0])` ? Et `compte_nombres(l[1:])` ?
+    2. Pourquoi la branche `else` n'a-t-elle qu'**un seul** appel récursif ?
+    3. Que renverrait la fonction si on supprimait `+ compte_nombres(l[1:])` dans la branche `elif` ? Essaie.
+
+    ??? success "Solution"
+        **1. Dans la branche `elif` :**
+
+        * `compte_nombres(l[0])` compte les nombres présents dans la **sous-liste**.
+        * `compte_nombres(l[1:])` compte les nombres présents dans le **reste de la liste**.
+
+        **2. Dans la branche `else` :**
+
+        `l[0]` est un nombre : on le compte directement avec `1`.
+        Il suffit ensuite d’un seul appel récursif pour parcourir le reste : `compte_nombres(l[1:])`.
+
+        **3. Si on supprime `+ compte_nombres(l[1:])` :**
+
+        La fonction compte la première sous-liste rencontrée, mais ignore tout ce qui se trouve après celle-ci.
+
+        ```python
+        compte_nombres([1, [2, [3, 4], 5], 6, [7, 8]])
+        ```
+
+        renverrait **4** au lieu de **8** : elle compterait `1, 2, 3, 4`, puis s’arrêterait sans compter `5, 6, 7, 8`.
+
+        Le second exemple renverrait **5**, car tous les nombres sont placés dans des sous-listes successives et il n’y a rien à compter après celles-ci.
+
+
+🔑 **Descendre *et* continuer.** `f(l[0])` **descend** dans la sous-liste ; `f(l[1:])` **continue** le parcours *après* elle. Les deux sont indispensables : la sous-liste n'est qu'**une case** de la liste, il reste tout ce qui la suit.
+
+!!! tip "🧐 `isinstance` ou `type` ?"
+
+    `isinstance(l[0], list)` et `type(l[0]) == list` fonctionnent toutes les deux ici. On préfère `isinstance` : il teste plusieurs types d'un coup — `isinstance(x, (int, float))` — et il reconnaît les sous-classes.
+
+##### 🌲 L'arbre d'appels se ramifie
+
+Avec **deux** appels récursifs, la pile ne descend plus en ligne droite. Déroulons `compte_nombres([1, [2, 3]])` :
+
+```text
+compte([1, [2, 3]])
+├── 1                          ← élément simple
+└── compte([[2, 3]])           ← le reste
+    ├── compte([2, 3])         ← on DESCEND dans la sous-liste
+    │   ├── 1
+    │   └── compte([3])
+    │       ├── 1
+    │       └── compte([]) → 0
+    └── compte([]) → 0         ← on CONTINUE après la sous-liste
+```
+
+🧠 **Deux idées à retenir :**
+
+- Chaque `[]` rencontré **ferme une branche** : le cas de base est traversé **plusieurs** fois, pas une seule.
+- Cette forme ramifiée, c'est déjà la structure d'un **arbre** — on la retrouvera dans « diviser pour régner » (page 02b) puis dans le chapitre sur les arbres.
+
+🎬 **Visualisation Python Tutor** :
+
+<iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20compte%28l%29%3A%0A%20%20%20%20if%20l%20%3D%3D%20%5B%5D%3A%0A%20%20%20%20%20%20%20%20return%200%0A%20%20%20%20elif%20isinstance%28l%5B0%5D%2C%20list%29%3A%0A%20%20%20%20%20%20%20%20return%20compte%28l%5B0%5D%29%20%2B%20compte%28l%5B1%3A%5D%29%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20return%201%20%2B%20compte%28l%5B1%3A%5D%29%0A%0Aprint%28compte%28%5B1%2C%20%5B2%2C%203%5D%5D%29%29%0A&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"></iframe>
+
+---
+
+#### 📋 À retenir
+
+| Ce que décide le test | Schéma | Où t'entraîner |
+| --- | --- | --- |
+| **ce qu'on ajoute** | `return (1 if … else 0) + f(tab[1:])` | `nb_pairs` ci-dessus |
+| **ce qu'on renvoie**, entre `tab[0]` et le résultat de l'appel | `m = f(tab[1:])`, puis on compare `tab[0]` à `m` | ex. 10.3, ex. 10.4 |
+| **`True` ou `False`** (prédicats) | un seul des deux cas relance la récursion | ex. 2, ex. 7, ex. 9 |
+| **quel appel lancer**, selon la **valeur** | `f(n // 2)` ou `f(3 * n + 1)` | ex. 4, et § 1.6 ci-dessous |
+| **quel appel lancer**, selon le **type** de `l[0]` | `f(l[0]) + f(l[1:])` | ex. 10.5 |
+
+!!! warning "⚠️ Les 5 erreurs à traquer"
+
+    1. **Cas de base oublié ou mal choisi** → `RecursionError` ou `IndexError`. Demande-toi toujours : *que vaut ma fonction pour un tableau vide ? à un seul élément ?*
+    2. **Une branche du `if` sans appel récursif** (hors cas de base) → la fin du tableau n'est jamais traitée.
+    3. **Comparer deux éléments du tableau entre eux** au lieu de comparer au résultat de l'appel récursif.
+    4. **Oublier le `return` devant l'appel récursif** → la fonction renvoie `None`.
+    5. **Descendre sans continuer** : `f(l[0])` sans `+ f(l[1:])` → tout ce qui suit la sous-liste est perdu.
+
+!!! example "🧪 Et pour les tests…"
+
+    Une fonction récursive fausse peut très bien passer **certains** tests. Par exemple, sur `[1, [2, [3, [4, [5]]]]]`, une fonction qui descend sans continuer donne quand même la bonne réponse : chaque sous-liste y est le **dernier** élément, donc l'appel manquant ne servait à rien.
+
+    👉 Choisis toujours des exemples aux structures **vraiment différentes** — ici, une sous-liste **suivie d'autre chose**.
+
+---
+
+### <H3 style="color:green;">📐 1.4. Application à la fonction puissance</H3>
 
 Le but est d’écrire une fonction `puissance(x, n)` **sans utiliser `**`**.  
 On cherche à calculer $x^n = x × x × … × x$ (n fois).
@@ -112,7 +488,7 @@ Il est très important de **faire confiance à la récursion** : on suppose que 
 
 ---
 
-???+ question "🎯 Activité n°3 : Implémenter la fonction puissance"
+???+ question "🎯 Activité n°5 : Implémenter la fonction puissance"
 
     Implémente la fonction récursive suivante :
 
@@ -179,9 +555,9 @@ La récursivité repose sur une **pile d’exécution** : chaque appel récursif
 
 ---
 
-### <H3 style="color:green;">❌ 1.4. Fonction récursive sans cas de base</H3>
+### <H3 style="color:green;">❌ 1.5. Fonction récursive sans cas de base</H3>
 
-???+ question "🎯 Activité n°4 : Observer un appel récursif sans condition d’arrêt"
+???+ question "🎯 Activité n°6 : Observer un appel récursif sans condition d’arrêt"
 
     Que se passe-t-il si une fonction récursive **n’a pas de condition d’arrêt** ?
 
@@ -214,7 +590,7 @@ sys.setrecursionlimit(1500)
 
 ---
 
-### <H3 style="color:green;">⚙️ 1.5. Application à la multiplication du paysan russe</H3>
+### <H3 style="color:green;">⚙️ 1.6. Application à la multiplication du paysan russe</H3>
 
 La méthode du **paysan russe** est un très vieil algorithme de **multiplication de deux entiers**.  
 Elle a été utilisée avant l’introduction des chiffres arabes, et même dans les **premiers ordinateurs**, avant que la multiplication ne soit intégrée aux processeurs.
@@ -250,7 +626,7 @@ Résultat final : `105 × 253 = 26565`
 
 On ramène ainsi le calcul de `x × y` à un **sous-problème équivalent plus simple**.
 
-???+ question "🎯 Activité n°5 : Implémenter les deux versions"
+???+ question "🎯 Activité n°7 : Implémenter les deux versions"
 
 
     Voici les deux implémentations de la méthode du paysan russe :
@@ -295,7 +671,7 @@ On ramène ainsi le calcul de `x × y` à un **sous-problème équivalent plus s
 
 ---
 
-### <H3 style="color:green;">📏 1.6. Application au calcul de factorielle</H3>
+### <H3 style="color:green;">📏 1.7. Application au calcul de factorielle</H3>
 
 🔢 **La factorielle, c’est quoi ?**
 Elle correspond au **nombre de permutations possibles** d’un ensemble de `n` éléments.
@@ -311,7 +687,7 @@ Et par convention : $0! = 1$
 
 ---
 
-???+ question "🎯 Activité n°6 : Tester deux implémentations de la factorielle"
+???+ question "🎯 Activité n°8 : Tester deux implémentations de la factorielle"
 
 
     Voici les deux versions du calcul de la factorielle :
@@ -370,7 +746,7 @@ Un appel de fonction est plus **coûteux** qu’un simple test ou calcul.
 
 --- 
 
-### <H3 style="color:green;">🗼 1.7. Application aux tours de Hanoï</H3>
+### <H3 style="color:green;">🗼 1.8. Application aux tours de Hanoï</H3>
 
 Le **casse-tête des tours de Hanoï** est un jeu consistant à déplacer des disques de la tour **A (départ)** vers la tour **C (arrivée)** en passant par une tour **B (intermédiaire)** en respectant les règles suivantes :
 
@@ -380,7 +756,7 @@ Le **casse-tête des tours de Hanoï** est un jeu consistant à déplacer des di
 ---
 
 🎥 **Vidéo explicative** :  
-[▶️ Les tours de Hanoi (via Digiview)](https://ladigitale.dev/digiview/#/v/66a4e65ddc246)
+[▶️ Les tours de Hanoi](https://www.youtube.com/watch?v=w_9P7icYh7Y&t=316s)
 
 ---
 
@@ -421,7 +797,7 @@ Soit environ **584,5 milliards d’années** à raison d’un coup par seconde�
 
 ---
 
-???+ question "🎯 Activité n°7 : Implémenter l’algorithme en Python"
+???+ question "🎯 Activité n°9 : Implémenter l’algorithme en Python"
 
     ```python
     def hanoi(n, a="A", b="B", c="C"):
@@ -455,7 +831,7 @@ Exemple : la **suite de Fibonacci**.
 
 ---
 
-???+ question "🎯 Activité n°8 : Implémenter les deux versions de Fibonacci"
+???+ question "🎯 Activité n°10 : Implémenter les deux versions de Fibonacci"
 
     🔁 Version itérative
     ```python
@@ -488,7 +864,7 @@ Exemple : la **suite de Fibonacci**.
 
 ---
 
-???+ question "⏱️ Activité n°9 : Comparer les temps d'exécution"
+???+ question "⏱️ Activité n°11 : Comparer les temps d'exécution"
 
     Ajoute ce code pour mesurer les performances :
 
@@ -874,15 +1250,15 @@ Elle est **élégante mais coûteuse** si mal utilisée (exemple : Fibonacci).
     t.done()
     ```
 
-    3 Compléter l’algorithme suivant :
+    3 Compléter l’algorithme suivant :
 
     ```
     fonction koch(longueur,n): 
     Si n = 0 alors 
         On trace le segment de longueur cote 
     Sinon 
-        On appelle la fonction flocon avec les paramètres ???
-        On tourne de ???
+        On appelle la fonction flocon avec les paramètres ???
+        On tourne de ???
         ???
         ???
         ???
@@ -895,17 +1271,17 @@ Elle est **élégante mais coûteuse** si mal utilisée (exemple : Fibonacci).
     ```python
     import turtle
 
-    def koch(*longueur*, *n*):
-        if *n* == 0:
-            # à completer
+    def koch(longueur, n):
+        if n == 0:
+            # à compléter
         else:
-            # à completer
+            # à compléter
 
-    koch(200,3)
+    koch(200, 3)
     turtle.done()
     ```
 
-    5 Cerise sur le gateau : Sauriez vous faire afficher cette figure :
+    5 Cerise sur le gateau : Sauriez vous faire afficher cette figure :
 
     ![](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.032.png)
 
@@ -918,15 +1294,15 @@ Elle est **élégante mais coûteuse** si mal utilisée (exemple : Fibonacci).
     ![](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.041.png)![](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.042.png)![](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.043.png)
 
 
-    Selon la valeur du nombre du niveau on aura une représentation plus ou moins « dentelée »
+    Selon la valeur du nombre du niveau on aura une représentation plus ou moins « dentelée »
 
-    **Aides** : 
+    **Aides** : 
 
     - seuls les petits triangles sont coloriés => mauvaise idée de tout coloriée puis de rajouter des triangles blancs
 
     - pour passer d’un triangle de niveau supérieur vers un triangle inférieur il faut diviser par 2
 
-    - La fonction à créer a pour prototypage : sierpinski(n : int, L : int) où n est le niveau souhaité (de 0 à l’infini) et L la longueur d’un des côtés du grand triangle 
+    - La fonction à créer a pour prototypage : sierpinski(n : int, L : int) où n est le niveau souhaité (de 0 à l’infini) et L la longueur d’un des côtés du grand triangle 
 
     - On **pourra** prendre L = 600 et se déplacer au départ en (-300, -300) pour center le dessin si on choisit d’aller vers la gauche…
 
@@ -962,7 +1338,7 @@ Elle est **élégante mais coûteuse** si mal utilisée (exemple : Fibonacci).
 
     ![tapis de sierpinsky : étape 3](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.053.png)
 
-    Et on fait cela à l’infini. Le résultat final donne le *tapis de Sierpinsky*.
+    Et on fait cela à l’infini. Le résultat final donne le *tapis de Sierpinsky*.
 
 
 !!! abstract "**Projet 4 : Arbre de Pythagore**"
@@ -974,7 +1350,7 @@ Elle est **élégante mais coûteuse** si mal utilisée (exemple : Fibonacci).
     - Avec p = 3 :  pythagore 3 ![ arbre 3](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.056.png)
     - Avec p = 10 :  pythagore 10 ![ Pythagore 10](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.057.png)
 
-    Aide : 
+    Aide : 
 
     - On pourra utiliser turtle.colormode(255) => pour coder en rgb puis un random.randint(0,255) sur les trois couleur rgb 
 
@@ -986,12 +1362,12 @@ Elle est **élégante mais coûteuse** si mal utilisée (exemple : Fibonacci).
 
     Long en exécution…
 
-    Par exemple, pour construire un arbre, on part d’un segment, et on applique la transformation présentée ci-dessus à chaque segment de la construction (on refait la transformation n fois pour obtenir un arbre d’ordre n) : 
+    Par exemple, pour construire un arbre, on part d’un segment, et on applique la transformation présentée ci-dessus à chaque segment de la construction (on refait la transformation n fois pour obtenir un arbre d’ordre n) : 
 
     ![](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.059.png)
 
     Base de la construction d'un arbre. 
 
-    Les portions dessinées en *pointillées sont celles sur lesquelles on appliquera la transformation à l’ordre suivant* (on les appelle les **segments non-terminaux**). Les portions dessinées en *trait plein sont des segments qui ne seront pas transformés* (on les appellera les **segments terminaux**).
+    Les portions dessinées en *pointillées sont celles sur lesquelles on appliquera la transformation à l’ordre suivant* (on les appelle les **segments non-terminaux**). Les portions dessinées en *trait plein sont des segments qui ne seront pas transformés* (on les appellera les **segments terminaux**).
 
-    Pour transformer un segment non-terminal de longueur lll, on trace un segment terminal de longueur l/3, puis deux segments non-terminaux de longueur 2l/3 à un angle θ du premier segment.
+    Pour transformer un segment non-terminal de longueur lll, on trace un segment terminal de longueur l/3, puis deux segments non-terminaux de longueur 2l/3 à un angle θ du premier segment.

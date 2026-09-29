@@ -22,4 +22,4 @@ _Lycée Jean Cassaigne_
 
 ---
 
-✍️ *Elisabeth Le Prettre*
+✍️ *Elisabeth Le Prettre (LePrettre)*

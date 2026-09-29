@@ -1,6 +1,6 @@
 ---
-author: ELP
-title: 02b Méthode diviser pour régner
+author: Elisabeth Le Prettre (LePrettre)
+title: 02b Diviser pour régner
 ---
 
 **Table des matières**
@@ -351,8 +351,8 @@ Pour bien comprendre la méthode employée, on construit un **arbre binaire** o�
 
 ### <H3 STYLE="COLOR:GREEN;"> 🎥 **3.3. Illustration en vidéo</h3>**
 
-* 💃 Animation visuelle : [Danse](https://ladigitale.dev/digiview/#/v/66a6a018f33ef)
-* 📚 Explication complète : [Vidéo explicative](https://ladigitale.dev/digiview/#/v/66a6a06310c1c)
+* 💃 Animation visuelle : [Danse](https://www.youtube.com/watch?v=XaqR3G_NVoo)
+* 📚 Explication complète : [Vidéo explicative](https://www.youtube.com/watch?v=ADcIf8iBdng )
 * 🔍 Visualisation interactive : [Simulateur](http://lwh.free.fr/pages/algo/tri/tri_fusion.html)
 
 ---
@@ -483,7 +483,7 @@ La complexité des algorithmes :
 
 
     ```python
-    import datetime
+    import time
     import random
 
     def tri_insertion(tab):
@@ -532,29 +532,25 @@ La complexité des algorithmes :
             S[i + j] = S2[j]
             j += 1
 
-    n = 1000
-    t = [random.randint(1, 1000) for _ in range(n)]
 
-    # Tri par insertion
-    t1 = t[:]
-    start = datetime.datetime.now()
-    tri_insertion(t1)
-    end = datetime.datetime.now()
-    print("tri insertion :", (end - start).total_seconds())
+    def mesurer(tri, tab, repetitions=5):
+        """Renvoie le temps moyen (en secondes) d'un tri sur une copie de tab."""
+        total = 0
+        for _ in range(repetitions):
+            copie = tab[:]                 # on repart toujours du tableau non trié
+            debut = time.perf_counter()
+            tri(copie)
+            fin = time.perf_counter()
+            total += fin - debut
+        return total / repetitions
 
-    # Tri par sélection
-    t2 = t[:]
-    start = datetime.datetime.now()
-    tri_selection(t2)
-    end = datetime.datetime.now()
-    print("tri selection :", (end - start).total_seconds())
 
-    # Tri fusion
-    t3 = t[:]
-    start = datetime.datetime.now()
-    tri_fusion(t3)
-    end = datetime.datetime.now()
-    print("tri fusion :", (end - start).total_seconds())
+    for n in [1000, 2000, 4000, 8000]:
+        t = [random.randint(1, 1000) for _ in range(n)]
+        print(f"--- n = {n} ---")
+        print(f"tri insertion : {mesurer(tri_insertion, t):.6f} s")
+        print(f"tri selection : {mesurer(tri_selection, t):.6f} s")
+        print(f"tri fusion    : {mesurer(tri_fusion, t):.6f} s")
     ```
 
     ??? success "Python"
@@ -563,9 +559,22 @@ La complexité des algorithmes :
     ⏱️ **Résultats attendus** (approximatifs selon ta machine) :
 
     ```
-    tri insertion :  0.051
-    tri selection :  0.027
-    tri fusion    :  0.003
+    --- n = 1000 ---
+    tri insertion : 0.082260 s
+    tri selection : 0.090400 s
+    tri fusion    : 0.004660 s
+    --- n = 2000 ---
+    tri insertion : 0.250360 s
+    tri selection : 0.285200 s
+    tri fusion    : 0.013020 s
+    --- n = 4000 ---
+    tri insertion : 1.003340 s
+    tri selection : 1.036320 s
+    tri fusion    : 0.025000 s
+    --- n = 8000 ---
+    tri insertion : 7.158820 s
+    tri selection : 8.827420 s
+    tri fusion    : 0.108700 s
     ```
 
 ---

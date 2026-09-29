@@ -1,5 +1,5 @@
 ---
-author: ELP
+author: Elisabeth Le Prettre (LePrettre)
 title: 01e Fiche méthode - Recherche dans un tableau
 ---
 

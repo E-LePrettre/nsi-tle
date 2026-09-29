@@ -1,5 +1,5 @@
 ---
-author: ELP
+author: Elisabeth Le Prettre (LePrettre)
 title: 01d Fiche méthode - Algorithme glouton
 ---
 
