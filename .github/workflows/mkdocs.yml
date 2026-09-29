@@ -1,3 +1,4 @@
+# Image path resolver: course-relative Windows paths supported.
 name: Deploy current replicated course
 on:
   push:
