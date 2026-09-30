@@ -930,6 +930,236 @@ Elle est **élégante mais coûteuse** si mal utilisée (exemple : Fibonacci).
 🗣️ *"Marcher en itératif c’est mettre un pied devant l’autre et recommencer. Marcher en récursif c’est mettre un pied devant l’autre et marcher."*
 
 
+## <span style="color:blue">✅ QCM : teste-toi avant les exercices</span>
+
+🎯 Avant d'attaquer les exercices, vérifie que tu sais **faire tourner un programme récursif à la main**. Prends un **brouillon** : une seule bonne réponse par question.
+
+!!! question "Question 1 — Quelle est la sortie du code suivant ?"
+
+    ```python
+    def mystere(n, a):
+        if n == 0:
+            return a
+        return mystere(n - 1, a + n)
+
+    print(mystere(4, 0))
+    ```
+
+    - **A.** 10
+    - **B.** 0
+    - **C.** 24
+    - **D.** 4
+
+    ??? success "Solution"
+
+        ✅ **Réponse A** : 10
+
+        On accumule dans `a` : `mystere(4, 0)` → `mystere(3, 4)` → `mystere(2, 7)` → `mystere(1, 9)` → `mystere(0, 10)` → `10`. C'est 4 + 3 + 2 + 1.
+
+!!! question "Question 2 — Quelle est la sortie du code suivant ?"
+
+    ```python
+    def mystere(m):
+        if m == "":
+            return ""
+        return mystere(m[1:]) + m[0]
+
+    print(mystere("NSI"))
+    ```
+
+    - **A.** NSI
+    - **B.** N
+    - **C.** ISN
+    - **D.** SIN
+
+    ??? success "Solution"
+
+        ✅ **Réponse C** : ISN
+
+        Chaque premier caractère est renvoyé à la fin : la chaîne est inversée.
+
+!!! question "Question 3 — Quelle est la sortie du code suivant ?"
+
+    ```python
+    def mystere(m):
+        if m == "":
+            return 0
+        if m[0] == "a":
+            return 1 + mystere(m[1:])
+        return mystere(m[1:])
+
+    print(mystere("banana"))
+    ```
+
+    - **A.** 6
+    - **B.** 2
+    - **C.** 1
+    - **D.** 3
+
+    ??? success "Solution"
+
+        ✅ **Réponse D** : 3
+
+        On ajoute 1 à chaque « a » rencontré, et on continue quand même sur le reste : b-a-n-a-n-a contient trois « a ». L'appel récursif est bien présent dans les deux branches.
+
+!!! question "Question 4 — Quelle est la sortie du code suivant ?"
+
+    ```python
+    def mystere(n):
+        if n < 10:
+            return n
+        return n % 10 + mystere(n // 10)
+
+    print(mystere(4821))
+    ```
+
+    - **A.** 1284
+    - **B.** 4821
+    - **C.** 15
+    - **D.** 4
+
+    ??? success "Solution"
+
+        ✅ **Réponse C** : 15
+
+        `n % 10` donne le dernier chiffre, `n // 10` retire ce chiffre : 1 + 2 + 8 + 4 = 15.
+
+!!! question "Question 5 — Quelle est la sortie du code suivant ?"
+
+    ```python
+    def mystere(n):
+        return n + mystere(n - 1)
+
+    print(mystere(3))
+    ```
+
+    - **A.** 6
+    - **B.** 0
+    - **C.** 3
+    - **D.** une erreur : `RecursionError`
+
+    ??? success "Solution"
+
+        ✅ **Réponse D** : une erreur : `RecursionError`
+
+        Il n'y a aucun cas de base : rien n'arrête la descente. `n` devient négatif indéfiniment et la pile d'appels finit par déborder.
+
+!!! question "Question 6 — Quelle est la sortie du code suivant ?"
+
+    ```python
+    def mystere(tab):
+        if tab == []:
+            return []
+        if tab[0] > 0:
+            return [tab[0]] + mystere(tab[1:])
+        return mystere(tab[1:])
+
+    print(mystere([3, -1, 4, -5, 2]))
+    ```
+
+    - **A.** 9
+    - **B.** [3, 4, 2]
+    - **C.** [-1, -5]
+    - **D.** [3, -1, 4, -5, 2]
+
+    ??? success "Solution"
+
+        ✅ **Réponse B** : [3, 4, 2]
+
+        Les éléments strictement positifs sont conservés dans l'ordre, les autres sont simplement ignorés.
+
+!!! question "Question 7 — Quelle est la sortie du code suivant ?"
+
+    ```python
+    def mystere(tab):
+        if len(tab) == 1:
+            return tab[0]
+        m = mystere(tab[1:])
+        if tab[0] > m:
+            return tab[0]
+        return m
+
+    print(mystere([4, 9, 2, 7]))
+    ```
+
+    - **A.** 22
+    - **B.** 4
+    - **C.** 7
+    - **D.** 9
+
+    ??? success "Solution"
+
+        ✅ **Réponse D** : 9
+
+        `m` est le plus grand de tout le reste ; on le compare à `tab[0]` et on garde le plus grand des deux. C'est la **règle d'or** : on compare `tab[0]` au résultat de l'appel récursif, jamais à `tab[1]`.
+
+!!! question "Question 8 — Quelle est la sortie du code suivant ?"
+
+    ```python
+    def mystere(tab):
+        if tab == []:
+            return 1
+        return tab[0] + mystere(tab[1:])
+
+    print(mystere([2, 3, 4]))
+    ```
+
+    - **A.** 9
+    - **B.** 24
+    - **C.** 10
+    - **D.** 1
+
+    ??? success "Solution"
+
+        ✅ **Réponse C** : 10
+
+        La fonction s'arrête bien, mais le cas de base renvoie 1 au lieu de 0 : ce 1 vient s'ajouter à la somme. 2 + 3 + 4 + 1 = 10. L'élément neutre de l'addition est 0.
+
+!!! question "Question 9 — Quelle est la sortie du code suivant ?"
+
+    ```python
+    def mystere(n):
+        if n == 0:
+            return []
+        return mystere(n - 1) + [n]
+
+    print(mystere(4))
+    ```
+
+    - **A.** 10
+    - **B.** [4, 3, 2, 1]
+    - **C.** [1, 2, 3, 4]
+    - **D.** [0, 1, 2, 3]
+
+    ??? success "Solution"
+
+        ✅ **Réponse C** : [1, 2, 3, 4]
+
+        L'appel récursif est placé AVANT `[n]` : les petites valeurs, traitées en premier à la remontée, se retrouvent devant.
+
+!!! question "Question 10 — Quelle est la sortie du code suivant ?"
+
+    ```python
+    def mystere(tab):
+        if len(tab) == 1:
+            return tab[0]
+        return tab[0] + mystere(tab[1:])
+
+    print(mystere([]))
+    ```
+
+    - **A.** 0
+    - **B.** None
+    - **C.** une erreur : `IndexError`
+    - **D.** une erreur : `RecursionError`
+
+    ??? success "Solution"
+
+        ✅ **Réponse C** : une erreur : `IndexError`
+
+        Le cas de base ne couvre que les listes d'un seul élément. Sur une liste vide il n'est pas déclenché, et `tab[0]` provoque aussitôt une `IndexError` : un cas de base doit couvrir toutes les situations d'arrêt possibles.
+
+---
 
 ## **<H2 STYLE="COLOR:BLUE;">📝 3. Exercices<a name="_page0_x40.00_y375.03"></a>**</H2>
 

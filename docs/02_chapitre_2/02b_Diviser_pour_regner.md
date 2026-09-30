@@ -598,7 +598,267 @@ Utiliser la **dichotomie** :
 → réduire l’intervalle à chaque itération.
 => Voir exercice n°1
 
+## <span style="color:blue">✅ QCM : teste-toi avant les exercices</span>
 
+🎯 Avant d'attaquer les exercices, vérifie que tu sais **faire tourner un programme récursif à la main**. Prends un **brouillon** : une seule bonne réponse par question.
+
+!!! question "Question 1 — Quelle est la sortie du code suivant ?"
+
+    ```python
+    def mystere(n, a):
+        if n == 0:
+            return 1
+        y = mystere(n // 2, a)
+        if n % 2 == 0:
+            return y * y
+        return a * y * y
+
+    print(mystere(5, 2))
+    ```
+
+    - **A.** 10
+    - **B.** 25
+    - **C.** 32
+    - **D.** 64
+
+    ??? success "Solution"
+
+        ✅ **Réponse C** : 32
+
+        C'est l'exponentiation rapide : 2⁵ = 32. `n` prend les valeurs 5, 2, 1, 0 et les résultats remontent : 1, 2, 4, 32.
+
+!!! question "Question 2 — Quelle est la sortie du code suivant ?"
+
+    ```python
+    def mystere(n, a):
+        if n == 0:
+            return 1
+        y = mystere(n // 2, a)
+        print(n, end=" ")
+        if n % 2 == 0:
+            return y * y
+        return a * y * y
+
+    mystere(11, 2)
+    ```
+
+    - **A.** 11 5 2 1 0
+    - **B.** 0 1 2 5 11
+    - **C.** 11 5 2 1
+    - **D.** 1 2 5 11
+
+    ??? success "Solution"
+
+        ✅ **Réponse D** : 1 2 5 11
+
+        Le `print` est placé APRÈS l'appel récursif : il s'exécute à la remontée, donc dans l'ordre inverse de la descente 11 → 5 → 2 → 1. L'appel avec `n = 0` s'arrête au cas de base, avant le `print`.
+
+!!! question "Question 3 — Quelle est la sortie du code suivant ?"
+
+    ```python
+    def mystere(tab, v, g, d):
+        if g > d:
+            return False
+        m = (g + d) // 2
+        if tab[m] == v:
+            return True
+        if tab[m] > v:
+            return mystere(tab, v, g, m - 1)
+        return mystere(tab, v, m + 1, d)
+
+    tab = [1, 4, 6, 9, 12, 15, 20]
+    print(mystere(tab, 12, 0, 6))
+    ```
+
+    - **A.** True
+    - **B.** False
+    - **C.** 4
+    - **D.** 12
+
+    ??? success "Solution"
+
+        ✅ **Réponse A** : True
+
+        Recherche dichotomique : m = 3 (9 < 12) → à droite ; m = 5 (15 > 12) → à gauche ; m = 4 : trouvé.
+
+!!! question "Question 4 — Quelle est la sortie du code suivant ?"
+
+    ```python
+    def mystere(tab, v, g, d):
+        if g > d:
+            return -1
+        m = (g + d) // 2
+        if tab[m] == v:
+            return m
+        if tab[m] > v:
+            return mystere(tab, v, g, m - 1)
+        return mystere(tab, v, m + 1, d)
+
+    tab = [2, 5, 8, 11, 14, 17, 21]
+    print(mystere(tab, 7, 0, 6))
+    ```
+
+    - **A.** -1
+    - **B.** False
+    - **C.** 2
+    - **D.** 0
+
+    ??? success "Solution"
+
+        ✅ **Réponse A** : -1
+
+        La valeur 7 est absente : l'intervalle se réduit jusqu'à devenir vide (`g > d`) et la fonction renvoie -1.
+
+!!! question "Question 5 — Quelle est la sortie du code suivant ?"
+
+    ```python
+    def mystere(tab):
+        n = len(tab)
+        if n == 0:
+            return 0
+        m = n // 2
+        return mystere(tab[:m]) + mystere(tab[m:])
+
+    print(mystere([4, 7]))
+    ```
+
+    - **A.** 11
+    - **B.** une erreur : `RecursionError`
+    - **C.** 0
+    - **D.** 4
+
+    ??? success "Solution"
+
+        ✅ **Réponse B** : une erreur : `RecursionError`
+
+        Le cas de base aurait dû être `n == 1`. Avec `n == 0`, une liste d'un seul élément donne `m = 0`, donc `tab[:0]` vide et `tab[0:]` identique à la liste de départ : le sous-problème n'est jamais plus petit.
+
+!!! question "Question 6 — Quelle est la sortie du code suivant ?"
+
+    ```python
+    def mystere(tab):
+        n = len(tab)
+        if n == 1:
+            return tab[0]
+        m = n // 2
+        g = mystere(tab[:m])
+        d = mystere(tab[m:])
+        if g > d:
+            return g
+        return d
+
+    print(mystere([3, 9, 2, 7]))
+    ```
+
+    - **A.** 7
+    - **B.** 9
+    - **C.** 21
+    - **D.** 3
+
+    ??? success "Solution"
+
+        ✅ **Réponse B** : 9
+
+        On cherche le maximum de chaque moitié, puis on garde le plus grand des deux : max(3, 9) = 9 et max(2, 7) = 7, donc 9.
+
+!!! question "Question 7 — Quelle est la sortie du code suivant ?"
+
+    ```python
+    def mystere(S1, S2):
+        if S1 == []:
+            return S2
+        if S2 == []:
+            return S1
+        if S1[0] < S2[0]:
+            return [S1[0]] + mystere(S1[1:], S2)
+        return [S2[0]] + mystere(S1, S2[1:])
+
+    print(mystere([1, 4, 7], [2, 3, 9]))
+    ```
+
+    - **A.** [1, 2, 3, 4, 7, 9]
+    - **B.** [1, 2, 3, 4, 9, 7]
+    - **C.** [9, 7, 4, 3, 2, 1]
+    - **D.** [1, 4, 7, 2, 3, 9]
+
+    ??? success "Solution"
+
+        ✅ **Réponse A** : [1, 2, 3, 4, 7, 9]
+
+        C'est la fusion de deux listes triées : à chaque étape on prend le plus petit des deux premiers éléments.
+
+!!! question "Question 8 — Quelle est la sortie du code suivant ?"
+
+    ```python
+    def mystere(S1, S2):
+        if S1 == []:
+            return S2
+        if S1[0] < S2[0]:
+            return [S1[0]] + mystere(S1[1:], S2)
+        return [S2[0]] + mystere(S1, S2[1:])
+
+    print(mystere([1, 4], [2, 3]))
+    ```
+
+    - **A.** une erreur : `IndexError`
+    - **B.** [1, 2, 3, 4]
+    - **C.** [1, 2, 3]
+    - **D.** [1, 4, 2, 3]
+
+    ??? success "Solution"
+
+        ✅ **Réponse A** : une erreur : `IndexError`
+
+        Il manque un cas de base : `if S2 == []: return S1`. Quand `S2` se vide avant `S1`, la comparaison `S1[0] < S2[0]` va chercher un élément inexistant. Une fusion a besoin de DEUX conditions d'arrêt, une pour chaque liste.
+
+!!! question "Question 9 — Quelle est la sortie du code suivant ?"
+
+    ```python
+    def mystere(tab, g, d):
+        if g == d:
+            return tab[g]
+        m = (g + d) // 2
+        return mystere(tab, g, m) + mystere(tab, m + 1, d)
+
+    print(mystere([5, 2, 8, 1], 0, 3))
+    ```
+
+    - **A.** 5
+    - **B.** 7
+    - **C.** 16
+    - **D.** 4
+
+    ??? success "Solution"
+
+        ✅ **Réponse C** : 16
+
+        Le découpage se fait par indices au lieu du slicing : la partie gauche va de `g` à `m`, la droite de `m + 1` à `d`. On additionne 5 + 2 + 8 + 1 = 16.
+
+!!! question "Question 10 — Quelle est la sortie du code suivant ?"
+
+    ```python
+    def mystere(tab):
+        n = len(tab)
+        if n == 1:
+            return 1
+        m = n // 2
+        return mystere(tab[:m]) + mystere(tab[m:])
+
+    print(mystere([4, 7, 2, 9]))
+    ```
+
+    - **A.** 4
+    - **B.** 22
+    - **C.** 1
+    - **D.** 2
+
+    ??? success "Solution"
+
+        ✅ **Réponse A** : 4
+
+        Le cas de base renvoie 1 au lieu de `tab[0]` : au lieu d'additionner les éléments, la fonction compte combien il y en a.
+
+---
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc144400477">📝 **6. Exercices</a>**</H2> 
 
