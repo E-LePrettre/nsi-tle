@@ -1,4 +1,4 @@
-# Manual synchronization requested: 2026-09-30 22:13 Europe/Paris
+# Manual synchronization requested: 2026-09-30 22:26 Europe/Paris — chapters 02a and 02b
 name: Synchronize source from Forge
 on:
   push:
