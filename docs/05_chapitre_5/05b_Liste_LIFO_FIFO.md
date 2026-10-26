@@ -1,4 +1,4 @@
-﻿---
+---
 author: Elisabeth Le Prettre (LePrettre)
 title: 05b Liste - Pile - File - Dictionnaire
 ---
@@ -545,7 +545,7 @@ Nous aimerions maintenant accéder à **n'importe quelle valeur** de la liste, e
     ```
 
     ```python
-    listeA = (12, 15, 18, 4)
+    listeA = (12, (15, (18, (4, ()))))
     reponse = lireElement(listeA, 1)
     ```
 
@@ -604,11 +604,11 @@ Nous aimerions maintenant accéder à **n'importe quelle valeur** de la liste, e
     🎯 Objectif : renvoyer une nouvelle liste dans laquelle l'élément `x` est inséré **à la position spécifiée**, en suivant un index débutant à 0.
 
     ```python
-    listeA = (12, 15, 18, 4)
+    listeA = (12, (15, (18, (4, ()))))
     listeB = insererElement(5, listeA, 2)
     ```
 
-    ✅ `listeB` = (12, 15, **5**, 18, 4)
+    ✅ `listeB` vaut `(12, (15, (5, (18, (4, ())))))`, c'est-à-dire `'(12, 15, 5, 18, 4)'` avec `afficherListe`.
 
     ```python
     def insererElement(x, L, position):
@@ -1018,7 +1018,7 @@ Chaque cellule (Node) de la liste chaînée est représentée par une **classe `
 
 ???+ question "📝 **Activité n°14 : structure liste avec de la POO, Représentation de la structure chaînée**"
 
-    Représenter sur **feuille** la **structure séquentielle linéaire** (schéma des cellules) créée par les instructions précédentes.
+    Représenter la **structure séquentielle linéaire** (schéma des cellules) créée par les instructions précédentes, par exemple sous la forme `valeur → valeur → … → None`.
 
     ??? success "📤 Solution :"
         ```
@@ -1515,9 +1515,6 @@ Avant d'insérer la nouvelle Cellule en position 2, il faut mémoriser les ident
     3. créer la **nouvelle Cellule**, et la faire pointer vers **successeur** ;
     4. modifier **predecesseur** pour qu'elle pointe vers **nouvelle**.
 
-    📷 Illustration :
-
-    ![Insertion position](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.022.png){width=60%; : .center }
 
 
 
@@ -1528,7 +1525,7 @@ Avant d'insérer la nouvelle Cellule en position 2, il faut mémoriser les ident
         pass
     ```
 
-    👉 on supposera que position sera compris entre 0 et la longeur de la liste (évidemment)
+    👉 on supposera que position sera compris entre 0 et la longueur de la liste (évidemment)
 
 
     ❓ **Question** :
@@ -1877,7 +1874,7 @@ Soit une pile P composée des éléments suivants :
 
     ✍️ Compléter la **structure de base** suivante :
 
-    💬 **Remarque** : La fonction `empiler` ne renvoie rien.
+    💬 **Remarque** : La fonction `empiler` ne renvoie rien. Si la pile est vide, `depiler` renvoie la chaîne `'Pile vide'` (c'est ce que vérifie le dernier test).
 
     ⚠️ **Attention aux effets de bord** :
 
@@ -1975,7 +1972,7 @@ Soit une pile P composée des éléments suivants :
         ```
 
 
-        pile[:] = = pile[:-1] garde le même objet liste (donc pas de rupture de référence), mais ça fait une copie de presque toute la liste → coût O(n).
+        pile[:] = pile[:-1] garde le même objet liste (donc pas de rupture de référence), mais ça fait une copie de presque toute la liste → coût O(n).
 
 ---
 
@@ -2044,8 +2041,10 @@ Soit une pile P composée des éléments suivants :
 
     Créer une classe `Pile` qui construit une liste vide, puis compléter les autres méthodes de la classe :
 
+    💬 Si la pile est vide, `depiler` doit lever une erreur avec `assert not self.estVide(), "Pile vide"`.
+
     ```python
-    '''Implémentation 3 de type abstrait Liste en utilisant la POO et les listes de Python'''
+    '''Implémentation 3 de type abstrait Pile en utilisant la POO et les listes de Python'''
 
     class Pile:
         '''Classe permettant de créer des piles'''
@@ -2076,12 +2075,18 @@ Soit une pile P composée des éléments suivants :
     🧪 Tester :
 
     ```python
-    >>> p.estVide() 
+    >>> p.estVide()
+    False
     >>> p.depiler()
+    6
     >>> p.depiler()
+    4
     >>> p.depiler()
+    2
     >>> p.depiler()
+    0
     >>> p.depiler()
+    AssertionError: Pile vide
     ```
 
     ??? success "✅ Solution :"
@@ -2243,7 +2248,7 @@ La version à une classe est plus simple, elle peut être suffisante, mais les p
     🎯 Compléter la structure suivante :
 
     ```python
-    '''Implémentation 3 de type abstrait Liste en utilisant la POO et les listes chainées version 1 classe'''
+    '''Implémentation 3 de type abstrait Pile en utilisant la POO et les listes chaînées version 1 classe'''
 
     class Pile:
         def __init__(self, value=None, next=None):
@@ -2404,7 +2409,7 @@ La version à une classe est plus simple, elle peut être suffisante, mais les p
     🎯 Compléter la structure suivante :
 
     ```python
-    '''Implémentation 3 de type abstrait Liste en utilisant la POO et les listes chainées version 2 classes'''
+    '''Implémentation 3 de type abstrait Pile en utilisant la POO et les listes chaînées version 2 classes'''
 
     class Node:
         def __init__(self, value=None, next=None):
@@ -2591,9 +2596,11 @@ La version à une classe est plus simple, elle peut être suffisante, mais les p
             return compteur
 
         def sommet2(pile):
-            if pile.cellule is None:
+            if pile.estVide():
                 return "Pile vide"
-            return pile.cellule.v
+            v = pile.depiler()   # on lit le sommet en le retirant…
+            pile.empiler(v)      # … puis on le remet : la pile est intacte
+            return v
         ```
 
 📺 **[Vidéo – Le crêpier psychorigide](https://ladigitale.dev/digiview/#/v/66b7280a8b3b5)**
@@ -2839,7 +2846,7 @@ Ici, `taille()` est coûteuse avec une list car elle appelle defiler() (O(n)) un
 
     Créer une classe `File` qui construit une **liste vide**, puis compléter les autres méthodes :
 
-    💬 **Remarque** : La fonction `enfiler` ne renvoie rien.
+    💬 **Remarque** : La fonction `enfiler` ne renvoie rien. Si la file est vide, `defiler` renvoie la chaîne `'File vide'` (c'est ce que vérifie le dernier test).
 
     ⚠️ **Attention** :
 
@@ -2864,7 +2871,7 @@ Ici, `taille()` est coûteuse avec une list car elle appelle defiler() (O(n)) un
     **file = file[1:]** crée une nouvelle liste et réaffecte la variable file localement dans la fonction. Cela ne modifie pas l'objet d'origine si vous utilisez la liste en dehors de la fonction (par exemple, une liste passée en argument). Pour corriger cela, vous devez modifier la liste en place.
 
     ```python
-    '''Implémentation 3 de type abstrait Liste en utilisant la POO et les listes de Python
+    '''Implémentation 3 de type abstrait File en utilisant la POO et les listes de Python
     Tête à gauche'''
 
     class File:
@@ -2919,7 +2926,7 @@ Ici, `taille()` est coûteuse avec une list car elle appelle defiler() (O(n)) un
             def defiler(self):
                 if not self.estVide():
                     # 1ère façon 
-                    # return self. file.pop(0)
+                    # return self.file.pop(0)
                 
                     # 2ème façon
                     valeur = self.file[0]
@@ -3168,7 +3175,7 @@ On va remplacer un tableau/liste par une structure chaînée, où chaque éléme
 
             def defiler(self):
                 ### version enfiler par la tête et défiler par la queue
-                if not self.estVide():
+                if self.estVide():
                     return 'File vide'
                 
                 if self.head.n == None: # cas d'une seule valeur
@@ -3195,7 +3202,7 @@ On va remplacer un tableau/liste par une structure chaînée, où chaque éléme
             
             def defiler2(self):
                 ### version enfiler par la queue et défiler par la tete
-                if not self.estVide():
+                if self.estVide():
                     return 'File vide'
                 val = self.head.v
                 self.head = self.head.n
@@ -3383,18 +3390,28 @@ On va remplacer un tableau/liste par une structure chaînée, où chaque éléme
 
     ??? success "✅ Solution :"
         ```python
+        # on n'utilise que l'interface de la file (enfiler2 / defiler2), sans accéder à head
         def taille2(file):
-            count = 0
-            tmp = file.head
-            while tmp is not None:
-                count += 1
-                tmp = tmp.n
-            return count
+            compteur = 0
+            tmp = File()
+            while not file.estVide():
+                tmp.enfiler2(file.defiler2())
+                compteur += 1
+            while not tmp.estVide():
+                file.enfiler2(tmp.defiler2())
+            return compteur
 
         def sommet2(file):
             if file.estVide():
                 return "File vide"
-            return file.head.v
+            tmp = File()
+            premier = file.defiler2()
+            tmp.enfiler2(premier)
+            while not file.estVide():
+                tmp.enfiler2(file.defiler2())
+            while not tmp.estVide():
+                file.enfiler2(tmp.defiler2())
+            return premier
         ```
     🧪 Tester
 
@@ -4457,7 +4474,7 @@ On utilise des fonctions de hachage dans **deux contextes différents** :
 
     Donne en NPI 
 
-    3 2 +13 \*
+    3 2 + 13 \*
 
     On écrit et on exécute les opérations dans le sens des priorités vues en cours de mathématiques. Dans cette notation, on réalise
 
@@ -4465,16 +4482,16 @@ On utilise des fonctions de hachage dans **deux contextes différents** :
     - La multiplication entre le précédent résultat et 13 ( 13 \*)
     - On a ainsi le résultat.
 
-    1 Donner la File correspondante à la saisie NPI de l'exemple. Faire de même avec la Pile.
-    2 Quelle est la structure adaptée à la résolution de l'expression ?
+    1. Donner la File correspondante à la saisie NPI de l'exemple. Faire de même avec la Pile.
+    2. Quelle est la structure adaptée à la résolution de l'expression ?
 
-    Note : On remarquera qu'on doit toujours avoir 2 opérandes pour un opér
+    Note : On remarquera qu'on doit toujours avoir 2 opérandes pour un opérateur. Il faut stocker le résultat intermédiaire dans la structure pour effectuer la suite des calculs.
 
-    ateur. li faut stocker le résultat intermédiaire dans la structure pour effectuer la suite des calculs.
-
-    3 En utilisant les opérations du type abstrait Pile, proposer une fonction permettant d'afficher le résultat d'une expression en NPI.
+    3. En utilisant les opérations du type abstrait Pile, proposer une fonction permettant d'afficher le résultat d'une expression en NPI.
 
     Note : On supposera également que la syntaxe en NPI est correcte.
+
+    Note : en cas de division par zéro, la fonction doit lever une erreur avec l'instruction `assert diviseur != 0, "Division par zéro impossible."` (c'est ce que vérifie le dernier test). L'opérateur `/` donne un résultat décimal : `10 / 2` vaut `5.0`, qui est bien égal à `5`.
 
     ```python
     def evaluer_npi(pile):
@@ -4575,12 +4592,12 @@ On utilise des fonctions de hachage dans **deux contextes différents** :
 
 !!! abstract "**Exercice n°7 : Pile classique**"
 
-    Nous allons réaliser une classe Pile en utilisant une liste Python. Voici le contructeur de la classe
+    Nous allons réaliser une classe Pile en utilisant une liste Python. Voici le constructeur de la classe
 
     ```python
     class Pile:
         """Structure  de  pile"""
-        def init (self): 
+        def __init__(self):
             self.contenu = []
             
         # à compléter   
@@ -4753,7 +4770,7 @@ On utilise des fonctions de hachage dans **deux contextes différents** :
     ```
     2 Ecrire une fonction copie\_file(f) recevant une file (f) comme argument et renvoyant une copie f2 de f. Attention, la file f doit (bien sûr) être conservée !
 
-    Tester avec avec f
+    Tester avec f
     et la copie_file de f
 
 !!! abstract "**Exercice n°11 : Le problème de Josephus**"
@@ -4854,13 +4871,15 @@ On utilise des fonctions de hachage dans **deux contextes différents** :
         # Initialisation : enfiler toutes les personnes
         ...
         
-        # on part du numéro 1 qu'en va renfiler 
+        # Étape initiale : le soldat 1 tue en premier et ne compte pas dans la distance :
+        # on le défile puis on le renfile aussitôt
+        ... 
 
         # Élimination des personnes
         while len(f) > 1:
             # Faire circuler les m-1 premières personnes
             ...    
-                # On défiler et renfile 
+                # on défile puis on renfile 
                 ...
             # Éliminer la m-ième personne
             elimine = ...
@@ -4883,7 +4902,7 @@ On utilise des fonctions de hachage dans **deux contextes différents** :
 
 !!! abstract "**Exercice n°12 : Le jeu de cartes : bataille**"
 
-    Compléter le programme ci-dessous du jeu de la bataille. Sur **Thonny** : On l’appelera bataille.py
+    Compléter le programme ci-dessous du jeu de la bataille. Sur **Thonny** : On l’appellera bataille.py
 
     Vous aurez à  gérer d'une part la valeur des cartes et d'autre part les cas d'égalités.
 
@@ -4989,7 +5008,7 @@ On utilise des fonctions de hachage dans **deux contextes différents** :
     # démarrage du jeu
     en_cours = True
     nb_tours = 0
-    while en_cours:  # not paquet_alice.est_vide() and not paquet_basile.est_vide()  :
+    while en_cours and nb_tours < 2000:  # limite de sécurité : une partie de bataille peut ne jamais se terminer
         tour()
         nb_tours += 1
     print("Partie en ", nb_tours, " tours")
@@ -5077,7 +5096,7 @@ On utilise des fonctions de hachage dans **deux contextes différents** :
     A partir de ce qui a été vu sur les listes chaînées, implémenter :
 
     1. La méthode lenListe(self) qui retourne la longueur de la liste
-    1. La méthode insert\_next(self, i, x) qui ajoute une cellule contenant la valeur x après la cellule d’indice i. Déterminer sa complexité
+    1. La méthode insert\_next(self, i, x) qui ajoute une cellule contenant la valeur x après la cellule d’indice i (si la liste est vide, la nouvelle cellule devient la tête). Déterminer sa complexité
     1. La méthode get\_node\_index(self, i) qui permet de retourner la cellule d’indice i. Déterminer son ordre de complexité
     1. La méthode delete\_head(self) qui supprime la première cellule de la liste et la renvoie. Déterminer sa complexité
     1. la méthode delete\_next(self, x) qui supprime la cellule située après la cellule de valeur x et le renvoie
@@ -5089,20 +5108,20 @@ On utilise des fonctions de hachage dans **deux contextes différents** :
     assert lst.isEmpty() == True
     assert lst.lenListe() == 0
 
-    lst.insert_next(0, 10)  # liste : [10]
+    lst.insert_next(0, 10)  # liste vide : 10 devient la tête → [10]
     assert lst.lenListe() == 1
 
-    lst.insert_next(1, 20)  # liste : [10, 20]
+    lst.insert_next(0, 20)  # après la cellule d'indice 0 → [10, 20]
     assert lst.lenListe() == 2
 
-    lst.insert_next(2, 30)  # liste : [10, 20, 30]
+    lst.insert_next(1, 30)  # après la cellule d'indice 1 → [10, 20, 30]
     assert lst.lenListe() == 3
     
     assert lst.get_node_index(0).v == 10
     assert lst.get_node_index(1).v == 20
     assert lst.get_node_index(2).v == 30
 
-    lst.insert_next(1, 25)  # liste : [10, 20, 25, 30]
+    lst.insert_next(1, 25)  # après la cellule d'indice 1 → [10, 20, 25, 30]
     assert lst.lenListe() == 4
 
     assert lst.get_node_index(2).v == 25
@@ -5183,15 +5202,13 @@ On utilise des fonctions de hachage dans **deux contextes différents** :
 
     3 Implémenter la méthode publique get\_container dont le prototype est : get\_container(self) -> list et qui renvoie le contenu de la file.
 
-    4 Implémenter la méthode publique size() dont le prototypage est le suivant : size(self) -> int et qui ren
-
-    voie la taille de la liste
+    4 Implémenter la méthode publique size() dont le prototypage est le suivant : size(self) -> int et qui renvoie la taille de la file
 
     5 Implémenter la méthode publique is\_empty() qui renvoie True si la file stockée dans le container est vide et False sinon. Le prototype est : is\_empty(self) -> bool
 
-    6 Implémenter la méthode publique queue(item) qui ajoute à la fin de la liste. On enfile !!
+    6 Implémenter la méthode publique enqueue(item) qui ajoute `item` à la fin de la file : on **enfile**.
 
-    7 Implémenter la méthode publique enqueue() qui :
+    7 Implémenter la méthode publique dequeue() qui (on **défile**) :
 
     - Retourne None si la file est vide.
     - Retourne et enlève l’élément au début de la file, si la file n’est pas vide.
@@ -5200,7 +5217,7 @@ On utilise des fonctions de hachage dans **deux contextes différents** :
 
     - f.is\_empty() == False
     - f.get\_container() == [1, 2]
-    - f.enqueue() == 1
+    - f.dequeue() == 1
 
     9 Sur **Thonny** : Créer un fichier python scheduler.py
 
@@ -5223,7 +5240,7 @@ On utilise des fonctions de hachage dans **deux contextes différents** :
     import file as fl
 
     class Ordonnanceur:
-        def __init__(self, quota=0):
+        def __init__(self, quota=1):
             self.__file  = fl.File()
             self.__quota = int(quota)
 
@@ -5247,9 +5264,9 @@ On utilise des fonctions de hachage dans **deux contextes différents** :
     18 **★★** Modifier la méthode step() qui effectue un “tour” d’ordonnancement comme suit :
 
     - si la file est vide, on ne fait rien : on attend.
-    - s’il y a au moins une activité dans la file, on exécute l’activité en affichant son nom et sa durée. Puis, on décrémente son temps d’une unité et si son quota arrive à 0, on enfile l’activité.
+    - s’il y a au moins une activité dans la file, on **défile** l’activité qui attend depuis le plus longtemps et on l’affiche, puis on l’exécute pendant `quota` unités de temps (méthode `execute`) ; si elle n’est pas terminée, on la **renfile** en fin de file.
 
-    19 **★★** Modifier la méthode run() qui itère step jusqu’à obtenir une file de processus vides.
+    19 **★★** Modifier la méthode run() qui itère step jusqu’à obtenir une file de processus vide.
 
     20 **★★** Créer une liste de 10 activités de durée et de priorité aléatoires (durée entre 1 et 10 et priorité entre 0 et 2).
 
@@ -5268,7 +5285,7 @@ On utilise des fonctions de hachage dans **deux contextes différents** :
     class TableauDynamique(builtins.object)
     |  TableauDynamique() -> 'None'
     |  
-    |  Classe implémentant le type « tableau dynamqie »,
+    |  Classe implémentant le type « tableau dynamique »,
     |  version très simplifiée du type « liste » de Python.
     |  
     |  Methods defined here:

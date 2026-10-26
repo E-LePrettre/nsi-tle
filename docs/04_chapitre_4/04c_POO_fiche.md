@@ -29,7 +29,7 @@ title: 04 📜 Fiche Méthode - P.O.O.
 | **Méthode** | Fonction définie dans une classe, agissant sur l'objet. |
 | **Méthode spéciale** | Méthode au nom encadré de `__` (ex. `__init__`, `__str__`). |
 | **Constructeur** | Méthode `__init__`, appelée à la création de l'objet. |
-| **Destructeur** | Méthode `__del__`, appelée à la destruction de l'objet. |
+| **Destructeur** | Méthode `__del__`, appelée quand plus aucune variable ne référence l'objet. |
 | **`self`** | Référence à l'objet courant, premier paramètre des méthodes. |
 | **Abstraction** | Ne montrer que l'essentiel, masquer les détails internes. |
 | **Encapsulation** | Regrouper données + méthodes et **protéger** l'accès aux données. |
@@ -128,14 +128,13 @@ class Compte:
     alors qu'on en a créé une autre.
 
 !!! info "Hors programme — les propriétés"
-    Le décorateur `@property` (avec un *setter* associé) permet d'utiliser un
-    attribut comme s'il était public tout en gardant le contrôle d'un setter. À
-    présenter **uniquement** s'il figure dans le cours ; ce n'est **pas** un
-    attendu du bac.
+    La fonction `property(getter, setter)` (ou le décorateur `@property`) permet
+    d'utiliser un attribut comme s'il était public tout en gardant le contrôle
+    du setter. Ce n'est **pas** un attendu du bac.
 
 ---
 
-## 5. Héritage et polymorphisme
+## 5. Héritage et polymorphisme (non exigibles au bac)
 
 | Notion | Définition |
 |---|---|
@@ -185,8 +184,8 @@ print(d)                    # appelle __str__ → 75 min
       Resolution Order*, ordre de recherche des méthodes) : **hors programme**,
       à ne traiter qu'en approfondissement.
     - La **surcharge d'opérateurs** et les **comparaisons** (`__add__`, `__eq__`,
-      `__lt__`…) ne sont à présenter que si elles figurent explicitement dans le
-      cours ; vérifie ce qui est exigible dans ta progression.
+      `__lt__`…) sont utilisées dans les exercices du cours, mais ne sont pas
+      un attendu explicite du programme.
 
 ---
 
@@ -360,7 +359,7 @@ Compétences travaillées dans les classes étudiées :
     - **propriétés** (`@property`) ;
     - **héritage multiple** et **MRO** ;
     - **décorateurs** (`@decorateur`), **`__call__`**, **`*args` / `**kwargs`** ;
-    - la **surcharge d'opérateurs** n'est exigible que si elle figure dans le cours.
+    - la **surcharge d'opérateurs** (très utile en exercice, mais non exigible).
 
 !!! quote "Formulations utiles au bac"
     - « `self` permet d'accéder aux attributs de l'objet courant. »

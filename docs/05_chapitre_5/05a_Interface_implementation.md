@@ -1,4 +1,4 @@
-﻿---
+---
 author: Elisabeth Le Prettre (LePrettre)
 title: 05a Interface et implémentation
 ---
@@ -164,8 +164,9 @@ P = (Anakin, (Boba Fett, (Dark Vador, (Han Solo, (Yoda, vide())))))
 		```
 		Pcouleur = (rouge, (bleu, (vert, vide())))
 		Pentier  = (12, (5, (3, (6, (1, vide())))))
-		avec une structure linéaire comme les tableaux ou les tuples
 		```
+
+		3. On le manipule avec des opérateurs spécifiques : `empiler()` pour ajouter un élément en haut de la pile, `depiler()` pour retirer l'élément du haut.
 
 👉 Pour manipuler un objet de ce type, on utilise des opérateurs spécifiques tels que `empiler()` et `depiler()`.
 
@@ -342,13 +343,13 @@ L’objectif est de fournir une interface la plus réduite possible tout en éta
 
 		```pseudo
 		fonction supprimer_deuxieme(P):
-			if estVide(P):
+			si estVide(P):
 				retourner
 			elt1 = depiler(P)
-			if estVide(P):
+			si estVide(P):
 				empiler(elt1, P)
 				retourner
-			elt2 = depiler(P)    # deuxième élément, à supprimer
+			depiler(P)    # 2e élément : on ne le remet pas
 			empiler(elt1, P)
 		```
 
@@ -419,13 +420,13 @@ Opérateur récursif :
 
 En reprenant l’exemple précédent où
 
-```F=(Anakin,Yoda,(BobaFett,DarkVador,HanSolo)))```
+```F=(Anakin,Yoda,(BobaFett,DarkVador,HanSolo))```
 
-```enfiler(Luke,F) ```
+```enfiler(Luke, F)```
 
-est la file :
+donne la file :
 
-```F=(Anakin,Luke,(BobaFett,DarkVador,HanSolo,Yoda)))```
+```F=(Anakin,Luke,(BobaFett,DarkVador,HanSolo,Yoda))```
 
 ![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.020.png){width=25%; : .center }
 
@@ -445,12 +446,13 @@ La fonction **transforme F** et **renvoie la tête** de F.
 
 En reprenant l’exemple précédent 
 
-```F=(Anakin,Yoda,(BobaFett,DarkVador,HanSolo))) ```
+```F=(Anakin,Yoda,(BobaFett,DarkVador,HanSolo))```
 
+La commande ```defiler(F)``` transforme la file *F* en :
 
-La commande de ```defiler(F)``` transforme la file *F* en :
+```F=(BobaFett,Yoda,(DarkVador,HanSolo))```
 
-```BobaFett,Yoda,(DarkVador,HanSolo)))```
+et **renvoie** `Anakin`.
 
 ![](Aspose.Words.3c63adcb-aa48-41d0-9e8b-3e87a97d9672.022.png){width=25%; : .center }
 
@@ -493,14 +495,21 @@ La commande de ```defiler(F)``` transforme la file *F* en :
 
     ??? success "📤 Solution :"
 
+		Le premier élément du troisième champ est le **deuxième élément** de la file (celui qui suit la tête).
+		On n'utilise que l'interface : on fait passer toute la file dans une file temporaire, en sautant ce deuxième élément.
+
 		```pseudo
 		fonction supprimer_premier_du_troisieme(F):
 			si estVide(F):
 				retourner
-			troisieme = F.troisieme_champ
-			if estVide(troisieme):
-				retourner
-			defiler(troisieme)
+			temp = vide()
+			enfiler(defiler(F), temp)    # on garde la tête
+			si non estVide(F):
+				defiler(F)              # 2e élément : supprimé
+			tant que non estVide(F):
+				enfiler(defiler(F), temp)
+			tant que non estVide(temp):
+				enfiler(defiler(temp), F)
 		```
 
 ---
@@ -585,7 +594,7 @@ Pile `(9,(2,(6,(15,vide()))))`
 
 ```
 estVide(P):
-    si sommet(P) == 0:        # le tableau est vide
+    si sommet(P) == 0:  # pile vide
         retourner VRAI
     sinon:
         retourner FAUX
@@ -666,6 +675,17 @@ Observer que T[6] a encore un sens pour le tableau mais plus pour la pile.
 	3. Qu'obtient-on si on lance successivement :
 	`empiler(3, P), empiler(5, P), depiler(P)`
 
+    ??? success "📤 Solution :"
+
+		Au départ : `T = [15, 6, 2, 9, , , ]` et `sommet(P) = 4`.
+
+		1. Les appels renvoient successivement `9`, `2`, `6` puis `15`. À la fin `sommet(P) = 0` : la pile est **vide** (le tableau contient toujours 15, 6, 2, 9, mais ces cases n'ont plus de sens pour la pile).
+
+		2. Les quatre premiers appels renvoient `9`, `2`, `6`, `15`. Au cinquième, `sommet(P) == 0` : on affiche **"pile vide"** et rien n'est renvoyé.
+
+		3. `empiler(3, P)` : `T[5] = 3`, `sommet(P) = 5` ; `empiler(5, P)` : `T[6] = 5`, `sommet(P) = 6` ; `depiler(P)` renvoie `5` et `sommet(P) = 5`.
+		On obtient `T = [15, 6, 2, 9, 3, 5, ]` avec `sommet(P) = 5`, c'est-à-dire la pile `(3, (9, (2, (6, (15, vide())))))`.
+
 ---
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc145779696"></a>🔁 **3.3. Implémentation des files avec des tableaux**</H3>
@@ -708,7 +728,7 @@ Une représentation de l’implémentation avec un tableau T de la file F = (15,
 🧠 **Propriété 13 : Cas particuliers**
 
 * Si `tete(F) == queue(F)` → la file est **vide**
-* Si `tete(F) == queue(F) + 1` → la file est **pleine**
+* Si `tete(F) == queue(F) + 1` (ou `tete(F) == 1` et `queue(F) == n`, puisque le tableau est circulaire) → la file est **pleine**
 
 💡 Pourquoi ?
 
@@ -810,6 +830,17 @@ Si on lance ```defiler(F)```, on obtient :
 	```
 	enfiler(3,F), enfiler(5,F), defiler(F)
 	```
+
+    ??? success "📤 Solution :"
+
+		Au départ : `T[7..11] = 15, 6, 9, 8, 4`, `tete(F) = 7`, `queue(F) = 12` (n = 12).
+
+		1. Les appels renvoient `15`, `6`, `9` puis `8`. À la fin `tete(F) = 11` et `queue(F) = 12` : la file ne contient plus que `4`.
+
+		2. Les appels renvoient `15`, `6`, `9`, `8` puis `4`. À la fin `tete(F) = queue(F) = 12` : la file est **vide**.
+
+		3. `enfiler(3, F)` : `T[12] = 3` et, comme `queue(F) == n`, `queue(F) = 1` ; `enfiler(5, F)` : `T[1] = 5`, `queue(F) = 2` ; `defiler(F)` renvoie `15` et `tete(F) = 8`.
+		La file contient, de la tête à la queue : `6, 9, 8, 4, 3, 5`, soit `F = (6, 5, (9, 8, 4, 3))`.
 
 ---
 

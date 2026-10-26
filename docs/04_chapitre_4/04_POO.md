@@ -21,7 +21,7 @@ title: 04 La P.O.O.
 
 **Compétences évaluables :**
 
-- Ecrire la définition d’une classe
+- Écrire la définition d’une classe
 - Accéder aux attributs et méthodes d’une classe
 
 
@@ -54,9 +54,9 @@ Chaque objet se décrit par un ensemble **d’attributs** (caractéristiques de 
 > * La sous-classe hérite des attributs, des méthodes et du type de la super-classe,  et peut les redéfinir (cf. polymorphisme).
 
 
-* 🔁 **Polymorphisme** : une méthode portant **le même nom** mais appartenant à des classes différentes peut effectuer un **travail différent** (surcharge).
+* 🔁 **Polymorphisme** : une méthode portant **le même nom** mais appartenant à des classes différentes peut effectuer un **travail différent** (on parle de **redéfinition** de la méthode).
 
-📌 En Terminale, seules **l'encapsulation** et **l'abstraction** sont au programme de NSI.
+📌 **Ce qui est au programme de Terminale NSI** : le vocabulaire de la programmation objet (**classe, attribut, méthode, objet**), écrire la définition d’une classe, accéder aux attributs et aux méthodes d’une classe. L’**héritage** et le **polymorphisme** ne sont **pas exigibles** : ils sont présentés pour la culture.
 
 ---
 
@@ -162,9 +162,9 @@ Elle correspond à une **action** exécutée sur l’objet.
 
 
 
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030955"></a>🛠️ **2.3.2. Les constructeurs ou initialiseur**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030955"></a>🛠️ **2.3.2. Le constructeur (ou initialiseur)**</H4>
 
-Parmi les différents types de méthode, il existe un type particulier : les **constructeurs** ou **initialiseur**.
+Parmi les différents types de méthode, il existe un type particulier : le **constructeur**, aussi appelé **initialiseur**.
 
 Les constructeurs sont des **méthodes** qui construisent l'objet désigné par la classe au moment **d’instanciation** de la classe, c’est-à-dire qu’ils permettent d’initialiser l’objet : ses attributs sont automatiquement créés, des valeurs par défaut peuvent même leur être affectées.
 Un constructeur porte le nom `__init__`.
@@ -192,8 +192,8 @@ Un constructeur porte le nom `__init__`.
     print("Je suis {0} {1}, j'ai {2} ans.".format(gollum.prenom, gollum.nom, gollum.age))
     # on va utiliser le f string pour mettre en forme
     print(f"Je suis {gollum.prenom} {gollum.nom}, j'ai {gollum.age} ans.")
-    # On pourrait aussi écrire print comme ça c'est un peu plus pénible :
-    print("Je suis,", gollum.prenom, gollum.nom, "j'ai", gollum.age, "ans." )
+    # On pourrait aussi écrire print comme ça, c'est un peu plus pénible :
+    print("Je suis", gollum.prenom, gollum.nom + ",", "j'ai", gollum.age, "ans.")
     ```
 
     ??? success "Python"
@@ -202,15 +202,17 @@ Un constructeur porte le nom `__init__`.
 
     ??? success "📤 Résultat :"
 
-        ✅ On obtient :
+        ✅ On obtient trois fois la même phrase, écrite de trois façons différentes :
 
         ```txt
+        Je suis Jean Dupont, j'ai 33 ans.
+        Je suis Jean Dupont, j'ai 33 ans.
         Je suis Jean Dupont, j'ai 33 ans.
         ```
 
 ---
 
-Lors de la création de l’instance `gollum`, Python va automatiquement remplacer `self` par `gollum` et ainsi créer trois attributs :
+Lors de la création de l’instance `gollum`, Python crée l’objet puis appelle `__init__` : `self` désigne alors cet objet en cours de construction, celui que la variable `gollum` référencera. Trois attributs sont ainsi créés :
 
 * `gollum.nom` qui aura pour valeur le nom passé en paramètre (`'Dupont'`)
 * `gollum.prenom` qui aura pour valeur le prénom passé en paramètre (`'Jean'`)
@@ -218,6 +220,8 @@ Lors de la création de l’instance `gollum`, Python va automatiquement remplac
 
 🧠 La définition du constructeur consiste en une définition « classique » d'une fonction. Elle a pour nom `__init__`.
 En Python, **tous les constructeurs s'appellent ainsi**.
+
+> 🔎 En toute rigueur, `__init__` ne crée pas l’objet : Python le crée juste avant, et `__init__` l’**initialise** (d’où le nom d’**initialiseur**). Dans le langage courant et au bac, on parle de **constructeur**.
 
 ℹ️ Les noms de méthodes entourés de deux soulignés (`__nommethode__`) sont des **méthodes spéciales**.
 Dans la définition d'une méthode, on passe toujours un premier paramètre nommé **`self`** (convention).
@@ -236,13 +240,15 @@ Dans la définition d'une méthode, on passe toujours un premier paramètre nomm
 
 #### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030956"></a>🧹 **2.3.3. Les destructeurs**</H4>
 
-Le **destructeur** d'une classe est une méthode spéciale lancée lors de la destruction d'un objet afin de libérer les ressources (principalement la mémoire vive) réservées dynamiquement lors de l'instanciation de l'objet.
+Le **destructeur** d'une classe est une méthode spéciale appelée lors de la destruction d'un objet.
 Un destructeur porte le nom `__del__`.
 
-Il est appelé :
+Il est appelé lorsque **plus aucune variable ne référence l’objet**, par exemple :
 
-* **Implicitement** à la fin du programme,
-* Ou **explicitement** via l’instruction `del`.
+* après l’instruction `del`, si c’était la seule variable qui référençait l’objet ;
+* ou à la fin du programme.
+
+> ℹ️ En Python, la mémoire est libérée automatiquement (*ramasse-miettes*) : on écrit rarement un destructeur. Il est surtout utile pour comprendre le **cycle de vie** d’un objet.
 
 ???+ question "💀 Activité n° 2 : Classe et destructeur"
 
@@ -279,6 +285,7 @@ Il est appelé :
 
         ```txt
         Voici Jean Dupont
+        Je suis Jean Dupont.
         décédé(e) à 33 ans
         NameError: name 'moi' is not defined
         ```
@@ -337,7 +344,7 @@ Créer une **méthode d'instance**, revient à **créer une fonction** ayant com
         34
         ```
 
-🧠 Pour appeler une méthode de l’instance `Personne`, on utilise la notation :
+🧠 Pour appeler une méthode d’une instance de `Personne`, on utilise la notation :
 **`instance.méthode()`**
 
 ---
@@ -525,7 +532,7 @@ Mais on peut aussi définir des **attributs dans la classe elle-même**, partag�
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc88030960"></a>🔐 **3. Les trois fondamentaux**</H2>
 
 La programmation orientée objet repose sur trois concepts essentiels : **l'encapsulation**, **l'héritage** et **le polymorphisme**.
-En classe de Terminale, seuls **les deux premiers** sont abordés, et nous nous concentrerons principalement sur **l'encapsulation**.
+En classe de Terminale, nous nous concentrons sur **l'encapsulation** ; l’**héritage** et le **polymorphisme** (parties 3.2 et 3.3) ne sont **pas exigibles** au bac.
 
 ---
 
@@ -585,7 +592,7 @@ Mais cela pose des risques, car il peut être **modifié sans contrôle**, ce qu
     qui = Personne('Dupont', 'Jean')
 
     print(qui.nom)       # donne le nom
-    qui.nom = 'Durant'   # modifie l'attribut => INTERDIT (ex. : changer les points de vie dans un jeu !)
+    qui.nom = 'Durant'   # modifie l'attribut : possible, mais dangereux (ex. : changer les points de vie dans un jeu !)
     print(qui.nom)       # donne le nouveau nom
     ```
 
@@ -613,10 +620,12 @@ Mais cela pose des risques, car il peut être **modifié sans contrôle**, ce qu
 
 #### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030963"></a>🔒 **3.1.2. Attributs et méthodes privés**</H4>
 
-Python permet (plus ou moins) de **protéger les attributs** en leur donnant un nom qui commence par **deux underscores `__`**.
-👉 **C’est une convention !**
+Python ne connaît pas de « vrai » attribut privé, mais il permet de **protéger les attributs** :
 
-Lorsqu’on crée un attribut ou une méthode dont le nom commence par `__`, il **n’est plus accessible directement**.
+* un nom qui commence par **un underscore** (`_nom`) signale, **par convention**, un attribut à usage interne ;
+* un nom qui commence par **deux underscores** (`__nom`) est **renommé en interne** par Python (il devient `_Personne__nom`).
+
+Lorsqu’on crée un attribut ou une méthode dont le nom commence par `__`, il **n’est donc plus accessible directement** depuis l’extérieur de la classe.
 Cela oblige l’utilisateur à **passer par des méthodes spécifiques** pour **lire** ou **modifier** la donnée : ce sont les **getters** (accesseurs) et les **setters** (mutateurs).
 
 > ✅ Très souvent :
@@ -720,13 +729,15 @@ Par exemple, une méthode qui renvoie le nom pourrait s'appeler `get_name`.
             return self.__nom
 
         def set_name(self, nom : str):
-            nom = str(nom)           # on s’assure que le paramètre est bien une chaîne
-            self.__nom = nom
+            if type(nom) == str and nom != "":   # contrôle : une chaîne non vide
+                self.__nom = nom
 
     ### Programme principal ###
     qui = Personne('Dupont', 'Jean')
     print(qui.get_name())
     qui.set_name('Durant')     # modifie le nom via le setter
+    print(qui.get_name())
+    qui.set_name(42)           # refusé par le setter : ce n'est pas une chaîne
     print(qui.get_name())
     ```
 
@@ -739,6 +750,7 @@ Par exemple, une méthode qui renvoie le nom pourrait s'appeler `get_name`.
         ```txt
         Dupont
         Durant
+        Durant
         ```
 
 
@@ -748,136 +760,6 @@ Par exemple, une méthode qui renvoie le nom pourrait s'appeler `get_name`.
 Cela permet un contrôle sur la **validité** des données modifiées.
 
 ---
-
-
-
-## 📚 **Résumé du cours de POO : vocabulaire à retenir**
-
-🔹 **Classe**
-
-* **Définition** : Modèle, plan ou moule permettant de créer des objets.
-* **Syntaxe** : `class NomDeClasse:`
-* **Exemple** : `class Personne:`
-
----
-
-🔹 **Objet**
-
-* **Définition** : Instance concrète d’une classe.
-* **Création** : `objet = NomDeClasse()`
-* **Caractéristiques** :
-
-> * Il possède **des attributs** (état).
->
-> * Il possède **des méthodes** (comportement).
-
----
-
-🔹 **Attribut**
-
-* **Définition** : Donnée ou information associée à un objet (ou une classe).
-* **Types** :
-
-> * **Attribut d’instance** : propre à chaque objet.
->
->   - Exemple : `self.nom`
-> 
-> * **Attribut de classe** : partagé par tous les objets.
->
->   - Exemple : `Personne.population`
-
----
-
-🔹 **Méthode**
-
-* **Définition** : Fonction **définie à l’intérieur d’une classe**.
-* **Types** :
-
->  * **Méthode d’instance** : agit sur un objet (`self` en premier paramètre).
->
-> * **Méthode spéciale** (commence et finit par `__`) :
->
->    - `__init__()` : constructeur (initialisation de l’objet).
->
->    - `__str__()` : représentation sous forme de chaîne.
->
->    - `__repr__()` : représentation officielle (pour le débogage).
->
->    - `__eq__()` : égalité (`==`)
->
->    - `__lt__()` : inférieur à (`<`)
->
->    - etc.
-
----
-
-🔹 **Constructeur**
-
-* **Définition** : Méthode spéciale appelée automatiquement lors de la création d’un objet.
-* **Syntaxe** : `def __init__(self, ...)`
-
----
-
-🔹 **Encapsulation**
-
-* **Définition** : Protection des données internes d’un objet.
-* **Convention** :
-
->  * Attribut **public** : `nom`
->
->  * Attribut **protégé** (usage interne conseillé) : `_nom`
->
->  * Attribut **privé** (fortement restreint) : `__nom`
-
----
-
-🔹 **Accesseur**
-
-* **Définition** : Méthode permettant de **lire** la valeur d’un attribut privé.
-* **Convention** : méthode `get_nom`
-
----
-
-🔹 **Mutateur**
-
-* **Définition** : Méthode permettant de **modifier** un attribut privé.
-* **Convention** : méthode `set_nom`
-
----
-
-🔹 **Instance**
-
-* **Définition** : Objet issu d'une classe.
-* **Exemple** : `moi = Personne("Dupont", "Jean")`
-
----
-
-🔹 **Référence**
-
-* **Définition** : Nom (variable) pointant vers un objet en mémoire.
-
----
-
-🔹 **Self**
-
-* **Définition** : Paramètre obligatoire représentant l’objet courant.
-* **Utilisation** : pour accéder aux **attributs** et **méthodes de l’objet**.
-
----
-
-🔹 **Namespace (espace de nommage)**
-
-* **Définition** : Ensemble des noms (variables, fonctions, classes…) disponibles dans un contexte donné.
-
----
-
-🔹 **Attribut dynamique**
-
-* **Définition** : Attribut ajouté à un objet **en dehors de sa définition de classe**.
-
----
-
-
 
 
 
@@ -973,7 +855,7 @@ Le constructeur `property()` attend jusqu’à **quatre paramètres optionnels**
             if age > 18:
                 self.__age = age
 
-    age = property(__get_age, __set_age)
+        age = property(__get_age, __set_age)   # à l'intérieur de la classe !
 
     ### Programme principal ###
     qui = Personne('Dupont', 'Jean')
@@ -993,12 +875,6 @@ Le constructeur `property()` attend jusqu’à **quatre paramètres optionnels**
         33
         ```
 
-
-La méthode spéciale `__getattr__` permet de définir une méthode d’accès aux attributs plus large que celle que Python propose par défaut. En fait, cette méthode est appelée quand on tape objet.attribut (non pas pour modifier l’attribut mais simplement pour y accéder). Python recherche l’attribut et, s’il ne le trouve pas dans l’objet et si une méthode `__getattr__` existe, il va l’appeler en lui passant en paramètre le nom de l’attribut recherché, sous la forme d’une chaine de caractères.
-
-`__getattr__` est utilisé uniquement si l'attribut auquel on tente d'avoir accès n'existe pas dans l'objet.
-
----
 
 🧩 **Méthode spéciale `__getattr__`**
 
@@ -1059,9 +935,9 @@ Elle reçoit comme argument le nom de l’attribut **sous forme de chaîne**.
 
 ???+ question "🚫 (Hors programme) **Activité n°13 : Ce qu’il ne faut pas faire**"
 
-    ⚠️ Il est **interdit** en programmation orientée objet d’accéder directement à des attributs **privés** ou de les modifier sans méthode.
+    ⚠️ En programmation orientée objet, on **ne doit pas** accéder directement à des attributs **privés** ni les modifier sans passer par une méthode.
 
-    Ce qu’il ne faut pas faire (à proscrire en Terminale)
+    Ce qu’il ne faut pas faire :
 
     ```python
     class Personne:
@@ -1107,7 +983,7 @@ Elle reçoit comme argument le nom de l’attribut **sous forme de chaîne**.
 
 
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc88030965"></a>🧬 **3.2. Héritage**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc88030965"></a>🧬 **3.2. Héritage (non exigible)**</H3>
 
 L’**héritage** est un pilier fondamental de la programmation orientée objet. Il permet :
 
@@ -1141,7 +1017,7 @@ On crée une **classe fille** (ou sous-classe) qui hérite d’une **classe mèr
     class AgentSpecial(Personne):
         """Classe définissant un agent spécial héritant de Personne"""
         def __init__(self, nom : str, prenom : str, matricule : str):
-            Personne.__init__(self, nom, prenom)  # appel explicite au constructeur
+            super().__init__(nom, prenom)  # appel du constructeur de la classe mère
             self.__matricule = matricule
 
         def get_matricule(self):
@@ -1165,10 +1041,12 @@ On crée une **classe fille** (ou sous-classe) qui hérite d’une **classe mèr
 
 
 > ✅ L'objet `qui` accède aux méthodes de `Personne` **sans les redéfinir**.
+>
+> 💡 `super()` désigne la classe mère. On rencontre aussi l’écriture équivalente `Personne.__init__(self, nom, prenom)`.
 
 ---
 
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030967"></a>🧩 **3.2.2. Héritage multiple**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030967"></a>🧩 **3.2.2. (Hors programme) Héritage multiple**</H4>
 
 Python permet aussi l’**héritage multiple** :
 🧠 Une classe peut hériter de **plusieurs classes mères**, séparées par des virgules :
@@ -1183,7 +1061,7 @@ Ce mécanisme est utile quand on souhaite combiner des **comportements indépend
 
 ---
 
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030968"></a>🧭 **3.2.3. Ordre de recherche de méthodes**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030968"></a>🧭 **3.2.3. (Hors programme) Ordre de recherche des méthodes**</H4>
 
 Quand on appelle une méthode, Python suit un **ordre de recherche (MRO - Method Resolution Order)** :
 
@@ -1197,7 +1075,7 @@ Quand on appelle une méthode, Python suit un **ordre de recherche (MRO - Method
 
 
 
-### <H3 STYLE="COLOR:GREEN;"> <a name="_toc88030969"></a>🌀 **3.3. Polymorphisme**</H3>
+### <H3 STYLE="COLOR:GREEN;"> <a name="_toc88030969"></a>🌀 **3.3. Polymorphisme (non exigible)**</H3>
 
 Un objet hérite des attributs et des méthodes de ses **ancêtres**, mais il peut également **redéfinir** une méthode afin de la **modifier ou la compléter**.
 
@@ -1207,9 +1085,9 @@ Le **polymorphisme** permet à une méthode ou un opérateur d’adopter des **c
 
 ---
 
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030970"></a>🧱 **3.3.1. Polymorphisme statique : surcharge de méthodes**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030970"></a>🧱 **3.3.1. Redéfinition de méthodes**</H4>
 
-???+ question "🎯 Activité n°15 : Surcharge de méthodes"
+???+ question "🎯 Activité n°15 : Redéfinition d’une méthode"
 
     On redéfinit ici la méthode `get_identity` dans la classe `AgentSpecial`.
 
@@ -1226,10 +1104,10 @@ Le **polymorphisme** permet à une méthode ou un opérateur d’adopter des **c
     class AgentSpecial(Personne):
         """Classe définissant un agent spécial"""
         def __init__(self, nom : str, prenom : str, matricule : str):
-            Personne.__init__(self, nom, prenom)
+            super().__init__(nom, prenom)
             self.__matricule = matricule
 
-        def get_identity(self):
+        def get_identity(self):     # redéfinition de la méthode héritée
             return self.__matricule
 
     ### Programme principal ###
@@ -1257,7 +1135,7 @@ Le **polymorphisme** permet à une méthode ou un opérateur d’adopter des **c
 
 ---
 
-#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030971"></a>➕ **3.3.2. Polymorphisme statique : surcharge d’opérateurs**</H4>
+#### <H4 STYLE="COLOR:MAGENTA;"> <a name="_toc88030971"></a>➕ **3.3.2. Surcharge d’opérateurs**</H4>
 
 La surcharge d’opérateur permet de donner à un opérateur (comme `+` ou `==`) un **comportement spécifique pour une classe donnée**.
 
@@ -1288,42 +1166,39 @@ Et pour les comparaisons :
 
 ???+ question "🎯 Activité n°16 : Surcharge de l'opérateur + et comparaisons"
 
-    Exemple avec une classe `Duree` :
+    Exemple avec une classe `Duree` (des minutes et des secondes) :
 
     ```python
     class Duree:
-        """Classe contenant des durées sous la forme minutes.secondes"""
-        def __init__(self, duree = 0.0):
-            min, sec = str(duree).split('.')
-            self.__min, self.__sec = int(min), int(sec)
+        """Classe représentant une durée en minutes et secondes"""
+        def __init__(self, minutes : int = 0, secondes : int = 0):
+            total = minutes * 60 + secondes      # on ramène tout en secondes
+            self.__min = total // 60
+            self.__sec = total % 60              # toujours entre 0 et 59
+
+        def en_secondes(self) -> int:
+            return self.__min * 60 + self.__sec
 
         def __str__(self):
             return "{0:02}:{1:02}".format(self.__min, self.__sec)
 
-        def __add__(self, duree : float):
-            """Ajoute un nombre de secondes (format décimal)"""
-            nouvelle_duree = Duree()
-            min, sec = str(duree).split('.')
-            nouvelle_duree.__min = self.__min + int(min)
-            nouvelle_duree.__sec = self.__sec + int(sec)
-            if nouvelle_duree.__sec >= 60:
-                nouvelle_duree.__min += nouvelle_duree.__sec // 60
-                nouvelle_duree.__sec = nouvelle_duree.__sec % 60
-            return nouvelle_duree
+        def __add__(self, autre_duree):
+            """Appelée par d1 + d2 : renvoie une NOUVELLE durée"""
+            return Duree(0, self.en_secondes() + autre_duree.en_secondes())
 
         def __eq__(self, autre_duree):
-            return self.__min == autre_duree.__min and self.__sec == autre_duree.__sec
+            """Appelée par d1 == d2"""
+            return self.en_secondes() == autre_duree.en_secondes()
 
         def __gt__(self, autre_duree):
-            total1 = self.__min * 60 + self.__sec
-            total2 = autre_duree.__min * 60 + autre_duree.__sec
-            return total1 > total2
+            """Appelée par d1 > d2"""
+            return self.en_secondes() > autre_duree.en_secondes()
 
     ### Programme principal ###
-    d1 = Duree(12.8)
+    d1 = Duree(12, 8)
     print(d1)
 
-    d2 = d1 + .54   # Ajoute 54 secondes
+    d2 = d1 + Duree(0, 54)   # ajoute 54 secondes
     print(d2)
 
     print(d1 == d2) # False
@@ -1381,7 +1256,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
 ---
 
-???+ question "🧪 (Hors programme) Activité n°16 : décorateur `debug` simple"
+???+ question "🧪 (Hors programme) Activité n°17 : décorateur `debug` simple"
 
     ```python
     def debug(fonction : callable):
@@ -1416,7 +1291,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 ---
 
 
-???+ question "🧪 (Hors programme) Activité n°17 : décorateur `debug` avec suivi d'appels"
+???+ question "🧪 (Hors programme) Activité n°18 : décorateur `debug` avec suivi d'appels"
 
     On modifie le décorateur pour afficher **chaque appel** de la fonction :
 
@@ -1459,7 +1334,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
 ---
 
-???+ question "🧪 (Hors programme) Activité n°18 : décorateur `debug` orienté objet"
+???+ question "🧪 (Hors programme) Activité n°19 : décorateur `debug` orienté objet"
 
     On définit un décorateur sous forme de **classe** avec la méthode spéciale `__call__`.
 
@@ -1602,8 +1477,10 @@ ma_fonction = nom_du_decorateur(ma_fonction)
         Donc Python exécute automatiquement :
 
         ```
-        Debug.__call__(factoriel, 4)
+        factoriel.__call__(4)
         ```
+
+        c’est-à-dire la méthode `__call__` de l’objet `factoriel` (une instance de `Debug`), avec `self` égal à cet objet.
 
         C’est là qu’interviennent `*args` et `**kwargs`.
 
@@ -1668,6 +1545,136 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
 
 
+## 📚 **Résumé du cours de POO : vocabulaire à retenir**
+
+🔹 **Classe**
+
+* **Définition** : Modèle, plan ou moule permettant de créer des objets.
+* **Syntaxe** : `class NomDeClasse:`
+* **Exemple** : `class Personne:`
+
+---
+
+🔹 **Objet**
+
+* **Définition** : Instance concrète d’une classe.
+* **Création** : `objet = NomDeClasse()`
+* **Caractéristiques** :
+
+> * Il possède **des attributs** (état).
+>
+> * Il possède **des méthodes** (comportement).
+
+---
+
+🔹 **Attribut**
+
+* **Définition** : Donnée ou information associée à un objet (ou une classe).
+* **Types** :
+
+> * **Attribut d’instance** : propre à chaque objet.
+>
+>   - Exemple : `self.nom`
+> 
+> * **Attribut de classe** : partagé par tous les objets.
+>
+>   - Exemple : `Personne.population`
+
+---
+
+🔹 **Méthode**
+
+* **Définition** : Fonction **définie à l’intérieur d’une classe**.
+* **Types** :
+
+>  * **Méthode d’instance** : agit sur un objet (`self` en premier paramètre).
+>
+> * **Méthode spéciale** (commence et finit par `__`) :
+>
+>    - `__init__()` : constructeur (initialisation de l’objet).
+>
+>    - `__str__()` : représentation sous forme de chaîne.
+>
+>    - `__repr__()` : représentation officielle (pour le débogage).
+>
+>    - `__eq__()` : égalité (`==`)
+>
+>    - `__lt__()` : inférieur à (`<`)
+>
+>    - etc.
+
+---
+
+🔹 **Constructeur**
+
+* **Définition** : Méthode spéciale appelée automatiquement lors de la création d’un objet.
+* **Syntaxe** : `def __init__(self, ...)`
+
+---
+
+🔹 **Encapsulation**
+
+* **Définition** : Protection des données internes d’un objet.
+* **Convention** :
+
+>  * Attribut **public** : `nom`
+>
+>  * Attribut **protégé** (usage interne conseillé) : `_nom`
+>
+>  * Attribut **privé** (fortement restreint) : `__nom`
+
+---
+
+🔹 **Accesseur**
+
+* **Définition** : Méthode permettant de **lire** la valeur d’un attribut privé.
+* **Convention** : méthode `get_nom`
+
+---
+
+🔹 **Mutateur**
+
+* **Définition** : Méthode permettant de **modifier** un attribut privé.
+* **Convention** : méthode `set_nom`
+
+---
+
+🔹 **Instance**
+
+* **Définition** : Objet issu d'une classe.
+* **Exemple** : `moi = Personne("Dupont", "Jean")`
+
+---
+
+🔹 **Référence**
+
+* **Définition** : Nom (variable) pointant vers un objet en mémoire.
+
+---
+
+🔹 **Self**
+
+* **Définition** : Paramètre obligatoire représentant l’objet courant.
+* **Utilisation** : pour accéder aux **attributs** et **méthodes de l’objet**.
+
+---
+
+🔹 **Namespace (espace de nommage)**
+
+* **Définition** : Ensemble des noms (variables, fonctions, classes…) disponibles dans un contexte donné.
+
+---
+
+🔹 **Attribut dynamique**
+
+* **Définition** : Attribut ajouté à un objet **en dehors de sa définition de classe**.
+
+---
+
+
+
+
+
 ## <H2 STYLE="COLOR:BLUE;"> 🧠<a name="_toc88030973"></a>**5. Exercices**</H2>
 
 **=> CAPYTALE Le code vous sera donné par votre enseignant**
@@ -1676,7 +1683,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
     On considère une classe **Personnage** représentant un personnage de Jeu. Le plateau de jeu est représenté par un repère **orthonormé à trois axes**. La position du joueur dans le plateau est repérée par **ses attributs x, y, z**.
 
-    1 Écrire un constructeur initialisant les mesures.
+    1 Écrire un constructeur initialisant les coordonnées.
 
     2 Écrire les méthodes **avance, droite** et **saute** permettant respectivement de faire avancer, aller à droite et sauter le personnage, c’est-à-dire d’augmenter de 1 respectivement x, y et z.
 
@@ -1723,7 +1730,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
     Cette classe possède deux **attributs num** et **denom**, qui sont des entiers et désignent respectivement le numérateur et le dénominateur.
 
-    De plus, on demande que le dénominateur soit particulièrement un entier strictement positif.
+    De plus, on demande que le dénominateur soit un entier strictement positif.
 
     1 Écrire un constructeur de cette classe.
 
@@ -1753,18 +1760,18 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
     On dit que x est la partie réelle de z et y, sa partie imaginaire.
 
-    En posant z = x + iy et z' = x' + iy, on définit alors les opérations suivantes :
+    En posant z = x + iy et z' = x' + iy', on définit alors les opérations suivantes :
 
     - z + z' = (x + x') + i(y + y')
     - z - z' = (x - x') + i(y - y')
     - z × z' = (xx' - yy') + i(xy' + x'y)
 
-    De plus, on dit que z = z' si x = x' et y = y'. Écrire en Python une classe complexe :
+    De plus, on dit que z = z' si x = x' et y = y'. Écrire en Python une classe `Complexe` :
 
     - qui définit un nombre complexe (le constructeur devra initialiser un tuple de deux nombres : la partie réelle et la partie imaginaire);
     - ayant une méthode permettant d'afficher le nombre complexe sous forme d'un tuple de deux éléments;
     - permettant d'ajouter, soustraire, multiplier et comparer (en termes d'égalité) deux nombres complexes;
-    - permettant de donner la distance de l'origine du repère au point représenté par le nombre complexe (on appelle cette distance le module, qui est égal à $\sqrt{x^2+y^2}$).
+    - permettant de donner la distance de l'origine du repère au point représenté par le nombre complexe (on appelle cette distance le module, qui est égal à √(x² + y²)).
 
     **Aide :** Les méthodes à mettre sont des méthodes spéciales qui existent déjà (dans l'ordre de l'exercice) :
 
@@ -1781,16 +1788,16 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
     où other représente l’autre objet.
 
-    Tester cette classe avec les nombres : *z=3 + 5i* et *z’=7 + i*.
+    Tester cette classe avec les nombres : *z = -3 + 5i* et *z’ = 7 + i*.
 
     Ce qui donne si on appelle afficher\_tuple() la méthode permettant d’afficher le tuple :
     ```txt
     >>> z = Complexe(-3,5)
     >>> zprime = Complexe(7,1)
     >>> z.afficher_tuple()
-    Out[3]: (-3, 5)
-    >>> (z+zprime).afficher_tuple()
-    Out[4]: (4, 6)
+    (-3, 5)
+    >>> (z + zprime).afficher_tuple()
+    (4, 6)
     ```
     Etc…
 
@@ -1814,7 +1821,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
     Tout intervalle avec b < a représente l'intervalle vide.
 
     - Écrire le constructeur de la classe Intervalle et une méthode est\_vide renvoyant True si l’objet représente l’intervalle vide et False sinon.
-    - Ajouter des méthodes \_\_len\_\_ renvoyant la longueur de l'intervalle (l'intervalle vide à une longueur 0) et \_\_contains\_\_ testant l’appartenance à l'intervalle.
+    - Ajouter des méthodes \_\_len\_\_ renvoyant la longueur de l'intervalle (l'intervalle vide a une longueur 0 ; on prendra des bornes entières, car `__len__` doit renvoyer un entier) et \_\_contains\_\_ testant l’appartenance à l'intervalle.
     - Ajouter une méthode \_\_eq\_\_ permettant de tester l'égalité de deux intervalles avec == et une méthode \_\_le\_\_  permettant de tester l'inclusion d’un intervalle dans un autre avec <=.
 
     Attention : toutes les représentations de l'intervalle vide doivent être considérées égales, et incluses dans tout intervalle.
@@ -1886,7 +1893,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
     3 Compléter le constructeur de classe avec les attributs en haut.
 
-    **Aide** : l’attribut \_\_figure permet de donner la figure correspondant à la valeur, 11 -> valet,  12 -> dame, 13 -> roi. Si la valeur est différente de 11, de 12 ou de 13, alors ce n’est pas une figure.
+    **Aide** : l’attribut \_\_figure permet de donner la figure correspondant à la valeur, 11 -> valet, 12 -> dame, 13 -> roi, 14 -> as. Si la valeur est différente de 11, de 12, de 13 ou de 14, alors ce n’est pas une figure.
 
     4 Tester la classe en instanciant la classe comme suit, dans la console :
     ```python
@@ -1903,7 +1910,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
     6 Compléter les trois mutateurs (ou setter) pour modifier la valeur d’un attribut. On veut rendre publique la modification de la valeur et de la couleur. Par contre, on souhaite garder la main sur la façon d’attribuer une figure à notre carte pour des questions de cohérence. On ne veut pas laisser la liberté à l’utilisateur de créer une carte incohérente entre sa valeur et sa figure, par exemple un roi de valeur 4. Donc le mutateur correspondant à l’attribut figure sera en accès privé.
 
     - \_\_SetFigure : changer la figure en fonction de la nouvelle valeur.
-    - SetValeur : retourne vrai si la valeur de la carte a été changée par val et faux sinon ; la valeur de la carte doit être comprise entre 2 et 14.
+    - SetValeur : retourne vrai si la valeur de la carte a été changée par val et faux sinon ; la valeur doit être comprise entre 2 et 14 ; met aussi à jour la figure.
     - SetCouleur : retourne vrai si la couleur de la carte a été changée par coul et faux sinon ; la couleur de la carte doit être : Trèfle, Pique, Carreau, Cœur.
 
     7 Tester la classe comme suit :
@@ -2116,7 +2123,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
     - weight()
 
-    retourne le poids d'une image en pixels
+    retourne le nombre total de pixels de l'image
 
     **Aide** : multiplier largeur donnée par la méthode width() avec la hauteur donnée par la méthode height().
 
@@ -2188,19 +2195,19 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
     Le seuillage d'image est la méthode la plus simple de segmentation d'image.
 
-    À partir d'une image en niveau de gris, le seuillage d'image peut être utilisé pour créer une image comportant uniquement deux valeurs, noir ou blanc (monochrome). On remplace un à un les pixels d'une image par rapport à une valeur seuil fixée (par exemple 50). Ainsi, si un pixel à une valeur supérieure au seuil, il prendra la valeur 255 (blanc), et si sa valeur est inférieure, il prendra la valeur 0 (noir).
+    À partir d'une image en niveau de gris, le seuillage d'image peut être utilisé pour créer une image comportant uniquement deux valeurs, noir ou blanc (monochrome). On remplace un à un les pixels d'une image par rapport à une valeur seuil fixée (par exemple 50). Ainsi, si un pixel a une valeur supérieure au seuil, il prendra la valeur 255 (blanc), et si sa valeur est inférieure, il prendra la valeur 0 (noir).
 
     ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.029.png)
 
     Avec une image en couleur, on fera de même avec les trois composantes rouge, vert et bleu. Il y aura ainsi huit couleurs possibles pour chaque pixel : blanc, noir, rouge, vert, bleu, magenta, jaune et cyan.
 
-    18 Écrire la méthode threshold() qui réalisent un seuillage pour un seuil donné en paramètre.
+    18 Écrire la méthode threshold() qui réalise un seuillage pour un seuil donné en paramètre.
 
-    **Aide** : Pour le seuillage noir et blanc, on part de l’image en négatif donc il n’y a qu’une valeur pour chaque pixel.
+    **Aide** : Pour le seuillage noir et blanc, on part de l’image en niveaux de gris (filtre\_gris.png) donc il n’y a qu’une valeur pour chaque pixel.
 
     19 Tester avec filtre\_gris.png et une valeur limite à 100. Sauvegarder l’image sous filtre\_seuillageNB.png.
 
-    20 Ecrire la méthode et threshold\_color() qui réalise un seuillage pour un seuil donné en paramètre
+    20 Écrire la méthode threshold\_color() qui réalise un seuillage pour un seuil donné en paramètre
 
     **Aide** : traiter chaque couleur au niveau de la limite qui sera un tuple composé d’une valeur pour chaque couleur. Pour simplifier l’écriture on peut écrire l’instruction sur la même ligne que la condition (après les deux points) 
 
@@ -2218,7 +2225,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
     - Deuxième conséquence : les points ayant une valeur supérieure à 160 deviendront des points parfaitement blancs, puisque la valeur maximale possible est 255. Il y a donc perte d'informations.
 
 
-    Pour éviter ces pertes d'informations, il faut que la courbe tonale rejoigne les axes tangentiellement, comme dans l'exemple ci-contre. Ainsi, aucun point de débordera des valeurs limites minimale (0) ou maximale (255). Il sera en particulier possible de revenir en arrière.
+    Pour éviter ces pertes d'informations, il faut que la courbe tonale rejoigne les axes tangentiellement, comme dans l'exemple ci-contre. Ainsi, aucun point ne débordera des valeurs limites minimale (0) ou maximale (255). Il sera en particulier possible de revenir en arrière.
 
     ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.032.png)
 
@@ -2231,7 +2238,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
     ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.033.png)
 
-    22 Écrire une méthode brighten() qui réalisent un éclaircissement de l’image pour une valeur donnée en paramètre.
+    22 Écrire une méthode brighten() qui réalise un éclaircissement de l’image pour une valeur donnée en paramètre.
 
     **Aide** : traiter chaque couleur de chaque pixel indifféremment des autres et utiliser les fonctions min() et max().
 
@@ -2329,7 +2336,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
     - Chaque carte contiendra une couleur (suit) et une valeur (value)
 
-    - La fonction \_\_repr\_\_() renverra la valeur (roi, reine, valet,…) et la couleur. On obtiendra ainsi la combinaison par exemple : roi de trèfle. Pour se faire utiliser la méthode join() (<https://www.w3schools.com/python/ref_string_join.asp>) avec un tuple constitué de la couleur et le la valeur.
+    - La fonction \_\_repr\_\_() renverra la valeur (roi, reine, valet,…) et la couleur. On obtiendra ainsi la combinaison par exemple : roi de trèfle. Pour ce faire, utiliser la méthode join() (<https://www.w3schools.com/python/ref_string_join.asp>) avec un tuple constitué de la valeur et de la couleur.
 
     **La classe Deck :**
 
@@ -2345,8 +2352,8 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
     - Implémentez une méthode \_\_str\_\_ : vous devriez obtenir quelque chose comme ceci :
     ```txt
-    >>> piles_cartes = Deck()
-    >>> print(piles\_cartes)
+    >>> pile_cartes = Deck()
+    >>> print(pile_cartes)
     [As de Pique ♠, 2 de Pique ♠, 3 de Pique ♠, 4 de Pique ♠, 5 de Pique ♠, 6 de Pique ♠, 7 de Pique ♠, 8 de Pique ♠, 9 de Pique ♠, 10 de Pique ♠, Valet de Pique ♠, Reine de Pique ♠, Roi de Pique ♠, As de Trèfle ♣, 2 de Trèfle ♣, 3 de Trèfle ♣, 4 de Trèfle ♣, 5 de Trèfle ♣, 6 de Trèfle ♣, 7 de Trèfle ♣, 8 de Trèfle ♣, 9 de Trèfle ♣, 10 de Trèfle ♣, Valet de Trèfle ♣, Reine de Trèfle ♣, Roi de Trèfle ♣, As de Coeur ♥, 2 de Coeur ♥, 3 de Coeur ♥, 4 de Coeur ♥, 5 de Coeur ♥, 6 de Coeur ♥, 7 de Coeur ♥, 8 de Coeur ♥, 9 de Coeur ♥, 10 de Coeur ♥, Valet de Coeur ♥, Reine de Coeur ♥, Roi de Coeur ♥, As de Carreau ♦, 2 de Carreau ♦, 3 de Carreau ♦, 4 de Carreau ♦, 5 de Carreau ♦, 6 de Carreau ♦, 7 de Carreau ♦, 8 de Carreau ♦, 9 de Carreau ♦, 10 de Carreau ♦, Valet de Carreau ♦, Reine de Carreau ♦, Roi de Carreau ♦]
     ```
 
@@ -2358,7 +2365,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
     [9 de Coeur ♥, 6 de Pique ♠, 9 de Pique ♠, 10 de Trèfle ♣, 4 de Coeur ♥, 7 de Trèfle ♣, Valet de Pique ♠, As de Pique ♠, 7 de Pique ♠, 4 de Carreau ♦, 10 de Carreau ♦, 2 de Coeur ♥, Valet de Carreau ♦, 10 de Coeur ♥, 4 de Trèfle ♣, Reine de Trèfle ♣, Valet de Coeur ♥, As de Coeur ♥, 5 de Pique ♠, 6 de Coeur ♥, 10 de Pique ♠, 3 de Trèfle ♣, 7 de Carreau ♦, 3 de Coeur ♥, Roi de Coeur ♥, Roi de Pique ♠, 5 de Trèfle ♣, Reine de Carreau ♦, 3 de Pique ♠, 2 de Carreau ♦, 5 de Carreau ♦, 8 de Trèfle ♣, Reine de Coeur ♥, Reine de Pique ♠, 8 de Coeur ♥, Roi de Carreau ♦, Valet de Trèfle ♣, 5 de Coeur ♥, 8 de Pique ♠, 9 de Trèfle ♣, 3 de Carreau ♦, As de Carreau ♦, 2 de Pique ♠, Roi de Trèfle ♣, 4 de Pique ♠, As de Trèfle ♣, 2 de Trèfle ♣, 9 de Carreau ♦, 6 de Carreau ♦, 6 de Trèfle ♣, 7 de Coeur ♥, 8 de Carreau ♦]
     ```
 
-    - La méthode deal permet de retirer du jeu la carte du dessus. Pour cela on utilisera la méthode pop() : <https://www.w3schools.com/python/ref_list_pop.asp>. Elle retournera la pile de carte sans la carte du dessus.
+    - La méthode deal permet de retirer du jeu la carte du dessus. Pour cela on utilisera la méthode pop() : <https://www.w3schools.com/python/ref_list_pop.asp>. Elle renvoie la carte retirée ; la pile contient alors une carte de moins.
     ```txt
     # à ajouter
     >>> pile_cartes.deal()
@@ -2369,7 +2376,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
     ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.040.png)
 
-    Cette classe contient des cartes. Il vaut également attribuer une valeur par les règles du jeu en fonction des cartes qu’il contient.
+    Cette classe contient des cartes. Il faut également attribuer une valeur par les règles du jeu en fonction des cartes qu’il contient.
 
     La main du croupier ne doit afficher qu’une seule carte, il faudra également suivre cette règle.
 
@@ -2410,7 +2417,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
     - Si ce n’est pas un as, on ajoute simplement 10 à la valeur de la main.
 
-    Une fois que cela est fait, on vérifie s’il y avait un as. Si c’est le cas, l’as ayant pour valeur 0 ou 11 au choix, il faut vérifier aussi que le total est supérieur à 21. Si c’est le cas il faut soustraire 10 pour que l’as ne vaille que 1.
+    Une fois que cela est fait, on vérifie s’il y avait un as. Si c’est le cas, l’as ayant pour valeur 1 ou 11 au choix, il faut vérifier aussi que le total est supérieur à 21. Si c’est le cas il faut soustraire 10 pour que l’as ne vaille que 1.
 
     9 La méthode get\_value permet de récupérer la valeur value et de la retourner.
 
@@ -2484,14 +2491,14 @@ ma_fonction = nom_du_decorateur(ma_fonction)
     caché
     4 de Trèfle ♣
     Choisir : [Carte / Rester] 
-    \>? c
+    >? c
     Roi de Coeur ♥
     6 de Pique ♠
     Reine de Trèfle ♣
     Valeur : 26
     Le joueur perd!
     Une autre partie ? [O/N]
-    \>? o
+    >? o
     Main du joueur :
     4 de Carreau ♦
     Valet de Coeur ♥
@@ -2500,7 +2507,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
     caché
     10 de Coeur ♥
     Choisir : [Carte / Rester]
-    \>? r
+    >? r
     Résultat final
     Main du joueur: 14
     Main du croupier: 13
@@ -2512,7 +2519,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
     **Aide** : Le score sera obtenue avec la méthode get\_value()
 
-    15 La méthode check\_for\_blackjack permet de vérifier s’il y a blackjack. Si l’un des joueurs a reçu un as et une carte illustrée, sa main sera de 21, donc il gagne automatiquement. Il faut garder une trace de quel joueur peut avoir un blackjack, donc on gardera un booléen pour le joueur (player) et le croupier (dealer). Si l’un des booléens est True alors il y a un gagnant.
+    15 La méthode check\_for\_blackjack permet de vérifier s’il y a blackjack. Si l’un des joueurs a reçu un as et une carte valant 10 (10, valet, dame ou roi), sa main sera de 21, donc il gagne automatiquement. Il faut garder une trace de quel joueur peut avoir un blackjack, donc on gardera un booléen pour le joueur (player) et le croupier (dealer). Si l’un des booléens est True alors il y a un gagnant.
 
     16 La méthode play (2<sup>ème</sup> partie)
 
@@ -2536,7 +2543,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
     22 Si à présent le joueur choisit de rester avec sa main, il faut comparer son score avec celui du croupier. Il faut afficher la valeur de la main du joueur et du croupier, comparer les valeurs de chaque main et afficher qui gagne. Si les deux mains ont même valeur alors il y a match nul.
 
-    23 On peut ajouter une petite boucle pour que le joueur est le choix de rejouer ou non. Astuce utiliser les booléens de la méthode play et game\_over
+    23 On peut ajouter une petite boucle pour que le joueur ait le choix de rejouer ou non. Astuce utiliser les booléens de la méthode play et game\_over
 
     24 Pour lancer le jeu il faut créer une instance de la classe Game et on appelle la méthode play. 
 
@@ -2799,7 +2806,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
             for compte in self.comptes:
                 chaine = chaine + compte.infos()
-                chaine = """
+                chaine = chaine + """
                 -----------
 
                 """
@@ -2815,7 +2822,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
     Le but de ce sujet est de réaliser en Python une implémentation du jeu de la vie en utilisant la programmation objet.
 
-    Un **automate cellulaire** consiste en une grille régulière de « cellules » contenant chacune un « état » choisi parmi un ensemble fini et qui peut évoluer au cours du temps. L’état d’une cellule au temps t+1t+1t+1 est fonction de l’état au temps ttt d’un nombre fini de cellules appelé son « voisinage ». À chaque nouvelle unité de temps, les mêmes règles sont appliquées simultanément à toutes les cellules de la grille, produisant une nouvelle « génération » de cellules dépendant entièrement de la génération précédente.
+    Un **automate cellulaire** consiste en une grille régulière de « cellules » contenant chacune un « état » choisi parmi un ensemble fini et qui peut évoluer au cours du temps. L’état d’une cellule au temps t+1 est fonction de l’état au temps t d’un nombre fini de cellules appelé son « voisinage ». À chaque nouvelle unité de temps, les mêmes règles sont appliquées simultanément à toutes les cellules de la grille, produisant une nouvelle « génération » de cellules dépendant entièrement de la génération précédente.
 
     Le **jeu de la vie** a été inventé par le mathématicien britannique John H. Conway (1937-2020). C’est un exemple de ce qu’on appelle un automate cellulaire bidimensionnel. Il se déroule sur un tableau rectangulaire (L×H) de cellules. Une cellule est représentée par ses coordonnées x et y qui vérifient 0⩽x<L  et 0⩽y<H.
 
@@ -2899,17 +2906,17 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
     6 Ajouter les méthodes :
 
-    - dans\_grille qui indique si un point de coordonnées iii et jjj est bien dans la grille ;
+    - dans\_grille qui indique si un point de coordonnées i et j est bien dans la grille ;
 
-    - set\_cell\_xy qui permet d’affecter une nouvelle cellule à la case (i,j)(i,j)(i,j) de la grille, si (i,j)(i,j)(i,j) est bien dans la grille ;
+    - set\_cell\_xy qui permet d’affecter une nouvelle cellule à la case (i, j) de la grille, si (i, j) est bien dans la grille ;
 
-    - get\_cell\_xy qui permet de récupérer la cellule située dans la case (i,j)(i,j)(i,j) de la grille, si (i,j)(i,j)(i,j) est bien dans la grille ;
+    - get\_cell\_xy qui permet de récupérer la cellule située dans la case (i, j) de la grille, si (i, j) est bien dans la grille ;
 
     - get\_largeur qui permet de récupérer la largeur de la grille ;
 
     - get\_hauteur qui permet de récupérer la hauteur de la grille ;
 
-    - est\_voisin une *méthode statique* qui vérifie si les cases (i,j)(i,j)(i,j) et (x,y)(x,y)(x,y) sont voisines dans la grille.
+    - est\_voisin une *méthode statique* qui vérifie si les cases (i, j) et (x, y) sont voisines dans la grille.
 
     7 Ajouter une méthode get\_voisins qui renvoie la liste des voisins d’une cellule.
     8 Fournir une méthode set\_voisins qui affecte à chaque cellule de la grille la liste de ses voisins.
@@ -2950,149 +2957,156 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
     **Classe Cellule**
     ```python
+    from __future__ import annotations   # permet d'écrire le nom de la classe dans ses propres annotations
+    from typing import List
+
     class Cellule :
-    def __init__(self: Cellule) -> None:
-        """
-        Initialisation des attributs.
-        """
-        pass
+        def __init__(self: Cellule) -> None:
+            """
+            Initialisation des attributs.
+            """
+            pass
 
-    def est_vivant(self: Cellule) -> bool:
-        """
-        Retourne l'état actuel de la cellule.
-        """
-        pass
+        def est_vivant(self: Cellule) -> bool:
+            """
+            Retourne l'état actuel de la cellule.
+            """
+            pass
 
-    def set_voisins(self: Cellule, voisins: List[Cellule]) -> None:
-        """
-        Affecte comme voisins la liste passée en paramètre.
-        """
-        pass
+        def set_voisins(self: Cellule, voisins: List[Cellule]) -> None:
+            """
+            Affecte comme voisins la liste passée en paramètre.
+            """
+            pass
 
-    def get_voisins(self: Cellule) -> List[Cellule]:
-        """
-        Renvoie la liste des voisins de la cellule
-        """
-        pass
+        def get_voisins(self: Cellule) -> List[Cellule]:
+            """
+            Renvoie la liste des voisins de la cellule
+            """
+            pass
 
-    def naitre(self: Cellule) -> None:
-        """
-        Met l’état futur de la cellule à `True`
-        """
-        pass
+        def naitre(self: Cellule) -> None:
+            """
+            Met l’état futur de la cellule à `True`
+            """
+            pass
 
-    def mourir(self: Cellule) -> None:
-        """
-        Met l’état futur de la cellule à `False`
-        """
-        pass
+        def mourir(self: Cellule) -> None:
+            """
+            Met l’état futur de la cellule à `False`
+            """
+            pass
 
-    def basculer(self: Cellule) -> None:
-        """
-        Fait passer l’état futur de la cellule dans l’état actuel
-        """
-        pass
+        def basculer(self: Cellule) -> None:
+            """
+            Fait passer l’état futur de la cellule dans l’état actuel
+            """
+            pass
 
-    def __str__(self: Cellule) -> str:
-        """
-        Représentation de l'objet sous forme d'une chaîne de caractères
-        """
-        pass
+        def __str__(self: Cellule) -> str:
+            """
+            Représentation de l'objet sous forme d'une chaîne de caractères
+            """
+            pass
 
-    def calcule_etat_futur(self: Cellule) -> None:
-        """
-        Implémente les règles d’évolution du jeu de la vie en préparant l’état futur à sa nouvelle valeur
-        """
-        pass
+        def calcule_etat_futur(self: Cellule) -> None:
+            """
+            Implémente les règles d’évolution du jeu de la vie en préparant l’état futur à sa nouvelle valeur
+            """
+            pass
     ```
 
 
     **Classe Grille**
     ```python
+    from __future__ import annotations
+    from typing import List
+    from cellule import Cellule
+
     class Grille:
-    def __init__(self: Grille, largeur: int, hauteur: int) -> None:
-        """
-        Initialisations des attributs
-        """
-        pass
+        def __init__(self: Grille, largeur: int, hauteur: int) -> None:
+            """
+            Initialisations des attributs
+            """
+            pass
 
-    def set_matrix(self: Grille) -> List[List[Cellule]]:
-        """
-        Construction de la grille de cellules
-        """
-        pass
+        def set_matrix(self: Grille) -> List[List[Cellule]]:
+            """
+            Construction de la grille de cellules
+            """
+            pass
 
-    def dans_grille(self: Grille, i: int, j: int) -> bool:
-        """
-        Vérifie que le point de coordonnées (i,j) est dans la grille
-        """
-        pass
+        def dans_grille(self: Grille, i: int, j: int) -> bool:
+            """
+            Vérifie que le point de coordonnées (i,j) est dans la grille
+            """
+            pass
 
-    def set_cell_xy(self: Grille, i: int, j: int, cellule: Cellule) -> None:
-        """
-        Affecte une nouvelle cellule à la case (i,j) de la grille
-        """
-        pass
+        def set_cell_xy(self: Grille, i: int, j: int, cellule: Cellule) -> None:
+            """
+            Affecte une nouvelle cellule à la case (i,j) de la grille
+            """
+            pass
 
-    def get_cell_xy(self: Grille, i: int, j: int) -> Cellule:
-        """
-        Récupère la cellule située dans la case (i,j) de la grille
-        """
-        pass
+        def get_cell_xy(self: Grille, i: int, j: int) -> Cellule:
+            """
+            Récupère la cellule située dans la case (i,j) de la grille
+            """
+            pass
 
-    def get_largeur(self: Grille) -> int:
-        """
-        Récupère la largeur de la grille
-        """
-        pass
+        def get_largeur(self: Grille) -> int:
+            """
+            Récupère la largeur de la grille
+            """
+            pass
 
-    def get_hauteur(self: Grille) -> int:
-        """
-        Récupère la hauteur de la grille
-        """
-        pass
+        def get_hauteur(self: Grille) -> int:
+            """
+            Récupère la hauteur de la grille
+            """
+            pass
 
-    @staticmethod
-    def est_voisin(i: int, j: int, x: int, y: int) -> bool:
-        """
-        Vérifie si les cases (i,j) et (x,y) sont voisines dans la grille
-        """
-        pass
+        @staticmethod
+        def est_voisin(i: int, j: int, x: int, y: int) -> bool:
+            """
+            Vérifie si les cases (i,j) et (x,y) sont voisines dans la grille
+            """
+            pass
 
-    def get_voisins(self: Grille, x: int, y: int) -> List[Cellule]:
-        """
-        Renvoie la liste des voisins d’une cellule
-        """
-        pass
+        def get_voisins(self: Grille, x: int, y: int) -> List[Cellule]:
+            """
+            Renvoie la liste des voisins d’une cellule
+            """
+            pass
 
-    def set_voisins(self: Grille):
-        """
-        Affecte à chaque cellule de la grille la liste de ses voisins
-        """
-        pass
+        def set_voisins(self: Grille):
+            """
+            Affecte à chaque cellule de la grille la liste de ses voisins
+            """
+            pass
 
-    def __str__(self: Grille) -> str:
-        """
-        Représentation de l'objet
-        """
-        pass
+        def __str__(self: Grille) -> str:
+            """
+            Représentation de l'objet
+            """
+            pass
 
-    def remplir_alea(self, taux: int) -> None:
-        """
-        Remplir aléatoirement la Grille avec un certain taux de Cellules vivantes
-        """
-        pass
+        def remplir_alea(self, taux: int) -> None:
+            """
+            Remplir aléatoirement la Grille avec un certain taux de Cellules vivantes
+            """
+            pass
 
-    def jeu(self: Grille) -> None:
-        """
-        Passe en revue toutes les Cellules de la Grille, calcule leur état futur
-        """
-        pass
+        def jeu(self: Grille) -> None:
+            """
+            Passe en revue toutes les Cellules de la Grille, calcule leur état futur
+            """
+            pass
 
-    def actualise(self: Grille) -> None:
-        """
-        Bascule toutes les cellules de la Grille dans leur état futur
-        """
-        pass
+        def actualise(self: Grille) -> None:
+            """
+            Bascule toutes les cellules de la Grille dans leur état futur
+            """
+            pass
 
     ```
