@@ -28,6 +28,8 @@ jobs:
           printf '%s\n' "$source_revision" > .forge-revision
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Keep the CVE-2026-73295 fix after importing the Forge requirements.
+          sed -i "s/mkdocs-material>=8,<9/mkdocs-material>=9.7.7,<10/g" requirements.txt
           git add -A
           if ! git diff --cached --quiet; then
             git commit -m "Synchronize Forge source $source_revision"
