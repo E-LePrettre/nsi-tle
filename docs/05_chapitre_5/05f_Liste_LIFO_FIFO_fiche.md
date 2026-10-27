@@ -58,23 +58,23 @@ lire / insérer / supprimer à une **position** · afficher.
 
 | Implémentation | Principe | Caractéristique |
 |---|---|---|
-| **Tuples imbriqués** | `(v1, (v2, (v3, None)))` | **Non mutable**, approche **fonctionnelle** |
+| **Tuples imbriqués** | `(v1, (v2, (v3, ())))` (`()` = liste vide) | **Non mutable**, approche **fonctionnelle** |
 | **`list` Python** | tête = `L[0]`, reste = `L[1:]` | Utilise **copies / slices** |
 | **POO** | classes `Node` et `Liste`, attribut `head` | Interface **mutable** |
 
 ```python
 class Node:
-    def __init__(self, valeur, suivant=None):
-        self.valeur = valeur
-        self.suivant = suivant
+    def __init__(self, value, next=None):
+        self.v = value     # valeur stockée
+        self.n = next      # référence vers la cellule suivante
 
 class Liste:
-    def __init__(self):
-        self.head = None
+    def __init__(self, head=None):
+        self.head = head
     def isEmpty(self):
         return self.head is None
-    def insertHead(self, v):           # ajout en tête : O(1)
-        self.head = Node(v, self.head)
+    def insertHead(self, newData):     # ajout en tête : O(1)
+        self.head = Node(newData, self.head)
 ```
 
 ### Méthodes du cours

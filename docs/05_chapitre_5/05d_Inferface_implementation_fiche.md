@@ -58,79 +58,88 @@ constituée d'une **tête** (le sommet) et d'un **reste** (le dessous de la pile
 | Primitive | Rôle | Paramètres | Effet | Résultat |
 |---|---|---|---|---|
 | `vide()` | Créer une pile vide | aucun | — | une pile vide |
-| `estVide(p)` | Tester si vide | pile `p` | aucun | booléen |
-| `empiler(p, x)` | Ajouter au sommet | pile `p`, valeur `x` | `p` modifiée | — |
-| `depiler(p)` | Retirer le sommet | pile `p` (non vide) | `p` modifiée | la valeur retirée |
+| `estVide(P)` | Tester si vide | pile `P` | aucun | booléen |
+| `empiler(a, P)` | Ajouter au sommet | valeur `a`, pile `P` | `P` modifiée | — |
+| `depiler(P)` | Retirer le sommet | pile `P` (non vide) | `P` modifiée | la valeur retirée |
 
 !!! note "Méthodes du cours (n'utilisant que les primitives)"
-    **Compter les éléments en restaurant la pile** — on vide `p` dans une pile
-    auxiliaire, puis on la reconstitue :
+    **Compter les éléments en restaurant la pile** (activité 4) — on vide `P` dans
+    une pile temporaire, puis on la reconstitue :
     ```
-    fonction compter(p):
-        aux ← vide()
-        n ← 0
-        tant que non estVide(p):
-            empiler(aux, depiler(p))   # depiler renvoie ET modifie
-            n ← n + 1
-        tant que non estVide(aux):     # restauration de p
-            empiler(p, depiler(aux))
-        renvoyer n
+    fonction compter_elements(P):
+        temp = vide()
+        compteur = 0
+        tant que non estVide(P):
+            elt = depiler(P)           # depiler renvoie ET modifie
+            empiler(elt, temp)
+            compteur = compteur + 1
+        tant que non estVide(temp):    # restauration de P
+            elt = depiler(temp)
+            empiler(elt, P)
+        retourner compteur
     ```
     *Deux passages dans l'auxiliaire remettent les éléments dans l'ordre initial.*
 
-    **Supprimer le deuxième élément** (juste sous le sommet) :
+    **Supprimer le deuxième élément** (activité 5, juste sous le sommet) :
     ```
-    fonction supprimer_deuxieme(p):
-        sommet ← depiler(p)   # on met de côté le sommet
-        depiler(p)            # on retire (et jette) le 2e élément
-        empiler(p, sommet)    # on remet le sommet
+    fonction supprimer_deuxieme(P):
+        si estVide(P):
+            retourner
+        elt1 = depiler(P)       # on met de côté le sommet
+        si estVide(P):          # un seul élément : rien à supprimer
+            empiler(elt1, P)
+            retourner
+        depiler(P)              # 2e élément : on ne le remet pas
+        empiler(elt1, P)        # on remet le sommet
     ```
 
 ---
 
 ## 4. Interface de la file
 
-Principe **FIFO** : on **enfile en queue** et on **défile en tête**. Une file se
-décrit par sa **tête** (premier élément), sa **queue** (dernier) et son **reste**.
+Principe **FIFO** : on **enfile en queue** et on **défile en tête**. Une file est
+soit **vide**, soit constituée de trois champs : une **tête**, une **queue** et un
+**troisième champ** contenant une file.
 
 | Primitive | Rôle | Paramètres | Effet | Résultat |
 |---|---|---|---|---|
 | `vide()` | Créer une file vide | aucun | — | une file vide |
-| `estVide(f)` | Tester si vide | file `f` | aucun | booléen |
-| `enfiler(f, x)` | Ajouter en queue | file `f`, valeur `x` | `f` modifiée | — |
-| `defiler(f)` | Retirer en tête | file `f` (non vide) | `f` modifiée | la valeur retirée |
+| `estVide(F)` | Tester si vide | file `F` | aucun | booléen |
+| `enfiler(a, F)` | Ajouter en queue | valeur `a`, file `F` | `F` modifiée | — |
+| `defiler(F)` | Retirer en tête | file `F` (non vide) | `F` modifiée | la valeur retirée |
 
 !!! note "Méthodes du cours (n'utilisant que les primitives)"
-    **Compter les éléments en restaurant la file** :
+    **Compter les éléments en restaurant la file** (activité 6) :
     ```
-    fonction compter(f):
-        aux ← vide()
-        n ← 0
-        tant que non estVide(f):
-            enfiler(aux, defiler(f))
-            n ← n + 1
-        tant que non estVide(aux):     # restauration de f
-            enfiler(f, defiler(aux))
-        renvoyer n
+    fonction compter_elements(F):
+        temp = vide()
+        compteur = 0
+        tant que non estVide(F):
+            elt = defiler(F)
+            enfiler(elt, temp)
+            compteur = compteur + 1
+        tant que non estVide(temp):    # restauration de F
+            elt = defiler(temp)
+            enfiler(elt, F)
+        retourner compteur
     ```
     *En FIFO, recopier dans l'auxiliaire puis revenir conserve l'ordre initial.*
 
-    **Supprimer l'élément demandé** (`e` passé en paramètre) :
+    **Supprimer le premier élément du troisième champ** (activité 7) : c'est le
+    **deuxième** élément de la file, celui qui suit la tête.
     ```
-    fonction supprimer(f, e):
-        aux ← vide()
-        tant que non estVide(f):
-            x ← defiler(f)
-            si x ≠ e:               # on ne réenfile pas l'élément visé
-                enfiler(aux, x)
-        tant que non estVide(aux):  # restauration de f sans e
-            enfiler(f, defiler(aux))
+    fonction supprimer_premier_du_troisieme(F):
+        si estVide(F):
+            retourner
+        temp = vide()
+        enfiler(defiler(F), temp)    # on garde la tête
+        si non estVide(F):
+            defiler(F)               # 2e élément : supprimé
+        tant que non estVide(F):
+            enfiler(defiler(F), temp)
+        tant que non estVide(temp):  # restauration de F
+            enfiler(defiler(temp), F)
     ```
-
-!!! info "À adapter à ton cours"
-    Si la version de ton cours supprime l'élément à une **position** donnée (et non
-    par valeur), il suffit de compter les positions avec un compteur `i` et de ne
-    pas réenfiler celui d'indice visé. Dis-moi la signature exacte si besoin.
 
 ---
 
@@ -146,7 +155,7 @@ décrit par sa **tête** (premier élément), sa **queue** (dernier) et son **re
 !!! tip "Une même interface, plusieurs implémentations"
     Une pile (ou une file) peut être réalisée de **plusieurs façons** — par exemple
     avec une **liste chaînée** ou avec un **tableau** — **sans changer son
-    interface**. Le client écrit `empiler(p, x)` de la même manière, quelle que
+    interface**. Le client écrit `empiler(a, P)` de la même manière, quelle que
     soit la représentation interne.
 
 ---
@@ -154,7 +163,7 @@ décrit par sa **tête** (premier élément), sa **queue** (dernier) et son **re
 ## 6. Tableaux
 
 - un tableau a une **taille fixe** ;
-- ses cases sont **indexées** (de `0` à `taille - 1`) ;
+- ses cases sont **indexées** (dans le cours, de `1` à `n`) ;
 - **accès** et **modification** se font directement par `T[i]` ;
 - `T[i]` permet de **lire** (`x ← T[i]`) ou d'**écrire** (`T[i] ← x`).
 
@@ -162,57 +171,74 @@ décrit par sa **tête** (premier élément), sa **queue** (dernier) et son **re
 
 ## 7. Pile implémentée par tableau
 
-**Données :** un tableau `T` + un indice `sommet`.
+**Données :** un tableau `T` de `n` cases (indices `1` à `n`) + l'attribut `sommet(P)`.
 
-- convention : `sommet` = indice du dernier élément ; `sommet = -1` si la pile est **vide** ;
-- la pile est **pleine** si `sommet = taille - 1`.
+- `sommet(P)` = indice de l'élément **le plus récemment empilé** : la pile va de
+  `T[1]` (base) à `T[sommet(P)]` (sommet) ;
+- la pile est **vide** si `sommet(P) == 0`, **pleine** si `sommet(P) == n`.
 
 ```
-estVide(p):
-    renvoyer sommet == -1
+estVide(P):
+    si sommet(P) == 0:
+        retourner VRAI
+    sinon:
+        retourner FAUX
 
-empiler(p, x):           # si pile non pleine
-    sommet ← sommet + 1
-    T[sommet] ← x
+empiler(a, P):
+    si sommet(P) == n:            # le tableau est plein
+        afficher "espace insuffisant"
+    sinon:
+        sommet(P) := sommet(P) + 1
+        T[sommet(P)] := a
 
-depiler(p):              # si pile non vide
-    x ← T[sommet]
-    sommet ← sommet - 1
-    renvoyer x
+depiler(P):
+    si sommet(P) == 0:
+        afficher "pile vide"
+    sinon:
+        sommet(P) := sommet(P) - 1
+        retourner T[sommet(P) + 1]
 ```
 
 !!! example "État après une suite d'opérations"
-    Après `empiler(2)`, `empiler(5)`, `empiler(8)` puis `depiler()` :
-    `sommet` vaut `1` et la pile « logique » est `[2, 5]`.
-    La case `T[2]` contient **encore** `8`, mais cette valeur **n'appartient
-    plus** à la pile : seules les cases jusqu'à `sommet` en font partie.
+    Pile vide, puis `empiler(2, P)`, `empiler(5, P)`, `empiler(8, P)` et `depiler(P)` :
+    `depiler` renvoie `8`, `sommet(P)` vaut `2` et la pile est `(5, (2, vide()))`.
+    La case `T[3]` contient **encore** `8`, mais cette valeur **n'appartient
+    plus** à la pile : seules les cases `T[1]` à `T[sommet(P)]` en font partie.
 
 ---
 
 ## 8. File implémentée par tableau circulaire
 
-**Données :** un tableau `T` de taille `N` + deux indices `tete` et `queue`.
+**Données :** un tableau `T` de `n` cases (indices `1` à `n`) + deux attributs `tete(F)` et `queue(F)`.
 
-- `tete` = indice du **premier** élément ;
-- `queue` = indice de la **prochaine case libre** (emplacement d'insertion) ;
-- **retour circulaire** : quand un indice dépasse `N-1`, il revient à `0` grâce à
-  l'opération **modulo** (`mod N`) ;
-- file **vide** : `tete == queue` ;
-- file **pleine** : `(queue + 1) mod N == tete` (on laisse une case libre pour
-  distinguer le vide du plein).
+- `tete(F)` = indice de l'élément en **tête** de la file ;
+- `queue(F)` = indice de l'**emplacement où insérer** le prochain élément (case vide
+  au sens de la file) : la file va de `T[tete(F)]` à `T[queue(F) - 1]` ;
+- **tableau circulaire** : après la case `n`, on revient à la case `1` ;
+- file **vide** : `tete(F) == queue(F)` ;
+- file **pleine** : `tete(F) == queue(F) + 1` (ou `tete(F) == 1` et `queue(F) == n`).
 
 ```
-estVide(f):
-    renvoyer tete == queue
+estVide(F):
+    si queue(F) == tete(F):
+        retourner VRAI
+    sinon:
+        retourner FAUX
 
-enfiler(f, x):           # si file non pleine
-    T[queue] ← x
-    queue ← (queue + 1) mod N
+enfiler(a, F):
+    T[queue(F)] := a
+    si queue(F) == n:
+        queue(F) := 1
+    sinon:
+        queue(F) += 1
 
-defiler(f):              # si file non vide
-    x ← T[tete]
-    tete ← (tete + 1) mod N
-    renvoyer x
+defiler(F):
+    x := T[tete(F)]
+    si tete(F) == n:
+        tete(F) := 1
+    sinon:
+        tete(F) += 1
+    retourner x
 ```
 
 !!! warning "Case conservée en mémoire"
@@ -255,7 +281,8 @@ defiler(f):              # si file non vide
     - **oublier un retour** : `depiler` / `defiler` doivent **renvoyer** la valeur ;
     - confondre **valeur présente dans le tableau** et **valeur appartenant
       encore à la structure** (une case « oubliée » n'en fait plus partie) ;
-    - **oublier le fonctionnement circulaire** de la file (oubli du `mod N`).
+    - **oublier le fonctionnement circulaire** de la file (après la case `n`, on revient à la case `1`) ;
+    - inverser l'ordre des paramètres : c'est `empiler(a, P)` et `enfiler(a, F)` (la valeur d'abord).
 
 ---
 
@@ -272,36 +299,37 @@ defiler(f):              # si file non vide
     **LIFO** (pile) : le dernier élément ajouté est le premier retiré.
     **FIFO** (file) : le premier élément ajouté est le premier retiré.
 
-??? question "3. Spécifier l'opération `depiler(p)`."
-    **Paramètre** : une pile `p`. **Précondition** : `p` non vide. **Effet** :
-    retire le sommet (modifie `p`). **Résultat** : renvoie la valeur retirée.
+??? question "3. Spécifier l'opération `depiler(P)`."
+    **Paramètre** : une pile `P`. **Précondition** : `P` non vide. **Effet** :
+    retire le sommet (modifie `P`). **Résultat** : renvoie la valeur retirée.
 
 ??? question "4. Pourquoi le client n'a-t-il pas besoin de l'implémentation ?"
     Parce qu'il utilise la structure **via son interface** : connaître le nom des
     opérations et leur effet suffit, quelle que soit la réalisation interne.
 
-??? question "5. Pile vide, on fait : empiler(3), empiler(7), depiler(). Que renvoie depiler et quel est l'état ?"
-    `depiler` renvoie `7`. La pile contient ensuite `[3]` (sommet = `3`).
+??? question "5. Pile vide, on fait : empiler(3, P), empiler(7, P), depiler(P). Que renvoie depiler et quel est l'état ?"
+    `depiler` renvoie `7`. La pile est ensuite `(3, vide())`.
 
-??? question "6. Dans une pile par tableau, que vaut `sommet` quand la pile est vide ?"
-    `sommet == -1`.
+??? question "6. Dans une pile par tableau, que vaut `sommet(P)` quand la pile est vide ?"
+    `sommet(P) == 0` (les cases utilisées vont de `T[1]` à `T[sommet(P)]`).
 
-??? question "7. File circulaire : à quoi sert l'opération `mod N` dans `enfiler` ?"
-    Elle assure le **retour circulaire** : quand `queue` dépasse `N-1`, l'indice
-    revient à `0` pour réutiliser les premières cases.
+??? question "7. File circulaire : pourquoi `enfiler` teste-t-il `queue(F) == n` ?"
+    Pour le **retour circulaire** : après la dernière case `n`, `queue(F)` revient
+    à `1` pour réutiliser les premières cases.
 
 ??? question "8. Comment teste-t-on qu'une file circulaire est vide ?"
-    Lorsque `tete == queue`.
+    Lorsque `tete(F) == queue(F)`.
 
-??? question "9. Corriger ce pseudo-code de `empiler` : `T[sommet] ← x ; sommet ← sommet + 1`"
-    L'ordre est inversé : il faut d'abord avancer `sommet`, puis écrire :
+??? question "9. Corriger ce pseudo-code de `empiler` : `T[sommet(P)] := a` puis `sommet(P) := sommet(P) + 1`"
+    L'ordre est inversé : `sommet(P)` indexe le **dernier élément empilé**, il faut
+    donc d'abord avancer `sommet(P)`, puis écrire :
     ```
-    sommet ← sommet + 1
-    T[sommet] ← x
+    sommet(P) := sommet(P) + 1
+    T[sommet(P)] := a
     ```
 
 ??? question "10. Une case du tableau contient encore 8 après un depiler. Cette valeur appartient-elle à la pile ? Justifier."
-    **Non** : seules les cases jusqu'à `sommet` appartiennent à la pile. La valeur
+    **Non** : seules les cases `T[1]` à `T[sommet(P)]` appartiennent à la pile. La valeur
     `8` est une **ancienne valeur** restée en mémoire mais hors de la structure.
 
 ---
@@ -316,7 +344,7 @@ defiler(f):              # si file non vide
       **le même cahier des charges** (la même interface) ;
     - une valeur **présente dans le tableau** n'appartient pas forcément **encore**
       à la structure ;
-    - dans une file par tableau **circulaire**, ne pas oublier le `mod N`.
+    - dans une file par tableau **circulaire**, après la case `n` on revient à la case `1`.
 
 !!! quote "Formulations utiles au bac"
     - « Le client utilise la structure via son **interface**, sans connaître son

@@ -5063,7 +5063,7 @@ On utilise des fonctions de hachage dans **deux contextes différents** :
 
 ## <H2 STYLE="COLOR:BLUE;">🔍 <a name="_toc151667946"></a>**8. Projets**</H2>
 
-!!! abstract "**Projet n°01 : Pile et contrôle du parenthésage d’une expression**
+!!! abstract "**Projet n°01 : Pile et contrôle du parenthésage d’une expression**"
 
     **=> CAPYTALE Le code vous sera donné par votre enseignant**
 
@@ -5088,6 +5088,7 @@ On utilise des fonctions de hachage dans **deux contextes différents** :
 
     assert verification("(())") == "OK"
     assert verification("())(") == "NON"
+
 
 !!! abstract "**Projet n°02 : implémentation d’une liste chainée**"
 
