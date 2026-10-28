@@ -85,7 +85,7 @@ La séquence `{8, 3, 10, 1, 6, 14, 4, 7, 13}` donne l’arbre suivant :
 
 ![](Aspose.Words.6e55a686-622e-41c3-8254-4f896d64da0f.008.png){: .center }
 
-!!! info "🧠 Capytale"
+!!! info "🧠 Capytale => le code vous sera donné par votre enseignant"
 
 ???+ question "🌳 **Activité n° 1 : Séquence d’un ABR**"
 
@@ -500,7 +500,7 @@ Il permet d’obtenir les valeurs **dans l’ordre croissant**.
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc149153671"></a>**6. 🔍 Exercices**</H2>
 
-!!! info "🧠 => **CAPYTALE Le code vous sera donné par votre enseignant**"
+!!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
 
 !!! abstract "**Exercice n° 01 : Implémentation de quelques méthodes dans un ABR**"
 
@@ -524,7 +524,7 @@ Il permet d’obtenir les valeurs **dans l’ordre croissant**.
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc149153672"></a>**7. 🌿 Projet**</H2>
 
-!!! info "🧠 => **CAPYTALE Le code vous sera donné par votre enseignant**"
+!!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
 
 !!! abstract "**Exercice n° 01 : arbre binaire de recherche ABR**"
 

@@ -326,7 +326,8 @@ Il montre que **toutes les questions sémantiques non triviales** sur un program
 
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc162880862"></a>🚫 **2.6. Mise en pratique — Peut-on décider de l’arrêt d’un programme ? (TD)**</H3>
 
-!!! info "🧠 **Capytale : le code ou les documents seront fournis par votre enseignant : TNSI_14_problème de l'arrêt**"
+!!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
+    Les documents seront fournis par votre enseignant. TNSI_14_problème de l'arrêt
 
 
 
@@ -539,7 +540,8 @@ Cela signifierait que certains problèmes :
 
 
 
-!!! info "🧠 **Capytale : le code ou les documents seront fournis par votre enseignant**"
+!!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
+    Les documents seront fournis par votre enseignant. 
 
 
 

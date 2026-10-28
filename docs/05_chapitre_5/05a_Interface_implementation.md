@@ -140,7 +140,7 @@ P = (Anakin, (Boba Fett, (Dark Vador, (Han Solo, (Yoda, vide())))))
 
 
 
-**=> CAPYTALE Le code vous sera donné par votre enseignant**
+!!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
 
 
 

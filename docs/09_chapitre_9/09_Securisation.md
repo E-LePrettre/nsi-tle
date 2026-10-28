@@ -334,7 +334,7 @@ Même opération XOR ✅
 
 ---
 
-!!! info "🧠 **Capytale activités : Le code sera fourni par votre enseignant.**" 
+!!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
 
 ---
 
@@ -776,7 +776,7 @@ Merci à Gilles Lassus et Mireille Coilhac
 
 ## <H2 STYLE="COLOR:BLUE;">**🔎 6. Exercices**<a name="_toc174920509"></a></H2>
 
-!!! info "🧠 **Capytale : Le code sera fourni par votre enseignant.**" 
+!!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
 
 
 
@@ -879,7 +879,7 @@ Merci à Gilles Lassus et Mireille Coilhac
     → Montrer qu'un XOR avec une clé **trop courte** = ❌ **attaque triviale**
 
 
-!!! info "🧠 **Capytale : Le code sera fourni par votre enseignant.**" 
+!!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
 
 ## <H2 STYLE="COLOR:BLUE;">**🔎 7. Projet**<a name="_toc174920510"></a></H2>
 

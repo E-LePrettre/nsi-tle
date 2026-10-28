@@ -205,6 +205,8 @@ Dans une **architecture trois-tiers** (*3-tier*), un **serveur d'application** e
 
 ## <span style="color:blue">🧠 5. Exercices</span> { #exercices }
 
+!!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
+
 !!! abstract "**Exercice 1 : quel service ?** ★"
 
     Pour chaque situation, indiquer le service rendu par le SGBD (persistance, accès concurrents, efficacité, sécurisation).

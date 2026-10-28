@@ -411,7 +411,7 @@ Quels sont les problèmes de cette modélisation ?
 
 ## <H2 STYLE="COLOR:BLUE;">**🧠 3. Exercices</H2>**
 
-💡 **À faire dans CAPYTALE** — le code vous sera donné par votre enseignant.
+!!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
 
 Les exercices sont classés par difficulté : ★ (application directe), ★★ (raisonnement), ★★★ (modélisation).
 

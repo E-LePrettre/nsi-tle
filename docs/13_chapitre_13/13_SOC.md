@@ -479,7 +479,8 @@ Les **SoC** représentent l’aboutissement de la miniaturisation informatique :
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc162874825"></a>📝 **4. Exercices**</H2>
 
-!!! info "🧠 **Capytale : le code ou les documents seront fournis par votre enseignant**"
+!!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
+    Les documents seront fournis par votre enseignant. 
 
 
 ---

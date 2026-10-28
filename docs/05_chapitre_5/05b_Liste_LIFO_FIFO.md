@@ -3945,9 +3945,11 @@ hashed_password = hash_object.hexdigest()
 print(hashed_password)  # Empreinte (en hexadécimal)
 ```
 
-???+ question "Tester ce qui est proposé"
+???+ question "🧪 Tester ce qui est proposé"
 
-    {{ IDE() }}
+    ??? success "Python"
+    
+        {{ IDE() }}
 
 
 
@@ -4097,9 +4099,13 @@ En Python, un `dict` est une structure **basée sur une table de hachage** :
 dictionnaire = {"nom": "Alice", "âge": 30}
 print(dictionnaire["nom"])  # Recherche rapide grâce à une table de hachage
 ```
-???+ question "Tester ce qui est proposé"
 
-    {{ IDE() }}
+
+???+ question "🧪 Tester ce qui est proposé"
+
+    ??? success "Python"
+    
+        {{ IDE() }}
 
 
 **Caractéristiques** :  
@@ -4340,7 +4346,7 @@ On utilise des fonctions de hachage dans **deux contextes différents** :
 
 ## <H2 STYLE="COLOR:BLUE;">💡 <a name="_toc151667945"></a>**7. Exercices**</H2>
 
-**=> CAPYTALE Le code vous sera donné par votre enseignant**
+!!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
 
 !!! abstract "**Exercice n°1 : Implémentation d’une file avec deux piles avec les listes chainées**"
 
@@ -5065,7 +5071,7 @@ On utilise des fonctions de hachage dans **deux contextes différents** :
 
 !!! abstract "**Projet n°01 : Pile et contrôle du parenthésage d’une expression**"
 
-    **=> CAPYTALE Le code vous sera donné par votre enseignant**
+    !!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
 
     Il s’agit d’écrire une fonction qui contrôle si une expression mathématique, donnée sous forme d’une chaine de caractères, est bien parenthésée, c’est-à-dire s’il y a autant de parenthèses ouvrantes que de fermantes, et qu’elles sont bien placées. Par exemple :
 
@@ -5092,7 +5098,7 @@ On utilise des fonctions de hachage dans **deux contextes différents** :
 
 !!! abstract "**Projet n°02 : implémentation d’une liste chainée**"
 
-    **=> CAPYTALE Le code vous sera donné par votre enseignant**
+    !!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
 
     A partir de ce qui a été vu sur les listes chaînées, implémenter :
 
@@ -5145,7 +5151,7 @@ On utilise des fonctions de hachage dans **deux contextes différents** :
 
 !!! abstract "**Projet n°03 : Pile et palindromes**"
 
-    **=> CAPYTALE Le code vous sera donné par votre enseignant**
+    !!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
 
     Un palindrome est un mot qui se lit de la même façon de gauche à droite et de droite à gauche. Par exemple, abababa et un palindrome, ainsi que kayak et coloc.
 
@@ -5189,7 +5195,7 @@ On utilise des fonctions de hachage dans **deux contextes différents** :
 
 !!! abstract "**Projet n°04 : File et ordonnancement**"
 
-    **=> CAPYTALE Le code vous sera donné par votre enseignant**
+    !!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
 
     L’ordonnancement consiste, pour le système d’exploitation, à optimiser l’utilisation du processeur en lui affectant tour à tour différentes tâches à exécuter. On appelle processus un programme en cours d’exécution. Il peut y en avoir des centaines à la fois sur une machine, alors qu’il n’y a que quelques processeurs (souvent 4).
 
@@ -5275,7 +5281,7 @@ On utilise des fonctions de hachage dans **deux contextes différents** :
 
 !!! abstract "**Projet n°05 : Implémentation du type abstrait tableau dynamique en Python**"
 
-    **=> CAPYTALE Le code vous sera donné par votre enseignant**
+    !!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
 
     **Interface du type abstrait Tableau\_dynamique**
 

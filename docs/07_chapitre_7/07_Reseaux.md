@@ -889,7 +889,7 @@ On souhaite aller de la ville A à la ville G en empruntant le plus court chemin
 ## <H2 STYLE="COLOR:BLUE;">6. 🧩 Exercices</H2>
 
 
-!!! info "🧠 => CAPYTALE Le code vous sera donné par votre enseignant"
+!!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
 
 
 !!! abstract "**Exercice n°1 : Protocole RIP**"

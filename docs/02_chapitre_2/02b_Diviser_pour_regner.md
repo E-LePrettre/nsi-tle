@@ -862,7 +862,7 @@ Utiliser la **dichotomie** :
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc144400477">📝 **6. Exercices</a>**</H2> 
 
-=> **CAPYTALE Le code vous sera donné par votre enseignant**
+!!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
 
 !!! abstract "**Exercice 1 : Recherche dichotomique**"
 

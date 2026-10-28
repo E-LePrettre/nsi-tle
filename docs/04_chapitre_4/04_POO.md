@@ -125,7 +125,9 @@ print(Julien)
 
 ???+ question "🧪 Tester ce qui est proposé"
 
-    {{ IDE() }}
+    ??? success "Python"
+    
+        {{ IDE() }}
 
     ??? success "📤 Résultat :"
 
@@ -1677,7 +1679,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
 ## <H2 STYLE="COLOR:BLUE;"> 🧠<a name="_toc88030973"></a>**5. Exercices**</H2>
 
-**=> CAPYTALE Le code vous sera donné par votre enseignant**
+!!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
 
 !!! abstract "**Exercice 1**" 
 
@@ -1867,7 +1869,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
     
 !!! abstract "**Projet 1 : Jeu de cartes**"
 
-    **=> CAPYTALE Le code vous sera donné par votre enseignant**
+    !!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
 
 
     Pour construire un jeu de cartes, on va commencer par construire une classe Carte :
@@ -1969,7 +1971,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
 !!! abstract "**Projet 2 : Filtres d’image**"
 
-    **=> CAPYTALE Le code vous sera donné par votre enseignant**
+    !!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
 
     Ce TP utilise la bibliothèque Pillow.
 
@@ -2292,7 +2294,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
 !!! abstract "**Projet 3 : Blackjack**"
 
-    **=> CAPYTALE Le code vous sera donné par votre enseignant**
+    !!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
 
     **Règle du jeu :** d’après Wikipédia :Le blackjack est un jeu de carte. La partie oppose tous les joueurs contre le croupier (pour simplifier, il n'y aura ici qu'un seul joueur). Le but est de faire **plus de points** que le croupier **sans dépasser 21**. Dès qu'un joueur fait plus que 21, on dit qu'il « **saute** » et il perd sa mise initiale. La valeur des cartes est établie comme suit : 
 
@@ -2553,7 +2555,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
 !!! abstract "**Projet 4 : Banque**"
 
-    **=> CAPYTALE Le code vous sera donné par votre enseignant**
+    !!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
 
     L’objectif est de simuler (sommairement bien sûr) le fonctionnement d’une banque. Le programme doit permettre :
 
@@ -2818,7 +2820,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
 !!! abstract "**Projet 5 : Jeu de la vie**"
 
-    **=> CAPYTALE Le code vous sera donné par votre enseignant**
+    !!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
 
     Le but de ce sujet est de réaliser en Python une implémentation du jeu de la vie en utilisant la programmation objet.
 

@@ -727,14 +727,14 @@ Le fils peut remplacer son programme par un autre grâce à **`exec()`**, qui ch
 
 
 
-!!! info "🧠 **Capytale : Le code sera fourni par votre enseignant.**" 
+
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc154927179"></a>**4. 🧠 Exercices**</H2>
 
 
 
 
-
+!!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
 
 
 !!! abstract "**Exercice n°1 : Processus et interblocage**"

@@ -102,7 +102,7 @@ Elle repose sur une idée clé : **éviter de recalculer plusieurs fois les mêm
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc159507076"></a>**🛡️ 2. Programmation dynamique de la suite de Fibonacci**</H2>
 
-!!! info "🧠 **Capytale : Le code vous sera fourni par votre enseignant**"
+!!! example "🧠 Activités dans Capytale => le code vous sera donné par votre enseignant"
 
 📌 Définition mathématique :
 
@@ -1965,7 +1965,7 @@ Une approche alternative consiste à garder le tableau `nb` de la section 3.4.2 
 
 ## <H2 STYLE="COLOR:BLUE;"> **4. 🔎 Exercices :**</H2>
 
-!!! info "🧠 **Capytale : Les codes seront fournis par votre enseignant.**"
+!!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
 
 !!! abstract "🧩 **Exercice n°1 : le pb du sac à dos**"
 
@@ -2123,7 +2123,7 @@ Une approche alternative consiste à garder le tableau `nb` de la section 3.4.2 
 
 ## <H2 STYLE="COLOR:BLUE;"><a name="_toc159507091"></a>**5. 🔎 Projet </h2>**
 
-!!! info "🧠 **Capytale : Les codes seront fournis par votre enseignant.**"
+!!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
 
 !!! abstract "🧩 **le triangle de Pascal**"
 

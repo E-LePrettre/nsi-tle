@@ -1163,7 +1163,7 @@ Elle est **élégante mais coûteuse** si mal utilisée (exemple : Fibonacci).
 
 ## **<H2 STYLE="COLOR:BLUE;">📝 3. Exercices<a name="_page0_x40.00_y375.03"></a>**</H2>
 
-=> **CAPYTALE Le code vous sera donné par votre enseignant**
+!!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
 
 !!! abstract "**Exercice 1 : ★ La fonction somme**"
 

@@ -1334,7 +1334,7 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
 ## <H2 STYLE="COLOR:BLUE;"><a name="_toc173365587">📝 </a>**7. Exercices**</H2>
 
-=> **CAPYTALE Le code vous sera donné par votre enseignant**
+!!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
 
 !!! abstract "**Exercice 1 : Copains de classe**"
 
@@ -1385,7 +1385,7 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
 ## <span style="color:blue">🧪 8. Projets (démarche d'investigation)</span> { #projets }
 
-💡 **À faire dans CAPYTALE** — le code vous sera donné par votre enseignant.
+!!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
 
 
 !!! abstract "**Projet 1 : Le coin du cinéphile**"

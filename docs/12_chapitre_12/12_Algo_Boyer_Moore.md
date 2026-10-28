@@ -26,7 +26,7 @@ title: 12 Algorithme de Boyer - Moore
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc159537143"></a>**🪅 1. Les fonctions déjà implémentées dans Python**</H2>
 
-!!! info "🧠 **Capytale : Le code vous sera fourni par votre enseignant**"
+!!! example "🧠 Activités dans Capytale => le code vous sera donné par votre enseignant"
 
 ---
 

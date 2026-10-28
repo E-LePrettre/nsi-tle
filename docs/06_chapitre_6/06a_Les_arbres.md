@@ -2137,7 +2137,7 @@ On encode ce parcours sous forme de **liste Python** :
         return resultat
     ```
 
-    ???+ question "Python"
+    ??? success "Python"
 
         {{ IDE() }}
 
@@ -2176,6 +2176,7 @@ On encode ce parcours sous forme de **liste Python** :
 
 ## <H2 STYLE="COLOR:BLUE;">🧠 <a name="_toc149141408"></a>**7. Exercices**</H2>
 
+!!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
 
 !!! abstract "Exercice n°1 : <a name="_hlk52886978"></a>Ordre préfixe**"
 
@@ -2280,7 +2281,7 @@ On encode ce parcours sous forme de **liste Python** :
 
 !!! abstract "Projet n°1 : arbre binaire :**"
 
-    => **CAPYTALE Le code vous sera donné par votre enseignant**
+    !!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
 
     Commençons par étudier les arbres binaires, en utilisant une définition récursive : un arbre binaire est
 
@@ -2364,7 +2365,7 @@ On encode ce parcours sous forme de **liste Python** :
 
 !!! abstract "Projet n°2 : Notation RPN :**"
 
-    => **CAPYTALE Le code vous sera donné par votre enseignant**
+    !!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
 
     Le parcours en profondeur infixe permet de modéliser des expressions arithmétiques au prix de l’absence de parenthèses (voir cours).
 
