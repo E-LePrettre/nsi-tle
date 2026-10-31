@@ -89,7 +89,7 @@ Exemple pour l'expression `(y/2 - t) × (75 + z)` :
 🧮 Définitions importantes :
 
 * La **taille** d’un arbre = nombre total de **nœuds**
-* La **profondeur** d’un nœud = distance (en nombre d’arêtes) de ce nœud à la **racine**
+* La **profondeur** d’un nœud = nombre de nœuds sur le chemin qui va de la **racine** à ce nœud (la racine a une profondeur **1**)
 * La **hauteur** d’un arbre = profondeur maximale parmi tous ses nœuds
 
 🎯 **Convention dans ce cours** :
@@ -727,7 +727,7 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
                 return 1 + taille(gauche(arbre)) + taille(droit(arbre))
 
         # Test :
-        print(taille(arbre))  # Doit renvoyer 6
+        print(taille(arbre))  # Doit renvoyer 5
         ```
 
 
@@ -808,8 +808,7 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
         D = Noeud('D')
         B = Noeud('B', D, E)
 
-        F = Noeud('F')
-        C = Noeud('C', None, F)
+        C = Noeud('C')
 
         arbre = Noeud('A', B, C)
 
@@ -1002,7 +1001,7 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
 
 
 
-???+ question "🌲 Activité n° 23 : Arbres binaires et POO : Méthode de Huffman simplifiée"
+???+ question "🌲 Activité n° 23 : Arbres binaires et POO : implémentation avec deux classes (Noeud et Arbre)"
 
     Implémenter la structure ARBRE avec deux classes :
 
@@ -1109,7 +1108,7 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
     
     ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.038.png){width=30%; .center}
 
-    On veut construire cet arbre à l'aide de la classe `Arbre`. Le problème est que les attributs `g` et `d` ne font plus partie de cette classe et on ne peut plus y accéder. Il faut donc rajouter une méthode qui sera un mutateur (**setter**).
+    On veut construire cet arbre à l'aide de la classe `Arbre`. On construit d'abord les nœuds avec la classe `Noeud`, puis on « enveloppe » la racine dans un objet `Arbre`.
 
     ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.039.png){width=30%; .center}
 
@@ -1117,7 +1116,6 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
     - le premier que l'on appellera `arbre` (le petit)  
     - le deuxième sera noté `T` (le grand arbre ci-dessus)
 
-    On note que les **constructeurs de la classe Nœud sont protégés** et que pour pouvoir y accéder on utilise un setter.
     
 
     ??? success "❇️ Solution :"
@@ -1209,10 +1207,9 @@ Cette méthode est connue sous le nom de **« méthode d'Eytzinger »**, et util
             """
             Fonction récursive qui calcule la hauteur d'un arbre binaire.
             """
-            if arbre is None or arbre.estVide() :  # Si l'arbre est vide, la hauteur est 0
+            if arbre.estVide():  # l'arbre vide a une hauteur 0
                 return 0
-            else:
-                return 1 + max(hauteur(arbre.get_gauche()) if arbre.get_gauche() else 0, hauteur(arbre.get_droit()) if arbre.get_droit() else 0)
+            return 1 + max(hauteur(arbre.get_gauche()), hauteur(arbre.get_droit()))
 
         ```
 
@@ -1378,8 +1375,17 @@ A = {
             return 1 + max(hauteur(arbre, gauche), hauteur(arbre, droit))
 
 
-        # Calcul de la hauteur et de la taille de l'arbre
-        print(hauteur(A, 'r'))  # Devrait afficher 5
+        def taille(arbre, racine):
+            """
+            Calcule la taille d'un arbre représenté sous forme de dictionnaire.
+            """
+            if racine == "":
+                return 0
+            gauche, droit = arbre[racine]
+            return 1 + taille(arbre, gauche) + taille(arbre, droit)
+
+        print(hauteur(A, 'r'))  # 5
+        print(taille(A, 'r'))   # 12
         ```     
 
 ---
@@ -1437,7 +1443,7 @@ A = {
         ➤ r, a, c, h, d, i, j, l, b, e, k, f
 
         2. Parcours en infixe (in-ordre) :
-        ➤ h, c, a, i, d, l, j, r, k, e, b, f
+        ➤ c, h, a, i, d, l, j, r, k, e, b, f
 
         3. Parcours en suffixe (postordre) :
         ➤ h, c, i, l, j, d, a, k, e, f, b, r
@@ -1670,7 +1676,7 @@ A = {
                 parcours_infixe2(T.g)
                 print(T.valeur, end=' ')
                 parcours_infixe2(T.d)
-        print(parcours_infixe2(arbre))
+        parcours_infixe2(arbre)   # affiche : c h a i d l j r k e b f
         ```
 
 !!! info "🧠 Capytale : activite_arbre_binaire_POO_v2"
@@ -1736,8 +1742,8 @@ A = {
                 parcours_infixe(T.get_gauche())
                 print(T.get_valeur(), end=' ')
                 parcours_infixe(T.get_droit())
-        
-        print(parcours_infixe(arbre))
+
+        parcours_infixe(arbre)   # affiche : c h a i d l j r k e b f
         ``` 
 
     Vérifier que l’on obtient bien les parcours de l’activité précédente.
@@ -1813,7 +1819,7 @@ A = {
     ??? success "✅ Solution"
 
         Le parcours en largeur donné par l'algorithme doit retourner la **liste** suivante :
-        `['r', 'a', 'b', 'c', 'd', 'e', 'f', 'h', 'i', 'j', 'k', 'l', 'm"]`
+        `['r', 'a', 'b', 'c', 'd', 'e', 'f', 'h', 'i', 'j', 'k', 'm']`
 
 
 ---
@@ -1959,11 +1965,11 @@ A = {
                     enfiler(f, tmp.g)
                 if tmp.d:
                     enfiler(f, tmp.d)
-        print(parcours_largeur(arbre))
+
+        parcours_largeur(arbre)
         ```
 
-        Comme précédemment, on doit obtenir la liste :
-        `['r', 'a', 'b', 'c', 'd', 'e', 'f', 'h', 'i', 'j', 'k', 'l', 'm']`
+        Comme pour les tuples, on obtient l'affichage : `r a b c d e f h i j k l`
 
 ---
 
@@ -2029,10 +2035,9 @@ A = {
                 if tmp.noeud.d is not None:
                     enfiler(f, Arbre(tmp.noeud.d))
 
-        print(parcours_largeur(arbre))
+        parcours_largeur(arbre)
         ```
-        Le parcours attendu reste :
-        `['r', 'a', 'b', 'c', 'd', 'e', 'f', 'h', 'i', 'j', 'k']`
+        Le parcours attendu reste : `r a b c d e f h i j k l`
 
 
 
@@ -2143,7 +2148,7 @@ On encode ce parcours sous forme de **liste Python** :
 
 ---
 
-???+ question "🧪 **Activité n° 39 – Test de la fonction RPN**"
+???+ question "🧪 **Activité n° 39bis – Test de la fonction RPN**"
 
 
     Teste l’implémentation précédente avec la liste :
@@ -2178,7 +2183,7 @@ On encode ce parcours sous forme de **liste Python** :
 
 !!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
 
-!!! abstract "Exercice n°1 : <a name="_hlk52886978"></a>Ordre préfixe**"
+!!! abstract "Exercice n°1 : <a name="_hlk52886978"></a>Ordre préfixe (facultatif)**"
 
     On considère l’arbre suivant :
 
@@ -2188,13 +2193,13 @@ On encode ce parcours sous forme de **liste Python** :
 
     1. Quel est le résultat de l'opération obtenue si l'on tient compte des priorités opératoires, c'est-à-dire du fait que la multiplication et la division sont prioritaires sur l'addition et la soustraction? 
 
-    1. Implémenter cet arbre avec la méthode de Huffman (avec les deux classe) créer une méthode qui permette d’afficher l’arbre et retrouver le résultat de la question précédente à l'aide d’une méthode qui parcourt l’arbre en profondeur (avec ordre préfixe). La méthode aura pour prototype : parcoursprofondeur(self, file = [] ) -> list.
+    1. Implémenter cet arbre avec les deux classes `Noeud` et `Arbre` (activité 23), puis écrire une méthode `parcours_prefixe(self) -> list` qui renvoie la liste des étiquettes dans l’ordre préfixe. Retrouver le résultat de la question précédente.
 
     Et l’**algorithme du parcours en profondeur est** : 
 
     ![](Aspose.Words.65baf931-881f-40e2-aa25-930614e1cc7e.061.png){: .center }
 
-!!! abstract "Exercice n°2 : autre définition de hauteur**"
+!!! abstract "Exercice n°2 : arbre complet et tableau (facultatif)**"
 
     On considère **l’arbre binaire complet** suivant :
 
@@ -2218,7 +2223,7 @@ On encode ce parcours sous forme de **liste Python** :
 
     d.	(4, (3, (6, ∆, ∆), (1, ∆, ∆)), (5, (7, ∆, ∆), (2, ∆, ∆)))
 
-!!! abstract "Exercice n°4 : méthode d’Eytzinger**"
+!!! abstract "Exercice n°4 : méthode d’Eytzinger (facultatif)**"
 
     La méthode d’Eytzinger consiste à stocker un arbre dans une liste unique dans laquelle le fils gauche d’un nœud i est rangé dans la case 2i+1 et son fils droit dans la case 2i+2.
 
@@ -2242,7 +2247,7 @@ On encode ce parcours sous forme de **liste Python** :
 
 !!! abstract "Exercice n°6 : parcours**"
 
-    On affiche les sommets de l’arbre de l’exercice 5 en suivant un parcours en profondeur. Dans quel ordre vont-ils s’afficher :
+    On affiche les sommets de l’arbre de l’exercice 4 en suivant un parcours en profondeur. Dans quel ordre vont-ils s’afficher :
 
     a.	Avec un parcours infixe ?
 
@@ -2265,7 +2270,7 @@ On encode ce parcours sous forme de **liste Python** :
     1. Construire de même un arbre dont le parcours infixe affiche G A U F F R E.
     1. Construire un arbre dont le parcours préfixe affiche É P E R V I E R.
 
-!!! abstract "Exercice n°9 : le compte est bon**"
+!!! abstract "Exercice n°9 : le compte est bon (facultatif)**"
 
     On utilise des arbres pour représenter des expressions arithmétiques, par exemple pour programmer un solveur du jeu « le compte est bon ».
 
@@ -2298,7 +2303,7 @@ On encode ce parcours sous forme de **liste Python** :
             self.__right = right_child	# None ou un arbre de la classe BinaryTree
     ```
 
-    1\. Sur Thonny : Créer un fichier Python binaryTree.py.
+    1\. Sur Capytale : exécuter la classe ci-dessus.
 
     2\. Utiliser cette classe pour stocker les arbres t1, t2 et t3 suivants :
 
@@ -2330,7 +2335,7 @@ On encode ce parcours sous forme de **liste Python** :
     str(t1) == "<3,<4>,<7>>"
     str(t3) == "<3,<4,<>,<2>>,<7,<6>,<5,<1>,<0>>>>"
     ```
-    6\. Ajouter une méthode publique height() renvoyant la hauteur de l’arbre.
+    6\. Ajouter une méthode publique height() renvoyant la hauteur de l’arbre (attention : dans ce projet, une **feuille** a une hauteur **0**).
 
     7\. Valider les tests unitaires suivants, pour les arbres t1, t2 et t3 donnés respectivement ci-dessus.
     ```python
@@ -2371,19 +2376,7 @@ On encode ce parcours sous forme de **liste Python** :
 
     On peut cependant se passer de parenthèses en changeant l’ordre d’apparition des éléments de l’expression arithmétique. On parle alors de notation polonaise inversée, qui correspond en fait à un parcours postfixe (ou suffixe) de l’arbre binaire : on imprime l’étiquette du nœud après avoir imprimé l’enfant gauche puis l’enfant droit.
 
-    1\. Sur Thonny : Créer un fichier Python rpn.py.
-
-    2\. Sur Thonny : On importera le fichier binaryTree de l’exercice précédent.
-
-    Aide si le fichier est sur le bureau: 
-    ```python
-    import sys
-    sys.path.append("C:\\Documents and Settings\\Administrateur\\Bureau")
-    from mon_module_qui_est_sur_le_bureau import * 
-    # ou import mon_module_qui_est_sur_le_bureau
-    ```
-
-    ou on recopiera le code du fichier de l'exercice précédent.
+    1\. Sur Capytale : recopier la classe `BinaryTree` du projet 1 (avec la méthode `postfix_traversal`).
 
     3\. Créer une classe RPN avec :
 

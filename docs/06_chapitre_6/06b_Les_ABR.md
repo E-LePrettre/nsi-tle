@@ -1,4 +1,4 @@
-﻿---
+---
 author: Elisabeth Le Prettre (LePrettre)
 title: 06b Arbre binaire de recherche
 ---
@@ -45,8 +45,8 @@ C’est ce type d’arbre que l’on appelle un **arbre binaire de recherche (AB
 Un **arbre binaire de recherche (ABR)** (*Binary Search Tree*, BST) est une structure hiérarchique composée de **nœuds**.
 Chaque nœud possède au maximum **deux enfants**, ordonnés selon cette règle :
 
-* Les **fils gauches** ont des valeurs **inférieures** à celle du nœud.
-* Les **fils droits** ont des valeurs **supérieures**.
+* Toutes les valeurs du **sous-arbre gauche** sont **inférieures** à celle du nœud.
+* Toutes les valeurs du **sous-arbre droit** sont **supérieures** à celle du nœud.
 * Cette propriété est vraie pour **tous les nœuds** de l’arbre.
 
 🌱 Le premier élément inséré devient **la racine**.
@@ -73,8 +73,8 @@ Rechercher la clé `3` 👇
 > 🔎 Grâce à la structure ordonnée, la recherche s’apparente à une **recherche dichotomique** :
 > on divise l’espace de recherche à chaque étape.
 
-⏱️ La complexité moyenne des opérations sur un ABR est **O(log n)**.
-C’est donc **bien plus performant** qu’un parcours linéaire d’une liste.
+⏱️ Rechercher ou insérer une clé, c’est descendre **une seule branche** : le coût est proportionnel à la **hauteur** de l’arbre.
+Il vaut **O(log n)** si l’arbre est **équilibré**, ce qui est **bien plus performant** qu’un parcours linéaire d’une liste ; mais il vaut **O(n)** si l’arbre est **filiforme** (par exemple quand on insère des clés déjà triées).
 
 
 
@@ -109,9 +109,8 @@ La séquence `{8, 3, 10, 1, 6, 14, 4, 7, 13}` donne l’arbre suivant :
 
     ??? success "❇️ Solution :"
 
-        👉 Seul l’arbre où **toutes les valeurs à gauche sont inférieures**  
-        et **toutes celles à droite sont supérieures** respecte la définition d’un ABR.  
-        Seul le **1er arbre** n'est pas un ABR.
+        👉 Le **1er arbre n’est pas un ABR** : la clé 14 est dans le sous-arbre **droit** de la racine 17, alors que 14 < 17.  
+        Les six autres arbres sont des ABR.
 
 
 
@@ -213,7 +212,7 @@ Chaque nœud contient :
                 self.right = right
 
             def __str__(self):
-                return f"({self.value})"
+                return f"({self.value}, {self.left}, {self.right})"
 
             def estFeuille(self):
                 return self.left is None and self.right is None
@@ -259,6 +258,9 @@ Chaque nœud contient :
                 self.value = value
                 self.left = left
                 self.right = right
+
+            def __str__(self):
+                return f"({self.value}, {self.left}, {self.right})"
 
         def inserer(T, data):
             if T is None:
@@ -393,8 +395,8 @@ On peut représenter visuellement un ABR avec la bibliothèque **Graphviz**, qui
         Les deux approches produisent le **même arbre visuel**.  
         On peut éviter la répétition en insérant les valeurs avec une **boucle sur liste** :
         ```python
-        valeurs = [8, 3, 1, 6, 4, 7, 10, 14, 13]
-        for v in valeurs:
+        T = Node(6)
+        for v in [8, 3, 1, 4, 9, 2, 7, 5]:
             inserer(T, v)
         ```
 
@@ -517,9 +519,9 @@ Il permet d’obtenir les valeurs **dans l’ordre croissant**.
 !!! abstract "**Exercice n° 02 : Trier une liste en utilisant un ABR**"
 
     1. Créer une liste de 10 entiers aléatoires distincts, puis générer un ABR dont les clés sont ces entiers. 
-    2. Utiliser la fonction graphicarbre pour l’afficher. 
+    2. Utiliser la fonction `dessiner_arbre_graphviz` (activité 8) pour l’afficher. 
     3. Quel parcours permet d’afficher ces nombres dans l’ordre croissant ? 
-    4. Écrire une fonction nom\_du\_parcours(abr, lst\_triee) prenant en argument un ABR et une liste vide, et ajoutant les clés de l’ABR à la liste dans l’ordre. 
+    4. Écrire une fonction `infixe(abr, lst_triee)` prenant en argument un ABR et une liste vide, et ajoutant les clés de l’ABR à la liste dans l’ordre. 
     5. Écrire la fonction tri\_abr(lst) renvoyant une copie triée de la liste lst en utilisant un ABR.
 
 ## <H2 STYLE="COLOR:BLUE;"> <a name="_toc149153672"></a>**7. 🌿 Projet**</H2>
@@ -580,7 +582,7 @@ Il permet d’obtenir les valeurs **dans l’ordre croissant**.
     abr.infix_traversal() == [8, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
     ```
 
-    7 Insérer un nœud de clef = 15 et revalider les tests unitaires précédents.
+    7 Insérer à nouveau la clé 15 et relancer les tests précédents : que se passe-t-il ? Modifier `insert` pour qu’une clé **déjà présente** ne soit pas ajoutée une seconde fois, puis revalider les tests.
 
     **Recherche**
 
@@ -595,462 +597,63 @@ Il permet d’obtenir les valeurs **dans l’ordre croissant**.
     abr.search(9) == False
     ```
 
-    On peut comparer l'exploration d'un ABR avec la recherche par dichotomie qui procède à peu près de la même manière, sauf qu'elle accède directement à chaque élément d'un tableau au lieu de suivre des liens. La différence entre les deux algorithmes est que, dans la recherche dichotomique, on suppose avoir un critère de découpage de l'espace en deux parties que l'on n'a pas dans la recherche dans un ABR.
+    On peut comparer l'exploration d'un ABR avec la recherche par dichotomie qui procède à peu près de la même manière, sauf qu'elle accède directement à chaque élément d'un tableau au lieu de suivre des liens. La différence : la dichotomie coupe **toujours** l'intervalle en deux moitiés (coût O(log n) garanti), alors que dans un ABR le découpage dépend de la **forme** de l'arbre (O(log n) s'il est équilibré, O(n) s'il est filiforme).
 
-!!! abstract "**Exercice n° 02 : arbre binaire de recherche des Pokemons**"
+!!! abstract "**Exercice n° 02 : arbre binaire de recherche des Pokémon**"
 
-    **Seulement sur Thonny**
-
-    On aura besoin d’un module d’affichage `pip install binarytree`.
-
-    Ici, on utilisera les fonctions d’interface (primitives) suivantes :
-
-    **Les fonctions liées aux Nœuds** :
-
-    1. `nvND(cle:Cle, data:Data) -> Noeud` : on crée un nouveau noeud et son élément attaché. Ce n'est pas une fonction d'interface de l'arbre, mais on a besoin au moins de pouvoir créer un Noeud.
-    2. `cle(noeud:Noeud) -> Cle` : renvoie la clé ou l'étiquette du noeud.
-    3. `data(noeud:Noeud) -> Data` : renvoie les données associées au noeud.
-
-    **Les fonctions liées à l'Arbre Binaire lui-même** :
-
-    1. `nvAV() -> Arbre` : on le note ainsi pour dire nouvelArbreVide : on crée un nouvel ARBRE BINAIRE vide.
-    2. `nvAB(r:Noeud, g:Arbre, d:Arbre) -> Arbre` : on crée un nouvel ARBRE BINAIRE dont la racine est r et dont les sous-arbres sont g et d fournis.
-    3. `estArbreVide(arbre:Arbre) -> bool` : True si l'arbre est un arbre vide.
-    4. `racine(arbre:Arbre) -> Noeud` : renvoie le noeud jouant le rôle de la racine pour cet arbre.
-    5. `gauche(arbre:Arbre) -> Arbre` : renvoie le sous-arbre gauche de arbre. On obtient bien un Arbre. Si vous voulez le noeud gauche, il faudra appliquer en plus la fonction `racine`.
-    6. `droite(arbre:Arbre) -> Arbre` : renvoie le sous-arbre droit de arbre.
-
-    **Collection des Pokemon**
+    Le fichier `pokemon.csv` (800 Pokémon) et les fonctions d'interface de l'ABR sont fournis dans l'activité Capytale.
 
     ![Arbre de Pokémons](Aspose.Words.6e55a686-622e-41c3-8254-4f896d64da0f.016.jpeg)
 
-    Nous allons récupérer un fichier CSV contenant les données de 800 Pokémons. Pour rappel, il s'agit d'un simple fichier texte :
+    **Les fonctions d'interface**
 
-    - Un enregistrement (ici un pokemon) par ligne : le passage à la ligne est donc le caractère séparateur pour les enregistrements.
-    - Sur chaque enregistrement, les différents attributs ou champs sont séparés par une virgule (ou un point-virgule ou autre)
+    | Fonction | Rôle |
+    |---|---|
+    | `nvND(cle, data)` | crée un **nœud** de clé `cle`, avec les données `data` |
+    | `cle(noeud)`, `data(noeud)` | renvoient la clé et les données d'un nœud |
+    | `nvAV()` | crée un **arbre vide** |
+    | `nvABR(racine, g, d)` | crée un arbre de racine `racine` et de sous-arbres `g` et `d` |
+    | `estArbreVide(arbre)` | `True` si l'arbre est vide |
+    | `racine(arbre)`, `gauche(arbre)`, `droite(arbre)` | la racine (un nœud) et les sous-arbres (des arbres) |
+    | `inserer_noeud_dans_ABR(arbre, nd)` | insère le nœud : à **gauche** si sa clé est plus petite, à **droite** sinon |
 
-    Si on rajoute les éléments importants en rouge (dont le passage à la ligne (invisible à l'affichage)**↲**):
+    **Partie 1 — Les enregistrements**
 
-    ```
-    #,Name,Type 1,Type 2,Total,HP,Attack,Defense,Sp. Atk,Sp. Def,Speed,Generation,Legendary↲
-    1,Bulbasaur,Grass,Poison,318,45,49,49,65,65,45,1,False↲
-    2,Ivysaur,Grass,Poison,405,60,62,63,80,80,60,1,False↲
-    3,Venusaur,Grass,Poison,525,80,82,83,100,100,80,1,False↲
-    ```
+    La variable `pokemons` est un tableau de dictionnaires, un par Pokémon, de clés `name`, `hp`, `attack`, `defense`, `happiness` et `is_legendary`.
 
-    Le but ici est d'utiliser les enregistrements pour construire l'ABR.
+    1. Comment obtenir l'enregistrement d'indice 0 de `pokemons` ?
+    2. Comment afficher, une par une, les clés de cet enregistrement ?
+    3. Comment afficher, un par un, les couples (clé, valeur) sous la forme « La clé c est associée à la valeur v » ?
+    4. Comment obtenir l'attaque du Pokémon d'indice 0, puis sous forme d'entier ?
 
-    Au final, vous aurez donc une variable nommée `pokemons` qui est un simple tableau qui contiendra les enregistrements (sous forme de dictionnaires).
+    **Partie 2 — Construire un ABR**
 
-    Voici le début du contenu du tableau `pokemons` :
+    5. Lire la documentation des fonctions `inserer_noeud_dans_ABR`, `nvABR` et `nvND` avec `help`. Certains paramètres ont-ils une valeur par défaut ?
+    6. Dessiner sur papier l'arbre construit par la fonction suivante, puis vérifier en l'affichant :
 
-    ```python
-    pokemons = [
-        {
-            '#': '1',
-            'Name': 'Bulbasaur',
-            'Type 1': 'Grass',
-            'Type 2': 'Poison',
-            'Total': '318',
-            'HP': '45',
-            'Attack': '49',
-            'Defense': '49',
-            'Sp. Atk': '65',
-            'Sp. Def': '65',
-            'Speed': '45',
-            'Generation': '1',
-            'Legendary': 'False'
-        },
-        {'#': '2', 'Name': 'Ivysaur', 'Type 1': 'Grass', 'Type 2': 'Poison', 'Total': '405', 'HP': '60', 'Attack': '62', 'Defense': '63', 'Sp. Atk': '80', 'Sp. Def': '80', 'Speed': '60', 'Generation': '1', 'Legendary': 'False'},
-        {'#': '3', 'Name': 'Venusaur', 'Type 1': 'Grass', 'Type 2': 'Poison', 'Total': '525', 'HP': '80', 'Attack': '82', 'Defense': '83', 'Sp. Atk': '100', 'Sp. Def': '100', 'Speed': '80', 'Generation': '1', 'Legendary': 'False'},
-        {'#': '3', 'Name': 'VenusaurMega Venusaur', 'Type 1': 'Grass', 'Type 2': 'Poison', 'Total': '625', 'HP': '80', 'Attack': '100', 'Defense': '123', 'Sp. Atk': '122', 'Sp. Def': '120', 'Speed': '80', 'Generation': '1', 'Legendary': 'False'},
-        ...
-    ]
-    ```
+        ```python
+        def creation_test():
+            arbre = nvABR(nvND(20))
+            inserer_noeud_dans_ABR(arbre, nvND(25))
+            inserer_noeud_dans_ABR(arbre, nvND(15))
+            inserer_noeud_dans_ABR(arbre, nvND(17))
+            inserer_noeud_dans_ABR(arbre, nvND(10))
+            return arbre
+        ```
 
-    1. Comment obtenir l'enregistrement d'index 0 contenu dans `pokemons` ?
+    7. Insérer un nœud de clé 21. Où se place-t-il ?
 
-    2. Comment obtenir l'ensemble des clés disponibles sur cet enregistrement ? Comment afficher une par une les clés ?
+    **Partie 3 — L'arbre à Pokémon**
 
-    3. Comment afficher un par un les couples (clé, valeur) sur cet enregistrement ?
+    8. La fonction `creation_aap` construit un ABR avec les 41 premiers Pokémon, rangés selon leur **attaque**. Quel attribut joue le rôle de clé ? Que contiennent `d` et `c` à chaque tour de boucle ? Quelle est la taille de l'arbre obtenu ?
+    9. Comparer deux façons d'interroger l'arbre : `cle(racine(aap))` et `aap.racine.cle`. Laquelle n'utilise que l'interface ? Laquelle faut-il privilégier si l'implémentation change ?
 
-    4. Comment afficher un par un les couples (c, v) sous la forme "La clé {c} est associée à la valeur {v}" ?
+    **Partie 4 — Recherche**
 
-    5. Comment obtenir la valeur associée à la clé "Attack" pour l'enregistrement d'index 0 contenu dans `pokemons` ?
+    10. Écrire la fonction `recherche(arbre, c)` qui renvoie le nœud de clé `c` (ou `None`), en n'utilisant que les fonctions d'interface. Par exemple, `data(recherche(aap, 102))['name']` vaut `'Nidoking'`.
 
-    6. Comment faire la même chose, mais en récupérant un entier ?
+    **Partie 5 — Affichages particuliers**
 
-    **Récupération des données**
-
-    Nous allons maintenant télécharger 
-
-    - le fichier CSV 
-    - Un module `creation\_collect.py` permettant de créer la collection sous forme d'un tableau de dictionnaires
-    - Un module `abr.py` permettant de gérer les ABR
-
-    Voici la description des 3 fonctions d'interface qui vont nous être utiles au début :
-
-    ```python
-    def nvND(cle: Cle, data: Data = None) -> Noeud:
-        '''Renvoie la référence d'un nouveau Noeud ayant cle comme clé et data comme données annexes'''
-
-    def nvABR(racine: Noeud, g: Arbre = nvAV(), d: Arbre = nvAV()) -> ABR:
-        '''Renvoie la référence d'un nouvel Arbre dont le noeud-racine est racine et les sous-arbre g et d'''
-
-    def inserer_noeud_dans_ABR(arbre: ABR, nd: Noeud) -> None:
-        '''Insère le noeud dans l'ABR'''
-    ```
-
-    La dernière fonction insère le Noeud en respectant l'algorithme vu pour les ABR.
-
-    7 Ouvrir le fichier nommé `arbre\_pokemons.py` et lancer le. Mettre le programme en mémoire, puis lancer les commandes suivantes pour vérifier que la documentation est bien présente :
-
-    ```
-    >>> help(inserer_noeud_dans_ABR)
-    >>> help(nvABR)
-    >>> help(nvND)
-    ```
-
-    Peut-on voir que certains paramètres ont une valeur par défaut ?
-
-    Peut-on voir qu'en réalité les objets ABR, Noeud... sont issus du module `abr.py` ?
-
-    8 Dessiner sur papier l'arbre créé en utilisant la fonction de test de création suivante :
-
-    ```python
-    def creation_test():
-        '''Renvoie un ABR de test'''
-        arbre = nvABR(nvND(20))
-        inserer_noeud_dans_ABR(arbre, nvND(25))
-        inserer_noeud_dans_ABR(arbre, nvND(15))
-        inserer_noeud_dans_ABR(arbre, nvND(17))
-        inserer_noeud_dans_ABR(arbre, nvND(10))
-        return arbre
-    ```
-
-    Vérifier ensuite votre réponse en tapant simplement ceci :
-
-    ```
-    >>> arbre = creation_test()
-    >>> print(arbre)
-    ```
-
-    9 Rajoutons un nœud dont la clé est 21. Vérifiez qu'il se positionne bien en affichant l'arbre.
-
-    ```python
-    >>> inserer_noeud_dans_ABR(arbre, nvND(21))
-    ```
-
-    10 Nous allons utiliser l'une des fonctions pour importer le fichier CSV et placer ces données dans une collection de dictionnaires.
-
-    ```python
-    def creation_cp():
-        '''Renvoie une collection-tableau de dictionnaires des pokemons'''
-        return creer_collection('pokemon.csv')
-    ```
-
-    En regardant les importations, expliquer :
-
-    - dans quel module se trouve la fonction `creer_collection`
-    - pourquoi on a le droit de l'utiliser en notant simplement `creer_collection` et pas `nom_du_module.creer_collection`
-
-    11 Utiliser le jeu de commandes suivants pour comprendre le principe :
-
-    ```python
-    >>> collect = creation_cp()
-    >>> len(collect)
-    800
-
-    >>> collect[0]
-    {'#': '1', 'Name': 'Bulbasaur', 'Type 1': 'Grass', 'Type 2': 'Poison', 'Total': '318', 'HP': '45', 'Attack': '49', 'Defense': '49', 'Sp. Atk': '65', 'Sp. Def': '65', 'Speed': '45', 'Generation': '1', 'Legendary': 'False'}
-
-    >>> collect[1]
-    {'#': '2', 'Name': 'Ivysaur', 'Type 1': 'Grass', 'Type 2': 'Poison', 'Total': '405', 'HP': '60', 'Attack': '62', 'Defense': '63', 'Sp. Atk': '80', 'Sp. Def': '80', 'Speed': '60', 'Generation': '1', 'Legendary': 'False'}
-
-    >>> for index in range(0,10,1): print(collect[index]['Name'])
-
-    Bulbasaur
-    Ivysaur
-    Venusaur
-    VenusaurMega Venusaur
-    Charmander
-    Charmeleon
-    Charizard
-    CharizardMega Charizard X
-    CharizardMega Charizard Y
-    Squirtle
-    ```
-
-    Essayons maintenant de voir ce que fait la dernière fonction : la fonction `creation_aap`.
-
-    12 Observer le code de la fonction et répondre aux questions :
-
-    ```python
-    def creation_cp():
-        '''Renvoie une collection-tableau de dictionnaires des pokemons'''
-        return creer_collection('pokemon.csv')
-
-    def creation_aap():
-        '''Renvoie un arbre contenant des noeuds-pokemons'''
-
-        pokemons = creer_collection('pokemon.csv')
-        choix = 'Attack'
-
-        arbre = nvAV()
-
-        for index in range(len(pokemons)):
-            d = pokemons[index] # d pour data (pour ne pas écraser la fonction data)
-            c = int(d[choix])   # c pour cle (pour ne pas écraser la fonction cle)
-            noeud = nvND(c, d)
-            
-            if estArbreVide(arbre):
-                arbre = nvABR(noeud)
-            elif index < 41 :        
-                inserer_noeud_dans_ABR(arbre, noeud)
-
-        return arbre
-    ```
-
-    Ligne 30 : quel est l'attribut du dictionnaire choisi pour jouer le rôle de clé dans l'arbre ?
-
-    Ligne 32 : quel est le contenu de l'arbre initialement ?
-
-    Ligne 34 : la base des pokemons contient 800 pokemons. Quelle va être la valeur finale de la variable de boucle `index` ?
-
-    Ligne 35 : à chaque tour de boucle, la variable `d` va-t-elle contenir un enregistrement ou la valeur de la clé choisie ?
-
-    Ligne 36 : à chaque tour de boucle, la variable `c` va-t-elle contenir un string ou un entier ?
-
-    Ligne 37 : Quelle est la clé du noeud créé ? Quel est le contenu de l'attribut data associé à ce Noeud ?
-
-    Ligne 39 et suivantes : Que fait-on si l'arbre est vide lors du premier tour de boucle ?
-
-    Que fait-on si l'arbre n'est pas vide lors des autres tours de boucle ?
-
-    Quelle va être la taille de l'arbre à la fin de la boucle FOR ?
-
-    13 Utilisez le code suivant pour voir le principe de nos enregistrements stockés dans l'arbre à Pokemons (`aap`):
-
-    ```python
-    >>> arbre = creation_aap()
-    >>> print(arbre)
-    ```
-
-    ![Arbre de Pokémons avec l'attaque en clé](Aspose.Words.6e55a686-622e-41c3-8254-4f896d64da0f.017.png)
-
-    14 Utilisez les commandes suivantes pour répondre aux questions :
-
-    - quelle est la version d'utilisation qui correspond à un utilisateur ne connaissant pas l'implémentation exacte de l'ABR et qui utilise les fonctions d'interface ?
-    - quelle est la version d'utilisation qui correspond à un utilisateur connaissant l'implémentation actuelle et la manipulant directement ?
-    - sous quelle forme l'ABR est-il manifestement implémenté ?
-    - En cas de modification future de l'implémentation, quelle est la version d'utilisation à privilégier ?
-
-    **Version 1 :**
-
-    ```python
-    >>> cle(racine(arbre))
-    49
-
-    >>> data(racine(arbre))
-    {'#': '1', 'Name': 'Bulbasaur', 'Type 1': 'Grass', 'Type 2': 'Poison', 'Total': '318', 'HP': '45', 'Attack': '49', 'Defense': '49', 'Sp. Atk': '65', 'Sp. Def': '65', 'Speed': '45', 'Generation': '1', 'Legendary': 'False'}
-
-    >>> data(racine(arbre))['Name']
-    'Bulbasaur'
-
-    >>> g = gauche(arbre)
-    >>> data(racine(g))['Name']
-    'Squirtle'
-
-    >>> cle(racine(g))
-    48
-
-    >>> d = droite(arbre)
-    >>> data(racine(d))['Name']
-    'Ivysaur'
-
-    >>> cle(racine(d))
-    62
-    ```
-
-    **Version 2 :**
-
-    ```python
-    >>> arbre.racine.cle
-    49
-
-    >>> arbre.racine.data
-    {'#': '1', 'Name': 'Bulbasaur', 'Type 1': 'Grass', 'Type 2': 'Poison', 'Total': '318', 'HP': '45', 'Attack': '49', 'Defense': '49', 'Sp. Atk': '65', 'Sp. Def': '65', 'Speed': '45', 'Generation': '1', 'Legendary': 'False'}
-
-    >>> arbre.racine.data['Name']
-    'Bulbasaur'
-
-    >>> g = arbre.gauche
-    >>> g.racine.data['Name']
-    'Squirtle'
-
-    >>> g.racine.cle
-    48
-
-    >>> d = arbre.droite
-    >>> d.racine.data['Name']
-    'Ivysaur'
-
-    >>> d.racine.cle
-    62
-    ```
-
-    **Recherche**
-
-    15 Ouvrir le module `abr.py`. Retrouver un algorithme permettant de rechercher un noeud dans un ABR en utilisant **les fonctions d'interface du module**. Une fois l'algorithme retrouvé, implémentez-le dans la fonction `recherche`.
-
-    Renvoyez la valeur au lieu de True.
-
-    16 Tester l'absence d'erreur en lançant directement le module `abr.py`. Vérifiez ensuite que la fonction fonctionne : relancer le programme **arbre\_pokemons.py** puis lancez ces commandes :
-
-    ```python
-    >>> aap = creation_aap()
-    >>> print(aap)
-    >>> recherche(aap, 49)
-    <abr.Noeud object at 0x7f0da76a0e48>
-
-    >>> reponse = recherche(aap, 102)
-    >>> data(reponse)['Name']
-    'Nidoking'
-
-    >>> data(recherche(aap, 102))['Name']
-    'Nidoking'
-    ```
-
-    **Affichage particulier**
-
-    Premier avantage des ABR : les noeuds sont 'triés' entre eux. Du coup, on peut les afficher un par un de façon ... triée.
-
-    Il suffit de demander l'affichage infixe (la racine au milieu de l'affichage) !
-
-    Deuxième avantage : pour trouver la plus petite clé disponible, il suffit d'aller à gauche tant que le sous-arbre n'est pas vide.
-
-    Troisième avantage : pour trouver la plus grande clé, il suffit d'aller à droite tant que le sous-arbre n'est pas vide.
-
-    17 Afficher les attaques de 41 Pokemons stockées en utilisant simplement ceci :
-
-    ```python
-    >>> parcours_infixe(arbre)
-    20
-    25
-    30
-    35
-    45
-    45
-    45
-    47
-    48
-    49
-    52
-    55
-    56
-    57
-    60
-    60
-    60
-    62
-    62
-    63
-    64
-    72
-    75
-    80
-    80
-    81
-    82
-    83
-    84
-    85
-    90
-    90
-    90
-    92
-    100
-    100
-    102
-    103
-    104
-    130
-    150
-    ```
-
-    ![Arbre de Pokémons avec l'attaque en clé](Aspose.Words.6e55a686-622e-41c3-8254-4f896d64da0f.017.png)
-
-    18 Modifier `parcours_infixe` : il faudra afficher également le nom du Pokemon à côté de son score d'attaque.
-
-    ```python
-    >>> aap = creation_aap()
-    >>> parcours_infixe(aap)
-    20 pour Metapod
-    25 pour Kakuna
-    30 pour Caterpie
-    35 pour Weedle
-    45 pour Butterfree
-    45 pour Pidgey
-    45 pour Clefairy
-    47 pour Nidoran♀
-    48 pour Squirtle
-    49 pour Bulbasaur
-    52 pour Charmander
-    55 pour Pikachu
-    56 pour Rattata
-    57 pour Nidoran♂
-    60 pour Pidgeotto
-    60 pour Spearow
-    60 pour Ekans
-    62 pour Ivysaur
-    62 pour Nidorina
-    63 pour Wartortle
-    64 pour Charmeleon
-    72 pour Nidorino
-    75 pour Sandshrew
-    80 pour Pidgeot
-    80 pour PidgeotMega Pidgeot
-    81 pour Raticate
-    82 pour Venusaur
-    83 pour Blastoise
-    84 pour Charizard
-    85 pour Arbok
-    90 pour Beedrill
-    90 pour Fearow
-    90 pour Raichu
-    92 pour Nidoqueen
-    100 pour VenusaurMega Venusaur
-    100 pour Sandslash
-    102 pour Nidoking
-    103 pour BlastoiseMega Blastoise
-    104 pour CharizardMega Charizard Y
-    130 pour CharizardMega Charizard X
-    150 pour BeedrillMega Beedrill
-    ```
-
-    19 A droite toute : rajouter dans le programme `arbre_pokemon` la fonction récursive `cle_max` : on transfère la plus grande valeur à chaque appel !
-
-    ```python
-    def cle_max(arbre, maximum=None):
-        if estArbreVide(arbre):
-            return maximum
-        else:
-            maximum = cle(racine(arbre))
-            return cle_max(droite(arbre), maximum)
-    ```
-
-    Utilisation :
-
-    ```python
-    >>> aap = creation_aap()
-    >>> cle_max(aap)
-    150
-
-    >>> recherche(aap, 150)
-    <abr.Noeud object at 0x7fac40696f28>
-
-    >>> data(recherche(aap, 150))['Name']
-    'BeedrillMega Beedrill'
-    ```
-
-    20 A gauche toute : créer dans le programme `arbre_pokemon` la fonction récursive `cle_min` : on transfère la plus petite valeur à chaque appel !
+    11. Écrire `parcours_infixe(arbre)` qui affiche les attaques des 41 Pokémon dans l'ordre croissant (de 20 à 150).
+    12. Écrire `parcours_infixe2(arbre)` qui affiche aussi le nom : `20 pour Metapod`, `25 pour Kakuna`… `150 pour BeedrillMega Beedrill`.
+    13. À droite toute : la fonction récursive `cle_max` renvoie la plus grande clé (150). Écrire de même `cle_min` (à gauche toute), qui renvoie 20.
