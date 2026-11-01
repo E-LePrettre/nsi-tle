@@ -87,8 +87,10 @@ print("Temps d'exécution pour 1_000 : %s secondes ---" % moyenne)
 
 📊 Résultats constatés :
 
-* Pour 1 000 : \~0.011 s
-* Pour 10 000 : \~1.09 s
+* Pour 100 éléments : \~0.0005 s
+* Pour 1 000 éléments : \~0.05 s
+
+*(ordres de grandeur : les durées dépendent de la machine, mais leur rapport reste le même)*
 
 💡 Une liste 10× plus longue prend 100× plus de temps → complexité **quadratique**.
 
@@ -101,9 +103,7 @@ Dans le **pire des cas**, pour une liste de taille `n` :
 * La boucle `for` s'exécute `n-1` fois.
 * La boucle `while` s’exécute 1 + 2 + … + (n-1) fois :
 
-$$
-1 + 2 + 3 + \dots + (n-1) = \frac{n(n-1)}{2}
-$$
+1 + 2 + 3 + … + (n-1) = n(n-1)/2
 
 ➡️ Complexité : **𝑂(n²)**
 
@@ -130,7 +130,7 @@ L’algorithme contient :
 * une boucle `while` avec condition :
 
 ```python
-while j > 0 and l[j - 1] > val:
+while j > 0 and val < T[j - 1]:
 ```
 
 📌 À chaque tour de boucle `while`, la variable `j` **diminue d’1**

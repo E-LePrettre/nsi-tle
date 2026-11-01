@@ -83,7 +83,7 @@ title: 01e Fiche méthode - Recherche dans un tableau
                 maxi = Liste[i]
         return maxi
 
-    print(maxNote([5, 14, 18, 12, 10, 10, 9, 16]))  # 18
+    print(maxNote([5, 14, 18, 11, 10, 12, 10, 9, 16]))  # 18
     ```
 
     ??? success "Python"
@@ -109,7 +109,7 @@ title: 01e Fiche méthode - Recherche dans un tableau
                 mini = Liste[i]
         return mini
 
-    print(minNote([14, 18, 12, 10, 5, 10, 9, 16]))  # 5
+    print(minNote([5, 14, 18, 11, 10, 12, 10, 9, 16]))  # 5
     ```
 
     ??? success "Python"
@@ -153,7 +153,7 @@ title: 01e Fiche méthode - Recherche dans un tableau
 | Calculer la moyenne               | linéaire     | 𝑶(n)      |
 
 
-Pour s'entrainer par ordre de dificulté croissante : 
+Pour s'entrainer par ordre de difficulté croissante : 
 
 - [CODEX : Recadrer les mesures d'un tableau](https://codex.forge.apps.education.fr/exercices/recadrer/)
 
@@ -163,11 +163,11 @@ Pour s'entrainer par ordre de dificulté croissante :
 
 - [CODEX : Valeur et indice du maximum](https://codex.forge.apps.education.fr/exercices/val_ind_max/)
 
-- [CODEC : Indice de la première occurrence](https://codex.forge.apps.education.fr/exercices/ind_prem_occ/)
+- [CODEX : Indice de la première occurrence](https://codex.forge.apps.education.fr/exercices/ind_prem_occ/)
 
-- [CODEC : Dernière occurrence](https://codex.forge.apps.education.fr/exercices/derniere_occurrence/)
+- [CODEX : Dernière occurrence](https://codex.forge.apps.education.fr/exercices/derniere_occurrence/)
 
-- [CODEC : Nombre de répétitions](https://codex.forge.apps.education.fr/exercices/repetitions/)
+- [CODEX : Nombre de répétitions](https://codex.forge.apps.education.fr/exercices/repetitions/)
 
 - [CODEX : Le plus proche](https://codex.forge.apps.education.fr/exercices/plus_proche/)
 

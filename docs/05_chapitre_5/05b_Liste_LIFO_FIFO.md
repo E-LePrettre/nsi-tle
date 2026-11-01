@@ -97,7 +97,7 @@ Prenons un tableau initial :
 |  1  |  1  |  2  |  3  |  4  |  5  | vide | vide | vide |
 | :-: | :-: | :-: | :-: | :-: | :-: | :--: | :--: | :--: |
 
-Si l'on insère la valeur **7 en position 1**, il faut **décaler tous les éléments** vers la droite :
+Si l'on insère la valeur **7 en première position (indice 0)**, il faut **décaler tous les éléments** vers la droite :
 
 |  7  |  1  |  1  |  2  |  3  |  4  |  5  | vide | vide |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :--: | :--: |
@@ -142,14 +142,14 @@ Une liste chaînée est :
 Voici les **opérations minimales** (appelées aussi **primitives**) qui permettent de définir la structure et de lui donner les méthodes attendues :
 
 * Le **constructeur :** produit soit une liste vide ou une liste **à partir d’un couple tête (élément) et reste (liste)**
-* Les **sélecteurs** qui permettent d’accéder à la tête de la liste ou au reste. Par exemple, ajouter un élément en tête de liste.
+* Les **sélecteurs** qui permettent d’accéder à la tête de la liste ou au reste.
 * Le **prédicat** qui teste la vacuité d’une liste (le fait qu’elle soit vide). Il renvoie un booléen.
 
 | 🧱 Opération                                                                     | 💡 Instruction      |
 | -------------------------------------------------------------------------------- | ------------------- |
 | Créer une liste L vide                                                           | `L = vide()`        |
 | Tester si une liste L est vide                                                   | `estVide(L)`        |
-| Ajouter un élément *x* en tête de la liste L                                     | `ajouteEnTete(x,L)` |
+| Ajouter un élément *x* en tête de la liste L                                     | `ajoutEnTete(x,L)`  |
 | Supprimer la tête *x* d’une liste L et renvoyer cette tête *x*                   | `supprEnTete(L)`    |
 | Créer une nouvelle liste L1 à partir d’un élément *x* et d’une liste existante L | `L1 = cons(x, L)`   |
 
@@ -171,9 +171,9 @@ cons(x, cons(y, cons(z, L)))
 * `estVide(L)` ⇒ renvoie `faux`
 * `ajoutEnTete(5,L)` ⇒ la tête de L = `5`, la queue contient `3`
 * `ajoutEnTete(8,L)` ⇒ la tête de L = `8`, la queue contient `5` et `3`
-* `t = supprEnTete(L)` ⇒ `t = 8`, L devient \[5, 3]
+* `t = supprEnTete(L)` ⇒ `t = 8`, L devient `[5, 3]`
 * `L1 = vide()`
-* `L2 = cons(8, cons(5, cons(3, L1)))` ⇒ L2 = \[8, 5, 3]
+* `L2 = cons(8, cons(5, cons(3, L1)))` ⇒ L2 = `[8, 5, 3]`
 
 ---
 
@@ -194,12 +194,12 @@ cons(x, cons(y, cons(z, L)))
 
     ??? success "📤 Solution :"
 
-        1. on crée un liste vide L 
+        1. on crée une liste vide L 
         2. (10, vide())
         3. (9, (10, vide()))
         4. (7, (9, (10, vide())))
-        5. on crée un liste vide L1
-        5. L2 est une liste constituée de (5, (4, (3, (2, (1, (0, vide()))))))
+        5. on crée une liste vide L1
+        6. L2 est une liste constituée de (5, (4, (3, (2, (1, (0, vide()))))))
 
 
 
@@ -677,11 +677,11 @@ Nous aimerions maintenant accéder à **n'importe quelle valeur** de la liste, e
 
 📌 **Résumé des coûts** :
 
-| Opération   | Coût (Θ) |
+| Opération   | Coût |
 | ----------- | -------- |
-| Lecture     | Θ(n) dans le pire des cas     |
-| Insertion   | Θ(n)  dans le pire des cas   |
-| Suppression | Θ(n)     |
+| Lecture     | O(n) dans le pire des cas     |
+| Insertion   | O(n) dans le pire des cas   |
+| Suppression | O(n) dans le pire des cas    |
 
 ---
 
@@ -705,10 +705,10 @@ Nous aimerions maintenant accéder à **n'importe quelle valeur** de la liste, e
 
 ???+ question "🧪 Activité n° 9 : structure liste avec des `lists` – fonctions `nouvelleListe`, `estVide`, `lireElement`"
 
-    Ces fonctions restent les mêmes, même si on utilise les `lists` de Python plutôt que des tableaux :
+    Ces fonctions restent les mêmes, même si on utilise les `lists` de Python plutôt que des tuples :
 
     ```python
-    '''Implémentation 3 de type abstrait Liste en utilisant le type natif liste de Python
+    '''Implémentation 2 de type abstrait Liste en utilisant le type natif liste de Python
 
     Liste désigne la structure de données que nous utilisons pour gérer les listes.
     Elt désigne la structure de données pouvant être un élément de nos listes.
@@ -808,7 +808,7 @@ Nous aimerions maintenant accéder à **n'importe quelle valeur** de la liste, e
 
 **Remarque** il existe également une méthode nommée insert qui permet de faire la même chose en choisissant la position de l'insertion.
 
-**Erreur courante :** Ne faites donc jamais ceci : ❌ `insert()` est une **fonction-procédure** : elle retourne `None` !.
+**Erreur courante :** Ne fais donc jamais ceci : ❌ `insert()` est une **fonction-procédure** : elle retourne `None` !.
 ```python
 reponse = [element for element in L]
 return reponse.insert(position, x)
@@ -1042,7 +1042,7 @@ Chaque cellule (Node) de la liste chaînée est représentée par une **classe `
         '''Classe permettant de créer des cellules-maillons basiques'''
         def __init__(self, value, next=None):
             assert isinstance(next, ...) or next is ...
-            # ce que vous avez écrit précédemment 
+            # ce que tu as écrit précédemment 
     ```
 
     ??? success "📤 Solution :"
@@ -1197,7 +1197,7 @@ Si on part ici de la tête qui contient le string "Lundi", on devrait lire la s
 
     - je
 
-    Qu'est ce que vous remarquez ?
+    Que remarques-tu ?
 
     ??? success "📤 Solution :"
         ```python
@@ -1296,9 +1296,9 @@ Si on part ici de la tête qui contient le string "Lundi", on devrait lire la s
             # ce qui a été fait précédemment
 
     class Liste:
-        '''Classe implémenter une Liste sous forme Liste chaînée '''
+        '''Classe implémentant une Liste sous forme de liste chaînée '''
         def __init__(self, head = None):
-            assert isinstance(...) or next is ...
+            assert isinstance(...) or head is ...
             pass
     
     # Programme principal
@@ -1742,7 +1742,7 @@ On parle alors de **concaténation de listes**, comme avec les chaînes de carac
 
     🛠️ Compléter la méthode :
 
-    On suppose que la position sera comprise entre 0 et la longueur de la liste.
+    On suppose que la position sera comprise entre 0 et la longueur de la liste moins 1.
 
     ```python
     def delPosition(self, position):
@@ -1796,7 +1796,7 @@ On parle alors de **concaténation de listes**, comme avec les chaînes de carac
         pass
     ```
 
-    On suppose que la position sera comprise entre 0 et la longueur de la liste.
+    On suppose que la position sera comprise entre 0 et la longueur de la liste moins 1.
 
     🧪 Tester :
 
@@ -2429,7 +2429,7 @@ La version à une classe est plus simple, elle peut être suffisante, mais les p
             pass
     ```
 
-        ??? success "✅❇️ Solution :"
+    ??? success "✅❇️ Solution :"
 
         ```python
         class Node:
@@ -2692,7 +2692,7 @@ mais :
 
     De la même manière
 
-    **file = file[1:]** crée une nouvelle liste et réaffecte la variable file localement dans la fonction. Cela ne modifie pas l'objet d'origine si vous utilisez la liste en dehors de la fonction (par exemple, une liste passée en argument). Pour corriger cela, vous devez modifier la liste en place.
+    **file = file[1:]** crée une nouvelle liste et réaffecte la variable file localement dans la fonction. Cela ne modifie pas l'objet d'origine si tu utilises la liste en dehors de la fonction (par exemple, une liste passée en argument). Pour corriger cela, tu dois modifier la liste en place.
 
     ```python
     '''Implémentation de type abstrait File en utilisant les listes de Python
@@ -2868,7 +2868,7 @@ Ici, `taille()` est coûteuse avec une list car elle appelle defiler() (O(n)) un
 
     De la même manière
 
-    **file = file[1:]** crée une nouvelle liste et réaffecte la variable file localement dans la fonction. Cela ne modifie pas l'objet d'origine si vous utilisez la liste en dehors de la fonction (par exemple, une liste passée en argument). Pour corriger cela, vous devez modifier la liste en place.
+    **file = file[1:]** crée une nouvelle liste et réaffecte la variable file localement dans la fonction. Cela ne modifie pas l'objet d'origine si tu utilises la liste en dehors de la fonction (par exemple, une liste passée en argument). Pour corriger cela, tu dois modifier la liste en place.
 
     ```python
     '''Implémentation 3 de type abstrait File en utilisant la POO et les listes de Python
@@ -3095,8 +3095,7 @@ Cette implémentation est très peu efficace
 
 ???+ question "📘 **Activité n° 39 : Structure file avec la POO et les listes chainées**"
 
-On va remplacer un tableau/liste par une structure chaînée, où chaque élément “pointe” vers le suivant.
-
+    On va remplacer un tableau/liste par une structure chaînée, où chaque élément “pointe” vers le suivant.
 
     Compléter 
 
@@ -3459,7 +3458,7 @@ On va remplacer un tableau/liste par une structure chaînée, où chaque éléme
 
 😭 c'est très **décevant**
 
-🚀 Pour obtenir enfiler et defiler en O(1), on ajoute un second pointeur queue. On a donc une **liste doublement chainée**
+🚀 Pour obtenir enfiler et defiler en O(1), on ajoute un second pointeur queue. On a toujours une **liste simplement chaînée**, mais avec un pointeur vers la tête **et** un pointeur vers la queue
 
 
 
@@ -3479,9 +3478,9 @@ On va remplacer un tableau/liste par une structure chaînée, où chaque éléme
 
     ```python
     class Node:
-    def __init__(self, value=None, next=None):
-        # Initialisation d'un nœud avec une valeur et un pointeur vers le nœud suivant
-        pass
+        def __init__(self, value=None, next=None):
+            # Initialisation d'un nœud avec une valeur et un pointeur vers le nœud suivant
+            pass
 
 
     class File:
@@ -3873,7 +3872,7 @@ TypeError: unhashable type: 'list'
 ### <H3 STYLE="COLOR:GREEN;"> <a name="_toc151667942"></a>**6.4. 🔐 Hachage**</H3>
 
 📌 Le **hachage** est au cœur du fonctionnement des dictionnaires.
-C’est une opération qui transforme une **clé** en **indice unique** dans une table.
+C’est une opération qui transforme une **clé** en **indice** dans une table (deux clés différentes peuvent parfois donner le même indice : c'est une **collision**).
 
 ---
 
@@ -4043,9 +4042,7 @@ Une **table de hachage** est une structure qui stocke des couples **(clé → va
 
     **Exemple d’idée** (sans rentrer dans les détails) :
 
-    \[
-    \text{indice} = h(clé) \bmod m
-    \]
+    `indice = h(clé) % m` (reste de la division par la taille `m` du tableau)
 
     Donc `"Mardi"` est envoyé directement à **une case** du tableau.
 
@@ -4191,7 +4188,7 @@ On utilise des fonctions de hachage dans **deux contextes différents** :
 
 📘 Dans un dictionnaire, les clés sont stockées dans une **table de hachage**, ce qui explique pourquoi cette structure est **optimisée pour la recherche sur les clés**.
 
-🎥 Pour vous remémorer les bases, vous pouvez consulter la vidéo suivante :
+🎥 Pour te remémorer les bases, tu peux consulter la vidéo suivante :
 🔗 [Les dictionnaires](https://ladigitale.dev/digiview/#/v/66bcbd45219a3)
 
 ---
@@ -4346,7 +4343,7 @@ On utilise des fonctions de hachage dans **deux contextes différents** :
 
 ## <H2 STYLE="COLOR:BLUE;">💡 <a name="_toc151667945"></a>**7. Exercices**</H2>
 
-!!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
+!!! example "🧠 Exercices dans Capytale => le code te sera donné par ton enseignante"
 
 !!! abstract "**Exercice n°1 : Implémentation d’une file avec deux piles avec les listes chainées**"
 
@@ -4404,14 +4401,14 @@ On utilise des fonctions de hachage dans **deux contextes différents** :
     p.empile(20)
     p.empile(30)
 
-    print(p)  # |30|20|10|
+    print(p)  # 30 -> 20 -> 10
     print(p.est_vide())  # False
 
     # Dépiler des éléments
     print(p.depile())  # 30
-    print(p)  # |20|10|
+    print(p)  # 20 -> 10
     print(p.depile())  # 20
-    print(p)  # |10|
+    print(p)  # 10
 
     # Tester défilement jusqu'à vide
     print(p.depile())  # 10
@@ -4646,16 +4643,16 @@ On utilise des fonctions de hachage dans **deux contextes différents** :
         
     ```
 
-    1 Implémentez la méthode est\_vide(self) qui retourne True si la Pile est vide et False sinon.
+    1 Implémente la méthode est\_vide(self) qui retourne True si la Pile est vide et False sinon.
 
-    2 Implémentez la méthode empiler(self,v) qui ajoute la valeur v au sommet de la pile (et donc en fin de la liste)
+    2 Implémente la méthode empiler(self,v) qui ajoute la valeur v au sommet de la pile (et donc en fin de la liste)
 
-    3 Implémentez la méthode depiler(self) qui :
+    3 Implémente la méthode depiler(self) qui :
 
     1. lève une exception *IndexError* si la liste est vide ;
     1. sinon, retire l’élément au sommet de la pile et le retourne.
 
-    4 **Bonus :** Vous pouvez implémenter la méthode spéciale str (self)
+    4 **Bonus :** tu peux implémenter la méthode spéciale str (self)
 
     !!! info
         ```python
@@ -4711,7 +4708,7 @@ On utilise des fonctions de hachage dans **deux contextes différents** :
 
 !!! abstract "**Exercice n°10 : file et copie**"
 
-    Vous allez améliorer la classe file en lui ajoutant quelques fonctionnalités. Vous pouvez utiliser, comme base de travail, l’implémentation des files avec les doubles piles ou celle avec les listes chaînées  
+    Tu vas améliorer la classe file en lui ajoutant quelques fonctionnalités. Tu peux utiliser, comme base de travail, l’implémentation des files avec les doubles piles ou celle avec les listes chaînées  
 
     1. Ajouter la méthode spéciale \_\_len\_\_ (self) qui renvoie la longueur d’une file.
 
@@ -4789,9 +4786,9 @@ On utilise des fonctions de hachage dans **deux contextes différents** :
 
     ![](Aspose.Words.3ce2697d-9906-42ed-81f7-b7f514336a4d.043.png){width=80%; : .center }
 
-    Le programme que vous devez développer devra prendre comme entrées les nombres n et m, respectivement le nombre de soldats et la distance (dans l'exemple nous avons n=8 et m=3), et produire comme sortie l'ordre dans lequel les soldats seront tués, le dernier "tué" étant finalement le survivant :
+    Le programme que tu dois développer devra prendre comme entrées les nombres n et m, respectivement le nombre de soldats et la distance (dans l'exemple nous avons n=8 et m=3), et produire comme sortie l'ordre dans lequel les soldats seront tués, le dernier "tué" étant finalement le survivant :
 
-    4 7 2 6 3 1 5 8 The surviving soldier is 8
+    4 7 2 6 3 1 5 8 Le soldat survivant est le 8
 
     c'est-à-dire que le soldat à la position 4 est le premier à être tué, et 8 est la place sûre recherchée par Josephus.
 
@@ -4910,7 +4907,7 @@ On utilise des fonctions de hachage dans **deux contextes différents** :
 
     Compléter le programme ci-dessous du jeu de la bataille. Sur **Thonny** : On l’appellera bataille.py
 
-    Vous aurez à  gérer d'une part la valeur des cartes et d'autre part les cas d'égalités.
+    Tu auras à gérer d'une part la valeur des cartes et d'autre part les cas d'égalités.
 
     **Indice** : il faut créer une file égalité.
 
@@ -5023,7 +5020,7 @@ On utilise des fonctions de hachage dans **deux contextes différents** :
 
 
 
-    Une fois terminé les modifications, vous transformerez le programme bataille en classe Bataille avec toutes les fonctions encapsulées dans celle-ci.
+    Une fois les modifications terminées, tu transformeras le programme bataille en classe Bataille avec toutes les fonctions encapsulées dans celle-ci.
 
     ```python
     import random
@@ -5071,7 +5068,7 @@ On utilise des fonctions de hachage dans **deux contextes différents** :
 
 !!! abstract "**Projet n°01 : Pile et contrôle du parenthésage d’une expression**"
 
-    !!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
+    !!! example "🧠 Exercices dans Capytale => le code te sera donné par ton enseignante"
 
     Il s’agit d’écrire une fonction qui contrôle si une expression mathématique, donnée sous forme d’une chaine de caractères, est bien parenthésée, c’est-à-dire s’il y a autant de parenthèses ouvrantes que de fermantes, et qu’elles sont bien placées. Par exemple :
 
@@ -5092,13 +5089,15 @@ On utilise des fonctions de hachage dans **deux contextes différents** :
 
     Ecrire une fonction verification(expression) qui prend en paramètre une chaine de caractère qui retourne OK si l’expression est bien parenthésée et NON sinon.
 
+    ```python
     assert verification("(())") == "OK"
     assert verification("())(") == "NON"
+    ```
 
 
 !!! abstract "**Projet n°02 : implémentation d’une liste chainée**"
 
-    !!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
+    !!! example "🧠 Exercices dans Capytale => le code te sera donné par ton enseignante"
 
     A partir de ce qui a été vu sur les listes chaînées, implémenter :
 
@@ -5151,9 +5150,9 @@ On utilise des fonctions de hachage dans **deux contextes différents** :
 
 !!! abstract "**Projet n°03 : Pile et palindromes**"
 
-    !!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
+    !!! example "🧠 Exercices dans Capytale => le code te sera donné par ton enseignante"
 
-    Un palindrome est un mot qui se lit de la même façon de gauche à droite et de droite à gauche. Par exemple, abababa et un palindrome, ainsi que kayak et coloc.
+    Un palindrome est un mot qui se lit de la même façon de gauche à droite et de droite à gauche. Par exemple, abababa est un palindrome, ainsi que kayak et coloc.
 
     Les piles sont des structures très utiles pour détecter les palindromes : on peut lire le mot jusqu’à sa moitié, et empiler les lettres qu’on lit, puis arrivé à la moitié on lit les lettres tout en dépilant et en regardant si le résultat du dépilage correspond à la lettre lue. Si ce n’est pas le cas, le mot en entrée n’est pas un palindrome.
 
@@ -5188,14 +5187,14 @@ On utilise des fonctions de hachage dans **deux contextes différents** :
 
     10 Implémenter à l’aide d’une pile une fonction palindrome() qui prend en entrée un mot et renvoie True si c’est un palindrome et False sinon. On donne le prototype de la fonction palindrome(word : str) -> bool.
 
-    11 Tester votre programme avec les tests suivants :
+    11 Teste ton programme avec les tests suivants :
 
     - palindrome("kayak")
     - palindrome("trust")
 
 !!! abstract "**Projet n°04 : File et ordonnancement**"
 
-    !!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
+    !!! example "🧠 Exercices dans Capytale => le code te sera donné par ton enseignante"
 
     L’ordonnancement consiste, pour le système d’exploitation, à optimiser l’utilisation du processeur en lui affectant tour à tour différentes tâches à exécuter. On appelle processus un programme en cours d’exécution. Il peut y en avoir des centaines à la fois sur une machine, alors qu’il n’y a que quelques processeurs (souvent 4).
 
@@ -5281,7 +5280,7 @@ On utilise des fonctions de hachage dans **deux contextes différents** :
 
 !!! abstract "**Projet n°05 : Implémentation du type abstrait tableau dynamique en Python**"
 
-    !!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
+    !!! example "🧠 Exercices dans Capytale => le code te sera donné par ton enseignante"
 
     **Interface du type abstrait Tableau\_dynamique**
 

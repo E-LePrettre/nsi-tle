@@ -226,7 +226,7 @@ Dans une **architecture trois-tiers** (*3-tier*), un **serveur d'application** e
     2. Reprendre le tableau lorsque le SGBD utilise un **verrou**. Quel client voit sa réservation refusée ?
     3. Quel service rendu par le SGBD cet exercice illustre-t-il ?
 
-!!! abstract "**Exercice 3 : tout ou rien** ★★"
+!!! abstract "**Exercice 3 : tout ou rien** ★★ (facultatif)"
 
     Pour acheter un article sur un site marchand, trois opérations sont nécessaires :
 
@@ -238,7 +238,7 @@ Dans une **architecture trois-tiers** (*3-tier*), un **serveur d'application** e
     2. Même question si la panne survient juste après (b).
     3. Expliquer comment une **transaction** résout le problème.
 
-!!! abstract "**Exercice 4 : la puissance de l'index** ★★"
+!!! abstract "**Exercice 4 : la puissance de l'index** ★★ (facultatif)"
 
     La table `Eleve` d'une académie contient 400 000 élèves. On cherche un élève à partir de son numéro INE.
 
@@ -246,7 +246,7 @@ Dans une **architecture trois-tiers** (*3-tier*), un **serveur d'application** e
     2. Avec un index (qui permet une recherche semblable à la recherche dichotomique), combien de comparaisons faut-il au pire environ ? (Aide : 2¹⁰ = 1024.)
     3. Pourquoi ne crée-t-on pas un index sur **toutes** les colonnes de toutes les tables ?
 
-!!! abstract "**Exercice 5 : les droits d'accès** ★★"
+!!! abstract "**Exercice 5 : les droits d'accès** ★★ (facultatif)"
 
     Une médiathèque utilise une base avec trois tables : `Livre`, `Adherent` (nom, adresse, téléphone) et `Emprunt`. Trois types d'utilisateurs s'y connectent : les **adhérents** (depuis le site web), les **bibliothécaires** et l'**administrateur**.
 

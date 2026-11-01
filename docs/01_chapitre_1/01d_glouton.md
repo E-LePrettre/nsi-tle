@@ -74,7 +74,9 @@ Un système de pièces est dit **canonique** si l’algorithme glouton donne **t
 🪙 Le système monétaire en euros est **canonique**.
 Mais ce n’est pas toujours le cas ! Certains ensembles de pièces **non classiques** peuvent piéger l’algorithme glouton.
 
-Pour s'entrainer par ordre de dificulté croissante : 
+📌 Exemple : avec les pièces `[4, 3, 1]`, pour rendre 6, le glouton prend 4 + 1 + 1 (**3 pièces**), alors que 3 + 3 (**2 pièces**) suffit.
+
+Pour s'entrainer par ordre de difficulté croissante : 
 
 - [CODEX : rendu de monnaie](https://codex.forge.apps.education.fr/exercices/rendu_monnaie_3p/)
 

@@ -86,6 +86,7 @@ Analogie : un formulaire vierge (structure) et la pile de formulaires remplis (c
 | **Cardinalité** | nombre de n-uplets |
 
 📋 Dans une relation, les n-uplets sont **tous distincts** (pas de doublon) et **non ordonnés** (l'ordre des lignes n'a aucune signification).
+
 ---
 
 ???+ question "📌 **Activité n°1 : Base de données formée par deux relations**"
@@ -235,10 +236,7 @@ Dans certains cas, c'est une **combinaison d'attributs** qui forme la clé prima
 
 
 
-```
-Participation(id_étudiant, id_cours, note)
-PK : (id_étudiant, id_cours)
-```
+Inscription(<u>id_etudiant</u>, <u>id_cours</u>, note)
 
 !!! warning "Une clé se justifie par une règle du monde réel"
 
@@ -324,15 +322,9 @@ Exemple :
 
 ![](Aspose.Words.3dd05cd3-3d79-4adc-af4a-537e039a1ed8.019.png)
 
-Schéma relationnel
-livres(
-    code : entier (clé primaire),
-    titre : texte,
-    auteur : texte,
-    éditeur : texte,
-    ISBN : texte
-    )
+**Schéma relationnel :**
 
+livres(<u>code</u> : entier, titre : texte, auteur : texte, éditeur : texte, ISBN : texte)
 
 ---
 
@@ -347,7 +339,7 @@ livres(
 * [dbdiagram.io](https://dbdiagram.io)
 * [quickdatabasediagrams.com](https://www.quickdatabasediagrams.com)
 * [looping-mcd.fr](https://www.looping-mcd.fr)
-* [mocodo.wingi.net](http://mocodo.wingi.net)
+* [mocodo.net](https://www.mocodo.net)
 
 ---
 
@@ -372,12 +364,12 @@ Quels sont les problèmes de cette modélisation ?
     
     * **Duplication d’informations sur les étudiants** :
 
-    * L’étudiant **Jean** (id = 124, Paris) apparaît **deux fois**.
-    * L’étudiant **Paul** (id = 789, Marseille) apparaît **deux fois**.
+        * L’étudiant **Jean** (id = 124, Paris) apparaît **deux fois**.
+        * L’étudiant **Paul** (id = 789, Marseille) apparaît **deux fois**.
     * **Duplication d’informations sur les cours** :
 
-    * Le cours **Philo I** (cnum = F234) est répété pour deux étudiants.
-    * Le cours **Analyse I** (cnum = M321) est répété pour deux étudiants.
+        * Le cours **Philo I** (cnum = F234) est répété pour deux étudiants.
+        * Le cours **Analyse I** (cnum = M321) est répété pour deux étudiants.
 
     **2 Anomalies de mise à jour**
 
@@ -420,37 +412,6 @@ Les exercices sont classés par difficulté : ★ (application directe), ★★ 
     Regrouper ensemble les termes synonymes. Attention : certains termes n'ont pas de synonyme dans la liste.
 
     colonne · table · n-uplet · domaine · attribut · ligne · relation · enregistrement · type · schéma · base de données
-
-!!! abstract "**Exercice 1**"
-
-    Un laboratoire souhaite gérer les médicaments qu'il conçoit.
-
-    - Un médicament est décrit par un nom, qui permet de l'identifier. En effet, il n'existe pas deux médicaments avec le même nom.
-    - Un médicament comporte une description courte en français, ainsi qu'une description longue en latin.
-    - On gère aussi le conditionnement du médicament, c'est-à-dire le nombre de pilules par boîte (qui est un nombre entier).
-
-    À chaque médicament, on associe une liste de contre-indications, généralement plusieurs, parfois aucune.
-
-    Une contre-indication comporte un code unique qui l'identifie, ainsi qu'une description.
-
-    Une contre-indication est toujours associée à un et un seul médicament.
-
-    **Exemple de données** : Voici deux exemples de données :
-
-    Le **Chourix** a pour description courte "« Médicament contre la chute des choux »" et pour description longue "« Vivamus fermentum semper porta. Nunc diam velit, adipiscing ut tristique vitae, sagittis vel odio. Maecenas convallis ullamcorper ultricies. Curabitur ornare. »". Il est conditionné en boîte de 13.
-
-    Ses contre-indications sont :
-
-    - CI1 : Ne jamais prendre après minuit.
-    - CI2 : Ne jamais mettre en contact avec de l'eau.
-
-    Le **Tropas** a pour description courte "« Médicament contre les dysfonctionnements intellectuels »" et pour description longue "« Suspendisse lectus leo, consectetur in tempor sit amet, placerat quis neque. Etiam luctus porttitor lorem, sed suscipit est rutrum non. »". Il est conditionné en boîte de 42.
-
-    Ses contre-indications sont :
-    - CI3 : Garder à l'abri de la lumière du soleil.
-
-    1. Donner la représentation sous forme de tables des relations 'MEDICAMENT' et 'CONTRE_INDICATION'
-    2. Écrire le schéma relationnel permettant de représenter une base de données pour ce laboratoire.
 
 !!! abstract "**Exercice 2 : structure ou contenu ?** ★"
 
@@ -508,7 +469,7 @@ Les exercices sont classés par difficulté : ★ (application directe), ★★ 
     2. Écrire le schéma relationnel des tables Bouquets, Clients et Commandes (clé primaire soulignée, clé étrangère précédée de #).
     3. Pour chacune des trois tables : comporte-t-elle une clé primaire ? une ou plusieurs clés étrangères ? Lesquelles ?
 
-!!! abstract "**Exercice 6 : accepté ou refusé ?** ★★"
+!!! abstract "**Exercice 6 : accepté ou refusé ?** ★★ (facultatif)"
 
     On considère la base suivante :
 
@@ -551,7 +512,7 @@ Les exercices sont classés par difficulté : ★ (application directe), ★★ 
     2. Deux personnes s'appellent Marie Dupont. Quel problème cela pose-t-il ? Modifier le schéma pour le résoudre.
     3. Une personne possède un téléphone fixe et un portable. Peut-on l'enregistrer avec votre schéma ? Proposer un schéma en deux tables qui le permet.
 
-!!! abstract "**Exercice 8 : le laboratoire** ★★★"
+!!! abstract "**Exercice 8 : le laboratoire** ★★★ (facultatif)"
 
     Un laboratoire souhaite gérer les médicaments qu'il conçoit.
 
@@ -584,7 +545,7 @@ Les exercices sont classés par difficulté : ★ (application directe), ★★ 
     2. Donner le contenu des deux tables avec les données de l'exemple.
     3. Le laboratoire décide qu'une même contre-indication (par exemple « Ne jamais prendre après minuit ») peut concerner **plusieurs** médicaments. Pourquoi le schéma précédent ne convient-il plus ? Proposer un nouveau schéma.
 
-!!! abstract "**Exercice 9 : le site marchand** ★★★"
+!!! abstract "**Exercice 9 : le site marchand** ★★★ (facultatif)"
 
     On veut créer une base de données pour gérer les clients d'un site web qui vend des articles.
 

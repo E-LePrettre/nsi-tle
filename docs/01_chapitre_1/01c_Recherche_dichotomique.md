@@ -106,15 +106,11 @@ Au bout de `k` étapes, on a un sous-tableau de taille `n / 2^k`.
 
 On s’arrête quand le tableau est de taille 1, donc :
 
-$$
-\frac{n}{2^k} = 1
-$$
+n / 2ᵏ = 1
 
 On résout cette équation :
 
-$$
-n = 2^k \quad \Rightarrow \quad k = \log_2(n)
-$$
+n = 2ᵏ, donc k = log₂(n)
 
 Donc, **le nombre d’itérations** est **log₂(n)** dans le pire des cas.
 
@@ -124,9 +120,7 @@ Donc, **le nombre d’itérations** est **log₂(n)** dans le pire des cas.
 * Et on répète cela **log₂(n)** fois.
 * Donc la complexité en **temps** est :
 
-$$
-\boxed{\mathcal{O}(\log_2 n)}
-$$
+**O(log₂ n)**
 
 
 

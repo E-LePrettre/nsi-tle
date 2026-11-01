@@ -65,7 +65,7 @@ Nous allons créer ces 2 tables :
 
 ![](table1.png){width=80%; : .center }
 
-### <span style="color:green">2.1. Création</span>03a
+### <span style="color:green">2.1. Création</span>
 
 
 
@@ -1617,9 +1617,11 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
     - CHIEN = (idChien, #idProprio, #idRace, nom, date_naissance, sexe, date_acquis)
     - PARTICIPATION = (#idChien, #idConcours, classement)
 
-    **1.** Donner le schéma relationnel complet (types, clés primaires soulignées, clés étrangères précédées de #). *Aide* : vous pouvez vous aider de <https://dbdiagram.io/>.
+    **1.** Pourquoi la clé primaire de PARTICIPATION est-elle composée ? Pourquoi `idProprio` est-il dans CHIEN et non l'inverse ?
 
-    **2.** Créer la base de données et les tables décrites ci-dessus.
+    **2.** Réaliser le diagramme relationnel de la base (par exemple avec <https://dbdiagram.io/>).
+
+    Dans l'activité Capytale, une cellule crée et remplit la base. Pour la créer soi-même :
 
     *Aide* : le code SQL exporté par dbdiagram.io est écrit pour MySQL ; avec SQLite, les clés étrangères se déclarent dans le `CREATE TABLE` (`FOREIGN KEY (...) REFERENCES ...`).
 
@@ -1816,7 +1818,7 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
     (1, 1), (2, 1), (3, 2), (4, 2), (5, 3), (6, 3), (7, 4), (8, 4), (9, 5), (10, 5);
     ```
 
-    **1.** Donner le schéma relationnel complet. *Aide* : vous pouvez vous aider de <https://dbdiagram.io/>.
+    **1.** Pourquoi faut-il une table `presentations` plutôt qu'une clé étrangère `id_colloque` dans `exposes` ?
 
     Avec des commandes SQL :
 
@@ -1852,7 +1854,7 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
     **Étape 2 : Création d’une base de données**
 
-    Ouvrir SQLite et créer une base dont le nom est **MaBase et enregistrer la dans le dossier** www  de UwAmp
+    Ouvrir DB Browser for SQLite et créer une base dont le nom est **MaBase et enregistrer la dans le dossier** www  de UwAmp
 
     On entre dans le vif du sujet : Supposons que je sois un collectionneur de BD et que je souhaite les répertorier dans une base de données (ce n’est qu’un exemple, on peut imaginer une inscription à un site ou la mise en ligne d’objets à vendre..)
 
@@ -1903,7 +1905,7 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
     Une feuille de style classique
 
-    - Cliquez droit sur l’icône de UwWamp et cliquez sur Navigateur www
+    - Faites un clic droit sur l’icône de UwAmp et cliquez sur Navigateur www
     - Dans Virtual Host, cliquez sur le dossier PHP - BDD
 
 
@@ -1979,7 +1981,8 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
                 //on organise $req en tableau associatif $data['champ']
                 //en scannant chaque enregistrement récupéré
                 //on en profite pour gérer l'affichage
-                //titre de la section avant la boucle echo'<h2>Fiche de : Jando </h2>';
+                //titre de la section avant la boucle
+                echo '<h2>Fiche de : Jando</h2>';
 
                 //boucle
                 while ($data = $req->fetchArray()) {
@@ -1999,23 +2002,17 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
     ```
 
 
-    **Étape 7 :** Dans une nouvelle page nous allons faire afficher des
-
-    enregistrements suivant des critères
+    **Étape 7 :** Dans une nouvelle page nous allons faire afficher des enregistrements suivant des critères
 
 
-    Créer un nouveau fichier sous le **nom recherche.php** et copiez-collez
-
-    ce qu’il faut pour…
+    Créer un nouveau fichier sous le **nom recherche.php** et copiez-collez ce qu’il faut pour…
 
 
     ![](Aspose.Words.898009d5-087d-4c87-b057-f20703a0b830.053.png){ width=80%; : .center }
 
-    |Faites la même chose pour un autre auteur. Si il y a plusieurs entrées pour le même auteur, il faut bien entendu que son nom soit écrit de la même manière, pour que les titres apparaissent…|
-    ||
-    |Faites des essais en enregistrant plusieurs titres d’un même auteur.|
+    Faites la même chose pour un autre auteur. S'il y a plusieurs entrées pour le même auteur, son nom doit bien sûr être écrit de la même manière pour que les titres apparaissent…
 
-
+    Faites des essais en enregistrant plusieurs titres d’un même auteur.
 
     Je vous donne le code à copier et coller entre les balises <section> ..</section>
 
@@ -2116,7 +2113,7 @@ Les requêtes avec les jointures tiennent compte des **liens entre les tables**,
 
         De même, on protège l'affichage avec `htmlspecialchars($data['titre'])` pour qu'un titre contenant du code HTML ou JavaScript ne soit pas exécuté par le navigateur.
 
-    **Étape 8 :** Il ne reste plus qu’à construire une page index. html qui appelle ces différentes pages en php…
+    **Étape 8 :** Il ne reste plus qu’à construire une page index.html qui appelle ces différentes pages en php…
 
     Ce que je vous laisse faire
 

@@ -39,7 +39,7 @@ Pour chaque **fonction** du module, la spécification doit indiquer :
 
 ## <H2 STYLE="COLOR:BLUE;">🛠️ <a name="_toc145779688"></a>**2. Interface d’une structure de données abstraites**</H2>
 
-Une structure de données abstraites ou type abstrait est **une spécification mathématique d’un ensemble de données et de l’ensemble des opérateurs associées.**
+Une structure de données abstraites ou type abstrait est **une spécification mathématique d’un ensemble de données et de l’ensemble des opérateurs associés.**
 
 On qualifie d’**abstrait** ce type de données car il correspond à un **cahier des charges** qu’une structure de données doit ensuite implémenter.
 
@@ -85,14 +85,14 @@ P = vide()
 
 À toute pile `P`, on peut appliquer un **opérateur booléen** :
 
-* `estVide(P) = Vraie` si `P` est vide
+* `estVide(P) = Vrai` si `P` est vide
 * `estVide(P) = Faux` si `P` n’est pas vide
 
 ---
 
 🧬 Si cette pile **n’est pas vide**, elle se compose de deux champs :
 
-* Un premier contenant un **élément de type élémentaire** (booléen, entier, flottant)
+* Un premier contenant un **élément** (booléen, entier, flottant, chaîne de caractères…)
 * Un second de **type pile**
 
 Cette définition est donc **récursive** : une pile est définie à partir d’une pile.
@@ -112,7 +112,7 @@ Nous avons ainsi compris ce qu’est une pile à un élément :
 Une pile à **deux éléments** peut être représentée ainsi :
 
 ```
-(hautDeLaPile, secondElementDeLaPile, vide())
+(hautDeLaPile, (secondElementDeLaPile, vide()))
 ```
 
 ---
@@ -140,7 +140,7 @@ P = (Anakin, (Boba Fett, (Dark Vador, (Han Solo, (Yoda, vide())))))
 
 
 
-!!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
+!!! example "🧠 Exercices dans Capytale => le code te sera donné par ton enseignante"
 
 
 
@@ -411,7 +411,7 @@ Opérateur récursif :
 
 * tête : celle de F
 * queue : `a`
-* troisième champ : `enfiler(troisième champ de F, queue de F)`
+* troisième champ : `enfiler(queue de F, troisième champ de F)` (l’ancienne queue est enfilée dans le troisième champ)
 
 
 

@@ -46,7 +46,7 @@ Elle mesure **l’évolution du temps d’exécution** en fonction du nombre d�
 
 ➡️ Le nombre d’étapes augmente **lentement** quand `N` augmente.
 
-📌 Exemple : **recherche dichotomique**, **parcours d’arbre binaire**  
+📌 Exemple : **recherche dichotomique**, **recherche dans un arbre binaire de recherche équilibré**  
 ⚡ Très rapide !
 
 ---
@@ -64,7 +64,7 @@ Elle mesure **l’évolution du temps d’exécution** en fonction du nombre d�
 
 ➡️ Combinaison d’un tri divisé + parcours séquentiel.
 
-📌 Exemple : **tri rapide (quicksort)**  
+📌 Exemple : **tri fusion** (chapitre 02)  
 👍 Très efficace.
 
 ---
@@ -78,12 +78,12 @@ Elle mesure **l’évolution du temps d’exécution** en fonction du nombre d�
 
 ---
 
-### <H3 style="color:green;">🔹 Complexité exponentielle / factorielle — O($2^N$), O(N!)</H3>
+### <H3 style="color:green;">🔹 Complexité exponentielle / factorielle — O(2ᴺ), O(N!)</H3>
 
 ➡️ Le **temps double ou plus** à chaque ajout de données !
 
 📌 Exemple : **voyageur de commerce**, **résolution naïve de Sudoku**, IA, etc.  
-🛑 Non calculable pour N > 20
+🛑 Impraticable dès que N dépasse quelques dizaines
 
 ---
 
@@ -112,6 +112,7 @@ Début
     p ← 1
     TantQue p < n faire
         p ← 2 × p
+    Renvoyer p
 Fin
 ```
 
@@ -140,19 +141,20 @@ C’est ce qui permet de **garantir la justesse** d’un algorithme.
 ### <H3 style="color:green;">Exemple – Calcul de 2ⁿ</H3>
 
 **Fonction :** calculPuissanceDeux(n)
-**Objectif :** retourner $2^n$
+**Objectif :** retourner 2ⁿ
 
 ```pseudo
 Début
     p ← 1
     Pour k de 1 à n faire
         p ← 2 × p
+    Renvoyer p
 Fin
 ```
 
-🧠 Invariant : « p est une puissance de 2 »
+🧠 Invariant : « après k tours de boucle, p = 2ᵏ »
 
-* **Avant la boucle** : p = 1 = 2⁰
+* **Avant la boucle** (k = 0) : p = 1 = 2⁰
 * **Si p = 2ᵏ**, alors `p ← 2 × p = 2ᵏ × 2 = 2ᵏ⁺¹`
 * **À la fin** : on a fait n tours → p = 2ⁿ
 

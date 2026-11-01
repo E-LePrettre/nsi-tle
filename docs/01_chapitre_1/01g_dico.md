@@ -152,6 +152,8 @@ Il est défini entre accolades `{}`.
 
 
     ```python
+    etudiant = {"nom": "Dupont", "age": 17, "classe": "Terminale"}
+
     for cle in etudiant.keys():
         print("Clé :", cle)
 

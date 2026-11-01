@@ -64,7 +64,7 @@ import time
 
 somme_des_durees = 0
 for i in range(5):
-    a = [k for k in range(100)]
+    a = [k for k in range(100 - 1, -1, -1)]   # liste décroissante
     start_time = time.time()
     tri_selection(a)
     somme_des_durees += time.time() - start_time
@@ -73,7 +73,7 @@ print("Temps pour 100 : %s sec ---" % moyenne)
 
 somme_des_durees = 0
 for i in range(5):
-    b = [k for k in range(1_000)]
+    b = [k for k in range(1_000 - 1, -1, -1)]
     start_time = time.time()
     tri_selection(b)
     somme_des_durees += time.time() - start_time
@@ -90,8 +90,10 @@ print("Temps pour 1_000 : %s sec ---" % moyenne)
 
 📊 En local, on trouve :
 
-* Pour 1 000 : \~0.039 s
-* Pour 10 000 : \~4.57 s
+* Pour 100 éléments : \~0.0003 s
+* Pour 1 000 éléments : \~0.04 s
+
+*(ordres de grandeur : les durées dépendent de la machine, mais leur rapport reste le même)*
 
 🧠 Conclusion : si on multiplie la taille par 10, le temps est multiplié par 100 → la **complexité est quadratique**.
 
@@ -102,7 +104,7 @@ print("Temps pour 1_000 : %s sec ---" % moyenne)
 Dans le pire des cas, pour une liste de taille `n` :
 
 * boucle `for` extérieure : `n-1` tours
-* boucle intérieure : $(n-1)+(n-2)+\dots+1$ = $\frac{n(n-1)}{2}$
+* boucle intérieure : (n-1) + (n-2) + … + 1 = n(n-1)/2
 
 ✅ Confirme que le tri par sélection est en **𝑂(n²)**.
 
@@ -124,7 +126,7 @@ Même si la liste est **déjà triée**, le tri par sélection :
 📌 **Conclusion :**
 Le **meilleur des cas** n’améliore pas significativement les performances :
 
-> 🕒 Le nombre d’opérations reste proportionnel à $n \times (n-1)/2$
+> 🕒 Le nombre d’opérations reste proportionnel à n × (n-1)/2
 > 👉 La complexité est donc **quadratique aussi dans le meilleur des cas : 𝑂(n²)**
 
 
@@ -139,7 +141,7 @@ L’algorithme ne contient que des boucles `for` bien définies :
 il s’exécute toujours un **nombre fini d’opérations**.
 
 ➡️ Le nombre total d’itérations est :
-$\frac{n(n-1)}{2}$
+n(n-1)/2
 Donc le programme **se termine toujours**.
 
 ---

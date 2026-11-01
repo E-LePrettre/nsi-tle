@@ -146,15 +146,9 @@ L’algorithme **divise le problème par 2 à chaque appel**, ce qui réduit **l
 
 Exemple : `49⁵`
 
+5 // 2 = 2 et 5 est impair, donc 5 = 2 + 2 + 1 et :
 
-
-5 = 5 $\text{//}$ 2 + 5 $\text{//}2$ + 1
-
-$49^5$ = 49 $\times$ $49^2$ $\times$ $49^2$
-
-
-Cette notation est adaptée à un rendu Markdown avec prise en charge de LaTeX pour les formules mathématiques, comme sur certaines plateformes (Jupyter Notebook, certains éditeurs Markdown, etc.). Si tu veux une version sans LaTeX, je peux aussi la fournir.
-
+49⁵ = 49 × 49² × 49²
 
 🪜 À chaque appel, on divise `n` par 2  
 🧵 On combine les résultats avec :
@@ -195,33 +189,26 @@ Prenons `n = 8` :
   `exp3(8, a)` → `exp3(4, a)` → `exp3(2, a)` → `exp3(1, a)` → `exp3(0, a)`
 
 * **Phase de remontée** :
-  À chaque appel récursif, **une seule multiplication** est effectuée (soit `y*y`, soit `a*y*y`)
+  À chaque appel récursif, **une ou deux multiplications** seulement sont effectuées (`y*y` ou `a*y*y`)
 
 
 
 **Fonction d'exponentiation rapide : `exp3(n, a)`**
 
-| Cas de `n`       | Décomposition de `exp3(n, a)`                                                                                       |
-|------------------|---------------------------------------------------------------------------------------------------------------------|
-|  n $\text{ pair}$    |  $\text{exp3}(4, a)$ $\rightarrow$ $\text{exp3}(2, a) * \text{exp3}(2, a)$                                        |
-| n $\text{ pair}$   | $\text{exp3}(2, a)$ $\rightarrow$ $\text{exp3}(1, a) * \text{exp3}(1, a)$                                        |
-| n $\text{ pair}$   | $\text{exp3}(1, a)$ = $a$                                                                                     |
-| n $\text{ impair}$ | $a * \text{exp3}(3, a)$ = $a * (\text{exp3}(1, a) * \text{exp3}(1, a)) \rightarrow a * a * a$                 |
+| Appel | `n` pair ou impair ? | Calcul effectué |
+|---|---|---|
+| `exp3(8, a)` | pair | `y = exp3(4, a)` puis `y * y` |
+| `exp3(4, a)` | pair | `y = exp3(2, a)` puis `y * y` |
+| `exp3(2, a)` | pair | `y = exp3(1, a)` puis `y * y` |
+| `exp3(1, a)` | impair | `y = exp3(0, a)`, qui vaut 1, puis `a * y * y` |
 
+**Étapes de calcul de `exp3(8, a)`**, en remontant :
 
-
-**Étapes de calcul de `exp3(8, a)`**
-
-1. $\text{exp3}(8, a) \rightarrow \text{exp3}(4, a) * \text{exp3}(4, a)$
-2. $\text{exp3}(4, a) \rightarrow \text{exp3}(2, a) * \text{exp3}(2, a)$
-3. $\text{exp3}(2, a) \rightarrow \text{exp3}(1, a) * \text{exp3}(1, a)$
-4. $\text{exp3}(1, a)$ = a
-5. En remontant :
-   - $\text{exp3}(2, a)$ = a * a = $a^2$
-   - $\text{exp3}(4, a)$ = $a^2 * a^2$ = $a^4$
-   - $\text{exp3}(8, a)$ = $a^4 * a^4$ = $a^8$
-
-
+1. `exp3(0, a)` = 1
+2. `exp3(1, a)` = a × 1 × 1 = a
+3. `exp3(2, a)` = a × a = a²
+4. `exp3(4, a)` = a² × a² = a⁴
+5. `exp3(8, a)` = a⁴ × a⁴ = a⁸
 
 🌳 **Représentation en arbre** :
 
@@ -300,7 +287,7 @@ L’exponentiation rapide améliore considérablement la vitesse de calcul pour 
 * La notation ⌈n/2⌉ (plafond) correspond en Python à :
 
   ```python
-  n // 2 + 1
+  n - n // 2      # par exemple : 11 - 5 = 6 et 10 - 5 = 5
   ```
 
 ---
@@ -434,8 +421,8 @@ Pour bien comprendre la méthode employée, on construit un **arbre binaire** o�
 ???+ question "**🔧 Activité n°6 :**"
 
     Étudier le comportement du programme complet à l’aide de pythontutor.
-    Construire la liste à l’aide de l’instruction :
-    **attention* : si cela ne marche pas rafraichir la page
+    ⚠️ **Attention** : si l’animation ne s’affiche pas, rafraîchir la page.
+
     <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=from%20typing%20import%20List%0A%0Adef%20fusion%28S1%3A%20List%5Bint%5D,%20S2%3A%20List%5Bint%5D,%20S%3A%20List%5Bint%5D%29%20-%3E%20None%3A%0A%20%20%20%20%22%22%22%0A%20%20%20%20Combine%20les%20%C3%A9l%C3%A9ments%20des%20deux%20listes%20S1%20et%20S2%20dans%20la%20liste%20S%20%28en%20place%29.%0A%20%20%20%20%22%22%22%0A%20%20%20%20i%20%3D%200%0A%20%20%20%20j%20%3D%200%0A%0A%20%20%20%20while%20i%20%3C%20len%28S1%29%20and%20j%20%3C%20len%28S2%29%3A%0A%20%20%20%20%20%20%20%20if%20S1%5Bi%5D%20%3C%20S2%5Bj%5D%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20S%5Bi%20%2B%20j%5D%20%3D%20S1%5Bi%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20S%5Bi%20%2B%20j%5D%20%3D%20S2%5Bj%5D%0A%20%20%20%20%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%0A%20%20%20%20while%20i%20%3C%20len%28S1%29%3A%0A%20%20%20%20%20%20%20%20S%5Bi%20%2B%20j%5D%20%3D%20S1%5Bi%5D%0A%20%20%20%20%20%20%20%20i%20%2B%3D%201%0A%0A%20%20%20%20while%20j%20%3C%20len%28S2%29%3A%0A%20%20%20%20%20%20%20%20S%5Bi%20%2B%20j%5D%20%3D%20S2%5Bj%5D%0A%20%20%20%20%20%20%20%20j%20%2B%3D%201%0A%0Afrom%20typing%20import%20List%0A%0Adef%20tri_fusion%28S%3A%20List%5Bint%5D%29%20-%3E%20None%3A%0A%20%20%20%20%22%22%22%0A%20%20%20%20Impl%C3%A9mentation%20du%20tri%20fusion.%20La%20liste%20S%20est%20modifi%C3%A9e%20en%20place.%0A%20%20%20%20%22%22%22%0A%20%20%20%20n%20%3D%20len%28S%29%20%20%23%20...%20%280%29%0A%20%20%20%20if%20n%20%3C%202%3A%0A%20%20%20%20%20%20%20%20return%20None%20%20%23%20...%20%281%29%0A%0A%20%20%20%20%23%20Diviser%0A%20%20%20%20milieu%20%3D%20n%20//%202%0A%20%20%20%20S1%20%3D%20S%5B%3Amilieu%5D%20%20%23%20....%20%283%29%0A%20%20%20%20S2%20%3D%20S%5Bmilieu%3A%5D%20%20%23%20....%20%284%29%0A%0A%20%20%20%20%23%20R%C3%A9gner%0A%20%20%20%20tri_fusion%28S1%29%20%20%23%20...%20%286%29%0A%20%20%20%20tri_fusion%28S2%29%20%20%23%20...%20%287%29%0A%0A%20%20%20%20%23%20Combiner%0A%20%20%20%20fusion%28S1,%20S2,%20S%29%20%20%23%20...%20%289%29%0A%0A%0AS%3D%20%5B14,98,34,85,16%5D%0Atri_fusion%28S%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
 
 
@@ -450,7 +437,7 @@ Pour bien comprendre la méthode employée, on construit un **arbre binaire** o�
     On compare et insère chaque élément de `S1` et `S2` une seule fois dans la liste `S`.
 
     ??? success "Réponse"
-        La fonction parcourt **une seule fois l’ensemble des éléments**, ce qui donne une complexité en **Θ(n)**.
+        La fonction parcourt **une seule fois l’ensemble des éléments**, ce qui donne une complexité en **O(n)**.
 
 ---
 
@@ -460,7 +447,7 @@ Pour déterminer la formule de récurrence qui nous donnera la complexité de l�
 
 * **Diviser** : le calcul du milieu de la liste se fait en temps constant.
 * **Régner** : on divise récursivement la liste en deux sous-listes de taille `n/2`.
-* **Combiner** : la fusion des deux sous-listes se fait en **Θ(n)**.
+* **Combiner** : la fusion des deux sous-listes se fait en **O(n)**.
 
 📌 Résultat final :
 La complexité du tri fusion est **O(n × log₂(n))**
@@ -545,7 +532,7 @@ La complexité des algorithmes :
         return total / repetitions
 
 
-    for n in [1000, 2000, 4000, 8000]:
+    for n in [500, 1000, 2000, 4000]:
         t = [random.randint(1, 1000) for _ in range(n)]
         print(f"--- n = {n} ---")
         print(f"tri insertion : {mesurer(tri_insertion, t):.6f} s")
@@ -556,26 +543,28 @@ La complexité des algorithmes :
     ??? success "Python"
         {{ IDE() }}
 
-    ⏱️ **Résultats attendus** (approximatifs selon ta machine) :
+    ⏱️ **Résultats obtenus sur un ordinateur** (dans le navigateur, les durées sont plus longues, mais les rapports restent les mêmes) :
 
     ```
+    --- n = 500 ---
+    tri insertion : 0.004626 s
+    tri selection : 0.004398 s
+    tri fusion    : 0.000599 s
     --- n = 1000 ---
-    tri insertion : 0.082260 s
-    tri selection : 0.090400 s
-    tri fusion    : 0.004660 s
+    tri insertion : 0.019372 s
+    tri selection : 0.021205 s
+    tri fusion    : 0.001607 s
     --- n = 2000 ---
-    tri insertion : 0.250360 s
-    tri selection : 0.285200 s
-    tri fusion    : 0.013020 s
+    tri insertion : 0.134446 s
+    tri selection : 0.094984 s
+    tri fusion    : 0.003756 s
     --- n = 4000 ---
-    tri insertion : 1.003340 s
-    tri selection : 1.036320 s
-    tri fusion    : 0.025000 s
-    --- n = 8000 ---
-    tri insertion : 7.158820 s
-    tri selection : 8.827420 s
-    tri fusion    : 0.108700 s
+    tri insertion : 0.360581 s
+    tri selection : 0.319779 s
+    tri fusion    : 0.006509 s
     ```
+
+    👉 Quand `n` double, les tris par insertion et par sélection prennent environ **4 fois** plus de temps, le tri fusion **un peu plus de 2 fois**.
 
 ---
 
@@ -870,10 +859,10 @@ Utiliser la **dichotomie** :
 
     - prend en paramètres une liste tab d’entiers triés par ordre croissant, un entier à rechercher val.
 
-    - renvoie i un indice où la valeur val apparait dans tab (ou True selon comment est codé l’algorithme) et False si la val n’est pas dans tab.  La valeur i est recherchée dans tab[g..d]
+    - renvoie :
 
-    On peut passer les slices des listes de python ou utiliser des indices entrés avec une valeur par défaut
-
+        - version A (avec slicing, fonction `recherche_dicho_r`) : `True` si `val` est dans `tab`, `False` sinon ;
+        - version B (avec deux indices `g` et `d` ayant une valeur par défaut, fonction `recherche_dicho_i`) : un indice `i` tel que `tab[i] == val`, ou `None` si `val` n’est pas dans `tab`.
 
     La méthode « Diviser pour régner » est le paradigme naturel de la récursivité.
 
@@ -929,7 +918,7 @@ Utiliser la **dichotomie** :
 
     Pour chacun des sous-tableaux, on définit un **nouveau pivot** et on répète l'opération de partitionnement. Ce processus est répété **récursivement**, jusqu'à ce que l'ensemble des éléments soit trié.
 
-    La complexité moyenne est en O(nlogn) mais O(n²) dans le pire des cas.
+    La complexité moyenne est en O(n log n) mais O(n²) dans le pire des cas.
 
     Ecrire une fonction tri\_rapide\_gauche qui permet d’illustrer le schéma suivant :
 
@@ -942,193 +931,113 @@ Utiliser la **dichotomie** :
     
 !!! abstract "**Projet 1 : Rotation d’une image numérique**"
 
-    1. **Petits rappels de SNT**
+    🧠 Ce projet se fait dans **Capytale** : les images `image.jpg`, `moto_carre.jpg` et `woody.jpg` sont attachées à l’activité (le code vous sera donné par votre enseignant).
 
-    Une image est un tableau de pixels.
+    **Partie 1 — Petits rappels de SNT**
 
-    Une image en 1024x720 se compose de 1024x720 pixels.
-
-    Chaque pixel a une couleur. La couleur est définie à partir de ses trois composantes : rouge, vert et bleu.
+    Une image est un tableau de pixels. Une image en 1024 × 720 se compose de 1024 × 720 pixels. Chaque pixel a une couleur, définie par ses trois composantes : rouge, vert et bleu.
 
     On définit un repère en prenant comme origine le coin en haut à gauche de l'image.
 
     ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.032.png)
 
-    A l'aide la library PIL de Python nous allons manipuler des images 
+    À l'aide de la bibliothèque PIL de Python, nous allons manipuler des images. Nous allons travailler sur cette image :
 
-    Nous allons travailler sur cette image :
+    ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.033.jpeg)
 
-    ![la photo du prof](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.033.jpeg)
-
-    1.1. Tester et commenter le code ci-dessous :
+    **1.** Tester et commenter le code ci-dessous :
 
     ```python
     from PIL import Image
-    img=Image.open("image.png")
-    largeur, hauteur=im.size
+
+    img = Image.open("image.jpg")
+    largeur, hauteur = img.size
     img.show()
     ```
 
-    1.2. Donner les dimensions de l'image
+    **2.** Donner les dimensions de l'image.
 
-    1.3. Donner la couleur du pixel de coordonnées (100;100). (utiliser la methode getpixel())
+    **3.** Donner la couleur du pixel de coordonnées (100 ; 100) (méthode `getpixel`).
 
-    Souvent, il faudra parcourir l’image pixel par pixel, sur toute la largeur et toute la hauteur. Cela est possible avec deux boucles imbriquées, à condition de connaitre ses dimensions largeur, hauteur:
+    **4.** Colorier en vert (25, 153, 89) un carré de 100 pixels de côté au centre de l'image (méthode `putpixel`).
+
+    **5.** Créer une image deux fois plus petite (méthode `resize`).
+
+    Pour parcourir l’image pixel par pixel, on utilise deux boucles imbriquées :
 
     ```python
-    for x in range(largeur): # x varie de 0 à largeur - 1
-        for y in range(hauteur): # y varie de 0 à hauteur - 1
-        # traitement pixel (x,y)
-
-    img.save("nouveau_nom.jpg")
+    for x in range(largeur):        # x varie de 0 à largeur - 1
+        for y in range(hauteur):    # y varie de 0 à hauteur - 1
+            pass                    # traitement du pixel (x, y)
     ```
 
-    1.4. Remplacer la couleur des pixels se situant dans un carré de dimension 100 pixels au centre de la photo par la couleur en RGB (25,153,89). Utiliser la méthode putpixel((x,y),p)
+    **Partie 2 — Rotation d'un quart de tour, avec une seconde image**
 
-    1.5. Redimensionner l'image pour qu'elle soit deux fois plus petite. On pourra aller voir les fonctionnalités du module PIL.
-
-
-    2 **Rotation** 
-
-    **Rotation d'un quart de tour.** Un pixel de coordonnées (x;y) dans une image de taille n×n a pour coordonnées **avant** rotation d'un quart de tour en sens horaire (y;n−1−x)
+    On fait tourner une image carrée de taille n × n d'un quart de tour dans le sens des aiguilles d'une montre : dans l'image tournée, le pixel de coordonnées (x ; y) a la couleur du pixel de coordonnées **(y ; n − 1 − x)** de l'image de départ.
 
     ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.034.png)
 
     ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.035.png)
 
-    Ecrire la procédure rotation(image) qui reçoit pour paramètres une chaîne de caractères correspondant au nom de l'image carrée et un entier n correspondant à la taille de l'image et qui affiche l'image retournée de 90° dans le sens des aiguilles d'une montre. (Evidemment sans utiliser rotate() !)
+    **6.** Écrire la fonction `rotation(nom_image, n)` qui ouvre l'image carrée `nom_image` (n × n) et **renvoie** l'image tournée, construite dans une nouvelle image `Image.new("RGB", (n, n))`. On la teste avec `moto_carre.jpg` (256 × 256). Évidemment sans utiliser `rotate()` !
 
-    Avant la boucle de parcours des pixels, ajouter :
+    **Partie 3 — Rotation récursive : Diviser pour régner**
 
-    ```python
-    planPixels=Image.new("RGB",(largeur,hauteur))
-    ```
+    On fait maintenant la même rotation **sans créer de seconde image** : on modifie l'image elle-même en échangeant des pixels, ce qui économise beaucoup de mémoire. On travaille sur `woody.jpg`, de taille 256 × 256 (la méthode demande un côté égal à une puissance de 2).
 
-    <https://www.geeksforgeeks.org/python-pil-image-new-method/> 
-
-    On prendra l’image du crabe 
-
-    ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.036.jpeg)
-
-    3 **Rotation récursive**
-
-    On cherche maintenant à effectuer cette transformation, SANS utiliser de nouvelle image planPixels comme précédemment. Ce sera une méthode dite en O(1) du point de vue de la complexité spatiale.
-
-    On utilisera l’image suivante (carrée) pour cette méthode : **woody.jpg**
-
-    3.1. Compléter la procédure echange\_pix suivante
+    **7.** Compléter la procédure `echange_pix` :
 
     ```python
     def echange_pix(image, x0, y0, x1, y1):
-        """procedure qui echange les pixels d'une image entre une position 
-        de depart start et d'arrivée end
-        Params:
-        ------
-        image : objet de la classe Image
-        x0,y0: int, int: coordonnées du pixel de depart
-        x1,y1: int, int: coordonnées du pixel d'arrivée
-
-        Example: echange du pixel (0,0) avec celui (120,120)
-        --------
-        >>> echange_pix(image,0,0,120,120)
-        """
+        """Échange le pixel (x0, y0) et le pixel (x1, y1) de l'image."""
         start = image.getpixel((x0, y0))
         end = image.getpixel((x1, y1))
         # à compléter
     ```
 
-    3.2. Compléter la procédure echange\_quadrant suivante
-
-    Cette procédure permet d’échanger les pixels de 2 zones carrées de mêmes dimensions.
+    **8.** Compléter la procédure `echange_quadrant`, qui échange tous les pixels de deux blocs carrés A et B de même taille n × n :
 
     ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.037.png)
 
     ```python
     def echange_quadrant(image, x0, y0, x1, y1, n):
-        """procedure qui echange tous les pixels du bloc de pixels A
-        avec ceux du bloc B, de même dimension n*n.
-        L'image doit être carrée, de largeur et hauteur égaux à n
-        A et B occupent une position quelconque parmi les 4 quarts de l'image
-        Params:
-        -------
-        image : objet de la classe Image
-        x0,y0: int, int: coordonnées du pixel du coin superieur gauche de A
-        x1,y1: int, int: coordonnées du pixel du coin superieur gauche de B
-        n : int : largeur ou hauteur de l'image, en nombre de pixels
-        Example: echange du quart d'image en haut à gauche (A) avec celui 
-        ------------ en haut à droite (B) sur une image de largeur 420
-
-
-        >>> echange_quadrant(image,0,0,120,0,120)
-        """
+        """Échange tous les pixels du bloc carré A (coin supérieur gauche (x0, y0))
+        avec ceux du bloc carré B (coin supérieur gauche (x1, y1)).
+        Les deux blocs ont la même taille : n × n pixels."""
         for i in range(n):
             for j in range(n):
-                echange_pix(image, # à compléter
+                pass  # à compléter
     ```
 
-    3.3 On veut échanger les blocs A et D, qui font chacun 120\*120 pixels. Quelle instruction faut-il écrire, utilisant la procédure echange\_quadrant.
-
-    3.4 Même question pour échanger les blocs A et C.
+    **9.** Dans `woody.jpg`, on appelle A, B, C et D les quatre blocs de 128 × 128 pixels (A en haut à gauche, B en haut à droite, C en bas à gauche, D en bas à droite). Quelle instruction échange les blocs A et D ? Et les blocs A et C ?
 
     **Diviser pour régner**
 
-    La méthode de "Diviser pour régner" en algorithmique se décompose en trois étapes :
-
-    - Diviser : on découpe l'image en images de taille 2x2
-    - Régner : on effectue la rotation de chaque image de taille 2x2
-    - Fusion : la fusion est réalisée en échangeant les quadrants lors des appels récursifs.
-
-    La procédure permet de faire tourner l’image d’un quart de tour par une méthode de type *diviser pour régner*.
-
-    Une fois la partie **divisée** exécutée (appels récursifs), lorsque les subdivisions de l’image sont constituées d’un seul pixel, les pixels sont déplacés (**règne**) à l’aide d’une rotation 
+    - **Diviser** : on découpe le carré en 4 carrés deux fois plus petits (A, B, C, D) ;
+    - **Régner** : on tourne chacun des 4 carrés d'un quart de tour, récursivement ; un carré d'un seul pixel n'a pas besoin d'être tourné (cas de base) ;
+    - **Combiner** : C va en haut à gauche, A en haut à droite, B en bas à droite et D en bas à gauche. Cette **permutation circulaire** se fait avec **trois** échanges de blocs.
 
     ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.038.png)
 
-    Puis de 3 permutations successives, selon le schéma suivant.
-
-    ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.039.png)On numérote les cases :
-
-
-
-    ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.040.png)
-
-
-
-    Ils sont alors recombinés pour reformer l’image, tout en suivant les mêmes permutations, mais avec des blocs de pixels plus gros (**fusion**).
-
-    3.5. Si on appelle m la dimension du carré, quelle est la procédure qui permet de réaliser l'échange ci-dessous ?
-
-    3.6. Compléter la procédure rotate, de telle sorte que la permutation circulaire se fasse :
+    **10.** Compléter la procédure `rotate` avec les trois échanges de blocs :
 
     ```python
-    def rotate(image,x0,y0,n):
-        """procedure recursive qui tourne d'un quart de tour un carré
-        de l'image de dimension n.
-        à chaque appel recursif, la taille de l'image est divisée par 2.
-        Si l'image fait plus d'un seul pixel, la rotation se fait par
-        permutation des (zones de) pixels A<=>B, B<=>D, D<=>C
-        Params:
-        -------
-        image
-        x0,y0: int, int: coordonnées du pixel du coin superieur gauche du carré
-        n: dimension du carré
-        Example:
-        --------
-        rotate(image,0,0,420)
-        """
-        if n>=2:
-            m = n//2
-            rotate(image,x0,y0,m)
-            rotate(image,x0,y0+m,m)
-            rotate(image,x0+m,y0,m)
-            rotate(image,x0+m,y0+m,m)
-        # à compléter
+    def rotate(image, x0, y0, n):
+        """Tourne d'un quart de tour (sens horaire) le carré de l'image
+        de coin supérieur gauche (x0, y0) et de côté n (n puissance de 2)."""
+        if n >= 2:
+            m = n // 2
+            rotate(image, x0, y0, m)          # A : en haut à gauche
+            rotate(image, x0 + m, y0, m)      # B : en haut à droite
+            rotate(image, x0, y0 + m, m)      # C : en bas à gauche
+            rotate(image, x0 + m, y0 + m, m)  # D : en bas à droite
+            pass  # à compléter : permutation circulaire des 4 carrés
     ```
 
-    3.7. *Analysez la procédure :* A l’aide de l’image suivante, que vous découperez, montrer pas à pas ce qui est réalisé par la fonction rotate
+    **11.** À l'aide de la grille ci-dessous, décrire pas à pas ce que fait `rotate(image, 0, 0, 4)`.
 
     ![](Aspose.Words.3029dfa0-340c-45c6-b18b-22f9c5195fb6.041.png)
 
-    3.8. Ecrire la procédure quart\_tour(image) qui réalise la rotation de image de taille n d'un quart de tour.
+    **12.** Écrire la procédure `quart_tour(image)` qui fait tourner toute l'image d'un quart de tour, puis l'essayer sur `woody.jpg`.
 
-
+    **13.** *Pour aller plus loin* : combien d'échanges de pixels fait `quart_tour` pour une image n × n ? Quel est l'avantage de la méthode récursive par rapport à la partie 2 ? Son inconvénient ?

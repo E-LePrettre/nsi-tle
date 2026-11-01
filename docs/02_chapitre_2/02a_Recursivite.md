@@ -1,4 +1,4 @@
-﻿---
+---
 author: Elisabeth Le Prettre (LePrettre)
 title: 02a Récursivité
 ---
@@ -173,7 +173,7 @@ def fonction(arguments):
 
 ### <H3 style="color:green;">🧪 1.3. Quand le cas récursif contient un test</H3>
 
-Jusqu'ici, le cas récursif était **toujours le même** : `puissance(x, n-1)`, `factorielle(n-1)`…
+Jusqu'ici, le cas récursif était **toujours le même** : `decompte_r(n - 1)`, `somme(n - 1)`…
 Mais très souvent, **ce qu'on fait dépend de l'élément qu'on regarde** : *combien y a-t-il de nombres pairs ?*, *quel est le plus grand ?*, *tous les éléments sont-ils positifs ?*
 
 Il faut alors un **test à l'intérieur du cas récursif**. Voici comment s'y prendre.
@@ -473,14 +473,14 @@ compte([1, [2, 3]])
 ### <H3 style="color:green;">📐 1.4. Application à la fonction puissance</H3>
 
 Le but est d’écrire une fonction `puissance(x, n)` **sans utiliser `**`**.  
-On cherche à calculer $x^n = x × x × … × x$ (n fois).
+On cherche à calculer xⁿ = x × x × … × x (n fois).
 
 ✅ **Cas de base :**  
 La puissance de `x` pour `n = 0` vaut **1**.
 
 🔁 **Cas récursif :**  
 On utilise la relation :  
-$x^n$ = $x \times x^{n-1}$  
+xⁿ = x × xⁿ⁻¹  
 C’est-à-dire, on **multiplie x par la puissance précédente**.
 
 🧠 **Remarque pédagogique :**  
@@ -541,7 +541,7 @@ Déroulé des appels :
 - …
 - jusqu’à obtenir `x * ... * x * 1` (n fois)
 
-On obtient bien la valeur attendue de $x^n$.
+On obtient bien la valeur attendue de xⁿ.
 
 ---
 
@@ -676,14 +676,14 @@ On ramène ainsi le calcul de `x × y` à un **sous-problème équivalent plus s
 🔢 **La factorielle, c’est quoi ?**
 Elle correspond au **nombre de permutations possibles** d’un ensemble de `n` éléments.
 
-Exemple : $3! = 6$ façons de réordonner ‘a’, ‘b’, ‘c’ :
+Exemple : 3! = 6 façons de réordonner ‘a’, ‘b’, ‘c’ :
 `abc`, `acb`, `bac`, `bca`, `cab`, `cba`.
 
 🧠 Définition mathématique :
 
-$n!$ = $n × (n - 1) × ... × 2 × 1$
+n! = n × (n - 1) × … × 2 × 1
 
-Et par convention : $0! = 1$
+Et par convention : 0! = 1
 
 ---
 
@@ -740,7 +740,7 @@ Un appel de fonction est plus **coûteux** qu’un simple test ou calcul.
 ✅ Cependant, pour certains types de problèmes comme :
 
 * les **arbres** (à venir)
-* les **algorithmes de tri** (chapitre suivant)
+* certains **algorithmes de tri**, comme le tri fusion (page suivante : diviser pour régner)
 
 ➡️ la **version récursive** est **plus naturelle** et parfois même indispensable.
 
@@ -790,10 +790,10 @@ Déplacer **n disques** de A vers C revient à :
 
 🧮 **Nombre de déplacements :**  
 Avec 64 disques, il faudrait :  
-$2^{64} - 1$ = $18 446 744 073 709 551 615 \text{ coups}$
+2⁶⁴ − 1 = 18 446 744 073 709 551 615 coups
 
 Soit environ **584,5 milliards d’années** à raison d’un coup par seconde…  
-👉 **43 fois l'âge de l'univers**.
+👉 environ **42 fois l'âge de l'univers** (13,8 milliards d'années).
 
 ---
 
@@ -807,7 +807,7 @@ Soit environ **584,5 milliards d’années** à raison d’un coup par seconde�
         print(f"Déplacer le disque {n} de la pique {a} vers la pique {c}.")
         hanoi(n - 1, b, a, c)  # de B vers C en passant par A
 
-    print(hanoi(4))
+    hanoi(4)
     ```
 
     ??? success "Python"
@@ -825,9 +825,9 @@ Exemple : la **suite de Fibonacci**.
 
 🧮 Définition :
 
-- $F_0 = 0$
-- $F_1 = 1$
-- $F_n = F_{n-1} + F_{n-2}$
+- F(0) = 0
+- F(1) = 1
+- F(n) = F(n-1) + F(n-2) pour n ≥ 2
 
 ---
 
@@ -871,7 +871,7 @@ Exemple : la **suite de Fibonacci**.
     ```python
     import time
 
-    for k in range(1, 5):
+    for k in range(1, 4):   # n = 10, 20, 30 (avec n = 40, le récursif prendrait plusieurs minutes !)
         print(k*10)
         a = time.perf_counter_ns()
         fibo_i(k*10)
@@ -888,9 +888,9 @@ Exemple : la **suite de Fibonacci**.
 
 ---
 
-📊 **Tableau des performances**
+📊 **Tableau des performances** (mesures faites sur un ordinateur ; n = 40 et n = 50 ne sont donnés que pour l'exemple)
 
-| k   | Récursif (ns)             | Itératif (ns) |
+| n   | Récursif (ns)             | Itératif (ns) |
 |-----|---------------------------|----------------|
 | 10  | 26 100                    | 2 400          |
 | 20  | 2 359 600                 | 3 100          |
@@ -1167,9 +1167,9 @@ Elle est **élégante mais coûteuse** si mal utilisée (exemple : Fibonacci).
 
 !!! abstract "**Exercice 1 : ★ La fonction somme**"
 
-    Pour définir la somme des n premiers entiers, on a l’habitude d’écrire la formule suivante : $0 + 1 + 2 + ... + n$
+    Pour définir la somme des n premiers entiers, on a l’habitude d’écrire la formule suivante : 0 + 1 + 2 + … + n
 
-    Écrire une fonction $somme(n)$ en récursif.
+    Écrire une fonction `somme(n)` en récursif.
 
     **Aide :**
 
@@ -1181,15 +1181,26 @@ Elle est **élégante mais coûteuse** si mal utilisée (exemple : Fibonacci).
 
     On appelle palindrome un mot qui se lit dans les deux sens comme "selles" ou "radar".
 
-    La fonction ci-contre renvoie vrai si le mot passé en paramètre est un palindrome. Pour le mot "selles" composé de 6 lettres, on fait 3 comparaisons. Pour le mot "radar" composé de 5 lettres, on ne fait que 2 comparaisons (une unique lettre est forcément un palindrome).
+    La fonction itérative ci-dessous renvoie `True` si le mot passé en paramètre est un palindrome.
+
+    ```python
+    def est_palindrome_iter(mot):
+        mot = mot.lower()
+        for i in range(len(mot) // 2):
+            if mot[i] != mot[-i - 1]:
+                return False
+        return True
+    ```
+
+    Pour le mot "selles" composé de 6 lettres, on fait 3 comparaisons. Pour le mot "radar" composé de 5 lettres, on ne fait que 2 comparaisons (une unique lettre est forcément un palindrome).
 
     En version récursive, l’idée est : "selles" est un palindrome si "s" = "s" et "elle" est un palindrome => cas récursif.
 
-    Écrire une version récursive de la fonction $est\_palindrome(mot)$.
+    Écrire une version récursive de la fonction `est_palindrome(mot)`.
 
     **Aide :**
 
-    - Quel est les cas de base (cas d’arrêt) ?
+    - Quels sont les cas de base (cas d’arrêt) ?
 
         - Pour renvoyer True
 
@@ -1205,7 +1216,7 @@ Elle est **élégante mais coûteuse** si mal utilisée (exemple : Fibonacci).
 
     - Elle gagne 200 adhérents
 
-    En admettant que le nombre d’adhérents de cette association était égal à 2000 au 1er janvier 2020, écrire en Python une fonction récursive nommée $nombre(n)$ affichant le nombre théorique d’adhérents après n années.
+    En admettant que le nombre d’adhérents de cette association était égal à 2000 au 1er janvier 2020, écrire en Python une fonction récursive nommée `nombre(n)` renvoyant le nombre théorique d’adhérents après n années.
 
     **Aide :**
 
@@ -1213,7 +1224,7 @@ Elle est **élégante mais coûteuse** si mal utilisée (exemple : Fibonacci).
 
     - Déterminer le nombre d’adhérents l’année suivante par rapport à l’année précédente
 
-    - Dans ce même programme, afficher le nombre théorique d’adhérents au cours des 20 prochaines années.
+    - Dans ce même programme, afficher le nombre théorique d’adhérents au cours des 20 prochaines années. Que remarque-t-on ? Vers quelle valeur ce nombre semble-t-il se stabiliser ?
 
 !!! abstract "**Exercice 4 : La suite de Syracuse**"
 
@@ -1225,15 +1236,15 @@ Elle est **élégante mais coûteuse** si mal utilisée (exemple : Fibonacci).
 
     Elle est définie par :
 
-    - $x_1 = a ∈ N*$
+    - x₁ = a (entier strictement positif)
 
-    - $x_{n+1} = x_n / 2$ si $x_n$ est pair
+    - xₙ₊₁ = xₙ // 2 si xₙ est pair
 
-    - $3x_n + 1$ si $x_n$ est impair
+    - xₙ₊₁ = 3 × xₙ + 1 si xₙ est impair
 
-    1 Vérifier par le calcul que pour $a = 14$ et $n = 20$ la suite est des nombres : 14, 7, 22, 11, 34, 17, 52, 26, 13, 40, 20, 10, 5, 16, 8, 4, 2, 1, 4, 2.
+    1 Vérifier par le calcul que pour `a = 14` et `n = 20` la suite est des nombres : 14, 7, 22, 11, 34, 17, 52, 26, 13, 40, 20, 10, 5, 16, 8, 4, 2, 1, 4, 2.
 
-    2 Écrire en Python une fonction itérative $syracuse\_iter(a, n)$ : donnant la suite de Syracuse lorsqu’on entre en paramètre la valeur de $a$ et le rang $n$.
+    2 Écrire en Python une fonction itérative `syracuse_iter(a, n)` : donnant la suite de Syracuse lorsqu’on entre en paramètre la valeur de `a` et le rang `n`.
 
     **Vérifier les tests suivants :**
 
@@ -1243,7 +1254,7 @@ Elle est **élégante mais coûteuse** si mal utilisée (exemple : Fibonacci).
     assert syracuse_iter(14, 20) == 2
     ```
 
-    3 Ecrire une version récursive $syracuse\_recur(a, n)$. 
+    3 Ecrire une version récursive `syracuse_recur(a, n)`. 
 
     **Vérifier les tests suivants :**
 
@@ -1255,7 +1266,7 @@ Elle est **élégante mais coûteuse** si mal utilisée (exemple : Fibonacci).
 
     4 La conjecture de Syracuse (encore appelée conjecture de Collatz ou conjecture d’Ulam) est l’hypothèse mathématique selon laquelle la suite de Syracuse de n’importe quel entier strictement positif atteint 1.
 
-    Écrire la fonction $syracuse$ à un paramètre entier qui retourne la longueur de la suite de Syracuse de cet entier (le nombre de termes) pour obtenir 1.
+    Écrire la fonction `syracuse` à un paramètre entier qui retourne la longueur de la suite de Syracuse de cet entier (le nombre de termes) pour obtenir 1.
 
     ```python
     assert syracuse(14) == 18
@@ -1263,9 +1274,9 @@ Elle est **élégante mais coûteuse** si mal utilisée (exemple : Fibonacci).
     assert syracuse(2) == 2
     ```
 
-!!! abstract "**Exercice 5 : : Le PGCD**"
+!!! abstract "**Exercice 5 : Le PGCD**"
 
-    Écrire une fonction récursive $pgcd(a, b)$ qui renvoie le PGCD de deux entiers `a` et `b`. 
+    Écrire une fonction récursive `pgcd(a, b)` qui renvoie le PGCD de deux entiers `a` et `b`. 
 
     ![](42.png)
 
@@ -1276,7 +1287,7 @@ Elle est **élégante mais coûteuse** si mal utilisée (exemple : Fibonacci).
     60 = 32 x 1 + 28
     32 = 28 x 1 + 4
     28 = 4 x 7 + 0
-    4 = 0 x 0 + 4
+    le reste est nul : le PGCD est le dernier reste non nul
     => 4
     ```
 
@@ -1285,7 +1296,7 @@ Elle est **élégante mais coûteuse** si mal utilisée (exemple : Fibonacci).
     96 = 36 x 2 + 24
     36 = 24 x 1 + 12
     24 = 12 x 2 + 0
-    12 = 0 x 0 + 12
+    le reste est nul : le PGCD est le dernier reste non nul
     => 12
     ```
 
@@ -1300,7 +1311,7 @@ Elle est **élégante mais coûteuse** si mal utilisée (exemple : Fibonacci).
 
 !!! abstract "**Exercice 6 : Nombre de chiffres**"
 
-    Écrire une fonction récursive $nombre\_de\_chiffres(n)$ qui prend un entier positif ou nul `n` en argument et renvoie son nombre de chiffres.
+    Écrire une fonction récursive `nombre_de_chiffres(n)` qui prend un entier positif ou nul `n` en argument et renvoie son nombre de chiffres.
 
     **Exemple :**
 
@@ -1310,7 +1321,7 @@ Elle est **élégante mais coûteuse** si mal utilisée (exemple : Fibonacci).
 
 !!! abstract "**Exercice 7 : Appartient**"
 
-    Écrire une fonction récursive $appartient(v, t, i)$ prenant en paramètres une valeur `v`, un tableau `t` et un entier `i` et renvoyant `True` si `v` apparaît dans `t` entre l’indice `i` (inclus) et `len(t)` (exclu) et `False` sinon.
+    Écrire une fonction récursive `appartient(v, t, i)` prenant en paramètres une valeur `v`, un tableau `t` et un entier `i` et renvoyant `True` si `v` apparaît dans `t` entre l’indice `i` (inclus) et `len(t)` (exclu) et `False` sinon.
 
     **Exemple :**
 
@@ -1322,53 +1333,53 @@ Elle est **élégante mais coûteuse** si mal utilisée (exemple : Fibonacci).
 
 !!! abstract "**Exercice 8 : Le triangle de Pascal**"
 
-    Le triangle arithmétique de Pascal est le triangle dont la ligne d'indice `n` (n = 0, 1, 2, ...) donne les coefficients binomiaux $C(n, p)$ pour $p = 0, 1, 2, ... n$.
+    Le triangle arithmétique de Pascal est le triangle dont la ligne d'indice `n` (n = 0, 1, 2, ...) donne les coefficients binomiaux `C(n, p)` pour p = 0, 1, 2, …, n.
 
     ![](43.png)
 
-    **Coefficients du développement de $(a + b)^n$** : Les coefficients du triangle de Pascal sont les coefficients du développement de $(a + b)^n$.
+    **Coefficients du développement de (a + b)ⁿ** : Les coefficients du triangle de Pascal sont les coefficients du développement de (a + b)ⁿ.
 
     **Exemple :**
 
-    - La ligne 0 est : 1, soit le coefficient de $(a + b)^0 = 1$.
+    - La ligne 0 est : 1, soit le coefficient de (a + b)⁰ = 1.
 
-    - La ligne 1 est : 1 - 1, soit les coefficients de $(a + b)^1 = 1×a + 1×b$.
+    - La ligne 1 est : 1 - 1, soit les coefficients de (a + b)¹ = 1×a + 1×b.
 
-    - La ligne 2 est : 1 - 2 - 1, soit les coefficients de $(a + b)^2 = 1×a^2 + 2×ab + 1×b^2$.
+    - La ligne 2 est : 1 - 2 - 1, soit les coefficients de (a + b)² = 1×a² + 2×ab + 1×b².
 
-    - La ligne 3 est : 1 - 3 - 3 - 1, soit les coefficients de $(a + b)^3 = 1×a^3 + 3×a^2b + 3×ab^2 + 1×b^3$.
+    - La ligne 3 est : 1 - 3 - 3 - 1, soit les coefficients de (a + b)³ = 1×a³ + 3×a²b + 3×ab² + 1×b³.
 
-    - La ligne 4 est : 1 - 4 - 6 - 4 - 1, soit les coefficients de $(a + b)^4 = 1×a^4 + 4×a^3b + 6×a^2b^2 + 4×ab^3 + 1×b^4$.
+    - La ligne 4 est : 1 - 4 - 6 - 4 - 1, soit les coefficients de (a + b)⁴ = 1×a⁴ + 4×a³b + 6×a²b² + 4×ab³ + 1×b⁴.
 
     ![](44.png)
 
-    **En analyse combinatoire**, les nombres $C(n, p)$ correspondent au nombre de façons de tirer `p` objets parmi `n`.
+    **En analyse combinatoire**, les nombres `C(n, p)` correspondent au nombre de façons de tirer `p` objets parmi `n`.
 
     **Exemple :**
 
     La ligne 5 est : 1 - 5 - 10 - 10 - 5 - 1, donc :
 
-    - $C(5, 0) = 1$ : Il y a 1 seule façon de tirer 0 objet parmi 5.
-    - $C(5, 1) = 5$ : Il y a 5 façons de tirer 1 objet parmi 5.
-    - $C(5, 2) = 10$ : Il y a 10 façons de tirer 2 objets parmi 5.
-    - $C(5, 3) = 10$ : Il y a 10 façons de tirer 3 objets parmi 5.
-    - $C(5, 4) = 5$ : Il y a 5 façons de tirer 4 objets parmi 5.
-    - $C(5, 5) = 1$ : Il y a 1 seule façon de tirer 5 objets parmi 5.
+    - C(5, 0) = 1 : Il y a 1 seule façon de tirer 0 objet parmi 5.
+    - C(5, 1) = 5 : Il y a 5 façons de tirer 1 objet parmi 5.
+    - C(5, 2) = 10 : Il y a 10 façons de tirer 2 objets parmi 5.
+    - C(5, 3) = 10 : Il y a 10 façons de tirer 3 objets parmi 5.
+    - C(5, 4) = 5 : Il y a 5 façons de tirer 4 objets parmi 5.
+    - C(5, 5) = 1 : Il y a 1 seule façon de tirer 5 objets parmi 5.
 
-    **Le triangle de Pascal Suite de Fibonacci**
+    **Le triangle de Pascal et la suite de Fibonacci**
 
     Remarquer que ...
 
     ![](29.jpg)
 
-    Le triangle de Pascal (nommé ainsi en l’honneur au mathématicien Blaise Pascal) est une présentation des coefficients binomiaux sous la forme d’un triangle défini ainsi de manière récursive :
+    Le triangle de Pascal (nommé ainsi en l’honneur du mathématicien Blaise Pascal) est une présentation des coefficients binomiaux sous la forme d’un triangle défini ainsi de manière récursive :
 
     ```
     C(n, p) = 1 si p = 0 ou n = p
     C(n, p) = C(n - 1, p - 1) + C(n - 1, p) sinon.
     ```
 
-    Écrire une fonction récursive $C(n, p)$ qui renvoie la valeur de $C(n, p)$.
+    Écrire une fonction récursive `C(n, p)` qui renvoie la valeur de `C(n, p)`.
 
     **Exemple :**
 
@@ -1378,23 +1389,23 @@ Elle est **élégante mais coûteuse** si mal utilisée (exemple : Fibonacci).
 
 !!! abstract "**Exercice 9 : Recherche dans une chaîne de caractères**"
 
-    Ecrire une fonction récursive nommée $est\_dans$ qui, à partir d’un caractère `e` et d’une chaîne de caractères `c`, détermine si ce caractère appartient à la chaîne.
+    Ecrire une fonction récursive nommée `est_dans` qui, à partir d’un caractère `e` et d’une chaîne de caractères `c`, détermine si ce caractère appartient à la chaîne.
 
     Tester cette fonction.
 
-    **Remarque :** La fonction $est\_dans$ est un **prédicat**.
+    **Remarque :** La fonction `est_dans` est un **prédicat**.
 
 !!! abstract "**Exercice 10 : Travail sur les listes**"
 
-    1 Écrire une fonction nommée $longueur\_liste$ récursive qui, à partir d’une liste passée en argument, détermine sa longueur.
+    1 Écrire une fonction nommée `longueur_liste` récursive qui, à partir d’une liste passée en argument, détermine sa longueur.
 
-    2 Écrire une fonction nommée $produit\_elements$ récursive qui, à partir d’une liste d’entiers passée en argument, calcule le produit de tous les nombres.
+    2 Écrire une fonction nommée `produit_elements` récursive qui, à partir d’une liste d’entiers passée en argument, calcule le produit de tous les nombres.
 
-    3 Écrire une fonction nommée $plus\_grand\_element$ récursive qui, à partir d’une liste d’entiers passée en argument, détermine quel est l’entier le plus grand.
+    3 Écrire une fonction nommée `plus_grand_element` récursive qui, à partir d’une liste d’entiers passée en argument, détermine quel est l’entier le plus grand.
 
-    4 Écrire une fonction nommée $plus\_petit\_element$ récursive qui, à partir d’une liste d’entiers passée en argument, détermine quel est l’entier le plus petit.
+    4 Écrire une fonction nommée `plus_petit_element` récursive qui, à partir d’une liste d’entiers passée en argument, détermine quel est l’entier le plus petit.
 
-    5 Écrire une fonction nommée $somme\_listes\_imbriquees$ récursive qui additionne tous les entiers des listes.
+    5 Écrire une fonction nommée `somme_listes_imbriquees` récursive qui additionne tous les entiers des listes.
 
     **Exemple de listes imbriquées :**
 
@@ -1405,21 +1416,21 @@ Elle est **élégante mais coûteuse** si mal utilisée (exemple : Fibonacci).
 
     **Remarque :** Cette question peut illustrer par exemple la recherche de l’occupation disque de tous les fichiers dans la structure arborescente d’un système de fichiers à partir d’un point de cette structure.
 
-    6 Écrire une fonction nommée $duplique$ récursive qui, à partir d’un élément `e` et d’un entier `n`, retourne une liste qui contient l’élément `e` un nombre de fois égal à `n`.
+    6 Écrire une fonction nommée `duplique` récursive qui, à partir d’un élément `e` et d’un entier `n`, retourne une liste qui contient l’élément `e` un nombre de fois égal à `n`.
 
     ```python
     assert duplique(5, 3) == [5, 5, 5]
     ```
 
-    7 Écrire une fonction nommée $extrait$ récursive qui, à partir d’une liste `l` et d’un entier `n`, retourne une liste constituée par les `n` premiers éléments de `l`.
+    7 Écrire une fonction nommée `extrait` récursive qui, à partir d’une liste `l` et d’un entier `n`, retourne une liste constituée par les `n` premiers éléments de `l`.
 
     ```python
     assert extrait([5, 4, 3, 2, 1], 3) == [5, 4, 3]
     ```
 
-    8 Écrire une fonction nommée $renverse$ récursive qui, à partir d’une liste, retourne une liste dans laquelle les éléments sont renversés (les derniers apparaissent en premier).
+    8 Écrire une fonction nommée `renverse` récursive qui, à partir d’une liste, retourne une liste dans laquelle les éléments sont renversés (les derniers apparaissent en premier).
 
-## **<H2 STYLE="COLOR:BLUE;">🔍 4. Projet (démarche d’investigation)<a name="_page0_x40.00_y375.044"></a></a>**</H2>
+## **<H2 STYLE="COLOR:BLUE;">🔍 4. Projet (démarche d’investigation)<a name="_page0_x40.00_y375.044"></a>**</H2>
 
 !!! abstract "**Projet 1 : Le flocon de Koch**"
 
@@ -1431,11 +1442,11 @@ Elle est **élégante mais coûteuse** si mal utilisée (exemple : Fibonacci).
 
     ![](46.png)
 
-    1. On commence par un segment de longueur $a$.
+    1. On commence par un segment de longueur a.
     2. On coupe ce segment en 3 parties égales.
-    3. Le segment central est remplacé par un triangle équilatéral de côté $a/3$.
-    4. Chaque segment de longueur $a/3$ est lui-même découpé en trois parties égales (donc de longueur $a/9$).
-    5. On remplace la partie centrale par un triangle équilatéral de côté $a/9$.
+    3. Le segment central est remplacé par un triangle équilatéral de côté a/3.
+    4. Chaque segment de longueur a/3 est lui-même découpé en trois parties égales (donc de longueur a/9).
+    5. On remplace la partie centrale par un triangle équilatéral de côté a/9.
     6. Etc...
 
 
@@ -1485,9 +1496,9 @@ Elle est **élégante mais coûteuse** si mal utilisée (exemple : Fibonacci).
     ```
     fonction koch(longueur,n): 
     Si n = 0 alors 
-        On trace le segment de longueur cote 
+        On trace un segment de cette longueur 
     Sinon 
-        On appelle la fonction flocon avec les paramètres ???
+        On appelle la fonction koch avec les paramètres ???
         On tourne de ???
         ???
         ???
@@ -1503,15 +1514,15 @@ Elle est **élégante mais coûteuse** si mal utilisée (exemple : Fibonacci).
 
     def koch(longueur, n):
         if n == 0:
-            # à compléter
+            pass  # à compléter
         else:
-            # à compléter
+            pass  # à compléter
 
     koch(200, 3)
     turtle.done()
     ```
 
-    5 Cerise sur le gateau : Sauriez vous faire afficher cette figure :
+    5 Cerise sur le gâteau : sauras-tu afficher cette figure ?
 
     ![](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.032.png)
 
@@ -1528,13 +1539,13 @@ Elle est **élégante mais coûteuse** si mal utilisée (exemple : Fibonacci).
 
     **Aides** : 
 
-    - seuls les petits triangles sont coloriés => mauvaise idée de tout coloriée puis de rajouter des triangles blancs
+    - seuls les petits triangles sont coloriés => mauvaise idée de tout colorier puis de rajouter des triangles blancs
 
     - pour passer d’un triangle de niveau supérieur vers un triangle inférieur il faut diviser par 2
 
     - La fonction à créer a pour prototypage : sierpinski(n : int, L : int) où n est le niveau souhaité (de 0 à l’infini) et L la longueur d’un des côtés du grand triangle 
 
-    - On **pourra** prendre L = 600 et se déplacer au départ en (-300, -300) pour center le dessin si on choisit d’aller vers la gauche…
+    - On **pourra** prendre L = 600 et se déplacer au départ en (-300, -300) pour centrer le dessin si on choisit d’aller vers la gauche…
 
     - Pensez à turtle.speed(0) au début et turtle.done() à la fin
 
@@ -1542,9 +1553,9 @@ Elle est **élégante mais coûteuse** si mal utilisée (exemple : Fibonacci).
 
 !!! abstract "**Projet 3 : Le tapis de Sierpinski**"
 
-    Utiliser une fonction récursive pour réaliser les triangles de Sierpinski ci-dessous. L’idée est d’arrivée à un beau tapis de ce style (le dernier)
+    Utiliser une fonction récursive pour réaliser le tapis de Sierpinski ci-dessous. L’idée est d’arriver à un beau tapis de ce style (le dernier)
 
-    [](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.048.png)![](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.049.png)![](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.047.png)!![](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.050.png)
+    ![](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.048.png)![](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.049.png)![](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.047.png)![](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.050.png)
 
 
 
@@ -1564,11 +1575,11 @@ Elle est **élégante mais coûteuse** si mal utilisée (exemple : Fibonacci).
 
     ![tapis de sierpinsky : étape 2](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.052.png)
 
-    **Étape 2**On recommence avec les nouveaux carrés vides:
+    **Étape 2** On recommence avec les nouveaux carrés vides:
 
     ![tapis de sierpinsky : étape 3](Aspose.Words.5353fbcd-56c4-4f4a-a255-9e80942bae59.053.png)
 
-    Et on fait cela à l’infini. Le résultat final donne le *tapis de Sierpinsky*.
+    Et on fait cela à l’infini. Le résultat final donne le *tapis de Sierpinski*.
 
 
 !!! abstract "**Projet 4 : Arbre de Pythagore**"
@@ -1582,7 +1593,7 @@ Elle est **élégante mais coûteuse** si mal utilisée (exemple : Fibonacci).
 
     Aide : 
 
-    - On pourra utiliser turtle.colormode(255) => pour coder en rgb puis un random.randint(0,255) sur les trois couleur rgb 
+    - On pourra utiliser turtle.colormode(255) => pour coder en rgb puis un random.randint(0,255) sur les trois couleurs RVB 
 
 
 
@@ -1598,6 +1609,6 @@ Elle est **élégante mais coûteuse** si mal utilisée (exemple : Fibonacci).
 
     Base de la construction d'un arbre. 
 
-    Les portions dessinées en *pointillées sont celles sur lesquelles on appliquera la transformation à l’ordre suivant* (on les appelle les **segments non-terminaux**). Les portions dessinées en *trait plein sont des segments qui ne seront pas transformés* (on les appellera les **segments terminaux**).
+    Les portions dessinées en *pointillés sont celles sur lesquelles on appliquera la transformation à l’ordre suivant* (on les appelle les **segments non-terminaux**). Les portions dessinées en *trait plein sont des segments qui ne seront pas transformés* (on les appellera les **segments terminaux**).
 
-    Pour transformer un segment non-terminal de longueur lll, on trace un segment terminal de longueur l/3, puis deux segments non-terminaux de longueur 2l/3 à un angle θ du premier segment.
+    Pour transformer un segment non-terminal de longueur l, on trace un segment terminal de longueur l/3, puis deux segments non-terminaux de longueur 2l/3 à un angle θ du premier segment.

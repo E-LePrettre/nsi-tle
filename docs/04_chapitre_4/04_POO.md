@@ -912,7 +912,7 @@ Elle reçoit comme argument le nom de l’attribut **sous forme de chaîne**.
     ### Programme principal ###
     qui = Personne('Dupont', 'Jean')
     print(qui.age)
-    qui.age = 10      # ne modifie pas l’attribut car < 17
+    qui.age = 10      # ne modifie pas l’attribut car 10 n'est pas > 17
     print(qui.age)
     print(qui.nom)         # nom est privé => introuvable
     print(qui.tartempion)  # n'existe pas => introuvable
@@ -1679,7 +1679,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
 ## <H2 STYLE="COLOR:BLUE;"> 🧠<a name="_toc88030973"></a>**5. Exercices**</H2>
 
-!!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
+!!! example "🧠 Exercices dans Capytale => le code te sera donné par ton enseignante"
 
 !!! abstract "**Exercice 1**" 
 
@@ -1770,7 +1770,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
     De plus, on dit que z = z' si x = x' et y = y'. Écrire en Python une classe `Complexe` :
 
-    - qui définit un nombre complexe (le constructeur devra initialiser un tuple de deux nombres : la partie réelle et la partie imaginaire);
+    - qui définit un nombre complexe (le constructeur reçoit deux nombres : la partie réelle `x` et la partie imaginaire `y`, stockés dans deux attributs);
     - ayant une méthode permettant d'afficher le nombre complexe sous forme d'un tuple de deux éléments;
     - permettant d'ajouter, soustraire, multiplier et comparer (en termes d'égalité) deux nombres complexes;
     - permettant de donner la distance de l'origine du repère au point représenté par le nombre complexe (on appelle cette distance le module, qui est égal à √(x² + y²)).
@@ -1869,7 +1869,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
     
 !!! abstract "**Projet 1 : Jeu de cartes**"
 
-    !!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
+    !!! example "🧠 Exercices dans Capytale => le code te sera donné par ton enseignante"
 
 
     Pour construire un jeu de cartes, on va commencer par construire une classe Carte :
@@ -1971,7 +1971,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
 !!! abstract "**Projet 2 : Filtres d’image**"
 
-    !!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
+    !!! example "🧠 Exercices dans Capytale => le code te sera donné par ton enseignante"
 
     Ce TP utilise la bibliothèque Pillow.
 
@@ -1993,7 +1993,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
     Il existe plusieurs façons de décrire les couleurs en informatique. Nous présentons ici une des plus utilisées : le codage RVB, qui est utilisé notamment dans les formats d'image JPEG et TIFF. Rouge vert bleu, abrégé RVB (ou RGB de l'anglais red, green, blue), est un format de codage des couleurs. Ces trois couleurs sont les couleurs primaires en synthèse additive. Elles correspondent en fait à peu près aux trois longueurs d'ondes auxquelles répondent les trois types de cônes de l'œil humain (voir trichromie). L'addition des trois donne du blanc pour l'œil humain. Elles sont utilisées en éclairage afin d'obtenir toutes les couleurs visibles par l'homme. Elles sont aujourd'hui utilisées en vidéo, pour l'affichage sur les écrans, et dans les logiciels d'imagerie.
 
-    C'est sur ce principe que fonctionnent les téléviseurs couleur. Si vous regardez un écran de télévision couleur avec une loupe, vous allez voir apparaître des groupes de trois points lumineux : un rouge, un vert et un bleu. La combinaison de ces trois points donne un point lumineux (un pixel) d'une certaine couleur.
+    C'est sur ce principe que fonctionnent les téléviseurs couleur. Si tu regardes un écran de télévision couleur avec une loupe, tu vas voir apparaître des groupes de trois points lumineux : un rouge, un vert et un bleu. La combinaison de ces trois points donne un point lumineux (un pixel) d'une certaine couleur.
 
 
 
@@ -2088,7 +2088,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
     ![](Aspose.Words.427b5c12-e7cd-426a-b87c-f85884ba8965.024.png)
 
-    Vous êtes parés pour écrire votre premier filtre. 
+    Tu es paré·e pour écrire ton premier filtre. 
 
     7 sur Thonny : Créer un fichier python premier\_filtre.py.
 
@@ -2224,7 +2224,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
     - Première conséquence : les points les plus noirs auront une valeur égale à 96 et il n'existera plus aucun point entre 0 et 96.
 
-    - Deuxième conséquence : les points ayant une valeur supérieure à 160 deviendront des points parfaitement blancs, puisque la valeur maximale possible est 255. Il y a donc perte d'informations.
+    - Deuxième conséquence : les points ayant une valeur supérieure ou égale à 159 deviendront des points parfaitement blancs, puisque la valeur maximale possible est 255. Il y a donc perte d'informations.
 
 
     Pour éviter ces pertes d'informations, il faut que la courbe tonale rejoigne les axes tangentiellement, comme dans l'exemple ci-contre. Ainsi, aucun point ne débordera des valeurs limites minimale (0) ou maximale (255). Il sera en particulier possible de revenir en arrière.
@@ -2234,7 +2234,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
     Pour diminuer la luminosité il faudra au contraire soustraire une valeur fixe à tous les niveaux.
     Pour une valeur de -100, tous les points de l'espace V" seront noirs.
 
-    - Première conséquence : les points les plus blancs auront une valeur égale à 156 et il n'existera plus aucun point entre 156 et 255.
+    - Première conséquence : les points les plus blancs auront une valeur égale à 155 et il n'existera plus aucun point au-dessus de 155.
 
     - Deuxième conséquence : les points ayant une valeur comprise entre 0 et 100 deviendront noirs, puisque la valeur minimale est 0. Il y aura donc là aussi perte d'informations.
 
@@ -2267,7 +2267,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
     - Si la valeur est plus grande que 225, assignez la valeur 255.
 
-    - Les valeurs c comprises entre 30 et 225 seront recalculées avec la formule : int(round((255.0 / 195.0) \* (c - 30) + 0.5))
+    - Les valeurs c comprises entre 30 et 225 seront recalculées avec la formule : int(round((255.0 / 195.0) \* (c - 30))) (ainsi 30 donne 0 et 225 donne 255)
 
     25 Tester la méthode avec filtre.png et la valeur 30. Sauvegarder l’image sous filtre\_contraste30.png.  
 
@@ -2294,7 +2294,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
 !!! abstract "**Projet 3 : Blackjack**"
 
-    !!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
+    !!! example "🧠 Exercices dans Capytale => le code te sera donné par ton enseignante"
 
     **Règle du jeu :** d’après Wikipédia :Le blackjack est un jeu de carte. La partie oppose tous les joueurs contre le croupier (pour simplifier, il n'y aura ici qu'un seul joueur). Le but est de faire **plus de points** que le croupier **sans dépasser 21**. Dès qu'un joueur fait plus que 21, on dit qu'il « **saute** » et il perd sa mise initiale. La valeur des cartes est établie comme suit : 
 
@@ -2352,7 +2352,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
     - Lors de la création d’une instance de Deck, il faut disposer d’une collection de toutes les cartes possibles. Pour cela il faut utiliser une compréhension de liste contenant des listes de chaque couleur et valeur. Il faut transmettre chaque combinaison à l’initialisation de la classe Card pour créer les 52 instances card uniques, comme suit : Card(suit, value). On s’aidera de la liste des couleurs ["Pique ♠", "Trèfle ♣", "Coeur ♥", "Carreau ♦"] et la liste de valeur ["As", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Valet", "Reine", "Roi"]
 
-    - Implémentez une méthode \_\_str\_\_ : vous devriez obtenir quelque chose comme ceci :
+    - Implémente une méthode \_\_str\_\_ : tu devrais obtenir quelque chose comme ceci :
     ```txt
     >>> pile_cartes = Deck()
     >>> print(pile_cartes)
@@ -2371,8 +2371,10 @@ ma_fonction = nom_du_decorateur(ma_fonction)
     ```txt
     # à ajouter
     >>> pile_cartes.deal()
-    9 de Coeur ♥
+    8 de Carreau ♦
     ```
+
+    (`pop()` retire le **dernier** élément de la liste : c'est lui qui joue le rôle de la carte du dessus.)
 
     **La classe Hand** :
 
@@ -2396,7 +2398,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
     - on utilisera la méthode append
 
-    - Implémentez une méthode \_\_str\_\_ : vous devriez obtenir quelque chose comme ceci :
+    - Implémente une méthode \_\_str\_\_ : tu devrais obtenir quelque chose comme ceci :
     ```txt
     # à ajouter
     >>> pile_cartes.shuffle()
@@ -2423,7 +2425,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
     9 La méthode get\_value permet de récupérer la valeur value et de la retourner.
 
-    Vous devriez obtenir quelque chose comme ceci :
+    Tu devrais obtenir quelque chose comme ceci :
     ```txt
     # à ajouter
     >>> ma_main.add_card(pile_cartes.deal())
@@ -2517,6 +2519,8 @@ ma_fonction = nom_du_decorateur(ma_fonction)
     Une autre partie ? [O/N]
     ```
 
+    (Dans cette version simplifiée, le croupier ne tire pas de carte supplémentaire : on ne programme pas la règle « la banque tire à 16, reste à 17 ».)
+
     14 La méthode player\_is\_over permet de tester si la main du joueur est supérieure à 21. Cette méthode vérifie si la valeur de la main du joueur est terminée et renvoie les informations sous la forme d’un booléen
 
     **Aide** : Le score sera obtenue avec la méthode get\_value()
@@ -2555,7 +2559,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
 !!! abstract "**Projet 4 : Banque**"
 
-    !!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
+    !!! example "🧠 Exercices dans Capytale => le code te sera donné par ton enseignante"
 
     L’objectif est de simuler (sommairement bien sûr) le fonctionnement d’une banque. Le programme doit permettre :
 
@@ -2820,7 +2824,7 @@ ma_fonction = nom_du_decorateur(ma_fonction)
 
 !!! abstract "**Projet 5 : Jeu de la vie**"
 
-    !!! example "🧠 Exercices dans Capytale => le code vous sera donné par votre enseignant"
+    !!! example "🧠 Exercices dans Capytale => le code te sera donné par ton enseignante"
 
     Le but de ce sujet est de réaliser en Python une implémentation du jeu de la vie en utilisant la programmation objet.
 
