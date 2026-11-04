@@ -301,11 +301,6 @@ document
   .querySelector("[data-md-color-scheme]")
   .addEventListener("change", () => paintACE());
 
-// turn off copy paste of code... A bit aggressive but necessary
-$(".highlight").bind("copy paste", function (e) {
-  e.preventDefault();
-  return false;
-});
 
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("pre code.qcm").forEach((el) => {
