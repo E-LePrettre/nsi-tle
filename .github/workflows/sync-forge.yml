@@ -1,9 +1,5 @@
-# Manual synchronization requested: 2026-09-30 22:26 Europe/Paris — chapters 02a and 02b
 name: Synchronize source from Forge
 on:
-  push:
-    branches: [main]
-    paths: ['.github/workflows/sync-forge.yml']
   workflow_dispatch:
   schedule:
     - cron: '13 3 * * *'
@@ -15,23 +11,47 @@ concurrency:
 jobs:
   sync:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
-      - name: Retrieve current Forge source
-        run: git clone --depth 1 https://forge.apps.education.fr/eleprettre/nsi-tle.git "$RUNNER_TEMP/forge-source"
-      - name: Synchronize files and preserve GitHub workflows
+      - name: Retrieve current Forge source with retries
+        shell: bash
         run: |
+          set -euo pipefail
+          for attempt in 1 2 3 4; do
+            rm -rf "$RUNNER_TEMP/forge-source"
+            if timeout 100s git -c http.lowSpeedLimit=1000 -c http.lowSpeedTime=30 clone --depth 1 "https://forge.apps.education.fr/eleprettre/nsi-tle.git" "$RUNNER_TEMP/forge-source"; then
+              git -C "$RUNNER_TEMP/forge-source" rev-parse --verify HEAD
+              exit 0
+            fi
+            echo "::warning::Forge fetch attempt $attempt/4 failed"
+            if [ "$attempt" -lt 4 ]; then sleep $((attempt * 10)); fi
+          done
+          echo "::error::Forge unavailable. Existing GitHub mirror preserved; no deletion or publication attempted."
+          exit 1
+      - name: Synchronize files and preserve GitHub workflows
+        shell: bash
+        run: |
+          set -euo pipefail
           source_revision=$(git -C "$RUNNER_TEMP/forge-source" rev-parse HEAD)
           rsync -a --delete --exclude=.git/ --exclude=.github/ "$RUNNER_TEMP/forge-source/" ./
           printf '%s\n' "$source_revision" > .forge-revision
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          # Keep the CVE-2026-73295 fix after importing the Forge requirements.
-          sed -i "s/mkdocs-material>=8,<9/mkdocs-material>=9.7.7,<10/g" requirements.txt
+          if [ -f requirements.txt ]; then
+            sed -i 's/mkdocs-material>=8,<9/mkdocs-material>=9.7.7,<10/g' requirements.txt
+          fi
           git add -A
           if ! git diff --cached --quiet; then
             git commit -m "Synchronize Forge source $source_revision"
-            git push origin HEAD:main
+            for attempt in 1 2 3; do
+              if git push origin HEAD:main; then exit 0; fi
+              if [ "$attempt" -eq 3 ]; then
+                echo "::error::Push failed; inspect concurrent changes before retrying."
+                exit 1
+              fi
+              sleep $((attempt * 5))
+            done
           fi
