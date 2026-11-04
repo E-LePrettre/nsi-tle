@@ -22,6 +22,12 @@ jobs:
         with:
           repository: E-LePrettre/E-LePrettre.github.io
           ref: main
+      - name: Check out synchronized course source
+        uses: actions/checkout@v4
+        with:
+          repository: E-LePrettre/nsi-tle
+          ref: main
+          path: forge-nsi-tle
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
