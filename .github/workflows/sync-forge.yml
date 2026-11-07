@@ -1,8 +1,11 @@
 name: Synchronize source from Forge
 on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/sync-forge.yml']
   workflow_dispatch:
   schedule:
-    - cron: '13 3 * * *'
+    - cron: '13 3,15 * * *'
 permissions:
   contents: write
 concurrency:
@@ -20,22 +23,60 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for attempt in 1 2 3 4; do
-            rm -rf "$RUNNER_TEMP/forge-source"
-            if timeout 100s git -c http.lowSpeedLimit=1000 -c http.lowSpeedTime=30 clone --depth 1 "https://forge.apps.education.fr/eleprettre/nsi-tle.git" "$RUNNER_TEMP/forge-source"; then
-              git -C "$RUNNER_TEMP/forge-source" rev-parse --verify HEAD
-              exit 0
-            fi
-            echo "::warning::Forge fetch attempt $attempt/4 failed"
-            if [ "$attempt" -lt 4 ]; then sleep $((attempt * 10)); fi
-          done
-          echo "::error::Forge unavailable. Existing GitHub mirror preserved; no deletion or publication attempted."
-          exit 1
+          rm -f "$RUNNER_TEMP/forge-revision"
+          if timeout 120s git -c http.version=HTTP/1.1 clone --depth 1 "https://forge.apps.education.fr/eleprettre/nsi-tle.git" "$RUNNER_TEMP/forge-source"; then
+            git -C "$RUNNER_TEMP/forge-source" rev-parse --verify HEAD > "$RUNNER_TEMP/forge-revision"
+          else
+            echo "::warning::Git transport unavailable; trying the Forge API archive."
+            python - <<'PY'
+          import hashlib, io, json, os, pathlib, tarfile, time, urllib.request, urllib.parse
+          base = "https://forge.apps.education.fr/api/v4/projects/" + urllib.parse.quote("eleprettre/nsi-tle", safe="")
+          def get(url):
+              with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "course-sync"}), timeout=90) as response:
+                  return response.read()
+          for attempt in range(3):
+              try:
+                  revision = json.loads(get(base + "/repository/commits?per_page=1"))[0]["id"]
+                  if len(revision) != 40 or any(c not in "0123456789abcdef" for c in revision):
+                      raise ValueError("Invalid source revision")
+                  data = get(base + "/repository/archive.tar.gz?sha=" + revision)
+                  target = pathlib.Path(os.environ["RUNNER_TEMP"]) / "forge-source"
+                  import shutil
+                  shutil.rmtree(target, ignore_errors=True)
+                  target.mkdir()
+                  with tarfile.open(fileobj=io.BytesIO(data), mode="r:gz") as archive:
+                      members = archive.getmembers()
+                      for member in members:
+                          parts = pathlib.PurePosixPath(member.name).parts
+                          if len(parts) < 2:
+                              continue
+                          relative = pathlib.PurePosixPath(*parts[1:])
+                          if relative.is_absolute() or ".." in relative.parts or member.issym() or member.islnk() or not (member.isfile() or member.isdir()):
+                              raise ValueError("Unsafe archive member")
+                          destination = target.joinpath(*relative.parts)
+                          if member.isdir():
+                              destination.mkdir(parents=True, exist_ok=True)
+                          else:
+                              destination.parent.mkdir(parents=True, exist_ok=True)
+                              destination.write_bytes(archive.extractfile(member).read())
+                              destination.chmod(member.mode & 0o777)
+                  if not any(target.iterdir()):
+                      raise ValueError("Empty source archive")
+                  (target.parent / "forge-revision").write_text(revision + "\n")
+                  print("Verified Forge archive at " + revision)
+                  break
+              except Exception as error:
+                  print("::warning::Forge archive attempt failed: " + str(error))
+                  if attempt == 2:
+                      raise
+                  time.sleep(15 * (attempt + 1))
+          PY
+          fi
       - name: Synchronize files and preserve GitHub workflows
         shell: bash
         run: |
           set -euo pipefail
-          source_revision=$(git -C "$RUNNER_TEMP/forge-source" rev-parse HEAD)
+          source_revision=$(cat "$RUNNER_TEMP/forge-revision")
           rsync -a --delete --exclude=.git/ --exclude=.github/ "$RUNNER_TEMP/forge-source/" ./
           printf '%s\n' "$source_revision" > .forge-revision
           git config user.name "github-actions[bot]"
