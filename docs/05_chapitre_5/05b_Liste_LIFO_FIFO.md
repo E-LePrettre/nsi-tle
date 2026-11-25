@@ -1851,11 +1851,13 @@ Soit une pile P composée des éléments suivants :
 `12, 14, 8, 7, 19, 22` (le sommet est 22)
 🔁 Pour chaque exemple, on repart de la pile d’origine :
 
-* **pop(P)** → renvoie 22 → sommet devient 19
-* **push(P,42)** → pile devient `... 19, 22, 42`
+* **depiler(P)** → renvoie 22 → le sommet devient 19
+* **empiler(P, 42)** → la pile devient `... 19, 22, 42`
 * **sommet(P)** → renvoie 22
-* **pop(P)** x6 → pile vide → **pile\_vide(P)** = True
-* **pop(P)** x1 → reste 5 éléments → **taille(P)** = 5
+* **depiler(P)** x6 → pile vide → **estVide(P)** renvoie True
+* **depiler(P)** x1 → il reste 5 éléments → **taille(P)** = 5
+
+📌 `sommet` et `taille` ne sont pas des primitives : on les écrira à l’activité 27 en n’utilisant que les quatre primitives.
 
 📝 **Remarque** : pour lire le sommet **sans modifier** la pile, il faut le dépiler puis le rempiler.
 
@@ -3041,7 +3043,12 @@ Ici, `taille()` est coûteuse avec une list car elle appelle defiler() (O(n)) un
         ```python
         def afficher(self):
             return self.file
+        # idéalement
+        def afficher(self):
+            return self.file.copy()
         ```
+
+        cela évitera des commandes utilisateur : ma_file.afficher().append("hack")
 
 Cette implémentation est très peu efficace
 
@@ -3484,9 +3491,9 @@ Cette implémentation est très peu efficace
 
 
     class File:
-        def __init__(self, c=None):
+        def __init__(self):
             # Initialisation de la file avec une tête et une queue
-            self.head = c...    # Pointeur vers le premier élément de la file
+            self.head = ...    # Pointeur vers le premier élément de la file
             self.queue = ...   # Pointeur vers le dernier élément de la file
 
         def estVide(self):

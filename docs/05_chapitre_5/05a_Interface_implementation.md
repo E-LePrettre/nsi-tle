@@ -401,7 +401,7 @@ Une File à deux éléments a pour :
 🧩 **Propriété 5 : Définir une file vide**
 
 `F = vide()`
-Une file est vide si sa **queue** est vide.
+Une file est vide si sa **queue** est vide. Dans l’implémentation par un tableau (partie 3.3), cela se traduit par `tete(F) == queue(F)` (propriété 13).
 
 ---
 
@@ -692,7 +692,7 @@ Observer que T[6] a encore un sens pour le tableau mais plus pour la pile.
 
 🧰 On dispose d’un **tableau** `T` avec `n` emplacements.
 
-Il est possible d’implémenter une **file `F`** contenant au plus `n` éléments à l’aide de ce tableau.
+Il est possible d’implémenter une **file `F`** contenant au plus `n - 1` éléments à l’aide de ce tableau : une case reste toujours libre (celle d’indice `queue(F)`) pour distinguer la file vide de la file pleine.
 
 ---
 

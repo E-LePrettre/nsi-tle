@@ -310,17 +310,17 @@ defiler(F):
 ??? question "5. Pile vide, on fait : empiler(3, P), empiler(7, P), depiler(P). Que renvoie depiler et quel est l'état ?"
     `depiler` renvoie `7`. La pile est ensuite `(3, vide())`.
 
-??? question "6. Dans une pile par tableau, que vaut `sommet(P)` quand la pile est vide ?"
+??? question "6. Dans une pile implémentée par un tableau indexé à partir de 1, que vaut `sommet(P)` quand la pile est vide ?"
     `sommet(P) == 0` (les cases utilisées vont de `T[1]` à `T[sommet(P)]`).
 
-??? question "7. File circulaire : pourquoi `enfiler` teste-t-il `queue(F) == n` ?"
+??? question "7. File circulaire dans un tableau indexé de 1 à `n` : pourquoi `enfiler` teste-t-il `queue(F) == n` ?"
     Pour le **retour circulaire** : après la dernière case `n`, `queue(F)` revient
     à `1` pour réutiliser les premières cases.
 
-??? question "8. Comment teste-t-on qu'une file circulaire est vide ?"
+??? question "8. Dans un tableau indexé à partir de 1, comment teste-t-on qu'une file circulaire est vide ?"
     Lorsque `tete(F) == queue(F)`.
 
-??? question "9. Corriger ce pseudo-code de `empiler` : `T[sommet(P)] := a` puis `sommet(P) := sommet(P) + 1`"
+??? question "9. Pile dans un tableau indexé à partir de 1 : corriger ce pseudo-code de `empiler` : `T[sommet(P)] := a` puis `sommet(P) := sommet(P) + 1`"
     L'ordre est inversé : `sommet(P)` indexe le **dernier élément empilé**, il faut
     donc d'abord avancer `sommet(P)`, puis écrire :
     ```
@@ -328,7 +328,7 @@ defiler(F):
     T[sommet(P)] := a
     ```
 
-??? question "10. Une case du tableau contient encore 8 après un depiler. Cette valeur appartient-elle à la pile ? Justifier."
+??? question "10. Pile dans un tableau indexé à partir de 1 : une case du tableau contient encore 8 après un depiler. Cette valeur appartient-elle à la pile ? Justifier."
     **Non** : seules les cases `T[1]` à `T[sommet(P)]` appartiennent à la pile. La valeur
     `8` est une **ancienne valeur** restée en mémoire mais hors de la structure.
 
